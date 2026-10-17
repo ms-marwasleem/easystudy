@@ -47,10 +47,11 @@ input[type=text],select{font:inherit;font-size:20px;border:1px solid var(--line)
  <section class="sec" id="gate" hidden><h2>كلمة السر</h2><div class="add"><input type="text" id="pw" placeholder="كلمة السر" autocomplete="off"><button class="btn" id="pwbtn">دخول</button></div><p class="how" id="pwnote"></p></section>
  <section class="sec">
   <h2>إضافة جديد</h2>
-  <div class="add"><select id="kind"><option value="word">كلمة</option><option value="question">سؤال</option><option value="reading">قراءة</option><option value="other">غير ذلك</option></select>
+  <div class="add"><select id="kind"><option value="word">كلمة</option><option value="letter">حرف</option><option value="question">سؤال</option><option value="reading">قراءة</option><option value="other">غير ذلك</option></select>
   <input type="text" id="newtext" placeholder="اكتب النص هنا" autocomplete="off"><input type="text" id="newsyl" placeholder="المقاطع، افصل بينها بشرطة -" autocomplete="off"><button class="btn" id="addbtn">إضافة</button></div>
  </section>
  <section class="sec" id="needed"></section>
+ <section class="sec" id="shared"></section>
  <section class="sec" id="words"></section>
  <section class="sec" id="prompts"></section>
  <section class="sec" id="done"></section>
@@ -68,6 +69,10 @@ const MAXMS=30000;
 let items={words:[],prompts:[]}, recs={}, splits={}, customs=[], needed=[], cur=null, micBlocked=false, live=false, PW='';
 try{ PW=localStorage.getItem('pw')||''; }catch(e){}
 const idOf=k=>k.replace(/[\/:]/g,'~');
+const MARKS=[['fatha','\u064E','فتحة'],['damma','\u064F','ضمة'],['kasra','\u0650','كسرة'],['sukoon','\u0652','سكون']];
+const SHARED=[['arabic/shared/p-start.mp3','في أول الكلمة'],['arabic/shared/p-mid.mp3','في وسط الكلمة'],['arabic/shared/p-end-joined.mp3','في آخر الكلمة متصل'],['arabic/shared/p-end-alone.mp3','في آخر الكلمة منفصل'],
+ ['arabic/shared/h-fatha.mp3','فَتْحَة'],['arabic/shared/h-damma.mp3','ضَمَّة'],['arabic/shared/h-kasra.mp3','كَسْرَة'],['arabic/shared/h-sukoon.mp3','سُكُون']];
+const letterDone=c=>!!recs[idOf('c/'+c.id)]&&MARKS.every(m=>!!recs[idOf('cl/'+c.id+'/'+m[0])]);
 const sylList=t=>t.split(/[-–—،,]/).map(x=>x.trim()).filter(Boolean);
 const hex=t=>[...t].map(c=>c.codePointAt(0).toString(16)).join('-');
 let mt;
@@ -132,6 +137,9 @@ function wordLines(it,box){
 }
 const rmBtn=c=>{ const x=mk('button','x','إزالة'); x.onclick=async()=>{ try{await api('DELETE','/api/custom/'+c.id); await load();}catch(e){} }; return x; };
 function customLine(c){
+ if(c.kind==='letter'){ const f=mk('div'); const n=mk('div','line'); n.append(mk('span','lab','حرف')); n.append(mk('span','tx big',c.label+' (اسم الحرف)')); n.append(ctl({key:'c/'+c.id,path:c.path,label:'اسم الحرف '+c.label})); f.append(n);
+  MARKS.forEach(m=>{ const t=c.label+m[1], l=mk('div','line'); l.append(mk('span','lab',m[2])); l.append(mk('span','tx big',t)); l.append(ctl({key:'cl/'+c.id+'/'+m[0],path:'syl-ar/'+hex(t)+'.mp3',label:t})); f.append(l); });
+  if(!c.fixed&&!recs[idOf('c/'+c.id)]) n.append(rmBtn(c)); return f; }
  if(c.kind==='word'&&c.syl&&c.syl.length){ const f=mk('div'); const w=mk('div','line'); w.append(mk('span','lab','كلمة')); w.append(mk('span','tx big',c.label)); w.append(ctl({key:'c/'+c.id,path:c.path,label:c.label}));
   const m=mk('div','line'); m.append(mk('span','lab','المقاطع')); m.append(mk('span','tx big',c.syl.join(' - ')));
   m.append(ctl({key:'cg/'+c.id,path:'grp:c'+c.id,label:c.label+' (مقاطع)',parts:c.syl.map(t=>'syl-ar/'+hex(t)+'.mp3')}));
@@ -143,9 +151,11 @@ function render(){
  if(live) return;
  const act=document.activeElement&&document.activeElement.id, y=scrollY;
  const all=[...needed.map(n=>({...n,fixed:true})),...customs];
- const mine=c=>!!recs[idOf('c/'+c.id)]&&(!(c.syl&&c.syl.length)||!!recs[idOf('cg/'+c.id)]);
+ const mine=c=>c.kind==='letter'?letterDone(c):(!!recs[idOf('c/'+c.id)]&&(!(c.syl&&c.syl.length)||!!recs[idOf('cg/'+c.id)]));
  const nd=$('#needed'); nd.innerHTML=''; const need=all.filter(c=>!mine(c));
  nd.append(mk('h2','','مطلوب تسجيله')); if(!need.length) nd.append(mk('div','empty','لا يوجد شيء جديد مطلوب الآن.')); need.forEach(c=>nd.append(customLine(c)));
+ const SH=$('#shared'); SH.innerHTML=''; SH.append(mk('h2','','جمل مشتركة لكل الحروف'));
+ SHARED.forEach(([f,t])=>{ const l=mk('div','line'); l.append(mk('span','tx',t)); l.append(ctl({key:f,path:f,label:t})); SH.append(l); });
  const L=$('#words'); L.innerHTML=''; L.append(mk('h2','','الكلمات والمقاطع'));
  items.words.forEach(w=>wordLines(w,L));
  const P=$('#prompts'); P.innerHTML=''; P.append(mk('h2','','صوتيات الأسئلة'));
@@ -170,8 +180,9 @@ async function gate(){
 }
 $('#addbtn').onclick=async()=>{ const t=$('#newtext').value.trim(); if(!t) return say('اكتب النص أولا');
  const kind=$('#kind').value, id='c'+Date.now().toString(36), syl=kind==='word'?sylList($('#newsyl').value):[];
- try{ await api('PUT','/api/custom/'+id,{label:t,kind,syl,path:'arabic/inbox/'+kind+'-'+id+'.mp3'}); $('#newtext').value=''; $('#newsyl').value=''; say(''); await load(); }catch(e){say('تعذرت الإضافة');} };
-const kd=()=>{ $('#newsyl').hidden=$('#kind').value!=='word'; }; $('#kind').onchange=kd; kd();
+ const label=kind==='letter'?[...t][0]:t, path=kind==='letter'?'arabic/letters/'+hex(label)+'/name.mp3':'arabic/inbox/'+kind+'-'+id+'.mp3';
+ try{ await api('PUT','/api/custom/'+id,{label,kind,syl,path}); $('#newtext').value=''; $('#newsyl').value=''; say(''); await load(); }catch(e){say('تعذرت الإضافة');} };
+const kd=()=>{ $('#newsyl').hidden=$('#kind').value!=='word'; $('#newtext').placeholder=$('#kind').value==='letter'?'اكتب الحرف (مثل أ)':'اكتب النص هنا'; }; $('#kind').onchange=kd; kd();
 $('#backup').onclick=async()=>{ try{ say('جاري التجهيز...'); const r=await api('GET','/api/export'); const b=await r.blob(); const a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='recordings-'+new Date().toISOString().slice(0,10)+'.json'; document.body.append(a); a.click(); a.remove(); say(''); }catch(e){say('تعذر التنزيل');} };
 async function start(){ try{ await load(); }catch(e){} }
 (async function(){
