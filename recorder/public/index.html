@@ -72,7 +72,7 @@ const idOf=k=>k.replace(/[\/:]/g,'~');
 const MARKS=[['fatha','\u064E','فتحة'],['damma','\u064F','ضمة'],['kasra','\u0650','كسرة'],['sukoon','\u0652','سكون']];
 const SHARED=[['arabic/shared/p-start.mp3','في أول الكلمة'],['arabic/shared/p-mid.mp3','في وسط الكلمة'],['arabic/shared/p-end-joined.mp3','في آخر الكلمة متصل'],['arabic/shared/p-end-alone.mp3','في آخر الكلمة منفصل'],
  ['arabic/shared/h-fatha.mp3','فَتْحَة'],['arabic/shared/h-damma.mp3','ضَمَّة'],['arabic/shared/h-kasra.mp3','كَسْرَة'],['arabic/shared/h-sukoon.mp3','سُكُون']];
-const letterDone=c=>!!recs[idOf('c/'+c.id)]&&MARKS.every(m=>!!recs[idOf('cl/'+c.id+'/'+m[0])]);
+const letterDone=c=>!!recs[idOf('c/'+c.id)]&&!!recs[idOf('cl/'+c.id)];
 const sylList=t=>t.split(/[-–—،,]/).map(x=>x.trim()).filter(Boolean);
 const hex=t=>[...t].map(c=>c.codePointAt(0).toString(16)).join('-');
 let mt;
@@ -138,7 +138,8 @@ function wordLines(it,box){
 const rmBtn=c=>{ const x=mk('button','x','إزالة'); x.onclick=async()=>{ try{await api('DELETE','/api/custom/'+c.id); await load();}catch(e){} }; return x; };
 function customLine(c){
  if(c.kind==='letter'){ const f=mk('div'); const n=mk('div','line'); n.append(mk('span','lab','حرف')); n.append(mk('span','tx big',c.label+' (اسم الحرف)')); n.append(ctl({key:'c/'+c.id,path:c.path,label:'اسم الحرف '+c.label})); f.append(n);
-  MARKS.forEach(m=>{ const t=c.label+m[1], l=mk('div','line'); l.append(mk('span','lab',m[2])); l.append(mk('span','tx big',t)); l.append(ctl({key:'cl/'+c.id+'/'+m[0],path:'syl-ar/'+hex(t)+'.mp3',label:t})); f.append(l); });
+  const sy=MARKS.map(m=>c.label+m[1]), l=mk('div','line'); l.append(mk('span','lab','الأصوات')); l.append(mk('span','tx big',sy.join('  ')));
+  l.append(ctl({key:'cl/'+c.id,path:'grp:cl'+c.id,label:'أصوات الحرف '+c.label,parts:sy.map(t=>'syl-ar/'+hex(t)+'.mp3')})); f.append(l);
   if(!c.fixed&&!recs[idOf('c/'+c.id)]) n.append(rmBtn(c)); return f; }
  if(c.kind==='word'&&c.syl&&c.syl.length){ const f=mk('div'); const w=mk('div','line'); w.append(mk('span','lab','كلمة')); w.append(mk('span','tx big',c.label)); w.append(ctl({key:'c/'+c.id,path:c.path,label:c.label}));
   const m=mk('div','line'); m.append(mk('span','lab','المقاطع')); m.append(mk('span','tx big',c.syl.join(' - ')));
