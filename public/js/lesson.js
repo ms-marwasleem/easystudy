@@ -8,6 +8,7 @@ function fixPaths(L,file){
   (L.lines||[]).forEach(l=>{ l.pic=R(l.pic); });
   Object.values(L.bk||{}).forEach(b=>{ b.img=R(b.img); });
   L.praise=R(L.praise);
+  if(L.letter&&typeof fixLetterPaths==='function') fixLetterPaths(L.letter,R);
   return L;
 }
 async function openLesson(m){
@@ -41,6 +42,7 @@ async function ensureCtx(){
   return player.ctx;
 }
 function ensureAudio(){
+  if(!LESSON.audio) return Promise.resolve();
   const ready=ensureCtx().then(()=>{
     if(!player.ready){
       const dec=url=>fetch(url).then(r=>r.arrayBuffer()).then(b=>new Promise((res,rej)=>player.ctx.decodeAudioData(b,res,rej)));
@@ -113,6 +115,7 @@ function pageDefaultSlow(){ return new Set(LESSON.lines.filter(l=>nPages()<2||l.
 function showRead(){
   { const k=LESSON.id+':'+rd.page; rd.slow=k in rd.pick?rd.pick[k]:pageDefaultSlow(); }
   stage.innerHTML=''; rd.words=[]; rd.lineEls=[]; rd.spotEls=[]; rd.cur=-1; rd.curLine=-1;
+  if(LESSON.type==='letter'&&typeof showLetter==='function') return showLetter();
   const pl=(LESSON.pageLayouts||[])[rd.page-1];   // optional per page: "text" (dialog on the scene) or "pictures"
   if(pl==='bubbles') return showBubbles();
   if(LESSON.layout==='pictures'||pl==='pictures') return showPics();

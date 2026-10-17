@@ -1,0 +1,358 @@
+{
+ "id": "u1l3",
+ "unit": 1,
+ "lesson": 3,
+ "type": "letter",
+ "title": "حرف الألف",
+ "task": "أتعرّف على حرف الألف",
+ "pages": 3,
+ "pageNums": [
+  7,
+  8,
+  8
+ ],
+ "scene": "../../pics/ar-lion.png",
+ "sceneAlt": "أسد",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "أ",
+  "name": "أَلِف",
+  "nameAudio": "letter.mp3",
+  "pic": "../../pics/ar-lion.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "أ"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـأ"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـأ"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "أ"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "أَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/623-64e.mp3"
+   },
+   {
+    "label": "الضمة",
+    "t": "أُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/623-64f.mp3"
+   },
+   {
+    "label": "الكسرة",
+    "t": "إِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/625-650.mp3"
+   },
+   {
+    "label": "السكون",
+    "t": "أْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/623-652.mp3"
+   }
+  ],
+  "merge": [
+   {
+    "word": "أَرْنَب",
+    "pic": "../../pics/ar-rabbit.png",
+    "audio": "merge/arnab.mp3",
+    "parts": [
+     {
+      "t": "أَرْ",
+      "audio": "../../syl-ar/623-64e-631-652.mp3"
+     },
+     {
+      "t": "نَ",
+      "audio": "../../syl-ar/646-64e.mp3"
+     },
+     {
+      "t": "بْ",
+      "audio": "../../syl-ar/628-652.mp3"
+     }
+    ]
+   },
+   {
+    "word": "أُذُن",
+    "pic": "../../pics/ar-ear.png",
+    "audio": "merge/udhun.mp3",
+    "parts": [
+     {
+      "t": "أُ",
+      "audio": "../../syl-ar/623-64f.mp3"
+     },
+     {
+      "t": "ذُ",
+      "audio": "../../syl-ar/630-64f.mp3"
+     },
+     {
+      "t": "نْ",
+      "audio": "../../syl-ar/646-652.mp3"
+     }
+    ]
+   },
+   {
+    "word": "إِبْرِيق",
+    "pic": "../../pics/ar-teapot.png",
+    "audio": "merge/ibriq.mp3",
+    "parts": [
+     {
+      "t": "إِبْ",
+      "audio": "../../syl-ar/625-650-628-652.mp3"
+     },
+     {
+      "t": "رِي",
+      "audio": "../../syl-ar/631-650-64a.mp3"
+     },
+     {
+      "t": "قْ",
+      "audio": "../../syl-ar/642-652.mp3"
+     }
+    ]
+   },
+   {
+    "word": "رَأْس",
+    "pic": "../../pics/ar-head.png",
+    "audio": "merge/ras.mp3",
+    "parts": [
+     {
+      "t": "رَ",
+      "audio": "../../syl-ar/631-64e.mp3"
+     },
+     {
+      "t": "أْ",
+      "audio": "../../syl-ar/623-652.mp3"
+     },
+     {
+      "t": "سْ",
+      "audio": "../../syl-ar/633-652.mp3"
+     }
+    ]
+   }
+  ],
+  "tasks": [
+   "أشكال حرف الألف في الكلمة",
+   "أصوات حرف الألف بالحركات",
+   "أدمج المقاطع لتكوّن كلمات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "أَرْنَب",
+   "img": "../../pics/ar-rabbit.png",
+   "audio": {
+    "word": "words/arnab.mp3"
+   },
+   "parts": [
+    {
+     "t": "أَرْ",
+     "audio": "../../syl-ar/623-64e-631-652.mp3"
+    },
+    {
+     "t": "نَب",
+     "audio": "../../syl-ar/646-64e-628.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أَسَد",
+   "img": "../../pics/ar-lion.png",
+   "audio": {
+    "word": "words/asad.mp3"
+   },
+   "parts": [
+    {
+     "t": "أَ",
+     "audio": "../../syl-ar/623-64e.mp3"
+    },
+    {
+     "t": "سَد",
+     "audio": "../../syl-ar/633-64e-62f.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أَقْلَام",
+   "img": "../../pics/ar-pencils.jpg",
+   "audio": {
+    "word": "words/aqlam.mp3"
+   },
+   "parts": [
+    {
+     "t": "أَقْ",
+     "audio": "../../syl-ar/623-64e-642-652.mp3"
+    },
+    {
+     "t": "لَام",
+     "audio": "../../syl-ar/644-64e-627-645.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أُذُن",
+   "img": "../../pics/ar-ear.png",
+   "audio": {
+    "word": "words/udhun.mp3"
+   },
+   "parts": [
+    {
+     "t": "أُ",
+     "audio": "../../syl-ar/623-64f.mp3"
+    },
+    {
+     "t": "ذُن",
+     "audio": "../../syl-ar/630-64f-646.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أُمّ",
+   "img": "../../pics/ar-mother.jpg",
+   "audio": {
+    "word": "words/umm.mp3"
+   },
+   "parts": [
+    {
+     "t": "أُمّ",
+     "audio": "../../syl-ar/623-64f-645-651.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أُخْطُبُوط",
+   "img": "../../pics/ar-octopus.png",
+   "audio": {
+    "word": "words/ukhtubut.mp3"
+   },
+   "parts": [
+    {
+     "t": "أُخْ",
+     "audio": "../../syl-ar/623-64f-62e-652.mp3"
+    },
+    {
+     "t": "طُ",
+     "audio": "../../syl-ar/637-64f.mp3"
+    },
+    {
+     "t": "بُوط",
+     "audio": "../../syl-ar/628-64f-648-637.mp3"
+    }
+   ]
+  },
+  {
+   "word": "إِبْرَة",
+   "img": "../../pics/ar-needle.jpg",
+   "audio": {
+    "word": "words/ibra.mp3"
+   },
+   "parts": [
+    {
+     "t": "إِبْ",
+     "audio": "../../syl-ar/625-650-628-652.mp3"
+    },
+    {
+     "t": "رَة",
+     "audio": "../../syl-ar/631-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "إِبْرِيق",
+   "img": "../../pics/ar-teapot.png",
+   "audio": {
+    "word": "words/ibriq.mp3"
+   },
+   "parts": [
+    {
+     "t": "إِبْ",
+     "audio": "../../syl-ar/625-650-628-652.mp3"
+    },
+    {
+     "t": "رِيق",
+     "audio": "../../syl-ar/631-650-64a-642.mp3"
+    }
+   ]
+  },
+  {
+   "word": "إِوَزَّة",
+   "img": "../../pics/ar-goose.jpg",
+   "audio": {
+    "word": "words/iwazza.mp3"
+   },
+   "parts": [
+    {
+     "t": "إِ",
+     "audio": "../../syl-ar/625-650.mp3"
+    },
+    {
+     "t": "وَ",
+     "audio": "../../syl-ar/648-64e.mp3"
+    },
+    {
+     "t": "زَّة",
+     "audio": "../../syl-ar/632-64e-651-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "فَأْر",
+   "img": "../../pics/ar-mouse.png",
+   "audio": {
+    "word": "words/fa_r.mp3"
+   },
+   "parts": [
+    {
+     "t": "فَأْر",
+     "audio": "../../syl-ar/641-64e-623-652-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "رَأْس",
+   "img": "../../pics/ar-head.png",
+   "audio": {
+    "word": "words/ras.mp3"
+   },
+   "parts": [
+    {
+     "t": "رَأْس",
+     "audio": "../../syl-ar/631-64e-623-652-633.mp3"
+    }
+   ]
+  },
+  {
+   "word": "كَأْس",
+   "img": "../../pics/ar-trophy.png",
+   "audio": {
+    "word": "words/kas.mp3"
+   },
+   "parts": [
+    {
+     "t": "كَأْس",
+     "audio": "../../syl-ar/643-64e-623-652-633.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

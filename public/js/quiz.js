@@ -91,8 +91,10 @@ function qGo(i){
   $('.qarr.prev',w).disabled=qSetStart(-1)<0; $('.qarr.next',w).disabled=qSetStart(1)<0;
   const a0=$('.qans',w); if(a0.parentElement!==w) w.append(a0);   // back in its own place before the pictures are cleared (qLayout moves it beside the picture)
   const qi=$('#qin'); if(qi&&s.type!=='type'){ qi.blur(); qi.remove(); }
+  const qxi=$('#qxin'); if(qxi&&s.type!=='write'){ qxi.blur(); qxi.remove(); }
   if(s.type==='match'||s.type==='circle'||s.type==='tick'||s.type==='link') return qBoard(w,q,i,run);
   w._board=null;
+  if(typeof QX!=='undefined'&&QX[s.type]) return qxGo(w,q,i,run);
   // letter: the word with its first letter left out, filled in when the child finds it
   // type: the same, with any letter ("missing") left out; the child types it
   const mi=q.missing||0;
@@ -132,15 +134,15 @@ function qBoard(w,q,i,run){
   w._board=s; const play=$('.qplay',w); play.innerHTML=''; $('.qans',w).innerHTML='';
   if(s.type==='tick') return qSheet(w,s,play,run);
   if(s.type==='link') return qLinkBoard(w,s,play,run);
-  const b=el('div','qboard');
+  const b=el('div','qboard'); if(s.bigP) b.classList.add('bigP');   // "bigP": bigger pictures on tall screens (with "posP" per item)
   if(s.centerPic){ const c=el('div','qcenter pic',`<img src="${R_Q(s.centerPic)}" alt="">`); if(s.centerAt){ c.style.setProperty('--cx',s.centerAt[0]); c.style.setProperty('--cy',s.centerAt[1]); } b.append(c); }   // "centerPic": a picture to match (book: circle the SIMILAR picture)
   if(s.center){ const c=el('button','qcenter',`<span>${s.center}</span>`); c.setAttribute('aria-label','Letter '+s.center); c.addEventListener('click',()=>qSound(s.centerSrc,s.center[0]));
     b.append(c); }
   s.items.forEach(it=>{ const p=el('button','qmp'+(it.picSrc?'':' tx'),(it.picSrc?`<img src="${it.picSrc}" alt="">`:`<b>${it.word}</b>`)+`<span class="qmark"></span>`); p.setAttribute('aria-label',it.word);   // a word-only option (book: circle the different WORD)
-    p.style.left=`clamp(calc(var(--w) / 2), ${it.pos[0]}%, calc(100% - var(--w) / 2))`; p.style.top=`clamp(calc(var(--w) / 2), ${it.pos[1]}%, calc(100% - var(--w) / 2))`; p.addEventListener('click',()=>qMatch(p,it,s)); b.append(p); });
+    const ps=it.posP&&!$('#lesson').classList.contains('q-land')?it.posP:it.pos; p.style.left=`clamp(calc(var(--w) / 2), ${ps[0]}%, calc(100% - var(--w) / 2))`; p.style.top=`clamp(calc(var(--w) / 2), ${ps[1]}%, calc(100% - var(--w) / 2))`; p.addEventListener('click',()=>qMatch(p,it,s)); b.append(p); });
   play.append(b);
   // the first time: read the instruction, then the letter's sound
-  setTimeout(async()=>{ if(run!==qz.run||tab!=='quiz') return; await qTask(); if(s.center&&qz.list[qz.i]&&qz.list[qz.i].set===s&&tab==='quiz') qSound(s.centerSrc,s.center[0]); },350);
+  const first=qNewEx(); setTimeout(async()=>{ if(run!==qz.run||tab!=='quiz') return; if(first) await qTask(); if(s.center&&qz.list[qz.i]&&qz.list[qz.i].set===s&&tab==='quiz') qSound(s.centerSrc,s.center[0]); },350);
 }
 // tick: every picture of the exercise on one sheet, each with its word and a tick and a cross; the right one lights up when tapped
 function qSheet(w,s,play,run){
@@ -152,7 +154,7 @@ function qSheet(w,s,play,run){
     [$('.qcw',c),$('.qcp',c)].forEach(x=>x.addEventListener('click',()=>qSound(it.src,it.word)));
     sh.append(c); });
   play.append(sh);
-  setTimeout(async()=>{ if(run!==qz.run||tab!=='quiz') return; await qTask(); },350);
+  if(qNewEx()) setTimeout(async()=>{ if(run!==qz.run||tab!=='quiz') return; await qTask(); },350);
 }
 async function qTick(cell,it,s,val,btn){
   if(qz.busy||cell.classList.contains('done')) return; hideHint();
@@ -287,7 +289,10 @@ function qLinkBoard(w,s,play,run){
     if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)<10) return; drag.moved=true;
     const [a,b]=qAnchor(bd,drag.b,kind(drag.b)==='w'), [x,y]=rel(e.clientX,e.clientY), l=tmp(); l.setAttribute('x1',a); l.setAttribute('y1',b); l.setAttribute('x2',x); l.setAttribute('y2',y); });
   const end=e=>{ if(!drag) return; const d=drag; drag=null; const l=$('.qtmp',svg); if(l) l.remove();
-    const t=e.type==='pointerup'&&document.elementFromPoint(e.clientX,e.clientY), tb=t&&t.closest&&t.closest('.qlk');
+    const t=e.type==='pointerup'&&document.elementFromPoint(e.clientX,e.clientY); let tb=t&&t.closest&&t.closest('.qlk');
+    if(e.type==='pointerup'&&(!tb||kind(tb)===kind(d.b))){   // dropped near, not exactly on: join the closest free one of the other row (whole word / whole picture area counts)
+      let best=null,bd2=1e9; $$('.qlk',bd).forEach(c=>{ if(kind(c)===kind(d.b)||c.classList.contains('done')) return; const r=c.getBoundingClientRect(), dx=Math.max(r.left-e.clientX,0,e.clientX-r.right), dy=Math.max(r.top-e.clientY,0,e.clientY-r.bottom), dd=Math.hypot(dx,dy); if(dd<bd2){ bd2=dd; best=c; } });
+      tb=bd2<=60?best:null; }
     if(e.type==='pointercancel') return;
     if(d.moved){ clearSel(); if(tb&&tb!==d.b&&kind(tb)!==kind(d.b)&&!tb.classList.contains('done')) qLinkTry(bd,s,d.b,tb,run); return; }
     // a tap: pick it up (a word also says itself), or join it to the one picked before
@@ -297,9 +302,10 @@ function qLinkBoard(w,s,play,run){
     clearSel(); sel=d.b; d.b.classList.add('sel'); };
   bd.addEventListener('pointerup',end); bd.addEventListener('pointercancel',end);
   qLinkRefresh(L$().classList.contains('q-land'));
-  setTimeout(async()=>{ if(run!==qz.run||tab!=='quiz') return; await qTask(); },350);
+  if(qNewEx()) setTimeout(async()=>{ if(run!==qz.run||tab!=='quiz') return; await qTask(); },350);
 }
 const L$=()=>$('#lesson');
+const qNewEx=()=>{ const i=qz.i; return i<=0||qGrp(qz.list[i-1].set)!==qGrp(qz.list[i].set); };   // the instruction is read only when a new exercise starts, not for each part of it
 // where a line leaves a word / arrives at a picture (bottom / top in rows, right / left in columns), in the board's own pixels
 function qAnchor(bd,b,isWord){ const B=bd.getBoundingClientRect(), r=b.getBoundingClientRect(), cols=bd.classList.contains('cols');
   return cols?[(isWord?r.right:r.left)-B.left, r.top+r.height/2-B.top]:[r.left+r.width/2-B.left,(isWord?r.bottom:r.top)-B.top]; }
