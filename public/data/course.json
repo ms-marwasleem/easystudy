@@ -1,0 +1,53 @@
+{
+ "grade": "Primary 1",
+ "term": "Term 1",
+ "subjects": [
+  {
+   "id": "arabic",
+   "name": "عربي",
+   "rtl": true,
+   "color": "#1FA88E",
+   "badge": "ع"
+  },
+  {
+   "id": "en-ol",
+   "name": "English OL",
+   "color": "#2E8BE6",
+   "badge": "OL",
+   "open": true,
+   "file": "data/en-ol/subject.json"
+  },
+  {
+   "id": "en-al",
+   "name": "English AL",
+   "color": "#8A5BE0",
+   "badge": "AL"
+  },
+  {
+   "id": "math",
+   "name": "Math",
+   "color": "#F57F28",
+   "badge": "1+2"
+  },
+  {
+   "id": "german",
+   "name": "German",
+   "color": "#E5484D",
+   "badge": "Ä"
+  },
+  {
+   "id": "science",
+   "name": "Science",
+   "color": "#3DBA4E",
+   "badge": "flask"
+  }
+ ],
+ "hints": {
+  "subjects": "Pick a box!",
+  "map": "Tap here to start!",
+  "soonSubject": "This box opens soon!",
+  "soonLesson": "This lesson is coming soon!",
+  "garage": "This part is still in the garage. Start with the lesson."
+ },
+ "_note": "Subjects list. Each open subject points to its own folder (data/<subject>/subject.json). Hints here are the general ones; lesson hints live in each lesson.json."
+}

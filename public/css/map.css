@@ -1,0 +1,94 @@
+/* ---------- Map: journey drawn straight on the background ---------- */
+.map-wrap{position:relative;min-height:0;container-type:size;overflow:auto;scrollbar-width:none;overscroll-behavior:contain}
+.map-wrap::-webkit-scrollbar{display:none}   /* the road can be longer than the screen when lessons have many pages: it scrolls */
+.journey{position:relative;height:100%;min-width:100%;width:max-content;--tall:0;--rb:clamp(24px,8cqh,50px);--cw:clamp(56px,min(10cqw,16cqh),110px)}
+.ribbon{position:absolute;left:3%;right:3%;top:50%;height:var(--rb);transform:translateY(-50%);border-radius:8px;
+  background:linear-gradient(#D49A70 0 12%,#94503A 12% 30%,#7E3D2B 30% 70%,#94503A 70% 88%,#D49A70 88%);border:3px solid var(--ol);box-shadow:0 4px 0 rgba(90,52,24,.35);overflow:hidden}
+.ribbon .done{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(#9BE0D4 0 12%,#3BA597 12% 30%,#2A8C80 30% 70%,#3BA597 70% 88%,#9BE0D4 88%);transition:width .8s,height .8s}
+.jrow{position:relative;height:100%;display:flex;align-items:stretch;gap:.6cqw}
+.jend{flex:0 0 auto;width:min(16cqw,32cqh);display:flex;align-items:center;justify-content:center;z-index:1}
+.ubox{position:relative;width:100%;display:grid;place-items:center;cursor:pointer}
+.ubox svg{width:100%;height:auto;display:block;filter:drop-shadow(0 6px 0 rgba(90,52,24,.35))}
+.ubox b{position:absolute;top:30%;left:50%;transform:translateX(-50%);font-size:clamp(16px,min(3.6cqw,6.4cqh),36px);white-space:nowrap;-webkit-text-stroke-width:4px}
+.ubox .ulock{position:absolute;left:50%;top:74%;width:30%;transform:translate(-50%,-50%)}
+.ubox .ulock svg{filter:none}
+.ubox.locked svg{filter:saturate(.7) drop-shadow(0 6px 0 rgba(90,52,24,.35))}
+.jl{flex:1 0 auto;position:relative;min-width:0;min-height:0}   /* map.js roadRoom sets each lesson's length from its pages */
+.jgo{flex:none;width:calc(var(--cw)*.95)}   /* room for the car before lesson 1 */
+/* the lesson sits on the road at the start of its stretch, its square centred on the road (the stars above take 1.8em, half the square 1.7em) */
+.jbox{position:absolute;left:0;top:calc(50% - 3.5em);width:max-content;display:flex;flex-direction:column;align-items:center;
+  font-size:clamp(12px,min(2.4cqw,3.2cqh),26px);z-index:4}
+.jl.locked .jbox{top:calc(50% - 1.7em)}
+/* the three stars above the lesson: the same shiny stars the child wins, the middle one a bit higher */
+.js{display:flex;align-items:flex-end;gap:.05em;margin-bottom:-.3em;position:relative;z-index:3}
+.js span{display:block;width:1.7em;height:1.7em}
+.js span:nth-child(2){width:2.1em;height:2.1em;transform:translateY(-.35em)}
+.js svg{width:100%;height:100%;filter:drop-shadow(0 2px 0 rgba(90,52,24,.3))}
+/* the lesson: a small square with just its number */
+.jcard{position:relative;width:3.4em;height:3.4em;border-radius:18px;display:grid;place-items:center;background:linear-gradient(#FFFBF0,#F7E2B5);
+  border:4px solid #5BA332;box-shadow:inset 0 -5px 0 rgba(90,52,24,.1),0 5px 0 rgba(90,52,24,.4)}
+.jn{font-family:var(--f-title);font-weight:400;font-size:2.3em;color:#4E9A2A;line-height:1}
+/* its name, on a label stuck across the bottom edge of the square */
+.jt{position:relative;z-index:3;margin-top:-.8em;font-family:var(--f-title);font-size:1.05em;line-height:1.2;color:#fff;white-space:nowrap;
+  background:linear-gradient(var(--green1),var(--green2));border:3px solid var(--ol);border-radius:999px;padding:.05em .7em .12em;
+  -webkit-text-stroke:3px rgba(40,70,10,.75);paint-order:stroke fill;transform:rotate(-3deg);box-shadow:0 3px 0 var(--ol)}
+/* the pages between this lesson and the next: each page a little speech-bubble sign (Ahmed's "Level 11" picture) with the book's name
+   on top and the page number under it, its tail and a dotted line pointing at the road, spread evenly along that stretch.
+   Book pages on one side (above / left), Workbook pages on the other (below / right), all in the same green with a thin border.
+   They stay between the lesson's square (--bw, set by map.js) and the next lesson. */
+.jside{--b:clamp(32px,2.4em,52px);--L:max(1em,calc(2.7em - var(--rb)/2));position:absolute;left:calc(var(--bw,6em) + .4em);right:.4em;height:0;
+  display:flex;gap:.5em;z-index:2;font-size:clamp(12px,min(2.4cqw,3.2cqh),26px)}
+.jside.bk{bottom:calc(50% + var(--rb)/2 - 2px);align-items:flex-end}
+.jside.wb{--L:max(1.4em,calc(3.2em - var(--rb)/2));top:calc(50% + var(--rb)/2 - 2px);align-items:flex-start}   /* longer: clear of the lesson's name */
+.jpgs{flex:1;display:flex;justify-content:space-evenly;align-items:inherit;gap:6px}
+.jpg{display:flex;flex-direction:column;align-items:center;flex:none}
+.jside.wb .jpg{flex-direction:column-reverse}
+.jsl{display:block;width:0;height:var(--L);border-left:3px dotted #FFFBF0}
+.jpm{--g:#3A9A2C;--bg:#FBF3DF;position:relative;min-width:calc(var(--b)*1.2);height:calc(var(--b)*1.18);padding:0 .35em;border-radius:calc(var(--b)*.3);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(#FFFDF6,var(--bg));border:2px solid var(--g);
+  box-shadow:0 3px 0 rgba(90,52,24,.3);font-family:var(--f-title);font-weight:400;color:var(--g);line-height:1}
+.jpm small{font-size:max(10px,calc(var(--b)*.26));white-space:nowrap}
+.jpm b{font-weight:400;font-size:calc(var(--b)*.58);line-height:.95}
+.jpm::before{content:"";position:absolute;inset:-4px -3px}
+/* the bubble's tail, pointing at the road */
+.jpm::after{content:"";position:absolute;left:50%;width:calc(var(--b)*.22);height:calc(var(--b)*.22);background:var(--bg);border:2px solid var(--g);border-top:0;border-left:0}
+.jside.bk .jpm::after{bottom:calc(var(--b)*-.13);transform:translateX(-50%) rotate(45deg)}
+.jside.wb .jpm::after{top:calc(var(--b)*-.13);transform:translateX(-50%) rotate(-135deg)}
+.jpm.soon{opacity:.6}
+.jpm:active{transform:scale(.9)}
+.jlk{width:calc(var(--b)*.42);display:block}.jlk svg{width:100%;display:block}
+.jlock{position:absolute;right:-.7em;bottom:-.6em;width:1.7em}.jlock svg{width:100%;display:block}
+.jl.locked .jcard{border-color:#A88B60;background:#EFDDBB}
+.jl.locked .jn{color:#A88B60}
+.jcar{position:absolute;width:var(--cw);transform:translate(-50%,-64%);z-index:3;pointer-events:none}
+.jcar svg{width:100%;display:block}
+/* ---------- landscape: the road zigzags in rows so the whole unit shows (map.js snakeLayout); drag / wheel / touch moves it if it is still bigger ---------- */
+.map-wrap{cursor:grab}.map-wrap.drag{cursor:grabbing;user-select:none}
+@media all{
+  .journey.snake{--fs:20px;--rb:calc(var(--fs)*1.9);--cw:calc(var(--fs)*3.6);height:auto;min-height:100%;width:max-content;min-width:100%}
+  .snake .jrow{display:block;height:auto;position:relative}
+  .jroad{position:absolute;left:0;top:0;pointer-events:none;overflow:visible}
+  .jline{position:relative;display:flex;align-items:stretch;height:var(--lh);padding-inline:calc(var(--rb)*1.3 + 6px);gap:6px}
+  .jline.rev{flex-direction:row-reverse}
+  .snake .jbox,.snake .jside{font-size:var(--fs)}
+  .snake .jside{--b:calc(var(--fs)*2.4)}
+  .snake .jpm small{font-size:calc(var(--b)*.26)}
+  .snake .jpm{border-width:max(1px,calc(var(--fs)*.12))}
+  .snake .jt{-webkit-text-stroke-width:max(1px,calc(var(--fs)*.25));border-width:max(1px,calc(var(--fs)*.2))}
+  .snake .jend{width:calc(var(--fs)*6.4)}
+  .snake .jgo{width:calc(var(--cw)*1.1)}
+  .snake .ubox b{font-size:calc(var(--fs)*1.4)}
+  /* odd rows run right to left: a lesson's square on the right, its pages stretch to the left */
+  .jline.rev .jbox{left:auto;right:0}
+  .jline.rev .jside{left:.4em;right:calc(var(--bw,6em) + .4em);flex-direction:row-reverse}
+  .jline.rev .jpgs{flex-direction:row-reverse}
+  .jcar.rev svg{transform:scaleX(-1)}
+}
+/* portrait: the same zigzag, much smaller; the page signs show only the number so they stay readable and narrow */
+@media (max-aspect-ratio:1/1){
+  .snake .jpm small{display:none}
+  .snake .jpm{min-width:calc(var(--b)*1.05);height:calc(var(--b)*1.05);padding:0}
+  .snake .jpm b{font-size:calc(var(--b)*.74)}
+  .snake .jpm.soon .jlk{width:calc(var(--b)*.6)}
+  .snake .jside .jpgs{gap:2px}
+}

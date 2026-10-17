@@ -1,0 +1,117 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-visual"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Easy Study</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Baloo+Bhaijaan+2:wght@600;800&family=Chewy&family=Gochi+Hand&display=swap">
+<!-- design: one file per screen (change looks here only) -->
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/subjects.css">
+<link rel="stylesheet" href="css/map.css">
+<link rel="stylesheet" href="css/lesson.css">
+<link rel="stylesheet" href="css/vocab.css">
+<link rel="stylesheet" href="css/quiz.css">
+<link rel="stylesheet" href="css/responsive.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<!-- loading screen: styled inline so it shows before anything else has loaded (no white page) -->
+<div id="loading" style="position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:#DDA968 radial-gradient(ellipse at 50% 35%,#EBC58C,#DDA968 60%,#C38A4C);transition:opacity .3s;font-family:Chewy,'Baloo Bhaijaan 2',sans-serif">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+    <svg viewBox="-4 -6 136 98" width="150" height="108" style="animation:ldb .45s ease-in-out infinite alternate" aria-hidden="true">
+      <ellipse cx="66" cy="86" rx="54" ry="5" fill="rgba(90,52,24,.28)"/>
+      <path d="M8 58Q8 40 26 37L38 15Q43 7 53 7H84Q94 7 99 16L111 37Q124 40 124 55V64Q124 72 116 72H16Q8 72 8 64Z" fill="#EF4B3C" stroke="#5A3418" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M46 15H90Q95 15 97 20L105 37H36Z" fill="#CFF0FF" stroke="#5A3418" stroke-width="3.5" stroke-linejoin="round"/>
+      <ellipse cx="62" cy="27" rx="8.5" ry="9.5" fill="#fff" stroke="#5A3418" stroke-width="3"/><ellipse cx="88" cy="27" rx="8.5" ry="9.5" fill="#fff" stroke="#5A3418" stroke-width="3"/>
+      <circle cx="64.5" cy="29" r="4.2" fill="#5A3418"/><circle cx="90.5" cy="29" r="4.2" fill="#5A3418"/>
+      <path d="M68 47Q78 60 89 47Z" fill="#5A3418"/>
+      <g style="transform-origin:36px 72px;animation:ldw .5s linear infinite"><circle cx="36" cy="72" r="13" fill="#3B3F4A" stroke="#5A3418" stroke-width="4"/><path d="M36 61v22" stroke="#8C93A0" stroke-width="3"/></g>
+      <g style="transform-origin:96px 72px;animation:ldw .5s linear infinite"><circle cx="96" cy="72" r="13" fill="#3B3F4A" stroke="#5A3418" stroke-width="4"/><path d="M96 61v22" stroke="#8C93A0" stroke-width="3"/></g>
+    </svg>
+    <b id="loadingText" style="font-weight:400;font-size:34px;color:#fff;-webkit-text-stroke:5px #5A3418;paint-order:stroke fill;text-shadow:0 4px 0 #5A3418">Loading...</b>
+    <div style="width:180px;height:16px;border-radius:999px;background:rgba(92,52,22,.4);border:3px solid #5A3418;overflow:hidden"><div style="height:100%;width:40%;border-radius:999px;background:#FFCB2E;animation:ldr 1.1s ease-in-out infinite"></div></div>
+  </div>
+  <style>@keyframes ldb{to{transform:translateY(-6px)}}@keyframes ldw{to{transform:rotate(360deg)}}@keyframes ldr{0%{transform:translateX(-110%)}100%{transform:translateX(260%)}}</style>
+</div>
+<div class="patches" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<canvas id="fx"></canvas>
+
+<!-- SUBJECTS -->
+<section class="screen" id="subjects" aria-label="Subjects">
+  <header class="top">
+    <div class="hello"><span class="car" id="helloCar"></span><div><b class="outline">Easy Study</b><small id="helloSub"></small></div></div>
+    <div class="hud" data-hud></div>
+  </header>
+  <div class="boxes" id="boxes"></div>
+</section>
+
+<!-- MAP -->
+<section class="screen" id="map" aria-label="Lesson map" hidden>
+  <header class="top">
+    <div class="navbtns">
+      <button class="rb" data-go="subjects" aria-label="Home" data-icon="home"></button>
+      <div class="logo"><b class="outline" id="mapTitle"></b><small id="mapSub"></small></div>
+    </div>
+    <div class="hud" data-hud></div>
+  </header>
+  <div class="map-wrap" id="mapWrap"></div>
+</section>
+
+<!-- LESSON -->
+<section class="screen" id="lesson" hidden>
+  <header class="l-head">
+    <div class="navbtns">
+      <button class="rb" data-go="subjects" aria-label="Home" data-icon="home"></button>
+      <button class="rb" data-go="map" aria-label="Lesson map" data-icon="map"></button>
+    </div>
+    <div class="sign"><small id="lessonMeta"></small><h1 class="outline" id="lessonTitle"></h1></div>
+    <div class="track" aria-hidden="true"><div class="car" id="trackCar"></div><span class="flag"></span></div>
+    <div class="hud" data-hud id="hudLesson"></div>
+  </header>
+  <div class="mid">
+    <main class="stage" id="stage"></main>
+    <nav class="rail" id="rail" aria-label="Controls"></nav>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button class="pill tab" role="tab" data-tab="read"></button>
+    <button class="pill tab" role="tab" data-tab="words"></button>
+    <button class="pill tab" role="tab" data-tab="quiz"></button>
+  </nav>
+</section>
+
+<!-- LEVEL COMPLETE -->
+<div class="overlay" id="levelUp" hidden>
+  <div class="rays"></div>
+  <div class="popup" role="dialog" aria-label="Lesson complete">
+    <h2 class="great" id="lvlTitle" data-t="Great!">Great!</h2>
+    <div class="slots" id="slots"></div>
+    <span class="car" id="lvlCar"></span>
+    <div class="btns">
+      <button class="pill blue" id="lvlAgain">Again</button>
+      <button class="pill green" id="lvlMap">Map</button>
+    </div>
+  </div>
+</div>
+
+<!-- MESSAGE POPUP -->
+<div class="overlay" id="msg" hidden>
+  <div class="rays"></div>
+  <div class="popup" role="dialog">
+    <h2 class="outline big" id="msgTitle"></h2>
+    <div class="msg-art" id="msgArt"></div>
+    <p class="msg-text" id="msgText"></p>
+    <button class="pill green" id="msgOk">Nice!</button>
+  </div>
+</div>
+
+<div class="hint" id="hint" hidden><span class="hint-text" id="hintText"></span><svg class="hint-arrow" id="hintArrow" viewBox="0 0 100 100"><path d=""/></svg></div>
+
+<!-- behaviour: one file per screen, loaded in this order -->
+<script src="js/core.js"></script>
+<script src="js/subjects.js"></script>
+<script src="js/map.js"></script>
+<script src="js/lesson.js"></script>
+<script src="js/vocab.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/book.js"></script>
+<script src="js/start.js"></script>
+
+</body></html>

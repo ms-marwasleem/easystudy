@@ -1,0 +1,187 @@
+{
+ "id": "u1l4",
+ "unit": 1,
+ "lesson": 4,
+ "title": "Phonics Ii",
+ "task": "Listen to your teacher and repeat.",
+ "scene": "../u1l2/scene.jpg",
+ "sceneAlt": "Phonics Ii pictures",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "end": 5.79,
+ "speakers": {
+  "Ii": "#D93D78"
+ },
+ "lines": [
+  {
+   "who": "Ii",
+   "words": [
+    [
+     "in",
+     0,
+     0.55
+    ]
+   ],
+   "pic": "../../pics/in.png",
+   "pos": [
+    25,
+    27
+   ]
+  },
+  {
+   "who": "Ii",
+   "words": [
+    [
+     "ill",
+     1.65,
+     2.22
+    ]
+   ],
+   "pic": "../../pics/ill.jpg",
+   "pos": [
+    75,
+    27
+   ]
+  },
+  {
+   "who": "Ii",
+   "words": [
+    [
+     "insect",
+     3.32,
+     4.09
+    ]
+   ],
+   "pic": "../../pics/insect.png",
+   "pos": [
+    25,
+    73
+   ]
+  },
+  {
+   "who": "Ii",
+   "words": [
+    [
+     "ink",
+     5.19,
+     5.79
+    ]
+   ],
+   "pic": "../../pics/ink.png",
+   "pos": [
+    75,
+    73
+   ]
+  }
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "layout": "pictures",
+ "_note": "All paths relative to this lesson's folder. Reading tab = book p21 ex1 (in, ill, insect, ink). Voice: Kokoro am_michael 0.85, 1.1 s gaps, slow = 75%. Vocab splits: Ahmed's approved ones (vocab-review.md). Tracing exercises 2,3,6,7 skipped on purpose.",
+ "vocab": [
+  {
+   "word": "in",
+   "ar": "\u0641\u064a",
+   "img": "../../pics/in.png",
+   "parts": [
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/in.mp3"
+   }
+  },
+  {
+   "word": "ill",
+   "ar": "\u0645\u0631\u064a\u0636",
+   "img": "../../pics/ill.jpg",
+   "parts": [
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "ll",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/ill.mp3"
+   }
+  },
+  {
+   "word": "insect",
+   "ar": "\u062d\u0634\u0631\u0629",
+   "img": "../../pics/insect.png",
+   "parts": [
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "se",
+     "ph": "s_e",
+     "audio": "../../phonics/chunks/s_e.mp3"
+    },
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/insect.mp3"
+   }
+  },
+  {
+   "word": "ink",
+   "ar": "\u062d\u0628\u0631",
+   "img": "../../pics/ink.png",
+   "parts": [
+    {
+     "t": "in",
+     "ph": "i_n",
+     "audio": "../../phonics/chunks/i_n.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/ink.mp3"
+   }
+  }
+ ]
+}

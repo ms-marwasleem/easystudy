@@ -1,0 +1,125 @@
+{
+ "_note": "u2l2 questions: p32 ex5 (circle board with Ss in the middle), p33 ex10 (write the beginning letter, typed). Tracing and colouring exercises skipped.",
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 5,
+   "page": 32,
+   "task": "Circle the pictures that start with the letter (Ss).",
+   "taskAudio": "q/task-5.mp3",
+   "hint": "Tap the pictures that start with Ss!",
+   "center": "Ss",
+   "centerAudio": "../../phonics/s.mp3",
+   "items": [
+    {
+     "word": "spoon",
+     "audio": "words/spoon.mp3",
+     "pic": "../../pics/spoon.png",
+     "answer": true,
+     "pos": [
+      14,
+      16
+     ]
+    },
+    {
+     "word": "star",
+     "audio": "words/star.mp3",
+     "pic": "../../pics/star.png",
+     "answer": true,
+     "pos": [
+      88,
+      14
+     ]
+    },
+    {
+     "word": "dog",
+     "audio": "../u1l4/words/dog.mp3",
+     "pic": "../../pics/dog.png",
+     "answer": false,
+     "pos": [
+      8,
+      66
+     ]
+    },
+    {
+     "word": "sun",
+     "audio": "../u2l1/words/sun.mp3",
+     "pic": "../../pics/sun.png",
+     "answer": true,
+     "pos": [
+      34,
+      72
+     ]
+    },
+    {
+     "word": "spider",
+     "audio": "words/spider.mp3",
+     "pic": "../../pics/spider.png",
+     "answer": true,
+     "pos": [
+      52,
+      86
+     ]
+    },
+    {
+     "word": "snake",
+     "audio": "words/snake.mp3",
+     "pic": "../../pics/snake.png",
+     "answer": true,
+     "pos": [
+      76,
+      76
+     ]
+    },
+    {
+     "word": "rocket",
+     "audio": "words/rocket.mp3",
+     "pic": "../../pics/rocket.png",
+     "answer": false,
+     "pos": [
+      93,
+      48
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "ex": 10,
+   "page": 33,
+   "task": "Write the beginning letter in each word.",
+   "taskAudio": "q/task-10.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "star",
+     "audio": "words/star.mp3",
+     "pic": "../../pics/star.png",
+     "missing": 0,
+     "answer": "s"
+    },
+    {
+     "word": "snake",
+     "audio": "words/snake.mp3",
+     "pic": "../../pics/snake.png",
+     "missing": 0,
+     "answer": "s"
+    },
+    {
+     "word": "spoon",
+     "audio": "words/spoon.mp3",
+     "pic": "../../pics/spoon.png",
+     "missing": 0,
+     "answer": "s"
+    },
+    {
+     "word": "spider",
+     "audio": "words/spider.mp3",
+     "pic": "../../pics/spider.png",
+     "missing": 0,
+     "answer": "s"
+    }
+   ]
+  }
+ ]
+}

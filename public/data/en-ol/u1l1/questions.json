@@ -1,0 +1,91 @@
+{
+ "_note": "Questions tab of this lesson, taken from the book. Paths are relative to this lesson's folder. One set = one book exercise (ex = its number in the book, page = book page; taskAudio = the instruction read aloud, played at the start of the set). Types: pick (listen, then tap the matching picture; answer = index in pics), yesno (picture + word: tap the tick if they match, the cross if not; answer = true/false). Pictures are shuffled on screen. Ex5 is a \"tick\" sheet (see js/quiz.js): all pictures at once, each with a tick and a cross.",
+ "sets": [
+  {
+   "type": "pick",
+   "ex": 4,
+   "page": 11,
+   "task": "Listen, point, and mark the matching picture.",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "Listen, then tap the right picture!",
+   "items": [
+    {
+     "word": "Hello!",
+     "audio": "words/hello.mp3",
+     "pics": [
+      "q/4-hello-a.jpg",
+      "q/4-hello-b.jpg"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "Goodbye!",
+     "audio": "words/goodbye.mp3",
+     "pics": [
+      "q/4-goodbye-a.jpg",
+      "q/4-goodbye-b.jpg"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "shake hands",
+     "audio": "words/shake-hands.mp3",
+     "pics": [
+      "q/4-shake-a.jpg",
+      "q/4-shake-b.jpg"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "play",
+     "audio": "words/play.mp3",
+     "pics": [
+      "q/4-play-a.jpg",
+      "q/4-play-b.jpg"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "tick",
+   "ex": 5,
+   "page": 11,
+   "task": "Look at the picture and the word. Do they match?",
+   "taskAudio": "q/task-5.mp3",
+   "hint": "Match? Tap the tick. No? Tap the cross.",
+   "items": [
+    {
+     "word": "friends",
+     "audio": "words/friends.mp3",
+     "pic": "q/5-friends.jpg",
+     "answer": true
+    },
+    {
+     "word": "goodbye",
+     "audio": "words/goodbye.mp3",
+     "pic": "q/5-goodbye.jpg",
+     "answer": false
+    },
+    {
+     "word": "play",
+     "audio": "words/play.mp3",
+     "pic": "q/5-play.jpg",
+     "answer": true
+    },
+    {
+     "word": "shake hands",
+     "audio": "words/shake-hands.mp3",
+     "pic": "q/5-shake-hands.jpg",
+     "answer": true
+    },
+    {
+     "word": "hello",
+     "audio": "words/hello.mp3",
+     "pic": "q/5-hello.jpg",
+     "answer": true
+    }
+   ]
+  }
+ ]
+}

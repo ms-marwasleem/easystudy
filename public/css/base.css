@@ -1,0 +1,126 @@
+/* =====================================================================
+   THEME — everything about how the site looks lives in this file.
+   Content (course.json, lessons/*) and behaviour (engine.js) never need
+   to change for a design change.
+   Layout: cardboard room. Subjects = 3D cardboard boxes, map = road on a
+   taped cardboard sheet, lesson = picture + paper note + round dashboard
+   buttons + pill tabs. One deliberate warm "daytime" look (no dark mode).
+   ===================================================================== */
+:root{
+  color-scheme:light;
+  /* cardboard */
+  --kraft:#DDA968; --kraft-lt:#EBC58C; --kraft-dk:#C38A4C; --kraft-deep:#A86F35;
+  --ol:#5A3418;               /* every outline */
+  --paper:#FFFBF0; --cream:#FBEFD3;
+  --hud:rgba(92,52,22,.62);   /* dark pill behind counters */
+  /* button colours: top / bottom of the glossy gradient */
+  --green1:#9BE34A; --green2:#43A82A;
+  --blue1:#6EC3FF; --blue2:#2A7FD8;
+  --yellow1:#FFE066; --yellow2:#F4B41A;
+  --red1:#FF8A6B; --red2:#E0412C;
+  --orange1:#FFC56B; --orange2:#F2851E;
+  --gold1:#FFF4A8; --gold2:#FFC928; --gold-ol:#9A5A12;
+  --mark:#FFE45C;
+  /* type */
+  --f-title:"Chewy","Lilita One","Baloo Bhaijaan 2",sans-serif;
+  --f-hand:"Gochi Hand","Comic Sans MS",cursive;
+  --f-ui:"Baloo Bhaijaan 2","Tahoma",sans-serif;
+  --f-read:"Andika","Comic Neue","Trebuchet MS",sans-serif;
+  --noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .18 0 0 0 0 .08 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  --corr:repeating-linear-gradient(0deg,rgba(90,52,24,.06) 0 2px,transparent 2px 9px);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{color:var(--ol);font-family:var(--f-ui);overflow:hidden;
+  background:var(--noise),radial-gradient(ellipse at 50% 30%,var(--kraft-lt) 0%,var(--kraft) 55%,var(--kraft-dk) 100%);
+  padding-left:max(14px,env(safe-area-inset-left,0px));padding-right:max(14px,env(safe-area-inset-right,0px))}
+button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;border:0;background:none;padding:0}
+button:focus-visible{outline:4px solid #2A7FD8;outline-offset:3px;border-radius:999px}
+svg{overflow:visible}
+
+/* cardboard patches stuck on the wall, like the game's level background */
+.patches{position:fixed;inset:0;pointer-events:none;z-index:0}
+.patches i{position:absolute;background:var(--corr),var(--noise),rgba(255,236,200,.35);border-radius:6px;box-shadow:0 2px 0 rgba(90,52,24,.15)}
+.patches i:nth-child(1){left:6%;top:14%;width:34%;height:30%;transform:rotate(-2deg)}
+.patches i:nth-child(2){right:4%;top:6%;width:26%;height:22%;transform:rotate(3deg);background-color:rgba(170,110,50,.18)}
+.patches i:nth-child(3){left:40%;top:52%;width:40%;height:34%;transform:rotate(1.5deg)}
+.patches i:nth-child(4){left:-4%;bottom:-6%;width:30%;height:28%;transform:rotate(-4deg);background-color:rgba(170,110,50,.2)}
+
+/* ---------- Text effects ---------- */
+.outline{font-family:var(--f-title);font-weight:400;color:#fff;-webkit-text-stroke:5px var(--ol);paint-order:stroke fill;
+  text-shadow:0 4px 0 var(--ol);letter-spacing:.5px;line-height:1}
+.great{position:relative;margin:0;font-family:var(--f-title);font-weight:400;line-height:1;font-size:clamp(46px,min(12vw,13vh),96px);
+  color:#7A3E12;-webkit-text-stroke:12px #7A3E12;text-shadow:0 7px 0 #7A3E12}
+.great::after{content:attr(data-t);position:absolute;inset:0;-webkit-text-stroke:0;text-shadow:none;color:transparent;
+  background:linear-gradient(#FFF4CF 12%,#FFC56B 55%,#F08A1C 92%);-webkit-background-clip:text;background-clip:text}
+
+/* ---------- Glossy pill buttons ---------- */
+.pill{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;
+  padding:.45em 1.5em .55em;font-family:var(--f-title);font-size:24px;color:#fff;letter-spacing:.5px;
+  -webkit-text-stroke:3px rgba(40,70,10,.75);paint-order:stroke fill;
+  --t:var(--green1);--b:var(--green2);
+  background:linear-gradient(var(--t),var(--b));border:3.5px solid var(--ol);
+  box-shadow:inset 0 -6px 0 rgba(0,0,0,.16),0 5px 0 var(--ol);transform-origin:50% 100%}
+.pill::before{content:"";position:absolute;left:12%;right:30%;top:8%;height:28%;border-radius:999px;background:rgba(255,255,255,.55)}
+.pill.blue{--t:var(--blue1);--b:var(--blue2);-webkit-text-stroke-color:rgba(10,40,90,.75)}
+.pill.yellow{--t:var(--yellow1);--b:var(--yellow2);color:#fff;-webkit-text-stroke-color:rgba(120,70,0,.8)}
+.pill.cream{--t:#FFF8E6;--b:#F1D9A8;color:var(--ol);-webkit-text-stroke:0}
+.pill svg{width:1em;height:1em;flex:none}
+
+/* ---------- Round glossy buttons (home, map, dashboard) ---------- */
+.rb{position:relative;width:54px;height:54px;flex:none;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 50% 45%,var(--cream) 0 52%,transparent 53%),linear-gradient(var(--t,var(--red1)),var(--b,var(--red2)));
+  border:3.5px solid var(--ol);box-shadow:inset 0 -4px 0 rgba(0,0,0,.18),0 4px 0 var(--ol);color:var(--ol)}
+.rb::after{content:"";position:absolute;left:20%;top:8%;width:40%;height:18%;border-radius:999px;background:rgba(255,255,255,.55)}
+.rb svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.rb[data-go="map"]{--t:var(--blue1);--b:var(--blue2)}
+
+/* ---------- HUD counter: dark pill with the icon hanging off its left ---------- */
+.hud{position:relative;display:flex;align-items:center;height:42px;padding:0 16px 0 46px;margin-left:22px;border-radius:999px;
+  background:var(--hud);font-family:var(--f-title);font-size:26px;color:#fff;-webkit-text-stroke:3px var(--ol);paint-order:stroke fill;flex:none}
+.hud .ic{position:absolute;left:-24px;top:50%;width:60px;height:60px;transform:translateY(-50%)}
+.hud .ic svg{width:100%;height:100%}
+
+.screen{position:relative;z-index:1;height:100%;display:grid;grid-template-columns:minmax(0,1fr);padding-block:12px}
+.screen[hidden]{display:none}
+#subjects,#map{grid-template-rows:auto 1fr;gap:10px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.navbtns{display:flex;align-items:center;gap:12px;min-width:0}
+.hello{display:flex;align-items:center;gap:10px;min-width:0}
+.hello .car{width:clamp(64px,10vw,96px);flex:none}
+.hello b,.logo b{display:block;font-size:clamp(28px,5vw,46px)}
+.hello small,.logo small{display:block;font-size:clamp(12px,1.8vw,16px);font-weight:800;margin-top:6px}
+
+/* ---------- Popups ---------- */
+.overlay{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:16px;background:rgba(70,38,14,.62);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
+.overlay[hidden]{display:none}
+.rays{position:absolute;left:50%;top:50%;width:min(130vw,130vh);height:min(130vw,130vh);margin:calc(min(130vw,130vh)/-2) 0 0 calc(min(130vw,130vh)/-2);pointer-events:none;
+  background:radial-gradient(circle,rgba(255,226,120,.85) 0 8%,rgba(255,190,60,.35) 22%,transparent 55%),repeating-conic-gradient(rgba(255,214,110,.32) 0 9deg,transparent 9deg 22deg);
+  -webkit-mask:radial-gradient(circle,#000 25%,transparent 62%);mask:radial-gradient(circle,#000 25%,transparent 62%)}
+.popup{position:relative;display:flex;flex-direction:column;align-items:center;gap:clamp(6px,2vh,18px);text-align:center;width:min(94vw,560px)}
+.popup .big{font-size:clamp(40px,min(10vw,11vh),78px);margin:0;-webkit-text-stroke-width:7px;text-shadow:0 6px 0 var(--ol)}
+.msg-art{width:min(46vw,34vh)}
+.msg-art .car{display:block;width:100%}
+.msg-text{margin:0;font-family:var(--f-hand);font-size:clamp(20px,min(4.4vw,4vh),30px);color:#fff;line-height:1.25;text-shadow:0 2px 0 var(--ol),0 0 2px var(--ol)}
+.slots{display:flex;align-items:flex-end;justify-content:center;gap:clamp(4px,2vw,14px)}
+.slot{position:relative;width:min(25vw,19vh);aspect-ratio:1}
+.slot:nth-child(2){width:min(29vw,22vh);transform:translateY(-8%)}
+.slot svg{position:absolute;inset:0;width:100%;height:100%}
+.slot .lbl{position:absolute;left:50%;bottom:-1.6em;transform:translateX(-50%);font-family:var(--f-title);font-size:clamp(13px,1.8vh,17px);color:#fff;-webkit-text-stroke:3px var(--ol);paint-order:stroke fill;white-space:nowrap}
+#lvlCar{width:min(26vw,15vh);margin-top:1.4em}
+.btns{display:flex;gap:14px;justify-content:center}
+
+/* ---------- Hint note (handwritten, with a drawn arrow) ---------- */
+.hint{position:fixed;inset:0;z-index:15;pointer-events:none}
+.hint[hidden]{display:none}
+.hint-text{position:absolute;left:0;top:0;max-width:min(60vw,240px);font-family:var(--f-hand);color:#2E1B0C;background:rgba(255,251,240,.95);
+  border:2px dashed var(--ol);border-radius:12px;padding:3px 10px 5px;font-size:clamp(15px,1.9vw,20px);line-height:1.1;box-shadow:0 3px 0 rgba(90,52,24,.3)}
+.hint-arrow{position:absolute;inset:0;width:100%;height:100%}
+.hint-arrow path{fill:none;stroke:#2E1B0C;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* toast-like small note reuses the hint look */
+#fx{position:fixed;inset:0;pointer-events:none;z-index:30}
+.bigstar{position:fixed;left:50%;top:50%;width:min(50vw,50vh);height:min(50vw,50vh);margin:calc(min(50vw,50vh)/-2) 0 0 calc(min(50vw,50vh)/-2);z-index:26;pointer-events:none}
+.bigstar svg{width:100%;height:100%}
+.flash{position:fixed;inset:0;z-index:25;pointer-events:none}

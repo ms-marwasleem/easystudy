@@ -1,0 +1,218 @@
+{
+ "id": "u2l2",
+ "unit": 2,
+ "lesson": 2,
+ "title": "Phonics Ss",
+ "task": "Listen to your teacher and repeat.",
+ "scene": "../u1l2/scene.jpg",
+ "sceneAlt": "Phonics Ss pictures",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "end": 8.08,
+ "speakers": {
+  "Ss": "#D93D78"
+ },
+ "lines": [
+  {
+   "who": "Ss",
+   "page": 1,
+   "words": [
+    [
+     "spider",
+     0.05,
+     0.77
+    ]
+   ],
+   "pic": "../../pics/spider-photo.jpg",
+   "pos": [
+    22,
+    24
+   ]
+  },
+  {
+   "who": "Ss",
+   "page": 1,
+   "words": [
+    [
+     "sun",
+     1.93,
+     2.52
+    ]
+   ],
+   "pic": "../../pics/sun-photo.jpg",
+   "pos": [
+    76,
+    24
+   ]
+  },
+  {
+   "who": "Ss",
+   "page": 1,
+   "words": [
+    [
+     "spoon",
+     3.68,
+     4.45
+    ]
+   ],
+   "pic": "../../pics/spoon-photo.jpg",
+   "pos": [
+    49,
+    50
+   ]
+  },
+  {
+   "who": "Ss",
+   "page": 1,
+   "words": [
+    [
+     "snake",
+     5.61,
+     6.25
+    ]
+   ],
+   "pic": "../../pics/snake-photo.jpg",
+   "pos": [
+    22,
+    76
+   ]
+  },
+  {
+   "who": "Ss",
+   "page": 1,
+   "words": [
+    [
+     "star",
+     7.41,
+     8.08
+    ]
+   ],
+   "pic": "../../pics/star-photo.jpg",
+   "pos": [
+    76,
+    76
+   ]
+  }
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "layout": "pictures",
+ "vocab": [
+  {
+   "word": "sun",
+   "ar": "شمس",
+   "img": "../../pics/sun-photo.jpg",
+   "parts": [
+    {
+     "t": "su",
+     "ph": "s_u",
+     "audio": "../../phonics/chunks/s_u.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u2l1/words/sun.mp3"
+   }
+  },
+  {
+   "word": "star",
+   "ar": "نجمة",
+   "img": "../../pics/star-photo.jpg",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "ta",
+     "ph": "t_ar",
+     "audio": "../../phonics/chunks/t_ar.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/star.mp3"
+   }
+  },
+  {
+   "word": "snake",
+   "ar": "ثعبان",
+   "img": "../../pics/snake-photo.jpg",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "na",
+     "ph": "n_ai",
+     "audio": "../../phonics/chunks/n_ai.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/snake.mp3"
+   }
+  },
+  {
+   "word": "spider",
+   "ar": "عنكبوت",
+   "img": "../../pics/spider-photo.jpg",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "pi",
+     "ph": "p_igh",
+     "audio": "../../phonics/chunks/p_igh.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/spider.mp3"
+   }
+  }
+ ],
+ "_note": "Book p30 ex1 (spider, sun, spoon, snake, star). Vocab = sun, star, snake, spider (the 3 starred words + spider); spoon only in reading and questions. Tracing/colouring exercises (2,3,4,6,7,8,9) skipped."
+}

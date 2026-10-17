@@ -1,0 +1,214 @@
+{
+ "_note": "u3l3 questions: p53 notebook as tick (sentence vs picture), p54 ex3 count flowers (letter type, the number is the gap), ex4 pick the group with that many, p55 ex5 count + tap the number in the sentence. Ex6 (trace numbers) skipped.",
+ "sets": [
+  {
+   "type": "tick",
+   "ex": 2,
+   "page": 53,
+   "task": "Look at the picture and the word. Do they match?",
+   "taskAudio": "../u1l1/q/task-5.mp3",
+   "hint": "Match? Tap the tick. No? Tap the cross.",
+   "items": [
+    {
+     "word": "There are 4 books.",
+     "audio": "q/s1.mp3",
+     "pic": "../../pics/books-4.png",
+     "answer": true
+    },
+    {
+     "word": "I see 3 birds.",
+     "audio": "q/s2.mp3",
+     "pic": "../../pics/birds-5.png",
+     "answer": false
+    },
+    {
+     "word": "I have 1 brother.",
+     "audio": "q/s3.mp3",
+     "pic": "../../pics/brother-1.png",
+     "answer": true
+    },
+    {
+     "word": "I have 2 sisters.",
+     "audio": "q/s4.mp3",
+     "pic": "../../pics/sisters.png",
+     "answer": true
+    },
+    {
+     "word": "There are 2 butterflies.",
+     "audio": "q/s5.mp3",
+     "pic": "../../pics/butterfly-1.png",
+     "answer": false
+    },
+    {
+     "word": "I have 1 brother.",
+     "audio": "q/s6.mp3",
+     "pic": "../../pics/sisters.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "letter",
+   "ex": 3,
+   "page": 54,
+   "task": "Count and circle the correct number.",
+   "taskAudio": "q/task-3.mp3",
+   "hint": "Count the flowers, then tap the number!",
+   "items": [
+    {
+     "word": "1 flower",
+     "audio": "q/how-flowers.mp3",
+     "pic": "../../pics/flowers-1.png",
+     "letters": [
+      "3",
+      "1",
+      "5"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "3 flowers",
+     "audio": "q/how-flowers.mp3",
+     "pic": "../../pics/flowers-3.png",
+     "letters": [
+      "4",
+      "3",
+      "2"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "2 flowers",
+     "audio": "q/how-flowers.mp3",
+     "pic": "../../pics/flowers-2.png",
+     "letters": [
+      "4",
+      "5",
+      "2"
+     ],
+     "answer": 2
+    },
+    {
+     "word": "4 flowers",
+     "audio": "q/how-flowers.mp3",
+     "pic": "../../pics/flowers-4.png",
+     "letters": [
+      "4",
+      "1",
+      "3"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "5 flowers",
+     "audio": "q/how-flowers.mp3",
+     "pic": "../../pics/flowers-5.png",
+     "letters": [
+      "3",
+      "5",
+      "2"
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 4,
+   "page": 54,
+   "task": "Count the objects and match them with the correct number.",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "Pick the picture with that many!",
+   "items": [
+    {
+     "word": "1",
+     "audio": "q/n-1.mp3",
+     "pics": [
+      "../../pics/sun-1.png",
+      "../../pics/apples-5.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "2",
+     "audio": "q/n-2.mp3",
+     "pics": [
+      "../../pics/tulips-2.png",
+      "../../pics/leaves-4.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "3",
+     "audio": "q/n-3.mp3",
+     "pics": [
+      "../../pics/pineapples-3.png",
+      "../../pics/sun-1.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "4",
+     "audio": "q/n-4.mp3",
+     "pics": [
+      "../../pics/leaves-4.png",
+      "../../pics/tulips-2.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "5",
+     "audio": "q/n-5.mp3",
+     "pics": [
+      "../../pics/apples-5.png",
+      "../../pics/pineapples-3.png"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "letter",
+   "ex": 5,
+   "page": 55,
+   "task": "Look at each picture, count the objects, then circle.",
+   "taskAudio": "q/task-5.mp3",
+   "hint": "Count, then tap the number!",
+   "items": [
+    {
+     "word": "There are 2 pencils.",
+     "missing": 10,
+     "audio": "q/c-pencils.mp3",
+     "pic": "../../pics/pencils-2.png",
+     "letters": [
+      "2",
+      "3"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "There are 4 bags.",
+     "missing": 10,
+     "audio": "q/c-bags.mp3",
+     "pic": "../../pics/bags-4.png",
+     "letters": [
+      "1",
+      "4"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "There are 5 stars.",
+     "missing": 10,
+     "audio": "q/c-stars.mp3",
+     "pic": "../../pics/stars-5.png",
+     "letters": [
+      "3",
+      "5"
+     ],
+     "answer": 1
+    }
+   ]
+  }
+ ]
+}

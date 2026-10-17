@@ -1,0 +1,234 @@
+{
+ "title": "English OL",
+ "units": [
+  {
+   "unit": 1
+  },
+  {
+   "unit": 2
+  },
+  {
+   "unit": 3
+  },
+  {
+   "unit": 4
+  },
+  {
+   "unit": 5
+  },
+  {
+   "unit": 6
+  }
+ ],
+ "lessons": [
+  {
+   "unit": 1,
+   "lesson": 1,
+   "folder": "u1l1",
+   "title": "Greetings",
+   "pages": {
+    "read": [
+     8
+    ],
+    "words": [
+     9
+    ],
+    "quiz": [
+     11
+    ]
+   }
+  },
+  {
+   "unit": 1,
+   "lesson": 2,
+   "folder": "u1l2",
+   "title": "Phonics Tt",
+   "pages": {
+    "read": [
+     12
+    ],
+    "words": [
+     12
+    ],
+    "quiz": [
+     13,
+     15
+    ]
+   }
+  },
+  {
+   "unit": 1,
+   "lesson": 3,
+   "folder": "u1l3",
+   "title": "Around My Classroom",
+   "pages": {
+    "read": [
+     17,
+     18
+    ],
+    "words": [
+     17,
+     18
+    ],
+    "quiz": [
+     19,
+     20
+    ]
+   }
+  },
+  {
+   "unit": 1,
+   "lesson": 4,
+   "folder": "u1l4",
+   "title": "Phonics Ii",
+   "pages": {
+    "read": [
+     21
+    ],
+    "words": [
+     21
+    ],
+    "quiz": [
+     22,
+     23,
+     24
+    ]
+   }
+  },
+  {
+   "unit": 2,
+   "lesson": 1,
+   "folder": "u2l1",
+   "title": "In the Garden",
+   "pages": {
+    "read": [
+     26,
+     27
+    ],
+    "words": [
+     27
+    ],
+    "quiz": [
+     28,
+     29
+    ]
+   }
+  },
+  {
+   "unit": 2,
+   "lesson": 2,
+   "folder": "u2l2",
+   "title": "Phonics Ss",
+   "pages": {
+    "read": [
+     30
+    ],
+    "words": [
+     30
+    ],
+    "quiz": [
+     32,
+     33
+    ]
+   }
+  },
+  {
+   "unit": 2,
+   "lesson": 3,
+   "folder": "u2l3",
+   "title": "Shapes and Colors",
+   "pages": {
+    "read": [
+     34,
+     36
+    ],
+    "words": [
+     34,
+     36
+    ],
+    "quiz": [
+     35,
+     37
+    ]
+   }
+  },
+  {
+   "unit": 2,
+   "lesson": 4,
+   "folder": "u2l4",
+   "title": "Phonics Aa",
+   "pages": {
+    "read": [
+     38
+    ],
+    "words": [
+     38
+    ],
+    "quiz": [
+     39,
+     41
+    ]
+   }
+  },
+  {
+   "unit": 3,
+   "lesson": 1,
+   "folder": "u3l1",
+   "title": "Who's in My Family?",
+   "pages": {
+    "read": [
+     43,
+     44
+    ],
+    "words": [
+     44
+    ],
+    "quiz": [
+     45,
+     46
+    ]
+   }
+  },
+  {
+   "unit": 3,
+   "lesson": 2,
+   "folder": "u3l2",
+   "title": "Phonics Nn Pp",
+   "pages": {
+    "read": [
+     47,
+     49
+    ],
+    "words": [
+     47,
+     49
+    ],
+    "quiz": [
+     48,
+     50,
+     51
+    ]
+   }
+  },
+  {
+   "unit": 3,
+   "lesson": 3,
+   "folder": "u3l3",
+   "title": "Numbers 1 to 5",
+   "pages": {
+    "read": [
+     52,
+     53
+    ],
+    "words": [
+     53
+    ],
+    "quiz": [
+     54,
+     55
+    ]
+   }
+  }
+ ],
+ "_note": "One entry per lesson. A lesson opens on the map when it has a title and its folder data/en-ol/<folder>/lesson.json exists. Units listed here show as boxes. \"pages\" = the school-book pages each tab covers (read / words / quiz), used by the Book page button."
+}

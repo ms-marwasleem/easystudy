@@ -1,0 +1,296 @@
+{
+ "_note": "u2l3 questions: p35 ex1 (4 circle sets, one per colour), ex2 pick (sentence, tap the matching picture), p37 ex3 pick (shape word -> picture), ex4 tick (word + shape). Colouring/tracing: none in this lesson.",
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 1,
+   "page": 35,
+   "task": "Circle all the yellow objects.",
+   "taskAudio": "q/task-yellow.mp3",
+   "hint": "Tap the yellow objects!",
+   "items": [
+    {
+     "word": "sun",
+     "audio": "../u2l1/words/sun.mp3",
+     "pic": "../../pics/sun.png",
+     "answer": true,
+     "pos": [
+      20,
+      50
+     ]
+    },
+    {
+     "word": "horse",
+     "audio": "words/horse.mp3",
+     "pic": "../../pics/horse.png",
+     "answer": false,
+     "pos": [
+      50,
+      50
+     ]
+    },
+    {
+     "word": "duck",
+     "audio": "words/duck.mp3",
+     "pic": "../../pics/duckling.png",
+     "answer": true,
+     "pos": [
+      80,
+      50
+     ]
+    }
+   ],
+   "silent": true
+  },
+  {
+   "type": "circle",
+   "ex": 1,
+   "page": 35,
+   "task": "Circle all the green objects.",
+   "taskAudio": "q/task-green.mp3",
+   "hint": "Tap the green objects!",
+   "items": [
+    {
+     "word": "leaf",
+     "audio": "words/leaf.mp3",
+     "pic": "../../pics/leaf.png",
+     "answer": true,
+     "pos": [
+      20,
+      50
+     ]
+    },
+    {
+     "word": "apple",
+     "audio": "words/apple.mp3",
+     "pic": "../../pics/apple.png",
+     "answer": false,
+     "pos": [
+      50,
+      50
+     ]
+    },
+    {
+     "word": "lime",
+     "audio": "words/lime.mp3",
+     "pic": "../../pics/lime.png",
+     "answer": true,
+     "pos": [
+      80,
+      50
+     ]
+    }
+   ],
+   "silent": true
+  },
+  {
+   "type": "circle",
+   "ex": 1,
+   "page": 35,
+   "task": "Circle all the blue objects.",
+   "taskAudio": "q/task-blue.mp3",
+   "hint": "Tap the blue objects!",
+   "items": [
+    {
+     "word": "bird",
+     "audio": "../u2l1/words/bird.mp3",
+     "pic": "../../pics/bird.png",
+     "answer": false,
+     "pos": [
+      20,
+      50
+     ]
+    },
+    {
+     "word": "bag",
+     "audio": "../u1l3/words/bag.mp3",
+     "pic": "../../pics/backpack-blue.png",
+     "answer": true,
+     "pos": [
+      50,
+      50
+     ]
+    },
+    {
+     "word": "ball",
+     "audio": "../u2l1/words/ball.mp3",
+     "pic": "../../pics/ball.png",
+     "answer": true,
+     "pos": [
+      80,
+      50
+     ]
+    }
+   ],
+   "silent": true
+  },
+  {
+   "type": "circle",
+   "ex": 1,
+   "page": 35,
+   "task": "Circle all the red objects.",
+   "taskAudio": "q/task-red.mp3",
+   "hint": "Tap the red objects!",
+   "items": [
+    {
+     "word": "star",
+     "audio": "words/star.mp3",
+     "pic": "../../pics/star-red.png",
+     "answer": true,
+     "pos": [
+      20,
+      50
+     ]
+    },
+    {
+     "word": "frog",
+     "audio": "words/frog.mp3",
+     "pic": "../../pics/frog.png",
+     "answer": false,
+     "pos": [
+      50,
+      50
+     ]
+    },
+    {
+     "word": "sweater",
+     "audio": "words/sweater.mp3",
+     "pic": "../../pics/sweater.png",
+     "answer": true,
+     "pos": [
+      80,
+      50
+     ]
+    }
+   ],
+   "silent": true
+  },
+  {
+   "type": "pick",
+   "ex": 2,
+   "page": 35,
+   "task": "Listen, point, and circle.",
+   "taskAudio": "q/task-2.mp3",
+   "hint": "Pick the right picture!",
+   "items": [
+    {
+     "word": "The sky is blue.",
+     "audio": "q/s1.mp3",
+     "pics": [
+      "../../pics/shorts.png",
+      "../../pics/sky-toon.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "The grass is green.",
+     "audio": "q/s2.mp3",
+     "pics": [
+      "../../pics/grass.png",
+      "../../pics/lime.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "The sun is yellow.",
+     "audio": "q/s3.mp3",
+     "pics": [
+      "../../pics/sun.png",
+      "../../pics/duckling.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "The flower is red.",
+     "audio": "q/s4.mp3",
+     "pics": [
+      "../../pics/flower-red.png",
+      "../../pics/mushroom.png"
+     ],
+     "answer": 0
+    }
+   ],
+   "mark": "ring"
+  },
+  {
+   "type": "pick",
+   "ex": 3,
+   "page": 37,
+   "task": "Listen, point, and write a tick to the matching picture.",
+   "taskAudio": "q/task-3.mp3",
+   "hint": "Pick the matching picture!",
+   "items": [
+    {
+     "word": "circle",
+     "audio": "words/circle.mp3",
+     "pics": [
+      "../../pics/rectangle-blue.png",
+      "../../pics/circle-red.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "square",
+     "audio": "words/square.mp3",
+     "pics": [
+      "../../pics/square-green.png",
+      "../../pics/triangle-yellow.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "triangle",
+     "audio": "words/triangle.mp3",
+     "pics": [
+      "../../pics/triangle-green.png",
+      "../../pics/rectangle-yellow.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "rectangle",
+     "audio": "words/rectangle.mp3",
+     "pics": [
+      "../../pics/rectangle-red.png",
+      "../../pics/circle-blue.png"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "tick",
+   "ex": 4,
+   "page": 37,
+   "task": "Write a tick if the word matches the picture.",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "Do they match?",
+   "items": [
+    {
+     "word": "square",
+     "audio": "words/square.mp3",
+     "pic": "../../pics/square-green.png",
+     "answer": true
+    },
+    {
+     "word": "rectangle",
+     "audio": "words/rectangle.mp3",
+     "pic": "../../pics/circle-blue.png",
+     "answer": false
+    },
+    {
+     "word": "triangle",
+     "audio": "words/triangle.mp3",
+     "pic": "../../pics/triangle-red.png",
+     "answer": true
+    },
+    {
+     "word": "circle",
+     "audio": "words/circle.mp3",
+     "pic": "../../pics/rectangle-yellow.png",
+     "answer": false
+    }
+   ]
+  }
+ ]
+}

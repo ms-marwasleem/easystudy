@@ -1,0 +1,219 @@
+{
+ "_note": "u3l2 questions: p48 ex4 (Nn), p50 ex4 (Pp), p51 ex6 (beginning letter). Tracing exercises 2,3,5 skipped.",
+ "sets": [
+  {
+   "type": "match",
+   "ex": 4,
+   "page": 48,
+   "task": "Circle the objects that start with the letter (Nn).",
+   "taskAudio": "q/task-n4.mp3",
+   "hint": "Tap the pictures that start with Nn!",
+   "center": "Nn",
+   "centerAudio": "../../phonics/n.mp3",
+   "items": [
+    {
+     "word": "screw",
+     "audio": "q/w-screw.mp3",
+     "pic": "../../pics/screw-n4.png",
+     "answer": false,
+     "pos": [
+      10,
+      30
+     ]
+    },
+    {
+     "word": "nurse",
+     "audio": "q/w-nurse.mp3",
+     "pic": "../../pics/nurse-n4.png",
+     "answer": true,
+     "pos": [
+      32,
+      14
+     ]
+    },
+    {
+     "word": "neck",
+     "audio": "q/w-neck.mp3",
+     "pic": "../../pics/neck-n4.jpg",
+     "answer": true,
+     "pos": [
+      62,
+      14
+     ]
+    },
+    {
+     "word": "ant",
+     "audio": "../u2l4/words/ant.mp3",
+     "pic": "../../pics/ant.png",
+     "answer": false,
+     "pos": [
+      90,
+      32
+     ]
+    },
+    {
+     "word": "tree",
+     "audio": "../u1l2/words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "answer": false,
+     "pos": [
+      14,
+      78
+     ]
+    },
+    {
+     "word": "net",
+     "audio": "q/w-net.mp3",
+     "pic": "../../pics/net-n4.png",
+     "answer": true,
+     "pos": [
+      88,
+      78
+     ]
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 4,
+   "page": 50,
+   "task": "Circle the objects that start with the letter (Pp).",
+   "taskAudio": "q/task-p4.mp3",
+   "hint": "Tap the pictures that start with Pp!",
+   "center": "Pp",
+   "centerAudio": "../../phonics/p.mp3",
+   "items": [
+    {
+     "word": "sun",
+     "audio": "../u2l1/words/sun.mp3",
+     "pic": "../../pics/sun.png",
+     "answer": false,
+     "pos": [
+      10,
+      16
+     ]
+    },
+    {
+     "word": "pencil",
+     "audio": "../u1l3/words/pencil.mp3",
+     "pic": "../../pics/pencil.png",
+     "answer": true,
+     "pos": [
+      90,
+      16
+     ]
+    },
+    {
+     "word": "nose",
+     "audio": "q/w-nose.mp3",
+     "pic": "../../pics/nose-p4.png",
+     "answer": false,
+     "pos": [
+      10,
+      72
+     ]
+    },
+    {
+     "word": "panda",
+     "audio": "q/w-panda.mp3",
+     "pic": "../../pics/panda-p4.png",
+     "answer": true,
+     "pos": [
+      36,
+      80
+     ]
+    },
+    {
+     "word": "potato",
+     "audio": "q/w-potato.mp3",
+     "pic": "../../pics/potato-p4.png",
+     "answer": true,
+     "pos": [
+      62,
+      78
+     ]
+    },
+    {
+     "word": "spider",
+     "audio": "../u2l2/words/spider.mp3",
+     "pic": "../../pics/spider.png",
+     "answer": false,
+     "pos": [
+      90,
+      72
+     ]
+    }
+   ]
+  },
+  {
+   "type": "letter",
+   "ex": 6,
+   "page": 51,
+   "task": "Look at the picture then circle the beginning letter.",
+   "taskAudio": "../u1l2/q/task-7.mp3",
+   "hint": "Tap the first letter!",
+   "items": [
+    {
+     "word": "tree",
+     "audio": "../u1l2/words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "letters": [
+      "Tt",
+      "Nn"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "nose",
+     "audio": "q/w-nose.mp3",
+     "pic": "../../pics/nose-6.png",
+     "letters": [
+      "Ss",
+      "Nn"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "nurse",
+     "audio": "q/w-nurse.mp3",
+     "pic": "../../pics/nurse-6.png",
+     "letters": [
+      "Aa",
+      "Nn"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "table",
+     "audio": "../u1l2/words/table.mp3",
+     "pic": "../../pics/table.png",
+     "letters": [
+      "Tt",
+      "Nn"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "panda",
+     "audio": "q/w-panda.mp3",
+     "pic": "../../pics/panda-6.png",
+     "letters": [
+      "Ss",
+      "Pp"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "net",
+     "audio": "q/w-net.mp3",
+     "pic": "../../pics/net-6.png",
+     "letters": [
+      "Aa",
+      "Nn"
+     ],
+     "answer": 1
+    }
+   ]
+  }
+ ]
+}

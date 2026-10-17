@@ -1,0 +1,207 @@
+{
+ "id": "u2l4",
+ "unit": 2,
+ "lesson": 4,
+ "title": "Phonics Aa",
+ "task": "Listen to your teacher and repeat.",
+ "scene": "../u1l2/scene.jpg",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "speakers": {
+  "Aa": "#D93D78"
+ },
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "layout": "pictures",
+ "sceneAlt": "Phonics Aa pictures",
+ "end": 5.77,
+ "lines": [
+  {
+   "who": "Aa",
+   "page": 1,
+   "words": [
+    [
+     "ant",
+     0.03,
+     0.57
+    ]
+   ],
+   "pic": "../../pics/ant-photo.jpg",
+   "pos": [
+    22,
+    24
+   ]
+  },
+  {
+   "who": "Aa",
+   "page": 1,
+   "words": [
+    [
+     "axe",
+     1.72,
+     2.25
+    ]
+   ],
+   "pic": "../../pics/axe-photo.jpg",
+   "pos": [
+    76,
+    24
+   ]
+  },
+  {
+   "who": "Aa",
+   "page": 1,
+   "words": [
+    [
+     "arrow",
+     3.41,
+     3.98
+    ]
+   ],
+   "pic": "../../pics/arrow-photo.jpg",
+   "pos": [
+    22,
+    76
+   ]
+  },
+  {
+   "who": "Aa",
+   "page": 1,
+   "words": [
+    [
+     "apple",
+     5.13,
+     5.77
+    ]
+   ],
+   "pic": "../../pics/apple-photo.jpg",
+   "pos": [
+    76,
+    76
+   ]
+  }
+ ],
+ "vocab": [
+  {
+   "word": "ant",
+   "ar": "نملة",
+   "img": "../../pics/ant-photo.jpg",
+   "parts": [
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/ant.mp3"
+   }
+  },
+  {
+   "word": "axe",
+   "ar": "فأس",
+   "img": "../../pics/axe-photo.jpg",
+   "parts": [
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "x",
+     "ph": "x",
+     "audio": "../../phonics/x.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/axe.mp3"
+   }
+  },
+  {
+   "word": "apple",
+   "ar": "تفاحة",
+   "img": "../../pics/apple-photo.jpg",
+   "parts": [
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "pp",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u2l3/words/apple.mp3"
+   }
+  },
+  {
+   "word": "arrow",
+   "ar": "سهم",
+   "img": "../../pics/arrow-photo.jpg",
+   "parts": [
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "rr",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    },
+    {
+     "t": "w",
+     "spell": true,
+     "ph": "w",
+     "audio": "../../phonics/w.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/arrow.mp3"
+   }
+  }
+ ],
+ "_note": "Book p38 ex1 (ant, axe, arrow, apple). Vocab = all four, Ahmed's approved splits (vocab-review.md). Tracing exercises 2,3,5,6 skipped; ex7 match (quiz pick) and ex8 (type first letter) and ex9 (circle beginning letter) kept. Voice: Kokoro am_michael 0.85."
+}

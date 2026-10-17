@@ -1,0 +1,930 @@
+{
+ "_note": "Shared phonics sounds for every English lesson. A lesson part points here with \"audio\": \"../../phonics/<id>.mp3\". Made with Kokoro am_michael: each sound is cut from a whole syllable, not generated alone (see tools/phonics/README.md).",
+ "sounds": [
+  {
+   "id": "a",
+   "ipa": "æ",
+   "graphemes": [
+    "a"
+   ],
+   "example": "apple"
+  },
+  {
+   "id": "e",
+   "ipa": "ɛ",
+   "graphemes": [
+    "e",
+    "ea"
+   ],
+   "example": "egg"
+  },
+  {
+   "id": "i",
+   "ipa": "ɪ",
+   "graphemes": [
+    "i",
+    "y"
+   ],
+   "example": "in"
+  },
+  {
+   "id": "o",
+   "ipa": "ɑ",
+   "graphemes": [
+    "o"
+   ],
+   "example": "on"
+  },
+  {
+   "id": "u",
+   "ipa": "ʌ",
+   "graphemes": [
+    "u",
+    "o"
+   ],
+   "example": "up"
+  },
+  {
+   "id": "oo-short",
+   "ipa": "ʊ",
+   "graphemes": [
+    "oo",
+    "u"
+   ],
+   "example": "book"
+  },
+  {
+   "id": "schwa",
+   "ipa": "ə",
+   "graphemes": [
+    "a",
+    "e",
+    "o",
+    "u"
+   ],
+   "example": "about"
+  },
+  {
+   "id": "ai",
+   "ipa": "eɪ",
+   "graphemes": [
+    "ai",
+    "ay",
+    "a_e",
+    "a",
+    "ey",
+    "eigh"
+   ],
+   "example": "rain"
+  },
+  {
+   "id": "ee",
+   "ipa": "iː",
+   "graphemes": [
+    "ee",
+    "ea",
+    "e_e",
+    "e",
+    "y",
+    "ey",
+    "ie"
+   ],
+   "example": "tree"
+  },
+  {
+   "id": "igh",
+   "ipa": "aɪ",
+   "graphemes": [
+    "igh",
+    "ie",
+    "i_e",
+    "y",
+    "ye",
+    "i",
+    "uy"
+   ],
+   "example": "light"
+  },
+  {
+   "id": "oa",
+   "ipa": "oʊ",
+   "graphemes": [
+    "oa",
+    "ow",
+    "o_e",
+    "o",
+    "oe"
+   ],
+   "example": "boat"
+  },
+  {
+   "id": "oo",
+   "ipa": "uː",
+   "graphemes": [
+    "oo",
+    "ue",
+    "ew",
+    "u_e",
+    "o"
+   ],
+   "example": "moon"
+  },
+  {
+   "id": "ue",
+   "ipa": "juː",
+   "graphemes": [
+    "ue",
+    "u_e",
+    "ew",
+    "u"
+   ],
+   "example": "cute"
+  },
+  {
+   "id": "ar",
+   "ipa": "ɑːɹ",
+   "graphemes": [
+    "ar"
+   ],
+   "example": "car"
+  },
+  {
+   "id": "or",
+   "ipa": "ɔːɹ",
+   "graphemes": [
+    "or",
+    "ore",
+    "oor",
+    "our"
+   ],
+   "example": "fork"
+  },
+  {
+   "id": "er",
+   "ipa": "ɜːɹ",
+   "graphemes": [
+    "er",
+    "ir",
+    "ur"
+   ],
+   "example": "bird"
+  },
+  {
+   "id": "aw",
+   "ipa": "ɔː",
+   "graphemes": [
+    "aw",
+    "au",
+    "al",
+    "a"
+   ],
+   "example": "saw"
+  },
+  {
+   "id": "ow",
+   "ipa": "aʊ",
+   "graphemes": [
+    "ow",
+    "ou"
+   ],
+   "example": "cow"
+  },
+  {
+   "id": "oi",
+   "ipa": "ɔɪ",
+   "graphemes": [
+    "oi",
+    "oy"
+   ],
+   "example": "boy"
+  },
+  {
+   "id": "air",
+   "ipa": "ɛɹ",
+   "graphemes": [
+    "air",
+    "are",
+    "ear"
+   ],
+   "example": "chair"
+  },
+  {
+   "id": "ear",
+   "ipa": "ɪɹ",
+   "graphemes": [
+    "ear",
+    "eer",
+    "ere"
+   ],
+   "example": "ear"
+  },
+  {
+   "id": "s",
+   "ipa": "s",
+   "graphemes": [
+    "s",
+    "ss",
+    "c",
+    "se",
+    "ce"
+   ],
+   "example": "sun"
+  },
+  {
+   "id": "z",
+   "ipa": "z",
+   "graphemes": [
+    "z",
+    "zz",
+    "s",
+    "se"
+   ],
+   "example": "zip"
+  },
+  {
+   "id": "f",
+   "ipa": "f",
+   "graphemes": [
+    "f",
+    "ff",
+    "ph"
+   ],
+   "example": "fish"
+  },
+  {
+   "id": "v",
+   "ipa": "v",
+   "graphemes": [
+    "v",
+    "ve"
+   ],
+   "example": "van"
+  },
+  {
+   "id": "th",
+   "ipa": "θ",
+   "graphemes": [
+    "th"
+   ],
+   "example": "thin"
+  },
+  {
+   "id": "thh",
+   "ipa": "ð",
+   "graphemes": [
+    "th"
+   ],
+   "example": "this"
+  },
+  {
+   "id": "sh",
+   "ipa": "ʃ",
+   "graphemes": [
+    "sh",
+    "ch",
+    "ti"
+   ],
+   "example": "ship"
+  },
+  {
+   "id": "zh",
+   "ipa": "ʒ",
+   "graphemes": [
+    "s",
+    "si"
+   ],
+   "example": "measure"
+  },
+  {
+   "id": "h",
+   "ipa": "h",
+   "graphemes": [
+    "h",
+    "wh"
+   ],
+   "example": "hat"
+  },
+  {
+   "id": "m",
+   "ipa": "m",
+   "graphemes": [
+    "m",
+    "mm",
+    "mb"
+   ],
+   "example": "man"
+  },
+  {
+   "id": "n",
+   "ipa": "n",
+   "graphemes": [
+    "n",
+    "nn",
+    "kn"
+   ],
+   "example": "net"
+  },
+  {
+   "id": "l",
+   "ipa": "l",
+   "graphemes": [
+    "l",
+    "ll",
+    "le"
+   ],
+   "example": "leg"
+  },
+  {
+   "id": "r",
+   "ipa": "ɹ",
+   "graphemes": [
+    "r",
+    "rr",
+    "wr"
+   ],
+   "example": "red"
+  },
+  {
+   "id": "ng",
+   "ipa": "ŋ",
+   "graphemes": [
+    "ng",
+    "n"
+   ],
+   "example": "ring"
+  },
+  {
+   "id": "nk",
+   "ipa": "ŋk",
+   "graphemes": [
+    "nk"
+   ],
+   "example": "pink"
+  },
+  {
+   "id": "x",
+   "ipa": "ks",
+   "graphemes": [
+    "x"
+   ],
+   "example": "box"
+  },
+  {
+   "id": "ch",
+   "ipa": "tʃ",
+   "graphemes": [
+    "ch",
+    "tch"
+   ],
+   "example": "chip"
+  },
+  {
+   "id": "p",
+   "ipa": "p",
+   "graphemes": [
+    "p",
+    "pp"
+   ],
+   "example": "pen"
+  },
+  {
+   "id": "b",
+   "ipa": "b",
+   "graphemes": [
+    "b",
+    "bb"
+   ],
+   "example": "bat"
+  },
+  {
+   "id": "t",
+   "ipa": "t",
+   "graphemes": [
+    "t",
+    "tt",
+    "ed"
+   ],
+   "example": "top"
+  },
+  {
+   "id": "d",
+   "ipa": "d",
+   "graphemes": [
+    "d",
+    "dd",
+    "ed"
+   ],
+   "example": "dog"
+  },
+  {
+   "id": "k",
+   "ipa": "k",
+   "graphemes": [
+    "c",
+    "k",
+    "ck",
+    "ch"
+   ],
+   "example": "cat"
+  },
+  {
+   "id": "g",
+   "ipa": "ɡ",
+   "graphemes": [
+    "g",
+    "gg"
+   ],
+   "example": "go"
+  },
+  {
+   "id": "j",
+   "ipa": "dʒ",
+   "graphemes": [
+    "j",
+    "g",
+    "ge",
+    "dge"
+   ],
+   "example": "jam"
+  },
+  {
+   "id": "w",
+   "ipa": "w",
+   "graphemes": [
+    "w",
+    "wh"
+   ],
+   "example": "wet"
+  },
+  {
+   "id": "y",
+   "ipa": "j",
+   "graphemes": [
+    "y"
+   ],
+   "example": "yes"
+  },
+  {
+   "id": "qu",
+   "ipa": "kw",
+   "graphemes": [
+    "qu"
+   ],
+   "example": "queen"
+  }
+ ],
+ "chunks": [
+  {
+   "id": "h_e",
+   "ipa": "hɛ",
+   "file": "chunks/h_e.mp3",
+   "first": "hello"
+  },
+  {
+   "id": "sh_ai",
+   "ipa": "ʃeɪ",
+   "file": "chunks/sh_ai.mp3",
+   "first": "shake hands"
+  },
+  {
+   "id": "h_a",
+   "ipa": "hæ",
+   "file": "chunks/h_a.mp3",
+   "first": "shake hands"
+  },
+  {
+   "id": "l_ai",
+   "ipa": "leɪ",
+   "file": "chunks/l_ai.mp3",
+   "first": "play"
+  },
+  {
+   "id": "g_oo-short",
+   "ipa": "ɡʊ",
+   "file": "chunks/g_oo-short.mp3",
+   "first": "goodbye"
+  },
+  {
+   "id": "t_ai",
+   "ipa": "teɪ",
+   "file": "chunks/t_ai.mp3",
+   "first": "table"
+  },
+  {
+   "id": "t_igh",
+   "ipa": "taɪ",
+   "file": "chunks/t_igh.mp3",
+   "first": "tiger"
+  },
+  {
+   "id": "g_er",
+   "ipa": "ɡɜːɹ",
+   "file": "chunks/g_er.mp3",
+   "first": "tiger"
+  },
+  {
+   "id": "t_o",
+   "ipa": "tɑ",
+   "file": "chunks/t_o.mp3",
+   "first": "tomato"
+  },
+  {
+   "id": "m_ai",
+   "ipa": "meɪ",
+   "file": "chunks/m_ai.mp3",
+   "first": "tomato"
+  },
+  {
+   "id": "t_oa",
+   "ipa": "toʊ",
+   "file": "chunks/t_oa.mp3",
+   "first": "tomato"
+  },
+  {
+   "id": "t_ee",
+   "ipa": "tiː",
+   "file": "chunks/t_ee.mp3",
+   "first": "teacher"
+  },
+  {
+   "id": "m_o",
+   "ipa": "mɑ",
+   "file": "chunks/m_o.mp3",
+   "first": "tomato"
+  },
+  {
+   "id": "g_e",
+   "ipa": "ɡɛ",
+   "file": "chunks/g_e.mp3",
+   "first": "tiger"
+  },
+  {
+   "id": "b_oo-short",
+   "ipa": "bʊ",
+   "file": "chunks/b_oo-short.mp3",
+   "first": "book"
+  },
+  {
+   "id": "b_a",
+   "ipa": "bæ",
+   "file": "chunks/b_a.mp3",
+   "first": "bag"
+  },
+  {
+   "id": "p_e_n",
+   "ipa": "pɛn",
+   "file": "chunks/p_e_n.mp3",
+   "first": "pencil"
+  },
+  {
+   "id": "s_i",
+   "ipa": "sɪ",
+   "file": "chunks/s_i.mp3",
+   "first": "pencil"
+  },
+  {
+   "id": "d_e",
+   "ipa": "dɛ",
+   "file": "chunks/d_e.mp3",
+   "first": "desk"
+  },
+  {
+   "id": "t_a",
+   "ipa": "tæ",
+   "file": "chunks/t_a.mp3",
+   "first": "stand up"
+  },
+  {
+   "id": "p_e",
+   "ipa": "pɛ",
+   "file": "chunks/p_e.mp3",
+   "first": "open"
+  },
+  {
+   "id": "s_e",
+   "ipa": "sɛ",
+   "file": "chunks/s_e.mp3",
+   "first": "insect"
+  },
+  {
+   "id": "r_e",
+   "ipa": "ɹɛ",
+   "file": "chunks/r_e.mp3",
+   "first": "friends"
+  },
+  {
+   "id": "r_ee",
+   "ipa": "ɹiː",
+   "file": "chunks/r_ee.mp3",
+   "first": "tree"
+  },
+  {
+   "id": "i_n",
+   "ipa": "ɪn",
+   "file": "chunks/i_n.mp3",
+   "first": "in"
+  },
+  {
+   "id": "k_igh",
+   "ipa": "kaɪ",
+   "file": "chunks/k_igh.mp3",
+   "first": "sky"
+  },
+  {
+   "id": "b_er",
+   "ipa": "bɜːɹ",
+   "file": "chunks/b_er.mp3",
+   "first": "bird"
+  },
+  {
+   "id": "b_u",
+   "ipa": "bʌ",
+   "file": "chunks/b_u.mp3",
+   "first": "butterfly"
+  },
+  {
+   "id": "l_igh",
+   "ipa": "laɪ",
+   "file": "chunks/l_igh.mp3",
+   "first": "butterfly"
+  },
+  {
+   "id": "r_a",
+   "ipa": "ɹæ",
+   "file": "chunks/r_a.mp3",
+   "first": "grass"
+  },
+  {
+   "id": "l_ow",
+   "ipa": "laʊ",
+   "file": "chunks/l_ow.mp3",
+   "first": "flower"
+  },
+  {
+   "id": "s_u",
+   "ipa": "sʌ",
+   "file": "chunks/s_u.mp3",
+   "first": "sun"
+  },
+  {
+   "id": "t_ar",
+   "ipa": "tɑːɹ",
+   "file": "chunks/t_ar.mp3",
+   "first": "star"
+  },
+  {
+   "id": "n_ai",
+   "ipa": "neɪ",
+   "file": "chunks/n_ai.mp3",
+   "first": "snake"
+  },
+  {
+   "id": "p_igh",
+   "ipa": "paɪ",
+   "file": "chunks/p_igh.mp3",
+   "first": "spider"
+  },
+  {
+   "id": "y_e",
+   "ipa": "jɛ",
+   "file": "chunks/y_e.mp3",
+   "first": "yellow"
+  },
+  {
+   "id": "s_er",
+   "ipa": "sɜːɹ",
+   "file": "chunks/s_er.mp3",
+   "first": "circle"
+  },
+  {
+   "id": "qu_air",
+   "ipa": "kwɛɹ",
+   "file": "chunks/qu_air.mp3",
+   "first": "square"
+  },
+  {
+   "id": "r_igh",
+   "ipa": "ɹaɪ",
+   "file": "chunks/r_igh.mp3",
+   "first": "triangle"
+  },
+  {
+   "id": "a_ng",
+   "ipa": "æŋ",
+   "file": "chunks/a_ng.mp3",
+   "first": "triangle"
+  },
+  {
+   "id": "t_a_ng",
+   "ipa": "tæŋ",
+   "file": "chunks/t_a_ng.mp3",
+   "first": "rectangle"
+  },
+  {
+   "id": "p_air",
+   "ipa": "pɛɹ",
+   "file": "chunks/p_air.mp3",
+   "first": "parents"
+  },
+  {
+   "id": "f_o",
+   "ipa": "fɑ",
+   "file": "chunks/f_o.mp3",
+   "first": "father"
+  },
+  {
+   "id": "m_u",
+   "ipa": "mʌ",
+   "file": "chunks/m_u.mp3",
+   "first": "mother"
+  },
+  {
+   "id": "r_u",
+   "ipa": "ɹʌ",
+   "file": "chunks/r_u.mp3",
+   "first": "brother"
+  },
+  {
+   "id": "s_i_s",
+   "ipa": "sɪs",
+   "file": "chunks/s_i_s.mp3",
+   "first": "sister"
+  },
+  {
+   "id": "p_a",
+   "ipa": "pæ",
+   "file": "chunks/p_a.mp3",
+   "first": "panda"
+  },
+  {
+   "id": "d_a",
+   "ipa": "dæ",
+   "file": "chunks/d_a.mp3",
+   "first": "panda"
+  },
+  {
+   "id": "p_o",
+   "ipa": "pɑ",
+   "file": "chunks/p_o.mp3",
+   "first": "potato"
+  },
+  {
+   "id": "p_ee",
+   "ipa": "piː",
+   "file": "chunks/p_ee.mp3",
+   "first": "pizza"
+  },
+  {
+   "id": "t_s",
+   "ipa": "ts",
+   "file": "chunks/t_s.mp3",
+   "first": "pizza"
+  },
+  {
+   "id": "f_igh",
+   "ipa": "faɪ",
+   "file": "chunks/f_igh.mp3",
+   "first": "five"
+  },
+  {
+   "id": "w_u",
+   "ipa": "wʌ",
+   "file": "chunks/w_u.mp3",
+   "first": "one"
+  },
+  {
+   "id": "b_i",
+   "ipa": "bɪ",
+   "file": "chunks/b_i.mp3",
+   "first": "bird"
+  },
+  {
+   "id": "s_ee",
+   "ipa": "siː",
+   "file": "chunks/s_ee.mp3",
+   "first": "pencil"
+  },
+  {
+   "id": "qu_a",
+   "ipa": "kwæ",
+   "file": "chunks/qu_a.mp3",
+   "first": "square"
+  },
+  {
+   "id": "m_a",
+   "ipa": "mæ",
+   "file": "chunks/m_a.mp3",
+   "first": "tomato"
+  }
+ ],
+ "clean_v2": [
+  "a",
+  "a_ng",
+  "ai",
+  "air",
+  "ar",
+  "aw",
+  "b",
+  "b_a",
+  "b_er",
+  "b_i",
+  "b_oo-short",
+  "b_u",
+  "ch",
+  "d",
+  "d_a",
+  "d_e",
+  "e",
+  "ear",
+  "ee",
+  "er",
+  "f",
+  "f_igh",
+  "f_o",
+  "g",
+  "g_e",
+  "g_er",
+  "g_oo-short",
+  "h",
+  "h_a",
+  "h_e",
+  "i",
+  "i_n",
+  "igh",
+  "j",
+  "k",
+  "k_igh",
+  "l",
+  "l_ai",
+  "l_igh",
+  "l_ow",
+  "m",
+  "m_a",
+  "m_ai",
+  "m_o",
+  "m_u",
+  "n",
+  "n_ai",
+  "n_e",
+  "n_er",
+  "n_oa",
+  "ng",
+  "nk",
+  "o",
+  "oa",
+  "oi",
+  "oo",
+  "oo-short",
+  "or",
+  "ow",
+  "p",
+  "p_a",
+  "p_air",
+  "p_e",
+  "p_e_n",
+  "p_ee",
+  "p_igh",
+  "p_o",
+  "qu",
+  "qu_a",
+  "qu_air",
+  "r",
+  "r_a",
+  "r_e",
+  "r_ee",
+  "r_igh",
+  "r_u",
+  "s",
+  "s_e",
+  "s_ee",
+  "s_er",
+  "s_i",
+  "s_i_s",
+  "s_u",
+  "schwa",
+  "sh",
+  "sh_ai",
+  "t",
+  "t_a",
+  "t_a_ng",
+  "t_ai",
+  "t_ar",
+  "t_ee",
+  "t_igh",
+  "t_o",
+  "t_oa",
+  "t_s",
+  "th",
+  "thh",
+  "u",
+  "ue",
+  "v",
+  "w",
+  "w_u",
+  "x",
+  "y",
+  "y_e",
+  "z",
+  "zh"
+ ]
+}

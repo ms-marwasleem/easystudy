@@ -1,0 +1,196 @@
+{
+ "_note": "Questions tab of u2l4 (book p39 ex4, p41 ex7, ex8, ex9). Tracing ex2,3,5,6 skipped. Ex4: tiger, tree, dolphin are the wrong ones (dolphin starts with d).",
+ "sets": [
+  {
+   "type": "match",
+   "ex": 4,
+   "page": 39,
+   "task": "Match the objects that start with the letter (Aa).",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "Tap the pictures that start with Aa!",
+   "center": "Aa",
+   "centerAudio": "../../phonics/a.mp3",
+   "items": [
+    {
+     "word": "tiger",
+     "audio": "../u1l2/words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "answer": false,
+     "pos": [
+      7,
+      19
+     ]
+    },
+    {
+     "word": "tree",
+     "audio": "../u1l2/words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "answer": false,
+     "pos": [
+      92,
+      18
+     ]
+    },
+    {
+     "word": "apple",
+     "audio": "../u2l3/words/apple.mp3",
+     "pic": "../../pics/apple-toon.png",
+     "answer": true,
+     "pos": [
+      7,
+      69
+     ]
+    },
+    {
+     "word": "dolphin",
+     "audio": "words/dolphin.mp3",
+     "pic": "../../pics/dolphin.png",
+     "answer": false,
+     "pos": [
+      32,
+      81
+     ]
+    },
+    {
+     "word": "ant",
+     "audio": "words/ant.mp3",
+     "pic": "../../pics/ant.png",
+     "answer": true,
+     "pos": [
+      69,
+      81
+     ]
+    },
+    {
+     "word": "axe",
+     "audio": "words/axe.mp3",
+     "pic": "../../pics/axe.png",
+     "answer": true,
+     "pos": [
+      92,
+      68
+     ]
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 7,
+   "page": 41,
+   "task": "Match the picture with the correct word.",
+   "taskAudio": "../u2l1/q/task-5.mp3",
+   "hint": "Join each word to its picture!",
+   "items": [
+    {
+     "word": "apple",
+     "audio": "../u2l3/words/apple.mp3",
+     "pic": "../../pics/apple-toon.png"
+    },
+    {
+     "word": "ant",
+     "audio": "words/ant.mp3",
+     "pic": "../../pics/ant.png"
+    },
+    {
+     "word": "arrow",
+     "audio": "words/arrow.mp3",
+     "pic": "../../pics/arrow.png"
+    },
+    {
+     "word": "axe",
+     "audio": "words/axe.mp3",
+     "pic": "../../pics/axe.png"
+    }
+   ],
+   "layout": "cols"
+  },
+  {
+   "type": "type",
+   "ex": 8,
+   "page": 41,
+   "task": "Write the beginning letter in each word.",
+   "taskAudio": "../u2l2/q/task-10.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "axe",
+     "audio": "words/axe.mp3",
+     "pic": "../../pics/axe.png",
+     "missing": 0,
+     "answer": "a"
+    },
+    {
+     "word": "ant",
+     "audio": "words/ant.mp3",
+     "pic": "../../pics/ant.png",
+     "missing": 0,
+     "answer": "a"
+    },
+    {
+     "word": "apple",
+     "audio": "../u2l3/words/apple.mp3",
+     "pic": "../../pics/apple-toon.png",
+     "missing": 0,
+     "answer": "a"
+    },
+    {
+     "word": "arrow",
+     "audio": "words/arrow.mp3",
+     "pic": "../../pics/arrow.png",
+     "missing": 0,
+     "answer": "a"
+    }
+   ]
+  },
+  {
+   "type": "letter",
+   "ex": 9,
+   "page": 41,
+   "task": "Look at the picture then circle the beginning letter.",
+   "taskAudio": "../u1l2/q/task-7.mp3",
+   "hint": "Tap the first letter!",
+   "items": [
+    {
+     "word": "apple",
+     "audio": "../u2l3/words/apple.mp3",
+     "pic": "../../pics/apple-toon.png",
+     "letters": [
+      "Aa",
+      "Pp"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "tiger",
+     "audio": "../u1l2/words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "letters": [
+      "Tt",
+      "Aa"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "axe",
+     "audio": "words/axe.mp3",
+     "pic": "../../pics/axe.png",
+     "letters": [
+      "Ss",
+      "Aa"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "ink",
+     "audio": "../u1l4/words/ink.mp3",
+     "pic": "../../pics/ink-icon.png",
+     "letters": [
+      "Ii",
+      "Aa"
+     ],
+     "answer": 0
+    }
+   ]
+  }
+ ]
+}

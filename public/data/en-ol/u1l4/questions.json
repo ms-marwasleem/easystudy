@@ -1,0 +1,187 @@
+{
+ "_note": "Questions tab of u1l4 (book p22 ex4, p23 ex5, p24 ex8). Ex2,3,6,7 are tracing: skipped. Ex8 is a 'pick' set: the letter is shown, the child taps the picture whose word starts with it. Quiz pictures are the book's cartoons (ink-icon, ill-icon, insect pictures, box (=in), dog, cat) plus library art. Words always match the lesson words: any insect picture is 'insect', the box is 'in'.",
+ "sets": [
+  {
+   "type": "match",
+   "ex": 4,
+   "page": 22,
+   "task": "Match the objects that start with the letter (Ii).",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "Tap the pictures that start with Ii!",
+   "center": "Ii",
+   "centerAudio": "../../phonics/i.mp3",
+   "items": [
+    {
+     "word": "tree",
+     "audio": "../u1l2/words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "answer": false,
+     "pos": [
+      7,
+      19
+     ]
+    },
+    {
+     "word": "insect",
+     "audio": "words/insect.mp3",
+     "pic": "../../pics/dragonfly.png",
+     "answer": true,
+     "pos": [
+      92,
+      18
+     ]
+    },
+    {
+     "word": "ill",
+     "audio": "words/ill.mp3",
+     "pic": "../../pics/ill-icon.png",
+     "answer": true,
+     "pos": [
+      7,
+      69
+     ]
+    },
+    {
+     "word": "tomato",
+     "audio": "../u1l2/words/tomato.mp3",
+     "pic": "../../pics/tomato.png",
+     "answer": false,
+     "pos": [
+      92,
+      68
+     ]
+    },
+    {
+     "word": "tiger",
+     "audio": "../u1l2/words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "answer": false,
+     "pos": [
+      32,
+      81
+     ]
+    },
+    {
+     "word": "ink",
+     "audio": "words/ink.mp3",
+     "pic": "../../pics/ink-icon.png",
+     "answer": true,
+     "pos": [
+      69,
+      81
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 5,
+   "page": 23,
+   "task": "Circle all the pictures that start with the letter (Ii).",
+   "taskAudio": "q/task-5.mp3",
+   "hint": "Tap the pictures that start with Ii!",
+   "items": [
+    {
+     "word": "ink",
+     "audio": "words/ink.mp3",
+     "pic": "../../pics/ink-icon.png",
+     "answer": true
+    },
+    {
+     "word": "tree",
+     "audio": "../u1l2/words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "answer": false
+    },
+    {
+     "word": "table",
+     "audio": "../u1l2/words/table.mp3",
+     "pic": "../../pics/table.png",
+     "answer": false
+    },
+    {
+     "word": "dog",
+     "audio": "words/dog.mp3",
+     "pic": "../../pics/dog.png",
+     "answer": false
+    },
+    {
+     "word": "in",
+     "audio": "words/in.mp3",
+     "pic": "../../pics/box.png",
+     "answer": true
+    },
+    {
+     "word": "house",
+     "audio": "../u1l2/words/house.mp3",
+     "pic": "../../pics/house.png",
+     "answer": false
+    },
+    {
+     "word": "insect",
+     "audio": "words/insect.mp3",
+     "pic": "../../pics/ladybug.png",
+     "answer": true
+    },
+    {
+     "word": "cat",
+     "audio": "words/cat.mp3",
+     "pic": "../../pics/cat.png",
+     "answer": false
+    },
+    {
+     "word": "tomato",
+     "audio": "../u1l2/words/tomato.mp3",
+     "pic": "../../pics/tomato.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 8,
+   "page": 24,
+   "task": "Choose the picture of the word that starts with the following letter.",
+   "taskAudio": "q/task-8.mp3",
+   "hint": "Pick the picture that starts with the letter!",
+   "items": [
+    {
+     "word": "Ii",
+     "audio": "../../phonics/i.mp3",
+     "pics": [
+      "../../pics/ink-icon.png",
+      "../../pics/teacher.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "Tt",
+     "audio": "../../phonics/t.mp3",
+     "pics": [
+      "../../pics/tiger.png",
+      "../../pics/ladybug.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "Tt",
+     "audio": "../../phonics/t.mp3",
+     "pics": [
+      "../../pics/box.png",
+      "../../pics/tree.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "Ii",
+     "audio": "../../phonics/i.mp3",
+     "pics": [
+      "../../pics/ill-icon.png",
+      "../../pics/tomato.png"
+     ],
+     "answer": 0
+    }
+   ]
+  }
+ ]
+}

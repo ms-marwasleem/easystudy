@@ -1,0 +1,267 @@
+{
+ "id": "u1l2",
+ "unit": 1,
+ "lesson": 2,
+ "title": "Phonics Tt",
+ "task": "Listen to your teacher and repeat:",
+ "scene": "scene.jpg",
+ "sceneAlt": "A smiling teacher",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "end": 8.21,
+ "speakers": {
+  "Tt": "#D93D78"
+ },
+ "lines": [
+  {
+   "who": "Tt",
+   "words": [
+    [
+     "table",
+     0,
+     0.74
+    ]
+   ],
+   "spot": [
+    6.1,
+    7.1,
+    37.4,
+    25.9
+   ],
+   "pic": "../../pics/table.png",
+   "pos": [
+    22,
+    22
+   ]
+  },
+  {
+   "who": "Tt",
+   "words": [
+    [
+     "tiger",
+     1.84,
+     2.58
+    ]
+   ],
+   "spot": [
+    59.2,
+    6.3,
+    34.6,
+    25.9
+   ],
+   "pic": "../../pics/tiger.png",
+   "pos": [
+    76,
+    20
+   ]
+  },
+  {
+   "who": "Tt",
+   "words": [
+    [
+     "tomato",
+     3.68,
+     4.5
+    ]
+   ],
+   "spot": [
+    35.2,
+    36.8,
+    29.6,
+    21.8
+   ],
+   "pic": "../../pics/tomato.png",
+   "pos": [
+    49,
+    49
+   ]
+  },
+  {
+   "who": "Tt",
+   "words": [
+    [
+     "teacher",
+     5.6,
+     6.42
+    ]
+   ],
+   "spot": [
+    8.4,
+    53.6,
+    32.4,
+    44.4
+   ],
+   "pic": "../../pics/teacher.png",
+   "pos": [
+    22,
+    76
+   ]
+  },
+  {
+   "who": "Tt",
+   "words": [
+    [
+     "tree",
+     7.52,
+     8.21
+    ]
+   ],
+   "spot": [
+    57.5,
+    60.4,
+    37.4,
+    35.6
+   ],
+   "pic": "../../pics/tree.png",
+   "pos": [
+    76,
+    78
+   ]
+  }
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocab": [
+  {
+   "word": "table",
+   "ar": "طاولة",
+   "img": "../../pics/table.png",
+   "parts": [
+    {
+     "t": "ta",
+     "ph": "t_ai",
+     "audio": "../../phonics/chunks/t_ai.mp3"
+    },
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3",
+     "spell": true
+    }
+   ],
+   "audio": {
+    "word": "words/table.mp3"
+   }
+  },
+  {
+   "word": "tiger",
+   "ar": "نمر",
+   "img": "../../pics/tiger.png",
+   "parts": [
+    {
+     "t": "ti",
+     "ph": "t_igh",
+     "audio": "../../phonics/chunks/t_igh.mp3"
+    },
+    {
+     "t": "ge",
+     "ph": "g_e",
+     "audio": "../../phonics/chunks/g_e.mp3"
+    },
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/tiger.mp3"
+   }
+  },
+  {
+   "word": "tomato",
+   "ar": "طماطم",
+   "img": "../../pics/tomato.png",
+   "parts": [
+    {
+     "t": "to",
+     "ph": "t_oa",
+     "audio": "../../phonics/chunks/t_oa.mp3"
+    },
+    {
+     "t": "ma",
+     "ph": "m_a",
+     "audio": "../../phonics/chunks/m_a.mp3"
+    },
+    {
+     "t": "to",
+     "ph": "t_oa",
+     "audio": "../../phonics/chunks/t_oa.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/tomato.mp3"
+   }
+  },
+  {
+   "word": "teacher",
+   "ar": "مدرس",
+   "img": "../../pics/teacher.png",
+   "parts": [
+    {
+     "t": "tea",
+     "ph": "t_ee",
+     "audio": "../../phonics/chunks/t_ee.mp3"
+    },
+    {
+     "t": "ch",
+     "ph": "ch",
+     "audio": "../../phonics/ch.mp3"
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/teacher.mp3"
+   }
+  },
+  {
+   "word": "tree",
+   "ar": "شجرة",
+   "img": "../../pics/tree.png",
+   "parts": [
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "ree",
+     "ph": "r_ee",
+     "audio": "../../phonics/chunks/r_ee.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/tree.mp3"
+   }
+  }
+ ],
+ "_note": "All paths in this file are relative to this lesson's folder.",
+ "_recording": "Male voice made by Claude (Kokoro, am_michael). Words split the way Ahmed teaches them (ta.b.l.e, ti.ge.r, to.ma.to, tea.ch.er); parts play sounds from data/phonics/ (multi-sound chunks in data/phonics/chunks/). Silent letters say their letter sound (\"spell\": true). Reading tab = book p12 exercise 1 (listen and repeat: table, tiger, tomato, teacher, tree); scene = the teacher picture from p13.",
+ "vocabRepeats": 3,
+ "picture": "picture.jpg",
+ "_picture": "Book p12 picture (Ahmed's high-quality version, 896x1195). Each line's 'spot' = [left, top, width, height] in % of picture.jpg: the picture of that line's word, to be marked while it is read. Waiting for reading-tab support (lesson.js); until then the tab shows scene.jpg.",
+ "layout": "pictures",
+ "_layout": "Ahmed 2026-10-16: reading tab for this lesson = pictures spread over the stage (no separate text box). Each line: 'pic' (from the shared data/pics library) at 'pos' = [x, y] centre in % of the stage, its word written under it. While reading, the word being read is highlighted and its picture does a small pop-up; tapping a word reads it as usual. 'picture'/'spot' are the older full-page idea, superseded by this."
+}

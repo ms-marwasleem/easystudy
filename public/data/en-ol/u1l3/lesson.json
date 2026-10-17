@@ -1,0 +1,506 @@
+{
+ "id": "u1l3",
+ "unit": 1,
+ "lesson": 3,
+ "title": "Around My Classroom",
+ "task": "Listen to your teacher, and repeat.",
+ "scene": "../../pics/classroom.jpg",
+ "sceneAlt": "A teacher and her class",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "end": 18.01,
+ "speakers": {
+  "Words": "#D93D78"
+ },
+ "lines": [
+  {
+   "who": "Words",
+   "words": [
+    [
+     "teacher",
+     0,
+     0.79
+    ]
+   ],
+   "pic": "../../pics/teacher-woman.png",
+   "pos": [
+    50,
+    36
+   ],
+   "page": 1
+  },
+  {
+   "who": "Words",
+   "words": [
+    [
+     "book",
+     1.89,
+     2.42
+    ]
+   ],
+   "pic": "../../pics/book.png",
+   "pos": [
+    82,
+    18
+   ],
+   "page": 1
+  },
+  {
+   "who": "Words",
+   "words": [
+    [
+     "bag",
+     3.52,
+     4.14
+    ]
+   ],
+   "pic": "../../pics/bag.png",
+   "pos": [
+    18,
+    46
+   ],
+   "page": 1
+  },
+  {
+   "who": "Words",
+   "words": [
+    [
+     "pencil",
+     5.24,
+     5.99
+    ]
+   ],
+   "pic": "../../pics/pencil.png",
+   "pos": [
+    82,
+    50
+   ],
+   "page": 1
+  },
+  {
+   "who": "Words",
+   "words": [
+    [
+     "chair",
+     7.09,
+     7.72
+    ]
+   ],
+   "pic": "../../pics/chair.png",
+   "pos": [
+    18,
+    82
+   ],
+   "page": 1
+  },
+  {
+   "who": "Words",
+   "words": [
+    [
+     "desk",
+     8.82,
+     9.49
+    ]
+   ],
+   "pic": "../../pics/desk.png",
+   "pos": [
+    50,
+    82
+   ],
+   "page": 1
+  },
+  {
+   "who": "Words",
+   "words": [
+    [
+     "board",
+     10.59,
+     11.28
+    ]
+   ],
+   "pic": "../../pics/board.png",
+   "pos": [
+    82,
+    82
+   ],
+   "page": 1
+  },
+  {
+   "who": "Words",
+   "words": [
+    [
+     "Sit",
+     12.38,
+     12.73
+    ],
+    [
+     "down.",
+     12.73,
+     13.43
+    ]
+   ],
+   "pic": "../../pics/sit-down.png",
+   "pos": [
+    26,
+    25
+   ],
+   "page": 2,
+   "k": 1.3,
+   "mw": 40
+  },
+  {
+   "who": "Words",
+   "words": [
+    [
+     "Stand",
+     14.53,
+     15.35
+    ],
+    [
+     "up.",
+     15.35,
+     15.54
+    ]
+   ],
+   "pic": "../../pics/stand-up.png",
+   "pos": [
+    74,
+    25
+   ],
+   "page": 2,
+   "k": 1.3,
+   "mw": 40
+  },
+  {
+   "who": "Words",
+   "words": [
+    [
+     "Open",
+     16.64,
+     16.96
+    ],
+    [
+     "your",
+     16.96,
+     17.38
+    ],
+    [
+     "books.",
+     17.38,
+     18.01
+    ]
+   ],
+   "pic": "../../pics/open-books.jpg",
+   "pos": [
+    50,
+    77
+   ],
+   "page": 2,
+   "k": 1.3,
+   "mw": 80
+  }
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocab": [
+  {
+   "word": "book",
+   "ar": "كتاب",
+   "img": "../../pics/book.png",
+   "parts": [
+    {
+     "t": "boo",
+     "ph": "b_oo-short",
+     "audio": "../../phonics/chunks/b_oo-short.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/book.mp3"
+   }
+  },
+  {
+   "word": "bag",
+   "ar": "شنطة",
+   "img": "../../pics/bag.png",
+   "parts": [
+    {
+     "t": "ba",
+     "ph": "b_a",
+     "audio": "../../phonics/chunks/b_a.mp3"
+    },
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/bag.mp3"
+   }
+  },
+  {
+   "word": "pencil",
+   "ar": "قلم رصاص",
+   "img": "../../pics/pencil.png",
+   "parts": [
+    {
+     "t": "pen",
+     "ph": "p_e_n",
+     "audio": "../../phonics/chunks/p_e_n.mp3"
+    },
+    {
+     "t": "ci",
+     "ph": "s_ee",
+     "audio": "../../phonics/chunks/s_ee.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/pencil.mp3"
+   }
+  },
+  {
+   "word": "chair",
+   "ar": "كرسي",
+   "img": "../../pics/chair.png",
+   "parts": [
+    {
+     "t": "ch",
+     "ph": "ch",
+     "audio": "../../phonics/ch.mp3"
+    },
+    {
+     "t": "air",
+     "ph": "air",
+     "audio": "../../phonics/air.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/chair.mp3"
+   }
+  },
+  {
+   "word": "desk",
+   "ar": "مكتب",
+   "img": "../../pics/desk.png",
+   "parts": [
+    {
+     "t": "de",
+     "ph": "d_e",
+     "audio": "../../phonics/chunks/d_e.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/desk.mp3"
+   }
+  },
+  {
+   "word": "board",
+   "ar": "سبورة",
+   "img": "../../pics/board.png",
+   "parts": [
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "oa",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    },
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/board.mp3"
+   }
+  },
+  {
+   "word": "sit down",
+   "ar": "اقعد",
+   "img": "../../pics/sit-down.png",
+   "parts": [
+    {
+     "t": "si",
+     "ph": "s_i",
+     "audio": "../../phonics/chunks/s_i.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3",
+     "blend": "parts/sit.mp3"
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "ow",
+     "ph": "ow",
+     "audio": "../../phonics/ow.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3",
+     "blend": "parts/down.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/sit-down.mp3"
+   }
+  },
+  {
+   "word": "stand up",
+   "ar": "قف",
+   "img": "../../pics/stand-up.png",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "ta",
+     "ph": "t_a",
+     "audio": "../../phonics/chunks/t_a.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3",
+     "blend": "parts/stand.mp3"
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "u",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3",
+     "blend": "parts/up.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/stand-up.mp3"
+   }
+  },
+  {
+   "word": "open",
+   "ar": "افتح",
+   "img": "../../pics/open-books.jpg",
+   "parts": [
+    {
+     "t": "o",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    },
+    {
+     "t": "pe",
+     "ph": "p_e",
+     "audio": "../../phonics/chunks/p_e.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/open.mp3"
+   }
+  },
+  {
+   "word": "your",
+   "ar": "بتاعك",
+   "img": "../../pics/your.png",
+   "parts": [
+    {
+     "t": "y",
+     "ph": "y",
+     "audio": "../../phonics/y.mp3"
+    },
+    {
+     "t": "ou",
+     "ph": "aw",
+     "audio": "../../phonics/aw.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/your.mp3"
+   }
+  }
+ ],
+ "vocabRepeats": 3,
+ "layout": "pictures",
+ "_note": "All paths in this file are relative to this lesson's folder.",
+ "_recording": "Male voice made by Claude (Kokoro, am_michael, speed 0.85); normal.mp3 = the 7 words with 1.1 s gaps, slow = 75%. Reading tab = book p17 exercise 1 (listen and repeat). Pictures cut from Ahmed's high-quality art (originals/u1l3/lesson-3-full.jpg) into data/pics; the woman teacher is teacher-woman.png (teacher.png stays the man from lesson 2).",
+ "_parts": "Parts follow Ahmed's own splits; chunks made with tools/phonics/chunks.py into data/phonics/chunks/ (board = single library sounds).",
+ "pages": 2,
+ "pageTasks": [
+  "Listen to your teacher, and repeat.",
+  "Listen, point, and repeat."
+ ],
+ "pagesBook": [
+  17,
+  18
+ ],
+ "_pages": "Reading tab has TWO book pages (p17 ex1, p18 ex2). Each line has \"page\": 1|2; pageTasks = instruction of each page. Needs a code change in lesson.js (two plain arrow buttons to move between pages, only that page's lines shown, Read plays that page's span of normal.mp3). Until then all lines show together."
+}

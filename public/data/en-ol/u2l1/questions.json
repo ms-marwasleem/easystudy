@@ -1,0 +1,285 @@
+{
+ "_note": "Questions tab of u2l1 (book p28 'Find and Circle', ex3 and p29 ex4, ex5). Find and Circle = circle (tap what you can find in the garden); ex3 = pick (word, tap the picture); ex4 = tick (sentence + picture, tick or cross); ex5 = link (all words in a row, all pictures in a row, the child joins them).",
+ "sets": [
+  {
+   "type": "circle",
+   "page": 28,
+   "task": "Circle the pictures that you can find in the garden.",
+   "taskAudio": "q/task-circle.mp3",
+   "hint": "Tap what you can find in the garden!",
+   "items": [
+    {
+     "word": "sky",
+     "audio": "words/sky.mp3",
+     "pic": "../../pics/cloud.png",
+     "answer": true,
+     "pos": [
+      14,
+      20
+     ]
+    },
+    {
+     "word": "sun",
+     "audio": "words/sun.mp3",
+     "pic": "../../pics/sun.png",
+     "answer": true,
+     "pos": [
+      38,
+      20
+     ]
+    },
+    {
+     "word": "bird",
+     "audio": "words/bird.mp3",
+     "pic": "../../pics/bird.png",
+     "answer": true,
+     "pos": [
+      62,
+      20
+     ]
+    },
+    {
+     "word": "bag",
+     "audio": "../u1l3/words/bag.mp3",
+     "pic": "../../pics/bag.png",
+     "answer": false,
+     "pos": [
+      86,
+      20
+     ]
+    },
+    {
+     "word": "tree",
+     "audio": "../u1l2/words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "answer": true,
+     "pos": [
+      14,
+      50
+     ]
+    },
+    {
+     "word": "butterfly",
+     "audio": "words/butterfly.mp3",
+     "pic": "../../pics/butterfly.png",
+     "answer": true,
+     "pos": [
+      38,
+      50
+     ]
+    },
+    {
+     "word": "flower",
+     "audio": "words/flower.mp3",
+     "pic": "../../pics/flower.png",
+     "answer": true,
+     "pos": [
+      62,
+      50
+     ]
+    },
+    {
+     "word": "grass",
+     "audio": "words/grass.mp3",
+     "pic": "../../pics/grass.png",
+     "answer": true,
+     "pos": [
+      86,
+      50
+     ]
+    },
+    {
+     "word": "desk",
+     "audio": "../u1l3/words/desk.mp3",
+     "pic": "../../pics/desk.png",
+     "answer": false,
+     "pos": [
+      14,
+      80
+     ]
+    },
+    {
+     "word": "ball",
+     "audio": "words/ball.mp3",
+     "pic": "../../pics/ball.png",
+     "answer": false,
+     "pos": [
+      38,
+      80
+     ]
+    },
+    {
+     "word": "house",
+     "audio": "../u1l3/words/house.mp3",
+     "pic": "../../pics/house.png",
+     "answer": false,
+     "pos": [
+      62,
+      80
+     ]
+    },
+    {
+     "word": "chair",
+     "audio": "../u1l3/words/chair.mp3",
+     "pic": "../../pics/chair.png",
+     "answer": false,
+     "pos": [
+      86,
+      80
+     ]
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 3,
+   "page": 28,
+   "task": "Listen, point, and circle.",
+   "taskAudio": "q/task-3.mp3",
+   "hint": "Pick the right picture!",
+   "items": [
+    {
+     "word": "grass",
+     "audio": "words/grass.mp3",
+     "pics": [
+      "../../pics/book-pink.png",
+      "../../pics/grass.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "flower",
+     "audio": "words/flower.mp3",
+     "pics": [
+      "../../pics/bag.png",
+      "../../pics/flower-pink.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "sky",
+     "audio": "words/sky.mp3",
+     "pics": [
+      "../../pics/grass.png",
+      "../../pics/clouds.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "tree",
+     "audio": "../u1l2/words/tree.mp3",
+     "pics": [
+      "../../pics/bag.png",
+      "../../pics/tree.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "butterfly",
+     "audio": "words/butterfly.mp3",
+     "pics": [
+      "../../pics/butterfly.png",
+      "../../pics/pencil.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "bird",
+     "audio": "words/bird.mp3",
+     "pics": [
+      "../../pics/flower-pink.png",
+      "../../pics/bird.png"
+     ],
+     "answer": 1
+    }
+   ],
+   "mark": "ring"
+  },
+  {
+   "type": "tick",
+   "ex": 4,
+   "page": 29,
+   "task": "Look at the picture and the word. Put a tick if they match, and a cross if they don't.",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "Do they match? Tick or cross!",
+   "items": [
+    {
+     "word": "The grass is green.",
+     "audio": "q/s1.mp3",
+     "pic": "../../pics/grass.png",
+     "answer": true
+    },
+    {
+     "word": "This is a bird.",
+     "audio": "q/s2.mp3",
+     "pic": "../../pics/flower-pink.png",
+     "answer": false
+    },
+    {
+     "word": "I can see the sky.",
+     "audio": "q/s3.mp3",
+     "pic": "../../pics/butterfly-pink.png",
+     "answer": false
+    },
+    {
+     "word": "I can see a tree.",
+     "audio": "q/s4.mp3",
+     "pic": "../../pics/tree.png",
+     "answer": true
+    },
+    {
+     "word": "This is a butterfly.",
+     "audio": "q/s5.mp3",
+     "pic": "../../pics/clouds.png",
+     "answer": false
+    },
+    {
+     "word": "This is a flower.",
+     "audio": "q/s6.mp3",
+     "pic": "../../pics/flower-red.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 5,
+   "page": 29,
+   "task": "Match the picture with the correct word.",
+   "taskAudio": "q/task-5.mp3",
+   "hint": "Join each word to its picture!",
+   "items": [
+    {
+     "word": "grass",
+     "audio": "words/grass.mp3",
+     "pic": "../../pics/grass.png"
+    },
+    {
+     "word": "flower",
+     "audio": "words/flower.mp3",
+     "pic": "../../pics/flower-red.png"
+    },
+    {
+     "word": "sky",
+     "audio": "words/sky.mp3",
+     "pic": "../../pics/sky-toon.png"
+    },
+    {
+     "word": "tree",
+     "audio": "../u1l2/words/tree.mp3",
+     "pic": "../../pics/tree.png"
+    },
+    {
+     "word": "butterfly",
+     "audio": "words/butterfly.mp3",
+     "pic": "../../pics/butterfly-pink.png"
+    },
+    {
+     "word": "bird",
+     "audio": "words/bird.mp3",
+     "pic": "../../pics/bird.png"
+    }
+   ]
+  }
+ ]
+}

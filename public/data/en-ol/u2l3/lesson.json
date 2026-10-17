@@ -1,0 +1,831 @@
+{
+ "id": "u2l3",
+ "unit": 2,
+ "lesson": 3,
+ "title": "Shapes and Colors",
+ "task": "Listen and repeat:",
+ "scene": "scene.jpg",
+ "sceneAlt": "A boy and shapes",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "end": 43.72,
+ "speakers": {
+  "Colors": "#D93D78",
+  "Shapes": "#D93D78",
+  "Q": "#1E8A7E",
+  "A": "#D93D78"
+ },
+ "lines": [
+  {
+   "who": "Colors",
+   "page": 1,
+   "words": [
+    [
+     "The",
+     0.03,
+     0.23
+    ],
+    [
+     "grass",
+     0.23,
+     0.67
+    ],
+    [
+     "is",
+     0.67,
+     0.88
+    ],
+    [
+     "green.",
+     0.88,
+     1.41
+    ]
+   ],
+   "pic": "../../pics/grass.png",
+   "pos": [
+    27,
+    30
+   ]
+  },
+  {
+   "who": "Colors",
+   "page": 1,
+   "words": [
+    [
+     "The",
+     2.57,
+     2.85
+    ],
+    [
+     "sky",
+     2.85,
+     3.31
+    ],
+    [
+     "is",
+     3.31,
+     3.49
+    ],
+    [
+     "blue.",
+     3.49,
+     3.91
+    ]
+   ],
+   "pic": "../../pics/sky-toon.png",
+   "pos": [
+    73,
+    30
+   ]
+  },
+  {
+   "who": "Colors",
+   "page": 1,
+   "words": [
+    [
+     "The",
+     5.06,
+     5.32
+    ],
+    [
+     "sun",
+     5.32,
+     5.64
+    ],
+    [
+     "is",
+     5.64,
+     5.86
+    ],
+    [
+     "yellow.",
+     5.86,
+     6.42
+    ]
+   ],
+   "pic": "../../pics/sun.png",
+   "pos": [
+    27,
+    72
+   ]
+  },
+  {
+   "who": "Colors",
+   "page": 1,
+   "words": [
+    [
+     "The",
+     7.58,
+     7.84
+    ],
+    [
+     "flower",
+     7.84,
+     8.27
+    ],
+    [
+     "is",
+     8.27,
+     8.52
+    ],
+    [
+     "red.",
+     8.52,
+     8.95
+    ]
+   ],
+   "pic": "../../pics/flower-red.png",
+   "pos": [
+    73,
+    72
+   ]
+  },
+  {
+   "who": "Shapes",
+   "page": 2,
+   "words": [
+    [
+     "square",
+     10.12,
+     10.73
+    ]
+   ],
+   "pic": "../../pics/square-green.png",
+   "pos": [
+    27,
+    30
+   ]
+  },
+  {
+   "who": "Shapes",
+   "page": 2,
+   "words": [
+    [
+     "circle",
+     11.91,
+     12.61
+    ]
+   ],
+   "pic": "../../pics/circle-red.png",
+   "pos": [
+    73,
+    30
+   ]
+  },
+  {
+   "who": "Shapes",
+   "page": 2,
+   "words": [
+    [
+     "triangle",
+     13.77,
+     14.53
+    ]
+   ],
+   "pic": "../../pics/triangle-yellow.png",
+   "pos": [
+    27,
+    72
+   ]
+  },
+  {
+   "who": "Shapes",
+   "page": 2,
+   "words": [
+    [
+     "rectangle",
+     15.68,
+     16.59
+    ]
+   ],
+   "pic": "../../pics/rectangle-blue.png",
+   "pos": [
+    73,
+    72
+   ]
+  },
+  {
+   "who": "Q",
+   "page": 3,
+   "words": [
+    [
+     "What",
+     17.75,
+     18.01
+    ],
+    [
+     "shape",
+     18.01,
+     18.39
+    ],
+    [
+     "is",
+     18.39,
+     18.59
+    ],
+    [
+     "this?",
+     18.59,
+     18.97
+    ]
+   ],
+   "pic": "../../pics/circle-red.png",
+   "pos": [
+    17,
+    27
+   ],
+   "posP": [
+    27,
+    17
+   ]
+  },
+  {
+   "who": "A",
+   "page": 3,
+   "words": [
+    [
+     "This",
+     20.15,
+     20.5
+    ],
+    [
+     "is",
+     20.5,
+     20.62
+    ],
+    [
+     "a",
+     20.62,
+     20.92
+    ],
+    [
+     "circle.",
+     20.92,
+     21.44
+    ]
+   ],
+   "more": true
+  },
+  {
+   "who": "Q",
+   "page": 3,
+   "words": [
+    [
+     "What",
+     22.6,
+     22.86
+    ],
+    [
+     "shape",
+     22.86,
+     23.24
+    ],
+    [
+     "is",
+     23.24,
+     23.44
+    ],
+    [
+     "this?",
+     23.44,
+     23.82
+    ]
+   ],
+   "pic": "../../pics/square-green.png",
+   "pos": [
+    50,
+    27
+   ],
+   "posP": [
+    73,
+    17
+   ]
+  },
+  {
+   "who": "A",
+   "page": 3,
+   "words": [
+    [
+     "This",
+     25.01,
+     25.29
+    ],
+    [
+     "is",
+     25.29,
+     25.52
+    ],
+    [
+     "a",
+     25.52,
+     25.71
+    ],
+    [
+     "square.",
+     25.71,
+     26.22
+    ]
+   ],
+   "more": true
+  },
+  {
+   "who": "Q",
+   "page": 3,
+   "words": [
+    [
+     "What",
+     27.37,
+     27.66
+    ],
+    [
+     "color",
+     27.66,
+     28.07
+    ],
+    [
+     "is",
+     28.07,
+     28.21
+    ],
+    [
+     "the",
+     28.21,
+     28.45
+    ],
+    [
+     "square?",
+     28.45,
+     28.91
+    ]
+   ],
+   "pic": "../../pics/square-blue.png",
+   "pos": [
+    83,
+    27
+   ],
+   "posP": [
+    27,
+    50
+   ]
+  },
+  {
+   "who": "A",
+   "page": 3,
+   "words": [
+    [
+     "The",
+     30.09,
+     30.38
+    ],
+    [
+     "square",
+     30.38,
+     30.83
+    ],
+    [
+     "is",
+     30.83,
+     30.93
+    ],
+    [
+     "blue.",
+     30.93,
+     31.37
+    ]
+   ],
+   "more": true
+  },
+  {
+   "who": "Q",
+   "page": 3,
+   "words": [
+    [
+     "What",
+     32.52,
+     32.82
+    ],
+    [
+     "color",
+     32.82,
+     33.23
+    ],
+    [
+     "is",
+     33.23,
+     33.51
+    ],
+    [
+     "the",
+     33.51,
+     33.66
+    ],
+    [
+     "triangle?",
+     33.66,
+     34.35
+    ]
+   ],
+   "pic": "../../pics/triangle-yellow.png",
+   "pos": [
+    17,
+    74
+   ],
+   "posP": [
+    73,
+    50
+   ]
+  },
+  {
+   "who": "A",
+   "page": 3,
+   "words": [
+    [
+     "The",
+     35.51,
+     35.78
+    ],
+    [
+     "triangle",
+     35.78,
+     36.44
+    ],
+    [
+     "is",
+     36.44,
+     36.69
+    ],
+    [
+     "yellow.",
+     36.69,
+     37.24
+    ]
+   ],
+   "more": true
+  },
+  {
+   "who": "A",
+   "page": 3,
+   "words": [
+    [
+     "The",
+     38.39,
+     38.63
+    ],
+    [
+     "triangle",
+     38.63,
+     39.41
+    ],
+    [
+     "has",
+     39.41,
+     39.56
+    ],
+    [
+     "3",
+     39.56,
+     39.96
+    ],
+    [
+     "sides.",
+     39.96,
+     40.46
+    ]
+   ],
+   "pic": "../../pics/triangle-yellow.png",
+   "pos": [
+    50,
+    74
+   ],
+   "posP": [
+    27,
+    83
+   ]
+  },
+  {
+   "who": "A",
+   "page": 3,
+   "words": [
+    [
+     "The",
+     41.62,
+     41.95
+    ],
+    [
+     "rectangle",
+     41.95,
+     42.65
+    ],
+    [
+     "has",
+     42.65,
+     42.96
+    ],
+    [
+     "4",
+     42.96,
+     43.22
+    ],
+    [
+     "sides.",
+     43.22,
+     43.72
+    ]
+   ],
+   "pic": "../../pics/rectangle-blue.png",
+   "pos": [
+    83,
+    74
+   ],
+   "posP": [
+    73,
+    83
+   ]
+  }
+ ],
+ "pages": 3,
+ "pageLayouts": [
+  "pictures",
+  "pictures",
+  "pictures"
+ ],
+ "pageTasks": [
+  "Listen and repeat:",
+  "Listen, point, and repeat:",
+  "Listen, point, and repeat:"
+ ],
+ "pagesBook": [
+  34,
+  36
+ ],
+ "compact": true,
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "green",
+   "ar": "أخضر",
+   "img": "../../pics/grass.png",
+   "parts": [
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "ree",
+     "ph": "r_ee",
+     "audio": "../../phonics/chunks/r_ee.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/green.mp3"
+   }
+  },
+  {
+   "word": "blue",
+   "ar": "أزرق",
+   "img": "../../pics/sky-toon.png",
+   "parts": [
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "ue",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/blue.mp3"
+   }
+  },
+  {
+   "word": "red",
+   "ar": "أحمر",
+   "img": "../../pics/flower-red.png",
+   "parts": [
+    {
+     "t": "re",
+     "ph": "r_e",
+     "audio": "../../phonics/chunks/r_e.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/red.mp3"
+   }
+  },
+  {
+   "word": "yellow",
+   "ar": "أصفر",
+   "img": "../../pics/sun.png",
+   "parts": [
+    {
+     "t": "ye",
+     "ph": "y_e",
+     "audio": "../../phonics/chunks/y_e.mp3"
+    },
+    {
+     "t": "ll",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    },
+    {
+     "t": "w",
+     "spell": true,
+     "ph": "w",
+     "audio": "../../phonics/w.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/yellow.mp3"
+   }
+  },
+  {
+   "word": "circle",
+   "ar": "دايرة",
+   "img": "../../pics/circle-red.png",
+   "parts": [
+    {
+     "t": "ci",
+     "ph": "s_ee",
+     "audio": "../../phonics/chunks/s_ee.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/circle.mp3"
+   }
+  },
+  {
+   "word": "square",
+   "ar": "مربع",
+   "img": "../../pics/square-green.png",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "qua",
+     "ph": "qu_a",
+     "audio": "../../phonics/chunks/qu_a.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "e",
+     "spell": true,
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/square.mp3"
+   }
+  },
+  {
+   "word": "triangle",
+   "ar": "مثلث",
+   "img": "../../pics/triangle-yellow.png",
+   "parts": [
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "ri",
+     "ph": "r_igh",
+     "audio": "../../phonics/chunks/r_igh.mp3"
+    },
+    {
+     "t": "an",
+     "ph": "a_ng",
+     "audio": "../../phonics/chunks/a_ng.mp3"
+    },
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/triangle.mp3"
+   }
+  },
+  {
+   "word": "rectangle",
+   "ar": "مستطيل",
+   "img": "../../pics/rectangle-blue.png",
+   "parts": [
+    {
+     "t": "re",
+     "ph": "r_e",
+     "audio": "../../phonics/chunks/r_e.mp3"
+    },
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "tan",
+     "ph": "t_a_ng",
+     "audio": "../../phonics/chunks/t_a_ng.mp3"
+    },
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/rectangle.mp3"
+   }
+  }
+ ],
+ "_note": "Book p34 (colors with their sentences) and p36 (shapes, questions and answers). Shape pictures are drawn flat shapes in the book's colors (data/pics/<shape>-<color>.png). Vocab splits from Ahmed's vocab-review.md.",
+ "pkWrap": true,
+ "pageNums": [
+  34,
+  34,
+  36
+ ]
+}

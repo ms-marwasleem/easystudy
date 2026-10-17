@@ -1,0 +1,191 @@
+{
+ "_note": "Questions of u3l1 (book p45 ex3,4; p46 ex5,6). Ex4/6 = choice (picture, text, two words, circle the right one, like the book). Ex5 = link (join word to picture).",
+ "sets": [
+  {
+   "type": "pick",
+   "ex": 3,
+   "page": 45,
+   "task": "Listen, point, and write a tick next to the matching picture.",
+   "taskAudio": "q/task-3.mp3",
+   "hint": "Pick the matching picture!",
+   "items": [
+    {
+     "word": "grandfather",
+     "audio": "q/w-grandfather.mp3",
+     "pics": [
+      "../../pics/grandfather-3.png",
+      "../../pics/grandmother-3.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "parents",
+     "audio": "q/w-parents.mp3",
+     "pics": [
+      "../../pics/parents-3.png",
+      "../../pics/boy-3.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "mother",
+     "audio": "q/w-mother.mp3",
+     "pics": [
+      "../../pics/mother-3.png",
+      "../../pics/girl-3.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "brother",
+     "audio": "q/w-brother.mp3",
+     "pics": [
+      "../../pics/boys-3.png",
+      "../../pics/girls-3.png"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "ex": 4,
+   "page": 45,
+   "task": "Listen, look at the picture, then circle the correct word.",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "Circle the right word!",
+   "items": [
+    {
+     "ask": "Who's this?",
+     "lead": "This is my...",
+     "options": [
+      "sister",
+      "brother"
+     ],
+     "answer": 0,
+     "pic": "../../pics/sisters-4.png",
+     "audio": "q/s-sister.mp3",
+     "word": "This is my sister."
+    },
+    {
+     "ask": "Who's this?",
+     "lead": "This is my...",
+     "options": [
+      "mother",
+      "father"
+     ],
+     "answer": 1,
+     "pic": "../../pics/father-4.png",
+     "audio": "q/s-father.mp3",
+     "word": "This is my father."
+    },
+    {
+     "ask": "Who's this?",
+     "lead": "This is my...",
+     "options": [
+      "brother",
+      "grandmother"
+     ],
+     "answer": 1,
+     "pic": "../../pics/grandmother-4.png",
+     "audio": "q/s-grandmother.mp3",
+     "word": "This is my grandmother."
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 5,
+   "page": 46,
+   "task": "Match the picture with the correct word.",
+   "taskAudio": "q/task-5.mp3",
+   "hint": "Join each word to its picture!",
+   "items": [
+    {
+     "word": "father",
+     "audio": "q/w-father.mp3",
+     "pic": "../../pics/father.png"
+    },
+    {
+     "word": "mother",
+     "audio": "q/w-mother.mp3",
+     "pic": "../../pics/mother.png"
+    },
+    {
+     "word": "brother",
+     "audio": "q/w-brother.mp3",
+     "pic": "../../pics/brothers.png"
+    },
+    {
+     "word": "sister",
+     "audio": "q/w-sister.mp3",
+     "pic": "../../pics/sisters.png"
+    },
+    {
+     "word": "grandmother",
+     "audio": "q/w-grandmother.mp3",
+     "pic": "../../pics/grandmother.png"
+    },
+    {
+     "word": "grandfather",
+     "audio": "q/w-grandfather.mp3",
+     "pic": "../../pics/grandfather.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "ex": 6,
+   "page": 46,
+   "task": "Look at the picture, listen, then choose the correct answer.",
+   "taskAudio": "q/task-6.mp3",
+   "hint": "Circle the right word!",
+   "items": [
+    {
+     "lead": "This is my",
+     "options": [
+      "brother",
+      "grandmother"
+     ],
+     "answer": 1,
+     "pic": "../../pics/grandmother-6.png",
+     "audio": "q/s-grandmother.mp3",
+     "word": "This is my grandmother."
+    },
+    {
+     "lead": "This is my",
+     "options": [
+      "father",
+      "mother"
+     ],
+     "answer": 0,
+     "pic": "../../pics/father-6.png",
+     "audio": "q/s-father.mp3",
+     "word": "This is my father."
+    },
+    {
+     "lead": "I have 2",
+     "options": [
+      "brothers",
+      "sisters"
+     ],
+     "answer": 0,
+     "pic": "../../pics/brothers-6.png",
+     "audio": "q/s-brothers.mp3",
+     "word": "I have 2 brothers."
+    },
+    {
+     "lead": "I have 2",
+     "options": [
+      "brothers",
+      "sisters"
+     ],
+     "answer": 1,
+     "pic": "../../pics/sisters-6.png",
+     "audio": "q/s-sisters.mp3",
+     "word": "I have 2 sisters."
+    }
+   ]
+  }
+ ]
+}

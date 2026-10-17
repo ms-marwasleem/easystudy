@@ -1,0 +1,398 @@
+{
+ "id": "u1l1",
+ "unit": 1,
+ "lesson": 1,
+ "title": "Greetings",
+ "task": "Listen to the following dialog.",
+ "scene": "scene.jpg",
+ "sceneAlt": "Maya and Hana outside the school",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "end": 12.46,
+ "speakers": {
+  "Maya": "#D93D78",
+  "Hana": "#1E8A7E"
+ },
+ "lines": [
+  {
+   "who": "Maya",
+   "words": [
+    [
+     "Hello!",
+     0.0,
+     0.63
+    ]
+   ]
+  },
+  {
+   "who": "Hana",
+   "words": [
+    [
+     "Hello!",
+     0.9,
+     1.43
+    ],
+    [
+     "What's",
+     1.89,
+     2.08
+    ],
+    [
+     "your",
+     2.09,
+     2.19
+    ],
+    [
+     "name?",
+     2.2,
+     2.59
+    ]
+   ]
+  },
+  {
+   "who": "Maya",
+   "words": [
+    [
+     "My",
+     2.82,
+     3.01
+    ],
+    [
+     "name",
+     3.02,
+     3.34
+    ],
+    [
+     "is",
+     3.35,
+     3.56
+    ],
+    [
+     "Maya.",
+     3.57,
+     4.09
+    ]
+   ]
+  },
+  {
+   "who": "Hana",
+   "words": [
+    [
+     "I'm",
+     4.35,
+     4.51
+    ],
+    [
+     "Hana!",
+     4.52,
+     5.03
+    ],
+    [
+     "Nice",
+     5.36,
+     5.56
+    ],
+    [
+     "to",
+     5.57,
+     5.68
+    ],
+    [
+     "meet",
+     5.69,
+     5.87
+    ],
+    [
+     "you,",
+     5.88,
+     5.99
+    ],
+    [
+     "Maya!",
+     6.0,
+     6.38
+    ]
+   ]
+  },
+  {
+   "who": "Maya",
+   "words": [
+    [
+     "Nice",
+     6.66,
+     6.92
+    ],
+    [
+     "to",
+     6.93,
+     7.03
+    ],
+    [
+     "meet",
+     7.04,
+     7.19
+    ],
+    [
+     "you,",
+     7.2,
+     7.33
+    ],
+    [
+     "too,",
+     7.34,
+     7.68
+    ],
+    [
+     "Hana!",
+     7.69,
+     8.09
+    ],
+    [
+     "Do",
+     8.59,
+     8.7
+    ],
+    [
+     "you",
+     8.71,
+     8.81
+    ],
+    [
+     "want",
+     8.82,
+     8.97
+    ],
+    [
+     "to",
+     8.98,
+     9.04
+    ],
+    [
+     "shake",
+     9.05,
+     9.29
+    ],
+    [
+     "hands?",
+     9.3,
+     9.87
+    ]
+   ]
+  },
+  {
+   "who": "Hana",
+   "words": [
+    [
+     "Yes!",
+     10.02,
+     10.43
+    ]
+   ],
+   "act": "(They shake hands)"
+  },
+  {
+   "who": "Maya",
+   "words": [
+    [
+     "Goodbye,",
+     11.61,
+     11.95
+    ],
+    [
+     "Hana!",
+     11.96,
+     12.46
+    ]
+   ]
+  }
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocab": [
+  {
+   "word": "hello",
+   "ar": "مرحبًا",
+   "img": "img/hello.jpg",
+   "parts": [
+    {
+     "t": "he",
+     "ph": "h_e",
+     "audio": "../../phonics/chunks/h_e.mp3"
+    },
+    {
+     "t": "ll",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/hello.mp3"
+   }
+  },
+  {
+   "word": "goodbye",
+   "ar": "مع السلامة",
+   "img": "img/goodbye.jpg",
+   "parts": [
+    {
+     "t": "goo",
+     "ph": "g_oo-short",
+     "audio": "../../phonics/chunks/g_oo-short.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "ye",
+     "ph": "igh",
+     "audio": "../../phonics/igh.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/goodbye.mp3"
+   }
+  },
+  {
+   "word": "shake hands",
+   "ar": "نسلّم بالإيد",
+   "img": "img/shake-hands.jpg",
+   "parts": [
+    {
+     "t": "sha",
+     "ph": "sh_ai",
+     "audio": "../../phonics/chunks/sh_ai.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3",
+     "blend": "parts/shake.mp3",
+     "spell": true
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "ha",
+     "ph": "h_a",
+     "audio": "../../phonics/chunks/h_a.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3",
+     "blend": "parts/hands.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/shake-hands.mp3"
+   }
+  },
+  {
+   "word": "play",
+   "ar": "نلعب",
+   "img": "img/play.jpg",
+   "parts": [
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "la",
+     "ph": "l_ai",
+     "audio": "../../phonics/chunks/l_ai.mp3"
+    },
+    {
+     "t": "y",
+     "spell": true,
+     "ph": "y",
+     "audio": "../../phonics/y.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/play.mp3"
+   }
+  },
+  {
+   "word": "friends",
+   "ar": "أصدقاء",
+   "img": "q/5-friends.jpg",
+   "parts": [
+    {
+     "t": "f",
+     "ph": "f",
+     "audio": "../../phonics/f.mp3"
+    },
+    {
+     "t": "ri",
+     "ph": "r_e",
+     "audio": "../../phonics/chunks/r_e.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3",
+     "spell": true
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/friends.mp3"
+   }
+  }
+ ],
+ "_note": "All paths in this file are relative to this lesson's folder.",
+ "praise": "words/good-job.mp3",
+ "_recording": "Male voice made by Claude (Kokoro, am_michael). Words are split the way Ahmed teaches them (e.g. he-ll-o, sha-k-e). Each part plays a sound from data/phonics/: one-sound parts use the shared letter sounds, multi-sound parts use data/phonics/chunks/. Letters with no sound of their own in the word (\"spell\": true) still say their letter sound so children remember to write them. shake.mp3 and hands.mp3 are the joined sounds.",
+ "vocabRepeats": 3
+}

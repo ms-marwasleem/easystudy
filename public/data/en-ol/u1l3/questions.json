@@ -1,0 +1,200 @@
+{
+ "_note": "Questions tab of this lesson (book p19 ex3, ex4 and p20 ex5). Ex3 = \"circle\" (all pictures on the screen, tap the ones you can find in your classroom: a right one gets a ring, a wrong one an alarm), ex4 = \"tick\" (all pictures with a faded tick and cross each), ex5 = pick. Pictures come from the shared library data/pics (Ahmed's high-quality art); tiger, tree and teacher audio are reused from lesson 2.",
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 3,
+   "page": 19,
+   "task": "Circle the pictures that you can find in your classroom.",
+   "taskAudio": "q/task-3.mp3",
+   "hint": "Tap the things you can find in your classroom!",
+   "items": [
+    {
+     "word": "book",
+     "audio": "words/book.mp3",
+     "pic": "../../pics/book-blue.png",
+     "answer": true
+    },
+    {
+     "word": "tree",
+     "audio": "../u1l2/words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "answer": false
+    },
+    {
+     "word": "pencil",
+     "audio": "words/pencil.mp3",
+     "pic": "../../pics/pencil.png",
+     "answer": true
+    },
+    {
+     "word": "bag",
+     "audio": "words/bag.mp3",
+     "pic": "../../pics/bag-orange.png",
+     "answer": true
+    },
+    {
+     "word": "desk",
+     "audio": "words/desk.mp3",
+     "pic": "../../pics/desk.png",
+     "answer": true
+    },
+    {
+     "word": "cat",
+     "audio": "../u1l4/words/cat.mp3",
+     "pic": "../../pics/cat.png",
+     "answer": false
+    },
+    {
+     "word": "teacher",
+     "audio": "../u1l2/words/teacher.mp3",
+     "pic": "../../pics/teacher-woman.png",
+     "answer": true
+    },
+    {
+     "word": "house",
+     "audio": "words/house.mp3",
+     "pic": "../../pics/house.png",
+     "answer": false
+    },
+    {
+     "word": "chair",
+     "audio": "words/chair.mp3",
+     "pic": "../../pics/chair-brown.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "tick",
+   "ex": 4,
+   "page": 19,
+   "task": "Look at the picture and the word. Put a tick if they match, and a cross if they don't.",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "Tap the tick if they match, the cross if not!",
+   "items": [
+    {
+     "word": "teacher",
+     "audio": "../u1l2/words/teacher.mp3",
+     "pic": "../../pics/teacher-woman.png",
+     "answer": true
+    },
+    {
+     "word": "sit down",
+     "audio": "words/sit-down.mp3",
+     "pic": "../../pics/boy-sit.png",
+     "answer": true
+    },
+    {
+     "word": "pencil",
+     "audio": "words/pencil.mp3",
+     "pic": "../../pics/pencil.png",
+     "answer": true
+    },
+    {
+     "word": "book",
+     "audio": "words/book.mp3",
+     "pic": "../../pics/notebook.jpg",
+     "answer": true
+    },
+    {
+     "word": "stand up",
+     "audio": "words/stand-up.mp3",
+     "pic": "../../pics/desk.png",
+     "answer": false
+    },
+    {
+     "word": "desk",
+     "audio": "words/desk.mp3",
+     "pic": "../../pics/book-blue.png",
+     "answer": false
+    },
+    {
+     "word": "chair",
+     "audio": "words/chair.mp3",
+     "pic": "../../pics/chair-brown.png",
+     "answer": true
+    },
+    {
+     "word": "bag",
+     "audio": "words/bag.mp3",
+     "pic": "../../pics/bag-orange.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 5,
+   "page": 20,
+   "task": "Listen, point, and write a tick for the matching picture.",
+   "taskAudio": "q/task-5.mp3",
+   "hint": "Listen, then tap the right picture!",
+   "items": [
+    {
+     "word": "teacher",
+     "audio": "../u1l2/words/teacher.mp3",
+     "pics": [
+      "../../pics/book-green.png",
+      "../../pics/teacher-woman.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "sit down",
+     "audio": "words/sit-down.mp3",
+     "pics": [
+      "../../pics/boy-sit.png",
+      "../../pics/pencil.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "stand up",
+     "audio": "words/stand-up.mp3",
+     "pics": [
+      "../../pics/bag-orange.png",
+      "../../pics/girl-stand.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "desk",
+     "audio": "words/desk.mp3",
+     "pics": [
+      "../../pics/desk.png",
+      "../../pics/tomato.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "chair",
+     "audio": "words/chair.mp3",
+     "pics": [
+      "../../pics/tree.png",
+      "../../pics/chair-brown.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "pencil",
+     "audio": "words/pencil.mp3",
+     "pics": [
+      "../../pics/pencil.png",
+      "../../pics/book-blue.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "bag",
+     "audio": "words/bag.mp3",
+     "pics": [
+      "../../pics/bag-orange.png",
+      "../../pics/tiger.png"
+     ],
+     "answer": 0
+    }
+   ]
+  }
+ ]
+}
