@@ -38,7 +38,7 @@
    They stay between the lesson's square (--bw, set by map.js) and the next lesson. */
 .jside{--b:clamp(32px,2.4em,52px);--L:max(1em,calc(2.7em - var(--rb)/2));position:absolute;left:calc(var(--bw,6em) + .4em);right:.4em;height:0;
   display:flex;gap:.5em;z-index:2;font-size:clamp(12px,min(2.4cqw,3.2cqh),26px)}
-.jside.bk{bottom:calc(50% + var(--rb)/2 - 2px);align-items:flex-end}
+.jside.bkp{bottom:calc(50% + var(--rb)/2 - 2px);align-items:flex-end}
 .jside.wb{--L:max(1.4em,calc(3.2em - var(--rb)/2));top:calc(50% + var(--rb)/2 - 2px);align-items:flex-start}   /* longer: clear of the lesson's name */
 .jpgs{flex:1;display:flex;justify-content:space-evenly;align-items:inherit;gap:6px}
 .jpg{display:flex;flex-direction:column;align-items:center;flex:none}
@@ -52,7 +52,7 @@
 .jpm::before{content:"";position:absolute;inset:-4px -3px}
 /* the bubble's tail, pointing at the road */
 .jpm::after{content:"";position:absolute;left:50%;width:calc(var(--b)*.22);height:calc(var(--b)*.22);background:var(--bg);border:2px solid var(--g);border-top:0;border-left:0}
-.jside.bk .jpm::after{bottom:calc(var(--b)*-.13);transform:translateX(-50%) rotate(45deg)}
+.jside.bkp .jpm::after{bottom:calc(var(--b)*-.13);transform:translateX(-50%) rotate(45deg)}
 .jside.wb .jpm::after{top:calc(var(--b)*-.13);transform:translateX(-50%) rotate(-135deg)}
 .jpm.soon{opacity:.6}
 .jpm:active{transform:scale(.9)}

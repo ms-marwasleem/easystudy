@@ -123,7 +123,7 @@ function qGo(i){
   }
   qLayout(); carFrac(i/qz.list.length);
   // the first question of each exercise: the instruction is read first, then the word
-  setTimeout(async()=>{ if(run!==qz.run||tab!=='quiz') return; if(q.k===0) await qTask(); if(run===qz.run&&tab==='quiz'){ if(s.type==='type') qFocus(); qSay(); } },350);
+  setTimeout(async()=>{ if(run!==qz.run||tab!=='quiz') return; if(q.k===0&&(i===0||qGrp(qz.list[i-1].set)!==qGrp(s))) await qTask(); if(run===qz.run&&tab==='quiz'){ if(s.type==='type') qFocus(); qSay(); } },350);
 }
 // the match board: built once per set; each right picture joined moves on to the next star without rebuilding it
 function qBoard(w,q,i,run){
@@ -182,13 +182,19 @@ async function qMatch(btn,it,s){
     if(anim) G.fromTo(btn,{x:-9},{x:0,duration:.5,ease:'elastic.out(1.5,.25)'});
     return;
   }
-  qz.busy=true; const run=qz.run; btn.classList.add('done');
+  const run=qz.run, more=qSetMoreAfter(s); btn.classList.add('done'); if(!more) qz.busy=true;
   // a line from the picture to the letter in the middle, drawn out like a pencil line
   if(s.type==='match') qLines(btn);
   if(s.type==='circle'&&anim) G.fromTo(btn,{'--ring':1.5},{'--ring':1,duration:.4,ease:'back.out(2)'});
   celebrate(btn); if(!s.silent) qSound(it.src,it.word);
-  return qDone(s,run,1100);
+  if(qMore(s)) return; return qDone(s,run,1100);
 }
+// a right answer of a board that has more answers still to find: its star, and on to the next one at once (nothing waits, so the child can tap the next right picture straight away)
+const qSetMoreAfter=s=>qz.i+1<qz.list.length&&qz.list[qz.i+1].set===s;
+function qMore(s){ const next=qz.i+1; if(next>=qz.list.length||qz.list[next].set!==s) return false;
+  const d=$(`.qdots i[data-i="${qz.i}"]`); if(d){ d.innerHTML=STAR(true); d.classList.add('got'); if(anim) G.fromTo(d,{scale:1.8},{scale:1,duration:.6,ease:'elastic.out(1.2,.4)'}); }
+  carFrac((qz.i+1)/qz.list.length); qz.i=next; $$('.qdots i').forEach((x,k)=>x.classList.toggle('cur',k===next));
+  $('.qarr.prev').disabled=qSetStart(-1)<0; $('.qarr.next').disabled=qSetStart(1)<0; return true; }
 // one more right answer of a board: its star, then on to the next one (the same board stays when the exercise has more)
 async function qDone(s,run,ms){
   const d=$(`.qdots i[data-i="${qz.i}"]`); if(d){ d.innerHTML=STAR(true); d.classList.add('got'); if(anim) G.fromTo(d,{scale:1.8},{scale:1,duration:.6,ease:'elastic.out(1.2,.4)'}); }
@@ -306,14 +312,15 @@ function qLinkRefresh(land){ const bd=$('.qlink'); if(!bd) return; const s=bd._s
   const B=bd.getBoundingClientRect(), cols=bd.classList.contains('cols'), mx=Math.max(...s.items.map(it=>Math.max(it.word.length,(it.text2||'').length)));
   const cw=cols?B.width*.4:(B.width-(n-1)*8)/n-14, rh=cols?B.height/n*.5:40;
   bd.style.setProperty('--fs',Math.max(12,Math.min(isAr()?48:32,cw/(.6*mx),rh*1.1))+'px'); qLinkLines(); }
-async function qLinkTry(bd,s,a,b,run){
+async function qLinkTry(bd,s,a,b){
+  const run=qz.run;   // the board is kept from pair to pair, so it must use the question running NOW, not the one it was built in
   const wb=a.classList.contains('qlkw')?a:b, pb=wb===a?b:a, it=s.items[+wb.dataset.k];
   if(wb.dataset.k!==pb.dataset.k){ tone(170,'square',.06,.18); const l=qLinkLine(bd,wb,pb,'qlj bad'); setTimeout(()=>l.remove(),500);
     if(anim) G.fromTo([wb,pb],{x:-8},{x:0,duration:.5,ease:'elastic.out(1.5,.25)'}); return; }
-  qz.busy=true; wb.classList.add('done'); pb.classList.add('done'); bd._pairs.push([wb,pb]);
+  if(!qSetMoreAfter(s)) qz.busy=true; wb.classList.add('done'); pb.classList.add('done'); bd._pairs.push([wb,pb]);
   const l=qLinkLine(bd,wb,pb); if(anim){ const len=l.getTotalLength?l.getTotalLength():300; G.fromTo(l,{strokeDasharray:len,strokeDashoffset:len},{strokeDashoffset:0,duration:.35,ease:'power2.out'}); }
   celebrate(pb); qSound(it.src,it.word);
-  return qDone(s,run,900);
+  if(qMore(s)) return; return qDone(s,run,900);
 }
 /* choice: tap the right word of the two; it gets a hand-drawn ring */
 async function qChoose(btn,k,q){

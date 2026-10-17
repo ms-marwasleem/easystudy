@@ -29,7 +29,8 @@
 .qsrc{display:grid;grid-template-columns:1fr auto auto 1fr;align-items:center}
 .qarr{justify-self:start;display:grid;place-items:center;width:clamp(36px,6vh,46px);height:clamp(36px,6vh,46px);padding:0;border-radius:50%;
   color:#7A4A22;background:#FFFBF0;border:3px solid #C9A777;box-shadow:0 3px 0 rgba(90,52,24,.3)}
-.qarr.next{justify-self:end}
+.qarr.prev{grid-column:1}.qarr.next{justify-self:end;grid-column:4}
+#lesson.ar .qsrc{display:flex;justify-content:center;gap:16px}   /* Arabic has one book button: both arrows stand beside it */
 .qarr svg{width:60%;height:60%;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .qarr.prev svg{transform:scaleX(-1)}
 .qarr:active{transform:scale(.92)}
@@ -233,3 +234,5 @@ button.qpic{cursor:pointer}
 #lesson.ar .qlkw b,#lesson.ar .qlkp.tx b,#lesson.ar .qmp.tx b{font-family:var(--f-ar)}
 .qlp .qlkp.tx{align-self:start;justify-self:center;height:auto;width:auto}
 .qlink.cols .qlp .qlkp.tx{align-self:center;justify-self:end}
+#lesson.ar .qsrc{flex-direction:row-reverse}   /* Arabic reads right to left: "back" is on the right */
+#lesson.ar .qarr.prev svg{transform:none}#lesson.ar .qarr.next svg{transform:scaleX(-1)}

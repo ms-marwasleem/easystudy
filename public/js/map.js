@@ -128,7 +128,7 @@ function snakeLayout(){
   else pick={R:Math.max(1,Math.min(n,SNAKE_MAXR,Math.floor(H/SNAKE_MINFS/SNAKE_EM))),fs:SNAKE_MINFS};
   const {R,fs}=pick; const m=put(R,fs), b=split(m,R);
   const Wj=Math.max(W,Math.ceil(b.mx)); row.innerHTML=''; row.style.width=Wj+'px';
-  const lines=[]; for(let k=0;k<R;k++){ const ln=el('div','jline'+(k%2?' rev':'')); lines.push(ln); row.append(ln); }
+  const lines=[]; for(let k=0;k<R;k++){ const ln=el('div','jline'+(k%2===(isAr()?0:1)?' rev':'')); lines.push(ln); row.append(ln); }
   b.c.forEach((e,k)=>{ const a=k?b.c[k-1]:0; if(k&&atoms[a].kind==='l') lines[k].append(mkSpacer()); for(let i=a;i<e;i++) lines[k].append(...atoms[i].els); });
   $$('.jl',j).forEach(l=>{ const {need,least}=lessonLens(l,false); l.style.flex=`${need} 1 ${need}px`; l.style.minWidth=least+'px'; });
   j._rows=lines; j._lh=m.lh; j._rb=m.rb; j._pad=m.pad; j._Wj=Wj;
@@ -141,11 +141,12 @@ function snakeLayout(){
 function drawRoad(){
   const j=$('.journey'), svg=$('.jroad',j); if(!svg||!j._rows) return;
   const R=j._rows.length, lh=j._lh, rb=j._rb, Wj=j._Wj, xl=rb*.85+6, xr=Wj-xl, r=Math.min(rb*1.1,lh/2), H=Math.max(lh*R,j.parentElement.clientHeight);
-  let d=`M${xl},${lh/2}`;
-  for(let k=0;k<R;k++){ const y=lh*(k+.5), right=k%2===0;
-    d+=right?` H${xr-r}`:` H${xl+r}`;
-    if(k<R-1) d+=right?` A${r},${r} 0 0 1 ${xr},${y+r} V${y+lh-r} A${r},${r} 0 0 1 ${xr-r},${y+lh}`:` A${r},${r} 0 0 0 ${xl},${y+r} V${y+lh-r} A${r},${r} 0 0 0 ${xl+r},${y+lh}`; }
-  d+=R%2===1?` H${xr}`:` H${xl}`;
+  const rtl=isAr(), st=rtl?xr:xl, far=rtl?xl:xr, sg=rtl?-1:1, sw=rtl?0:1;   // Arabic: the road starts on the right and runs left
+  let d=`M${st},${lh/2}`;
+  for(let k=0;k<R;k++){ const y=lh*(k+.5), fwd=k%2===0;
+    d+=fwd?` H${far-sg*r}`:` H${st+sg*r}`;
+    if(k<R-1) d+=fwd?` A${r},${r} 0 0 ${sw} ${far},${y+r} V${y+lh-r} A${r},${r} 0 0 ${sw} ${far-sg*r},${y+lh}`:` A${r},${r} 0 0 ${1-sw} ${st},${y+r} V${y+lh-r} A${r},${r} 0 0 ${1-sw} ${st+sg*r},${y+lh}`; }
+  d+=R%2===1?` H${far}`:` H${st}`;
   svg.setAttribute('viewBox',`0 0 ${Wj} ${H}`); svg.setAttribute('width',Wj); svg.setAttribute('height',H); svg.style.height=H+'px';
   const L=(w,c)=>`<path d="${d}" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`;
   const layers=(a,b,c)=>`${L(rb,a)}${L(rb*.76,b)}${L(rb*.4,c)}`;
@@ -207,7 +208,7 @@ function openMap(){
   if(!SUBJECT) SUBJECT=COURSE.subjects.find(s=>s.open);
   stopAll(); vStop(); clearMarks(); show('map');
   $('#mapTitle').textContent=SUBJECT.name; $('#mapSub').textContent=`${tr(COURSE.grade)} · ${tr(COURSE.term)}`;
-  drawMap(); showHint($('.jl.cur .jcard'),COURSE.hints.map,1500,'map');
+  drawMap(); showHint($('.jl.cur .jcard'),isAr()?'اضغط هنا لتبدأ!':COURSE.hints.map,1500,'map');
 }
 let rsT=0; addEventListener('resize',()=>{ clearTimeout(rsT); rsT=setTimeout(()=>{ if($('#map').hidden) return;
   const j=$('.journey'), cur=Math.max(0,$$('.jl').findIndex(e=>e.classList.contains('cur')));
