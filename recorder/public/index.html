@@ -1,0 +1,177 @@
+<!doctype html><html lang="ar"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>مكتبة الصوتيات العربي</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@500;700&display=swap">
+<style>
+/* Layout: plain list, one line per sound; round buttons on the left of each line */
+:root{--bg:#FFFFFF;--ink:#1B2530;--soft:#5E6C7B;--line:#E1E7EE;--blue:#1F6FD1;--rec:#D8452F;--ok:#1E8A5E;--font:'Noto Naskh Arabic','Geeza Pro','Traditional Arabic',serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121920;--ink:#EAF0F6;--soft:#9BAABA;--line:#2C3845;--blue:#6AA8F2;--rec:#FF7A63;--ok:#4CC794;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121920;--ink:#EAF0F6;--soft:#9BAABA;--line:#2C3845;--blue:#6AA8F2;--rec:#FF7A63;--ok:#4CC794;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.6;padding-block:18px 60px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1{font-size:28px;margin:0}
+h2{font-size:20px;margin:0;padding-bottom:4px;border-bottom:2px solid var(--blue)}
+.how{margin:0;color:var(--soft);font-size:15px}
+#msg{min-height:1.5em;color:var(--rec);font-size:15px}
+.sec{display:flex;flex-direction:column}
+.line{display:flex;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--line)}
+.line .tx{flex:1;min-width:0;overflow-wrap:anywhere}
+.ctl{flex:none}
+.lab{flex:none}
+.big{font-size:28px;font-weight:700;line-height:1.4}
+.lab{font-size:13px;color:var(--soft);min-width:44px}
+.ctl{display:flex;align-items:center;gap:6px}
+.ib{width:40px;height:40px;border-radius:50%;border:2px solid var(--blue);background:none;color:var(--blue);display:inline-flex;align-items:center;justify-content:center;padding:0;position:relative;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.ib svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.ib.rec{border-color:var(--rec);color:var(--rec)}
+.ib.live{background:var(--rec);color:#fff}
+.ib.mine{border-color:var(--ok);color:var(--ok)}
+.ib.on{background:color-mix(in srgb,var(--blue) 18%,transparent)}
+.ib.gap{visibility:hidden}
+.ib input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}
+.x{border:0;background:none;color:var(--soft);font:inherit;font-size:13px;text-decoration:underline;cursor:pointer;padding:4px}
+input[type=text],select{font:inherit;font-size:20px;border:1px solid var(--line);border-radius:8px;padding:4px 10px;background:var(--bg);color:var(--ink);min-width:0}
+.split{font-weight:700;width:100%;box-sizing:border-box;direction:rtl;text-align:left;font-size:18px}
+.add{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.add input{flex:1;min-width:160px}
+.btn{font:inherit;font-size:17px;border:2px solid var(--blue);background:var(--blue);color:#fff;border-radius:8px;padding:4px 18px;cursor:pointer}
+.empty{color:var(--soft);font-size:15px;padding:8px 0}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+</style>
+</head><body style="margin:0">
+<main>
+ <h1>مكتبة الصوتيات</h1>
+ <p class="how">اضغط على المايك واستمر في الضغط وأنت تتكلم، وأفلت الزر عند الانتهاء. زر السهم لرفع تسجيل جاهز من الجهاز. الأخضر يعني أنه تم تسجيله. للمقاطع: قل كل المقاطع بالترتيب مع وقفة بينها، وأنا أقطعها.</p>
+ <div id="msg" role="status"></div>
+ <section class="sec" id="gate" hidden><h2>كلمة السر</h2><div class="add"><input type="text" id="pw" placeholder="كلمة السر" autocomplete="off"><button class="btn" id="pwbtn">دخول</button></div><p class="how" id="pwnote"></p></section>
+ <section class="sec">
+  <h2>إضافة جديد</h2>
+  <div class="add"><select id="kind"><option value="word">كلمة</option><option value="question">سؤال</option><option value="reading">قراءة</option><option value="other">غير ذلك</option></select>
+  <input type="text" id="newtext" placeholder="اكتب النص هنا" autocomplete="off"><input type="text" id="newsyl" placeholder="المقاطع، افصل بينها بشرطة -" autocomplete="off"><button class="btn" id="addbtn">إضافة</button></div>
+ </section>
+ <section class="sec" id="needed"></section>
+ <section class="sec" id="words"></section>
+ <section class="sec" id="prompts"></section>
+ <section class="sec" id="done"></section>
+ <section class="sec"><button class="btn" id="backup" style="align-self:flex-start">نزّل كل التسجيلات (نسخة احتياطية)</button></section>
+</main>
+<script>
+const $=(s,r=document)=>r.querySelector(s);
+const mk=(t,c,h)=>{const e=document.createElement(t); if(c) e.className=c; if(h!=null) e.innerHTML=h; return e;};
+const ICON={
+ play:'<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/></svg>',
+ mic:'<svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg>',
+ up:'<svg viewBox="0 0 24 24"><path d="M12 16V5"/><path d="M7 9l5-5 5 5"/><path d="M5 19h14"/></svg>'
+};
+const MAXMS=30000;
+let items={words:[],prompts:[]}, recs={}, splits={}, customs=[], needed=[], cur=null, micBlocked=false, live=false, PW='';
+try{ PW=localStorage.getItem('pw')||''; }catch(e){}
+const idOf=k=>k.replace(/[\/:]/g,'~');
+const sylList=t=>t.split(/[-–—،,]/).map(x=>x.trim()).filter(Boolean);
+const hex=t=>[...t].map(c=>c.codePointAt(0).toString(16)).join('-');
+const say=m=>{$('#msg').textContent=m||'';};
+async function api(method,path,body,raw){
+ const r=await fetch(path,{method,headers:{'x-pw':PW,...(raw?{'content-type':raw}:body?{'content-type':'application/json'}:{})},body:raw?body:(body?JSON.stringify(body):undefined)});
+ if(r.status===401){ gate(); throw new Error('auth'); }
+ return r;
+}
+function playUrl(u,btn){ if(cur) cur.pause(); const a=new Audio(u); cur=a; btn&&btn.classList.add('on'); const done=()=>btn&&btn.classList.remove('on'); a.onended=done; a.onerror=()=>{done();say('تعذر تشغيل الصوت');}; a.play().catch(done); }
+async function playMine(id,btn){ try{ const r=await api('GET','/api/audio/'+id); if(!r.ok) return say('لا يوجد تسجيل'); playUrl(URL.createObjectURL(await r.blob()),btn); }catch(e){say('تعذر تشغيل التسجيل');} }
+async function save(slot,blob){
+ if(blob.size<1500) return say('التسجيل قصير جدا، اضغط واستمر ثم أفلت');
+ const id=idOf(slot.key), meta={path:slot.path,label:slot.label}; if(slot.parts) meta.parts=slot.parts; if(slot.alt&&slot.alt.length) meta.alt=slot.alt;
+ try{ const r=await api('PUT','/api/audio/'+id+'?meta='+encodeURIComponent(JSON.stringify(meta)),blob,(blob.type||'audio/webm').split(';')[0]||'audio/webm');
+  if(!r.ok) return say('لم يتم الحفظ'); say(''); await load(); }catch(e){ if(e.message!=='auth') say('لم يتم الحفظ، تأكد من الإنترنت'); }
+}
+async function del(slot){ try{ await api('DELETE','/api/audio/'+idOf(slot.key)); await load(); }catch(e){say('تعذر الحذف');} }
+function holdMic(slot){
+ const el=mk('button','ib rec',ICON.mic); el.title='اضغط واستمر للتسجيل'; el.setAttribute('aria-label','تسجيل'); el.oncontextmenu=e=>e.preventDefault();
+ if(micBlocked||!(navigator.mediaDevices&&window.MediaRecorder)){ const l=mk('label','ib rec',ICON.mic); const i=mk('input'); i.type='file'; i.accept='audio/*'; i.onchange=async()=>{ if(i.files[0]) await save(slot,i.files[0]); i.value=''; }; l.append(i); l.title='اختر تسجيلا من الجهاز'; return l; }
+ let st=null;
+ const end=()=>{ if(st){ const s=st; st=null; if(s.rec&&s.rec.state!=='inactive') s.rec.stop(); else s.cancel=true; } };
+ el.onpointerdown=async e=>{ e.preventDefault(); if(st) return; const s={cancel:false,rec:null}; st=s; try{el.setPointerCapture(e.pointerId);}catch(_){}
+  let stream; try{ stream=await navigator.mediaDevices.getUserMedia({audio:true}); }
+  catch(err){ st=null; micBlocked=true; render(); say('لم يسمح المتصفح بالمايك. اسمح له من إعدادات الموقع، أو سجّل بتطبيق التسجيل ثم اضغط زر المايك لاختيار الملف.'); return; }
+  if(s.cancel||st!==s){ stream.getTracks().forEach(t=>t.stop()); return; }
+  const rec=new MediaRecorder(stream), ch=[]; s.rec=rec; live=true; el.classList.add('live'); say('جاري التسجيل...');
+  rec.ondataavailable=ev=>ev.data.size&&ch.push(ev.data);
+  rec.onstop=async()=>{ stream.getTracks().forEach(t=>t.stop()); clearTimeout(tm); live=false; el.classList.remove('live'); st=null; await save(slot,new Blob(ch,{type:rec.mimeType||'audio/webm'})); render(); };
+  const tm=setTimeout(()=>{ if(rec.state!=='inactive') rec.stop(); },MAXMS); rec.start(); };
+ el.onpointerup=end; el.onpointercancel=end; el.onlostpointercapture=end;
+ return el;
+}
+function ctl(slot,existing){
+ const w=mk('span','ctl'), has=!!recs[idOf(slot.key)];
+ const u=mk('label','ib',ICON.up); u.title='رفع ملف صوتي'; const i=mk('input'); i.type='file'; i.accept='audio/*'; i.onchange=async()=>{ if(i.files[0]) await save(slot,i.files[0]); i.value=''; }; u.append(i); w.append(u);
+ w.append(holdMic(slot));
+ if(has){ const p=mk('button','ib mine',ICON.play); p.title='تسجيلي'; p.onclick=()=>playMine(idOf(slot.key),p); w.append(p);
+  const x=mk('button','x','حذف'); x.onclick=()=>del(slot); w.append(x); }
+ else if(existing){ const p=mk('button','ib',ICON.play); p.title='تسجيلك الحالي'; p.onclick=()=>playUrl(existing,p); w.append(p); }
+ else w.append(mk('span','ib gap'));
+ return w;
+}
+const partsOf=it=>{ const sp=splits[it.id]; if(!sp) return it.parts;
+ return sp.map((t,i)=>{ const o=it.parts[i]; return (o&&o.t===t)?o:{t,f:'syl-ar/'+hex(t)+'.mp3'}; }); };
+function wordLines(it,box){
+ const l1=mk('div','line'); l1.append(mk('span','lab','الكلمة')); l1.append(mk('span','tx big',it.w));
+ l1.append(ctl({key:it.f,path:it.f,alt:it.alt,label:it.w}));
+ const parts=partsOf(it), l2=mk('div','line'); l2.append(mk('span','lab','المقاطع'));
+ const tx=mk('span','tx'), inp=mk('input'); inp.type='text'; inp.className='split'; inp.id='sp-'+it.id.replace(':','-'); inp.value=parts.map(p=>p.t).join(' - ');
+ const commit=async()=>{ const arr=sylList(inp.value);
+  if(!arr.length||arr.join('|')===parts.map(p=>p.t).join('|')) return;
+  if(arr.join('').replace(/\s/g,'')!==it.w.replace(/\s/g,'')) say('انتبه: الحروف بعد التقسيم مختلفة عن الكلمة');
+  try{ await api('PUT','/api/split/'+it.id.replace(':','_'),{word:it.w,lesson:it.id.split(':')[0],parts:arr}); await load(); }catch(e){say('تعذر حفظ التقسيم');} };
+ inp.onchange=commit; inp.onkeydown=e=>{ if(e.key==='Enter'){e.preventDefault();inp.blur();} };
+ tx.append(inp);
+ if(splits[it.id]){ const r=mk('button','x','الأصلي'); r.onclick=async()=>{ try{await api('DELETE','/api/split/'+it.id.replace(':','_')); await load();}catch(e){} }; tx.append(r); }
+ l2.append(tx); l2.append(ctl({key:'grp/'+it.id,path:'grp:'+it.id,alt:it.alt,label:it.w+' (مقاطع)',parts:parts.map(p=>p.f)}));
+ box.append(l1,l2);
+}
+const rmBtn=c=>{ const x=mk('button','x','إزالة'); x.onclick=async()=>{ try{await api('DELETE','/api/custom/'+c.id); await load();}catch(e){} }; return x; };
+function customLine(c){
+ if(c.kind==='word'&&c.syl&&c.syl.length){ const f=mk('div'); const w=mk('div','line'); w.append(mk('span','lab','كلمة')); w.append(mk('span','tx big',c.label)); w.append(ctl({key:'c/'+c.id,path:c.path,label:c.label}));
+  const m=mk('div','line'); m.append(mk('span','lab','المقاطع')); m.append(mk('span','tx big',c.syl.join(' - ')));
+  m.append(ctl({key:'cg/'+c.id,path:'grp:c'+c.id,label:c.label+' (مقاطع)',parts:c.syl.map(t=>'syl-ar/'+hex(t)+'.mp3')}));
+  if(!c.fixed&&!recs[idOf('c/'+c.id)]&&!recs[idOf('cg/'+c.id)]) w.append(rmBtn(c));
+  f.append(w,m); return f; }
+ const l=mk('div','line'); l.append(mk('span','lab',{word:'كلمة',question:'سؤال',reading:'قراءة',other:''}[c.kind]||'')); l.append(mk('span','tx big',c.label||'')); l.append(ctl({key:'c/'+c.id,path:c.path,label:c.label}));
+ if(!c.fixed&&!recs[idOf('c/'+c.id)]) l.append(rmBtn(c)); return l; }
+function render(){
+ if(live) return;
+ const act=document.activeElement&&document.activeElement.id, y=scrollY;
+ const all=[...needed.map(n=>({...n,fixed:true})),...customs];
+ const mine=c=>!!recs[idOf('c/'+c.id)]&&(!(c.syl&&c.syl.length)||!!recs[idOf('cg/'+c.id)]);
+ const nd=$('#needed'); nd.innerHTML=''; const need=all.filter(c=>!mine(c));
+ nd.append(mk('h2','','مطلوب تسجيله')); if(!need.length) nd.append(mk('div','empty','لا يوجد شيء جديد مطلوب الآن.')); need.forEach(c=>nd.append(customLine(c)));
+ const L=$('#words'); L.innerHTML=''; L.append(mk('h2','','الكلمات والمقاطع'));
+ items.words.forEach(w=>wordLines(w,L));
+ const P=$('#prompts'); P.innerHTML=''; P.append(mk('h2','','صوتيات الأسئلة'));
+ items.prompts.forEach(p=>{ const l=mk('div','line'); l.append(mk('span','tx',p.text)); l.append(ctl({key:p.f,path:p.f,label:p.text},p.cur)); P.append(l); });
+ const dn=$('#done'); dn.innerHTML=''; const dd=all.filter(mine); if(dd.length){ dn.append(mk('h2','','ما سجلته من المضاف')); dd.forEach(c=>dn.append(customLine(c))); }
+ if(act){const e=document.getElementById(act); e&&e.focus&&e.focus({preventScroll:true});} scrollTo(0,y);
+}
+async function load(){
+ const r=await api('GET','/api/list'); const d=await r.json();
+ recs={}; d.rec.forEach(m=>{recs[m.id]=m;}); splits={}; d.splits.forEach(s=>{splits[String(s.id).replace('_',':')]=s.parts;});
+ customs=d.custom.sort((a,b)=>(a.ts||0)-(b.ts||0)); render();
+}
+async function gate(){
+ $('#gate').hidden=false; let claimed=true;
+ try{ claimed=(await (await fetch('/api/state')).json()).claimed; }catch(e){}
+ $('#pwnote').textContent=claimed?'':'أول مرة: اختر كلمة سر (4 أحرف على الأقل). احفظها، ولن يرفع أحد غيرك تسجيلات.';
+ $('#pwbtn').textContent=claimed?'دخول':'تعيين كلمة السر';
+ $('#pwbtn').onclick=async()=>{ const v=$('#pw').value.trim(); if(!v) return;
+  if(!claimed){ const r=await fetch('/api/claim',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({password:v})}); if(!r.ok) return say('كلمة السر قصيرة أو معيّنة من قبل'); }
+  PW=v; try{ const r=await fetch('/api/check',{headers:{'x-pw':PW}}); if(!r.ok) return say('كلمة السر غير صحيحة'); localStorage.setItem('pw',PW); }catch(e){}
+  $('#gate').hidden=true; say(''); await start(); };
+}
+$('#addbtn').onclick=async()=>{ const t=$('#newtext').value.trim(); if(!t) return say('اكتب النص أولا');
+ const kind=$('#kind').value, id='c'+Date.now().toString(36), syl=kind==='word'?sylList($('#newsyl').value):[];
+ try{ await api('PUT','/api/custom/'+id,{label:t,kind,syl,path:'arabic/inbox/'+kind+'-'+id+'.mp3'}); $('#newtext').value=''; $('#newsyl').value=''; say(''); await load(); }catch(e){say('تعذرت الإضافة');} };
+const kd=()=>{ $('#newsyl').hidden=$('#kind').value!=='word'; }; $('#kind').onchange=kd; kd();
+$('#backup').onclick=async()=>{ try{ say('جاري التجهيز...'); const r=await api('GET','/api/export'); const b=await r.blob(); const a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='recordings-'+new Date().toISOString().slice(0,10)+'.json'; document.body.append(a); a.click(); a.remove(); say(''); }catch(e){say('تعذر التنزيل');} };
+async function start(){ try{ await load(); }catch(e){} }
+(async function(){
+ items=await (await fetch('items.json')).json(); try{ needed=await (await fetch('needed.json?'+Date.now())).json(); }catch(e){} render();
+ try{ const r=await fetch('/api/check',{headers:{'x-pw':PW}}); if(r.ok&&PW) await start(); else gate(); }catch(e){ say('لا يوجد اتصال بالإنترنت'); }
+})();
+</script>
+</body></html>
