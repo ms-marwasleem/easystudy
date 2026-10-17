@@ -5,7 +5,7 @@
    "ex": 1,
    "page": 5,
    "task": "أَصِلُ كُلَّ كَلِمَةٍ بِمَكَانِهَا الْمُنَاسِبِ",
-   "taskAudio": "q/task-1.mp3",
+   "taskAudio": "../q-prompts/match-place.mp3",
    "hint": "صل كل كلمة بمكانها المناسب",
    "items": [
     {
@@ -25,7 +25,7 @@
    "ex": 2,
    "page": 5,
    "task": "أَصِلُ كُلَّ كَلِمَةٍ بِالصُّورَةِ الْمُنَاسِبَةِ",
-   "taskAudio": "q/task-2.mp3",
+   "taskAudio": "../q-prompts/match-picture.mp3",
    "hint": "صل كل كلمة بصورتها",
    "items": [
     {
@@ -55,7 +55,7 @@
    "ex": 3,
    "page": 5,
    "task": "أَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الْمُتَشَابِهَةِ",
-   "taskAudio": "q/task-3.mp3",
+   "taskAudio": "../q-prompts/circle-similar.mp3",
    "hint": "اضغط على الصورة المتشابهة",
    "centerPic": "../../pics/ar-amira.jpg",
    "centerAt": [
@@ -97,7 +97,7 @@
    "ex": 3,
    "page": 5,
    "task": "أَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الْمُتَشَابِهَةِ",
-   "taskAudio": "q/task-3.mp3",
+   "taskAudio": "../q-prompts/circle-similar.mp3",
    "hint": "اضغط على الصورة المتشابهة",
    "centerPic": "../../pics/ar-family.jpg",
    "centerAt": [
@@ -139,7 +139,7 @@
    "ex": 3,
    "page": 5,
    "task": "أَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الْمُتَشَابِهَةِ",
-   "taskAudio": "q/task-3.mp3",
+   "taskAudio": "../q-prompts/circle-similar.mp3",
    "hint": "اضغط على الصورة المتشابهة",
    "centerPic": "../../pics/ar-door.jpg",
    "centerAt": [
@@ -181,7 +181,7 @@
    "ex": 4,
    "page": 5,
    "task": "أَرْسُمُ دَائِرَةً حَوْلَ الْكَلِمَةِ الْمُخْتَلِفَةِ فِي كُلِّ مَجْمُوعَةٍ",
-   "taskAudio": "q/task-4.mp3",
+   "taskAudio": "../q-prompts/circle-different.mp3",
    "hint": "اضغط على الكلمة المختلفة",
    "items": [
     {
@@ -204,7 +204,7 @@
    "ex": 4,
    "page": 5,
    "task": "أَرْسُمُ دَائِرَةً حَوْلَ الْكَلِمَةِ الْمُخْتَلِفَةِ فِي كُلِّ مَجْمُوعَةٍ",
-   "taskAudio": "q/task-4.mp3",
+   "taskAudio": "../q-prompts/circle-different.mp3",
    "hint": "اضغط على الكلمة المختلفة",
    "items": [
     {
@@ -227,7 +227,7 @@
    "ex": 4,
    "page": 5,
    "task": "أَرْسُمُ دَائِرَةً حَوْلَ الْكَلِمَةِ الْمُخْتَلِفَةِ فِي كُلِّ مَجْمُوعَةٍ",
-   "taskAudio": "q/task-4.mp3",
+   "taskAudio": "../q-prompts/circle-different.mp3",
    "hint": "اضغط على الكلمة المختلفة",
    "items": [
     {

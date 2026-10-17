@@ -5,7 +5,10 @@
    "ex": 5,
    "page": 8,
    "task": "أَنْطِقُ وَأَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الْأَلِفِ",
-   "taskAudio": "q/task-5.mp3",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "letter.mp3"
+   ],
    "hint": "اضغط على الصور التي فيها صوت الألف",
    "items": [
     {
@@ -156,7 +159,10 @@
    "ex": 6,
    "page": 9,
    "task": "أَنْطِقُ وَأُحَدِّدُ مَوْضِعَ حَرْفِ الْأَلِفِ",
-   "taskAudio": "q/task-6.mp3",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "letter.mp3"
+   ],
    "hint": "اضغط على الدائرة التي فيها الألف",
    "items": [
     {
@@ -202,7 +208,11 @@
    "ex": 7,
    "page": 9,
    "task": "أَنْطِقُ وَأَخْتَارُ صَوْتَ حَرْفِ الْأَلِفِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
-   "taskAudio": "q/task-7.mp3",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "letter.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
    "hint": "اختار صوت الألف",
    "items": [
     {
@@ -236,7 +246,7 @@
    "ex": 8,
    "page": 9,
    "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "q/task-8.mp3",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
    "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
    "items": [
     {
@@ -282,7 +292,7 @@
    "ex": 9,
    "page": 9,
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "q/task-9.mp3",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
    "hint": "رتب الحروف",
    "items": [
     {
@@ -312,7 +322,7 @@
    "ex": 10,
    "page": 9,
    "task": "أَكْتُبُ كَمَا بِالْمِثَالِ",
-   "taskAudio": "q/task-10.mp3",
+   "taskAudio": "../q-prompts/write-example.mp3",
    "hint": "اكتب الجملة",
    "items": [
     {

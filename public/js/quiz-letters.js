@@ -4,15 +4,15 @@
    write    = the child types a word on the keyboard, each right letter fills in its place with its marks (the speaker says it, the bulb shows the next letter).
               item: {word, audio, pic?, chips?: syllables shown above (book: merge the syllables)}; set "sentence": true for a sentence
    arrange  = the letters of the word (with their marks) scrambled as tiles; drag them (or tap) in the right order to the word's blanks; the word is written joined as it fills. item: {word, pic, audio} */
-const QX={position:1,vowel:1,write:1,arrange:1};
+const QX={position:1,vowel:1,write:1,arrange:1,qa:1};
 function qxGo(w,q,i,run){
   const s=q.set, play=$('.qplay',w), ans=$('.qans',w); play.innerHTML=''; ans.innerHTML=''; $('.qword b',w).innerHTML='';
   const box=el('div','qx qx-'+s.type+(s.sentence?' sent':'')); play.append(box);
-  if(q.audio||q.word){ const sp=el('button','qsay qxsay',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>qSay(); box.append(sp); }
+  if(q.audio||q.word){ const sp=el('button','qsay qxsay',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>s.type==='qa'?qxQAPlay(q,qz.run):qSay(); box.append(sp); }
   if(q.pic) box.append(el('div','qxpic',`<img src="${q.pic}" alt="">`));
-  ({position:qxPosition,vowel:qxVowel,write:qxWrite,arrange:qxArrange})[s.type](box,q,s,run);
+  ({position:qxPosition,vowel:qxVowel,write:qxWrite,arrange:qxArrange,qa:qxQA})[s.type](box,q,s,run);
   qLayout(); carFrac(i/qz.list.length);
-  setTimeout(async()=>{ if(run!==qz.run||tab!=='quiz') return; if(q.k===0&&(i===0||qGrp(qz.list[i-1].set)!==qGrp(s))) await qTask(); if(run===qz.run&&tab==='quiz') qSay(); },350);
+  setTimeout(async()=>{ if(run!==qz.run||tab!=='quiz') return; if(q.k===0&&(i===0||qGrp(qz.list[i-1].set)!==qGrp(s))) await qTask(); if(run===qz.run&&tab==='quiz') s.type==='qa'?qxQAPlay(q,run):qSay(); },350);
 }
 const qxBad=(b)=>{ tone(170,'square',.06,.18); if(anim) G.fromTo(b,{x:-9},{x:0,duration:.5,ease:'elastic.out(1.5,.25)'}); };
 // a right answer: celebrate, say the word, on to the next
@@ -77,4 +77,21 @@ function qxArrange(box,q,s,run){
     if(d.moved&&!over) return;   // dropped somewhere else: it just goes back
     if(!place(d.t)) qxBad(d.t); };
   tiles.addEventListener('pointerup',end); tiles.addEventListener('pointercancel',end);
+}
+
+// qa = book "question and answer": the picture, the question (red) and its answer (blue); nothing to choose. Both are read aloud, question first, then it goes on.
+// item: {ask, word: the answer sentence, audio: question sound, ansAudio: answer sound, pic}. Tap the question or the answer to hear just that one, the speaker for both.
+function qxQA(box,q,s,run){
+  const t=el('div','qxqa'); t.dir='rtl';
+  const a=el('button','qxqq',q.ask), b=el('button','qxqa-a',q.word);
+  a.onclick=()=>{ if(!qz.busy) qxQALine(a,q.audio,q.ask); }; b.onclick=()=>{ if(!qz.busy) qxQALine(b,R_Q(q.ansAudio),q.word); };
+  t.append(a,b); box.append(t);
+}
+async function qxQALine(btn,src,text){ btn.classList.add('lit'); await qSound(src,text); btn.classList.remove('lit'); }
+async function qxQAPlay(q,run){
+  if(qz.busy) return; qz.busy=true; const [a,b]=[$('.qxqq'),$('.qxqa-a')];
+  await qxQALine(a,q.audio,q.ask); if(run!==qz.run||tab!=='quiz') return;
+  await new Promise(r=>setTimeout(r,350)); if(run!==qz.run||tab!=='quiz') return;
+  await qxQALine(b,R_Q(q.ansAudio),q.word); if(run!==qz.run||tab!=='quiz') return;
+  return qAdvance(run,900);
 }

@@ -131,4 +131,3 @@
 }
 /* lesson pages: previous on the left, NEXT on the right, also in Arabic */
 .pager{direction:ltr}
-#lesson.ar .parr.prev svg{transform:scaleX(-1)}#lesson.ar .parr.next svg{transform:none}

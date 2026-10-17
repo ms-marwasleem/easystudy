@@ -234,5 +234,4 @@ button.qpic{cursor:pointer}
 #lesson.ar .qlkw b,#lesson.ar .qlkp.tx b,#lesson.ar .qmp.tx b{font-family:var(--f-ar)}
 .qlp .qlkp.tx{align-self:start;justify-self:center;height:auto;width:auto}
 .qlink.cols .qlp .qlkp.tx{align-self:center;justify-self:end}
-#lesson.ar .qsrc{flex-direction:row-reverse}   /* Arabic reads right to left: "back" is on the right */
-#lesson.ar .qarr.prev svg{transform:none}#lesson.ar .qarr.next svg{transform:scaleX(-1)}
+/* Arabic too: previous on the left (arrow <), NEXT on the right (arrow >) */

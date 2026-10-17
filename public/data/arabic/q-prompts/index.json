@@ -1,0 +1,61 @@
+{
+ "note": "Instruction audio for the Arabic question types, cut from Ahmed's recording. Letter prompts end before the letter: play the clip, then the lesson's letter name audio (letter.mp3), then (choose-letter-sound) part b. taskAudio in questions.json can be a list that plays in order.",
+ "prompts": {
+  "match-place": {
+   "file": "match-place.mp3",
+   "text": "صِل كُلَّ كَلِمَةٍ بِمَكَانِهَا الْمُنَاسِب"
+  },
+  "match-picture": {
+   "file": "match-picture.mp3",
+   "text": "صِل كُلَّ كَلِمَةٍ بِالصُّورَةِ الْمُنَاسِبَة"
+  },
+  "circle-similar": {
+   "file": "circle-similar.mp3",
+   "text": "ارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الْمُشَابِهَة"
+  },
+  "circle-different": {
+   "file": "circle-different.mp3",
+   "text": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الْمُخْتَلِفَة"
+  },
+  "choose-answer": {
+   "file": "choose-answer.mp3",
+   "text": "اخْتَرِ الْإِجَابَةَ الصَّحِيحَة"
+  },
+  "match-meaning": {
+   "file": "match-meaning.mp3",
+   "text": "صِل كُلَّ كَلِمَةٍ بِمَعْنَاهَا أَوْ جَمْعِهَا"
+  },
+  "circle-letter-sound": {
+   "file": "circle-letter-sound.mp3",
+   "text": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ … (then the letter name)"
+  },
+  "mark-letter-position": {
+   "file": "mark-letter-position.mp3",
+   "text": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ … (then the letter name)"
+  },
+  "choose-letter-sound-a": {
+   "file": "choose-letter-sound-a.mp3",
+   "text": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ … (then the letter name, then part b)"
+  },
+  "choose-letter-sound-b": {
+   "file": "choose-letter-sound-b.mp3",
+   "text": "الْمُنَاسِبَ لِكُلِّ صُورَة"
+  },
+  "merge-syllables": {
+   "file": "merge-syllables.mp3",
+   "text": "ادْمِجِ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَات"
+  },
+  "arrange-letters": {
+   "file": "arrange-letters.mp3",
+   "text": "رَتِّبِ الْحُرُوفَ لِتَكُونَ كَلِمَات"
+  },
+  "write-example": {
+   "file": "write-example.mp3",
+   "text": "اُكْتُبْ كَمَا بِالْمِثَال"
+  },
+  "qa-title": {
+   "file": "qa-title.mp3",
+   "text": "سُؤَالٌ وَجَوَابٌ (machine voice, not in the recording)"
+  }
+ }
+}

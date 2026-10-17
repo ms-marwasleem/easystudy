@@ -5,10 +5,9 @@
  "type": "letter",
  "title": "حرف الألف",
  "task": "أتعرّف على حرف الألف",
- "pages": 3,
+ "pages": 2,
  "pageNums": [
   7,
-  8,
   8
  ],
  "scene": "../../pics/ar-lion.png",
@@ -24,19 +23,23 @@
   "forms": [
    {
     "label": "أول الكلمة",
-    "t": "أ"
+    "t": "أ",
+    "pos": "start"
    },
    {
     "label": "وسط الكلمة",
-    "t": "ـأ"
+    "t": "ـأ",
+    "pos": "mid"
    },
    {
     "label": "آخر الكلمة (متصل)",
-    "t": "ـأ"
+    "t": "ـأ",
+    "pos": "end-joined"
    },
    {
     "label": "آخر الكلمة (منفصل)",
-    "t": "أ"
+    "t": "أ",
+    "pos": "end-alone"
    }
   ],
   "sounds": [
@@ -44,109 +47,34 @@
     "label": "الفتحة",
     "t": "أَ",
     "pic": "../../pics/ar-boy-fatha.png",
-    "audio": "../../syl-ar/623-64e.mp3"
+    "audio": "../../syl-ar/623-64e.mp3",
+    "har": "fatha"
    },
    {
     "label": "الضمة",
     "t": "أُ",
     "pic": "../../pics/ar-boy-damma.png",
-    "audio": "../../syl-ar/623-64f.mp3"
+    "audio": "../../syl-ar/623-64f.mp3",
+    "har": "damma"
    },
    {
     "label": "الكسرة",
     "t": "إِ",
     "pic": "../../pics/ar-boy-kasra.png",
-    "audio": "../../syl-ar/625-650.mp3"
+    "audio": "../../syl-ar/625-650.mp3",
+    "har": "kasra"
    },
    {
     "label": "السكون",
     "t": "أْ",
     "pic": "../../pics/ar-boy-sukoon.png",
-    "audio": "../../syl-ar/623-652.mp3"
-   }
-  ],
-  "merge": [
-   {
-    "word": "أَرْنَب",
-    "pic": "../../pics/ar-rabbit.png",
-    "audio": "merge/arnab.mp3",
-    "parts": [
-     {
-      "t": "أَرْ",
-      "audio": "../../syl-ar/623-64e-631-652.mp3"
-     },
-     {
-      "t": "نَ",
-      "audio": "../../syl-ar/646-64e.mp3"
-     },
-     {
-      "t": "بْ",
-      "audio": "../../syl-ar/628-652.mp3"
-     }
-    ]
-   },
-   {
-    "word": "أُذُن",
-    "pic": "../../pics/ar-ear.png",
-    "audio": "merge/udhun.mp3",
-    "parts": [
-     {
-      "t": "أُ",
-      "audio": "../../syl-ar/623-64f.mp3"
-     },
-     {
-      "t": "ذُ",
-      "audio": "../../syl-ar/630-64f.mp3"
-     },
-     {
-      "t": "نْ",
-      "audio": "../../syl-ar/646-652.mp3"
-     }
-    ]
-   },
-   {
-    "word": "إِبْرِيق",
-    "pic": "../../pics/ar-teapot.png",
-    "audio": "merge/ibriq.mp3",
-    "parts": [
-     {
-      "t": "إِبْ",
-      "audio": "../../syl-ar/625-650-628-652.mp3"
-     },
-     {
-      "t": "رِي",
-      "audio": "../../syl-ar/631-650-64a.mp3"
-     },
-     {
-      "t": "قْ",
-      "audio": "../../syl-ar/642-652.mp3"
-     }
-    ]
-   },
-   {
-    "word": "رَأْس",
-    "pic": "../../pics/ar-head.png",
-    "audio": "merge/ras.mp3",
-    "parts": [
-     {
-      "t": "رَ",
-      "audio": "../../syl-ar/631-64e.mp3"
-     },
-     {
-      "t": "أْ",
-      "audio": "../../syl-ar/623-652.mp3"
-     },
-     {
-      "t": "سْ",
-      "audio": "../../syl-ar/633-652.mp3"
-     }
-    ]
+    "audio": "../../syl-ar/623-652.mp3",
+    "har": "sukoon"
    }
   ],
   "tasks": [
    "أشكال حرف الألف في الكلمة",
-   "أصوات حرف الألف بالحركات",
-   "أدمج المقاطع لتكوّن كلمات"
+   "أصوات حرف الألف بالحركات"
   ]
  },
  "hints": {

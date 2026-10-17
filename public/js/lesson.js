@@ -107,7 +107,7 @@ const TABS={read:['Lesson','book'],words:['Vocabulary','abc'],quiz:['Questions',
 function paintTabs(){ $$('.tab').forEach(b=>{ const [l,ic]=TABS[b.dataset.tab], got=LESSON&&STARS[LESSON.id]&&STARS[LESSON.id][b.dataset.tab];
   b.innerHTML=ICON[ic]+`<span>${tr(l)}</span>`+(got?`<span class="st">${STAR(true)}</span>`:''); b.setAttribute('aria-selected',b.dataset.tab===tab); }); }
 function setRail(items){ rail.innerHTML=''; items.forEach(it=>{ const b=el('button','dash '+it.kind+(it.on?' on':'')+(it.icon==='restart'?' ln':''),`<span class="rb">${ICON[it.icon]}</span><span>${it.label}</span>`); b.addEventListener('click',it.click); rail.append(b); }); }
-function switchTab(t,at){ stopAll(); vStop(); hideHint(); $('#lesson').classList.remove('vtab','qtab'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); carAt(0); t==='read'?showRead():t==='words'&&LESSON.vocab?showWords():t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); }
+function switchTab(t,at){ stopAll(); vStop(); hideHint(); $('#lesson').classList.remove('vtab','qtab'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); carAt(0); t==='read'?showRead():t==='words'&&LESSON.vocab?(LESSON.letter&&typeof showLetterWords==='function'?showLetterWords():showWords()):t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); }
 $$('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
 
 // default speed: slow for a page that is a conversation (2+ speakers), normal for everything else; a child's own choice per page wins
@@ -121,6 +121,7 @@ function showRead(){
   if(LESSON.layout==='pictures'||pl==='pictures') return showPics();
   const scene=el('div','scene'+(LESSON.picture?' book':'')+(LESSON.compact?' long':'')); scene.setAttribute('role','img'); scene.setAttribute('aria-label',LESSON.sceneAlt||'');
   const np=nPages(), note=el('div','note'), inn=el('div','in'); inn.append(el('p','task',STAR(true)+((LESSON.pageTasks&&LESSON.pageTasks[rd.page-1])||LESSON.task)));
+  if(LESSON.titleWords&&rd.page===1){ const tp=$('p.task',inn); tp.innerHTML=STAR(true); LESSON.titleWords.forEach(([w,s,e])=>{ const sp=el('span','w',w); rd.words.push({el:sp,s,e}); sp.addEventListener('click',()=>playFrom(Math.max(0,s-.04),e+.06)); tp.append(sp,' '); }); }   // optional "titleWords": the recording says the title first, so the title words light up with the audio
   const ul=el('ul','lines');
   LESSON.lines.forEach((l,li)=>{
     if(np>1&&l.page!==rd.page) return;

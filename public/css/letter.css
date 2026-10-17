@@ -83,3 +83,29 @@
 .qxsay svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 #lesson.q-port .qboard.bigP .qmp{--w:min(29cqw,22cqh)}
 .qxchoices .qlet span{font-size:clamp(40px,min(14cqh,13cqw),64px)!important;line-height:1.5}
+
+/* qa: question (red) and answer (blue) as two big lines under the picture; the line being read lights up */
+.qxqa{display:flex;flex-direction:column;align-items:center;gap:clamp(6px,2cqh,18px);text-align:center;font-family:var(--f-read);font-weight:700;font-size:clamp(22px,min(5.4vw,5.6cqh),46px);line-height:1.4}
+.qxqq,.qxqa-a{font:inherit;background:none;border:0;padding:.05em .3em;border-radius:.3em;cursor:pointer;transition:background .2s}
+.qxqq{color:#C2362B}.qxqa-a{color:#1F5FA8}
+.qxqq.lit,.qxqa-a.lit{background:rgba(255,200,60,.35)}
+.quiz[data-type="qa"] :is(.qword,.qans){display:none}
+
+/* ---------- Letter lesson WORDS tab: the book's rows (vowelled letter + 3 words) ---------- */
+.lwords .wgrid{flex:1 1 0;min-height:0;container-type:size;display:grid;grid-template-columns:minmax(0,.7fr) repeat(3,minmax(0,1fr));grid-template-rows:repeat(var(--rows,4),minmax(0,1fr));gap:clamp(6px,1.6cqh,14px) clamp(6px,1.4cqw,14px);padding:4px 2px 8px;font-family:var(--f-ar)}
+.wlet{flex-direction:row!important;gap:4px!important;background:#F6E6EE!important}
+.wlet img{height:100%;max-width:55%;object-fit:contain;flex:0 1 auto}
+.wlet .lglyph{font-size:min(14cqh,9cqw);color:#E8457A}
+.wword{height:100%;display:grid!important;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;gap:2px!important}
+.wtop{display:flex;align-items:center;justify-content:center;gap:4px;min-height:0;width:100%;overflow:hidden}
+.wpic{position:relative;align-self:stretch;flex:1 1 0;min-height:0;min-width:0}
+.wpic img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.wsay{flex:none;width:clamp(24px,4cqw,38px);height:clamp(24px,4cqw,38px);color:#2A7FD8;display:grid;place-items:center}
+.wsay svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.wtxt{font-weight:700;font-size:min(7cqh,5.2cqw);line-height:1.3;color:#2E1B0C;white-space:nowrap}
+@media (max-aspect-ratio:5/4){ .wtxt{font-size:min(4.2cqh,6.4cqw)} .wlet .lglyph{font-size:min(9cqh,11cqw)} .wlet{flex-direction:column!important} .wlet img{height:55%;max-width:90%} }
+
+/* letter page 1: the speaker sits beside the picture */
+.lspk{display:grid;place-items:center;flex:none;width:52px;height:52px;padding:0;color:#2A7FD8;background:none;border-radius:12px}
+.lspk svg{width:36px;height:36px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.lspk:active{transform:scale(.9)}

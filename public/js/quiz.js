@@ -31,7 +31,8 @@ async function qLoad(){
   if(qz.file===file&&qz.sets) return true;
   const base=file.slice(0,file.lastIndexOf('/')+1), R=p=>p&&!/^(https?:|\/|data:)/.test(p)?base+p:p;
   try{ const d=await get(file); qz.sets=d.sets; qz.file=file; }catch(e){ qz.sets=null; qz.file=null; return false; }
-  qz.all=[]; qz.sets.forEach((s,si)=>{ s.taskSrc=R(s.taskAudio);
+  qz.all=[]; qz.sets.forEach((s,si)=>{ s.taskSrc=Array.isArray(s.taskAudio)?s.taskAudio.map(R):R(s.taskAudio);   // taskAudio: one file, or a list played in order (prompt + letter name)
+   
     if(s.type==='link') s.items.forEach(it=>{ it.answer=true; });
     if(s.type==='match'||s.type==='circle'||s.type==='tick'||s.type==='link'){ s.centerSrc=R(s.centerAudio); s.items.forEach(it=>{ it.src=R(it.audio); it.picSrc=R(it.pic); });
       if(s.type==='circle'&&s.shuffle&&!s._sh){ s._sh=1; const ps=s.items.map(it=>it.pos); for(let t=0;t<20;t++){ ps.sort(()=>Math.random()-.5); if(ps.some((p,k)=>p!==s.items[k].pos)) break; } s.items.forEach((it,k)=>it.pos=ps[k]); }   // "shuffle": the options swap their places (the book order is not kept)
@@ -228,7 +229,9 @@ function qSay(){ const q=qz.list[qz.i]; if(!q) return; vStop(); const w=$('.qwor
 // read the exercise instruction aloud (its line lights up while it plays)
 function qTask(){ const q=qz.list[qz.i]; if(!q) return Promise.resolve(); vStop(); const t=$('.qtask'); if(t) t.classList.add('lit');
   const done=()=>{ const x=$('.qtask'); if(x) x.classList.remove('lit'); };
-  return (q.set.taskSrc?playFile(q.set.taskSrc).catch(()=>tts(q.set.task,isAr()?'ar':'en',.85)):tts(q.set.task,isAr()?'ar':'en',.85)).then(done,done); }
+  const ts=q.set.taskSrc, fb=()=>tts(q.set.task,isAr()?'ar':'en',.85);
+  const play=Array.isArray(ts)?ts.reduce((p,u,k)=>p.then(()=>{ if(qz.list[qz.i]!==q) return; return (k?new Promise(r=>setTimeout(r,120)):Promise.resolve()).then(()=>playFile(u)); }),Promise.resolve()):playFile(ts);
+  return (ts?play.catch(fb):fb()).then(done,done); }
 function qStamp(pic,cross){
   const m=$('.qmark',pic); m.className='qmark good'; m.innerHTML=cross?Q_CROSS:Q_TICK;
   if(anim){ const p=$('path',m), len=p.getTotalLength(); G.fromTo(m,{scale:1.6},{scale:1,duration:.35,ease:'back.out(3)'}); G.fromTo(p,{strokeDasharray:len,strokeDashoffset:len},{strokeDashoffset:0,duration:.35,ease:'power2.out'}); }
