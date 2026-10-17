@@ -23,7 +23,7 @@ function bookTag(){
   if(!(ps&&ps.length)) return;
   // a lesson read in several pages: show the book page of the page on screen (lesson.json "pageNums" can list them when they differ from the book pages)
   const np=tab==='read'&&LESSON.pages>1?LESSON.pages:0, pn=np&&(LESSON.pageNums||ps), one=np?pn[Math.min(rd.page-1,pn.length-1)]:null;
-  const n=np?one:ps.length>1?ps[0]+'–'+ps[ps.length-1]:ps[0], t=el('button','qpage pagetag',ICON.book+`<span>p. ${n}</span>`);
+  const n=np?one:ps.length>1?ps[0]+'–'+ps[ps.length-1]:ps[0], t=el('button','qpage pagetag',ICON.book+`<span>${isAr()?'ص ':'p. '}${num(n)}</span>`);
   t.id='pageTag'; t.setAttribute('aria-label','Book page '+n); t.addEventListener('click',()=>bookPad());
   t.classList.add('pin'); stage.append(t);
   // on the Lesson tab the reading card can cover that corner (wide screens): then the page sits in the card's own corner
@@ -93,12 +93,12 @@ function bookSides(l,next){
   // each page is a little speech-bubble sign (like the "Level 11" sign in Ahmed's picture): the book's name small on top, the page number big,
   // the bubble's tail pointing at the road. Book pages on one side of the road, Workbook pages on the other, spread between this lesson and the next.
   const tile=(name,inner,attrs)=>`<span class="jpg"><button class="jpm" ${attrs}><small>${name}</small>${inner}</button><i class="jsl"></i></span>`;
-  const box=e=>{ const name=e.tab==='workbook'?'Workbook':'Book';
+  const box=e=>{ const name=e.tab==='workbook'?'Workbook':tr('Book');
     return tile(name,`<b>${e.page}</b>`,`data-tab="${e.tab}" data-p="${e.page}" aria-label="${name} page ${e.page}: ${TABNAME[e.tab]}"`); };
   const side=(cls,title,list)=>`<div class="jside ${cls}" data-n="${Math.max(1,list.length)}"><span class="jpgs">`+
     (list.length?list.map(box).join(''):tile(title,`<span class="jlk">${LOCK}</span>`,`data-soon="${title}" aria-label="${title} pages soon"`).replace('class="jpm"','class="jpm soon"'))+`</span></div>`;
   const wb=[].concat(l.pages&&l.pages.workbook||[]).map(Number).sort((a,b)=>a-b).map(p=>({page:p,tab:'workbook',known:true}));
-  return side('bk','Book',bookPages(l,next))+side('wb','Workbook',wb);
+  return side('bk',tr('Book'),bookPages(l,next))+(isAr()&&!wb.length?'':side('wb','Workbook',wb));   // the Arabic term booklet has no workbook
 }
 
 // the book button next to Home on the map and lesson screens

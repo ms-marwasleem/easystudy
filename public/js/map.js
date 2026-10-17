@@ -10,7 +10,7 @@ function unitBox(u,open){
     <path d="M14 40L30 18H170L186 40Z" fill="#E8B878" stroke="${OL}" stroke-width="5" stroke-linejoin="round"/><path d="M100 18V40" stroke="${OL}" stroke-width="3" opacity=".5"/>
     <rect x="14" y="40" width="172" height="122" rx="6" fill="${open?'#D9A764':'#C99A5E'}" stroke="${OL}" stroke-width="5"/>
     <path d="M22 50H178" stroke="rgba(255,255,255,.35)" stroke-width="4" stroke-linecap="round"/>${hole}</svg>
-    <b class="outline">Unit ${u.unit}</b>${open?'':`<span class="ulock">${LOCK}</span>`}</div>`;
+    <b class="outline${isAr()?' ar':''}">${tr('Unit')} ${num(u.unit)}</b>${open?'':`<span class="ulock">${LOCK}</span>`}</div>`;
 }
 let mapUnit=null;   // the unit the child chose by tapping a unit box at the end of the road (null = the one she is up to)
 const wideMap=()=>true;   // landscape: the road zigzags in rows so the whole unit shows; portrait: one column
@@ -20,11 +20,11 @@ function mkLesson(m,nextL,isCur,isLast){
   // the lesson sits on the road: a small square with its number, the stars above it, the name on a label across its bottom edge.
   // From it to the next lesson its pages stand beside the road, each a little sign: Book pages on one side, Workbook pages on the other.
   s.innerHTML=`<div class="jbox">`+(open?`<span class="js">${[0,1,2].map(k=>`<span>${STAR(k<n)}</span>`).join('')}</span>`:'')+
-    `<button class="jcard" aria-label="${open?`Lesson ${m.lesson} ${m.title}`:`Lesson ${m.lesson} soon`}"><b class="jn">${m.lesson}</b>${open?'':`<span class="jlock">${LOCK}</span>`}</button>`+
-    (open?`<span class="jt">${m.title}</span>`:'')+`</div>`+
+    `<button class="jcard" aria-label="${open?`Lesson ${m.lesson} ${m.title}`:`Lesson ${m.lesson} soon`}"><b class="jn">${num(m.lesson)}</b>${open?'':`<span class="jlock">${LOCK}</span>`}</button>`+
+    (open?`<span class="jt${isAr()?' ar':''}">${m.title}</span>`:'')+`</div>`+
     (open&&typeof bookSides==='function'?bookSides(m,nextL):'');
   if(isLast) s.classList.add('last');
-  $('.jcard',s).addEventListener('click',()=>{ hideHint(); if(open){ blip(600); openLesson(m); } else message('Soon!',COURSE.hints.soonLesson,`<span class="car">${CAR('sad')}</span>`); });
+  $('.jcard',s).addEventListener('click',()=>{ hideHint(); if(open){ blip(600); openLesson(m); } else message(tr('Soon!'),isAr()?'الدرس ده قريبًا!':COURSE.hints.soonLesson,`<span class="car">${CAR('sad')}</span>`); });
   const go=(t,p)=>{ hideHint(); blip(600); bookOpen(m,t,p); };
   $$('.jpm:not(.soon)',s).forEach(b=>b.addEventListener('click',()=>go(b.dataset.tab,+b.dataset.p)));
   $$('.jpm.soon',s).forEach(b=>b.addEventListener('click',()=>{ hideHint(); message('Soon!',`${b.dataset.soon} pages are coming soon!`,`<span class="car">${CAR('sad')}</span>`); }));
@@ -206,7 +206,7 @@ function placeCarSnake(j,L,i,cur,car,drive){
 function openMap(){
   if(!SUBJECT) SUBJECT=COURSE.subjects.find(s=>s.open);
   stopAll(); vStop(); clearMarks(); show('map');
-  $('#mapTitle').textContent=SUBJECT.name; $('#mapSub').textContent=`${COURSE.grade} · ${COURSE.term}`;
+  $('#mapTitle').textContent=SUBJECT.name; $('#mapSub').textContent=`${tr(COURSE.grade)} · ${tr(COURSE.term)}`;
   drawMap(); showHint($('.jl.cur .jcard'),COURSE.hints.map,1500,'map');
 }
 let rsT=0; addEventListener('resize',()=>{ clearTimeout(rsT); rsT=setTimeout(()=>{ if($('#map').hidden) return;

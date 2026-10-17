@@ -220,3 +220,16 @@ button.qpic{cursor:pointer}
 #lesson.q-port .quiz[data-type="choice"] .qpic.one{flex:1 1 0;height:auto;min-height:0}
 #lesson.q-port .quiz[data-type="choice"] .qtxt{flex:none;align-items:center;text-align:center}
 #lesson.q-port .quiz[data-type="choice"] .qsen{justify-content:center}
+
+/* Arabic: a picture to match in the middle (circle "centerPic"), word-only options (circle) and words on both sides of a link */
+.qcenter.pic{cursor:default;width:min(26cqw,34cqh);aspect-ratio:1;display:grid;place-items:center;pointer-events:none}
+.qcenter.pic img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 3px rgba(90,52,24,.3))}
+.qmp.tx{width:auto;aspect-ratio:auto;min-width:min(24cqw,20cqh);padding:.25em .6em .35em;background:#fff;border-radius:16px;box-shadow:0 3px 0 rgba(90,52,24,.3),inset 0 0 0 3px #E8D3AE}
+.qmp.tx b{font-family:var(--f-read);font-weight:700;font-size:min(10cqw,22cqh);line-height:1.5;color:#2E1B0C;white-space:nowrap}
+.qlkp.tx{justify-self:center;max-width:100%;padding:.22em .5em .3em;border-radius:10px;background:rgba(255,255,255,.7);border:2.5px solid #C9A777}
+.qlkp.tx b{font-family:var(--f-read);font-weight:700;font-size:var(--fs);line-height:1.5;color:#2E1B0C;white-space:nowrap}
+.qlkp.tx.done{border-color:#2A7FD8}.qlkp.tx.done b{color:#2A7FD8}
+#lesson.ar .qhead,#lesson.ar .qlink{direction:rtl}
+#lesson.ar .qlkw b,#lesson.ar .qlkp.tx b,#lesson.ar .qmp.tx b{font-family:var(--f-ar)}
+.qlp .qlkp.tx{align-self:start;justify-self:center;height:auto;width:auto}
+.qlink.cols .qlp .qlkp.tx{align-self:center;justify-self:end}

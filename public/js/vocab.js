@@ -41,11 +41,11 @@ function playBuf(buf,from=0,dur){ return new Promise(res=>{ const s=player.ctx.c
 async function playFile(url){ await ensureCtx(); if(!vs.files[url]) vs.files[url]=fetch(url).then(r=>r.arrayBuffer()).then(b=>new Promise((ok,no)=>player.ctx.decodeAudioData(b,ok,no)));
   return playBuf(await vs.files[url]); }
 async function playClip([s,e]){ await ensureAudio(); return playBuf(player.bufs.n,Math.max(0,s-.03),e-s+.08); }   // single words: normal speed
-const sayWord=v=>v.audio&&v.audio.word?playFile(v.audio.word):v.clip?playClip(v.clip):tts(v.word,'en',.75);
+const sayWord=v=>v.audio&&v.audio.word?playFile(v.audio.word):v.clip?playClip(v.clip):tts(v.word,isAr()?'ar':'en',.75);
 // the whole word said after its parts (her second take sounds natural there); falls back to the first take
 const sayWordAgain=v=>v.audio&&v.audio.again?playFile(v.audio.again):sayWord(v);
 const sayAr=v=>v.audio&&v.audio.ar?playFile(v.audio.ar):tts(v.ar,'ar',.85);
-const sayPart=p=>p.silent?new Promise(r=>setTimeout(r,350)):p.audio?playFile(p.audio):p.say?tts(p.say,'en',.7):new Promise(r=>setTimeout(r,300));
+const sayPart=p=>p.silent?new Promise(r=>setTimeout(r,350)):p.audio?playFile(p.audio):p.say?tts(p.say,isAr()?'ar':'en',.7):new Promise(r=>setTimeout(r,300));
 
 // the small speaker next to a text: just a blue line drawing, not a round button
 const SAY_LN='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>';
@@ -56,7 +56,7 @@ function showWords(){
   const wrap=el('div','vocab'), pick=el('div','vpick');
   LESSON.vocab.forEach((v,i)=>{ const b=el('button','vthumb'+(i===vs.i?' on':''),`<img src="${v.img}" alt=""${/\.png$/i.test(v.img)?' class="cut"':''}><b>${i+1}</b>${vDone().includes(v.word)?`<span class="vst">${STAR(true)}</span>`:''}`);
     b.setAttribute('aria-label',`Word ${i+1}: ${v.word}`); b.addEventListener('click',()=>{ vs.i=i; vTeach(); }); pick.append(b); });
-  wrap.innerHTML=`<div class="vword" dir="ltr"></div>
+  wrap.innerHTML=`<div class="vword" dir="${isAr()?'rtl':'ltr'}"></div>
     <div class="vinfo"><div class="vstatus"></div><div class="vmeaning" dir="rtl"><span class="vm-t"></span><button class="vm-say" aria-label="Arabic meaning">${SAY_LN}</button></div></div>
     <div class="vtools"></div><div class="vimgwrap"><img class="vimg" alt=""></div>`;
   wrap.append(pick); stage.append(wrap);
@@ -68,13 +68,13 @@ function showWords(){
 function vRender(fill){
   const v=LESSON.vocab[vs.i], img=$('.vimg');
   if(img.getAttribute('src')!==v.img){ img.src=v.img; if(anim){ G.set(img,{opacity:0}); const go=()=>G.to(img,{opacity:1,duration:.3}); img.decode?img.decode().then(go,go):go(); } }
-  img.alt=v.word; img.classList.toggle('cut',/\.png$/i.test(v.img)); $('.vm-t').textContent=v.ar;   // library cut-outs are png
+  img.alt=v.word; img.classList.toggle('cut',/\.png$/i.test(v.img)); $('.vm-t').textContent=v.ar||''; $('.vmeaning').hidden=!v.ar;   // library cut-outs are png
   $$('.vthumb').forEach((b,i)=>b.classList.toggle('on',i===vs.i));
   const pk=$('.vpick'), on=$('.vthumb.on'); if(pk&&on&&pk.scrollWidth>pk.clientWidth) pk.scrollTo({left:on.offsetLeft-pk.clientWidth/2+on.offsetWidth/2,behavior:'smooth'});   // keep the current word in view in the strip
   const w=$('.vword'); w.innerHTML=''; w.classList.remove('lit','writing','focus');
   w.style.fontSize='';
   v.parts.forEach((p,pi)=>{ if(p.t===' '){ w.append(el('span','vgap')); return; }
-    const s=el('span','vseg'); s.dataset.p=pi; [...p.t].forEach(ch=>s.append(el('span','lt'+(fill?'':' hid'),ch))); w.append(s); });   // hidden letters keep their place
+    const s=el('span','vseg'); s.dataset.p=pi; glyphs(p.t).forEach(ch=>s.append(el('span','lt'+(fill?'':' hid'),ch))); w.append(s); });   // hidden letters keep their place
   fitWord();
 }
 const vStatus=t=>{ const s=$('.vstatus'); if(s){ s.textContent=t; if(anim) G.fromTo(s,{opacity:0},{opacity:1,duration:.3}); } };
@@ -82,14 +82,14 @@ async function vTeach(){
   vStop(); hideHint(); const ip=$('#vin'); if(ip) ip.blur();
   const run=++vs.run; vs.mode='learn'; vRail();
   const v=LESSON.vocab[vs.i];
-  vRender(true); vStatus('Listen!');
+  vRender(true); vStatus(tr('Listen!'));
   if(anim) G.from('.vword .lt',{opacity:0,stagger:.04,duration:.3});
   try{
     await vSleep(500,run);
     $('.vword').classList.add('lit'); await sayWord(v); if(run!==vs.run) return; $('.vword').classList.remove('lit'); await vSleep(800,run);
     const reps=LESSON.vocabRepeats||3;   // fixed order: word once, then (parts -> whole word) x3
     for(let rep=1;rep<=reps;rep++){
-      vStatus(`Read with me! ${rep}/${reps}`);
+      vStatus(isAr()?`${tr('Read with me!')} ${num(rep)}/${num(reps)}`:`Read with me! ${rep}/${reps}`);
       if(anim) await new Promise(r=>G.to('.vword .lt',{opacity:0,duration:.2,onComplete:r}));
       if(run!==vs.run) return;
       vRender(false); await vSleep(350,run);
@@ -112,12 +112,12 @@ async function vTeach(){
 }
 function vWrite(){
   vStop(); const run=vs.run; vs.mode='write'; vRail();
-  const v=LESSON.vocab[vs.i]; vRender(false); $('.vword').classList.add('writing'); vStatus(TOUCH()?'Tap and write!':'Your turn! Write it.');
-  const boxes=$$('.vword .lt'); vs.letters=[...v.word].filter(c=>c!==' '); vs.pos=0; let typed='';
+  const v=LESSON.vocab[vs.i]; vRender(false); $('.vword').classList.add('writing'); vStatus(tr(TOUCH()?'Tap and write!':'Your turn! Write it.'));
+  const boxes=$$('.vword .lt'); vs.letters=glyphs(v.word).filter(c=>c!==' '); vs.pos=0; let typed='';
   const inp=el('input','vin'); Object.assign(inp,{type:'text',autocomplete:'off',spellcheck:false,id:'vin'});
   inp.setAttribute('autocorrect','off'); inp.setAttribute('autocapitalize','off'); inp.setAttribute('enterkeyhint','done'); inp.setAttribute('aria-label','Type the word');
   $('.vword').append(inp); $('.vword').addEventListener('click',()=>inp.focus({preventScroll:true}));
-  inp.addEventListener('focus',()=>{ $('.vword').classList.add('focus'); if(vs.mode==='write') $('.vstatus').textContent='Your turn! Write it.'; });
+  inp.addEventListener('focus',()=>{ $('.vword').classList.add('focus'); if(vs.mode==='write') $('.vstatus').textContent=tr('Your turn! Write it.'); });
   inp.addEventListener('blur',()=>{ const w=$('.vword'); if(w) w.classList.remove('focus'); });
   const cur=()=>boxes.forEach((b,i)=>b.classList.toggle('cur',i===vs.pos));
   cur(); fitWord(); inp.focus({preventScroll:true});   // open the keyboard straight away (an iPhone/iPad only allows it right after a tap, e.g. on Write)
@@ -128,7 +128,8 @@ function vWrite(){
       for(const ch of val.slice(typed.length)){
         if(vs.pos>=vs.letters.length) break;
         const want=vs.letters[vs.pos];
-        if(ch.toLowerCase()===want.toLowerCase()){ const b=boxes[vs.pos]; b.classList.remove('hid','peek'); b.classList.add('good'); typed+=ch; blip(560+vs.pos*40,.05);
+        if(isAr()&&new RegExp('['+AR_MARKS+']').test(ch)){ typed+=ch; continue; }   // a vowel mark typed on its own is ignored
+        if(isAr()?sameLetter(ch,want):ch.toLowerCase()===want.toLowerCase()){ const b=boxes[vs.pos]; b.classList.remove('hid','peek'); b.classList.add('good'); typed+=ch; blip(560+vs.pos*40,.05);
           if(anim) G.fromTo(b,{scale:1.3},{scale:1,duration:.35,ease:'back.out(3)'}); vs.pos++; }
         else { tone(170,'square',.06,.18); const b=boxes[vs.pos]; b.classList.add('bad'); if(anim) G.fromTo(b,{x:-7},{x:0,duration:.45,ease:'elastic.out(1.5,.25)'}); setTimeout(()=>b.classList.remove('bad'),400); break; }
       }
@@ -162,11 +163,11 @@ async function vWin(v){
 function vTools(){
   const tools=$('.vtools'); tools.innerHTML='';
   const items=[
-    {k:'help',kind:'speed',icon:'hint',label:'Help',click:vHelp},
-    {k:'listen',kind:'again',icon:'sound',label:'Listen',click:()=>{ vStop(); if(vs.mode==='learn'){ vs.mode='idle'; vRail(); } sayWord(LESSON.vocab[vs.i]); }},
-    {k:'teach',kind:'go',icon:'restart',label:'Teach',click:vTeach},
-    {k:'write',kind:'speed',icon:'pencil',label:'Write',click:()=>{ if(vs.mode!=='write') vWrite(); else { const i=$('#vin'); i&&i.focus({preventScroll:true}); } }},
-    {k:'stop',kind:'stop',icon:'pause',label:'Stop',click:()=>{ vStop(); if(vs.mode!=='write'){ vs.mode='idle'; vRail(); } }}
+    {k:'help',kind:'speed',icon:'hint',label:tr('Help'),click:vHelp},
+    {k:'listen',kind:'again',icon:'sound',label:tr('Listen'),click:()=>{ vStop(); if(vs.mode==='learn'){ vs.mode='idle'; vRail(); } sayWord(LESSON.vocab[vs.i]); }},
+    {k:'teach',kind:'go',icon:'restart',label:tr('Teach'),click:vTeach},
+    {k:'write',kind:'speed',icon:'pencil',label:tr('Write'),click:()=>{ if(vs.mode!=='write') vWrite(); else { const i=$('#vin'); i&&i.focus({preventScroll:true}); } }},
+    {k:'stop',kind:'stop',icon:'pause',label:tr('Stop'),click:()=>{ vStop(); if(vs.mode!=='write'){ vs.mode='idle'; vRail(); } }}
   ];
   items.forEach(it=>{ const b=el('button','dash '+it.kind+(it.icon==='restart'?' ln':''),`<span class="rb">${ICON[it.icon]}</span><span>${it.label}</span>`); b.dataset.k=it.k;
     b.addEventListener('pointerdown',e=>{ if($('#vin')&&$('#vin')===document.activeElement) e.preventDefault(); });   // keep the keyboard open

@@ -1,0 +1,30 @@
+/* ---------- Arabic subject (#lesson.ar, set in lesson.js) ----------
+   Text runs right to left in a naskh font (shows the vowel marks well). Letters of a word are plain inline text,
+   so they join the way Arabic is written (no boxes per letter: a box would cut the connection). */
+:root{--f-ar:'Noto Naskh Arabic','Baloo Bhaijaan 2','Geeza Pro',serif}
+.ar-t,#lesson.ar .txt,#lesson.ar .qtask,#lesson.ar .qword b,#lesson.ar .vword,#lesson.ar .task,#lesson.ar .qopt,#lesson.ar .qlk b,#lesson.ar .qcw b{font-family:var(--f-ar)}
+#lesson.ar .tabs .tab,#lesson.ar .dash>span,#lesson.ar .slot .lbl,#lesson.ar .vstatus,#lesson.ar .sign h1,#lesson.ar .sign small,#lesson.ar .qhead,#lesson.ar .qsb span{font-family:var(--f-ui)}
+#lesson.ar .sign h1{font-weight:800}
+.box .name.ar,.ubox b.ar,.jt.ar{font-family:var(--f-ui);font-weight:800}
+
+/* the story: paragraphs right to left, a small speaker on the right of each */
+#lesson.ar .scene .task{direction:rtl;font-family:var(--f-ui);font-weight:800}
+#lesson.ar .line{direction:rtl;align-items:start}
+#lesson.ar .txt{direction:rtl;line-height:1.95;font-weight:700}
+#lesson.ar .w{padding:0 .12em}
+.who.say{display:grid;place-items:center;width:34px;height:34px;margin-top:.35em;color:#2A7FD8;min-width:0;padding:0}
+.who.say svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.who.say:active{transform:scale(.9)}
+
+/* vocabulary: the word is one piece of text */
+#lesson.ar .vword{display:block;text-align:center;white-space:nowrap;line-height:1.75;padding:0;font-weight:700}
+#lesson.ar .vseg{display:inline}
+#lesson.ar .lt{display:inline;min-width:0;height:auto;margin:0;padding:0;border:0;place-items:initial;
+  text-decoration:underline;text-decoration-color:rgba(46,27,12,.28);text-decoration-thickness:.05em;text-underline-offset:.14em;text-decoration-skip-ink:none}
+#lesson.ar .vgap{display:inline-block;width:.5em}
+#lesson.ar .lt.cur{text-decoration-color:var(--now)}
+#lesson.ar .vword.focus .lt.cur{animation:vcurAr 1s steps(1) infinite}
+@keyframes vcurAr{50%{text-decoration-color:transparent}}
+#lesson.ar .vword.writing:not(.focus) .lt.cur{animation:none;text-decoration-color:var(--now)}
+#lesson.ar .vmeaning{display:none}
+#lesson.ar .vword{font-size:calc(var(--wfs,56px) * 1.3)}

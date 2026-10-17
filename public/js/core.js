@@ -180,7 +180,7 @@ let STARS={}; try{ STARS=JSON.parse(localStorage.getItem('zoom-stars')||'{}')||{
 const total=()=>Object.values(STARS).reduce((a,o)=>a+Object.keys(o).length,0);
 const lessonStars=id=>STARS[id]?Object.keys(STARS[id]).length:0;
 function paintHud(){ $$('[data-hud]').forEach(h=>h.innerHTML=`<span class="ic">${STAR(true)}</span><span>${total()}</span>`); }
-const PARTS=[['read','Lesson'],['words','Vocabulary'],['quiz','Questions']];
+const PARTS=[['read','Lesson'],['words','Vocabulary'],['quiz','Questions']];   // names go through tr() when shown
 
 function award(id,part){
   const isNew=!(STARS[id]&&STARS[id][part]);
@@ -201,8 +201,8 @@ function award(id,part){
     .to(s,{x:dx,y:dy,scale:sc,rotation:360,duration:.75,ease:'power2.in'});
 }
 function levelUp(id,isNew){
-  const o=$('#levelUp'), t=$('#lvlTitle'); const word=isNew?'Great!':'Super!'; t.textContent=word; t.dataset.t=word;
-  $('#slots').innerHTML=PARTS.map(([p,l])=>`<button class="slot" data-p="${p}" aria-label="Go to ${l}">${STAR(false)}${STARS[id]&&STARS[id][p]?`<span class="on" style="position:absolute;inset:0">${STAR(true)}</span>`:''}<span class="lbl">${l}</span></button>`).join('');
+  const o=$('#levelUp'), t=$('#lvlTitle'); const word=tr(isNew?'Great!':'Super!'); t.textContent=word; t.dataset.t=word; $('#lvlAgain').textContent=tr('Again'); $('#lvlMap').textContent=tr('Map');
+  $('#slots').innerHTML=PARTS.map(([p,l0])=>{ const l=tr(l0); return `<button class="slot" data-p="${p}" aria-label="Go to ${l}">${STAR(false)}${STARS[id]&&STARS[id][p]?`<span class="on" style="position:absolute;inset:0">${STAR(true)}</span>`:''}<span class="lbl">${l}</span></button>`; }).join('');
   putCar($('#lvlCar'),'wow'); o.hidden=false; spinRays(o);
   if(!anim) return;
   G.from('#lvlTitle',{scale:0,rotation:-8,duration:.55,ease:'back.out(2.4)'});
@@ -220,6 +220,18 @@ $('#levelUp').addEventListener('click',e=>{ if(e.target.id==='levelUp'){ $('#lev
 
 /* ---------- State ---------- */
 let COURSE=null, SUBJECT=null, LESSON=null;
+/* ---------- Arabic subject: SUBJECT.rtl (course.json) makes the screens speak Arabic; text runs right to left, numbers are ١٢٣ ---------- */
+const AR_UI={'Lesson':'الدرس','Vocabulary':'الكلمات','Questions':'الأسئلة','Read':'اسمع','Continue':'كمّل','Pause':'وقّف','Restart':'من الأول','Slow':'بطيء','Normal':'عادي',
+  'Help':'ساعدني','Listen':'اسمع','Teach':'علّمني','Write':'اكتب','Stop':'وقّف','Listen!':'اسمع!','Read with me!':'اقرأ معي!','Your turn! Write it.':'دورك! اكتب الكلمة','Tap and write!':'اضغط واكتب!',
+  'Great!':'ممتاز!','Super!':'رائع!','Again':'تاني','Map':'الخريطة','Nice!':'تمام!','Unit':'الوحدة','Book':'الكتاب','Loading...':'لحظة...','Coming soon!':'قريبًا!','Soon!':'قريبًا!','Oops!':'أوبس!','Primary 1':'الصف الأول','Term 1':'الترم الأول'};
+const isAr=()=>!!(SUBJECT&&SUBJECT.rtl);
+const tr=s=>isAr()&&AR_UI[s]||s;
+// Arabic letters come with their marks (a letter + fatha/damma/kasra/sukun/shadda = one glyph); other text is split per character
+const AR_MARKS='\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED';
+function glyphs(s){ if(!/[\u0600-\u06FF]/.test(s)) return [...s]; const out=[]; for(const ch of s){ if(new RegExp('['+AR_MARKS+']').test(ch)&&out.length) out[out.length-1]+=ch; else out.push(ch); } return out; }
+const arBase=g=>g.replace(new RegExp('['+AR_MARKS+'\\u0640]','g'),'');
+const sameLetter=(a,b)=>{ const n=c=>arBase(c).replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').toLowerCase(); return n(a)===n(b); };
+const num=n=>isAr()?String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]):String(n);
 function show(id){ ['subjects','map','lesson'].forEach(s=>$('#'+s).hidden=s!==id); hideHint(); }
 $$('[data-icon]').forEach(b=>b.innerHTML=ICON[b.dataset.icon]);
 $$('[data-go]').forEach(b=>b.addEventListener('click',()=>b.dataset.go==='map'?openMap():openSubjects()));

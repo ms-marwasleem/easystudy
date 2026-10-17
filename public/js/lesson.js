@@ -3,7 +3,7 @@
 // every path inside a lesson.json is relative to that lesson's own folder
 function fixPaths(L,file){
   const base=file.slice(0,file.lastIndexOf('/')+1), R=p=>p&&!/^(https?:|\/|data:)/.test(p)?base+p:p;
-  L.scene=R(L.scene); L.picture=R(L.picture); if(L.audio){ L.audio.normal=R(L.audio.normal); L.audio.slow=R(L.audio.slow); }
+  L.scene=R(L.scene); L.picture=R(L.picture); L.pagePictures=(L.pagePictures||[]).map(R); if(L.audio){ L.audio.normal=R(L.audio.normal); L.audio.slow=R(L.audio.slow); }
   (L.vocab||[]).forEach(v=>{ v.img=R(v.img); if(v.audio){ v.audio.word=R(v.audio.word); v.audio.again=R(v.audio.again); v.audio.ar=R(v.audio.ar); } (v.parts||[]).forEach(p=>{ p.audio=R(p.audio); p.blend=R(p.blend); }); });
   (L.lines||[]).forEach(l=>{ l.pic=R(l.pic); });
   Object.values(L.bk||{}).forEach(b=>{ b.img=R(b.img); });
@@ -15,12 +15,13 @@ async function openLesson(m){
   if(!LESSON || LESSON.id!==m.id){
     busy(true);
     try{ LESSON=fixPaths(await get(m.file), m.file); LESSON.id=m.id; }catch(e){ busy(false); message('Oops!','This lesson did not load. Check the internet and try again.'); return; }
-    preloadImgs([LESSON.scene,LESSON.picture,...(LESSON.vocab||[]).map(v=>v.img),...(LESSON.lines||[]).map(l=>l.pic),...Object.values(LESSON.bk||{}).map(b=>b.img)]);
+    preloadImgs([LESSON.scene,LESSON.picture,...(LESSON.pagePictures||[]),...(LESSON.vocab||[]).map(v=>v.img),...(LESSON.lines||[]).map(l=>l.pic),...Object.values(LESSON.bk||{}).map(b=>b.img)]);
     player.bufs={}; player.ready=null; vs.i=0; rd.page=1; rd.done={}; ensureAudio(); busy(false);
   }
   show('lesson');
-  $('#lessonMeta').textContent=`${SUBJECT.name} · ${COURSE.grade} · ${COURSE.term}`;
-  $('#lessonTitle').textContent=`Unit ${LESSON.unit} · Lesson ${LESSON.lesson} · ${LESSON.title}`;
+  $('#lessonMeta').textContent=`${SUBJECT.name} · ${tr(COURSE.grade)} · ${tr(COURSE.term)}`;
+  $('#lesson').classList.toggle('ar',isAr()); $('#lesson').lang=isAr()?'ar':'en';
+  $('#lessonTitle').textContent=isAr()?`${tr('Unit')} ${num(LESSON.unit)} · ${tr('Lesson')} ${num(LESSON.lesson)} · ${LESSON.title}`:`Unit ${LESSON.unit} · Lesson ${LESSON.lesson} · ${LESSON.title}`;
   $('#stage').style.setProperty('--scene',`url("${new URL(LESSON.scene,location.href).href}")`);   // full address: css files live in css/
   switchTab('read'); pop('.l-head > *',{y:-20}); pop('.tabs .tab',{y:30,delay:.1});
 }
@@ -102,7 +103,7 @@ function endPlay(full){
 const stage=$('#stage'), rail=$('#rail'); let tab='read';
 const TABS={read:['Lesson','book'],words:['Vocabulary','abc'],quiz:['Questions','quiz']};
 function paintTabs(){ $$('.tab').forEach(b=>{ const [l,ic]=TABS[b.dataset.tab], got=LESSON&&STARS[LESSON.id]&&STARS[LESSON.id][b.dataset.tab];
-  b.innerHTML=ICON[ic]+`<span>${l}</span>`+(got?`<span class="st">${STAR(true)}</span>`:''); b.setAttribute('aria-selected',b.dataset.tab===tab); }); }
+  b.innerHTML=ICON[ic]+`<span>${tr(l)}</span>`+(got?`<span class="st">${STAR(true)}</span>`:''); b.setAttribute('aria-selected',b.dataset.tab===tab); }); }
 function setRail(items){ rail.innerHTML=''; items.forEach(it=>{ const b=el('button','dash '+it.kind+(it.on?' on':'')+(it.icon==='restart'?' ln':''),`<span class="rb">${ICON[it.icon]}</span><span>${it.label}</span>`); b.addEventListener('click',it.click); rail.append(b); }); }
 function switchTab(t,at){ stopAll(); vStop(); hideHint(); $('#lesson').classList.remove('vtab','qtab'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); carAt(0); t==='read'?showRead():t==='words'&&LESSON.vocab?showWords():t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); }
 $$('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
@@ -120,7 +121,7 @@ function showRead(){
   const ul=el('ul','lines');
   LESSON.lines.forEach((l,li)=>{
     if(np>1&&l.page!==rd.page) return;
-    const row=el('li','line'), who=el('button','who',l.who+':'); who.style.color=(LESSON.speakers||{})[l.who]||OL;
+    const row=el('li','line'), who=l.who?el('button','who',l.who+':'):el('button','who say',SAY_LN); who.style.color=(LESSON.speakers||{})[l.who]||OL;   // a story (no speaker name): a small speaker that reads the paragraph
     who.setAttribute('aria-label','Listen to this line'); who.addEventListener('click',()=>playLine(li));
     const txt=el('span','txt');
     l.words.forEach(([w,s,e])=>{ const sp=el('span','w',w); rd.words.push({el:sp,s,e}); sp.addEventListener('click',()=>playFrom(Math.max(0,s-.04),e+.06)); txt.append(sp,' '); });
@@ -130,8 +131,9 @@ function showRead(){
   inn.append(ul); note.append(inn);
   // a lesson with a book picture ("picture" + a "spot" per line): the whole picture beside the words (above them on tall screens);
   // the thing being read gets a ring on the picture, and tapping a thing reads its line
-  if(LESSON.picture){
-    const box=el('div','bpic'), fit=el('div','bfit',`<img src="${LESSON.picture}" alt="">`);
+  const bookPic=(LESSON.pagePictures&&LESSON.pagePictures[rd.page-1])||LESSON.picture;   // optional "pagePictures": one picture per page
+  if(bookPic){
+    const box=el('div','bpic'), fit=el('div','bfit',`<img src="${bookPic}" alt="">`);
     $('img',fit).addEventListener('load',e=>{ const im=e.target; if(im.naturalWidth) box.style.setProperty('--ar',im.naturalWidth/im.naturalHeight); });
     LESSON.lines.forEach((l,li)=>{ if(!l.spot){ rd.spotEls.push(null); return; } const [x,y,w,h]=l.spot, b=el('button','spot');
       b.style.cssText=`left:${x}%;top:${y}%;width:${w}%;height:${h}%`; b.setAttribute('aria-label','Listen: '+l.words.map(w=>w[0]).join(' '));
@@ -210,15 +212,15 @@ function playLine(li){ const l=LESSON.lines[li]; playFrom(Math.max(0,l.words[0][
 function readRail(){
   if(tab!=='read') return; const [ps,pe]=pageSpan(), res=!player.run&&player.pos>ps+.2, part=()=>rd.stopAt!=null&&!rd.full;
   setRail([
-    {kind:'go',icon:'play',label:res?'Continue':'Read',on:rd.playing,click:()=>{ if(!rd.playing) playFrom(res?player.pos:ps,pe,true); }},
-    {kind:'stop',icon:'pause',label:'Pause',click:()=>{ if(part()){ stopAll(); clearMarks(); } else pausePlay(); readRail(); }},
-    {kind:'again',icon:'restart',label:'Restart',click:()=>playFrom(ps,pe,true)},
-    {kind:'speed',icon:rd.slow?'slow':'fast',label:rd.slow?'Slow':'Normal',click:()=>{ const was=player.run&&!part(), t=now(); if(was){ halt(); player.run=false; } rd.slow=!rd.slow; rd.pick[LESSON.id+':'+rd.page]=rd.slow; if(was) playFrom(t,pe,true); else readRail(); }}
+    {kind:'go',icon:'play',label:tr(res?'Continue':'Read'),on:rd.playing,click:()=>{ if(!rd.playing) playFrom(res?player.pos:ps,pe,true); }},
+    {kind:'stop',icon:'pause',label:tr('Pause'),click:()=>{ if(part()){ stopAll(); clearMarks(); } else pausePlay(); readRail(); }},
+    {kind:'again',icon:'restart',label:tr('Restart'),click:()=>playFrom(ps,pe,true)},
+    {kind:'speed',icon:rd.slow?'slow':'fast',label:tr(rd.slow?'Slow':'Normal'),click:()=>{ const was=player.run&&!part(), t=now(); if(was){ halt(); player.run=false; } rd.slow=!rd.slow; rd.pick[LESSON.id+':'+rd.page]=rd.slow; if(was) playFrom(t,pe,true); else readRail(); }}
   ]);
 }
 
 function showGarage(){
   stage.innerHTML='';
-  const g=el('div','garage',`<div><span class="car"></span><p class="outline">Coming soon!</p><span>${COURSE.hints.garage}</span></div>`);
+  const g=el('div','garage',`<div><span class="car"></span><p class="outline">${tr('Coming soon!')}</p><span>${COURSE.hints.garage}</span></div>`);
   putCar(g.querySelector('.car'),'sad'); stage.append(g); setRail([]);
 }

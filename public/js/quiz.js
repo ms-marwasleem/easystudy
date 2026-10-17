@@ -19,6 +19,7 @@
    Two books: each set says "book": "book" (the student's book, default) or "workbook"; two buttons on top switch between them. */
 const qz={sets:null,all:[],list:[],src:'book',i:0,run:0,busy:false,file:null,show:0};
 const Q_SRC={book:['Book',ICON.book],workbook:['Workbook','<svg viewBox="0 0 24 24"><path d="M5 19l1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L9 18z"/><path d="M14.5 6.5l3 3"/><path d="M5 19h14"/></svg>']};
+const R_Q=p=>{ const f=qz.file||''; return p&&!/^(https?:|\/|data:)/.test(p)?f.slice(0,f.lastIndexOf('/')+1)+p:p; };
 const qSrcOf=s=>s.book==='workbook'?'workbook':'book';
 const Q_ARR='<svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>';
 const Q_KEY='<svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><path d="M6.5 10h1M11.5 10h1M16.5 10h1M8 14h8"/></svg>';
@@ -33,12 +34,13 @@ async function qLoad(){
   qz.all=[]; qz.sets.forEach((s,si)=>{ s.taskSrc=R(s.taskAudio);
     if(s.type==='link') s.items.forEach(it=>{ it.answer=true; });
     if(s.type==='match'||s.type==='circle'||s.type==='tick'||s.type==='link'){ s.centerSrc=R(s.centerAudio); s.items.forEach(it=>{ it.src=R(it.audio); it.picSrc=R(it.pic); });
+      if(s.type==='circle'&&s.shuffle&&!s._sh){ s._sh=1; const ps=s.items.map(it=>it.pos); for(let t=0;t<20;t++){ ps.sort(()=>Math.random()-.5); if(ps.some((p,k)=>p!==s.items[k].pos)) break; } s.items.forEach((it,k)=>it.pos=ps[k]); }   // "shuffle": the options swap their places (the book order is not kept)
       if(s.type==='circle') s.items.forEach((it,k)=>{ if(!it.pos){ const n=s.items.length, cols=3, rows=Math.ceil(n/cols), r=Math.floor(k/cols), c=k%cols, inRow=Math.min(cols,n-r*cols);
         it.pos=[(c+.5+(cols-inRow)/2)*100/cols,(r+.5)*100/rows]; } });   // no "pos": spread them in rows of 3
       s.items.filter(it=>s.type==='tick'||it.answer).forEach((it,k)=>qz.all.push({set:s,si,k,word:s.center||''})); return; }
     s.items.forEach((it,k)=>{
     const q={...it,set:s,si,k,audio:R(it.audio)}; if(it.pics) q.pics=it.pics.map(R); if(it.pic) q.pic=R(it.pic); qz.all.push(q); }); });
-  preloadImgs(qz.sets.flatMap(s=>[...(s.items||[]).flatMap(it=>[...(it.pics||[]).map(R),it.pic&&R(it.pic)])]));
+  preloadImgs(qz.sets.flatMap(s=>[s.centerPic&&R(s.centerPic),...(s.items||[]).flatMap(it=>[...(it.pics||[]).map(R),it.pic&&R(it.pic)])]));
   qPick(qz.src); return true;
 }
 async function showQuiz(start){
@@ -49,7 +51,7 @@ async function showQuiz(start){
   if(!ok||!qz.all.length){ $('#lesson').classList.remove('qtab'); showGarage(); return; }
   if(!qz.list.length) qPick('book');
   const wrap=el('div','quiz');
-  wrap.innerHTML=`<div class="qsrc"><button class="qarr prev" aria-label="Previous question">${Q_ARR}</button>${Object.entries(Q_SRC).map(([k,[l,ic]])=>`<button class="qsb" data-src="${k}">${ic}<span>${l}</span>${qz.all.some(q=>qSrcOf(q.set)===k)?'':`<i class="qlock">${LOCK}</i>`}</button>`).join('')}<button class="qarr next" aria-label="Next question">${Q_ARR}</button></div>
+  wrap.innerHTML=`<div class="qsrc"><button class="qarr prev" aria-label="Previous question">${Q_ARR}</button>${Object.entries(Q_SRC).filter(([k])=>!isAr()||qz.all.some(q=>qSrcOf(q.set)===k)).map(([k,[l,ic]])=>`<button class="qsb" data-src="${k}">${ic}<span>${tr(l)}</span>${qz.all.some(q=>qSrcOf(q.set)===k)?'':`<i class="qlock">${LOCK}</i>`}</button>`).join('')}<button class="qarr next" aria-label="Next question">${Q_ARR}</button></div>
     <div class="qhead"><span class="qex"></span><span class="qtask"></span><button class="qsay qtsay" aria-label="Hear the question">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button><span class="qpage"></span></div>
     <div class="qdots"></div>
     <div class="qword" dir="ltr"><b></b><button class="qsay" aria-label="Listen again">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button></div>
@@ -83,8 +85,8 @@ function qGo(i){
   vStop(); hideHint(); const run=++qz.run; qz.i=i; qz.busy=false;
   const q=qz.list[i], s=q.set, w=$('.quiz'); if(!w) return;
   w.dataset.type=s.type;
-  $('.qex',w).textContent=s.ex||''; $('.qex',w).hidden=!s.ex; $('.qtask',w).textContent=s.task;
-  $('.qpage',w).innerHTML=s.page?`${ICON.book}<span>p. ${s.page}</span>`:'';
+  $('.qex',w).textContent=s.ex!=null?num(s.ex):''; $('.qex',w).hidden=!s.ex; $('.qtask',w).textContent=s.task;
+  $('.qpage',w).innerHTML=s.page?`${ICON.book}<span>${isAr()?'ص ':'p. '}${num(s.page)}</span>`:'';
   $$('.qdots i',w).forEach((d,k)=>{ d.classList.toggle('cur',k===i); });
   $('.qarr.prev',w).disabled=qSetStart(-1)<0; $('.qarr.next',w).disabled=qSetStart(1)<0;
   const a0=$('.qans',w); if(a0.parentElement!==w) w.append(a0);   // back in its own place before the pictures are cleared (qLayout moves it beside the picture)
@@ -131,9 +133,10 @@ function qBoard(w,q,i,run){
   if(s.type==='tick') return qSheet(w,s,play,run);
   if(s.type==='link') return qLinkBoard(w,s,play,run);
   const b=el('div','qboard');
+  if(s.centerPic){ const c=el('div','qcenter pic',`<img src="${R_Q(s.centerPic)}" alt="">`); if(s.centerAt){ c.style.setProperty('--cx',s.centerAt[0]); c.style.setProperty('--cy',s.centerAt[1]); } b.append(c); }   // "centerPic": a picture to match (book: circle the SIMILAR picture)
   if(s.center){ const c=el('button','qcenter',`<span>${s.center}</span>`); c.setAttribute('aria-label','Letter '+s.center); c.addEventListener('click',()=>qSound(s.centerSrc,s.center[0]));
     b.append(c); }
-  s.items.forEach(it=>{ const p=el('button','qmp',`<img src="${it.picSrc}" alt=""><span class="qmark"></span>`); p.setAttribute('aria-label',it.word);
+  s.items.forEach(it=>{ const p=el('button','qmp'+(it.picSrc?'':' tx'),(it.picSrc?`<img src="${it.picSrc}" alt="">`:`<b>${it.word}</b>`)+`<span class="qmark"></span>`); p.setAttribute('aria-label',it.word);   // a word-only option (book: circle the different WORD)
     p.style.left=`clamp(calc(var(--w) / 2), ${it.pos[0]}%, calc(100% - var(--w) / 2))`; p.style.top=`clamp(calc(var(--w) / 2), ${it.pos[1]}%, calc(100% - var(--w) / 2))`; p.addEventListener('click',()=>qMatch(p,it,s)); b.append(p); });
   play.append(b);
   // the first time: read the instruction, then the letter's sound
@@ -170,7 +173,7 @@ function qLines(fresh){ const bd=$('.qboard'); if(!bd||$('.quiz').dataset.type!=
     ln.style.cssText=`left:${x1}px;top:${y1}px;width:${len}px;transform:rotate(${Math.atan2(y2-y1,x2-x1)}rad)`+(p===fresh?' scaleX(0)':'');
     if(p===fresh) requestAnimationFrame(()=>requestAnimationFrame(()=>{ ln.style.transform=`rotate(${Math.atan2(y2-y1,x2-x1)}rad) scaleX(1)`; })); });
 }
-function qSound(src,text){ vStop(); return (src?playFile(src).catch(()=>tts(text,'en',.75)):tts(text,'en',.75)).catch(()=>{}); }
+function qSound(src,text){ vStop(); return (src?playFile(src).catch(()=>tts(text,isAr()?'ar':'en',.75)):tts(text,isAr()?'ar':'en',.75)).catch(()=>{}); }
 async function qMatch(btn,it,s){
   if(qz.busy) return; hideHint();
   if(btn.classList.contains('done')) return s.silent?null:qSound(it.src,it.word);
@@ -213,11 +216,11 @@ addEventListener('keydown',e=>{ if(tab!=='quiz'||e.ctrlKey||e.metaKey||e.altKey|
   if(!q||q.set.type!=='type'||document.activeElement&&document.activeElement.id==='qin') return; e.preventDefault(); qTyped(e.key); });
 function qSay(){ const q=qz.list[qz.i]; if(!q) return; vStop(); const w=$('.qword'); w.classList.add('lit');
   const done=()=>{ const x=$('.qword'); if(x) x.classList.remove('lit'); };
-  (q.audio?playFile(q.audio).catch(()=>tts(q.word,'en',.75)):tts(q.word,'en',.75)).then(done,done); }
+  (q.audio?playFile(q.audio).catch(()=>tts(q.word,isAr()?'ar':'en',.75)):tts(q.word,isAr()?'ar':'en',.75)).then(done,done); }
 // read the exercise instruction aloud (its line lights up while it plays)
 function qTask(){ const q=qz.list[qz.i]; if(!q) return Promise.resolve(); vStop(); const t=$('.qtask'); if(t) t.classList.add('lit');
   const done=()=>{ const x=$('.qtask'); if(x) x.classList.remove('lit'); };
-  return (q.set.taskSrc?playFile(q.set.taskSrc).catch(()=>tts(q.set.task,'en',.85)):tts(q.set.task,'en',.85)).then(done,done); }
+  return (q.set.taskSrc?playFile(q.set.taskSrc).catch(()=>tts(q.set.task,isAr()?'ar':'en',.85)):tts(q.set.task,isAr()?'ar':'en',.85)).then(done,done); }
 function qStamp(pic,cross){
   const m=$('.qmark',pic); m.className='qmark good'; m.innerHTML=cross?Q_CROSS:Q_TICK;
   if(anim){ const p=$('path',m), len=p.getTotalLength(); G.fromTo(m,{scale:1.6},{scale:1,duration:.35,ease:'back.out(3)'}); G.fromTo(p,{strokeDasharray:len,strokeDashoffset:len},{strokeDashoffset:0,duration:.35,ease:'power2.out'}); }
@@ -263,7 +266,7 @@ function qLinkBoard(w,s,play,run){
   const wd=el('div','qlw'), pc=el('div','qlp');
   let ord=s.items.map((_,k)=>k); for(let t=0;t<30;t++){ ord.sort(()=>Math.random()-.5); if(n<2||ord.every((v,k)=>v!==k)) break; }   // the pictures are not under their own words
   s.items.forEach((it,k)=>{ const b=el('button','qlk qlkw',`<b>${it.word}</b>`); b.dataset.k=k; b.setAttribute('aria-label',it.word); wd.append(b); });
-  ord.forEach(k=>{ const it=s.items[k], b=el('button','qlk qlkp',`<img src="${it.picSrc}" alt="" draggable="false">`); b.dataset.k=k; b.setAttribute('aria-label','Picture'); pc.append(b); });
+  ord.forEach(k=>{ const it=s.items[k], b=el('button','qlk qlkp'+(it.picSrc?'':' tx'),it.picSrc?`<img src="${it.picSrc}" alt="" draggable="false">`:`<b>${it.text2}</b>`); b.dataset.k=k; b.setAttribute('aria-label',it.picSrc?'Picture':it.text2); pc.append(b); });   // "text2": a word to join instead of a picture
   const svg=document.createElementNS('http://www.w3.org/2000/svg','svg'); svg.setAttribute('class','qlsvg');
   bd.append(wd,pc,svg); play.append(bd);
   let drag=null, sel=null; const rel=(x,y)=>{ const B=bd.getBoundingClientRect(); return [x-B.left,y-B.top]; };
@@ -300,9 +303,9 @@ function qLinkLines(){ const bd=$('.qlink'); if(!bd) return; $$('.qlj',bd).forEa
 // words and pictures as big as the board allows; rows or columns follow the screen
 function qLinkRefresh(land){ const bd=$('.qlink'); if(!bd) return; const s=bd._set, n=s.items.length;
   bd.classList.toggle('cols',s.layout==='cols'||(!land&&n>4));
-  const B=bd.getBoundingClientRect(), cols=bd.classList.contains('cols'), mx=Math.max(...s.items.map(it=>it.word.length));
+  const B=bd.getBoundingClientRect(), cols=bd.classList.contains('cols'), mx=Math.max(...s.items.map(it=>Math.max(it.word.length,(it.text2||'').length)));
   const cw=cols?B.width*.4:(B.width-(n-1)*8)/n-14, rh=cols?B.height/n*.5:40;
-  bd.style.setProperty('--fs',Math.max(12,Math.min(32,cw/(.6*mx),rh*1.1))+'px'); qLinkLines(); }
+  bd.style.setProperty('--fs',Math.max(12,Math.min(isAr()?48:32,cw/(.6*mx),rh*1.1))+'px'); qLinkLines(); }
 async function qLinkTry(bd,s,a,b,run){
   const wb=a.classList.contains('qlkw')?a:b, pb=wb===a?b:a, it=s.items[+wb.dataset.k];
   if(wb.dataset.k!==pb.dataset.k){ tone(170,'square',.06,.18); const l=qLinkLine(bd,wb,pb,'qlj bad'); setTimeout(()=>l.remove(),500);
