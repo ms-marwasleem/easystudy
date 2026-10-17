@@ -120,7 +120,9 @@ function showRead(){
   if(pl==='bubbles') return showBubbles();
   if(LESSON.layout==='pictures'||pl==='pictures') return showPics();
   const scene=el('div','scene'+(LESSON.picture?' book':'')+(LESSON.compact?' long':'')); scene.setAttribute('role','img'); scene.setAttribute('aria-label',LESSON.sceneAlt||'');
-  const np=nPages(), note=el('div','note'), inn=el('div','in'); inn.append(el('p','task',STAR(true)+((LESSON.pageTasks&&LESSON.pageTasks[rd.page-1])||LESSON.task)));
+  const np=nPages(), note=el('div','note'), inn=el('div','in'); const tk=el('p','task',STAR(true)+((LESSON.pageTasks&&LESSON.pageTasks[rd.page-1])||LESSON.task));
+  if(LESSON.titleWords&&rd.page===1){ tk.innerHTML=STAR(true); LESSON.titleWords.forEach(([w,s0,e0],k)=>{ const sp=el('span','w',w); rd.words.push({el:sp,s:s0,e:e0}); sp.addEventListener('click',()=>playFrom(Math.max(0,s0-.04),e0+.06)); tk.append(sp,' '); }); }   // "titleWords": the title line is spoken at the start of the recording and lights up with it
+  inn.append(tk);
   if(LESSON.titleWords&&rd.page===1){ const tp=$('p.task',inn); tp.innerHTML=STAR(true); LESSON.titleWords.forEach(([w,s,e])=>{ const sp=el('span','w',w); rd.words.push({el:sp,s,e}); sp.addEventListener('click',()=>playFrom(Math.max(0,s-.04),e+.06)); tp.append(sp,' '); }); }   // optional "titleWords": the recording says the title first, so the title words light up with the audio
   const ul=el('ul','lines');
   LESSON.lines.forEach((l,li)=>{
