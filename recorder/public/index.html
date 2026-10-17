@@ -10,7 +10,10 @@ main{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
 h1{font-size:28px;margin:0}
 h2{font-size:20px;margin:0;padding-bottom:4px;border-bottom:2px solid var(--blue)}
 .how{margin:0;color:var(--soft);font-size:15px}
-#msg{min-height:1.5em;color:var(--rec);font-size:15px}
+#msg{position:fixed;left:50%;transform:translateX(-50%);bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:20;max-width:min(92vw,520px);padding:10px 18px;border-radius:12px;background:var(--ink);color:var(--bg);font-size:16px;text-align:center;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+#msg:empty{display:none}
+#msg.ok{background:var(--ok);color:#fff}
+#msg.rec{background:var(--rec);color:#fff}
 .sec{display:flex;flex-direction:column}
 .line{display:flex;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--line)}
 .line .tx{flex:1;min-width:0;overflow-wrap:anywhere}
@@ -67,7 +70,8 @@ try{ PW=localStorage.getItem('pw')||''; }catch(e){}
 const idOf=k=>k.replace(/[\/:]/g,'~');
 const sylList=t=>t.split(/[-–—،,]/).map(x=>x.trim()).filter(Boolean);
 const hex=t=>[...t].map(c=>c.codePointAt(0).toString(16)).join('-');
-const say=m=>{$('#msg').textContent=m||'';};
+let mt;
+const say=(m,k)=>{ const e=$('#msg'); e.textContent=m||''; e.className=k||''; clearTimeout(mt); if(m&&k==='ok') mt=setTimeout(()=>say(''),3500); };
 async function api(method,path,body,raw){
  const r=await fetch(path,{method,headers:{'x-pw':PW,...(raw?{'content-type':raw}:body?{'content-type':'application/json'}:{})},body:raw?body:(body?JSON.stringify(body):undefined)});
  if(r.status===401){ gate(); throw new Error('auth'); }
@@ -76,10 +80,11 @@ async function api(method,path,body,raw){
 function playUrl(u,btn){ if(cur) cur.pause(); const a=new Audio(u); cur=a; btn&&btn.classList.add('on'); const done=()=>btn&&btn.classList.remove('on'); a.onended=done; a.onerror=()=>{done();say('تعذر تشغيل الصوت');}; a.play().catch(done); }
 async function playMine(id,btn){ try{ const r=await api('GET','/api/audio/'+id); if(!r.ok) return say('لا يوجد تسجيل'); playUrl(URL.createObjectURL(await r.blob()),btn); }catch(e){say('تعذر تشغيل التسجيل');} }
 async function save(slot,blob){
- if(blob.size<1500) return say('التسجيل قصير جدا، اضغط واستمر ثم أفلت');
+ if(blob.size<1500) return say('التسجيل قصير جدا. اضغط على المايك واستمر ثم تكلم، وأفلت بعد ما تخلص');
+ say('جاري الحفظ...');
  const id=idOf(slot.key), meta={path:slot.path,label:slot.label}; if(slot.parts) meta.parts=slot.parts; if(slot.alt&&slot.alt.length) meta.alt=slot.alt;
  try{ const r=await api('PUT','/api/audio/'+id+'?meta='+encodeURIComponent(JSON.stringify(meta)),blob,(blob.type||'audio/webm').split(';')[0]||'audio/webm');
-  if(!r.ok) return say('لم يتم الحفظ'); say(''); await load(); }catch(e){ if(e.message!=='auth') say('لم يتم الحفظ، تأكد من الإنترنت'); }
+  if(!r.ok) return say('لم يتم الحفظ'); await load(); say('تم الحفظ ✓ اضغط السماعة الخضراء لتسمع تسجيلك','ok'); }catch(e){ if(e.message!=='auth') say('لم يتم الحفظ، تأكد من الإنترنت'); }
 }
 async function del(slot){ try{ await api('DELETE','/api/audio/'+idOf(slot.key)); await load(); }catch(e){say('تعذر الحذف');} }
 function holdMic(slot){
@@ -90,8 +95,8 @@ function holdMic(slot){
  el.onpointerdown=async e=>{ e.preventDefault(); if(st) return; const s={cancel:false,rec:null}; st=s; try{el.setPointerCapture(e.pointerId);}catch(_){}
   let stream; try{ stream=await navigator.mediaDevices.getUserMedia({audio:true}); }
   catch(err){ st=null; micBlocked=true; render(); say('لم يسمح المتصفح بالمايك. اسمح له من إعدادات الموقع، أو سجّل بتطبيق التسجيل ثم اضغط زر المايك لاختيار الملف.'); return; }
-  if(s.cancel||st!==s){ stream.getTracks().forEach(t=>t.stop()); return; }
-  const rec=new MediaRecorder(stream), ch=[]; s.rec=rec; live=true; el.classList.add('live'); say('جاري التسجيل...');
+  if(s.cancel||st!==s){ stream.getTracks().forEach(t=>t.stop()); say('أفلتّ الزر قبل ما يبدأ التسجيل. اضغط واستمر ثم تكلم'); return; }
+  const rec=new MediaRecorder(stream), ch=[]; s.rec=rec; live=true; el.classList.add('live'); say('● جاري التسجيل... أفلت الزر عند الانتهاء','rec');
   rec.ondataavailable=ev=>ev.data.size&&ch.push(ev.data);
   rec.onstop=async()=>{ stream.getTracks().forEach(t=>t.stop()); clearTimeout(tm); live=false; el.classList.remove('live'); st=null; await save(slot,new Blob(ch,{type:rec.mimeType||'audio/webm'})); render(); };
   const tm=setTimeout(()=>{ if(rec.state!=='inactive') rec.stop(); },MAXMS); rec.start(); };
