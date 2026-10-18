@@ -17,32 +17,46 @@ const readJson = async (kv, prefix) => (await Promise.all((await listAll(kv, pre
 
 // Public read-only side for the app (no password, CORS open): GET /pub/manifest = what is recorded, GET /pub/a/<id> = the sound.
 const CORS = { 'access-control-allow-origin': '*', 'access-control-allow-methods': 'GET, OPTIONS' };
-async function manifest(kv) { // {id: {path, parts?, alt?, ts, mime}}; metadata rides on the key so no per-clip reads are needed
-  const keys = await listAll(kv, 'm:'), out = {};
-  await Promise.all(keys.map(async k => {
-    let m = k.metadata;
-    if (!m) { const full = await kv.get(k.name, 'json'); if (!full) return; m = { path: full.path, parts: full.parts, alt: full.alt, ts: full.ts, mime: full.mime }; await kv.put(k.name, JSON.stringify(full), { metadata: m }); }
-    out[k.name.slice(2)] = m;
-  }));
+// Workers cap subrequests per request (50 on the free plan), so the public manifests never read or write per key: they only list (metadata rides on
+// the key). Keys saved without metadata are filled in later by the password-protected /api/list call (see backfill), never here.
+async function manifest(kv) { // {id: {path, parts?, alt?, ts, mime}}
+  const out = {};
+  for (const k of await listAll(kv, 'm:')) if (k.metadata) out[k.name.slice(2)] = k.metadata;
   return out;
 }
 
 // Pictures: key j:<id> = {path, alias?, ts, mime, w, h} (metadata rides on the key), i:<id> = the image. A picture with `alias` has no image of its
 // own: the app shows the library's (or shipped) picture of the alias path instead, so one picture can serve several places.
 async function picManifest(kv) {
-  const keys = await listAll(kv, 'j:'), out = {};
-  for (const k of keys) if (k.metadata) out[k.name.slice(2)] = k.metadata;
-  await Promise.all(keys.filter(k => !k.metadata).map(async k => { const m = await kv.get(k.name, 'json'); if (m) { const md = { path: m.path, alias: m.alias, ts: m.ts, mime: m.mime }; await kv.put(k.name, JSON.stringify(m), { metadata: md }); out[k.name.slice(2)] = md; } }));
+  const out = {};
+  for (const k of await listAll(kv, 'j:')) if (k.metadata) out[k.name.slice(2)] = k.metadata;
   return out;
 }
 
+// Re-save old keys that have no metadata yet (best effort, a few per call, never throws).
+async function backfill(kv, prefix, pick) {
+  try {
+    const keys = (await listAll(kv, prefix)).filter(k => !k.metadata).slice(0, 15);
+    for (const k of keys) { const m = await kv.get(k.name, 'json'); if (!m) continue; const md = pick(m); if (JSON.stringify(md).length < 900) await kv.put(k.name, JSON.stringify(m), { metadata: md }); }
+  } catch (e) {}
+}
+
+const cached = async (req, ctx, build) => { // 15 s edge cache so many app loads cost one KV list
+  const cache = caches.default, key = new Request(new URL(req.url).origin + new URL(req.url).pathname);
+  let r = await cache.match(key);
+  if (r) return r;
+  r = new Response(JSON.stringify(await build()), { headers: { ...CORS, 'content-type': 'application/json; charset=utf-8', 'cache-control': 'public, max-age=15' } });
+  ctx && ctx.waitUntil ? ctx.waitUntil(cache.put(key, r.clone())) : 0;
+  return r;
+};
+
 export default {
-  async fetch(req, env) {
+  async fetch(req, env, ctx) {
     const url = new URL(req.url), p = url.pathname, kv = env.REC;
     if (p.startsWith('/pub/')) {
       if (req.method === 'OPTIONS') return new Response(null, { headers: CORS });
-      if (p === '/pub/manifest') return new Response(JSON.stringify(await manifest(kv)), { headers: { ...CORS, 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-cache' } });
-      if (p === '/pub/pics') return new Response(JSON.stringify(await picManifest(kv)), { headers: { ...CORS, 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-cache' } });
+      if (p === '/pub/manifest') return cached(req, ctx, () => manifest(kv)).catch(e => new Response('{}', { status: 503, headers: { ...CORS, 'content-type': 'application/json' } }));
+      if (p === '/pub/pics') return cached(req, ctx, () => picManifest(kv)).catch(e => new Response('{}', { status: 503, headers: { ...CORS, 'content-type': 'application/json' } }));
       const id = p.split('/')[3];
       if (p.startsWith('/pub/p/') && id && safe(id)) {
         const buf = await kv.get('i:' + id, 'arrayBuffer'), m = await kv.get('j:' + id, 'json');
@@ -72,6 +86,9 @@ export default {
     const parts = p.split('/').filter(Boolean); // api, kind, id
     const kind = parts[1], id = parts[2];
     if (kind === 'check') return J({ ok: true });
+    if (kind === 'list') {
+      ctx.waitUntil(Promise.all([backfill(kv, 'm:', m => ({ path: m.path, parts: m.parts, alt: m.alt, ts: m.ts, mime: m.mime })), backfill(kv, 'j:', m => ({ path: m.path, alias: m.alias, ts: m.ts, mime: m.mime }))]));
+    }
     if (kind === 'list') return J({ rec: await readJson(kv, 'm:'), splits: await readJson(kv, 's:'), custom: await readJson(kv, 'c:'), regen: await readJson(kv, 'g:'), pics: await readJson(kv, 'j:') });
     if (kind === 'export') { // everything in the format tools/ar-library/import_recordings.py reads
       const metas = await readJson(kv, 'm:'), docs = [];
