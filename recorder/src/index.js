@@ -55,8 +55,8 @@ export default {
     const url = new URL(req.url), p = url.pathname, kv = env.REC;
     if (p.startsWith('/pub/')) {
       if (req.method === 'OPTIONS') return new Response(null, { headers: CORS });
-      if (p === '/pub/manifest') return cached(req, ctx, () => manifest(kv)).catch(e => new Response('{}', { status: 503, headers: { ...CORS, 'content-type': 'application/json' } }));
-      if (p === '/pub/pics') return cached(req, ctx, () => picManifest(kv)).catch(e => new Response('{}', { status: 503, headers: { ...CORS, 'content-type': 'application/json' } }));
+      if (p === '/pub/manifest') return cached(req, ctx, () => manifest(kv)).catch(e => new Response(JSON.stringify({ error: String(e && e.message || e) }), { status: 503, headers: { ...CORS, 'content-type': 'application/json' } }));
+      if (p === '/pub/pics') return cached(req, ctx, () => picManifest(kv)).catch(e => new Response(JSON.stringify({ error: String(e && e.message || e) }), { status: 503, headers: { ...CORS, 'content-type': 'application/json' } }));
       const id = p.split('/')[3];
       if (p.startsWith('/pub/p/') && id && safe(id)) {
         const buf = await kv.get('i:' + id, 'arrayBuffer'), m = await kv.get('j:' + id, 'json');
