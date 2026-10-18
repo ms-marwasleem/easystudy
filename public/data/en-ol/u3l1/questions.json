@@ -6,12 +6,12 @@
    "ex": 3,
    "page": 45,
    "task": "Listen, point, and write a tick next to the matching picture.",
-   "taskAudio": "q/task-3.mp3",
+   "taskAudio": "../../en-shared/q/listen-point-and-write-a-tick-next-to-the-matching-picture.mp3",
    "hint": "Pick the matching picture!",
    "items": [
     {
      "word": "grandfather",
-     "audio": "q/w-grandfather.mp3",
+     "audio": "../../en-shared/q/grandfather.mp3",
      "pics": [
       "../../pics/grandfather.png",
       "../../pics/grandmother.png"
@@ -20,7 +20,7 @@
     },
     {
      "word": "parents",
-     "audio": "q/w-parents.mp3",
+     "audio": "../../en-shared/q/parents.mp3",
      "pics": [
       "../../pics/parents.png",
       "../../pics/boy-3.png"
@@ -29,7 +29,7 @@
     },
     {
      "word": "mother",
-     "audio": "q/w-mother.mp3",
+     "audio": "../../en-shared/q/mother.mp3",
      "pics": [
       "../../pics/mother.png",
       "../../pics/girl-3.png"
@@ -38,7 +38,7 @@
     },
     {
      "word": "brother",
-     "audio": "q/w-brother.mp3",
+     "audio": "../../en-shared/q/brother.mp3",
      "pics": [
       "../../pics/brothers.png",
       "../../pics/sisters.png"
@@ -52,7 +52,7 @@
    "ex": 4,
    "page": 45,
    "task": "Listen, look at the picture, then circle the correct word.",
-   "taskAudio": "q/task-4.mp3",
+   "taskAudio": "../../en-shared/q/listen-look-at-the-picture-then-circle-the-correct-word.mp3",
    "hint": "Circle the right word!",
    "items": [
     {
@@ -64,7 +64,7 @@
      ],
      "answer": 0,
      "pic": "../../pics/sisters.png",
-     "audio": "q/s-sister.mp3",
+     "audio": "../../en-shared/q/this-is-my-sister.mp3",
      "word": "This is my sister."
     },
     {
@@ -76,7 +76,7 @@
      ],
      "answer": 1,
      "pic": "../../pics/father.png",
-     "audio": "q/s-father.mp3",
+     "audio": "../../en-shared/q/this-is-my-father.mp3",
      "word": "This is my father."
     },
     {
@@ -88,7 +88,7 @@
      ],
      "answer": 1,
      "pic": "../../pics/grandmother.png",
-     "audio": "q/s-grandmother.mp3",
+     "audio": "../../en-shared/q/this-is-my-grandmother.mp3",
      "word": "This is my grandmother."
     }
    ]
@@ -98,37 +98,37 @@
    "ex": 5,
    "page": 46,
    "task": "Match the picture with the correct word.",
-   "taskAudio": "q/task-5.mp3",
+   "taskAudio": "../../en-shared/q/match-the-picture-with-the-correct-word.mp3",
    "hint": "Join each word to its picture!",
    "items": [
     {
      "word": "father",
-     "audio": "q/w-father.mp3",
+     "audio": "../../en-shared/q/father.mp3",
      "pic": "../../pics/father.png"
     },
     {
      "word": "mother",
-     "audio": "q/w-mother.mp3",
+     "audio": "../../en-shared/q/mother.mp3",
      "pic": "../../pics/mother.png"
     },
     {
      "word": "brother",
-     "audio": "q/w-brother.mp3",
+     "audio": "../../en-shared/q/brother.mp3",
      "pic": "../../pics/brothers.png"
     },
     {
      "word": "sister",
-     "audio": "q/w-sister.mp3",
+     "audio": "../../en-shared/q/sister.mp3",
      "pic": "../../pics/sisters.png"
     },
     {
      "word": "grandmother",
-     "audio": "q/w-grandmother.mp3",
+     "audio": "../../en-shared/q/grandmother.mp3",
      "pic": "../../pics/grandmother.png"
     },
     {
      "word": "grandfather",
-     "audio": "q/w-grandfather.mp3",
+     "audio": "../../en-shared/q/grandfather.mp3",
      "pic": "../../pics/grandfather.png"
     }
    ]
@@ -138,7 +138,7 @@
    "ex": 6,
    "page": 46,
    "task": "Look at the picture, listen, then choose the correct answer.",
-   "taskAudio": "q/task-6.mp3",
+   "taskAudio": "../../en-shared/q/look-at-the-picture-listen-then-choose-the-correct-answer.mp3",
    "hint": "Circle the right word!",
    "items": [
     {
@@ -149,7 +149,7 @@
      ],
      "answer": 1,
      "pic": "../../pics/grandmother.png",
-     "audio": "q/s-grandmother.mp3",
+     "audio": "../../en-shared/q/this-is-my-grandmother.mp3",
      "word": "This is my grandmother."
     },
     {
@@ -160,7 +160,7 @@
      ],
      "answer": 0,
      "pic": "../../pics/father.png",
-     "audio": "q/s-father.mp3",
+     "audio": "../../en-shared/q/this-is-my-father.mp3",
      "word": "This is my father."
     },
     {
@@ -171,7 +171,7 @@
      ],
      "answer": 0,
      "pic": "../../pics/brothers.png",
-     "audio": "q/s-brothers.mp3",
+     "audio": "../../en-shared/q/i-have-2-brothers.mp3",
      "word": "I have 2 brothers."
     },
     {
@@ -182,7 +182,7 @@
      ],
      "answer": 1,
      "pic": "../../pics/sisters.png",
-     "audio": "q/s-sisters.mp3",
+     "audio": "../../en-shared/q/i-have-2-sisters.mp3",
      "word": "I have 2 sisters."
     }
    ]

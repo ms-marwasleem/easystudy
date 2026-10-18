@@ -240,3 +240,7 @@
   .lwords .wword .wsay{grid-column:3;grid-row:1;align-self:end;justify-self:center;position:static}
   .lwords .wword .wpen{grid-column:3;grid-row:2;align-self:start;justify-self:center;position:static}
 }
+.qaline{display:flex;align-items:center;gap:6px}
+.qaline .qarsay{order:-1}
+.qartxt{align-items:stretch;flex:0 1 auto}
+.qaall .qarow{width:fit-content}

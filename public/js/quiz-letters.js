@@ -109,18 +109,18 @@ async function qxQAPlay(q,run){
 // qa "together": every question (red) and its answer (blue) of the exercise on ONE page, a small listen icon beside each pair,
 // and two buttons: listen to all in turn / stop. Done when every pair was heard.
 function qxQAAll(box,q,s,run){
-  const wrap=el('div','qaall'); box.classList.add('qa-together'); const heard=new Set(); let tok=0;
-  const rows=q.items.map((it,i)=>{ const r=el('div','qarow'), sp=el('button','qsay qarsay',SAY_LN), a=el('button','qxqq',it.ask), b=el('button','qxqa-a',it.word);
-    sp.setAttribute('aria-label','Listen'); const t=el('div','qartxt'); t.dir='rtl'; t.append(a,b); r.dir='rtl';
+  const wrap=el('div','qaall'); box.classList.add('qa-together'); const heard={}; let tok=0;
+  const rows=q.items.map((it,i)=>{ const r=el('div','qarow'); r.dir='rtl';
+    const mk=(cls,txt,src)=>{ const ln=el('div','qaline'), b=el('button',cls,txt), sp=el('button','qsay qarsay',SAY_LN); sp.setAttribute('aria-label','Listen'); ln.append(b,sp); return {ln,b,sp,src,txt}; };
+    const a=mk('qxqq',it.ask,it.audio), b=mk('qxqa-a',it.word,R_Q(it.ansAudio)), t=el('div','qartxt'); t.append(a.ln,b.ln);
     if(it.pic) r.append(el('div','qarpic',`<img src="${it.pic}" alt="">`));
-    r.append(t,sp); wrap.append(r); return {it,a,b,sp,r}; });
-  const mark=i=>{ heard.add(i); if(heard.size===rows.length&&!qz.busy&&qz.list[qz.i]===q){ qz.busy=true; qAdvance(run,1200); } };
-  const line=async(R,t)=>{ const x=rows[R]; x.r.classList.add('on'); await qxQALine(x.a,x.it.audio,x.it.ask); if(t!==tok) return false; await new Promise(r=>setTimeout(r,300)); if(t!==tok) return false;
-    await qxQALine(x.b,R_Q(x.it.ansAudio),x.it.word); x.r.classList.remove('on'); return t===tok; };
-  rows.forEach((x,i)=>{ const go=async()=>{ if(qz.list[qz.i]!==q) return; const t=++tok; rows.forEach(y=>y.r.classList.remove('on')); const ok=await line(i,t); if(ok) mark(i); }; x.sp.onclick=go; x.a.onclick=()=>{ ++tok; rows.forEach(y=>y.r.classList.remove('on')); x.r.classList.add('on'); qxQALine(x.a,x.it.audio,x.it.ask).then(()=>x.r.classList.remove('on')); };
-    x.b.onclick=()=>{ ++tok; rows.forEach(y=>y.r.classList.remove('on')); x.r.classList.add('on'); qxQALine(x.b,R_Q(x.it.ansAudio),x.it.word).then(()=>x.r.classList.remove('on')); }; });
+    r.append(t); wrap.append(r); return {r,a,b}; });
+  const mark=(i,k)=>{ heard[i+k]=1; if(Object.keys(heard).length===rows.length*2&&!qz.busy&&qz.list[qz.i]===q){ qz.busy=true; qAdvance(run,1200); } };
+  const clear=()=>rows.forEach(y=>y.r.classList.remove('on'));
+  const one=async(i,k,t)=>{ const x=rows[i], l=k==='a'?x.a:x.b; x.r.classList.add('on'); await qxQALine(l.b,l.src,l.txt); x.r.classList.remove('on'); if(t===tok) mark(i,k); return t===tok; };
+  rows.forEach((x,i)=>{ [['a',x.a],['b',x.b]].forEach(([k,l])=>{ const go=()=>{ if(qz.list[qz.i]!==q) return; clear(); one(i,k,++tok); }; l.sp.onclick=go; l.b.onclick=go; }); });
   const bar=el('div','qabar'), all=el('button','qabtn go',ICON.play+'<span>'+tr('Listen')+'</span>'), stop=el('button','qabtn stop',ICON.pause+'<span>'+tr('Stop')+'</span>');
-  all.onclick=async()=>{ const t=++tok; for(let i=0;i<rows.length;i++){ if(t!==tok||qz.list[qz.i]!==q) return; if(!(await line(i,t))) return; mark(i); await new Promise(r=>setTimeout(r,500)); } };
-  stop.onclick=()=>{ ++tok; vStop(); rows.forEach(y=>{ y.r.classList.remove('on'); y.a.classList.remove('lit'); y.b.classList.remove('lit'); }); };
+  all.onclick=async()=>{ const t=++tok; clear(); for(let i=0;i<rows.length;i++){ for(const k of ['a','b']){ if(t!==tok||qz.list[qz.i]!==q) return; if(!(await one(i,k,t))) return; await new Promise(r=>setTimeout(r,k==='a'?300:500)); } } };
+  stop.onclick=()=>{ ++tok; vStop(); clear(); $$('.qxqq,.qxqa-a',wrap).forEach(y=>y.classList.remove('lit')); };
   bar.append(all,stop); box.append(bar,wrap);
 }

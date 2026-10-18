@@ -6,42 +6,42 @@
    "ex": 2,
    "page": 53,
    "task": "Look at the picture and the word. Do they match?",
-   "taskAudio": "../u1l1/q/task-5.mp3",
+   "taskAudio": "../../en-shared/q/look-at-the-picture-and-the-word-do-they-match.mp3",
    "hint": "Match? Tap the tick. No? Tap the cross.",
    "items": [
     {
      "word": "There are 4 books.",
-     "audio": "q/s1.mp3",
+     "audio": "../../en-shared/q/there-are-4-books.mp3",
      "pic": "../../pics/books-4.png",
      "answer": true
     },
     {
      "word": "I see 3 birds.",
-     "audio": "q/s2.mp3",
+     "audio": "../../en-shared/q/i-see-3-birds.mp3",
      "pic": "../../pics/birds-5.png",
      "answer": false
     },
     {
      "word": "I have 1 brother.",
-     "audio": "q/s3.mp3",
+     "audio": "../../en-shared/q/i-have-1-brother.mp3",
      "pic": "../../pics/brother-1.png",
      "answer": true
     },
     {
      "word": "I have 2 sisters.",
-     "audio": "q/s4.mp3",
+     "audio": "../../en-shared/q/i-have-2-sisters.mp3",
      "pic": "../../pics/sisters.png",
      "answer": true
     },
     {
      "word": "There are 2 butterflies.",
-     "audio": "q/s5.mp3",
+     "audio": "../../en-shared/q/there-are-2-butterflies.mp3",
      "pic": "../../pics/count-1-butterfly.png",
      "answer": false
     },
     {
      "word": "I have 1 brother.",
-     "audio": "q/s6.mp3",
+     "audio": "../../en-shared/q/i-have-1-brother.mp3",
      "pic": "../../pics/sisters.png",
      "answer": false
     }
@@ -52,12 +52,12 @@
    "ex": 3,
    "page": 54,
    "task": "Count and circle the correct number.",
-   "taskAudio": "q/task-3.mp3",
+   "taskAudio": "../../en-shared/q/count-and-circle-the-correct-number.mp3",
    "hint": "Count the flowers, then tap the number!",
    "items": [
     {
      "word": "1 flower",
-     "audio": "q/how-flowers.mp3",
+     "audio": "../../en-shared/q/1-flower.mp3",
      "pic": "../../pics/flowers-1.png",
      "letters": [
       "3",
@@ -68,7 +68,7 @@
     },
     {
      "word": "3 flowers",
-     "audio": "q/how-flowers.mp3",
+     "audio": "../../en-shared/q/1-flower.mp3",
      "pic": "../../pics/flowers-3.png",
      "letters": [
       "4",
@@ -79,7 +79,7 @@
     },
     {
      "word": "2 flowers",
-     "audio": "q/how-flowers.mp3",
+     "audio": "../../en-shared/q/1-flower.mp3",
      "pic": "../../pics/flowers-2.png",
      "letters": [
       "4",
@@ -90,7 +90,7 @@
     },
     {
      "word": "4 flowers",
-     "audio": "q/how-flowers.mp3",
+     "audio": "../../en-shared/q/1-flower.mp3",
      "pic": "../../pics/flowers-4.png",
      "letters": [
       "4",
@@ -101,7 +101,7 @@
     },
     {
      "word": "5 flowers",
-     "audio": "q/how-flowers.mp3",
+     "audio": "../../en-shared/q/1-flower.mp3",
      "pic": "../../pics/flowers-5.png",
      "letters": [
       "3",
@@ -117,12 +117,12 @@
    "ex": 4,
    "page": 54,
    "task": "Count the objects and match them with the correct number.",
-   "taskAudio": "q/task-4.mp3",
+   "taskAudio": "../../en-shared/q/count-the-objects-and-match-them-with-the-correct-number.mp3",
    "hint": "Pick the picture with that many!",
    "items": [
     {
      "word": "1",
-     "audio": "q/n-1.mp3",
+     "audio": "../../en-shared/q/1.mp3",
      "pics": [
       "../../pics/sun.png",
       "../../pics/count-5-apples.png"
@@ -131,7 +131,7 @@
     },
     {
      "word": "2",
-     "audio": "q/n-2.mp3",
+     "audio": "../../en-shared/q/2.mp3",
      "pics": [
       "../../pics/tulips-2.png",
       "../../pics/leaves-4.png"
@@ -140,7 +140,7 @@
     },
     {
      "word": "3",
-     "audio": "q/n-3.mp3",
+     "audio": "../../en-shared/q/3.mp3",
      "pics": [
       "../../pics/pineapples-3.png",
       "../../pics/sun.png"
@@ -149,7 +149,7 @@
     },
     {
      "word": "4",
-     "audio": "q/n-4.mp3",
+     "audio": "../../en-shared/q/4.mp3",
      "pics": [
       "../../pics/leaves-4.png",
       "../../pics/tulips-2.png"
@@ -158,7 +158,7 @@
     },
     {
      "word": "5",
-     "audio": "q/n-5.mp3",
+     "audio": "../../en-shared/q/5.mp3",
      "pics": [
       "../../pics/count-5-apples.png",
       "../../pics/pineapples-3.png"
@@ -172,13 +172,13 @@
    "ex": 5,
    "page": 55,
    "task": "Look at each picture, count the objects, then circle.",
-   "taskAudio": "q/task-5.mp3",
+   "taskAudio": "../../en-shared/q/look-at-each-picture-count-the-objects-then-circle.mp3",
    "hint": "Count, then tap the number!",
    "items": [
     {
      "word": "There are 2 pencils.",
      "missing": 10,
-     "audio": "q/c-pencils.mp3",
+     "audio": "../../en-shared/q/there-are-2-pencils.mp3",
      "pic": "../../pics/pencils-2.png",
      "letters": [
       "2",
@@ -189,7 +189,7 @@
     {
      "word": "There are 4 bags.",
      "missing": 10,
-     "audio": "q/c-bags.mp3",
+     "audio": "../../en-shared/q/there-are-4-bags.mp3",
      "pic": "../../pics/bags-4.png",
      "letters": [
       "1",
@@ -200,7 +200,7 @@
     {
      "word": "There are 5 stars.",
      "missing": 10,
-     "audio": "q/c-stars.mp3",
+     "audio": "../../en-shared/q/there-are-5-stars.mp3",
      "pic": "../../pics/stars-5.png",
      "letters": [
       "3",
