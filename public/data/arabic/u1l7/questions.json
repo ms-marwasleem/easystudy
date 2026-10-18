@@ -1,0 +1,288 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 24,
+   "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الجيم",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/62c/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الجيم",
+   "items": [
+    {
+     "word": "جَمَل",
+     "pic": "../../pics/ar-camel.png",
+     "audio": "words/jamal.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَرْنَب",
+     "pic": "../../pics/ar-rabbit.png",
+     "audio": "../u1l3/words/arnab.mp3",
+     "answer": false
+    },
+    {
+     "word": "أَسَد",
+     "pic": "../../pics/ar-lion.png",
+     "audio": "../u1l3/words/asad.mp3",
+     "answer": false
+    },
+    {
+     "word": "جُنْدِيّ",
+     "pic": "../../pics/ar-soldier.png",
+     "audio": "words/jundi.mp3",
+     "answer": true
+    },
+    {
+     "word": "جَزَر",
+     "pic": "../../pics/ar-carrot.png",
+     "audio": "words/jazar.mp3",
+     "answer": true
+    },
+    {
+     "word": "أُذُن",
+     "pic": "../../pics/ar-ear.png",
+     "audio": "../u1l3/words/udhun.mp3",
+     "answer": false
+    },
+    {
+     "word": "جُبْن",
+     "pic": "../../pics/ar-cheese.png",
+     "audio": "words/jubn.mp3",
+     "answer": true
+    },
+    {
+     "word": "جَرَس",
+     "pic": "../../pics/ar-bell.png",
+     "audio": "words/jaras.mp3",
+     "answer": true
+    },
+    {
+     "word": "جِسْر",
+     "pic": "../../pics/ar-bridge.png",
+     "audio": "words/jisr.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 24,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الجيم",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/62c/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الجيم",
+   "items": [
+    {
+     "word": "جَمَل",
+     "pic": "../../pics/ar-camel.png",
+     "audio": "words/jamal.mp3",
+     "at": 0
+    },
+    {
+     "word": "رِجْل",
+     "pic": "../../pics/ar-foot.png",
+     "audio": "words/rijl.mp3",
+     "at": 1
+    },
+    {
+     "word": "نَجْم",
+     "pic": "../../pics/ar-star.png",
+     "audio": "words/najm.mp3",
+     "at": 1
+    },
+    {
+     "word": "وَجْه",
+     "pic": "../../pics/ar-face.png",
+     "audio": "words/wajh.mp3",
+     "at": 1
+    },
+    {
+     "word": "جِسْر",
+     "pic": "../../pics/ar-bridge.png",
+     "audio": "words/jisr.mp3",
+     "at": 0
+    },
+    {
+     "word": "جُوَافَة",
+     "pic": "../../pics/ar-guava.png",
+     "audio": "words/juwafa.mp3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 9,
+   "page": 24,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الجيم الْمُنَاسِبَ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/62c/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الجيم",
+   "items": [
+    {
+     "word": "جَمَل",
+     "pic": "../../pics/ar-camel.png",
+     "audio": "words/jamal.mp3",
+     "answer": "جَ"
+    },
+    {
+     "word": "جُبْن",
+     "pic": "../../pics/ar-cheese.png",
+     "audio": "words/jubn.mp3",
+     "answer": "جُ"
+    },
+    {
+     "word": "جِسْر",
+     "pic": "../../pics/ar-bridge.png",
+     "audio": "words/jisr.mp3",
+     "answer": "جِ"
+    },
+    {
+     "word": "جَرَس",
+     "pic": "../../pics/ar-bell.png",
+     "audio": "words/jaras.mp3",
+     "answer": "جَ"
+    }
+   ],
+   "choices": [
+    "جَ",
+    "جُ",
+    "جِ",
+    "جْ"
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 25,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "جَمَل",
+     "chips": [
+      "جَ",
+      "مَل"
+     ],
+     "audio": "words/jamal.mp3"
+    },
+    {
+     "word": "جُنْدِيّ",
+     "chips": [
+      "جُنْ",
+      "دِيّ"
+     ],
+     "audio": "words/jundi.mp3"
+    },
+    {
+     "word": "جُوَافَة",
+     "chips": [
+      "جُ",
+      "وَا",
+      "فَة"
+     ],
+     "audio": "words/juwafa.mp3"
+    },
+    {
+     "word": "وَجْه",
+     "chips": [
+      "وَجْه"
+     ],
+     "audio": "words/wajh.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 11,
+   "page": 25,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "جِسْر",
+     "pic": "../../pics/ar-bridge.png",
+     "audio": "words/jisr.mp3"
+    },
+    {
+     "word": "جُنْدِيّ",
+     "pic": "../../pics/ar-soldier.png",
+     "audio": "words/jundi.mp3"
+    },
+    {
+     "word": "رِجْل",
+     "pic": "../../pics/ar-foot.png",
+     "audio": "words/rijl.mp3"
+    },
+    {
+     "word": "نَجْم",
+     "pic": "../../pics/ar-star.png",
+     "audio": "words/najm.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 12,
+   "page": 25,
+   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الجيم",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/62c/name.mp3"
+   ],
+   "hint": "اضغط على الكلمة اللي فيها الحرف",
+   "items": [
+    {
+     "word": "أَسَد",
+     "audio": "../u1l3/words/asad.mp3"
+    },
+    {
+     "word": "جَمَل",
+     "audio": "words/jamal.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَرْنَب",
+     "audio": "../u1l3/words/arnab.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 12,
+   "page": 25,
+   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الجيم",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/62c/name.mp3"
+   ],
+   "hint": "اضغط على الكلمة اللي فيها الحرف",
+   "items": [
+    {
+     "word": "أُذُن",
+     "audio": "../u1l3/words/udhun.mp3"
+    },
+    {
+     "word": "نَجْم",
+     "audio": "words/najm.mp3",
+     "answer": true
+    },
+    {
+     "word": "إِبْرَة",
+     "audio": "../u1l3/words/ibra.mp3"
+    }
+   ]
+  }
+ ]
+}

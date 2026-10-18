@@ -27,13 +27,28 @@ async function manifest(kv) { // {id: {path, parts?, alt?, ts, mime}}; metadata 
   return out;
 }
 
+// Pictures: key j:<id> = {path, alias?, ts, mime, w, h} (metadata rides on the key), i:<id> = the image. A picture with `alias` has no image of its
+// own: the app shows the library's (or shipped) picture of the alias path instead, so one picture can serve several places.
+async function picManifest(kv) {
+  const keys = await listAll(kv, 'j:'), out = {};
+  for (const k of keys) if (k.metadata) out[k.name.slice(2)] = k.metadata;
+  await Promise.all(keys.filter(k => !k.metadata).map(async k => { const m = await kv.get(k.name, 'json'); if (m) { const md = { path: m.path, alias: m.alias, ts: m.ts, mime: m.mime }; await kv.put(k.name, JSON.stringify(m), { metadata: md }); out[k.name.slice(2)] = md; } }));
+  return out;
+}
+
 export default {
   async fetch(req, env) {
     const url = new URL(req.url), p = url.pathname, kv = env.REC;
     if (p.startsWith('/pub/')) {
       if (req.method === 'OPTIONS') return new Response(null, { headers: CORS });
       if (p === '/pub/manifest') return new Response(JSON.stringify(await manifest(kv)), { headers: { ...CORS, 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-cache' } });
+      if (p === '/pub/pics') return new Response(JSON.stringify(await picManifest(kv)), { headers: { ...CORS, 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-cache' } });
       const id = p.split('/')[3];
+      if (p.startsWith('/pub/p/') && id && safe(id)) {
+        const buf = await kv.get('i:' + id, 'arrayBuffer'), m = await kv.get('j:' + id, 'json');
+        if (!buf) return new Response('none', { status: 404, headers: CORS });
+        return new Response(buf, { headers: { ...CORS, 'content-type': (m && m.mime) || 'image/png', 'cache-control': url.searchParams.get('v') ? 'public, max-age=31536000, immutable' : 'no-cache' } });
+      }
       if (p.startsWith('/pub/a/') && id && safe(id)) {
         const buf = await kv.get('a:' + id, 'arrayBuffer'), m = await kv.get('m:' + id, 'json');
         if (!buf) return new Response('none', { status: 404, headers: CORS });
@@ -57,13 +72,29 @@ export default {
     const parts = p.split('/').filter(Boolean); // api, kind, id
     const kind = parts[1], id = parts[2];
     if (kind === 'check') return J({ ok: true });
-    if (kind === 'list') return J({ rec: await readJson(kv, 'm:'), splits: await readJson(kv, 's:'), custom: await readJson(kv, 'c:'), regen: await readJson(kv, 'g:') });
+    if (kind === 'list') return J({ rec: await readJson(kv, 'm:'), splits: await readJson(kv, 's:'), custom: await readJson(kv, 'c:'), regen: await readJson(kv, 'g:'), pics: await readJson(kv, 'j:') });
     if (kind === 'export') { // everything in the format tools/ar-library/import_recordings.py reads
       const metas = await readJson(kv, 'm:'), docs = [];
       for (const m of metas) { const buf = await kv.get('a:' + m.id, 'arrayBuffer'); if (buf) docs.push({ ...m, b64: b64(buf) }); }
       return J({ audio: docs, splits: await readJson(kv, 's:') });
     }
     if (!id || !safe(id)) return J({ error: 'bad id' }, 400);
+    if (kind === 'pic') { // PUT body = the image (meta in ?meta=), PUT with ?meta alias only = point this picture at another one, DELETE = back to the shipped picture
+      if (req.method === 'GET') { const buf = await kv.get('i:' + id, 'arrayBuffer'), m = await kv.get('j:' + id, 'json'); return buf ? new Response(buf, { headers: { 'content-type': (m && m.mime) || 'image/png', 'cache-control': 'no-store' } }) : J({ error: 'none' }, 404); }
+      if (req.method === 'PUT') {
+        const meta = JSON.parse(decodeURIComponent(url.searchParams.get('meta') || '{}')); meta.id = id; meta.ts = Date.now();
+        if (meta.alias) { delete meta.mime; await kv.delete('i:' + id); }
+        else {
+          const buf = await req.arrayBuffer();
+          if (buf.byteLength < 100 || buf.byteLength > 6e6) return J({ error: 'size' }, 400);
+          meta.size = buf.byteLength; meta.mime = (req.headers.get('content-type') || 'image/png').split(';')[0];
+          if (!/^image\//.test(meta.mime)) return J({ error: 'type' }, 400);
+          await kv.put('i:' + id, buf);
+        }
+        await kv.put('j:' + id, JSON.stringify(meta), { metadata: { path: meta.path, alias: meta.alias, ts: meta.ts, mime: meta.mime } }); return J({ ok: true });
+      }
+      if (req.method === 'DELETE') { await kv.delete('i:' + id); await kv.delete('j:' + id); return J({ ok: true }); }
+    }
     if (kind === 'audio') {
       if (req.method === 'GET') { const buf = await kv.get('a:' + id, 'arrayBuffer'), m = await kv.get('m:' + id, 'json'); return buf ? new Response(buf, { headers: { 'content-type': (m && m.mime) || 'audio/webm', 'cache-control': 'no-store' } }) : J({ error: 'none' }, 404); }
       if (req.method === 'PUT') {

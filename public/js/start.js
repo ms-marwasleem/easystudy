@@ -17,5 +17,7 @@ async function start(){
   if(document.fonts&&document.fonts.ready) await Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,2500))]);
   $('#helloSub').textContent=`${COURSE.grade} · ${COURSE.term}`; paintHud(); busy(false); openSubjects(); pop('#subjects .top > *',{y:-20});
 }
+// pictures come from the picture library when it has a newer one (sw.js); without it the shipped files are used
+if('serviceWorker' in navigator&&/^https?:/.test(location.protocol)) navigator.serviceWorker.register('sw.js').catch(()=>{});
 start();
 window.__app={award,levelUp,openLesson,openMap,vTeach:()=>vTeach(),vWrite:()=>vWrite(),get LESSON(){return LESSON}};

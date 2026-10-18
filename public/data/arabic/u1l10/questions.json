@@ -1,0 +1,286 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 36,
+   "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ التاء",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/62a/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت التاء",
+   "items": [
+    {
+     "word": "تِمْسَاح",
+     "pic": "../../pics/ar-crocodile.png",
+     "audio": "words/timsah.mp3",
+     "answer": true
+    },
+    {
+     "word": "تُوت",
+     "pic": "../../pics/ar-mulberry.png",
+     "audio": "words/tut.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَسَد",
+     "pic": "../../pics/ar-lion.png",
+     "audio": "../u1l3/words/asad.mp3",
+     "answer": false
+    },
+    {
+     "word": "تَاج",
+     "pic": "../../pics/ar-crown.png",
+     "audio": "words/taj.mp3",
+     "answer": true
+    },
+    {
+     "word": "أُذُن",
+     "pic": "../../pics/ar-ear.png",
+     "audio": "../u1l3/words/udhun.mp3",
+     "answer": false
+    },
+    {
+     "word": "تِين",
+     "pic": "../../pics/ar-fig.png",
+     "audio": "words/tin.mp3",
+     "answer": true
+    },
+    {
+     "word": "تُفَّاحَة",
+     "pic": "../../pics/ar-apple.png",
+     "audio": "words/tuffaha.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَرْنَب",
+     "pic": "../../pics/ar-rabbit.png",
+     "audio": "../u1l3/words/arnab.mp3",
+     "answer": false
+    },
+    {
+     "word": "تَمْر",
+     "pic": "../../pics/ar-dates.png",
+     "audio": "../u1l5/words/tamr.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 36,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ التاء",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/62a/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها التاء",
+   "items": [
+    {
+     "word": "تَاج",
+     "pic": "../../pics/ar-crown.png",
+     "audio": "words/taj.mp3",
+     "at": 0
+    },
+    {
+     "word": "تُوت",
+     "pic": "../../pics/ar-mulberry.png",
+     "audio": "words/tut.mp3",
+     "at": 0
+    },
+    {
+     "word": "كَتْكُوت",
+     "pic": "../../pics/ar-chick.png",
+     "audio": "words/katkut.mp3",
+     "at": 1
+    },
+    {
+     "word": "خَتْم",
+     "pic": "../../pics/ar-stamp.png",
+     "audio": "words/khatm.mp3",
+     "at": 1
+    },
+    {
+     "word": "مِتْر",
+     "pic": "../../pics/ar-tape.png",
+     "audio": "words/mitr.mp3",
+     "at": 1
+    },
+    {
+     "word": "تِمْسَاح",
+     "pic": "../../pics/ar-crocodile.png",
+     "audio": "words/timsah.mp3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 9,
+   "page": 36,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ التاء الْمُنَاسِبَ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/62a/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت التاء",
+   "items": [
+    {
+     "word": "تَمْر",
+     "pic": "../../pics/ar-dates.png",
+     "audio": "../u1l5/words/tamr.mp3",
+     "answer": "تَ"
+    },
+    {
+     "word": "تُوت",
+     "pic": "../../pics/ar-mulberry.png",
+     "audio": "words/tut.mp3",
+     "answer": "تُ"
+    },
+    {
+     "word": "تِين",
+     "pic": "../../pics/ar-fig.png",
+     "audio": "words/tin.mp3",
+     "answer": "تِ"
+    },
+    {
+     "word": "تَاج",
+     "pic": "../../pics/ar-crown.png",
+     "audio": "words/taj.mp3",
+     "answer": "تَ"
+    }
+   ],
+   "choices": [
+    "تَ",
+    "تُ",
+    "تِ",
+    "تْ"
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 37,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "تِين",
+     "chips": [
+      "تِين"
+     ],
+     "audio": "words/tin.mp3"
+    },
+    {
+     "word": "تَاج",
+     "chips": [
+      "تَاج"
+     ],
+     "audio": "words/taj.mp3"
+    },
+    {
+     "word": "تُوت",
+     "chips": [
+      "تُوت"
+     ],
+     "audio": "words/tut.mp3"
+    },
+    {
+     "word": "تُفَّاحَة",
+     "chips": [
+      "تُ",
+      "فَّا",
+      "حَة"
+     ],
+     "audio": "words/tuffaha.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 11,
+   "page": 37,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "خَتْم",
+     "pic": "../../pics/ar-stamp.png",
+     "audio": "words/khatm.mp3"
+    },
+    {
+     "word": "مِتْر",
+     "pic": "../../pics/ar-tape.png",
+     "audio": "words/mitr.mp3"
+    },
+    {
+     "word": "تِين",
+     "pic": "../../pics/ar-fig.png",
+     "audio": "words/tin.mp3"
+    },
+    {
+     "word": "تُوت",
+     "pic": "../../pics/ar-mulberry.png",
+     "audio": "words/tut.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 12,
+   "page": 37,
+   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ التاء",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/62a/name.mp3"
+   ],
+   "hint": "اضغط على الكلمة اللي فيها الحرف",
+   "items": [
+    {
+     "word": "أَسَد",
+     "audio": "../u1l3/words/asad.mp3"
+    },
+    {
+     "word": "تَاج",
+     "audio": "words/taj.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَرْنَب",
+     "audio": "../u1l3/words/arnab.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 12,
+   "page": 37,
+   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ التاء",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/62a/name.mp3"
+   ],
+   "hint": "اضغط على الكلمة اللي فيها الحرف",
+   "items": [
+    {
+     "word": "إِبْرَة",
+     "audio": "../u1l3/words/ibra.mp3"
+    },
+    {
+     "word": "أُذُن",
+     "audio": "../u1l3/words/udhun.mp3"
+    },
+    {
+     "word": "تِين",
+     "audio": "words/tin.mp3",
+     "answer": true
+    }
+   ]
+  }
+ ]
+}

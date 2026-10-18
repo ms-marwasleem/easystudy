@@ -1,0 +1,290 @@
+{
+ "id": "u1l9",
+ "unit": 1,
+ "lesson": 9,
+ "type": "letter",
+ "title": "حرف الخاء",
+ "task": "أتعرّف على حرف الخاء",
+ "pages": 2,
+ "pageNums": [
+  30,
+  31
+ ],
+ "scene": "../../pics/ar-sheep.png",
+ "sceneAlt": "خَاء",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "خ",
+  "name": "خَاء",
+  "nameAudio": "../letters/62e/name.mp3",
+  "pic": "../../pics/ar-sheep.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "خـ",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـخـ",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـخ",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "خ",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "خَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/62e-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "خُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/62e-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "خِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/62e-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "خْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/62e-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف الخاء في الكلمة",
+   "أصوات حرف الخاء بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "خَسّ",
+   "img": "../../pics/ar-lettuce.png",
+   "audio": {
+    "word": "words/khass.mp3"
+   },
+   "parts": [
+    {
+     "t": "خَسّ",
+     "audio": "words/khass.mp3"
+    }
+   ]
+  },
+  {
+   "word": "خَرُوف",
+   "img": "../../pics/ar-sheep.png",
+   "audio": {
+    "word": "words/kharuf.mp3"
+   },
+   "parts": [
+    {
+     "t": "خَ",
+     "audio": "../../syl-ar/62e-64e.mp3"
+    },
+    {
+     "t": "رُوف",
+     "audio": "../../syl-ar/631-64f-648-641.mp3"
+    }
+   ]
+  },
+  {
+   "word": "خَشَب",
+   "img": "../../pics/ar-wood.png",
+   "audio": {
+    "word": "words/khashab.mp3"
+   },
+   "parts": [
+    {
+     "t": "خَ",
+     "audio": "../../syl-ar/62e-64e.mp3"
+    },
+    {
+     "t": "شَب",
+     "audio": "../../syl-ar/634-64e-628.mp3"
+    }
+   ]
+  },
+  {
+   "word": "خُبْز",
+   "img": "../../pics/ar-bread.png",
+   "audio": {
+    "word": "words/khubz.mp3"
+   },
+   "parts": [
+    {
+     "t": "خُبْز",
+     "audio": "words/khubz.mp3"
+    }
+   ]
+  },
+  {
+   "word": "خُفَّاش",
+   "img": "../../pics/ar-bat.png",
+   "audio": {
+    "word": "words/khuffash.mp3"
+   },
+   "parts": [
+    {
+     "t": "خُ",
+     "audio": "../../syl-ar/62e-64f.mp3"
+    },
+    {
+     "t": "فَّاش",
+     "audio": "../../syl-ar/641-64e-651-627-634.mp3"
+    }
+   ]
+  },
+  {
+   "word": "خُيُوط",
+   "img": "../../pics/ar-threads.png",
+   "audio": {
+    "word": "words/khuyut.mp3"
+   },
+   "parts": [
+    {
+     "t": "خُ",
+     "audio": "../../syl-ar/62e-64f.mp3"
+    },
+    {
+     "t": "يُوط",
+     "audio": "../../syl-ar/64a-64f-648-637.mp3"
+    }
+   ]
+  },
+  {
+   "word": "خِيَار",
+   "img": "../../pics/ar-cucumber.png",
+   "audio": {
+    "word": "words/khiyar.mp3"
+   },
+   "parts": [
+    {
+     "t": "خِ",
+     "audio": "../../syl-ar/62e-650.mp3"
+    },
+    {
+     "t": "يَار",
+     "audio": "../../syl-ar/64a-64e-627-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "خِنْجَر",
+   "img": "../../pics/ar-dagger.png",
+   "audio": {
+    "word": "words/khanjar.mp3"
+   },
+   "parts": [
+    {
+     "t": "خِنْ",
+     "audio": "../../syl-ar/62e-650-646-652.mp3"
+    },
+    {
+     "t": "جَر",
+     "audio": "../../syl-ar/62c-64e-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "خِزَانَة",
+   "img": "../../pics/ar-safe.png",
+   "audio": {
+    "word": "words/khizana.mp3"
+   },
+   "parts": [
+    {
+     "t": "خِ",
+     "audio": "../../syl-ar/62e-650.mp3"
+    },
+    {
+     "t": "زَا",
+     "audio": "../../syl-ar/632-64e-627.mp3"
+    },
+    {
+     "t": "نَة",
+     "audio": "../../syl-ar/646-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "نَخْل",
+   "img": "../../pics/ar-palm.png",
+   "audio": {
+    "word": "words/nakhl.mp3"
+   },
+   "parts": [
+    {
+     "t": "نَخْل",
+     "audio": "words/nakhl.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أُخْطُبُوط",
+   "img": "../../pics/ar-octopus.png",
+   "audio": {
+    "word": "../u1l3/words/ukhtubut.mp3"
+   },
+   "parts": [
+    {
+     "t": "أُخْ",
+     "audio": "../../syl-ar/623-64f-62e-652.mp3"
+    },
+    {
+     "t": "طُ",
+     "audio": "../../syl-ar/637-64f.mp3"
+    },
+    {
+     "t": "بُوط",
+     "audio": "../../syl-ar/628-64f-648-637.mp3"
+    }
+   ]
+  },
+  {
+   "word": "صَخْرَة",
+   "img": "../../pics/ar-rock.png",
+   "audio": {
+    "word": "words/sakhra.mp3"
+   },
+   "parts": [
+    {
+     "t": "صَخْ",
+     "audio": "../../syl-ar/635-64e-62e-652.mp3"
+    },
+    {
+     "t": "رَة",
+     "audio": "../../syl-ar/631-64e-629.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

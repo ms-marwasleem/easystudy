@@ -235,3 +235,15 @@ button.qpic{cursor:pointer}
 .qlp .qlkp.tx{align-self:start;justify-self:center;height:auto;width:auto}
 .qlink.cols .qlp .qlkp.tx{align-self:center;justify-self:end}
 /* Arabic too: previous on the left (arrow <), NEXT on the right (arrow >) */
+
+/* smaller book-page tag; in Arabic lessons it sits in the top-LEFT corner so it never crowds the title that starts at the right */
+.qpage{font-size:12px}.qpage svg{width:16px;height:16px}
+#lesson:not(.vtab) #stage .pagetag.pin:not(.innote){padding:2px 8px 2px 6px}
+#lesson.ar #stage .pagetag.pin{right:auto;left:clamp(12px,2vw,24px)}
+#lesson.ar .note:has(.innote) .task{padding-right:0;padding-left:64px}
+#lesson.ar.vtab.v-land .vtools{padding-right:0}
+
+/* every listen icon a little smaller (Ahmed 2026-10-18) */
+.qsay svg{width:clamp(22px,3.4vh,28px);height:clamp(22px,3.4vh,28px)}
+.qword .qsay{width:40px;height:40px;margin:-4px}
+.qtxt .qsay{width:40px;height:40px}.qtxt .qsay svg{width:26px;height:26px}

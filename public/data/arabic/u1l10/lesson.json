@@ -1,0 +1,278 @@
+{
+ "id": "u1l10",
+ "unit": 1,
+ "lesson": 10,
+ "type": "letter",
+ "title": "حرف التاء",
+ "task": "أتعرّف على حرف التاء",
+ "pages": 2,
+ "pageNums": [
+  34,
+  35
+ ],
+ "scene": "../../pics/ar-crocodile.png",
+ "sceneAlt": "تَاء",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "ت",
+  "name": "تَاء",
+  "nameAudio": "../letters/62a/name.mp3",
+  "pic": "../../pics/ar-crocodile.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "تـ",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـتـ",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـت",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "ت",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "تَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/62a-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "تُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/62a-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "تِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/62a-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "تْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/62a-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف التاء في الكلمة",
+   "أصوات حرف التاء بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "تَمْر",
+   "img": "../../pics/ar-dates.png",
+   "audio": {
+    "word": "../u1l5/words/tamr.mp3"
+   },
+   "parts": [
+    {
+     "t": "تَمْر",
+     "audio": "../u1l5/words/tamr.mp3"
+    }
+   ]
+  },
+  {
+   "word": "تَاج",
+   "img": "../../pics/ar-crown.png",
+   "audio": {
+    "word": "words/taj.mp3"
+   },
+   "parts": [
+    {
+     "t": "تَاج",
+     "audio": "words/taj.mp3"
+    }
+   ]
+  },
+  {
+   "word": "تَلَامِيذ",
+   "img": "../../pics/ar-students.png",
+   "audio": {
+    "word": "words/talamidh.mp3"
+   },
+   "parts": [
+    {
+     "t": "تَ",
+     "audio": "../../syl-ar/62a-64e.mp3"
+    },
+    {
+     "t": "لَا",
+     "audio": "../../syl-ar/644-64e-627.mp3"
+    },
+    {
+     "t": "مِيذ",
+     "audio": "../../syl-ar/645-650-64a-630.mp3"
+    }
+   ]
+  },
+  {
+   "word": "تُوت",
+   "img": "../../pics/ar-mulberry.png",
+   "audio": {
+    "word": "words/tut.mp3"
+   },
+   "parts": [
+    {
+     "t": "تُوت",
+     "audio": "words/tut.mp3"
+    }
+   ]
+  },
+  {
+   "word": "تُفَّاحَة",
+   "img": "../../pics/ar-apple.png",
+   "audio": {
+    "word": "words/tuffaha.mp3"
+   },
+   "parts": [
+    {
+     "t": "تُ",
+     "audio": "../../syl-ar/62a-64f.mp3"
+    },
+    {
+     "t": "فَّا",
+     "audio": "../../syl-ar/641-64e-651-627.mp3"
+    },
+    {
+     "t": "حَة",
+     "audio": "../../syl-ar/62d-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "تُونَة",
+   "img": "../../pics/ar-tuna.png",
+   "audio": {
+    "word": "words/tuna.mp3"
+   },
+   "parts": [
+    {
+     "t": "تُو",
+     "audio": "../../syl-ar/62a-64f-648.mp3"
+    },
+    {
+     "t": "نَة",
+     "audio": "../../syl-ar/646-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "تِين",
+   "img": "../../pics/ar-fig.png",
+   "audio": {
+    "word": "words/tin.mp3"
+   },
+   "parts": [
+    {
+     "t": "تِين",
+     "audio": "words/tin.mp3"
+    }
+   ]
+  },
+  {
+   "word": "تِمْسَاح",
+   "img": "../../pics/ar-crocodile.png",
+   "audio": {
+    "word": "words/timsah.mp3"
+   },
+   "parts": [
+    {
+     "t": "تِمْ",
+     "audio": "../../syl-ar/62a-650-645-652.mp3"
+    },
+    {
+     "t": "سَاح",
+     "audio": "../../syl-ar/633-64e-627-62d.mp3"
+    }
+   ]
+  },
+  {
+   "word": "تِلْفَاز",
+   "img": "../../pics/ar-tv.png",
+   "audio": {
+    "word": "words/tilfaz.mp3"
+   },
+   "parts": [
+    {
+     "t": "تِلْ",
+     "audio": "../../syl-ar/62a-650-644-652.mp3"
+    },
+    {
+     "t": "فَاز",
+     "audio": "../../syl-ar/641-64e-627-632.mp3"
+    }
+   ]
+  },
+  {
+   "word": "كَتْكُوت",
+   "img": "../../pics/ar-chick.png",
+   "audio": {
+    "word": "words/katkut.mp3"
+   },
+   "parts": [
+    {
+     "t": "كَتْ",
+     "audio": "../../syl-ar/643-64e-62a-652.mp3"
+    },
+    {
+     "t": "كُوت",
+     "audio": "../../syl-ar/643-64f-648-62a.mp3"
+    }
+   ]
+  },
+  {
+   "word": "خَتْم",
+   "img": "../../pics/ar-stamp.png",
+   "audio": {
+    "word": "words/khatm.mp3"
+   },
+   "parts": [
+    {
+     "t": "خَتْم",
+     "audio": "words/khatm.mp3"
+    }
+   ]
+  },
+  {
+   "word": "مِتْر",
+   "img": "../../pics/ar-tape.png",
+   "audio": {
+    "word": "words/mitr.mp3"
+   },
+   "parts": [
+    {
+     "t": "مِتْر",
+     "audio": "words/mitr.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

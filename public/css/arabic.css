@@ -28,3 +28,16 @@
 #lesson.ar .vword.writing:not(.focus) .lt.cur{animation:none;text-decoration-color:var(--now)}
 #lesson.ar .vmeaning{display:none}
 #lesson.ar .vword{font-size:calc(var(--wfs,56px) * 1.3)}
+
+/* short landscape screens (tablet in a small window, phone on its side): the Arabic task line is long and the stars are many, so the stars get their own thin row under the task line (before, the task line was squeezed to nothing and grew tall, which pushed the pictures out) */
+#lesson.ar.q-short .quiz{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr) auto;grid-template-areas:"head" "dots" "word" "play" "src";gap:2px;padding:6px 14px 4px}
+#lesson.ar.q-short .qhead{padding-right:64px;min-height:30px}
+#lesson.ar.q-short .qdots{padding-right:0;justify-content:center;gap:1px}
+#lesson.ar.q-short .qdots i{width:clamp(12px,2.6vw,20px);height:clamp(12px,2.6vw,20px)}
+#lesson.ar.q-short .qdots i.cur{transform:scale(1.2)}
+#lesson.ar.q-short .qsrc{gap:12px}
+#lesson.ar.q-short .qarr{width:34px;height:34px}
+#lesson.ar.q-short .qsb{height:30px}
+#lesson.ar.q-short .qtask{font-size:clamp(14px,2.4vw,19px)}
+/* smaller listen icon beside a story paragraph */
+.who.say{width:28px;height:28px}.who.say svg{width:21px;height:21px}

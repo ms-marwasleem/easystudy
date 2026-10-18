@@ -1,0 +1,270 @@
+{
+ "id": "u1l7",
+ "unit": 1,
+ "lesson": 7,
+ "type": "letter",
+ "title": "حرف الجيم",
+ "task": "أتعرّف على حرف الجيم",
+ "pages": 2,
+ "pageNums": [
+  22,
+  23
+ ],
+ "scene": "../../pics/ar-camel.png",
+ "sceneAlt": "جِيم",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "ج",
+  "name": "جِيم",
+  "nameAudio": "../letters/62c/name.mp3",
+  "pic": "../../pics/ar-camel.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "جـ",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـجـ",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـج",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "ج",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "جَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/62c-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "جُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/62c-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "جِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/62c-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "جْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/62c-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف الجيم في الكلمة",
+   "أصوات حرف الجيم بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "جَزَر",
+   "img": "../../pics/ar-carrot.png",
+   "audio": {
+    "word": "words/jazar.mp3"
+   },
+   "parts": [
+    {
+     "t": "جَ",
+     "audio": "../../syl-ar/62c-64e.mp3"
+    },
+    {
+     "t": "زَر",
+     "audio": "../../syl-ar/632-64e-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "جَمَل",
+   "img": "../../pics/ar-camel.png",
+   "audio": {
+    "word": "words/jamal.mp3"
+   },
+   "parts": [
+    {
+     "t": "جَ",
+     "audio": "../../syl-ar/62c-64e.mp3"
+    },
+    {
+     "t": "مَل",
+     "audio": "../../syl-ar/645-64e-644.mp3"
+    }
+   ]
+  },
+  {
+   "word": "جَرَس",
+   "img": "../../pics/ar-bell.png",
+   "audio": {
+    "word": "words/jaras.mp3"
+   },
+   "parts": [
+    {
+     "t": "جَ",
+     "audio": "../../syl-ar/62c-64e.mp3"
+    },
+    {
+     "t": "رَس",
+     "audio": "../../syl-ar/631-64e-633.mp3"
+    }
+   ]
+  },
+  {
+   "word": "جُبْن",
+   "img": "../../pics/ar-cheese.png",
+   "audio": {
+    "word": "words/jubn.mp3"
+   },
+   "parts": [
+    {
+     "t": "جُبْن",
+     "audio": "words/jubn.mp3"
+    }
+   ]
+  },
+  {
+   "word": "جُنْدِيّ",
+   "img": "../../pics/ar-soldier.png",
+   "audio": {
+    "word": "words/jundi.mp3"
+   },
+   "parts": [
+    {
+     "t": "جُنْ",
+     "audio": "../../syl-ar/62c-64f-646-652.mp3"
+    },
+    {
+     "t": "دِيّ",
+     "audio": "../../syl-ar/62f-650-64a-651.mp3"
+    }
+   ]
+  },
+  {
+   "word": "جُوَافَة",
+   "img": "../../pics/ar-guava.png",
+   "audio": {
+    "word": "words/juwafa.mp3"
+   },
+   "parts": [
+    {
+     "t": "جُ",
+     "audio": "../../syl-ar/62c-64f.mp3"
+    },
+    {
+     "t": "وَا",
+     "audio": "../../syl-ar/648-64e-627.mp3"
+    },
+    {
+     "t": "فَة",
+     "audio": "../../syl-ar/641-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "جِسْر",
+   "img": "../../pics/ar-bridge.png",
+   "audio": {
+    "word": "words/jisr.mp3"
+   },
+   "parts": [
+    {
+     "t": "جِسْر",
+     "audio": "words/jisr.mp3"
+    }
+   ]
+  },
+  {
+   "word": "جِذْر",
+   "img": "../../pics/ar-roots.png",
+   "audio": {
+    "word": "words/jidhr.mp3"
+   },
+   "parts": [
+    {
+     "t": "جِذْر",
+     "audio": "words/jidhr.mp3"
+    }
+   ]
+  },
+  {
+   "word": "جِسْم",
+   "img": "../../pics/ar-body.png",
+   "audio": {
+    "word": "words/jism.mp3"
+   },
+   "parts": [
+    {
+     "t": "جِسْم",
+     "audio": "words/jism.mp3"
+    }
+   ]
+  },
+  {
+   "word": "رِجْل",
+   "img": "../../pics/ar-foot.png",
+   "audio": {
+    "word": "words/rijl.mp3"
+   },
+   "parts": [
+    {
+     "t": "رِجْل",
+     "audio": "words/rijl.mp3"
+    }
+   ]
+  },
+  {
+   "word": "نَجْم",
+   "img": "../../pics/ar-star.png",
+   "audio": {
+    "word": "words/najm.mp3"
+   },
+   "parts": [
+    {
+     "t": "نَجْم",
+     "audio": "words/najm.mp3"
+    }
+   ]
+  },
+  {
+   "word": "وَجْه",
+   "img": "../../pics/ar-face.png",
+   "audio": {
+    "word": "words/wajh.mp3"
+   },
+   "parts": [
+    {
+     "t": "وَجْه",
+     "audio": "words/wajh.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

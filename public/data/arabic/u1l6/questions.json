@@ -1,0 +1,287 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 20,
+   "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الحاء",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/62d/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الحاء",
+   "items": [
+    {
+     "word": "لَحْم",
+     "pic": "../../pics/ar-meat.png",
+     "audio": "words/lahm.mp3",
+     "answer": true
+    },
+    {
+     "word": "أُذُن",
+     "pic": "../../pics/ar-ear.png",
+     "audio": "../u1l3/words/udhun.mp3",
+     "answer": false
+    },
+    {
+     "word": "حُوت",
+     "pic": "../../pics/ar-whale.png",
+     "audio": "words/hut.mp3",
+     "answer": true
+    },
+    {
+     "word": "حِمَار",
+     "pic": "../../pics/ar-donkey.png",
+     "audio": "words/himar.mp3",
+     "answer": true
+    },
+    {
+     "word": "حَمَامَة",
+     "pic": "../../pics/ar-pigeon.png",
+     "audio": "words/hamama.mp3",
+     "answer": true
+    },
+    {
+     "word": "حَبْل",
+     "pic": "../../pics/ar-rope.png",
+     "audio": "words/habl.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَرْنَب",
+     "pic": "../../pics/ar-rabbit.png",
+     "audio": "../u1l3/words/arnab.mp3",
+     "answer": false
+    },
+    {
+     "word": "أَسَد",
+     "pic": "../../pics/ar-lion.png",
+     "audio": "../u1l3/words/asad.mp3",
+     "answer": false
+    },
+    {
+     "word": "حَوْض",
+     "pic": "../../pics/ar-sink.png",
+     "audio": "words/hawd.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 20,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الحاء",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/62d/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الحاء",
+   "items": [
+    {
+     "word": "بَحْر",
+     "pic": "../../pics/ar-sea.png",
+     "audio": "words/bahr.mp3",
+     "at": 1
+    },
+    {
+     "word": "لَحْم",
+     "pic": "../../pics/ar-meat.png",
+     "audio": "words/lahm.mp3",
+     "at": 1
+    },
+    {
+     "word": "حَبْل",
+     "pic": "../../pics/ar-rope.png",
+     "audio": "words/habl.mp3",
+     "at": 0
+    },
+    {
+     "word": "حَوْض",
+     "pic": "../../pics/ar-sink.png",
+     "audio": "words/hawd.mp3",
+     "at": 0
+    },
+    {
+     "word": "سُلَحْفَاة",
+     "pic": "../../pics/ar-turtle.png",
+     "audio": "words/sulahfa.mp3",
+     "at": 2
+    },
+    {
+     "word": "حُفْرَة",
+     "pic": "../../pics/ar-hole.png",
+     "audio": "words/hufra.mp3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 9,
+   "page": 20,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الحاء الْمُنَاسِبَ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/62d/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الحاء",
+   "items": [
+    {
+     "word": "حَبْل",
+     "pic": "../../pics/ar-rope.png",
+     "audio": "words/habl.mp3",
+     "answer": "حَ"
+    },
+    {
+     "word": "حُوت",
+     "pic": "../../pics/ar-whale.png",
+     "audio": "words/hut.mp3",
+     "answer": "حُ"
+    },
+    {
+     "word": "حِمَار",
+     "pic": "../../pics/ar-donkey.png",
+     "audio": "words/himar.mp3",
+     "answer": "حِ"
+    },
+    {
+     "word": "حَمَامَة",
+     "pic": "../../pics/ar-pigeon.png",
+     "audio": "words/hamama.mp3",
+     "answer": "حَ"
+    }
+   ],
+   "choices": [
+    "حَ",
+    "حُ",
+    "حِ",
+    "حْ"
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 21,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "لَحْم",
+     "chips": [
+      "لَحْم"
+     ],
+     "audio": "words/lahm.mp3"
+    },
+    {
+     "word": "حَمَامَة",
+     "chips": [
+      "حَ",
+      "مَا",
+      "مَة"
+     ],
+     "audio": "words/hamama.mp3"
+    },
+    {
+     "word": "حَبْل",
+     "chips": [
+      "حَبْل"
+     ],
+     "audio": "words/habl.mp3"
+    },
+    {
+     "word": "حُفْرَة",
+     "chips": [
+      "حُفْ",
+      "رَة"
+     ],
+     "audio": "words/hufra.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 11,
+   "page": 21,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "حِمَار",
+     "pic": "../../pics/ar-donkey.png",
+     "audio": "words/himar.mp3"
+    },
+    {
+     "word": "بَحْر",
+     "pic": "../../pics/ar-sea.png",
+     "audio": "words/bahr.mp3"
+    },
+    {
+     "word": "حُوت",
+     "pic": "../../pics/ar-whale.png",
+     "audio": "words/hut.mp3"
+    },
+    {
+     "word": "حَبْل",
+     "pic": "../../pics/ar-rope.png",
+     "audio": "words/habl.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 12,
+   "page": 21,
+   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الحاء",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/62d/name.mp3"
+   ],
+   "hint": "اضغط على الكلمة اللي فيها الحرف",
+   "items": [
+    {
+     "word": "حَبْل",
+     "audio": "words/habl.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَرْنَب",
+     "audio": "../u1l3/words/arnab.mp3"
+    },
+    {
+     "word": "أَسَد",
+     "audio": "../u1l3/words/asad.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 12,
+   "page": 21,
+   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الحاء",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/62d/name.mp3"
+   ],
+   "hint": "اضغط على الكلمة اللي فيها الحرف",
+   "items": [
+    {
+     "word": "إِبْرَة",
+     "audio": "../u1l3/words/ibra.mp3"
+    },
+    {
+     "word": "لَحْم",
+     "audio": "words/lahm.mp3",
+     "answer": true
+    },
+    {
+     "word": "أُذُن",
+     "audio": "../u1l3/words/udhun.mp3"
+    }
+   ]
+  }
+ ]
+}

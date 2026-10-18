@@ -21,9 +21,10 @@ const vSleep=(ms,run)=>new Promise((res,rej)=>setTimeout(()=>run===vs.run?res():
 let lastCancel=0, keepU=[];
 function vStop(){ vs.run++; try{ if(speechSynthesis.speaking||speechSynthesis.pending){ speechSynthesis.cancel(); lastCancel=Date.now(); } }catch(e){} if(vs.src){ try{vs.src.stop();}catch(e){} vs.src=null; } }
 // talking voice of the device (used only where there is no recording yet)
+// Arabic is NEVER machine-voiced: only Ahmed's recordings; a missing one stays silent
 function tts(text,lang='en',rate=.8){
   return new Promise(res=>{
-    if(!('speechSynthesis' in window)||!text){ setTimeout(res,350); return; }
+    if(lang==='ar'||!('speechSynthesis' in window)||!text){ setTimeout(res,350); return; }
     const go=()=>{
       try{ speechSynthesis.resume(); }catch(e){}
       const u=new SpeechSynthesisUtterance(text), vv=speechSynthesis.getVoices().filter(v=>v.lang.replace('_','-').toLowerCase().startsWith(lang));
@@ -38,8 +39,14 @@ function tts(text,lang='en',rate=.8){
 }
 function playBuf(buf,from=0,dur){ return new Promise(res=>{ const s=player.ctx.createBufferSource(); s.buffer=buf; s.connect(player.ctx.destination);
   vs.src=s; s.onended=()=>{ if(vs.src===s) vs.src=null; res(); }; dur!=null?s.start(0,from,dur):s.start(0,from); }); }
-async function playFile(url){ await ensureCtx(); if(!vs.files[url]) vs.files[url]=fetch(url).then(r=>r.arrayBuffer()).then(b=>new Promise((ok,no)=>player.ctx.decodeAudioData(b,ok,no)));
-  return playBuf(await vs.files[url]); }
+async function playFile(url){ await ensureCtx();
+  let buf=await libBuffer(url,player.ctx).catch(()=>null);   // a recording from the audio library wins; else the file in the app
+  if(!buf){
+    if(!vs.files[url]) vs.files[url]=fetch(url).then(r=>{ if(!r.ok) throw new Error('missing'); return r.arrayBuffer(); }).then(b=>new Promise((ok,no)=>player.ctx.decodeAudioData(b,ok,no))).catch(()=>{ delete vs.files[url]; return null; });
+    buf=await vs.files[url];
+  }
+  if(!buf){ if(isAr()){ await nap(350); return; } throw new Error('missing audio'); }   // Arabic: a recording not made yet is silent
+  return playBuf(buf); }
 async function playClip([s,e]){ await ensureAudio(); return playBuf(player.bufs.n,Math.max(0,s-.03),e-s+.08); }   // single words: normal speed
 const sayWord=v=>v.audio&&v.audio.word?playFile(v.audio.word):v.clip?playClip(v.clip):tts(v.word,isAr()?'ar':'en',.75);
 // the whole word said after its parts (her second take sounds natural there); falls back to the first take
@@ -52,9 +59,9 @@ const SAY_LN='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12
 function showWords(){
   stage.innerHTML='';
   vs.i=Math.min(vs.i,LESSON.vocab.length-1);
-  $('#lesson').classList.add('vtab'); setRail([]); vLayout();
+  $('#lesson').classList.add('vtab'); $('#lesson').classList.toggle('vmode',vMode()); setRail([]); vLayout();
   const wrap=el('div','vocab'), pick=el('div','vpick');
-  LESSON.vocab.forEach((v,i)=>{ const b=el('button','vthumb'+(i===vs.i?' on':''),`<img src="${v.img}" alt=""${/\.png$/i.test(v.img)?' class="cut"':''}><b>${i+1}</b>${vDone().includes(v.word)?`<span class="vst">${STAR(true)}</span>`:''}`);
+  LESSON.vocab.forEach((v,i)=>{ const b=el('button','vthumb'+(i===vs.i?' on':''),`${vMode()?`<span class="vtw">${v.word}</span>`:`<img src="${v.img}" alt=""${/\.png$/i.test(v.img)?' class="cut"':''}>`}<b>${i+1}</b>${vDone().includes(v.word)?`<span class="vst">${STAR(true)}</span>`:''}`);
     b.setAttribute('aria-label',`Word ${i+1}: ${v.word}`); b.addEventListener('click',()=>{ vs.i=i; vTeach(); }); pick.append(b); });
   wrap.innerHTML=`<div class="vword" dir="${isAr()?'rtl':'ltr'}"></div>
     <div class="vinfo"><div class="vstatus"></div><div class="vmeaning" dir="rtl"><span class="vm-t"></span><button class="vm-say" aria-label="Arabic meaning">${SAY_LN}</button></div></div>
@@ -62,13 +69,14 @@ function showWords(){
   wrap.append(pick); stage.append(wrap);
   $('.vm-say').addEventListener('click',e=>{ e.stopPropagation(); const v=LESSON.vocab[vs.i]; $('.vmeaning').classList.add('lit'); sayAr(v).then(()=>$('.vmeaning')&&$('.vmeaning').classList.remove('lit')); });
   vTools(); vRender(true); vRail(); vCar(false);
+  if(vMode()){ $('.vword').addEventListener('click',()=>vMeanSay('word')); $('.vmeaning').addEventListener('click',()=>vMeanSay('rel')); }
   showHint(pick,LESSON.hints.vocabPick,900,'vocabPick');
   setTimeout(()=>{ if(tab==='words') vTeach(); },350);
 }
 function vRender(fill){
   const v=LESSON.vocab[vs.i], img=$('.vimg');
   if(img.getAttribute('src')!==v.img){ img.src=v.img; if(anim){ G.set(img,{opacity:0}); const go=()=>G.to(img,{opacity:1,duration:.3}); img.decode?img.decode().then(go,go):go(); } }
-  img.alt=v.word; img.classList.toggle('cut',/\.png$/i.test(v.img)); $('.vm-t').textContent=v.ar||''; $('.vmeaning').hidden=!v.ar;   // library cut-outs are png
+  img.alt=v.word; img.classList.toggle('cut',/\.png$/i.test(v.img)); if(vMode()&&v.rel) $('.vm-t').innerHTML=`<small>${v.rel.label}</small><span>${v.rel.text}</span>`; else $('.vm-t').textContent=v.ar||''; $('.vmeaning').hidden=!(v.ar||v.rel);   // library cut-outs are png
   $$('.vthumb').forEach((b,i)=>b.classList.toggle('on',i===vs.i));
   const pk=$('.vpick'), on=$('.vthumb.on'); if(pk&&on&&pk.scrollWidth>pk.clientWidth) pk.scrollTo({left:on.offsetLeft-pk.clientWidth/2+on.offsetWidth/2,behavior:'smooth'});   // keep the current word in view in the strip
   const w=$('.vword'); w.innerHTML=''; w.classList.remove('lit','writing','focus');
@@ -78,7 +86,37 @@ function vRender(fill){
   fitWord();
 }
 const vStatus=t=>{ const s=$('.vstatus'); if(s){ s.textContent=t; if(anim) G.fromTo(s,{opacity:0},{opacity:1,duration:.3}); } };
+// "meaning" lessons (nasheed): no spelling or writing; hear the word, then its meaning or plural (rel = {label,labelAudio,text,audio})
+const vMode=()=>LESSON.vocabMode==='meaning';
+const sayRel=v=>v.rel.labelAudio?playFile(v.rel.labelAudio).then(()=>v.rel.audio?playFile(v.rel.audio):0):tts(v.ar,'ar',.85);
+async function vMeanSay(what){
+  vStop(); const run=++vs.run, v=LESSON.vocab[vs.i]; vs.mode='idle'; vRail();
+  try{
+    if(what!=='rel'){ $('.vword').classList.add('lit'); await sayWord(v); if(run!==vs.run) return; $('.vword').classList.remove('lit'); await vSleep(500,run); }
+    if(what!=='word'||vs.mode==='idle'){ $('.vmeaning').hidden=false; $('.vmeaning').classList.remove('hid'); $('.vmeaning').classList.add('lit'); await sayRel(v); if(run===vs.run) $('.vmeaning').classList.remove('lit'); }
+  }catch(e){}
+}
+async function vMean(){
+  vStop(); hideHint(); const run=++vs.run; vs.mode='learn'; vRail();
+  const v=LESSON.vocab[vs.i]; vRender(true); vStatus(tr('Listen!')); $('.vmeaning').classList.add('hid');
+  try{
+    await vSleep(500,run);
+    for(let rep=0;rep<2;rep++){
+      $('.vword').classList.add('lit'); await sayWord(v); if(run!==vs.run) return; $('.vword').classList.remove('lit'); await vSleep(700,run);
+      const m=$('.vmeaning'); m.classList.remove('hid'); m.classList.add('lit'); if(anim) G.from(m,{opacity:0,y:10,duration:.35});
+      await sayRel(v); if(run!==vs.run) return; m.classList.remove('lit'); await vSleep(900,run);
+    }
+    vStatus(''); vs.mode='done'; vRail(); celebrate($('.vword'));
+    const d=vDone(); if(!d.includes(v.word)){ d.push(v.word); try{ localStorage.setItem('zoom-vocab',JSON.stringify(VDONE)); }catch(e){} }
+    vCar(true); const th=$$('.vthumb')[vs.i]; if(th&&!$('.vst',th)) th.append(el('span','vst',STAR(true)));
+    await vSleep(1200,run); if(tab!=='words') return;
+    const left=LESSON.vocab.map((x,i)=>i).filter(i=>!vDone().includes(LESSON.vocab[i].word));
+    if(!left.length){ vs.mode='idle'; vRail(); award(LESSON.id,'words'); return; }
+    vs.i=left.find(i=>i>vs.i) ?? left[0]; vMean();
+  }catch(e){}
+}
 async function vTeach(){
+  if(vMode()) return vMean();
   vStop(); hideHint(); const ip=$('#vin'); if(ip) ip.blur();
   const run=++vs.run; vs.mode='learn'; vRail();
   const v=LESSON.vocab[vs.i];
@@ -155,6 +193,7 @@ async function vWin(v){
   const th=$$('.vthumb')[vs.i]; if(th&&!$('.vst',th)) th.append(el('span','vst',STAR(true)));
   await new Promise(r=>setTimeout(r,500)); if(run!==vs.run) return;
   await sayWord(v); await new Promise(r=>setTimeout(r,700)); if(run!==vs.run||tab!=='words') return;
+  if(vs.popup){ vs.mode='idle'; vRail(); const x=$('.wpclose'); if(x) x.click(); return; }   // popup: one word only, then back to the words page
   const left=LESSON.vocab.map((x,i)=>i).filter(i=>!vDone().includes(LESSON.vocab[i].word));
   if(!left.length){ const ip=$('#vin'); if(ip) ip.blur(); vs.mode='idle'; vRail(); award(LESSON.id,'words'); return; }
   vs.i=left.find(i=>i>vs.i) ?? left[0]; vTeach();
@@ -163,18 +202,18 @@ async function vWin(v){
 function vTools(){
   const tools=$('.vtools'); tools.innerHTML='';
   const items=[
-    {k:'help',kind:'speed',icon:'hint',label:tr('Help'),click:vHelp},
-    {k:'listen',kind:'again',icon:'sound',label:tr('Listen'),click:()=>{ vStop(); if(vs.mode==='learn'){ vs.mode='idle'; vRail(); } sayWord(LESSON.vocab[vs.i]); }},
-    {k:'teach',kind:'go',icon:'restart',label:tr('Teach'),click:vTeach},
-    {k:'write',kind:'speed',icon:'pencil',label:tr('Write'),click:()=>{ if(vs.mode!=='write') vWrite(); else { const i=$('#vin'); i&&i.focus({preventScroll:true}); } }},
+    {k:'help',kind:'speed',icon:'hint',label:isAr()?'ساعدني':tr('Help'),click:vHelp},
+    {k:'listen',kind:'again',icon:'sound',label:isAr()?'اسمع الكلمة':tr('Listen'),click:()=>{ if(vMode()) return vMeanSay('all'); vStop(); if(vs.mode==='learn'){ vs.mode='idle'; vRail(); } sayWord(LESSON.vocab[vs.i]); }},
+    {k:'teach',kind:'go',icon:'restart',label:isAr()?'علّمني الكلمة':tr('Teach'),click:vTeach},
+    {k:'write',kind:'speed',icon:'pencil',label:isAr()?'اكتب الكلمة':tr('Write'),click:()=>{ if(vs.mode!=='write') vWrite(); else { const i=$('#vin'); i&&i.focus({preventScroll:true}); } }},
     {k:'stop',kind:'stop',icon:'pause',label:tr('Stop'),click:()=>{ vStop(); if(vs.mode!=='write'){ vs.mode='idle'; vRail(); } }}
   ];
-  items.forEach(it=>{ const b=el('button','dash '+it.kind+(it.icon==='restart'?' ln':''),`<span class="rb">${ICON[it.icon]}</span><span>${it.label}</span>`); b.dataset.k=it.k;
+  (vMode()?items.filter(it=>!['help','write'].includes(it.k)):items).forEach(it=>{ const b=el('button','dash '+it.kind+(it.icon==='restart'?' ln':''),`<span class="rb">${ICON[it.icon]}</span><span>${it.label}</span>`); b.dataset.k=it.k;
     b.addEventListener('pointerdown',e=>{ if($('#vin')&&$('#vin')===document.activeElement) e.preventDefault(); });   // keep the keyboard open
     b.addEventListener('click',it.click); tools.append(b); });
 }
 function vRail(){
-  if(tab!=='words') return; const m=vs.mode, B=k=>$(`.vtools .dash[data-k="${k}"]`); if(!B('help')) return;
+  if(tab!=='words') return; const m=vs.mode, B=k=>$(`.vtools .dash[data-k="${k}"]`)||document.createElement('i'); if(!$('.vtools .dash')) return;
   B('help').classList.toggle('off',m!=='write');
   B('teach').classList.toggle('on',m==='learn');
   B('write').classList.toggle('on',m==='write');

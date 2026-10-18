@@ -1,0 +1,288 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 28,
+   "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الدال",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/62f/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الدال",
+   "items": [
+    {
+     "word": "دِرْع",
+     "pic": "../../pics/ar-shield.png",
+     "audio": "words/dir.mp3",
+     "answer": true
+    },
+    {
+     "word": "دُبّ",
+     "pic": "../../pics/ar-bear.png",
+     "audio": "words/dubb.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَرْنَب",
+     "pic": "../../pics/ar-rabbit.png",
+     "audio": "../u1l3/words/arnab.mp3",
+     "answer": false
+    },
+    {
+     "word": "دَلْو",
+     "pic": "../../pics/ar-bucket.png",
+     "audio": "words/dalw.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَسَد",
+     "pic": "../../pics/ar-lion.png",
+     "audio": "../u1l3/words/asad.mp3",
+     "answer": false
+    },
+    {
+     "word": "دَرَج",
+     "pic": "../../pics/ar-stairs.jpg",
+     "audio": "words/daraj.mp3",
+     "answer": true
+    },
+    {
+     "word": "أُذُن",
+     "pic": "../../pics/ar-ear.png",
+     "audio": "../u1l3/words/udhun.mp3",
+     "answer": false
+    },
+    {
+     "word": "دِمَاغ",
+     "pic": "../../pics/ar-brain.png",
+     "audio": "words/dimagh.mp3",
+     "answer": true
+    },
+    {
+     "word": "دِيك",
+     "pic": "../../pics/ar-rooster.png",
+     "audio": "words/dik.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 28,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الدال",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/62f/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الدال",
+   "items": [
+    {
+     "word": "دَلْو",
+     "pic": "../../pics/ar-bucket.png",
+     "audio": "words/dalw.mp3",
+     "at": 0
+    },
+    {
+     "word": "دُبّ",
+     "pic": "../../pics/ar-bear.png",
+     "audio": "words/dubb.mp3",
+     "at": 0
+    },
+    {
+     "word": "بَدْر",
+     "pic": "../../pics/ar-full-moon.jpg",
+     "audio": "words/badr.mp3",
+     "at": 1
+    },
+    {
+     "word": "مَدْرَسَة",
+     "pic": "../../pics/ar-school.jpg",
+     "audio": "words/madrasa.mp3",
+     "at": 1
+    },
+    {
+     "word": "دِرْع",
+     "pic": "../../pics/ar-shield.png",
+     "audio": "words/dir.mp3",
+     "at": 0
+    },
+    {
+     "word": "دِمَاغ",
+     "pic": "../../pics/ar-brain.png",
+     "audio": "words/dimagh.mp3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 9,
+   "page": 28,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الدال الْمُنَاسِبَ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/62f/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الدال",
+   "items": [
+    {
+     "word": "دَلْو",
+     "pic": "../../pics/ar-bucket.png",
+     "audio": "words/dalw.mp3",
+     "answer": "دَ"
+    },
+    {
+     "word": "دُبّ",
+     "pic": "../../pics/ar-bear.png",
+     "audio": "words/dubb.mp3",
+     "answer": "دُ"
+    },
+    {
+     "word": "دِيك",
+     "pic": "../../pics/ar-rooster.png",
+     "audio": "words/dik.mp3",
+     "answer": "دِ"
+    },
+    {
+     "word": "دِمَاغ",
+     "pic": "../../pics/ar-brain.png",
+     "audio": "words/dimagh.mp3",
+     "answer": "دِ"
+    }
+   ],
+   "choices": [
+    "دَ",
+    "دُ",
+    "دِ",
+    "دْ"
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 29,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "دَوَاء",
+     "chips": [
+      "دَ",
+      "وَاء"
+     ],
+     "audio": "words/dawa.mp3"
+    },
+    {
+     "word": "دُولَاب",
+     "chips": [
+      "دُو",
+      "لَاب"
+     ],
+     "audio": "words/dulab.mp3"
+    },
+    {
+     "word": "دِرْع",
+     "chips": [
+      "دِرْع"
+     ],
+     "audio": "words/dir.mp3"
+    },
+    {
+     "word": "مَدْرَسَة",
+     "chips": [
+      "مَدْ",
+      "رَ",
+      "سَة"
+     ],
+     "audio": "words/madrasa.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 11,
+   "page": 29,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "دَلْو",
+     "pic": "../../pics/ar-bucket.png",
+     "audio": "words/dalw.mp3"
+    },
+    {
+     "word": "دُبّ",
+     "pic": "../../pics/ar-bear.png",
+     "audio": "words/dubb.mp3"
+    },
+    {
+     "word": "دِيك",
+     "pic": "../../pics/ar-rooster.png",
+     "audio": "words/dik.mp3"
+    },
+    {
+     "word": "دَرَج",
+     "pic": "../../pics/ar-stairs.jpg",
+     "audio": "words/daraj.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 12,
+   "page": 29,
+   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الدال",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/62f/name.mp3"
+   ],
+   "hint": "اضغط على الكلمة اللي فيها الحرف",
+   "items": [
+    {
+     "word": "أَرْنَب",
+     "audio": "../u1l3/words/arnab.mp3"
+    },
+    {
+     "word": "أَسَد",
+     "audio": "../u1l3/words/asad.mp3"
+    },
+    {
+     "word": "دَلْو",
+     "audio": "words/dalw.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 12,
+   "page": 29,
+   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الدال",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/62f/name.mp3"
+   ],
+   "hint": "اضغط على الكلمة اللي فيها الحرف",
+   "items": [
+    {
+     "word": "إِبْرَة",
+     "audio": "../u1l3/words/ibra.mp3"
+    },
+    {
+     "word": "دُبّ",
+     "audio": "words/dubb.mp3",
+     "answer": true
+    },
+    {
+     "word": "أُذُن",
+     "audio": "../u1l3/words/udhun.mp3"
+    }
+   ]
+  }
+ ]
+}

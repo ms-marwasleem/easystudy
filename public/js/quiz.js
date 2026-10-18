@@ -10,7 +10,7 @@
             (a wrong tap = alarm); "answer": true/false. One progress star per picture.
    letter = one picture + the word with its first letter missing (_eacher), tap the beginning letter: "letters": ["t","i"], "answer": index
    link   = book "Match the picture with the correct word": all the words in one row (a column on tall phones when there are many) and all the pictures in the other row;
-            the child drags a line from a word to its picture (or taps one, then the other). "layout":"cols" = words left, pictures right. One star per pair.
+            the child drags a line from a word to its picture (or taps one, then the other). "layout":"cols" = words left, pictures right. One star per pair. item "full": audio (or a list played in order, built from the words' own recordings) of the joined phrase (e.g. أَنَا أَشْعُرُ), said when that pair is joined; rule: say the whole phrase, not only the first word.
    choice = book "circle the correct word": the picture, beside it the text (optional "ask" line, "lead", and "options":[a,b] with "answer": index); tap the right word, it gets a ring.
    Options on a set: "mark":"ring" (pick: the right picture gets a ring, not a tick), "silent":true (circle: do not say the word when it is circled).
    type   = one picture + the word with a letter missing ("missing": its index), the child types it on the keyboard: "answer": "t"
@@ -33,12 +33,13 @@ async function qLoad(){
   try{ const d=await get(file); qz.sets=d.sets; qz.file=file; }catch(e){ qz.sets=null; qz.file=null; return false; }
   qz.all=[]; qz.sets.forEach((s,si)=>{ s.taskSrc=Array.isArray(s.taskAudio)?s.taskAudio.map(R):R(s.taskAudio);   // taskAudio: one file, or a list played in order (prompt + letter name)
    
-    if(s.type==='link') s.items.forEach(it=>{ it.answer=true; });
+    if(s.type==='link') s.items.forEach(it=>{ it.answer=true; it.fullSrc=[].concat(it.full||[]).map(R); });
     if(s.type==='match'||s.type==='circle'||s.type==='tick'||s.type==='link'){ s.centerSrc=R(s.centerAudio); s.items.forEach(it=>{ it.src=R(it.audio); it.picSrc=R(it.pic); });
       if(s.type==='circle'&&s.shuffle&&!s._sh){ s._sh=1; const ps=s.items.map(it=>it.pos); for(let t=0;t<20;t++){ ps.sort(()=>Math.random()-.5); if(ps.some((p,k)=>p!==s.items[k].pos)) break; } s.items.forEach((it,k)=>it.pos=ps[k]); }   // "shuffle": the options swap their places (the book order is not kept)
       if(s.type==='circle') s.items.forEach((it,k)=>{ if(!it.pos){ const n=s.items.length, cols=3, rows=Math.ceil(n/cols), r=Math.floor(k/cols), c=k%cols, inRow=Math.min(cols,n-r*cols);
         it.pos=[(c+.5+(cols-inRow)/2)*100/cols,(r+.5)*100/rows]; } });   // no "pos": spread them in rows of 3
       s.items.filter(it=>s.type==='tick'||it.answer).forEach((it,k)=>qz.all.push({set:s,si,k,word:s.center||''})); return; }
+    if(s.type==='qa'&&s.together){ qz.all.push({set:s,si,k:0,together:1,items:s.items.map(it=>({...it,audio:R(it.audio),ansAudio:R(it.ansAudio),pic:R(it.pic)}))}); return; }   // "together": all the question+answer pairs on one page
     s.items.forEach((it,k)=>{
     const q={...it,set:s,si,k,audio:R(it.audio)}; if(it.pics) q.pics=it.pics.map(R); if(it.pic) q.pic=R(it.pic); qz.all.push(q); }); });
   preloadImgs(qz.sets.flatMap(s=>[s.centerPic&&R(s.centerPic),...(s.items||[]).flatMap(it=>[...(it.pics||[]).map(R),it.pic&&R(it.pic)])]));
@@ -328,7 +329,7 @@ async function qLinkTry(bd,s,a,b){
     if(anim) G.fromTo([wb,pb],{x:-8},{x:0,duration:.5,ease:'elastic.out(1.5,.25)'}); return; }
   if(!qSetMoreAfter(s)) qz.busy=true; wb.classList.add('done'); pb.classList.add('done'); bd._pairs.push([wb,pb]);
   const l=qLinkLine(bd,wb,pb); if(anim){ const len=l.getTotalLength?l.getTotalLength():300; G.fromTo(l,{strokeDasharray:len,strokeDashoffset:len},{strokeDashoffset:0,duration:.35,ease:'power2.out'}); }
-  celebrate(pb); qSound(it.src,it.word);
+  celebrate(pb); if(it.full) (async()=>{ vStop(); for(const f of it.fullSrc){ try{ await playFile(f); }catch(_){} } })(); else qSound(it.src,it.word);   // "full": the joined phrase of the pair (word + its partner), said on a right join
   if(qMore(s)) return; return qDone(s,run,900);
 }
 /* choice: tap the right word of the two; it gets a hand-drawn ring */

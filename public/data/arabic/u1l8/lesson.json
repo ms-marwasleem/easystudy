@@ -1,0 +1,278 @@
+{
+ "id": "u1l8",
+ "unit": 1,
+ "lesson": 8,
+ "type": "letter",
+ "title": "حرف الدال",
+ "task": "أتعرّف على حرف الدال",
+ "pages": 2,
+ "pageNums": [
+  26,
+  27
+ ],
+ "scene": "../../pics/ar-rooster.png",
+ "sceneAlt": "دَال",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "د",
+  "name": "دَال",
+  "nameAudio": "../letters/62f/name.mp3",
+  "pic": "../../pics/ar-rooster.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "د",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـد",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـد",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "د",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "دَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/62f-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "دُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/62f-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "دِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/62f-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "دْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/62f-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف الدال في الكلمة",
+   "أصوات حرف الدال بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "دَلْو",
+   "img": "../../pics/ar-bucket.png",
+   "audio": {
+    "word": "words/dalw.mp3"
+   },
+   "parts": [
+    {
+     "t": "دَلْو",
+     "audio": "words/dalw.mp3"
+    }
+   ]
+  },
+  {
+   "word": "دَرَج",
+   "img": "../../pics/ar-stairs.jpg",
+   "audio": {
+    "word": "words/daraj.mp3"
+   },
+   "parts": [
+    {
+     "t": "دَ",
+     "audio": "../../syl-ar/62f-64e.mp3"
+    },
+    {
+     "t": "رَج",
+     "audio": "../../syl-ar/631-64e-62c.mp3"
+    }
+   ]
+  },
+  {
+   "word": "دَوَاء",
+   "img": "../../pics/ar-medicine.png",
+   "audio": {
+    "word": "words/dawa.mp3"
+   },
+   "parts": [
+    {
+     "t": "دَ",
+     "audio": "../../syl-ar/62f-64e.mp3"
+    },
+    {
+     "t": "وَاء",
+     "audio": "../../syl-ar/648-64e-627-621.mp3"
+    }
+   ]
+  },
+  {
+   "word": "دُبّ",
+   "img": "../../pics/ar-bear.png",
+   "audio": {
+    "word": "words/dubb.mp3"
+   },
+   "parts": [
+    {
+     "t": "دُبّ",
+     "audio": "words/dubb.mp3"
+    }
+   ]
+  },
+  {
+   "word": "دُودَة",
+   "img": "../../pics/ar-worm.png",
+   "audio": {
+    "word": "words/duda.mp3"
+   },
+   "parts": [
+    {
+     "t": "دُو",
+     "audio": "../../syl-ar/62f-64f-648.mp3"
+    },
+    {
+     "t": "دَة",
+     "audio": "../../syl-ar/62f-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "دُولَاب",
+   "img": "../../pics/ar-wardrobe.png",
+   "audio": {
+    "word": "words/dulab.mp3"
+   },
+   "parts": [
+    {
+     "t": "دُو",
+     "audio": "../../syl-ar/62f-64f-648.mp3"
+    },
+    {
+     "t": "لَاب",
+     "audio": "../../syl-ar/644-64e-627-628.mp3"
+    }
+   ]
+  },
+  {
+   "word": "دِيك",
+   "img": "../../pics/ar-rooster.png",
+   "audio": {
+    "word": "words/dik.mp3"
+   },
+   "parts": [
+    {
+     "t": "دِيك",
+     "audio": "words/dik.mp3"
+    }
+   ]
+  },
+  {
+   "word": "دِرْع",
+   "img": "../../pics/ar-shield.png",
+   "audio": {
+    "word": "words/dir.mp3"
+   },
+   "parts": [
+    {
+     "t": "دِرْع",
+     "audio": "words/dir.mp3"
+    }
+   ]
+  },
+  {
+   "word": "دِمَاغ",
+   "img": "../../pics/ar-brain.png",
+   "audio": {
+    "word": "words/dimagh.mp3"
+   },
+   "parts": [
+    {
+     "t": "دِ",
+     "audio": "../../syl-ar/62f-650.mp3"
+    },
+    {
+     "t": "مَاغ",
+     "audio": "../../syl-ar/645-64e-627-63a.mp3"
+    }
+   ]
+  },
+  {
+   "word": "هُدْهُد",
+   "img": "../../pics/ar-hoopoe.png",
+   "audio": {
+    "word": "words/hudhud.mp3"
+   },
+   "parts": [
+    {
+     "t": "هُدْ",
+     "audio": "../../syl-ar/647-64f-62f-652.mp3"
+    },
+    {
+     "t": "هُد",
+     "audio": "../../syl-ar/647-64f-62f.mp3"
+    }
+   ]
+  },
+  {
+   "word": "بَدْر",
+   "img": "../../pics/ar-full-moon.jpg",
+   "audio": {
+    "word": "words/badr.mp3"
+   },
+   "parts": [
+    {
+     "t": "بَدْر",
+     "audio": "words/badr.mp3"
+    }
+   ]
+  },
+  {
+   "word": "مَدْرَسَة",
+   "img": "../../pics/ar-school.jpg",
+   "audio": {
+    "word": "words/madrasa.mp3"
+   },
+   "parts": [
+    {
+     "t": "مَدْ",
+     "audio": "../../syl-ar/645-64e-62f-652.mp3"
+    },
+    {
+     "t": "رَ",
+     "audio": "../../syl-ar/631-64e.mp3"
+    },
+    {
+     "t": "سَة",
+     "audio": "../../syl-ar/633-64e-629.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

@@ -103,9 +103,140 @@
 .wsay{flex:none;width:clamp(24px,4cqw,38px);height:clamp(24px,4cqw,38px);color:#2A7FD8;display:grid;place-items:center}
 .wsay svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .wtxt{display:block;text-align:center;width:100%;min-height:0;font-weight:700;font-size:min(7cqh,5.2cqw);line-height:1.2;color:#2E1B0C;white-space:nowrap;align-self:center}
-@media (max-aspect-ratio:5/4){ .wtxt{font-size:min(4.2cqh,6.4cqw)} .wlet .lglyph{font-size:min(9cqh,11cqw)} .wlet{flex-direction:column!important} .wlet img{height:55%;max-width:90%} }
+@media (max-aspect-ratio:5/4){ .wlet .lglyph{font-size:min(9cqh,11cqw)} .wlet{flex-direction:column!important} .wlet img{height:55%;max-width:90%} }
 
 /* letter page 1: the speaker sits beside the picture */
 .lspk{display:grid;place-items:center;flex:none;width:52px;height:52px;padding:0;color:#2A7FD8;background:none;border-radius:12px}
 .lspk svg{width:36px;height:36px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .lspk:active{transform:scale(.9)}
+/* tall screens: bigger cards (the picture takes the whole card width, the speaker sits on its corner); everything always fits on screen */
+@media (max-aspect-ratio:5/4){
+  .lwords .wgrid{grid-template-columns:minmax(0,.7fr) repeat(3,minmax(0,1fr));grid-template-rows:repeat(var(--rows,4),minmax(0,1fr));container-type:inline-size;gap:8px 6px}
+  .lwords .lcard{padding:4px 3px}
+  .wword{grid-template-rows:minmax(0,3fr) minmax(2.2em,1fr)}
+  .wtop{position:relative}
+  .wsay{position:absolute;top:-2px;left:-2px;width:26px;height:26px;z-index:1}
+  .wpic{flex:1 1 auto;aspect-ratio:auto;width:100%}
+  .wtxt{font-size:clamp(17px,5.6vw,26px)}
+  .wlet .lglyph{font-size:clamp(26px,9vw,44px)}
+}
+/* short wide screens (phone on its side): picture + speaker beside the word, so the picture can fill the card height */
+@media (min-aspect-ratio:5/4) and (max-height:480px){
+  .wword{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);grid-template-rows:minmax(0,1fr)}
+  .wtxt{font-size:min(10cqh,5cqw)}
+  .wsay{width:24px;height:24px}
+}
+/* write question: a box (underline) per syllable; Help shows the next syllable faintly for a moment */
+.qxseg{display:inline-flex;margin:0 .18em;padding:0 .12em;border-bottom:.07em solid rgba(46,27,12,.3)}
+.qx .lt.hid.peek{color:rgba(46,27,12,.28)!important}
+.qxseg:has(.lt.cur){border-bottom-color:#2A7FD8}
+
+/* phone on its side (short and wide): bigger letters, the page title and arrows take less room */
+@media (min-aspect-ratio:5/4) and (max-height:480px){
+  .scene.letter .pager{bottom:2px;gap:10px}.scene.letter .pager .parr{transform:scale(.72)}
+  .scene.letter>.task{margin-bottom:0}
+  .scene.letter.paged{padding-bottom:34px!important}.scene.letter .lgrid{gap:8px}
+  .lgrid.p1{grid-template-rows:minmax(0,.85fr) minmax(0,1.15fr)}
+  .lgrid.p1 .lglyph{font-size:min(40cqh,16cqw);line-height:1.3}
+  .lgrid.p1 .lcard{gap:0}.lgrid.p1 .llab{font-size:clamp(14px,min(9cqh,3.2cqw),20px)}
+  .lbig{font-size:min(44cqh,24cqw)}
+  .lgrid.p2 .lcard{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;align-items:center;justify-items:center;gap:0 4px;padding:6px 8px}
+  .lgrid.p2 .lcard img{grid-row:1/3;grid-column:1;flex:none;width:100%;max-width:none;height:100%}
+  .lgrid.p2 .lglyph{grid-column:2;grid-row:1;font-size:min(36cqh,13cqw);line-height:1.3}
+  .lgrid.p2 .llab{grid-column:2;grid-row:2;font-size:clamp(14px,min(9cqh,3.2cqw),20px)}
+}
+
+/* everything stays inside its card: the cards are size containers and the letters/words are sized from the card */
+.lwords :is(.wlet,.wword){container-type:size;overflow:hidden}
+.lwords .wlet{justify-content:center;align-items:center;padding:2cqh 1cqw}
+.lwords .wlet .lglyph{font-size:min(30cqh,34cqw);line-height:1.5;padding:0;max-width:100%;flex:none}
+.lwords .wtxt{font-size:min(24cqh,15cqw);line-height:1.5;overflow:hidden}
+.lwords .wlet img{max-width:50cqw;max-height:90cqh}
+@media (max-aspect-ratio:5/4){ .lwords .wlet .lglyph{font-size:min(22cqh,54cqw)} .lwords .wlet img{max-width:90cqw;max-height:48cqh} .lwords .wtxt{font-size:min(26cqh,17cqw)} }
+@media (min-aspect-ratio:5/4) and (max-height:480px){ .lwords .wtxt{font-size:min(36cqh,9.5cqw)} .lwords .wlet .lglyph{font-size:min(38cqh,34cqw)} }
+
+.lwords .wtxt{font-size:min(30cqh,calc(125cqw / var(--n,5)))}
+.lwords .wlet .lglyph{font-size:min(62cqh,55cqw);line-height:1.5}
+@media (max-aspect-ratio:5/4){ .lwords .wtxt{font-size:min(28cqh,calc(125cqw / var(--n,5)))} .lwords .wlet .lglyph{font-size:min(36cqh,75cqw)} }
+@media (min-aspect-ratio:5/4) and (max-height:480px){ .lwords .wtxt{font-size:min(44cqh,calc(60cqw / var(--n,5)))} .lwords .wlet .lglyph{font-size:min(70cqh,45cqw)} }
+.lwords .wlet .lglyph{font-size:min(48cqh,45cqw);line-height:2;padding:0}
+.lwords .wtxt{font-size:min(30cqh,calc(150cqw / var(--n,5)))}
+@media (max-aspect-ratio:5/4){ .lwords .wtxt{font-size:min(28cqh,calc(150cqw / var(--n,5)))} .lwords .wlet .lglyph{font-size:min(30cqh,65cqw);line-height:2} }
+@media (min-aspect-ratio:5/4) and (max-height:480px){ .lwords .wtxt{font-size:min(44cqh,calc(80cqw / var(--n,5)))} .lwords .wlet .lglyph{font-size:min(55cqh,40cqw)} }
+
+/* the question picture always fills the space left between the speaker and the answers and never spills over them (the image is laid in the box, not sized by percentages) */
+.qxpic{position:relative}
+.qxpic img{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:contain}
+.qx>*:not(.qxpic):not(.qxsay){flex:none}
+
+/* letter page cards: every card is its own size box, so the letter, its hamza and the label are always sized from the card itself and stay inside it on any screen */
+.lgrid:is(.p1,.p2) .lcard{container-type:size;overflow:hidden;gap:0}
+.lgrid:is(.p1,.p2) .lglyph{font-size:min(68cqh,40cqw);line-height:1.25;flex:none}
+.lgrid.p2 .lglyph{font-size:min(44cqh,32cqw)}
+.lgrid:is(.p1,.p2) .llab{flex:none;font-size:clamp(12px,min(13cqh,9cqw),22px);line-height:1.2}
+.lgrid.p2 .lcard img{flex:1 1 0;min-height:0}
+@media (max-aspect-ratio:5/4){
+  .lgrid:is(.p1,.p2) .lglyph{font-size:min(44cqh,40cqw)}
+  .lgrid.p2 .lglyph{font-size:min(30cqh,34cqw)}
+}
+
+/* pencil on a word card + the one-word writing popup */
+.wpen{flex:none;width:clamp(24px,4cqw,38px);height:clamp(24px,4cqw,38px);color:#2A7FD8;display:grid;place-items:center;background:none;border:0;padding:0;cursor:pointer}
+.wpen svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-aspect-ratio:5/4){ .wpen{position:absolute;top:-2px;right:-2px;width:26px;height:26px;z-index:1} }
+#lesson.wpop #stage{position:relative}
+.wpclose{position:absolute;top:6px;left:8px;z-index:5;width:40px;height:40px;border:0;background:none;color:#2A7FD8;font-size:26px;line-height:1;cursor:pointer}
+
+/* ---------- smaller listen icons, each one beside the thing that is read ---------- */
+.qxsay{position:static;width:36px;height:36px;flex:none;border-radius:10px}
+.qxsay svg{width:24px;height:24px}
+.qxsay.onpic{position:absolute;top:2px;left:2px}
+.qxrow{display:flex;align-items:center;justify-content:center;gap:4px;max-width:100%}
+.qxrow>.qxline,.qxrow>.qxw,.qxrow>.qxqa{min-width:0}
+.lspk{width:36px;height:36px}.lspk svg{width:24px;height:24px}
+.wsay{width:clamp(18px,3cqw,26px);height:clamp(18px,3cqw,26px)}
+.wpen{width:clamp(18px,3cqw,26px);height:clamp(18px,3cqw,26px)}
+@media (max-aspect-ratio:5/4){ .wsay,.wpen{width:20px;height:20px} }
+.qxhelp{width:34px;height:34px;border-width:2.5px}
+/* qa together: three pairs on one page + listen all / stop */
+.qx.qa-together{justify-content:flex-start;gap:clamp(6px,1.6cqh,14px)}
+.qabar{display:flex;gap:10px;justify-content:center;flex:none}
+.qabtn{display:flex;align-items:center;gap:6px;padding:4px 14px 4px 10px;border-radius:999px;border:3px solid var(--ol);box-shadow:0 3px 0 rgba(90,52,24,.4);font-family:var(--f-ui);font-weight:800;font-size:15px;color:#fff;cursor:pointer}
+.qabtn svg{width:16px;height:16px;fill:#fff}
+.qabtn.go{background:linear-gradient(var(--green1),var(--green2))}.qabtn.stop{background:linear-gradient(#F26B5B,#D8402F)}
+.qabtn:active{transform:scale(.96)}
+.qaall{flex:1 1 0;min-height:0;width:100%;display:flex;flex-direction:column;justify-content:space-evenly;gap:6px;overflow:hidden}
+.qarow{display:flex;align-items:center;justify-content:center;gap:clamp(6px,2cqw,18px);padding:4px 8px;border-radius:14px;min-height:0}
+.qarow.on{background:rgba(255,200,60,.18)}
+.qarpic{flex:none;height:min(14cqh,84px);aspect-ratio:1;display:grid;place-items:center}
+.qarpic img{max-width:100%;max-height:100%;object-fit:contain}
+.qartxt{display:flex;flex-direction:column;align-items:flex-start;min-width:0;font-family:var(--f-read);font-weight:700;font-size:clamp(17px,min(4.2vw,3.8cqh),32px);line-height:1.4}
+.qarsay{flex:none;width:36px;height:36px;display:grid;place-items:center;color:#2A7FD8;background:none;border-radius:10px}
+.qarsay svg{width:24px;height:24px}
+.qx-qa.qa-together .qxqq,.qx-qa.qa-together .qxqa-a{text-align:right}
+.qaall{justify-content:space-around;max-width:900px}
+.qarow{width:100%}
+.qartxt{flex:1 1 0;font-size:clamp(20px,min(5vw,4.6cqh),38px)}
+.qarpic{height:min(20cqh,120px)}
+.qaall{width:fit-content;align-self:center;max-width:100%}
+.scene.letter>.task{font-size:clamp(13px,1.8vw,17px)}.scene.letter>.task svg{width:22px;height:22px}
+#lesson.ar .scene.pics .task{padding-right:0;padding-left:70px}
+/* the letters with their marks stay inside the circles */
+.qxchoices .qlet span{font-size:clamp(26px,min(8.5cqh,8cqw),42px)!important;line-height:1.2!important;transform:translateY(.02em)}
+.qxseg .lt{border-bottom:0}
+.qx .lt.hid.fnt{color:rgba(46,27,12,.28)!important}
+.qxchoices .qlet span{font-size:clamp(28px,min(9.5cqh,9cqw),46px)!important}
+.qxseg .lt{text-decoration:none}
+.qxseg:has(.lt.cur){border-bottom-color:#2A7FD8}
+#lesson.ar .qxseg .lt{text-decoration:none}
+
+/* words page: the book-page tag gets its own strip above the cards; on wide screens the picture is big (beside the word), the two small icons are stacked beside it */
+.lwords .wgrid{margin-top:16px}
+@media (min-aspect-ratio:5/4){
+  .lwords .wword{grid-template-columns:minmax(0,1.15fr) minmax(0,1.25fr) auto;grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:0 6px!important;padding:4px 8px}
+  .lwords .wword .wtop{display:contents}
+  .lwords .wword .wpic{grid-column:1;grid-row:1/3;width:100%;height:100%;aspect-ratio:auto}
+  .lwords .wword .wtxt{grid-column:2;grid-row:1/3;align-self:center;font-size:min(26cqh,calc(95cqw / var(--n,5)))}
+  .lwords .wword .wsay{grid-column:3;grid-row:1;align-self:end;justify-self:center;position:static}
+  .lwords .wword .wpen{grid-column:3;grid-row:2;align-self:start;justify-self:center;position:static}
+}

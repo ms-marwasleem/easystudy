@@ -1,0 +1,289 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 32,
+   "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الخاء",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/62e/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الخاء",
+   "items": [
+    {
+     "word": "خُبْز",
+     "pic": "../../pics/ar-bread.png",
+     "audio": "words/khubz.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَرْنَب",
+     "pic": "../../pics/ar-rabbit.png",
+     "audio": "../u1l3/words/arnab.mp3",
+     "answer": false
+    },
+    {
+     "word": "خِيَار",
+     "pic": "../../pics/ar-cucumber.png",
+     "audio": "words/khiyar.mp3",
+     "answer": true
+    },
+    {
+     "word": "خَسّ",
+     "pic": "../../pics/ar-lettuce.png",
+     "audio": "words/khass.mp3",
+     "answer": true
+    },
+    {
+     "word": "أُذُن",
+     "pic": "../../pics/ar-ear.png",
+     "audio": "../u1l3/words/udhun.mp3",
+     "answer": false
+    },
+    {
+     "word": "خَرُوف",
+     "pic": "../../pics/ar-sheep.png",
+     "audio": "words/kharuf.mp3",
+     "answer": true
+    },
+    {
+     "word": "خَشَب",
+     "pic": "../../pics/ar-wood.png",
+     "audio": "words/khashab.mp3",
+     "answer": true
+    },
+    {
+     "word": "خِنْجَر",
+     "pic": "../../pics/ar-dagger.png",
+     "audio": "words/khanjar.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَسَد",
+     "pic": "../../pics/ar-lion.png",
+     "audio": "../u1l3/words/asad.mp3",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 32,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الخاء",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/62e/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الخاء",
+   "items": [
+    {
+     "word": "خَسّ",
+     "pic": "../../pics/ar-lettuce.png",
+     "audio": "words/khass.mp3",
+     "at": 0
+    },
+    {
+     "word": "خُبْز",
+     "pic": "../../pics/ar-bread.png",
+     "audio": "words/khubz.mp3",
+     "at": 0
+    },
+    {
+     "word": "نَخْل",
+     "pic": "../../pics/ar-palm.png",
+     "audio": "words/nakhl.mp3",
+     "at": 1
+    },
+    {
+     "word": "صَخْرَة",
+     "pic": "../../pics/ar-rock.png",
+     "audio": "words/sakhra.mp3",
+     "at": 1
+    },
+    {
+     "word": "خَشَب",
+     "pic": "../../pics/ar-wood.png",
+     "audio": "words/khashab.mp3",
+     "at": 0
+    },
+    {
+     "word": "أُخْطُبُوط",
+     "pic": "../../pics/ar-octopus.png",
+     "audio": "../u1l3/words/ukhtubut.mp3",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 9,
+   "page": 32,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الخاء الْمُنَاسِبَ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/62e/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الخاء",
+   "items": [
+    {
+     "word": "خَسّ",
+     "pic": "../../pics/ar-lettuce.png",
+     "audio": "words/khass.mp3",
+     "answer": "خَ"
+    },
+    {
+     "word": "خُبْز",
+     "pic": "../../pics/ar-bread.png",
+     "audio": "words/khubz.mp3",
+     "answer": "خُ"
+    },
+    {
+     "word": "خِيَار",
+     "pic": "../../pics/ar-cucumber.png",
+     "audio": "words/khiyar.mp3",
+     "answer": "خِ"
+    },
+    {
+     "word": "خَرُوف",
+     "pic": "../../pics/ar-sheep.png",
+     "audio": "words/kharuf.mp3",
+     "answer": "خَ"
+    }
+   ],
+   "choices": [
+    "خَ",
+    "خُ",
+    "خِ",
+    "خْ"
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 33,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "خُفَّاش",
+     "chips": [
+      "خُ",
+      "فَّاش"
+     ],
+     "audio": "words/khuffash.mp3"
+    },
+    {
+     "word": "خُيُوط",
+     "chips": [
+      "خُ",
+      "يُوط"
+     ],
+     "audio": "words/khuyut.mp3"
+    },
+    {
+     "word": "خِزَانَة",
+     "chips": [
+      "خِ",
+      "زَا",
+      "نَة"
+     ],
+     "audio": "words/khizana.mp3"
+    },
+    {
+     "word": "خِنْجَر",
+     "chips": [
+      "خِنْ",
+      "جَر"
+     ],
+     "audio": "words/khanjar.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 11,
+   "page": 33,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "خَسّ",
+     "pic": "../../pics/ar-lettuce.png",
+     "audio": "words/khass.mp3"
+    },
+    {
+     "word": "خُبْز",
+     "pic": "../../pics/ar-bread.png",
+     "audio": "words/khubz.mp3"
+    },
+    {
+     "word": "نَخْل",
+     "pic": "../../pics/ar-palm.png",
+     "audio": "words/nakhl.mp3"
+    },
+    {
+     "word": "خَشَب",
+     "pic": "../../pics/ar-wood.png",
+     "audio": "words/khashab.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 12,
+   "page": 33,
+   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الخاء",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/62e/name.mp3"
+   ],
+   "hint": "اضغط على الكلمة اللي فيها الحرف",
+   "items": [
+    {
+     "word": "أَرْنَب",
+     "audio": "../u1l3/words/arnab.mp3"
+    },
+    {
+     "word": "خَسّ",
+     "audio": "words/khass.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَسَد",
+     "audio": "../u1l3/words/asad.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 12,
+   "page": 33,
+   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الخاء",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/62e/name.mp3"
+   ],
+   "hint": "اضغط على الكلمة اللي فيها الحرف",
+   "items": [
+    {
+     "word": "إِبْرَة",
+     "audio": "../u1l3/words/ibra.mp3"
+    },
+    {
+     "word": "نَخْل",
+     "audio": "words/nakhl.mp3",
+     "answer": true
+    },
+    {
+     "word": "أُذُن",
+     "audio": "../u1l3/words/udhun.mp3"
+    }
+   ]
+  }
+ ]
+}

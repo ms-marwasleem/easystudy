@@ -50,7 +50,7 @@ svg{overflow:visible}
 /* ---------- Text effects ---------- */
 .outline{font-family:var(--f-title);font-weight:400;color:#fff;-webkit-text-stroke:5px var(--ol);paint-order:stroke fill;
   text-shadow:0 4px 0 var(--ol);letter-spacing:.5px;line-height:1}
-.great{position:relative;margin:0;font-family:var(--f-title);font-weight:400;line-height:1;font-size:clamp(46px,min(12vw,13vh),96px);
+.great{position:relative;margin:0;font-family:var(--f-title);font-weight:400;line-height:1.7;margin:-.35em 0;font-size:clamp(46px,min(12vw,13vh),96px);
   color:#7A3E12;-webkit-text-stroke:12px #7A3E12;text-shadow:0 7px 0 #7A3E12}
 .great::after{content:attr(data-t);position:absolute;inset:0;-webkit-text-stroke:0;text-shadow:none;color:transparent;
   background:linear-gradient(#FFF4CF 12%,#FFC56B 55%,#F08A1C 92%);-webkit-background-clip:text;background-clip:text}

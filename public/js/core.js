@@ -216,7 +216,7 @@ $('#lvlAgain').addEventListener('click',()=>{ $('#levelUp').hidden=true; if(tab=
 $('#lvlMap').addEventListener('click',()=>{ $('#levelUp').hidden=true; openMap(); });
 // each star (and its name) opens that part of the lesson: Lesson, Vocabulary or Questions
 $('#slots').addEventListener('click',e=>{ const s=e.target.closest('.slot'); if(!s) return; $('#levelUp').hidden=true; switchTab(s.dataset.p); });
-$('#levelUp').addEventListener('click',e=>{ if(e.target.id==='levelUp'){ $('#levelUp').hidden=true; if(tab==='read') showHint(rd.words[0]&&rd.words[0].el, LESSON.hints&&LESSON.hints.word, 400,'word'); } });
+$('#levelUp').addEventListener('click',e=>{ if(!e.target.closest('button')){ $('#levelUp').hidden=true; if(tab==='read') showHint(rd.words[0]&&rd.words[0].el, LESSON.hints&&LESSON.hints.word, 400,'word'); } });
 
 /* ---------- State ---------- */
 let COURSE=null, SUBJECT=null, LESSON=null;

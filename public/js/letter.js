@@ -6,7 +6,7 @@
    A page is done when every card was heard (both pages = the lesson star). Reuses the reading pager (readPager) and the book-page tag. */
 function fixLetterPaths(Lt,R){
   Lt.pic=R(Lt.pic); Lt.nameAudio=R(Lt.nameAudio);
-  (Lt.sounds||[]).forEach(s=>{ s.audio=R(s.audio); s.pic=R(s.pic); s.say=[Lt.nameAudio,R('../shared/h-'+s.har+'.mp3'),s.audio]; });
+  (Lt.sounds||[]).forEach(s=>{ s.audio=R(s.audio); s.pic=R(s.pic); s.say=[s.audio]; });
   (Lt.forms||[]).forEach(f=>{ f.say=[Lt.nameAudio,R('../shared/p-'+f.pos+'.mp3')]; });
 }
 const lt={run:0,heard:{}};
@@ -56,11 +56,22 @@ function showLetterWords(){
     if(s){ const b=el('button','lcard wlet',`<img src="${s.pic}" alt=""><span class="lglyph">${s.t}</span>`); b.addEventListener('click',()=>lPlay(s.audio,b)); grid.append(b); }
     else grid.append(el('div','wlet'));
     for(let k=0;k<per;k++){ const i=r*per+k, v=V[i]; if(!v){ grid.append(el('div')); continue; }
-      const b=el('div','lcard wword'+(h['w:'+i]?' heard':''),`<span class="wtop"><span class="wpic"><img src="${v.img}" alt=""${/\.png$/i.test(v.img)?' class="cut"':''}></span><i class="wsay">${SAY_LN}</i></span><span class="wtxt">${v.word}</span><span class="lst">${STAR(true)}</span>`);
+      const b=el('div','lcard wword'+(h['w:'+i]?' heard':''),`<span class="wtop"><span class="wpic"><img src="${v.img}" alt=""${/\.png$/i.test(v.img)?' class="cut"':''}></span><i class="wsay">${SAY_LN}</i><button class="wpen" aria-label="Write">${ICON.pencil}</button></span><span class="wtxt" style="--n:${Math.max(4,glyphs(v.word).length)}">${v.word}</span><span class="lst">${STAR(true)}</span>`);
       b.setAttribute('role','button'); b.tabIndex=0;
+      $('.wpen',b).addEventListener('click',e=>{ e.stopPropagation(); lWordPop(i); });
       b.addEventListener('click',async()=>{ h['w:'+i]=1; b.classList.add('heard'); carFrac(heardN()/total); if(heardN()>=total) award(LESSON.id,'words');
         vStop(); const run=++lt.run; b.classList.add('on'); try{ await sayWord(v); }catch(e){} if(run===lt.run) b.classList.remove('on'); });
       grid.append(b); }
   }
   scene.append(grid); stage.append(scene); carFrac(heardN()/total);
+}
+
+/* pencil on a word card: the usual word-memorising page (word, parts x3, then writing with Help) for that ONE word, in a popup over the words page */
+function lWordPop(i){
+  const keep=LESSON.vocab, saved=[...stage.childNodes], L=$('#lesson');
+  vStop(); lt.run++; LESSON.vocab=[keep[i]]; vs.i=0; vs.popup=1; L.classList.add('wpop');
+  showWords();
+  const x=el('button','wpclose','✕'); x.setAttribute('aria-label','Close'); stage.append(x);
+  x.addEventListener('click',()=>{ vStop(); vs.popup=0; vs.mode='idle'; LESSON.vocab=keep; L.classList.remove('wpop','vmode');
+    stage.innerHTML=''; saved.forEach(n=>stage.append(n)); carFrac(Object.keys(lHeard()).filter(k=>k[0]==='w').length/keep.length); });
 }

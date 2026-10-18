@@ -5,7 +5,7 @@
    "ex": 1,
    "page": 6,
    "task": "سُؤَالٌ وَجَوَابٌ",
-   "hint": "اسمع السؤال ثم الجواب",
+   "hint": "اسمع كل سؤال وجوابه",
    "items": [
     {
      "ask": "مَنْ نُورُ الْقَلْبِ؟",
@@ -29,7 +29,48 @@
      "pic": "../../pics/ar-father.jpg"
     }
    ],
-   "taskAudio": "../q-prompts/qa-title.mp3"
+   "taskAudio": "../q-prompts/qa-title.mp3",
+   "together": true
+  },
+  {
+   "type": "link",
+   "ex": 2,
+   "page": 6,
+   "task": "أَصِلُ كُلَّ كَلِمَةٍ بِمَعْنَاهَا أَوْ جَمْعِهَا",
+   "taskAudio": "../q-prompts/match-meaning.mp3",
+   "hint": "صل كل كلمة بمعناها أو جمعها",
+   "items": [
+    {
+     "word": "دَوْمًا",
+     "text2": "دَائِمًا",
+     "audio": "words/dawman.mp3",
+     "full": [
+      "words/dawman.mp3",
+      "words/lbl-meaning.mp3",
+      "words/m-dawman.mp3"
+     ]
+    },
+    {
+     "word": "الْقَلْبُ",
+     "text2": "الْقُلُوبُ",
+     "audio": "words/qalb.mp3",
+     "full": [
+      "words/qalb.mp3",
+      "words/lbl-plural.mp3",
+      "words/m-qalb.mp3"
+     ]
+    },
+    {
+     "word": "نُورٌ",
+     "text2": "أَنْوَارٌ",
+     "audio": "words/nur.mp3",
+     "full": [
+      "words/nur.mp3",
+      "words/lbl-plural.mp3",
+      "words/m-nur.mp3"
+     ]
+    }
+   ]
   }
  ]
 }

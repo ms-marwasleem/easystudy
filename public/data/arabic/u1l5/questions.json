@@ -1,0 +1,290 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 16,
+   "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الميم",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/645/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الميم",
+   "items": [
+    {
+     "word": "مُعَلِّمَة",
+     "pic": "../../pics/ar-teacher-woman.png",
+     "audio": "words/muallima.mp3",
+     "answer": true
+    },
+    {
+     "word": "مِقَصّ",
+     "pic": "../../pics/ar-scissors.png",
+     "audio": "words/miqass.mp3",
+     "answer": true
+    },
+    {
+     "word": "مَرْكَب",
+     "pic": "../../pics/ar-boat.jpg",
+     "audio": "words/markab.mp3",
+     "answer": true
+    },
+    {
+     "word": "مَوْز",
+     "pic": "../../pics/ar-banana.png",
+     "audio": "words/mawz.mp3",
+     "answer": true
+    },
+    {
+     "word": "أُذُن",
+     "pic": "../../pics/ar-ear.png",
+     "audio": "../u1l3/words/udhun.mp3",
+     "answer": false
+    },
+    {
+     "word": "أَسَد",
+     "pic": "../../pics/ar-lion.png",
+     "audio": "../u1l3/words/asad.mp3",
+     "answer": false
+    },
+    {
+     "word": "أَرْنَب",
+     "pic": "../../pics/ar-rabbit.png",
+     "audio": "../u1l3/words/arnab.mp3",
+     "answer": false
+    },
+    {
+     "word": "شَمْس",
+     "pic": "../../pics/ar-sun.png",
+     "audio": "words/shams.mp3",
+     "answer": true
+    },
+    {
+     "word": "مِفْتَاح",
+     "pic": "../../pics/ar-key.png",
+     "audio": "words/miftah.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 16,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الميم",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/645/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الميم",
+   "items": [
+    {
+     "word": "مَوْز",
+     "pic": "../../pics/ar-banana.png",
+     "audio": "words/mawz.mp3",
+     "at": 0
+    },
+    {
+     "word": "شَمْس",
+     "pic": "../../pics/ar-sun.png",
+     "audio": "words/shams.mp3",
+     "at": 1
+    },
+    {
+     "word": "تَمْر",
+     "pic": "../../pics/ar-dates.png",
+     "audio": "words/tamr.mp3",
+     "at": 1
+    },
+    {
+     "word": "رَمْل",
+     "pic": "../../pics/ar-sand.png",
+     "audio": "words/raml.mp3",
+     "at": 1
+    },
+    {
+     "word": "مِفْتَاح",
+     "pic": "../../pics/ar-key.png",
+     "audio": "words/miftah.mp3",
+     "at": 0
+    },
+    {
+     "word": "مَرْكَب",
+     "pic": "../../pics/ar-boat.jpg",
+     "audio": "words/markab.mp3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 9,
+   "page": 16,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الميم الْمُنَاسِبَ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/645/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الميم",
+   "items": [
+    {
+     "word": "مَوْز",
+     "pic": "../../pics/ar-banana.png",
+     "audio": "words/mawz.mp3",
+     "answer": "مَ"
+    },
+    {
+     "word": "مُعَلِّمَة",
+     "pic": "../../pics/ar-teacher-woman.png",
+     "audio": "words/muallima.mp3",
+     "answer": "مُ"
+    },
+    {
+     "word": "مِقَصّ",
+     "pic": "../../pics/ar-scissors.png",
+     "audio": "words/miqass.mp3",
+     "answer": "مِ"
+    },
+    {
+     "word": "مُهَنْدِس",
+     "pic": "../../pics/ar-engineer.png",
+     "audio": "words/muhandis.mp3",
+     "answer": "مُ"
+    }
+   ],
+   "choices": [
+    "مَ",
+    "مُ",
+    "مِ",
+    "مْ"
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 17,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "تَمْر",
+     "chips": [
+      "تَمْر"
+     ],
+     "audio": "words/tamr.mp3"
+    },
+    {
+     "word": "مُهَنْدِس",
+     "chips": [
+      "مُ",
+      "هَنْ",
+      "دِس"
+     ],
+     "audio": "words/muhandis.mp3"
+    },
+    {
+     "word": "مِفْتَاح",
+     "chips": [
+      "مِفْ",
+      "تَاح"
+     ],
+     "audio": "words/miftah.mp3"
+    },
+    {
+     "word": "مُعَلِّمَة",
+     "chips": [
+      "مُ",
+      "عَ",
+      "لِّ",
+      "مَة"
+     ],
+     "audio": "words/muallima.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 11,
+   "page": 17,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "مَوْز",
+     "pic": "../../pics/ar-banana.png",
+     "audio": "words/mawz.mp3"
+    },
+    {
+     "word": "تَمْر",
+     "pic": "../../pics/ar-dates.png",
+     "audio": "words/tamr.mp3"
+    },
+    {
+     "word": "مِقَصّ",
+     "pic": "../../pics/ar-scissors.png",
+     "audio": "words/miqass.mp3"
+    },
+    {
+     "word": "شَمْس",
+     "pic": "../../pics/ar-sun.png",
+     "audio": "words/shams.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 12,
+   "page": 17,
+   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الميم",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/645/name.mp3"
+   ],
+   "hint": "اضغط على الكلمة اللي فيها الحرف",
+   "items": [
+    {
+     "word": "أَرْنَب",
+     "audio": "../u1l3/words/arnab.mp3"
+    },
+    {
+     "word": "مَوْز",
+     "audio": "words/mawz.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَسَد",
+     "audio": "../u1l3/words/asad.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 12,
+   "page": 17,
+   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الميم",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/645/name.mp3"
+   ],
+   "hint": "اضغط على الكلمة اللي فيها الحرف",
+   "items": [
+    {
+     "word": "أُذُن",
+     "audio": "../u1l3/words/udhun.mp3"
+    },
+    {
+     "word": "إِبْرَة",
+     "audio": "../u1l3/words/ibra.mp3"
+    },
+    {
+     "word": "تَمْر",
+     "audio": "words/tamr.mp3",
+     "answer": true
+    }
+   ]
+  }
+ ]
+}
