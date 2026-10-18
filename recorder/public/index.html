@@ -74,6 +74,8 @@ const MARKS=[['fatha','\u064E','فتحة'],['damma','\u064F','ضمة'],['kasra',
 const SHARED=[['arabic/shared/p-start.mp3','في أول الكلمة'],['arabic/shared/p-mid.mp3','في وسط الكلمة'],['arabic/shared/p-end-joined.mp3','في آخر الكلمة متصل'],['arabic/shared/p-end-alone.mp3','في آخر الكلمة منفصل'],
  ['arabic/shared/h-fatha.mp3','فَتْحَة'],['arabic/shared/h-damma.mp3','ضَمَّة'],['arabic/shared/h-kasra.mp3','كَسْرَة'],['arabic/shared/h-sukoon.mp3','سُكُون']];
 const letterDone=c=>!!recs[idOf('c/'+c.id)]&&!!recs[idOf('cl/'+c.id)];
+const same=(a,b)=>JSON.stringify(a||[])===JSON.stringify(b||[]);
+const stale=(key,parts)=>{ const r=recs[idOf(key)]; return !!(r&&parts&&r.parts&&!same(r.parts,parts)); };   // recorded for an older split
 const sylList=t=>t.split(/[-–—،,]/).map(x=>x.trim()).filter(Boolean);
 const hex=t=>[...t].map(c=>c.codePointAt(0).toString(16)).join('-');
 let mt;
@@ -88,6 +90,7 @@ async function playMine(id,btn){ try{ const r=await api('GET','/api/audio/'+id);
 async function save(slot,blob){
  if(blob.size<1500) return say('التسجيل قصير جدا. اضغط على المايك واستمر ثم تكلم، وأفلت بعد ما تخلص');
  say('جاري الحفظ...');
+ if(slot.parts&&stale(slot.key,slot.parts)){ const o=recs[idOf(slot.key)]; try{ const r0=await api('GET','/api/audio/'+o.id); if(r0.ok) await api('PUT','/api/audio/'+o.id+'~old'+o.ts+'?meta='+encodeURIComponent(JSON.stringify({path:o.path,label:(o.label||'')+' (قديم)',parts:o.parts})),await r0.blob(),o.mime||'audio/webm'); }catch(e){} }
  const id=idOf(slot.key), meta={path:slot.path,label:slot.label}; if(slot.parts) meta.parts=slot.parts; if(slot.alt&&slot.alt.length) meta.alt=slot.alt;
  try{ const r=await api('PUT','/api/audio/'+id+'?meta='+encodeURIComponent(JSON.stringify(meta)),blob,(blob.type||'audio/webm').split(';')[0]||'audio/webm');
   if(!r.ok) return say('لم يتم الحفظ'); await load(); say('تم الحفظ ✓ اضغط السماعة الخضراء لتسمع تسجيلك','ok'); }catch(e){ if(e.message!=='auth') say('لم يتم الحفظ، تأكد من الإنترنت'); }
@@ -110,32 +113,39 @@ function holdMic(slot){
  return el;
 }
 function ctl(slot,existing){
- const w=mk('span','ctl'), has=!!recs[idOf(slot.key)];
+ const w=mk('span','ctl'), old=!!slot.parts&&stale(slot.key,slot.parts), has=!!recs[idOf(slot.key)]&&!old;
  const u=mk('label','ib',ICON.up); u.title='رفع ملف صوتي'; const i=mk('input'); i.type='file'; i.accept='audio/*'; i.onchange=async()=>{ if(i.files[0]) await save(slot,i.files[0]); i.value=''; }; u.append(i); w.append(u);
  w.append(holdMic(slot));
  if(has){ const p=mk('button','ib mine',ICON.play); p.title='تسجيلي'; p.onclick=()=>playMine(idOf(slot.key),p); w.append(p);
   const x=mk('button','x','حذف'); x.onclick=()=>del(slot); w.append(x); }
+ else if(old){ const p=mk('button','ib',ICON.play); p.title='تسجيل قديم لتقسيم آخر'; p.onclick=()=>playMine(idOf(slot.key),p); w.append(mk('span','tag wait','التقسيم اتغيّر: سجّليه تاني'),p); }
  else if(existing){ const p=mk('button','ib',ICON.play); p.title='تسجيلك الحالي'; p.onclick=()=>playUrl(existing,p); w.append(p); }
  else w.append(mk('span','ib gap'));
  return w;
 }
 const partsOf=it=>{ const sp=splits[it.id]; if(!sp) return it.parts;
  return sp.map((t,i)=>{ const o=it.parts[i]; return (o&&o.t===t)?o:{t,f:'syl-ar/'+hex(t)+'.mp3'}; }); };
+function splitEditor(label,cur,orig,onSave,onReset){
+ const tx=mk('span','tx'), inp=mk('input'); inp.type='text'; inp.className='split'; inp.value=cur.join(' - ');
+ const commit=async()=>{ const arr=sylList(inp.value);
+  if(!arr.length||same(arr,cur)) return;
+  if(arr.join('').replace(/\s/g,'')!==label.replace(/[\u064B-\u0652\u0670]/g,'').replace(/\s/g,'')&&arr.join('').replace(/\s/g,'')!==label.replace(/\s/g,'')) say('انتبه: الحروف بعد التقسيم مختلفة عن الكلمة');
+  try{ await onSave(arr); await load(); say('تم حفظ التقسيم ✓ قولي لـ Claude: «طبّق التقسيمات» وهتتحدث أماكن المقاطع. التسجيلات القديمة محفوظة','ok'); }catch(e){say('تعذر حفظ التقسيم');} };
+ inp.onchange=commit; inp.onkeydown=e=>{ if(e.key==='Enter'){e.preventDefault();inp.blur();} };
+ tx.append(inp);
+ if(onReset){ const r=mk('button','x','الأصلي'); r.onclick=async()=>{ try{await onReset(); await load();}catch(e){} }; tx.append(r); }
+ return tx;
+}
 function wordLines(it,box){
  const l1=mk('div','line'); l1.append(mk('span','lab','الكلمة')); l1.append(mk('span','tx big',it.w));
  l1.append(ctl({key:it.f,path:it.f,alt:it.alt,label:it.w}));
  const parts=partsOf(it), l2=mk('div','line'); l2.append(mk('span','lab','المقاطع'));
- const tx=mk('span','tx'), inp=mk('input'); inp.type='text'; inp.className='split'; inp.id='sp-'+it.id.replace(':','-'); inp.value=parts.map(p=>p.t).join(' - ');
- const commit=async()=>{ const arr=sylList(inp.value);
-  if(!arr.length||arr.join('|')===parts.map(p=>p.t).join('|')) return;
-  if(arr.join('').replace(/\s/g,'')!==it.w.replace(/\s/g,'')) say('انتبه: الحروف بعد التقسيم مختلفة عن الكلمة');
-  try{ await api('PUT','/api/split/'+it.id.replace(':','_'),{word:it.w,lesson:it.id.split(':')[0],parts:arr}); await load(); }catch(e){say('تعذر حفظ التقسيم');} };
- inp.onchange=commit; inp.onkeydown=e=>{ if(e.key==='Enter'){e.preventDefault();inp.blur();} };
- tx.append(inp);
- if(splits[it.id]){ const r=mk('button','x','الأصلي'); r.onclick=async()=>{ try{await api('DELETE','/api/split/'+it.id.replace(':','_')); await load();}catch(e){} }; tx.append(r); }
+ const sid=it.id.replace(':','_'), tx=splitEditor(it.w,parts.map(p=>p.t),null,arr=>api('PUT','/api/split/'+sid,{word:it.w,lesson:it.id.split(':')[0],path:it.f,parts:arr}),splits[it.id]&&(()=>api('DELETE','/api/split/'+sid)));
+ tx.querySelector('input').id='sp-'+it.id.replace(':','-'); if(splits[it.id]) tx.append(mk('span','tag wait','تقسيم جديد: مطلوب تطبيق'));
  l2.append(tx); l2.append(ctl({key:'grp/'+it.id,path:'grp:'+it.id,alt:it.alt,label:it.w+' (مقاطع)',parts:parts.map(p=>p.f)}));
  box.append(l1,l2);
 }
+const cSyl=c=>splits['c:'+c.id]||c.syl;
 const rmBtn=c=>{ const x=mk('button','x','إزالة'); x.onclick=async()=>{ try{await api('DELETE','/api/custom/'+c.id); await load();}catch(e){} }; return x; };
 function customLine(c){
  if(c.kind==='letter'){ const f=mk('div'); const n=mk('div','line'); n.append(mk('span','lab','حرف')); n.append(mk('span','tx big',c.label+' (اسم الحرف)')); n.append(ctl({key:'c/'+c.id,path:c.path,label:'اسم الحرف '+c.label})); f.append(n);
@@ -143,8 +153,10 @@ function customLine(c){
   l.append(ctl({key:'cl/'+c.id,path:'grp:cl'+c.id,label:'أصوات الحرف '+c.label,parts:sy.map(t=>'syl-ar/'+hex(t)+'.mp3')})); f.append(l);
   if(!c.fixed&&!recs[idOf('c/'+c.id)]) n.append(rmBtn(c)); return f; }
  if(c.kind==='word'&&c.syl&&c.syl.length){ const f=mk('div'); const w=mk('div','line'); w.append(mk('span','lab','كلمة')); w.append(mk('span','tx big',c.label)); w.append(ctl({key:'c/'+c.id,path:c.path,label:c.label}));
-  const m=mk('div','line'); m.append(mk('span','lab','المقاطع')); m.append(mk('span','tx big',c.syl.join(' - ')));
-  m.append(ctl({key:'cg/'+c.id,path:'grp:c'+c.id,label:c.label+' (مقاطع)',parts:c.syl.map(t=>'syl-ar/'+hex(t)+'.mp3')}));
+  const sy=cSyl(c), m=mk('div','line'); m.append(mk('span','lab','المقاطع')); const sid='c_'+c.id;
+  const tx=splitEditor(c.label,sy,null,arr=>api('PUT','/api/split/'+sid,{word:c.label,custom:c.id,path:c.path,parts:arr}),splits['c:'+c.id]&&(()=>api('DELETE','/api/split/'+sid)));
+  if(splits['c:'+c.id]) tx.append(mk('span','tag wait','تقسيم جديد: مطلوب تطبيق')); m.append(tx);
+  m.append(ctl({key:'cg/'+c.id,path:'grp:c'+c.id,label:c.label+' (مقاطع)',parts:sy.map(t=>'syl-ar/'+hex(t)+'.mp3')}));
   if(!c.fixed&&!recs[idOf('c/'+c.id)]&&!recs[idOf('cg/'+c.id)]) w.append(rmBtn(c));
   f.append(w,m); return f; }
  const l=mk('div','line'); l.append(mk('span','lab',{word:'كلمة',question:'سؤال',reading:'قراءة',other:''}[c.kind]||'')); l.append(mk('span','tx big',c.label||'')); l.append(ctl({key:'c/'+c.id,path:c.path,label:c.label}));
@@ -153,13 +165,13 @@ function render(){
  if(live) return;
  const act=document.activeElement&&document.activeElement.id, y=scrollY;
  const all=[...needed.map(n=>({...n,fixed:true})),...customs];
- const mine=c=>c.kind==='letter'?letterDone(c):(!!recs[idOf('c/'+c.id)]&&(!(c.syl&&c.syl.length)||!!recs[idOf('cg/'+c.id)]));
+ const mine=c=>c.kind==='letter'?letterDone(c):(!!recs[idOf('c/'+c.id)]&&(!(c.syl&&c.syl.length)||(!!recs[idOf('cg/'+c.id)]&&!stale('cg/'+c.id,cSyl(c).map(t=>'syl-ar/'+hex(t)+'.mp3')))));
  const nd=$('#needed'); nd.innerHTML=''; const need=all.filter(c=>!mine(c));
  nd.append(mk('h2','','مطلوب تسجيله')); if(!need.length) nd.append(mk('div','empty','لا يوجد شيء جديد مطلوب الآن.')); need.forEach(c=>nd.append(customLine(c)));
  const SH=$('#shared'); SH.innerHTML=''; SH.append(mk('h2','','جمل مشتركة لكل الحروف'));
  SHARED.forEach(([f,t])=>{ const l=mk('div','line'); l.append(mk('span','tx',t)); l.append(ctl({key:f,path:f,label:t})); SH.append(l); });
  const L=$('#words'); L.innerHTML=''; L.append(mk('h2','','الكلمات والمقاطع'));
- items.words.forEach(w=>wordLines(w,L));
+ items.words.filter(w=>!customs.concat(needed).some(c=>c.kind==='word'&&c.path===w.f)).forEach(w=>wordLines(w,L));   // words requested in the top list are edited there
  const P=$('#prompts'); P.innerHTML=''; P.append(mk('h2','','صوتيات الأسئلة'));
  items.prompts.forEach(p=>{ const l=mk('div','line'); l.append(mk('span','tx',p.text)); l.append(ctl({key:p.f,path:p.f,label:p.text},p.cur)); P.append(l); });
  const dn=$('#done'); dn.innerHTML=''; const dd=all.filter(mine); if(dd.length){ dn.append(mk('h2','','ما سجلته من المضاف')); dd.forEach(c=>dn.append(customLine(c))); }

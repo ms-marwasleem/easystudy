@@ -63,7 +63,7 @@ input.txt{font-size:18px;width:100%;box-sizing:border-box;direction:ltr;text-ali
 <main>
  <div class="tabs"><a href="index.html">مكتبة العربي</a><b>مكتبة الإنجليزي</b><a href="pics.html">مكتبة الصور</a></div>
  <h1>مكتبة صوتيات الإنجليزي</h1>
- <p class="how">كل الأصوات دي بتتولّد بصوت Kokoro (الافتراضي) والتطبيق بيشغّلها. لو عايز تغيّر صوت: ارفع ملف (السهم)، أو سجّل (المايك: اضغط واستمر وأفلت)، أو اطلب توليده من جديد (الدائرة) بعد ما تعدّل النص. التغيير يظهر في التطبيق على طول. الأخضر يعني إنك غيّرته. «رجوع للأصلي» يرجّع الصوت المولّد.</p>
+ <p class="how">كل الأصوات دي بتتولّد بصوت Kokoro (الافتراضي) والتطبيق بيشغّلها. لو عايزة تغيّري صوت: ارفعي ملف (السهم)، أو سجّلي (المايك: اضغطي واستمري وأفلتي)، أو اطلبي توليده من جديد (الدائرة). مقاطع الكلمة: تسجيل واحد أو ملف واحد لكل مقاطع الكلمة بالترتيب وبينها وقفات صغيرة، والتطبيق بيقصّه عند الوقفات لوحده. لو عدّلتي التقسيم لازم تسجّليه تاني. الأخضر يعني إنك غيّرتيه.</p>
  <div id="msg" role="status"></div>
  <section class="sec" id="gate" hidden><h2>كلمة السر</h2><div class="add"><input type="text" id="pw" placeholder="كلمة السر" autocomplete="off"><button class="btn" id="pwbtn">دخول</button></div><p class="how" id="pwnote"></p></section>
  <section class="sec"><div class="add"><input type="text" id="find" placeholder="ابحث (كلمة أو جملة أو درس)" autocomplete="off" style="direction:ltr"></div></section>
@@ -84,6 +84,7 @@ const APP='https://easystudy.marwasleem.workers.dev/data/';
 const MAXMS=30000;
 let data={lessons:[]}, recs={}, regs={}, splits={}, cur=null, micBlocked=false, live=false, PW='', q='';
 try{ PW=localStorage.getItem('pw')||''; }catch(e){}
+const same=(a,b)=>JSON.stringify(a||[])===JSON.stringify(b||[]);
 const idOf=k=>k.replace(/[\/:]/g,'~');
 let mt;
 const say=(m,k)=>{ const e=$('#msg'); e.textContent=m||''; e.className=k||''; clearTimeout(mt); if(m&&k==='ok') mt=setTimeout(()=>say(''),3500); };
@@ -98,6 +99,7 @@ async function save(it,blob,src){
  if(blob.size<1500) return say('التسجيل قصير جدا. اضغط على المايك واستمر ثم تكلم، وأفلت بعد ما تخلص');
  say('جاري الحفظ...');
  const id=it.group?idOf('grp/'+it.group.path):idOf(it.path), meta={path:it.path,label:it.label,src,lang:'en'}; if(it.group) meta.parts=it.group.parts.map(x=>x.path);
+ if(it.group){ const o=recs[id], np=it.group.parts.map(x=>x.path); if(o&&o.parts&&!same(o.parts,np)){ try{ const r0=await api('GET','/api/audio/'+o.id); if(r0.ok) await api('PUT','/api/audio/'+o.id+'~old'+o.ts+'?meta='+encodeURIComponent(JSON.stringify({path:o.path,label:(o.label||'')+' (قديم)',lang:'en'})),await r0.blob(),o.mime||'audio/webm'); }catch(e){} } }
  try{ const r=await api('PUT','/api/audio/'+id+'?meta='+encodeURIComponent(JSON.stringify(meta)),blob,(blob.type||'audio/webm').split(';')[0]||'audio/webm');
   if(!r.ok) return say('لم يتم الحفظ'); if(regs[id]) await api('DELETE','/api/regen/'+id); await load(); say('تم الحفظ ✓ التطبيق بيشغّله دلوقتي','ok'); }catch(e){ if(e.message!=='auth') say('لم يتم الحفظ، تأكد من الإنترنت'); }
 }
@@ -156,12 +158,21 @@ function partsLine(it,L){
   try{ if(v===it.split){ await api('DELETE','/api/split/'+sid); } else await api('PUT','/api/split/'+sid,{lang:'en',path:it.path,word:it.label,lesson:L.id,chunks:v}); await load(); if(v!==it.split) say('تم حفظ التقسيم ✓ قول لـ Claude: «طبّق التقسيمات» وهيتولد صوت المقاطع الجديدة','ok'); }catch(e){say('تعذر الحفظ');} };
  edit.append(inp); if(sp){ edit.append(mk('span','tag wait','تقسيم جديد: مطلوب تطبيق')); const r=mk('button','x','الأصلي'); r.onclick=()=>api('DELETE','/api/split/'+sid).then(load); edit.append(r); }
  l.append(mk('span','lab','المقاطع')); l.append(edit); l.append(box);
- const w=mk('span','ctl'); const u=mk('label','ib',ICON.up); u.title='رفع تسجيل لكل المقاطع'; const i=mk('input'); i.type='file'; i.accept='audio/*'; i.onchange=async()=>{ if(i.files[0]) await saveGroup(it,i.files[0]); i.value=''; }; u.append(i); w.append(u);
- const gm2=holdMic({path:'grp:'+it.path,label:it.label+' (مقاطع)',group:it}); w.append(gm2);
- if(gm){ const p=mk('button','ib mine',ICON.play); p.title='تسجيل المقاطع'; p.onclick=()=>playMine(gid,p); w.append(p); const x=mk('button','x','حذف'); x.onclick=()=>api('DELETE','/api/audio/'+gid).then(load); w.append(x); }
- l.append(w); return l;
+ const gparts=it.parts.map(x=>x.path), gr=regs[gid], pend=!!sp, old=!!gm&&!same(gm.parts,gparts);
+ const info=mk('span','tag'+(pend?' wait':old?' wait':gm?' mine':gr?' wait':''),pend?'طبّقي التقسيم الأول':old?'التقسيم اتغيّر: سجّليه تاني':gm?({upload:'مرفوع',record:'مسجّل',regen:'مولّد جديد'}[gm.src]||'مغيّر'):gr?'طلب توليد':'مولّد'); l.append(info);
+ const w=mk('span','ctl');
+ if(!pend){
+  const u=mk('label','ib',ICON.up); u.title='ارفعي ملف واحد فيه كل مقاطع الكلمة بينها وقفات'; const i=mk('input'); i.type='file'; i.accept='audio/*'; i.onchange=async()=>{ if(i.files[0]) await saveGroup(it,i.files[0],'upload'); i.value=''; }; u.append(i); w.append(u);
+  w.append(holdMic({path:'grp:'+it.path,label:it.label+' (مقاطع)',group:it}));
+  const g=mk('button','ib'+(gr?' mine':''),ICON.regen); g.title='اطلبي توليد كل مقاطع الكلمة في ملف واحد بينها وقفات'; g.onclick=async()=>{ try{ await api('PUT','/api/regen/'+gid,{group:true,path:it.path,text:it.label,label:it.label+' (مقاطع)',parts:gparts}); await load(); say('تم الطلب ✓ قولي لـ Claude: «ولّد الأصوات المطلوبة»','ok'); }catch(e){say('تعذر الطلب');} }; w.append(g);
+ }
+ if(gm&&!old){ const p=mk('button','ib mine',ICON.play); p.title='صوت المقاطع (الجديد)'; p.onclick=()=>playMine(gid,p); w.append(p); const x=mk('button','x','رجوع للأصلي'); x.onclick=()=>api('DELETE','/api/audio/'+gid).then(load); w.append(x); }
+ else if(gr){ const x=mk('button','x','إلغاء الطلب'); x.onclick=()=>api('DELETE','/api/regen/'+gid).then(load); w.append(x); }
+ l.append(w);
+ const adv=mk('button','x','مقاطع منفردة (متقدّم)'); adv.onclick=()=>{ box.hidden=!box.hidden; }; l.append(adv); box.hidden=true; box.classList.add('advbox');
+ return l;
 }
-async function saveGroup(it,blob){ return save({path:'grp:'+it.path,label:it.label+' (مقاطع)',group:it},blob,'record'); }
+async function saveGroup(it,blob,src){ return save({path:'grp:'+it.path,label:it.label+' (مقاطع)',group:it},blob,src||'record'); }
 function render(){
  if(live) return;
  const act=document.activeElement&&document.activeElement.id, y=scrollY, open={};
