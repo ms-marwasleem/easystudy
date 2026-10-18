@@ -52,6 +52,12 @@ summary .n{font-size:13px;color:var(--soft);font-weight:400}
 input.txt{font-size:18px;width:100%;box-sizing:border-box;direction:ltr;text-align:left;font-family:Andika,system-ui,sans-serif}
 .line.hide{display:none}
 [hidden]{display:none!important}
+.chips{display:flex;flex-wrap:wrap;gap:8px;direction:ltr}
+.chip{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);border-radius:22px;padding:2px 6px 2px 12px}
+.chip.mine{border-color:var(--ok)}
+.chip b{font-family:Andika,system-ui,sans-serif;font-size:18px;margin-right:4px}
+.ib.sm{width:30px;height:30px;border-width:1.5px}.ib.sm svg{width:15px;height:15px}
+.line.parts{padding-top:2px;flex-wrap:wrap}.line.parts .lab{flex:none}.splitbox{display:flex;align-items:center;gap:8px;flex:1 1 60%}.line.parts .chips{flex:1 1 100%;order:3}.line.parts .ctl{order:2}.chip,.chip *{white-space:nowrap}.chip .x{padding:0 4px}
 </style>
 </head><body style="margin:0">
 <main>
@@ -76,7 +82,7 @@ const ICON={
 };
 const APP='https://easystudy.marwasleem.workers.dev/data/';
 const MAXMS=30000;
-let data={lessons:[]}, recs={}, regs={}, cur=null, micBlocked=false, live=false, PW='', q='';
+let data={lessons:[]}, recs={}, regs={}, splits={}, cur=null, micBlocked=false, live=false, PW='', q='';
 try{ PW=localStorage.getItem('pw')||''; }catch(e){}
 const idOf=k=>k.replace(/[\/:]/g,'~');
 let mt;
@@ -91,7 +97,7 @@ async function playMine(id,btn){ try{ const r=await api('GET','/api/audio/'+id);
 async function save(it,blob,src){
  if(blob.size<1500) return say('التسجيل قصير جدا. اضغط على المايك واستمر ثم تكلم، وأفلت بعد ما تخلص');
  say('جاري الحفظ...');
- const id=idOf(it.path), meta={path:it.path,label:it.label,src,lang:'en'};
+ const id=it.group?idOf('grp/'+it.group.path):idOf(it.path), meta={path:it.path,label:it.label,src,lang:'en'}; if(it.group) meta.parts=it.group.parts.map(x=>x.path);
  try{ const r=await api('PUT','/api/audio/'+id+'?meta='+encodeURIComponent(JSON.stringify(meta)),blob,(blob.type||'audio/webm').split(';')[0]||'audio/webm');
   if(!r.ok) return say('لم يتم الحفظ'); if(regs[id]) await api('DELETE','/api/regen/'+id); await load(); say('تم الحفظ ✓ التطبيق بيشغّله دلوقتي','ok'); }catch(e){ if(e.message!=='auth') say('لم يتم الحفظ، تأكد من الإنترنت'); }
 }
@@ -132,6 +138,30 @@ function line(it,L){
  if(mine||rq){ const x=mk('button','x',mine?'رجوع للأصلي':'إلغاء الطلب'); x.onclick=()=>mine?del(it):api('DELETE','/api/regen/'+id).then(load); l.append(x); }
  return l;
 }
+function partsLine(it,L){
+ const gid=idOf('grp/'+it.path), gm=recs[gid], l=mk('div','line parts'); l.dataset.q=(L.title+' '+it.label+' '+it.path).toLowerCase();
+ const sid=idOf('en/'+it.path), sp=splits[sid], box=mk('span','tx chips');
+ it.parts.forEach(pt=>{ const pid=idOf(pt.path), pm=recs[pid], pr=regs[pid], c=mk('span','chip'+(pm?' mine':''));
+  c.append(mk('b','',pt.t.replace(/</g,'&lt;')));
+  const u=mk('label','ib sm',ICON.up); u.title='رفع'; const i=mk('input'); i.type='file'; i.accept='audio/*'; i.onchange=async()=>{ if(i.files[0]) await save({path:pt.path,label:it.label+' / '+pt.t},i.files[0],'upload'); i.value=''; }; u.append(i); c.append(u);
+  const m=holdMic({path:pt.path,label:it.label+' / '+pt.t}); m.classList.add('sm'); c.append(m);
+  if(pt.chunk){ const g=mk('button','ib sm'+(pr?' mine':''),ICON.regen); g.title='اطلب إعادة توليد المقطع'; g.onclick=async()=>{ try{ await api('PUT','/api/regen/'+pid,{path:pt.path,text:pt.t,speed:0.7,label:it.label+' / '+pt.t}); await load(); say('تم الطلب ✓ قول لـ Claude: «ولّد الأصوات المطلوبة»','ok'); }catch(e){say('تعذر الطلب');} }; c.append(g); }
+  const p=mk('button','ib sm'+(pm?' mine':''),ICON.play); p.onclick=()=>pm?playMine(pid,p):playUrl(APP+pt.path+'?'+Date.now(),p); c.append(p);
+  if(pm){ const x=mk('button','x','أصلي'); x.title='رجوع للأصلي'; x.onclick=()=>del({path:pt.path}); c.append(x); }
+  box.append(c); });
+ const edit=mk('span','tx splitbox'), inp=mk('input','txt'); inp.type='text'; inp.id='sp-'+sid; inp.value=sp?sp.chunks:it.split; inp.setAttribute('aria-label','تقسيم المقاطع');
+ inp.onkeydown=e=>{ if(e.key==='Enter'){e.preventDefault();inp.blur();} };
+ inp.onchange=async()=>{ const v=inp.value.trim().replace(/[-·،,]/g,'.').replace(/\s*\.\s*/g,'.'); if(!v||v===it.split&&!sp) return;
+  if(v.replace(/[.\s]/g,'').toLowerCase()!==it.label.replace(/[.\s]/g,'').toLowerCase()) return say('انتبه: حروف المقاطع لازم تساوي حروف الكلمة ('+it.label+')');
+  try{ if(v===it.split){ await api('DELETE','/api/split/'+sid); } else await api('PUT','/api/split/'+sid,{lang:'en',path:it.path,word:it.label,lesson:L.id,chunks:v}); await load(); if(v!==it.split) say('تم حفظ التقسيم ✓ قول لـ Claude: «طبّق التقسيمات» وهيتولد صوت المقاطع الجديدة','ok'); }catch(e){say('تعذر الحفظ');} };
+ edit.append(inp); if(sp){ edit.append(mk('span','tag wait','تقسيم جديد: مطلوب تطبيق')); const r=mk('button','x','الأصلي'); r.onclick=()=>api('DELETE','/api/split/'+sid).then(load); edit.append(r); }
+ l.append(mk('span','lab','المقاطع')); l.append(edit); l.append(box);
+ const w=mk('span','ctl'); const u=mk('label','ib',ICON.up); u.title='رفع تسجيل لكل المقاطع'; const i=mk('input'); i.type='file'; i.accept='audio/*'; i.onchange=async()=>{ if(i.files[0]) await saveGroup(it,i.files[0]); i.value=''; }; u.append(i); w.append(u);
+ const gm2=holdMic({path:'grp:'+it.path,label:it.label+' (مقاطع)',group:it}); w.append(gm2);
+ if(gm){ const p=mk('button','ib mine',ICON.play); p.title='تسجيل المقاطع'; p.onclick=()=>playMine(gid,p); w.append(p); const x=mk('button','x','حذف'); x.onclick=()=>api('DELETE','/api/audio/'+gid).then(load); w.append(x); }
+ l.append(w); return l;
+}
+async function saveGroup(it,blob){ return save({path:'grp:'+it.path,label:it.label+' (مقاطع)',group:it},blob,'record'); }
 function render(){
  if(live) return;
  const act=document.activeElement&&document.activeElement.id, y=scrollY, open={};
@@ -141,9 +171,9 @@ function render(){
   const d=mk('details'); d.dataset.id=L.id; d.open=!!open[L.id];
   const ch=L.items.filter(it=>recs[idOf(it.path)]).length;
   d.append(mk('summary','',L.title+' <span class="n">('+L.items.length+' صوت'+(ch?'، '+ch+' متغيّر':'')+')</span>'));
-  const box=mk('div','sec'); L.items.forEach(it=>box.append(line(it,L))); d.append(box); G.append(d);
+  const box=mk('div','sec'); L.items.forEach(it=>{ box.append(line(it,L)); if(it.parts) box.append(partsLine(it,L)); }); d.append(box); G.append(d);
  });
- const P=$('#pending'); P.innerHTML=''; const rq=Object.values(regs);
+ const P=$('#pending'); P.innerHTML=''; const rq=Object.values(regs).concat(Object.values(splits));
  if(rq.length){ P.append(mk('h2','','مطلوب توليده ('+rq.length+')')); P.append(mk('p','how','قول لـ Claude: «ولّد الأصوات المطلوبة» وهيتولدوا ويتحطوا هنا ويظهروا في التطبيق.')); }
  filter();
  if(act){const e=document.getElementById(act); e&&e.focus&&e.focus({preventScroll:true});} scrollTo(0,y);
@@ -157,7 +187,7 @@ function filter(){
 $('#find').oninput=e=>{ q=e.target.value; filter(); };
 async function load(){
  const r=await api('GET','/api/list'); const d=await r.json();
- recs={}; d.rec.filter(m=>m.lang==='en').forEach(m=>{recs[m.id]=m;}); regs={}; (d.regen||[]).forEach(g=>{regs[g.id]=g;}); render();
+ recs={}; d.rec.filter(m=>m.lang==='en').forEach(m=>{recs[m.id]=m;}); regs={}; (d.regen||[]).forEach(g=>{regs[g.id]=g;}); splits={}; (d.splits||[]).filter(x=>x.lang==='en').forEach(x=>{splits[x.id]=x;}); render();
 }
 async function gate(){
  $('#gate').hidden=false; let claimed=true;
