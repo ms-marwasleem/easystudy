@@ -59,6 +59,8 @@ input.txt{font-size:18px;width:100%;box-sizing:border-box;direction:ltr;text-ali
 .ib.sm{width:30px;height:30px;border-width:1.5px}.ib.sm svg{width:15px;height:15px}
 .line.parts{padding-top:2px;flex-wrap:wrap}.line.parts .lab{flex:none}.splitbox{display:flex;align-items:center;gap:8px;flex:1 1 60%}.line.parts .chips{flex:1 1 100%;order:3}.line.parts .ctl{order:2}.chip,.chip *{white-space:nowrap}.chip .x{padding:0 4px}
 .tplbox{direction:ltr;display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px}.tplbox .fix{white-space:pre-wrap}.tplbox .pv{width:auto;flex:none;min-width:2.5em;max-width:9em;font:inherit;padding:2px 6px;border:1px solid var(--line);border-radius:8px;text-align:center}.uses{display:block;font-size:12px;color:var(--mute,#667);margin-top:2px}
+.vals{display:flex;flex-direction:column;gap:8px;padding:6px 0 12px}.vchip{border:1px solid var(--line);border-radius:12px;padding:8px 10px;display:flex;flex-direction:column;gap:2px;align-items:flex-start}.vchip.mine{border-color:var(--ok)}.vchip.wait{border-color:var(--rec)}.vtop{display:flex;align-items:center;gap:8px;flex-wrap:wrap;width:100%}.vtop b{font-size:20px}.vtop .ctl{margin-inline-start:auto}
+@media (max-width:640px){.line{flex-wrap:wrap}.line .tx{flex:1 1 100%}.line .ctl{flex:1 1 auto}.tplbox{display:flex}}
 </style>
 </head><body style="margin:0">
 <main>
@@ -153,6 +155,21 @@ function line(it,L){
  if(mine||rq){ const x=mk('button','x',mine?'رجوع للأصلي':'إلغاء الطلب'); x.onclick=()=>mine?del(it):api('DELETE','/api/regen/'+id).then(load); l.append(x); }
  return l;
 }
+function valChip(e,T){   // one template value (e.g. the letter Tt): a small chip with its own play / upload / record / regenerate
+ const id=idOf(e.path), mine=recs[id], rq=regs[id], vals=Object.assign({},e.params,rq&&rq.params);
+ const c=mk('div','vchip'+(mine?' mine':rq?' wait':'')); c.dataset.q=(T.text+' '+Object.values(vals).join(' ')+' '+(e.uses||[]).join(' ')).toLowerCase();
+ const top=mk('div','vtop'); top.append(mk('b','en',Object.values(vals).join(' · ').replace(/</g,'&lt;')));
+ top.append(mk('span','tag'+(mine?' mine':rq?' wait':''),mine?({upload:'مرفوع',record:'مسجّل',regen:'مولّد جديد'}[mine.src]||'مغيّر'):rq?'طلب توليد':'مولّد'));
+ const w=mk('span','ctl'); const it={path:e.path,label:e.label};
+ const u=mk('label','ib sm',ICON.up); u.title='رفع ملف صوتي'; const i=mk('input'); i.type='file'; i.accept='audio/*'; i.onchange=async()=>{ if(i.files[0]) await save(it,i.files[0],'upload'); i.value=''; }; u.append(i); w.append(u);
+ const m=holdMic(it); m.classList.add('sm'); w.append(m);
+ const g=mk('button','ib sm'+(rq?' mine':''),ICON.regen); g.title='اطلب توليد الصوت من جديد'; g.onclick=async()=>{ try{ await api('PUT','/api/regen/'+id,{path:e.path,text:fillTpl(T.text,vals),speed:e.speed,label:e.label,template:T.id,params:vals}); await load(); say('تم الطلب ✓ قول لـ Claude: «ولّد الأصوات المطلوبة»','ok'); }catch(err){say('تعذر الطلب');} }; w.append(g);
+ const p=mk('button','ib sm'+(mine?' mine':''),ICON.play); p.onclick=()=>mine?playMine(id,p):playUrl(APP+e.path+'?'+Date.now(),p); w.append(p);
+ top.append(w); c.append(top);
+ if(e.uses&&e.uses.length) c.append(mk('span','uses','مستخدم في: '+e.uses.join('، ')));
+ if(mine||rq){ const x=mk('button','x',mine?'رجوع للأصلي':'إلغاء الطلب'); x.onclick=()=>mine?del(it):api('DELETE','/api/regen/'+id).then(load); c.append(x); }
+ return c;
+}
 let seqId=0;
 async function playSeq(it,btn){   // the word's syllables one after the other with short pauses (the library recording of all syllables if there is one)
  const gm=recs[idOf('grp/'+it.path)]; if(gm&&same(gm.parts,it.parts.map(x=>x.path))) return playMine(idOf('grp/'+it.path),btn);
@@ -222,7 +239,8 @@ function render(){
     try{ for(const e of its){ await api('PUT','/api/regen/'+idOf(e.path),{path:e.path,text:fillTpl(nt,e.params),speed:e.speed,label:e.label,template:T.id,params:e.params,templateText:nt}); }
      await load(); say('تم طلب توليد '+its.length+' نسخة ✓ قولي لـ Claude: «ولّد الأصوات المطلوبة»','ok'); }catch(err){say('تعذر الطلب');} };
    hd.append(mk('span','tx',''),ti,tb); hd.firstChild.remove(); box.append(hd);
-   its.forEach(e=>box.append(line(e,{title:'قالب '+T.text}))); d.append(box); S.append(d); });
+   box.append(mk('p','how','القيم المستخدمة (كل قيمة صوت واحد بيتولّد من القالب):')); const vl=mk('div','vals');
+   its.forEach(e=>vl.append(valChip(e,T))); box.append(vl); d.append(box); S.append(d); });
   const plain=sh.entries.filter(e=>!e.template);
   const d=mk('details'); d.dataset.id='plain'; d.open=!!so.plain; d.append(mk('summary','','أسئلة وجمل ثابتة <span class="n">('+plain.length+')</span>'));
   const box=mk('div','sec'); plain.forEach(e=>box.append(line(e,{title:'أسئلة'}))); d.append(box); S.append(d);
