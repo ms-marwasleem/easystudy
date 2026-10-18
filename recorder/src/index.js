@@ -15,9 +15,33 @@ async function listAll(kv, prefix) {
 }
 const readJson = async (kv, prefix) => (await Promise.all((await listAll(kv, prefix)).map(k => kv.get(k.name, 'json')))).filter(Boolean);
 
+// Public read-only side for the app (no password, CORS open): GET /pub/manifest = what is recorded, GET /pub/a/<id> = the sound.
+const CORS = { 'access-control-allow-origin': '*', 'access-control-allow-methods': 'GET, OPTIONS' };
+async function manifest(kv) { // {id: {path, parts?, alt?, ts, mime}}; metadata rides on the key so no per-clip reads are needed
+  const keys = await listAll(kv, 'm:'), out = {};
+  await Promise.all(keys.map(async k => {
+    let m = k.metadata;
+    if (!m) { const full = await kv.get(k.name, 'json'); if (!full) return; m = { path: full.path, parts: full.parts, alt: full.alt, ts: full.ts, mime: full.mime }; await kv.put(k.name, JSON.stringify(full), { metadata: m }); }
+    out[k.name.slice(2)] = m;
+  }));
+  return out;
+}
+
 export default {
   async fetch(req, env) {
     const url = new URL(req.url), p = url.pathname, kv = env.REC;
+    if (p.startsWith('/pub/')) {
+      if (req.method === 'OPTIONS') return new Response(null, { headers: CORS });
+      if (p === '/pub/manifest') return new Response(JSON.stringify(await manifest(kv)), { headers: { ...CORS, 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-cache' } });
+      const id = p.split('/')[3];
+      if (p.startsWith('/pub/a/') && id && safe(id)) {
+        const buf = await kv.get('a:' + id, 'arrayBuffer'), m = await kv.get('m:' + id, 'json');
+        if (!buf) return new Response('none', { status: 404, headers: CORS });
+        // the app asks with ?v=<timestamp>, so a new recording is a new address: cache for good
+        return new Response(buf, { headers: { ...CORS, 'content-type': (m && m.mime) || 'audio/webm', 'cache-control': url.searchParams.get('v') ? 'public, max-age=31536000, immutable' : 'no-cache' } });
+      }
+      return new Response('not found', { status: 404, headers: CORS });
+    }
     if (!p.startsWith('/api/')) return env.ASSETS.fetch(req);
     const cfg = await kv.get('cfg:pw', 'json');
     if (p === '/api/state') return J({ claimed: !!cfg });
@@ -47,7 +71,7 @@ export default {
         if (buf.byteLength < 500 || buf.byteLength > 20e6) return J({ error: 'size' }, 400);
         const meta = JSON.parse(decodeURIComponent(url.searchParams.get('meta') || '{}'));
         meta.id = id; meta.size = buf.byteLength; meta.ts = Date.now(); meta.mime = (req.headers.get('content-type') || 'audio/webm').split(';')[0];
-        await kv.put('a:' + id, buf); await kv.put('m:' + id, JSON.stringify(meta)); return J({ ok: true });
+        await kv.put('a:' + id, buf); await kv.put('m:' + id, JSON.stringify(meta), { metadata: { path: meta.path, parts: meta.parts, alt: meta.alt, ts: meta.ts, mime: meta.mime } }); return J({ ok: true });
       }
       if (req.method === 'DELETE') { await kv.delete('a:' + id); await kv.delete('m:' + id); return J({ ok: true }); }
     }
