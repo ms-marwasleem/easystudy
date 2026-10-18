@@ -1,0 +1,179 @@
+<!doctype html><html lang="ar"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>مكتبة صوتيات الإنجليزي</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@500;700&display=swap">
+<style>
+/* Layout: plain list, one line per sound; round buttons on the left of each line */
+:root{--bg:#FFFFFF;--ink:#1B2530;--soft:#5E6C7B;--line:#E1E7EE;--blue:#1F6FD1;--rec:#D8452F;--ok:#1E8A5E;--font:'Noto Naskh Arabic','Geeza Pro','Traditional Arabic',serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121920;--ink:#EAF0F6;--soft:#9BAABA;--line:#2C3845;--blue:#6AA8F2;--rec:#FF7A63;--ok:#4CC794;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121920;--ink:#EAF0F6;--soft:#9BAABA;--line:#2C3845;--blue:#6AA8F2;--rec:#FF7A63;--ok:#4CC794;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.6;padding-block:18px 60px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1{font-size:28px;margin:0}
+h2{font-size:20px;margin:0;padding-bottom:4px;border-bottom:2px solid var(--blue)}
+.how{margin:0;color:var(--soft);font-size:15px}
+#msg{position:fixed;left:50%;transform:translateX(-50%);bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:20;max-width:min(92vw,520px);padding:10px 18px;border-radius:12px;background:var(--ink);color:var(--bg);font-size:16px;text-align:center;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+#msg:empty{display:none}
+#msg.ok{background:var(--ok);color:#fff}
+#msg.rec{background:var(--rec);color:#fff}
+.sec{display:flex;flex-direction:column}
+.line{display:flex;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--line)}
+.line .tx{flex:1;min-width:0;overflow-wrap:anywhere}
+.ctl{flex:none}
+.lab{flex:none}
+.big{font-size:28px;font-weight:700;line-height:1.4}
+.lab{font-size:13px;color:var(--soft);min-width:44px}
+.ctl{display:flex;align-items:center;gap:6px}
+.ib{width:40px;height:40px;border-radius:50%;border:2px solid var(--blue);background:none;color:var(--blue);display:inline-flex;align-items:center;justify-content:center;padding:0;position:relative;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.ib svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.ib.rec{border-color:var(--rec);color:var(--rec)}
+.ib.live{background:var(--rec);color:#fff}
+.ib.mine{border-color:var(--ok);color:var(--ok)}
+.ib.on{background:color-mix(in srgb,var(--blue) 18%,transparent)}
+.ib.gap{visibility:hidden}
+.ib input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}
+.x{border:0;background:none;color:var(--soft);font:inherit;font-size:13px;text-decoration:underline;cursor:pointer;padding:4px}
+input[type=text],select{font:inherit;font-size:20px;border:1px solid var(--line);border-radius:8px;padding:4px 10px;background:var(--bg);color:var(--ink);min-width:0}
+.split{font-weight:700;width:100%;box-sizing:border-box;direction:rtl;text-align:left;font-size:18px}
+.add{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.add input{flex:1;min-width:160px}
+.btn{font:inherit;font-size:17px;border:2px solid var(--blue);background:var(--blue);color:#fff;border-radius:8px;padding:4px 18px;cursor:pointer}
+.empty{color:var(--soft);font-size:15px;padding:8px 0}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+
+.en{direction:ltr;text-align:left}
+.line .tx.en{font-family:Andika,system-ui,sans-serif}
+.tag{flex:none;font-size:12px;border-radius:10px;padding:1px 8px;border:1px solid var(--line);color:var(--soft);white-space:nowrap}
+.tag.mine{border-color:var(--ok);color:var(--ok)}
+.tag.wait{border-color:var(--rec);color:var(--rec)}
+details{border-bottom:2px solid var(--blue)}
+summary{font-size:20px;font-weight:700;padding:10px 0;cursor:pointer}
+summary .n{font-size:13px;color:var(--soft);font-weight:400}
+.tabs{display:flex;gap:14px;font-size:16px}
+.tabs a{color:var(--blue)}
+input.txt{font-size:18px;width:100%;box-sizing:border-box;direction:ltr;text-align:left;font-family:Andika,system-ui,sans-serif}
+.line.hide{display:none}
+[hidden]{display:none!important}
+</style>
+</head><body style="margin:0">
+<main>
+ <div class="tabs"><a href="index.html">مكتبة العربي</a><b>مكتبة الإنجليزي</b></div>
+ <h1>مكتبة صوتيات الإنجليزي</h1>
+ <p class="how">كل الأصوات دي بتتولّد بصوت Kokoro (الافتراضي) والتطبيق بيشغّلها. لو عايز تغيّر صوت: ارفع ملف (السهم)، أو سجّل (المايك: اضغط واستمر وأفلت)، أو اطلب توليده من جديد (الدائرة) بعد ما تعدّل النص. التغيير يظهر في التطبيق على طول. الأخضر يعني إنك غيّرته. «رجوع للأصلي» يرجّع الصوت المولّد.</p>
+ <div id="msg" role="status"></div>
+ <section class="sec" id="gate" hidden><h2>كلمة السر</h2><div class="add"><input type="text" id="pw" placeholder="كلمة السر" autocomplete="off"><button class="btn" id="pwbtn">دخول</button></div><p class="how" id="pwnote"></p></section>
+ <section class="sec"><div class="add"><input type="text" id="find" placeholder="ابحث (كلمة أو جملة أو درس)" autocomplete="off" style="direction:ltr"></div></section>
+ <section class="sec" id="pending"></section>
+ <section class="sec" id="groups"></section>
+ <section class="sec"><button class="btn" id="backup" style="align-self:flex-start">نزّل كل التسجيلات (نسخة احتياطية)</button></section>
+</main>
+<script>
+const $=(s,r=document)=>r.querySelector(s);
+const mk=(t,c,h)=>{const e=document.createElement(t); if(c) e.className=c; if(h!=null) e.innerHTML=h; return e;};
+const ICON={
+ play:'<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/></svg>',
+ mic:'<svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg>',
+ up:'<svg viewBox="0 0 24 24"><path d="M12 16V5"/><path d="M7 9l5-5 5 5"/><path d="M5 19h14"/></svg>',
+ regen:'<svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.5-5.8"/><path d="M20 4v5h-5"/></svg>'
+};
+const APP='https://easystudy.marwasleem.workers.dev/data/';
+const MAXMS=30000;
+let data={lessons:[]}, recs={}, regs={}, cur=null, micBlocked=false, live=false, PW='', q='';
+try{ PW=localStorage.getItem('pw')||''; }catch(e){}
+const idOf=k=>k.replace(/[\/:]/g,'~');
+let mt;
+const say=(m,k)=>{ const e=$('#msg'); e.textContent=m||''; e.className=k||''; clearTimeout(mt); if(m&&k==='ok') mt=setTimeout(()=>say(''),3500); };
+async function api(method,path,body,raw){
+ const r=await fetch(path,{method,headers:{'x-pw':PW,...(raw?{'content-type':raw}:body?{'content-type':'application/json'}:{})},body:raw?body:(body?JSON.stringify(body):undefined)});
+ if(r.status===401){ gate(); throw new Error('auth'); }
+ return r;
+}
+function playUrl(u,btn){ if(cur) cur.pause(); const a=new Audio(u); cur=a; btn&&btn.classList.add('on'); const done=()=>btn&&btn.classList.remove('on'); a.onended=done; a.onerror=()=>{done();say('تعذر تشغيل الصوت (ممكن الملف لسه مش منشور)');}; a.play().catch(done); }
+async function playMine(id,btn){ try{ const r=await api('GET','/api/audio/'+id); if(!r.ok) return say('لا يوجد تسجيل'); playUrl(URL.createObjectURL(await r.blob()),btn); }catch(e){say('تعذر تشغيل التسجيل');} }
+async function save(it,blob,src){
+ if(blob.size<1500) return say('التسجيل قصير جدا. اضغط على المايك واستمر ثم تكلم، وأفلت بعد ما تخلص');
+ say('جاري الحفظ...');
+ const id=idOf(it.path), meta={path:it.path,label:it.label,src,lang:'en'};
+ try{ const r=await api('PUT','/api/audio/'+id+'?meta='+encodeURIComponent(JSON.stringify(meta)),blob,(blob.type||'audio/webm').split(';')[0]||'audio/webm');
+  if(!r.ok) return say('لم يتم الحفظ'); if(regs[id]) await api('DELETE','/api/regen/'+id); await load(); say('تم الحفظ ✓ التطبيق بيشغّله دلوقتي','ok'); }catch(e){ if(e.message!=='auth') say('لم يتم الحفظ، تأكد من الإنترنت'); }
+}
+async function del(it){ const id=idOf(it.path); try{ await api('DELETE','/api/audio/'+id); await load(); say('رجع الصوت الأصلي','ok'); }catch(e){say('تعذر الحذف');} }
+function holdMic(it){
+ const el=mk('button','ib rec',ICON.mic); el.title='اضغط واستمر للتسجيل'; el.setAttribute('aria-label','تسجيل'); el.oncontextmenu=e=>e.preventDefault();
+ if(micBlocked||!(navigator.mediaDevices&&window.MediaRecorder)){ const l=mk('label','ib rec',ICON.mic); const i=mk('input'); i.type='file'; i.accept='audio/*'; i.onchange=async()=>{ if(i.files[0]) await save(it,i.files[0],'record'); i.value=''; }; l.append(i); l.title='اختر تسجيلا من الجهاز'; return l; }
+ let st=null;
+ const end=()=>{ if(st){ const s=st; st=null; if(s.rec&&s.rec.state!=='inactive') s.rec.stop(); else s.cancel=true; } };
+ el.onpointerdown=async e=>{ e.preventDefault(); if(st) return; const s={cancel:false,rec:null}; st=s; try{el.setPointerCapture(e.pointerId);}catch(_){}
+  let stream; try{ stream=await navigator.mediaDevices.getUserMedia({audio:true}); }
+  catch(err){ st=null; micBlocked=true; render(); say('لم يسمح المتصفح بالمايك. اسمح له من إعدادات الموقع، أو سجّل بتطبيق التسجيل ثم اضغط زر المايك لاختيار الملف.'); return; }
+  if(s.cancel||st!==s){ stream.getTracks().forEach(t=>t.stop()); say('أفلتّ الزر قبل ما يبدأ التسجيل. اضغط واستمر ثم تكلم'); return; }
+  const rec=new MediaRecorder(stream), ch=[]; s.rec=rec; live=true; el.classList.add('live'); say('● جاري التسجيل... أفلت الزر عند الانتهاء','rec');
+  rec.ondataavailable=ev=>ev.data.size&&ch.push(ev.data);
+  rec.onstop=async()=>{ stream.getTracks().forEach(t=>t.stop()); clearTimeout(tm); live=false; el.classList.remove('live'); st=null; await save(it,new Blob(ch,{type:rec.mimeType||'audio/webm'}),'record'); render(); };
+  const tm=setTimeout(()=>{ if(rec.state!=='inactive') rec.stop(); },MAXMS); rec.start(); };
+ el.onpointerup=end; el.onpointercancel=end; el.onlostpointercapture=end;
+ return el;
+}
+function line(it,L){
+ const id=idOf(it.path), mine=recs[id], rq=regs[id], fixed=it.kind==='reading';
+ const l=mk('div','line'); l.dataset.q=(L.title+' '+it.label+' '+it.path).toLowerCase();
+ let txt;
+ if(it.regen){ txt=mk('input','txt'); txt.type='text'; txt.value=(rq&&rq.text)||it.label; txt.setAttribute('aria-label','النص'); txt.dataset.id=id; txt.id='t-'+id; }
+ else txt=mk('span','tx en',it.label.replace(/</g,'&lt;'));
+ const tx=mk('span','tx'); tx.append(txt); l.append(tx);
+ l.append(mk('span','tag'+(mine?' mine':rq?' wait':''),mine?({upload:'مرفوع',record:'مسجّل',regen:'مولّد جديد'}[mine.src]||'مغيّر'):rq?'طلب توليد':'مولّد'));
+ const w=mk('span','ctl');
+ if(!fixed){
+  const u=mk('label','ib',ICON.up); u.title='رفع ملف صوتي'; const i=mk('input'); i.type='file'; i.accept='audio/*'; i.onchange=async()=>{ if(i.files[0]) await save(it,i.files[0],'upload'); i.value=''; }; u.append(i); w.append(u);
+  w.append(holdMic(it));
+  if(it.regen){ const g=mk('button','ib'+(rq?' mine':''),ICON.regen); g.title='اطلب توليد الصوت من جديد بالنص ده'; g.onclick=async()=>{ const text=txt.value.trim(); if(!text) return say('اكتب النص الأول');
+    try{ await api('PUT','/api/regen/'+id,{path:it.path,text,speed:it.speed,label:it.label}); await load(); say('تم الطلب ✓ قول لـ Claude: «ولّد الأصوات المطلوبة» وهتتغير في التطبيق','ok'); }catch(e){say('تعذر الطلب');} }; w.append(g); }
+ }
+ const p=mk('button','ib'+(mine?' mine':''),ICON.play); p.title=mine?'الصوت الحالي (الجديد)':'الصوت الحالي'; p.onclick=()=>mine?playMine(id,p):playUrl(APP+it.path+'?'+Date.now(),p); w.append(p);
+ l.append(w);
+ if(mine||rq){ const x=mk('button','x',mine?'رجوع للأصلي':'إلغاء الطلب'); x.onclick=()=>mine?del(it):api('DELETE','/api/regen/'+id).then(load); l.append(x); }
+ return l;
+}
+function render(){
+ if(live) return;
+ const act=document.activeElement&&document.activeElement.id, y=scrollY, open={};
+ document.querySelectorAll('#groups details').forEach(d=>{ open[d.dataset.id]=d.open; });
+ const G=$('#groups'); G.innerHTML='';
+ data.lessons.forEach(L=>{
+  const d=mk('details'); d.dataset.id=L.id; d.open=!!open[L.id];
+  const ch=L.items.filter(it=>recs[idOf(it.path)]).length;
+  d.append(mk('summary','',L.title+' <span class="n">('+L.items.length+' صوت'+(ch?'، '+ch+' متغيّر':'')+')</span>'));
+  const box=mk('div','sec'); L.items.forEach(it=>box.append(line(it,L))); d.append(box); G.append(d);
+ });
+ const P=$('#pending'); P.innerHTML=''; const rq=Object.values(regs);
+ if(rq.length){ P.append(mk('h2','','مطلوب توليده ('+rq.length+')')); P.append(mk('p','how','قول لـ Claude: «ولّد الأصوات المطلوبة» وهيتولدوا ويتحطوا هنا ويظهروا في التطبيق.')); }
+ filter();
+ if(act){const e=document.getElementById(act); e&&e.focus&&e.focus({preventScroll:true});} scrollTo(0,y);
+}
+function filter(){
+ const t=q.trim().toLowerCase();
+ document.querySelectorAll('#groups details').forEach(d=>{ let any=false;
+  d.querySelectorAll('.line').forEach(l=>{ const ok=!t||l.dataset.q.includes(t); l.classList.toggle('hide',!ok); if(ok) any=true; });
+  d.hidden=!any; if(t&&any) d.open=true; });
+}
+$('#find').oninput=e=>{ q=e.target.value; filter(); };
+async function load(){
+ const r=await api('GET','/api/list'); const d=await r.json();
+ recs={}; d.rec.filter(m=>m.lang==='en').forEach(m=>{recs[m.id]=m;}); regs={}; (d.regen||[]).forEach(g=>{regs[g.id]=g;}); render();
+}
+async function gate(){
+ $('#gate').hidden=false; let claimed=true;
+ try{ claimed=(await (await fetch('/api/state')).json()).claimed; }catch(e){}
+ $('#pwnote').textContent=claimed?'':'أول مرة: اختر كلمة سر (4 أحرف على الأقل). احفظها، ولن يرفع أحد غيرك تسجيلات.';
+ $('#pwbtn').textContent=claimed?'دخول':'تعيين كلمة السر';
+ $('#pwbtn').onclick=async()=>{ const v=$('#pw').value.trim(); if(!v) return;
+  if(!claimed){ const r=await fetch('/api/claim',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({password:v})}); if(!r.ok) return say('كلمة السر قصيرة أو معيّنة من قبل'); }
+  PW=v; try{ const r=await fetch('/api/check',{headers:{'x-pw':PW}}); if(!r.ok) return say('كلمة السر غير صحيحة'); localStorage.setItem('pw',PW); }catch(e){}
+  $('#gate').hidden=true; say(''); await start(); };
+}
+$('#backup').onclick=async()=>{ try{ say('جاري التجهيز...'); const r=await api('GET','/api/export'); const b=await r.blob(); const a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='recordings-'+new Date().toISOString().slice(0,10)+'.json'; document.body.append(a); a.click(); a.remove(); say(''); }catch(e){say('تعذر التنزيل');} };
+async function start(){ try{ await load(); }catch(e){} }
+(async function(){
+ data=await (await fetch('en-items.json')).json(); render();
+ try{ const r=await fetch('/api/check',{headers:{'x-pw':PW}}); if(r.ok&&PW) await start(); else gate(); }catch(e){ say('لا يوجد اتصال بالإنترنت'); }
+})();
+</script>
+</body></html>

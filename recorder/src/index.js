@@ -57,7 +57,7 @@ export default {
     const parts = p.split('/').filter(Boolean); // api, kind, id
     const kind = parts[1], id = parts[2];
     if (kind === 'check') return J({ ok: true });
-    if (kind === 'list') return J({ rec: await readJson(kv, 'm:'), splits: await readJson(kv, 's:'), custom: await readJson(kv, 'c:') });
+    if (kind === 'list') return J({ rec: await readJson(kv, 'm:'), splits: await readJson(kv, 's:'), custom: await readJson(kv, 'c:'), regen: await readJson(kv, 'g:') });
     if (kind === 'export') { // everything in the format tools/ar-library/import_recordings.py reads
       const metas = await readJson(kv, 'm:'), docs = [];
       for (const m of metas) { const buf = await kv.get('a:' + m.id, 'arrayBuffer'); if (buf) docs.push({ ...m, b64: b64(buf) }); }
@@ -75,7 +75,7 @@ export default {
       }
       if (req.method === 'DELETE') { await kv.delete('a:' + id); await kv.delete('m:' + id); return J({ ok: true }); }
     }
-    const pre = { split: 's:', custom: 'c:' }[kind];
+    const pre = { split: 's:', custom: 'c:', regen: 'g:' }[kind];
     if (pre) {
       if (req.method === 'PUT') { const o = await req.json(); o.id = id; o.ts = Date.now(); await kv.put(pre + id, JSON.stringify(o)); return J({ ok: true }); }
       if (req.method === 'DELETE') { await kv.delete(pre + id); return J({ ok: true }); }
