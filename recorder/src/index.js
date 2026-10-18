@@ -17,35 +17,28 @@ const readJson = async (kv, prefix) => (await Promise.all((await listAll(kv, pre
 
 // Public read-only side for the app (no password, CORS open): GET /pub/manifest = what is recorded, GET /pub/a/<id> = the sound.
 const CORS = { 'access-control-allow-origin': '*', 'access-control-allow-methods': 'GET, OPTIONS' };
-// Workers cap subrequests per request (50 on the free plan), so the public manifests never read or write per key: they only list (metadata rides on
-// the key). Keys saved without metadata are filled in later by the password-protected /api/list call (see backfill), never here.
-async function manifest(kv) { // {id: {path, parts?, alt?, ts, mime}}
+// KV free plan allows only ~1000 list() calls a day, so the public manifests are NOT listed per request: each is one stored key
+// (pub:manifest / pub:pics) that is read with get() and updated whenever a recording or picture is saved or removed.
+// Only when the key does not exist yet is it built once from a list (metadata rides on the key).
+async function pubMan(kv, name, prefix) { // {id: {path, parts?, alt?, ts, mime}}
+  const stored = await kv.get(name, 'json');
+  if (stored) return stored;
   const out = {};
-  for (const k of await listAll(kv, 'm:')) if (k.metadata) out[k.name.slice(2)] = k.metadata;
+  for (const k of await listAll(kv, prefix)) if (k.metadata) out[k.name.slice(2)] = k.metadata;
+  await kv.put(name, JSON.stringify(out));
   return out;
 }
-
-// Pictures: key j:<id> = {path, alias?, ts, mime, w, h} (metadata rides on the key), i:<id> = the image. A picture with `alias` has no image of its
-// own: the app shows the library's (or shipped) picture of the alias path instead, so one picture can serve several places.
-async function picManifest(kv) {
-  const out = {};
-  for (const k of await listAll(kv, 'j:')) if (k.metadata) out[k.name.slice(2)] = k.metadata;
-  return out;
-}
-
-// Re-save old keys that have no metadata yet (best effort, a few per call, never throws).
-async function backfill(kv, prefix, pick) {
-  try {
-    const keys = (await listAll(kv, prefix)).filter(k => !k.metadata).slice(0, 15);
-    for (const k of keys) { const m = await kv.get(k.name, 'json'); if (!m) continue; const md = pick(m); if (JSON.stringify(md).length < 900) await kv.put(k.name, JSON.stringify(m), { metadata: md }); }
-  } catch (e) {}
+const manifest = kv => pubMan(kv, 'pub:manifest', 'm:');
+const picManifest = kv => pubMan(kv, 'pub:pics', 'j:');
+async function setPub(kv, name, prefix, id, md) { // md = metadata to store, or null to remove
+  try { const m = await pubMan(kv, name, prefix); if (md) m[id] = md; else delete m[id]; await kv.put(name, JSON.stringify(m)); } catch (e) {}
 }
 
 const cached = async (req, ctx, build) => { // 15 s edge cache so many app loads cost one KV list
   const cache = caches.default, key = new Request(new URL(req.url).origin + new URL(req.url).pathname);
   let r = await cache.match(key);
   if (r) return r;
-  r = new Response(JSON.stringify(await build()), { headers: { ...CORS, 'content-type': 'application/json; charset=utf-8', 'cache-control': 'public, max-age=15' } });
+  r = new Response(JSON.stringify(await build()), { headers: { ...CORS, 'content-type': 'application/json; charset=utf-8', 'cache-control': 'public, max-age=30' } });
   ctx && ctx.waitUntil ? ctx.waitUntil(cache.put(key, r.clone())) : 0;
   return r;
 };
@@ -86,9 +79,6 @@ export default {
     const parts = p.split('/').filter(Boolean); // api, kind, id
     const kind = parts[1], id = parts[2];
     if (kind === 'check') return J({ ok: true });
-    if (kind === 'list') {
-      ctx.waitUntil(Promise.all([backfill(kv, 'm:', m => ({ path: m.path, parts: m.parts, alt: m.alt, ts: m.ts, mime: m.mime })), backfill(kv, 'j:', m => ({ path: m.path, alias: m.alias, ts: m.ts, mime: m.mime }))]));
-    }
     if (kind === 'list') return J({ rec: await readJson(kv, 'm:'), splits: await readJson(kv, 's:'), custom: await readJson(kv, 'c:'), regen: await readJson(kv, 'g:'), pics: await readJson(kv, 'j:') });
     if (kind === 'export') { // everything in the format tools/ar-library/import_recordings.py reads
       const metas = await readJson(kv, 'm:'), docs = [];
@@ -108,9 +98,9 @@ export default {
           if (!/^image\//.test(meta.mime)) return J({ error: 'type' }, 400);
           await kv.put('i:' + id, buf);
         }
-        await kv.put('j:' + id, JSON.stringify(meta), { metadata: { path: meta.path, alias: meta.alias, ts: meta.ts, mime: meta.mime } }); return J({ ok: true });
+        const pmd = { path: meta.path, alias: meta.alias, ts: meta.ts, mime: meta.mime }; await kv.put('j:' + id, JSON.stringify(meta), { metadata: pmd }); await setPub(kv, 'pub:pics', 'j:', id, pmd); return J({ ok: true });
       }
-      if (req.method === 'DELETE') { await kv.delete('i:' + id); await kv.delete('j:' + id); return J({ ok: true }); }
+      if (req.method === 'DELETE') { await kv.delete('i:' + id); await kv.delete('j:' + id); await setPub(kv, 'pub:pics', 'j:', id, null); return J({ ok: true }); }
     }
     if (kind === 'audio') {
       if (req.method === 'GET') { const buf = await kv.get('a:' + id, 'arrayBuffer'), m = await kv.get('m:' + id, 'json'); return buf ? new Response(buf, { headers: { 'content-type': (m && m.mime) || 'audio/webm', 'cache-control': 'no-store' } }) : J({ error: 'none' }, 404); }
@@ -119,9 +109,9 @@ export default {
         if (buf.byteLength < 500 || buf.byteLength > 20e6) return J({ error: 'size' }, 400);
         const meta = JSON.parse(decodeURIComponent(url.searchParams.get('meta') || '{}'));
         meta.id = id; meta.size = buf.byteLength; meta.ts = Date.now(); meta.mime = (req.headers.get('content-type') || 'audio/webm').split(';')[0];
-        await kv.put('a:' + id, buf); await kv.put('m:' + id, JSON.stringify(meta), { metadata: { path: meta.path, parts: meta.parts, alt: meta.alt, ts: meta.ts, mime: meta.mime } }); return J({ ok: true });
+        const amd = { path: meta.path, parts: meta.parts, alt: meta.alt, ts: meta.ts, mime: meta.mime }; await kv.put('a:' + id, buf); await kv.put('m:' + id, JSON.stringify(meta), { metadata: amd }); await setPub(kv, 'pub:manifest', 'm:', id, amd); return J({ ok: true });
       }
-      if (req.method === 'DELETE') { await kv.delete('a:' + id); await kv.delete('m:' + id); return J({ ok: true }); }
+      if (req.method === 'DELETE') { await kv.delete('a:' + id); await kv.delete('m:' + id); await setPub(kv, 'pub:manifest', 'm:', id, null); return J({ ok: true }); }
     }
     const pre = { split: 's:', custom: 'c:', regen: 'g:' }[kind];
     if (pre) {
