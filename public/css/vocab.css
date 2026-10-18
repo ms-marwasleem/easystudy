@@ -9,16 +9,16 @@
 #lesson.vtab .mid{grid-template-columns:minmax(0,1fr)}
 .dash.ln .rb svg{fill:none;stroke:currentColor;stroke-width:3.2}
 
-.vocab{--ink:#2E1B0C;--now:#2A7FD8;height:100%;overflow:hidden;display:grid;gap:var(--vgap,10px);padding:var(--vgap,10px) clamp(8px,2vw,20px);
-  background:var(--noise),rgba(255,251,240,.92);border-radius:22px;box-shadow:0 4px 0 rgba(90,52,24,.25);align-content:start}
+.vocab{--ink:#2E1B0C;--now:#2A7FD8;height:100%;overflow:hidden;display:grid;gap:var(--vgap,0.625rem);padding:var(--vgap,0.625rem) clamp(0.5rem,2vw,1.25rem);
+  background:var(--noise),rgba(255,251,240,.92);border-radius:1.375rem;box-shadow:0 0.25rem 0 rgba(90,52,24,.25);align-content:start}
 #lesson.v-port .vocab{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr) auto;
   grid-template-areas:"word" "info" "tools" "img" "pick"}
 /* landscape: 3 columns. Left = the picture (big), middle = word, meaning and the 5 buttons (at the top, so the keyboard never covers them),
    right = the word pictures stacked, filling the height (their number of columns and size come from vLayout) */
 #lesson.v-land .vocab{grid-template-columns:minmax(0,30fr) minmax(0,42fr) var(--pw,26%);grid-template-rows:auto auto auto minmax(0,1fr);
-  grid-template-areas:"img word pick" "img info pick" "img tools pick" "img . pick";column-gap:clamp(10px,2vw,28px)}
+  grid-template-areas:"img word pick" "img info pick" "img tools pick" "img . pick";column-gap:clamp(0.625rem,2vw,1.75rem)}
 #lesson.v-land .vimgwrap{grid-row:1/-1}
-#lesson.v-land .vtools{gap:clamp(5px,1vw,14px)}
+#lesson.v-land .vtools{gap:clamp(0.3125rem,1vw,0.875rem)}
 #lesson.v-short .vtools .dash > span:last-child{display:none}
 .vword{grid-area:word}.vinfo{grid-area:info}.vtools{grid-area:tools}.vimgwrap{grid-area:img}.vpick{grid-area:pick}
 
@@ -26,7 +26,7 @@
    The letters are always there (hidden ones are just see-through), so the word has exactly the same size and place
    while learning, while writing and while listening. Two colours only: dark brown, and blue for "this one now". */
 .vword{position:relative;display:flex;flex-wrap:nowrap;white-space:nowrap;justify-content:center;align-items:flex-end;min-width:0;
-  font-family:var(--f-read);font-weight:700;font-size:var(--wfs,56px);line-height:1;padding:.06em 0 .1em}
+  font-family:var(--f-read);font-weight:700;font-size:var(--wfs,3.5rem);line-height:1;padding:.06em 0 .1em}
 .vseg{display:flex}
 .vgap{width:.5em;flex:none}
 .lt{min-width:.75em;height:1.2em;margin:0 .06em;display:grid;place-items:center;color:var(--ink);flex:none;border-bottom:.06em solid rgba(46,27,12,.25);transition:color .2s}
@@ -37,51 +37,51 @@
 .vword.focus .lt.cur{animation:vcur 1s steps(1) infinite}
 @keyframes vcur{50%{border-bottom-color:transparent}}
 .vword.writing:not(.focus) .lt.cur{animation:vtap 1.3s ease-in-out infinite}
-@keyframes vtap{50%{background:rgba(42,127,216,.14);border-radius:8px 8px 0 0}}
+@keyframes vtap{50%{background:rgba(42,127,216,.14);border-radius:0.5rem 0.5rem 0 0}}
 .lt.peek{opacity:.3}
-.vin{position:absolute;inset:0;width:100%;height:100%;opacity:0;font-size:16px;border:0;caret-color:transparent;cursor:text}
+.vin{position:absolute;inset:0;width:100%;height:100%;opacity:0;font-size:1rem;border:0;caret-color:transparent;cursor:text}
 
 /* meaning (Arabic, with its speaker) and the short status line share one line */
-.vinfo{display:flex;align-items:center;justify-content:center;gap:clamp(14px,4vw,40px);min-height:36px;flex-wrap:nowrap}
-.vmeaning{display:flex;align-items:center;gap:8px;font-family:var(--f-ui);font-weight:800;font-size:clamp(16px,2.2vw,22px);color:#7A4A22;white-space:nowrap}
-.vm-say{display:grid;place-items:center;width:40px;height:40px;margin:-4px;color:#2A7FD8;border-radius:10px}
-.vm-say svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.vinfo{display:flex;align-items:center;justify-content:center;gap:clamp(0.875rem,4vw,2.5rem);min-height:2.25rem;flex-wrap:nowrap}
+.vmeaning{display:flex;align-items:center;gap:0.5rem;font-family:var(--f-ui);font-weight:800;font-size:clamp(1rem,2.2vw,1.375rem);color:#7A4A22;white-space:nowrap}
+.vm-say{display:grid;place-items:center;width:2.5rem;height:2.5rem;margin:-0.25rem;color:#2A7FD8;border-radius:0.625rem}
+.vm-say svg{width:1.75rem;height:1.75rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .vm-say:active{transform:scale(.9)}
 .vmeaning.lit{color:#2A7FD8}
-.vstatus{font-family:var(--f-hand);font-size:clamp(18px,2.4vw,24px);color:#5A3418;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.vstatus{font-family:var(--f-hand);font-size:clamp(1.125rem,2.4vw,1.5rem);color:#5A3418;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
 
 /* the 5 buttons: always the same 5, always in the same place. One that can't be used right now is just faded. */
-.vtools{display:flex;justify-content:center;align-items:flex-start;gap:clamp(10px,3vw,26px)}
-.vtools .dash{font-size:13px;-webkit-text-stroke-width:2.5px;transition:opacity .2s}
-.vtools .dash .rb{width:var(--wbtn,50px);height:var(--wbtn,50px)}
-.vtools .dash .rb svg{width:calc(var(--wbtn,50px)*.46);height:calc(var(--wbtn,50px)*.46)}
+.vtools{display:flex;justify-content:center;align-items:flex-start;gap:clamp(0.625rem,3vw,1.625rem)}
+.vtools .dash{font-size:0.8125rem;-webkit-text-stroke-width:0.1562rem;transition:opacity .2s}
+.vtools .dash .rb{width:var(--wbtn,3.125rem);height:var(--wbtn,3.125rem)}
+.vtools .dash .rb svg{width:calc(var(--wbtn,3.125rem)*.46);height:calc(var(--wbtn,3.125rem)*.46)}
 .vtools .dash.off{opacity:.35;pointer-events:none}
 
 /* the picture: small, in the middle of the space left under the buttons */
 .vimgwrap{position:relative;min-height:0;min-width:0;display:grid;place-items:center}
-.vimg{display:block;height:var(--pich,140px);width:auto;max-width:calc(100% - 12px);max-height:calc(100% - 10px);object-fit:contain;
-  border:4px solid #fff;border-radius:12px;box-shadow:0 3px 8px rgba(90,52,24,.25);transform:rotate(-1deg)}
+.vimg{display:block;height:var(--pich,8.75rem);width:auto;max-width:calc(100% - 0.75rem);max-height:calc(100% - 0.625rem);object-fit:contain;
+  border:0.25rem solid #fff;border-radius:0.75rem;box-shadow:0 0.1875rem 0.5rem rgba(90,52,24,.25);transform:rotate(-1deg)}
 /* a cut-out from the picture library (transparent png): no photo frame, just a soft shadow, never cropped */
-.vimg.cut{border:0;border-radius:0;box-shadow:none;transform:none;filter:drop-shadow(0 4px 6px rgba(90,52,24,.3))}
+.vimg.cut{border:0;border-radius:0;box-shadow:none;transform:none;filter:drop-shadow(0 0.25rem 0.375rem rgba(90,52,24,.3))}
 
 /* the word pictures to choose from: one row (scrolls sideways when a lesson has many words) */
-.vpick{display:flex;gap:clamp(8px,1.6vw,14px);align-items:center;overflow-x:auto;overflow-y:hidden;padding:8px 8px 6px;justify-content:safe center;scrollbar-width:thin}
-#lesson.v-land .vpick{display:grid;grid-template-columns:repeat(var(--pcols,1),var(--thumb,64px));gap:var(--pgap,8px);justify-content:center;align-content:center;overflow:hidden;padding:0}
-.vthumb{position:relative;flex:none;width:var(--thumb,64px);aspect-ratio:4/3;border-radius:10px;background:#fff;padding:0;overflow:visible;
-  box-shadow:0 2px 6px rgba(90,52,24,.25);opacity:.8;transition:opacity .2s}
-.vthumb img{width:100%;height:100%;object-fit:contain;border-radius:10px;display:block}
-.vthumb img.cut{padding:3px}
-.vthumb b{position:absolute;left:-6px;top:-6px;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:var(--blue2);
-  font-family:var(--f-title);font-weight:400;font-size:13px;color:#fff}
-.vthumb .vst{position:absolute;right:-7px;top:-9px;width:24px;height:24px}
+.vpick{display:flex;gap:clamp(0.5rem,1.6vw,0.875rem);align-items:center;overflow-x:auto;overflow-y:hidden;padding:0.5rem 0.5rem 0.375rem;justify-content:safe center;scrollbar-width:thin}
+#lesson.v-land .vpick{display:grid;grid-template-columns:repeat(var(--pcols,1),var(--thumb,4rem));gap:var(--pgap,0.5rem);justify-content:center;align-content:center;overflow:hidden;padding:0}
+.vthumb{position:relative;flex:none;width:var(--thumb,4rem);aspect-ratio:4/3;border-radius:0.625rem;background:#fff;padding:0;overflow:visible;
+  box-shadow:0 2px 0.375rem rgba(90,52,24,.25);opacity:.8;transition:opacity .2s}
+.vthumb img{width:100%;height:100%;object-fit:cover;border-radius:0.625rem;display:block}
+.vthumb img.cut{padding:0.1875rem}
+.vthumb b{position:absolute;left:-0.375rem;top:-0.375rem;width:1.25rem;height:1.25rem;border-radius:50%;display:grid;place-items:center;background:var(--blue2);
+  font-family:var(--f-title);font-weight:400;font-size:0.8125rem;color:#fff}
+.vthumb .vst{position:absolute;right:-0.4375rem;top:-0.5625rem;width:1.5rem;height:1.5rem}
 .vthumb .vst svg{width:100%;height:100%}
-.vthumb.on{opacity:1;outline:3px solid #FFCB2E;outline-offset:2px}
+.vthumb.on{opacity:1;outline:0.1875rem solid #FFCB2E;outline-offset:2px}
 
-.spark{position:fixed;width:44px;height:44px;z-index:31;pointer-events:none}
+.spark{position:fixed;width:2.75rem;height:2.75rem;z-index:31;pointer-events:none}
 .spark svg{width:100%;height:100%}
 
 /* meaning lessons: the meaning / plural line is shown under the word */
-#lesson.ar.vmode .vmeaning{display:flex;font-size:clamp(24px,3.4vw,40px);color:#7A4A22;cursor:pointer;transition:opacity .2s}
+#lesson.ar.vmode .vmeaning{display:flex;font-size:clamp(1.5rem,3.4vw,2.5rem);color:#7A4A22;cursor:pointer;transition:opacity .2s}
 #lesson.ar.vmode .vmeaning.hid{opacity:0}
 #lesson.ar.vmode .vmeaning.lit{color:#2A7FD8}
 #lesson.ar.vmode .vm-say{display:none}
@@ -92,15 +92,17 @@
 #lesson.vmode.v-port .vocab{grid-template-rows:auto auto auto minmax(0,1fr);grid-template-areas:"word" "info" "tools" "pick"}
 #lesson.vmode.v-land .vocab{grid-template-columns:minmax(0,1fr) var(--pw,26%);grid-template-areas:"word pick" "info pick" "tools pick" ". pick"}
 #lesson.ar.vmode .vm-t{display:flex;flex-direction:column;align-items:center;gap:0;line-height:1.35;font-family:var(--f-read)}
-#lesson.ar.vmode .vm-t small{font-family:var(--f-ui);font-weight:800;font-size:clamp(13px,1.6vw,17px);color:#9A7B55}
-#lesson.ar.vmode .vm-t span{font-weight:700;font-size:var(--wfs,56px);line-height:1.3}
-#lesson.vmode .vthumb{aspect-ratio:auto;width:auto;min-width:var(--thumb,64px);padding:8px 14px;display:grid;place-items:center}
-#lesson.vmode .vtw{font-family:var(--f-read);font-weight:700;font-size:clamp(22px,3.2vw,34px);line-height:1.4;color:#2E1B0C;white-space:nowrap}
+#lesson.ar.vmode .vm-t small{font-family:var(--f-ui);font-weight:800;font-size:clamp(0.8125rem,1.6vw,1.0625rem);color:#9A7B55}
+#lesson.ar.vmode .vm-t span{font-weight:700;font-size:var(--wfs,3.5rem);line-height:1.3}
+#lesson.vmode .vthumb{aspect-ratio:auto;width:auto;min-width:var(--thumb,4rem);padding:0.5rem 0.875rem;display:grid;place-items:center}
+#lesson.vmode .vtw{font-family:var(--f-read);font-weight:700;font-size:clamp(1.375rem,3.2vw,2.125rem);line-height:1.4;color:#2E1B0C;white-space:nowrap}
 /* a little smaller buttons on the vocabulary page */
-.vtools .dash .rb{width:calc(var(--wbtn,50px)*.82);height:calc(var(--wbtn,50px)*.82)}
-.vtools .dash .rb svg{width:calc(var(--wbtn,50px)*.38);height:calc(var(--wbtn,50px)*.38)}
-#lesson.ar .vtools .dash{font-size:14px}
-#lesson.vmode.v-land .vpick{grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px}
-.vm-say{width:34px;height:34px}.vm-say svg{width:23px;height:23px}
+.vtools .dash .rb{width:calc(var(--wbtn,3.125rem)*.82);height:calc(var(--wbtn,3.125rem)*.82)}
+.vtools .dash .rb svg{width:calc(var(--wbtn,3.125rem)*.38);height:calc(var(--wbtn,3.125rem)*.38)}
+#lesson.ar .vtools .dash{font-size:0.875rem}
+#lesson.vmode.v-land .vpick{grid-template-columns:minmax(0,1fr);justify-items:center;gap:0.875rem}
+.vm-say{width:2.125rem;height:2.125rem}.vm-say svg{width:1.4375rem;height:1.4375rem}
 #lesson.vmode .vinfo{flex-direction:column-reverse;gap:2px}
-#lesson.ar.vmode .vm-t span{font-size:calc(var(--wfs,56px)*.85)}
+#lesson.ar.vmode .vm-t span{font-size:calc(var(--wfs,3.5rem)*.85)}
+
+.vthumb img.cut{object-fit:contain}

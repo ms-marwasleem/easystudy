@@ -1,67 +1,67 @@
 /* ---------- Lesson ---------- */
-#lesson{grid-template-rows:auto minmax(0,1fr) auto;gap:10px}
-.l-head{display:grid;grid-template-columns:auto minmax(0,auto) minmax(140px,1fr) auto;grid-template-areas:"nav sign track hud";align-items:center;gap:12px}
+#lesson{grid-template-rows:auto minmax(0,1fr) auto;gap:0.625rem}
+.l-head{display:grid;grid-template-columns:auto minmax(0,auto) minmax(8.75rem,1fr) auto;grid-template-areas:"nav sign track hud";align-items:center;gap:0.75rem}
 .l-head .navbtns{grid-area:nav}.l-head .sign{grid-area:sign}.l-head .track{grid-area:track}.l-head .hud{grid-area:hud}
-@media (max-aspect-ratio:1/1){.l-head{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"nav sign hud" "track track track";gap:8px 10px}}
+@media (max-aspect-ratio:1/1){.l-head{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"nav sign hud" "track track track";gap:0.5rem 0.625rem}}
 .sign{min-width:0}
-.sign small{display:block;font-size:13px;font-weight:800}
-.sign h1{margin:2px 0 0;font-size:clamp(20px,3.2vw,30px);-webkit-text-stroke-width:4px}
+.sign small{display:block;font-size:0.8125rem;font-weight:800}
+.sign h1{margin:2px 0 0;font-size:clamp(1.25rem,3.2vw,1.875rem);-webkit-text-stroke-width:0.25rem}
 
-.track{position:relative;height:50px;border-radius:999px;background:#5C606C;border:3.5px solid var(--ol);box-shadow:inset 0 -5px 0 rgba(0,0,0,.25),0 4px 0 var(--ol);overflow:hidden}
-.track::before{content:"";position:absolute;left:14px;right:44px;top:50%;height:5px;margin-top:-2px;background:repeating-linear-gradient(90deg,#FFCB2E 0 18px,transparent 18px 34px)}
-.track .flag{position:absolute;right:12px;top:50%;width:24px;height:24px;transform:translateY(-50%);border:2.5px solid var(--ol);border-radius:3px;
-  background:conic-gradient(#fff 0 25%,var(--ol) 0 50%,#fff 0 75%,var(--ol) 0) 0 0/12px 12px}
-.track .car{position:absolute;left:6px;top:50%;width:60px;transform:translate(0,-56%);transition:transform .3s linear;will-change:transform}
+.track{position:relative;height:3.125rem;border-radius:62.4375rem;background:#5C606C;border:0.2188rem solid var(--ol);box-shadow:inset 0 -0.3125rem 0 rgba(0,0,0,.25),0 0.25rem 0 var(--ol);overflow:hidden}
+.track::before{content:"";position:absolute;left:0.875rem;right:2.75rem;top:50%;height:0.3125rem;margin-top:-2px;background:repeating-linear-gradient(90deg,#FFCB2E 0 1.125rem,transparent 1.125rem 2.125rem)}
+.track .flag{position:absolute;right:0.75rem;top:50%;width:1.5rem;height:1.5rem;transform:translateY(-50%);border:0.1562rem solid var(--ol);border-radius:0.1875rem;
+  background:conic-gradient(#fff 0 25%,var(--ol) 0 50%,#fff 0 75%,var(--ol) 0) 0 0/0.75rem 0.75rem}
+.track .car{position:absolute;left:0.375rem;top:50%;width:3.75rem;transform:translate(0,-56%);transition:transform .3s linear;will-change:transform}
 
-.mid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;min-height:0}
+.mid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0.75rem;min-height:0}
 .stage{min-height:0;position:relative}
-.rail{display:flex;flex-direction:column;align-items:center;gap:10px;width:86px;padding-top:2px}
-.dash{display:flex;flex-direction:column;align-items:center;gap:3px;font-family:var(--f-title);font-size:16px;color:#fff;-webkit-text-stroke:3px var(--ol);paint-order:stroke fill;letter-spacing:.3px}
-.dash .rb{width:58px;height:58px}
-.dash .rb svg{width:26px;height:26px;fill:currentColor;stroke:none}
+.rail{display:flex;flex-direction:column;align-items:center;gap:0.625rem;width:5.375rem;padding-top:2px}
+.dash{display:flex;flex-direction:column;align-items:center;gap:0.1875rem;font-family:var(--f-title);font-size:1rem;color:#fff;-webkit-text-stroke:0.1875rem var(--ol);paint-order:stroke fill;letter-spacing:.3px}
+.dash .rb{width:3.625rem;height:3.625rem}
+.dash .rb svg{width:1.625rem;height:1.625rem;fill:currentColor;stroke:none}
 .dash.go .rb{--t:var(--green1);--b:var(--green2);color:#3F8F22}
 .dash.stop .rb{--t:var(--red1);--b:var(--red2);color:#D0402C}
 .dash.again .rb{--t:var(--blue1);--b:var(--blue2);color:#2A7FD8}
 .dash.again .rb svg{fill:none;stroke:currentColor;stroke-width:3.2}
 .dash.speed .rb{--t:var(--yellow1);--b:var(--yellow2);color:#C98A00}
-.dash.on .rb{box-shadow:inset 0 -4px 0 rgba(0,0,0,.18),0 4px 0 var(--ol),0 0 0 5px rgba(255,255,255,.7)}
+.dash.on .rb{box-shadow:inset 0 -0.25rem 0 rgba(0,0,0,.18),0 0.25rem 0 var(--ol),0 0 0 0.3125rem rgba(255,255,255,.7)}
 
-.scene{position:relative;height:100%;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
-  background:#8EC3E8 var(--scene) center top/cover no-repeat;border:3.5px solid var(--ol);box-shadow:0 6px 0 rgba(90,52,24,.45),inset 0 0 0 7px #fff}
-.note{position:relative;margin:16px auto;width:min(100% - 28px,720px);max-height:calc(100% - 32px);display:flex;flex-direction:column;
-  background:var(--paper);border:3px solid var(--ol);border-radius:12px;box-shadow:0 6px 0 rgba(90,52,24,.5);transform:rotate(-.6deg)}
-.note::before{content:"";position:absolute;top:-14px;left:50%;width:90px;height:26px;transform:translateX(-50%) rotate(-3deg);background:rgba(255,246,220,.85);z-index:2}
-.note .in{overflow:auto;padding:16px clamp(12px,3vw,26px) 10px;min-height:0}
-@media (min-aspect-ratio:5/4){.scene{justify-content:center;align-items:flex-end}.note{width:min(56%,620px);margin:16px 18px}}
+.scene{position:relative;height:100%;border-radius:1rem;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
+  background:#8EC3E8 var(--scene) center top/cover no-repeat;border:0.2188rem solid var(--ol);box-shadow:0 0.375rem 0 rgba(90,52,24,.45),inset 0 0 0 0.4375rem #fff}
+.note{position:relative;margin:1rem auto;width:min(100% - 1.75rem,45rem);max-height:calc(100% - 2rem);display:flex;flex-direction:column;
+  background:var(--paper);border:0.1875rem solid var(--ol);border-radius:0.75rem;box-shadow:0 0.375rem 0 rgba(90,52,24,.5);transform:rotate(-.6deg)}
+.note::before{content:"";position:absolute;top:-0.875rem;left:50%;width:5.625rem;height:1.625rem;transform:translateX(-50%) rotate(-3deg);background:rgba(255,246,220,.85);z-index:2}
+.note .in{overflow:auto;padding:1rem clamp(0.75rem,3vw,1.625rem) 0.625rem;min-height:0}
+@media (min-aspect-ratio:5/4){.scene{justify-content:center;align-items:flex-end}.note{width:min(56%,38.75rem);margin:1rem 1.125rem}}
 /* a lesson with a book picture: the whole picture (never cropped) beside the words, above them on tall screens.
    The thing being read gets a yellow ring with the dark outline, the same marks as the word being read. */
-.scene.book{background:var(--cream);flex-direction:row;align-items:stretch;justify-content:flex-start;gap:4px;padding:10px}
+.scene.book{background:var(--cream);flex-direction:row;align-items:stretch;justify-content:flex-start;gap:0.25rem;padding:0.625rem}
 .bpic{flex:1 1 0;min-width:0;min-height:0;container-type:size;display:grid;place-items:center}
 .bfit{position:relative;aspect-ratio:var(--ar,.75);width:min(100cqw,calc(100cqh * var(--ar,.75)))}
-.bfit img{display:block;width:100%;height:100%;border-radius:12px;border:3px solid var(--ol);box-shadow:0 4px 0 rgba(90,52,24,.35)}
-.spot{position:absolute;border-radius:16px;border:5px solid transparent;cursor:pointer;padding:0;background:none}
-.spot.on{border-color:var(--mark);box-shadow:0 0 0 3px var(--ol),inset 0 0 0 3px var(--ol)}
-.scene.book .note{flex:1 1 0;width:auto;max-width:620px;margin:6px 8px;align-self:center}
+.bfit img{display:block;width:100%;height:100%;border-radius:0.75rem;border:0.1875rem solid var(--ol);box-shadow:0 0.25rem 0 rgba(90,52,24,.35)}
+.spot{position:absolute;border-radius:1rem;border:0.3125rem solid transparent;cursor:pointer;padding:0;background:none}
+.spot.on{border-color:var(--mark);box-shadow:0 0 0 0.1875rem var(--ol),inset 0 0 0 0.1875rem var(--ol)}
+.scene.book .note{flex:1 1 0;width:auto;max-width:38.75rem;margin:0.375rem 0.5rem;align-self:center}
 @media (max-aspect-ratio:5/4){.scene.book{flex-direction:column}.scene.book .note{flex:0 1 auto;max-height:46%;align-self:stretch;max-width:none}}
 /* "layout": "pictures": the pictures spread over the paper like the book page, each word under its picture, no text card.
    The picture of the word being read pops up a little. */
-.scene.pics{background:var(--noise),var(--cream);justify-content:flex-start;align-items:stretch;padding:12px 16px 10px}
-.scene.pics .task{flex:none;padding-right:70px;margin:0}
+.scene.pics{background:var(--noise),var(--cream);justify-content:flex-start;align-items:stretch;padding:0.75rem 1rem 0.625rem}
+.scene.pics .task{flex:none;padding-right:4.375rem;margin:0}
 .pkarea{position:relative;flex:1 1 0;min-height:0;container-type:size}
 .pk{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:2px;font-family:var(--f-read)}
 .pkpic{display:block;padding:0;background:none;border:0;cursor:pointer}
-.pkpic img{display:block;height:calc(var(--k,1) * min(22cqh,34cqw));max-width:var(--mw,34cqw);object-fit:contain;transition:transform .25s ease-out;filter:drop-shadow(0 3px 2px rgba(90,52,24,.25))}
+.pkpic img{display:block;height:calc(var(--k,1) * min(22cqh,34cqw));max-width:var(--mw,34cqw);object-fit:contain;transition:transform .25s ease-out;filter:drop-shadow(0 0.1875rem 2px rgba(90,52,24,.25))}
 .pk.on .pkpic img{transform:scale(1.15)}
-.pk .txt{font-size:clamp(18px,min(7cqh,5cqw),34px);line-height:1.2;white-space:nowrap}
-.task{display:flex;align-items:center;gap:8px;font-family:var(--f-hand);font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;color:#7A4A22}
-.task svg{width:28px;height:28px;flex:none}
+.pk .txt{font-size:clamp(1.125rem,min(7cqh,5cqw),2.125rem);line-height:1.2;white-space:nowrap}
+.task{display:flex;align-items:center;gap:0.5rem;font-family:var(--f-hand);font-size:clamp(1.0625rem,2.4vw,1.375rem);margin:0 0 0.25rem;color:#7A4A22}
+.task svg{width:1.75rem;height:1.75rem;flex:none}
 .lines{margin:0;padding:0;list-style:none;font-family:var(--f-read)}
-.line{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;align-items:baseline;border-radius:12px;padding:2px 8px;transition:background .2s}
+.line{display:grid;grid-template-columns:auto 1fr;gap:2px 0.75rem;align-items:baseline;border-radius:0.75rem;padding:2px 0.5rem;transition:background .2s}
 .line.on{background:rgba(255,203,46,.28)}
-.who{font-weight:700;font-size:clamp(16px,min(3vw,3.4vh),26px);line-height:1.5;min-width:3.4em;cursor:pointer;text-align:left;font-family:var(--f-read)}
-.txt{font-size:clamp(18px,min(3.4vw,4vh),30px);line-height:1.5;color:#2E1B0C}
-.w{border-radius:10px;padding:1px 4px;cursor:pointer;display:inline-block;transition:background .12s}
-.w.reading{background:var(--mark);box-shadow:0 0 0 2.5px var(--ol)}
+.who{font-weight:700;font-size:clamp(1rem,min(3vw,3.4vh),1.625rem);line-height:1.5;min-width:3.4em;cursor:pointer;text-align:left;font-family:var(--f-read)}
+.txt{font-size:clamp(1.125rem,min(3.4vw,4vh),1.875rem);line-height:1.5;color:#2E1B0C}
+.w{border-radius:0.625rem;padding:1px 0.25rem;cursor:pointer;display:inline-block;transition:background .12s}
+.w.reading{background:var(--mark);box-shadow:0 0 0 0.1562rem var(--ol)}
 .act{color:#8A5A32;font-family:var(--f-hand);font-size:.85em;white-space:nowrap}
 /* the moving picture beside a stage direction (two hands shaking): still until its line is read, then it shakes for a moment */
 .acticon{display:inline-block;width:2.4em;height:1.2em;margin-left:.3em;vertical-align:-.25em}
@@ -70,34 +70,34 @@
 .line.acting .acticon .hs{animation:hshake .28s ease-in-out infinite alternate}
 @keyframes hshake{from{transform:translateY(-12%) rotate(-4deg)}to{transform:translateY(12%) rotate(4deg)}}
 
-.garage{height:100%;display:grid;place-items:center;text-align:center;padding:24px;background:var(--corr),var(--noise),var(--cream);border:3.5px solid var(--ol);border-radius:16px;box-shadow:0 6px 0 rgba(90,52,24,.45)}
-.garage .car{width:170px;display:block;margin:0 auto}
-.garage p{font-size:34px;margin:10px 0 6px}
-.garage span{font-family:var(--f-hand);font-size:22px}
+.garage{height:100%;display:grid;place-items:center;text-align:center;padding:1.5rem;background:var(--corr),var(--noise),var(--cream);border:0.2188rem solid var(--ol);border-radius:1rem;box-shadow:0 0.375rem 0 rgba(90,52,24,.45)}
+.garage .car{width:10.625rem;display:block;margin:0 auto}
+.garage p{font-size:2.125rem;margin:0.625rem 0 0.375rem}
+.garage span{font-family:var(--f-hand);font-size:1.375rem}
 
-.tabs{display:flex;justify-content:center;gap:10px;min-width:0;padding-bottom:env(safe-area-inset-bottom,0px)}
-.tab{font-size:20px;padding:.3em 1.1em .4em;--t:#FFF8E6;--b:#F1D9A8;color:var(--ol);-webkit-text-stroke:0}
-.tab svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
-.tab .st{width:24px;height:24px;display:inline-block}
+.tabs{display:flex;justify-content:center;gap:0.625rem;min-width:0;padding-bottom:env(safe-area-inset-bottom,0px)}
+.tab{font-size:1.25rem;padding:.3em 1.1em .4em;--t:#FFF8E6;--b:#F1D9A8;color:var(--ol);-webkit-text-stroke:0}
+.tab svg{width:1.375rem;height:1.375rem;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.tab .st{width:1.5rem;height:1.5rem;display:inline-block}
 .tab .st svg{width:100%;height:100%;stroke:none}
-.tab[aria-selected="true"]{--t:var(--blue1);--b:var(--blue2);color:#fff;-webkit-text-stroke:3px rgba(10,40,90,.75)}
+.tab[aria-selected="true"]{--t:var(--blue1);--b:var(--blue2);color:#fff;-webkit-text-stroke:0.1875rem rgba(10,40,90,.75)}
 .tab[aria-selected="true"] svg{stroke:#fff}
 /* reading pages ("pages" in lesson.json): two plain arrows at the bottom corners, the same round buttons as the question arrows */
 .scene.pics{position:relative}
-.pager{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:18px;z-index:5}
+.pager{position:absolute;left:50%;bottom:0.625rem;transform:translateX(-50%);display:flex;gap:1.125rem;z-index:5}
 .pager .parr{position:static}
-.scene.paged{padding-bottom:60px!important}
+.scene.paged{padding-bottom:3.75rem!important}
 
 /* "compact": true on a lesson = a long dialog: smaller text, the speaker's name beside the line, so everything fits without scrolling */
-.scene.long .txt{font-size:clamp(14px,min(2.6vw,3.2vh),24px);line-height:1.3}
-.scene.long .who{font-size:clamp(13px,min(2.3vw,2.8vh),21px);line-height:1.3;min-width:0;margin-top:0}
-.scene.long .line{grid-template-columns:auto 1fr;gap:0 8px;padding:1px 6px}
-.scene.long .task{font-size:clamp(14px,2vw,19px)}
-@media (min-aspect-ratio:5/4){.scene.long .note{width:min(62%,700px)}}
-@media (max-aspect-ratio:5/4){.scene.long::before{height:min(24vh,52vw)}.scene.long .note .in{padding-top:10px}}
+.scene.long .txt{font-size:clamp(0.875rem,min(2.6vw,3.2vh),1.5rem);line-height:1.3}
+.scene.long .who{font-size:clamp(0.8125rem,min(2.3vw,2.8vh),1.3125rem);line-height:1.3;min-width:0;margin-top:0}
+.scene.long .line{grid-template-columns:auto 1fr;gap:0 0.5rem;padding:1px 0.375rem}
+.scene.long .task{font-size:clamp(0.875rem,2vw,1.1875rem)}
+@media (min-aspect-ratio:5/4){.scene.long .note{width:min(62%,43.75rem)}}
+@media (max-aspect-ratio:5/4){.scene.long::before{height:min(24vh,52vw)}.scene.long .note .in{padding-top:0.625rem}}
 
 /* "pkWrap": true on a lesson = the words under the reading pictures are sentences: they may wrap into 2 lines (narrow screens) */
-.scene.pics.wrap .pk .txt{white-space:normal;text-align:center;max-width:44cqw;font-size:clamp(15px,min(6cqh,4.2cqw),30px);line-height:1.15}
+.scene.pics.wrap .pk .txt{white-space:normal;text-align:center;max-width:44cqw;font-size:clamp(0.9375rem,min(6cqh,4.2cqw),1.875rem);line-height:1.15}
 
 /* "bubbles" page: a canvas (kept in proportion, fitted into the stage) with the picture and the book's speech bubbles on it; each bubble's place
    comes from lesson.json (two sets: wide screen / tall screen). Text sizes are % of the canvas width, so it all scales together. */
@@ -117,11 +117,11 @@
 .pk.two{left:var(--lx);top:var(--ly)}
 .scene.pics .pk.two .pkpic img{height:calc(var(--k,1) * min(20cqh,22cqw))}
 .pk.two{width:46cqw}
-.scene.pics.wrap .pk.two .txt{font-size:clamp(13px,min(4.6cqh,3.5cqw),24px);max-width:none;line-height:1.2}
+.scene.pics.wrap .pk.two .txt{font-size:clamp(0.8125rem,min(4.6cqh,3.5cqw),1.5rem);max-width:none;line-height:1.2}
 @media (min-aspect-ratio:5/4){.pk.two{width:31cqw}}
 .pk .txt.on{background:rgba(255,203,46,.35);border-radius:.4em}
 /* a lesson page 1 with the whole picture beside a long dialog: give the words the larger share */
-@media (min-aspect-ratio:5/4){.scene.book.long .bpic{flex:.85 1 0}.scene.book.long .note{flex:1.25 1 0;max-width:none;margin:0 8px}.scene.book.long .txt{font-size:clamp(13px,min(2.4vw,3vh),23px);line-height:1.25}.scene.book.long .who{font-size:clamp(12px,min(2.1vw,2.6vh),20px)}}
+@media (min-aspect-ratio:5/4){.scene.book.long .bpic{flex:.85 1 0}.scene.book.long .note{flex:1.25 1 0;max-width:none;margin:0 0.5rem}.scene.book.long .txt{font-size:clamp(0.8125rem,min(2.4vw,3vh),1.4375rem);line-height:1.25}.scene.book.long .who{font-size:clamp(0.75rem,min(2.1vw,2.6vh),1.25rem)}}
 @media (max-aspect-ratio:5/4){.scene.book.long .note{max-height:66%}}
 @media (max-aspect-ratio:5/4){
   .bk{--c:var(--arP)}
@@ -131,3 +131,7 @@
 }
 /* lesson pages: previous on the left, NEXT on the right, also in Arabic */
 .pager{direction:ltr}
+.tab[hidden]{display:none}
+/* header: the small line stays on one line (no lonely "1"), the title may use two lines at most */
+.sign small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sign h1{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.12}

@@ -38,9 +38,11 @@ function showLetter(){
   readPager(scene); stage.append(scene);
   setRail([{kind:'go',icon:'play',label:tr('Listen'),click:lAll}]);
   if(typeof bookTag==='function') bookTag(); showHint($('#rail .dash.go .rb'),LESSON.hints&&LESSON.hints.read,1400,'read');
+  if(lt.auto){ lt.auto=0; setTimeout(()=>{ if(tab==='read') lAll(); },500); }
 }
 // the rail button: every card of the page in turn
-async function lAll(){ const cards=$$('.lgrid .lcard'); vStop(); const run=++lt.run; for(const c of cards){ if(run!==lt.run) return; c.click(); await new Promise(r=>setTimeout(r,4200)); if(run!==lt.run) return; } }
+async function lAll(){ const cards=$$('.lgrid .lcard'); vStop(); lt.auto=0; const run=++lt.run; for(const c of cards){ if(run!==lt.run) return; c.click(); await new Promise(r=>setTimeout(r,4200)); if(run!==lt.run) return; }
+  if(run===lt.run&&tab==='read'&&rd.page<nPages()){ lt.auto=1; readGo(1); } }   // the Listen button reads the whole lesson: on to the next page
 
 /* LETTER lesson WORDS tab — the book's word page: one row per haraka (fatha, damma, kasra, sukoon): the vowelled letter (boy card) + its 3 words,
    taken in order from lesson.json "vocab" (3 per haraka, same order as letter.sounds). Tap a card to hear it; the speaker sits beside the picture.

@@ -75,6 +75,7 @@ function showWords(){
 }
 function vRender(fill){
   const v=LESSON.vocab[vs.i], img=$('.vimg');
+  if(!img._fit){ img._fit=1; img.addEventListener('load',vFitImg); }
   if(img.getAttribute('src')!==v.img){ img.src=v.img; if(anim){ G.set(img,{opacity:0}); const go=()=>G.to(img,{opacity:1,duration:.3}); img.decode?img.decode().then(go,go):go(); } }
   img.alt=v.word; img.classList.toggle('cut',/\.png$/i.test(v.img)); if(vMode()&&v.rel) $('.vm-t').innerHTML=`<small>${v.rel.label}</small><span>${v.rel.text}</span>`; else $('.vm-t').textContent=v.ar||''; $('.vmeaning').hidden=!(v.ar||v.rel);   // library cut-outs are png
   $$('.vthumb').forEach((b,i)=>b.classList.toggle('on',i===vs.i));
@@ -249,7 +250,12 @@ function vLayout(){
     L.style.setProperty('--thumb',c(40,best[0],140)+'px');
   } else { L.style.setProperty('--thumb',c(48,Math.min(w*.14,h*.07),90)+'px'); }
 }
-addEventListener('resize',()=>{ if(tab==='words'){ vLayout(); fitWord(); } });
+// the picture's white frame hugs the picture (no empty strips): the box is cut to the picture's own proportions, as big as the room allows
+function vFitImg(){ const im=$('.vimg'), wrap=im&&im.parentElement; if(!im||!im.naturalWidth||!wrap||!wrap.clientWidth) return;
+  const b=parseFloat(getComputedStyle(im).borderTopWidth)||0, pich=parseFloat($('#lesson').style.getPropertyValue('--pich'))||140, ar=im.naturalWidth/im.naturalHeight;
+  const bw=wrap.clientWidth-8-2*b, bh=wrap.clientHeight-8-2*b; let h=Math.min(pich,bh), w=h*ar; if(w>bw){ w=bw; h=w/ar; }
+  im.style.width=Math.max(20,w)+'px'; im.style.height=Math.max(20,h)+'px'; }
+addEventListener('resize',()=>{ if(tab==='words'){ vLayout(); fitWord(); setTimeout(vFitImg,60); } });
 // iPhone may slide the page under the keyboard: slide it back so everything stays exactly where it was
 if(window.visualViewport) visualViewport.addEventListener('scroll',()=>{ if(scrollY) scrollTo(0,0); });
 

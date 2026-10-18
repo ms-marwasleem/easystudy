@@ -1,0 +1,118 @@
+{
+ "sets": [
+  {
+   "type": "count",
+   "ex": 1,
+   "page": 3,
+   "task": "Write the number.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "img": "../../pics/bananas-3.png",
+     "n": 3,
+     "group": true,
+     "audio": "words/three.mp3"
+    },
+    {
+     "img": "../../pics/octopus.png",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3"
+    },
+    {
+     "img": "../../pics/hamsters-2.png",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    },
+    {
+     "img": "../../pics/ducks-4.png",
+     "n": 4,
+     "group": true,
+     "audio": "words/four.mp3"
+    },
+    {
+     "img": "../../pics/cookie.png",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3"
+    },
+    {
+     "img": "../../pics/broccoli-3.png",
+     "n": 3,
+     "group": true,
+     "audio": "words/three.mp3"
+    }
+   ],
+   "both": true
+  },
+  {
+   "type": "link",
+   "ex": 2,
+   "page": 4,
+   "task": "Join the ants to the number.",
+   "taskAudio": "q/task-3.mp3",
+   "items": [
+    {
+     "word": "3",
+     "pic": "../../pics/ants-3.png",
+     "audio": "words/three.mp3"
+    },
+    {
+     "word": "2",
+     "pic": "../../pics/ants-2.png",
+     "audio": "words/two.mp3"
+    },
+    {
+     "word": "1",
+     "pic": "../../pics/ants-1.png",
+     "audio": "words/one.mp3"
+    },
+    {
+     "word": "4",
+     "pic": "../../pics/ants-4.png",
+     "audio": "words/four.mp3"
+    },
+    {
+     "word": "5",
+     "pic": "../../pics/ants-5.png",
+     "audio": "words/five.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 2,
+   "page": 4,
+   "task": "Join the number to the word.",
+   "taskAudio": "q/task-4.mp3",
+   "items": [
+    {
+     "word": "3",
+     "text2": "Three",
+     "audio": "words/three.mp3"
+    },
+    {
+     "word": "1",
+     "text2": "One",
+     "audio": "words/one.mp3"
+    },
+    {
+     "word": "2",
+     "text2": "Two",
+     "audio": "words/two.mp3"
+    },
+    {
+     "word": "5",
+     "text2": "Five",
+     "audio": "words/five.mp3"
+    },
+    {
+     "word": "4",
+     "text2": "Four",
+     "audio": "words/four.mp3"
+    }
+   ]
+  }
+ ]
+}

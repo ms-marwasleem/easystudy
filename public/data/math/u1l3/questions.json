@@ -1,0 +1,262 @@
+{
+ "sets": [
+  {
+   "type": "bond",
+   "ex": 1,
+   "page": 6,
+   "task": "Write the missing number in the box.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "whole": 5,
+     "parts": [
+      3,
+      null
+     ],
+     "audio": "words/three-and-two-make-five.mp3"
+    },
+    {
+     "whole": 5,
+     "parts": [
+      null,
+      4
+     ],
+     "audio": "words/one-and-four-make-five.mp3"
+    },
+    {
+     "whole": 5,
+     "parts": [
+      2,
+      null
+     ],
+     "audio": "words/two-and-three-make-five.mp3"
+    }
+   ]
+  },
+  {
+   "type": "count",
+   "ex": 3,
+   "page": 8,
+   "task": "Write the number.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "img": "../../pics/strawberries-4.png",
+     "n": 4,
+     "group": true,
+     "audio": "words/four.mp3"
+    },
+    {
+     "img": "../../pics/goldfish-3.png",
+     "n": 3,
+     "group": true,
+     "audio": "words/three.mp3"
+    },
+    {
+     "img": "../../pics/cacti-glasses-2.png",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    },
+    {
+     "img": "../../pics/cookie.png",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3"
+    },
+    {
+     "img": "../../pics/ducks-pirate-4.png",
+     "n": 4,
+     "group": true,
+     "audio": "words/four.mp3"
+    },
+    {
+     "img": "../../pics/bees-suit-5.png",
+     "n": 5,
+     "group": true,
+     "audio": "words/five.mp3"
+    },
+    {
+     "img": "../../pics/circus-truck.png",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3"
+    },
+    {
+     "img": "../../pics/potatoes-3.png",
+     "n": 3,
+     "group": true,
+     "audio": "words/three.mp3"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 3,
+   "page": 8,
+   "task": "Write the word.",
+   "taskAudio": "q/task-3.mp3",
+   "lang": "en",
+   "items": [
+    {
+     "pic": "../../pics/strawberries-4.png",
+     "word": "four",
+     "audio": "words/four.mp3"
+    },
+    {
+     "pic": "../../pics/goldfish-3.png",
+     "word": "three",
+     "audio": "words/three.mp3"
+    },
+    {
+     "pic": "../../pics/cacti-glasses-2.png",
+     "word": "two",
+     "audio": "words/two.mp3"
+    },
+    {
+     "pic": "../../pics/cookie.png",
+     "word": "one",
+     "audio": "words/one.mp3"
+    },
+    {
+     "pic": "../../pics/ducks-pirate-4.png",
+     "word": "four",
+     "audio": "words/four.mp3"
+    },
+    {
+     "pic": "../../pics/bees-suit-5.png",
+     "word": "five",
+     "audio": "words/five.mp3"
+    },
+    {
+     "pic": "../../pics/circus-truck.png",
+     "word": "one",
+     "audio": "words/one.mp3"
+    },
+    {
+     "pic": "../../pics/potatoes-3.png",
+     "word": "three",
+     "audio": "words/three.mp3"
+    }
+   ]
+  },
+  {
+   "type": "count",
+   "ex": 3,
+   "page": 9,
+   "task": "Write the number.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "img": "../../pics/bananas-hats-2.png",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    },
+    {
+     "img": "../../pics/broccoli-5.png",
+     "n": 5,
+     "group": true,
+     "audio": "words/five.mp3"
+    },
+    {
+     "img": "../../pics/hamsters-cape-4.png",
+     "n": 4,
+     "group": true,
+     "audio": "words/four.mp3"
+    }
+   ]
+  },
+  {
+   "type": "bond",
+   "ex": 4,
+   "page": 9,
+   "task": "Write the missing number in the box.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "whole": 5,
+     "parts": [
+      4,
+      null
+     ],
+     "audio": "words/four-and-one-make-five.mp3"
+    },
+    {
+     "whole": 5,
+     "parts": [
+      null,
+      3
+     ],
+     "audio": "words/two-and-three-make-five.mp3"
+    },
+    {
+     "whole": 5,
+     "parts": [
+      null,
+      1
+     ],
+     "audio": "words/four-and-one-make-five.mp3"
+    },
+    {
+     "whole": 5,
+     "parts": [
+      1,
+      null
+     ],
+     "audio": "words/one-and-four-make-five.mp3"
+    },
+    {
+     "whole": 5,
+     "parts": [
+      3,
+      null
+     ],
+     "audio": "words/three-and-two-make-five.mp3"
+    },
+    {
+     "whole": 5,
+     "parts": [
+      null,
+      2
+     ],
+     "audio": "words/three-and-two-make-five.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 5,
+   "page": 10,
+   "task": "Join each set to the suitable number.",
+   "taskAudio": "q/task-4.mp3",
+   "items": [
+    {
+     "word": "1",
+     "pic": "../../pics/cookie.png",
+     "audio": "words/one.mp3"
+    },
+    {
+     "word": "2",
+     "pic": "../../pics/broccoli-glasses-2.png",
+     "audio": "words/two.mp3"
+    },
+    {
+     "word": "3",
+     "pic": "../../pics/roosters-3.png",
+     "audio": "words/three.mp3"
+    },
+    {
+     "word": "4",
+     "pic": "../../pics/ducks-yellow-4.png",
+     "audio": "words/four.mp3"
+    },
+    {
+     "word": "5",
+     "pic": "../../pics/bananas-hats-5.png",
+     "audio": "words/five.mp3"
+    }
+   ]
+  }
+ ]
+}

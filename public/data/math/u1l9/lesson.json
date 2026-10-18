@@ -1,0 +1,87 @@
+{
+ "id": "u1l9",
+ "unit": 1,
+ "lesson": 12,
+ "title": "Compare numbers",
+ "task": "Compare numbers",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz"
+ ],
+ "tabLabels": {
+  "read": "Explain"
+ },
+ "type": "math",
+ "math": {
+  "line": {
+   "rows": [
+    {
+     "n": 1,
+     "word": "One",
+     "audio": "words/one.mp3"
+    },
+    {
+     "n": 2,
+     "word": "Two",
+     "audio": "words/two.mp3"
+    },
+    {
+     "n": 3,
+     "word": "Three",
+     "audio": "words/three.mp3"
+    },
+    {
+     "n": 4,
+     "word": "Four",
+     "audio": "words/four.mp3"
+    },
+    {
+     "n": 5,
+     "word": "Five",
+     "audio": "words/five.mp3"
+    },
+    {
+     "n": 6,
+     "word": "Six",
+     "audio": "words/six.mp3"
+    },
+    {
+     "n": 7,
+     "word": "Seven",
+     "audio": "words/seven.mp3"
+    },
+    {
+     "n": 8,
+     "word": "Eight",
+     "audio": "words/eight.mp3"
+    },
+    {
+     "n": 9,
+     "word": "Nine",
+     "audio": "words/nine.mp3"
+    },
+    {
+     "n": 10,
+     "word": "Ten",
+     "audio": "words/ten.mp3"
+    }
+   ],
+   "small": {
+    "img": "data/pics/ar-mouse.png",
+    "word": "Smallest",
+    "audio": "words/smallest.mp3"
+   },
+   "big": {
+    "img": "data/pics/ar-elephant.png",
+    "word": "Biggest",
+    "audio": "words/biggest.mp3"
+   },
+   "text": "Numbers get bigger as you go to the right.",
+   "textAudio": "words/bigger-right.mp3"
+  }
+ }
+}

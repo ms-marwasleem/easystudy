@@ -13,8 +13,8 @@
      "word": "grandfather",
      "audio": "../../en-shared/q/grandfather.mp3",
      "pics": [
-      "../../pics/grandfather.png",
-      "../../pics/grandmother.png"
+      "img/grandfather-3.png",
+      "img/grandmother-3.png"
      ],
      "answer": 0
     },
@@ -22,7 +22,7 @@
      "word": "parents",
      "audio": "../../en-shared/q/parents.mp3",
      "pics": [
-      "../../pics/parents.png",
+      "img/parents-3.png",
       "../../pics/boy-3.png"
      ],
      "answer": 0
@@ -31,7 +31,7 @@
      "word": "mother",
      "audio": "../../en-shared/q/mother.mp3",
      "pics": [
-      "../../pics/mother.png",
+      "img/mother-3.png",
       "../../pics/girl-3.png"
      ],
      "answer": 0
@@ -40,8 +40,8 @@
      "word": "brother",
      "audio": "../../en-shared/q/brother.mp3",
      "pics": [
-      "../../pics/brothers.png",
-      "../../pics/sisters.png"
+      "img/boys-3.png",
+      "img/girls-3.png"
      ],
      "answer": 0
     }
@@ -63,7 +63,7 @@
       "brother"
      ],
      "answer": 0,
-     "pic": "../../pics/sisters.png",
+     "pic": "img/sisters-4.png",
      "audio": "../../en-shared/q/this-is-my-sister.mp3",
      "word": "This is my sister."
     },
@@ -75,7 +75,7 @@
       "father"
      ],
      "answer": 1,
-     "pic": "../../pics/father.png",
+     "pic": "img/father-4.png",
      "audio": "../../en-shared/q/this-is-my-father.mp3",
      "word": "This is my father."
     },
@@ -87,7 +87,7 @@
       "grandmother"
      ],
      "answer": 1,
-     "pic": "../../pics/grandmother.png",
+     "pic": "img/grandmother-4.png",
      "audio": "../../en-shared/q/this-is-my-grandmother.mp3",
      "word": "This is my grandmother."
     }
@@ -148,7 +148,7 @@
       "grandmother"
      ],
      "answer": 1,
-     "pic": "../../pics/grandmother.png",
+     "pic": "img/grandmother-6.png",
      "audio": "../../en-shared/q/this-is-my-grandmother.mp3",
      "word": "This is my grandmother."
     },
@@ -159,7 +159,7 @@
       "mother"
      ],
      "answer": 0,
-     "pic": "../../pics/father.png",
+     "pic": "img/father-6.png",
      "audio": "../../en-shared/q/this-is-my-father.mp3",
      "word": "This is my father."
     },
@@ -170,7 +170,7 @@
       "sisters"
      ],
      "answer": 0,
-     "pic": "../../pics/brothers.png",
+     "pic": "img/brothers-6.png",
      "audio": "../../en-shared/q/i-have-2-brothers.mp3",
      "word": "I have 2 brothers."
     },
@@ -181,7 +181,7 @@
       "sisters"
      ],
      "answer": 1,
-     "pic": "../../pics/sisters.png",
+     "pic": "img/sisters-6.png",
      "audio": "../../en-shared/q/i-have-2-sisters.mp3",
      "word": "I have 2 sisters."
     }

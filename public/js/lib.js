@@ -14,17 +14,30 @@ function libIndex(man){
   });
   return idx;
 }
-// the list of recordings; refreshed when older than 20 s (one small request) so a change made in the library shows up at once
-function libSync(){
-  const age=Date.now()-LIB.at;
+/* Requests to the library are kept to a minimum: the list (manifest) is saved on the device and used as is; it is asked for again only
+   when the child moves to another screen (libNav) and the last check is older than LIB_EVERY, never in the middle of a question.
+   Each sound has a versioned address; its bytes are kept on the device (Cache Storage) and downloaded again only when its number changes. */
+const LIB_EVERY=60000;
+try{ const s=JSON.parse(localStorage.getItem('es-libman')||'null'); if(s&&s.man){ LIB.man=s.man; LIB.idx=libIndex(s.man); LIB.at=s.at||0; } }catch(e){}
+function libRefresh(){   // one small request for the list, in the background; later sounds use the new list
   if(LIB.pending) return LIB.pending;
-  if(LIB.man&&age<20000) return Promise.resolve();
-  if(!LIB.man&&LIB.tries>=2&&age<60000) return Promise.resolve();   // library down: don't make every sound wait
   LIB.pending=Promise.race([fetch(LIB.url+'/pub/manifest',{cache:'no-cache'}).then(r=>{ if(!r.ok) throw 0; return r.json(); }),new Promise((_,no)=>setTimeout(no,2500))])
-    .then(m=>{ LIB.man=m; LIB.idx=libIndex(m); LIB.tries=0; }).catch(()=>{ LIB.tries++; })
+    .then(m=>{ LIB.man=m; LIB.idx=libIndex(m); LIB.tries=0; try{ localStorage.setItem('es-libman',JSON.stringify({man:m,at:Date.now()})); }catch(e){} }).catch(()=>{ LIB.tries++; })
     .finally(()=>{ LIB.at=Date.now(); LIB.pending=null; });
   return LIB.pending;
 }
+function libSync(){
+  if(LIB.man) return LIB.pending||Promise.resolve();   // a saved list exists: use it, no waiting, no request
+  if(LIB.tries>=2&&Date.now()-LIB.at<60000) return Promise.resolve();   // library down: don't make every sound wait
+  return libRefresh();
+}
+function libNav(){ if(Date.now()-LIB.at>LIB_EVERY) libRefresh(); }
+async function libBytes(url){   // sound bytes: from the device when kept, else downloaded once and kept
+  try{ if(self.caches){ const c=await caches.open('es-lib'), hit=await c.match(url); if(hit) return hit.arrayBuffer();
+    const r=await fetch(url); if(!r.ok) throw 0; c.put(url,r.clone()).catch(()=>{}); return r.arrayBuffer(); } }catch(e){}
+  const r=await fetch(url); if(!r.ok) throw 0; return r.arrayBuffer();
+}
+
 const libPath=url=>{ const m=/(?:^|\/)data\/(.+?)(?:\?.*)?$/.exec(url||''); return m?decodeURIComponent(m[1]):null; };
 
 /* ---- clean-up that the import step used to do: cut silence at both ends, even out the loudness ---- */
@@ -61,7 +74,7 @@ async function libBuffer(url,ctx){
   const key=path+'@'+e.ts; if(LIB.bufs[key]) return LIB.bufs[key];
   LIB.bufs[key]=(async()=>{
     try{
-      const raw=await (await fetch(`${LIB.url}/pub/a/${e.id}?v=${e.ts}`)).arrayBuffer().then(b=>new Promise((ok,no)=>ctx.decodeAudioData(b,ok,no)));
+      const raw=await libBytes(`${LIB.url}/pub/a/${e.id}?v=${e.ts}`).then(b=>new Promise((ok,no)=>ctx.decodeAudioData(b,ok,no)));
       const d=libPCM(raw), sr=raw.sampleRate;
       if(e.part==null) return libMake(ctx,d,sr,0,d.length);
       const gk=e.id+'@'+e.ts+'#'+e.n; if(!LIB.groups[gk]) LIB.groups[gk]=libCut(d,sr,e.n);
@@ -69,4 +82,16 @@ async function libBuffer(url,ctx){
     }catch(err){ return null; }
   })();
   const b=await LIB.bufs[key]; if(!b) delete LIB.bufs[key]; return b;
+}
+
+/* APP UPDATES — index.html carries APP_V (set when the app is published, see sync.sh); version.json says the newest. When the child moves
+   to another screen the app quietly checks (a small file), and reloads itself on the home screen, where nothing can be lost
+   (never during a question or while sound plays). On a local copy without APP_V nothing happens. */
+const APPV={at:0,newer:false};
+async function appNav(screen){
+  libNav(); try{ navigator.serviceWorker&&navigator.serviceWorker.controller&&navigator.serviceWorker.controller.postMessage('nav'); }catch(e){}
+  if(!window.APP_V||!/^https?:/.test(location.protocol)) return;
+  if(!APPV.newer&&Date.now()-APPV.at>LIB_EVERY){ APPV.at=Date.now();
+    try{ const v=await (await fetch('version.json',{cache:'no-cache'})).json(); if(v&&v.v&&v.v!==window.APP_V) APPV.newer=true; }catch(e){} }
+  if(APPV.newer&&screen==='subjects'&&!document.getElementById('subjects').hidden&&!(typeof player!=='undefined'&&player.run)) location.reload();
 }

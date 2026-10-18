@@ -1,0 +1,31 @@
+{
+ "sets": [
+  {
+   "type": "count",
+   "ex": 2,
+   "page": 22,
+   "task": "Write the number.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "img": "../../pics/pot-tulips-5.jpg",
+     "n": 5,
+     "group": true,
+     "audio": "words/five.mp3"
+    },
+    {
+     "img": "../../pics/pot-empty.jpg",
+     "n": 0,
+     "group": true,
+     "audio": "words/zero.mp3"
+    },
+    {
+     "img": "../../pics/pot-tulips-2.jpg",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    }
+   ]
+  }
+ ]
+}

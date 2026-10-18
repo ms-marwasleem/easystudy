@@ -34,7 +34,7 @@ async function qLoad(){
   qz.all=[]; qz.sets.forEach((s,si)=>{ s.taskSrc=Array.isArray(s.taskAudio)?s.taskAudio.map(R):R(s.taskAudio);   // taskAudio: one file, or a list played in order (prompt + letter name)
    
     if(s.type==='link') s.items.forEach(it=>{ it.answer=true; it.fullSrc=[].concat(it.full||[]).map(R); });
-    if(s.type==='match'||s.type==='circle'||s.type==='tick'||s.type==='link'){ s.centerSrc=R(s.centerAudio); s.items.forEach(it=>{ it.src=R(it.audio); it.picSrc=R(it.pic); });
+    if(s.type==='match'||s.type==='circle'||s.type==='tick'||s.type==='link'){ s.centerSrc=R(s.centerAudio); s.items.forEach(it=>{ it.src=R(it.audio); it.picSrc=R(it.pic); if(it.dots&&typeof mDots==='function') it.picSrc=mDots(it.dots); });
       if(s.type==='circle'&&s.shuffle&&!s._sh){ s._sh=1; const ps=s.items.map(it=>it.pos); for(let t=0;t<20;t++){ ps.sort(()=>Math.random()-.5); if(ps.some((p,k)=>p!==s.items[k].pos)) break; } s.items.forEach((it,k)=>it.pos=ps[k]); }   // "shuffle": the options swap their places (the book order is not kept)
       if(s.type==='circle') s.items.forEach((it,k)=>{ if(!it.pos){ const n=s.items.length, cols=3, rows=Math.ceil(n/cols), r=Math.floor(k/cols), c=k%cols, inRow=Math.min(cols,n-r*cols);
         it.pos=[(c+.5+(cols-inRow)/2)*100/cols,(r+.5)*100/rows]; } });   // no "pos": spread them in rows of 3
@@ -53,7 +53,7 @@ async function showQuiz(start){
   if(!ok||!qz.all.length){ $('#lesson').classList.remove('qtab'); showGarage(); return; }
   if(!qz.list.length) qPick('book');
   const wrap=el('div','quiz');
-  wrap.innerHTML=`<div class="qsrc"><button class="qarr prev" aria-label="Previous question">${Q_ARR}</button>${Object.entries(Q_SRC).filter(([k])=>!isAr()||qz.all.some(q=>qSrcOf(q.set)===k)).map(([k,[l,ic]])=>`<button class="qsb" data-src="${k}">${ic}<span>${tr(l)}</span>${qz.all.some(q=>qSrcOf(q.set)===k)?'':`<i class="qlock">${LOCK}</i>`}</button>`).join('')}<button class="qarr next" aria-label="Next question">${Q_ARR}</button></div>
+  wrap.innerHTML=`<div class="qsrc"><button class="qarr prev" aria-label="Previous question">${Q_ARR}<span class="qal">${tr('Previous')}</span></button>${Object.entries(Q_SRC).filter(([k])=>!isAr()||qz.all.some(q=>qSrcOf(q.set)===k)).map(([k,[l,ic]])=>`<button class="qsb" data-src="${k}">${ic}<span>${tr(l)}</span>${qz.all.some(q=>qSrcOf(q.set)===k)?'':`<i class="qlock">${LOCK}</i>`}</button>`).join('')}<button class="qarr next" aria-label="Next question">${Q_ARR}<span class="qal">${tr('Next')}</span></button></div>
     <div class="qhead"><span class="qex"></span><span class="qtask"></span><button class="qsay qtsay" aria-label="Hear the question">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button><span class="qpage"></span></div>
     <div class="qdots"></div>
     <div class="qword" dir="ltr"><b></b><button class="qsay" aria-label="Listen again">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button></div>
@@ -73,6 +73,7 @@ function qPick(src){ qz.src=src; qz.list=qz.all.filter(q=>qSrcOf(q.set)===src); 
 function qStart(i){ const w=$('.quiz'); if(!w) return;
   $$('.qsb',w).forEach(b=>b.classList.toggle('on',b.dataset.src===qz.src));
   $('.qdots',w).innerHTML=qz.list.map((q,k)=>`<i data-i="${k}">${STAR(false)}</i>`).join('');
+  $('.qdots',w).onclick=e=>{ const d=e.target.closest('i[data-i]'); if(!d) return; hideHint(); qz.busy=false; qGo(+d.dataset.i); };   // each star opens its own question
   qLayout(); qGo(Math.min(i,qz.list.length-1)); }
 // the arrows: to the start of the next / previous exercise of this book (not the items inside one)
 const qGrp=s=>s.ex!=null?s.page+'|'+s.ex:s;   // sets with the same book exercise (e.g. one circle set per colour) are ONE exercise for the arrows
@@ -287,7 +288,7 @@ function qLinkBoard(w,s,play,run){
   const clearSel=()=>{ if(sel){ sel.classList.remove('sel'); sel=null; } };
   bd.addEventListener('pointerdown',e=>{ const b=e.target.closest('.qlk'); if(!b||qz.busy) return; e.preventDefault(); hideHint();
     const it=s.items[+b.dataset.k];
-    if(b.classList.contains('done')){ if(kind(b)==='w') qSound(it.src,it.word); return; }
+    if(b.classList.contains('done')){ if(kind(b)==='w') qSound(it.src,it.word); else if(b.classList.contains('tx')) qSound(it.src,it.text2); return; }
     drag={b,x:e.clientX,y:e.clientY,moved:false}; try{ bd.setPointerCapture(e.pointerId); }catch(_){} });
   bd.addEventListener('pointermove',e=>{ if(!drag) return;
     if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)<10) return; drag.moved=true;
@@ -300,7 +301,7 @@ function qLinkBoard(w,s,play,run){
     if(e.type==='pointercancel') return;
     if(d.moved){ clearSel(); if(tb&&tb!==d.b&&kind(tb)!==kind(d.b)&&!tb.classList.contains('done')) qLinkTry(bd,s,d.b,tb,run); return; }
     // a tap: pick it up (a word also says itself), or join it to the one picked before
-    if(kind(d.b)==='w'){ const it=s.items[+d.b.dataset.k]; qSound(it.src,it.word); }
+    if(kind(d.b)==='w'){ const it=s.items[+d.b.dataset.k]; qSound(it.src,it.word); } else if(d.b.classList.contains('tx')){ const it=s.items[+d.b.dataset.k]; qSound(it.src,it.text2); }
     if(sel&&sel!==d.b&&kind(sel)!==kind(d.b)){ const a=sel; clearSel(); qLinkTry(bd,s,a,d.b,run); return; }
     if(sel===d.b){ clearSel(); return; }
     clearSel(); sel=d.b; d.b.classList.add('sel'); };

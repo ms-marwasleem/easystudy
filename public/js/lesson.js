@@ -8,6 +8,8 @@ function fixPaths(L,file){
   (L.lines||[]).forEach(l=>{ l.pic=R(l.pic); });
   Object.values(L.bk||{}).forEach(b=>{ b.img=R(b.img); });
   L.praise=R(L.praise);
+  ((L.math&&(L.math.bonds||L.math).rows)||[]).forEach(r=>{ r.audio=R(r.audio); });
+  if(L.math&&L.math.line){ const ln=L.math.line; ln.rows.forEach(r=>{ r.audio=R(r.audio); }); ln.small.audio=R(ln.small.audio); ln.big.audio=R(ln.big.audio); ln.textAudio=R(ln.textAudio); }
   if(L.letter&&typeof fixLetterPaths==='function') fixLetterPaths(L.letter,R);
   return L;
 }
@@ -24,7 +26,7 @@ async function openLesson(m){
   $('#lesson').classList.toggle('ar',isAr()); $('#lesson').lang=isAr()?'ar':'en';
   $('#lessonTitle').textContent=isAr()?`${tr('Unit')} ${num(LESSON.unit)} · ${tr('Lesson')} ${num(LESSON.lesson)} · ${LESSON.title}`:`Unit ${LESSON.unit} · Lesson ${LESSON.lesson} · ${LESSON.title}`;
   $('#stage').style.setProperty('--scene',`url("${new URL(LESSON.scene,location.href).href}")`);   // full address: css files live in css/
-  switchTab('read'); pop('.l-head > *',{y:-20}); pop('.tabs .tab',{y:30,delay:.1});
+  switchTab(LESSON.tabs?LESSON.tabs[0]:'read'); pop('.l-head > *',{y:-20}); pop('.tabs .tab',{y:30,delay:.1});
 }
 
 /* ---------- Audio (lesson recordings are separate mp3 files) ---------- */
@@ -104,8 +106,8 @@ function endPlay(full){
 /* ---------- Tabs + rail ---------- */
 const stage=$('#stage'), rail=$('#rail'); let tab='read';
 const TABS={read:['Lesson','book'],words:['Vocabulary','abc'],quiz:['Questions','quiz']};
-function paintTabs(){ $$('.tab').forEach(b=>{ const [l,ic]=TABS[b.dataset.tab], got=LESSON&&STARS[LESSON.id]&&STARS[LESSON.id][b.dataset.tab];
-  b.innerHTML=ICON[ic]+`<span>${tr(l)}</span>`+(got?`<span class="st">${STAR(true)}</span>`:''); b.setAttribute('aria-selected',b.dataset.tab===tab); }); }
+function paintTabs(){ $$('.tab').forEach(b=>{ const [l0,ic]=TABS[b.dataset.tab], l=(LESSON&&LESSON.tabLabels&&LESSON.tabLabels[b.dataset.tab])||l0, got=LESSON&&STARS[LESSON.id]&&STARS[LESSON.id][b.dataset.tab];
+  b.innerHTML=ICON[ic]+`<span>${tr(l)}</span>`+(got?`<span class="st">${STAR(true)}</span>`:''); b.hidden=!!(LESSON&&LESSON.tabs&&!LESSON.tabs.includes(b.dataset.tab)); b.setAttribute('aria-selected',b.dataset.tab===tab); }); }   // optional "tabs": ["read","quiz"] in lesson.json shows only those tabs (Math: explanation + questions, or questions only)
 function setRail(items){ rail.innerHTML=''; items.forEach(it=>{ const b=el('button','dash '+it.kind+(it.on?' on':'')+(it.icon==='restart'?' ln':''),`<span class="rb">${ICON[it.icon]}</span><span>${it.label}</span>`); b.addEventListener('click',it.click); rail.append(b); }); }
 function switchTab(t,at){ stopAll(); vStop(); hideHint(); $('#lesson').classList.remove('vtab','qtab'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); carAt(0); t==='read'?showRead():t==='words'&&LESSON.vocab?(LESSON.letter&&typeof showLetterWords==='function'?showLetterWords():showWords()):t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); }
 $$('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
@@ -116,6 +118,7 @@ function showRead(){
   { const k=LESSON.id+':'+rd.page; rd.slow=k in rd.pick?rd.pick[k]:pageDefaultSlow(); }
   stage.innerHTML=''; rd.words=[]; rd.lineEls=[]; rd.spotEls=[]; rd.cur=-1; rd.curLine=-1;
   if(LESSON.type==='letter'&&typeof showLetter==='function') return showLetter();
+  if(LESSON.type==='math'&&typeof showMathExplain==='function') return showMathExplain();
   const pl=(LESSON.pageLayouts||[])[rd.page-1];   // optional per page: "text" (dialog on the scene) or "pictures"
   if(pl==='bubbles') return showBubbles();
   if(LESSON.layout==='pictures'||pl==='pictures') return showPics();
@@ -152,11 +155,11 @@ function showRead(){
   readRail(); if(typeof bookTag==='function') bookTag(); showHint($('#rail .dash.go .rb'),LESSON.hints&&LESSON.hints.read,1400,'read');
 }
 // pages of one lesson: two arrows in the bottom middle, and a mouse or finger swipe left / right
-function readGo(d){ const np=nPages(); if(rd.page+d<1||rd.page+d>np) return; stopAll(); clearMarks(); rd.page+=d; showRead(); carAt(pageSpan()[0]); }
+function readGo(d){ const np=nPages(); if(rd.page+d<1||rd.page+d>np) return; stopAll(); clearMarks(); rd.page+=d; showRead(); carAt(pageSpan()[0]); const [ps,pe]=pageSpan(); if(LESSON.lines.some(l=>l.page===rd.page)) playFrom(ps,pe,true); }   // the new page starts reading by itself
 function readPager(scene){
   const np=nPages(); if(np<2) return;
   const bar=el('div','pager'); scene.classList.add('paged');
-  [-1,1].forEach(d=>{ const b=el('button','qarr parr '+(d<0?'prev':'next'),Q_ARR); b.setAttribute('aria-label',d<0?'Previous page':'Next page'); b.disabled=rd.page+d<1||rd.page+d>np;
+  [-1,1].forEach(d=>{ const b=el('button','qarr parr '+(d<0?'prev':'next'),Q_ARR+`<span class="qal">${tr(d<0?'Previous':'Next')}</span>`); b.setAttribute('aria-label',d<0?'Previous page':'Next page'); b.disabled=rd.page+d<1||rd.page+d>np;
     b.addEventListener('click',()=>readGo(d)); bar.append(b); });
   scene.append(bar);
   let x0=null,y0=0,sw=false;

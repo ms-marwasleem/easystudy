@@ -179,10 +179,14 @@ $('#msg').addEventListener('click',e=>{ if(e.target.id==='msg') $('#msg').hidden
 let STARS={}; try{ STARS=JSON.parse(localStorage.getItem('zoom-stars')||'{}')||{}; }catch(e){}
 const total=()=>Object.values(STARS).reduce((a,o)=>a+Object.keys(o).length,0);
 const lessonStars=id=>STARS[id]?Object.keys(STARS[id]).length:0;
+const lessonParts=m=>(m&&m.tabs&&m.tabs.length)||3;   // a lesson with fewer tabs has fewer stars to earn (subject.json lesson "tabs")
 function paintHud(){ $$('[data-hud]').forEach(h=>h.innerHTML=`<span class="ic">${STAR(true)}</span><span>${total()}</span>`); }
 const PARTS=[['read','Lesson'],['words','Vocabulary'],['quiz','Questions']];   // names go through tr() when shown
 
-function award(id,part){
+// the star waits until the last sound of the lesson / question has finished (no overlap), at most 6 s
+function award(id,part){ const t0=Date.now(), busyNow=()=>{ try{ return !!(vs.src||(player&&player.run)||speechSynthesis.speaking); }catch(e){ return false; } };
+  const wait=()=>{ if(busyNow()&&Date.now()-t0<6000) return setTimeout(wait,150); setTimeout(()=>awardNow(id,part),Date.now()-t0>200?250:0); }; wait(); }
+function awardNow(id,part){
   const isNew=!(STARS[id]&&STARS[id][part]);
   STARS[id]=STARS[id]||{}; STARS[id][part]=1; try{ localStorage.setItem('zoom-stars',JSON.stringify(STARS)); }catch(e){}
   honk(); hideHint();
@@ -202,7 +206,7 @@ function award(id,part){
 }
 function levelUp(id,isNew){
   const o=$('#levelUp'), t=$('#lvlTitle'); const word=tr(isNew?'Great!':'Super!'); t.textContent=word; t.dataset.t=word; $('#lvlAgain').textContent=tr('Again'); $('#lvlMap').textContent=tr('Map');
-  $('#slots').innerHTML=PARTS.map(([p,l0])=>{ const l=tr(l0); return `<button class="slot" data-p="${p}" aria-label="Go to ${l}">${STAR(false)}${STARS[id]&&STARS[id][p]?`<span class="on" style="position:absolute;inset:0">${STAR(true)}</span>`:''}<span class="lbl">${l}</span></button>`; }).join('');
+  $('#slots').innerHTML=PARTS.filter(([p])=>!(LESSON&&LESSON.tabs)||LESSON.tabs.includes(p)).map(([p,l0])=>{ const l=tr(l0); return `<button class="slot" data-p="${p}" aria-label="Go to ${l}">${STAR(false)}${STARS[id]&&STARS[id][p]?`<span class="on" style="position:absolute;inset:0">${STAR(true)}</span>`:''}<span class="lbl">${l}</span></button>`; }).join('');
   putCar($('#lvlCar'),'wow'); o.hidden=false; spinRays(o);
   if(!anim) return;
   G.from('#lvlTitle',{scale:0,rotation:-8,duration:.55,ease:'back.out(2.4)'});
@@ -221,7 +225,7 @@ $('#levelUp').addEventListener('click',e=>{ if(!e.target.closest('button')){ $('
 /* ---------- State ---------- */
 let COURSE=null, SUBJECT=null, LESSON=null;
 /* ---------- Arabic subject: SUBJECT.rtl (course.json) makes the screens speak Arabic; text runs right to left, numbers are ١٢٣ ---------- */
-const AR_UI={'Lesson':'الدرس','Vocabulary':'الكلمات','Questions':'الأسئلة','Read':'اسمع','Continue':'كمّل','Pause':'وقّف','Restart':'من الأول','Slow':'بطيء','Normal':'عادي',
+const AR_UI={'Previous':'السابق','Next':'التالي','Lesson':'الدرس','Vocabulary':'الكلمات','Questions':'الأسئلة','Read':'اسمع','Continue':'كمّل','Pause':'وقّف','Restart':'من الأول','Slow':'بطيء','Normal':'عادي',
   'Help':'ساعدني','Listen':'اسمع','Teach':'علّمني','Write':'اكتب','Stop':'وقّف','Listen!':'اسمع!','Read with me!':'اقرأ معي!','Your turn! Write it.':'دورك! اكتب الكلمة','Tap and write!':'اضغط واكتب!',
   'Great!':'ممتاز!','Super!':'رائع!','Again':'تاني','Map':'الخريطة','Nice!':'تمام!','Unit':'الوحدة','Book':'الكتاب','Loading...':'لحظة...','Coming soon!':'قريبًا!','Soon!':'قريبًا!','Oops!':'أوبس!','Primary 1':'الصف الأول','Term 1':'الترم الأول'};
 const isAr=()=>!!(SUBJECT&&SUBJECT.rtl);
@@ -232,7 +236,7 @@ function glyphs(s){ if(!/[\u0600-\u06FF]/.test(s)) return [...s]; const out=[]; 
 const arBase=g=>g.replace(new RegExp('['+AR_MARKS+'\\u0640]','g'),'');
 const sameLetter=(a,b)=>{ const n=c=>arBase(c).replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').toLowerCase(); return n(a)===n(b); };
 const num=n=>isAr()?String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]):String(n);
-function show(id){ ['subjects','map','lesson'].forEach(s=>$('#'+s).hidden=s!==id); hideHint(); }
+function show(id){ ['subjects','map','lesson'].forEach(s=>$('#'+s).hidden=s!==id); hideHint(); if(typeof appNav==='function') appNav(id); }
 $$('[data-icon]').forEach(b=>b.innerHTML=ICON[b.dataset.icon]);
 $$('[data-go]').forEach(b=>b.addEventListener('click',()=>b.dataset.go==='map'?openMap():openSubjects()));
 

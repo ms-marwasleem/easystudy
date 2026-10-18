@@ -3,14 +3,14 @@
  "unit": 1,
  "lesson": 6,
  "type": "letter",
- "title": "حرف الحاء",
+ "title": "حرف ح",
  "task": "أتعرّف على حرف الحاء",
  "pages": 2,
  "pageNums": [
   18,
   19
  ],
- "scene": "../../pics/horse.png",
+ "scene": "img/ar-horse.png",
  "sceneAlt": "حَاء",
  "lines": [],
  "end": 1,
@@ -19,7 +19,7 @@
   "ch": "ح",
   "name": "حَاء",
   "nameAudio": "../letters/62d/name.mp3",
-  "pic": "../../pics/horse.png",
+  "pic": "img/ar-horse.png",
   "forms": [
    {
     "label": "أول الكلمة",
@@ -198,7 +198,7 @@
   },
   {
    "word": "حِصَان",
-   "img": "../../pics/horse.png",
+   "img": "img/ar-horse.png",
    "audio": {
     "word": "words/hisan.mp3"
    },

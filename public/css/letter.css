@@ -1,35 +1,35 @@
 /* LETTER lesson tab (js/letter.js): cards on the cream sheet, 4 in a row on wide screens, 2 x 2 (or a column) on tall ones */
 .scene.letter{background:var(--noise),var(--cream)}
-.lgrid{flex:1 1 0;min-height:0;container-type:size;display:grid;gap:clamp(8px,2cqh,16px);align-content:center;padding:4px 2px 8px;font-family:var(--f-ar)}
+.lgrid{flex:1 1 0;min-height:0;container-type:size;display:grid;gap:clamp(0.5rem,2cqh,1rem);align-content:center;padding:0.25rem 2px 0.5rem;font-family:var(--f-ar)}
 .lgrid.p1,.lgrid.p2{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(0,1fr)}
 .lgrid.p1{grid-template-rows:minmax(0,.9fr) minmax(0,1.3fr)}
 .lgrid.p2{grid-template-rows:minmax(0,1fr)}
 .lgrid.p3{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))}
 .lhead{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:4cqw;min-height:0}
-.lhead img{height:100%;max-width:30cqw;object-fit:contain;filter:drop-shadow(0 3px 2px rgba(90,52,24,.25))}
-.lbig{font-weight:700;font-size:min(30cqh,22cqw);line-height:1;color:#E8457A;-webkit-text-stroke:max(5px,1cqh) #fff;paint-order:stroke fill;filter:drop-shadow(0 3px 2px rgba(90,52,24,.35))}
-.lcard{position:relative;min-width:0;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(2px,1cqh,10px);padding:6px;
-  background:var(--paper);border:3px solid var(--ol);border-radius:14px;box-shadow:0 4px 0 rgba(90,52,24,.4);cursor:pointer;color:#2E1B0C}
+.lhead img{height:100%;max-width:30cqw;object-fit:contain;filter:drop-shadow(0 0.1875rem 2px rgba(90,52,24,.25))}
+.lbig{font-weight:700;font-size:min(30cqh,22cqw);line-height:1;color:#E8457A;-webkit-text-stroke:max(0.3125rem,1cqh) #fff;paint-order:stroke fill;filter:drop-shadow(0 0.1875rem 2px rgba(90,52,24,.35))}
+.lcard{position:relative;min-width:0;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(2px,1cqh,0.625rem);padding:0.375rem;
+  background:var(--paper);border:0.1875rem solid var(--ol);border-radius:0.875rem;box-shadow:0 0.25rem 0 rgba(90,52,24,.4);cursor:pointer;color:#2E1B0C}
 .lcard:active{transform:scale(.97)}
-.lcard.on{border-color:#2A7FD8;box-shadow:0 4px 0 rgba(90,52,24,.4),0 0 0 4px rgba(42,127,216,.35)}
-.lst{position:absolute;top:5px;left:6px;width:22px;height:22px;opacity:0}.lst svg{width:100%;height:100%}
+.lcard.on{border-color:#2A7FD8;box-shadow:0 0.25rem 0 rgba(90,52,24,.4),0 0 0 0.25rem rgba(42,127,216,.35)}
+.lst{position:absolute;top:0.3125rem;left:0.375rem;width:1.375rem;height:1.375rem;opacity:0}.lst svg{width:100%;height:100%}
 .lcard.heard .lst{opacity:1}
 .lglyph{font-weight:700;line-height:1.25;font-size:min(22cqh,14cqw);color:#2A7FD8}
 .lgrid.p2 .lglyph{font-size:min(20cqh,13cqw)}
-.llab{font-family:var(--f-ui);font-weight:800;font-size:clamp(13px,min(4.2cqh,3cqw),22px);color:#7A4A22;text-align:center;line-height:1.15}
+.llab{font-family:var(--f-ui);font-weight:800;font-size:clamp(0.8125rem,min(4.2cqh,3cqw),1.375rem);color:#7A4A22;text-align:center;line-height:1.15}
 .lcard img{min-height:0;object-fit:contain}
 .lgrid.p2 .lcard img{flex:1 1 0;max-width:80%}
 /* page 3: picture beside the syllables, the joined word under them */
-.lcard.mrg{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2fr);grid-template-rows:1fr auto auto;gap:2px 8px;padding:8px 10px;text-align:center}
+.lcard.mrg{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2fr);grid-template-rows:1fr auto auto;gap:2px 0.5rem;padding:0.5rem 0.625rem;text-align:center}
 .lpic{grid-row:1/4;grid-column:1;display:grid;place-items:center;min-height:0}
 .lpic{position:relative;align-self:stretch}.lpic img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.lchips{grid-column:2;grid-row:1;display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;align-self:end}
-.lchips u{text-decoration:none;color:#9A7B55;font-family:var(--f-ui);font-weight:800;font-size:clamp(14px,3cqh,22px)}
+.lchips{grid-column:2;grid-row:1;display:flex;align-items:center;justify-content:center;gap:0.375rem;flex-wrap:wrap;align-self:end}
+.lchips u{text-decoration:none;color:#9A7B55;font-family:var(--f-ui);font-weight:800;font-size:clamp(0.875rem,3cqh,1.375rem)}
 .lchip{font-style:normal;font-weight:700;font-size:min(10cqh,6.5cqw);line-height:1.5;padding:0 .35em;border-radius:.4em;color:#1F5FA8;background:rgba(42,127,216,.12);cursor:pointer}
 .lchip.on{background:#2A7FD8;color:#fff}
 .lmerged{grid-column:2;grid-row:2;font-weight:700;font-size:min(12cqh,8cqw);line-height:1.4;color:#2E1B0C;opacity:0;transition:opacity .2s}
 .lmerged.show{opacity:1}
-.lgo{position:absolute;left:8px;bottom:8px;width:clamp(26px,5cqh,34px);height:clamp(26px,5cqh,34px);display:grid;place-items:center;border-radius:50%;color:#fff;background:linear-gradient(var(--green1),var(--green2));border:2.5px solid var(--ol)}
+.lgo{position:absolute;left:0.5rem;bottom:0.5rem;width:clamp(1.625rem,5cqh,2.125rem);height:clamp(1.625rem,5cqh,2.125rem);display:grid;place-items:center;border-radius:50%;color:#fff;background:linear-gradient(var(--green1),var(--green2));border:0.1562rem solid var(--ol)}
 .lgo svg{width:60%;height:60%;fill:#fff;stroke:#fff}
 /* tall screens */
 @media (max-aspect-ratio:5/4){
@@ -37,28 +37,28 @@
   .lgrid.p2{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))}
   .lgrid.p3{grid-template-columns:minmax(0,1fr);grid-template-rows:repeat(4,minmax(0,1fr))}
   .lglyph{font-size:min(20cqh,22cqw)}.lgrid.p2 .lglyph{font-size:min(14cqh,20cqw)}
-  .lcard.mrg{grid-template-rows:1fr 1fr;padding:4px 8px}.lpic{grid-row:1/3}.lchips{grid-row:1;gap:3px;align-self:center}.lchips u{font-size:12px}.lmerged{grid-row:2;align-self:center}
+  .lcard.mrg{grid-template-rows:1fr 1fr;padding:0.25rem 0.5rem}.lpic{grid-row:1/3}.lchips{grid-row:1;gap:0.1875rem;align-self:center}.lchips u{font-size:0.75rem}.lmerged{grid-row:2;align-self:center}
   .lchip{font-size:min(6.5cqh,8.2cqw);padding:0 .2em}.lmerged{font-size:min(7.5cqh,10cqw);line-height:1.2}
 }
 
 /* ---------- Questions: letter-lesson types (js/quiz-letters.js) ---------- */
 .quiz:is([data-type="position"],[data-type="vowel"],[data-type="write"],[data-type="arrange"]) :is(.qword,.qans){display:none}
-.qx{width:100%;height:100%;min-height:0;container-type:size;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(8px,2.4cqh,20px);font-family:var(--f-ar)}
+.qx{width:100%;height:100%;min-height:0;container-type:size;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(0.5rem,2.4cqh,1.25rem);font-family:var(--f-ar)}
 .qxpic{flex:1 1 0;min-height:0;width:100%;display:grid;place-items:center}
-.qxpic img{max-width:80%;max-height:100%;object-fit:contain;filter:drop-shadow(0 3px 3px rgba(90,52,24,.3))}
+.qxpic img{max-width:80%;max-height:100%;object-fit:contain;filter:drop-shadow(0 0.1875rem 0.1875rem rgba(90,52,24,.3))}
 .qxw{font-weight:700;font-size:min(14cqh,18cqw);line-height:1.5;color:#2E1B0C;text-align:center;white-space:nowrap}
 .qx.sent .qxw{white-space:normal;font-size:min(10cqh,8.5cqw);line-height:1.6}
 .qx-write.sent .qxline{max-width:96%}
 /* position */
-.qxcircles{display:flex;gap:min(3cqw,2.4cqh,18px);justify-content:center}
-.qxc{width:min(17cqw,18cqh);aspect-ratio:1;border-radius:50%;border:4px solid #4F8FD4;background:#fff;display:grid;place-items:center;padding:0}
+.qxcircles{display:flex;gap:min(3cqw,2.4cqh,1.125rem);justify-content:center}
+.qxc{width:min(17cqw,18cqh);aspect-ratio:1;border-radius:50%;border:0.25rem solid #4F8FD4;background:#fff;display:grid;place-items:center;padding:0}
 .qxc span{font-weight:700;font-size:min(10cqh,10cqw);line-height:1;color:#2E1B0C;opacity:0}
 .qxc.show span{opacity:1}
 .qxc.right{background:#CFF2B8;border-color:#3A9A2C}
 /* vowel */
-.qxchoices{display:flex;gap:clamp(10px,3cqw,26px);justify-content:center;flex-wrap:wrap}
-.qxchoices .qlet{width:clamp(56px,min(20cqw,16cqh),92px);height:clamp(56px,min(20cqw,16cqh),92px);--t:#FFFDF6;--b:#F3E3C0}
-.qxchoices .qlet span{font-family:var(--f-ar);font-size:clamp(30px,min(10cqh,10cqw),52px);line-height:1.2}
+.qxchoices{display:flex;gap:clamp(0.625rem,3cqw,1.625rem);justify-content:center;flex-wrap:wrap}
+.qxchoices .qlet{width:clamp(3.5rem,min(20cqw,16cqh),5.75rem);height:clamp(3.5rem,min(20cqw,16cqh),5.75rem);--t:#FFFDF6;--b:#F3E3C0}
+.qxchoices .qlet span{font-family:var(--f-ar);font-size:clamp(1.875rem,min(10cqh,10cqw),3.25rem);line-height:1.2}
 .qxchoices .qlet.on{--t:var(--green1);--b:var(--green2)}.qxchoices .qlet.on span{color:#fff}
 /* write / arrange: the word's places underlined, letters appear as they are found */
 .qxline{position:relative;display:flex;align-items:center;justify-content:center;cursor:text;max-width:100%}
@@ -66,65 +66,65 @@
 .qx .lt.got{animation:qxpop .25s ease-out}
 @keyframes qxpop{from{transform:scale(1.4)}to{transform:none}}
 .qxline.focus .lt.cur{text-decoration-color:#2A7FD8}
-.qxchips{display:flex;gap:6px;align-items:center;justify-content:center;flex-wrap:wrap}
+.qxchips{display:flex;gap:0.375rem;align-items:center;justify-content:center;flex-wrap:wrap}
 .qxchips i{font-style:normal;font-weight:700;font-size:min(10cqh,13cqw);line-height:1.5;color:#1F5FA8;background:rgba(42,127,216,.12);padding:0 .35em;border-radius:.4em}
 .qxchips u{text-decoration:none;color:#9A7B55;font-family:var(--f-ui);font-weight:800}
-.qxhelp{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;padding:0;color:#C98A00;background:linear-gradient(var(--yellow1),var(--yellow2));border:3px solid var(--ol);box-shadow:0 3px 0 rgba(90,52,24,.4)}
+.qxhelp{width:2.75rem;height:2.75rem;border-radius:50%;display:grid;place-items:center;padding:0;color:#C98A00;background:linear-gradient(var(--yellow1),var(--yellow2));border:0.1875rem solid var(--ol);box-shadow:0 0.1875rem 0 rgba(90,52,24,.4)}
 .qxhelp svg{width:60%;height:60%;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linejoin:round}
-.qxtiles{display:flex;gap:clamp(8px,2.4cqw,18px);justify-content:center;flex-wrap:wrap}
-.qxtile{touch-action:none;width:clamp(48px,min(17cqw,15cqh),84px);height:clamp(54px,min(19cqw,17cqh),92px);display:grid;place-items:center;padding:0;border-radius:14px;background:linear-gradient(#FFFDF6,#F3E3C0);border:3px solid var(--ol);box-shadow:0 4px 0 rgba(90,52,24,.4);cursor:grab}
-.qxtile span{font-family:var(--f-ar);font-weight:700;font-size:min(9cqh,11cqw);font-size:clamp(28px,7vh,48px);line-height:1.3;color:#2E1B0C}
-.qxtile.used{opacity:.18;pointer-events:none}.qxtile.lift{opacity:.4}.qxtile.ghost{opacity:.95;transform:scale(1.1);box-shadow:0 8px 14px rgba(0,0,0,.3)}
+.qxtiles{display:flex;gap:clamp(0.5rem,2.4cqw,1.125rem);justify-content:center;flex-wrap:wrap}
+.qxtile{touch-action:none;width:clamp(3rem,min(17cqw,15cqh),5.25rem);height:clamp(3.375rem,min(19cqw,17cqh),5.75rem);display:grid;place-items:center;padding:0;border-radius:0.875rem;background:linear-gradient(#FFFDF6,#F3E3C0);border:0.1875rem solid var(--ol);box-shadow:0 0.25rem 0 rgba(90,52,24,.4);cursor:grab}
+.qxtile span{font-family:var(--f-ar);font-weight:700;font-size:min(9cqh,11cqw);font-size:clamp(1.75rem,7vh,3rem);line-height:1.3;color:#2E1B0C}
+.qxtile.used{opacity:.18;pointer-events:none}.qxtile.lift{opacity:.4}.qxtile.ghost{opacity:.95;transform:scale(1.1);box-shadow:0 0.5rem 0.875rem rgba(0,0,0,.3)}
 /* tall screens: the picture and the word stay in the upper part, above the phone keyboard */
 #lesson.q-port .quiz[data-type="write"]{grid-template-rows:auto auto auto auto auto minmax(0,1fr) auto;grid-template-areas:"head" "dots" "word" "play" "ans" "." "src"}
 #lesson.q-port .quiz[data-type="write"] .qplay{height:min(31vh,66vw)}
 
-.qx{position:relative}.qxsay{position:absolute;top:0;left:0;z-index:2;display:grid;place-items:center;width:52px;height:52px;color:#2A7FD8;background:none;border-radius:12px}
-.qxsay svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.qx{position:relative}.qxsay{position:absolute;top:0;left:0;z-index:2;display:grid;place-items:center;width:3.25rem;height:3.25rem;color:#2A7FD8;background:none;border-radius:0.75rem}
+.qxsay svg{width:2.125rem;height:2.125rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 #lesson.q-port .qboard.bigP .qmp{--w:min(29cqw,22cqh)}
-.qxchoices .qlet span{font-size:clamp(40px,min(14cqh,13cqw),64px)!important;line-height:1.5}
+.qxchoices .qlet span{font-size:clamp(2.5rem,min(14cqh,13cqw),4rem)!important;line-height:1.5}
 
 /* qa: question (red) and answer (blue) as two big lines under the picture; the line being read lights up */
-.qxqa{display:flex;flex-direction:column;align-items:center;gap:clamp(6px,2cqh,18px);text-align:center;font-family:var(--f-read);font-weight:700;font-size:clamp(22px,min(5.4vw,5.6cqh),46px);line-height:1.4}
+.qxqa{display:flex;flex-direction:column;align-items:center;gap:clamp(0.375rem,2cqh,1.125rem);text-align:center;font-family:var(--f-read);font-weight:700;font-size:clamp(1.375rem,min(5.4vw,5.6cqh),2.875rem);line-height:1.4}
 .qxqq,.qxqa-a{font:inherit;background:none;border:0;padding:.05em .3em;border-radius:.3em;cursor:pointer;transition:background .2s}
 .qxqq{color:#C2362B}.qxqa-a{color:#1F5FA8}
 .qxqq.lit,.qxqa-a.lit{background:rgba(255,200,60,.35)}
 .quiz[data-type="qa"] :is(.qword,.qans){display:none}
 
 /* ---------- Letter lesson WORDS tab: the book's rows (vowelled letter + 3 words) ---------- */
-.lwords .wgrid{flex:1 1 0;min-height:0;container-type:size;display:grid;grid-template-columns:minmax(0,.7fr) repeat(3,minmax(0,1fr));grid-template-rows:repeat(var(--rows,4),minmax(0,1fr));gap:clamp(6px,1.6cqh,14px) clamp(6px,1.4cqw,14px);padding:4px 2px 8px;font-family:var(--f-ar)}
-.wlet{flex-direction:row!important;gap:4px!important;background:#F6E6EE!important}
+.lwords .wgrid{flex:1 1 0;min-height:0;container-type:size;display:grid;grid-template-columns:minmax(0,.7fr) repeat(3,minmax(0,1fr));grid-template-rows:repeat(var(--rows,4),minmax(0,1fr));gap:clamp(0.375rem,1.6cqh,0.875rem) clamp(0.375rem,1.4cqw,0.875rem);padding:0.25rem 2px 0.5rem;font-family:var(--f-ar)}
+.wlet{flex-direction:row!important;gap:0.25rem!important;background:#F6E6EE!important}
 .wlet img{height:100%;max-width:55%;object-fit:contain;flex:0 1 auto}
 .wlet .lglyph{font-size:min(14cqh,9cqw);color:#E8457A}
 .wword{height:100%;display:grid!important;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;gap:2px!important}
-.wtop{align-self:stretch;height:100%;display:flex;align-items:center;justify-content:center;gap:4px;min-height:0;width:100%;overflow:hidden}
+.wtop{align-self:stretch;height:100%;display:flex;align-items:center;justify-content:center;gap:0.25rem;min-height:0;width:100%;overflow:hidden}
 .wpic{position:relative;align-self:stretch;flex:0 1 auto;height:100%;aspect-ratio:1;min-height:0;min-width:0}
 .wpic img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.wsay{flex:none;width:clamp(24px,4cqw,38px);height:clamp(24px,4cqw,38px);color:#2A7FD8;display:grid;place-items:center}
+.wsay{flex:none;width:clamp(1.5rem,4cqw,2.375rem);height:clamp(1.5rem,4cqw,2.375rem);color:#2A7FD8;display:grid;place-items:center}
 .wsay svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .wtxt{display:block;text-align:center;width:100%;min-height:0;font-weight:700;font-size:min(7cqh,5.2cqw);line-height:1.2;color:#2E1B0C;white-space:nowrap;align-self:center}
 @media (max-aspect-ratio:5/4){ .wlet .lglyph{font-size:min(9cqh,11cqw)} .wlet{flex-direction:column!important} .wlet img{height:55%;max-width:90%} }
 
 /* letter page 1: the speaker sits beside the picture */
-.lspk{display:grid;place-items:center;flex:none;width:52px;height:52px;padding:0;color:#2A7FD8;background:none;border-radius:12px}
-.lspk svg{width:36px;height:36px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.lspk{display:grid;place-items:center;flex:none;width:3.25rem;height:3.25rem;padding:0;color:#2A7FD8;background:none;border-radius:0.75rem}
+.lspk svg{width:2.25rem;height:2.25rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .lspk:active{transform:scale(.9)}
 /* tall screens: bigger cards (the picture takes the whole card width, the speaker sits on its corner); everything always fits on screen */
 @media (max-aspect-ratio:5/4){
-  .lwords .wgrid{grid-template-columns:minmax(0,.7fr) repeat(3,minmax(0,1fr));grid-template-rows:repeat(var(--rows,4),minmax(0,1fr));container-type:inline-size;gap:8px 6px}
-  .lwords .lcard{padding:4px 3px}
+  .lwords .wgrid{grid-template-columns:minmax(0,.7fr) repeat(3,minmax(0,1fr));grid-template-rows:repeat(var(--rows,4),minmax(0,1fr));container-type:inline-size;gap:0.5rem 0.375rem}
+  .lwords .lcard{padding:0.25rem 0.1875rem}
   .wword{grid-template-rows:minmax(0,3fr) minmax(2.2em,1fr)}
   .wtop{position:relative}
-  .wsay{position:absolute;top:-2px;left:-2px;width:26px;height:26px;z-index:1}
+  .wsay{position:absolute;top:-2px;right:-2px;width:1.625rem;height:1.625rem;z-index:1}
   .wpic{flex:1 1 auto;aspect-ratio:auto;width:100%}
-  .wtxt{font-size:clamp(17px,5.6vw,26px)}
-  .wlet .lglyph{font-size:clamp(26px,9vw,44px)}
+  .wtxt{font-size:clamp(1.0625rem,5.6vw,1.625rem)}
+  .wlet .lglyph{font-size:clamp(1.625rem,9vw,2.75rem)}
 }
 /* short wide screens (phone on its side): picture + speaker beside the word, so the picture can fill the card height */
 @media (min-aspect-ratio:5/4) and (max-height:480px){
   .wword{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);grid-template-rows:minmax(0,1fr)}
   .wtxt{font-size:min(10cqh,5cqw)}
-  .wsay{width:24px;height:24px}
+  .wsay{width:1.5rem;height:1.5rem}
 }
 /* write question: a box (underline) per syllable; Help shows the next syllable faintly for a moment */
 .qxseg{display:inline-flex;margin:0 .18em;padding:0 .12em;border-bottom:.07em solid rgba(46,27,12,.3)}
@@ -133,17 +133,17 @@
 
 /* phone on its side (short and wide): bigger letters, the page title and arrows take less room */
 @media (min-aspect-ratio:5/4) and (max-height:480px){
-  .scene.letter .pager{bottom:2px;gap:10px}.scene.letter .pager .parr{transform:scale(.72)}
+  .scene.letter .pager{bottom:2px;gap:0.625rem}.scene.letter .pager .parr{transform:scale(.72)}
   .scene.letter>.task{margin-bottom:0}
-  .scene.letter.paged{padding-bottom:34px!important}.scene.letter .lgrid{gap:8px}
+  .scene.letter.paged{padding-bottom:2.125rem!important}.scene.letter .lgrid{gap:0.5rem}
   .lgrid.p1{grid-template-rows:minmax(0,.85fr) minmax(0,1.15fr)}
   .lgrid.p1 .lglyph{font-size:min(40cqh,16cqw);line-height:1.3}
-  .lgrid.p1 .lcard{gap:0}.lgrid.p1 .llab{font-size:clamp(14px,min(9cqh,3.2cqw),20px)}
+  .lgrid.p1 .lcard{gap:0}.lgrid.p1 .llab{font-size:clamp(0.875rem,min(9cqh,3.2cqw),1.25rem)}
   .lbig{font-size:min(44cqh,24cqw)}
-  .lgrid.p2 .lcard{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;align-items:center;justify-items:center;gap:0 4px;padding:6px 8px}
+  .lgrid.p2 .lcard{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;align-items:center;justify-items:center;gap:0 0.25rem;padding:0.375rem 0.5rem}
   .lgrid.p2 .lcard img{grid-row:1/3;grid-column:1;flex:none;width:100%;max-width:none;height:100%}
   .lgrid.p2 .lglyph{grid-column:2;grid-row:1;font-size:min(36cqh,13cqw);line-height:1.3}
-  .lgrid.p2 .llab{grid-column:2;grid-row:2;font-size:clamp(14px,min(9cqh,3.2cqw),20px)}
+  .lgrid.p2 .llab{grid-column:2;grid-row:2;font-size:clamp(0.875rem,min(9cqh,3.2cqw),1.25rem)}
 }
 
 /* everything stays inside its card: the cards are size containers and the letters/words are sized from the card */
@@ -173,7 +173,7 @@
 .lgrid:is(.p1,.p2) .lcard{container-type:size;overflow:hidden;gap:0}
 .lgrid:is(.p1,.p2) .lglyph{font-size:min(68cqh,40cqw);line-height:1.25;flex:none}
 .lgrid.p2 .lglyph{font-size:min(44cqh,32cqw)}
-.lgrid:is(.p1,.p2) .llab{flex:none;font-size:clamp(12px,min(13cqh,9cqw),22px);line-height:1.2}
+.lgrid:is(.p1,.p2) .llab{flex:none;font-size:clamp(0.75rem,min(13cqh,9cqw),1.375rem);line-height:1.2}
 .lgrid.p2 .lcard img{flex:1 1 0;min-height:0}
 @media (max-aspect-ratio:5/4){
   .lgrid:is(.p1,.p2) .lglyph{font-size:min(44cqh,40cqw)}
@@ -181,66 +181,71 @@
 }
 
 /* pencil on a word card + the one-word writing popup */
-.wpen{flex:none;width:clamp(24px,4cqw,38px);height:clamp(24px,4cqw,38px);color:#2A7FD8;display:grid;place-items:center;background:none;border:0;padding:0;cursor:pointer}
+.wpen{flex:none;width:clamp(1.5rem,4cqw,2.375rem);height:clamp(1.5rem,4cqw,2.375rem);color:#2A7FD8;display:grid;place-items:center;background:none;border:0;padding:0;cursor:pointer}
 .wpen svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-@media (max-aspect-ratio:5/4){ .wpen{position:absolute;top:-2px;right:-2px;width:26px;height:26px;z-index:1} }
+@media (max-aspect-ratio:5/4){ .wpen{position:absolute;top:-2px;left:-2px;width:1.625rem;height:1.625rem;z-index:1} }
 #lesson.wpop #stage{position:relative}
-.wpclose{position:absolute;top:6px;left:8px;z-index:5;width:40px;height:40px;border:0;background:none;color:#2A7FD8;font-size:26px;line-height:1;cursor:pointer}
+.wpclose{position:absolute;top:0.375rem;left:0.5rem;z-index:5;width:2.5rem;height:2.5rem;border:0;background:none;color:#2A7FD8;font-size:1.625rem;line-height:1;cursor:pointer}
 
 /* ---------- smaller listen icons, each one beside the thing that is read ---------- */
-.qxsay{position:static;width:36px;height:36px;flex:none;border-radius:10px}
-.qxsay svg{width:24px;height:24px}
+.qxsay{position:static;width:2.25rem;height:2.25rem;flex:none;border-radius:0.625rem}
+.qxsay svg{width:1.5rem;height:1.5rem}
 .qxsay.onpic{position:absolute;top:2px;left:2px}
-.qxrow{display:flex;align-items:center;justify-content:center;gap:4px;max-width:100%}
+.qxrow{display:flex;align-items:center;justify-content:center;gap:0.25rem;max-width:100%}
 .qxrow>.qxline,.qxrow>.qxw,.qxrow>.qxqa{min-width:0}
-.lspk{width:36px;height:36px}.lspk svg{width:24px;height:24px}
-.wsay{width:clamp(18px,3cqw,26px);height:clamp(18px,3cqw,26px)}
-.wpen{width:clamp(18px,3cqw,26px);height:clamp(18px,3cqw,26px)}
-@media (max-aspect-ratio:5/4){ .wsay,.wpen{width:20px;height:20px} }
-.qxhelp{width:34px;height:34px;border-width:2.5px}
+.lspk{width:2.25rem;height:2.25rem}.lspk svg{width:1.5rem;height:1.5rem}
+.wsay{width:clamp(1.125rem,3cqw,1.625rem);height:clamp(1.125rem,3cqw,1.625rem)}
+.wpen{width:clamp(1.125rem,3cqw,1.625rem);height:clamp(1.125rem,3cqw,1.625rem)}
+@media (max-aspect-ratio:5/4){ .wsay,.wpen{width:1.25rem;height:1.25rem} }
+.qxhelp{width:2.125rem;height:2.125rem;border-width:0.1562rem}
 /* qa together: three pairs on one page + listen all / stop */
-.qx.qa-together{justify-content:flex-start;gap:clamp(6px,1.6cqh,14px)}
-.qabar{display:flex;gap:10px;justify-content:center;flex:none}
-.qabtn{display:flex;align-items:center;gap:6px;padding:4px 14px 4px 10px;border-radius:999px;border:3px solid var(--ol);box-shadow:0 3px 0 rgba(90,52,24,.4);font-family:var(--f-ui);font-weight:800;font-size:15px;color:#fff;cursor:pointer}
-.qabtn svg{width:16px;height:16px;fill:#fff}
+.qx.qa-together{justify-content:flex-start;gap:clamp(0.375rem,1.6cqh,0.875rem)}
+.qabar{display:flex;gap:0.625rem;justify-content:center;flex:none}
+.qabtn{display:flex;align-items:center;gap:0.375rem;padding:0.25rem 0.875rem 0.25rem 0.625rem;border-radius:62.4375rem;border:0.1875rem solid var(--ol);box-shadow:0 0.1875rem 0 rgba(90,52,24,.4);font-family:var(--f-ui);font-weight:800;font-size:0.9375rem;color:#fff;cursor:pointer}
+.qabtn svg{width:1rem;height:1rem;fill:#fff}
 .qabtn.go{background:linear-gradient(var(--green1),var(--green2))}.qabtn.stop{background:linear-gradient(#F26B5B,#D8402F)}
 .qabtn:active{transform:scale(.96)}
-.qaall{flex:1 1 0;min-height:0;width:100%;display:flex;flex-direction:column;justify-content:space-evenly;gap:6px;overflow:hidden}
-.qarow{display:flex;align-items:center;justify-content:center;gap:clamp(6px,2cqw,18px);padding:4px 8px;border-radius:14px;min-height:0}
+.qaall{flex:1 1 0;min-height:0;width:100%;display:flex;flex-direction:column;justify-content:space-evenly;gap:0.375rem;overflow:hidden}
+.qarow{display:flex;align-items:center;justify-content:center;gap:clamp(0.375rem,2cqw,1.125rem);padding:0.25rem 0.5rem;border-radius:0.875rem;min-height:0}
 .qarow.on{background:rgba(255,200,60,.18)}
-.qarpic{flex:none;height:min(14cqh,84px);aspect-ratio:1;display:grid;place-items:center}
+.qarpic{flex:none;height:min(14cqh,5.25rem);aspect-ratio:1;display:grid;place-items:center}
 .qarpic img{max-width:100%;max-height:100%;object-fit:contain}
-.qartxt{display:flex;flex-direction:column;align-items:flex-start;min-width:0;font-family:var(--f-read);font-weight:700;font-size:clamp(17px,min(4.2vw,3.8cqh),32px);line-height:1.4}
-.qarsay{flex:none;width:36px;height:36px;display:grid;place-items:center;color:#2A7FD8;background:none;border-radius:10px}
-.qarsay svg{width:24px;height:24px}
+.qartxt{display:flex;flex-direction:column;align-items:flex-start;min-width:0;font-family:var(--f-read);font-weight:700;font-size:clamp(1.0625rem,min(4.2vw,3.8cqh),2rem);line-height:1.4}
+.qarsay{flex:none;width:2.25rem;height:2.25rem;display:grid;place-items:center;color:#2A7FD8;background:none;border-radius:0.625rem}
+.qarsay svg{width:1.5rem;height:1.5rem}
 .qx-qa.qa-together .qxqq,.qx-qa.qa-together .qxqa-a{text-align:right}
-.qaall{justify-content:space-around;max-width:900px}
+.qaall{justify-content:space-around;max-width:56.25rem}
 .qarow{width:100%}
-.qartxt{flex:1 1 0;font-size:clamp(20px,min(5vw,4.6cqh),38px)}
-.qarpic{height:min(20cqh,120px)}
+.qartxt{flex:1 1 0;font-size:clamp(1.25rem,min(5vw,4.6cqh),2.375rem)}
+.qarpic{height:min(20cqh,7.5rem)}
 .qaall{width:fit-content;align-self:center;max-width:100%}
-.scene.letter>.task{font-size:clamp(13px,1.8vw,17px)}.scene.letter>.task svg{width:22px;height:22px}
-#lesson.ar .scene.pics .task{padding-right:0;padding-left:70px}
+.scene.letter>.task{font-size:clamp(0.8125rem,1.8vw,1.0625rem)}.scene.letter>.task svg{width:1.375rem;height:1.375rem}
+#lesson.ar .scene.pics .task{padding-right:0;padding-left:4.375rem}
 /* the letters with their marks stay inside the circles */
-.qxchoices .qlet span{font-size:clamp(26px,min(8.5cqh,8cqw),42px)!important;line-height:1.2!important;transform:translateY(.02em)}
+.qxchoices .qlet span{font-size:clamp(1.625rem,min(8.5cqh,8cqw),2.625rem)!important;line-height:1.2!important;transform:translateY(.02em)}
 .qxseg .lt{border-bottom:0}
 .qx .lt.hid.fnt{color:rgba(46,27,12,.28)!important}
-.qxchoices .qlet span{font-size:clamp(28px,min(9.5cqh,9cqw),46px)!important}
+.qxchoices .qlet span{font-size:clamp(1.75rem,min(9.5cqh,9cqw),2.875rem)!important}
 .qxseg .lt{text-decoration:none}
 .qxseg:has(.lt.cur){border-bottom-color:#2A7FD8}
 #lesson.ar .qxseg .lt{text-decoration:none}
 
 /* words page: the book-page tag gets its own strip above the cards; on wide screens the picture is big (beside the word), the two small icons are stacked beside it */
-.lwords .wgrid{margin-top:16px}
+.lwords .wgrid{margin-top:1rem}
 @media (min-aspect-ratio:5/4){
-  .lwords .wword{grid-template-columns:minmax(0,1.15fr) minmax(0,1.25fr) auto;grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:0 6px!important;padding:4px 8px}
+  .lwords .wword{grid-template-columns:minmax(0,1.15fr) auto minmax(0,1.25fr) auto;grid-template-rows:minmax(0,1fr);gap:0 0.375rem!important;padding:0.25rem 0.5rem}
   .lwords .wword .wtop{display:contents}
-  .lwords .wword .wpic{grid-column:1;grid-row:1/3;width:100%;height:100%;aspect-ratio:auto}
-  .lwords .wword .wtxt{grid-column:2;grid-row:1/3;align-self:center;font-size:min(26cqh,calc(95cqw / var(--n,5)))}
-  .lwords .wword .wsay{grid-column:3;grid-row:1;align-self:end;justify-self:center;position:static}
-  .lwords .wword .wpen{grid-column:3;grid-row:2;align-self:start;justify-self:center;position:static}
+  .lwords .wword .wpic{grid-column:1;grid-row:1;width:100%;height:100%;aspect-ratio:auto}
+  .lwords .wword .wtxt{grid-column:3;grid-row:1;align-self:center;font-size:min(26cqh,calc(95cqw / var(--n,5)))}
+  .lwords .wword .wsay{grid-column:2;grid-row:1;align-self:center;justify-self:center;position:static}
+  .lwords .wword .wpen{grid-column:4;grid-row:1;align-self:center;justify-self:center;position:static}
 }
-.qaline{display:flex;align-items:center;gap:6px}
+.qaline{display:flex;align-items:center;gap:0.375rem}
 .qaline .qarsay{order:-1}
 .qartxt{align-items:stretch;flex:0 1 auto}
 .qaall .qarow{width:fit-content}
+/* English words in the write type: the letters sit in a row like the vocab writing (the Arabic rule above makes them inline) */
+#lesson:not(.ar) .qxw .lt{display:inline-grid;vertical-align:bottom}
+/* RULE (every subject): whatever the child must write shows a dash under each place, empty or faint; the place being typed is blue */
+#lesson:not(.ar) .qx .qxw>.lt{border-bottom:0.1875rem solid rgba(46,27,12,.45);border-radius:.05em;margin:0 .1em}
+#lesson:not(.ar) .qx .qxw>.lt.cur{border-bottom-color:#2A7FD8}

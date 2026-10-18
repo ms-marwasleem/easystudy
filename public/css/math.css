@@ -1,0 +1,79 @@
+/* ---------- Questions: math types (js/quiz-math.js) ---------- */
+.quiz:is([data-type="numline"],[data-type="bond"],[data-type="bigger"],[data-type="count"]) :is(.qword,.qans){display:none}
+.quiz:is([data-type="numline"],[data-type="bond"],[data-type="bigger"],[data-type="count"]) .qx{font-family:var(--f-read);gap:clamp(0.875rem,5cqh,2.5rem)}
+.qmpad{display:flex;flex-wrap:wrap;gap:clamp(0.5rem,2cqw,1rem);justify-content:center;max-width:96%}
+.qmpad .qmn{width:clamp(3rem,min(13cqw,13cqh),5rem);height:clamp(3rem,min(13cqw,13cqh),5rem);--t:#FFFDF6;--b:#F3E3C0}
+.qmpad .qmn span{font-family:var(--f-read);font-weight:700;font-size:clamp(1.625rem,min(7.5cqh,7.5cqw),2.75rem);line-height:1;color:#2E1B0C}
+.qmpad .qmn.on{--t:var(--green1);--b:var(--green2)}.qmpad .qmn.on span{color:#fff}
+/* numline: numbers on a line with an arrow; the gap is a blue ring */
+.qmline{position:relative;display:grid;grid-template-columns:repeat(var(--n),1fr);gap:clamp(0.25rem,1.4cqw,0.875rem);width:min(96%,calc(var(--n) * 7.5rem));align-items:center}
+.qmline::before{content:"";position:absolute;left:0;right:0.75rem;top:50%;height:0.375rem;border-radius:0.1875rem;background:#2A7FD8;transform:translateY(-50%);opacity:.35}
+.qmarrow{position:absolute;right:0;top:50%;width:0;height:0;border:0.625rem solid transparent;border-left:1rem solid #2A7FD8;border-right:0;transform:translateY(-50%);opacity:.5}
+.qmcell{position:relative;aspect-ratio:1;border-radius:50%;background:#FFFBF0;display:grid;place-items:center;max-height:22cqh}
+.qmcell b{font-weight:700;font-size:min(9cqh,7cqw);line-height:1;color:#2E1B0C}
+.qmcell.gap{background:#fff;border:0.25rem dashed #2A7FD8}
+.qmcell.cur{animation:qmpulse 1.1s ease-in-out infinite}
+.qmcell.got{background:#CFF2B8}
+@keyframes qmpulse{50%{box-shadow:0 0 0 0.5rem rgba(42,127,216,.25)}}
+/* bond: a number tree, whole on top (blue), two parts under it (red) */
+.qmbond{position:relative;width:min(70cqw,48cqh);aspect-ratio:5/4}
+.qmbond svg{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:#5A3418;stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.qmbond svg path{vector-effect:non-scaling-stroke}
+.qmb{position:absolute;width:34%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;transform:translate(-50%,-50%);border:0.25rem solid #2A7FD8;background:#fff}
+.qmb b{font-weight:700;font-size:min(10cqh,8cqw);line-height:1;color:#2E1B0C}
+.qmb.top{left:50%;top:18%}.qmb.l{left:22%;top:78%;border-color:#E0412C}.qmb.r{left:78%;top:78%;border-color:#E0412C}
+.qmb.gap{border-style:dashed}.qmb.got{background:#CFF2B8;border-style:solid}.qmb.cur{animation:qmpulse 1.1s ease-in-out infinite}
+/* bigger / smaller: two big numbers to tap */
+.qmbig{display:flex;gap:clamp(1.25rem,8cqw,3.75rem);justify-content:center;align-items:center;width:100%}
+.qmbn{display:grid;gap:clamp(0.375rem,2cqh,1rem);justify-items:center;padding:clamp(0.625rem,3cqh,1.5rem) clamp(1.125rem,5cqw,2.75rem);border-radius:50% / 40%;background:#FFFBF0;position:relative}
+.qmbn b{font-weight:700;font-size:min(22cqh,22cqw);line-height:1;color:#2E1B0C}
+.qmbn img{height:min(12cqh,12cqw);max-width:30cqw}
+.qmbn.dim{opacity:.35}.qmbn.got{background:#CFF2B8}
+/* count: the pictures to count */
+.qmcount{display:grid;grid-template-columns:repeat(var(--c),1fr);gap:clamp(0.375rem,1.6cqw,0.875rem);align-items:center;justify-items:center;width:min(92%,calc(var(--c) * 6.875rem));max-height:42cqh}
+.qmcount img{width:100%;max-height:calc(42cqh / var(--r));object-fit:contain}
+.qmcount>img:only-child{grid-column:1/-1;width:min(70cqw,18.75rem);height:auto;max-height:30cqh}
+/* ---------- Explain tab (js/math-explain.js): the number table ---------- */
+.scene.mx{background:var(--noise),var(--cream)}
+.mxgrid{flex:1 1 0;min-height:0;container-type:size;display:grid;grid-template-rows:repeat(var(--n),minmax(0,1fr));gap:clamp(0.375rem,1.6cqh,0.875rem);padding:0.25rem 2px 0.5rem;max-width:47.5rem;width:100%;margin:0 auto}
+.mxrow{position:relative;min-height:0;display:grid;grid-template-columns:minmax(0,3fr) minmax(0,1.1fr) minmax(0,2.4fr) auto;align-items:center;gap:clamp(0.5rem,3cqw,1.75rem);padding:0.25rem clamp(0.625rem,3cqw,1.625rem);
+  background:var(--paper);border:0.1875rem solid var(--ol);border-radius:0.875rem;box-shadow:0 0.25rem 0 rgba(90,52,24,.4);cursor:pointer;color:#2E1B0C;font-family:var(--f-read)}
+.mxrow:active{transform:scale(.98)}
+.mxrow.on{border-color:#2A7FD8;box-shadow:0 0.25rem 0 rgba(90,52,24,.4),0 0 0 0.25rem rgba(42,127,216,.35)}
+.mxdots{display:grid;place-items:center;height:100%;min-height:0}.mxdots img{max-height:70%;max-width:100%;object-fit:contain}
+.mxnum{font-weight:700;font-size:min(13cqh,16cqw);line-height:1;text-align:center}
+.mxword{font-weight:700;font-size:min(9cqh,11cqw);line-height:1;color:#E0412C}
+.mxsay{width:clamp(1.625rem,5.5cqh,2.375rem);height:clamp(1.625rem,5.5cqh,2.375rem);display:grid;place-items:center}.mxsay svg{width:100%;height:100%;fill:none;stroke:#2A7FD8;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mxrow .lst{position:absolute;top:0.25rem;left:0.375rem;width:1.25rem;height:1.25rem;opacity:0}.mxrow .lst svg{width:100%;height:100%}.mxrow.heard .lst{opacity:1}
+.qmcount.grp>img{width:min(86cqw,28.75rem);max-height:44cqh}
+@media (max-aspect-ratio:5/4){.mxrow{grid-template-columns:minmax(0,2.4fr) minmax(0,.8fr) minmax(0,2.8fr) auto;gap:0.375rem;padding:0.25rem 0.5rem}.mxword{font-size:min(8cqh,9.5cqw)}}
+/* Explain, "What makes N?" rows: dots frame | 1 and 7 | make 8 */
+.mxrow.mxbond{grid-template-columns:minmax(0,2.2fr) minmax(0,3fr) minmax(0,1.6fr) auto}
+.mxbond .mxdots{overflow:hidden}.mxbond .mxdots img{box-sizing:border-box;height:auto;width:auto;max-width:100%;max-height:calc(78cqh/max(var(--n),7));object-fit:contain;border:0;padding:0;padding:0.25rem 0.375rem;border:0.1875rem solid #5A3418;border-radius:0.375rem;background:#fff}
+.mxeq{display:flex;align-items:baseline;justify-content:center;gap:clamp(0.375rem,2cqw,1.125rem);font-weight:700;line-height:1}
+.mxeq b{font-size:min(calc(84cqh/max(var(--n),7)),15cqw)}.mxeq b.r{color:#E0412C}.mxeq b.b{color:#2A7FD8}.mxeq i{font-style:normal;font-size:min(calc(52cqh/max(var(--n),7)),9cqw);color:#5A3418}
+.mxmk{font-weight:700;font-size:min(calc(52cqh/max(var(--n),7)),9cqw);line-height:1;color:#5A3418;white-space:nowrap}.mxmk b{color:#2A7FD8;font-size:1.35em}
+@media (max-aspect-ratio:5/4){.mxrow.mxbond{grid-template-columns:minmax(0,1.7fr) minmax(0,2.4fr) auto auto;gap:0.25rem 0.5rem;padding:0.25rem 0.625rem}.mxeq b{font-size:min(calc(60cqh/max(var(--n),7)),12cqw)}.mxeq i{font-size:min(calc(38cqh/max(var(--n),7)),7cqw)}.mxmk{font-size:min(calc(35cqh/max(var(--n),7)),6.5cqw)}.mxbond .mxsay{margin-left:2px}}
+
+/* number line explain (u1l9) */
+.mxline{flex:1 1 0;min-height:0;container-type:size;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,8fr) minmax(0,1.3fr);grid-template-rows:minmax(0,1fr) auto;align-items:center;gap:clamp(0.5rem,2cqh,1.125rem) clamp(0.375rem,1.6cqw,0.875rem);max-width:56.25rem;width:100%;margin:0 auto;padding:0.375rem}
+.mxend{display:grid;grid-template-rows:minmax(0,1fr) auto;justify-items:center;align-items:center;height:70%;min-height:0;gap:0.25rem;padding:0.25rem}.mxend img{max-width:100%;max-height:100%;object-fit:contain;min-height:0}.mxend b{font-size:min(5cqh,3.6cqw);color:#5A3418;line-height:1}
+.mxstones{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:min(2cqh,2cqw);align-content:center}
+.mxstone{position:relative;aspect-ratio:1.25;border-radius:50%;border:0.1875rem solid #5A3418;box-shadow:0 0.25rem 0 rgba(90,52,24,.4);color:#fff;font-weight:700;font-size:min(9cqh,4cqw);display:grid;place-items:center;text-shadow:0 2px 0 rgba(0,0,0,.25)}
+.mxstone:nth-child(2n){transform:translateY(22%)}.mxstone:active,.mxstone.on{transform:scale(.94)}.mxstone.on{box-shadow:0 0 0 0.25rem rgba(42,127,216,.45)}
+.mxstone .lst{position:absolute;top:-0.25rem;left:-0.25rem;width:1.25rem;height:1.25rem;opacity:0}.mxstone .lst svg{width:100%;height:100%}.mxstone.heard .lst{opacity:1}
+.mxcap{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:0.625rem;font-weight:700;font-size:min(5.2cqh,4.4cqw);color:#5A3418;text-align:center;line-height:1.2;padding:0.375rem 0.75rem}.mxcap .mxsay{flex:none}
+@media (max-aspect-ratio:5/4){.mxline{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto}.mxstones{grid-column:1/-1;grid-row:2;grid-template-columns:repeat(2,minmax(0,1fr));align-self:stretch;align-content:space-evenly}.mxend{grid-row:1;height:auto;max-height:30cqh}.mxend.bg{grid-column:2}.mxend.sm{grid-column:1}.mxstone{font-size:min(7cqh,12cqw);aspect-ratio:2}.mxstone:nth-child(2n){transform:none}.mxcap{grid-row:3}}
+.qmhelp{align-self:center;margin-top:0.5rem}
+.qmcell.peek b,.qmb.peek b{color:rgba(46,27,12,.28)}
+.qxduo{display:flex;align-items:flex-end;justify-content:center;gap:3rem;flex-wrap:wrap}
+.mxbond .mxdots img{border:0;background:none;padding:0;border-radius:0;max-height:76%;height:auto;width:auto;max-width:100%}
+/* everything stays inside the sheet, margins equal on the sides; the book-page tag has its own strip at the bottom */
+.scene.mx{padding:0.5rem 0.5rem 1.75rem}
+.mxgrid,.mxline{padding:0}
+@media (max-aspect-ratio:5/4){
+  .mxrow.mxbond{grid-template-columns:minmax(0,1fr) auto;grid-template-rows:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"d s" "e m";gap:0.125rem 0.5rem;padding:0.25rem 0.75rem}
+  .mxrow.mxbond .mxdots{grid-area:d;place-items:center start}.mxrow.mxbond .mxeq{grid-area:e;justify-content:flex-start}.mxrow.mxbond .mxmk{grid-area:m;justify-self:end}.mxrow.mxbond .mxsay{grid-area:s;margin:0}
+  .mxbond .mxdots{position:relative}.mxbond .mxdots img{position:absolute;inset:0;height:100%;width:100%;max-height:none;max-width:none;object-fit:contain;object-position:left center}
+  .mxeq b{font-size:min(calc(34cqh/max(var(--n),5)),9cqw)}.mxeq i{font-size:min(calc(26cqh/max(var(--n),5)),6cqw)}.mxmk{font-size:min(calc(26cqh/max(var(--n),5)),6cqw)}
+}

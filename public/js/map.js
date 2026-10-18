@@ -16,11 +16,11 @@ let mapUnit=null;   // the unit the child chose by tapping a unit box at the end
 const wideMap=()=>true;   // landscape: the road zigzags in rows so the whole unit shows; portrait: one column
 function mkLesson(m,nextL,isCur,isLast){
   const open=!!m.file, n=lessonStars(m.id);
-  const s=el('div','jl'+(open?' open':' locked')+(isCur?' cur':''));
+  const s=el('div','jl'+(open?' open':' locked')+(isCur?' cur':'')); s.dataset.stars=n;
   // the lesson sits on the road: a small square with its number, the stars above it, the name on a label across its bottom edge.
   // From it to the next lesson its pages stand beside the road, each a little sign: Book pages on one side, Workbook pages on the other.
-  s.innerHTML=`<div class="jbox">`+(open?`<span class="js">${[0,1,2].map(k=>`<span>${STAR(k<n)}</span>`).join('')}</span>`:'')+
-    `<button class="jcard" aria-label="${open?`Lesson ${m.lesson} ${m.title}`:`Lesson ${m.lesson} soon`}"><b class="jn">${num(m.lesson)}</b>${open?'':`<span class="jlock">${LOCK}</span>`}</button>`+
+  s.innerHTML=`<div class="jbox">`+(open?`<span class="js">${Array.from({length:lessonParts(m)},(_,k)=>`<span>${STAR(k<n)}</span>`).join('')}</span>`:'')+
+    `<button class="jcard" aria-label="${open?`Lesson ${m.lesson} ${m.title}`:`Lesson ${m.lesson} soon`}"><b class="jn${/-/.test(m.lesson)?' two':''}">${num(m.lesson)}</b>${open?'':`<span class="jlock">${LOCK}</span>`}</button>`+
     (open?`<span class="jt${isAr()?' ar':''}">${m.title}</span>`:'')+`</div>`+
     (open&&typeof bookSides==='function'?bookSides(m,nextL):'');
   if(isLast) s.classList.add('last');
@@ -35,10 +35,10 @@ function drawMap(redraw){
   // the unit the child is in: first open unit that still has stars to earn, else the last open one
   const openUnits=units.filter(u=>lessons.some(l=>l.unit===u.unit&&l.file));
   const picked=mapUnit&&openUnits.find(u=>u.unit===mapUnit);
-  const cur=picked||openUnits.find(u=>lessons.filter(l=>l.unit===u.unit&&l.file).some(l=>lessonStars(l.id)<3))||openUnits[openUnits.length-1]||units[0];
+  const cur=picked||openUnits.find(u=>lessons.filter(l=>l.unit===u.unit&&l.file).some(l=>lessonStars(l.id)<lessonParts(l)))||openUnits[openUnits.length-1]||units[0];
   const prev=[...openUnits].reverse().find(u=>u.unit<cur.unit);
   const list=lessons.filter(l=>l.unit===cur.unit), next=units.find(u=>u.unit>cur.unit), nextOpen=!!next&&openUnits.some(u=>u.unit===next.unit);
-  const curL=Math.max(0,list.findIndex(l=>l.file&&lessonStars(l.id)<3));
+  const curL=Math.max(0,list.findIndex(l=>l.file&&lessonStars(l.id)<lessonParts(l)));
   const j=el('div','journey');
   const snake=wideMap(); j.classList.toggle('snake',snake);
   if(snake) return drawMapAll(j,redraw);
@@ -80,7 +80,7 @@ const snakeMin=()=>matchMedia('(max-aspect-ratio:1/1)').matches?3.5:8, snakeMaxR
 function drawMapAll(j,redraw){
   const wrap=$('#mapWrap'), units=SUBJECT.units||[{unit:1}], lessons=SUBJECT.lessons;
   const openOf=u=>lessons.some(l=>l.unit===u.unit&&l.file);
-  const openL=lessons.filter(l=>l.file), curM=openL.find(l=>lessonStars(l.id)<3)||openL[openL.length-1]||lessons[0];
+  const openL=lessons.filter(l=>l.file), curM=openL.find(l=>lessonStars(l.id)<lessonParts(l))||openL[openL.length-1]||lessons[0];
   j.innerHTML=`<svg class="jroad" aria-hidden="true"></svg><div class="jcar"></div>`;
   const row=el('div','jrow'), atoms=[];
   units.forEach(u=>{
@@ -123,11 +123,16 @@ function snakeLayout(){
     let lo=SNAKE_MINFS, hi=top; while(hi-lo>.25){ const mid=(lo+hi)/2; if(ok(mid)) lo=mid; else hi=mid; }
     cands.push({R,fs:lo});
   }
-  let pick;
-  if(cands.length) pick=cands.reduce((a,c)=>c.fs>a.fs?c:a);
-  else pick={R:Math.max(1,Math.min(n,SNAKE_MAXR,Math.floor(H/SNAKE_MINFS/SNAKE_EM))),fs:SNAKE_MINFS};
+  // the map only ever scrolls UP/DOWN: if the whole map does not fit the screen at a readable size, keep the readable size
+  // (rem-based, so it follows the screen) and add rows; every row always fits the width, nothing hides at the sides
+  const rootPx=parseFloat(getComputedStyle(document.documentElement).fontSize)||16, target=Math.min(SNAKE_MAXFS,rootPx*1.15);
+  let pick=null; const best=cands.length?cands.reduce((a,c)=>c.fs>a.fs?c:a):null;
+  if(best&&best.fs>=target) pick=best;
+  else for(let fs=target;fs>=SNAKE_MINFS&&!pick;fs-=.5){ const m0=put(1,fs);
+    for(let R=1;R<=n;R++) if(split(m0,R).mx<=W){ pick={R,fs}; break; } }
+  if(!pick) pick=best||{R:n,fs:SNAKE_MINFS};
   const {R,fs}=pick; const m=put(R,fs), b=split(m,R);
-  const Wj=Math.max(W,Math.ceil(b.mx)); row.innerHTML=''; row.style.width=Wj+'px';
+  const Wj=W; row.innerHTML=''; row.style.width=Wj+'px';
   const lines=[]; for(let k=0;k<R;k++){ const ln=el('div','jline'+(k%2===(isAr()?0:1)?' rev':'')); lines.push(ln); row.append(ln); }
   b.c.forEach((e,k)=>{ const a=k?b.c[k-1]:0; if(k&&atoms[a].kind==='l') lines[k].append(mkSpacer()); for(let i=a;i<e;i++) lines[k].append(...atoms[i].els); });
   $$('.jl',j).forEach(l=>{ const {need,least}=lessonLens(l,false); l.style.flex=`${need} 1 ${need}px`; l.style.minWidth=least+'px'; });
@@ -156,7 +161,8 @@ function drawRoad(){
   j._path=svg.firstElementChild; j._d=d;
 }
 function placeCar(i, drive){
-  const j=$('.journey'), L=$$('.jl',j), cur=L[i], car=$('.jcar',j); if(!cur||!car) return;
+  const j=$('.journey'), L=$$('.jl',j), car=$('.jcar',j); if(L[i]&&L[i].classList.contains('cur')&&+L[i].dataset.stars>0&&L[i+1]) i++;   // started the lesson the car is up to: it drives on, past it
+  const cur=L[i]; if(!cur||!car) return;
   putCar(car);
   if(j.classList.contains('snake')) return placeCarSnake(j,L,i,cur,car,drive);
   const jr=j.getBoundingClientRect(), tall=getComputedStyle(j).getPropertyValue('--tall').trim()==='1';
@@ -221,7 +227,7 @@ let rsT=0; addEventListener('resize',()=>{ clearTimeout(rsT); rsT=setTimeout(()=
   w.addEventListener('pointerdown',e=>{ if(e.pointerType==='touch'||e.button) return; dn={x:e.clientX,y:e.clientY,sl:w.scrollLeft,st:w.scrollTop}; moved=false; });
   addEventListener('pointermove',e=>{ if(!dn) return; const dx=e.clientX-dn.x, dy=e.clientY-dn.y;
     if(!moved&&Math.hypot(dx,dy)>6){ moved=true; w.classList.add('drag'); }
-    if(moved){ w.scrollLeft=dn.sl-dx; w.scrollTop=dn.st-dy; e.preventDefault(); } });
+    if(moved){ w.scrollTop=dn.st-dy; e.preventDefault(); } });
   const up=()=>{ dn=null; w.classList.remove('drag'); setTimeout(()=>moved=false,0); };
   addEventListener('pointerup',up); addEventListener('pointercancel',up);
   w.addEventListener('click',e=>{ if(moved){ e.stopPropagation(); e.preventDefault(); } },true);

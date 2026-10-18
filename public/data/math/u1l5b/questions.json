@@ -1,0 +1,61 @@
+{
+ "sets": [
+  {
+   "type": "bond",
+   "ex": 1,
+   "page": 16,
+   "task": "Write the missing number in the box.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "whole": 7,
+     "parts": [
+      6,
+      null
+     ],
+     "audio": "words/six-and-one-make-seven.mp3"
+    },
+    {
+     "whole": 7,
+     "parts": [
+      null,
+      3
+     ],
+     "audio": "words/four-and-three-make-seven.mp3"
+    },
+    {
+     "whole": 7,
+     "parts": [
+      2,
+      null
+     ],
+     "audio": "words/two-and-five-make-seven.mp3"
+    },
+    {
+     "whole": 7,
+     "parts": [
+      4,
+      null
+     ],
+     "audio": "words/four-and-three-make-seven.mp3"
+    },
+    {
+     "whole": 7,
+     "parts": [
+      null,
+      1
+     ],
+     "audio": "words/six-and-one-make-seven.mp3"
+    },
+    {
+     "whole": 7,
+     "parts": [
+      null,
+      6
+     ],
+     "audio": "words/one-and-six-make-seven.mp3"
+    }
+   ]
+  }
+ ]
+}

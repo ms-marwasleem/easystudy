@@ -1,0 +1,290 @@
+{
+ "sets": [
+  {
+   "type": "bond",
+   "ex": 1,
+   "page": 13,
+   "task": "Write the missing number in the box.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "whole": 6,
+     "parts": [
+      2,
+      null
+     ],
+     "audio": "words/two-and-four-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      null,
+      5
+     ],
+     "audio": "words/one-and-five-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      3,
+      null
+     ],
+     "audio": "words/three-and-three-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      4,
+      null
+     ],
+     "audio": "words/four-and-two-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      null,
+      1
+     ],
+     "audio": "words/five-and-one-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      null,
+      2
+     ],
+     "audio": "words/four-and-two-make-six.mp3"
+    }
+   ]
+  },
+  {
+   "type": "count",
+   "ex": 2,
+   "page": 14,
+   "task": "Write the number.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "img": "../../pics/stars-3.png",
+     "n": 3,
+     "group": true,
+     "audio": "words/three.mp3"
+    },
+    {
+     "img": "../../pics/bird-book-1.png",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3"
+    },
+    {
+     "img": "../../pics/ducks-2.png",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    },
+    {
+     "img": "../../pics/trophies-9.png",
+     "n": 9,
+     "group": true,
+     "audio": "words/nine.mp3"
+    },
+    {
+     "img": "../../pics/tomatoes-5.png",
+     "n": 5,
+     "group": true,
+     "audio": "words/five.mp3"
+    },
+    {
+     "img": "../../pics/apples-7.png",
+     "n": 7,
+     "group": true,
+     "audio": "words/seven.mp3"
+    },
+    {
+     "img": "../../pics/almonds-6.png",
+     "n": 6,
+     "group": true,
+     "audio": "words/six.mp3"
+    },
+    {
+     "img": "../../pics/books-8.png",
+     "n": 8,
+     "group": true,
+     "audio": "words/eight.mp3"
+    },
+    {
+     "img": "../../pics/carrots-4.png",
+     "n": 4,
+     "group": true,
+     "audio": "words/four.mp3"
+    },
+    {
+     "img": "../../pics/pencils-10.png",
+     "n": 10,
+     "group": true,
+     "audio": "words/ten.mp3"
+    },
+    {
+     "img": "../../pics/candles-6.png",
+     "n": 6,
+     "group": true,
+     "audio": "words/six.mp3"
+    },
+    {
+     "img": "../../pics/hands-2.png",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 2,
+   "page": 14,
+   "task": "Write the word.",
+   "taskAudio": "q/task-3.mp3",
+   "lang": "en",
+   "items": [
+    {
+     "pic": "../../pics/stars-3.png",
+     "word": "three",
+     "audio": "words/three.mp3"
+    },
+    {
+     "pic": "../../pics/bird-book-1.png",
+     "word": "one",
+     "audio": "words/one.mp3"
+    },
+    {
+     "pic": "../../pics/ducks-2.png",
+     "word": "two",
+     "audio": "words/two.mp3"
+    },
+    {
+     "pic": "../../pics/trophies-9.png",
+     "word": "nine",
+     "audio": "words/nine.mp3"
+    },
+    {
+     "pic": "../../pics/tomatoes-5.png",
+     "word": "five",
+     "audio": "words/five.mp3"
+    },
+    {
+     "pic": "../../pics/apples-7.png",
+     "word": "seven",
+     "audio": "words/seven.mp3"
+    },
+    {
+     "pic": "../../pics/almonds-6.png",
+     "word": "six",
+     "audio": "words/six.mp3"
+    },
+    {
+     "pic": "../../pics/books-8.png",
+     "word": "eight",
+     "audio": "words/eight.mp3"
+    },
+    {
+     "pic": "../../pics/carrots-4.png",
+     "word": "four",
+     "audio": "words/four.mp3"
+    },
+    {
+     "pic": "../../pics/pencils-10.png",
+     "word": "ten",
+     "audio": "words/ten.mp3"
+    },
+    {
+     "pic": "../../pics/candles-6.png",
+     "word": "six",
+     "audio": "words/six.mp3"
+    },
+    {
+     "pic": "../../pics/hands-2.png",
+     "word": "two",
+     "audio": "words/two.mp3"
+    }
+   ]
+  },
+  {
+   "type": "count",
+   "ex": 3,
+   "page": 15,
+   "task": "Write the number.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "img": "../../pics/crabs-10.png",
+     "n": 10,
+     "group": true,
+     "audio": "words/ten.mp3"
+    },
+    {
+     "img": "../../pics/buses-9.png",
+     "n": 9,
+     "group": true,
+     "audio": "words/nine.mp3"
+    },
+    {
+     "img": "../../pics/balloons-7.png",
+     "n": 7,
+     "group": true,
+     "audio": "words/seven.mp3"
+    },
+    {
+     "img": "../../pics/butterflies-8.png",
+     "n": 8,
+     "group": true,
+     "audio": "words/eight.mp3"
+    },
+    {
+     "img": "../../pics/icecreams-10.png",
+     "n": 10,
+     "group": true,
+     "audio": "words/ten.mp3"
+    },
+    {
+     "img": "../../pics/clownfish-6.png",
+     "n": 6,
+     "group": true,
+     "audio": "words/six.mp3"
+    }
+   ]
+  },
+  {
+   "type": "bond",
+   "ex": 4,
+   "page": 15,
+   "task": "Write the missing number in the box.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "whole": 6,
+     "parts": [
+      5,
+      null
+     ],
+     "audio": "words/five-and-one-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      1,
+      null
+     ],
+     "audio": "words/one-and-five-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      null,
+      4
+     ],
+     "audio": "words/two-and-four-make-six.mp3"
+    }
+   ]
+  }
+ ]
+}
