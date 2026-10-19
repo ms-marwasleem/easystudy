@@ -15,13 +15,15 @@ h2{font-size:20px;margin:0;padding-bottom:4px;border-bottom:2px solid var(--blue
 #msg.ok{background:var(--ok);color:#fff}
 #msg.rec{background:var(--rec);color:#fff}
 .sec{display:flex;flex-direction:column}
-.line{display:flex;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--line)}
-.line .tx{flex:1;min-width:0;overflow-wrap:anywhere}
+.line{display:flex;flex-wrap:wrap;align-items:center;gap:.5em;padding:10px 0;border-bottom:1px solid var(--line)}
+.line .tx{flex:1 1 9em;min-width:9em;overflow-wrap:anywhere}
 .ctl{flex:none}
 .lab{flex:none}
 .big{font-size:28px;font-weight:700;line-height:1.4}
 .lab{font-size:13px;color:var(--soft);min-width:44px}
-.ctl{display:flex;align-items:center;gap:6px}
+.ctl{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:.35em;margin-inline-start:auto}
+.tag{flex-basis:100%;font-size:.75em;line-height:1.3;color:var(--rec);font-weight:700}
+.tx .tag{display:block;margin-top:.2em}
 .ib{width:40px;height:40px;border-radius:50%;border:2px solid var(--blue);background:none;color:var(--blue);display:inline-flex;align-items:center;justify-content:center;padding:0;position:relative;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 .ib svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
 .ib.rec{border-color:var(--rec);color:var(--rec)}
@@ -48,12 +50,12 @@ body:not(.in) main>section:not(#gate),body:not(.in) main>.how,body:not(.in) main
  <p class="how">اضغط على المايك واستمر في الضغط وأنت تتكلم، وأفلت الزر عند الانتهاء. زر السهم لرفع تسجيل جاهز من الجهاز. الأخضر يعني أنه تم تسجيله. للمقاطع: قل كل المقاطع بالترتيب مع وقفة بينها، وأنا أقطعها.</p>
  <div id="msg" role="status"></div>
  <section class="sec" id="gate"><h2>كلمة السر</h2><div class="add"><input type="text" id="pw" placeholder="كلمة السر" autocomplete="off"><button class="btn" id="pwbtn">دخول</button></div><p class="how" id="pwnote"></p></section>
+ <section class="sec" id="needed"></section>
  <section class="sec">
   <h2>إضافة جديد</h2>
   <div class="add"><select id="kind"><option value="word">كلمة</option><option value="letter">حرف</option><option value="question">سؤال</option><option value="reading">قراءة</option><option value="other">غير ذلك</option></select>
   <input type="text" id="newtext" placeholder="اكتب النص هنا" autocomplete="off"><input type="text" id="newsyl" placeholder="المقاطع، افصل بينها بشرطة -" autocomplete="off"><button class="btn" id="addbtn">إضافة</button></div>
  </section>
- <section class="sec" id="needed"></section>
  <section class="sec" id="shared"></section>
  <section class="sec" id="words"></section>
  <section class="sec" id="prompts"></section>
@@ -66,6 +68,7 @@ const mk=(t,c,h)=>{const e=document.createElement(t); if(c) e.className=c; if(h!
 const ICON={
  play:'<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/></svg>',
  mic:'<svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg>',
+ del:'<svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M9 7V4h6v3"/><path d="M6 7l1 13h10l1-13"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>',
  up:'<svg viewBox="0 0 24 24"><path d="M12 16V5"/><path d="M7 9l5-5 5 5"/><path d="M5 19h14"/></svg>'
 };
 const MAXMS=30000;
@@ -119,8 +122,8 @@ function ctl(slot,existing){
  const u=mk('label','ib',ICON.up); u.title='رفع ملف صوتي'; const i=mk('input'); i.type='file'; i.accept='audio/*'; i.onchange=async()=>{ if(i.files[0]) await save(slot,i.files[0]); i.value=''; }; u.append(i); w.append(u);
  w.append(holdMic(slot));
  if(has){ const p=mk('button','ib mine',ICON.play); p.title='تسجيلي'; p.onclick=()=>playMine(idOf(slot.key),p); w.append(p);
-  const x=mk('button','x','حذف'); x.onclick=()=>del(slot); w.append(x); }
- else if(old){ const p=mk('button','ib',ICON.play); p.title='تسجيل قديم لتقسيم آخر'; p.onclick=()=>playMine(idOf(slot.key),p); w.append(mk('span','tag wait','التقسيم اتغيّر: سجّليه تاني'),p); }
+  const x=mk('button','ib rec',ICON.del); x.title='حذف'; x.setAttribute('aria-label','حذف'); x.onclick=()=>del(slot); w.append(x); }
+ else if(old){ const p=mk('button','ib',ICON.play); p.title='تسجيل قديم لتقسيم آخر'; p.onclick=()=>playMine(idOf(slot.key),p); w.append(mk('span','tag wait','التقسيم اتغيّر، سجّلي المقاطع تاني'),p); }
  else if(existing){ const p=mk('button','ib',ICON.play); p.title='تسجيلك الحالي'; p.onclick=()=>playUrl(existing,p); w.append(p); }
  else w.append(mk('span','ib gap'));
  return w;
@@ -143,7 +146,7 @@ function wordLines(it,box){
  l1.append(ctl({key:it.f,path:it.f,alt:it.alt,label:it.w}));
  const parts=partsOf(it), l2=mk('div','line'); l2.append(mk('span','lab','المقاطع'));
  const sid=it.id.replace(':','_'), tx=splitEditor(it.w,parts.map(p=>p.t),null,arr=>api('PUT','/api/split/'+sid,{word:it.w,lesson:it.id.split(':')[0],path:it.f,parts:arr}),splits[it.id]&&(()=>api('DELETE','/api/split/'+sid)));
- tx.querySelector('input').id='sp-'+it.id.replace(':','-'); if(splits[it.id]) tx.append(mk('span','tag wait','تقسيم جديد: مطلوب تطبيق'));
+ tx.querySelector('input').id='sp-'+it.id.replace(':','-'); if(splits[it.id]) tx.append(mk('span','tag wait','التقسيم محفوظ ✓ لتحديث التطبيق قولي: طبّقي التقسيمات'));
  l2.append(tx); l2.append(ctl({key:'grp/'+it.id,path:'grp:'+it.id,alt:it.alt,label:it.w+' (مقاطع)',parts:parts.map(p=>p.f)}));
  box.append(l1,l2);
 }
@@ -157,7 +160,7 @@ function customLine(c){
  if(c.kind==='word'&&c.syl&&c.syl.length){ const f=mk('div'); const w=mk('div','line'); w.append(mk('span','lab','كلمة')); w.append(mk('span','tx big',c.label)); w.append(ctl({key:'c/'+c.id,path:c.path,label:c.label}));
   const sy=cSyl(c), m=mk('div','line'); m.append(mk('span','lab','المقاطع')); const sid='c_'+c.id;
   const tx=splitEditor(c.label,sy,null,arr=>api('PUT','/api/split/'+sid,{word:c.label,custom:c.id,path:c.path,parts:arr}),splits['c:'+c.id]&&(()=>api('DELETE','/api/split/'+sid)));
-  if(splits['c:'+c.id]) tx.append(mk('span','tag wait','تقسيم جديد: مطلوب تطبيق')); m.append(tx);
+  if(splits['c:'+c.id]) tx.append(mk('span','tag wait','التقسيم محفوظ ✓ لتحديث التطبيق قولي: طبّقي التقسيمات')); m.append(tx);
   m.append(ctl({key:'cg/'+c.id,path:'grp:c'+c.id,label:c.label+' (مقاطع)',parts:sy.map(t=>'syl-ar/'+hex(t)+'.mp3')}));
   if(!c.fixed&&!recs[idOf('c/'+c.id)]&&!recs[idOf('cg/'+c.id)]) w.append(rmBtn(c));
   f.append(w,m); return f; }
