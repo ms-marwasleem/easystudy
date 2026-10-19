@@ -61,6 +61,8 @@ input.txt{font-size:18px;width:100%;box-sizing:border-box;direction:ltr;text-ali
 .tplbox{direction:ltr;display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px}.tplbox .fix{white-space:pre-wrap}.tplbox .pv{width:auto;flex:none;min-width:2.5em;max-width:9em;font:inherit;padding:2px 6px;border:1px solid var(--line);border-radius:8px;text-align:center}.uses{display:block;font-size:12px;color:var(--mute,#667);margin-top:2px}
 .vals{display:flex;flex-direction:column;gap:8px;padding:6px 0 12px}.vchip{border:1px solid var(--line);border-radius:12px;padding:8px 10px;display:flex;flex-direction:column;gap:2px;align-items:flex-start}.vchip.mine{border-color:var(--ok)}.vchip.wait{border-color:var(--rec)}.vtop{display:flex;align-items:center;gap:8px;flex-wrap:wrap;width:100%}.vtop b{font-size:20px}.vtop .ctl{margin-inline-start:auto}
 @media (max-width:640px){.line{flex-wrap:wrap}.line .tx{flex:1 1 100%}.line .ctl{flex:1 1 auto}.tplbox{display:flex}}
+#gate[hidden]{display:none!important}
+body:not(.in) main>section:not(#gate),body:not(.in) main>.how,body:not(.in) main>.filters{display:none!important}
 </style>
 </head><body style="margin:0">
 <main>
@@ -68,7 +70,7 @@ input.txt{font-size:18px;width:100%;box-sizing:border-box;direction:ltr;text-ali
  <h1>مكتبة صوتيات الإنجليزي</h1>
  <p class="how">كل الأصوات دي بتتولّد بصوت Kokoro (الافتراضي) والتطبيق بيشغّلها. لو عايزة تغيّري صوت: ارفعي ملف (السهم)، أو سجّلي (المايك: اضغطي واستمري وأفلتي)، أو اطلبي توليده من جديد (الدائرة). مقاطع الكلمة: تسجيل واحد أو ملف واحد لكل مقاطع الكلمة بالترتيب وبينها وقفات صغيرة، والتطبيق بيقصّه عند الوقفات لوحده. لو عدّلتي التقسيم لازم تسجّليه تاني. الأخضر يعني إنك غيّرتيه.</p>
  <div id="msg" role="status"></div>
- <section class="sec" id="gate" hidden><h2>كلمة السر</h2><div class="add"><input type="text" id="pw" placeholder="كلمة السر" autocomplete="off"><button class="btn" id="pwbtn">دخول</button></div><p class="how" id="pwnote"></p></section>
+ <section class="sec" id="gate"><h2>كلمة السر</h2><div class="add"><input type="text" id="pw" placeholder="كلمة السر" autocomplete="off"><button class="btn" id="pwbtn">دخول</button></div><p class="how" id="pwnote"></p></section>
  <section class="sec"><div class="add"><input type="text" id="find" placeholder="ابحث (كلمة أو جملة أو درس)" autocomplete="off" style="direction:ltr"></div></section>
  <section class="sec" id="pending"></section>
  <section class="sec" id="shared"></section>
@@ -95,7 +97,7 @@ let mt;
 const say=(m,k)=>{ const e=$('#msg'); e.textContent=m||''; e.className=k||''; clearTimeout(mt); if(m&&k==='ok') mt=setTimeout(()=>say(''),3500); };
 async function api(method,path,body,raw){
  const r=await fetch(path,{method,headers:{'x-pw':PW,...(raw?{'content-type':raw}:body?{'content-type':'application/json'}:{})},body:raw?body:(body?JSON.stringify(body):undefined)});
- if(r.status===401){ gate(); throw new Error('auth'); }
+ if(r.status===401){ gate('كلمة السر غير صحيحة أو انتهت، ادخلي من جديد'); throw new Error('auth'); }
  return r;
 }
 function playUrl(u,btn){ if(cur) cur.pause(); const a=new Audio(u); cur=a; btn&&btn.classList.add('on'); const done=()=>btn&&btn.classList.remove('on'); a.onended=done; a.onerror=()=>{done();say('تعذر تشغيل الصوت (ممكن الملف لسه مش منشور)');}; a.play().catch(done); }
@@ -258,24 +260,33 @@ function filter(){
 }
 $('#find').oninput=e=>{ q=e.target.value; filter(); };
 async function load(){
- const r=await api('GET','/api/list'); const d=await r.json();
+ const r=await api('GET','/api/list'); const d=await r.json(); if(!r.ok||d.error) throw new Error(d.error==='not-migrated'?'المكتبة تحتاج تحديث على الخادم':'خطأ من الخادم '+r.status);
  recs={}; if(!data.shared) data.shared={templates:[],entries:[]}; d.rec.filter(m=>m.lang==='en').forEach(m=>{recs[m.id]=m;}); regs={}; (d.regen||[]).forEach(g=>{regs[g.id]=g;}); splits={}; (d.splits||[]).filter(x=>x.lang==='en').forEach(x=>{splits[x.id]=x;}); render();
 }
-async function gate(){
- $('#gate').hidden=false; let claimed=true;
+async function gate(why){
+ document.body.classList.remove('in'); $('#gate').hidden=false; let claimed=true;
+ const note=(m,k)=>{ const n=$('#pwnote'); n.textContent=m||''; n.style.color=k==='err'?'#c0392b':k==='ok'?'#1e8449':''; n.style.fontWeight=m?'700':''; n.style.fontSize=m?'17px':''; say(m,k==='err'?'':k); };
  try{ claimed=(await (await fetch('/api/state')).json()).claimed; }catch(e){}
- $('#pwnote').textContent=claimed?'':'أول مرة: اختر كلمة سر (4 أحرف على الأقل). احفظها، ولن يرفع أحد غيرك تسجيلات.';
  $('#pwbtn').textContent=claimed?'دخول':'تعيين كلمة السر';
- $('#pwbtn').onclick=async()=>{ const v=$('#pw').value.trim(); if(!v) return;
-  if(!claimed){ const r=await fetch('/api/claim',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({password:v})}); if(!r.ok) return say('كلمة السر قصيرة أو معيّنة من قبل'); }
-  PW=v; try{ const r=await fetch('/api/check',{headers:{'x-pw':PW}}); if(!r.ok) return say('كلمة السر غير صحيحة'); localStorage.setItem('pw',PW); }catch(e){}
-  $('#gate').hidden=true; say(''); await start(); };
+ note(why||(claimed?'اكتبي كلمة السر لعرض المكتبة':'أول مرة: اختاري كلمة سر (4 أحرف على الأقل) واحفظيها.'),why?'err':'');
+ const go=async()=>{ const v=$('#pw').value.trim(); if(!v) return note('اكتبي كلمة السر أولا','err');
+  $('#pwbtn').disabled=true; note('جاري التحقق...');
+  try{
+   if(!claimed){ const r=await fetch('/api/claim',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({password:v})}); if(!r.ok){ $('#pwbtn').disabled=false; return note('كلمة السر قصيرة (4 أحرف على الأقل) أو معيّنة من قبل','err'); } }
+   const r=await fetch('/api/check',{headers:{'x-pw':v}}); if(!r.ok){ $('#pwbtn').disabled=false; return note('كلمة السر غير صحيحة ❌ حاولي مرة أخرى','err'); }
+   PW=v; try{ localStorage.setItem('pw',v); }catch(e){}
+  }catch(e){ $('#pwbtn').disabled=false; return note('لا يوجد اتصال بالإنترنت، حاولي مرة أخرى','err'); }
+  $('#pwbtn').disabled=false; note('تم تسجيل الدخول ✓ جاري تحميل المحتوى...','ok'); await enter(); };
+ $('#pwbtn').onclick=go; $('#pw').onkeydown=e=>{ if(e.key==='Enter') go(); };
+}
+async function enter(){
+ try{ await load(); document.body.classList.add('in'); $('#gate').hidden=true; say('تم تسجيل الدخول ✓','ok'); }
+ catch(e){ if(e.message==='auth') return; const n=$('#pwnote'); n.textContent='تم الدخول لكن تعذر تحميل المحتوى ('+e.message+'). اضغطي دخول للمحاولة مرة أخرى.'; n.style.color='#c0392b'; }
 }
 $('#backup').onclick=async()=>{ try{ say('جاري التجهيز...'); const r=await api('GET','/api/export'); const b=await r.blob(); const a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='recordings-'+new Date().toISOString().slice(0,10)+'.json'; document.body.append(a); a.click(); a.remove(); say(''); }catch(e){say('تعذر التنزيل');} };
-async function start(){ try{ await load(); }catch(e){} }
 (async function(){
- data=await (await fetch('en-items.json')).json(); render();
- try{ const r=await fetch('/api/check',{headers:{'x-pw':PW}}); if(r.ok&&PW) await start(); else gate(); }catch(e){ say('لا يوجد اتصال بالإنترنت'); }
+ data=await (await fetch('en-items.json')).json(); 
+ try{ const r=PW?await fetch('/api/check',{headers:{'x-pw':PW}}):null; if(r&&r.ok) await enter(); else gate(PW?'كلمة السر المحفوظة غير صحيحة، ادخلي من جديد':''); }catch(e){ gate('لا يوجد اتصال بالإنترنت'); }
 })();
 </script>
 </body></html>
