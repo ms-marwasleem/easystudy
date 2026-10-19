@@ -1,0 +1,127 @@
+{
+ "title": "English AL",
+ "units": [
+  {
+   "unit": 1
+  }
+ ],
+ "lessons": [
+  {
+   "unit": 1,
+   "lesson": 1,
+   "folder": "u1l1",
+   "title": "My Family",
+   "pages": {
+    "read": [
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     11
+    ],
+    "words": [
+     4
+    ],
+    "booklet": [
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12
+    ]
+   },
+   "tabs": [
+    "read",
+    "words",
+    "booklet",
+    "grammar"
+   ]
+  },
+  {
+   "unit": 1,
+   "lesson": 2,
+   "folder": "u1l2",
+   "title": "It's Okay to Be Different",
+   "pages": {
+    "read": [
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19
+    ],
+    "words": [
+     12
+    ],
+    "booklet": [
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22
+    ]
+   },
+   "tabs": [
+    "read",
+    "words",
+    "booklet",
+    "grammar"
+   ]
+  },
+  {
+   "unit": 1,
+   "lesson": 3,
+   "folder": "u1l3",
+   "title": "Families Together",
+   "pages": {
+    "read": [
+     20
+    ],
+    "words": [
+     20
+    ],
+    "booklet": []
+   },
+   "tabs": [
+    "read",
+    "words"
+   ],
+   "revs": [
+    {
+     "folder": "u1l4",
+     "label": "Revision",
+     "page": 24
+    }
+   ]
+  },
+  {
+   "unit": 1,
+   "lesson": 4,
+   "folder": "u1l4",
+   "title": "Revision",
+   "pages": {
+    "booklet": [
+     24,
+     25
+    ]
+   },
+   "tabs": [
+    "booklet"
+   ],
+   "hidden": true
+  }
+ ]
+}

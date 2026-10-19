@@ -1,0 +1,2275 @@
+{
+ "sets": [
+  {
+   "type": "explain",
+   "task": "Listen and look.",
+   "taskAudio": "../../en-shared/q/listen-and-look.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/family-a.jpg",
+      "img/family-b.png"
+     ],
+     "labels": [
+      {
+       "w": "dad",
+       "at": [
+        54,
+        45
+       ]
+      },
+      {
+       "w": "brother",
+       "at": [
+        44,
+        88
+       ]
+      },
+      {
+       "w": "grandma",
+       "at": [
+        28,
+        66
+       ]
+      },
+      {
+       "w": "grandpa",
+       "at": [
+        13,
+        66
+       ]
+      },
+      {
+       "w": "sister",
+       "at": [
+        84,
+        88
+       ]
+      },
+      {
+       "w": "mom",
+       "at": [
+        76,
+        56
+       ]
+      },
+      {
+       "w": "baby",
+       "at": [
+        62,
+        84
+       ]
+      },
+      {
+       "w": "uncle",
+       "p": 1,
+       "at": [
+        28,
+        66
+       ]
+      },
+      {
+       "w": "cousin",
+       "p": 1,
+       "at": [
+        50,
+        82
+       ]
+      },
+      {
+       "w": "aunt",
+       "p": 1,
+       "at": [
+        78,
+        66
+       ]
+      }
+     ],
+     "lines": []
+    }
+   ],
+   "page": 4,
+   "ex": "A"
+  },
+  {
+   "type": "choice",
+   "task": "Look and circle.",
+   "taskAudio": "../../en-shared/q/look-and-circle.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pic": "img/dad.png",
+     "options": [
+      "dad",
+      "mom"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/dad.mp3",
+     "word": "dad"
+    },
+    {
+     "pic": "img/sister.png",
+     "options": [
+      "grandma",
+      "sister"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/sister.mp3",
+     "word": "sister"
+    },
+    {
+     "pic": "img/baby.png",
+     "options": [
+      "uncle",
+      "baby"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/baby.mp3",
+     "word": "baby"
+    },
+    {
+     "pic": "img/grandpa.jpg",
+     "options": [
+      "grandpa",
+      "aunt"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/grandpa.mp3",
+     "word": "grandpa"
+    }
+   ],
+   "page": 4,
+   "ex": "B"
+  },
+  {
+   "type": "mcq",
+   "task": "Look at the chart. Complete the words.",
+   "taskAudio": "../../en-shared/q/look-at-the-chart-complete-the-words.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "stem": "grand____",
+     "options": [
+      "ma",
+      "pa",
+      "mo"
+     ],
+     "answer": 0,
+     "word": "grandma",
+     "audio": "../../en-shared/q/grandma.mp3",
+     "optSay": [
+      "ma",
+      "pa",
+      "mo"
+     ],
+     "ask": "Female",
+     "parts": []
+    },
+    {
+     "stem": "m____",
+     "options": [
+      "om",
+      "um",
+      "ap"
+     ],
+     "answer": 0,
+     "word": "mom",
+     "audio": "../../en-shared/q/mom.mp3",
+     "optSay": [
+      "om",
+      "um",
+      "ap"
+     ],
+     "ask": "Female",
+     "parts": []
+    },
+    {
+     "stem": "a____nt",
+     "options": [
+      "u",
+      "o",
+      "e"
+     ],
+     "answer": 0,
+     "word": "aunt",
+     "audio": "../../en-shared/q/aunt.mp3",
+     "optSay": [
+      "u",
+      "o",
+      "e"
+     ],
+     "ask": "Female",
+     "parts": []
+    },
+    {
+     "stem": "____other",
+     "options": [
+      "br",
+      "bl",
+      "sr"
+     ],
+     "answer": 0,
+     "word": "brother",
+     "audio": "../../en-shared/q/brother.mp3",
+     "optSay": [
+      "br",
+      "bl",
+      "sr"
+     ],
+     "ask": "Male",
+     "parts": []
+    },
+    {
+     "stem": "____cle",
+     "options": [
+      "un",
+      "in",
+      "an"
+     ],
+     "answer": 0,
+     "word": "uncle",
+     "audio": "../../en-shared/q/uncle.mp3",
+     "optSay": [
+      "un",
+      "in",
+      "an"
+     ],
+     "ask": "Male",
+     "parts": []
+    },
+    {
+     "stem": "c____usin",
+     "options": [
+      "o",
+      "a",
+      "e"
+     ],
+     "answer": 0,
+     "word": "cousin",
+     "audio": "../../en-shared/q/cousin.mp3",
+     "optSay": [
+      "o",
+      "a",
+      "e"
+     ],
+     "ask": "Both",
+     "parts": []
+    }
+   ],
+   "page": 4,
+   "ex": "C"
+  },
+  {
+   "type": "explain",
+   "task": "Listen and say.",
+   "taskAudio": "../../en-shared/q/listen-and-say.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/dad-girls.png",
+      "img/pen.png",
+      "img/sister.png"
+     ],
+     "caps": [
+      "dad",
+      "pen",
+      "sister"
+     ],
+     "lines": []
+    }
+   ],
+   "page": 5,
+   "ex": "E",
+   "grp": "EF"
+  },
+  {
+   "type": "link",
+   "task": "Look and say. Match the words with the same sound.",
+   "taskAudio": "../../en-shared/q/look-and-say-match-the-words-with-the-same-sound.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "word": "ten",
+     "text2": "pen",
+     "audio": "../../en-shared/q/ten.mp3",
+     "audio2": "../../en-shared/q/pen.mp3"
+    },
+    {
+     "word": "pink",
+     "text2": "sister",
+     "audio": "../../en-shared/q/pink.mp3",
+     "audio2": "../../en-shared/q/sister.mp3"
+    },
+    {
+     "word": "sad",
+     "text2": "dad",
+     "audio": "../../en-shared/q/sad.mp3",
+     "audio2": "../../en-shared/q/dad.mp3"
+    }
+   ],
+   "page": 5,
+   "ex": "F",
+   "grp": "EF"
+  },
+  {
+   "type": "explain",
+   "task": "Read. How are the families the same? How are they different? Tell a friend.",
+   "taskAudio": "../../en-shared/q/read-how-are-the-families-the-same-how-are-they-di-0da7fbba.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/family-b.png",
+      "img/big-family.png"
+     ],
+     "lines": [
+      {
+       "t": "Reading Strategy: Compare and Contrast",
+       "a": "../../en-shared/q/reading-strategy-compare-and-contrast.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "To compare things, look for what is the same.",
+       "a": "../../en-shared/q/to-compare-things-look-for-what-is-the-same.mp3",
+       "cls": "note"
+      },
+      {
+       "t": "To contrast things, look for what is different.",
+       "a": "../../en-shared/q/to-contrast-things-look-for-what-is-different.mp3",
+       "cls": "note"
+      },
+      {
+       "t": "I'm seven years old. My family is small. This is my mom, and this is my dad.",
+       "a": "../../en-shared/q/i-m-seven-years-old-my-family-is-small-this-is-my-2f8ea204.mp3",
+       "cls": "yellow"
+      },
+      {
+       "t": "I'm ten years old. My family is big. I have a grandma and a grandpa. This is my mom and dad. I have two sisters.",
+       "a": "../../en-shared/q/i-m-ten-years-old-my-family-is-big-i-have-a-grandm-7f219cd4.mp3",
+       "cls": "green"
+      }
+     ]
+    }
+   ],
+   "page": 5,
+   "ex": "G"
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/art-family.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Social Studies Article",
+       "a": "../../en-shared/q/social-studies-article.mp3",
+       "cls": "note"
+      },
+      {
+       "t": "As you read, think about how the families are the same and different.",
+       "a": "../../en-shared/q/as-you-read-think-about-how-the-families-are-the-s-3c2c9304.mp3",
+       "cls": "note"
+      },
+      {
+       "t": "We are a family!",
+       "a": "../../en-shared/q/we-are-a-family.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "What is a family?",
+       "a": "../../en-shared/q/what-is-a-family.mp3"
+      },
+      {
+       "t": "A family is a group of people who live together.",
+       "a": "../../en-shared/q/a-family-is-a-group-of-people-who-live-together.mp3"
+      },
+      {
+       "t": "Not all families are the same!",
+       "a": "../../en-shared/q/not-all-families-are-the-same.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 6,
+   "grp": "article"
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/art-grandma.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Some families are small.",
+       "a": "../../en-shared/q/some-families-are-small.mp3"
+      },
+      {
+       "t": "There's a new baby in this family.",
+       "a": "../../en-shared/q/there-s-a-new-baby-in-this-family.mp3"
+      },
+      {
+       "t": "That is his grandma.",
+       "a": "../../en-shared/q/that-is-his-grandma.mp3"
+      },
+      {
+       "t": "She hugs the baby.",
+       "a": "../../en-shared/q/she-hugs-the-baby.mp3"
+      },
+      {
+       "t": "That is his sister.",
+       "a": "../../en-shared/q/that-is-his-sister.mp3"
+      },
+      {
+       "t": "She helps when the baby is sad.",
+       "a": "../../en-shared/q/she-helps-when-the-baby-is-sad.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 6,
+   "grp": "article"
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/art-big.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Some families are big.",
+       "a": "../../en-shared/q/some-families-are-big.mp3"
+      },
+      {
+       "t": "There are six children in this family.",
+       "a": "../../en-shared/q/there-are-six-children-in-this-family.mp3"
+      },
+      {
+       "t": "There are three boys and three girls.",
+       "a": "../../en-shared/q/there-are-three-boys-and-three-girls.mp3"
+      },
+      {
+       "t": "They aren't brothers and sisters.",
+       "a": "../../en-shared/q/they-aren-t-brothers-and-sisters.mp3"
+      },
+      {
+       "t": "They're cousins.",
+       "a": "../../en-shared/q/they-re-cousins.mp3"
+      },
+      {
+       "t": "Can you see the girl with her uncle and two aunts?",
+       "a": "../../en-shared/q/can-you-see-the-girl-with-her-uncle-and-two-aunts.mp3"
+      },
+      {
+       "t": "Her mom has two sisters.",
+       "a": "../../en-shared/q/her-mom-has-two-sisters.mp3"
+      },
+      {
+       "t": "The girl's dad is with her brother.",
+       "a": "../../en-shared/q/the-girl-s-dad-is-with-her-brother.mp3"
+      },
+      {
+       "t": "They're happy!",
+       "a": "../../en-shared/q/they-re-happy.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 6,
+   "grp": "article"
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/art-park.jpg"
+     ],
+     "lines": [
+      {
+       "t": "There are four children in this family.",
+       "a": "../../en-shared/q/there-are-four-children-in-this-family.mp3"
+      },
+      {
+       "t": "This boy has one brother and two sisters.",
+       "a": "../../en-shared/q/this-boy-has-one-brother-and-two-sisters.mp3"
+      },
+      {
+       "t": "They like to walk in the park.",
+       "a": "../../en-shared/q/they-like-to-walk-in-the-park.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 7,
+   "grp": "article"
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/art-grandpa.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Families like to do things together.",
+       "a": "../../en-shared/q/families-like-to-do-things-together.mp3"
+      },
+      {
+       "t": "This girl is at home with her grandpa.",
+       "a": "../../en-shared/q/this-girl-is-at-home-with-her-grandpa.mp3"
+      },
+      {
+       "t": "Her grandpa is happy.",
+       "a": "../../en-shared/q/her-grandpa-is-happy.mp3"
+      },
+      {
+       "t": "He isn't sad.",
+       "a": "../../en-shared/q/he-isn-t-sad.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 7,
+   "grp": "article"
+  },
+  {
+   "type": "mcq",
+   "task": "Read. Circle Family A or Family B.",
+   "taskAudio": "../../en-shared/q/read-circle-family-a-or-family-b.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "stem": "There are four children in this family.",
+     "options": [
+      "Family A",
+      "Family B"
+     ],
+     "answer": 0,
+     "word": "There are four children in this family. Family A.",
+     "audio": "../../en-shared/q/there-are-four-children-in-this-family-family-a.mp3",
+     "pics": [
+      "img/art-park.jpg",
+      "img/art-grandma.jpg"
+     ],
+     "caps": [
+      "Family A",
+      "Family B"
+     ]
+    },
+    {
+     "stem": "The boy has two sisters.",
+     "options": [
+      "Family A",
+      "Family B"
+     ],
+     "answer": 0,
+     "word": "The boy has two sisters. Family A.",
+     "audio": "../../en-shared/q/the-boy-has-two-sisters-family-a.mp3",
+     "pics": [
+      "img/art-park.jpg",
+      "img/art-grandma.jpg"
+     ],
+     "caps": [
+      "Family A",
+      "Family B"
+     ]
+    },
+    {
+     "stem": "There is a baby.",
+     "options": [
+      "Family A",
+      "Family B"
+     ],
+     "answer": 1,
+     "word": "There is a baby. Family B.",
+     "audio": "../../en-shared/q/there-is-a-baby-family-b.mp3",
+     "pics": [
+      "img/art-park.jpg",
+      "img/art-grandma.jpg"
+     ],
+     "caps": [
+      "Family A",
+      "Family B"
+     ]
+    },
+    {
+     "stem": "There is a grandma.",
+     "options": [
+      "Family A",
+      "Family B"
+     ],
+     "answer": 1,
+     "word": "There is a grandma. Family B.",
+     "audio": "../../en-shared/q/there-is-a-grandma-family-b.mp3",
+     "pics": [
+      "img/art-park.jpg",
+      "img/art-grandma.jpg"
+     ],
+     "caps": [
+      "Family A",
+      "Family B"
+     ]
+    },
+    {
+     "stem": "They walk in the park.",
+     "options": [
+      "Family A",
+      "Family B"
+     ],
+     "answer": 0,
+     "word": "They walk in the park. Family A.",
+     "audio": "../../en-shared/q/they-walk-in-the-park-family-a.mp3",
+     "pics": [
+      "img/art-park.jpg",
+      "img/art-grandma.jpg"
+     ],
+     "caps": [
+      "Family A",
+      "Family B"
+     ]
+    }
+   ],
+   "page": 8,
+   "ex": "B"
+  },
+  {
+   "type": "mcq",
+   "task": "Read. Circle the correct answer.",
+   "taskAudio": "../../en-shared/q/read-circle-the-correct-answer.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "stem": "A social studies article is about ____.",
+     "options": [
+      "people",
+      "animals"
+     ],
+     "answer": 0,
+     "word": "A social studies article is about people.",
+     "audio": "../../en-shared/q/a-social-studies-article-is-about-people.mp3",
+     "parts": [
+      "../../en-shared/q/a-social-studies-article-is-about.mp3"
+     ]
+    }
+   ],
+   "page": 8,
+   "ex": "D"
+  },
+  {
+   "type": "explain",
+   "task": "How are families different? Share with the class.",
+   "taskAudio": "../../en-shared/q/how-are-families-different-share-with-the-class.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "lines": [
+      {
+       "t": "How are families different?",
+       "a": "../../en-shared/q/how-are-families-different.mp3",
+       "cls": "red"
+      },
+      {
+       "t": "Some families are small and some families are big.",
+       "a": "../../en-shared/q/some-families-are-small-and-some-families-are-big.mp3",
+       "cls": "blue"
+      }
+     ]
+    }
+   ],
+   "page": 8,
+   "ex": "E"
+  },
+  {
+   "type": "explain",
+   "task": "What can you say about your family? Tell a friend.",
+   "taskAudio": "../../en-shared/q/what-can-you-say-about-your-family-tell-a-friend.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "lines": [
+      {
+       "t": "What can you say about your family?",
+       "a": "../../en-shared/q/what-can-you-say-about-your-family.mp3",
+       "cls": "red"
+      },
+      {
+       "t": "My family is big.",
+       "a": "../../en-shared/q/my-family-is-big.mp3",
+       "cls": "blue"
+      }
+     ]
+    }
+   ],
+   "page": 8,
+   "ex": "F"
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read. Circle the words that join together like I'm.",
+   "taskAudio": "../../en-shared/q/listen-and-read-circle-the-words-that-join-together-like-i-m.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/grammar-girls.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Hi! I'm Isabel. Look at me.",
+       "a": "../../en-shared/q/hi-i-m-isabel-look-at-me.mp3"
+      },
+      {
+       "t": "I like to play with my family.",
+       "a": "../../en-shared/q/i-like-to-play-with-my-family.mp3"
+      },
+      {
+       "t": "She's my mom.",
+       "a": "../../en-shared/q/she-s-my-mom.mp3"
+      },
+      {
+       "t": "He's my dad.",
+       "a": "../../en-shared/q/he-s-my-dad.mp3"
+      },
+      {
+       "t": "They're happy.",
+       "a": "../../en-shared/q/they-re-happy.mp3"
+      },
+      {
+       "t": "We aren't sad.",
+       "a": "../../en-shared/q/we-aren-t-sad.mp3"
+      }
+     ],
+     "table": {
+      "title": "Am, Is, and Are",
+      "rows": [
+       [
+        {
+         "t": "I am a child.",
+         "a": "../../en-shared/q/i-am-a-child.mp3"
+        },
+        {
+         "t": "I'm a child.",
+         "a": "../../en-shared/q/i-m-a-child.mp3"
+        }
+       ],
+       [
+        {
+         "t": "You are my friend.",
+         "a": "../../en-shared/q/you-are-my-friend.mp3"
+        },
+        {
+         "t": "You're my friend.",
+         "a": "../../en-shared/q/you-re-my-friend.mp3"
+        }
+       ],
+       [
+        {
+         "t": "He is my brother.",
+         "a": "../../en-shared/q/he-is-my-brother.mp3"
+        },
+        {
+         "t": "He's my brother.",
+         "a": "../../en-shared/q/he-s-my-brother.mp3"
+        }
+       ],
+       [
+        {
+         "t": "She is not my sister.",
+         "a": "../../en-shared/q/she-is-not-my-sister.mp3"
+        },
+        {
+         "t": "She isn't my sister.",
+         "a": "../../en-shared/q/she-isn-t-my-sister.mp3"
+        }
+       ],
+       [
+        {
+         "t": "It is a dog.",
+         "a": "../../en-shared/q/it-is-a-dog.mp3"
+        },
+        {
+         "t": "It's a dog.",
+         "a": "../../en-shared/q/it-s-a-dog.mp3"
+        }
+       ],
+       [
+        {
+         "t": "They are friends.",
+         "a": "../../en-shared/q/they-are-friends.mp3"
+        },
+        {
+         "t": "They're friends.",
+         "a": "../../en-shared/q/they-re-friends.mp3"
+        }
+       ],
+       [
+        {
+         "t": "We are not teachers.",
+         "a": "../../en-shared/q/we-are-not-teachers.mp3"
+        },
+        {
+         "t": "We aren't teachers.",
+         "a": "../../en-shared/q/we-aren-t-teachers.mp3"
+        }
+       ]
+      ]
+     }
+    }
+   ],
+   "page": 9,
+   "ex": "A"
+  },
+  {
+   "type": "mcq",
+   "task": "Complete the sentences.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "stem": "(She) ____ my aunt.",
+     "options": [
+      "She's",
+      "She're",
+      "She'm"
+     ],
+     "answer": 0,
+     "word": "She's my aunt.",
+     "audio": "../../en-shared/q/she-s-my-aunt.mp3",
+     "parts": [
+      "../../en-shared/q/she.mp3",
+      "../../en-shared/q/my-aunt.mp3"
+     ]
+    },
+    {
+     "stem": "(I) ____ seven years old.",
+     "options": [
+      "I'm",
+      "I's",
+      "I're"
+     ],
+     "answer": 0,
+     "word": "I'm seven years old.",
+     "audio": "../../en-shared/q/i-m-seven-years-old.mp3",
+     "parts": [
+      "../../en-shared/q/i.mp3",
+      "../../en-shared/q/seven-years-old.mp3"
+     ]
+    },
+    {
+     "stem": "(We) ____ a small family.",
+     "options": [
+      "We're",
+      "We's",
+      "We'm"
+     ],
+     "answer": 0,
+     "word": "We're a small family.",
+     "audio": "../../en-shared/q/we-re-a-small-family.mp3",
+     "parts": [
+      "../../en-shared/q/we.mp3",
+      "../../en-shared/q/a-small-family.mp3"
+     ]
+    },
+    {
+     "stem": "(They) ____ my mom and dad.",
+     "options": [
+      "They're",
+      "They's",
+      "They'm"
+     ],
+     "answer": 0,
+     "word": "They're my mom and dad.",
+     "audio": "../../en-shared/q/they-re-my-mom-and-dad.mp3",
+     "parts": [
+      "../../en-shared/q/they.mp3",
+      "../../en-shared/q/my-mom-and-dad.mp3"
+     ]
+    },
+    {
+     "stem": "(You) ____ happy.",
+     "options": [
+      "You're",
+      "You's",
+      "You'm"
+     ],
+     "answer": 0,
+     "word": "You're happy.",
+     "audio": "../../en-shared/q/you-re-happy.mp3",
+     "parts": [
+      "../../en-shared/q/you.mp3",
+      "../../en-shared/q/happy.mp3"
+     ]
+    }
+   ],
+   "page": 9,
+   "ex": "B"
+  },
+  {
+   "type": "explain",
+   "task": "Write the names of people in your family. Tell a friend about them.",
+   "taskAudio": "../../en-shared/q/write-the-names-of-people-in-your-family-tell-a-fr-dc4c9930.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "lines": [
+      {
+       "t": "Maria. She's my grandma.",
+       "a": "../../en-shared/q/maria-she-s-my-grandma.mp3",
+       "cls": "blue"
+      },
+      {
+       "t": "Hassan and Murat. They're my brothers.",
+       "a": "../../en-shared/q/hassan-and-murat-they-re-my-brothers.mp3",
+       "cls": "blue"
+      }
+     ]
+    }
+   ],
+   "page": 9,
+   "ex": "C"
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/friends.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Speaking Tip",
+       "a": "../../en-shared/q/speaking-tip.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "Use this is and these are to talk about your family.",
+       "a": "../../en-shared/q/use-this-is-and-these-are-to-talk-about-your-family.mp3",
+       "cls": "note"
+      }
+     ]
+    }
+   ],
+   "page": 11,
+   "ex": "A",
+   "grp": "speak"
+  },
+  {
+   "type": "mcq",
+   "task": "Make introductions. Listen and complete. Write this or these.",
+   "taskAudio": "../../en-shared/q/make-introductions-listen-and-complete-write-this-or-these.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "stem": "____ is my friend, Isabel.",
+     "options": [
+      "This",
+      "These"
+     ],
+     "answer": 0,
+     "word": "This is my friend, Isabel.",
+     "audio": "../../en-shared/q/this-is-my-friend-isabel.mp3",
+     "parts": [
+      "../../en-shared/q/is-my-friend-isabel.mp3"
+     ]
+    },
+    {
+     "stem": "____ are my friends, Li and Barasa.",
+     "options": [
+      "This",
+      "These"
+     ],
+     "answer": 1,
+     "word": "These are my friends, Li and Barasa.",
+     "audio": "../../en-shared/q/these-are-my-friends-li-and-barasa.mp3",
+     "parts": [
+      "../../en-shared/q/are-my-friends-li-and-barasa.mp3"
+     ]
+    }
+   ],
+   "page": 11,
+   "ex": "A",
+   "grp": "speak"
+  },
+  {
+   "type": "mcq",
+   "task": "Circle the correct answers. Then complete the sentences about your family members.",
+   "taskAudio": "../../en-shared/q/circle-the-correct-answers-then-complete-the-sente-0f710a67.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "stem": "____ is my dad.",
+     "options": [
+      "This",
+      "These"
+     ],
+     "answer": 0,
+     "word": "This is my dad.",
+     "audio": "../../en-shared/q/this-is-my-dad.mp3",
+     "parts": [
+      "../../en-shared/q/is-my-dad.mp3"
+     ]
+    },
+    {
+     "stem": "____ are my grandpa and my grandma.",
+     "options": [
+      "This",
+      "These"
+     ],
+     "answer": 1,
+     "word": "These are my grandpa and my grandma.",
+     "audio": "../../en-shared/q/these-are-my-grandpa-and-my-grandma.mp3",
+     "parts": [
+      "../../en-shared/q/are-my-grandpa-and-my-grandma.mp3"
+     ]
+    }
+   ],
+   "page": 11,
+   "ex": "B"
+  },
+  {
+   "type": "explain",
+   "task": "Vocabulary. Listen and read.",
+   "taskAudio": "../../en-shared/q/vocabulary-listen-and-read.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "pics": [
+      "img/aunt.jpg"
+     ],
+     "caps": [
+      "aunt"
+     ],
+     "lines": [
+      {
+       "t": "aunt (n.)  An aunt is your mom's sister or your dad's sister.  Ex. We went shopping with my aunt today.",
+       "a": "../../en-shared/q/aunt-n-an-aunt-is-your-mom-s-sister-or-your-dad-s-93cdb006.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 4,
+   "grp": "aunt"
+  },
+  {
+   "type": "type",
+   "task": "Read and complete the missing letters.",
+   "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "uncle",
+     "missing": 1,
+     "answer": "n",
+     "pic": "img/uncle.jpg",
+     "audio": "../../en-shared/q/uncle.mp3"
+    },
+    {
+     "word": "cousin",
+     "missing": 3,
+     "answer": "s",
+     "pic": "img/cousin.jpg",
+     "audio": "../../en-shared/q/cousin.mp3"
+    },
+    {
+     "word": "sister",
+     "missing": 1,
+     "answer": "i",
+     "pic": "img/sister.png",
+     "audio": "../../en-shared/q/sister.mp3"
+    },
+    {
+     "word": "grandpa",
+     "missing": 5,
+     "answer": "p",
+     "pic": "img/grandpa.jpg",
+     "audio": "../../en-shared/q/grandpa.mp3"
+    },
+    {
+     "word": "aunt",
+     "missing": 1,
+     "answer": "u",
+     "pic": "img/aunt.jpg",
+     "audio": "../../en-shared/q/aunt.mp3"
+    }
+   ],
+   "page": 4,
+   "ex": 1
+  },
+  {
+   "type": "link",
+   "task": "Match the words and the pictures.",
+   "taskAudio": "../../en-shared/q/match-the-words-and-the-pictures.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "brother",
+     "pic": "img/brother.jpg",
+     "audio": "../../en-shared/q/brother.mp3"
+    },
+    {
+     "word": "mom",
+     "pic": "img/mom.jpg",
+     "audio": "../../en-shared/q/mom.mp3"
+    },
+    {
+     "word": "grandma",
+     "pic": "img/grandma.jpg",
+     "audio": "../../en-shared/q/grandma.mp3"
+    },
+    {
+     "word": "baby",
+     "pic": "img/baby.png",
+     "audio": "../../en-shared/q/baby.mp3"
+    },
+    {
+     "word": "dad",
+     "pic": "img/dad.png",
+     "audio": "../../en-shared/q/dad.mp3"
+    }
+   ],
+   "page": 4,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer from a, b, c or d.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-from-a-b-c-or-d.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "My ____ always helps me with my homework. He is helpful.",
+     "options": [
+      "dad",
+      "mom",
+      "grandma",
+      "sister"
+     ],
+     "answer": 0,
+     "word": "My dad always helps me with my homework. He is helpful.",
+     "audio": "../../en-shared/q/my-dad-always-helps-me-with-my-homework-he-is-helpful.mp3",
+     "parts": [
+      "../../en-shared/q/my.mp3",
+      "../../en-shared/q/always-helps-me-with-my-homework-he-is-helpful.mp3"
+     ]
+    },
+    {
+     "stem": "For my birthday, my ____ baked a delicious chocolate cake. She is a chef.",
+     "options": [
+      "uncle",
+      "grandpa",
+      "mom",
+      "brother"
+     ],
+     "answer": 2,
+     "word": "For my birthday, my mom baked a delicious chocolate cake. She is a chef.",
+     "audio": "../../en-shared/q/for-my-birthday-my-mom-baked-a-delicious-chocolate-4321d7b9.mp3",
+     "parts": [
+      "../../en-shared/q/for-my-birthday-my.mp3",
+      "../../en-shared/q/baked-a-delicious-chocolate-cake-she-is-a-chef.mp3"
+     ]
+    },
+    {
+     "stem": "When I was little, my ____ used to read me bedtime stories every night.",
+     "options": [
+      "sister",
+      "grandpa",
+      "baby",
+      "brother"
+     ],
+     "answer": 1,
+     "word": "When I was little, my grandpa used to read me bedtime stories every night.",
+     "audio": "../../en-shared/q/when-i-was-little-my-grandpa-used-to-read-me-bedti-968ad0c3.mp3",
+     "parts": [
+      "../../en-shared/q/when-i-was-little-my.mp3",
+      "../../en-shared/q/used-to-read-me-bedtime-stories-every-night.mp3"
+     ]
+    },
+    {
+     "stem": "My ____ taught me how to fish by the lake last summer.",
+     "options": [
+      "uncle",
+      "brother",
+      "sister",
+      "baby"
+     ],
+     "answer": 0,
+     "word": "My uncle taught me how to fish by the lake last summer.",
+     "audio": "../../en-shared/q/my-uncle-taught-me-how-to-fish-by-the-lake-last-summer.mp3",
+     "parts": [
+      "../../en-shared/q/my.mp3",
+      "../../en-shared/q/taught-me-how-to-fish-by-the-lake-last-summer.mp3"
+     ]
+    },
+    {
+     "stem": "My parents and I went to visit our ____ and her new kitten last weekend.",
+     "options": [
+      "dad",
+      "grandma",
+      "baby",
+      "mom"
+     ],
+     "answer": 1,
+     "word": "My parents and I went to visit our grandma and her new kitten last weekend.",
+     "audio": "../../en-shared/q/my-parents-and-i-went-to-visit-our-grandma-and-her-ae2b25a9.mp3",
+     "parts": [
+      "../../en-shared/q/my-parents-and-i-went-to-visit-our.mp3",
+      "../../en-shared/q/and-her-new-kitten-last-weekend.mp3"
+     ]
+    },
+    {
+     "stem": "My little ____ is finally learning to walk and says \"mama.\"",
+     "options": [
+      "grandma",
+      "baby",
+      "uncle",
+      "aunt"
+     ],
+     "answer": 1,
+     "word": "My little baby is finally learning to walk and says \"mama.\"",
+     "audio": "../../en-shared/q/my-little-baby-is-finally-learning-to-walk-and-says-mama.mp3",
+     "parts": [
+      "../../en-shared/q/my-little.mp3",
+      "../../en-shared/q/is-finally-learning-to-walk-and-says-mama.mp3"
+     ]
+    },
+    {
+     "stem": "My older ____ gives me good advice about school and friends.",
+     "options": [
+      "brother",
+      "mom",
+      "baby",
+      "dad"
+     ],
+     "answer": 0,
+     "word": "My older brother gives me good advice about school and friends.",
+     "audio": "../../en-shared/q/my-older-brother-gives-me-good-advice-about-school-6e7ce7e4.mp3",
+     "parts": [
+      "../../en-shared/q/my-older.mp3",
+      "../../en-shared/q/gives-me-good-advice-about-school-and-friends.mp3"
+     ]
+    },
+    {
+     "stem": "My ____ is older than me, but we still love playing playstation games together.",
+     "options": [
+      "uncle",
+      "sister",
+      "dad",
+      "mom"
+     ],
+     "answer": 1,
+     "word": "My sister is older than me, but we still love playing playstation games together.",
+     "audio": "../../en-shared/q/my-sister-is-older-than-me-but-we-still-love-playi-76928df0.mp3",
+     "parts": [
+      "../../en-shared/q/my.mp3",
+      "../../en-shared/q/is-older-than-me-but-we-still-love-playing-playsta-d005c7ed.mp3"
+     ]
+    },
+    {
+     "stem": "My ____ just started kindergarten and is excited about making new friends.",
+     "options": [
+      "aunt",
+      "uncle",
+      "cousin",
+      "grandpa"
+     ],
+     "answer": 2,
+     "word": "My cousin just started kindergarten and is excited about making new friends.",
+     "audio": "../../en-shared/q/my-cousin-just-started-kindergarten-and-is-excited-b340486c.mp3",
+     "parts": [
+      "../../en-shared/q/my.mp3",
+      "../../en-shared/q/just-started-kindergarten-and-is-excited-about-mak-9f3e6512.mp3"
+     ]
+    },
+    {
+     "stem": "I have two uncles and three ____.",
+     "options": [
+      "baby",
+      "grandpa",
+      "grandma",
+      "aunts"
+     ],
+     "answer": 3,
+     "word": "I have two uncles and three aunts.",
+     "audio": "../../en-shared/q/i-have-two-uncles-and-three-aunts.mp3",
+     "parts": [
+      "../../en-shared/q/i-have-two-uncles-and-three.mp3"
+     ]
+    }
+   ],
+   "page": 5,
+   "ex": 3
+  },
+  {
+   "type": "cloze",
+   "task": "Choose the correct answer to complete the text.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-to-complete-the-text.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "text": "My family. Hello! My name is Lily. I love my family very much. My [[mom]] helps me with my homework every night. My [[dad]] takes me to the park to play when he comes back from his work. I also have a little [[sister]] named Daisy, and she loves to draw with crayons. Last weekend, we visited my [[grandpa]]. He showed me how to plant flowers in his garden. My [[cousin]] came over too, and we played hide-and-seek!",
+     "bank": [
+      "mom",
+      "dad",
+      "sister",
+      "cousin",
+      "grandpa"
+     ],
+     "audio": "../../en-shared/q/my-family-hello-my-name-is-lily-i-love-my-family-v-26301b41.mp3"
+    }
+   ],
+   "page": 6,
+   "ex": 4
+  },
+  {
+   "type": "order",
+   "task": "Rearrange the following sentences.",
+   "taskAudio": "../../en-shared/q/rearrange-the-following-sentences.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "chunks": [
+      "My",
+      "grandma",
+      "reads",
+      "a book"
+     ],
+     "end": ".",
+     "word": "My grandma reads a book.",
+     "audio": "../../en-shared/q/my-grandma-reads-a-book.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "baby",
+      "laughs",
+      "loudly"
+     ],
+     "end": ".",
+     "word": "The baby laughs loudly.",
+     "audio": "../../en-shared/q/the-baby-laughs-loudly.mp3"
+    },
+    {
+     "chunks": [
+      "Aunt",
+      "draws",
+      "beautiful",
+      "flowers"
+     ],
+     "end": ".",
+     "word": "Aunt draws beautiful flowers.",
+     "audio": "../../en-shared/q/aunt-draws-beautiful-flowers.mp3"
+    },
+    {
+     "chunks": [
+      "My",
+      "brother",
+      "sings",
+      "well"
+     ],
+     "end": ".",
+     "word": "My brother sings well.",
+     "audio": "../../en-shared/q/my-brother-sings-well.mp3"
+    },
+    {
+     "chunks": [
+      "His",
+      "uncle",
+      "is",
+      "cool"
+     ],
+     "end": ".",
+     "word": "His uncle is cool.",
+     "audio": "../../en-shared/q/his-uncle-is-cool.mp3"
+    }
+   ],
+   "page": 6,
+   "ex": 5
+  },
+  {
+   "type": "explain",
+   "task": "Short vowels. Listen and say.",
+   "taskAudio": "../../en-shared/q/short-vowels-listen-and-say.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "pics": [
+      "img/ph-apple.jpg",
+      "img/ph-cat.jpg",
+      "img/ph-bed.jpg",
+      "img/ph-egg.jpg",
+      "img/pen.png",
+      "img/ph-pig.jpg",
+      "img/ph-fish.jpg",
+      "img/ph-zip.jpg"
+     ],
+     "caps": [
+      "apple",
+      "cat",
+      "bed",
+      "egg",
+      "pen",
+      "pig",
+      "fish",
+      "zip"
+     ],
+     "lines": [
+      {
+       "t": "Short a: apple, cat.",
+       "a": "../../en-shared/q/short-a-apple-cat.mp3"
+      },
+      {
+       "t": "Short e: bed, egg, pen.",
+       "a": "../../en-shared/q/short-e-bed-egg-pen.mp3"
+      },
+      {
+       "t": "Short i: pig, fish, zip.",
+       "a": "../../en-shared/q/short-i-pig-fish-zip.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 7,
+   "grp": "short"
+  },
+  {
+   "type": "circle",
+   "task": "Read and say. Circle the words with the same sound.",
+   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-same-sound.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "bag",
+     "audio": "../../en-shared/q/bag.mp3",
+     "answer": true
+    },
+    {
+     "word": "pen",
+     "audio": "../../en-shared/q/pen.mp3",
+     "answer": false
+    },
+    {
+     "word": "fan",
+     "audio": "../../en-shared/q/fan.mp3",
+     "answer": true
+    }
+   ],
+   "page": 7,
+   "ex": 1,
+   "grp": "sv"
+  },
+  {
+   "type": "circle",
+   "task": "Read and say. Circle the words with the same sound.",
+   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-same-sound.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "hen",
+     "audio": "../../en-shared/q/hen.mp3",
+     "answer": true
+    },
+    {
+     "word": "pig",
+     "audio": "../../en-shared/q/pig.mp3",
+     "answer": false
+    },
+    {
+     "word": "red",
+     "audio": "../../en-shared/q/red.mp3",
+     "answer": true
+    }
+   ],
+   "page": 7,
+   "ex": 1,
+   "grp": "sv"
+  },
+  {
+   "type": "circle",
+   "task": "Read and say. Circle the words with the same sound.",
+   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-same-sound.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "bin",
+     "audio": "../../en-shared/q/bin.mp3",
+     "answer": true
+    },
+    {
+     "word": "pot",
+     "audio": "../../en-shared/q/pot.mp3",
+     "answer": false
+    },
+    {
+     "word": "pin",
+     "audio": "../../en-shared/q/pin.mp3",
+     "answer": true
+    }
+   ],
+   "page": 7,
+   "ex": 1,
+   "grp": "sv"
+  },
+  {
+   "type": "circle",
+   "task": "Read and say. Circle the words with the same sound.",
+   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-same-sound.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "map",
+     "audio": "../../en-shared/q/map.mp3",
+     "answer": true
+    },
+    {
+     "word": "big",
+     "audio": "../../en-shared/q/big.mp3",
+     "answer": false
+    },
+    {
+     "word": "cap",
+     "audio": "../../en-shared/q/cap.mp3",
+     "answer": true
+    }
+   ],
+   "page": 7,
+   "ex": 1,
+   "grp": "sv"
+  },
+  {
+   "type": "circle",
+   "task": "Read and say. Circle the words with the same sound.",
+   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-same-sound.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "ten",
+     "audio": "../../en-shared/q/ten.mp3",
+     "answer": true
+    },
+    {
+     "word": "pet",
+     "audio": "../../en-shared/q/pet.mp3",
+     "answer": true
+    },
+    {
+     "word": "hit",
+     "audio": "../../en-shared/q/hit.mp3",
+     "answer": false
+    }
+   ],
+   "page": 7,
+   "ex": 1,
+   "grp": "sv"
+  },
+  {
+   "type": "link",
+   "task": "Match the words with the same sound.",
+   "taskAudio": "../../en-shared/q/match-the-words-with-the-same-sound.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "cat",
+     "text2": "bat",
+     "audio": "../../en-shared/q/cat.mp3",
+     "audio2": "../../en-shared/q/bat.mp3"
+    },
+    {
+     "word": "wig",
+     "text2": "zip",
+     "audio": "../../en-shared/q/wig.mp3",
+     "audio2": "../../en-shared/q/zip.mp3"
+    },
+    {
+     "word": "bed",
+     "text2": "vet",
+     "audio": "../../en-shared/q/bed.mp3",
+     "audio2": "../../en-shared/q/vet.mp3"
+    }
+   ],
+   "page": 7,
+   "ex": 2
+  },
+  {
+   "type": "explain",
+   "task": "Reading Comprehension. Listen and read.",
+   "taskAudio": "../../en-shared/q/reading-comprehension-listen-and-read.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "lines": [
+      {
+       "t": "Forest Friends",
+       "a": "../../en-shared/q/forest-friends.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "Look at the big, brown bear!",
+       "a": "../../en-shared/q/look-at-the-big-brown-bear.mp3"
+      },
+      {
+       "t": "The bear lives in the forest.",
+       "a": "../../en-shared/q/the-bear-lives-in-the-forest.mp3"
+      },
+      {
+       "t": "Bears have thick fur to keep them warm.",
+       "a": "../../en-shared/q/bears-have-thick-fur-to-keep-them-warm.mp3"
+      },
+      {
+       "t": "They have strong paws and big claws.",
+       "a": "../../en-shared/q/they-have-strong-paws-and-big-claws.mp3"
+      },
+      {
+       "t": "Bears like to eat berries and fish.",
+       "a": "../../en-shared/q/bears-like-to-eat-berries-and-fish.mp3"
+      },
+      {
+       "t": "In winter, bears sleep for a very long time in a den.",
+       "a": "../../en-shared/q/in-winter-bears-sleep-for-a-very-long-time-in-a-den.mp3"
+      },
+      {
+       "t": "Now look at the busy, little squirrel!",
+       "a": "../../en-shared/q/now-look-at-the-busy-little-squirrel.mp3"
+      },
+      {
+       "t": "The squirrel also lives in the forest.",
+       "a": "../../en-shared/q/the-squirrel-also-lives-in-the-forest.mp3"
+      },
+      {
+       "t": "Squirrels have bushy tails and small paws.",
+       "a": "../../en-shared/q/squirrels-have-bushy-tails-and-small-paws.mp3"
+      },
+      {
+       "t": "They like to eat nuts and seeds.",
+       "a": "../../en-shared/q/they-like-to-eat-nuts-and-seeds.mp3"
+      },
+      {
+       "t": "Squirrels are very fast.",
+       "a": "../../en-shared/q/squirrels-are-very-fast.mp3"
+      },
+      {
+       "t": "They run and climb trees to find their food.",
+       "a": "../../en-shared/q/they-run-and-climb-trees-to-find-their-food.mp3"
+      },
+      {
+       "t": "In winter, squirrels look for the nuts they hid in the ground.",
+       "a": "../../en-shared/q/in-winter-squirrels-look-for-the-nuts-they-hid-in-the-ground.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 8,
+   "grp": "forest"
+  },
+  {
+   "type": "mcq",
+   "task": "Circle the best answer for each question.",
+   "taskAudio": "../../en-shared/q/circle-the-best-answer-for-each-question.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "Where do BOTH the bear and the squirrel live?",
+     "options": [
+      "In the ocean",
+      "In the forest",
+      "In a house"
+     ],
+     "answer": 1,
+     "word": "Both the bear and the squirrel live in the forest.",
+     "audio": "../../en-shared/q/both-the-bear-and-the-squirrel-live-in-the-forest.mp3"
+    },
+    {
+     "stem": "What does the bear eat?",
+     "options": [
+      "Nuts",
+      "Berries and fish",
+      "Seeds"
+     ],
+     "answer": 1,
+     "word": "The bear eats berries and fish.",
+     "audio": "../../en-shared/q/the-bear-eats-berries-and-fish.mp3"
+    },
+    {
+     "stem": "What does the squirrel eat?",
+     "options": [
+      "Berries",
+      "Fish",
+      "Nuts and seeds"
+     ],
+     "answer": 2,
+     "word": "The squirrel eats nuts and seeds.",
+     "audio": "../../en-shared/q/the-squirrel-eats-nuts-and-seeds.mp3"
+    },
+    {
+     "stem": "How are the bear and the squirrel DIFFERENT in winter?",
+     "options": [
+      "The bear sleeps, and the squirrel looks for food.",
+      "The squirrel sleeps, and the bear looks for food.",
+      "Both sleep in winter."
+     ],
+     "answer": 0,
+     "word": "The bear sleeps, and the squirrel looks for food.",
+     "audio": "../../en-shared/q/the-bear-sleeps-and-the-squirrel-looks-for-food.mp3"
+    }
+   ],
+   "page": 8,
+   "ex": 1,
+   "grp": "forest"
+  },
+  {
+   "type": "explain",
+   "task": "Grammar. Verb to be.",
+   "taskAudio": "../../en-shared/q/grammar-verb-to-be.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "lines": [
+      {
+       "t": "Verb to be",
+       "a": "../../en-shared/q/verb-to-be.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "I am.",
+       "a": "../../en-shared/q/i-am.mp3"
+      },
+      {
+       "t": "He is. She is. It is.",
+       "a": "../../en-shared/q/he-is-she-is-it-is.mp3"
+      },
+      {
+       "t": "We are. You are. They are.",
+       "a": "../../en-shared/q/we-are-you-are-they-are.mp3"
+      }
+     ],
+     "table": {
+      "title": "Long Form and Short Form",
+      "rows": [
+       [
+        {
+         "t": "I am a good girl.",
+         "a": "../../en-shared/q/i-am-a-good-girl.mp3"
+        },
+        {
+         "t": "I'm a good girl.",
+         "a": "../../en-shared/q/i-m-a-good-girl.mp3"
+        }
+       ],
+       [
+        {
+         "t": "He is a teacher.",
+         "a": "../../en-shared/q/he-is-a-teacher.mp3"
+        },
+        {
+         "t": "He's a teacher.",
+         "a": "../../en-shared/q/he-s-a-teacher.mp3"
+        }
+       ],
+       [
+        {
+         "t": "We are in the class.",
+         "a": "../../en-shared/q/we-are-in-the-class.mp3"
+        },
+        {
+         "t": "We're in the class.",
+         "a": "../../en-shared/q/we-re-in-the-class.mp3"
+        }
+       ],
+       [
+        {
+         "t": "You are a nice person.",
+         "a": "../../en-shared/q/you-are-a-nice-person.mp3"
+        },
+        {
+         "t": "You're a nice person.",
+         "a": "../../en-shared/q/you-re-a-nice-person.mp3"
+        }
+       ]
+      ]
+     }
+    }
+   ],
+   "page": 9,
+   "grp": "tobe"
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "I ____ happy today.",
+     "options": [
+      "am",
+      "is",
+      "are"
+     ],
+     "answer": 0,
+     "word": "I am happy today.",
+     "audio": "../../en-shared/q/i-am-happy-today.mp3",
+     "parts": [
+      "../../en-shared/q/i.mp3",
+      "../../en-shared/q/happy-today.mp3"
+     ]
+    },
+    {
+     "stem": "She ____ my best friend.",
+     "options": [
+      "am",
+      "is",
+      "are"
+     ],
+     "answer": 1,
+     "word": "She is my best friend.",
+     "audio": "../../en-shared/q/she-is-my-best-friend.mp3",
+     "parts": [
+      "../../en-shared/q/she.mp3",
+      "../../en-shared/q/my-best-friend.mp3"
+     ]
+    },
+    {
+     "stem": "They ____ playing in the park.",
+     "options": [
+      "am",
+      "is",
+      "are"
+     ],
+     "answer": 2,
+     "word": "They are playing in the park.",
+     "audio": "../../en-shared/q/they-are-playing-in-the-park.mp3",
+     "parts": [
+      "../../en-shared/q/they.mp3",
+      "../../en-shared/q/playing-in-the-park.mp3"
+     ]
+    },
+    {
+     "stem": "He ____ a good student.",
+     "options": [
+      "am",
+      "is",
+      "are"
+     ],
+     "answer": 1,
+     "word": "He is a good student.",
+     "audio": "../../en-shared/q/he-is-a-good-student.mp3",
+     "parts": [
+      "../../en-shared/q/he.mp3",
+      "../../en-shared/q/a-good-student.mp3"
+     ]
+    },
+    {
+     "stem": "We ____ ready for the trip.",
+     "options": [
+      "am",
+      "is",
+      "are"
+     ],
+     "answer": 2,
+     "word": "We are ready for the trip.",
+     "audio": "../../en-shared/q/we-are-ready-for-the-trip.mp3",
+     "parts": [
+      "../../en-shared/q/we.mp3",
+      "../../en-shared/q/ready-for-the-trip.mp3"
+     ]
+    },
+    {
+     "stem": "It ____ a sunny day.",
+     "options": [
+      "am",
+      "is",
+      "are"
+     ],
+     "answer": 1,
+     "word": "It is a sunny day.",
+     "audio": "../../en-shared/q/it-is-a-sunny-day.mp3",
+     "parts": [
+      "../../en-shared/q/it.mp3",
+      "../../en-shared/q/a-sunny-day.mp3"
+     ]
+    },
+    {
+     "stem": "You ____ kind to everyone.",
+     "options": [
+      "am",
+      "is",
+      "are"
+     ],
+     "answer": 2,
+     "word": "You are kind to everyone.",
+     "audio": "../../en-shared/q/you-are-kind-to-everyone.mp3",
+     "parts": [
+      "../../en-shared/q/you.mp3",
+      "../../en-shared/q/kind-to-everyone.mp3"
+     ]
+    },
+    {
+     "stem": "The cat ____ on the mat.",
+     "options": [
+      "am",
+      "is",
+      "are"
+     ],
+     "answer": 1,
+     "word": "The cat is on the mat.",
+     "audio": "../../en-shared/q/the-cat-is-on-the-mat.mp3",
+     "parts": [
+      "../../en-shared/q/the-cat.mp3",
+      "../../en-shared/q/on-the-mat.mp3"
+     ]
+    },
+    {
+     "stem": "My parents ____ at home.",
+     "options": [
+      "am",
+      "is",
+      "are"
+     ],
+     "answer": 2,
+     "word": "My parents are at home.",
+     "audio": "../../en-shared/q/my-parents-are-at-home.mp3",
+     "parts": [
+      "../../en-shared/q/my-parents.mp3",
+      "../../en-shared/q/at-home.mp3"
+     ]
+    },
+    {
+     "stem": "This ____ an interesting book.",
+     "options": [
+      "am",
+      "is",
+      "are"
+     ],
+     "answer": 1,
+     "word": "This is an interesting book.",
+     "audio": "../../en-shared/q/this-is-an-interesting-book.mp3",
+     "parts": [
+      "../../en-shared/q/this.mp3",
+      "../../en-shared/q/an-interesting-book.mp3"
+     ]
+    }
+   ],
+   "page": 10,
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "task": "Complete the sentences using 'm, 's or 're.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences-using-m-s-or-re.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "I ____ happy to see my grandma.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 0,
+     "word": "I am happy to see my grandma.",
+     "audio": "../../en-shared/q/i-am-happy-to-see-my-grandma.mp3",
+     "parts": [
+      "../../en-shared/q/i.mp3",
+      "../../en-shared/q/happy-to-see-my-grandma.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ]
+    },
+    {
+     "stem": "My dad ____ tall and strong.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 1,
+     "word": "My dad is tall and strong.",
+     "audio": "../../en-shared/q/my-dad-is-tall-and-strong.mp3",
+     "parts": [
+      "../../en-shared/q/my-dad.mp3",
+      "../../en-shared/q/tall-and-strong.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ]
+    },
+    {
+     "stem": "It ____ my dad's car.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 1,
+     "word": "It is my dad's car.",
+     "audio": "../../en-shared/q/it-is-my-dad-s-car.mp3",
+     "parts": [
+      "../../en-shared/q/it.mp3",
+      "../../en-shared/q/my-dad-s-car.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ]
+    },
+    {
+     "stem": "You ____ a kind cousin.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 2,
+     "word": "You are a kind cousin.",
+     "audio": "../../en-shared/q/you-are-a-kind-cousin.mp3",
+     "parts": [
+      "../../en-shared/q/you.mp3",
+      "../../en-shared/q/a-kind-cousin.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ]
+    },
+    {
+     "stem": "He ____ my brave big brother.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 1,
+     "word": "He is my brave big brother.",
+     "audio": "../../en-shared/q/he-is-my-brave-big-brother.mp3",
+     "parts": [
+      "../../en-shared/q/he.mp3",
+      "../../en-shared/q/my-brave-big-brother.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ]
+    },
+    {
+     "stem": "They ____ my grandparents.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 2,
+     "word": "They are my grandparents.",
+     "audio": "../../en-shared/q/they-are-my-grandparents.mp3",
+     "parts": [
+      "../../en-shared/q/they.mp3",
+      "../../en-shared/q/my-grandparents.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ]
+    },
+    {
+     "stem": "She ____ my sweet little cousin.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 1,
+     "word": "She is my sweet little cousin.",
+     "audio": "../../en-shared/q/she-is-my-sweet-little-cousin.mp3",
+     "parts": [
+      "../../en-shared/q/she.mp3",
+      "../../en-shared/q/my-sweet-little-cousin.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ]
+    },
+    {
+     "stem": "My grandpa ____ a professional storyteller.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 1,
+     "word": "My grandpa is a professional storyteller.",
+     "audio": "../../en-shared/q/my-grandpa-is-a-professional-storyteller.mp3",
+     "parts": [
+      "../../en-shared/q/my-grandpa.mp3",
+      "../../en-shared/q/a-professional-storyteller.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ]
+    },
+    {
+     "stem": "You ____ part of our wonderful family.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 2,
+     "word": "You are part of our wonderful family.",
+     "audio": "../../en-shared/q/you-are-part-of-our-wonderful-family.mp3",
+     "parts": [
+      "../../en-shared/q/you.mp3",
+      "../../en-shared/q/part-of-our-wonderful-family.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ]
+    },
+    {
+     "stem": "The baby ____ in his bed.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 1,
+     "word": "The baby is in his bed.",
+     "audio": "../../en-shared/q/the-baby-is-in-his-bed.mp3",
+     "parts": [
+      "../../en-shared/q/the-baby.mp3",
+      "../../en-shared/q/in-his-bed.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ]
+    }
+   ],
+   "page": 11,
+   "ex": 2
+  },
+  {
+   "type": "cloze",
+   "task": "Complete the following text using 'm, 's or 're.",
+   "taskAudio": "../../en-shared/q/complete-the-following-text-using-m-s-or-re.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "text": "Our Beach Vacation! Hello! My name [['s]] Maya. I [['m]] so happy! We [['re]] on vacation at the beach. My mom [['s]] swimming in the ocean. My dad [['s]] building a big sandcastle. The weather [['s]] warm and sunny! We [['re]] having a great time!",
+     "bank": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "audio": "../../en-shared/q/our-beach-vacation-hello-my-name-s-maya-i-m-so-hap-4a62a41b.mp3",
+     "reuse": true,
+     "bankSay": [
+      "am",
+      "is",
+      "are"
+     ]
+    }
+   ],
+   "page": 11,
+   "ex": 3
+  },
+  {
+   "type": "mcq",
+   "task": "Correct the mistake in each sentence.",
+   "taskAudio": "../../en-shared/q/correct-the-mistake-in-each-sentence.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "My dog ____ very playful.",
+     "options": [
+      "am",
+      "is",
+      "are"
+     ],
+     "answer": 1,
+     "word": "My dog is very playful.",
+     "audio": "../../en-shared/q/my-dog-is-very-playful.mp3",
+     "parts": [
+      "../../en-shared/q/my-dog.mp3",
+      "../../en-shared/q/very-playful.mp3"
+     ],
+     "ask": "My dog are very playful."
+    },
+    {
+     "stem": "You ____ a good friend.",
+     "options": [
+      "am",
+      "is",
+      "are"
+     ],
+     "answer": 2,
+     "word": "You are a good friend.",
+     "audio": "../../en-shared/q/you-are-a-good-friend.mp3",
+     "parts": [
+      "../../en-shared/q/you.mp3",
+      "../../en-shared/q/a-good-friend.mp3"
+     ],
+     "ask": "You is a good friend."
+    },
+    {
+     "stem": "I ____ happy to see you.",
+     "options": [
+      "am",
+      "is",
+      "are"
+     ],
+     "answer": 0,
+     "word": "I am happy to see you.",
+     "audio": "../../en-shared/q/i-am-happy-to-see-you.mp3",
+     "parts": [
+      "../../en-shared/q/i.mp3",
+      "../../en-shared/q/happy-to-see-you.mp3"
+     ],
+     "ask": "I is happy to see you."
+    }
+   ],
+   "page": 12,
+   "ex": 4
+  }
+ ]
+}

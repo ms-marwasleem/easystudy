@@ -1,0 +1,282 @@
+{
+ "id": "u2l2",
+ "unit": 2,
+ "lesson": 2,
+ "type": "listening",
+ "title": "نشيد: لوحتي الجديدة",
+ "task": "نشيد لوحتي الجديدة",
+ "scene": "scene.jpg",
+ "sceneAlt": "أسد وفيل ونمر صغير",
+ "picture": "scene.jpg",
+ "compact": true,
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "end": 12.0,
+ "speakers": {},
+ "lines": [
+  {
+   "words": [
+    [
+     "سَأَرْسُمُ",
+     0.3,
+     0.8
+    ],
+    [
+     "الْأُسُودَ",
+     0.8,
+     1.3
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "وَالْفِيلَ",
+     1.7,
+     2.2
+    ],
+    [
+     "وَالْقُرُودَ",
+     2.2,
+     2.7
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "وَأَرْنَبًا",
+     3.1,
+     3.6
+    ],
+    [
+     "وَقِطًّا",
+     3.6,
+     4.1
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "وَثَعْلَبًا",
+     4.5,
+     5.0
+    ],
+    [
+     "وَبَطًّا",
+     5.0,
+     5.5
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "وَبُلْبُلًا",
+     5.9,
+     6.4
+    ],
+    [
+     "وَنَسْرًا",
+     6.4,
+     6.9
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "وَبُومَةً",
+     7.3,
+     7.8
+    ],
+    [
+     "وَصَقْرًا",
+     7.8,
+     8.3
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "فَلَوْحَتِي",
+     8.7,
+     9.2
+    ],
+    [
+     "الْجَدِيدَةْ",
+     9.2,
+     9.7
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "عَنْ",
+     10.1,
+     10.6
+    ],
+    [
+     "غَابَةٍ",
+     10.6,
+     11.1
+    ],
+    [
+     "سَعِيدَةْ",
+     11.1,
+     11.6
+    ]
+   ]
+  }
+ ],
+ "hints": {
+  "read": "اضغط هنا واسمع النشيد!",
+  "word": "اضغط على أي كلمة تسمعها",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "سَعِيدَةٌ",
+   "img": "scene.jpg",
+   "audio": {
+    "word": "words/saida.mp3"
+   },
+   "parts": [
+    {
+     "t": "سَعِيدَةٌ"
+    }
+   ],
+   "ar": "مَعْنَاهَا: مَسْرُورَةٌ",
+   "rel": {
+    "label": "مَعْنَاهَا",
+    "text": "مَسْرُورَةٌ",
+    "labelAudio": "../u1l2/words/lbl-meaning.mp3",
+    "audio": "words/m-saida.mp3"
+   }
+  },
+  {
+   "word": "أَرْنَب",
+   "img": "../../pics/ar-rabbit.png",
+   "audio": {
+    "word": "../u1l3/words/arnab.mp3"
+   },
+   "parts": [
+    {
+     "t": "أَرْنَب"
+    }
+   ],
+   "ar": "جَمْعُهُ: أَرَانِبُ",
+   "rel": {
+    "label": "جَمْعُهُ",
+    "text": "أَرَانِبُ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "words/m-arnab.mp3"
+   }
+  },
+  {
+   "word": "بُلْبُل",
+   "img": "../../pics/bird.png",
+   "audio": {
+    "word": "../u2l1/words/bulbul.mp3"
+   },
+   "parts": [
+    {
+     "t": "بُلْبُل"
+    }
+   ],
+   "ar": "جَمْعُهُ: بَلَابِلُ",
+   "rel": {
+    "label": "جَمْعُهُ",
+    "text": "بَلَابِلُ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "words/m-bulbul.mp3"
+   }
+  },
+  {
+   "word": "فِيل",
+   "img": "../../pics/ar-elephant.png",
+   "audio": {
+    "word": "../u1l3/q/c5-fil.mp3"
+   },
+   "parts": [
+    {
+     "t": "فِيل"
+    }
+   ],
+   "ar": "جَمْعُهُ: أَفْيَالٌ",
+   "rel": {
+    "label": "جَمْعُهُ",
+    "text": "أَفْيَالٌ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "words/m-fil.mp3"
+   }
+  },
+  {
+   "word": "نَسْر",
+   "img": "scene.jpg",
+   "audio": {
+    "word": "words/nasr.mp3"
+   },
+   "parts": [
+    {
+     "t": "نَسْر"
+    }
+   ],
+   "ar": "جَمْعُهُ: نُسُورٌ",
+   "rel": {
+    "label": "جَمْعُهُ",
+    "text": "نُسُورٌ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "words/m-nasr.mp3"
+   }
+  },
+  {
+   "word": "الْقُرُود",
+   "img": "scene.jpg",
+   "audio": {
+    "word": "words/qurud.mp3"
+   },
+   "parts": [
+    {
+     "t": "الْقُرُود"
+    }
+   ],
+   "ar": "مُفْرَدُهُ: الْقِرْدُ",
+   "rel": {
+    "label": "مُفْرَدُهُ",
+    "text": "الْقِرْدُ",
+    "labelAudio": "words/lbl-singular.mp3",
+    "audio": "words/m-qurud.mp3"
+   }
+  },
+  {
+   "word": "الْأُسُود",
+   "img": "../../pics/ar-lion.png",
+   "audio": {
+    "word": "words/usud.mp3"
+   },
+   "parts": [
+    {
+     "t": "الْأُسُود"
+    }
+   ],
+   "ar": "مُفْرَدُهُ: الْأَسَدُ",
+   "rel": {
+    "label": "مُفْرَدُهُ",
+    "text": "الْأَسَدُ",
+    "labelAudio": "words/lbl-singular.mp3",
+    "audio": "words/m-usud.mp3"
+   }
+  }
+ ],
+ "vocabRepeats": 3,
+ "vocabMode": "meaning"
+}

@@ -1,0 +1,857 @@
+{
+ "sets": [
+  {
+   "type": "order",
+   "task": "Revision on Unit 1. Vocabulary. Write the words.",
+   "taskAudio": "../../en-shared/q/revision-on-unit-1-vocabulary-write-the-words.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "chunks": [
+      "l",
+      "o",
+      "u",
+      "d"
+     ],
+     "end": "",
+     "word": "loud",
+     "audio": "../../en-shared/q/loud.mp3",
+     "say": [
+      "l",
+      "o",
+      "u",
+      "d"
+     ],
+     "img": "img/loud.jpg"
+    },
+    {
+     "chunks": [
+      "b",
+      "a",
+      "b",
+      "y"
+     ],
+     "end": "",
+     "word": "baby",
+     "audio": "../../en-shared/q/baby.mp3",
+     "say": [
+      "b",
+      "a",
+      "b",
+      "y"
+     ],
+     "img": "img/baby.png"
+    },
+    {
+     "chunks": [
+      "b",
+      "o",
+      "r",
+      "i",
+      "n",
+      "g"
+     ],
+     "end": "",
+     "word": "boring",
+     "audio": "../../en-shared/q/boring.mp3",
+     "say": [
+      "b",
+      "o",
+      "r",
+      "i",
+      "n",
+      "g"
+     ],
+     "img": "img/boring.jpg"
+    },
+    {
+     "chunks": [
+      "q",
+      "u",
+      "i",
+      "e",
+      "t"
+     ],
+     "end": "",
+     "word": "quiet",
+     "audio": "../../en-shared/q/quiet.mp3",
+     "say": [
+      "q",
+      "u",
+      "i",
+      "e",
+      "t"
+     ],
+     "img": "img/quiet.jpg"
+    },
+    {
+     "chunks": [
+      "g",
+      "r",
+      "a",
+      "n",
+      "d",
+      "m",
+      "a"
+     ],
+     "end": "",
+     "word": "grandma",
+     "audio": "../../en-shared/q/grandma.mp3",
+     "say": [
+      "g",
+      "r",
+      "a",
+      "n",
+      "d",
+      "m",
+      "a"
+     ],
+     "img": "img/grandma.jpg"
+    }
+   ],
+   "page": 24,
+   "ex": 1
+  },
+  {
+   "type": "cloze",
+   "task": "Complete the sentences.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "text": "A Fun Saturday! On Saturday morning, I was [[awake]] early. My [[mom]] was already up and very [[busy]] in the kitchen, making pancakes! I ran very [[fast]] to help her. Eating pancakes with my family is so much [[fun]]!",
+     "bank": [
+      "busy",
+      "awake",
+      "fun",
+      "fast",
+      "mom"
+     ],
+     "audio": "../../en-shared/q/a-fun-saturday-on-saturday-morning-i-was-awake-ear-c5fe1a58.mp3"
+    }
+   ],
+   "page": 24,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Grammar. Complete the following questions using Is or Are.",
+   "taskAudio": "../../en-shared/q/grammar-complete-the-following-questions-using-is-or-are.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "____ your cousin funny? Yes, he is.",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "Is your cousin funny? Yes, he is.",
+     "audio": "../../en-shared/q/is-your-cousin-funny-yes-he-is.mp3",
+     "parts": [
+      "../../en-shared/q/your-cousin-funny-yes-he-is.mp3"
+     ]
+    },
+    {
+     "stem": "____ the flowers pretty? Yes, they are.",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 1,
+     "word": "Are the flowers pretty? Yes, they are.",
+     "audio": "../../en-shared/q/are-the-flowers-pretty-yes-they-are.mp3",
+     "parts": [
+      "../../en-shared/q/the-flowers-pretty-yes-they-are.mp3"
+     ]
+    },
+    {
+     "stem": "____ the sky blue? Yes, it is.",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "Is the sky blue? Yes, it is.",
+     "audio": "../../en-shared/q/is-the-sky-blue-yes-it-is.mp3",
+     "parts": [
+      "../../en-shared/q/the-sky-blue-yes-it-is.mp3"
+     ]
+    },
+    {
+     "stem": "____ your favorite color red? No, it isn't.",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "Is your favorite color red? No, it isn't.",
+     "audio": "../../en-shared/q/is-your-favorite-color-red-no-it-isn-t.mp3",
+     "parts": [
+      "../../en-shared/q/your-favorite-color-red-no-it-isn-t.mp3"
+     ]
+    },
+    {
+     "stem": "____ you tired? No, I'm not.",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 1,
+     "word": "Are you tired? No, I'm not.",
+     "audio": "../../en-shared/q/are-you-tired-no-i-m-not.mp3",
+     "parts": [
+      "../../en-shared/q/you-tired-no-i-m-not.mp3"
+     ]
+    }
+   ],
+   "page": 25,
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "task": "Complete the sentences using 'm, 's or 're.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences-using-m-s-or-re.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "He ____ my big brother.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 1,
+     "word": "He is my big brother.",
+     "audio": "../../en-shared/q/he-is-my-big-brother.mp3",
+     "parts": [
+      "../../en-shared/q/he.mp3",
+      "../../en-shared/q/my-big-brother.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ]
+    },
+    {
+     "stem": "We ____ ready for school.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 2,
+     "word": "We are ready for school.",
+     "audio": "../../en-shared/q/we-are-ready-for-school.mp3",
+     "parts": [
+      "../../en-shared/q/we.mp3",
+      "../../en-shared/q/ready-for-school.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ]
+    },
+    {
+     "stem": "It ____ a beautiful day outside.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 1,
+     "word": "It is a beautiful day outside.",
+     "audio": "../../en-shared/q/it-is-a-beautiful-day-outside.mp3",
+     "parts": [
+      "../../en-shared/q/it.mp3",
+      "../../en-shared/q/a-beautiful-day-outside.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ]
+    },
+    {
+     "stem": "You ____ a great artist!",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 2,
+     "word": "You are a great artist!",
+     "audio": "../../en-shared/q/you-are-a-great-artist.mp3",
+     "parts": [
+      "../../en-shared/q/you.mp3",
+      "../../en-shared/q/a-great-artist.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ]
+    },
+    {
+     "stem": "This ____ my favorite toy.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 1,
+     "word": "This is my favorite toy.",
+     "audio": "../../en-shared/q/this-is-my-favorite-toy.mp3",
+     "parts": [
+      "../../en-shared/q/this.mp3",
+      "../../en-shared/q/my-favorite-toy.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ]
+    }
+   ],
+   "page": 25,
+   "ex": 2
+  },
+  {
+   "type": "choice",
+   "task": "Model 1. Listen and circle.",
+   "taskAudio": "../../en-shared/q/model-1-listen-and-circle.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "pic": "img/rv-boring.jpg",
+     "options": [
+      "awake",
+      "boring"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/boring.mp3",
+     "word": "boring"
+    },
+    {
+     "pic": "img/rv-busy.jpg",
+     "options": [
+      "busy",
+      "slow"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/busy.mp3",
+     "word": "busy"
+    },
+    {
+     "pic": "img/rv-fast.jpg",
+     "options": [
+      "asleep",
+      "fast"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/fast.mp3",
+     "word": "fast"
+    },
+    {
+     "pic": "img/rv-awake.jpg",
+     "options": [
+      "awake",
+      "asleep"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/awake.mp3",
+     "word": "awake"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "task": "Model 1. Read and match.",
+   "taskAudio": "../../en-shared/q/model-1-read-and-match.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "dad",
+     "pic": "img/rv-dad.jpg",
+     "audio": "../../en-shared/q/dad.mp3"
+    },
+    {
+     "word": "uncle",
+     "pic": "img/rv-uncle.jpg",
+     "audio": "../../en-shared/q/uncle.mp3"
+    },
+    {
+     "word": "brother",
+     "pic": "img/rv-brother.jpg",
+     "audio": "../../en-shared/q/brother.mp3"
+    },
+    {
+     "word": "grandpa",
+     "pic": "img/rv-grandpa.jpg",
+     "audio": "../../en-shared/q/grandpa.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "task": "Model 1. Look and write the missing letters.",
+   "taskAudio": "../../en-shared/q/model-1-look-and-write-the-missing-letters.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "fun",
+     "missing": 0,
+     "answer": "f",
+     "pic": "img/rv-fun.jpg",
+     "audio": "../../en-shared/q/fun.mp3"
+    },
+    {
+     "word": "asleep",
+     "missing": 5,
+     "answer": "p",
+     "pic": "img/rv-asleep.jpg",
+     "audio": "../../en-shared/q/asleep.mp3"
+    },
+    {
+     "word": "grandma",
+     "missing": 5,
+     "answer": "m",
+     "pic": "img/rv-grandma.jpg",
+     "audio": "../../en-shared/q/grandma.mp3"
+    },
+    {
+     "word": "slow",
+     "missing": 0,
+     "answer": "s",
+     "pic": "img/rv-slow.jpg",
+     "audio": "../../en-shared/q/slow.mp3"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "task": "Model 1. Reorder the words to form a sentence.",
+   "taskAudio": "../../en-shared/q/model-1-reorder-the-words-to-form-a-sentence.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "chunks": [
+      "My",
+      "mom",
+      "is",
+      "awake"
+     ],
+     "end": ".",
+     "word": "My mom is awake.",
+     "audio": "../../en-shared/q/my-mom-is-awake.mp3"
+    },
+    {
+     "chunks": [
+      "This",
+      "is",
+      "my",
+      "friend"
+     ],
+     "end": ".",
+     "word": "This is my friend.",
+     "audio": "../../en-shared/q/this-is-my-friend.mp3"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "task": "Model 2. Listen and circle.",
+   "taskAudio": "../../en-shared/q/model-2-listen-and-circle.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "pic": "img/rv-loud.jpg",
+     "options": [
+      "slow",
+      "loud"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/loud.mp3",
+     "word": "loud"
+    },
+    {
+     "pic": "img/rv-sister.jpg",
+     "options": [
+      "sister",
+      "brother"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/sister.mp3",
+     "word": "sister"
+    },
+    {
+     "pic": "img/rv-quiet.jpg",
+     "options": [
+      "fun",
+      "quiet"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/quiet.mp3",
+     "word": "quiet"
+    },
+    {
+     "pic": "img/rv-baby.jpg",
+     "options": [
+      "baby",
+      "brother"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/baby.mp3",
+     "word": "baby"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "task": "Model 2. Read and match.",
+   "taskAudio": "../../en-shared/q/model-2-read-and-match.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "zip",
+     "pic": "img/rv-zip.jpg",
+     "audio": "../../en-shared/q/zip.mp3"
+    },
+    {
+     "word": "cousin",
+     "pic": "img/rv-cousin.jpg",
+     "audio": "../../en-shared/q/cousin.mp3"
+    },
+    {
+     "word": "lazy",
+     "pic": "img/rv-lazy.jpg",
+     "audio": "../../en-shared/q/lazy.mp3"
+    },
+    {
+     "word": "pot",
+     "pic": "img/rv-pot.jpg",
+     "audio": "../../en-shared/q/pot.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "task": "Model 2. Look and write the missing letters.",
+   "taskAudio": "../../en-shared/q/model-2-look-and-write-the-missing-letters.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "fast",
+     "missing": 0,
+     "answer": "f",
+     "pic": "img/rv-fast.jpg",
+     "audio": "../../en-shared/q/fast.mp3"
+    },
+    {
+     "word": "busy",
+     "missing": 0,
+     "answer": "b",
+     "pic": "img/rv-busy.jpg",
+     "audio": "../../en-shared/q/busy.mp3"
+    },
+    {
+     "word": "mom",
+     "missing": 1,
+     "answer": "o",
+     "pic": "img/rv-mom.jpg",
+     "audio": "../../en-shared/q/mom.mp3"
+    },
+    {
+     "word": "uncle",
+     "missing": 1,
+     "answer": "n",
+     "pic": "img/rv-uncle.jpg",
+     "audio": "../../en-shared/q/uncle.mp3"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "task": "Model 2. Reorder the words to form a sentence.",
+   "taskAudio": "../../en-shared/q/model-2-reorder-the-words-to-form-a-sentence.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "chunks": [
+      "My",
+      "grandpa",
+      "reads",
+      "a book"
+     ],
+     "end": ".",
+     "word": "My grandpa reads a book.",
+     "audio": "../../en-shared/q/my-grandpa-reads-a-book.mp3"
+    },
+    {
+     "chunks": [
+      "My",
+      "uncle",
+      "is",
+      "cool"
+     ],
+     "end": ".",
+     "word": "My uncle is cool.",
+     "audio": "../../en-shared/q/my-uncle-is-cool.mp3"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "task": "Model 3. Listen and circle.",
+   "taskAudio": "../../en-shared/q/model-3-listen-and-circle.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "pic": "img/rv-slow.jpg",
+     "options": [
+      "fast",
+      "slow"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/slow.mp3",
+     "word": "slow"
+    },
+    {
+     "pic": "img/rv-dad.jpg",
+     "options": [
+      "mom",
+      "dad"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/dad.mp3",
+     "word": "dad"
+    },
+    {
+     "pic": "img/rv-asleep.jpg",
+     "options": [
+      "asleep",
+      "fast"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/asleep.mp3",
+     "word": "asleep"
+    },
+    {
+     "pic": "img/rv-grandma.jpg",
+     "options": [
+      "grandpa",
+      "grandma"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/grandma.mp3",
+     "word": "grandma"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "task": "Model 3. Read and match.",
+   "taskAudio": "../../en-shared/q/model-3-read-and-match.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "pen",
+     "pic": "img/rv-pen.jpg",
+     "audio": "../../en-shared/q/pen.mp3"
+    },
+    {
+     "word": "cousin",
+     "pic": "img/rv-cousin.jpg",
+     "audio": "../../en-shared/q/cousin.mp3"
+    },
+    {
+     "word": "boring",
+     "pic": "img/rv-boring.jpg",
+     "audio": "../../en-shared/q/boring.mp3"
+    },
+    {
+     "word": "fun",
+     "pic": "img/rv-fun.jpg",
+     "audio": "../../en-shared/q/fun.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "task": "Model 3. Look and write the missing letters.",
+   "taskAudio": "../../en-shared/q/model-3-look-and-write-the-missing-letters.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "brother",
+     "missing": 0,
+     "answer": "b",
+     "pic": "img/rv-brother.jpg",
+     "audio": "../../en-shared/q/brother.mp3"
+    },
+    {
+     "word": "awake",
+     "missing": 0,
+     "answer": "a",
+     "pic": "img/rv-awake.jpg",
+     "audio": "../../en-shared/q/awake.mp3"
+    },
+    {
+     "word": "grandpa",
+     "missing": 0,
+     "answer": "g",
+     "pic": "img/rv-grandpa.jpg",
+     "audio": "../../en-shared/q/grandpa.mp3"
+    },
+    {
+     "word": "quiet",
+     "missing": 0,
+     "answer": "q",
+     "pic": "img/rv-quiet.jpg",
+     "audio": "../../en-shared/q/quiet.mp3"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "task": "Model 3. Reorder the words to form a sentence.",
+   "taskAudio": "../../en-shared/q/model-3-reorder-the-words-to-form-a-sentence.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "chunks": [
+      "The",
+      "baby",
+      "is",
+      "asleep"
+     ],
+     "end": ".",
+     "word": "The baby is asleep.",
+     "audio": "../../en-shared/q/the-baby-is-asleep.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "am",
+      "quiet"
+     ],
+     "end": ".",
+     "word": "I am quiet.",
+     "audio": "../../en-shared/q/i-am-quiet.mp3"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "task": "Model 4. Listen and circle.",
+   "taskAudio": "../../en-shared/q/model-4-listen-and-circle.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "pic": "img/rv-aunt.jpg",
+     "options": [
+      "uncle",
+      "aunt"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/aunt.mp3",
+     "word": "aunt"
+    },
+    {
+     "pic": "img/rv-lazy.jpg",
+     "options": [
+      "lazy",
+      "busy"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/lazy.mp3",
+     "word": "lazy"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "task": "Model 4. Read and match.",
+   "taskAudio": "../../en-shared/q/model-4-read-and-match.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "fun",
+     "pic": "img/rv-fun.jpg",
+     "audio": "../../en-shared/q/fun.mp3"
+    },
+    {
+     "word": "sister",
+     "pic": "img/rv-sister.jpg",
+     "audio": "../../en-shared/q/sister.mp3"
+    },
+    {
+     "word": "baby",
+     "pic": "img/rv-baby.jpg",
+     "audio": "../../en-shared/q/baby.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "task": "Model 4. Look and write the missing letters.",
+   "taskAudio": "../../en-shared/q/model-4-look-and-write-the-missing-letters.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "dad",
+     "missing": 1,
+     "answer": "a",
+     "pic": "img/rv-dad.jpg",
+     "audio": "../../en-shared/q/dad.mp3"
+    },
+    {
+     "word": "busy",
+     "missing": 2,
+     "answer": "s",
+     "pic": "img/rv-busy.jpg",
+     "audio": "../../en-shared/q/busy.mp3"
+    },
+    {
+     "word": "boring",
+     "missing": 5,
+     "answer": "n",
+     "pic": "img/rv-boring.jpg",
+     "audio": "../../en-shared/q/boring.mp3"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "task": "Model 4. Reorder the words to form a sentence.",
+   "taskAudio": "../../en-shared/q/model-4-reorder-the-words-to-form-a-sentence.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "chunks": [
+      "The",
+      "turtle",
+      "is",
+      "slow"
+     ],
+     "end": ".",
+     "word": "The turtle is slow.",
+     "audio": "../../en-shared/q/the-turtle-is-slow.mp3"
+    },
+    {
+     "chunks": [
+      "These",
+      "are",
+      "my",
+      "friends"
+     ],
+     "end": ".",
+     "word": "These are my friends.",
+     "audio": "../../en-shared/q/these-are-my-friends.mp3"
+    }
+   ]
+  }
+ ]
+}

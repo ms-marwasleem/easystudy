@@ -1,0 +1,286 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 122,
+   "task": "اسْتَمِعْ وَضَعْ عَلَامَةً تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الصَّادِ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/635/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الصاد",
+   "silent": true,
+   "items": [
+    {
+     "word": "cactus",
+     "pic": "../../pics/ar-cactus.png",
+     "answer": true
+    },
+    {
+     "word": "fish",
+     "pic": "../../pics/ar-fish.png",
+     "answer": false
+    },
+    {
+     "word": "rocket",
+     "pic": "../../pics/ar-rocket.png",
+     "answer": true
+    },
+    {
+     "word": "scissors",
+     "pic": "../../pics/ar-scissors.png",
+     "answer": true
+    },
+    {
+     "word": "chair",
+     "pic": "../../pics/ar-chair.png",
+     "answer": false
+    },
+    {
+     "word": "eagle",
+     "pic": "../../pics/ar-eagle.jpg",
+     "answer": true
+    },
+    {
+     "word": "balloons",
+     "pic": "../../pics/ar-balloons.png",
+     "answer": false
+    },
+    {
+     "word": "rod",
+     "pic": "../../pics/ar-rod.png",
+     "answer": true
+    },
+    {
+     "word": "pomegranate",
+     "pic": "../../pics/ar-pomegranate.png",
+     "answer": false
+    },
+    {
+     "word": "juice",
+     "pic": "../../pics/ar-juice.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 122,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الصَّادِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/635/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الصاد",
+   "items": [
+    {
+     "word": "صَقْر",
+     "pic": "../../pics/ar-eagle.jpg",
+     "audio": "words/saqr.mp3",
+     "at": 0
+    },
+    {
+     "word": "بَصَل",
+     "pic": "../../pics/ar-onion.png",
+     "audio": "words/basal.mp3",
+     "at": 1
+    },
+    {
+     "word": "مِقَصّ",
+     "pic": "../../pics/ar-scissors.png",
+     "audio": "words/miqass.mp3",
+     "at": 2
+    },
+    {
+     "word": "لِصّ",
+     "pic": "../../pics/ar-thief.png",
+     "audio": "words/liss.mp3",
+     "at": 1
+    },
+    {
+     "word": "عَصِير",
+     "pic": "../../pics/ar-juice.png",
+     "audio": "words/aseer.mp3",
+     "at": 1
+    },
+    {
+     "word": "حِصَان",
+     "pic": "../../pics/ar-horse-book.jpg",
+     "audio": "words/hisan.mp3",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 10,
+   "page": 122,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الصَّادِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/635/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الصاد",
+   "choices": [
+    "صَ",
+    "صُ",
+    "صِ",
+    "صْ"
+   ],
+   "items": [
+    {
+     "word": "صَيَّاد",
+     "pic": "../../pics/ar-fisherman.jpg",
+     "audio": "words/sayyad.mp3",
+     "answer": "صَ"
+    },
+    {
+     "word": "عُصْفُور",
+     "pic": "../../pics/ar-bird.png",
+     "audio": "words/usfur.mp3",
+     "answer": "صْ"
+    },
+    {
+     "word": "صُنْدُوق",
+     "pic": "../../pics/ar-box.png",
+     "audio": "words/sunduq.mp3",
+     "answer": "صُ"
+    },
+    {
+     "word": "صِغَار",
+     "pic": "../../pics/ar-babies.jpg",
+     "audio": "words/sighar.mp3",
+     "answer": "صِ"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 11,
+   "page": 122,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "مِصْر",
+     "pic": "../../pics/ar-flag.png",
+     "audio": "words/misr.mp3"
+    },
+    {
+     "word": "صَخْر",
+     "pic": "../../pics/ar-rock.png",
+     "audio": "words/sakhr.mp3"
+    },
+    {
+     "word": "صَقْر",
+     "pic": "../../pics/ar-eagle.jpg",
+     "audio": "words/saqr.mp3"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 12,
+   "page": 123,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "مِصْبَاح",
+     "chips": [
+      "مِصْ",
+      "بَاح"
+     ],
+     "audio": "words/misbah.mp3"
+    },
+    {
+     "word": "قَصْر",
+     "chips": [
+      "قَصْ",
+      "ر"
+     ],
+     "audio": "words/qasr.mp3"
+    },
+    {
+     "word": "إِصْبَع",
+     "chips": [
+      "إِصْ",
+      "بَ",
+      "ع"
+     ],
+     "audio": "words/isba.mp3"
+    },
+    {
+     "word": "أَصْفَر",
+     "chips": [
+      "أَصْ",
+      "فَ",
+      "ر"
+     ],
+     "audio": "words/asfar.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 13,
+   "page": 123,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "غُصْن",
+     "pic": "../../pics/ar-branch.png",
+     "audio": "words/ghusn.mp3"
+    },
+    {
+     "word": "عَصِير",
+     "pic": "../../pics/ar-juice.png",
+     "audio": "words/aseer.mp3"
+    },
+    {
+     "word": "مِقَصّ",
+     "pic": "../../pics/ar-scissors.png",
+     "audio": "words/miqass.mp3"
+    },
+    {
+     "word": "قَفَص",
+     "pic": "../../pics/ar-cage.png",
+     "audio": "words/qafas.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 15,
+   "page": 123,
+   "task": "أَقْرَأُ ثُمَّ أَصِلُ",
+   "taskAudio": "../q-prompts/match-picture.mp3",
+   "hint": "صل الكلمة بالصورة",
+   "items": [
+    {
+     "word": "عُصْفُور",
+     "pic": "../../pics/ar-bird.png"
+    },
+    {
+     "word": "صِغَار",
+     "pic": "../../pics/ar-babies.jpg"
+    },
+    {
+     "word": "صَيَّاد",
+     "pic": "../../pics/ar-fisherman.jpg"
+    },
+    {
+     "word": "مِصْبَاح",
+     "pic": "../../pics/ar-bulb.png"
+    }
+   ]
+  }
+ ]
+}

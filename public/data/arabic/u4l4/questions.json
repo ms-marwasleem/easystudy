@@ -1,0 +1,247 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 118,
+   "task": "اسْتَمِعْ وَضَعْ عَلَامَةً تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الطَّاءِ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/637/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الطاء",
+   "silent": true,
+   "items": [
+    {
+     "word": "bird",
+     "pic": "../../pics/ar-bird.png",
+     "answer": true
+    },
+    {
+     "word": "elephant",
+     "pic": "../../pics/ar-elephant.png",
+     "answer": false
+    },
+    {
+     "word": "bricks",
+     "pic": "../../pics/ar-bricks.png",
+     "answer": true
+    },
+    {
+     "word": "sun",
+     "pic": "../../pics/ar-sun.jpg",
+     "answer": false
+    },
+    {
+     "word": "strawberry",
+     "pic": "../../pics/ar-strawberry.png",
+     "answer": false
+    },
+    {
+     "word": "perfume",
+     "pic": "../../pics/ar-perfume.png",
+     "answer": true
+    },
+    {
+     "word": "belly",
+     "pic": "../../pics/ar-belly.png",
+     "answer": true
+    },
+    {
+     "word": "doctor",
+     "pic": "../../pics/ar-doctor.png",
+     "answer": true
+    },
+    {
+     "word": "pomegranate",
+     "pic": "../../pics/ar-pomegranate.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 118,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الطَّاءِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/637/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الطاء",
+   "items": [
+    {
+     "word": "قُطْن",
+     "pic": "../../pics/ar-cotton.jpg",
+     "audio": "words/qutn.mp3",
+     "at": 1
+    },
+    {
+     "word": "طَبَق",
+     "pic": "../../pics/ar-plate.jpg",
+     "audio": "words/tabaq.mp3",
+     "at": 0
+    },
+    {
+     "word": "طَائِرَة",
+     "pic": "../../pics/ar-airplane.jpg",
+     "audio": "words/tairah.mp3",
+     "at": 0
+    },
+    {
+     "word": "قِطَار",
+     "pic": "../../pics/ar-train.png",
+     "audio": "../u2l9/words/qitar.mp3",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 9,
+   "page": 118,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الطَّاءِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/637/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الطاء",
+   "choices": [
+    "طَ",
+    "طُ",
+    "طِ",
+    "طْ"
+   ],
+   "items": [
+    {
+     "word": "طَاوُوس",
+     "pic": "../../pics/ar-peacockw.png",
+     "audio": "words/tawus.mp3",
+     "answer": "طَ"
+    },
+    {
+     "word": "طُبُول",
+     "pic": "../../pics/ar-drum.png",
+     "audio": "words/tubul.mp3",
+     "answer": "طُ"
+    },
+    {
+     "word": "طِفْل",
+     "pic": "../../pics/ar-baby.png",
+     "audio": "words/tifl.mp3",
+     "answer": "طِ"
+    },
+    {
+     "word": "بَطْرِيق",
+     "pic": "../../pics/ar-penguin.png",
+     "audio": "words/batriq.mp3",
+     "answer": "طْ"
+    },
+    {
+     "word": "طُوب",
+     "pic": "../../pics/ar-bricks.png",
+     "audio": "words/tub.mp3",
+     "answer": "طُ"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 119,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "قِرْد",
+     "chips": [
+      "قِ",
+      "رْد"
+     ],
+     "audio": "../u2l6/words/qird.mp3"
+    },
+    {
+     "word": "قِطَار",
+     "chips": [
+      "قِ",
+      "طَا",
+      "ر"
+     ],
+     "audio": "../u2l9/words/qitar.mp3"
+    },
+    {
+     "word": "قَمَر",
+     "chips": [
+      "قَ",
+      "مَ",
+      "ر"
+     ],
+     "audio": "words/qamar.mp3"
+    },
+    {
+     "word": "قَدَم",
+     "chips": [
+      "قَ",
+      "دَ",
+      "م"
+     ],
+     "audio": "../u3l2/words/qadam.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 11,
+   "page": 119,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "قُطْن",
+     "pic": "../../pics/ar-cotton.jpg",
+     "audio": "words/qutn.mp3"
+    },
+    {
+     "word": "قُصُور",
+     "pic": "../../pics/ar-castle.png",
+     "audio": "words/qusur.mp3"
+    },
+    {
+     "word": "صَقْر",
+     "pic": "../../pics/ar-eagle.jpg",
+     "audio": "../u2l9/words/saqr.mp3"
+    },
+    {
+     "word": "قَمْح",
+     "pic": "../../pics/ar-wheat.jpg",
+     "audio": "words/qamh.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 13,
+   "page": 119,
+   "task": "أَقْرَأُ كُلَّ جُمْلَةٍ ثُمَّ أَصِلُهَا بِالصُّورَةِ الْمُنَاسِبَةِ لَهَا",
+   "taskAudio": "../q-prompts/match-picture.mp3",
+   "hint": "صل الجملة بالصورة",
+   "items": [
+    {
+     "word": "رَبَطَ أَبِي الْحَبْلَ",
+     "pic": "../../pics/ar-rope.jpg"
+    },
+    {
+     "word": "أُحِبُّ الْقِطَّ الْمَطَرَ",
+     "pic": "../../pics/ar-catrain.png"
+    },
+    {
+     "word": "حَمَلَتِ الْبِنْتُ الْبَطَّ",
+     "pic": "../../pics/ar-girlbasket.png"
+    }
+   ]
+  }
+ ]
+}

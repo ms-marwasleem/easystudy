@@ -14,14 +14,14 @@ function fixPaths(L,file){
   return L;
 }
 async function openLesson(m){
-  stopAll();
+  stopAll(); markOpened(m.id);
   if(!LESSON || LESSON.id!==m.id){
     busy(true);
     try{ LESSON=fixPaths(await get(m.file), m.file); LESSON.id=m.id; }catch(e){ busy(false); message('Oops!','This lesson did not load. Check the internet and try again.'); return; }
     preloadImgs([LESSON.scene,LESSON.picture,...(LESSON.pagePictures||[]),...(LESSON.vocab||[]).map(v=>v.img),...(LESSON.lines||[]).map(l=>l.pic),...Object.values(LESSON.bk||{}).map(b=>b.img)]);
     player.bufs={}; player.ready=null; vs.i=0; rd.page=1; rd.done={}; ensureAudio(); busy(false);
   }
-  show('lesson');
+  show('lesson'); LESSON.tool=m.tool||null; LESSON.toolN=m.toolN||5;
   $('#lessonMeta').textContent=`${SUBJECT.name} · ${tr(COURSE.grade)} · ${tr(COURSE.term)}`;
   $('#lesson').classList.toggle('ar',isAr()); $('#lesson').lang=isAr()?'ar':'en';
   $('#lessonTitle').textContent=isAr()?`${tr('Unit')} ${num(LESSON.unit)} · ${tr('Lesson')} ${num(LESSON.lesson)} · ${LESSON.title}`:`Unit ${LESSON.unit} · Lesson ${LESSON.lesson} · ${LESSON.title}`;
@@ -105,11 +105,14 @@ function endPlay(full){
 
 /* ---------- Tabs + rail ---------- */
 const stage=$('#stage'), rail=$('#rail'); let tab='read';
-const TABS={read:['Lesson','book'],words:['Vocabulary','abc'],quiz:['Questions','quiz']};
+const TABS={read:['Lesson','book'],words:['Vocabulary','abc'],quiz:['Questions','quiz'],booklet:['Booklet','quiz'],grammar:['Grammar','hint']};
+// English AL: the Lesson tab (book parts) and the Booklet tab both run on the questions engine (quiz.js); inQ() = a questions-style sheet is on screen
+const isAL=()=>!!(LESSON&&LESSON.type==='al'), inQ=()=>tab==='quiz'||(isAL()&&(tab==='read'||tab==='booklet')), alSrc=()=>tab==='booklet'?'booklet':'lesson', qKey=()=>isAL()?tab:'quiz';
+const KEYTAB={read:'book',quiz:'book',grammar:'book',booklet:'bk'};   // the map-key colour each tab belongs to (Words has none)
 function paintTabs(){ $$('.tab').forEach(b=>{ const [l0,ic]=TABS[b.dataset.tab], l=(LESSON&&LESSON.tabLabels&&LESSON.tabLabels[b.dataset.tab])||l0, got=LESSON&&STARS[LESSON.id]&&STARS[LESSON.id][b.dataset.tab];
-  b.innerHTML=ICON[ic]+`<span>${tr(l)}</span>`+(got?`<span class="st">${STAR(true)}</span>`:''); b.hidden=!!(LESSON&&LESSON.tabs&&!LESSON.tabs.includes(b.dataset.tab)); b.setAttribute('aria-selected',b.dataset.tab===tab); }); }   // optional "tabs": ["read","quiz"] in lesson.json shows only those tabs (Math: explanation + questions, or questions only)
+  b.dataset.book=KEYTAB[b.dataset.tab]||''; b.innerHTML=ICON[ic]+`<span>${tr(l)}</span>`+(b.dataset.book?'<i class="kd"></i>':'')+(got?`<span class="st">${STAR(true)}</span>`:''); b.hidden=LESSON&&LESSON.tabs?!LESSON.tabs.includes(b.dataset.tab):['booklet','grammar'].includes(b.dataset.tab); b.setAttribute('aria-selected',b.dataset.tab===tab); }); const tb=$('.tabs'); if(tb) tb.classList.toggle('many',$$('.tab:not([hidden])').length>3); }   // optional "tabs": ["read","quiz"] in lesson.json shows only those tabs (Math: explanation + questions, or questions only)
 function setRail(items){ rail.innerHTML=''; items.forEach(it=>{ const b=el('button','dash '+it.kind+(it.on?' on':'')+(it.icon==='restart'?' ln':''),`<span class="rb">${ICON[it.icon]}</span><span>${it.label}</span>`); b.addEventListener('click',it.click); rail.append(b); }); }
-function switchTab(t,at){ stopAll(); vStop(); hideHint(); $('#lesson').classList.remove('vtab','qtab'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); carAt(0); t==='read'?showRead():t==='words'&&LESSON.vocab?(LESSON.letter&&typeof showLetterWords==='function'?showLetterWords():showWords()):t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); }
+function switchTab(t,at){ if(typeof WP!=='undefined'&&WP.saved) wpClose(); stopAll(); vStop(); hideHint(); $('#lesson').classList.remove('vtab','qtab','lwtab'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); carAt(0); (t==='booklet'||t==='read'&&isAL())?showQuiz(at):t==='grammar'?showGrammar():t==='read'?showRead():t==='words'&&LESSON.vocab?(LESSON.letter&&typeof showLetterWords==='function'?showLetterWords():showWords()):t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); }
 $$('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
 
 // default speed: slow for a page that is a conversation (2+ speakers), normal for everything else; a child's own choice per page wins
@@ -132,7 +135,7 @@ function showRead(){
     if(np>1&&l.page!==rd.page) return;
     const row=el('li','line'), who=l.who?el('button','who',l.who+':'):el('button','who say',SAY_LN); who.style.color=(LESSON.speakers||{})[l.who]||OL;   // a story (no speaker name): a small speaker that reads the paragraph
     who.setAttribute('aria-label','Listen to this line'); who.addEventListener('click',()=>playLine(li));
-    const txt=el('span','txt');
+    const txt=el('span','txt'); if(l.color){ txt.style.color=l.color; who.style.color=l.color; }   // optional "color": a story paragraph read in a colour (the book's speaker colours)
     l.words.forEach(([w,s,e])=>{ const sp=el('span','w',w); rd.words.push({el:sp,s,e}); sp.addEventListener('click',()=>playFrom(Math.max(0,s-.04),e+.06)); txt.append(sp,' '); });
     if(l.act){ const ac=el('span','act',l.act), ic=actIcon(l.act); if(ic) ac.append(ic); txt.append(ac); }
     row.append(who,txt); ul.append(row); rd.lineEls[li]=row;
@@ -220,9 +223,10 @@ function actIcon(text){ const f=ACT_ICONS.find(([re])=>re.test(text)); if(!f) re
 function playLine(li){ const l=LESSON.lines[li]; playFrom(Math.max(0,l.words[0][1]-.05),l.words[l.words.length-1][2]+.15); }
 function readRail(){
   if(tab!=='read') return; const [ps,pe]=pageSpan(), res=!player.run&&player.pos>ps+.2, part=()=>rd.stopAt!=null&&!rd.full;
+  const on=rd.playing||player.run;   // ONE button: Read while it is quiet, Stop while it reads; a tap toggles
   setRail([
-    {kind:'go',icon:'play',label:tr(res?'Continue':'Read'),on:rd.playing,click:()=>{ if(!rd.playing) playFrom(res?player.pos:ps,pe,true); }},
-    {kind:'stop',icon:'pause',label:tr('Pause'),click:()=>{ if(part()){ stopAll(); clearMarks(); } else pausePlay(); readRail(); }},
+    on?{kind:'stop',icon:'stop',label:tr('Stop'),click:()=>{ if(part()){ stopAll(); clearMarks(); } else pausePlay(); readRail(); }}
+      :{kind:'go',icon:'play',label:tr(res?'Continue':'Read'),click:()=>playFrom(res?player.pos:ps,pe,true)},
     {kind:'again',icon:'restart',label:tr('Restart'),click:()=>playFrom(ps,pe,true)},
     {kind:'speed',icon:rd.slow?'slow':'fast',label:tr(rd.slow?'Slow':'Normal'),click:()=>{ const was=player.run&&!part(), t=now(); if(was){ halt(); player.run=false; } rd.slow=!rd.slow; rd.pick[LESSON.id+':'+rd.page]=rd.slow; if(was) playFrom(t,pe,true); else readRail(); }}
   ]);

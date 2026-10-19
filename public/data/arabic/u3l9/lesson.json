@@ -1,0 +1,274 @@
+{
+ "id": "u3l9",
+ "unit": 3,
+ "lesson": 9,
+ "type": "letter",
+ "title": "حرف الظاء",
+ "task": "أتعرّف على حرف الظاء",
+ "pages": 2,
+ "pageNums": [
+  103,
+  104
+ ],
+ "scene": "../../pics/ar-gazelle.png",
+ "sceneAlt": "ظَاء",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "ظ",
+  "name": "ظَاء",
+  "nameAudio": "../letters/638/name.mp3",
+  "pic": "../../pics/ar-gazelle.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "ظـ",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـظـ",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـظ",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "ظ",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "ظَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/638-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "ظُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/638-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "ظِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/638-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "ظْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/638-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف الظاء في الكلمة",
+   "أصوات حرف الظاء بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "ظَبْي",
+   "img": "../../pics/ar-gazelle.png",
+   "audio": {
+    "word": "words/dhabi.mp3"
+   },
+   "parts": [
+    {
+     "t": "ظَبْي",
+     "audio": "words/dhabi.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ظَهْر",
+   "img": "../../pics/ar-back.png",
+   "audio": {
+    "word": "words/dhahr.mp3"
+   },
+   "parts": [
+    {
+     "t": "ظَهْر",
+     "audio": "words/dhahr.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ظَرْف",
+   "img": "../../pics/ar-envelope.jpg",
+   "audio": {
+    "word": "words/dharf.mp3"
+   },
+   "parts": [
+    {
+     "t": "ظَرْف",
+     "audio": "words/dharf.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ظُفْر",
+   "img": "../../pics/ar-nail.jpg",
+   "audio": {
+    "word": "words/dhufr.mp3"
+   },
+   "parts": [
+    {
+     "t": "ظُفْر",
+     "audio": "words/dhufr.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ظُرُوف",
+   "img": "../../pics/ar-envelopes.png",
+   "audio": {
+    "word": "words/dhuruf.mp3"
+   },
+   "parts": [
+    {
+     "t": "ظُ",
+     "audio": "../../syl-ar/638-64f.mp3"
+    },
+    {
+     "t": "رُوف",
+     "audio": "../../syl-ar/631-64f-648-641.mp3"
+    }
+   ]
+  },
+  {
+   "word": "يَنْظُر",
+   "img": "../../pics/ar-looker.png",
+   "audio": {
+    "word": "words/yandhur.mp3"
+   },
+   "parts": [
+    {
+     "t": "يَنْ",
+     "audio": "../../syl-ar/64a-64e-646-652.mp3"
+    },
+    {
+     "t": "ظُر",
+     "audio": "../../syl-ar/638-64f-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ظِلّ",
+   "img": "../../pics/ar-shadow.png",
+   "audio": {
+    "word": "words/dhill.mp3"
+   },
+   "parts": [
+    {
+     "t": "ظِلّ",
+     "audio": "words/dhill.mp3"
+    }
+   ]
+  },
+  {
+   "word": "حَظِيرَة",
+   "img": "../../pics/ar-barn.png",
+   "audio": {
+    "word": "words/hazira.mp3"
+   },
+   "parts": [
+    {
+     "t": "حَ",
+     "audio": "../../syl-ar/62d-64e.mp3"
+    },
+    {
+     "t": "ظِي",
+     "audio": "../../syl-ar/638-650-64a.mp3"
+    },
+    {
+     "t": "رَة",
+     "audio": "../../syl-ar/631-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ظِبَاء",
+   "img": "../../pics/ar-gazelles.png",
+   "audio": {
+    "word": "words/dhiba.mp3"
+   },
+   "parts": [
+    {
+     "t": "ظِ",
+     "audio": "../../syl-ar/638-650.mp3"
+    },
+    {
+     "t": "بَاء",
+     "audio": "../../syl-ar/628-64e-627-621.mp3"
+    }
+   ]
+  },
+  {
+   "word": "عَظْمَة",
+   "img": "../../pics/ar-bone.png",
+   "audio": {
+    "word": "words/adhma.mp3"
+   },
+   "parts": [
+    {
+     "t": "عَظْ",
+     "audio": "../../syl-ar/639-64e-638-652.mp3"
+    },
+    {
+     "t": "مَة",
+     "audio": "../../syl-ar/645-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "مُظْلِم",
+   "img": "../../pics/ar-dark.png",
+   "audio": {
+    "word": "words/mudhlim.mp3"
+   },
+   "parts": [
+    {
+     "t": "مُظْ",
+     "audio": "../../syl-ar/645-64f-638-652.mp3"
+    },
+    {
+     "t": "لِم",
+     "audio": "../../syl-ar/644-650-645.mp3"
+    }
+   ]
+  },
+  {
+   "word": "عَظْم",
+   "img": "../../pics/ar-bones.png",
+   "audio": {
+    "word": "words/adhm.mp3"
+   },
+   "parts": [
+    {
+     "t": "عَظْم",
+     "audio": "words/adhm.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

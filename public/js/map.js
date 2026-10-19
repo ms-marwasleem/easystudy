@@ -16,7 +16,7 @@ let mapUnit=null;   // the unit the child chose by tapping a unit box at the end
 const wideMap=()=>true;   // landscape: the road zigzags in rows so the whole unit shows; portrait: one column
 function mkLesson(m,nextL,isCur,isLast){
   const open=!!m.file, n=lessonStars(m.id);
-  const s=el('div','jl'+(open?' open':' locked')+(isCur?' cur':'')); s.dataset.stars=n;
+  const s=el('div','jl'+(open?' open':' locked')+(isCur?' cur':'')); s.dataset.stars=n; s.dataset.touched=lessonTouched(m)?1:0;
   // the lesson sits on the road: a small square with its number, the stars above it, the name on a label across its bottom edge.
   // From it to the next lesson its pages stand beside the road, each a little sign: Book pages on one side, Workbook pages on the other.
   s.innerHTML=`<div class="jbox">`+(open?`<span class="js">${Array.from({length:lessonParts(m)},(_,k)=>`<span>${STAR(k<n)}</span>`).join('')}</span>`:'')+
@@ -24,21 +24,25 @@ function mkLesson(m,nextL,isCur,isLast){
     (open?`<span class="jt${isAr()?' ar':''}">${m.title}</span>`:'')+`</div>`+
     (open&&typeof bookSides==='function'?bookSides(m,nextL):'');
   if(isLast) s.classList.add('last');
-  $('.jcard',s).addEventListener('click',()=>{ hideHint(); if(open){ blip(600); openLesson(m); } else message(tr('Soon!'),isAr()?'الدرس ده قريبًا!':COURSE.hints.soonLesson,`<span class="car">${CAR('sad')}</span>`); });
+  $('.jbox',s).addEventListener('click',()=>{   // the whole box (number, stars, name) opens the lesson
+    hideHint(); if(open){ blip(600); openLesson(m); } else message(tr('Soon!'),isAr()?'الدرس ده قريبًا!':COURSE.hints.soonLesson,`<span class="car">${CAR('sad')}</span>`); });
   const go=(t,p)=>{ hideHint(); blip(600); bookOpen(m,t,p); };
-  $$('.jpm:not(.soon)',s).forEach(b=>b.addEventListener('click',()=>go(b.dataset.tab,+b.dataset.p)));
+  $$('.jpm:not(.soon):not(.ex):not(.tl):not(.rv)',s).forEach(b=>b.addEventListener('click',()=>go(b.dataset.tab,+b.dataset.p)));
+  $$('.jpm.ex:not(.rv)',s).forEach(b=>b.addEventListener('click',()=>{ hideHint(); blip(600); openExam(m,m.exams.find(x=>x.id===b.dataset.ex)); }));   // red signs: exam papers
+  $$('.jpm.rv',s).forEach(b=>b.addEventListener('click',()=>{ hideHint(); blip(600); const t=SUBJECT.lessons.find(x=>x.folder===b.dataset.rev); if(t) bookOpen(t,'booklet',+b.dataset.p); }));   // red sign: a revision (a lesson folder of its own, hidden from the road)
+  $$('.jpm.tl',s).forEach(b=>b.addEventListener('click',()=>{ hideHint(); blip(600); toolOpen(5); }));   // yellow circles: helper tools
   $$('.jpm.soon',s).forEach(b=>b.addEventListener('click',()=>{ hideHint(); message('Soon!',`${b.dataset.soon} pages are coming soon!`,`<span class="car">${CAR('sad')}</span>`); }));
   return s;
 }
 function drawMap(redraw){
-  const wrap=$('#mapWrap'), units=SUBJECT.units||[{unit:1}], lessons=SUBJECT.lessons;
+  const wrap=$('#mapWrap'), units=SUBJECT.units||[{unit:1}], lessons=SUBJECT.lessons.filter(l=>!l.hidden);
   // the unit the child is in: first open unit that still has stars to earn, else the last open one
   const openUnits=units.filter(u=>lessons.some(l=>l.unit===u.unit&&l.file));
   const picked=mapUnit&&openUnits.find(u=>u.unit===mapUnit);
   const cur=picked||openUnits.find(u=>lessons.filter(l=>l.unit===u.unit&&l.file).some(l=>lessonStars(l.id)<lessonParts(l)))||openUnits[openUnits.length-1]||units[0];
   const prev=[...openUnits].reverse().find(u=>u.unit<cur.unit);
   const list=lessons.filter(l=>l.unit===cur.unit), next=units.find(u=>u.unit>cur.unit), nextOpen=!!next&&openUnits.some(u=>u.unit===next.unit);
-  const curL=Math.max(0,list.findIndex(l=>l.file&&lessonStars(l.id)<lessonParts(l)));
+  const curL=Math.max(0,list.indexOf(curLessonOf(list)));
   const j=el('div','journey');
   const snake=wideMap(); j.classList.toggle('snake',snake);
   if(snake) return drawMapAll(j,redraw);
@@ -78,9 +82,9 @@ function roadRoom(){
 const SNAKE_EM=12.2, SNAKE_MAXFS=26;
 const snakeMin=()=>matchMedia('(max-aspect-ratio:1/1)').matches?3.5:8, snakeMaxR=()=>matchMedia('(max-aspect-ratio:1/1)').matches?20:8;
 function drawMapAll(j,redraw){
-  const wrap=$('#mapWrap'), units=SUBJECT.units||[{unit:1}], lessons=SUBJECT.lessons;
+  const wrap=$('#mapWrap'), units=SUBJECT.units||[{unit:1}], lessons=SUBJECT.lessons.filter(l=>!l.hidden);
   const openOf=u=>lessons.some(l=>l.unit===u.unit&&l.file);
-  const openL=lessons.filter(l=>l.file), curM=openL.find(l=>lessonStars(l.id)<lessonParts(l))||openL[openL.length-1]||lessons[0];
+  const openL=lessons.filter(l=>l.file), curM=curLessonOf(lessons)||lessons[0];
   j.innerHTML=`<svg class="jroad" aria-hidden="true"></svg><div class="jcar"></div>`;
   const row=el('div','jrow'), atoms=[];
   units.forEach(u=>{
@@ -161,7 +165,7 @@ function drawRoad(){
   j._path=svg.firstElementChild; j._d=d;
 }
 function placeCar(i, drive){
-  const j=$('.journey'), L=$$('.jl',j), car=$('.jcar',j); if(L[i]&&L[i].classList.contains('cur')&&+L[i].dataset.stars>0&&L[i+1]) i++;   // started the lesson the car is up to: it drives on, past it
+  const j=$('.journey'), L=$$('.jl',j), car=$('.jcar',j); if(L[i]&&L[i].classList.contains('cur')&&+L[i].dataset.touched&&L[i+1]) i++;   // started the lesson the car is up to: it drives on, past it
   const cur=L[i]; if(!cur||!car) return;
   putCar(car);
   if(j.classList.contains('snake')) return placeCarSnake(j,L,i,cur,car,drive);

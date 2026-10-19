@@ -1,0 +1,286 @@
+{
+ "id": "u4l3",
+ "unit": 4,
+ "lesson": 3,
+ "type": "letter",
+ "title": "حرف الزاي",
+ "task": "أتعرّف على حرف الزاي",
+ "pages": 2,
+ "pageNums": [
+  112,
+  113
+ ],
+ "scene": "../../pics/ar-giraffe.png",
+ "sceneAlt": "زَاي",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "ز",
+  "name": "زَاي",
+  "nameAudio": "../letters/632/name.mp3",
+  "pic": "../../pics/ar-giraffe.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "ز",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـز",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـز",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "ز",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "زَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/632-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "زُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/632-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "زِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/632-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "زْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/632-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف الزاي في الكلمة",
+   "أصوات حرف الزاي بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "زَرَافَة",
+   "img": "../../pics/ar-giraffe.png",
+   "audio": {
+    "word": "words/zarafa.mp3"
+   },
+   "parts": [
+    {
+     "t": "زَ",
+     "audio": "../../syl-ar/632-64e.mp3"
+    },
+    {
+     "t": "رَا",
+     "audio": "../../syl-ar/631-64e-627.mp3"
+    },
+    {
+     "t": "فَة",
+     "audio": "../../syl-ar/641-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "زَيْت",
+   "img": "../../pics/ar-oilbottle.png",
+   "audio": {
+    "word": "words/zayt.mp3"
+   },
+   "parts": [
+    {
+     "t": "زَيْت",
+     "audio": "words/zayt.mp3"
+    }
+   ]
+  },
+  {
+   "word": "زَيْتُون",
+   "img": "../../pics/ar-olives.png",
+   "audio": {
+    "word": "words/zaytun.mp3"
+   },
+   "parts": [
+    {
+     "t": "زَيْ",
+     "audio": "../../syl-ar/632-64e-64a-652.mp3"
+    },
+    {
+     "t": "تُون",
+     "audio": "../../syl-ar/62a-64f-648-646.mp3"
+    }
+   ]
+  },
+  {
+   "word": "زُجَاجَة",
+   "img": "../../pics/ar-bottle.png",
+   "audio": {
+    "word": "words/zujaja.mp3"
+   },
+   "parts": [
+    {
+     "t": "زُ",
+     "audio": "../../syl-ar/632-64f.mp3"
+    },
+    {
+     "t": "جَا",
+     "audio": "../../syl-ar/62c-64e-627.mp3"
+    },
+    {
+     "t": "جَة",
+     "audio": "../../syl-ar/62c-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "زُهُور",
+   "img": "../../pics/ar-flowers.jpg",
+   "audio": {
+    "word": "../u3l7/words/zuhur.mp3"
+   },
+   "parts": [
+    {
+     "t": "زُ",
+     "audio": "../../syl-ar/632-64f.mp3"
+    },
+    {
+     "t": "هُور",
+     "audio": "../../syl-ar/647-64f-648-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "زُبْد",
+   "img": "../../pics/ar-butter.png",
+   "audio": {
+    "word": "words/zubd.mp3"
+   },
+   "parts": [
+    {
+     "t": "زُبْد",
+     "audio": "words/zubd.mp3"
+    }
+   ]
+  },
+  {
+   "word": "زِرّ",
+   "img": "../../pics/ar-button.png",
+   "audio": {
+    "word": "words/zirr.mp3"
+   },
+   "parts": [
+    {
+     "t": "زِرّ",
+     "audio": "words/zirr.mp3"
+    }
+   ]
+  },
+  {
+   "word": "زِير",
+   "img": "../../pics/ar-jar.png",
+   "audio": {
+    "word": "words/zir.mp3"
+   },
+   "parts": [
+    {
+     "t": "زِير",
+     "audio": "words/zir.mp3"
+    }
+   ]
+  },
+  {
+   "word": "زِينَة",
+   "img": "../../pics/ar-decor.jpg",
+   "audio": {
+    "word": "words/zina.mp3"
+   },
+   "parts": [
+    {
+     "t": "زِي",
+     "audio": "../../syl-ar/632-650-64a.mp3"
+    },
+    {
+     "t": "نَة",
+     "audio": "../../syl-ar/646-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "مَزْرَعَة",
+   "img": "../../pics/ar-farm.jpg",
+   "audio": {
+    "word": "words/mazraa.mp3"
+   },
+   "parts": [
+    {
+     "t": "مَزْ",
+     "audio": "../../syl-ar/645-64e-632-652.mp3"
+    },
+    {
+     "t": "رَ",
+     "audio": "../../syl-ar/631-64e.mp3"
+    },
+    {
+     "t": "عَة",
+     "audio": "../../syl-ar/639-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أَزْرَق",
+   "img": "../../pics/ar-blue.png",
+   "audio": {
+    "word": "words/azraq.mp3"
+   },
+   "parts": [
+    {
+     "t": "أَزْ",
+     "audio": "../../syl-ar/623-64e-632-652.mp3"
+    },
+    {
+     "t": "رَق",
+     "audio": "../../syl-ar/631-64e-642.mp3"
+    }
+   ]
+  },
+  {
+   "word": "قِزْم",
+   "img": "../../pics/ar-dwarf.png",
+   "audio": {
+    "word": "words/qazm.mp3"
+   },
+   "parts": [
+    {
+     "t": "قِزْم",
+     "audio": "words/qazm.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

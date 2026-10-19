@@ -22,7 +22,16 @@ let lastCancel=0, keepU=[];
 function vStop(){ vs.run++; try{ if(speechSynthesis.speaking||speechSynthesis.pending){ speechSynthesis.cancel(); lastCancel=Date.now(); } }catch(e){} if(vs.src){ try{vs.src.stop();}catch(e){} vs.src=null; } }
 // talking voice of the device (used only where there is no recording yet)
 // Arabic is NEVER machine-voiced: only Ahmed's recordings; a missing one stays silent
+// voice packs: a paper (exam) ships voice.mp3 + voice.json made with the man's Kokoro voice; English text found there is played from it, the device voice is only the last resort
+const VP={packs:[],key:t=>String(t||'').replace(/\s+/g,' ').trim().toLowerCase()};
+async function vpLoad(base){
+  VP.packs=[]; if(!base) return;
+  try{ const [idx,ab]=await Promise.all([fetch(base+'voice.json').then(r=>r.json()),fetch(base+'voice.mp3').then(r=>r.arrayBuffer())]); await ensureCtx();
+    const buf=await new Promise((ok,no)=>player.ctx.decodeAudioData(ab,ok,no)); VP.packs.push({idx,buf}); }catch(e){}
+}
+function vpClip(text){ const k=VP.key(text); for(const p of VP.packs){ const c=p.idx[k]; if(c) return [p.buf,c]; } return null; }
 function tts(text,lang='en',rate=.8){
+  if(lang!=='ar'){ const c=vpClip(text); if(c) return playBuf(c[0],Math.max(0,c[1][0]-.02),c[1][1]-c[1][0]+.06); }
   return new Promise(res=>{
     if(lang==='ar'||!('speechSynthesis' in window)||!text){ setTimeout(res,350); return; }
     const go=()=>{
@@ -37,6 +46,24 @@ function tts(text,lang='en',rate=.8){
     const wait=Math.max(0,150-(Date.now()-lastCancel)); wait?setTimeout(go,wait):go();   // Safari ignores a voice started right after a stop
   });
 }
+// tapping a word of a sentence on the screen reads THAT word alone (a child learning to read needs to hear which word it is)
+const TAPWORD='.xqt,.xtext,.xsec,.qask,.qsen>span:not(.qopts)', TAPSKIP='button,input,textarea,select,a,.xbl,.xo,.xit,.qopts,.xwarn';
+function wordAtPoint(x,y){
+  let n,o; if(document.caretPositionFromPoint){ const c=document.caretPositionFromPoint(x,y); if(c){ n=c.offsetNode; o=c.offset; } }
+  else if(document.caretRangeFromPoint){ const r=document.caretRangeFromPoint(x,y); if(r){ n=r.startContainer; o=r.startOffset; } }
+  if(!n||n.nodeType!==3) return '';
+  const re=/[A-Za-z0-9\u0660-\u0669][A-Za-z0-9\u0660-\u0669']*/g; let m;
+  while((m=re.exec(n.data))){ if(o>=m[0].length*0+m.index&&o<=m.index+m[0].length){
+    const r=document.createRange(); r.setStart(n,m.index); r.setEnd(n,m.index+m[0].length);
+    const hit=[...r.getClientRects()].some(b=>x>=b.left-3&&x<=b.right+3&&y>=b.top-3&&y<=b.bottom+3);
+    return hit?m[0].replace(/^'+|'+$/g,''):''; } }
+  return '';
+}
+document.addEventListener('click',e=>{
+  const t=e.target; if(!t.closest||!t.closest(TAPWORD)||t.closest(TAPSKIP)||isAr()) return;
+  const w=wordAtPoint(e.clientX,e.clientY); if(!w) return;
+  vStop(); if(typeof stopAll==='function') stopAll(); tts(w.replace(/[\u0660-\u0669]/g,d=>d.charCodeAt(0)-0x660),'en',.75).catch(()=>{});
+});
 function playBuf(buf,from=0,dur){ return new Promise(res=>{ const s=player.ctx.createBufferSource(); s.buffer=buf; s.connect(player.ctx.destination);
   vs.src=s; s.onended=()=>{ if(vs.src===s) vs.src=null; res(); }; dur!=null?s.start(0,from,dur):s.start(0,from); }); }
 async function playFile(url){ await ensureCtx();
@@ -205,11 +232,11 @@ function vTools(){
   const items=[
     {k:'help',kind:'speed',icon:'hint',label:isAr()?'ساعدني':tr('Help'),click:vHelp},
     {k:'listen',kind:'again',icon:'sound',label:isAr()?'اسمع الكلمة':tr('Listen'),click:()=>{ if(vMode()) return vMeanSay('all'); vStop(); if(vs.mode==='learn'){ vs.mode='idle'; vRail(); } sayWord(LESSON.vocab[vs.i]); }},
-    {k:'teach',kind:'go',icon:'restart',label:isAr()?'علّمني الكلمة':tr('Teach'),click:vTeach},
+    {k:'teach',kind:'go',icon:'restart',label:isAr()?(vMode()?'علّمني':'علّمني الكلمة'):tr('Teach'),click:vTeach},
     {k:'write',kind:'speed',icon:'pencil',label:isAr()?'اكتب الكلمة':tr('Write'),click:()=>{ if(vs.mode!=='write') vWrite(); else { const i=$('#vin'); i&&i.focus({preventScroll:true}); } }},
     {k:'stop',kind:'stop',icon:'pause',label:tr('Stop'),click:()=>{ vStop(); if(vs.mode!=='write'){ vs.mode='idle'; vRail(); } }}
   ];
-  (vMode()?items.filter(it=>!['help','write'].includes(it.k)):items).forEach(it=>{ const b=el('button','dash '+it.kind+(it.icon==='restart'?' ln':''),`<span class="rb">${ICON[it.icon]}</span><span>${it.label}</span>`); b.dataset.k=it.k;
+  (vMode()?items.filter(it=>!['help','write','listen'].includes(it.k)):items).forEach(it=>{ const b=el('button','dash '+it.kind+(it.icon==='restart'?' ln':''),`<span class="rb">${ICON[it.icon]}</span><span>${it.label}</span>`); b.dataset.k=it.k;
     b.addEventListener('pointerdown',e=>{ if($('#vin')&&$('#vin')===document.activeElement) e.preventDefault(); });   // keep the keyboard open
     b.addEventListener('click',it.click); tools.append(b); });
 }
@@ -261,3 +288,31 @@ if(window.visualViewport) visualViewport.addEventListener('scroll',()=>{ if(scro
 
 // the car in the header moves one step for every word learned
 function vCar(drive){ const n=LESSON.vocab.length||1; if(drive){ carDrive(true); setTimeout(()=>carDrive(false),900); } carFrac(vDone().length/n); }
+
+/* ---------- Pen on lesson words: a word that is also in this lesson's Words tab gets a small pen; it opens that ONE word in the usual
+   learn-then-write page as a popup over the page the child is on, and closing it puts him back exactly there ---------- */
+const WP={saved:null};
+function wpClose(){
+  const s=WP.saved; if(!s) return; WP.saved=null; vStop(); vs.popup=0; vs.mode='idle';
+  s.L.vocab=s.vocab; vs.i=s.i; tab=s.tab; const L=$('#lesson'); L.className=s.cls;
+  stage.innerHTML=''; s.stage.forEach(n=>stage.append(n)); rail.innerHTML=''; s.rail.forEach(n=>rail.append(n)); trackCar.style.transform=s.car;
+}
+function wpOpen(v){
+  if(WP.saved) return;
+  const L=$('#lesson'); stopAll(); vStop(); hideHint();
+  WP.saved={L:LESSON,vocab:LESSON.vocab,i:vs.i,tab,cls:L.className,stage:[...stage.childNodes],rail:[...rail.childNodes],car:trackCar.style.transform};
+  LESSON.vocab=[v]; vs.i=0; vs.popup=1; tab='words'; L.classList.add('wpop');
+  showWords();
+  const x=el('button','wpclose','✕'); x.setAttribute('aria-label','Close'); stage.append(x); x.addEventListener('click',wpClose);
+}
+const wpKey=t=>String(t||'').toLowerCase().replace(/[^a-z']/g,'');
+function penify(){
+  if(isAr()||!LESSON||!LESSON.vocab||!LESSON.vocab.length||tab==='words'||WP.saved) return;
+  const by={}; LESSON.vocab.forEach(v=>{ if(/^[A-Za-z']+$/.test(v.word)) by[wpKey(v.word)]=v; });
+  $$('#stage .w, #stage .alw').forEach(sp=>{
+    if(sp._pen!==undefined) return; const v=by[wpKey(sp.firstChild&&sp.firstChild.nodeType===3?sp.firstChild.data:sp.textContent)]; sp._pen=v?1:0; if(!v) return;
+    const b=el('span','wpn',ICON.pencil); b.setAttribute('role','button'); b.setAttribute('aria-label','Learn the word '+v.word);
+    b.addEventListener('click',e=>{ e.stopPropagation(); e.preventDefault(); wpOpen(v); }); sp.append(b);
+  });
+}
+{ let pt=0; new MutationObserver(()=>{ clearTimeout(pt); pt=setTimeout(penify,60); }).observe(stage,{childList:true,subtree:true}); }

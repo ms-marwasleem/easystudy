@@ -12,8 +12,9 @@ function drawSubjects(){
       else message('Soon!', s.rtl?'مادة العربي قريباً!':COURSE.hints.soonSubject, `<span class="cube" style="display:block">${BOX(s)}</span>`); });
     g.append(b);
   });
-  if(anim){ if(wig) wig.kill(); const o=$('.box.open .cube',g);
-    wig=G.timeline({repeat:-1,repeatDelay:2.2,delay:1.4}).to(o,{rotation:-4,y:-6,duration:.12}).to(o,{rotation:4,duration:.1,repeat:3,yoyo:true}).to(o,{rotation:0,y:0,duration:.15});
+  if(anim){ if(wig) wig.kill(); const cubes=$$('.box.open .cube',g);
+    // every open box wiggles in turn, then it starts again from the first
+    wig=G.timeline({repeat:-1,repeatDelay:1.2,delay:1.4}); cubes.forEach(o=>wig.to(o,{rotation:-4,y:-6,duration:.12}).to(o,{rotation:4,duration:.1,repeat:3,yoyo:true}).to(o,{rotation:0,y:0,duration:.15}).to({},{duration:.5}));
     $$('.peek',g).forEach(p=>G.to(p,{x:4,duration:.9,yoyo:true,repeat:-1,ease:'sine.inOut'})); }
 }
 function openSubjects(){ stopAll(); vStop(); clearMarks(); show('subjects'); drawSubjects(); pop('.box'); showHint($('.box.open'),COURSE.hints.subjects,1300,'subjects'); }

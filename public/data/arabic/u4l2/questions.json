@@ -1,0 +1,105 @@
+{
+ "sets": [
+  {
+   "type": "qa",
+   "ex": 1,
+   "page": 111,
+   "task": "سُؤَالٌ وَجَوَابٌ",
+   "hint": "اسمع كل سؤال وجوابه",
+   "items": [
+    {
+     "ask": "مَنْ أَنْتَ؟",
+     "word": "أَنَا تِلْمِيذٌ فِي مَدْرَسَتِي.",
+     "audio": "q/qa1-q.mp3",
+     "ansAudio": "q/qa1-a.mp3",
+     "pic": "scene.jpg"
+    },
+    {
+     "ask": "مَاذَا مَعَكَ فِي الْمِقْلَمَةِ؟",
+     "word": "مَعِي قَلَمِي فِي مِقْلَمَتِي.",
+     "audio": "q/qa2-q.mp3",
+     "ansAudio": "q/qa2-a.mp3",
+     "pic": "scene.jpg"
+    },
+    {
+     "ask": "مَنْ يُرَدِّدُ التِّلْمِيذُ خَلْفَهُ؟",
+     "word": "أُرَدِّدُ خَلْفَ مُعَلِّمَتِي.",
+     "audio": "q/qa3-q.mp3",
+     "ansAudio": "q/qa3-a.mp3",
+     "pic": "scene.jpg"
+    }
+   ],
+   "together": true
+  },
+  {
+   "type": "link",
+   "ex": 2,
+   "page": 111,
+   "task": "أَصِلُ كُلَّ كَلِمَةٍ بِمَعْنَاهَا أَوْ جَمْعِهَا",
+   "taskAudio": "../q-prompts/match-meaning.mp3",
+   "hint": "صل كل كلمة بمعناها أو جمعها",
+   "items": [
+    {
+     "word": "أُرَدِّدُ",
+     "text2": "أُكَرِّرُ الْكَلَامَ أَوْ أَقُولُهُ بِصَوْتٍ عَالٍ",
+     "audio": "words/ardd.mp3",
+     "full": [
+      "words/ardd.mp3",
+      "../u1l2/words/lbl-meaning.mp3",
+      "words/m-ardd.mp3"
+     ],
+     "rel": "مَعْنَاهَا",
+     "audio2": "words/m-ardd.mp3"
+    },
+    {
+     "word": "تِلْمِيذ",
+     "text2": "تَلَامِيذُ",
+     "audio": "words/tilmidh.mp3",
+     "full": [
+      "words/tilmidh.mp3",
+      "../u1l2/words/lbl-plural.mp3",
+      "words/m-tilmidh.mp3"
+     ],
+     "rel": "جَمْعُهُ",
+     "audio2": "words/m-tilmidh.mp3"
+    },
+    {
+     "word": "شَمْس",
+     "text2": "شُمُوسٌ",
+     "audio": "words/shams.mp3",
+     "full": [
+      "words/shams.mp3",
+      "../u1l2/words/lbl-plural.mp3",
+      "words/m-shams.mp3"
+     ],
+     "rel": "جَمْعُهَا",
+     "audio2": "words/m-shams.mp3"
+    },
+    {
+     "word": "قَلَم",
+     "text2": "أَقْلَامٌ",
+     "audio": "words/qalam.mp3",
+     "full": [
+      "words/qalam.mp3",
+      "../u1l2/words/lbl-plural.mp3",
+      "words/m-qalam.mp3"
+     ],
+     "rel": "جَمْعُهُ",
+     "audio2": "words/m-qalam.mp3"
+    },
+    {
+     "word": "مُعَلِّمَة",
+     "text2": "مُعَلِّمَاتٌ",
+     "audio": "words/muallima.mp3",
+     "full": [
+      "words/muallima.mp3",
+      "../u1l2/words/lbl-plural.mp3",
+      "words/m-muallima.mp3"
+     ],
+     "rel": "جَمْعُهَا",
+     "audio2": "words/m-muallima.mp3"
+    }
+   ]
+  }
+ ]
+}

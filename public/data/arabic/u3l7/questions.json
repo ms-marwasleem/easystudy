@@ -1,0 +1,267 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 97,
+   "task": "اسْتَمِعْ وَضَعْ عَلَامَةَ (✓) تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الْهَاءِ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/647/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الهاء",
+   "silent": true,
+   "items": [
+    {
+     "word": "camel",
+     "pic": "../../pics/ar-camel.png",
+     "answer": false
+    },
+    {
+     "word": "hoopoe",
+     "pic": "../../pics/ar-hoopoe.png",
+     "answer": true
+    },
+    {
+     "word": "clock",
+     "pic": "../../pics/ar-clock.png",
+     "answer": false
+    },
+    {
+     "word": "gold",
+     "pic": "../../pics/ar-gold.jpg",
+     "answer": true
+    },
+    {
+     "word": "phone",
+     "pic": "../../pics/ar-phone.png",
+     "answer": true
+    },
+    {
+     "word": "star",
+     "pic": "../../pics/ar-star.jpg",
+     "answer": false
+    },
+    {
+     "word": "gift",
+     "pic": "../../pics/ar-gift.jpg",
+     "answer": true
+    },
+    {
+     "word": "pyramid",
+     "pic": "../../pics/ar-pyramid.png",
+     "answer": true
+    },
+    {
+     "word": "crescent",
+     "pic": "../../pics/ar-crescent.jpg",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 97,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الْهَاءِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/647/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الهاء",
+   "items": [
+    {
+     "word": "هَرَم",
+     "pic": "../../pics/ar-pyramid.png",
+     "audio": "words/haram.mp3",
+     "at": 0
+    },
+    {
+     "word": "ذَهَب",
+     "pic": "../../pics/ar-gold.jpg",
+     "audio": "words/dhahab.mp3",
+     "at": 1
+    },
+    {
+     "word": "فَهْد",
+     "pic": "../../pics/ar-cheetah.png",
+     "audio": "words/fahd.mp3",
+     "at": 1
+    },
+    {
+     "word": "هَدِيَّة",
+     "pic": "../../pics/ar-gift.jpg",
+     "audio": "words/hadiya.mp3",
+     "at": 0
+    },
+    {
+     "word": "زُهُور",
+     "pic": "../../pics/ar-flowers.jpg",
+     "audio": "words/zuhur.mp3",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 9,
+   "page": 97,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الْهَاءِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/647/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الهاء",
+   "choices": [
+    "هَ",
+    "هُ",
+    "هِ",
+    "هْ"
+   ],
+   "items": [
+    {
+     "word": "مُهَرِّج",
+     "pic": "../../pics/ar-clown.jpg",
+     "audio": "words/muharrij.mp3",
+     "answer": "هَ"
+    },
+    {
+     "word": "كُهُوف",
+     "pic": "../../pics/ar-cave.jpg",
+     "audio": "words/kuhuf.mp3",
+     "answer": "هُ"
+    },
+    {
+     "word": "جَوْزُ الهِنْد",
+     "pic": "../../pics/ar-coconut.jpg",
+     "audio": "words/jawzhind.mp3",
+     "answer": "هِ"
+    },
+    {
+     "word": "هَدَف",
+     "pic": "../../pics/ar-goal.jpg",
+     "audio": "words/hadaf.mp3",
+     "answer": "هَ"
+    },
+    {
+     "word": "مُهْر",
+     "pic": "../../pics/ar-foal.jpg",
+     "audio": "words/muhr.mp3",
+     "answer": "هْ"
+    },
+    {
+     "word": "فُهُود",
+     "pic": "../../pics/ar-leopards.jpg",
+     "audio": "words/fuhud.mp3",
+     "answer": "هُ"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 11,
+   "page": 98,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "فُهُود",
+     "chips": [
+      "فُ",
+      "هُو",
+      "د"
+     ],
+     "audio": "words/fuhud.mp3"
+    },
+    {
+     "word": "نَهْر",
+     "chips": [
+      "نَهْ",
+      "ر"
+     ],
+     "audio": "words/nahr.mp3"
+    },
+    {
+     "word": "هُدْهُد",
+     "chips": [
+      "هُدْ",
+      "هُ",
+      "د"
+     ],
+     "audio": "../u1l8/words/hudhud.mp3"
+    },
+    {
+     "word": "زَهْرَة",
+     "chips": [
+      "زَهْ",
+      "رَ",
+      "ة"
+     ],
+     "audio": "words/zahra.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 12,
+   "page": 98,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "هَاتِف",
+     "pic": "../../pics/ar-phone.png",
+     "audio": "words/hatif.mp3"
+    },
+    {
+     "word": "هِلَال",
+     "pic": "../../pics/ar-crescent.jpg",
+     "audio": "words/hilal.mp3"
+    },
+    {
+     "word": "ذَهَب",
+     "pic": "../../pics/ar-gold.jpg",
+     "audio": "words/dhahab.mp3"
+    },
+    {
+     "word": "هَدَف",
+     "pic": "../../pics/ar-goal.jpg",
+     "audio": "words/hadaf.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 13,
+   "page": 98,
+   "task": "أَقْرَأُ ثُمَّ أَصِلُ",
+   "taskAudio": "../q-prompts/match-picture.mp3",
+   "hint": "صل الكلمة بالصورة",
+   "items": [
+    {
+     "word": "جَوْزُ الهِنْد",
+     "pic": "../../pics/ar-coconut.jpg",
+     "audio": "words/jawzhind.mp3"
+    },
+    {
+     "word": "مُهَرِّج",
+     "pic": "../../pics/ar-clown.jpg",
+     "audio": "words/muharrij.mp3"
+    },
+    {
+     "word": "ذَهَب",
+     "pic": "../../pics/ar-gold.jpg",
+     "audio": "words/dhahab.mp3"
+    },
+    {
+     "word": "هَرَم",
+     "pic": "../../pics/ar-pyramid.png",
+     "audio": "words/haram.mp3"
+    }
+   ]
+  }
+ ]
+}

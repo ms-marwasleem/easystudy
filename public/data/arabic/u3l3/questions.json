@@ -1,0 +1,260 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 81,
+   "task": "اسْتَمِعْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الْيَاءِ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/64a/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الياء",
+   "silent": true,
+   "items": [
+    {
+     "word": "eye",
+     "pic": "../../pics/ar-eye.png",
+     "answer": true
+    },
+    {
+     "word": "strawberry",
+     "pic": "../../pics/ar-strawberry.png",
+     "answer": false
+    },
+    {
+     "word": "milk",
+     "pic": "../../pics/ar-milk.png",
+     "answer": false
+    },
+    {
+     "word": "swords",
+     "pic": "../../pics/ar-swords.png",
+     "answer": true
+    },
+    {
+     "word": "lion",
+     "pic": "../../pics/ar-lion.png",
+     "answer": false
+    },
+    {
+     "word": "pumpkin",
+     "pic": "../../pics/ar-pumpkin.png",
+     "answer": true
+    },
+    {
+     "word": "bee",
+     "pic": "../../pics/ar-bee.jpg",
+     "answer": false
+    },
+    {
+     "word": "tangerine",
+     "pic": "../../pics/ar-tangerine.jpg",
+     "answer": true
+    },
+    {
+     "word": "hand",
+     "pic": "../../pics/ar-hand.jpg",
+     "answer": true
+    },
+    {
+     "word": "eggs",
+     "pic": "../../pics/ar-eggs.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 81,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الْيَاءِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/64a/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الياء",
+   "items": [
+    {
+     "word": "يَد",
+     "pic": "../../pics/ar-hand.jpg",
+     "audio": "words/yad.mp3",
+     "at": 0
+    },
+    {
+     "word": "يَمَامَة",
+     "pic": "../../pics/ar-dove.jpg",
+     "audio": "words/yamama.mp3",
+     "at": 0
+    },
+    {
+     "word": "يُوسُفِي",
+     "pic": "../../pics/ar-tangerine.jpg",
+     "audio": "words/yusufi.mp3",
+     "at": 0
+    },
+    {
+     "word": "بَيْض",
+     "pic": "../../pics/ar-eggs.png",
+     "audio": "../u1l4/words/bayd.mp3",
+     "at": 1
+    },
+    {
+     "word": "عَيْن",
+     "pic": "../../pics/ar-eye.png",
+     "audio": "words/ayn.mp3",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 9,
+   "page": 81,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الْيَاءِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/64a/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الياء",
+   "choices": [
+    "يَ",
+    "يُ",
+    "يِ",
+    "يْ"
+   ],
+   "items": [
+    {
+     "word": "يَمَامَة",
+     "pic": "../../pics/ar-dove.jpg",
+     "audio": "words/yamama.mp3",
+     "answer": "يَ"
+    },
+    {
+     "word": "يُوسُفِي",
+     "pic": "../../pics/ar-tangerine.jpg",
+     "audio": "words/yusufi.mp3",
+     "answer": "يُ"
+    },
+    {
+     "word": "مَصَايِف",
+     "pic": "../../pics/ar-beach.jpg",
+     "audio": "words/masayif.mp3",
+     "answer": "يِ"
+    },
+    {
+     "word": "بَيْض",
+     "pic": "../../pics/ar-eggs.png",
+     "audio": "../u1l4/words/bayd.mp3",
+     "answer": "يْ"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 11,
+   "page": 82,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "عُصْفُور",
+     "chips": [
+      "عُصْ",
+      "فُو",
+      "ر"
+     ],
+     "audio": "words/usfur.mp3"
+    },
+    {
+     "word": "خَيْمَة",
+     "chips": [
+      "خَيْ",
+      "مَ",
+      "ة"
+     ],
+     "audio": "words/khayma.mp3"
+    },
+    {
+     "word": "ذَيْل",
+     "chips": [
+      "ذَيْ",
+      "ل"
+     ],
+     "audio": "words/dhayl.mp3"
+    },
+    {
+     "word": "عُيُون",
+     "chips": [
+      "عُ",
+      "يُو",
+      "ن"
+     ],
+     "audio": "words/uyun.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 12,
+   "page": 82,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "بَيْض",
+     "pic": "../../pics/ar-eggs.png",
+     "audio": "../u1l4/words/bayd.mp3"
+    },
+    {
+     "word": "خِيَار",
+     "pic": "../../pics/ar-cucumber.png",
+     "audio": "../u1l9/words/khiyar.mp3"
+    },
+    {
+     "word": "سُيُوف",
+     "pic": "../../pics/ar-swords.png",
+     "audio": "words/suyuf.mp3"
+    },
+    {
+     "word": "زَيْت",
+     "pic": "../../pics/ar-oil.png",
+     "audio": "words/zayt.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 14,
+   "page": 82,
+   "task": "أَقْرَأُ ثُمَّ أَصِلُ",
+   "taskAudio": "../q-prompts/match-picture.mp3",
+   "hint": "صل الكلمة بالصورة",
+   "items": [
+    {
+     "word": "شَيْخ",
+     "pic": "../../pics/ar-sheikh.jpg",
+     "audio": "words/shaykh.mp3"
+    },
+    {
+     "word": "سُيُوف",
+     "pic": "../../pics/ar-swords.png",
+     "audio": "words/suyuf.mp3"
+    },
+    {
+     "word": "يَمَامَة",
+     "pic": "../../pics/ar-dove.jpg",
+     "audio": "words/yamama.mp3"
+    },
+    {
+     "word": "ظَبْي",
+     "pic": "../../pics/ar-deer.jpg",
+     "audio": "words/zabi.mp3"
+    }
+   ]
+  }
+ ]
+}

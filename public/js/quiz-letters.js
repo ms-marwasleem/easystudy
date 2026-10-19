@@ -9,18 +9,19 @@ const QX={position:1,vowel:1,write:1,arrange:1,qa:1}, QXF={};   // QXF: render f
 function qxGo(w,q,i,run){
   const s=q.set, play=$('.qplay',w), ans=$('.qans',w); play.innerHTML=''; ans.innerHTML=''; $('.qword b',w).innerHTML='';
   const box=el('div','qx qx-'+s.type+(s.sentence?' sent':'')); play.append(box);
-  let sp=null; if(!q.together&&!q.hush&&(q.audio||q.word)){ sp=el('button','qsay qxsay',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>s.type==='qa'?qxQAPlay(q,qz.run):qSay(); }
+  let sp=null; if(!q.together&&!q.hush&&!(typeof QOWN!=='undefined'&&QOWN[s.type])&&(q.audio||q.word)){ sp=el('button','qsay qxsay',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>s.type==='qa'?qxQAPlay(q,qz.run):qSay(); }
   if(q.pic) box.append(el('div','qxpic',`<img src="${q.pic}" alt="">`));
   (q.together?qxQAAll:QXF[s.type]||{position:qxPosition,vowel:qxVowel,write:qxWrite,arrange:qxArrange,qa:qxQA}[s.type])(box,q,s,run);
   // the listen icon sits right beside the thing that is read (the word / sentence); with no word (circles, a picture) it sits on the picture's corner
   if(sp&&!q.hush){ const tg=$('.qxline',box)||$('.qxw',box)||$('.qxqa',box)||$('.qxcircles',box);
     if(tg){ const row=el('div','qxrow'); tg.before(row); row.append(sp,tg); } else { const pc=$('.qxpic',box); (pc||box).append(sp); sp.classList.add('onpic'); } }
+  { const wi=$('#qxin'); if(wi&&s.type==='write') wi.focus({preventScroll:true}); }   // moving the line into the speaker row dropped the focus: the keyboard opens with the question
   qLayout(); carFrac(i/qz.list.length);
-  setTimeout(async()=>{ if(run!==qz.run||tab!=='quiz') return; if(q.k===0&&(i===0||qGrp(qz.list[i-1].set)!==qGrp(s))) await qTask(); if(run===qz.run&&tab==='quiz'&&!q.together&&!q.hush) s.type==='qa'?qxQAPlay(q,run):qSay(); },350);
+  setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(q.k===0&&(i===0||qGrp(qz.list[i-1].set)!==qGrp(s))) await qTask(); if(run===qz.run&&inQ()&&box._after) await box._after(); if(run===qz.run&&inQ()&&!q.together&&!q.hush&&!(typeof QOWN!=='undefined'&&QOWN[s.type])) s.type==='qa'?qxQAPlay(q,run):qSay(); },350);
 }
 const qxBad=(b)=>{ tone(170,'square',.06,.18); if(anim) G.fromTo(b,{x:-9},{x:0,duration:.5,ease:'elastic.out(1.5,.25)'}); };
 // a right answer: celebrate, say the word, on to the next
-async function qxWin(target,q,ms=1500){ if(qz.busy) return; qz.busy=true; const run=qz.run; vStop(); celebrate(target); qSay(); return qAdvance(run,ms); }
+async function qxWin(target,q,ms=1500){ if(qz.busy) return; qz.busy=true; const run=qz.run; vStop(); q.solved=true; celebrate(target); qSay(); return qAdvance(run,ms); }
 function qxLetters(word){ return glyphs(word); }
 
 function qxPosition(box,q,s,run){
@@ -61,6 +62,7 @@ function qxWrite(box,q,s,run,text,onDone){   // text: what to type (default the 
   const type=ch=>{ if(qz.busy||qz.list[qz.i]!==q||!ch||/\s/.test(ch)) return; const n=qxNext(wd); if(!n) return;
     if(sameLetter(ch,n.textContent)){ qxReveal(wd); blip(560+$$('.lt.got',wd).length*40,.05); cur(); if(qxDone(wd)){ if(onDone) onDone(wd); else qxWin(wd,q,1700); } }
     else { n.classList.add('bad'); setTimeout(()=>n.classList.remove('bad'),500); qxBad(line); } };
+  qxWrite.type=type;   // a key pressed anywhere on the page types too (no click into the box first)
   inp.oninput=()=>{ const ch=inp.value.replace(/\s/g,'').slice(-1); inp.value=''; type(ch); };
   inp.onfocus=()=>line.classList.add('focus'); inp.onblur=()=>line.classList.remove('focus');
   line.onclick=()=>inp.focus({preventScroll:true});
@@ -68,15 +70,19 @@ function qxWrite(box,q,s,run,text,onDone){   // text: what to type (default the 
   help.onclick=()=>{ if(qz.busy) return; qxPeek(wd); inp.focus({preventScroll:true}); };
   inp.focus({preventScroll:true}); showHint(line,s.lang==='en'||/^[\x00-\x7f]+$/.test(text)?'Type here':'اكتب هنا',500,'qxwrite');
 }
+document.addEventListener('keydown',e=>{ const inp=$('#qxin'); if(!inp||!inQ()||document.activeElement===inp||e.ctrlKey||e.metaKey||e.altKey||e.key.length!==1||!qxWrite.type) return;
+  const a=document.activeElement; if(a&&/^(INPUT|TEXTAREA)$/.test(a.tagName)) return; inp.focus({preventScroll:true}); qxWrite.type(normDigits(e.key)); e.preventDefault(); });
 function qxArrange(box,q,s,run){
-  const wd=qxWordEl(q.word), line=el('div','qxline'); line.append(wd); box.append(line);
-  const gs=qxLetters(q.word).filter(g=>g!==' '); let ord=gs.map((g,k)=>k); for(let t=0;t<30;t++){ ord.sort(()=>Math.random()-.5); if(gs.length<2||ord.some((v,k)=>v!==k)) break; }
+  const WS=!!(q.words||s.words), wd=WS?el('b','qxw qxwords'):qxWordEl(q.word), line=el('div','qxline');   // words: the tiles are whole words of a sentence
+  if(WS){ wd.dir='rtl'; q.word.split(' ').forEach(w=>wd.append(el('span','lt hid',w))); }
+  line.append(wd); box.append(line);
+  const gs=WS?q.word.split(' '):qxLetters(q.word).filter(g=>g!==' '); let ord=gs.map((g,k)=>k); for(let t=0;t<30;t++){ ord.sort(()=>Math.random()-.5); if(gs.length<2||ord.some((v,k)=>v!==k)) break; }
   const tiles=el('div','qxtiles'); tiles.dir='rtl'; box.append(tiles);
   const place=tile=>{ const n=qxNext(wd); if(!n||tile.classList.contains('used')) return false;
     if(!sameLetter(tile.dataset.g,n.textContent)) return false;
     qxReveal(wd); tile.classList.add('used'); blip(560+$$('.lt.got',wd).length*40,.05);
     if(qxDone(wd)) qxWin(wd,q,1700); return true; };
-  ord.forEach(k=>{ const t=el('button','qxtile',`<span>${gs[k]}</span>`); t.dataset.g=gs[k]; tiles.append(t); });
+  ord.forEach(k=>{ const t=el('button','qxtile'+(WS?' wide':''),`<span>${gs[k]}</span>`); t.dataset.g=gs[k]; tiles.append(t); });
   let drag=null;
   tiles.addEventListener('pointerdown',e=>{ const t=e.target.closest('.qxtile'); if(!t||qz.busy||t.classList.contains('used')) return; e.preventDefault(); hideHint();
     drag={t,x:e.clientX,y:e.clientY,moved:false,g:null}; try{ tiles.setPointerCapture(e.pointerId); }catch(_){} });
@@ -101,9 +107,9 @@ function qxQA(box,q,s,run){
 async function qxQALine(btn,src,text){ btn.classList.add('lit'); await qSound(src,text); btn.classList.remove('lit'); }
 async function qxQAPlay(q,run){
   if(qz.busy) return; qz.busy=true; const [a,b]=[$('.qxqq'),$('.qxqa-a')];
-  await qxQALine(a,q.audio,q.ask); if(run!==qz.run||tab!=='quiz') return;
-  await new Promise(r=>setTimeout(r,350)); if(run!==qz.run||tab!=='quiz') return;
-  await qxQALine(b,R_Q(q.ansAudio),q.word); if(run!==qz.run||tab!=='quiz') return;
+  await qxQALine(a,q.audio,q.ask); if(run!==qz.run||!inQ()) return;
+  await new Promise(r=>setTimeout(r,350)); if(run!==qz.run||!inQ()) return;
+  await qxQALine(b,R_Q(q.ansAudio),q.word); if(run!==qz.run||!inQ()) return;
   return qAdvance(run,900);
 }
 
@@ -120,8 +126,15 @@ function qxQAAll(box,q,s,run){
   const clear=()=>rows.forEach(y=>y.r.classList.remove('on'));
   const one=async(i,k,t)=>{ const x=rows[i], l=k==='a'?x.a:x.b; x.r.classList.add('on'); await qxQALine(l.b,l.src,l.txt); x.r.classList.remove('on'); if(t===tok) mark(i,k); return t===tok; };
   rows.forEach((x,i)=>{ [['a',x.a],['b',x.b]].forEach(([k,l])=>{ const go=()=>{ if(qz.list[qz.i]!==q) return; clear(); one(i,k,++tok); }; l.sp.onclick=go; l.b.onclick=go; }); });
-  const bar=el('div','qabar'), all=el('button','qabtn go',ICON.play+'<span>'+tr('Listen')+'</span>'), stop=el('button','qabtn stop',ICON.pause+'<span>'+tr('Stop')+'</span>');
-  all.onclick=async()=>{ const t=++tok; clear(); for(let i=0;i<rows.length;i++){ for(const k of ['a','b']){ if(t!==tok||qz.list[qz.i]!==q) return; if(!(await one(i,k,t))) return; await new Promise(r=>setTimeout(r,k==='a'?300:500)); } } };
-  stop.onclick=()=>{ ++tok; vStop(); clear(); $$('.qxqq,.qxqa-a',wrap).forEach(y=>y.classList.remove('lit')); };
-  bar.append(all,stop); box.append(bar,wrap);
+  const stopAll=()=>{ ++tok; vStop(); clear(); $$('.qxqq,.qxqa-a',wrap).forEach(y=>y.classList.remove('lit')); };
+  const sideBtn=()=>{ if(!wrap.isConnected) return; const on=!!$('.qxqq.lit,.qxqa-a.lit',wrap);   // ONE button on the side: Listen while quiet, Stop while it reads (like the lesson reading)
+    setRail([on?{kind:'stop',icon:'stop',label:tr('Stop'),click:()=>{ stopAll(); sideBtn(); }}:{kind:'go',icon:'play',label:tr('Listen'),click:async()=>{ const t=++tok; clear(); sideBtn(); for(let i=0;i<rows.length;i++){ for(const k of ['a','b']){ if(t!==tok||qz.list[qz.i]!==q) return; if(!(await one(i,k,t))) return; await new Promise(r=>setTimeout(r,k==='a'?300:500)); } } sideBtn(); }}]); };
+  $('#lesson').classList.add('qrail');
+  new MutationObserver(sideBtn).observe(wrap,{subtree:true,attributes:true,attributeFilter:['class']});
+  box.append(wrap); sideBtn();
 }
+
+// a computer keyboard writes at once: a key pressed while no box has focus goes into the writing box on screen (letters questions and the vocabulary Write), no click needed
+addEventListener('keydown',e=>{ if(e.ctrlKey||e.metaKey||e.altKey||e.key.length!==1) return; const a=document.activeElement; if(a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)) return;
+  const inp=['qxin','vin'].map(id=>document.getElementById(id)).find(x=>x&&x.isConnected&&x.offsetParent!==null); if(!inp) return;
+  e.preventDefault(); inp.focus({preventScroll:true}); inp.value=e.key; inp.dispatchEvent(new Event('input',{bubbles:true})); });

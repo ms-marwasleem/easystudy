@@ -1,0 +1,289 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 12,
+   "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الباء",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/628/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الباء",
+   "items": [
+    {
+     "word": "بَطَّة",
+     "pic": "../../pics/ar-duck.png",
+     "audio": "words/batta.mp3",
+     "answer": true
+    },
+    {
+     "word": "بُومَة",
+     "pic": "../../pics/ar-owl.png",
+     "audio": "words/buma.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَرْنَب",
+     "pic": "../../pics/ar-rabbit.png",
+     "audio": "../u1l3/words/arnab.mp3",
+     "answer": false
+    },
+    {
+     "word": "أَسَد",
+     "pic": "../../pics/ar-lion.png",
+     "audio": "../u1l3/words/asad.mp3",
+     "answer": false
+    },
+    {
+     "word": "أُذُن",
+     "pic": "../../pics/ar-ear.png",
+     "audio": "../u1l3/words/udhun.mp3",
+     "answer": false
+    },
+    {
+     "word": "بِنْت",
+     "pic": "../../pics/ar-girl.png",
+     "audio": "words/bint.mp3",
+     "answer": true
+    },
+    {
+     "word": "بَقَرَة",
+     "pic": "../../pics/ar-cow.png",
+     "audio": "words/baqara.mp3",
+     "answer": true
+    },
+    {
+     "word": "بِطْرِيق",
+     "pic": "../../pics/ar-penguin.png",
+     "audio": "words/bitriq.mp3",
+     "answer": true
+    },
+    {
+     "word": "بُوق",
+     "pic": "../../pics/ar-trumpet.png",
+     "audio": "words/buq.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 12,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الباء",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/628/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الباء",
+   "items": [
+    {
+     "word": "بَقَرَة",
+     "pic": "../../pics/ar-cow.png",
+     "audio": "words/baqara.mp3",
+     "at": 0
+    },
+    {
+     "word": "حَبْل",
+     "pic": "../../pics/ar-rope.png",
+     "audio": "../u1l6/words/habl.mp3",
+     "at": 1
+    },
+    {
+     "word": "إِبْرَة",
+     "pic": "../../pics/ar-needle.jpg",
+     "audio": "../u1l3/words/ibra.mp3",
+     "at": 1
+    },
+    {
+     "word": "ضَبْع",
+     "pic": "../../pics/ar-hyena.png",
+     "audio": "words/dab.mp3",
+     "at": 1
+    },
+    {
+     "word": "بِطِّيخ",
+     "pic": "../../pics/ar-watermelon.png",
+     "audio": "words/bittikh.mp3",
+     "at": 0
+    },
+    {
+     "word": "بُوق",
+     "pic": "../../pics/ar-trumpet.png",
+     "audio": "words/buq.mp3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 9,
+   "page": 12,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الباء الْمُنَاسِبَ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/628/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الباء",
+   "items": [
+    {
+     "word": "بَطَّة",
+     "pic": "../../pics/ar-duck.png",
+     "audio": "words/batta.mp3",
+     "answer": "بَ"
+    },
+    {
+     "word": "بُرْج",
+     "pic": "../../pics/ar-tower.png",
+     "audio": "words/burj.mp3",
+     "answer": "بُ"
+    },
+    {
+     "word": "بِنْت",
+     "pic": "../../pics/ar-girl.png",
+     "audio": "words/bint.mp3",
+     "answer": "بِ"
+    },
+    {
+     "word": "بَيْض",
+     "pic": "../../pics/ar-eggs.png",
+     "audio": "words/bayd.mp3",
+     "answer": "بَ"
+    }
+   ],
+   "choices": [
+    "بَ",
+    "بُ",
+    "بِ",
+    "بْ"
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 13,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "بَقَرَة",
+     "chips": [
+      "بَ",
+      "قَ",
+      "رَة"
+     ],
+     "audio": "words/baqara.mp3"
+    },
+    {
+     "word": "بُومَة",
+     "chips": [
+      "بُو",
+      "مَة"
+     ],
+     "audio": "words/buma.mp3"
+    },
+    {
+     "word": "بِطِّيخ",
+     "chips": [
+      "بِ",
+      "طِّيخ"
+     ],
+     "audio": "words/bittikh.mp3"
+    },
+    {
+     "word": "بِطْرِيق",
+     "chips": [
+      "بِطْ",
+      "رِيق"
+     ],
+     "audio": "words/bitriq.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 11,
+   "page": 13,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "بَيْض",
+     "pic": "../../pics/ar-eggs.png",
+     "audio": "words/bayd.mp3"
+    },
+    {
+     "word": "بُوق",
+     "pic": "../../pics/ar-trumpet.png",
+     "audio": "words/buq.mp3"
+    },
+    {
+     "word": "بُرْج",
+     "pic": "../../pics/ar-tower.png",
+     "audio": "words/burj.mp3"
+    },
+    {
+     "word": "ضَبْع",
+     "pic": "../../pics/ar-hyena.png",
+     "audio": "words/dab.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 12,
+   "page": 13,
+   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الباء",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/628/name.mp3"
+   ],
+   "hint": "اضغط على الكلمة اللي فيها الحرف",
+   "items": [
+    {
+     "word": "أَرْنَب",
+     "audio": "../u1l3/words/arnab.mp3"
+    },
+    {
+     "word": "أَسَد",
+     "audio": "../u1l3/words/asad.mp3"
+    },
+    {
+     "word": "بُوق",
+     "audio": "words/buq.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 12,
+   "page": 13,
+   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الباء",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/628/name.mp3"
+   ],
+   "hint": "اضغط على الكلمة اللي فيها الحرف",
+   "items": [
+    {
+     "word": "حَبْل",
+     "audio": "../u1l6/words/habl.mp3",
+     "answer": true
+    },
+    {
+     "word": "إِبْرَة",
+     "audio": "../u1l3/words/ibra.mp3"
+    },
+    {
+     "word": "أُذُن",
+     "audio": "../u1l3/words/udhun.mp3"
+    }
+   ]
+  }
+ ]
+}

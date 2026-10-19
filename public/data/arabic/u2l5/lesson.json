@@ -1,0 +1,278 @@
+{
+ "id": "u2l5",
+ "unit": 2,
+ "lesson": 5,
+ "type": "letter",
+ "title": "حرف النون",
+ "task": "أتعرّف على حرف النون",
+ "pages": 2,
+ "pageNums": [
+  52,
+  53
+ ],
+ "scene": "../../pics/ar-tiger.png",
+ "sceneAlt": "نُون",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "ن",
+  "name": "نُون",
+  "nameAudio": "../letters/646/name.mp3",
+  "pic": "../../pics/ar-tiger.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "نـ",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـنـ",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـن",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "ن",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "نَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/646-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "نُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/646-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "نِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/646-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "نْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/646-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف النون في الكلمة",
+   "أصوات حرف النون بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "نَمِر",
+   "img": "../../pics/ar-tiger.png",
+   "audio": {
+    "word": "words/nimr.mp3"
+   },
+   "parts": [
+    {
+     "t": "نَ",
+     "audio": "../../syl-ar/646-64e.mp3"
+    },
+    {
+     "t": "مِر",
+     "audio": "../../syl-ar/645-650-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "نَحْلَة",
+   "img": "../../pics/ar-bee.jpg",
+   "audio": {
+    "word": "words/nahla.mp3"
+   },
+   "parts": [
+    {
+     "t": "نَحْ",
+     "audio": "../../syl-ar/646-64e-62d-652.mp3"
+    },
+    {
+     "t": "لَة",
+     "audio": "../../syl-ar/644-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "نَار",
+   "img": "../../pics/ar-fire.png",
+   "audio": {
+    "word": "words/nar.mp3"
+   },
+   "parts": [
+    {
+     "t": "نَار",
+     "audio": "words/nar.mp3"
+    }
+   ]
+  },
+  {
+   "word": "نُقُود",
+   "img": "../../pics/ar-money.png",
+   "audio": {
+    "word": "words/nuqud.mp3"
+   },
+   "parts": [
+    {
+     "t": "نُ",
+     "audio": "../../syl-ar/646-64f.mp3"
+    },
+    {
+     "t": "قُود",
+     "audio": "../../syl-ar/642-64f-648-62f.mp3"
+    }
+   ]
+  },
+  {
+   "word": "نُسُور",
+   "img": "../../pics/ar-eagles.jpg",
+   "audio": {
+    "word": "../u2l2/words/m-nasr.mp3"
+   },
+   "parts": [
+    {
+     "t": "نُ",
+     "audio": "../../syl-ar/646-64f.mp3"
+    },
+    {
+     "t": "سُور",
+     "audio": "../../syl-ar/633-64f-648-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "نُجُوم",
+   "img": "../../pics/ar-stars.jpg",
+   "audio": {
+    "word": "words/nujum.mp3"
+   },
+   "parts": [
+    {
+     "t": "نُ",
+     "audio": "../../syl-ar/646-64f.mp3"
+    },
+    {
+     "t": "جُوم",
+     "audio": "../../syl-ar/62c-64f-648-645.mp3"
+    }
+   ]
+  },
+  {
+   "word": "نِيل",
+   "img": "../../pics/ar-nile.png",
+   "audio": {
+    "word": "../u2l3/words/nil.mp3"
+   },
+   "parts": [
+    {
+     "t": "نِيل",
+     "audio": "../u2l3/words/nil.mp3"
+    }
+   ]
+  },
+  {
+   "word": "نِصْف",
+   "img": "../../pics/ar-half.jpg",
+   "audio": {
+    "word": "words/nisf.mp3"
+   },
+   "parts": [
+    {
+     "t": "نِصْف",
+     "audio": "words/nisf.mp3"
+    }
+   ]
+  },
+  {
+   "word": "نِسْنَاس",
+   "img": "../../pics/ar-monkey.jpg",
+   "audio": {
+    "word": "words/nisnas.mp3"
+   },
+   "parts": [
+    {
+     "t": "نِسْ",
+     "audio": "../../syl-ar/646-650-633-652.mp3"
+    },
+    {
+     "t": "نَاس",
+     "audio": "../../syl-ar/646-64e-627-633.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أَنْف",
+   "img": "../../pics/ar-nose.jpg",
+   "audio": {
+    "word": "../u1l3/q/c6-0.mp3"
+   },
+   "parts": [
+    {
+     "t": "أَنْف",
+     "audio": "../u1l3/q/c6-0.mp3"
+    }
+   ]
+  },
+  {
+   "word": "مُهَنْدِس",
+   "img": "../../pics/ar-engineer.png",
+   "audio": {
+    "word": "../u1l5/words/muhandis.mp3"
+   },
+   "parts": [
+    {
+     "t": "مُ",
+     "audio": "../../syl-ar/645-64f.mp3"
+    },
+    {
+     "t": "هَنْ",
+     "audio": "../../syl-ar/647-64e-646-652.mp3"
+    },
+    {
+     "t": "دِس",
+     "audio": "../../syl-ar/62f-650-633.mp3"
+    }
+   ]
+  },
+  {
+   "word": "بِنْت",
+   "img": "../../pics/ar-girl.png",
+   "audio": {
+    "word": "../u1l4/words/bint.mp3"
+   },
+   "parts": [
+    {
+     "t": "بِنْت",
+     "audio": "../u1l4/words/bint.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

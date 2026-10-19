@@ -249,3 +249,28 @@
 /* RULE (every subject): whatever the child must write shows a dash under each place, empty or faint; the place being typed is blue */
 #lesson:not(.ar) .qx .qxw>.lt{border-bottom:0.1875rem solid rgba(46,27,12,.45);border-radius:.05em;margin:0 .1em}
 #lesson:not(.ar) .qx .qxw>.lt.cur{border-bottom-color:#2A7FD8}
+
+/* ---------- Arabic letters with their marks stay fully inside circles / buttons / tiles (comments 2026-10-18) ----------
+   one flat look: cream face, brown rim; a right choice only turns its rim and face light green, the letter stays dark and visible.
+   the letter is about 40% of its frame, in a tall line box centred in it, so marks above and below fit inside */
+.qlet,.qxc,.qxtile{overflow:visible}
+.qxchoices .qlet{--bs:clamp(4.25rem,min(22cqw,19cqh),6.5rem);width:var(--bs)!important;height:var(--bs)!important}
+.qans .qlet,.qxchoices .qlet{background:#FFFDF6!important}
+.qans .qlet::after,.qxchoices .qlet::after{display:none}
+.qlet.on,.qxchoices .qlet.on{background:#E4F5D2!important;border-color:#3A9A2C!important;box-shadow:0 0.25rem 0 #3A9A2C!important}
+.qlet.on span,.qxchoices .qlet.on span{color:#2E1B0C!important}
+.qlet span,.qxc span,.qxtile span{display:block;line-height:2.2!important;padding:0;transform:none!important;text-align:center;white-space:nowrap}
+.qxchoices .qlet span{font-size:calc(var(--bs)*.4)!important}
+.qxc{--cs:min(17cqw,18cqh)}
+.qxc span{font-size:calc(var(--cs)*.42)}
+.qxc.right{background:#E4F5D2;border-color:#3A9A2C}
+.qxc.right span{color:#2E1B0C}
+.qxtile{--th:clamp(3.75rem,min(21cqw,19cqh),6.25rem);height:var(--th)}
+.qxtile span{font-size:calc(var(--th)*.42)}
+
+/* the places to write in are always plainly visible (a thick line under each), the current one in blue */
+#lesson:not(.ar) .qx .qxw>.lt{border-bottom-width:0.25rem;border-bottom-color:rgba(46,27,12,.7);min-width:.7em}
+#lesson:not(.ar) .qx .qxw>.lt.cur{border-bottom-color:#2A7FD8}
+
+.qxtile.wide{width:auto;min-width:clamp(3rem,min(17cqw,15cqh),5.25rem);padding:0 .7rem}.qxtile.wide span{font-size:clamp(1.4rem,5.5vh,2.4rem)}
+.qxwords{display:flex;flex-wrap:wrap;gap:.4em .5em;justify-content:center}.qxwords .lt{margin:0}

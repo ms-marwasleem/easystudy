@@ -1,0 +1,220 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 89,
+   "task": "انْطِقْ وَلَوِّنِ الصُّورَةَ الَّتِي بِهَا صَوْتُ حَرْفِ الشِّينِ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/634/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الشين",
+   "silent": true,
+   "items": [
+    {
+     "word": "lion",
+     "pic": "../../pics/ar-lion.png",
+     "answer": true
+    },
+    {
+     "word": "spoon",
+     "pic": "../../pics/ar-spoon.png",
+     "answer": false
+    },
+    {
+     "word": "sun",
+     "pic": "../../pics/ar-sun.jpg",
+     "answer": true
+    },
+    {
+     "word": "sail",
+     "pic": "../../pics/ar-sail.png",
+     "answer": true
+    },
+    {
+     "word": "banana",
+     "pic": "../../pics/ar-banana.png",
+     "answer": false
+    },
+    {
+     "word": "candle",
+     "pic": "../../pics/ar-candle.png",
+     "answer": true
+    },
+    {
+     "word": "lemon",
+     "pic": "../../pics/ar-lemon.png",
+     "answer": false
+    },
+    {
+     "word": "tree",
+     "pic": "../../pics/ar-tree.jpg",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 89,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الشِّينِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/634/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الشين",
+   "items": [
+    {
+     "word": "شَيْخ",
+     "pic": "../../pics/ar-sheikh.jpg",
+     "audio": "../u3l3/words/shaykh.mp3",
+     "at": 0
+    },
+    {
+     "word": "خَشَب",
+     "pic": "../../pics/ar-wood.png",
+     "audio": "../u1l9/words/khashab.mp3",
+     "at": 1
+    },
+    {
+     "word": "شَمْس",
+     "pic": "../../pics/ar-sun.jpg",
+     "audio": "../u1l5/words/shams.mp3",
+     "at": 0
+    },
+    {
+     "word": "عُشْب",
+     "pic": "../../pics/ar-grass.png",
+     "audio": "../u3l4/words/ushb.mp3",
+     "at": 1
+    },
+    {
+     "word": "عُشّ",
+     "pic": "../../pics/ar-nest.jpg",
+     "audio": "words/ush.mp3",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 10,
+   "page": 89,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الشِّينِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/634/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الشين",
+   "choices": [
+    "شَ",
+    "شُ",
+    "شِ",
+    "شْ"
+   ],
+   "items": [
+    {
+     "word": "شُمُوع",
+     "pic": "../../pics/ar-candles.png",
+     "audio": "words/shumuu.mp3",
+     "answer": "شُ"
+    },
+    {
+     "word": "شَيْخ",
+     "pic": "../../pics/ar-sheikh.jpg",
+     "audio": "../u3l3/words/shaykh.mp3",
+     "answer": "شَ"
+    },
+    {
+     "word": "مُشْمُش",
+     "pic": "../../pics/ar-apricot.png",
+     "audio": "../u1l5/words/mishmish.mp3",
+     "answer": "شْ"
+    },
+    {
+     "word": "مِشْط",
+     "pic": "../../pics/ar-comb.png",
+     "audio": "words/mishT.mp3",
+     "answer": "شْ"
+    },
+    {
+     "word": "شَمْس",
+     "pic": "../../pics/ar-sun.jpg",
+     "audio": "../u1l5/words/shams.mp3",
+     "answer": "شَ"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 11,
+   "page": 90,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "شَجَرَة",
+     "chips": [
+      "شَ",
+      "جَ",
+      "رَة"
+     ],
+     "audio": "../u2l6/words/shajara.mp3"
+    },
+    {
+     "word": "شَمْع",
+     "chips": [
+      "شَمْ",
+      "ع"
+     ],
+     "audio": "words/shamaa2.mp3"
+    },
+    {
+     "word": "مِنْشَار",
+     "chips": [
+      "مِنْ",
+      "شَار"
+     ],
+     "audio": "words/minshar.mp3"
+    },
+    {
+     "word": "مِشْبَك",
+     "chips": [
+      "مِشْ",
+      "بَ",
+      "ك"
+     ],
+     "audio": "words/mishbak.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 12,
+   "page": 90,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "شَمْس",
+     "pic": "../../pics/ar-sun.jpg",
+     "audio": "../u1l5/words/shams.mp3"
+    },
+    {
+     "word": "عُشّ",
+     "pic": "../../pics/ar-nest.jpg",
+     "audio": "words/ush.mp3"
+    },
+    {
+     "word": "مِشْط",
+     "pic": "../../pics/ar-comb.png",
+     "audio": "words/mishT.mp3"
+    }
+   ]
+  }
+ ]
+}

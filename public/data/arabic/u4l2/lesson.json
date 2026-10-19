@@ -1,0 +1,242 @@
+{
+ "id": "u4l2",
+ "unit": 4,
+ "lesson": 2,
+ "type": "listening",
+ "title": "نشيد: أحب مدرستي",
+ "task": "نشيد أحب مدرستي",
+ "scene": "scene.jpg",
+ "sceneAlt": "ولد ذاهب إلى مدرسته",
+ "picture": "scene.jpg",
+ "compact": true,
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "end": 11.8,
+ "speakers": {},
+ "lines": [
+  {
+   "words": [
+    [
+     "أَنَا",
+     0.3,
+     0.8
+    ],
+    [
+     "تِلْمِيذٌ",
+     0.8,
+     1.3
+    ],
+    [
+     "فِي",
+     1.3,
+     1.8
+    ],
+    [
+     "مَدْرَسَتِي",
+     1.8,
+     2.3
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "وَمَعِي",
+     2.7,
+     3.2
+    ],
+    [
+     "قَلَمِي",
+     3.2,
+     3.7
+    ],
+    [
+     "فِي",
+     3.7,
+     4.2
+    ],
+    [
+     "مِقْلَمَتِي",
+     4.2,
+     4.7
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "أَكْتُبُ",
+     5.1,
+     5.6
+    ],
+    [
+     "حَرْفًا",
+     5.6,
+     6.1
+    ],
+    [
+     "أَرْسُمُ",
+     6.1,
+     6.6
+    ],
+    [
+     "شَمْسًا",
+     6.6,
+     7.1
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "وَأُرَدِّدُ",
+     7.5,
+     8.0
+    ],
+    [
+     "خَلْفَ",
+     8.0,
+     8.5
+    ],
+    [
+     "مُعَلِّمَتِي",
+     8.5,
+     9.0
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "أَنَا",
+     9.4,
+     9.9
+    ],
+    [
+     "تِلْمِيذٌ",
+     9.9,
+     10.4
+    ],
+    [
+     "فِي",
+     10.4,
+     10.9
+    ],
+    [
+     "مَدْرَسَتِي",
+     10.9,
+     11.4
+    ]
+   ]
+  }
+ ],
+ "hints": {
+  "read": "اضغط هنا واسمع النشيد!",
+  "word": "اضغط على أي كلمة تسمعها",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "أُرَدِّدُ",
+   "img": "../../pics/ar-students.png",
+   "audio": {
+    "word": "words/ardd.mp3"
+   },
+   "parts": [
+    {
+     "t": "أُرَدِّدُ"
+    }
+   ],
+   "ar": "مَعْنَاهَا: أُكَرِّرُ الْكَلَامَ أَوْ أَقُولُهُ بِصَوْتٍ عَالٍ",
+   "rel": {
+    "label": "مَعْنَاهَا",
+    "text": "أُكَرِّرُ الْكَلَامَ أَوْ أَقُولُهُ بِصَوْتٍ عَالٍ",
+    "labelAudio": "../u1l2/words/lbl-meaning.mp3",
+    "audio": "words/m-ardd.mp3"
+   }
+  },
+  {
+   "word": "تِلْمِيذ",
+   "img": "../../pics/ar-students.png",
+   "audio": {
+    "word": "words/tilmidh.mp3"
+   },
+   "parts": [
+    {
+     "t": "تِلْمِيذ"
+    }
+   ],
+   "ar": "جَمْعُهُ: تَلَامِيذُ",
+   "rel": {
+    "label": "جَمْعُهُ",
+    "text": "تَلَامِيذُ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "words/m-tilmidh.mp3"
+   }
+  },
+  {
+   "word": "شَمْس",
+   "img": "../../pics/ar-sun.jpg",
+   "audio": {
+    "word": "words/shams.mp3"
+   },
+   "parts": [
+    {
+     "t": "شَمْس"
+    }
+   ],
+   "ar": "جَمْعُهَا: شُمُوسٌ",
+   "rel": {
+    "label": "جَمْعُهَا",
+    "text": "شُمُوسٌ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "words/m-shams.mp3"
+   }
+  },
+  {
+   "word": "قَلَم",
+   "img": "../../pics/ar-pencil.png",
+   "audio": {
+    "word": "words/qalam.mp3"
+   },
+   "parts": [
+    {
+     "t": "قَلَم"
+    }
+   ],
+   "ar": "جَمْعُهُ: أَقْلَامٌ",
+   "rel": {
+    "label": "جَمْعُهُ",
+    "text": "أَقْلَامٌ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "words/m-qalam.mp3"
+   }
+  },
+  {
+   "word": "مُعَلِّمَة",
+   "img": "../../pics/teacher-woman.png",
+   "audio": {
+    "word": "words/muallima.mp3"
+   },
+   "parts": [
+    {
+     "t": "مُعَلِّمَة"
+    }
+   ],
+   "ar": "جَمْعُهَا: مُعَلِّمَاتٌ",
+   "rel": {
+    "label": "جَمْعُهَا",
+    "text": "مُعَلِّمَاتٌ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "words/m-muallima.mp3"
+   }
+  }
+ ],
+ "vocabRepeats": 3,
+ "vocabMode": "meaning"
+}

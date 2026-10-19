@@ -1,0 +1,290 @@
+{
+ "id": "u4l6",
+ "unit": 4,
+ "lesson": 6,
+ "type": "letter",
+ "title": "حرف الضاد",
+ "task": "أتعرّف على حرف الضاد",
+ "pages": 2,
+ "pageNums": [
+  124,
+  125
+ ],
+ "scene": "../../pics/ar-hyena.png",
+ "sceneAlt": "ضَاد",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "ض",
+  "name": "ضَاد",
+  "nameAudio": "../letters/636/name.mp3",
+  "pic": "../../pics/ar-hyena.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "ضـ",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـضـ",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـض",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "ض",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "ضَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/636-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "ضُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/636-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "ضِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/636-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "ضْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/636-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف الضاد في الكلمة",
+   "أصوات حرف الضاد بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "ضَابِط",
+   "img": "../../pics/ar-police.png",
+   "audio": {
+    "word": "words/dabit.mp3"
+   },
+   "parts": [
+    {
+     "t": "ضَا",
+     "audio": "../../syl-ar/636-64e-627.mp3"
+    },
+    {
+     "t": "بِط",
+     "audio": "../../syl-ar/628-650-637.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ضَبْع",
+   "img": "../../pics/ar-hyena.png",
+   "audio": {
+    "word": "words/daba3.mp3"
+   },
+   "parts": [
+    {
+     "t": "ضَبْع",
+     "audio": "words/daba3.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ضَفِيرَة",
+   "img": "../../pics/ar-braid.png",
+   "audio": {
+    "word": "words/dafira.mp3"
+   },
+   "parts": [
+    {
+     "t": "ضَ",
+     "audio": "../../syl-ar/636-64e.mp3"
+    },
+    {
+     "t": "فِي",
+     "audio": "../../syl-ar/641-650-64a.mp3"
+    },
+    {
+     "t": "رَة",
+     "audio": "../../syl-ar/631-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ضُفْدَع",
+   "img": "../../pics/ar-frog.jpg",
+   "audio": {
+    "word": "words/difda3.mp3"
+   },
+   "parts": [
+    {
+     "t": "ضُفْ",
+     "audio": "../../syl-ar/636-64f-641-652.mp3"
+    },
+    {
+     "t": "دَع",
+     "audio": "../../syl-ar/62f-64e-639.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ضُلُوع",
+   "img": "../../pics/ar-ribs.png",
+   "audio": {
+    "word": "words/dulu3.mp3"
+   },
+   "parts": [
+    {
+     "t": "ضُ",
+     "audio": "../../syl-ar/636-64f.mp3"
+    },
+    {
+     "t": "لُوع",
+     "audio": "../../syl-ar/644-64f-648-639.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ضُبَّاط",
+   "img": "../../pics/ar-officers.png",
+   "audio": {
+    "word": "words/dubbat.mp3"
+   },
+   "parts": [
+    {
+     "t": "ضُبْ",
+     "audio": "../../syl-ar/636-64f-628-652.mp3"
+    },
+    {
+     "t": "بَاط",
+     "audio": "../../syl-ar/628-64e-627-637.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ضِرْس",
+   "img": "../../pics/ar-tooth.png",
+   "audio": {
+    "word": "words/dirs.mp3"
+   },
+   "parts": [
+    {
+     "t": "ضِرْس",
+     "audio": "words/dirs.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ضِلْع",
+   "img": "../../pics/ar-rib.png",
+   "audio": {
+    "word": "words/dil3.mp3"
+   },
+   "parts": [
+    {
+     "t": "ضِلْع",
+     "audio": "words/dil3.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ضِبَاع",
+   "img": "../../pics/ar-hyenas.jpg",
+   "audio": {
+    "word": "words/diba3.mp3"
+   },
+   "parts": [
+    {
+     "t": "ضِ",
+     "audio": "../../syl-ar/636-650.mp3"
+    },
+    {
+     "t": "بَاع",
+     "audio": "../../syl-ar/628-64e-627-639.mp3"
+    }
+   ]
+  },
+  {
+   "word": "مِضْرَب",
+   "img": "../../pics/ar-racket.png",
+   "audio": {
+    "word": "words/midrab.mp3"
+   },
+   "parts": [
+    {
+     "t": "مِضْ",
+     "audio": "../../syl-ar/645-650-636-652.mp3"
+    },
+    {
+     "t": "رَب",
+     "audio": "../../syl-ar/631-64e-628.mp3"
+    }
+   ]
+  },
+  {
+   "word": "خَضْرَاء",
+   "img": "../../pics/ar-traffic-light.png",
+   "audio": {
+    "word": "words/khadra.mp3"
+   },
+   "parts": [
+    {
+     "t": "خَضْ",
+     "audio": "../../syl-ar/62e-64e-636-652.mp3"
+    },
+    {
+     "t": "رَاء",
+     "audio": "../../syl-ar/631-64e-627-621.mp3"
+    }
+   ]
+  },
+  {
+   "word": "خَضْرَاوَات",
+   "img": "../../pics/ar-veg.jpg",
+   "audio": {
+    "word": "words/khadrawat.mp3"
+   },
+   "parts": [
+    {
+     "t": "خَضْ",
+     "audio": "../../syl-ar/62e-64e-636-652.mp3"
+    },
+    {
+     "t": "رَا",
+     "audio": "../../syl-ar/631-64e-627.mp3"
+    },
+    {
+     "t": "وَات",
+     "audio": "../../syl-ar/648-64e-627-62a.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

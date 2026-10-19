@@ -1,0 +1,311 @@
+{
+ "id": "u3l2",
+ "unit": 3,
+ "lesson": 2,
+ "type": "listening",
+ "title": "نشيد: أحب جسمي",
+ "task": "نشيد أحب جسمي",
+ "scene": "scene.jpg",
+ "sceneAlt": "ولد يحب جسمه",
+ "picture": "scene.jpg",
+ "compact": true,
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "end": 13.0,
+ "speakers": {},
+ "lines": [
+  {
+   "words": [
+    [
+     "أُبْصِرُ",
+     0.3,
+     0.8
+    ],
+    [
+     "بِالْعَيْنَيْنِ",
+     0.8,
+     1.3
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "طَيْرًا",
+     1.7,
+     2.2
+    ],
+    [
+     "فِي",
+     2.2,
+     2.7
+    ],
+    [
+     "السَّمَاءِ",
+     2.7,
+     3.2
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "أَسْمَعُ",
+     3.6,
+     4.1
+    ],
+    [
+     "بِالْأُذُنَيْنِ",
+     4.1,
+     4.6
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "صَوْتَ",
+     5.0,
+     5.5
+    ],
+    [
+     "الْأَصْدِقَاءِ",
+     5.5,
+     6.0
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "وَأَسِيرُ",
+     6.4,
+     6.9
+    ],
+    [
+     "بِالْقَدَمَيْنِ",
+     6.9,
+     7.4
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "وَأَجْرِي",
+     7.8,
+     8.3
+    ],
+    [
+     "فِي",
+     8.3,
+     8.8
+    ],
+    [
+     "الْفِنَاءِ",
+     8.8,
+     9.3
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "وَفَوْقَ",
+     9.7,
+     10.2
+    ],
+    [
+     "رَأْسِي",
+     10.2,
+     10.7
+    ],
+    [
+     "شَعْرٌ",
+     10.7,
+     11.2
+    ]
+   ]
+  },
+  {
+   "words": [
+    [
+     "لِرَأْسِي",
+     11.6,
+     12.1
+    ],
+    [
+     "كَالْغِطَاءِ",
+     12.1,
+     12.6
+    ]
+   ]
+  }
+ ],
+ "hints": {
+  "read": "اضغط هنا واسمع النشيد!",
+  "word": "اضغط على أي كلمة تسمعها",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "أُبْصِرُ",
+   "img": "../../pics/ar-eye.png",
+   "audio": {
+    "word": "words/absir.mp3"
+   },
+   "parts": [
+    {
+     "t": "أُبْصِرُ"
+    }
+   ],
+   "ar": "مَعْنَاهَا: أَرَى",
+   "rel": {
+    "label": "مَعْنَاهَا",
+    "text": "أَرَى",
+    "labelAudio": "../u1l2/words/lbl-meaning.mp3",
+    "audio": "words/m-absir.mp3"
+   }
+  },
+  {
+   "word": "أَسِيرُ",
+   "img": "../../pics/ar-foot.png",
+   "audio": {
+    "word": "words/asir.mp3"
+   },
+   "parts": [
+    {
+     "t": "أَسِيرُ"
+    }
+   ],
+   "ar": "مَعْنَاهَا: أَمْشِي",
+   "rel": {
+    "label": "مَعْنَاهَا",
+    "text": "أَمْشِي",
+    "labelAudio": "../u1l2/words/lbl-meaning.mp3",
+    "audio": "words/m-asir.mp3"
+   }
+  },
+  {
+   "word": "طَائِر",
+   "img": "../../pics/bird.png",
+   "audio": {
+    "word": "words/tair.mp3"
+   },
+   "parts": [
+    {
+     "t": "طَائِر"
+    }
+   ],
+   "ar": "جَمْعُهُ: طَيْرٌ",
+   "rel": {
+    "label": "جَمْعُهُ",
+    "text": "طَيْرٌ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "words/m-tair.mp3"
+   }
+  },
+  {
+   "word": "صَوْت",
+   "img": "scene.jpg",
+   "audio": {
+    "word": "words/sawt.mp3"
+   },
+   "parts": [
+    {
+     "t": "صَوْت"
+    }
+   ],
+   "ar": "جَمْعُهُ: أَصْوَاتٌ",
+   "rel": {
+    "label": "جَمْعُهُ",
+    "text": "أَصْوَاتٌ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "words/m-sawt.mp3"
+   }
+  },
+  {
+   "word": "قَدَم",
+   "img": "../../pics/ar-foot.png",
+   "audio": {
+    "word": "words/qadam.mp3"
+   },
+   "parts": [
+    {
+     "t": "قَدَم"
+    }
+   ],
+   "ar": "جَمْعُهَا: أَقْدَامٌ",
+   "rel": {
+    "label": "جَمْعُهَا",
+    "text": "أَقْدَامٌ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "words/m-qadam.mp3"
+   }
+  },
+  {
+   "word": "فِنَاء",
+   "img": "scene.jpg",
+   "audio": {
+    "word": "words/fina.mp3"
+   },
+   "parts": [
+    {
+     "t": "فِنَاء"
+    }
+   ],
+   "ar": "جَمْعُهُ: أَفْنِيَةٌ",
+   "rel": {
+    "label": "جَمْعُهُ",
+    "text": "أَفْنِيَةٌ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "words/m-fina.mp3"
+   }
+  },
+  {
+   "word": "قَدَمَيْن",
+   "img": "../../pics/ar-foot.png",
+   "audio": {
+    "word": "words/qadamayn.mp3"
+   },
+   "parts": [
+    {
+     "t": "قَدَمَيْن"
+    }
+   ],
+   "ar": "مُفْرَدُهُمَا: قَدَمٌ",
+   "rel": {
+    "label": "مُفْرَدُهُمَا",
+    "text": "قَدَمٌ",
+    "labelAudio": "../u2l2/words/lbl-singular.mp3",
+    "audio": "words/m-qadamayn.mp3"
+   }
+  },
+  {
+   "word": "عَيْنَيْن",
+   "img": "../../pics/ar-eye.png",
+   "audio": {
+    "word": "words/aynayn.mp3"
+   },
+   "parts": [
+    {
+     "t": "عَيْنَيْن"
+    }
+   ],
+   "ar": "مُفْرَدُهُمَا: عَيْنٌ",
+   "rel": {
+    "label": "مُفْرَدُهُمَا",
+    "text": "عَيْنٌ",
+    "labelAudio": "../u2l2/words/lbl-singular.mp3",
+    "audio": "words/m-aynayn.mp3"
+   }
+  }
+ ],
+ "vocabRepeats": 3,
+ "vocabMode": "meaning"
+}

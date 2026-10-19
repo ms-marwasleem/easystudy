@@ -1,0 +1,122 @@
+{
+ "sets": [
+  {
+   "type": "qa",
+   "ex": 1,
+   "page": 43,
+   "task": "سُؤَالٌ وَجَوَابٌ",
+   "hint": "اسمع كل سؤال وجوابه",
+   "items": [
+    {
+     "ask": "عَمَّ تُرْسَمُ اللَّوْحَةُ؟",
+     "word": "تُرْسَمُ اللَّوْحَةُ عَنْ غَابَةٍ سَعِيدَةٍ.",
+     "audio": "q/qa1-q.mp3",
+     "ansAudio": "q/qa1-a.mp3",
+     "pic": "scene.jpg"
+    },
+    {
+     "ask": "مَاذَا سَتَرْسُمُ فِي اللَّوْحَةِ؟",
+     "word": "أَرْسُمُ الْأُسُودَ وَالْفِيلَ وَالْقُرُودَ وَأَرْنَبًا وَقِطًّا وَثَعْلَبًا وَبَطًّا وَبُلْبُلًا وَنَسْرًا وَبُومَةً وَصَقْرًا.",
+     "audio": "q/qa2-q.mp3",
+     "ansAudio": "q/qa2-a.mp3",
+     "pic": "scene.jpg"
+    }
+   ],
+   "together": true
+  },
+  {
+   "type": "link",
+   "ex": 2,
+   "page": 43,
+   "task": "أَصِلُ كُلَّ كَلِمَةٍ بِمَعْنَاهَا أَوْ جَمْعِهَا أَوْ مُفْرَدِهَا",
+   "taskAudio": "../q-prompts/match-meaning.mp3",
+   "hint": "صل كل كلمة بمعناها أو جمعها أو مفردها",
+   "items": [
+    {
+     "word": "سَعِيدَةٌ",
+     "text2": "مَسْرُورَةٌ",
+     "audio": "words/saida.mp3",
+     "full": [
+      "words/saida.mp3",
+      "../u1l2/words/lbl-meaning.mp3",
+      "words/m-saida.mp3"
+     ],
+     "rel": "مَعْنَاهَا",
+     "audio2": "words/m-saida.mp3"
+    },
+    {
+     "word": "أَرْنَب",
+     "text2": "أَرَانِبُ",
+     "audio": "../u1l3/words/arnab.mp3",
+     "full": [
+      "../u1l3/words/arnab.mp3",
+      "../u1l2/words/lbl-plural.mp3",
+      "words/m-arnab.mp3"
+     ],
+     "rel": "جَمْعُهُ",
+     "audio2": "words/m-arnab.mp3"
+    },
+    {
+     "word": "بُلْبُل",
+     "text2": "بَلَابِلُ",
+     "audio": "../u2l1/words/bulbul.mp3",
+     "full": [
+      "../u2l1/words/bulbul.mp3",
+      "../u1l2/words/lbl-plural.mp3",
+      "words/m-bulbul.mp3"
+     ],
+     "rel": "جَمْعُهُ",
+     "audio2": "words/m-bulbul.mp3"
+    },
+    {
+     "word": "فِيل",
+     "text2": "أَفْيَالٌ",
+     "audio": "../u1l3/q/c5-fil.mp3",
+     "full": [
+      "../u1l3/q/c5-fil.mp3",
+      "../u1l2/words/lbl-plural.mp3",
+      "words/m-fil.mp3"
+     ],
+     "rel": "جَمْعُهُ",
+     "audio2": "words/m-fil.mp3"
+    },
+    {
+     "word": "نَسْر",
+     "text2": "نُسُورٌ",
+     "audio": "words/nasr.mp3",
+     "full": [
+      "words/nasr.mp3",
+      "../u1l2/words/lbl-plural.mp3",
+      "words/m-nasr.mp3"
+     ],
+     "rel": "جَمْعُهُ",
+     "audio2": "words/m-nasr.mp3"
+    },
+    {
+     "word": "الْقُرُود",
+     "text2": "الْقِرْدُ",
+     "audio": "words/qurud.mp3",
+     "full": [
+      "words/qurud.mp3",
+      "words/lbl-singular.mp3",
+      "words/m-qurud.mp3"
+     ],
+     "rel": "مُفْرَدُهُ",
+     "audio2": "words/m-qurud.mp3"
+    },
+    {
+     "word": "الْأُسُود",
+     "text2": "الْأَسَدُ",
+     "audio": "words/usud.mp3",
+     "full": [
+      "words/usud.mp3",
+      "words/lbl-singular.mp3",
+      "words/m-usud.mp3"
+     ],
+     "rel": "مُفْرَدُهُ",
+     "audio2": "words/m-usud.mp3"
+    }
+   ]
+  }
+ ]
+}

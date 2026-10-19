@@ -1,0 +1,1228 @@
+{
+ "title": "التقييم النهائي",
+ "ratio": 0.707,
+ "head": {
+  "l": "Department of ARABIC<br>G1",
+  "r": "Noor El Elm<br>Modern School"
+ },
+ "pages": [
+  {
+   "title": "التقييم النهائي ١",
+   "chip": "تقييم نهائي ١",
+   "group": 1,
+   "foot": 154,
+   "style": "bar",
+   "blocks": [
+    {
+     "t": "q",
+     "n": "١",
+     "text": "اكتب اسم الصور التالية:",
+     "audio": "a1-q1.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-pyramid.jpg",
+           "w": 5.6
+          },
+          "[[هرم:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-camel.jpg",
+           "w": 5.6
+          },
+          "[[جمل:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-scissors.jpg",
+           "w": 5.6
+          },
+          "[[مقص:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-girls.jpg",
+           "w": 5.6
+          },
+          "[[بنات|فتيات:box,wide]]"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٢",
+     "text": "أكوّن كلمات من الحروف الآتية:",
+     "audio": "a1-q2.mp3",
+     "body": [
+      {
+       "t": "text",
+       "text": "( ح - س - ت - ر - م - ل - ج )",
+       "style": "xbigtxt"
+      },
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "eq",
+       "items": [
+        "[[حجر|حمل|جمل|رمل|سمر|تمر|جلس|مسح|حرس|رجل|سرج|ترس|مرج|لحم|سجل|جرس|رسم|ملح|مسرح|حجم|ستر|سلم|مرسل:box,wide]]",
+        "[[حجر|حمل|جمل|رمل|سمر|تمر|جلس|مسح|حرس|رجل|سرج|ترس|مرج|لحم|سجل|جرس|رسم|ملح|مسرح|حجم|ستر|سلم|مرسل:box,wide]]",
+        "[[حجر|حمل|جمل|رمل|سمر|تمر|جلس|مسح|حرس|رجل|سرج|ترس|مرج|لحم|سجل|جرس|رسم|ملح|مسرح|حجم|ستر|سلم|مرسل:box,wide]]",
+        "[[حجر|حمل|جمل|رمل|سمر|تمر|جلس|مسح|حرس|رجل|سرج|ترس|مرج|لحم|سجل|جرس|رسم|ملح|مسرح|حجم|ستر|سلم|مرسل:box,wide]]"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٣",
+     "text": "اقرأ، ثم استخرج: هذا عالم مشهور",
+     "audio": "a1-q3.mp3",
+     "body": [
+      "مدًّا بالألف: [[عالم|هذا:box,wide]] ، واذكر الحرف الممدود: [[ع|ه|ذ:box]]",
+      "مدًّا بالواو: [[مشهور:box,wide]] ، واذكر الحرف الممدود: [[ه:box]]",
+      "اسم إشارة: [[هذا:box,wide]]"
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٤",
+     "text": "أضع ضميرًا مناسبًا (أنا - نحن):",
+     "audio": "a1-q4.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-mother.jpg",
+           "w": 5.6
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أنا",
+            "نحن"
+           ],
+           "answer": 0,
+           "labels": "none",
+           "style": "words",
+           "cols": 2
+          },
+          "أُمّ"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-fatherchild.jpg",
+           "w": 5.6
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أنا",
+            "نحن"
+           ],
+           "answer": 0,
+           "labels": "none",
+           "style": "words",
+           "cols": 2
+          },
+          "أَبٌ"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-toddler.jpg",
+           "w": 5.6
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أنا",
+            "نحن"
+           ],
+           "answer": 0,
+           "labels": "none",
+           "style": "words",
+           "cols": 2
+          },
+          "طِفْلَة"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-teachers.jpg",
+           "w": 5.6
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أنا",
+            "نحن"
+           ],
+           "answer": 1,
+           "labels": "none",
+           "style": "words",
+           "cols": 2
+          },
+          "مُعَلِّمُون"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "التقييم النهائي ٢",
+   "chip": "تقييم نهائي ٢",
+   "group": 2,
+   "foot": 155,
+   "style": "bar",
+   "blocks": [
+    {
+     "t": "q",
+     "n": "١",
+     "text": "أكمل الجدول بشكل الحرف المناسب:",
+     "audio": "a2-q1.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 6,
+       "style": "",
+       "items": [
+        {
+         "t": "text",
+         "text": "أ",
+         "style": "xbigtxt"
+        },
+        "[[م:box]]",
+        {
+         "t": "text",
+         "text": "ب",
+         "style": "xbigtxt"
+        },
+        "[[ف:box]]",
+        {
+         "t": "text",
+         "text": "ن",
+         "style": "xbigtxt"
+        },
+        "[[ل:box]]",
+        "[[أ:box]]",
+        {
+         "t": "text",
+         "text": "مـ",
+         "style": "xbigtxt"
+        },
+        "[[بـ:box]]",
+        {
+         "t": "text",
+         "text": "فـ",
+         "style": "xbigtxt"
+        },
+        "[[نـ:box]]",
+        {
+         "t": "text",
+         "text": "لـ",
+         "style": "xbigtxt"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٢",
+     "text": "انطق واكتب صوت الحرف المناسب لكل صورة:",
+     "audio": "a2-q2.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-lion.png",
+           "w": 5.6
+          },
+          "[[أ:box]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-penguin.png",
+           "w": 5.6
+          },
+          "[[ب:box]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-clown.jpg",
+           "w": 5.6
+          },
+          "[[م:box]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-starfish.jpg",
+           "w": 5.6
+          },
+          "[[ن:box]]"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٣",
+     "text": "حلل الكلمات الآتية:",
+     "audio": "a2-q3.mp3",
+     "body": [
+      "أَنْف = [[أ:box]] + [[ن:box]] + [[ف:box]]",
+      "نَمْل = [[ن:box]] + [[م:box]] + [[ل:box]]"
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٤",
+     "text": "انطق واكتب الكلمة المناسبة لكل صورة:",
+     "audio": "a2-q4.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-dates.png",
+           "w": 5.6
+          },
+          "[[تمر:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-rope.jpg",
+           "w": 5.6
+          },
+          "[[حبل:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-horse-book.jpg",
+           "w": 5.6
+          },
+          "[[حصان:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-milk.jpg",
+           "w": 5.6
+          },
+          "[[حليب:box,wide]]"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٥",
+     "text": "اقرأ، ثم أجب:",
+     "audio": "a2-q5.mp3",
+     "body": [
+      "جَلَسَ الْفَأْرُ فِي الْجُحْرِ وَأَكَلَ الْبُنْدُقَ.",
+      "هات من الجملة كلمات بها حرف: ج [[جلس|الجحر:box,wide]] ، ف [[الفأر|في:box,wide]] ، ق [[البندق:box,wide]]"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "التقييم النهائي ٣",
+   "chip": "تقييم نهائي ٣",
+   "group": 3,
+   "foot": 156,
+   "style": "bar",
+   "blocks": [
+    {
+     "t": "q",
+     "n": "١",
+     "text": "صل كل حرف بشكله المتصل:",
+     "audio": "a3-q1.mp3",
+     "body": [
+      {
+       "t": "link",
+       "dir": "v",
+       "circ": true,
+       "a": [
+        "ح",
+        "ر",
+        "ز",
+        "ت",
+        "س",
+        "ج"
+       ],
+       "b": [
+        "<span style='font-size:1.9em'>جـ</span>",
+        "<span style='font-size:1.9em'>ـسـ</span>",
+        "<span style='font-size:1.9em'>ـحـ</span>",
+        "<span style='font-size:1.9em'>ـر</span>",
+        "<span style='font-size:1.9em'>ـز</span>",
+        "<span style='font-size:1.9em'>ـتـ</span>"
+       ],
+       "pairs": [
+        [
+         0,
+         2
+        ],
+        [
+         1,
+         3
+        ],
+        [
+         2,
+         4
+        ],
+        [
+         3,
+         5
+        ],
+        [
+         4,
+         1
+        ],
+        [
+         5,
+         0
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٢",
+     "text": "انطق واكتب الحرف الناقص في كل كلمة:",
+     "audio": "a3-q2.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-bees.jpg",
+           "w": 5.6
+          },
+          "نـ[[ح:box]]ل"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-oil.jpg",
+           "w": 3.4
+          },
+          "[[ز:box]]يت"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-camel2.jpg",
+           "w": 5.6
+          },
+          "[[ج:box]]مل"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-cloud.jpg",
+           "w": 5.6
+          },
+          "[[س:box]]حب"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٣",
+     "text": "رتب الحروف لتكوّن كلمات:",
+     "audio": "a3-q3.mp3",
+     "body": [
+      "ت - ن - ب = [[بنت:box,wide]]",
+      "ن - ب - ج = [[جبن:box,wide]]"
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٤",
+     "text": "انطق واكتب الكلمة المناسبة لكل صورة:",
+     "audio": "a3-q4.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-tiger.jpg",
+           "w": 5.6
+          },
+          "[[نمر:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-carrot.jpg",
+           "w": 5.6
+          },
+          "[[جزر:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-radish.jpg",
+           "w": 4.4
+          },
+          "[[فجل:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-foot.jpg",
+           "w": 4.4
+          },
+          "[[قدم:box,wide]]"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٥",
+     "text": "رتب الكلمات لتكوّن جملة:",
+     "audio": "a3-q5.mp3",
+     "body": [
+      "(١) المنزل - رتبت - أمي: [[رتبت أمي المنزل:box,wide]]",
+      "(٢) زر - هذا - أحمر: [[هذا زر أحمر:box,wide]]"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "التقييم النهائي ٤",
+   "chip": "تقييم نهائي ٤",
+   "group": 4,
+   "foot": 157,
+   "style": "bar",
+   "blocks": [
+    {
+     "t": "q",
+     "n": "١",
+     "text": "أكمل الجدول بشكل الحرف المناسب:",
+     "audio": "a4-q1.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 5,
+       "style": "",
+       "items": [
+        {
+         "t": "text",
+         "text": "د",
+         "style": "xbigtxt"
+        },
+        "[[ـد:box]]",
+        {
+         "t": "text",
+         "text": "ط",
+         "style": "xbigtxt"
+        },
+        "[[طـ:box]]",
+        {
+         "t": "text",
+         "text": "ذ",
+         "style": "xbigtxt"
+        },
+        "[[ـذ:box]]",
+        {
+         "t": "text",
+         "text": "ـق",
+         "style": "xbigtxt"
+        },
+        "[[قـ:box]]",
+        {
+         "t": "text",
+         "text": "شـ",
+         "style": "xbigtxt"
+        },
+        "[[ـش:box]]"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٢",
+     "text": "انطق واكتب الحرف الناقص في كل كلمة:",
+     "audio": "a4-q2.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-lion.png",
+           "w": 5.6
+          },
+          "أَسـ[[د:box]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-monkey.jpg",
+           "w": 5.6
+          },
+          "[[ق:box]]رْد"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-cotton.jpg",
+           "w": 5.6
+          },
+          "قُ[[ط:box]]ن"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-tree.jpg",
+           "w": 5.6
+          },
+          "[[ش:box]]جَر"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٣",
+     "text": "حلل الكلمات الآتية:",
+     "audio": "a4-q3.mp3",
+     "body": [
+      "جَذْر = [[ج:box]] + [[ذ:box]] + [[ر:box]]",
+      "قِرْش = [[ق:box]] + [[ر:box]] + [[ش:box]]"
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٤",
+     "text": "انطق واكتب الكلمة المناسبة لكل صورة:",
+     "audio": "a4-q4.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-bear.png",
+           "w": 5.6
+          },
+          "[[دب:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-ear.png",
+           "w": 4.4
+          },
+          "[[أذن:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fa-pen.jpg",
+           "w": 3.2
+          },
+          "[[قلم:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-comb.png",
+           "w": 5.6
+          },
+          "[[مشط:box,wide]]"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٥",
+     "text": "اقرأ، ثم صل كل جملة بالصورة المناسبة:",
+     "audio": "a4-q5.mp3",
+     "body": [
+      {
+       "t": "link",
+       "dir": "h",
+       "a": [
+        "أُحِبُّ الْقِطَّ الْمَطَر.",
+        "هَذَا قُفْل أَزْرَق."
+       ],
+       "b": [
+        {
+         "art": "../../../pics/ar-lock.png",
+         "w": 4.0
+        },
+        {
+         "art": "../../../pics/ar-catrain.png",
+         "w": 4.0
+        }
+       ],
+       "pairs": [
+        [
+         0,
+         1
+        ],
+        [
+         1,
+         0
+        ]
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "التقييم النهائي ٥",
+   "chip": "تقييم نهائي ٥",
+   "group": 5,
+   "foot": 158,
+   "style": "bar",
+   "blocks": [
+    {
+     "t": "q",
+     "n": "١",
+     "text": "صل كل حرف بشكله المتصل:",
+     "audio": "a5-q1.mp3",
+     "body": [
+      {
+       "t": "link",
+       "dir": "v",
+       "circ": true,
+       "a": [
+        "ع",
+        "و",
+        "ث",
+        "خ",
+        "ص",
+        "ض"
+       ],
+       "b": [
+        "<span style='font-size:1.9em'>ـو</span>",
+        "<span style='font-size:1.9em'>ـثـ</span>",
+        "<span style='font-size:1.9em'>ـعـ</span>",
+        "<span style='font-size:1.9em'>ـضـ</span>",
+        "<span style='font-size:1.9em'>ـخـ</span>",
+        "<span style='font-size:1.9em'>ـصـ</span>"
+       ],
+       "pairs": [
+        [
+         0,
+         2
+        ],
+        [
+         1,
+         0
+        ],
+        [
+         2,
+         1
+        ],
+        [
+         3,
+         4
+        ],
+        [
+         4,
+         5
+        ],
+        [
+         5,
+         3
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٢",
+     "text": "انطق واكتب الحرف الناقص في كل كلمة:",
+     "audio": "a5-q2.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-bread.png",
+           "w": 5.6
+          },
+          "[[خ:box]]بْز"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-triangle.png",
+           "w": 5.6
+          },
+          "مُ[[ث:box]]لَّث"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-bow.png",
+           "w": 5.6
+          },
+          "قَ[[و:box]]س"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-flag.png",
+           "w": 5.6
+          },
+          "[[ع:box]]لَم"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٣",
+     "text": "حلل الكلمات الآتية:",
+     "audio": "a5-q3.mp3",
+     "body": [
+      "مِقَصّ = [[م:box]] + [[ق:box]] + [[ص:box]]",
+      "ضِرْس = [[ض:box]] + [[ر:box]] + [[س:box]]"
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٤",
+     "text": "انطق واكتب الكلمة المناسبة لكل صورة:",
+     "audio": "a5-q4.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-eagle.jpg",
+           "w": 5.6
+          },
+          "[[نسر|صقر:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-palm.png",
+           "w": 5.6
+          },
+          "[[نخلة|شجرة:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-flower.png",
+           "w": 5.6
+          },
+          "[[زهرة|وردة:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-fox.png",
+           "w": 5.6
+          },
+          "[[ثعلب:box,wide]]"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٥",
+     "text": "اقرأ، ثم أجب:",
+     "audio": "a5-q5.mp3",
+     "body": [
+      "وَجَدْتُ الْوَرَقَ فِي الدُّرْجِ وَالْقَلَمَ الْأَخْضَرَ عَلَى الْأَرْضِ.",
+      "هات من الجملة كلمات بها حرف: ج [[وجدت|الدرج:box,wide]] ، ض [[الأخضر|الأرض:box,wide]]"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "التقييم النهائي ٦",
+   "chip": "تقييم نهائي ٦",
+   "group": 6,
+   "foot": 159,
+   "style": "bar",
+   "blocks": [
+    {
+     "t": "q",
+     "n": "١",
+     "text": "أكمل الجدول بشكل الحرف المناسب:",
+     "audio": "a6-q1.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 5,
+       "style": "",
+       "items": [
+        {
+         "t": "text",
+         "text": "ك",
+         "style": "xbigtxt"
+        },
+        "[[كـ|ـك|ـكـ:box]]",
+        {
+         "t": "text",
+         "text": "ه",
+         "style": "xbigtxt"
+        },
+        "[[هـ|ـه|ـهـ:box]]",
+        {
+         "t": "text",
+         "text": "ظ",
+         "style": "xbigtxt"
+        },
+        "[[ظـ|ـظ|ـظـ:box]]",
+        {
+         "t": "text",
+         "text": "يـ",
+         "style": "xbigtxt"
+        },
+        "[[ي|ـي|ـيـ:box]]",
+        {
+         "t": "text",
+         "text": "غـ",
+         "style": "xbigtxt"
+        },
+        "[[غ|ـغ|ـغـ:box]]"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٢",
+     "text": "انطق واكتب الحرف الناقص في كل كلمة:",
+     "audio": "a6-q2.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-dog.png",
+           "w": 5.6
+          },
+          "[[ك:box]]لب"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-tail.png",
+           "w": 5.6
+          },
+          "ذ[[ي:box]]ل"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-branch.png",
+           "w": 5.6
+          },
+          "[[غ:box]]صن"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-envelope.jpg",
+           "w": 5.6
+          },
+          "[[ظ:box]]رف"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٣",
+     "text": "حلل الكلمات الآتية:",
+     "audio": "a6-q3.mp3",
+     "body": [
+      "كَهْف = [[ك:box]] + [[ه:box]] + [[ف:box]]",
+      "عَيْن = [[ع:box]] + [[ي:box]] + [[ن:box]]"
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٤",
+     "text": "انطق واكتب الكلمة المناسبة لكل صورة:",
+     "audio": "a6-q4.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-arrow.png",
+           "w": 5.6
+          },
+          "[[سهم:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-eggs.png",
+           "w": 5.6
+          },
+          "[[بيض:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-boat.jpg",
+           "w": 5.6
+          },
+          "[[مركب|قارب|سفينة|شراع:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-glue.jpg",
+           "w": 4.4
+          },
+          "[[غراء:box,wide]]"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٥",
+     "text": "رتب الكلمات لتكوّن جملة:",
+     "audio": "a6-q5.mp3",
+     "body": [
+      "(١) الهرم - هند - إلى - ذهبت: [[ذهبت هند إلى الهرم:box,wide]]",
+      "(٢) لون - أبيض - البيت: [[لون البيت أبيض:box,wide]]"
+     ]
+    }
+   ]
+  }
+ ]
+}

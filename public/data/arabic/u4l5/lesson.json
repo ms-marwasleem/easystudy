@@ -1,0 +1,290 @@
+{
+ "id": "u4l5",
+ "unit": 4,
+ "lesson": 5,
+ "type": "letter",
+ "title": "حرف الصاد",
+ "task": "أتعرّف على حرف الصاد",
+ "pages": 2,
+ "pageNums": [
+  120,
+  121
+ ],
+ "scene": "../../pics/ar-eagle.jpg",
+ "sceneAlt": "صَاد",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "ص",
+  "name": "صَاد",
+  "nameAudio": "../letters/635/name.mp3",
+  "pic": "../../pics/ar-eagle.jpg",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "صـ",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـصـ",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـص",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "ص",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "صَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/635-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "صُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/635-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "صِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/635-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "صْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/635-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف الصاد في الكلمة",
+   "أصوات حرف الصاد بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "صَيَّاد",
+   "img": "../../pics/ar-fisherman.jpg",
+   "audio": {
+    "word": "words/sayyad.mp3"
+   },
+   "parts": [
+    {
+     "t": "صَيْ",
+     "audio": "../../syl-ar/635-64e-64a-652.mp3"
+    },
+    {
+     "t": "يَاد",
+     "audio": "../../syl-ar/64a-64e-627-62f.mp3"
+    }
+   ]
+  },
+  {
+   "word": "صَقْر",
+   "img": "../../pics/ar-eagle.jpg",
+   "audio": {
+    "word": "words/saqr.mp3"
+   },
+   "parts": [
+    {
+     "t": "صَقْر",
+     "audio": "words/saqr.mp3"
+    }
+   ]
+  },
+  {
+   "word": "صَفّ",
+   "img": "../../pics/ar-classline.jpg",
+   "audio": {
+    "word": "words/saff.mp3"
+   },
+   "parts": [
+    {
+     "t": "صَفّ",
+     "audio": "words/saff.mp3"
+    }
+   ]
+  },
+  {
+   "word": "صُوَر",
+   "img": "../../pics/ar-photos.jpg",
+   "audio": {
+    "word": "words/suwar.mp3"
+   },
+   "parts": [
+    {
+     "t": "صُ",
+     "audio": "../../syl-ar/635-64f.mp3"
+    },
+    {
+     "t": "وَر",
+     "audio": "../../syl-ar/648-64e-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "صُنْدُوق",
+   "img": "../../pics/ar-box.png",
+   "audio": {
+    "word": "words/sunduq.mp3"
+   },
+   "parts": [
+    {
+     "t": "صُنْ",
+     "audio": "../../syl-ar/635-64f-646-652.mp3"
+    },
+    {
+     "t": "دُوق",
+     "audio": "../../syl-ar/62f-64f-648-642.mp3"
+    }
+   ]
+  },
+  {
+   "word": "صُنْبُور",
+   "img": "../../pics/ar-tap.png",
+   "audio": {
+    "word": "words/sunbur.mp3"
+   },
+   "parts": [
+    {
+     "t": "صُنْ",
+     "audio": "../../syl-ar/635-64f-646-652.mp3"
+    },
+    {
+     "t": "بُور",
+     "audio": "../../syl-ar/628-64f-648-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "صِنَّارَة",
+   "img": "../../pics/ar-rod.png",
+   "audio": {
+    "word": "words/sinnara.mp3"
+   },
+   "parts": [
+    {
+     "t": "صِنْ",
+     "audio": "../../syl-ar/635-650-646-652.mp3"
+    },
+    {
+     "t": "نَا",
+     "audio": "../../syl-ar/646-64e-627.mp3"
+    },
+    {
+     "t": "رَة",
+     "audio": "../../syl-ar/631-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "صِغَار",
+   "img": "../../pics/ar-babies.jpg",
+   "audio": {
+    "word": "words/sighar.mp3"
+   },
+   "parts": [
+    {
+     "t": "صِ",
+     "audio": "../../syl-ar/635-650.mp3"
+    },
+    {
+     "t": "غَار",
+     "audio": "../../syl-ar/63a-64e-627-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "صِينِيَّة",
+   "img": "../../pics/ar-tray.jpg",
+   "audio": {
+    "word": "words/siniyya.mp3"
+   },
+   "parts": [
+    {
+     "t": "صِي",
+     "audio": "../../syl-ar/635-650-64a.mp3"
+    },
+    {
+     "t": "نِي",
+     "audio": "../../syl-ar/646-650-64a.mp3"
+    },
+    {
+     "t": "يَة",
+     "audio": "../../syl-ar/64a-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "مِصْبَاح",
+   "img": "../../pics/ar-bulb.png",
+   "audio": {
+    "word": "words/misbah.mp3"
+   },
+   "parts": [
+    {
+     "t": "مِصْ",
+     "audio": "../../syl-ar/645-650-635-652.mp3"
+    },
+    {
+     "t": "بَاح",
+     "audio": "../../syl-ar/628-64e-627-62d.mp3"
+    }
+   ]
+  },
+  {
+   "word": "قَصْر",
+   "img": "../../pics/ar-castle.png",
+   "audio": {
+    "word": "words/qasr.mp3"
+   },
+   "parts": [
+    {
+     "t": "قَصْر",
+     "audio": "words/qasr.mp3"
+    }
+   ]
+  },
+  {
+   "word": "عُصْفُور",
+   "img": "../../pics/ar-bird.png",
+   "audio": {
+    "word": "words/usfur.mp3"
+   },
+   "parts": [
+    {
+     "t": "عُصْ",
+     "audio": "../../syl-ar/639-64f-635-652.mp3"
+    },
+    {
+     "t": "فُور",
+     "audio": "../../syl-ar/641-64f-648-631.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

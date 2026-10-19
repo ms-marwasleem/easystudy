@@ -1,0 +1,226 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 6,
+   "page": 65,
+   "task": "اسْتَمِعْ وَارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الْكَافِ",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/643/name.mp3"
+   ],
+   "hint": "اضغط على الكلمات اللي فيها الكاف",
+   "items": [
+    {
+     "word": "كِتَاب",
+     "audio": "words/kitab.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَرْنَب",
+     "audio": "../u1l3/words/arnab.mp3",
+     "answer": false
+    },
+    {
+     "word": "مَكْتَب",
+     "audio": "words/maktab.mp3",
+     "answer": true
+    },
+    {
+     "word": "بَيْت",
+     "audio": "../u2l3/words/bayt.mp3",
+     "answer": false
+    },
+    {
+     "word": "كُرَة",
+     "audio": "words/kura.mp3",
+     "answer": true
+    },
+    {
+     "word": "نِيل",
+     "audio": "../u2l3/words/nil.mp3",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 66,
+   "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الْكَافِ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/643/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الكاف",
+   "silent": true,
+   "items": [
+    {
+     "word": "book-red",
+     "pic": "../../pics/ar-book-red.png",
+     "answer": true
+    },
+    {
+     "word": "cup",
+     "pic": "../../pics/ar-cup.png",
+     "answer": true
+    },
+    {
+     "word": "iron",
+     "pic": "../../pics/ar-iron.png",
+     "answer": true
+    },
+    {
+     "word": "cat",
+     "pic": "../../pics/ar-cat.png",
+     "answer": false
+    },
+    {
+     "word": "ball",
+     "pic": "../../pics/ar-ball.png",
+     "answer": true
+    },
+    {
+     "word": "chair",
+     "pic": "../../pics/ar-chair.png",
+     "answer": true
+    },
+    {
+     "word": "elephant",
+     "pic": "../../pics/ar-elephant.png",
+     "answer": false
+    },
+    {
+     "word": "desk",
+     "pic": "../../pics/ar-desk.png",
+     "answer": true
+    },
+    {
+     "word": "trophy",
+     "pic": "../../pics/ar-trophy.png",
+     "answer": true
+    },
+    {
+     "word": "dog",
+     "pic": "../../pics/ar-dog.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 66,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الْكَافِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/643/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الكاف",
+   "items": [
+    {
+     "word": "كَلْب",
+     "pic": "../../pics/ar-dog.png",
+     "audio": "../u2l3/words/kalb.mp3",
+     "at": 0
+    },
+    {
+     "word": "مَكْتَب",
+     "pic": "../../pics/ar-desk.png",
+     "audio": "words/maktab.mp3",
+     "at": 1
+    },
+    {
+     "word": "رُكْبَة",
+     "pic": "../../pics/ar-knee.png",
+     "audio": "../u2l6/words/rukba.mp3",
+     "at": 1
+    },
+    {
+     "word": "كُرْسِي",
+     "pic": "../../pics/ar-chair.png",
+     "audio": "../u2l4/words/kursi.mp3",
+     "at": 0
+    },
+    {
+     "word": "كِتَاب",
+     "pic": "../../pics/ar-book-red.png",
+     "audio": "words/kitab.mp3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 66,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "كُرَة",
+     "chips": [
+      "كُ",
+      "رَة"
+     ],
+     "audio": "words/kura.mp3"
+    },
+    {
+     "word": "كُتُب",
+     "chips": [
+      "كُ",
+      "تُب"
+     ],
+     "audio": "words/kutub.mp3"
+    },
+    {
+     "word": "كِيوِي",
+     "chips": [
+      "كِي",
+      "وِي"
+     ],
+     "audio": "words/kiwi.mp3"
+    },
+    {
+     "word": "مِكْوَاة",
+     "chips": [
+      "مِكْ",
+      "وَاة"
+     ],
+     "audio": "../u1l5/words/mikwat.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 12,
+   "page": 67,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "كِيوِي",
+     "pic": "../../pics/ar-kiwi.png",
+     "audio": "words/kiwi.mp3"
+    },
+    {
+     "word": "مَكْتَب",
+     "pic": "../../pics/ar-desk.png",
+     "audio": "words/maktab.mp3"
+    },
+    {
+     "word": "كُرَة",
+     "pic": "../../pics/ar-ball.png",
+     "audio": "words/kura.mp3"
+    },
+    {
+     "word": "كِتَاب",
+     "pic": "../../pics/ar-book-red.png",
+     "audio": "words/kitab.mp3"
+    }
+   ]
+  }
+ ]
+}

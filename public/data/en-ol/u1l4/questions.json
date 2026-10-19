@@ -182,6 +182,334 @@
      "answer": 0
     }
    ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 1,
+   "page": 5,
+   "task": "Listen and write the missing letters:",
+   "taskAudio": "../../en-shared/q/listen-and-write-the-missing-letters.mp3",
+   "hint": "Type the missing letters!",
+   "items": [
+    {
+     "word": "shake hands",
+     "audio": "../u1l1/words/shake-hands.mp3",
+     "pic": "../../pics/shake-hands.jpg",
+     "gaps": [
+      3,
+      8
+     ]
+    },
+    {
+     "word": "table",
+     "audio": "../u1l2/words/table.mp3",
+     "pic": "../../pics/table.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "book",
+     "audio": "../u1l3/words/book.mp3",
+     "pic": "../../pics/book.png",
+     "gaps": [
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "type": "cloze",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 2,
+   "page": 5,
+   "task": "Read and complete:",
+   "taskAudio": "../../en-shared/q/read-and-complete.mp3",
+   "hint": "Tap the missing word!",
+   "items": [
+    {
+     "text": "I [[play]] with my friends.",
+     "bank": [
+      "name",
+      "teacher",
+      "board",
+      "play"
+     ],
+     "audio": "../../en-shared/q/i-play-with-my-friends.mp3"
+    },
+    {
+     "text": "My [[name]] is Hana.",
+     "bank": [
+      "name",
+      "teacher",
+      "board",
+      "play"
+     ],
+     "audio": "../../en-shared/q/my-name-is-hana.mp3"
+    },
+    {
+     "text": "She is my [[teacher]].",
+     "bank": [
+      "name",
+      "teacher",
+      "board",
+      "play"
+     ],
+     "audio": "../../en-shared/q/she-is-my-teacher.mp3"
+    },
+    {
+     "text": "Look at the [[board]].",
+     "bank": [
+      "name",
+      "teacher",
+      "board",
+      "play"
+     ],
+     "audio": "../../en-shared/q/look-at-the-board.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 3,
+   "page": 5,
+   "task": "Unscramble and write:",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "pen",
+     "scr": "epn",
+     "audio": "../../en-shared/q/pen.mp3",
+     "pic": "../../pics/pen.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "desk",
+     "scr": "sdek",
+     "audio": "../u1l3/words/desk.mp3",
+     "pic": "../../pics/desk.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "ink",
+     "scr": "nki",
+     "audio": "words/ink.mp3",
+     "pic": "../../pics/ink-icon.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 4,
+   "page": 5,
+   "task": "Reorder to form sentences:",
+   "taskAudio": "../../en-shared/q/reorder-to-form-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "Nice",
+      "to",
+      "meet",
+      "you"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/nice-to-meet-you.mp3"
+    },
+    {
+     "chunks": [
+      "This",
+      "is",
+      "my",
+      "friend"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/this-is-my-friend.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 1,
+   "page": 6,
+   "task": "Listen and write the missing letters:",
+   "taskAudio": "../../en-shared/q/listen-and-write-the-missing-letters.mp3",
+   "hint": "Type the missing letters!",
+   "items": [
+    {
+     "word": "insect",
+     "audio": "words/insect.mp3",
+     "pic": "../../pics/ladybug.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "tree",
+     "audio": "../u1l2/words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "in",
+     "audio": "words/in.mp3",
+     "pic": "../../pics/box.png",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "cloze",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 2,
+   "page": 6,
+   "task": "Read and choose the correct answer:",
+   "taskAudio": "../../en-shared/q/read-and-choose-the-correct-answer.mp3",
+   "hint": "Tap the correct word!",
+   "items": [
+    {
+     "text": "He's [[ill]].",
+     "bank": [
+      "happy",
+      "ill"
+     ],
+     "audio": "../../en-shared/q/he-s-ill.mp3"
+    },
+    {
+     "text": "[[Open]] your book, please.",
+     "bank": [
+      "Open",
+      "Sit"
+     ],
+     "audio": "../../en-shared/q/open-your-book-please.mp3"
+    },
+    {
+     "text": "There are books in my [[bag]].",
+     "bank": [
+      "book",
+      "bag"
+     ],
+     "audio": "../../en-shared/q/there-are-books-in-my-bag.mp3"
+    },
+    {
+     "text": "There are two [[pencils]] in my bag.",
+     "bank": [
+      "pencils",
+      "desks"
+     ],
+     "audio": "../../en-shared/q/there-are-two-pencils-in-my-bag.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 3,
+   "page": 6,
+   "task": "Unscramble and write:",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "ruler",
+     "scr": "ulrre",
+     "audio": "../../en-shared/q/ruler.mp3",
+     "pic": "../../pics/ruler.jpg",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "tiger",
+     "scr": "grite",
+     "audio": "../u1l2/words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "ill",
+     "scr": "lil",
+     "audio": "words/ill.mp3",
+     "pic": "../../pics/ill.jpg",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 4,
+   "page": 6,
+   "task": "Reorder to form sentences:",
+   "taskAudio": "../../en-shared/q/reorder-to-form-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "My",
+      "name",
+      "is",
+      "Ali"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/my-name-is-ali.mp3"
+    },
+    {
+     "chunks": [
+      "We",
+      "are",
+      "friends"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/we-are-friends.mp3"
+    }
+   ]
   }
  ]
 }

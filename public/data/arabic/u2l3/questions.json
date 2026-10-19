@@ -1,0 +1,270 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 5,
+   "page": 45,
+   "task": "انْطِقْ وَصِلْ حَرْفَ (ل) بِالصُّوَرِ الَّتِي بِهَا صَوْتُهُ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/644/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت اللام",
+   "silent": true,
+   "items": [
+    {
+     "word": "spoon",
+     "pic": "../../pics/ar-spoon.png",
+     "answer": true
+    },
+    {
+     "word": "dog",
+     "pic": "../../pics/ar-dog.png",
+     "answer": true
+    },
+    {
+     "word": "dolphin",
+     "pic": "../../pics/ar-dolphin.png",
+     "answer": true
+    },
+    {
+     "word": "flower",
+     "pic": "../../pics/ar-flower.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 7,
+   "page": 46,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ اللَّامِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/644/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها اللام",
+   "items": [
+    {
+     "word": "لَحْم",
+     "pic": "../../pics/ar-meat.png",
+     "audio": "../u1l6/words/lahm.mp3",
+     "at": 0
+    },
+    {
+     "word": "فِيل",
+     "pic": "../../pics/ar-elephant.png",
+     "audio": "../u1l3/q/c5-fil.mp3",
+     "at": 2
+    },
+    {
+     "word": "حَبْل",
+     "pic": "../../pics/ar-rope.png",
+     "audio": "../u1l6/words/habl.mp3",
+     "at": 2
+    },
+    {
+     "word": "لِفْت",
+     "pic": "../../pics/ar-turnip.png",
+     "audio": "words/lift.mp3",
+     "at": 0
+    },
+    {
+     "word": "مِلْح",
+     "pic": "../../pics/ar-salt.png",
+     "audio": "words/milh.mp3",
+     "at": 1
+    },
+    {
+     "word": "قَلْب",
+     "pic": "../../pics/ar-heart.png",
+     "audio": "words/qalb.mp3",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 8,
+   "page": 46,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ اللَّامِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/644/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت اللام",
+   "choices": [
+    "لَ",
+    "لُ",
+    "لِ",
+    "لْ"
+   ],
+   "items": [
+    {
+     "word": "لُعْبَة",
+     "pic": "../../pics/ar-toy-rings.png",
+     "audio": "words/luba.mp3",
+     "answer": "لُ"
+    },
+    {
+     "word": "لِسَان",
+     "pic": "../../pics/ar-tongue.png",
+     "audio": "words/lisan.mp3",
+     "answer": "لِ"
+    },
+    {
+     "word": "لَبَن",
+     "pic": "../../pics/ar-milk.png",
+     "audio": "words/laban.mp3",
+     "answer": "لَ"
+    },
+    {
+     "word": "لِفْت",
+     "pic": "../../pics/ar-turnip.png",
+     "audio": "words/lift.mp3",
+     "answer": "لِ"
+    },
+    {
+     "word": "لَحْم",
+     "pic": "../../pics/ar-meat.png",
+     "audio": "../u1l6/words/lahm.mp3",
+     "answer": "لَ"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 47,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "مِلْعَقَة",
+     "chips": [
+      "مِلْ",
+      "عَ",
+      "قَة"
+     ],
+     "audio": "words/milaqa.mp3"
+    },
+    {
+     "word": "لِسَان",
+     "chips": [
+      "لِ",
+      "سَا",
+      "ن"
+     ],
+     "audio": "words/lisan.mp3"
+    },
+    {
+     "word": "لُحُوم",
+     "chips": [
+      "لُ",
+      "حُوم"
+     ],
+     "audio": "words/luhum.mp3"
+    },
+    {
+     "word": "لَيْمُون",
+     "chips": [
+      "لَيْ",
+      "مُو",
+      "ن"
+     ],
+     "audio": "words/laymun.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 11,
+   "page": 47,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "كَلْب",
+     "pic": "../../pics/ar-dog.png",
+     "audio": "words/kalb.mp3"
+    },
+    {
+     "word": "لُعْبَة",
+     "pic": "../../pics/ar-toy-rings.png",
+     "audio": "words/luba.mp3"
+    },
+    {
+     "word": "لِسَان",
+     "pic": "../../pics/ar-tongue.png",
+     "audio": "words/lisan.mp3"
+    },
+    {
+     "word": "مَلْعَب",
+     "pic": "../../pics/ar-stadium.png",
+     "audio": "../u1l5/words/malab.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 12,
+   "page": 47,
+   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ اللَّامِ",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/644/name.mp3"
+   ],
+   "hint": "اضغط على الكلمات اللي فيها اللام",
+   "items": [
+    {
+     "word": "بَيْت",
+     "audio": "words/bayt.mp3",
+     "answer": false
+    },
+    {
+     "word": "حُقُول",
+     "audio": "words/huqul.mp3",
+     "answer": true
+    },
+    {
+     "word": "نِيل",
+     "audio": "words/nil.mp3",
+     "answer": true
+    },
+    {
+     "word": "لَبَن",
+     "audio": "words/laban.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 13,
+   "page": 47,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "نَمْل",
+     "pic": "../../pics/ar-ants.png",
+     "audio": "../u2l1/words/namla.mp3"
+    },
+    {
+     "word": "مِلْح",
+     "pic": "../../pics/ar-salt.png",
+     "audio": "words/milh.mp3"
+    },
+    {
+     "word": "حَبْل",
+     "pic": "../../pics/ar-rope.png",
+     "audio": "../u1l6/words/habl.mp3"
+    }
+   ]
+  }
+ ]
+}

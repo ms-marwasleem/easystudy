@@ -1,0 +1,298 @@
+{
+ "id": "u3l3",
+ "unit": 3,
+ "lesson": 3,
+ "type": "letter",
+ "title": "حرف الياء",
+ "task": "أتعرّف على حرف الياء",
+ "pages": 2,
+ "pageNums": [
+  79,
+  80
+ ],
+ "scene": "../../pics/ar-eye.png",
+ "sceneAlt": "يَاء",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "ي",
+  "name": "يَاء",
+  "nameAudio": "../letters/64a/name.mp3",
+  "pic": "../../pics/ar-eye.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "يـ",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـيـ",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـي",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "ي",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "يَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/64a-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "يُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/64a-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "يِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/64a-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "يْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/64a-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف الياء في الكلمة",
+   "أصوات حرف الياء بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "يَد",
+   "img": "../../pics/ar-hand.jpg",
+   "audio": {
+    "word": "words/yad.mp3"
+   },
+   "parts": [
+    {
+     "t": "يَد",
+     "audio": "words/yad.mp3"
+    }
+   ]
+  },
+  {
+   "word": "يَقْطِين",
+   "img": "../../pics/ar-pumpkin.png",
+   "audio": {
+    "word": "words/yaqtin.mp3"
+   },
+   "parts": [
+    {
+     "t": "يَقْ",
+     "audio": "../../syl-ar/64a-64e-642-652.mp3"
+    },
+    {
+     "t": "طِين",
+     "audio": "../../syl-ar/637-650-64a-646.mp3"
+    }
+   ]
+  },
+  {
+   "word": "يَمَامَة",
+   "img": "../../pics/ar-dove.jpg",
+   "audio": {
+    "word": "words/yamama.mp3"
+   },
+   "parts": [
+    {
+     "t": "يَ",
+     "audio": "../../syl-ar/64a-64e.mp3"
+    },
+    {
+     "t": "مَا",
+     "audio": "../../syl-ar/645-64e-627.mp3"
+    },
+    {
+     "t": "مَة",
+     "audio": "../../syl-ar/645-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "يُوسُفِي",
+   "img": "../../pics/ar-tangerine.jpg",
+   "audio": {
+    "word": "words/yusufi.mp3"
+   },
+   "parts": [
+    {
+     "t": "يُو",
+     "audio": "../../syl-ar/64a-64f-648.mp3"
+    },
+    {
+     "t": "سُ",
+     "audio": "../../syl-ar/633-64f.mp3"
+    },
+    {
+     "t": "فِي",
+     "audio": "../../syl-ar/641-650-64a.mp3"
+    }
+   ]
+  },
+  {
+   "word": "طُيُور",
+   "img": "../../pics/ar-nest.jpg",
+   "audio": {
+    "word": "words/tuyur.mp3"
+   },
+   "parts": [
+    {
+     "t": "طُ",
+     "audio": "../../syl-ar/637-64f.mp3"
+    },
+    {
+     "t": "يُور",
+     "audio": "../../syl-ar/64a-64f-648-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "سُيُوف",
+   "img": "../../pics/ar-swords.png",
+   "audio": {
+    "word": "words/suyuf.mp3"
+   },
+   "parts": [
+    {
+     "t": "سُ",
+     "audio": "../../syl-ar/633-64f.mp3"
+    },
+    {
+     "t": "يُوف",
+     "audio": "../../syl-ar/64a-64f-648-641.mp3"
+    }
+   ]
+  },
+  {
+   "word": "مَصَايِف",
+   "img": "../../pics/ar-beach.jpg",
+   "audio": {
+    "word": "words/masayif.mp3"
+   },
+   "parts": [
+    {
+     "t": "مَ",
+     "audio": "../../syl-ar/645-64e.mp3"
+    },
+    {
+     "t": "صَا",
+     "audio": "../../syl-ar/635-64e-627.mp3"
+    },
+    {
+     "t": "يِف",
+     "audio": "../../syl-ar/64a-650-641.mp3"
+    }
+   ]
+  },
+  {
+   "word": "مَصَايِد",
+   "img": "../../pics/ar-traps.jpg",
+   "audio": {
+    "word": "words/masayid.mp3"
+   },
+   "parts": [
+    {
+     "t": "مَ",
+     "audio": "../../syl-ar/645-64e.mp3"
+    },
+    {
+     "t": "صَا",
+     "audio": "../../syl-ar/635-64e-627.mp3"
+    },
+    {
+     "t": "يِد",
+     "audio": "../../syl-ar/64a-650-62f.mp3"
+    }
+   ]
+  },
+  {
+   "word": "فِبْرَايِر",
+   "img": "../../pics/ar-calendar.jpg",
+   "audio": {
+    "word": "words/fibrayir.mp3"
+   },
+   "parts": [
+    {
+     "t": "فِبْ",
+     "audio": "../../syl-ar/641-650-628-652.mp3"
+    },
+    {
+     "t": "رَا",
+     "audio": "../../syl-ar/631-64e-627.mp3"
+    },
+    {
+     "t": "يِر",
+     "audio": "../../syl-ar/64a-650-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "بَيْض",
+   "img": "../../pics/ar-eggs.png",
+   "audio": {
+    "word": "../u1l4/words/bayd.mp3"
+   },
+   "parts": [
+    {
+     "t": "بَيْض",
+     "audio": "../u1l4/words/bayd.mp3"
+    }
+   ]
+  },
+  {
+   "word": "زَيْت",
+   "img": "../../pics/ar-oil.png",
+   "audio": {
+    "word": "words/zayt.mp3"
+   },
+   "parts": [
+    {
+     "t": "زَيْت",
+     "audio": "words/zayt.mp3"
+    }
+   ]
+  },
+  {
+   "word": "عَيْن",
+   "img": "../../pics/ar-eye.png",
+   "audio": {
+    "word": "words/ayn.mp3"
+   },
+   "parts": [
+    {
+     "t": "عَيْن",
+     "audio": "words/ayn.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

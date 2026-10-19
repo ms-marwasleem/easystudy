@@ -1,0 +1,290 @@
+{
+ "id": "u3l6",
+ "unit": 3,
+ "lesson": 6,
+ "type": "letter",
+ "title": "حرف الواو",
+ "task": "أتعرّف على حرف الواو",
+ "pages": 2,
+ "pageNums": [
+  91,
+  92
+ ],
+ "scene": "../../pics/ar-rhino.png",
+ "sceneAlt": "وَاو",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "و",
+  "name": "وَاو",
+  "nameAudio": "../letters/648/name.mp3",
+  "pic": "../../pics/ar-rhino.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "و",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـو",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـو",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "و",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "وَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/648-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "وُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/648-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "وِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/648-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "وْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/648-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف الواو في الكلمة",
+   "أصوات حرف الواو بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "وَلَد",
+   "img": "../../pics/ar-boy.png",
+   "audio": {
+    "word": "words/walad.mp3"
+   },
+   "parts": [
+    {
+     "t": "وَ",
+     "audio": "../../syl-ar/648-64e.mp3"
+    },
+    {
+     "t": "لَد",
+     "audio": "../../syl-ar/644-64e-62f.mp3"
+    }
+   ]
+  },
+  {
+   "word": "وَرْدَة",
+   "img": "../../pics/ar-flower.png",
+   "audio": {
+    "word": "words/warda.mp3"
+   },
+   "parts": [
+    {
+     "t": "وَرْ",
+     "audio": "../../syl-ar/648-64e-631-652.mp3"
+    },
+    {
+     "t": "دَة",
+     "audio": "../../syl-ar/62f-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "وَرَقَة",
+   "img": "../../pics/ar-paper.jpg",
+   "audio": {
+    "word": "words/waraqa.mp3"
+   },
+   "parts": [
+    {
+     "t": "وَ",
+     "audio": "../../syl-ar/648-64e.mp3"
+    },
+    {
+     "t": "رَ",
+     "audio": "../../syl-ar/631-64e.mp3"
+    },
+    {
+     "t": "قَة",
+     "audio": "../../syl-ar/642-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "وُجُوه",
+   "img": "../../pics/ar-faces.jpg",
+   "audio": {
+    "word": "words/wujuh.mp3"
+   },
+   "parts": [
+    {
+     "t": "وُ",
+     "audio": "../../syl-ar/648-64f.mp3"
+    },
+    {
+     "t": "جُوه",
+     "audio": "../../syl-ar/62c-64f-648-647.mp3"
+    }
+   ]
+  },
+  {
+   "word": "وُضُوء",
+   "img": "../../pics/ar-wudu.jpg",
+   "audio": {
+    "word": "words/wudu.mp3"
+   },
+   "parts": [
+    {
+     "t": "وُ",
+     "audio": "../../syl-ar/648-64f.mp3"
+    },
+    {
+     "t": "ضُوء",
+     "audio": "../../syl-ar/636-64f-648-621.mp3"
+    }
+   ]
+  },
+  {
+   "word": "وُرُود",
+   "img": "../../pics/ar-flowers.jpg",
+   "audio": {
+    "word": "words/wurud.mp3"
+   },
+   "parts": [
+    {
+     "t": "وُ",
+     "audio": "../../syl-ar/648-64f.mp3"
+    },
+    {
+     "t": "رُود",
+     "audio": "../../syl-ar/631-64f-648-62f.mp3"
+    }
+   ]
+  },
+  {
+   "word": "وِشَاح",
+   "img": "../../pics/ar-scarf.jpg",
+   "audio": {
+    "word": "words/wishah.mp3"
+   },
+   "parts": [
+    {
+     "t": "وِ",
+     "audio": "../../syl-ar/648-650.mp3"
+    },
+    {
+     "t": "شَاح",
+     "audio": "../../syl-ar/634-64e-627-62d.mp3"
+    }
+   ]
+  },
+  {
+   "word": "وِعَاء",
+   "img": "../../pics/ar-bowl.jpg",
+   "audio": {
+    "word": "words/wiaa.mp3"
+   },
+   "parts": [
+    {
+     "t": "وِ",
+     "audio": "../../syl-ar/648-650.mp3"
+    },
+    {
+     "t": "عَاء",
+     "audio": "../../syl-ar/639-64e-627-621.mp3"
+    }
+   ]
+  },
+  {
+   "word": "وِسَادَة",
+   "img": "../../pics/ar-pillow.jpg",
+   "audio": {
+    "word": "words/wisada.mp3"
+   },
+   "parts": [
+    {
+     "t": "وِ",
+     "audio": "../../syl-ar/648-650.mp3"
+    },
+    {
+     "t": "سَا",
+     "audio": "../../syl-ar/633-64e-627.mp3"
+    },
+    {
+     "t": "دَة",
+     "audio": "../../syl-ar/62f-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "حَوْض",
+   "img": "../../pics/ar-sink.png",
+   "audio": {
+    "word": "../u1l6/words/hawd.mp3"
+   },
+   "parts": [
+    {
+     "t": "حَوْض",
+     "audio": "../u1l6/words/hawd.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ضَوْء",
+   "img": "../../pics/ar-lamp.jpg",
+   "audio": {
+    "word": "words/daw.mp3"
+   },
+   "parts": [
+    {
+     "t": "ضَوْء",
+     "audio": "words/daw.mp3"
+    }
+   ]
+  },
+  {
+   "word": "قَوْس",
+   "img": "../../pics/ar-bow.png",
+   "audio": {
+    "word": "../u2l4/words/qaws.mp3"
+   },
+   "parts": [
+    {
+     "t": "قَوْس",
+     "audio": "../u2l4/words/qaws.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

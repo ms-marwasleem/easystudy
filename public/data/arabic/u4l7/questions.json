@@ -1,0 +1,205 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 130,
+   "task": "اسْتَمِعْ وَضَعْ عَلَامَةً تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الثَّاءِ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/62b/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الثاء",
+   "silent": true,
+   "items": [
+    {
+     "word": "fox",
+     "pic": "../../pics/ar-fox.png",
+     "answer": true
+    },
+    {
+     "word": "bull",
+     "pic": "../../pics/ar-bull.png",
+     "answer": true
+    },
+    {
+     "word": "lion",
+     "pic": "../../pics/ar-lion.png",
+     "answer": false
+    },
+    {
+     "word": "fridge",
+     "pic": "../../pics/ar-fridge.png",
+     "answer": false
+    },
+    {
+     "word": "mouse",
+     "pic": "../../pics/ar-mouse.png",
+     "answer": false
+    },
+    {
+     "word": "clothes",
+     "pic": "../../pics/ar-clothes.jpg",
+     "answer": true
+    },
+    {
+     "word": "gloves",
+     "pic": "../../pics/ar-gloves.png",
+     "answer": false
+    },
+    {
+     "word": "snake",
+     "pic": "../../pics/ar-snake.png",
+     "answer": true
+    },
+    {
+     "word": "fish",
+     "pic": "../../pics/ar-fish.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 130,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الثَّاءِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/62b/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الثاء",
+   "items": [
+    {
+     "word": "ثَلْج",
+     "pic": "../../pics/ar-ice.png",
+     "audio": "words/thalj.mp3",
+     "at": 0
+    },
+    {
+     "word": "ثَوْم",
+     "pic": "../../pics/ar-garlic.jpg",
+     "audio": "words/thawm.mp3",
+     "at": 0
+    },
+    {
+     "word": "مُثَلَّث",
+     "pic": "../../pics/ar-triangle.png",
+     "audio": "words/muthallath.mp3",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 11,
+   "page": 130,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "ثَعْلَب",
+     "pic": "../../pics/ar-fox.png",
+     "audio": "words/tha3lab.mp3"
+    },
+    {
+     "word": "مُثَلَّث",
+     "pic": "../../pics/ar-triangle.png",
+     "audio": "words/muthallath.mp3"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 12,
+   "page": 131,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "أَثَاث",
+     "chips": [
+      "أَ",
+      "ثَا",
+      "ث"
+     ],
+     "audio": "words/athath.mp3"
+    },
+    {
+     "word": "ثَعْلَب",
+     "chips": [
+      "ثَعْ",
+      "لَ",
+      "ب"
+     ],
+     "audio": "words/tha3lab.mp3"
+    },
+    {
+     "word": "ثَلْج",
+     "chips": [
+      "ثَلْ",
+      "ج"
+     ],
+     "audio": "words/thalj.mp3"
+    },
+    {
+     "word": "ثَوْم",
+     "chips": [
+      "ثَوْ",
+      "م"
+     ],
+     "audio": "words/thawm.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 13,
+   "page": 131,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "ثَعْلَب",
+     "pic": "../../pics/ar-fox.png",
+     "audio": "words/tha3lab.mp3"
+    },
+    {
+     "word": "ثَوْب",
+     "pic": "../../pics/ar-dress.png",
+     "audio": "words/thawb.mp3"
+    },
+    {
+     "word": "مُثَلَّث",
+     "pic": "../../pics/ar-triangle.png",
+     "audio": "words/muthallath.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 15,
+   "page": 131,
+   "task": "انْطِقْ وَصِلْ كُلَّ كَلِمَةٍ بِالصُّورَةِ الْمُنَاسِبَةِ",
+   "taskAudio": "../q-prompts/match-picture.mp3",
+   "hint": "صل الكلمة بالصورة",
+   "items": [
+    {
+     "word": "حَرَث",
+     "pic": "../../pics/ar-tractor.png"
+    },
+    {
+     "word": "وَثَب",
+     "pic": "../../pics/ar-jumper.png"
+    },
+    {
+     "word": "بَحَث",
+     "pic": "../../pics/ar-hidechild.jpg"
+    }
+   ]
+  }
+ ]
+}

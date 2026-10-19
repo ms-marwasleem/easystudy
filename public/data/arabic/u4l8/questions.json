@@ -1,0 +1,249 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 134,
+   "task": "اسْتَمِعْ وَضَعْ عَلَامَةً تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الْغَيْنِ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/63a/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الغين",
+   "silent": true,
+   "items": [
+    {
+     "word": "crow",
+     "pic": "../../pics/ar-crow.jpg",
+     "answer": true
+    },
+    {
+     "word": "tomatoes",
+     "pic": "../../pics/ar-tomatoes.png",
+     "answer": false
+    },
+    {
+     "word": "branch",
+     "pic": "../../pics/ar-branch.png",
+     "answer": true
+    },
+    {
+     "word": "flag",
+     "pic": "../../pics/ar-flag.png",
+     "answer": false
+    },
+    {
+     "word": "washer",
+     "pic": "../../pics/ar-washer.png",
+     "answer": true
+    },
+    {
+     "word": "banana",
+     "pic": "../../pics/ar-banana.png",
+     "answer": false
+    },
+    {
+     "word": "gorilla",
+     "pic": "../../pics/ar-gorilla.png",
+     "answer": true
+    },
+    {
+     "word": "oven",
+     "pic": "../../pics/ar-oven.png",
+     "answer": false
+    },
+    {
+     "word": "gazelle",
+     "pic": "../../pics/ar-gazelle.png",
+     "answer": true
+    },
+    {
+     "word": "submarine",
+     "pic": "../../pics/ar-submarine.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 134,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الْغَيْنِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/63a/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الغين",
+   "items": [
+    {
+     "word": "مِغْرَفَة",
+     "pic": "../../pics/ar-ladle.jpg",
+     "audio": "words/mighrafa.mp3",
+     "at": 1
+    },
+    {
+     "word": "غَزَالَة",
+     "pic": "../../pics/ar-gazelle.png",
+     "audio": "words/ghazala.mp3",
+     "at": 0
+    },
+    {
+     "word": "غِرَاء",
+     "pic": "../../pics/ar-glue.jpg",
+     "audio": "words/ghira.mp3",
+     "at": 0
+    },
+    {
+     "word": "بَبَّغَاء",
+     "pic": "../../pics/ar-parrot.png",
+     "audio": "words/babagha.mp3",
+     "at": 2
+    },
+    {
+     "word": "غِذَاء",
+     "pic": "../../pics/ar-food.jpg",
+     "audio": "words/ghidha.mp3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 134,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "غِرْبَان",
+     "chips": [
+      "غِرْ",
+      "بَا",
+      "ن"
+     ],
+     "audio": "words/ghirban.mp3"
+    },
+    {
+     "word": "غِزْلَان",
+     "chips": [
+      "غِزْ",
+      "لَا",
+      "ن"
+     ],
+     "audio": "words/ghizlan.mp3"
+    },
+    {
+     "word": "مِغْرَفَة",
+     "chips": [
+      "مِغْ",
+      "رَ",
+      "فَ",
+      "ة"
+     ],
+     "audio": "words/mighrafa.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 11,
+   "page": 135,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "غُصْن",
+     "pic": "../../pics/ar-branch.png",
+     "audio": "words/ghusn.mp3"
+    },
+    {
+     "word": "بَبَّغَاء",
+     "pic": "../../pics/ar-parrot.png",
+     "audio": "words/babagha.mp3"
+    },
+    {
+     "word": "غِذَاء",
+     "pic": "../../pics/ar-food.jpg",
+     "audio": "words/ghidha.mp3"
+    },
+    {
+     "word": "غِرَاء",
+     "pic": "../../pics/ar-glue.jpg",
+     "audio": "words/ghira.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 13,
+   "page": 135,
+   "task": "أَقْرَأُ ثُمَّ أَصِلُ",
+   "taskAudio": "../q-prompts/match-picture.mp3",
+   "hint": "صل الكلمة بالصورة",
+   "items": [
+    {
+     "word": "مِغْزَل",
+     "pic": "../../pics/ar-spinning.png"
+    },
+    {
+     "word": "غَزَالَة",
+     "pic": "../../pics/ar-gazelle.png"
+    },
+    {
+     "word": "غُرَاب",
+     "pic": "../../pics/ar-crow.jpg"
+    },
+    {
+     "word": "غَوَّاصَة",
+     "pic": "../../pics/ar-submarine.png"
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 14,
+   "page": 135,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الْغَيْنِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/63a/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الغين",
+   "choices": [
+    "غَ",
+    "غُ",
+    "غِ",
+    "غْ"
+   ],
+   "items": [
+    {
+     "word": "أَغْنَام",
+     "pic": "../../pics/ar-sheep.png",
+     "audio": "words/aghnam.mp3",
+     "answer": "غْ"
+    },
+    {
+     "word": "غُصْن",
+     "pic": "../../pics/ar-branch.png",
+     "audio": "words/ghusn.mp3",
+     "answer": "غُ"
+    },
+    {
+     "word": "غَسَّالَة",
+     "pic": "../../pics/ar-washer.png",
+     "audio": "words/ghassala.mp3",
+     "answer": "غَ"
+    },
+    {
+     "word": "غِذَاء",
+     "pic": "../../pics/ar-food.jpg",
+     "audio": "words/ghidha.mp3",
+     "answer": "غِ"
+    }
+   ]
+  }
+ ]
+}

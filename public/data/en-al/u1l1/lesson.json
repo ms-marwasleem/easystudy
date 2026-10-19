@@ -1,0 +1,467 @@
+{
+ "unit": 1,
+ "lesson": 1,
+ "title": "My Family",
+ "sceneAlt": "A family",
+ "type": "al",
+ "scene": "img/scene.jpg",
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "dad",
+   "ar": "بابا",
+   "img": "img/dad.png",
+   "parts": [
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/dad.mp3"
+   }
+  },
+  {
+   "word": "mom",
+   "ar": "ماما",
+   "img": "img/mom.jpg",
+   "parts": [
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/mom.mp3"
+   }
+  },
+  {
+   "word": "brother",
+   "ar": "أخ",
+   "img": "img/brother.jpg",
+   "parts": [
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "th",
+     "ph": "thh",
+     "audio": "../../phonics/thh.mp3"
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/brother.mp3"
+   }
+  },
+  {
+   "word": "sister",
+   "ar": "أخت",
+   "img": "img/sister.png",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/sister.mp3"
+   }
+  },
+  {
+   "word": "grandma",
+   "ar": "جدة",
+   "img": "img/grandma.jpg",
+   "parts": [
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/grandma.mp3"
+   }
+  },
+  {
+   "word": "grandpa",
+   "ar": "جد",
+   "img": "img/grandpa.jpg",
+   "parts": [
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/grandpa.mp3"
+   }
+  },
+  {
+   "word": "baby",
+   "ar": "طفل رضيع",
+   "img": "img/baby.png",
+   "parts": [
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "ai",
+     "audio": "../../phonics/ai.mp3"
+    },
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "y",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/baby.mp3"
+   }
+  },
+  {
+   "word": "uncle",
+   "ar": "عم / خال",
+   "img": "img/uncle.jpg",
+   "parts": [
+    {
+     "t": "u",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "ng",
+     "audio": "../../phonics/ng.mp3"
+    },
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3",
+     "spell": true
+    }
+   ],
+   "audio": {
+    "word": "words/uncle.mp3"
+   }
+  },
+  {
+   "word": "aunt",
+   "ar": "عمة / خالة",
+   "img": "img/aunt.jpg",
+   "parts": [
+    {
+     "t": "au",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/aunt.mp3"
+   }
+  },
+  {
+   "word": "cousin",
+   "ar": "ابن / بنت العم",
+   "img": "img/cousin.jpg",
+   "parts": [
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "ou",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/cousin.mp3"
+   }
+  }
+ ],
+ "lines": [],
+ "end": 1,
+ "tabs": [
+  "read",
+  "words",
+  "booklet",
+  "grammar"
+ ],
+ "grammar": [
+  {
+   "title": "Verb to be: am, is, are",
+   "note": "We use am, is or are after these words.",
+   "rows": [
+    [
+     {
+      "t": "I am.",
+      "a": "data/en-shared/q/i-am.mp3",
+      "cls": "b"
+     }
+    ],
+    [
+     {
+      "t": "He is. She is. It is.",
+      "a": "data/en-shared/q/he-is-she-is-it-is.mp3",
+      "cls": "b"
+     }
+    ],
+    [
+     {
+      "t": "We are. You are. They are.",
+      "a": "data/en-shared/q/we-are-you-are-they-are.mp3",
+      "cls": "b"
+     }
+    ]
+   ]
+  },
+  {
+   "title": "Long form and short form",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "I am a child.",
+      "a": "data/en-shared/q/i-am-a-child.mp3"
+     },
+     {
+      "t": "I'm a child.",
+      "a": "data/en-shared/q/i-m-a-child.mp3"
+     }
+    ],
+    [
+     {
+      "t": "You are my friend.",
+      "a": "data/en-shared/q/you-are-my-friend.mp3"
+     },
+     {
+      "t": "You're my friend.",
+      "a": "data/en-shared/q/you-re-my-friend.mp3"
+     }
+    ],
+    [
+     {
+      "t": "He is my brother.",
+      "a": "data/en-shared/q/he-is-my-brother.mp3"
+     },
+     {
+      "t": "He's my brother.",
+      "a": "data/en-shared/q/he-s-my-brother.mp3"
+     }
+    ],
+    [
+     {
+      "t": "She is not my sister.",
+      "a": "data/en-shared/q/she-is-not-my-sister.mp3"
+     },
+     {
+      "t": "She isn't my sister.",
+      "a": "data/en-shared/q/she-isn-t-my-sister.mp3"
+     }
+    ],
+    [
+     {
+      "t": "It is a dog.",
+      "a": "data/en-shared/q/it-is-a-dog.mp3"
+     },
+     {
+      "t": "It's a dog.",
+      "a": "data/en-shared/q/it-s-a-dog.mp3"
+     }
+    ],
+    [
+     {
+      "t": "We are friends.",
+      "a": "data/en-shared/q/we-are-friends.mp3"
+     },
+     {
+      "t": "We're friends.",
+      "a": "data/en-shared/q/we-re-friends.mp3"
+     }
+    ],
+    [
+     {
+      "t": "They are not teachers.",
+      "a": "data/en-shared/q/they-are-not-teachers.mp3"
+     },
+     {
+      "t": "They aren't teachers.",
+      "a": "data/en-shared/q/they-aren-t-teachers.mp3"
+     }
+    ]
+   ]
+  }
+ ]
+}

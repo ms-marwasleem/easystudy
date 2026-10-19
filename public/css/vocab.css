@@ -106,3 +106,11 @@
 #lesson.ar.vmode .vm-t span{font-size:calc(var(--wfs,3.5rem)*.85)}
 
 .vthumb img.cut{object-fit:contain}
+
+#lesson.vtab.lwtab .rail{display:flex}#lesson.vtab.lwtab .mid{grid-template-columns:minmax(0,1fr) auto}
+#lesson.wpop .rail{display:none!important}
+
+/* the small pen after a lesson word that is also in the Words tab */
+.wpn{display:inline-block;vertical-align:middle;width:0.875em;height:0.875em;margin-inline-start:0.125em;color:#2A7FD8;cursor:pointer;font-size:0.8em;line-height:1}
+.wpn svg{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+@media (pointer:coarse){ .wpn{width:1.1em;height:1.1em} }

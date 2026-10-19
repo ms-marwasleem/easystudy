@@ -37,6 +37,7 @@ function mNumline(box,q,s,run){
 function mBond(box,q,s,run){
   const parts=q.parts, miss=q.whole==null?-1:parts.findIndex(v=>v==null), ans=miss<0?parts[0]+parts[1]:q.whole-parts[1-miss];
   q.word=q.word||`${mW(miss===0?ans:parts[0])} and ${mW(miss===1?ans:parts[1])} make ${mW(q.whole==null?ans:q.whole)}`;
+  q.ask=`${miss===0?'what':mW(parts[0])} and ${miss===1?'what':mW(parts[1])} make ${q.whole==null?'what':mW(q.whole)}`;   // the question never says its own answer
   const t=el('div','qmbond'); t.innerHTML=`<svg viewBox="0 0 100 60" preserveAspectRatio="none"><path d="M50 20 L22 44 M50 20 L78 44"/></svg>`;
   const mk=(cls,v)=>{ const c=el('div','qmb '+cls+(v==null?' gap cur':''),`<b>${v==null?'':v}</b>`); t.append(c); return c; };
   const top=mk('top',q.whole), a=mk('l',parts[0]), b=mk('r',parts[1]), target=q.whole==null?top:miss===0?a:b;
@@ -56,8 +57,8 @@ function mCount(box,q,s,run){
   if(q.img&&q.group){ const im=new Image(); im.src=R_Q(q.img); im.alt=''; grid.append(im); } else if(q.img){ const src=R_Q(q.img); for(let k=0;k<n;k++){ const im=new Image(); im.src=src; im.alt=''; grid.append(im); } } else { const im=new Image(); im.src=mDots(n); im.alt=''; grid.append(im); }
   box.append(grid);
   if(/^write the number/i.test(s.task||'')||s.typed){
-    if(s.both) box.append(el('div','qxduo'));   // the book's "write the number": the child types it (Help shows it faintly for a moment); "both":true = then types its word too
-    qxWrite(box,q,s,run,String(n),s.both?(()=>{ q.word=mW(n); qxWrite(box,q,s,run,mW(n)); }):null); return; }
+    if(s.both){ const duo=el('div','qxduo'); box.append(duo); const pre=el('div','qxline qxpre'); pre.append(qxWordEl(mW(n),null,false,true)); pre.style.order=2; duo.append(pre); }   // both places (number, word) show from the start   // the book's "write the number": the child types it (Help shows it faintly for a moment); "both":true = then types its word too
+    qxWrite(box,q,s,run,String(n),s.both?(()=>{ q.word=mW(n); $$('.qxpre',box).forEach(x=>x.remove()); qxWrite(box,q,s,run,mW(n)); }):null); return; }
   mPad(box,(q.options?mShuffle(q.options):mKeys(q.max||Math.max(10,n))),(v)=>{ if(v!==n) return false; qxWin(grid,q,1600); return true; });
 }
 QX.numline=QX.bond=QX.bigger=QX.count=1;

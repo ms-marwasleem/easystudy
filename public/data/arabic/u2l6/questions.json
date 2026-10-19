@@ -1,0 +1,209 @@
+{
+ "sets": [
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 58,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الرَّاءِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/631/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الراء",
+   "items": [
+    {
+     "word": "جِسْر",
+     "pic": "../../pics/ar-bridge.png",
+     "audio": "../u1l7/words/jisr.mp3",
+     "at": 2
+    },
+    {
+     "word": "رَمْل",
+     "pic": "../../pics/ar-sand.png",
+     "audio": "../u1l5/words/raml.mp3",
+     "at": 0
+    },
+    {
+     "word": "أَرْنَب",
+     "pic": "../../pics/ar-rabbit.png",
+     "audio": "../u1l3/words/arnab.mp3",
+     "at": 1
+    },
+    {
+     "word": "شَجَرَة",
+     "pic": "../../pics/tree.png",
+     "audio": "words/shajara.mp3",
+     "at": 2
+    },
+    {
+     "word": "رُمَّان",
+     "pic": "../../pics/ar-pomegranate.png",
+     "audio": "words/rumman.mp3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 9,
+   "page": 58,
+   "task": "أَدْمِجُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "items": [
+    {
+     "word": "فَرَح",
+     "chips": [
+      "فَ",
+      "رَ",
+      "ح"
+     ],
+     "audio": "words/farah.mp3"
+    },
+    {
+     "word": "فُرْن",
+     "chips": [
+      "فُ",
+      "رْ",
+      "ن"
+     ],
+     "audio": "words/furn.mp3"
+    },
+    {
+     "word": "رِجْل",
+     "chips": [
+      "رِ",
+      "جْ",
+      "ل"
+     ],
+     "audio": "../u1l7/words/rijl.mp3"
+    },
+    {
+     "word": "مَرَح",
+     "chips": [
+      "مَ",
+      "رَ",
+      "ح"
+     ],
+     "audio": "words/marah.mp3"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 59,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "خَرَج",
+     "chips": [
+      "خَ",
+      "رَ",
+      "ج"
+     ],
+     "audio": "words/kharaj.mp3"
+    },
+    {
+     "word": "جَرَس",
+     "chips": [
+      "جَ",
+      "رَ",
+      "س"
+     ],
+     "audio": "../u1l7/words/jaras.mp3"
+    },
+    {
+     "word": "بُرْتُقَال",
+     "chips": [
+      "بُرْ",
+      "تُ",
+      "قَا",
+      "ل"
+     ],
+     "audio": "words/burtuqal.mp3"
+    },
+    {
+     "word": "رَقَبَة",
+     "chips": [
+      "رَ",
+      "قَ",
+      "بَ",
+      "ة"
+     ],
+     "audio": "words/raqaba.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 11,
+   "page": 59,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "رَمْل",
+     "pic": "../../pics/ar-sand.png",
+     "audio": "../u1l5/words/raml.mp3"
+    },
+    {
+     "word": "رَجُل",
+     "pic": "../../pics/ar-man.png",
+     "audio": "words/rajul.mp3"
+    },
+    {
+     "word": "قِرْد",
+     "pic": "../../pics/ar-monkey.jpg",
+     "audio": "words/qird.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 12,
+   "page": 59,
+   "task": "اسْتَمِعْ وَارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الرَّاءِ",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/631/name.mp3"
+   ],
+   "hint": "اضغط على الكلمات اللي فيها الراء",
+   "items": [
+    {
+     "word": "ضِرْس",
+     "audio": "words/dirs.mp3",
+     "answer": true
+    },
+    {
+     "word": "شَجَرَة",
+     "audio": "words/shajara.mp3",
+     "answer": true
+    },
+    {
+     "word": "بَيْت",
+     "audio": "../u2l3/words/bayt.mp3",
+     "answer": false
+    },
+    {
+     "word": "بُرْج",
+     "audio": "../u1l4/words/burj.mp3",
+     "answer": true
+    },
+    {
+     "word": "نِيل",
+     "audio": "../u2l3/words/nil.mp3",
+     "answer": false
+    },
+    {
+     "word": "رَجُل",
+     "audio": "words/rajul.mp3",
+     "answer": true
+    }
+   ]
+  }
+ ]
+}

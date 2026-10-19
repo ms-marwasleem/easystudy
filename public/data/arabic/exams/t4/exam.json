@@ -1,0 +1,322 @@
+{
+ "title": "تقييم ٤",
+ "ratio": 0.707,
+ "head": {
+  "l": "Department of ARABIC<br>G1",
+  "r": "Noor El Elm<br>Modern School"
+ },
+ "pages": [
+  {
+   "title": "تقييم ٤",
+   "foot": 4,
+   "style": "bar",
+   "blocks": [
+    {
+     "t": "q",
+     "n": "١",
+     "text": "كوّن كلمات من الحروف الآتية:",
+     "audio": "q1.mp3",
+     "body": [
+      {
+       "t": "text",
+       "text": "( أ - ب - م - ح - ج )",
+       "style": "xbigtxt"
+      },
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "eq",
+       "items": [
+        "[[أب|أم|حب|جب|أحب|حجم|جمح:box,wide]]",
+        "[[أب|أم|حب|جب|أحب|حجم|جمح:box,wide]]",
+        "[[أب|أم|حب|جب|أحب|حجم|جمح:box,wide]]"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٢",
+     "text": "انظر إلى الصور، ثم اكتب حرف « د » مضبوطًا بالشكل:",
+     "audio": "q2.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-hoopoe.png",
+           "w": 4
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "دَ",
+            "دِ",
+            "دُ",
+            "دْ"
+           ],
+           "answer": [
+            2,
+            3
+           ],
+           "labels": "none",
+           "style": "letters",
+           "cols": 2,
+           "any": true
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-rooster.png",
+           "w": 4.6
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "دَ",
+            "دِ",
+            "دُ",
+            "دْ"
+           ],
+           "answer": 1,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-bear.png",
+           "w": 6
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "دَ",
+            "دِ",
+            "دُ",
+            "دْ"
+           ],
+           "answer": 2,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "bicycle",
+           "w": 7
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "دَ",
+            "دِ",
+            "دُ",
+            "دْ"
+           ],
+           "answer": 0,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٣",
+     "text": "ضع دائرة حول أشكال حرف «خ»:",
+     "audio": "q3.mp3",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "خ",
+        "ع",
+        "خ",
+        "خـ",
+        "ـخ"
+       ],
+       "answer": [
+        0,
+        2,
+        3,
+        4
+       ],
+       "labels": "none",
+       "style": "big",
+       "cols": 5
+      },
+      {
+       "t": "mcq",
+       "opts": [
+        "ج",
+        "ـخـ",
+        "ل",
+        "خ",
+        "ن",
+        "ـخ"
+       ],
+       "answer": [
+        1,
+        3,
+        5
+       ],
+       "labels": "none",
+       "style": "big",
+       "cols": 6
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٤",
+     "text": "ضع دائرة حول الكلمات التي بها حرف «ج»:",
+     "audio": "q4.mp3",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "جَمَل",
+        "حُوت",
+        "شَجَرَة",
+        "بُرْج",
+        "وَلَد",
+        "جِسْر",
+        "جَرَّار"
+       ],
+       "answer": [
+        0,
+        2,
+        3,
+        5,
+        6
+       ],
+       "labels": "none",
+       "style": "words",
+       "cols": 7
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٥",
+     "text": "كوّن كلمة من كل مجموعة من الحروف:",
+     "audio": "q5.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "eq",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          "أَ - بِ - ي",
+          "[[أبي:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          "أَ - نـ - ا",
+          "[[أنا:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          "أُ - حِ - بـ",
+          "[[أحب:box,wide]]"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٦",
+     "text": "رتّب الصور الآتية لتكوّن قصة:",
+     "audio": "q6.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "story:1",
+           "w": 6.5
+          },
+          "[[1:circ]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "story:3",
+           "w": 6.5
+          },
+          "[[3:circ]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "story:4",
+           "w": 6.5
+          },
+          "[[4:circ]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "story:2",
+           "w": 6.5
+          },
+          "[[2:circ]]"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,177 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 5,
+   "page": 61,
+   "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الْفَاءِ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/641/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الفاء",
+   "silent": true,
+   "items": [
+    {
+     "word": "dates",
+     "pic": "../../pics/ar-dates.png",
+     "answer": false
+    },
+    {
+     "word": "strawberry",
+     "pic": "../../pics/ar-strawberry.png",
+     "answer": true
+    },
+    {
+     "word": "cat",
+     "pic": "../../pics/ar-cat.png",
+     "answer": false
+    },
+    {
+     "word": "elephant",
+     "pic": "../../pics/ar-elephant.png",
+     "answer": true
+    },
+    {
+     "word": "ball",
+     "pic": "../../pics/ar-ball.png",
+     "answer": false
+    },
+    {
+     "word": "phone",
+     "pic": "../../pics/ar-phone.png",
+     "answer": false
+    },
+    {
+     "word": "lantern",
+     "pic": "../../pics/ar-lantern.png",
+     "answer": true
+    },
+    {
+     "word": "dress",
+     "pic": "../../pics/ar-dress.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 8,
+   "page": 62,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "حَفْل",
+     "chips": [
+      "حَفْ",
+      "ل"
+     ],
+     "audio": "words/hafl.mp3"
+    },
+    {
+     "word": "فُرْشَاة",
+     "chips": [
+      "فُرْ",
+      "شَا",
+      "ة"
+     ],
+     "audio": "words/furshah.mp3"
+    },
+    {
+     "word": "طِفْل",
+     "chips": [
+      "طِفْ",
+      "ل"
+     ],
+     "audio": "words/tifl.mp3"
+    },
+    {
+     "word": "فَرَاشَة",
+     "chips": [
+      "فَ",
+      "رَا",
+      "شَ",
+      "ة"
+     ],
+     "audio": "words/farasha.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 9,
+   "page": 62,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "فَرَاشَة",
+     "pic": "../../pics/ar-butterfly.jpg",
+     "audio": "words/farasha.mp3"
+    },
+    {
+     "word": "فِيل",
+     "pic": "../../pics/ar-elephant.png",
+     "audio": "../u1l3/q/c5-fil.mp3"
+    },
+    {
+     "word": "فُلّ",
+     "pic": "../../pics/ar-jasmine.jpg",
+     "audio": "words/full.mp3"
+    },
+    {
+     "word": "ظُفْر",
+     "pic": "../../pics/ar-nail.jpg",
+     "audio": "words/zufr.mp3"
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 10,
+   "page": 62,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الْفَاءِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/641/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الفاء",
+   "choices": [
+    "فَ",
+    "فُ",
+    "فِ",
+    "فْ"
+   ],
+   "items": [
+    {
+     "word": "فَرَاشَة",
+     "pic": "../../pics/ar-butterfly.jpg",
+     "audio": "words/farasha.mp3",
+     "answer": "فَ"
+    },
+    {
+     "word": "فِيل",
+     "pic": "../../pics/ar-elephant.png",
+     "audio": "../u1l3/q/c5-fil.mp3",
+     "answer": "فِ"
+    },
+    {
+     "word": "ضُفْدَع",
+     "pic": "../../pics/ar-frog.jpg",
+     "audio": "words/difda.mp3",
+     "answer": "فْ"
+    },
+    {
+     "word": "فُلّ",
+     "pic": "../../pics/ar-jasmine.jpg",
+     "audio": "words/full.mp3",
+     "answer": "فُ"
+    }
+   ]
+  }
+ ]
+}

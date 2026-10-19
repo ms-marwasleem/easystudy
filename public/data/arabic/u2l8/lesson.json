@@ -1,0 +1,278 @@
+{
+ "id": "u2l8",
+ "unit": 2,
+ "lesson": 8,
+ "type": "letter",
+ "title": "حرف الكاف",
+ "task": "أتعرّف على حرف الكاف",
+ "pages": 2,
+ "pageNums": [
+  64,
+  65
+ ],
+ "scene": "../../pics/ar-kangaroo.png",
+ "sceneAlt": "كَاف",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "ك",
+  "name": "كَاف",
+  "nameAudio": "../letters/643/name.mp3",
+  "pic": "../../pics/ar-kangaroo.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "كـ",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـكـ",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـك",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "ك",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "كَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/643-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "كُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/643-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "كِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/643-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "كْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/643-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف الكاف في الكلمة",
+   "أصوات حرف الكاف بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "كَلْب",
+   "img": "../../pics/ar-dog.png",
+   "audio": {
+    "word": "../u2l3/words/kalb.mp3"
+   },
+   "parts": [
+    {
+     "t": "كَلْب",
+     "audio": "../u2l3/words/kalb.mp3"
+    }
+   ]
+  },
+  {
+   "word": "كَفّ",
+   "img": "../../pics/ar-hand.jpg",
+   "audio": {
+    "word": "words/kaff.mp3"
+   },
+   "parts": [
+    {
+     "t": "كَفّ",
+     "audio": "words/kaff.mp3"
+    }
+   ]
+  },
+  {
+   "word": "كَأْس",
+   "img": "../../pics/ar-trophy.png",
+   "audio": {
+    "word": "../u1l3/words/kas.mp3"
+   },
+   "parts": [
+    {
+     "t": "كَأْس",
+     "audio": "../u1l3/words/kas.mp3"
+    }
+   ]
+  },
+  {
+   "word": "كُرْسِي",
+   "img": "../../pics/ar-chair.png",
+   "audio": {
+    "word": "../u2l4/words/kursi.mp3"
+   },
+   "parts": [
+    {
+     "t": "كُرْ",
+     "audio": "../../syl-ar/643-64f-631-652.mp3"
+    },
+    {
+     "t": "سِي",
+     "audio": "../../syl-ar/633-650-64a.mp3"
+    }
+   ]
+  },
+  {
+   "word": "كُرَة",
+   "img": "../../pics/ar-ball.png",
+   "audio": {
+    "word": "words/kura.mp3"
+   },
+   "parts": [
+    {
+     "t": "كُ",
+     "audio": "../../syl-ar/643-64f.mp3"
+    },
+    {
+     "t": "رَة",
+     "audio": "../../syl-ar/631-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "كُتُب",
+   "img": "../../pics/ar-books.jpg",
+   "audio": {
+    "word": "words/kutub.mp3"
+   },
+   "parts": [
+    {
+     "t": "كُ",
+     "audio": "../../syl-ar/643-64f.mp3"
+    },
+    {
+     "t": "تُب",
+     "audio": "../../syl-ar/62a-64f-628.mp3"
+    }
+   ]
+  },
+  {
+   "word": "كِتَاب",
+   "img": "../../pics/ar-book-red.png",
+   "audio": {
+    "word": "words/kitab.mp3"
+   },
+   "parts": [
+    {
+     "t": "كِ",
+     "audio": "../../syl-ar/643-650.mp3"
+    },
+    {
+     "t": "تَاب",
+     "audio": "../../syl-ar/62a-64e-627-628.mp3"
+    }
+   ]
+  },
+  {
+   "word": "كِيس",
+   "img": "../../pics/ar-bag.jpg",
+   "audio": {
+    "word": "words/kis.mp3"
+   },
+   "parts": [
+    {
+     "t": "كِيس",
+     "audio": "words/kis.mp3"
+    }
+   ]
+  },
+  {
+   "word": "كِيوِي",
+   "img": "../../pics/ar-kiwi.png",
+   "audio": {
+    "word": "words/kiwi.mp3"
+   },
+   "parts": [
+    {
+     "t": "كِي",
+     "audio": "../../syl-ar/643-650-64a.mp3"
+    },
+    {
+     "t": "وِي",
+     "audio": "../../syl-ar/648-650-64a.mp3"
+    }
+   ]
+  },
+  {
+   "word": "مَكْتَب",
+   "img": "../../pics/ar-desk.png",
+   "audio": {
+    "word": "words/maktab.mp3"
+   },
+   "parts": [
+    {
+     "t": "مَكْ",
+     "audio": "../../syl-ar/645-64e-643-652.mp3"
+    },
+    {
+     "t": "تَب",
+     "audio": "../../syl-ar/62a-64e-628.mp3"
+    }
+   ]
+  },
+  {
+   "word": "مِكْوَاة",
+   "img": "../../pics/ar-iron.png",
+   "audio": {
+    "word": "../u1l5/words/mikwat.mp3"
+   },
+   "parts": [
+    {
+     "t": "مِكْ",
+     "audio": "../../syl-ar/645-650-643-652.mp3"
+    },
+    {
+     "t": "وَاة",
+     "audio": "../../syl-ar/648-64e-627-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "رُكْبَة",
+   "img": "../../pics/ar-knee.png",
+   "audio": {
+    "word": "../u2l6/words/rukba.mp3"
+   },
+   "parts": [
+    {
+     "t": "رُكْ",
+     "audio": "../../syl-ar/631-64f-643-652.mp3"
+    },
+    {
+     "t": "بَة",
+     "audio": "../../syl-ar/628-64e-629.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

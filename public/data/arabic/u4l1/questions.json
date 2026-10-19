@@ -1,0 +1,133 @@
+{
+ "sets": [
+  {
+   "type": "link",
+   "ex": 1,
+   "page": 110,
+   "task": "اِسْتَمِعْ وَرَدِّدْ، ثُمَّ صِلْ بِالْكَلِمَةِ الْمُشَابِهَةِ",
+   "taskAudio": "q/p-ex1.mp3",
+   "hint": "صل الكلمة بالكلمة المشابهة",
+   "items": [
+    {
+     "word": "هُوَ",
+     "text2": "هُوَ",
+     "audio": "q/w-huwa.mp3"
+    },
+    {
+     "word": "هِيَ",
+     "text2": "هِيَ",
+     "audio": "q/w-hiya.mp3"
+    },
+    {
+     "word": "فِي",
+     "text2": "فِي",
+     "audio": "q/w-fi.mp3"
+    },
+    {
+     "word": "إِلَى",
+     "text2": "إِلَى",
+     "audio": "q/w-ila.mp3"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "ex": 2,
+   "page": 110,
+   "task": "اُرْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الْمُنَاسِبَةِ لِلصُّورَةِ",
+   "taskAudio": "q/p-ex2.mp3",
+   "hint": "اختار الكلمة الصح",
+   "items": [
+    {
+     "pic": "../../pics/ar-boy-orange.jpg",
+     "options": [
+      "هُوَ",
+      "هِيَ"
+     ],
+     "answer": 0,
+     "audio": "q/c-boy.mp3",
+     "word": "هُوَ وَلَدٌ."
+    },
+    {
+     "pic": "../../pics/ar-girl-orange.jpg",
+     "options": [
+      "هُوَ",
+      "هِيَ"
+     ],
+     "answer": 1,
+     "audio": "q/c-girl.mp3",
+     "word": "هِيَ بِنْتٌ."
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 3,
+   "page": 110,
+   "task": "ضَعْ عَلَامَةَ (✓) أَسْفَلَ الْكَلِمَاتِ الَّتِي سَمِعْتَهَا فِي الْقِصَّةِ",
+   "taskAudio": "q/p-ex3.mp3",
+   "hint": "اضغط على الكلمات اللي سمعتها في القصة",
+   "items": [
+    {
+     "word": "الْمَدْرَسَةُ",
+     "audio": "q/h-madrasa.mp3",
+     "answer": true
+    },
+    {
+     "word": "كَرِيمٌ",
+     "audio": "q/h-karim.mp3",
+     "answer": true
+    },
+    {
+     "word": "أُمِّي",
+     "audio": "q/h-ummi.mp3",
+     "answer": false
+    },
+    {
+     "word": "أَبِي",
+     "audio": "q/h-abi.mp3",
+     "answer": false
+    },
+    {
+     "word": "الْمُعَلِّمَةُ",
+     "audio": "q/h-muallima.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "ex": 4,
+   "page": 110,
+   "task": "اِخْتَرِ الْكَلِمَةَ الصَّحِيحَةَ مِمَّا بَيْنَ الْقَوْسَيْنِ",
+   "taskAudio": "q/p-ex4.mp3",
+   "hint": "اختار الكلمة الصح",
+   "items": [
+    {
+     "pic": "../../pics/ar-bag.jpg",
+     "lead": "وَضَعَ كَرِيمٌ الْقَلَمَ",
+     "tail": "الْحَقِيبَةِ.",
+     "options": [
+      "فِي",
+      "إِلَى"
+     ],
+     "answer": 0,
+     "audio": "q/s-bag.mp3",
+     "word": "وَضَعَ كَرِيمٌ الْقَلَمَ فِي الْحَقِيبَةِ."
+    },
+    {
+     "pic": "../../pics/ar-school.jpg",
+     "lead": "وَصَلَ كَرِيمٌ",
+     "tail": "الْمَدْرَسَةِ.",
+     "options": [
+      "فِي",
+      "إِلَى"
+     ],
+     "answer": 1,
+     "audio": "q/s-school.mp3",
+     "word": "وَصَلَ كَرِيمٌ إِلَى الْمَدْرَسَةِ."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,219 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 50,
+   "task": "اسْتَمِعْ وَضَعْ عَلَامَةَ (✓) تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ السِّينِ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/633/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت السين",
+   "silent": true,
+   "items": [
+    {
+     "word": "clock",
+     "pic": "../../pics/ar-clock.png",
+     "answer": true
+    },
+    {
+     "word": "apple",
+     "pic": "../../pics/ar-apple.png",
+     "answer": false
+    },
+    {
+     "word": "turtle",
+     "pic": "../../pics/ar-turtle.png",
+     "answer": true
+    },
+    {
+     "word": "duck",
+     "pic": "../../pics/ar-duck.png",
+     "answer": false
+    },
+    {
+     "word": "lion",
+     "pic": "../../pics/ar-lion.png",
+     "answer": true
+    },
+    {
+     "word": "lettuce",
+     "pic": "../../pics/ar-lettuce.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 8,
+   "page": 50,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ السِّينِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/633/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت السين",
+   "choices": [
+    "سَ",
+    "سُ",
+    "سِ",
+    "سْ"
+   ],
+   "items": [
+    {
+     "word": "جِسْر",
+     "pic": "../../pics/ar-bridge.png",
+     "audio": "../u1l7/words/jisr.mp3",
+     "answer": "سْ"
+    },
+    {
+     "word": "سَيَّارَة",
+     "pic": "../../pics/ar-car.png",
+     "audio": "words/sayyara.mp3",
+     "answer": "سَ"
+    },
+    {
+     "word": "سِلْسِلَة",
+     "pic": "../../pics/ar-necklace.jpg",
+     "audio": "words/silsila.mp3",
+     "answer": "سِ"
+    },
+    {
+     "word": "سُور",
+     "pic": "../../pics/ar-fence.png",
+     "audio": "words/sur.mp3",
+     "answer": "سُ"
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 9,
+   "page": 50,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ السِّينِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/633/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها السين",
+   "items": [
+    {
+     "word": "خَسّ",
+     "pic": "../../pics/ar-lettuce.png",
+     "audio": "../u1l9/words/khass.mp3",
+     "at": 1
+    },
+    {
+     "word": "قَوْس",
+     "pic": "../../pics/ar-bow.png",
+     "audio": "words/qaws.mp3",
+     "at": 2
+    },
+    {
+     "word": "أَسَد",
+     "pic": "../../pics/ar-lion.png",
+     "audio": "../u1l3/words/asad.mp3",
+     "at": 1
+    },
+    {
+     "word": "شَمْس",
+     "pic": "../../pics/ar-sun.jpg",
+     "audio": "../u1l5/words/shams.mp3",
+     "at": 2
+    },
+    {
+     "word": "لِسَان",
+     "pic": "../../pics/ar-tongue.png",
+     "audio": "../u2l3/words/lisan.mp3",
+     "at": 1
+    },
+    {
+     "word": "سَحَاب",
+     "pic": "../../pics/ar-cloud.jpg",
+     "audio": "words/sahab.mp3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 11,
+   "page": 51,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "أُسْتَاذ",
+     "chips": [
+      "أُسْ",
+      "تَا",
+      "ذ"
+     ],
+     "audio": "words/ustadh.mp3"
+    },
+    {
+     "word": "سَمِير",
+     "chips": [
+      "سَ",
+      "مِي",
+      "ر"
+     ],
+     "audio": "words/samir.mp3"
+    },
+    {
+     "word": "سَفِينَة",
+     "chips": [
+      "سَ",
+      "فِي",
+      "نَ",
+      "ة"
+     ],
+     "audio": "words/safina.mp3"
+    },
+    {
+     "word": "مُهَنْدِس",
+     "chips": [
+      "مُ",
+      "هَنْ",
+      "دِ",
+      "س"
+     ],
+     "audio": "../u1l5/words/muhandis.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 12,
+   "page": 51,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "كُرْسِيّ",
+     "pic": "../../pics/ar-chair.png",
+     "audio": "words/kursi.mp3"
+    },
+    {
+     "word": "سَمَكَة",
+     "pic": "../../pics/ar-fish.png",
+     "audio": "words/samaka.mp3"
+    },
+    {
+     "word": "جَرَس",
+     "pic": "../../pics/ar-bell.png",
+     "audio": "../u1l7/words/jaras.mp3"
+    },
+    {
+     "word": "سَاعَة",
+     "pic": "../../pics/ar-clock.png",
+     "audio": "words/saa.mp3"
+    }
+   ]
+  }
+ ]
+}

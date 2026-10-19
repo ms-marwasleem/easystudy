@@ -40,7 +40,7 @@
   background:var(--paper);border:0.1875rem solid var(--ol);border-radius:0.875rem;box-shadow:0 0.25rem 0 rgba(90,52,24,.4);cursor:pointer;color:#2E1B0C;font-family:var(--f-read)}
 .mxrow:active{transform:scale(.98)}
 .mxrow.on{border-color:#2A7FD8;box-shadow:0 0.25rem 0 rgba(90,52,24,.4),0 0 0 0.25rem rgba(42,127,216,.35)}
-.mxdots{display:grid;place-items:center;height:100%;min-height:0}.mxdots img{max-height:70%;max-width:100%;object-fit:contain}
+.mxdots{position:relative;overflow:hidden;height:100%;min-height:0}.mxdots img{position:absolute;inset:8% 0;width:100%;height:84%;object-fit:contain}   /* the dots always sit inside the row's rectangle */
 .mxnum{font-weight:700;font-size:min(13cqh,16cqw);line-height:1;text-align:center}
 .mxword{font-weight:700;font-size:min(9cqh,11cqw);line-height:1;color:#E0412C}
 .mxsay{width:clamp(1.625rem,5.5cqh,2.375rem);height:clamp(1.625rem,5.5cqh,2.375rem);display:grid;place-items:center}.mxsay svg{width:100%;height:100%;fill:none;stroke:#2A7FD8;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}

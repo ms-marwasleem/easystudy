@@ -1,0 +1,130 @@
+{
+ "sets": [
+  {
+   "type": "choice",
+   "ex": 1,
+   "page": 73,
+   "task": "أَخْتَارُ الْكَلِمَةَ الْمُنَاسِبَةَ الْمَوْجُودَةَ فِي الْقِصَّةِ",
+   "taskAudio": "../q-prompts/choose-answer.mp3",
+   "hint": "اختار الكلمة الصح",
+   "items": [
+    {
+     "pic": "../../pics/ar-bear-book.jpg",
+     "lead": "يَأْكُلُ الدُّبُّ",
+     "options": [
+      "اللَّحْمَ",
+      "السَّمَكَ",
+      "الْجُبْنَ"
+     ],
+     "answer": 1,
+     "audio": "q/c-bear.mp3",
+     "word": "يَأْكُلُ الدُّبُّ السَّمَكَ."
+    },
+    {
+     "pic": "../../pics/ar-camel-book.jpg",
+     "lead": "يَأْكُلُ الْجَمَلُ",
+     "options": [
+      "الْجُبْنَ",
+      "الْفَأْرَ",
+      "الْخَسَّ"
+     ],
+     "answer": 2,
+     "audio": "q/c-camel.mp3",
+     "word": "يَأْكُلُ الْجَمَلُ الْخَسَّ."
+    },
+    {
+     "pic": "../../pics/ar-horse-book.jpg",
+     "lead": "يَأْكُلُ الْفَرَسُ",
+     "options": [
+      "الْخَسَّ",
+      "السُّكَّرَ",
+      "الْجُبْنَ"
+     ],
+     "answer": 1,
+     "audio": "q/c-horse.mp3",
+     "word": "يَأْكُلُ الْفَرَسُ السُّكَّرَ."
+    },
+    {
+     "pic": "../../pics/ar-mouse.png",
+     "lead": "يَأْكُلُ الْفَأْرُ",
+     "options": [
+      "السُّكَّرَ",
+      "الْجُبْنَ",
+      "السَّمَكَ"
+     ],
+     "answer": 1,
+     "audio": "q/c-mouse.mp3",
+     "word": "يَأْكُلُ الْفَأْرُ الْجُبْنَ."
+    },
+    {
+     "pic": "../../pics/ar-lion.png",
+     "lead": "يَأْكُلُ الْأَسَدُ",
+     "options": [
+      "السَّمَكَ",
+      "الْخَسَّ",
+      "الْفَأْرَ"
+     ],
+     "answer": 2,
+     "audio": "q/c-lion.mp3",
+     "word": "يَأْكُلُ الْأَسَدُ الْفَأْرَ."
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 2,
+   "page": 73,
+   "words": true,
+   "task": "أُرَتِّبُ الْكَلِمَاتِ لِأَصِفَ الصُّورَةَ",
+   "taskAudio": "q/p-arrange-words.mp3",
+   "hint": "رتب الكلمات",
+   "items": [
+    {
+     "word": "يَأْكُلُ الْجَمَلُ الْخَسَّ",
+     "pic": "../../pics/ar-camel-book.jpg",
+     "audio": "q/c-camel.mp3"
+    },
+    {
+     "word": "يَأْكُلُ الدُّبُّ السَّمَكَ",
+     "pic": "../../pics/ar-bear-book.jpg",
+     "audio": "q/c-bear.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 3,
+   "page": 73,
+   "task": "أَصِلُ كُلَّ حَيَوَانٍ بِطَعَامِهِ الْمُفَضَّلِ",
+   "taskAudio": "../q-prompts/match-picture.mp3",
+   "hint": "صل كل حيوان بطعامه",
+   "items": [
+    {
+     "word": "الْأَسَد",
+     "audio": "../u1l3/words/asad.mp3",
+     "pic": "../../pics/ar-mouse.png"
+    },
+    {
+     "word": "الْفَأْر",
+     "audio": "q/l-mouse.mp3",
+     "pic": "../../pics/ar-cheese.png"
+    },
+    {
+     "word": "الدُّبّ",
+     "audio": "q/l-bear.mp3",
+     "pic": "../../pics/ar-fish.png"
+    },
+    {
+     "word": "الْجَمَل",
+     "audio": "q/l-camel.mp3",
+     "pic": "../../pics/ar-lettuce.png"
+    },
+    {
+     "word": "الْفَرَس",
+     "audio": "q/l-horse.mp3",
+     "pic": "../../pics/ar-sugar.jpg"
+    }
+   ]
+  }
+ ]
+}

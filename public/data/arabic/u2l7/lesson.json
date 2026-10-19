@@ -1,0 +1,274 @@
+{
+ "id": "u2l7",
+ "unit": 2,
+ "lesson": 7,
+ "type": "letter",
+ "title": "حرف الفاء",
+ "task": "أتعرّف على حرف الفاء",
+ "pages": 2,
+ "pageNums": [
+  60,
+  61
+ ],
+ "scene": "../../pics/ar-elephant.png",
+ "sceneAlt": "فَاء",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "ف",
+  "name": "فَاء",
+  "nameAudio": "../letters/641/name.mp3",
+  "pic": "../../pics/ar-elephant.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "فـ",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـفـ",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـف",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "ف",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "فَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/641-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "فُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/641-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "فِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/641-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "فْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/641-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف الفاء في الكلمة",
+   "أصوات حرف الفاء بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "فَرَاشَة",
+   "img": "../../pics/ar-butterfly.jpg",
+   "audio": {
+    "word": "words/farasha.mp3"
+   },
+   "parts": [
+    {
+     "t": "فَ",
+     "audio": "../../syl-ar/641-64e.mp3"
+    },
+    {
+     "t": "رَا",
+     "audio": "../../syl-ar/631-64e-627.mp3"
+    },
+    {
+     "t": "شَة",
+     "audio": "../../syl-ar/634-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "فَم",
+   "img": "../../pics/ar-mouth.png",
+   "audio": {
+    "word": "words/fam.mp3"
+   },
+   "parts": [
+    {
+     "t": "فَم",
+     "audio": "words/fam.mp3"
+    }
+   ]
+  },
+  {
+   "word": "فَانُوس",
+   "img": "../../pics/ar-lantern.png",
+   "audio": {
+    "word": "../u2l5/words/fanus.mp3"
+   },
+   "parts": [
+    {
+     "t": "فَا",
+     "audio": "../../syl-ar/641-64e-627.mp3"
+    },
+    {
+     "t": "نُوس",
+     "audio": "../../syl-ar/646-64f-648-633.mp3"
+    }
+   ]
+  },
+  {
+   "word": "فُسْتَان",
+   "img": "../../pics/ar-dress.png",
+   "audio": {
+    "word": "words/fustan.mp3"
+   },
+   "parts": [
+    {
+     "t": "فُسْ",
+     "audio": "../../syl-ar/641-64f-633-652.mp3"
+    },
+    {
+     "t": "تَان",
+     "audio": "../../syl-ar/62a-64e-627-646.mp3"
+    }
+   ]
+  },
+  {
+   "word": "فُلّ",
+   "img": "../../pics/ar-jasmine.jpg",
+   "audio": {
+    "word": "words/full.mp3"
+   },
+   "parts": [
+    {
+     "t": "فُلّ",
+     "audio": "words/full.mp3"
+    }
+   ]
+  },
+  {
+   "word": "فُول",
+   "img": "../../pics/ar-beans.png",
+   "audio": {
+    "word": "words/ful.mp3"
+   },
+   "parts": [
+    {
+     "t": "فُول",
+     "audio": "words/ful.mp3"
+    }
+   ]
+  },
+  {
+   "word": "فِيل",
+   "img": "../../pics/ar-elephant.png",
+   "audio": {
+    "word": "../u1l3/q/c5-fil.mp3"
+   },
+   "parts": [
+    {
+     "t": "فِيل",
+     "audio": "../u1l3/q/c5-fil.mp3"
+    }
+   ]
+  },
+  {
+   "word": "فِئْرَان",
+   "img": "../../pics/ar-mice.jpg",
+   "audio": {
+    "word": "words/firan.mp3"
+   },
+   "parts": [
+    {
+     "t": "فِئْ",
+     "audio": "../../syl-ar/641-650-626-652.mp3"
+    },
+    {
+     "t": "رَان",
+     "audio": "../../syl-ar/631-64e-627-646.mp3"
+    }
+   ]
+  },
+  {
+   "word": "فِنْجَان",
+   "img": "../../pics/ar-cup.png",
+   "audio": {
+    "word": "words/finjan.mp3"
+   },
+   "parts": [
+    {
+     "t": "فِنْ",
+     "audio": "../../syl-ar/641-650-646-652.mp3"
+    },
+    {
+     "t": "جَان",
+     "audio": "../../syl-ar/62c-64e-627-646.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ضُفْدَع",
+   "img": "../../pics/ar-frog.jpg",
+   "audio": {
+    "word": "words/difda.mp3"
+   },
+   "parts": [
+    {
+     "t": "ضُفْ",
+     "audio": "../../syl-ar/636-64f-641-652.mp3"
+    },
+    {
+     "t": "دَع",
+     "audio": "../../syl-ar/62f-64e-639.mp3"
+    }
+   ]
+  },
+  {
+   "word": "طِفْل",
+   "img": "../../pics/ar-child.jpg",
+   "audio": {
+    "word": "words/tifl.mp3"
+   },
+   "parts": [
+    {
+     "t": "طِفْل",
+     "audio": "words/tifl.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ظُفْر",
+   "img": "../../pics/ar-nail.jpg",
+   "audio": {
+    "word": "words/zufr.mp3"
+   },
+   "parts": [
+    {
+     "t": "ظُفْر",
+     "audio": "words/zufr.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

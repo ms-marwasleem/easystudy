@@ -93,3 +93,24 @@
   .snake .jpm.soon .jlk{width:calc(var(--b)*.6)}
   .snake .jside .jpgs{gap:2px}
 }
+
+.jbox{cursor:pointer}
+
+.jpm.ex{--g:#D8382A;--bg:#FFE9E4}
+.jpm .jex{display:block;width:calc(var(--b)*.62);height:calc(var(--b)*.62)}.jpm .jex svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* the map key: sign colours by book (Book green, Booklet orange, PTS blue, Tests red, Tools yellow) */
+.jpm.bk{--g:#E8760A;--bg:#FFE8CF}
+.jpm.pts{--g:#2E7BD8;--bg:#DCEBFF}
+.rb.keybtn{--t:var(--orange1,#FFB04A);--b:var(--orange2,#F58A1F)}
+.rb.keybtn svg{width:58%;height:58%;fill:currentColor;stroke:currentColor;stroke-width:2.4;stroke-linecap:round}
+.mapkey{width:min(86vw,20rem);max-height:92vh;gap:.75rem}
+.mk-rows{display:flex;flex-direction:column;gap:.7rem;overflow:auto;width:max-content;max-width:100%;margin:0 auto}
+.mk-row{display:flex;align-items:center;gap:1rem;font-family:var(--f-title);font-size:clamp(1.1rem,3.4vh,1.5rem);color:var(--ol)}
+.mk-row .jpm{--b:2.6rem;flex:none;pointer-events:none}
+.mk-row .jpm::after{display:none}
+.mk-row .jpm.tl{width:var(--b);min-width:var(--b);height:var(--b)}
+/* lesson tabs: a small dot in the colour of the book the tab belongs to */
+.tab .kd{display:inline-block;flex:none;width:.6em;height:.6em;border-radius:50%;border:2px solid var(--ol);background:#3A9A2C}
+.tab[data-book="bk"] .kd{background:#E8760A}
+.mapkey .big{font-size:clamp(1.5rem,5vh,2.2rem);white-space:nowrap}

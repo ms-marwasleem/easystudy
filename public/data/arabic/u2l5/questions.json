@@ -1,0 +1,253 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 6,
+   "page": 54,
+   "task": "انْطِقْ وَصِلْ حَرْفَ النُّونِ بِالصُّورَةِ الْمُنَاسِبَةِ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/646/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت النون",
+   "silent": true,
+   "items": [
+    {
+     "word": "engineer",
+     "pic": "../../pics/ar-engineer.png",
+     "answer": true
+    },
+    {
+     "word": "eagles",
+     "pic": "../../pics/ar-eagles.jpg",
+     "answer": true
+    },
+    {
+     "word": "nose",
+     "pic": "../../pics/ar-nose.jpg",
+     "answer": true
+    },
+    {
+     "word": "bee",
+     "pic": "../../pics/ar-bee.jpg",
+     "answer": true
+    },
+    {
+     "word": "tiger",
+     "pic": "../../pics/ar-tiger.png",
+     "answer": true
+    },
+    {
+     "word": "stars",
+     "pic": "../../pics/ar-stars.jpg",
+     "answer": true
+    },
+    {
+     "word": "nile",
+     "pic": "../../pics/ar-nile.png",
+     "answer": true
+    },
+    {
+     "word": "monkey",
+     "pic": "../../pics/ar-monkey.jpg",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 7,
+   "page": 54,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ النُّونِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/646/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها النون",
+   "items": [
+    {
+     "word": "أَنْف",
+     "pic": "../../pics/ar-nose.jpg",
+     "audio": "../u1l3/q/c6-0.mp3",
+     "at": 1
+    },
+    {
+     "word": "نَحْلَة",
+     "pic": "../../pics/ar-bee.jpg",
+     "audio": "words/nahla.mp3",
+     "at": 0
+    },
+    {
+     "word": "لَبَن",
+     "pic": "../../pics/ar-milk.png",
+     "audio": "../u2l3/words/laban.mp3",
+     "at": 2
+    },
+    {
+     "word": "بِنْت",
+     "pic": "../../pics/ar-girl.png",
+     "audio": "../u1l4/words/bint.mp3",
+     "at": 1
+    },
+    {
+     "word": "نَمِر",
+     "pic": "../../pics/ar-tiger.png",
+     "audio": "words/nimr.mp3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 8,
+   "page": 54,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "فَانُوس",
+     "chips": [
+      "فَا",
+      "نُو",
+      "س"
+     ],
+     "audio": "words/fanus.mp3"
+    },
+    {
+     "word": "سِنْجَاب",
+     "chips": [
+      "سِنْ",
+      "جَا",
+      "ب"
+     ],
+     "audio": "../u2l4/words/sinjab.mp3"
+    },
+    {
+     "word": "نَخْلَة",
+     "chips": [
+      "نَخْ",
+      "لَ",
+      "ة"
+     ],
+     "audio": "words/nakhla.mp3"
+    },
+    {
+     "word": "نَسْر",
+     "chips": [
+      "نَسْ",
+      "ر"
+     ],
+     "audio": "../u2l2/words/nasr.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 9,
+   "page": 54,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "مُهَنْدِس",
+     "pic": "../../pics/ar-engineer.png",
+     "audio": "../u1l5/words/muhandis.mp3"
+    },
+    {
+     "word": "نَحْلَة",
+     "pic": "../../pics/ar-bee.jpg",
+     "audio": "words/nahla.mp3"
+    },
+    {
+     "word": "نُسُور",
+     "pic": "../../pics/ar-eagles.jpg",
+     "audio": "../u2l2/words/m-nasr.mp3"
+    },
+    {
+     "word": "نُجُوم",
+     "pic": "../../pics/ar-stars.jpg",
+     "audio": "words/nujum.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 10,
+   "page": 54,
+   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ النُّونِ",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/646/name.mp3"
+   ],
+   "hint": "اضغط على الكلمات اللي فيها النون",
+   "items": [
+    {
+     "word": "بَيْت",
+     "audio": "../u2l3/words/bayt.mp3",
+     "answer": false
+    },
+    {
+     "word": "حُقُول",
+     "audio": "../u2l3/words/huqul.mp3",
+     "answer": false
+    },
+    {
+     "word": "نِيل",
+     "audio": "../u2l3/words/nil.mp3",
+     "answer": true
+    },
+    {
+     "word": "لَبَن",
+     "audio": "../u2l3/words/laban.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 12,
+   "page": 55,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ النُّونِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/646/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت النون",
+   "choices": [
+    "نَ",
+    "نُ",
+    "نِ",
+    "نْ"
+   ],
+   "items": [
+    {
+     "word": "نَحْلَة",
+     "pic": "../../pics/ar-bee.jpg",
+     "audio": "words/nahla.mp3",
+     "answer": "نَ"
+    },
+    {
+     "word": "نُجُوم",
+     "pic": "../../pics/ar-stars.jpg",
+     "audio": "words/nujum.mp3",
+     "answer": "نُ"
+    },
+    {
+     "word": "نُسُور",
+     "pic": "../../pics/ar-eagles.jpg",
+     "audio": "../u2l2/words/m-nasr.mp3",
+     "answer": "نُ"
+    },
+    {
+     "word": "أَنْف",
+     "pic": "../../pics/ar-nose.jpg",
+     "audio": "../u1l3/q/c6-0.mp3",
+     "answer": "نْ"
+    }
+   ]
+  }
+ ]
+}

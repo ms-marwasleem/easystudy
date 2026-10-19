@@ -38,6 +38,13 @@
    "tabs": [
     "read",
     "quiz"
+   ],
+   "tools": [
+    {
+     "id": "make-numbers",
+     "label": "Tool",
+     "title": "Make numbers"
+    }
    ]
   },
   {
@@ -59,7 +66,9 @@
    "tabs": [
     "read",
     "quiz"
-   ]
+   ],
+   "tool": "make-numbers",
+   "toolN": 5
   },
   {
    "unit": 1,
@@ -111,7 +120,9 @@
    "tabs": [
     "read",
     "quiz"
-   ]
+   ],
+   "tool": "make-numbers",
+   "toolN": 6
   },
   {
    "unit": 1,
@@ -129,7 +140,9 @@
    "tabs": [
     "read",
     "quiz"
-   ]
+   ],
+   "tool": "make-numbers",
+   "toolN": 7
   },
   {
    "unit": 1,
@@ -147,7 +160,9 @@
    "tabs": [
     "read",
     "quiz"
-   ]
+   ],
+   "tool": "make-numbers",
+   "toolN": 8
   },
   {
    "unit": 1,
@@ -165,7 +180,9 @@
    "tabs": [
     "read",
     "quiz"
-   ]
+   ],
+   "tool": "make-numbers",
+   "toolN": 9
   },
   {
    "unit": 1,
@@ -183,7 +200,9 @@
    "tabs": [
     "read",
     "quiz"
-   ]
+   ],
+   "tool": "make-numbers",
+   "toolN": 10
   },
   {
    "unit": 1,
@@ -219,6 +238,14 @@
    "tabs": [
     "read",
     "quiz"
+   ],
+   "exams": [
+    {
+     "id": "models",
+     "title": "Revision",
+     "label": "Revision",
+     "file": "data/math/exams/models/exam.json"
+    }
    ]
   }
  ]

@@ -1,0 +1,282 @@
+{
+ "id": "u3l5",
+ "unit": 3,
+ "lesson": 5,
+ "type": "letter",
+ "title": "حرف الشين",
+ "task": "أتعرّف على حرف الشين",
+ "pages": 2,
+ "pageNums": [
+  87,
+  88
+ ],
+ "scene": "../../pics/ar-lion.png",
+ "sceneAlt": "شِين",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "ش",
+  "name": "شِين",
+  "nameAudio": "../letters/634/name.mp3",
+  "pic": "../../pics/ar-lion.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "شـ",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـشـ",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـش",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "ش",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "شَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/634-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "شُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/634-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "شِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/634-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "شْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/634-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف الشين في الكلمة",
+   "أصوات حرف الشين بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "شَمْعَة",
+   "img": "../../pics/ar-candle.png",
+   "audio": {
+    "word": "words/shamaa.mp3"
+   },
+   "parts": [
+    {
+     "t": "شَمْ",
+     "audio": "../../syl-ar/634-64e-645-652.mp3"
+    },
+    {
+     "t": "عَة",
+     "audio": "../../syl-ar/639-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "شَمْس",
+   "img": "../../pics/ar-sun.jpg",
+   "audio": {
+    "word": "../u1l5/words/shams.mp3"
+   },
+   "parts": [
+    {
+     "t": "شَمْس",
+     "audio": "../u1l5/words/shams.mp3"
+    }
+   ]
+  },
+  {
+   "word": "شَجَرَة",
+   "img": "../../pics/ar-tree.jpg",
+   "audio": {
+    "word": "../u2l6/words/shajara.mp3"
+   },
+   "parts": [
+    {
+     "t": "شَ",
+     "audio": "../../syl-ar/634-64e.mp3"
+    },
+    {
+     "t": "جَ",
+     "audio": "../../syl-ar/62c-64e.mp3"
+    },
+    {
+     "t": "رَة",
+     "audio": "../../syl-ar/631-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "شُعْلَة",
+   "img": "../../pics/ar-torch.png",
+   "audio": {
+    "word": "words/shula.mp3"
+   },
+   "parts": [
+    {
+     "t": "شُعْ",
+     "audio": "../../syl-ar/634-64f-639-652.mp3"
+    },
+    {
+     "t": "لَة",
+     "audio": "../../syl-ar/644-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "شُبَّاك",
+   "img": "../../pics/ar-window.jpg",
+   "audio": {
+    "word": "words/shubbak.mp3"
+   },
+   "parts": [
+    {
+     "t": "شُبْ",
+     "audio": "../../syl-ar/634-64f-628-652.mp3"
+    },
+    {
+     "t": "بَاك",
+     "audio": "../../syl-ar/628-64e-627-643.mp3"
+    }
+   ]
+  },
+  {
+   "word": "شُمُوع",
+   "img": "../../pics/ar-candles.png",
+   "audio": {
+    "word": "words/shumuu.mp3"
+   },
+   "parts": [
+    {
+     "t": "شُ",
+     "audio": "../../syl-ar/634-64f.mp3"
+    },
+    {
+     "t": "مُوع",
+     "audio": "../../syl-ar/645-64f-648-639.mp3"
+    }
+   ]
+  },
+  {
+   "word": "شِرَاع",
+   "img": "../../pics/ar-sail.png",
+   "audio": {
+    "word": "words/shiraa.mp3"
+   },
+   "parts": [
+    {
+     "t": "شِ",
+     "audio": "../../syl-ar/634-650.mp3"
+    },
+    {
+     "t": "رَاع",
+     "audio": "../../syl-ar/631-64e-627-639.mp3"
+    }
+   ]
+  },
+  {
+   "word": "شِبَاك",
+   "img": "../../pics/ar-net.jpg",
+   "audio": {
+    "word": "words/shibak.mp3"
+   },
+   "parts": [
+    {
+     "t": "شِ",
+     "audio": "../../syl-ar/634-650.mp3"
+    },
+    {
+     "t": "بَاك",
+     "audio": "../../syl-ar/628-64e-627-643.mp3"
+    }
+   ]
+  },
+  {
+   "word": "شِبْل",
+   "img": "../../pics/ar-cub.png",
+   "audio": {
+    "word": "words/shibl.mp3"
+   },
+   "parts": [
+    {
+     "t": "شِبْل",
+     "audio": "words/shibl.mp3"
+    }
+   ]
+  },
+  {
+   "word": "مِشْط",
+   "img": "../../pics/ar-comb.png",
+   "audio": {
+    "word": "words/mishT.mp3"
+   },
+   "parts": [
+    {
+     "t": "مِشْط",
+     "audio": "words/mishT.mp3"
+    }
+   ]
+  },
+  {
+   "word": "مُشْمُش",
+   "img": "../../pics/ar-apricot.png",
+   "audio": {
+    "word": "../u1l5/words/mishmish.mp3"
+   },
+   "parts": [
+    {
+     "t": "مُشْ",
+     "audio": "../../syl-ar/645-64f-634-652.mp3"
+    },
+    {
+     "t": "مُشْ",
+     "audio": "../../syl-ar/645-64f-634-652.mp3"
+    }
+   ]
+  },
+  {
+   "word": "عُشْب",
+   "img": "../../pics/ar-grass.png",
+   "audio": {
+    "word": "../u3l4/words/ushb.mp3"
+   },
+   "parts": [
+    {
+     "t": "عُشْب",
+     "audio": "../u3l4/words/ushb.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

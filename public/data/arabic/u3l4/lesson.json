@@ -1,0 +1,266 @@
+{
+ "id": "u3l4",
+ "unit": 3,
+ "lesson": 4,
+ "type": "letter",
+ "title": "حرف العين",
+ "task": "أتعرّف على حرف العين",
+ "pages": 2,
+ "pageNums": [
+  83,
+  84
+ ],
+ "scene": "../../pics/ar-eye.png",
+ "sceneAlt": "عَيْن",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "ع",
+  "name": "عَيْن",
+  "nameAudio": "../letters/639/name.mp3",
+  "pic": "../../pics/ar-eye.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "عـ",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـعـ",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـع",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "ع",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "عَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/639-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "عُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/639-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "عِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/639-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "عْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/639-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف العين في الكلمة",
+   "أصوات حرف العين بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "عَلَم",
+   "img": "../../pics/ar-flag.png",
+   "audio": {
+    "word": "words/alam.mp3"
+   },
+   "parts": [
+    {
+     "t": "عَلَم",
+     "audio": "words/alam.mp3"
+    }
+   ]
+  },
+  {
+   "word": "عَيْن",
+   "img": "../../pics/ar-eye.png",
+   "audio": {
+    "word": "../u3l3/words/ayn.mp3"
+   },
+   "parts": [
+    {
+     "t": "عَيْن",
+     "audio": "../u3l3/words/ayn.mp3"
+    }
+   ]
+  },
+  {
+   "word": "عَسَل",
+   "img": "../../pics/ar-honey.png",
+   "audio": {
+    "word": "words/asal.mp3"
+   },
+   "parts": [
+    {
+     "t": "عَسَل",
+     "audio": "words/asal.mp3"
+    }
+   ]
+  },
+  {
+   "word": "عُصْفُور",
+   "img": "../../pics/ar-bird.png",
+   "audio": {
+    "word": "../u3l3/words/usfur.mp3"
+   },
+   "parts": [
+    {
+     "t": "عُصْ",
+     "audio": "../../syl-ar/639-64f-635-652.mp3"
+    },
+    {
+     "t": "فُور",
+     "audio": "../../syl-ar/641-64f-648-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "عُشْب",
+   "img": "../../pics/ar-grass.png",
+   "audio": {
+    "word": "words/ushb.mp3"
+   },
+   "parts": [
+    {
+     "t": "عُشْب",
+     "audio": "words/ushb.mp3"
+    }
+   ]
+  },
+  {
+   "word": "عُطُور",
+   "img": "../../pics/ar-perfume.png",
+   "audio": {
+    "word": "words/uttur.mp3"
+   },
+   "parts": [
+    {
+     "t": "عُ",
+     "audio": "../../syl-ar/639-64f.mp3"
+    },
+    {
+     "t": "طُور",
+     "audio": "../../syl-ar/637-64f-648-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "عِنَب",
+   "img": "../../pics/ar-grapes.png",
+   "audio": {
+    "word": "words/inab.mp3"
+   },
+   "parts": [
+    {
+     "t": "عِنَب",
+     "audio": "words/inab.mp3"
+    }
+   ]
+  },
+  {
+   "word": "عِقْد",
+   "img": "../../pics/ar-necklace.jpg",
+   "audio": {
+    "word": "../u2l9/words/iqd.mp3"
+   },
+   "parts": [
+    {
+     "t": "عِقْد",
+     "audio": "../u2l9/words/iqd.mp3"
+    }
+   ]
+  },
+  {
+   "word": "عِظَام",
+   "img": "../../pics/ar-bones.png",
+   "audio": {
+    "word": "words/izam.mp3"
+   },
+   "parts": [
+    {
+     "t": "عِ",
+     "audio": "../../syl-ar/639-650.mp3"
+    },
+    {
+     "t": "ظَام",
+     "audio": "../../syl-ar/638-64e-627-645.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ثَعْلَب",
+   "img": "../../pics/ar-fox.png",
+   "audio": {
+    "word": "../exams/t3/w-thalab.mp3"
+   },
+   "parts": [
+    {
+     "t": "ثَعْ",
+     "audio": "../../syl-ar/62b-64e-639-652.mp3"
+    },
+    {
+     "t": "لَب",
+     "audio": "../../syl-ar/644-64e-628.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ثُعْبَان",
+   "img": "../../pics/ar-snake.png",
+   "audio": {
+    "word": "words/thuban.mp3"
+   },
+   "parts": [
+    {
+     "t": "ثُعْ",
+     "audio": "../../syl-ar/62b-64f-639-652.mp3"
+    },
+    {
+     "t": "بَان",
+     "audio": "../../syl-ar/628-64e-627-646.mp3"
+    }
+   ]
+  },
+  {
+   "word": "شَعْر",
+   "img": "../../pics/ar-hair.png",
+   "audio": {
+    "word": "words/shaar.mp3"
+   },
+   "parts": [
+    {
+     "t": "شَعْر",
+     "audio": "words/shaar.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

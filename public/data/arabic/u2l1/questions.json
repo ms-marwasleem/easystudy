@@ -1,0 +1,106 @@
+{
+ "sets": [
+  {
+   "type": "link",
+   "ex": 1,
+   "page": 42,
+   "task": "اِسْتَمِعْ وَرَدِّدْ، ثُمَّ صِلْ بِالْكَلِمَةِ الْمُشَابِهَةِ",
+   "taskAudio": "../q-prompts/u2l1-listen-repeat-match.mp3",
+   "hint": "صل الكلمة بالكلمة المشابهة",
+   "items": [
+    {
+     "word": "أَلْ",
+     "text2": "أَلْ",
+     "audio": "words/al.mp3"
+    },
+    {
+     "word": "مَاذَا",
+     "text2": "مَاذَا",
+     "audio": "words/madha.mp3"
+    }
+   ]
+  },
+  {
+   "type": "tick",
+   "ex": 2,
+   "page": 42,
+   "task": "ضَعْ عَلَامَةَ (✓) أَسْفَلَ الْكَائِنَاتِ الَّتِي وَرَدَتْ فِي الْقِصَّةِ",
+   "taskAudio": "../q-prompts/tick-story-creatures.mp3",
+   "hint": "اضغط ✓ إذا ورد في القصة، وإلا اضغط ✗",
+   "items": [
+    {
+     "word": "تِمْسَاح",
+     "audio": "../u1l10/words/timsah.mp3",
+     "pic": "../../pics/ar-crocodile.png",
+     "answer": false
+    },
+    {
+     "word": "أَرْنَب",
+     "audio": "../u1l3/q/c8-0.mp3",
+     "pic": "../../pics/ar-rabbit.png",
+     "answer": true
+    },
+    {
+     "word": "دُبّ",
+     "audio": "../u1l8/words/dubb.mp3",
+     "pic": "../../pics/ar-bear.png",
+     "answer": false
+    },
+    {
+     "word": "أَسَد",
+     "audio": "../u1l3/q/c9-3.mp3",
+     "pic": "../../pics/ar-lion.png",
+     "answer": true
+    },
+    {
+     "word": "نَمْلَة",
+     "audio": "words/namla.mp3",
+     "pic": "../../pics/ant.png",
+     "answer": true
+    },
+    {
+     "word": "خَرُوف",
+     "audio": "../u1l9/words/kharuf.mp3",
+     "pic": "../../pics/ar-sheep.png",
+     "answer": false
+    },
+    {
+     "word": "بُلْبُل",
+     "audio": "words/bulbul.mp3",
+     "pic": "../../pics/bird.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 3,
+   "page": 42,
+   "task": "اِسْتَمِعْ وَصِلْ بِالْمُنَاسِبِ",
+   "taskAudio": "../q-prompts/listen-match-suitable.mp3",
+   "hint": "صل الجملة بالصورة المناسبة",
+   "items": [
+    {
+     "word": "الْأَسَدُ يَسْتَرِيحُ تَحْتَهَا",
+     "audio": "q/s1.mp3",
+     "pic": "../../pics/tree.png"
+    },
+    {
+     "word": "يُغَنِّي بِصَوْتِهِ الْجَمِيلِ",
+     "audio": "q/s2.mp3",
+     "pic": "../../pics/bird.png"
+    },
+    {
+     "word": "يَجْرِي بِسُرْعَةٍ",
+     "audio": "q/s3.mp3",
+     "pic": "../../pics/ar-rabbit.png"
+    },
+    {
+     "word": "تَجُرُّ حَبَّةً كَبِيرَةً",
+     "audio": "q/s4.mp3",
+     "pic": "../../pics/ant.png"
+    }
+   ]
+  }
+ ]
+}

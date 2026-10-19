@@ -191,6 +191,343 @@
      "answer": 0
     }
    ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 1,
+   "page": 11,
+   "task": "Listen and write the missing letters:",
+   "taskAudio": "../../en-shared/q/listen-and-write-the-missing-letters.mp3",
+   "hint": "Type the missing letters!",
+   "items": [
+    {
+     "word": "grass",
+     "audio": "../u2l1/words/grass.mp3",
+     "pic": "../../pics/grass.png",
+     "gaps": [
+      2,
+      3
+     ]
+    },
+    {
+     "word": "spoon",
+     "audio": "../u2l2/words/spoon.mp3",
+     "pic": "../../pics/spoon.png",
+     "gaps": [
+      2,
+      3
+     ]
+    },
+    {
+     "word": "blue",
+     "audio": "../u2l3/words/blue.mp3",
+     "pic": "../../pics/blue-splash.png",
+     "gaps": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "type": "cloze",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 2,
+   "page": 11,
+   "task": "Read and complete:",
+   "taskAudio": "../../en-shared/q/read-and-complete.mp3",
+   "hint": "Tap the missing word!",
+   "items": [
+    {
+     "text": "The [[triangle]] has 3 sides.",
+     "bank": [
+      "arrow",
+      "triangle",
+      "flying",
+      "apple"
+     ],
+     "audio": "../../en-shared/q/the-triangle-has-3-sides.mp3"
+    },
+    {
+     "text": "The [[arrow]] is red.",
+     "bank": [
+      "arrow",
+      "triangle",
+      "flying",
+      "apple"
+     ],
+     "audio": "../../en-shared/q/the-arrow-is-red.mp3"
+    },
+    {
+     "text": "It's an [[apple]].",
+     "bank": [
+      "arrow",
+      "triangle",
+      "flying",
+      "apple"
+     ],
+     "audio": "../../en-shared/q/it-s-an-apple.mp3"
+    },
+    {
+     "text": "The butterfly is [[flying]].",
+     "bank": [
+      "arrow",
+      "triangle",
+      "flying",
+      "apple"
+     ],
+     "audio": "../../en-shared/q/the-butterfly-is-flying.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 3,
+   "page": 11,
+   "task": "Unscramble and write:",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "green",
+     "scr": "nrege",
+     "audio": "../u2l3/words/green.mp3",
+     "pic": "../../pics/green-swatch.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "stars",
+     "scr": "assrt",
+     "audio": "../../en-shared/q/stars.mp3",
+     "pic": "../../pics/stars-5.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "hair",
+     "scr": "arhi",
+     "audio": "../../en-shared/q/hair.mp3",
+     "pic": "../../pics/ar-hair.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 4,
+   "page": 11,
+   "task": "Reorder to form sentences:",
+   "taskAudio": "../../en-shared/q/reorder-to-form-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "can",
+      "see",
+      "a",
+      "snake"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-see-a-snake.mp3"
+    },
+    {
+     "chunks": [
+      "This",
+      "is",
+      "a",
+      "circle"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/this-is-a-circle.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 1,
+   "page": 12,
+   "task": "Listen and write the missing letters:",
+   "taskAudio": "../../en-shared/q/listen-and-write-the-missing-letters.mp3",
+   "hint": "Type the missing letters!",
+   "items": [
+    {
+     "word": "axe",
+     "audio": "words/axe.mp3",
+     "pic": "../../pics/axe.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "square",
+     "audio": "../../en-shared/q/square.mp3",
+     "pic": "../../pics/square-red.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "flower",
+     "audio": "../u2l1/words/flower.mp3",
+     "pic": "../../pics/flower-red.png",
+     "gaps": [
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "type": "cloze",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 2,
+   "page": 12,
+   "task": "Read and choose the correct answer:",
+   "taskAudio": "../../en-shared/q/read-and-choose-the-correct-answer.mp3",
+   "hint": "Tap the correct word!",
+   "items": [
+    {
+     "text": "The [[sky]] is blue.",
+     "bank": [
+      "sun",
+      "sky"
+     ],
+     "audio": "../../en-shared/q/the-sky-is-blue.mp3"
+    },
+    {
+     "text": "I can [[see]] a circle.",
+     "bank": [
+      "see",
+      "sees"
+     ],
+     "audio": "../../en-shared/q/i-can-see-a-circle.mp3"
+    },
+    {
+     "text": "The [[grass]] is green.",
+     "bank": [
+      "sun",
+      "grass"
+     ],
+     "audio": "../../en-shared/q/the-grass-is-green.mp3"
+    },
+    {
+     "text": "[[What]] shape is this? This is a rectangle.",
+     "bank": [
+      "What",
+      "Where"
+     ],
+     "audio": "../../en-shared/q/what-shape-is-this-this-is-a-rectangle.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 3,
+   "page": 12,
+   "task": "Unscramble and write:",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "bird",
+     "scr": "rbdi",
+     "audio": "../u2l1/words/bird.mp3",
+     "pic": "../../pics/bird-book-1.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "yellow",
+     "scr": "lywelo",
+     "audio": "../u2l3/words/yellow.mp3",
+     "pic": "../../pics/yellow-swatch.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "word": "flower",
+     "scr": "wlfroe",
+     "audio": "../u2l1/words/flower.mp3",
+     "pic": "../../pics/flower-red.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 4,
+   "page": 12,
+   "task": "Reorder to form sentences:",
+   "taskAudio": "../../en-shared/q/reorder-to-form-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "have",
+      "three",
+      "triangle"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-have-three-triangle.mp3"
+    },
+    {
+     "chunks": [
+      "What",
+      "color",
+      "is",
+      "this"
+     ],
+     "end": "?",
+     "audio": "../../en-shared/q/what-color-is-this.mp3"
+    }
+   ]
   }
  ]
 }

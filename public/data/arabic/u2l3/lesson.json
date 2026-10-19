@@ -1,0 +1,274 @@
+{
+ "id": "u2l3",
+ "unit": 2,
+ "lesson": 3,
+ "type": "letter",
+ "title": "حرف اللام",
+ "task": "أتعرّف على حرف اللام",
+ "pages": 2,
+ "pageNums": [
+  44,
+  45
+ ],
+ "scene": "../../pics/ar-llama.png",
+ "sceneAlt": "لَام",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "ل",
+  "name": "لَام",
+  "nameAudio": "../letters/644/name.mp3",
+  "pic": "../../pics/ar-llama.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "لـ",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـلـ",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـل",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "ل",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "لَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/644-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "لُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/644-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "لِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/644-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "لْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/644-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف اللام في الكلمة",
+   "أصوات حرف اللام بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "لَبَن",
+   "img": "../../pics/ar-milk.png",
+   "audio": {
+    "word": "words/laban.mp3"
+   },
+   "parts": [
+    {
+     "t": "لَ",
+     "audio": "../../syl-ar/644-64e.mp3"
+    },
+    {
+     "t": "بَن",
+     "audio": "../../syl-ar/628-64e-646.mp3"
+    }
+   ]
+  },
+  {
+   "word": "لَيْمُون",
+   "img": "../../pics/ar-lemon.png",
+   "audio": {
+    "word": "words/laymun.mp3"
+   },
+   "parts": [
+    {
+     "t": "لَيْ",
+     "audio": "../../syl-ar/644-64e-64a-652.mp3"
+    },
+    {
+     "t": "مُون",
+     "audio": "../../syl-ar/645-64f-648-646.mp3"
+    }
+   ]
+  },
+  {
+   "word": "لَحْم",
+   "img": "../../pics/ar-meat.png",
+   "audio": {
+    "word": "../u1l6/words/lahm.mp3"
+   },
+   "parts": [
+    {
+     "t": "لَحْم",
+     "audio": "../u1l6/words/lahm.mp3"
+    }
+   ]
+  },
+  {
+   "word": "لُعْبَة",
+   "img": "../../pics/ar-toy-rings.png",
+   "audio": {
+    "word": "words/luba.mp3"
+   },
+   "parts": [
+    {
+     "t": "لُعْ",
+     "audio": "../../syl-ar/644-64f-639-652.mp3"
+    },
+    {
+     "t": "بَة",
+     "audio": "../../syl-ar/628-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "لُؤْلُؤَة",
+   "img": "../../pics/ar-pearl.png",
+   "audio": {
+    "word": "words/lulua.mp3"
+   },
+   "parts": [
+    {
+     "t": "لُؤْ",
+     "audio": "../../syl-ar/644-64f-624-652.mp3"
+    },
+    {
+     "t": "لُ",
+     "audio": "../../syl-ar/644-64f.mp3"
+    },
+    {
+     "t": "ؤَة",
+     "audio": "../../syl-ar/624-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "لُوفَة",
+   "img": "../../pics/ar-loofah.png",
+   "audio": {
+    "word": "words/lufa.mp3"
+   },
+   "parts": [
+    {
+     "t": "لُو",
+     "audio": "../../syl-ar/644-64f-648.mp3"
+    },
+    {
+     "t": "فَة",
+     "audio": "../../syl-ar/641-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "لِسَان",
+   "img": "../../pics/ar-tongue.png",
+   "audio": {
+    "word": "words/lisan.mp3"
+   },
+   "parts": [
+    {
+     "t": "لِ",
+     "audio": "../../syl-ar/644-650.mp3"
+    },
+    {
+     "t": "سَان",
+     "audio": "../../syl-ar/633-64e-627-646.mp3"
+    }
+   ]
+  },
+  {
+   "word": "لِفْت",
+   "img": "../../pics/ar-turnip.png",
+   "audio": {
+    "word": "words/lift.mp3"
+   },
+   "parts": [
+    {
+     "t": "لِفْت",
+     "audio": "words/lift.mp3"
+    }
+   ]
+  },
+  {
+   "word": "لِصّ",
+   "img": "../../pics/ar-thief.png",
+   "audio": {
+    "word": "words/lissa.mp3"
+   },
+   "parts": [
+    {
+     "t": "لِصّ",
+     "audio": "words/lissa.mp3"
+    }
+   ]
+  },
+  {
+   "word": "كَلْب",
+   "img": "../../pics/ar-dog.png",
+   "audio": {
+    "word": "words/kalb.mp3"
+   },
+   "parts": [
+    {
+     "t": "كَلْب",
+     "audio": "words/kalb.mp3"
+    }
+   ]
+  },
+  {
+   "word": "دَلْو",
+   "img": "../../pics/ar-bucket.png",
+   "audio": {
+    "word": "../u1l8/words/dalw.mp3"
+   },
+   "parts": [
+    {
+     "t": "دَلْو",
+     "audio": "../u1l8/words/dalw.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ثَلْج",
+   "img": "../../pics/ar-ice.png",
+   "audio": {
+    "word": "words/thalj.mp3"
+   },
+   "parts": [
+    {
+     "t": "ثَلْج",
+     "audio": "words/thalj.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

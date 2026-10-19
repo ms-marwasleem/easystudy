@@ -1,0 +1,94 @@
+{
+ "sets": [
+  {
+   "type": "check",
+   "task": "Critical Thinking. Check the things you do with your family. Tell a friend.",
+   "taskAudio": "../../en-shared/q/critical-thinking-check-the-things-you-do-with-you-ef64ecaf.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "words": [
+      "play games",
+      "go for a walk",
+      "ride bikes",
+      "watch TV"
+     ],
+     "n": 1,
+     "audios": [
+      "../../en-shared/q/play-games.mp3",
+      "../../en-shared/q/go-for-a-walk.mp3",
+      "../../en-shared/q/ride-bikes.mp3",
+      "../../en-shared/q/watch-tv.mp3"
+     ]
+    }
+   ],
+   "page": 20,
+   "ex": "A"
+  },
+  {
+   "type": "explain",
+   "task": "Look at the picture. What do these families do together?",
+   "taskAudio": "../../en-shared/q/look-at-the-picture-what-do-these-families-do-together.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/park.jpg",
+      "img/living-room.jpg"
+     ],
+     "lines": []
+    }
+   ],
+   "page": 20,
+   "ex": "B"
+  },
+  {
+   "type": "mcq",
+   "task": "Read. What does the picture show? Circle.",
+   "taskAudio": "../../en-shared/q/read-what-does-the-picture-show-circle.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "stem": "Families have fun together in ____ ways.",
+     "options": [
+      "the same",
+      "different"
+     ],
+     "answer": 1,
+     "word": "Families have fun together in different ways.",
+     "audio": "../../en-shared/q/families-have-fun-together-in-different-ways.mp3",
+     "parts": [
+      "../../en-shared/q/families-have-fun-together-in.mp3",
+      "../../en-shared/q/ways.mp3"
+     ]
+    }
+   ],
+   "page": 20,
+   "ex": "C"
+  },
+  {
+   "type": "explain",
+   "task": "NEW WORDS. Listen and read. Listen and say.",
+   "taskAudio": "../../en-shared/q/new-words-listen-and-read-listen-and-say.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "lines": [
+      {
+       "t": "go shopping",
+       "a": "../../en-shared/q/go-shopping.mp3",
+       "cls": "blue"
+      },
+      {
+       "t": "pick up",
+       "a": "../../en-shared/q/pick-up.mp3",
+       "cls": "blue"
+      }
+     ]
+    }
+   ],
+   "page": 20,
+   "ex": "D"
+  }
+ ]
+}

@@ -1,0 +1,1151 @@
+{
+ "title": "Revision",
+ "ratio": 0.707,
+ "head": {
+  "l": "Department of Mathematics<br>2026/2027",
+  "r": "Noor El Elm<br>Modern School"
+ },
+ "pages": [
+  {
+   "title": "Model 1",
+   "chip": "Model 1",
+   "foot": 1,
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "art",
+     "art": "stars:10",
+     "w": 13,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number of stars in the opposite picture is ..........",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "7",
+        "8",
+        "9",
+        "10"
+       ],
+       "answer": 3,
+       "labels": "upper"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "The number 1 and the number..... make 8",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "5",
+        "6",
+        "7",
+        "4"
+       ],
+       "answer": 2,
+       "labels": "upper"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "The number 8 is bigger than ...............",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "10",
+        "9",
+        "8",
+        "7"
+       ],
+       "answer": 3,
+       "labels": "paren"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "The colored circles {{circles:4,5}} represent the number ...............",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "2",
+        "3",
+        "4",
+        "5"
+       ],
+       "answer": 2,
+       "labels": "paren"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "8 is ................... 10",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "smaller than",
+        "greater than",
+        "equal to",
+        "bigger than"
+       ],
+       "answer": 0,
+       "labels": "paren"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "Write the missing number in the box:",
+     "body": [
+      {
+       "t": "bond",
+       "top": "6",
+       "l": "[[2]]",
+       "r": "4"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "Match each image to its correct number:",
+     "body": [
+      {
+       "t": "link",
+       "dir": "v",
+       "a": [
+        {
+         "art": "apples:6,3",
+         "w": 7
+        },
+        {
+         "art": "cars:8,3",
+         "w": 9
+        },
+        {
+         "art": "birds:3,3",
+         "w": 7
+        }
+       ],
+       "b": [
+        "3",
+        "8",
+        "6"
+       ],
+       "pairs": [
+        [
+         0,
+         2
+        ],
+        [
+         1,
+         1
+        ],
+        [
+         2,
+         0
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "2 and [[3:wide]] make 5.",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Write a number bigger than 7 ? [[>7:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "Write two numbers that make 10 and one of them is 2 [[8:wide]]",
+     "body": []
+    }
+   ]
+  },
+  {
+   "title": "Model 2",
+   "chip": "Model 2",
+   "foot": 2,
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The shape that represents the number 3 is ________",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        {
+         "art": "dotrow:2,5",
+         "h": 1.7
+        },
+        {
+         "art": "dotrow:3,5",
+         "h": 1.7
+        },
+        {
+         "art": "dotrow:4,5",
+         "h": 1.7
+        },
+        {
+         "art": "dotrow:1,5",
+         "h": 1.7
+        }
+       ],
+       "answer": 1,
+       "labels": "upper"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "Which two numbers make 5?",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "1 and 2",
+        "2 and 4",
+        "1 and 3",
+        "4 and 1"
+       ],
+       "answer": 3,
+       "labels": "upper"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Which statement is true?",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "10 is smaller than 6",
+        "8 is bigger than 4",
+        "3 is bigger than 9",
+        "5 is bigger than 7"
+       ],
+       "answer": 1,
+       "labels": "lower",
+       "cols": 2
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "The number 7 and the number ......... make 9.",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "1",
+        "2",
+        "3",
+        "4"
+       ],
+       "answer": 1,
+       "labels": "paren"
+      }
+     ]
+    },
+    {
+     "t": "art",
+     "art": "fishbowl",
+     "w": 8,
+     "frame": false,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "The number of fish in an empty bowl is .......",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "zero",
+        "1",
+        "2",
+        "3"
+       ],
+       "answer": 0,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "art",
+     "art": "pencils:9",
+     "w": 17,
+     "frame": false,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "What is the number of pencils in the picture? [[9:tiny]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "Write the number:",
+     "body": [
+      {
+       "t": "text",
+       "style": "bigline",
+       "text": "<b class='xbig'>3</b> [[3:box]] [[3:box]] [[3:box]] [[3:box]] [[3:box]]"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Write a number smaller than 5? [[<5:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "8 and [[2:wide]] make 10",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "Count the dots and write the numeral number and the number word:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 2,
+       "style": "plates",
+       "items": [
+        {
+         "t": "text",
+         "text": "{{dots:6,5}} [[6:box]] [[six:box,wide]]"
+        },
+        {
+         "t": "text",
+         "text": "{{dots:8,5}} [[8:box]] [[eight:box,wide]]"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "fs": 1.07
+  },
+  {
+   "title": "Model 3",
+   "chip": "Model 3",
+   "foot": 3,
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "art",
+     "art": "cars2",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number of cars in the picture is ......",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "one",
+        "two",
+        "three",
+        "four"
+       ],
+       "answer": 1,
+       "labels": "upper"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "The number ........ is greater than nine.",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "eight",
+        "nine",
+        "ten",
+        "one"
+       ],
+       "answer": 2,
+       "labels": "upper"
+      }
+     ]
+    },
+    {
+     "t": "art",
+     "art": "bond:?,1,4",
+     "w": 10,
+     "frame": false,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "What is the missing number in the box?",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "5",
+        "4",
+        "3",
+        "2"
+       ],
+       "answer": 0,
+       "labels": "upper"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Which of the following numbers is smaller than 1?",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "3",
+        "2",
+        "1",
+        "0"
+       ],
+       "answer": 3,
+       "labels": "upper"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "The two numbers 4 and ........ make the number 6.",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "2",
+        "3",
+        "4",
+        "5"
+       ],
+       "answer": 0,
+       "labels": "upper"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "Match each number word with the correct number of pictures:",
+     "body": [
+      {
+       "t": "link",
+       "dir": "h",
+       "a": [
+        "Seven",
+        "Four",
+        "Six"
+       ],
+       "b": [
+        {
+         "art": "dolphins:4,4",
+         "w": 18
+        },
+        {
+         "art": "fish:6,6",
+         "w": 18
+        },
+        {
+         "art": "smilestars:7,7",
+         "w": 18
+        }
+       ],
+       "pairs": [
+        [
+         0,
+         2
+        ],
+        [
+         1,
+         0
+        ],
+        [
+         2,
+         1
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "[[5:wide]] and 2 make 7",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Circle the bigger number:",
+     "body": [
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "mcq",
+         "opts": [
+          "2",
+          "10"
+         ],
+         "answer": 1,
+         "labels": "none",
+         "lead": "(a)",
+         "style": "cells"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "7",
+          "5"
+         ],
+         "answer": 0,
+         "labels": "none",
+         "lead": "(b)",
+         "style": "cells"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "8",
+          "1"
+         ],
+         "answer": 0,
+         "labels": "none",
+         "lead": "(c)",
+         "style": "cells"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "9",
+          "6"
+         ],
+         "answer": 0,
+         "labels": "none",
+         "lead": "(d)",
+         "style": "cells"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Write the missing numbers:",
+     "body": [
+      {
+       "t": "text",
+       "text": "5, [[6:tiny]], 7, [[8:tiny]], [[9:tiny]], 10"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "How many apples are still needed to make 10?",
+     "body": [
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "art",
+         "art": "apples:7,5",
+         "w": 14,
+         "frame": true
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         "answer": 2,
+         "labels": "none",
+         "style": "cells"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "fs": 0.92
+  },
+  {
+   "title": "Model 4",
+   "chip": "Model 4",
+   "foot": 4,
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "art",
+     "art": "branch",
+     "w": 11,
+     "frame": false,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number of birds on the tree is ........",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "2",
+        "0",
+        "3",
+        "5"
+       ],
+       "answer": 1,
+       "labels": "upper"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "The two numbers two and seven make .......",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "six",
+        "ten",
+        "nine",
+        "five"
+       ],
+       "answer": 2,
+       "labels": "upper"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "The shape that represents the number 6 is .......",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        {
+         "art": "tenframe:6",
+         "h": 2.4
+        },
+        {
+         "art": "tenframe:7",
+         "h": 2.4
+        },
+        {
+         "art": "tenframe:8",
+         "h": 2.4
+        },
+        {
+         "art": "tenframe:10",
+         "h": 2.4
+        }
+       ],
+       "answer": 0,
+       "labels": "upper"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Which of the following statements is true?",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "2 is less than 5",
+        "4 is greater than 6",
+        "7 is smaller than 5",
+        "3 is greater than 4"
+       ],
+       "answer": 0,
+       "labels": "upper",
+       "cols": 2
+      }
+     ]
+    },
+    {
+     "t": "art",
+     "art": "hand:3",
+     "w": 6,
+     "frame": false,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "The number of raised fingers is .......",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "1",
+        "2",
+        "3",
+        "4"
+       ],
+       "answer": 2,
+       "labels": "upper"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "Color the same number of things:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 2,
+       "items": [
+        {
+         "t": "row",
+         "style": "flex",
+         "items": [
+          {
+           "t": "text",
+           "text": "(a)"
+          },
+          {
+           "t": "art",
+           "art": "icecreams:4,4",
+           "w": 8
+          },
+          {
+           "t": "fill",
+           "n": 4,
+           "total": 10,
+           "cols": 5,
+           "size": 1.1
+          }
+         ]
+        },
+        {
+         "t": "row",
+         "style": "flex",
+         "items": [
+          {
+           "t": "text",
+           "text": "(b)"
+          },
+          {
+           "t": "art",
+           "art": "butterflies:7,4",
+           "w": 7.5
+          },
+          {
+           "t": "fill",
+           "n": 7,
+           "total": 10,
+           "cols": 5,
+           "size": 1.1
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "Complete the following with the suitable number:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "cards",
+       "items": [
+        "4 and [[3:tiny]] make 7",
+        "[[5:tiny]] and 1 make 6",
+        "3 and [[2:tiny]] make 5",
+        "[[4:tiny]] and 2 make 6",
+        "[[1:tiny]] and 4 make 5",
+        "[[6:tiny]] and 1 make 7"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Count the birds and choose the correct answer:",
+     "body": [
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "art",
+         "art": "birds:6,3",
+         "w": 8
+        },
+        {
+         "t": "text",
+         "text": "[[6:circ]]"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "is less than",
+          "is greater than"
+         ],
+         "answer": 0,
+         "labels": "none",
+         "stack": true
+        },
+        {
+         "t": "text",
+         "text": "[[9:circ]]"
+        },
+        {
+         "t": "art",
+         "art": "birds:9,5",
+         "w": 10
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Write two numbers that make 8, one of them is 5. [[3:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "Count in order and write the missing numbers.",
+     "body": [
+      {
+       "t": "row",
+       "style": "chain",
+       "items": [
+        "[[0:tiny]]",
+        "1",
+        "[[2:tiny]]",
+        "[[3:tiny]]",
+        "4",
+        "[[5:tiny]]",
+        "[[6:tiny]]",
+        "7",
+        "[[8:tiny]]"
+       ]
+      }
+     ]
+    }
+   ],
+   "fs": 0.95
+  },
+  {
+   "title": "Model 5",
+   "chip": "Model 5",
+   "foot": 5,
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "Which pencil case has 7 pencils ?",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        {
+         "art": "pencilcase:6,pink",
+         "h": 4.6
+        },
+        {
+         "art": "pencilcase:7,blue",
+         "h": 4.6
+        },
+        {
+         "art": "pencilcase:5,purple",
+         "h": 4.6
+        },
+        {
+         "art": "pencilcase:4,yellow",
+         "h": 4.6
+        }
+       ],
+       "answer": 1,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "art",
+     "art": "pencilcup",
+     "w": 8,
+     "frame": false,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "Eight in digit is ________",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "9",
+        "8",
+        "10",
+        "7"
+       ],
+       "answer": 1,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Which of the following number is the biggest ?",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "0",
+        "2",
+        "1",
+        "5"
+       ],
+       "answer": 3,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Which two numbers make 10 ?",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "5 and 3",
+        "4 and 6",
+        "7 and 2",
+        "2 and 6"
+       ],
+       "answer": 1,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "9 ________ 9.",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "is greater than",
+        "is smaller than",
+        "is equal to"
+       ],
+       "answer": 2,
+       "labels": "lower",
+       "cols": 3
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "Write the number of apples in each plate.",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "plates",
+       "items": [
+        {
+         "t": "text",
+         "text": "{{bowl:3,orange}} [[3:box,tiny]]"
+        },
+        {
+         "t": "text",
+         "text": "{{bowl:5,blue}} [[5:box,tiny]]"
+        },
+        {
+         "t": "text",
+         "text": "{{bowl:0,orange}} [[0:box,tiny]]"
+        },
+        {
+         "t": "text",
+         "text": "{{bowl:4,purple}} [[4:box,tiny]]"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "Write the missing number in each box:",
+     "body": [
+      {
+       "t": "bond",
+       "top": "8",
+       "l": "3",
+       "r": "[[5]]"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Underline all numbers smaller than 7.",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "1",
+        "8",
+        "4",
+        "3",
+        "6",
+        "9"
+       ],
+       "answer": [
+        0,
+        2,
+        3,
+        4
+       ],
+       "labels": "none",
+       "cols": 6,
+       "style": "ul big"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Write a number that is bigger than the written number.",
+     "body": [
+      {
+       "t": "row",
+       "cols": 5,
+       "style": "cards",
+       "items": [
+        "<b>7</b> [[>7:box]]",
+        "<b>3</b> [[>3:box]]",
+        "<b>0</b> [[>0:box]]",
+        "<b>6</b> [[>6:box]]",
+        "<b>9</b> [[>9:box]]"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "Write two numbers that make 9, one of them is 7. [[7|2:box]] [[2|7:box]]",
+     "body": []
+    }
+   ],
+   "fs": 1.06
+  }
+ ]
+}

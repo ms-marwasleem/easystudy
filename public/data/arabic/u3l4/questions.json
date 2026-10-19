@@ -1,0 +1,253 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 85,
+   "task": "اسْتَمِعْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الْعَيْنِ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/639/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت العين",
+   "silent": true,
+   "items": [
+    {
+     "word": "grass",
+     "pic": "../../pics/ar-grass.png",
+     "answer": true
+    },
+    {
+     "word": "perfume",
+     "pic": "../../pics/ar-perfume.png",
+     "answer": true
+    },
+    {
+     "word": "horse-book",
+     "pic": "../../pics/ar-horse-book.jpg",
+     "answer": false
+    },
+    {
+     "word": "lion",
+     "pic": "../../pics/ar-lion.png",
+     "answer": false
+    },
+    {
+     "word": "hair",
+     "pic": "../../pics/ar-hair.png",
+     "answer": true
+    },
+    {
+     "word": "bird",
+     "pic": "../../pics/ar-bird.png",
+     "answer": true
+    },
+    {
+     "word": "strawberry",
+     "pic": "../../pics/ar-strawberry.png",
+     "answer": false
+    },
+    {
+     "word": "flag",
+     "pic": "../../pics/ar-flag.png",
+     "answer": true
+    },
+    {
+     "word": "sun",
+     "pic": "../../pics/ar-sun.jpg",
+     "answer": false
+    },
+    {
+     "word": "honey",
+     "pic": "../../pics/ar-honey.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 85,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الْعَيْنِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/639/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها العين",
+   "items": [
+    {
+     "word": "عِظَام",
+     "pic": "../../pics/ar-bones.png",
+     "audio": "words/izam.mp3",
+     "at": 0
+    },
+    {
+     "word": "عُشْب",
+     "pic": "../../pics/ar-grass.png",
+     "audio": "words/ushb.mp3",
+     "at": 0
+    },
+    {
+     "word": "عَلَم",
+     "pic": "../../pics/ar-flag.png",
+     "audio": "words/alam.mp3",
+     "at": 0
+    },
+    {
+     "word": "ثَعْلَب",
+     "pic": "../../pics/ar-fox.png",
+     "audio": "../exams/t3/w-thalab.mp3",
+     "at": 1
+    },
+    {
+     "word": "ثُعْبَان",
+     "pic": "../../pics/ar-snake.png",
+     "audio": "words/thuban.mp3",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 9,
+   "page": 85,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الْعَيْنِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/639/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت العين",
+   "choices": [
+    "عَ",
+    "عُ",
+    "عِ",
+    "عْ"
+   ],
+   "items": [
+    {
+     "word": "عُصْفُور",
+     "pic": "../../pics/ar-bird.png",
+     "audio": "../u3l3/words/usfur.mp3",
+     "answer": "عُ"
+    },
+    {
+     "word": "عِقْد",
+     "pic": "../../pics/ar-necklace.jpg",
+     "audio": "../u2l9/words/iqd.mp3",
+     "answer": "عِ"
+    },
+    {
+     "word": "عَسَل",
+     "pic": "../../pics/ar-honey.png",
+     "audio": "words/asal.mp3",
+     "answer": "عَ"
+    },
+    {
+     "word": "ثَعْلَب",
+     "pic": "../../pics/ar-fox.png",
+     "audio": "../exams/t3/w-thalab.mp3",
+     "answer": "عْ"
+    },
+    {
+     "word": "عِظَام",
+     "pic": "../../pics/ar-bones.png",
+     "audio": "words/izam.mp3",
+     "answer": "عِ"
+    },
+    {
+     "word": "عِنَب",
+     "pic": "../../pics/ar-grapes.png",
+     "audio": "words/inab.mp3",
+     "answer": "عِ"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 10,
+   "page": 85,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "عِنَب",
+     "pic": "../../pics/ar-grapes.png",
+     "audio": "words/inab.mp3"
+    },
+    {
+     "word": "عِقْد",
+     "pic": "../../pics/ar-necklace.jpg",
+     "audio": "../u2l9/words/iqd.mp3"
+    },
+    {
+     "word": "عُشْب",
+     "pic": "../../pics/ar-grass.png",
+     "audio": "words/ushb.mp3"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 11,
+   "page": 86,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "عُصْفُور",
+     "chips": [
+      "عُصْ",
+      "فُو",
+      "ر"
+     ],
+     "audio": "../u3l3/words/usfur.mp3"
+    },
+    {
+     "word": "عَيْن",
+     "chips": [
+      "عَيْ",
+      "ن"
+     ],
+     "audio": "../u3l3/words/ayn.mp3"
+    },
+    {
+     "word": "إِصْبَع",
+     "chips": [
+      "إِصْ",
+      "بَ",
+      "ع"
+     ],
+     "audio": "words/isbaa.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 12,
+   "page": 86,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "عَسَل",
+     "pic": "../../pics/ar-honey.png",
+     "audio": "words/asal.mp3"
+    },
+    {
+     "word": "عُطُور",
+     "pic": "../../pics/ar-perfume.png",
+     "audio": "words/uttur.mp3"
+    },
+    {
+     "word": "ثُعْبَان",
+     "pic": "../../pics/ar-snake.png",
+     "audio": "words/thuban.mp3"
+    }
+   ]
+  }
+ ]
+}

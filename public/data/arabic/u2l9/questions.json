@@ -1,0 +1,143 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 6,
+   "page": 69,
+   "task": "اسْتَمِعْ وَارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الْقَافِ",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/642/name.mp3"
+   ],
+   "hint": "اضغط على الكلمات اللي فيها القاف",
+   "items": [
+    {
+     "word": "قَلَم",
+     "audio": "words/qalam.mp3",
+     "answer": true
+    },
+    {
+     "word": "رَفْع",
+     "audio": "words/raf.mp3",
+     "answer": false
+    },
+    {
+     "word": "رَقْم",
+     "audio": "words/raqm.mp3",
+     "answer": true
+    },
+    {
+     "word": "عَقْل",
+     "audio": "words/aql.mp3",
+     "answer": true
+    },
+    {
+     "word": "بَذْر",
+     "audio": "words/badhr.mp3",
+     "answer": false
+    },
+    {
+     "word": "بَرْق",
+     "audio": "words/barq.mp3",
+     "answer": true
+    },
+    {
+     "word": "بَطَل",
+     "audio": "words/batal.mp3",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 70,
+   "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الْقَافِ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/642/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت القاف",
+   "silent": true,
+   "items": [
+    {
+     "word": "shirt",
+     "pic": "../../pics/ar-shirt.png",
+     "answer": true
+    },
+    {
+     "word": "rooster",
+     "pic": "../../pics/ar-rooster.png",
+     "answer": false
+    },
+    {
+     "word": "strawberry",
+     "pic": "../../pics/ar-strawberry.png",
+     "answer": false
+    },
+    {
+     "word": "moon",
+     "pic": "../../pics/ar-moon.jpg",
+     "answer": true
+    },
+    {
+     "word": "monkey",
+     "pic": "../../pics/ar-monkey.jpg",
+     "answer": true
+    },
+    {
+     "word": "heart",
+     "pic": "../../pics/ar-heart.png",
+     "answer": true
+    },
+    {
+     "word": "train",
+     "pic": "../../pics/ar-train.png",
+     "answer": true
+    },
+    {
+     "word": "lock",
+     "pic": "../../pics/ar-lock.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 70,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الْقَافِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/642/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها القاف",
+   "items": [
+    {
+     "word": "قَلَم",
+     "pic": "../../pics/ar-pencil.png",
+     "audio": "words/qalam.mp3",
+     "at": 0
+    },
+    {
+     "word": "قَارِب",
+     "pic": "../../pics/ar-rowboat.jpg",
+     "audio": "words/qarib.mp3",
+     "at": 0
+    },
+    {
+     "word": "مِقَصّ",
+     "pic": "../../pics/ar-scissors.png",
+     "audio": "../u1l5/words/miqass.mp3",
+     "at": 1
+    },
+    {
+     "word": "قَمْح",
+     "pic": "../../pics/ar-wheat.jpg",
+     "audio": "words/qamh.mp3",
+     "at": 0
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,286 @@
+{
+ "id": "u4l7",
+ "unit": 4,
+ "lesson": 7,
+ "type": "letter",
+ "title": "حرف الثاء",
+ "task": "أتعرّف على حرف الثاء",
+ "pages": 2,
+ "pageNums": [
+  128,
+  129
+ ],
+ "scene": "../../pics/ar-bull.png",
+ "sceneAlt": "ثَاء",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "ث",
+  "name": "ثَاء",
+  "nameAudio": "../letters/62b/name.mp3",
+  "pic": "../../pics/ar-bull.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "ثـ",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـثـ",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـث",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "ث",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "ثَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/62b-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "ثُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/62b-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "ثِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/62b-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "ثْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/62b-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف الثاء في الكلمة",
+   "أصوات حرف الثاء بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "ثَلْج",
+   "img": "../../pics/ar-ice.png",
+   "audio": {
+    "word": "words/thalj.mp3"
+   },
+   "parts": [
+    {
+     "t": "ثَلْج",
+     "audio": "words/thalj.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ثَوْب",
+   "img": "../../pics/ar-dress.png",
+   "audio": {
+    "word": "words/thawb.mp3"
+   },
+   "parts": [
+    {
+     "t": "ثَوْب",
+     "audio": "words/thawb.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ثَعْلَب",
+   "img": "../../pics/ar-fox.png",
+   "audio": {
+    "word": "words/tha3lab.mp3"
+   },
+   "parts": [
+    {
+     "t": "ثَعْ",
+     "audio": "../../syl-ar/62b-64e-639-652.mp3"
+    },
+    {
+     "t": "لَب",
+     "audio": "../../syl-ar/644-64e-628.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ثُعْبَان",
+   "img": "../../pics/ar-snake.png",
+   "audio": {
+    "word": "words/thu3ban.mp3"
+   },
+   "parts": [
+    {
+     "t": "ثُعْ",
+     "audio": "../../syl-ar/62b-64f-639-652.mp3"
+    },
+    {
+     "t": "بَان",
+     "audio": "../../syl-ar/628-64e-627-646.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ثُوم",
+   "img": "../../pics/ar-garlic.jpg",
+   "audio": {
+    "word": "words/thawm.mp3"
+   },
+   "parts": [
+    {
+     "t": "ثُوم",
+     "audio": "words/thawm.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ثُقُوب",
+   "img": "../../pics/ar-holes.jpg",
+   "audio": {
+    "word": "words/thuqub.mp3"
+   },
+   "parts": [
+    {
+     "t": "ثُ",
+     "audio": "../../syl-ar/62b-64f.mp3"
+    },
+    {
+     "t": "قُوب",
+     "audio": "../../syl-ar/642-64f-648-628.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ثِمَار",
+   "img": "../../pics/ar-tree.jpg",
+   "audio": {
+    "word": "words/thimar.mp3"
+   },
+   "parts": [
+    {
+     "t": "ثِ",
+     "audio": "../../syl-ar/62b-650.mp3"
+    },
+    {
+     "t": "مَار",
+     "audio": "../../syl-ar/645-64e-627-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ثِيرَان",
+   "img": "../../pics/ar-bulls.jpg",
+   "audio": {
+    "word": "words/thiran.mp3"
+   },
+   "parts": [
+    {
+     "t": "ثِي",
+     "audio": "../../syl-ar/62b-650-64a.mp3"
+    },
+    {
+     "t": "رَان",
+     "audio": "../../syl-ar/631-64e-627-646.mp3"
+    }
+   ]
+  },
+  {
+   "word": "ثِيَاب",
+   "img": "../../pics/ar-clothes.jpg",
+   "audio": {
+    "word": "words/thiyab.mp3"
+   },
+   "parts": [
+    {
+     "t": "ثِ",
+     "audio": "../../syl-ar/62b-650.mp3"
+    },
+    {
+     "t": "يَاب",
+     "audio": "../../syl-ar/64a-64e-627-628.mp3"
+    }
+   ]
+  },
+  {
+   "word": "اثْنَان",
+   "img": "../../pics/ar-two.png",
+   "audio": {
+    "word": "words/ithnan.mp3"
+   },
+   "parts": [
+    {
+     "t": "اثْ",
+     "audio": "../../syl-ar/627-62b-652.mp3"
+    },
+    {
+     "t": "نَان",
+     "audio": "../../syl-ar/646-64e-627-646.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أَثْقَال",
+   "img": "../../pics/ar-weights.jpg",
+   "audio": {
+    "word": "words/athqal.mp3"
+   },
+   "parts": [
+    {
+     "t": "أَثْ",
+     "audio": "../../syl-ar/623-64e-62b-652.mp3"
+    },
+    {
+     "t": "قَال",
+     "audio": "../../syl-ar/642-64e-627-644.mp3"
+    }
+   ]
+  },
+  {
+   "word": "كُمَّثْرَى",
+   "img": "../../pics/ar-pear.jpg",
+   "audio": {
+    "word": "words/kummathra.mp3"
+   },
+   "parts": [
+    {
+     "t": "كُمْ",
+     "audio": "../../syl-ar/643-64f-645-652.mp3"
+    },
+    {
+     "t": "مَثْ",
+     "audio": "../../syl-ar/645-64e-62b-652.mp3"
+    },
+    {
+     "t": "رَى",
+     "audio": "../../syl-ar/631-64e-649.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

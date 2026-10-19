@@ -1,0 +1,546 @@
+{
+ "unit": 1,
+ "lesson": 2,
+ "title": "It's Okay to Be Different",
+ "sceneAlt": "Monkeys and sloths in a tree",
+ "type": "al",
+ "scene": "img/scene.jpg",
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "boring",
+   "ar": "ممل",
+   "img": "img/boring.jpg",
+   "parts": [
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "or",
+     "ph": "or",
+     "audio": "../../phonics/or.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "ng",
+     "ph": "ng",
+     "audio": "../../phonics/ng.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/boring.mp3"
+   }
+  },
+  {
+   "word": "busy",
+   "ar": "مشغول",
+   "img": "img/busy.jpg",
+   "parts": [
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "u",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    },
+    {
+     "t": "y",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/busy.mp3"
+   }
+  },
+  {
+   "word": "fast",
+   "ar": "سريع",
+   "img": "img/fast.jpg",
+   "parts": [
+    {
+     "t": "f",
+     "ph": "f",
+     "audio": "../../phonics/f.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/fast.mp3"
+   }
+  },
+  {
+   "word": "awake",
+   "ar": "مستيقظ",
+   "img": "img/awake.jpg",
+   "parts": [
+    {
+     "t": "a",
+     "ph": "schwa",
+     "audio": "../../phonics/schwa.mp3"
+    },
+    {
+     "t": "w",
+     "ph": "w",
+     "audio": "../../phonics/w.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "ai",
+     "audio": "../../phonics/ai.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3",
+     "spell": true
+    }
+   ],
+   "audio": {
+    "word": "words/awake.mp3"
+   }
+  },
+  {
+   "word": "asleep",
+   "ar": "نائم",
+   "img": "img/asleep.jpg",
+   "parts": [
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "ee",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/asleep.mp3"
+   }
+  },
+  {
+   "word": "fun",
+   "ar": "ممتع",
+   "img": "img/fun.jpg",
+   "parts": [
+    {
+     "t": "f",
+     "ph": "f",
+     "audio": "../../phonics/f.mp3"
+    },
+    {
+     "t": "u",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/fun.mp3"
+   }
+  },
+  {
+   "word": "lazy",
+   "ar": "كسول",
+   "img": "img/lazy.jpg",
+   "parts": [
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "ai",
+     "audio": "../../phonics/ai.mp3"
+    },
+    {
+     "t": "z",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    },
+    {
+     "t": "y",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/lazy.mp3"
+   }
+  },
+  {
+   "word": "slow",
+   "ar": "بطيء",
+   "img": "img/slow.jpg",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "ow",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/slow.mp3"
+   }
+  },
+  {
+   "word": "loud",
+   "ar": "عالي الصوت",
+   "img": "img/loud.jpg",
+   "parts": [
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "ou",
+     "ph": "ow",
+     "audio": "../../phonics/ow.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/loud.mp3"
+   }
+  },
+  {
+   "word": "quiet",
+   "ar": "هادئ",
+   "img": "img/quiet.jpg",
+   "parts": [
+    {
+     "t": "qu",
+     "ph": "qu",
+     "audio": "../../phonics/qu.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "igh",
+     "audio": "../../phonics/igh.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/quiet.mp3"
+   }
+  },
+  {
+   "word": "music",
+   "ar": "موسيقى",
+   "img": "img/music-boy.jpg",
+   "parts": [
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "u",
+     "ph": "ue",
+     "audio": "../../phonics/ue.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/music.mp3"
+   }
+  },
+  {
+   "word": "sports",
+   "ar": "رياضة",
+   "img": "img/soccer.jpg",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "or",
+     "ph": "or",
+     "audio": "../../phonics/or.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/sports.mp3"
+   }
+  }
+ ],
+ "lines": [],
+ "end": 1,
+ "tabs": [
+  "read",
+  "words",
+  "booklet",
+  "grammar"
+ ],
+ "grammar": [
+  {
+   "title": "Questions with Am, Is, and Are",
+   "note": "We ask a question with am, is or are first.",
+   "rows": [
+    [
+     {
+      "t": "Am I sad?",
+      "a": "data/en-shared/q/am-i-sad.mp3"
+     },
+     {
+      "t": "Yes, I am. / No, I'm not.",
+      "a": "data/en-shared/q/yes-i-am-no-i-m-not.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Are you lazy?",
+      "a": "data/en-shared/q/are-you-lazy.mp3"
+     },
+     {
+      "t": "Yes, you are. / No, you aren't.",
+      "a": "data/en-shared/q/yes-you-are-no-you-aren-t.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Is he/she happy?",
+      "a": "data/en-shared/q/is-he-she-happy.mp3"
+     },
+     {
+      "t": "Yes, he/she is. / No, he/she isn't.",
+      "a": "data/en-shared/q/yes-he-she-is-no-he-she-isn-t.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Are they sad?",
+      "a": "data/en-shared/q/are-they-sad.mp3"
+     },
+     {
+      "t": "Yes, they are. / No, they aren't.",
+      "a": "data/en-shared/q/yes-they-are-no-they-aren-t.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Are we happy?",
+      "a": "data/en-shared/q/are-we-happy.mp3"
+     },
+     {
+      "t": "Yes, we are. / No, we aren't.",
+      "a": "data/en-shared/q/yes-we-are-no-we-aren-t.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Is it fast?",
+      "a": "data/en-shared/q/is-it-fast.mp3"
+     },
+     {
+      "t": "Yes, it is. / No, it isn't.",
+      "a": "data/en-shared/q/yes-it-is-no-it-isn-t.mp3"
+     }
+    ]
+   ]
+  },
+  {
+   "title": "Opposites",
+   "note": "Opposites have the opposite meaning.",
+   "rows": [
+    [
+     {
+      "t": "fast",
+      "a": "data/en-shared/q/fast.mp3"
+     },
+     {
+      "t": "slow",
+      "a": "data/en-shared/q/slow.mp3"
+     }
+    ],
+    [
+     {
+      "t": "loud",
+      "a": "data/en-shared/q/loud.mp3"
+     },
+     {
+      "t": "quiet",
+      "a": "data/en-shared/q/quiet.mp3"
+     }
+    ],
+    [
+     {
+      "t": "awake",
+      "a": "data/en-shared/q/awake.mp3"
+     },
+     {
+      "t": "asleep",
+      "a": "data/en-shared/q/asleep.mp3"
+     }
+    ],
+    [
+     {
+      "t": "busy",
+      "a": "data/en-shared/q/busy.mp3"
+     },
+     {
+      "t": "lazy",
+      "a": "data/en-shared/q/lazy.mp3"
+     }
+    ],
+    [
+     {
+      "t": "fun",
+      "a": "data/en-shared/q/fun.mp3"
+     },
+     {
+      "t": "boring",
+      "a": "data/en-shared/q/boring.mp3"
+     }
+    ]
+   ]
+  },
+  {
+   "title": "Describing words",
+   "note": "We use am, is or are with a describing word.",
+   "rows": [
+    [
+     {
+      "t": "I am fast.",
+      "a": "data/en-shared/q/i-am-fast.mp3"
+     }
+    ],
+    [
+     {
+      "t": "My friend is slow.",
+      "a": "data/en-shared/q/my-friend-is-slow.mp3"
+     }
+    ],
+    [
+     {
+      "t": "We are busy.",
+      "a": "data/en-shared/q/we-are-busy.mp3"
+     }
+    ],
+    [
+     {
+      "t": "The birds are loud.",
+      "a": "data/en-shared/q/the-birds-are-loud.mp3"
+     }
+    ]
+   ]
+  }
+ ]
+}

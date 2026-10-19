@@ -92,8 +92,20 @@
      22,
      23,
      24
+    ],
+    "booklet": [
+     5,
+     6
     ]
-   }
+   },
+   "exams": [
+    {
+     "id": "rev1",
+     "title": "Revision",
+     "label": "Revision",
+     "file": "data/en-ol/exams/rev1/exam.json"
+    }
+   ]
   },
   {
    "unit": 2,
@@ -167,8 +179,20 @@
     "quiz": [
      39,
      41
+    ],
+    "booklet": [
+     11,
+     12
     ]
-   }
+   },
+   "exams": [
+    {
+     "id": "rev2",
+     "title": "Revision",
+     "label": "Revision",
+     "file": "data/en-ol/exams/rev2/exam.json"
+    }
+   ]
   },
   {
    "unit": 3,

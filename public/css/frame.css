@@ -1,0 +1,9 @@
+/* ONE picture frame for the whole app: white border, soft shadow, rounded corners (same look on every screen and subject).
+   Only pictures; the dots / numbers drawn by the app (data: images) and the lesson's book scene keep their own look. */
+:root{--pf-border:0.25rem;--pf-radius:0.75rem;--pf-shadow:0 0.1875rem 0.5rem rgba(90,52,24,.25)}
+:is(.qpic,.qxpic,.qmp,.qcp,.qlkp,.pkpic,.vimgwrap,.lcard,.wlet,.wpic,.lpic,.qarpic,.qcenter.pic,.qmcount,.mxend,.qplay,.bpic) img:not([src^="data:"]),
+.vimg:not([src^="data:"]){box-sizing:border-box;background:#fff;border:var(--pf-border) solid #fff;border-radius:var(--pf-radius);box-shadow:var(--pf-shadow);filter:none;transform:none}
+.qpic:nth-child(2) img{transform:none}
+.qmp.done img{box-shadow:0 0 0 0.25rem rgba(42,127,216,.7),var(--pf-shadow);filter:none}
+.vimg.cut{filter:none;box-shadow:var(--pf-shadow);border:var(--pf-border) solid #fff;border-radius:var(--pf-radius)}
+.qcp img,.qmp img{inset:0.1875rem;width:calc(100% - 0.375rem);height:calc(100% - 0.375rem)}   /* a little air between neighbouring frames */

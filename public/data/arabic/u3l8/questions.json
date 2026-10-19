@@ -1,0 +1,207 @@
+{
+ "sets": [
+  {
+   "type": "position",
+   "ex": 7,
+   "page": 101,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الذَّالِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/630/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الذال",
+   "items": [
+    {
+     "word": "ذِرَاع",
+     "pic": "../../pics/ar-arm.png",
+     "audio": "words/dhira.mp3",
+     "at": 0
+    },
+    {
+     "word": "قُنْفُذ",
+     "pic": "../../pics/ar-hedgehog.jpg",
+     "audio": "words/qunfudh.mp3",
+     "at": 3
+    },
+    {
+     "word": "أُذُن",
+     "pic": "../../pics/ar-ear.png",
+     "audio": "../u1l3/words/udhun.mp3",
+     "at": 1
+    },
+    {
+     "word": "جِذْر",
+     "pic": "../../pics/ar-roots.png",
+     "audio": "../u1l7/words/jidhr.mp3",
+     "at": 1
+    },
+    {
+     "word": "ذَهَب",
+     "pic": "../../pics/ar-gold.jpg",
+     "audio": "../u3l7/words/dhahab.mp3",
+     "at": 0
+    },
+    {
+     "word": "ذُرَة",
+     "pic": "../../pics/ar-corn.png",
+     "audio": "words/dhura.mp3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 9,
+   "page": 101,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الذَّالِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/630/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الذال",
+   "choices": [
+    "ذَ",
+    "ذُ",
+    "ذِ",
+    "ذْ"
+   ],
+   "items": [
+    {
+     "word": "ذُبَابَة",
+     "pic": "../../pics/ar-fly.png",
+     "audio": "words/dhubaba.mp3",
+     "answer": "ذُ"
+    },
+    {
+     "word": "ذَيْل",
+     "pic": "../../pics/ar-tail.png",
+     "audio": "words/dhayl.mp3",
+     "answer": "ذَ"
+    },
+    {
+     "word": "ذِرَاع",
+     "pic": "../../pics/ar-arm.png",
+     "audio": "words/dhira.mp3",
+     "answer": "ذِ"
+    },
+    {
+     "word": "ذِئْب",
+     "pic": "../../pics/ar-wolf.png",
+     "audio": "words/dhib.mp3",
+     "answer": "ذِ"
+    },
+    {
+     "word": "قُنْفُذ",
+     "pic": "../../pics/ar-hedgehog.jpg",
+     "audio": "words/qunfudh.mp3",
+     "answer": "ذ"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 102,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "ذِرَاع",
+     "chips": [
+      "ذِ",
+      "رَا",
+      "ع"
+     ],
+     "audio": "words/dhira.mp3"
+    },
+    {
+     "word": "غِذَاء",
+     "chips": [
+      "غِ",
+      "ذَا",
+      "ء"
+     ],
+     "audio": "words/ghidha.mp3"
+    },
+    {
+     "word": "ذَيْل",
+     "chips": [
+      "ذَيْ",
+      "ل"
+     ],
+     "audio": "words/dhayl.mp3"
+    },
+    {
+     "word": "جِذْع",
+     "chips": [
+      "جِذْ",
+      "ع"
+     ],
+     "audio": "words/jidha.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 11,
+   "page": 102,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "جِذْر",
+     "pic": "../../pics/ar-roots.png",
+     "audio": "../u1l7/words/jidhr.mp3"
+    },
+    {
+     "word": "حِذَاء",
+     "pic": "../../pics/ar-shoes.png",
+     "audio": "words/hidha.mp3"
+    },
+    {
+     "word": "ذِرَاع",
+     "pic": "../../pics/ar-arm.png",
+     "audio": "words/dhira.mp3"
+    },
+    {
+     "word": "أُذُن",
+     "pic": "../../pics/ar-ear.png",
+     "audio": "../u1l3/words/udhun.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 13,
+   "page": 102,
+   "task": "أَقْرَأُ ثُمَّ أَصِلُ",
+   "taskAudio": "../q-prompts/match-picture.mp3",
+   "hint": "صل الكلمة بالصورة",
+   "items": [
+    {
+     "word": "ذَقْن",
+     "pic": "../../pics/ar-chin.png",
+     "audio": "words/dhaqn.mp3"
+    },
+    {
+     "word": "ذَهَب",
+     "pic": "../../pics/ar-gold.jpg",
+     "audio": "../u3l7/words/dhahab.mp3"
+    },
+    {
+     "word": "ذُرَة",
+     "pic": "../../pics/ar-corn.png",
+     "audio": "words/dhura.mp3"
+    },
+    {
+     "word": "أُذُن",
+     "pic": "../../pics/ar-ear.png",
+     "audio": "../u1l3/words/udhun.mp3"
+    }
+   ]
+  }
+ ]
+}

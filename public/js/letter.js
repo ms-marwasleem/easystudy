@@ -49,7 +49,8 @@ async function lAll(){ const cards=$$('.lgrid .lcard'); vStop(); lt.auto=0; cons
    Done (star) when every word was heard. */
 function showLetterWords(){
   const Lt=LESSON.letter, V=LESSON.vocab, h=lHeard(), per=3;
-  stage.innerHTML=''; $('#lesson').classList.add('vtab'); setRail([]); lt.run++;
+  stage.innerHTML=''; $('#lesson').classList.add('vtab','lwtab'); lt.run++; lt.all=(lt.all||0)+1;
+  setRail([{kind:'go',icon:'play',label:tr('Listen'),click:lWordsAll}]);   // the big green Listen reads the whole page in order
   const scene=el('div','scene pics letter lwords'), grid=el('div','wgrid'); grid.dir='rtl';
   const rows=Math.ceil(V.length/per); grid.style.setProperty('--rows',rows);
   const total=V.length, heardN=()=>V.filter((v,i)=>h['w:'+i]).length;
@@ -68,6 +69,8 @@ function showLetterWords(){
   scene.append(grid); stage.append(scene); carFrac(heardN()/total);
 }
 
+async function lWordsAll(){ const cards=$$('.lwords .lcard:not(.wlet:empty)'), tok=lt.all=(lt.all||0)+1; vStop();
+  for(const c of cards){ if(tok!==lt.all||tab!=='words') return; c.click(); await new Promise(r=>setTimeout(r,150)); while(tok===lt.all&&c.classList.contains('on')) await new Promise(r=>setTimeout(r,80)); await new Promise(r=>setTimeout(r,250)); } }
 /* pencil on a word card: the usual word-memorising page (word, parts x3, then writing with Help) for that ONE word, in a popup over the words page */
 function lWordPop(i){
   const keep=LESSON.vocab, saved=[...stage.childNodes], L=$('#lesson');

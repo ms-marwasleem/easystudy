@@ -1,0 +1,261 @@
+{
+ "unit": 1,
+ "lesson": 3,
+ "title": "Families Together",
+ "sceneAlt": "Families together",
+ "tabs": [
+  "read",
+  "words",
+  "grammar"
+ ],
+ "type": "al",
+ "scene": "img/scene.jpg",
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "go shopping",
+   "ar": "يذهب للتسوق",
+   "img": "img/living-room.jpg",
+   "parts": [
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    },
+    {
+     "t": " ",
+     "ph": ""
+    },
+    {
+     "t": "sh",
+     "ph": "sh",
+     "audio": "../../phonics/sh.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    },
+    {
+     "t": "pp",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "ng",
+     "ph": "ng",
+     "audio": "../../phonics/ng.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/go shopping.mp3"
+   }
+  },
+  {
+   "word": "pick up",
+   "ar": "يلتقط / يحمل",
+   "img": "img/park.jpg",
+   "parts": [
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "ck",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": " ",
+     "ph": ""
+    },
+    {
+     "t": "u",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/pick up.mp3"
+   }
+  }
+ ],
+ "lines": [],
+ "end": 1,
+ "grammar": [
+  {
+   "title": "Unit 1 grammar summary: am, is, are",
+   "note": "We use am, is or are after these words.",
+   "rows": [
+    [
+     {
+      "t": "I am.",
+      "a": "data/en-shared/q/i-am.mp3"
+     }
+    ],
+    [
+     {
+      "t": "He is. She is. It is.",
+      "a": "data/en-shared/q/he-is-she-is-it-is.mp3"
+     }
+    ],
+    [
+     {
+      "t": "We are. You are. They are.",
+      "a": "data/en-shared/q/we-are-you-are-they-are.mp3"
+     }
+    ]
+   ]
+  },
+  {
+   "title": "Long form and short form",
+   "note": "Short forms join two words together.",
+   "rows": [
+    [
+     {
+      "t": "I am a child.",
+      "a": "data/en-shared/q/i-am-a-child.mp3"
+     },
+     {
+      "t": "I'm a child.",
+      "a": "data/en-shared/q/i-m-a-child.mp3"
+     }
+    ],
+    [
+     {
+      "t": "You are my friend.",
+      "a": "data/en-shared/q/you-are-my-friend.mp3"
+     },
+     {
+      "t": "You're my friend.",
+      "a": "data/en-shared/q/you-re-my-friend.mp3"
+     }
+    ],
+    [
+     {
+      "t": "He is my brother.",
+      "a": "data/en-shared/q/he-is-my-brother.mp3"
+     },
+     {
+      "t": "He's my brother.",
+      "a": "data/en-shared/q/he-s-my-brother.mp3"
+     }
+    ],
+    [
+     {
+      "t": "She is not my sister.",
+      "a": "data/en-shared/q/she-is-not-my-sister.mp3"
+     },
+     {
+      "t": "She isn't my sister.",
+      "a": "data/en-shared/q/she-isn-t-my-sister.mp3"
+     }
+    ],
+    [
+     {
+      "t": "We are friends.",
+      "a": "data/en-shared/q/we-are-friends.mp3"
+     },
+     {
+      "t": "We're friends.",
+      "a": "data/en-shared/q/we-re-friends.mp3"
+     }
+    ],
+    [
+     {
+      "t": "They are not teachers.",
+      "a": "data/en-shared/q/they-are-not-teachers.mp3"
+     },
+     {
+      "t": "They aren't teachers.",
+      "a": "data/en-shared/q/they-aren-t-teachers.mp3"
+     }
+    ]
+   ]
+  },
+  {
+   "title": "Questions with Am, Is, and Are",
+   "note": "We ask a question with am, is or are first.",
+   "rows": [
+    [
+     {
+      "t": "Am I sad?",
+      "a": "data/en-shared/q/am-i-sad.mp3"
+     },
+     {
+      "t": "Yes, I am. / No, I'm not.",
+      "a": "data/en-shared/q/yes-i-am-no-i-m-not.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Are you lazy?",
+      "a": "data/en-shared/q/are-you-lazy.mp3"
+     },
+     {
+      "t": "Yes, you are. / No, you aren't.",
+      "a": "data/en-shared/q/yes-you-are-no-you-aren-t.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Is he/she happy?",
+      "a": "data/en-shared/q/is-he-she-happy.mp3"
+     },
+     {
+      "t": "Yes, he/she is. / No, he/she isn't.",
+      "a": "data/en-shared/q/yes-he-she-is-no-he-she-isn-t.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Are they sad?",
+      "a": "data/en-shared/q/are-they-sad.mp3"
+     },
+     {
+      "t": "Yes, they are. / No, they aren't.",
+      "a": "data/en-shared/q/yes-they-are-no-they-aren-t.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Is it fast?",
+      "a": "data/en-shared/q/is-it-fast.mp3"
+     },
+     {
+      "t": "Yes, it is. / No, it isn't.",
+      "a": "data/en-shared/q/yes-it-is-no-it-isn-t.mp3"
+     }
+    ]
+   ]
+  }
+ ]
+}

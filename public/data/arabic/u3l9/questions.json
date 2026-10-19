@@ -1,0 +1,260 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 105,
+   "task": "اسْتَمِعْ وَضَعْ عَلَامَةَ (✓) تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الظَّاءِ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/638/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الظاء",
+   "silent": true,
+   "items": [
+    {
+     "word": "fish",
+     "pic": "../../pics/ar-fish.png",
+     "answer": false
+    },
+    {
+     "word": "snake",
+     "pic": "../../pics/ar-snake.png",
+     "answer": false
+    },
+    {
+     "word": "gazelles",
+     "pic": "../../pics/ar-gazelles.png",
+     "answer": true
+    },
+    {
+     "word": "nail",
+     "pic": "../../pics/ar-nail.jpg",
+     "answer": true
+    },
+    {
+     "word": "crown",
+     "pic": "../../pics/ar-crown.png",
+     "answer": false
+    },
+    {
+     "word": "envelope",
+     "pic": "../../pics/ar-envelope.jpg",
+     "answer": true
+    },
+    {
+     "word": "penguin",
+     "pic": "../../pics/ar-penguin.png",
+     "answer": false
+    },
+    {
+     "word": "bones",
+     "pic": "../../pics/ar-bones.png",
+     "answer": true
+    },
+    {
+     "word": "fox",
+     "pic": "../../pics/ar-fox.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 105,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الظَّاءِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/638/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الظاء",
+   "items": [
+    {
+     "word": "ظَرْف",
+     "pic": "../../pics/ar-envelope.jpg",
+     "audio": "words/dharf.mp3",
+     "at": 0
+    },
+    {
+     "word": "ظَهْر",
+     "pic": "../../pics/ar-back.png",
+     "audio": "words/dhahr.mp3",
+     "at": 0
+    },
+    {
+     "word": "عَظْم",
+     "pic": "../../pics/ar-bones.png",
+     "audio": "words/adhm.mp3",
+     "at": 1
+    },
+    {
+     "word": "حَظِيرَة",
+     "pic": "../../pics/ar-barn.png",
+     "audio": "words/hazira.mp3",
+     "at": 1
+    },
+    {
+     "word": "ظِبَاء",
+     "pic": "../../pics/ar-gazelles.png",
+     "audio": "words/dhiba.mp3",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 9,
+   "page": 105,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الظَّاءِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/638/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الظاء",
+   "choices": [
+    "ظَ",
+    "ظُ",
+    "ظِ",
+    "ظْ"
+   ],
+   "items": [
+    {
+     "word": "ظِلّ",
+     "pic": "../../pics/ar-shadow.png",
+     "audio": "words/dhill.mp3",
+     "answer": "ظِ"
+    },
+    {
+     "word": "ظِبَاء",
+     "pic": "../../pics/ar-gazelles.png",
+     "audio": "words/dhiba.mp3",
+     "answer": "ظِ"
+    },
+    {
+     "word": "ظُرُوف",
+     "pic": "../../pics/ar-envelopes.png",
+     "audio": "words/dhuruf.mp3",
+     "answer": "ظُ"
+    },
+    {
+     "word": "حَظِيرَة",
+     "pic": "../../pics/ar-barn.png",
+     "audio": "words/hazira.mp3",
+     "answer": "ظِ"
+    },
+    {
+     "word": "يَنْظُر",
+     "pic": "../../pics/ar-looker.png",
+     "audio": "words/yandhur.mp3",
+     "answer": "ظُ"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 106,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "عَظْمَة",
+     "chips": [
+      "عَظْ",
+      "مَ",
+      "ة"
+     ],
+     "audio": "words/adhma.mp3"
+    },
+    {
+     "word": "ظَبْي",
+     "chips": [
+      "ظَبْ",
+      "ي"
+     ],
+     "audio": "words/dhabi.mp3"
+    },
+    {
+     "word": "ظُفْر",
+     "chips": [
+      "ظُفْ",
+      "ر"
+     ],
+     "audio": "words/dhufr.mp3"
+    },
+    {
+     "word": "مُظْلِم",
+     "chips": [
+      "مُظْ",
+      "لِ",
+      "م"
+     ],
+     "audio": "words/mudhlim.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 11,
+   "page": 106,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "ظَهْر",
+     "pic": "../../pics/ar-back.png",
+     "audio": "words/dhahr.mp3"
+    },
+    {
+     "word": "يَنْظُر",
+     "pic": "../../pics/ar-looker.png",
+     "audio": "words/yandhur.mp3"
+    },
+    {
+     "word": "ظِلّ",
+     "pic": "../../pics/ar-shadow.png",
+     "audio": "words/dhill.mp3"
+    },
+    {
+     "word": "ظَرْف",
+     "pic": "../../pics/ar-envelope.jpg",
+     "audio": "words/dharf.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 13,
+   "page": 106,
+   "task": "أَقْرَأُ ثُمَّ أَصِلُ",
+   "taskAudio": "../q-prompts/match-picture.mp3",
+   "hint": "صل الكلمة بالصورة",
+   "items": [
+    {
+     "word": "ظُرُوف",
+     "pic": "../../pics/ar-envelopes.png",
+     "audio": "words/dhuruf.mp3"
+    },
+    {
+     "word": "ظَبْي",
+     "pic": "../../pics/ar-gazelle.png",
+     "audio": "words/dhabi.mp3"
+    },
+    {
+     "word": "عَظْمَة",
+     "pic": "../../pics/ar-bone.png",
+     "audio": "words/adhma.mp3"
+    },
+    {
+     "word": "ظُفْر",
+     "pic": "../../pics/ar-nail.jpg",
+     "audio": "words/dhufr.mp3"
+    }
+   ]
+  }
+ ]
+}

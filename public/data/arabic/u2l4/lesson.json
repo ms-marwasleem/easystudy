@@ -1,0 +1,294 @@
+{
+ "id": "u2l4",
+ "unit": 2,
+ "lesson": 4,
+ "type": "letter",
+ "title": "حرف السين",
+ "task": "أتعرّف على حرف السين",
+ "pages": 2,
+ "pageNums": [
+  48,
+  49
+ ],
+ "scene": "../../pics/ar-fish.png",
+ "sceneAlt": "سِين",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "letter": {
+  "ch": "س",
+  "name": "سِين",
+  "nameAudio": "../letters/633/name.mp3",
+  "pic": "../../pics/ar-fish.png",
+  "forms": [
+   {
+    "label": "أول الكلمة",
+    "t": "سـ",
+    "pos": "start"
+   },
+   {
+    "label": "وسط الكلمة",
+    "t": "ـسـ",
+    "pos": "mid"
+   },
+   {
+    "label": "آخر الكلمة (متصل)",
+    "t": "ـس",
+    "pos": "end-joined"
+   },
+   {
+    "label": "آخر الكلمة (منفصل)",
+    "t": "س",
+    "pos": "end-alone"
+   }
+  ],
+  "sounds": [
+   {
+    "label": "الفتحة",
+    "t": "سَ",
+    "pic": "../../pics/ar-boy-fatha.png",
+    "audio": "../../syl-ar/633-64e.mp3",
+    "har": "fatha"
+   },
+   {
+    "label": "الضمة",
+    "t": "سُ",
+    "pic": "../../pics/ar-boy-damma.png",
+    "audio": "../../syl-ar/633-64f.mp3",
+    "har": "damma"
+   },
+   {
+    "label": "الكسرة",
+    "t": "سِ",
+    "pic": "../../pics/ar-boy-kasra.png",
+    "audio": "../../syl-ar/633-650.mp3",
+    "har": "kasra"
+   },
+   {
+    "label": "السكون",
+    "t": "سْ",
+    "pic": "../../pics/ar-boy-sukoon.png",
+    "audio": "../../syl-ar/633-652.mp3",
+    "har": "sukoon"
+   }
+  ],
+  "tasks": [
+   "أشكال حرف السين في الكلمة",
+   "أصوات حرف السين بالحركات"
+  ]
+ },
+ "hints": {
+  "read": "اضغط على الحرف واسمعه",
+  "word": "اضغط",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "سَمَكَة",
+   "img": "../../pics/ar-fish.png",
+   "audio": {
+    "word": "words/samaka.mp3"
+   },
+   "parts": [
+    {
+     "t": "سَ",
+     "audio": "../../syl-ar/633-64e.mp3"
+    },
+    {
+     "t": "مَ",
+     "audio": "../../syl-ar/645-64e.mp3"
+    },
+    {
+     "t": "كَة",
+     "audio": "../../syl-ar/643-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "سَرْج",
+   "img": "../../pics/ar-saddle.png",
+   "audio": {
+    "word": "words/saraj.mp3"
+   },
+   "parts": [
+    {
+     "t": "سَرْج",
+     "audio": "words/saraj.mp3"
+    }
+   ]
+  },
+  {
+   "word": "سَرِير",
+   "img": "../../pics/ar-bed.jpg",
+   "audio": {
+    "word": "words/sarir.mp3"
+   },
+   "parts": [
+    {
+     "t": "سَ",
+     "audio": "../../syl-ar/633-64e.mp3"
+    },
+    {
+     "t": "رِير",
+     "audio": "../../syl-ar/631-650-64a-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "سِنْجَاب",
+   "img": "../../pics/ar-squirrel.png",
+   "audio": {
+    "word": "words/sinjab.mp3"
+   },
+   "parts": [
+    {
+     "t": "سِنْ",
+     "audio": "../../syl-ar/633-650-646-652.mp3"
+    },
+    {
+     "t": "جَاب",
+     "audio": "../../syl-ar/62c-64e-627-628.mp3"
+    }
+   ]
+  },
+  {
+   "word": "سِلْسِلَة",
+   "img": "../../pics/ar-necklace.jpg",
+   "audio": {
+    "word": "words/silsila.mp3"
+   },
+   "parts": [
+    {
+     "t": "سِلْ",
+     "audio": "../../syl-ar/633-650-644-652.mp3"
+    },
+    {
+     "t": "سِ",
+     "audio": "../../syl-ar/633-650.mp3"
+    },
+    {
+     "t": "لَة",
+     "audio": "../../syl-ar/644-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "سِتَارَة",
+   "img": "../../pics/ar-curtain.png",
+   "audio": {
+    "word": "words/sitara.mp3"
+   },
+   "parts": [
+    {
+     "t": "سِ",
+     "audio": "../../syl-ar/633-650.mp3"
+    },
+    {
+     "t": "تَا",
+     "audio": "../../syl-ar/62a-64e-627.mp3"
+    },
+    {
+     "t": "رَة",
+     "audio": "../../syl-ar/631-64e-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "سُفُن",
+   "img": "../../pics/ar-ships.png",
+   "audio": {
+    "word": "words/sufun.mp3"
+   },
+   "parts": [
+    {
+     "t": "سُ",
+     "audio": "../../syl-ar/633-64f.mp3"
+    },
+    {
+     "t": "فُن",
+     "audio": "../../syl-ar/641-64f-646.mp3"
+    }
+   ]
+  },
+  {
+   "word": "سُلَحْفَاة",
+   "img": "../../pics/ar-turtle.png",
+   "audio": {
+    "word": "../u1l6/words/sulahfa.mp3"
+   },
+   "parts": [
+    {
+     "t": "سُ",
+     "audio": "../../syl-ar/633-64f.mp3"
+    },
+    {
+     "t": "لَحْ",
+     "audio": "../../syl-ar/644-64e-62d-652.mp3"
+    },
+    {
+     "t": "فَاة",
+     "audio": "../../syl-ar/641-64e-627-629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "سُكَّر",
+   "img": "../../pics/ar-sugar.jpg",
+   "audio": {
+    "word": "words/sukkar.mp3"
+   },
+   "parts": [
+    {
+     "t": "سُ",
+     "audio": "../../syl-ar/633-64f.mp3"
+    },
+    {
+     "t": "كَّر",
+     "audio": "../../syl-ar/643-64e-651-631.mp3"
+    }
+   ]
+  },
+  {
+   "word": "جِسْم",
+   "img": "../../pics/ar-body.png",
+   "audio": {
+    "word": "../u1l7/words/jism.mp3"
+   },
+   "parts": [
+    {
+     "t": "جِسْم",
+     "audio": "../u1l7/words/jism.mp3"
+    }
+   ]
+  },
+  {
+   "word": "جِسْر",
+   "img": "../../pics/ar-bridge.png",
+   "audio": {
+    "word": "../u1l7/words/jisr.mp3"
+   },
+   "parts": [
+    {
+     "t": "جِسْر",
+     "audio": "../u1l7/words/jisr.mp3"
+    }
+   ]
+  },
+  {
+   "word": "نَسْر",
+   "img": "../../pics/ar-eagle.jpg",
+   "audio": {
+    "word": "../u2l2/words/nasr.mp3"
+   },
+   "parts": [
+    {
+     "t": "نَسْر",
+     "audio": "../u2l2/words/nasr.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
+}

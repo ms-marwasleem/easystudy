@@ -1,0 +1,264 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 114,
+   "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الزَّايِ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/632/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الزاي",
+   "silent": true,
+   "items": [
+    {
+     "word": "bread",
+     "pic": "../../pics/ar-bread.png",
+     "answer": false
+    },
+    {
+     "word": "elephant",
+     "pic": "../../pics/ar-elephant.png",
+     "answer": false
+    },
+    {
+     "word": "bottle",
+     "pic": "../../pics/ar-bottle.png",
+     "answer": true
+    },
+    {
+     "word": "olives",
+     "pic": "../../pics/ar-olives.png",
+     "answer": true
+    },
+    {
+     "word": "camel",
+     "pic": "../../pics/ar-camel.png",
+     "answer": false
+    },
+    {
+     "word": "yogurt",
+     "pic": "../../pics/ar-yogurt.png",
+     "answer": true
+    },
+    {
+     "word": "carrot",
+     "pic": "../../pics/ar-carrot.png",
+     "answer": true
+    },
+    {
+     "word": "flower",
+     "pic": "../../pics/ar-flower.png",
+     "answer": true
+    },
+    {
+     "word": "lion",
+     "pic": "../../pics/ar-lion.png",
+     "answer": false
+    },
+    {
+     "word": "strawberry",
+     "pic": "../../pics/ar-strawberry.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 114,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الزَّايِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/632/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الزاي",
+   "items": [
+    {
+     "word": "زُجَاجَة",
+     "pic": "../../pics/ar-bottle.png",
+     "audio": "words/zujaja.mp3",
+     "at": 0
+    },
+    {
+     "word": "زَرَافَة",
+     "pic": "../../pics/ar-giraffe.png",
+     "audio": "words/zarafa.mp3",
+     "at": 0
+    },
+    {
+     "word": "زُهُور",
+     "pic": "../../pics/ar-flower.png",
+     "audio": "../u3l7/words/zuhur.mp3",
+     "at": 0
+    },
+    {
+     "word": "زِرّ",
+     "pic": "../../pics/ar-button.png",
+     "audio": "words/zirr.mp3",
+     "at": 0
+    },
+    {
+     "word": "مَوْز",
+     "pic": "../../pics/ar-banana.png",
+     "audio": "words/mawz.mp3",
+     "at": 2
+    },
+    {
+     "word": "جَزَر",
+     "pic": "../../pics/ar-carrot.png",
+     "audio": "words/jazar.mp3",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 9,
+   "page": 114,
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الزَّايِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/632/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الزاي",
+   "choices": [
+    "زَ",
+    "زُ",
+    "زِ",
+    "زْ"
+   ],
+   "items": [
+    {
+     "word": "زَرَافَة",
+     "pic": "../../pics/ar-giraffe.png",
+     "audio": "words/zarafa.mp3",
+     "answer": "زَ"
+    },
+    {
+     "word": "زُبْد",
+     "pic": "../../pics/ar-butter.png",
+     "audio": "words/zubd.mp3",
+     "answer": "زُ"
+    },
+    {
+     "word": "زِرّ",
+     "pic": "../../pics/ar-button.png",
+     "audio": "words/zirr.mp3",
+     "answer": "زِ"
+    },
+    {
+     "word": "أَزْرَق",
+     "pic": "../../pics/ar-blue.png",
+     "audio": "words/azraq.mp3",
+     "answer": "زْ"
+    },
+    {
+     "word": "زَيْتُون",
+     "pic": "../../pics/ar-olives.png",
+     "audio": "words/zaytun.mp3",
+     "answer": "زَ"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 115,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "غَزَال",
+     "chips": [
+      "غَ",
+      "زَا",
+      "ل"
+     ],
+     "audio": "words/ghazal.mp3"
+    },
+    {
+     "word": "مَوْز",
+     "chips": [
+      "مَوْ",
+      "ز"
+     ],
+     "audio": "words/mawz.mp3"
+    },
+    {
+     "word": "زَبَادِي",
+     "chips": [
+      "زَ",
+      "بَا",
+      "دِي"
+     ],
+     "audio": "words/zabadi.mp3"
+    },
+    {
+     "word": "عُكَّاز",
+     "chips": [
+      "عُ",
+      "كَّا",
+      "ز"
+     ],
+     "audio": "words/ukkaz.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 11,
+   "page": 115,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "زِرّ",
+     "pic": "../../pics/ar-button.png",
+     "audio": "words/zirr.mp3"
+    },
+    {
+     "word": "أَزْرَق",
+     "pic": "../../pics/ar-blue.png",
+     "audio": "words/azraq.mp3"
+    },
+    {
+     "word": "زَيْتُون",
+     "pic": "../../pics/ar-olives.png",
+     "audio": "words/zaytun.mp3"
+    },
+    {
+     "word": "زَرَافَة",
+     "pic": "../../pics/ar-giraffe.png",
+     "audio": "words/zarafa.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 15,
+   "page": 115,
+   "task": "أَقْرَأُ كُلَّ جُمْلَةٍ ثُمَّ أَصِلُهَا بِالصُّورَةِ الْمُنَاسِبَةِ لَهَا",
+   "taskAudio": "../q-prompts/match-picture.mp3",
+   "hint": "صل الجملة بالصورة",
+   "items": [
+    {
+     "word": "رَتَّبَتْ أُمِّي الْمَنْزِلَ",
+     "pic": "../../pics/ar-housewife.png"
+    },
+    {
+     "word": "هَذَا زِرٌّ أَحْمَرُ",
+     "pic": "../../pics/ar-buttonred.png"
+    },
+    {
+     "word": "حَمَلَ أَبِي الْجَزَرَ",
+     "pic": "../../pics/ar-farmer.png"
+    }
+   ]
+  }
+ ]
+}

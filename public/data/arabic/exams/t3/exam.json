@@ -1,0 +1,439 @@
+{
+ "title": "تقييم ٣",
+ "ratio": 0.707,
+ "head": {
+  "l": "Department of ARABIC<br>G1",
+  "r": "Noor El Elm<br>Modern School"
+ },
+ "pages": [
+  {
+   "title": "تقييم ٣",
+   "foot": 3,
+   "style": "bar",
+   "blocks": [
+    {
+     "t": "q",
+     "n": "١",
+     "text": "ارسم دائرة حول أشكال حرف « أ »:",
+     "audio": "q1.mp3",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "أ",
+        "ب",
+        "إ",
+        "ج",
+        "س",
+        "أ"
+       ],
+       "answer": [
+        0,
+        2,
+        5
+       ],
+       "labels": "none",
+       "style": "big",
+       "cols": 6
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٢",
+     "text": "استمع، ثم ظلل مكان صوت حرف «ب» كما بالمثال:",
+     "audio": "q2.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "ثَعْلَب",
+           "audio": "w-thalab.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "",
+            "",
+            "",
+            ""
+           ],
+           "answer": 3,
+           "labels": "none",
+           "style": "dots",
+           "pre": true
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "بَقَرَة",
+           "audio": "../../u1l4/words/baqara.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "",
+            "",
+            "",
+            ""
+           ],
+           "answer": 0,
+           "labels": "none",
+           "style": "dots"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "حَبْل",
+           "audio": "../../u1l6/words/habl.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "",
+            "",
+            ""
+           ],
+           "answer": 1,
+           "labels": "none",
+           "style": "dots"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "دُبّ",
+           "audio": "../../u1l8/words/dubb.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "",
+            ""
+           ],
+           "answer": 1,
+           "labels": "none",
+           "style": "dots"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٣",
+     "text": "انطق، وصّل صوت حرف « أ » بالصورة المناسبة له كما بالمثال:",
+     "audio": "q3.mp3",
+     "body": [
+      {
+       "t": "link",
+       "dir": "v",
+       "circ": true,
+       "a": [
+        "أَ",
+        "إِ",
+        "أُ",
+        "أْ"
+       ],
+       "b": [
+        {
+         "art": "../../../pics/ar-mouse.png",
+         "w": 4.6
+        },
+        {
+         "art": "../../../pics/ar-lion.png",
+         "w": 4.6
+        },
+        {
+         "art": "../../../pics/ar-ear.png",
+         "w": 3.2
+        },
+        {
+         "art": "../../../pics/ar-traffic-light.png",
+         "w": 2.4
+        }
+       ],
+       "pairs": [
+        [
+         0,
+         1
+        ],
+        [
+         1,
+         3
+        ],
+        [
+         2,
+         2
+        ],
+        [
+         3,
+         0
+        ]
+       ],
+       "pre": [
+        [
+         0,
+         1
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٤",
+     "text": "لاحظ الكلمات الشائعة التي استمعت إليها في القصة، ولوّنها:",
+     "audio": "q4.mp3",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "أَنَا",
+        "وَ",
+        "أُسْرَتِي",
+        "فِي"
+       ],
+       "answer": [
+        0,
+        1,
+        2,
+        3
+       ],
+       "labels": "none",
+       "style": "paint",
+       "cols": 4
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٥",
+     "text": "ضع دائرة حول صوت حرف «حـ» المناسب لكل صورة كما بالمثال:",
+     "audio": "q5.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 2,
+       "style": "ar2",
+       "items": [
+        {
+         "t": "art",
+         "art": "../../../pics/horse.png",
+         "w": 4.6
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "حِ",
+          "حُ",
+          "حَ"
+         ],
+         "answer": 0,
+         "labels": "none",
+         "style": "letters",
+         "cols": 3,
+         "pre": true
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "cols": 2,
+       "style": "ar2",
+       "items": [
+        {
+         "t": "art",
+         "art": "../../../pics/ar-pigeon.png",
+         "w": 4.6
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "حُ",
+          "حِ",
+          "حَ"
+         ],
+         "answer": 2,
+         "labels": "none",
+         "style": "letters",
+         "cols": 3
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "cols": 2,
+       "style": "ar2",
+       "items": [
+        {
+         "t": "art",
+         "art": "../../../pics/ar-meat.png",
+         "w": 2.6
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "حُ",
+          "حْ",
+          "حَ"
+         ],
+         "answer": 1,
+         "labels": "none",
+         "style": "letters",
+         "cols": 3
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٦",
+     "text": "أدمج الحروف وكوّن كلمة:",
+     "audio": "q6.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "eq",
+       "items": [
+        "أُ + حِ + ب = [[أحب:box,wide]]",
+        "أ + ب = [[أب:box,wide]]",
+        "أُ + م = [[أم:box,wide]]"
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٧",
+     "text": "اكتب صوت حرف «جَ - جِ - جُ - جْ» تحت الصورة المناسبة له كالمثال:",
+     "audio": "q7.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "mountain",
+           "w": 8
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "جَ",
+            "جِ",
+            "جُ",
+            "جْ"
+           ],
+           "answer": 0,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2,
+           "pre": true
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-bridge.png",
+           "w": 7
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "جَ",
+            "جِ",
+            "جُ",
+            "جْ"
+           ],
+           "answer": 1,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "coins",
+           "w": 7
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "جَ",
+            "جِ",
+            "جُ",
+            "جْ"
+           ],
+           "answer": 2,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/star.png",
+           "w": 4.4
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "جَ",
+            "جِ",
+            "جُ",
+            "جْ"
+           ],
+           "answer": 3,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

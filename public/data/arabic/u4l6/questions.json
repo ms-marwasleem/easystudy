@@ -1,0 +1,213 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 126,
+   "task": "اسْتَمِعْ وَضَعْ عَلَامَةً تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الضَّادِ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/636/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الضاد",
+   "silent": true,
+   "items": [
+    {
+     "word": "police",
+     "pic": "../../pics/ar-police.png",
+     "answer": true
+    },
+    {
+     "word": "donkey",
+     "pic": "../../pics/ar-donkey.png",
+     "answer": false
+    },
+    {
+     "word": "racket",
+     "pic": "../../pics/ar-racket.png",
+     "answer": true
+    },
+    {
+     "word": "hyena",
+     "pic": "../../pics/ar-hyena.png",
+     "answer": true
+    },
+    {
+     "word": "ribs",
+     "pic": "../../pics/ar-ribs.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 8,
+   "page": 126,
+   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الضَّادِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/636/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الضاد",
+   "items": [
+    {
+     "word": "مِضْرَب",
+     "pic": "../../pics/ar-racket.png",
+     "audio": "words/midrab.mp3",
+     "at": 1
+    },
+    {
+     "word": "ضَابِط",
+     "pic": "../../pics/ar-police.png",
+     "audio": "words/dabit.mp3",
+     "at": 0
+    },
+    {
+     "word": "ضَبْع",
+     "pic": "../../pics/ar-hyena.png",
+     "audio": "words/daba3.mp3",
+     "at": 0
+    },
+    {
+     "word": "حَوْض",
+     "pic": "../../pics/ar-sink.png",
+     "audio": "words/hawd.mp3",
+     "at": 2
+    },
+    {
+     "word": "بَيْض",
+     "pic": "../../pics/ar-eggs.png",
+     "audio": "words/bayd.mp3",
+     "at": 2
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 126,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "مِضْرَب",
+     "chips": [
+      "مِضْ",
+      "رَ",
+      "ب"
+     ],
+     "audio": "words/midrab.mp3"
+    },
+    {
+     "word": "ضِلْع",
+     "chips": [
+      "ضِلْ",
+      "ع"
+     ],
+     "audio": "words/dil3.mp3"
+    },
+    {
+     "word": "خَضْرَاء",
+     "chips": [
+      "خَضْ",
+      "رَ",
+      "ا",
+      "ء"
+     ],
+     "audio": "words/khadra.mp3"
+    },
+    {
+     "word": "بَيْض",
+     "chips": [
+      "بَيْ",
+      "ض"
+     ],
+     "audio": "words/bayd.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 11,
+   "page": 126,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "ضَفِيرَة",
+     "pic": "../../pics/ar-braid.png",
+     "audio": "words/dafira.mp3"
+    },
+    {
+     "word": "ضَابِط",
+     "pic": "../../pics/ar-police.png",
+     "audio": "words/dabit.mp3"
+    },
+    {
+     "word": "ضِرْس",
+     "pic": "../../pics/ar-tooth.png",
+     "audio": "words/dirs.mp3"
+    },
+    {
+     "word": "مَرِيض",
+     "pic": "../../pics/ar-sickchild.png",
+     "audio": "words/mareed.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 13,
+   "page": 127,
+   "task": "أُعَبِّرُ عَنْ كُلِّ صُورَةٍ بِكَلِمَةٍ مُنَاسِبَةٍ",
+   "taskAudio": "../q-prompts/match-picture.mp3",
+   "hint": "صل الكلمة بالصورة",
+   "items": [
+    {
+     "word": "ضُلُوع",
+     "pic": "../../pics/ar-ribs.png"
+    },
+    {
+     "word": "خَضْرَاوَات",
+     "pic": "../../pics/ar-veg.jpg"
+    },
+    {
+     "word": "ضَبْع",
+     "pic": "../../pics/ar-hyena.png"
+    },
+    {
+     "word": "ضُفْدَع",
+     "pic": "../../pics/ar-frog.jpg"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 15,
+   "page": 127,
+   "task": "أَقْرَأُ ثُمَّ أَصِلُ",
+   "taskAudio": "../q-prompts/match-picture.mp3",
+   "hint": "صل الكلمة بالصورة",
+   "items": [
+    {
+     "word": "ضَخْم",
+     "pic": "../../pics/ar-fatman.png"
+    },
+    {
+     "word": "حَوْض",
+     "pic": "../../pics/ar-sink.png"
+    },
+    {
+     "word": "أَرْض",
+     "pic": "../../pics/ar-mud.png"
+    },
+    {
+     "word": "ضَوْء",
+     "pic": "../../pics/ar-bulb.png"
+    }
+   ]
+  }
+ ]
+}

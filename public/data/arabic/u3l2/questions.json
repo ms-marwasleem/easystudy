@@ -1,0 +1,141 @@
+{
+ "sets": [
+  {
+   "type": "qa",
+   "ex": 1,
+   "page": 78,
+   "task": "سُؤَالٌ وَجَوَابٌ",
+   "hint": "اسمع كل سؤال وجوابه",
+   "items": [
+    {
+     "ask": "بِمَاذَا نُبْصِرُ؟",
+     "word": "أُبْصِرُ بِالْعَيْنَيْنِ.",
+     "audio": "q/qa1-q.mp3",
+     "ansAudio": "q/qa1-a.mp3",
+     "pic": "scene.jpg"
+    },
+    {
+     "ask": "بِمَاذَا نَسْمَعُ؟",
+     "word": "أَسْمَعُ بِالْأُذُنَيْنِ.",
+     "audio": "q/qa2-q.mp3",
+     "ansAudio": "q/qa2-a.mp3",
+     "pic": "scene.jpg"
+    },
+    {
+     "ask": "بِمَاذَا نَسِيرُ؟",
+     "word": "أَسِيرُ بِالْقَدَمَيْنِ.",
+     "audio": "q/qa3-q.mp3",
+     "ansAudio": "q/qa3-a.mp3",
+     "pic": "scene.jpg"
+    }
+   ],
+   "together": true
+  },
+  {
+   "type": "link",
+   "ex": 2,
+   "page": 78,
+   "task": "أَصِلُ كُلَّ كَلِمَةٍ بِمَعْنَاهَا أَوْ جَمْعِهَا أَوْ مُفْرَدِهَا",
+   "taskAudio": "../q-prompts/match-meaning.mp3",
+   "hint": "صل كل كلمة بمعناها أو جمعها أو مفردها",
+   "items": [
+    {
+     "word": "أُبْصِرُ",
+     "text2": "أَرَى",
+     "audio": "words/absir.mp3",
+     "full": [
+      "words/absir.mp3",
+      "../u1l2/words/lbl-meaning.mp3",
+      "words/m-absir.mp3"
+     ],
+     "rel": "مَعْنَاهَا",
+     "audio2": "words/m-absir.mp3"
+    },
+    {
+     "word": "أَسِيرُ",
+     "text2": "أَمْشِي",
+     "audio": "words/asir.mp3",
+     "full": [
+      "words/asir.mp3",
+      "../u1l2/words/lbl-meaning.mp3",
+      "words/m-asir.mp3"
+     ],
+     "rel": "مَعْنَاهَا",
+     "audio2": "words/m-asir.mp3"
+    },
+    {
+     "word": "طَائِر",
+     "text2": "طَيْرٌ",
+     "audio": "words/tair.mp3",
+     "full": [
+      "words/tair.mp3",
+      "../u1l2/words/lbl-plural.mp3",
+      "words/m-tair.mp3"
+     ],
+     "rel": "جَمْعُهُ",
+     "audio2": "words/m-tair.mp3"
+    },
+    {
+     "word": "صَوْت",
+     "text2": "أَصْوَاتٌ",
+     "audio": "words/sawt.mp3",
+     "full": [
+      "words/sawt.mp3",
+      "../u1l2/words/lbl-plural.mp3",
+      "words/m-sawt.mp3"
+     ],
+     "rel": "جَمْعُهُ",
+     "audio2": "words/m-sawt.mp3"
+    },
+    {
+     "word": "قَدَم",
+     "text2": "أَقْدَامٌ",
+     "audio": "words/qadam.mp3",
+     "full": [
+      "words/qadam.mp3",
+      "../u1l2/words/lbl-plural.mp3",
+      "words/m-qadam.mp3"
+     ],
+     "rel": "جَمْعُهَا",
+     "audio2": "words/m-qadam.mp3"
+    },
+    {
+     "word": "فِنَاء",
+     "text2": "أَفْنِيَةٌ",
+     "audio": "words/fina.mp3",
+     "full": [
+      "words/fina.mp3",
+      "../u1l2/words/lbl-plural.mp3",
+      "words/m-fina.mp3"
+     ],
+     "rel": "جَمْعُهُ",
+     "audio2": "words/m-fina.mp3"
+    },
+    {
+     "word": "قَدَمَيْن",
+     "text2": "قَدَمٌ",
+     "audio": "words/qadamayn.mp3",
+     "full": [
+      "words/qadamayn.mp3",
+      "../u2l2/words/lbl-singular.mp3",
+      "words/m-qadamayn.mp3"
+     ],
+     "rel": "مُفْرَدُهُمَا",
+     "audio2": "words/m-qadamayn.mp3"
+    },
+    {
+     "word": "عَيْنَيْن",
+     "text2": "عَيْنٌ",
+     "audio": "words/aynayn.mp3",
+     "full": [
+      "words/aynayn.mp3",
+      "../u2l2/words/lbl-singular.mp3",
+      "words/m-aynayn.mp3"
+     ],
+     "rel": "مُفْرَدُهُمَا",
+     "audio2": "words/m-aynayn.mp3"
+    }
+   ]
+  }
+ ]
+}

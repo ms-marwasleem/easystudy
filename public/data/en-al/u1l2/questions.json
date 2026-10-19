@@ -1,0 +1,2411 @@
+{
+ "sets": [
+  {
+   "type": "explain",
+   "task": "NEW WORDS. Listen and look.",
+   "taskAudio": "../../en-shared/q/new-words-listen-and-look.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/boring.jpg",
+      "img/busy.jpg",
+      "img/fast.jpg",
+      "img/awake.jpg",
+      "img/asleep.jpg",
+      "img/fun.jpg",
+      "img/lazy.jpg",
+      "img/slow.jpg",
+      "img/loud.jpg",
+      "img/quiet.jpg"
+     ],
+     "caps": [
+      "boring",
+      "busy",
+      "fast",
+      "awake",
+      "asleep",
+      "fun",
+      "lazy",
+      "slow",
+      "loud",
+      "quiet"
+     ],
+     "lines": []
+    }
+   ],
+   "page": 12,
+   "ex": "A"
+  },
+  {
+   "type": "link",
+   "task": "Match the opposites.",
+   "taskAudio": "../../en-shared/q/match-the-opposites.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "word": "asleep",
+     "text2": "awake",
+     "audio": "../../en-shared/q/asleep.mp3",
+     "audio2": "../../en-shared/q/awake.mp3"
+    },
+    {
+     "word": "quiet",
+     "text2": "loud",
+     "audio": "../../en-shared/q/quiet.mp3",
+     "audio2": "../../en-shared/q/loud.mp3"
+    },
+    {
+     "word": "fun",
+     "text2": "boring",
+     "audio": "../../en-shared/q/fun.mp3",
+     "audio2": "../../en-shared/q/boring.mp3"
+    },
+    {
+     "word": "slow",
+     "text2": "fast",
+     "audio": "../../en-shared/q/slow.mp3",
+     "audio2": "../../en-shared/q/fast.mp3"
+    }
+   ],
+   "page": 12,
+   "ex": "B"
+  },
+  {
+   "type": "mcq",
+   "task": "Look. Circle the correct words.",
+   "taskAudio": "../../en-shared/q/look-circle-the-correct-words.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "stem": "Look! The baby is ____.",
+     "options": [
+      "asleep",
+      "awake"
+     ],
+     "answer": 0,
+     "word": "Look! The baby is asleep.",
+     "audio": "../../en-shared/q/look-the-baby-is-asleep.mp3",
+     "parts": [
+      "../../en-shared/q/look-the-baby-is.mp3"
+     ],
+     "pics": [
+      "img/baby-asleep.jpg"
+     ]
+    },
+    {
+     "stem": "My brother is ____.",
+     "options": [
+      "fast",
+      "busy"
+     ],
+     "answer": 1,
+     "word": "My brother is busy.",
+     "audio": "../../en-shared/q/my-brother-is-busy.mp3",
+     "parts": [
+      "../../en-shared/q/my-brother-is.mp3"
+     ],
+     "pics": [
+      "img/boy-paint.jpg"
+     ]
+    },
+    {
+     "stem": "This cat is ____.",
+     "options": [
+      "lazy",
+      "fun"
+     ],
+     "answer": 0,
+     "word": "This cat is lazy.",
+     "audio": "../../en-shared/q/this-cat-is-lazy.mp3",
+     "parts": [
+      "../../en-shared/q/this-cat-is.mp3"
+     ],
+     "pics": [
+      "img/lazy.jpg"
+     ]
+    },
+    {
+     "stem": "That snail is ____.",
+     "options": [
+      "loud",
+      "slow"
+     ],
+     "answer": 1,
+     "word": "That snail is slow.",
+     "audio": "../../en-shared/q/that-snail-is-slow.mp3",
+     "parts": [
+      "../../en-shared/q/that-snail-is.mp3"
+     ],
+     "pics": [
+      "img/slow.jpg"
+     ]
+    }
+   ],
+   "page": 12,
+   "ex": "C"
+  },
+  {
+   "type": "check",
+   "task": "Check two words that describe you today.",
+   "taskAudio": "../../en-shared/q/check-two-words-that-describe-you-today.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "words": [
+      "busy",
+      "fun",
+      "lazy",
+      "loud",
+      "quiet"
+     ],
+     "n": 2,
+     "audios": [
+      "../../en-shared/q/busy.mp3",
+      "../../en-shared/q/fun.mp3",
+      "../../en-shared/q/lazy.mp3",
+      "../../en-shared/q/loud.mp3",
+      "../../en-shared/q/quiet.mp3"
+     ]
+    }
+   ],
+   "page": 12,
+   "ex": "D"
+  },
+  {
+   "type": "explain",
+   "task": "Phonics. Short o, u. Listen and say.",
+   "taskAudio": "../../en-shared/q/phonics-short-o-u-listen-and-say.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/doll.jpg",
+      "img/fun.jpg"
+     ],
+     "caps": [
+      "doll",
+      "fun"
+     ],
+     "lines": []
+    }
+   ],
+   "page": 13,
+   "ex": "E",
+   "grp": "EF"
+  },
+  {
+   "type": "circle",
+   "task": "Read and say. Circle the word that sounds different.",
+   "taskAudio": "../../en-shared/q/read-and-say-circle-the-word-that-sounds-different.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "word": "ten",
+     "audio": "../../en-shared/q/ten.mp3",
+     "answer": true,
+     "pos": [
+      18,
+      78
+     ]
+    },
+    {
+     "word": "hug",
+     "audio": "../../en-shared/q/hug.mp3",
+     "answer": false,
+     "pos": [
+      50,
+      78
+     ]
+    },
+    {
+     "word": "run",
+     "audio": "../../en-shared/q/run.mp3",
+     "answer": false,
+     "pos": [
+      82,
+      78
+     ]
+    }
+   ],
+   "page": 13,
+   "ex": "F",
+   "grp": "EF",
+   "center": "fun",
+   "centerAudio": "../../en-shared/q/fun.mp3"
+  },
+  {
+   "type": "circle",
+   "task": "Read and say. Circle the word that sounds different.",
+   "taskAudio": "../../en-shared/q/read-and-say-circle-the-word-that-sounds-different.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "word": "blocks",
+     "audio": "../../en-shared/q/blocks.mp3",
+     "answer": false,
+     "pos": [
+      18,
+      78
+     ]
+    },
+    {
+     "word": "mom",
+     "audio": "../../en-shared/q/mom.mp3",
+     "answer": false,
+     "pos": [
+      50,
+      78
+     ]
+    },
+    {
+     "word": "boy",
+     "audio": "../../en-shared/q/boy.mp3",
+     "answer": true,
+     "pos": [
+      82,
+      78
+     ]
+    }
+   ],
+   "page": 13,
+   "ex": "F",
+   "grp": "EF",
+   "center": "doll",
+   "centerAudio": "../../en-shared/q/doll.mp3"
+  },
+  {
+   "type": "explain",
+   "task": "Reading Strategy. Identify Characters in a Story.",
+   "taskAudio": "../../en-shared/q/reading-strategy-identify-characters-in-a-story.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "lines": [
+      {
+       "t": "Reading Strategy",
+       "a": "../../en-shared/q/reading-strategy.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "Identify Characters in a Story",
+       "a": "../../en-shared/q/identify-characters-in-a-story.mp3",
+       "cls": "blue"
+      },
+      {
+       "t": "Before you read, look at the pictures to help you understand who a story is about.",
+       "a": "../../en-shared/q/before-you-read-look-at-the-pictures-to-help-you-u-3dbae7df.mp3",
+       "cls": "note"
+      }
+     ]
+    }
+   ],
+   "page": 13,
+   "ex": "G",
+   "grp": "G"
+  },
+  {
+   "type": "explain",
+   "task": "Look at the picture. Is the story about family or friends? Read.",
+   "taskAudio": "../../en-shared/q/look-at-the-picture-is-the-story-about-family-or-f-a3bf879a.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/board-game.jpg"
+     ],
+     "lines": [
+      {
+       "t": "I play games with my family.",
+       "a": "../../en-shared/q/i-play-games-with-my-family.mp3"
+      },
+      {
+       "t": "This is my mom and dad.",
+       "a": "../../en-shared/q/this-is-my-mom-and-dad.mp3"
+      },
+      {
+       "t": "That's my sister, Lucy.",
+       "a": "../../en-shared/q/that-s-my-sister-lucy.mp3"
+      },
+      {
+       "t": "My grandparents play, too!",
+       "a": "../../en-shared/q/my-grandparents-play-too.mp3"
+      },
+      {
+       "t": "It's fun!",
+       "a": "../../en-shared/q/it-s-fun.mp3"
+      },
+      {
+       "t": "Good job, Grandpa!",
+       "a": "../../en-shared/q/good-job-grandpa.mp3"
+      },
+      {
+       "t": "I'm happy.",
+       "a": "../../en-shared/q/i-m-happy.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 13,
+   "ex": "G",
+   "grp": "G"
+  },
+  {
+   "type": "check",
+   "task": "Then check your answer. Is the story about family or friends?",
+   "taskAudio": "../../en-shared/q/then-check-your-answer-is-the-story-about-family-or-friends.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "words": [
+      "family",
+      "friends"
+     ],
+     "n": 1,
+     "audios": [
+      "../../en-shared/q/family.mp3",
+      "../../en-shared/q/friends.mp3"
+     ],
+     "ok": [
+      0
+     ]
+    }
+   ],
+   "page": 13,
+   "ex": "G",
+   "grp": "G"
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read. One Tree for All!",
+   "taskAudio": "../../en-shared/q/listen-and-read-one-tree-for-all.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/tree-monkeys.jpg",
+      "img/tree-sloths.jpg"
+     ],
+     "lines": [
+      {
+       "t": "One Tree for All!",
+       "a": "../../en-shared/q/one-tree-for-all.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "Genre: Comic Story",
+       "a": "../../en-shared/q/genre-comic-story.mp3",
+       "cls": "note"
+      },
+      {
+       "t": "Reading Strategy: Before you read, look at the pictures. Think about the characters you can see.",
+       "a": "../../en-shared/q/reading-strategy-before-you-read-look-at-the-pictu-240d731d.mp3",
+       "cls": "note"
+      },
+      {
+       "t": "Two families live in the same tree.",
+       "a": "../../en-shared/q/two-families-live-in-the-same-tree.mp3"
+      },
+      {
+       "t": "This is the monkey family.",
+       "a": "../../en-shared/q/this-is-the-monkey-family.mp3"
+      },
+      {
+       "t": "This is the sloth family.",
+       "a": "../../en-shared/q/this-is-the-sloth-family.mp3"
+      },
+      {
+       "t": "They aren't the same.",
+       "a": "../../en-shared/q/they-aren-t-the-same.mp3"
+      },
+      {
+       "t": "They're very different.",
+       "a": "../../en-shared/q/they-re-very-different.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 14,
+   "grp": "comic"
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/tree-monkeys.jpg"
+     ],
+     "lines": [
+      {
+       "t": "The monkey family is awake all day.",
+       "a": "../../en-shared/q/the-monkey-family-is-awake-all-day.mp3"
+      },
+      {
+       "t": "They're busy.",
+       "a": "../../en-shared/q/they-re-busy.mp3"
+      },
+      {
+       "t": "They climb and hop in the tree.",
+       "a": "../../en-shared/q/they-climb-and-hop-in-the-tree.mp3"
+      },
+      {
+       "t": "Are they fast?",
+       "a": "../../en-shared/q/are-they-fast.mp3"
+      },
+      {
+       "t": "Yes, they are!",
+       "a": "../../en-shared/q/yes-they-are.mp3"
+      },
+      {
+       "t": "Look! They're very fast.",
+       "a": "../../en-shared/q/look-they-re-very-fast.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 14,
+   "grp": "comic"
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/tree-all.jpg"
+     ],
+     "lines": [
+      {
+       "t": "The monkeys sing and sing.",
+       "a": "../../en-shared/q/the-monkeys-sing-and-sing.mp3"
+      },
+      {
+       "t": "They're very, very loud!",
+       "a": "../../en-shared/q/they-re-very-very-loud.mp3"
+      },
+      {
+       "t": "The sloths are awake now.",
+       "a": "../../en-shared/q/the-sloths-are-awake-now.mp3"
+      },
+      {
+       "t": "They're tired, and they're slow.",
+       "a": "../../en-shared/q/they-re-tired-and-they-re-slow.mp3"
+      },
+      {
+       "t": "Please be quiet, monkeys!",
+       "a": "../../en-shared/q/please-be-quiet-monkeys.mp3"
+      },
+      {
+       "t": "The baby sloth is asleep!",
+       "a": "../../en-shared/q/the-baby-sloth-is-asleep.mp3"
+      },
+      {
+       "t": "Oh, dear! Sorry, sloths!",
+       "a": "../../en-shared/q/oh-dear-sorry-sloths.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 15,
+   "grp": "comic"
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/tree-sloths.jpg"
+     ],
+     "lines": [
+      {
+       "t": "The monkey family isn't boring.",
+       "a": "../../en-shared/q/the-monkey-family-isn-t-boring.mp3"
+      },
+      {
+       "t": "The monkeys are fun.",
+       "a": "../../en-shared/q/the-monkeys-are-fun.mp3"
+      },
+      {
+       "t": "They play... and play... and play all day.",
+       "a": "../../en-shared/q/they-play-and-play-and-play-all-day.mp3"
+      },
+      {
+       "t": "Are the sloths lazy?",
+       "a": "../../en-shared/q/are-the-sloths-lazy.mp3"
+      },
+      {
+       "t": "No, they aren't.",
+       "a": "../../en-shared/q/no-they-aren-t.mp3"
+      },
+      {
+       "t": "The sloths are slow... but they're fun, too!",
+       "a": "../../en-shared/q/the-sloths-are-slow-but-they-re-fun-too.mp3"
+      },
+      {
+       "t": "The tree is a home for the monkeys and the sloths.",
+       "a": "../../en-shared/q/the-tree-is-a-home-for-the-monkeys-and-the-sloths.mp3"
+      },
+      {
+       "t": "They're different, but they're very happy in the same tree.",
+       "a": "../../en-shared/q/they-re-different-but-they-re-very-happy-in-the-same-tree.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 15,
+   "grp": "comic"
+  },
+  {
+   "type": "mcq",
+   "task": "Identify Characters in a Story. Circle the correct answers.",
+   "taskAudio": "../../en-shared/q/identify-characters-in-a-story-circle-the-correct-answers.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "stem": "They aren't loud.",
+     "options": [
+      "monkeys",
+      "sloths",
+      "monkeys and sloths"
+     ],
+     "answer": 1,
+     "word": "They aren't loud. sloths.",
+     "audio": "../../en-shared/q/they-aren-t-loud-sloths.mp3"
+    },
+    {
+     "stem": "They're fun. They aren't lazy.",
+     "options": [
+      "monkeys",
+      "sloths",
+      "monkeys and sloths"
+     ],
+     "answer": 2,
+     "word": "They're fun. They aren't lazy. monkeys and sloths.",
+     "audio": "../../en-shared/q/they-re-fun-they-aren-t-lazy-monkeys-and-sloths.mp3"
+    },
+    {
+     "stem": "They're awake all day.",
+     "options": [
+      "monkeys",
+      "sloths",
+      "monkeys and sloths"
+     ],
+     "answer": 0,
+     "word": "They're awake all day. monkeys.",
+     "audio": "../../en-shared/q/they-re-awake-all-day-monkeys.mp3"
+    },
+    {
+     "stem": "They're slow. They aren't fast.",
+     "options": [
+      "monkeys",
+      "sloths",
+      "monkeys and sloths"
+     ],
+     "answer": 1,
+     "word": "They're slow. They aren't fast. sloths.",
+     "audio": "../../en-shared/q/they-re-slow-they-aren-t-fast-sloths.mp3"
+    }
+   ],
+   "page": 16,
+   "ex": "C"
+  },
+  {
+   "type": "mcq",
+   "task": "Read. Circle the correct answer.",
+   "taskAudio": "../../en-shared/q/read-circle-the-correct-answer.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "stem": "In comic stories, the pictures are ____.",
+     "options": [
+      "fun",
+      "boring"
+     ],
+     "answer": 0,
+     "word": "In comic stories, the pictures are fun.",
+     "audio": "../../en-shared/q/in-comic-stories-the-pictures-are-fun.mp3",
+     "parts": [
+      "../../en-shared/q/in-comic-stories-the-pictures-are.mp3"
+     ]
+    }
+   ],
+   "page": 16,
+   "ex": "D"
+  },
+  {
+   "type": "check",
+   "task": "How do the animals show it's okay to be different? Check.",
+   "taskAudio": "../../en-shared/q/how-do-the-animals-show-it-s-okay-to-be-different-check.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "words": [
+      "They are happy to be in the same tree.",
+      "They are not happy to be in the same tree."
+     ],
+     "n": 1,
+     "audios": [
+      "../../en-shared/q/they-are-happy-to-be-in-the-same-tree.mp3",
+      "../../en-shared/q/they-are-not-happy-to-be-in-the-same-tree.mp3"
+     ],
+     "ok": [
+      0
+     ]
+    }
+   ],
+   "page": 16,
+   "ex": "E"
+  },
+  {
+   "type": "explain",
+   "task": "Think. How are you different from your friends? Talk with a friend.",
+   "taskAudio": "../../en-shared/q/think-how-are-you-different-from-your-friends-talk-01b79a2c.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "lines": [
+      {
+       "t": "Think. How are you different from your friends?",
+       "a": "../../en-shared/q/think-how-are-you-different-from-your-friends.mp3",
+       "cls": "red"
+      },
+      {
+       "t": "My friend is very slow, but I am fast.",
+       "a": "../../en-shared/q/my-friend-is-very-slow-but-i-am-fast.mp3",
+       "cls": "blue"
+      },
+      {
+       "t": "I am quiet, but my friend is loud.",
+       "a": "../../en-shared/q/i-am-quiet-but-my-friend-is-loud.mp3",
+       "cls": "blue"
+      }
+     ]
+    }
+   ],
+   "page": 16,
+   "ex": "F"
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "lines": [
+      {
+       "t": "Guess my pets!",
+       "a": "../../en-shared/q/guess-my-pets.mp3"
+      },
+      {
+       "t": "Okay. Are they boring?",
+       "a": "../../en-shared/q/okay-are-they-boring.mp3"
+      },
+      {
+       "t": "No, they aren't. They're fun!",
+       "a": "../../en-shared/q/no-they-aren-t-they-re-fun.mp3"
+      },
+      {
+       "t": "Are they quiet?",
+       "a": "../../en-shared/q/are-they-quiet.mp3"
+      },
+      {
+       "t": "Yes, they are.",
+       "a": "../../en-shared/q/yes-they-are.mp3"
+      },
+      {
+       "t": "When they're asleep!",
+       "a": "../../en-shared/q/when-they-re-asleep.mp3"
+      },
+      {
+       "t": "Oh!",
+       "a": "../../en-shared/q/oh.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 17,
+   "ex": "A",
+   "grp": "A17"
+  },
+  {
+   "type": "explain",
+   "task": "Questions with Am, Is, and Are.",
+   "taskAudio": "../../en-shared/q/questions-with-am-is-and-are.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "lines": [],
+     "table": {
+      "title": "Questions with Am, Is, and Are",
+      "rows": [
+       [
+        {
+         "t": "Am I sad?",
+         "a": "../../en-shared/q/am-i-sad.mp3"
+        },
+        {
+         "t": "Yes, I am. / No, I'm not.",
+         "a": "../../en-shared/q/yes-i-am-no-i-m-not.mp3"
+        }
+       ],
+       [
+        {
+         "t": "Are you lazy?",
+         "a": "../../en-shared/q/are-you-lazy.mp3"
+        },
+        {
+         "t": "Yes, you are. / No, you aren't.",
+         "a": "../../en-shared/q/yes-you-are-no-you-aren-t.mp3"
+        }
+       ],
+       [
+        {
+         "t": "Is he/she happy?",
+         "a": "../../en-shared/q/is-he-she-happy.mp3"
+        },
+        {
+         "t": "Yes, he/she is. / No, he/she isn't.",
+         "a": "../../en-shared/q/yes-he-she-is-no-he-she-isn-t.mp3"
+        }
+       ],
+       [
+        {
+         "t": "Are they sad?",
+         "a": "../../en-shared/q/are-they-sad.mp3"
+        },
+        {
+         "t": "Yes, they are. / No, they aren't.",
+         "a": "../../en-shared/q/yes-they-are-no-they-aren-t.mp3"
+        }
+       ],
+       [
+        {
+         "t": "Are we happy?",
+         "a": "../../en-shared/q/are-we-happy.mp3"
+        },
+        {
+         "t": "Yes, we are. / No, we aren't.",
+         "a": "../../en-shared/q/yes-we-are-no-we-aren-t.mp3"
+        }
+       ]
+      ]
+     }
+    }
+   ],
+   "page": 17,
+   "ex": "A",
+   "grp": "A17"
+  },
+  {
+   "type": "mcq",
+   "task": "Circle the correct words.",
+   "taskAudio": "../../en-shared/q/circle-the-correct-words.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "stem": "A: ____ she loud?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "A: Is she loud?",
+     "audio": "../../en-shared/q/a-is-she-loud.mp3",
+     "parts": [
+      "../../en-shared/q/a.mp3",
+      "../../en-shared/q/she-loud.mp3"
+     ]
+    },
+    {
+     "stem": "B: No, she ____.",
+     "options": [
+      "is",
+      "isn't"
+     ],
+     "answer": 1,
+     "word": "B: No, she isn't.",
+     "audio": "../../en-shared/q/b-no-she-isn-t.mp3",
+     "parts": [
+      "../../en-shared/q/b-no-she.mp3"
+     ]
+    },
+    {
+     "stem": "A: ____ they asleep?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 1,
+     "word": "A: Are they asleep?",
+     "audio": "../../en-shared/q/a-are-they-asleep.mp3",
+     "parts": [
+      "../../en-shared/q/a.mp3",
+      "../../en-shared/q/they-asleep.mp3"
+     ]
+    },
+    {
+     "stem": "B: Yes, they ____.",
+     "options": [
+      "are",
+      "aren't"
+     ],
+     "answer": 0,
+     "word": "B: Yes, they are.",
+     "audio": "../../en-shared/q/b-yes-they-are.mp3",
+     "parts": [
+      "../../en-shared/q/b-yes-they.mp3"
+     ]
+    },
+    {
+     "stem": "A: ____ you happy?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 1,
+     "word": "A: Are you happy?",
+     "audio": "../../en-shared/q/a-are-you-happy.mp3",
+     "parts": [
+      "../../en-shared/q/a.mp3",
+      "../../en-shared/q/you-happy.mp3"
+     ]
+    },
+    {
+     "stem": "B: Yes, I ____.",
+     "options": [
+      "am",
+      "aren't"
+     ],
+     "answer": 0,
+     "word": "B: Yes, I am.",
+     "audio": "../../en-shared/q/b-yes-i-am.mp3",
+     "parts": [
+      "../../en-shared/q/b-yes-i.mp3"
+     ]
+    }
+   ],
+   "page": 17,
+   "ex": "B"
+  },
+  {
+   "type": "explain",
+   "task": "Look at the photos. Do the children like the same things?",
+   "taskAudio": "../../en-shared/q/look-at-the-photos-do-the-children-like-the-same-things.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/soccer.jpg",
+      "img/music-boy.jpg"
+     ],
+     "lines": [
+      {
+       "t": "A girl plays soccer.",
+       "a": "../../en-shared/q/a-girl-plays-soccer.mp3"
+      },
+      {
+       "t": "A boy listens to music.",
+       "a": "../../en-shared/q/a-boy-listens-to-music.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 18,
+   "ex": "A"
+  },
+  {
+   "type": "explain",
+   "task": "NEW WORDS. Listen and read. Listen and say.",
+   "taskAudio": "../../en-shared/q/new-words-listen-and-read-listen-and-say.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/music-boy.jpg",
+      "img/soccer.jpg"
+     ],
+     "caps": [
+      "music",
+      "sports"
+     ],
+     "lines": []
+    }
+   ],
+   "page": 18,
+   "ex": "B"
+  },
+  {
+   "type": "explain",
+   "task": "Look at the photo. Which words describe the girl? Tell a friend.",
+   "taskAudio": "../../en-shared/q/look-at-the-photo-which-words-describe-the-girl-te-7fbd443c.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/guitar-girl.jpg"
+     ],
+     "lines": [
+      {
+       "t": "boring   fun   happy   loud   quiet   sad",
+       "a": "../../en-shared/q/boring-fun-happy-loud-quiet-sad.mp3",
+       "cls": "blue"
+      }
+     ]
+    }
+   ],
+   "page": 19,
+   "ex": "A"
+  },
+  {
+   "type": "explain",
+   "task": "Use words that describe people. Read the text. Underline the words that describe the girl.",
+   "taskAudio": "../../en-shared/q/use-words-that-describe-people-read-the-text-under-698db8bd.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/guitar-girl.jpg"
+     ],
+     "lines": [
+      {
+       "t": "My sister's name is Asha.",
+       "a": "../../en-shared/q/my-sister-s-name-is-asha.mp3"
+      },
+      {
+       "t": "She's nine.",
+       "a": "../../en-shared/q/she-s-nine.mp3"
+      },
+      {
+       "t": "She isn't quiet.",
+       "a": "../../en-shared/q/she-isn-t-quiet.mp3"
+      },
+      {
+       "t": "She's loud!",
+       "a": "../../en-shared/q/she-s-loud.mp3"
+      },
+      {
+       "t": "She isn't boring.",
+       "a": "../../en-shared/q/she-isn-t-boring.mp3"
+      },
+      {
+       "t": "I think she's fun!",
+       "a": "../../en-shared/q/i-think-she-s-fun.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 19,
+   "ex": "B"
+  },
+  {
+   "type": "mcq",
+   "task": "Read the text again. Complete the sentences with She's or She isn't.",
+   "taskAudio": "../../en-shared/q/read-the-text-again-complete-the-sentences-with-sh-fa9815b4.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "stem": "____ quiet.",
+     "options": [
+      "She's",
+      "She isn't"
+     ],
+     "answer": 1,
+     "word": "She isn't quiet.",
+     "audio": "../../en-shared/q/she-isn-t-quiet.mp3",
+     "parts": [
+      "../../en-shared/q/quiet.mp3"
+     ],
+     "optSay": [
+      "She's",
+      "She isn't"
+     ]
+    },
+    {
+     "stem": "____ loud.",
+     "options": [
+      "She's",
+      "She isn't"
+     ],
+     "answer": 0,
+     "word": "She's loud.",
+     "audio": "../../en-shared/q/she-s-loud.mp3",
+     "parts": [
+      "../../en-shared/q/loud.mp3"
+     ],
+     "optSay": [
+      "She's",
+      "She isn't"
+     ]
+    },
+    {
+     "stem": "____ boring.",
+     "options": [
+      "She's",
+      "She isn't"
+     ],
+     "answer": 1,
+     "word": "She isn't boring.",
+     "audio": "../../en-shared/q/she-isn-t-boring.mp3",
+     "parts": [
+      "../../en-shared/q/boring.mp3"
+     ],
+     "optSay": [
+      "She's",
+      "She isn't"
+     ]
+    },
+    {
+     "stem": "____ fun.",
+     "options": [
+      "She's",
+      "She isn't"
+     ],
+     "answer": 0,
+     "word": "She's fun.",
+     "audio": "../../en-shared/q/she-s-fun.mp3",
+     "parts": [
+      "../../en-shared/q/fun.mp3"
+     ],
+     "optSay": [
+      "She's",
+      "She isn't"
+     ]
+    }
+   ],
+   "page": 19,
+   "ex": "C"
+  },
+  {
+   "type": "explain",
+   "task": "Vocabulary. Listen and read.",
+   "taskAudio": "../../en-shared/q/vocabulary-listen-and-read.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "pics": [
+      "img/boring.jpg",
+      "img/busy.jpg",
+      "img/fast.jpg",
+      "img/awake.jpg",
+      "img/asleep.jpg"
+     ],
+     "caps": [
+      "boring",
+      "busy",
+      "fast",
+      "awake",
+      "asleep"
+     ],
+     "lines": [
+      {
+       "t": "boring (adj.)  not interesting or exciting.  Ex. The film is boring.",
+       "a": "../../en-shared/q/boring-adj-not-interesting-or-exciting-ex-the-film-is-boring.mp3"
+      },
+      {
+       "t": "busy (adj.)  Having many things to do.  Ex. I'm busy today.",
+       "a": "../../en-shared/q/busy-adj-having-many-things-to-do-ex-i-m-busy-today.mp3"
+      },
+      {
+       "t": "fast (adj.)  Moving quickly.  Ex. The race car goes so fast.",
+       "a": "../../en-shared/q/fast-adj-moving-quickly-ex-the-race-car-goes-so-fast.mp3"
+      },
+      {
+       "t": "awake (adj.)  not sleeping.  Ex. The birds are awake and singing.",
+       "a": "../../en-shared/q/awake-adj-not-sleeping-ex-the-birds-are-awake-and-singing.mp3"
+      },
+      {
+       "t": "asleep (adj.)  Sleeping.  Ex. I was so tired, I fell asleep right away.",
+       "a": "../../en-shared/q/asleep-adj-sleeping-ex-i-was-so-tired-i-fell-aslee-d33af588.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 14,
+   "grp": "voc"
+  },
+  {
+   "type": "explain",
+   "task": "Vocabulary. Listen and read.",
+   "taskAudio": "../../en-shared/q/vocabulary-listen-and-read.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "pics": [
+      "img/fun.jpg",
+      "img/lazy.jpg",
+      "img/slow.jpg",
+      "img/loud.jpg",
+      "img/quiet.jpg"
+     ],
+     "caps": [
+      "fun",
+      "lazy",
+      "slow",
+      "loud",
+      "quiet"
+     ],
+     "lines": [
+      {
+       "t": "fun (adj.)  Something enjoyable or that makes you happy.  Ex. This game is really fun!",
+       "a": "../../en-shared/q/fun-adj-something-enjoyable-or-that-makes-you-happ-4a749187.mp3"
+      },
+      {
+       "t": "lazy (adj.)  Not wanting to work or do things.  Ex. Don't be lazy, help me clean up!",
+       "a": "../../en-shared/q/lazy-adj-not-wanting-to-work-or-do-things-ex-don-t-03c2cde5.mp3"
+      },
+      {
+       "t": "slow (adj.)  not quickly.  Ex. A snail is a very slow animal.",
+       "a": "../../en-shared/q/slow-adj-not-quickly-ex-a-snail-is-a-very-slow-animal.mp3"
+      },
+      {
+       "t": "loud (adj.)  strong and noisy.  Ex. The thunder was very loud.",
+       "a": "../../en-shared/q/loud-adj-strong-and-noisy-ex-the-thunder-was-very-loud.mp3"
+      },
+      {
+       "t": "quiet (adj.)  peaceful.  Ex. Please be quiet in the library.",
+       "a": "../../en-shared/q/quiet-adj-peaceful-ex-please-be-quiet-in-the-library.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 14,
+   "grp": "voc"
+  },
+  {
+   "type": "type",
+   "task": "Read and complete the missing letters.",
+   "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "loud",
+     "missing": 1,
+     "answer": "o",
+     "pic": "img/loud.jpg",
+     "audio": "../../en-shared/q/loud.mp3"
+    },
+    {
+     "word": "busy",
+     "missing": 1,
+     "answer": "u",
+     "pic": "img/busy.jpg",
+     "audio": "../../en-shared/q/busy.mp3"
+    },
+    {
+     "word": "fast",
+     "missing": 1,
+     "answer": "a",
+     "pic": "img/fast.jpg",
+     "audio": "../../en-shared/q/fast.mp3"
+    },
+    {
+     "word": "asleep",
+     "missing": 5,
+     "answer": "p",
+     "pic": "img/asleep.jpg",
+     "audio": "../../en-shared/q/asleep.mp3"
+    },
+    {
+     "word": "boring",
+     "missing": 4,
+     "answer": "n",
+     "pic": "img/boring.jpg",
+     "audio": "../../en-shared/q/boring.mp3"
+    }
+   ],
+   "page": 15,
+   "ex": 1
+  },
+  {
+   "type": "circle",
+   "task": "Circle the opposites.",
+   "taskAudio": "../../en-shared/q/circle-the-opposites.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "awake",
+     "audio": "../../en-shared/q/awake.mp3",
+     "answer": true
+    },
+    {
+     "word": "fun",
+     "audio": "../../en-shared/q/fun.mp3",
+     "answer": false
+    },
+    {
+     "word": "asleep",
+     "audio": "../../en-shared/q/asleep.mp3",
+     "answer": true
+    }
+   ],
+   "page": 15,
+   "ex": 2,
+   "grp": "opp"
+  },
+  {
+   "type": "circle",
+   "task": "Circle the opposites.",
+   "taskAudio": "../../en-shared/q/circle-the-opposites.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "lazy",
+     "audio": "../../en-shared/q/lazy.mp3",
+     "answer": false
+    },
+    {
+     "word": "slow",
+     "audio": "../../en-shared/q/slow.mp3",
+     "answer": true
+    },
+    {
+     "word": "fast",
+     "audio": "../../en-shared/q/fast.mp3",
+     "answer": true
+    }
+   ],
+   "page": 15,
+   "ex": 2,
+   "grp": "opp"
+  },
+  {
+   "type": "circle",
+   "task": "Circle the opposites.",
+   "taskAudio": "../../en-shared/q/circle-the-opposites.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "fun",
+     "audio": "../../en-shared/q/fun.mp3",
+     "answer": true
+    },
+    {
+     "word": "loud",
+     "audio": "../../en-shared/q/loud.mp3",
+     "answer": false
+    },
+    {
+     "word": "boring",
+     "audio": "../../en-shared/q/boring.mp3",
+     "answer": true
+    }
+   ],
+   "page": 15,
+   "ex": 2,
+   "grp": "opp"
+  },
+  {
+   "type": "circle",
+   "task": "Circle the opposites.",
+   "taskAudio": "../../en-shared/q/circle-the-opposites.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "quiet",
+     "audio": "../../en-shared/q/quiet.mp3",
+     "answer": true
+    },
+    {
+     "word": "fun",
+     "audio": "../../en-shared/q/fun.mp3",
+     "answer": false
+    },
+    {
+     "word": "loud",
+     "audio": "../../en-shared/q/loud.mp3",
+     "answer": true
+    }
+   ],
+   "page": 15,
+   "ex": 2,
+   "grp": "opp"
+  },
+  {
+   "type": "circle",
+   "task": "Circle the opposites.",
+   "taskAudio": "../../en-shared/q/circle-the-opposites.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "busy",
+     "audio": "../../en-shared/q/busy.mp3",
+     "answer": true
+    },
+    {
+     "word": "lazy",
+     "audio": "../../en-shared/q/lazy.mp3",
+     "answer": true
+    },
+    {
+     "word": "boring",
+     "audio": "../../en-shared/q/boring.mp3",
+     "answer": false
+    }
+   ],
+   "page": 15,
+   "ex": 2,
+   "grp": "opp"
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer from a, b, c or d.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-from-a-b-c-or-d.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "My dog loves to run very ____.",
+     "options": [
+      "slow",
+      "fast",
+      "lazy",
+      "happy"
+     ],
+     "answer": 1,
+     "word": "My dog loves to run very fast.",
+     "audio": "../../en-shared/q/my-dog-loves-to-run-very-fast.mp3",
+     "parts": [
+      "../../en-shared/q/my-dog-loves-to-run-very.mp3"
+     ]
+    },
+    {
+     "stem": "The baby is finally ____ in her bed.",
+     "options": [
+      "late",
+      "loud",
+      "asleep",
+      "busy"
+     ],
+     "answer": 2,
+     "word": "The baby is finally asleep in her bed.",
+     "audio": "../../en-shared/q/the-baby-is-finally-asleep-in-her-bed.mp3",
+     "parts": [
+      "../../en-shared/q/the-baby-is-finally.mp3",
+      "../../en-shared/q/in-her-bed.mp3"
+     ]
+    },
+    {
+     "stem": "My mom is very ____ today, she has many things to do.",
+     "options": [
+      "busy",
+      "kind",
+      "slow",
+      "lazy"
+     ],
+     "answer": 0,
+     "word": "My mom is very busy today, she has many things to do.",
+     "audio": "../../en-shared/q/my-mom-is-very-busy-today-she-has-many-things-to-do.mp3",
+     "parts": [
+      "../../en-shared/q/my-mom-is-very.mp3",
+      "../../en-shared/q/today-she-has-many-things-to-do.mp3"
+     ]
+    },
+    {
+     "stem": "Playing with my brother is always so ____.",
+     "options": [
+      "fast",
+      "fun",
+      "late",
+      "slow"
+     ],
+     "answer": 1,
+     "word": "Playing with my brother is always so fun.",
+     "audio": "../../en-shared/q/playing-with-my-brother-is-always-so-fun.mp3",
+     "parts": [
+      "../../en-shared/q/playing-with-my-brother-is-always-so.mp3"
+     ]
+    },
+    {
+     "stem": "The snail moves very ____ on the sidewalk.",
+     "options": [
+      "slow",
+      "hard",
+      "boring",
+      "busy"
+     ],
+     "answer": 0,
+     "word": "The snail moves very slow on the sidewalk.",
+     "audio": "../../en-shared/q/the-snail-moves-very-slow-on-the-sidewalk.mp3",
+     "parts": [
+      "../../en-shared/q/the-snail-moves-very.mp3",
+      "../../en-shared/q/on-the-sidewalk.mp3"
+     ]
+    },
+    {
+     "stem": "When everyone is sleeping, the house is very ____.",
+     "options": [
+      "quiet",
+      "boring",
+      "shy",
+      "loud"
+     ],
+     "answer": 0,
+     "word": "When everyone is sleeping, the house is very quiet.",
+     "audio": "../../en-shared/q/when-everyone-is-sleeping-the-house-is-very-quiet.mp3",
+     "parts": [
+      "../../en-shared/q/when-everyone-is-sleeping-the-house-is-very.mp3"
+     ]
+    },
+    {
+     "stem": "My grandpa likes to be ____ on the couch after lunch.",
+     "options": [
+      "rich",
+      "lazy",
+      "fast",
+      "poor"
+     ],
+     "answer": 1,
+     "word": "My grandpa likes to be lazy on the couch after lunch.",
+     "audio": "../../en-shared/q/my-grandpa-likes-to-be-lazy-on-the-couch-after-lunch.mp3",
+     "parts": [
+      "../../en-shared/q/my-grandpa-likes-to-be.mp3",
+      "../../en-shared/q/on-the-couch-after-lunch.mp3"
+     ]
+    },
+    {
+     "stem": "The lion's roar was so ____.",
+     "options": [
+      "loud",
+      "asleep",
+      "busy",
+      "old"
+     ],
+     "answer": 0,
+     "word": "The lion's roar was so loud.",
+     "audio": "../../en-shared/q/the-lion-s-roar-was-so-loud.mp3",
+     "parts": [
+      "../../en-shared/q/the-lion-s-roar-was-so.mp3"
+     ]
+    },
+    {
+     "stem": "I am ____ and ready to play after my nap.",
+     "options": [
+      "fast",
+      "poor",
+      "awake",
+      "slow"
+     ],
+     "answer": 2,
+     "word": "I am awake and ready to play after my nap.",
+     "audio": "../../en-shared/q/i-am-awake-and-ready-to-play-after-my-nap.mp3",
+     "parts": [
+      "../../en-shared/q/i-am.mp3",
+      "../../en-shared/q/and-ready-to-play-after-my-nap.mp3"
+     ]
+    },
+    {
+     "stem": "Watching the films is very ____.",
+     "options": [
+      "awake",
+      "asleep",
+      "thin",
+      "fun"
+     ],
+     "answer": 3,
+     "word": "Watching the films is very fun.",
+     "audio": "../../en-shared/q/watching-the-films-is-very-fun.mp3",
+     "parts": [
+      "../../en-shared/q/watching-the-films-is-very.mp3"
+     ]
+    }
+   ],
+   "page": 16,
+   "ex": 3
+  },
+  {
+   "type": "cloze",
+   "task": "Choose the correct answer to complete the text.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-to-complete-the-text.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "text": "Birds and Bears. Look at this amazing bird! This bird can fly very [[fast]]. It is always [[awake]] in the morning and sings songs. Birds like to fly high in the sky and build nests. It's [[fun]] to watch them. Now look at the big, brown bear. The bear is very [[lazy]]. It likes to sleep a lot, especially in winter. When a bear growls, its sound can be very [[loud]]. Birds are small and can fly, but bears are big and cannot fly. Both animals live in the forest and are very busy.",
+     "bank": [
+      "lazy",
+      "awake",
+      "fast",
+      "loud",
+      "fun"
+     ],
+     "audio": "../../en-shared/q/birds-and-bears-look-at-this-amazing-bird-this-bir-06b406f8.mp3"
+    }
+   ],
+   "page": 17,
+   "ex": 4
+  },
+  {
+   "type": "order",
+   "task": "Rearrange the following sentences.",
+   "taskAudio": "../../en-shared/q/rearrange-the-following-sentences.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "chunks": [
+      "They",
+      "read",
+      "a boring",
+      "book"
+     ],
+     "end": ".",
+     "word": "They read a boring book.",
+     "audio": "../../en-shared/q/they-read-a-boring-book.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "baby",
+      "'s",
+      "asleep"
+     ],
+     "end": ".",
+     "word": "The baby's asleep.",
+     "audio": "../../en-shared/q/the-baby-s-asleep.mp3",
+     "say": [
+      "The",
+      "baby",
+      "is",
+      "asleep"
+     ]
+    },
+    {
+     "chunks": [
+      "We",
+      "'re",
+      "busy"
+     ],
+     "end": ".",
+     "word": "We're busy.",
+     "audio": "../../en-shared/q/we-re-busy.mp3",
+     "say": [
+      "We",
+      "are",
+      "busy"
+     ]
+    },
+    {
+     "chunks": [
+      "The",
+      "turtle",
+      "walks",
+      "slowly"
+     ],
+     "end": ".",
+     "word": "The turtle walks slowly.",
+     "audio": "../../en-shared/q/the-turtle-walks-slowly.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "'m",
+      "quiet"
+     ],
+     "end": ".",
+     "word": "I'm quiet.",
+     "audio": "../../en-shared/q/i-m-quiet.mp3",
+     "say": [
+      "I",
+      "am",
+      "quiet"
+     ]
+    }
+   ],
+   "page": 17,
+   "ex": 5
+  },
+  {
+   "type": "explain",
+   "task": "Short Vowels. Listen and say.",
+   "taskAudio": "../../en-shared/q/short-vowels-listen-and-say.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "pics": [
+      "img/ph-dog.jpg",
+      "img/ph-pot.jpg",
+      "img/ph-sun.jpg",
+      "img/ph-up.jpg",
+      "img/ph-bus.jpg",
+      "img/ph-cup.jpg"
+     ],
+     "caps": [
+      "dog",
+      "pot",
+      "sun",
+      "up",
+      "bus",
+      "cup"
+     ],
+     "lines": [
+      {
+       "t": "Short o: dog, pot.",
+       "a": "../../en-shared/q/short-o-dog-pot.mp3"
+      },
+      {
+       "t": "Short u: sun, up, bus, cup.",
+       "a": "../../en-shared/q/short-u-sun-up-bus-cup.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 18,
+   "grp": "short"
+  },
+  {
+   "type": "link",
+   "task": "Match the words with the same sound.",
+   "taskAudio": "../../en-shared/q/match-the-words-with-the-same-sound.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "mop",
+     "text2": "pot",
+     "audio": "../../en-shared/q/mop.mp3",
+     "audio2": "../../en-shared/q/pot.mp3"
+    },
+    {
+     "word": "rug",
+     "text2": "cut",
+     "audio": "../../en-shared/q/rug.mp3",
+     "audio2": "../../en-shared/q/cut.mp3"
+    }
+   ],
+   "page": 18,
+   "ex": 1
+  },
+  {
+   "type": "circle",
+   "task": "Read and say. Circle the words with the same sound.",
+   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-same-sound.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "sun",
+     "audio": "../../en-shared/q/sun.mp3",
+     "answer": true
+    },
+    {
+     "word": "bed",
+     "audio": "../../en-shared/q/bed.mp3",
+     "answer": false
+    },
+    {
+     "word": "bug",
+     "audio": "../../en-shared/q/bug.mp3",
+     "answer": true
+    }
+   ],
+   "page": 18,
+   "ex": 2,
+   "grp": "ou"
+  },
+  {
+   "type": "circle",
+   "task": "Read and say. Circle the words with the same sound.",
+   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-same-sound.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "dog",
+     "audio": "../../en-shared/q/dog.mp3",
+     "answer": true
+    },
+    {
+     "word": "job",
+     "audio": "../../en-shared/q/job.mp3",
+     "answer": true
+    },
+    {
+     "word": "cab",
+     "audio": "../../en-shared/q/cab.mp3",
+     "answer": false
+    }
+   ],
+   "page": 18,
+   "ex": 2,
+   "grp": "ou"
+  },
+  {
+   "type": "circle",
+   "task": "Read and say. Circle the words with the same sound.",
+   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-same-sound.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "kid",
+     "audio": "../../en-shared/q/kid.mp3",
+     "answer": false
+    },
+    {
+     "word": "fox",
+     "audio": "../../en-shared/q/fox.mp3",
+     "answer": true
+    },
+    {
+     "word": "box",
+     "audio": "../../en-shared/q/box.mp3",
+     "answer": true
+    }
+   ],
+   "page": 18,
+   "ex": 2,
+   "grp": "ou"
+  },
+  {
+   "type": "circle",
+   "task": "Read and say. Circle the words with the same sound.",
+   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-same-sound.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "bun",
+     "audio": "../../en-shared/q/bun.mp3",
+     "answer": true
+    },
+    {
+     "word": "bag",
+     "audio": "../../en-shared/q/bag.mp3",
+     "answer": false
+    },
+    {
+     "word": "sun",
+     "audio": "../../en-shared/q/sun.mp3",
+     "answer": true
+    }
+   ],
+   "page": 18,
+   "ex": 2,
+   "grp": "ou"
+  },
+  {
+   "type": "explain",
+   "task": "Reading Comprehension. The Bear and the Bunny.",
+   "taskAudio": "../../en-shared/q/reading-comprehension-the-bear-and-the-bunny.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "lines": [
+      {
+       "t": "The Bear and the Bunny",
+       "a": "../../en-shared/q/the-bear-and-the-bunny.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "One morning, the forest was very quiet.",
+       "a": "../../en-shared/q/one-morning-the-forest-was-very-quiet.mp3"
+      },
+      {
+       "t": "Pip saw a big bear named Barry sleeping under a tree.",
+       "a": "../../en-shared/q/pip-saw-a-big-bear-named-barry-sleeping-under-a-tree.mp3"
+      },
+      {
+       "t": "Barry looked very lazy.",
+       "a": "../../en-shared/q/barry-looked-very-lazy.mp3"
+      },
+      {
+       "t": "Pip thought it was boring.",
+       "a": "../../en-shared/q/pip-thought-it-was-boring.mp3"
+      },
+      {
+       "t": "\"Wake up, Barry!\" Pip called out.",
+       "a": "../../en-shared/q/wake-up-barry-pip-called-out.mp3"
+      },
+      {
+       "t": "Barry opened his eyes and spoke in a slow voice, \"I am sleeping.\"",
+       "a": "../../en-shared/q/barry-opened-his-eyes-and-spoke-in-a-slow-voice-i-b0143624.mp3"
+      },
+      {
+       "t": "Then Barry stood up and said, \"Let's do something fun!\"",
+       "a": "../../en-shared/q/then-barry-stood-up-and-said-let-s-do-something-fun.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 19,
+   "grp": "bunny"
+  },
+  {
+   "type": "mcq",
+   "task": "Circle the best word.",
+   "taskAudio": "../../en-shared/q/circle-the-best-word.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "At first, the forest was very ____.",
+     "options": [
+      "loud",
+      "quiet",
+      "fun"
+     ],
+     "answer": 1,
+     "word": "At first, the forest was very quiet.",
+     "audio": "../../en-shared/q/at-first-the-forest-was-very-quiet.mp3",
+     "parts": [
+      "../../en-shared/q/at-first-the-forest-was-very.mp3"
+     ]
+    },
+    {
+     "stem": "Barry the bear looked very ____ when he was sleeping.",
+     "options": [
+      "awake",
+      "lazy",
+      "fast"
+     ],
+     "answer": 1,
+     "word": "Barry the bear looked very lazy when he was sleeping.",
+     "audio": "../../en-shared/q/barry-the-bear-looked-very-lazy-when-he-was-sleeping.mp3",
+     "parts": [
+      "../../en-shared/q/barry-the-bear-looked-very.mp3",
+      "../../en-shared/q/when-he-was-sleeping.mp3"
+     ]
+    },
+    {
+     "stem": "Pip thought it was ____ when Barry was sleeping.",
+     "options": [
+      "fun",
+      "boring",
+      "awake"
+     ],
+     "answer": 1,
+     "word": "Pip thought it was boring when Barry was sleeping.",
+     "audio": "../../en-shared/q/pip-thought-it-was-boring-when-barry-was-sleeping.mp3",
+     "parts": [
+      "../../en-shared/q/pip-thought-it-was.mp3",
+      "../../en-shared/q/when-barry-was-sleeping.mp3"
+     ]
+    },
+    {
+     "stem": "Barry woke up in a ____ voice.",
+     "options": [
+      "loud",
+      "slow",
+      "fun"
+     ],
+     "answer": 1,
+     "word": "Barry woke up in a slow voice.",
+     "audio": "../../en-shared/q/barry-woke-up-in-a-slow-voice.mp3",
+     "parts": [
+      "../../en-shared/q/barry-woke-up-in-a.mp3",
+      "../../en-shared/q/voice.mp3"
+     ]
+    },
+    {
+     "stem": "At the end, Barry wanted to do something ____.",
+     "options": [
+      "boring",
+      "quiet",
+      "fun"
+     ],
+     "answer": 2,
+     "word": "At the end, Barry wanted to do something fun.",
+     "audio": "../../en-shared/q/at-the-end-barry-wanted-to-do-something-fun.mp3",
+     "parts": [
+      "../../en-shared/q/at-the-end-barry-wanted-to-do-something.mp3"
+     ]
+    }
+   ],
+   "page": 19,
+   "ex": 1,
+   "grp": "bunny"
+  },
+  {
+   "type": "explain",
+   "task": "Grammar. Questions with Am, Is and Are.",
+   "taskAudio": "../../en-shared/q/grammar-questions-with-am-is-and-are.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "lines": [],
+     "table": {
+      "title": "Verb \"be\" (interrogative)",
+      "rows": [
+       [
+        {
+         "t": "Am I?",
+         "a": "../../en-shared/q/am-i.mp3"
+        },
+        {
+         "t": "Yes, I am",
+         "a": "../../en-shared/q/yes-i-am.mp3"
+        },
+        {
+         "t": "No, I'm not",
+         "a": "../../en-shared/q/no-i-m-not.mp3"
+        }
+       ],
+       [
+        {
+         "t": "Are you?",
+         "a": "../../en-shared/q/are-you.mp3"
+        },
+        {
+         "t": "Yes, you are",
+         "a": "../../en-shared/q/yes-you-are.mp3"
+        },
+        {
+         "t": "No, you aren't",
+         "a": "../../en-shared/q/no-you-aren-t.mp3"
+        }
+       ],
+       [
+        {
+         "t": "Is he?",
+         "a": "../../en-shared/q/is-he.mp3"
+        },
+        {
+         "t": "Yes, he is",
+         "a": "../../en-shared/q/yes-he-is.mp3"
+        },
+        {
+         "t": "No, he isn't",
+         "a": "../../en-shared/q/no-he-isn-t.mp3"
+        }
+       ],
+       [
+        {
+         "t": "Is she?",
+         "a": "../../en-shared/q/is-she.mp3"
+        },
+        {
+         "t": "Yes, she is",
+         "a": "../../en-shared/q/yes-she-is.mp3"
+        },
+        {
+         "t": "No, she isn't",
+         "a": "../../en-shared/q/no-she-isn-t.mp3"
+        }
+       ],
+       [
+        {
+         "t": "Is it?",
+         "a": "../../en-shared/q/is-it.mp3"
+        },
+        {
+         "t": "Yes, it is",
+         "a": "../../en-shared/q/yes-it-is.mp3"
+        },
+        {
+         "t": "No, it isn't",
+         "a": "../../en-shared/q/no-it-isn-t.mp3"
+        }
+       ],
+       [
+        {
+         "t": "Are we?",
+         "a": "../../en-shared/q/are-we.mp3"
+        },
+        {
+         "t": "Yes, we are",
+         "a": "../../en-shared/q/yes-we-are.mp3"
+        },
+        {
+         "t": "No, we aren't",
+         "a": "../../en-shared/q/no-we-aren-t.mp3"
+        }
+       ],
+       [
+        {
+         "t": "Are you?",
+         "a": "../../en-shared/q/are-you.mp3"
+        },
+        {
+         "t": "Yes, you are",
+         "a": "../../en-shared/q/yes-you-are.mp3"
+        },
+        {
+         "t": "No, you aren't",
+         "a": "../../en-shared/q/no-you-aren-t.mp3"
+        }
+       ],
+       [
+        {
+         "t": "Are they?",
+         "a": "../../en-shared/q/are-they.mp3"
+        },
+        {
+         "t": "Yes, they are",
+         "a": "../../en-shared/q/yes-they-are.mp3"
+        },
+        {
+         "t": "No, they aren't",
+         "a": "../../en-shared/q/no-they-aren-t.mp3"
+        }
+       ]
+      ]
+     }
+    }
+   ],
+   "page": 20,
+   "grp": "vbe"
+  },
+  {
+   "type": "link",
+   "task": "Read and match.",
+   "taskAudio": "../../en-shared/q/read-and-match.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "Is your mom tall?",
+     "text2": "No, she isn't.",
+     "audio": "../../en-shared/q/is-your-mom-tall.mp3",
+     "audio2": "../../en-shared/q/no-she-isn-t.mp3"
+    },
+    {
+     "word": "Are your grandparents old?",
+     "text2": "Yes, they are.",
+     "audio": "../../en-shared/q/are-your-grandparents-old.mp3",
+     "audio2": "../../en-shared/q/yes-they-are.mp3"
+    },
+    {
+     "word": "Is it a kitten?",
+     "text2": "Yes, it is.",
+     "audio": "../../en-shared/q/is-it-a-kitten.mp3",
+     "audio2": "../../en-shared/q/yes-it-is.mp3"
+    },
+    {
+     "word": "Are you happy?",
+     "text2": "No, I'm not.",
+     "audio": "../../en-shared/q/are-you-happy.mp3",
+     "audio2": "../../en-shared/q/no-i-m-not.mp3"
+    },
+    {
+     "word": "Is your dad busy today?",
+     "text2": "Yes, he is.",
+     "audio": "../../en-shared/q/is-your-dad-busy-today.mp3",
+     "audio2": "../../en-shared/q/yes-he-is.mp3"
+    }
+   ],
+   "page": 20,
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "task": "Complete the following questions using Is or Are.",
+   "taskAudio": "../../en-shared/q/complete-the-following-questions-using-is-or-are.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "____ your dad tall? Yes, he is.",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "Is your dad tall? Yes, he is.",
+     "audio": "../../en-shared/q/is-your-dad-tall-yes-he-is.mp3",
+     "parts": [
+      "../../en-shared/q/your-dad-tall-yes-he-is.mp3"
+     ]
+    },
+    {
+     "stem": "____ they your aunts? No, they aren't.",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 1,
+     "word": "Are they your aunts? No, they aren't.",
+     "audio": "../../en-shared/q/are-they-your-aunts-no-they-aren-t.mp3",
+     "parts": [
+      "../../en-shared/q/they-your-aunts-no-they-aren-t.mp3"
+     ]
+    },
+    {
+     "stem": "____ a tortoise fast? No, it isn't.",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "Is a tortoise fast? No, it isn't.",
+     "audio": "../../en-shared/q/is-a-tortoise-fast-no-it-isn-t.mp3",
+     "parts": [
+      "../../en-shared/q/a-tortoise-fast-no-it-isn-t.mp3"
+     ]
+    },
+    {
+     "stem": "____ you busy? Yes, I am.",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 1,
+     "word": "Are you busy? Yes, I am.",
+     "audio": "../../en-shared/q/are-you-busy-yes-i-am.mp3",
+     "parts": [
+      "../../en-shared/q/you-busy-yes-i-am.mp3"
+     ]
+    },
+    {
+     "stem": "____ school boring? No, it isn't.",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "Is school boring? No, it isn't.",
+     "audio": "../../en-shared/q/is-school-boring-no-it-isn-t.mp3",
+     "parts": [
+      "../../en-shared/q/school-boring-no-it-isn-t.mp3"
+     ]
+    }
+   ],
+   "page": 21,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Circle the correct answer.",
+   "taskAudio": "../../en-shared/q/circle-the-correct-answer.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "A: ____ it loud?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "A: Is it loud?",
+     "audio": "../../en-shared/q/a-is-it-loud.mp3",
+     "parts": [
+      "../../en-shared/q/a.mp3",
+      "../../en-shared/q/it-loud.mp3"
+     ]
+    },
+    {
+     "stem": "B: No, it ____.",
+     "options": [
+      "is",
+      "isn't"
+     ],
+     "answer": 1,
+     "word": "B: No, it isn't.",
+     "audio": "../../en-shared/q/b-no-it-isn-t.mp3",
+     "parts": [
+      "../../en-shared/q/b-no-it.mp3"
+     ]
+    },
+    {
+     "stem": "A: ____ your mom awake?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "A: Is your mom awake?",
+     "audio": "../../en-shared/q/a-is-your-mom-awake.mp3",
+     "parts": [
+      "../../en-shared/q/a.mp3",
+      "../../en-shared/q/your-mom-awake.mp3"
+     ]
+    },
+    {
+     "stem": "B: Yes, she ____.",
+     "options": [
+      "is",
+      "are"
+     ],
+     "answer": 0,
+     "word": "B: Yes, she is.",
+     "audio": "../../en-shared/q/b-yes-she-is.mp3",
+     "parts": [
+      "../../en-shared/q/b-yes-she.mp3"
+     ]
+    },
+    {
+     "stem": "A: ____ monkeys fast?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 1,
+     "word": "A: Are monkeys fast?",
+     "audio": "../../en-shared/q/a-are-monkeys-fast.mp3",
+     "parts": [
+      "../../en-shared/q/a.mp3",
+      "../../en-shared/q/monkeys-fast.mp3"
+     ]
+    },
+    {
+     "stem": "B: Yes, they ____.",
+     "options": [
+      "is",
+      "are"
+     ],
+     "answer": 1,
+     "word": "B: Yes, they are.",
+     "audio": "../../en-shared/q/b-yes-they-are.mp3",
+     "parts": [
+      "../../en-shared/q/b-yes-they.mp3"
+     ]
+    },
+    {
+     "stem": "A: ____ the cartoon boring?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "A: Is the cartoon boring?",
+     "audio": "../../en-shared/q/a-is-the-cartoon-boring.mp3",
+     "parts": [
+      "../../en-shared/q/a.mp3",
+      "../../en-shared/q/the-cartoon-boring.mp3"
+     ]
+    },
+    {
+     "stem": "B: No, it ____.",
+     "options": [
+      "is",
+      "isn't"
+     ],
+     "answer": 1,
+     "word": "B: No, it isn't.",
+     "audio": "../../en-shared/q/b-no-it-isn-t.mp3",
+     "parts": [
+      "../../en-shared/q/b-no-it.mp3"
+     ]
+    },
+    {
+     "stem": "A: ____ your cousin smart?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "A: Is your cousin smart?",
+     "audio": "../../en-shared/q/a-is-your-cousin-smart.mp3",
+     "parts": [
+      "../../en-shared/q/a.mp3",
+      "../../en-shared/q/your-cousin-smart.mp3"
+     ]
+    },
+    {
+     "stem": "B: Yes, he ____.",
+     "options": [
+      "is",
+      "isn't"
+     ],
+     "answer": 0,
+     "word": "B: Yes, he is.",
+     "audio": "../../en-shared/q/b-yes-he-is.mp3",
+     "parts": [
+      "../../en-shared/q/b-yes-he.mp3"
+     ]
+    }
+   ],
+   "page": 21,
+   "ex": 3
+  },
+  {
+   "type": "mcq",
+   "task": "Circle and correct the mistake.",
+   "taskAudio": "../../en-shared/q/circle-and-correct-the-mistake.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "____ he cool?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "Is he cool?",
+     "audio": "../../en-shared/q/is-he-cool.mp3",
+     "parts": [
+      "../../en-shared/q/he-cool.mp3"
+     ],
+     "optSay": [
+      "Is",
+      "Are"
+     ],
+     "ask": "Are he cool?"
+    },
+    {
+     "stem": "____ we ready?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 1,
+     "word": "Are we ready?",
+     "audio": "../../en-shared/q/are-we-ready.mp3",
+     "parts": [
+      "../../en-shared/q/we-ready.mp3"
+     ],
+     "optSay": [
+      "Is",
+      "Are"
+     ],
+     "ask": "Is we ready?"
+    },
+    {
+     "stem": "____ they hungry?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 1,
+     "word": "Are they hungry?",
+     "audio": "../../en-shared/q/are-they-hungry.mp3",
+     "parts": [
+      "../../en-shared/q/they-hungry.mp3"
+     ],
+     "optSay": [
+      "Is",
+      "Are"
+     ],
+     "ask": "Is they hungry?"
+    },
+    {
+     "stem": "Yes, it ____.",
+     "options": [
+      "is",
+      "are"
+     ],
+     "answer": 0,
+     "word": "Yes, it is.",
+     "audio": "../../en-shared/q/yes-it-is.mp3",
+     "parts": [
+      "../../en-shared/q/yes-it.mp3"
+     ],
+     "optSay": [
+      "is",
+      "are"
+     ],
+     "ask": "Yes, it are."
+    },
+    {
+     "stem": "No, ____.",
+     "options": [
+      "I'm not",
+      "I isn't",
+      "I are not"
+     ],
+     "answer": 0,
+     "word": "No, I'm not.",
+     "audio": "../../en-shared/q/no-i-m-not.mp3",
+     "parts": [
+      "../../en-shared/q/no.mp3"
+     ],
+     "optSay": [
+      "I'm not",
+      "I isn't",
+      "I are not"
+     ],
+     "ask": "No, I isn't."
+    }
+   ],
+   "page": 22,
+   "ex": 4
+  }
+ ]
+}
