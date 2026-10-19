@@ -19,9 +19,18 @@ h2{font-size:20px;margin:0;padding-bottom:4px;border-bottom:2px solid var(--blue
 .line .tx{flex:1 1 9em;min-width:9em;overflow-wrap:anywhere}
 .ctl{flex:none}
 .lab{flex:none}
+.line .tx.big{flex:1 1 5em;min-width:0}
 .big{font-size:28px;font-weight:700;line-height:1.4}
 .lab{font-size:13px;color:var(--soft);min-width:44px}
 .ctl{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:.35em;margin-inline-start:auto}
+.pair{border-bottom:1px solid var(--line)}
+.pair .line{border-bottom:0;padding:.3em 0}
+.line.syl{flex-direction:column;align-items:stretch;gap:.3em}
+.line.syl .tx{flex:none;min-width:0;width:100%}
+.line.syl .ctl{margin:0;width:100%;flex-direction:column;align-items:stretch}
+.btns{display:flex;flex-wrap:nowrap;align-items:center;justify-content:flex-end;gap:.35em}
+.line.syl .btns{width:100%}
+.notes{display:flex;flex-wrap:wrap;align-items:center;gap:.2em .6em}
 .tag{flex-basis:100%;font-size:.75em;line-height:1.3;color:var(--rec);font-weight:700}
 .tx .tag{display:block;margin-top:.2em}
 .ib{width:40px;height:40px;border-radius:50%;border:2px solid var(--blue);background:none;color:var(--blue);display:inline-flex;align-items:center;justify-content:center;padding:0;position:relative;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
@@ -118,14 +127,15 @@ function holdMic(slot){
  return el;
 }
 function ctl(slot,existing){
- const w=mk('span','ctl'), old=!!slot.parts&&stale(slot.key,slot.parts), has=!!recs[idOf(slot.key)]&&!old;
- const u=mk('label','ib',ICON.up); u.title='رفع ملف صوتي'; const i=mk('input'); i.type='file'; i.accept='audio/*'; i.onchange=async()=>{ if(i.files[0]) await save(slot,i.files[0]); i.value=''; }; u.append(i); w.append(u);
- w.append(holdMic(slot));
- if(has){ const p=mk('button','ib mine',ICON.play); p.title='تسجيلي'; p.onclick=()=>playMine(idOf(slot.key),p); w.append(p);
-  const x=mk('button','ib rec',ICON.del); x.title='حذف'; x.setAttribute('aria-label','حذف'); x.onclick=()=>del(slot); w.append(x); }
- else if(old){ const p=mk('button','ib',ICON.play); p.title='تسجيل قديم لتقسيم آخر'; p.onclick=()=>playMine(idOf(slot.key),p); w.append(mk('span','tag wait','التقسيم اتغيّر، سجّلي المقاطع تاني'),p); }
- else if(existing){ const p=mk('button','ib',ICON.play); p.title='تسجيلك الحالي'; p.onclick=()=>playUrl(existing,p); w.append(p); }
- else w.append(mk('span','ib gap'));
+ const w=mk('span','ctl'), b=mk('span','btns'), old=!!slot.parts&&stale(slot.key,slot.parts), has=!!recs[idOf(slot.key)]&&!old;
+ const u=mk('label','ib',ICON.up); u.title='رفع ملف صوتي'; const i=mk('input'); i.type='file'; i.accept='audio/*'; i.onchange=async()=>{ if(i.files[0]) await save(slot,i.files[0]); i.value=''; }; u.append(i); b.append(u);
+ b.append(holdMic(slot));
+ if(has){ const p=mk('button','ib mine',ICON.play); p.title='تسجيلي'; p.onclick=()=>playMine(idOf(slot.key),p); b.append(p);
+  const x=mk('button','ib rec',ICON.del); x.title='حذف'; x.setAttribute('aria-label','حذف'); x.onclick=()=>del(slot); b.append(x); }
+ else if(old){ const p=mk('button','ib',ICON.play); p.title='تسجيل قديم لتقسيم آخر'; p.onclick=()=>playMine(idOf(slot.key),p); b.append(p); w.append(mk('span','tag wait','التقسيم اتغيّر، سجّلي المقاطع تاني')); }
+ else if(existing){ const p=mk('button','ib',ICON.play); p.title='تسجيلك الحالي'; p.onclick=()=>playUrl(existing,p); b.append(p); }
+ else b.append(mk('span','ib gap'));
+ w.prepend(b);
  return w;
 }
 const partsOf=it=>{ const sp=splits[it.id]; if(!sp) return it.parts;
@@ -137,18 +147,18 @@ function splitEditor(label,cur,orig,onSave,onReset){
   if(arr.join('').replace(/\s/g,'')!==label.replace(/[\u064B-\u0652\u0670]/g,'').replace(/\s/g,'')&&arr.join('').replace(/\s/g,'')!==label.replace(/\s/g,'')) say('انتبه: الحروف بعد التقسيم مختلفة عن الكلمة');
   try{ await onSave(arr); await load(); say('تم حفظ التقسيم ✓ قولي لـ Claude: «طبّق التقسيمات» وهتتحدث أماكن المقاطع. التسجيلات القديمة محفوظة','ok'); }catch(e){say('تعذر حفظ التقسيم');} };
  inp.onchange=commit; inp.onkeydown=e=>{ if(e.key==='Enter'){e.preventDefault();inp.blur();} };
- tx.append(inp);
- if(onReset){ const r=mk('button','x','الأصلي'); r.onclick=async()=>{ try{await onReset(); await load();}catch(e){} }; tx.append(r); }
+ tx.append(inp); tx.notes=mk('span','notes');
+ if(onReset){ const r=mk('button','x','الأصلي'); r.onclick=async()=>{ try{await onReset(); await load();}catch(e){} }; tx.notes.append(r); }
  return tx;
 }
 function wordLines(it,box){
- const l1=mk('div','line'); l1.append(mk('span','lab','الكلمة')); l1.append(mk('span','tx big',it.w));
+ const l1=mk('div','line'); l1.append(mk('span','tx big',it.w));
  l1.append(ctl({key:it.f,path:it.f,alt:it.alt,label:it.w}));
- const parts=partsOf(it), l2=mk('div','line'); l2.append(mk('span','lab','المقاطع'));
+ const parts=partsOf(it), l2=mk('div','line syl');
  const sid=it.id.replace(':','_'), tx=splitEditor(it.w,parts.map(p=>p.t),null,arr=>api('PUT','/api/split/'+sid,{word:it.w,lesson:it.id.split(':')[0],path:it.f,parts:arr}),splits[it.id]&&(()=>api('DELETE','/api/split/'+sid)));
- tx.querySelector('input').id='sp-'+it.id.replace(':','-'); if(splits[it.id]) tx.append(mk('span','tag wait','التقسيم محفوظ ✓ لتحديث التطبيق قولي: طبّقي التقسيمات'));
- l2.append(tx); l2.append(ctl({key:'grp/'+it.id,path:'grp:'+it.id,alt:it.alt,label:it.w+' (مقاطع)',parts:parts.map(p=>p.f)}));
- box.append(l1,l2);
+ tx.querySelector('input').id='sp-'+it.id.replace(':','-'); if(splits[it.id]) tx.notes.append(mk('span','tag wait','التقسيم محفوظ ✓ لتحديث التطبيق قولي: طبّقي التقسيمات'));
+ l2.append(tx); l2.append(ctl({key:'grp/'+it.id,path:'grp:'+it.id,alt:it.alt,label:it.w+' (مقاطع)',parts:parts.map(p=>p.f)})); l2.append(tx.notes);
+ const pr=mk('div','pair'); pr.append(l1,l2); box.append(pr);
 }
 const cSyl=c=>splits['c:'+c.id]||c.syl;
 const rmBtn=c=>{ const x=mk('button','x','إزالة'); x.onclick=async()=>{ try{await api('DELETE','/api/custom/'+c.id); await load();}catch(e){} }; return x; };
@@ -157,13 +167,13 @@ function customLine(c){
   const sy=MARKS.map(m=>c.label+m[1]), l=mk('div','line'); l.append(mk('span','lab','الأصوات')); l.append(mk('span','tx big',sy.join('  ')));
   l.append(ctl({key:'cl/'+c.id,path:'grp:cl'+c.id,label:'أصوات الحرف '+c.label,parts:sy.map(t=>'syl-ar/'+hex(t)+'.mp3')})); f.append(l);
   if(!c.fixed&&!recs[idOf('c/'+c.id)]) n.append(rmBtn(c)); return f; }
- if(c.kind==='word'&&c.syl&&c.syl.length){ const f=mk('div'); const w=mk('div','line'); w.append(mk('span','lab','كلمة')); w.append(mk('span','tx big',c.label)); w.append(ctl({key:'c/'+c.id,path:c.path,label:c.label}));
-  const sy=cSyl(c), m=mk('div','line'); m.append(mk('span','lab','المقاطع')); const sid='c_'+c.id;
+ if(c.kind==='word'&&c.syl&&c.syl.length){ const f=mk('div'); const w=mk('div','line'); w.append(mk('span','tx big',c.label)); w.append(ctl({key:'c/'+c.id,path:c.path,label:c.label}));
+  const sy=cSyl(c), m=mk('div','line syl'); const sid='c_'+c.id;
   const tx=splitEditor(c.label,sy,null,arr=>api('PUT','/api/split/'+sid,{word:c.label,custom:c.id,path:c.path,parts:arr}),splits['c:'+c.id]&&(()=>api('DELETE','/api/split/'+sid)));
-  if(splits['c:'+c.id]) tx.append(mk('span','tag wait','التقسيم محفوظ ✓ لتحديث التطبيق قولي: طبّقي التقسيمات')); m.append(tx);
-  m.append(ctl({key:'cg/'+c.id,path:'grp:c'+c.id,label:c.label+' (مقاطع)',parts:sy.map(t=>'syl-ar/'+hex(t)+'.mp3')}));
+  if(splits['c:'+c.id]) tx.notes.append(mk('span','tag wait','التقسيم محفوظ ✓ لتحديث التطبيق قولي: طبّقي التقسيمات')); m.append(tx);
+  m.append(ctl({key:'cg/'+c.id,path:'grp:c'+c.id,label:c.label+' (مقاطع)',parts:sy.map(t=>'syl-ar/'+hex(t)+'.mp3')})); m.append(tx.notes);
   if(!c.fixed&&!recs[idOf('c/'+c.id)]&&!recs[idOf('cg/'+c.id)]) w.append(rmBtn(c));
-  f.append(w,m); return f; }
+  const pr=mk('div','pair'); pr.append(w,m); f.append(pr); return f; }
  const l=mk('div','line'); l.append(mk('span','lab',{word:'كلمة',question:'سؤال',reading:'قراءة',other:''}[c.kind]||'')); l.append(mk('span','tx big',c.label||'')); l.append(ctl({key:'c/'+c.id,path:c.path,label:c.label}));
  if(!c.fixed&&!recs[idOf('c/'+c.id)]) l.append(rmBtn(c)); return l; }
 function render(){
