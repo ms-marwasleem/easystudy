@@ -30,6 +30,7 @@ h2{font-size:20px;margin:0;padding-bottom:4px;border-bottom:2px solid var(--blue
 .line.syl .ctl{margin:0;width:100%;flex-direction:column;align-items:stretch}
 .btns{display:flex;flex-wrap:nowrap;align-items:center;justify-content:flex-end;gap:.35em}
 .line.syl .btns{width:100%}
+.btns .del{order:-1;margin-right:auto}
 .notes{display:flex;flex-wrap:wrap;align-items:center;gap:.2em .6em}
 .tag{flex-basis:100%;font-size:.75em;line-height:1.3;color:var(--rec);font-weight:700}
 .tx .tag{display:block;margin-top:.2em}
@@ -131,7 +132,7 @@ function ctl(slot,existing){
  const u=mk('label','ib',ICON.up); u.title='رفع ملف صوتي'; const i=mk('input'); i.type='file'; i.accept='audio/*'; i.onchange=async()=>{ if(i.files[0]) await save(slot,i.files[0]); i.value=''; }; u.append(i); b.append(u);
  b.append(holdMic(slot));
  if(has){ const p=mk('button','ib mine',ICON.play); p.title='تسجيلي'; p.onclick=()=>playMine(idOf(slot.key),p); b.append(p);
-  const x=mk('button','ib rec',ICON.del); x.title='حذف'; x.setAttribute('aria-label','حذف'); x.onclick=()=>del(slot); b.append(x); }
+  const x=mk('button','ib rec',ICON.del); x.title='حذف'; x.setAttribute('aria-label','حذف'); x.onclick=()=>del(slot); x.classList.add('del'); b.append(x); }
  else if(old){ const p=mk('button','ib',ICON.play); p.title='تسجيل قديم لتقسيم آخر'; p.onclick=()=>playMine(idOf(slot.key),p); b.append(p); w.append(mk('span','tag wait','التقسيم اتغيّر، سجّلي المقاطع تاني')); }
  else if(existing){ const p=mk('button','ib',ICON.play); p.title='تسجيلك الحالي'; p.onclick=()=>playUrl(existing,p); b.append(p); }
  else b.append(mk('span','ib gap'));
