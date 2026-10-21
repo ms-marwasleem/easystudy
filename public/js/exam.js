@@ -15,21 +15,20 @@ async function openExam(lesson,ex){
   let d; try{ X.base=new URL(ex.file,location.href).href; d=await get(ex.file); }catch(e){ busy(false); message('Oops!','This paper did not load. Check the internet and try again.'); return; }
   await vpLoad(isAr()?null:new URL('.',X.base).href);
   X.d=d; X.title=ex.title||d.title||'Exam'; X.qs=[]; X.pages=[]; X.links=[]; X.run++;
-  const root=$('#xPages'); root.innerHTML=''; root.dir=isAr()?'rtl':'ltr';
+  const root=$('#xPages'); root.innerHTML='';
   (d.pages||[]).forEach((pg,i)=>root.append(xPage(pg,i,d)));
-  $('#exam').classList.toggle('ar',isAr()); $('#exam').lang=isAr()?'ar':'en';
   $('#xTitle').textContent=X.title; $('#xSub').textContent=SUBJECT.name;
-  // one button per assessment: pages that share a "group" (the assessment number) stack one after another and get ONE button; no group = a page is its own assessment
-  X.groups=[]; (d.pages||[]).forEach((p,i)=>{ const g=p.group!=null?String(p.group):'p'+i, k=X.groups.find(x=>x.g===g); if(k) k.pages.push(i); else X.groups.push({g,label:p.chip||p.title||String(i+1),pages:[i]}); });
+  // one button per assessment, ONE assessment on screen at a time: pages that share a "group" (the assessment number) stack under its button; no group = a page is its own assessment
+  // button text is short: the number if the assessment is numbered ("Model 2" -> 2, "تقييم نهائي ٣" -> ٣), else its name; "tab" on the page overrides
+  X.groups=[]; (d.pages||[]).forEach((p,i)=>{ const g=p.group!=null?String(p.group):'p'+i, k=X.groups.find(x=>x.g===g); if(k) k.pages.push(i); else X.groups.push({g,label:xTabLabel(p),pages:[i]}); });
   $('#xChips').innerHTML=X.groups.length>1?X.groups.map((g,i)=>`<button class="pill cream xchip" data-i="${i}">${g.label}</button>`).join(''):'';
-  $$('.xchip').forEach(b=>b.onclick=()=>{ X.pages[X.groups[+b.dataset.i].pages[0]].scrollIntoView({behavior:anim?'smooth':'auto',block:'start'}); });
-  const sc=$('#xScroll'); sc.onscroll=()=>{ clearTimeout(X.st); X.st=setTimeout(xChipNow,80); };
+  $$('.xchip').forEach(b=>b.onclick=()=>xShow(+b.dataset.i));
   $$('img',root).forEach(i=>{ if(!i.complete) i.addEventListener('load',()=>{ clearTimeout(xFit.t2); xFit.t2=setTimeout(xFit,60); },{once:true}); });
-  show('exam'); busy(false); xFit(); $('#xScroll').scrollTop=0;
+  X.cur=0; xShow(0,true); show('exam'); busy(false); xFit(); $('#xScroll').scrollTop=0;
   X.qs.forEach(q=>q.el.classList.toggle('done',q.atoms.every(a=>a.solved)));
 }
 function xPage(pg,pi,d){
-  const p=el('article','xpage'); p.dir=isAr()?'rtl':'ltr'; p.dataset.i=pi; X.pages.push(p); if(pg.fs) p.style.setProperty('--fs',pg.fs); if(pg.style) p.classList.add(...pg.style.split(' '));
+  const p=el('article','xpage'); p.dataset.i=pi; X.pages.push(p); if(pg.fs) p.style.setProperty('--fs',pg.fs); if(pg.style) p.classList.add(...pg.style.split(' '));
   const head=pg.head||d.head;
   if(head) p.append(el('header','xtop',`<div class="xtl">${head.l||''}</div><i class="xwave"></i><div class="xtr">${head.r||''}</div>`));
   if(pg.title) p.append(el('h2','xmodel',`<span class="xs">${xArt('smilestars:1,1')}</span><b>${pg.title}</b><span class="xs b">${xArt('smilestars:1,1')}</span>`));
@@ -204,16 +203,18 @@ function xDrawLinks(L){
 }
 
 // ---------- screen fit ----------
-// the button of the assessment on screen is lit
-function xChipNow(){ const sc=$('#xScroll'), mid=sc.getBoundingClientRect().top+sc.clientHeight*.35; let gi=0;
-  X.pages.forEach((p,i)=>{ if(p.getBoundingClientRect().top<=mid) gi=X.groups.findIndex(g=>g.pages.includes(i)); });
-  $$('.xchip').forEach((b,i)=>b.classList.toggle('on',i===gi)); }
+function xTabLabel(p){ const t=p.tab||p.chip||p.title||'', m=String(t).match(/[0-9\u0660-\u0669]+\s*$/); return p.tab||(m?m[0].trim():t); }
+function xShow(gi,first){   // only the pages of assessment gi are on screen; the others wait behind their buttons
+  X.cur=gi; const on=X.groups[gi].pages; X.pages.forEach((p,i)=>p.hidden=!on.includes(i));
+  $$('.xchip').forEach((b,i)=>b.classList.toggle('on',i===gi));
+  if(!first){ stopAll(); vStop(); xFit(); $('#xScroll').scrollTop=0; }
+}
 function xFit(){
   const sc=$('#xScroll'); if(!sc||$('#exam').hidden) return; const rem=parseFloat(getComputedStyle(document.documentElement).fontSize)||16,
     cw=sc.clientWidth-rem*.5, ch=sc.clientHeight-rem*.5, ratio=(X.d&&X.d.ratio)||.707, portrait=matchMedia('(max-aspect-ratio:1/1)').matches;
   const w=portrait?Math.min(cw,ch*ratio):cw;
   sc.classList.toggle('portrait',portrait); X.pages.forEach(p=>{ p.style.setProperty('--pw',w+'px'); p.style.setProperty('--ph',w/ratio+'px'); });
-  X.pages.forEach(xFitPage); X.links.forEach(xDrawLinks); xChipNow();
+  X.pages.filter(p=>!p.hidden).forEach(xFitPage); X.links.forEach(xDrawLinks);
 }
 // a sheet's text can be a little too long for its page on some screens (the smallest sizes of text and icons do not shrink): make the questions' text smaller until all fits
 function xFitPage(p){

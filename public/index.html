@@ -1,5 +1,23 @@
-<!doctype html><html><head><script>window.APP_V='290567b3ac6b'</script><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-visual"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><script>window.APP_V='fe669d3bf3f4'</script><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-visual">
 <title>EasyStudy</title>
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px);background:#DDA968}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#DDA968;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
+@keyframes ldb{to{transform:translateY(-6px)}}@keyframes ldw{to{transform:rotate(360deg)}}@keyframes ldr{0%{transform:translateX(-110%)}100%{transform:translateX(260%)}}
+#loading{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:#DDA968 radial-gradient(ellipse at 50% 35%,#EBC58C,#DDA968 60%,#C38A4C);transition:opacity .3s;font-family:Chewy,'Baloo Bhaijaan 2','Arial Rounded MT Bold','Trebuchet MS',sans-serif}
+#loading .ld{display:flex;flex-direction:column;align-items:center;gap:14px}
+#loading .ldt{font-weight:400;color:#fff;-webkit-text-stroke:5px #5A3418;paint-order:stroke fill;text-shadow:0 4px 0 #5A3418;line-height:1}
+#splashName{display:flex;flex-direction:column;align-items:center;gap:6px}
+#splashName .ldt{font-size:52px;letter-spacing:.5px}
+#splashName small{font-size:24px;color:#5A3418;letter-spacing:.5px}
+#loadingText{font-size:34px}</style>
+<!-- everything below loads without stopping the page from drawing: the splash screen shows at once -->
+<script>var cssReady=new Promise(function(r){window.cssDone=r});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Baloo+Bhaijaan+2:wght@600;800&family=Chewy&family=Gochi+Hand&family=Noto+Naskh+Arabic:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<!-- design: css/app.css is made by tools/build-app.py from one file per screen (change looks in css/<screen>.css, then run the script) -->
+<link rel="preload" as="style" href="css/app.css" onload="this.onload=function(){cssDone()};this.rel='stylesheet'" onerror="cssDone()">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<!-- behaviour: js/app-first.js (core, lib, subjects, start) draws the subjects page; start.js then loads js/app-rest.js (every other screen) in the background. Both made by tools/build-app.py -->
+<script defer src="js/app-first.js"></script>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -9,28 +27,10 @@
 <meta name="apple-mobile-web-app-title" content="EasyStudy">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Baloo+Bhaijaan+2:wght@600;800&family=Chewy&family=Gochi+Hand&family=Noto+Naskh+Arabic:wght@400;700&display=swap">
-<!-- design: one file per screen (change looks here only) -->
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/subjects.css">
-<link rel="stylesheet" href="css/map.css">
-<link rel="stylesheet" href="css/lesson.css">
-<link rel="stylesheet" href="css/vocab.css">
-<link rel="stylesheet" href="css/quiz.css">
-<link rel="stylesheet" href="css/arabic.css">
-<link rel="stylesheet" href="css/letter.css">
-<link rel="stylesheet" href="css/math.css">
-<link rel="stylesheet" href="css/frame.css">
-<link rel="stylesheet" href="css/exam.css">
-<link rel="stylesheet" href="css/tool.css">
-<link rel="stylesheet" href="css/en-al.css">
-<link rel="stylesheet" href="css/responsive.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-
-<!-- loading screen: styled inline so it shows before anything else has loaded (no white page) -->
-<div id="loading" style="position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:#DDA968 radial-gradient(ellipse at 50% 35%,#EBC58C,#DDA968 60%,#C38A4C);transition:opacity .3s;font-family:Chewy,'Baloo Bhaijaan 2',sans-serif">
-  <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+</head><body>
+<!-- splash / loading screen: first thing in the page, styled in the <style> above, so it shows the moment the link opens -->
+<div id="loading">
+  <div class="ld">
     <svg viewBox="-4 -6 136 98" width="150" height="108" style="animation:ldb .45s ease-in-out infinite alternate" aria-hidden="true">
       <ellipse cx="66" cy="86" rx="54" ry="5" fill="rgba(90,52,24,.28)"/>
       <path d="M8 58Q8 40 26 37L38 15Q43 7 53 7H84Q94 7 99 16L111 37Q124 40 124 55V64Q124 72 116 72H16Q8 72 8 64Z" fill="#EF4B3C" stroke="#5A3418" stroke-width="4" stroke-linejoin="round"/>
@@ -41,10 +41,10 @@
       <g style="transform-origin:36px 72px;animation:ldw .5s linear infinite"><circle cx="36" cy="72" r="13" fill="#3B3F4A" stroke="#5A3418" stroke-width="4"/><path d="M36 61v22" stroke="#8C93A0" stroke-width="3"/></g>
       <g style="transform-origin:96px 72px;animation:ldw .5s linear infinite"><circle cx="96" cy="72" r="13" fill="#3B3F4A" stroke="#5A3418" stroke-width="4"/><path d="M96 61v22" stroke="#8C93A0" stroke-width="3"/></g>
     </svg>
-    <b id="loadingText" style="font-weight:400;font-size:34px;color:#fff;-webkit-text-stroke:5px #5A3418;paint-order:stroke fill;text-shadow:0 4px 0 #5A3418">Loading...</b>
+    <div id="splashName"><b class="ldt">EasyStudy</b><small>Primary One</small></div>
+    <b id="loadingText" class="ldt" hidden>Loading...</b>
     <div style="width:180px;height:16px;border-radius:999px;background:rgba(92,52,22,.4);border:3px solid #5A3418;overflow:hidden"><div style="height:100%;width:40%;border-radius:999px;background:#FFCB2E;animation:ldr 1.1s ease-in-out infinite"></div></div>
   </div>
-  <style>@keyframes ldb{to{transform:translateY(-6px)}}@keyframes ldw{to{transform:rotate(360deg)}}@keyframes ldr{0%{transform:translateX(-110%)}100%{transform:translateX(260%)}}</style>
 </div>
 <div class="patches" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 <canvas id="fx"></canvas>
@@ -67,6 +67,7 @@
     </div>
     <div class="hud" data-hud></div>
   </header>
+  <div class="maplegend" id="mapLegend"></div>
   <div class="map-wrap" id="mapWrap"></div>
 </section>
 
@@ -85,13 +86,20 @@
     <main class="stage" id="stage"></main>
     <nav class="rail" id="rail" aria-label="Controls"></nav>
   </div>
-  <nav class="tabs" role="tablist">
-    <button class="pill tab" role="tab" data-tab="read"></button>
-    <button class="pill tab" role="tab" data-tab="words"></button>
-    <button class="pill tab" role="tab" data-tab="quiz"></button>
-    <button class="pill tab" role="tab" data-tab="booklet" hidden></button>
-    <button class="pill tab" role="tab" data-tab="grammar" hidden></button>
-  </nav>
+  <div class="foot">
+    <div class="lnav" id="lnav" hidden>
+      <div class="ln-row ln-sec" hidden></div>
+      <div class="ln-row ln-pg" hidden></div>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button class="pill tab" role="tab" data-tab="read"></button>
+      <button class="pill tab" role="tab" data-tab="words"></button>
+      <button class="pill tab" role="tab" data-tab="quiz"></button>
+      <button class="pill tab" role="tab" data-tab="booklet" hidden></button>
+      <button class="pill tab" role="tab" data-tab="workbook" hidden></button>
+      <button class="pill tab" role="tab" data-tab="grammar" hidden></button>
+    </nav>
+  </div>
 </section>
 
 <!-- EXAM PAPERS (Models / تقييمات) -->
@@ -134,24 +142,4 @@
 
 <div class="hint" id="hint" hidden><span class="hint-text" id="hintText"></span><svg class="hint-arrow" id="hintArrow" viewBox="0 0 100 100"><path d=""/></svg></div>
 
-<!-- behaviour: one file per screen, loaded in this order -->
-<script src="js/core.js"></script>
-<script src="js/lib.js"></script>
-<script src="js/subjects.js"></script>
-<script src="js/map.js"></script>
-<script src="js/lesson.js"></script>
-<script src="js/vocab.js"></script>
-<script src="js/quiz.js"></script>
-<script src="js/letter.js"></script>
-<script src="js/quiz-letters.js"></script>
-<script src="js/quiz-al.js"></script>
-<script src="js/quiz-math.js"></script>
-<script src="js/math-explain.js"></script>
-<script src="js/book.js"></script>
-<script src="js/exam-art.js"></script>
-<script src="js/exam.js"></script>
-<script src="js/tool.js"></script>
-<script src="js/start.js"></script>
-
 </body></html>
-<!-- preview refresh 2026-10-19 booklet -->

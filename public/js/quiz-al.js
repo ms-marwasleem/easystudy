@@ -1,4 +1,4 @@
-/* ENGLISH AL — part types for the Lesson tab (the book's pages, one after another) and the Booklet tab (called from qGo in quiz.js through QX / QXF; same sheet, stars and arrows).
+/* ENGLISH AL — box models for the Lesson tab (the book's pages, one after another) and the Booklet tab (QM in quiz.js, drawn through qxGo; same sheet, stars and arrows). They read themselves (own:1).
    Content: data/en-al/<lesson>/questions.json, sets "book":"lesson" (Lesson tab) or "book":"booklet" (Booklet tab). Other types (pick, yesno, link, circle, tick, type ...) work as in quiz.js.
    explain = one book page as a part. item: {pics:[..], labels:[{w:"dad", at:[x%,y%]}] (word chips on the first picture), lines:[{t:"text", a:"audio", cls:"red|blue|head|note|sm"}],
              table:{title, rows:[[{t,a},{t,a}],..]}}. Every word of a line is tappable (that word alone is read). Listen reads the page; when all lines were heard the star comes and the green arrow glows.
@@ -13,7 +13,7 @@ function alToks(host,text,onTap){
   String(text).split(/\s+/).filter(Boolean).forEach((w,k)=>{ const sp=el('span','alw',w); sp.addEventListener('click',e=>{ e.stopPropagation(); if(qz.busy&&!onTap) return; hideHint(); vStop(); sp.classList.add('lit'); qSound(alWordSrc(w),alClean(w)).then(()=>sp.classList.remove('lit')); if(onTap) onTap(w); });
     host.append(k?' ':'',sp); });
 }
-const alStar=()=>{ const d=$(`.qdots i[data-i="${qz.i}"]`); if(d&&!d.classList.contains('got')){ d.innerHTML=STAR(true); d.classList.add('got'); if(anim) G.fromTo(d,{scale:1.8},{scale:1,duration:.6,ease:'elastic.out(1.2,.4)'}); } carFrac((qz.i+1)/qz.list.length); };
+const alStar=()=>{ const d=$(`.qdots i[data-i="${qz.i}"]`); if(d&&d.classList.contains('got')) return carFrac((qz.i+1)/qz.list.length); qStar(); };
 const alNextGo=()=>{ if(qz.i+1<qz.list.length) qGo(qz.i+1); else award(LESSON.id,qKey()); };
 
 /* ---------- explain ---------- */
@@ -24,15 +24,20 @@ function alExplain(box,q,s,run){
     b.addEventListener('click',async e=>{ e.stopPropagation(); hideHint(); vStop(); tok++; b.classList.add('lit'); await qSound(alWordSrc(w),alClean(w)); b.classList.remove('lit'); heard(id); }); return b; };
   if((q.pics||[]).length){ const pc=el('div','alpics'); q.pics.forEach((p,k)=>{ const f=el('div','alfig'); const im=el('img','',''); im.src=p; im.alt=''; f.append(im); pc.append(f);
     (q.labels||[]).filter(lb=>(lb.p||0)===k).forEach(lb=>{ const b=chip('allabel',lb.w,f,lb.at); b.dataset.x=lb.at[0]; b.dataset.y=lb.at[1]; });
-    if((q.labels||[]).some(lb=>(lb.p||0)===k)){ const place=()=>{ const fr=f.getBoundingClientRect(), ir=im.getBoundingClientRect(); if(!ir.width) return; $$('.allabel',f).forEach(b=>{ const bw=b.offsetWidth, bh=b.offsetHeight;
-        const cx=Math.min(Math.max(ir.left-fr.left+ir.width*b.dataset.x/100,bw/2+2),fr.width-bw/2-2), cy=Math.min(Math.max(ir.top-fr.top+ir.height*b.dataset.y/100,bh/2+2),fr.height-bh/2-2); b.style.left=cx+'px'; b.style.top=cy+'px'; }); };
+    if((q.labels||[]).some(lb=>(lb.p||0)===k)){ const place=()=>{ const fr=f.getBoundingClientRect(), ir=im.getBoundingClientRect(), placed=[]; if(!ir.width) return; $$('.allabel',f).forEach(b=>{ const bw=b.offsetWidth, bh=b.offsetHeight;
+        let cx=Math.min(Math.max(ir.left-fr.left+ir.width*b.dataset.x/100,bw/2+2),fr.width-bw/2-2), cy=Math.min(Math.max(ir.top-fr.top+ir.height*b.dataset.y/100,bh/2+2),fr.height-bh/2-2);
+        // a small picture (phone) brings two chips onto each other: move this one sideways away from the one already placed, or up/down when the side is full
+        for(const o of placed){ const dx=(bw+o.w)/2+3-Math.abs(cx-o.x), dy=(bh+o.h)/2+2-Math.abs(cy-o.y); if(dx<=0||dy<=0) continue;
+          const sx=cx>=o.x?1:-1, nx=cx+sx*dx; if(nx-bw/2>=2&&nx+bw/2<=fr.width-2){ cx=nx; continue; }
+          const sy=cy>=o.y?1:-1, ny=cy+sy*dy; cy=(ny-bh/2>=2&&ny+bh/2<=fr.height-2)?ny:o.y-sy*((bh+o.h)/2+2); }
+        placed.push({x:cx,y:cy,w:bw,h:bh}); b.style.left=cx+'px'; b.style.top=cy+'px'; }); };
       im.addEventListener('load',place); new ResizeObserver(place).observe(f); setTimeout(place,60); }
     if(q.caps&&q.caps[k]) chip('alcap',q.caps[k],f); });
     pg.append(pc); }
   const tx=el('div','altext'); pg.append(tx);
   const rows=[], need=new Set(), got=new Set(); let tok=0;
   const heard=k=>{ got.add(k); if(need.size&&[...need].every(x=>got.has(x))) done(); };
-  const mk=(t,src,cls,host)=>{ const row=el('div','alline'+(cls?' '+cls:'')), sp=el('button','qsay alsp',SAY_LN); sp.setAttribute('aria-label','Listen'); const p=el('p','altx'); alToks(p,t); row.append(sp,p); host.append(row);
+  const mk=(t,src,cls,host)=>{ const row=el('div','alline'+(cls?' '+String(cls).split(/\s+/).map(c=>'al-'+c).join(' '):''))   /* line styles get an al- prefix: a bare .note/.head would pick up the reading card's rules */, sp=el('button','qsay alsp',SAY_LN); sp.setAttribute('aria-label','Listen'); const p=el('p','altx'); alToks(p,t); row.append(sp,p); host.append(row);
     const id='T'+rows.length; need.add(id); const r={row,t,src,id}; rows.push(r);
     const go=async()=>{ if(!row.isConnected) return; const my=++tok; clearOn(); vStop(); row.classList.add('on'); await qSound(src,t); if(my===tok){ row.classList.remove('on'); heard(id); } };
     sp.onclick=go; row.addEventListener('click',e=>{ if(e.target.closest('.alw')) return; go(); }); r.go=go; r.play=async()=>{ row.classList.add('on'); await qSound(src,t); row.classList.remove('on'); heard(id); }; return r; };
@@ -47,7 +52,7 @@ function alExplain(box,q,s,run){
   const lis=el('button','alall',`${SAY_LN}<span>${tr('Listen')}</span>`); lis.setAttribute('aria-label','Listen to the page'); pg.append(lis);
   function done(){ if(q._done) return; q._done=1; alStar(); next.disabled=false; next.classList.add('ready'); if(anim) G.fromTo(next,{scale:1.35},{scale:1,duration:.6,ease:'elastic.out(1.3,.4)'}); }
   if(q._done){ next.disabled=false; next.classList.add('ready'); }
-  const all=async()=>{ const my=++tok; clearOn(); vStop(); for(const r of rows){ if(my!==tok||qz.list[qz.i]!==q||!inQ()) return false; await r.play(); if(my!==tok) return false; await new Promise(z=>setTimeout(z,r.row.classList.contains('head')?300:450)); }
+  const all=async()=>{ const my=++tok; clearOn(); vStop(); for(const r of rows){ if(my!==tok||qz.list[qz.i]!==q||!inQ()) return false; await r.play(); if(my!==tok) return false; await new Promise(z=>setTimeout(z,r.row.classList.contains('al-head')?300:450)); }
     for(const l of labs){ if(my!==tok||qz.list[qz.i]!==q||!inQ()) return false; l.b.classList.add('lit'); await qSound(alWordSrc(l.w),alClean(l.w)); l.b.classList.remove('lit'); heard(l.id); if(my!==tok) return false; await new Promise(z=>setTimeout(z,350)); } return my===tok; };
   lis.addEventListener('click',()=>{ hideHint(); all(); });
   box._after=async()=>{ if(!q._done) await all(); };
@@ -126,16 +131,11 @@ function alCheck(box,q,s,run){
   box._after=async()=>{ if(q.taskSay) await qSound(R_Q(q.taskSay),''); };
 }
 
-QX.explain=QX.mcq=QX.cloze=QX.order=QX.check=1; const QOWN={explain:1,mcq:1,cloze:1,order:1,check:1};   // these draw their own listen buttons / read themselves (quiz-letters.js does not add its speaker or auto-read)
-Object.assign(QXF,{explain:alExplain,mcq:alMcq,cloze:alCloze,order:alOrder,check:alCheck});
-
-/* Help: light the right option / chip */
-const QHELP={
-  mcq:(q,w)=>{ const b=$$('.alopt',w)[q.answer]; return b?[b]:[]; },
-  cloze:(q,w)=>{ const bl=$$('.alblank',w).find(b=>!b.classList.contains('got')); if(!bl) return []; const a=String((q.text.match(/\[\[(.+?)\]\]/g)||[])[+bl.dataset.n]||'').replace(/\[|\]/g,''); const c=$$('.alchip:not(.used)',w).find(x=>x.textContent.toLowerCase()===a.toLowerCase()); return c?[c]:[]; },
-  check:(q,w)=>{ const ok=q.ok||q.words.map((x,k)=>k); const b=$$('.alck',w).find(x=>ok.includes(+x.dataset.k)&&!x.classList.contains('on')); return b?[b]:[]; },
-  order:(q,w)=>{ const k=$$('.alchip.placed',w).length; const t=$$('.alpool .alchip',w).find(x=>!x.classList.contains('used')&&x.textContent===q.chunks[k]); return t?[t]:[]; }
-};
+QM.explain={sheet:'box', own:1, draw:alExplain};
+QM.mcq={sheet:'box', own:1, draw:alMcq, help:(q,w)=>[$$('.alopt',w)[q.answer]]};
+QM.cloze={sheet:'box', own:1, draw:alCloze, help:(q,w)=>{ const bl=$$('.alblank',w).find(b=>!b.classList.contains('got')); if(!bl) return []; const a=String((q.text.match(/\[\[(.+?)\]\]/g)||[])[+bl.dataset.n]||'').replace(/\[|\]/g,''); return $$('.alchip:not(.used)',w).filter(x=>x.textContent.toLowerCase()===a.toLowerCase()).slice(0,1); }};
+QM.order={sheet:'box', own:1, draw:alOrder, help:(q,w)=>{ const k=$$('.alchip.placed',w).length; return $$('.alpool .alchip',w).filter(x=>!x.classList.contains('used')&&x.textContent===q.chunks[k]).slice(0,1); }};
+QM.check={sheet:'box', own:1, draw:alCheck, help:(q,w)=>{ const ok=q.ok||q.words.map((x,k)=>k); return $$('.alck',w).filter(x=>ok.includes(+x.dataset.k)&&!x.classList.contains('on')).slice(0,1); }};
 
 /* ---------- Grammar tab: the lesson's grammar boxes (lesson.json "grammar":[{title, rows:[[{t,a},..],..]}]); tap a row to hear it, hear them all = star ---------- */
 function showGrammar(){

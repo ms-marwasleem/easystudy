@@ -2,7 +2,7 @@
 const DIG_RE=/[\u0660-\u0669\u06F0-\u06F9]/g, normDigits=s=>String(s==null?'':s).replace(DIG_RE,d=>{ const c=d.charCodeAt(0); return String(c>=0x6F0?c-0x6F0:c-0x660); });
 document.addEventListener('input',e=>{ const t=e.target; if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA')&&DIG_RE.test(t.value)){ DIG_RE.lastIndex=0; const p=t.selectionStart; t.value=normDigits(t.value); try{ t.setSelectionRange(p,p); }catch(_){} } DIG_RE.lastIndex=0; },true);
 /* CORE — shared helpers for every screen: drawings, sounds, motion, hints, popups, stars, navigation state.
-   Files load in this order: core, subjects, map, lesson, vocab, start (see index.html).
+   index.html loads js/app-first.js (core, lib, subjects, start) then js/app-rest.js; both made by tools/build-app.py from these files.
    Colours/sizes live in css/, words a child reads live in data/ — neither needs a change here. */
 const G = window.gsap || null;
 const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -103,8 +103,17 @@ document.addEventListener('pointerdown',e=>{ const b=e.target.closest('.pill,.rb
 document.addEventListener('pointerup',()=>{ if(anim) $$('.pill,.rb,.box').forEach(b=>{ if(b._gsap&&b._gsap.scaleX!==1) G.to(b,{scaleX:1,scaleY:1,duration:.7,ease:'elastic.out(1.1,.35)'}); }); });
 
 /* ---------- Sounds ---------- */
-let fxCtx=null;
-function ac(){ try{ fxCtx=fxCtx||new (window.AudioContext||window.webkitAudioContext)(); if(fxCtx.state!=='running') fxCtx.resume(); return fxCtx; }catch(e){ return null; } }
+/* ONE speaker (Web Audio) for every sound in the app: effects, letters, words, reading, celebrations.
+   iPad/iPhone: after the screen locks or another app is used, the old speaker can stay mute (sometimes
+   while it even says "running"). So when the app is hidden all sounds stop, and on the next tap the old
+   speaker is thrown away and a new one is made inside that tap (see unlockSound below). */
+const SND={ctx:null,stale:false};
+// decode a sound file; a file that is not a sound (an Arabic slot not recorded yet) only rejects here: the browser's own second promise is caught, so no script error
+const decodeSnd=(ctx,b)=>new Promise((ok,no)=>{ const p=ctx.decodeAudioData(b,ok,no); if(p&&p.catch) p.catch(()=>{}); });
+const wakeCtx=c=>{ try{ const p=c.resume(); if(p&&p.catch) p.catch(()=>{}); }catch(e){} };
+function newSpeaker(){ try{ if(SND.ctx&&SND.ctx.state!=='closed') SND.ctx.close(); }catch(e){}
+  try{ SND.ctx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ SND.ctx=null; } return SND.ctx; }
+function ac(){ const c=SND.ctx&&SND.ctx.state!=='closed'?SND.ctx:newSpeaker(); if(c&&c.state!=='running') wakeCtx(c); return c; }
 function tone(f,type,vol,len,slide){ const c=ac(); if(!c) return; const t=c.currentTime,o=c.createOscillator(),g=c.createGain();
   o.type=type; o.frequency.setValueAtTime(f,t); if(slide) o.frequency.exponentialRampToValueAtTime(f*slide,t+len*.8);
   g.gain.setValueAtTime(vol,t); g.gain.exponentialRampToValueAtTime(.001,t+len); o.connect(g).connect(c.destination); o.start(t); o.stop(t+len+.02); }
@@ -187,11 +196,15 @@ const total=()=>Object.values(STARS).reduce((a,o)=>a+Object.keys(o).length,0);
 const lessonStars=id=>STARS[id]?Object.keys(STARS[id]).length:0;
 // lessons the child has opened (kept on this device): the map's car stands after the last lesson opened or earned, not only after finished ones
 let OPENED={}; try{ OPENED=JSON.parse(localStorage.getItem('zoom-opened')||'{}')||{}; }catch(e){}
-const markOpened=id=>{ if(OPENED[id]) return; OPENED[id]=1; try{ localStorage.setItem('zoom-opened',JSON.stringify(OPENED)); }catch(e){} };
+const markOpened=id=>{ if(!OPENED[id]){ OPENED[id]=1; try{ localStorage.setItem('zoom-opened',JSON.stringify(OPENED)); }catch(e){} } setLast(id); };
+// where the child last was, per subject: the lesson, and the book page when she came in through a page sign (the map's car stops there)
+let LAST={}; try{ LAST=JSON.parse(localStorage.getItem('zoom-last')||'{}')||{}; }catch(e){}
+const subjKey=()=>(typeof SUBJECT!=='undefined'&&SUBJECT&&(SUBJECT.id||SUBJECT.name))||'';
+function setLast(id,p){ LAST[subjKey()]=p?{id,p}:{id}; try{ localStorage.setItem('zoom-last',JSON.stringify(LAST)); }catch(e){} }
 const lessonTouched=l=>!!(l&&(OPENED[l.id]||lessonStars(l.id)>0));
 const lessonParts=m=>(m&&m.tabs&&m.tabs.length)||3;   // a lesson with fewer tabs has fewer stars to earn (subject.json lesson "tabs")
 // the lesson the map points at: the furthest one touched (opened or starred) while it is unfinished, else the one after it; nothing touched yet = the first
-function curLessonOf(list){ const L=list.filter(l=>l.file); if(!L.length) return null; let f=-1; L.forEach((l,i)=>{ if(lessonTouched(l)) f=i; });
+function curLessonOf(list){ const L=list.filter(l=>l.file); if(!L.length) return null; const lt=LAST[subjKey()], lm=lt&&L.find(l=>l.id===lt.id); if(lm) return lm; let f=-1; L.forEach((l,i)=>{ if(lessonTouched(l)) f=i; });
   if(f<0) return L[0]; return lessonStars(L[f].id)>=lessonParts(L[f])&&L[f+1]?L[f+1]:L[f]; }
 function paintHud(){ $$('[data-hud]').forEach(h=>h.innerHTML=`<span class="ic">${STAR(true)}</span><span>${total()}</span>`); }
 const PARTS=[['read','Lesson'],['words','Vocabulary'],['quiz','Questions'],['booklet','Booklet'],['grammar','Grammar']];   // names go through tr() when shown
@@ -237,19 +250,23 @@ $('#levelUp').addEventListener('click',e=>{ if(!e.target.closest('button')){ $('
 
 /* ---------- State ---------- */
 let COURSE=null, SUBJECT=null, LESSON=null;
-/* ---------- Arabic subject: SUBJECT.rtl (course.json) makes the screens speak Arabic; text runs right to left, numbers are ١٢٣ ---------- */
-const AR_UI={'Models':'تقييمات','Tests':'اختبارات','Tools':'أدوات','Booklet':'الكتيّب','Map key':'مفتاح الخريطة','Revision':'مراجعة','Previous':'السابق','Next':'التالي','Lesson':'الدرس','Vocabulary':'الكلمات','Questions':'الأسئلة','Read':'اسمع','Continue':'كمّل','Pause':'وقّف','Restart':'من الأول','Slow':'بطيء','Normal':'عادي',
+/* ---------- Arabic subject: SUBJECT.rtl (course.json) makes the TEXT Arabic (class .ar on the screen; text blocks run right to left, css/arabic.css); the layout and button places stay the same as every subject; numbers are ١٢٣ ---------- */
+const AR_UI={'Models':'تقييمات','Tests':'اختبارات','Test':'اختبار','Tool':'أداة','Tools':'أدوات','Booklet':'كُتيب','Map key':'مفتاح الخريطة','Revision':'مراجعة','Previous':'السابق','Next':'التالي','Lesson':'الدرس','Vocabulary':'الكلمات','Questions':'الأسئلة','Read':'اسمع','Continue':'كمّل','Pause':'وقّف','Restart':'من الأول','Slow':'بطيء','Normal':'عادي',
   'Help':'ساعدني','Listen':'اسمع','Teach':'علّمني','Write':'اكتب','Stop':'وقّف','Listen!':'اسمع!','Read with me!':'اقرأ معي!','Your turn! Write it.':'دورك! اكتب الكلمة','Tap and write!':'اضغط واكتب!',
   'Great!':'ممتاز!','Super!':'رائع!','Again':'تاني','Map':'الخريطة','Nice!':'تمام!','Unit':'الوحدة','Book':'الكتاب','Loading...':'لحظة...','Coming soon!':'قريبًا!','Soon!':'قريبًا!','Oops!':'أوبس!','Primary 1':'الصف الأول','Term 1':'الترم الأول'};
 const isAr=()=>!!(SUBJECT&&SUBJECT.rtl);
-const tr=s=>isAr()&&AR_UI[s]||s;
+const ptsName=()=>isAr()?'كتاب التقييمات':(SUBJECT&&/^math/.test(SUBJECT.id)?'PTS':'Assessments');   // the Workbook: languages call it Assessments
+const tr=s=>s==='PTS'?ptsName():isAr()&&AR_UI[s]||s;
 // Arabic letters come with their marks (a letter + fatha/damma/kasra/sukun/shadda = one glyph); other text is split per character
 const AR_MARKS='\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED';
 function glyphs(s){ if(!/[\u0600-\u06FF]/.test(s)) return [...s]; const out=[]; for(const ch of s){ if(new RegExp('['+AR_MARKS+']').test(ch)&&out.length) out[out.length-1]+=ch; else out.push(ch); } return out; }
 const arBase=g=>g.replace(new RegExp('['+AR_MARKS+'\\u0640]','g'),'');
 const sameLetter=(a,b)=>{ const n=c=>arBase(c).replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').toLowerCase(); return n(a)===n(b); };
 const num=n=>isAr()?String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]):String(n);
-function show(id){ ['subjects','map','lesson','exam'].forEach(s=>$('#'+s).hidden=s!==id); hideHint(); if(typeof appNav==='function') appNav(id); }
+// the direction of the subject's screens is set ONCE, here: languages left-to-right, Arabic right-to-left (course.json "rtl").
+// Everything inside follows it (logical css: inline-start/end); only parts that must keep their place say direction:ltr themselves (page/question arrows, the lesson road).
+function subjDir(){ const ar=isAr(); ['map','lesson','exam'].forEach(s=>{ const e=$('#'+s); e.dir='ltr'; e.lang=ar?'ar':'en'; e.classList.toggle('ar',ar); }); }
+function show(id){ if(id!=='subjects') subjDir(); ['subjects','map','lesson','exam'].forEach(s=>$('#'+s).hidden=s!==id); hideHint(); if(typeof appNav==='function') appNav(id); }
 $$('[data-icon]').forEach(b=>b.innerHTML=ICON[b.dataset.icon]);
 $$('[data-go]').forEach(b=>b.addEventListener('click',()=>b.dataset.go==='map'?openMap():openSubjects()));
 
@@ -262,16 +279,24 @@ function busy(on,text){ busyN=Math.max(0,busyN+(on?1:-1)); const b=$('#loading')
 /* ---------- Sound unlock: Safari (iPad/iPhone) only lets sound start from a tap,
    so on the first taps we wake up both the speaker (Web Audio) and the talking voice. ---------- */
 let unlocked=false;
+const SILENT_WAV='data:audio/wav;base64,UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA==';
 function unlockSound(){
+  if(SND.stale){ SND.stale=false; newSpeaker(); try{ speechSynthesis.cancel(); }catch(e){} }   // back from lock / another app: a fresh speaker
   try{ const c=ac(); if(c){ const b=c.createBuffer(1,1,22050), s=c.createBufferSource(); s.buffer=b; s.connect(c.destination); s.start(0); } }catch(e){}
-  try{ if(typeof player!=='undefined'){ if(!player.ctx) player.ctx=new (window.AudioContext||window.webkitAudioContext)(); if(player.ctx.state!=='running') player.ctx.resume(); } }catch(e){}
+  if(!unlocked||SND.wokeAt!==SND.ctx){ SND.wokeAt=SND.ctx;   // a tiny silent normal-audio play also wakes the phone's sound for the page
+    try{ const a=new Audio(SILENT_WAV); a.volume=0; const p=a.play(); if(p&&p.catch) p.catch(()=>{}); }catch(e){} }
   try{ if('speechSynthesis' in window && !unlocked){ const u=new SpeechSynthesisUtterance('.'); u.volume=0.01; u.rate=2; speechSynthesis.speak(u); speechSynthesis.getVoices(); } }catch(e){}
   unlocked=true;
 }
 ['pointerdown','touchend','click','keydown'].forEach(ev=>document.addEventListener(ev,unlockSound,{capture:true}));
 if('speechSynthesis' in window){ try{ speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices(); }catch(e){} }
 
-// coming back from a locked screen or another app: wake the speakers right away
-document.addEventListener('visibilitychange',()=>{ if(document.hidden) return;
-  try{ if(fxCtx&&fxCtx.state!=='running') fxCtx.resume().catch(()=>{}); }catch(e){}
-  try{ if(typeof player!=='undefined'&&player.ctx&&player.ctx.state!=='running') player.ctx.resume().catch(()=>{}); }catch(e){} });
+// leaving (screen lock, another app): stop every sound and mark the speaker old; coming back: try to wake it, the next tap makes a new one
+function sleepSound(){ SND.stale=true;
+  try{ if(typeof player!=='undefined'&&player.run){ pausePlay(); readRail(); } }catch(e){}
+  try{ if(typeof vStop==='function') vStop(); }catch(e){}
+  try{ speechSynthesis.cancel(); }catch(e){}
+  try{ if(SND.ctx&&SND.ctx.state==='running') SND.ctx.suspend(); }catch(e){} }
+document.addEventListener('visibilitychange',()=>{ if(document.hidden) return sleepSound(); if(SND.ctx&&SND.ctx.state!=='closed') wakeCtx(SND.ctx); });
+addEventListener('pagehide',sleepSound);
+addEventListener('pageshow',e=>{ if(e.persisted) SND.stale=true; });

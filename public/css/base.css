@@ -87,7 +87,8 @@ svg{overflow:visible}
 
 .screen{position:relative;z-index:1;height:100%;display:grid;grid-template-columns:minmax(0,1fr);padding-block:0.75rem}
 .screen[hidden]{display:none}
-#subjects,#map{grid-template-rows:auto 1fr;gap:0.625rem}
+#subjects{grid-template-rows:auto 1fr;gap:0.625rem}
+#map{grid-template-rows:auto auto 1fr;gap:0.625rem}
 .top{display:flex;justify-content:space-between;align-items:center;gap:0.75rem}
 .navbtns{display:flex;align-items:center;gap:0.75rem;min-width:0}
 .hello{display:flex;align-items:center;gap:0.625rem;min-width:0}

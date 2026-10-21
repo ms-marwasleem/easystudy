@@ -6,6 +6,7 @@
    "page": 3,
    "task": "Write the number.",
    "taskAudio": "q/task-1.mp3",
+   "both": true,
    "items": [
     {
      "img": "../../pics/bananas-3.png",
@@ -43,8 +44,7 @@
      "group": true,
      "audio": "words/three.mp3"
     }
-   ],
-   "both": true
+   ]
   },
   {
    "type": "link",

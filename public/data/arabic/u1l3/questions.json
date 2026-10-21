@@ -10,6 +10,7 @@
     "../letters/623/name.mp3"
    ],
    "hint": "اضغط على الصور التي فيها صوت الألف",
+   "bigP": true,
    "items": [
     {
      "word": "أَسَد",
@@ -151,8 +152,7 @@
       87.5
      ]
     }
-   ],
-   "bigP": true
+   ]
   },
   {
    "type": "position",
@@ -214,6 +214,12 @@
     "../q-prompts/choose-letter-sound-b.mp3"
    ],
    "hint": "اختار صوت الألف",
+   "choices": [
+    "أَ",
+    "أُ",
+    "إِ",
+    "أْ"
+   ],
    "items": [
     {
      "word": "أُخْطُبُوط",
@@ -233,12 +239,6 @@
      "audio": "q/c5-ishara.mp3",
      "answer": "إِ"
     }
-   ],
-   "choices": [
-    "أَ",
-    "أُ",
-    "إِ",
-    "أْ"
    ]
   },
   {
@@ -324,15 +324,15 @@
    "task": "أَكْتُبُ كَمَا بِالْمِثَالِ",
    "taskAudio": "../q-prompts/write-example.mp3",
    "hint": "اكتب الجملة",
+   "sentence": true,
+   "faint": true,
    "items": [
     {
      "word": "هَذَا أَسَدٌ يَأْكُلُ لَحْمًا",
      "pic": "../../pics/ar-lion-eating.jpg",
      "audio": "q/s10.mp3"
     }
-   ],
-   "sentence": true,
-   "faint": true
+   ]
   }
  ]
 }

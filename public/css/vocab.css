@@ -104,10 +104,10 @@
 .vm-say{width:2.125rem;height:2.125rem}.vm-say svg{width:1.4375rem;height:1.4375rem}
 #lesson.vmode .vinfo{flex-direction:column-reverse;gap:2px}
 #lesson.ar.vmode .vm-t span{font-size:calc(var(--wfs,3.5rem)*.85)}
+#lesson.ar.vmode .vmeaning{max-width:100%;white-space:normal}#lesson.ar.vmode .vm-t{min-width:0;max-width:100%}#lesson.ar.vmode .vm-t span{text-align:center;text-wrap:balance}   /* a long meaning goes on two lines instead of off the screen */
 
 .vthumb img.cut{object-fit:contain}
 
-#lesson.vtab.lwtab .rail{display:flex}#lesson.vtab.lwtab .mid{grid-template-columns:minmax(0,1fr) auto}
 #lesson.wpop .rail{display:none!important}
 
 /* the small pen after a lesson word that is also in the Words tab */

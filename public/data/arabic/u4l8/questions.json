@@ -185,19 +185,23 @@
    "items": [
     {
      "word": "مِغْزَل",
-     "pic": "../../pics/ar-spinning.png"
+     "pic": "../../pics/ar-spinning.png",
+     "audio": "words/mighzal.mp3"
     },
     {
      "word": "غَزَالَة",
-     "pic": "../../pics/ar-gazelle.png"
+     "pic": "../../pics/ar-gazelle.png",
+     "audio": "words/ghazala.mp3"
     },
     {
      "word": "غُرَاب",
-     "pic": "../../pics/ar-crow.jpg"
+     "pic": "../../pics/ar-crow.jpg",
+     "audio": "words/ghurab.mp3"
     },
     {
      "word": "غَوَّاصَة",
-     "pic": "../../pics/ar-submarine.png"
+     "pic": "../../pics/ar-submarine.png",
+     "audio": "words/ghawwasa.mp3"
     }
    ]
   },
@@ -223,7 +227,8 @@
      "word": "أَغْنَام",
      "pic": "../../pics/ar-sheep.png",
      "audio": "words/aghnam.mp3",
-     "answer": "غْ"
+     "answer": "غْ",
+     "at": 1
     },
     {
      "word": "غُصْن",

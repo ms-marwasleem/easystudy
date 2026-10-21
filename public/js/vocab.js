@@ -27,7 +27,7 @@ const VP={packs:[],key:t=>String(t||'').replace(/\s+/g,' ').trim().toLowerCase()
 async function vpLoad(base){
   VP.packs=[]; if(!base) return;
   try{ const [idx,ab]=await Promise.all([fetch(base+'voice.json').then(r=>r.json()),fetch(base+'voice.mp3').then(r=>r.arrayBuffer())]); await ensureCtx();
-    const buf=await new Promise((ok,no)=>player.ctx.decodeAudioData(ab,ok,no)); VP.packs.push({idx,buf}); }catch(e){}
+    const buf=await decodeSnd(player.ctx,ab); VP.packs.push({idx,buf}); }catch(e){}
 }
 function vpClip(text){ const k=VP.key(text); for(const p of VP.packs){ const c=p.idx[k]; if(c) return [p.buf,c]; } return null; }
 function tts(text,lang='en',rate=.8){
@@ -68,13 +68,15 @@ function playBuf(buf,from=0,dur){ return new Promise(res=>{ const s=player.ctx.c
   vs.src=s; s.onended=()=>{ if(vs.src===s) vs.src=null; res(); }; dur!=null?s.start(0,from,dur):s.start(0,from); }); }
 async function playFile(url){ await ensureCtx();
   let buf=await libBuffer(url,player.ctx).catch(()=>null);   // a recording from the audio library wins; else the file in the app
+  if(!buf){ const parts=await composeFiles(url).catch(()=>null);   // a sentence with variables: its pieces, one after the other
+    if(parts){ const run=vs.run; for(let k=0;k<parts.length;k++){ if(run!==vs.run) return; await playFile(parts[k]); if(k<parts.length-1&&run===vs.run) await new Promise(r=>setTimeout(r,70)); } return; } }
   if(!buf){
-    if(!vs.files[url]) vs.files[url]=fetch(url).then(r=>{ if(!r.ok) throw new Error('missing'); return r.arrayBuffer(); }).then(b=>new Promise((ok,no)=>player.ctx.decodeAudioData(b,ok,no))).catch(()=>{ delete vs.files[url]; return null; });
+    if(!vs.files[url]) vs.files[url]=fetch(url).then(r=>{ if(!r.ok) throw new Error('missing'); return r.arrayBuffer(); }).then(b=>decodeSnd(player.ctx,b)).catch(()=>{ delete vs.files[url]; return null; });
     buf=await vs.files[url];
   }
   if(!buf){ if(isAr()){ await nap(350); return; } throw new Error('missing audio'); }   // Arabic: a recording not made yet is silent
   return playBuf(buf); }
-async function playClip([s,e]){ await ensureAudio(); return playBuf(player.bufs.n,Math.max(0,s-.03),e-s+.08); }   // single words: normal speed
+async function playClip([s,e]){ try{ await ensureAudio(); }catch(err){ return; } if(!player.bufs.n) return; return playBuf(player.bufs.n,Math.max(0,s-.03),e-s+.08); }   // single words: normal speed
 const sayWord=v=>v.audio&&v.audio.word?playFile(v.audio.word):v.clip?playClip(v.clip):tts(v.word,isAr()?'ar':'en',.75);
 // the whole word said after its parts (her second take sounds natural there); falls back to the first take
 const sayWordAgain=v=>v.audio&&v.audio.again?playFile(v.audio.again):sayWord(v);
@@ -90,10 +92,10 @@ function showWords(){
   const wrap=el('div','vocab'), pick=el('div','vpick');
   LESSON.vocab.forEach((v,i)=>{ const b=el('button','vthumb'+(i===vs.i?' on':''),`${vMode()?`<span class="vtw">${v.word}</span>`:`<img src="${v.img}" alt=""${/\.png$/i.test(v.img)?' class="cut"':''}>`}<b>${i+1}</b>${vDone().includes(v.word)?`<span class="vst">${STAR(true)}</span>`:''}`);
     b.setAttribute('aria-label',`Word ${i+1}: ${v.word}`); b.addEventListener('click',()=>{ vs.i=i; vTeach(); }); pick.append(b); });
-  wrap.innerHTML=`<div class="vword" dir="${isAr()?'rtl':'ltr'}"></div>
+  wrap.innerHTML=`<div class="vword"></div>
     <div class="vinfo"><div class="vstatus"></div><div class="vmeaning" dir="rtl"><span class="vm-t"></span><button class="vm-say" aria-label="Arabic meaning">${SAY_LN}</button></div></div>
     <div class="vtools"></div><div class="vimgwrap"><img class="vimg" alt=""></div>`;
-  wrap.append(pick); stage.append(wrap);
+  wrap.append(pick); stage.append(wrap); vPickFit();
   $('.vm-say').addEventListener('click',e=>{ e.stopPropagation(); const v=LESSON.vocab[vs.i]; $('.vmeaning').classList.add('lit'); sayAr(v).then(()=>$('.vmeaning')&&$('.vmeaning').classList.remove('lit')); });
   vTools(); vRender(true); vRail(); vCar(false);
   if(vMode()){ $('.vword').addEventListener('click',()=>vMeanSay('word')); $('.vmeaning').addEventListener('click',()=>vMeanSay('rel')); }
@@ -271,7 +273,7 @@ function vLayout(){
   L.style.setProperty('--pich',c(70,land?Math.min(sh*.78,w*.3):Math.min(w*.45,h*.2),520)+'px');
   L.style.setProperty('--vgap',c(6,h*.014,16)+'px');
   if(land){   // the word pictures: as many columns as give the biggest pictures, filling the right-hand column
-    const pw=w*.26, pad=16, gap=c(5,sh*.02,12); let best=[0,1];
+    const pw=w*.26, pad=30, gap=c(5,sh*.02,12); let best=[0,1];
     for(let cols=1;cols<=3;cols++){ const rows=Math.ceil(n/cols), cw=(pw-(cols-1)*gap)/cols, chh=(sh-pad-(rows-1)*gap)/rows, s=Math.min(cw,chh*4/3); if(s>best[0]) best=[s,cols]; }
     L.style.setProperty('--pw',Math.round(pw)+'px'); L.style.setProperty('--pcols',best[1]); L.style.setProperty('--pgap',gap+'px');
     L.style.setProperty('--thumb',c(40,best[0],140)+'px');
@@ -282,7 +284,10 @@ function vFitImg(){ const im=$('.vimg'), wrap=im&&im.parentElement; if(!im||!im.
   const b=parseFloat(getComputedStyle(im).borderTopWidth)||0, pich=parseFloat($('#lesson').style.getPropertyValue('--pich'))||140, ar=im.naturalWidth/im.naturalHeight;
   const bw=wrap.clientWidth-8-2*b, bh=wrap.clientHeight-8-2*b; let h=Math.min(pich,bh), w=h*ar; if(w>bw){ w=bw; h=w/ar; }
   im.style.width=Math.max(20,w)+'px'; im.style.height=Math.max(20,h)+'px'; }
-addEventListener('resize',()=>{ if(tab==='words'){ vLayout(); fitWord(); setTimeout(vFitImg,60); } });
+// word buttons without pictures (vmode) in the landscape column: as many columns as it takes so every word shows whole (never cut at the bottom)
+function vPickFit(){ const pk=$('.vpick'); if(!pk) return; pk.style.gridTemplateColumns=''; if(!$('#lesson').classList.contains('vmode')||!$('#lesson').classList.contains('v-land')) return;
+  for(let c=2;c<=4&&pk.scrollHeight>pk.clientHeight+1;c++) pk.style.gridTemplateColumns=`repeat(${c},auto)`; }
+addEventListener('resize',()=>{ if(tab==='words'){ vLayout(); fitWord(); vPickFit(); setTimeout(vFitImg,60); } });
 // iPhone may slide the page under the keyboard: slide it back so everything stays exactly where it was
 if(window.visualViewport) visualViewport.addEventListener('scroll',()=>{ if(scrollY) scrollTo(0,0); });
 

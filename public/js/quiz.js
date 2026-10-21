@@ -18,9 +18,18 @@
    A right answer: stamp + celebrate (no spoken praise), then on to the next question by itself. A wrong one: a shake, try again.
    Two books: each set says "book": "book" (the student's book, default) or "workbook"; two buttons on top switch between them. */
 const qz={sets:null,all:[],list:[],src:'book',i:0,run:0,busy:false,file:null,show:0};
+/* THE QUESTION MODELS (docs/RULES.md §6, Marwa 2026-10-20): ONE model per question type, the same in every subject.
+   QM[type] = { sheet: 'word' (the word line + the play area) | 'board' (one board for the whole set) | 'box' (one part in the play area),
+                draw(...)   how it is shown and solved,  help(q,w)  what the Help bulb lights (nothing = no bulb),
+                bulb:0 = the model has its own help,  own:1 = reads itself (no speaker added, no auto-read),
+                side:1 = the answers sit beside the picture on wide screens,  fit:0 = no picture stacking }
+   Every type registers here (quiz.js, quiz-letters.js, quiz-al.js, quiz-math.js) and qGo draws it through this one path.
+   A design change is made in the model, so every question of that type changes together. */
+const QM={};
 const Q_SRC={book:['Book',ICON.book],workbook:['PTS','<svg viewBox="0 0 24 24"><path d="M5 19l1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L9 18z"/><path d="M14.5 6.5l3 3"/><path d="M5 19h14"/></svg>']};
 const R_Q=p=>{ const f=qz.file||''; return p&&!/^(https?:|\/|data:)/.test(p)?f.slice(0,f.lastIndexOf('/')+1)+p:p; };
 const qSrcOf=s=>s.book||'book';
+const tabSrc=()=>({workbook:'workbook',booklet:'booklet'}[tab]||'book');   // the book a Questions-style tab shows: Q = Book, PTS = Workbook, Booklet
 // the books that really have questions in this lesson (a book with none yet shows no button); other books (booklet ...) can be added by a set's "book":"booklet"
 const qSrcInfo=k=>Q_SRC[k]||[k[0].toUpperCase()+k.slice(1),ICON.book];
 const qSrcList=()=>isAL()?[]:[...new Set(['book',...qz.all.map(q=>qSrcOf(q.set))])].filter(k=>qz.all.some(q=>qSrcOf(q.set)===k)).sort((a,b)=>(Object.keys(Q_SRC).indexOf(a)+1||9)-(Object.keys(Q_SRC).indexOf(b)+1||9)).map(k=>[k,qSrcInfo(k)]);
@@ -37,7 +46,7 @@ async function qLoad(){
   qz.all=[]; qz.sets.forEach((s,si)=>{ s.taskSrc=Array.isArray(s.taskAudio)?s.taskAudio.map(R):R(s.taskAudio);   // taskAudio: one file, or a list played in order (prompt + letter name)
    
     if(s.type==='link') s.items.forEach(it=>{ it.answer=true; it.fullSrc=[].concat(it.full||[]).map(R); });
-    if(s.type==='match'||s.type==='circle'||s.type==='tick'||s.type==='link'){ s.centerSrc=R(s.centerAudio); s.items.forEach(it=>{ it.src=R(it.audio); it.src2=it.audio2?R(it.audio2):it.src; it.picSrc=R(it.pic); if(it.dots&&typeof mDots==='function') it.picSrc=mDots(it.dots); });
+    if((QM[s.type]||{}).sheet==='board'){ s.centerSrc=R(s.centerAudio); s.items.forEach(it=>{ it.src=R(it.audio); it.src2=it.audio2?R(it.audio2):it.src; it.picSrc=R(it.pic); if(it.dots&&typeof mDots==='function') it.picSrc=mDots(it.dots); });
       if(s.type==='circle'&&s.shuffle&&!s._sh){ s._sh=1; const ps=s.items.map(it=>it.pos); for(let t=0;t<20;t++){ ps.sort(()=>Math.random()-.5); if(ps.some((p,k)=>p!==s.items[k].pos)) break; } s.items.forEach((it,k)=>it.pos=ps[k]); }   // "shuffle": the options swap their places (the book order is not kept)
       if(s.type==='circle') s.items.forEach((it,k)=>{ if(!it.pos){ const n=s.items.length, cols=3, rows=Math.ceil(n/cols), r=Math.floor(k/cols), c=k%cols, inRow=Math.min(cols,n-r*cols);
         it.pos=[(c+.5+(cols-inRow)/2)*100/cols,(r+.5)*100/rows]; } });   // no "pos": spread them in rows of 3
@@ -54,28 +63,23 @@ async function showQuiz(start){
   if(!inQ()||me!==qz.show) return;   // another tab, or a newer call (e.g. a book page jump) took over
   stage.innerHTML='';
   if(!ok||!qz.all.length){ $('#lesson').classList.remove('qtab'); showGarage(); return; }
-  if(isAL()) qPick(alSrc()); else if(!qz.list.length) qPick('book');
+  qPick(isAL()?alSrc():tabSrc());
+  if(!qz.list.length){ $('#lesson').classList.remove('qtab'); showGarage(); return; }
   const wrap=el('div','quiz');
-  wrap.innerHTML=`<div class="qsrc" style="--nb:${qSrcList().length}"><button class="qarr prev" aria-label="Previous question">${Q_ARR}<span class="qal">${tr('Previous')}</span></button>${qSrcList().map(([k,[l,ic]])=>`<button class="qsb" data-src="${k}">${ic}<span>${tr(l)}</span></button>`).join('')}<button class="qarr next" aria-label="Next question">${Q_ARR}<span class="qal">${tr('Next')}</span></button><button class="qhelpb" aria-label="${isAr()?'ساعدني':tr('Help')}" hidden>${ICON.hint}</button></div>
-    <div class="qhead"><span class="qex"></span><span class="qtask"></span><button class="qsay qtsay" aria-label="Hear the question">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button><span class="qpage"></span>${LESSON.tool?`<button class="qtool" aria-label="Make numbers tool"><img src="data/tools/make-numbers/icon.webp" alt=""></button>`:''}</div>
+  wrap.innerHTML=`<div class="qhead"><span class="qex"></span><span class="qtask"></span><button class="qsay qtsay" aria-label="Hear the question">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button>${LESSON.tool?`<button class="qtool" aria-label="Make numbers tool"><img src="data/tools/make-numbers/icon.webp" alt=""></button>`:''}</div>
     <div class="qdots"></div>
     <div class="qword" dir="ltr"><b></b><button class="qsay" aria-label="Listen again">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button></div>
-    <div class="qplay"></div><div class="qans"></div>`;
+    <div class="qplay"></div><div class="qans"></div><button class="qhelpb" aria-label="${isAr()?'ساعدني':tr('Help')}" hidden>${ICON.hint}</button>`;
   stage.append(wrap);
-  $$('.qsb',wrap).forEach(b=>b.addEventListener('click',()=>{ const k=b.dataset.src; if(k===qz.src) return; hideHint();
-    if(!qz.all.some(q=>qSrcOf(q.set)===k)) return message('Soon!',`${qSrcInfo(k)[0]} questions are coming soon!`,`<span class="car">${CAR('sad')}</span>`);
-    blip(600); qPick(k); qStart(0); }));
-  $$('.qarr',wrap).forEach(b=>b.addEventListener('click',()=>qSet(b.classList.contains('next')?1:-1)));
   $('.qword .qsay',wrap).addEventListener('click',()=>qSay());
   $('.qtsay',wrap).addEventListener('click',()=>qTask());
-  $('.qhelpb',wrap).addEventListener('click',()=>qHelp());
+  $('.qhelpb',wrap).onclick=()=>qHelp();
   $('.qword',wrap).addEventListener('click',e=>{ if(wrap.dataset.type==='type'&&!e.target.closest('.qsay')) qFocus(); });
   qStart(start!=null?start:0);
 }
 // the questions of one book (Book or Workbook)
 function qPick(src){ qz.src=src; qz.list=qz.all.filter(q=>qSrcOf(q.set)===src); }
 function qStart(i){ const w=$('.quiz'); if(!w) return;
-  $$('.qsb',w).forEach(b=>b.classList.toggle('on',b.dataset.src===qz.src));
   $('.qdots',w).innerHTML=qz.list.map((q,k)=>`<i data-i="${k}">${STAR(false)}</i>`).join('');
   $('.qdots',w).onclick=e=>{ const d=e.target.closest('i[data-i]'); if(!d) return; hideHint(); qz.busy=false; qGo(+d.dataset.i); };   // each star opens its own question
   qLayout(); qGo(Math.min(i,qz.list.length-1)); }
@@ -94,55 +98,56 @@ function qGo(i){
   w.dataset.type=s.type;
   let mdl=$('.qmodel',w); if(!mdl){ mdl=el('span','qmodel'); $('.qhead',w).prepend(mdl); } mdl.textContent=s.model||''; mdl.hidden=!s.model;   // "model": the paper's heading (Model 1) shown as a yellow pill
   $('.qex',w).textContent=s.ex!=null?num(s.ex):''; $('.qex',w).hidden=!s.ex; $('.qtask',w).textContent=s.task;
-  $('.qpage',w).innerHTML=s.page?`${ICON.book}<span>${isAr()?'ص ':'p. '}${num(s.page)}</span>`:'';
+  footPage(s.page); lnavPaint();
   $$('.qdots i',w).forEach((d,k)=>{ d.classList.toggle('cur',k===i); });
-  $('.qarr.prev',w).disabled=qSetStart(-1)<0; $('.qarr.next',w).disabled=qSetStart(1)<0;
   if($('#lesson').classList.contains('qrail')){ $('#lesson').classList.remove('qrail'); setRail([]); }   // the side Listen / Stop button belongs to the 'together' page only
   const a0=$('.qans',w); if(a0.parentElement!==w) w.append(a0);   // back in its own place before the pictures are cleared (qLayout moves it beside the picture)
   const qi=$('#qin'); if(qi&&s.type!=='type'){ qi.blur(); qi.remove(); }
   const qxi=$('#qxin'); if(qxi&&s.type!=='write'){ qxi.blur(); qxi.remove(); }
-  if(s.type==='match'||s.type==='circle'||s.type==='tick'||s.type==='link') return qBoard(w,q,i,run);
+  const m=QM[s.type]; if(!m) return;
+  if(m.sheet==='board') return qBoard(w,q,i,run);
   w._board=null;
-  if(typeof QX!=='undefined'&&QX[s.type]) return qxGo(w,q,i,run);
-  // letter: the word with its first letter left out, filled in when the child finds it
-  // type: the same, with any letter ("missing") left out; the child types it
-  const mi=q.missing||0, gps=q.gaps||[mi];   // "gaps": several letters left out (typed left to right)
-  $('.qword b',w).innerHTML=(q.scr?`<span class="qscr">${q.scr.split('').join(' ')}</span>`:'')+(s.type==='letter'||s.type==='type'?[...q.word].map((c,k)=>gps.includes(k)?`<span class="qgap" data-i="${k}">_</span>`:c).join(''):q.word);
+  if(m.sheet==='box') return qxGo(w,q,i,run);
+  // the word line: the word (letter / type: with its gaps), the play area, the answers
+  $('.qword b',w).innerHTML=m.word?m.word(q):q.word;
   const play=$('.qplay',w), ans=$('.qans',w); play.innerHTML=''; ans.innerHTML='';
-  if(s.type==='pick'){
-    // shuffle where the right picture sits, so it is not always the same side
-    const order=q.pics.map((p,k)=>k); if(Math.random()<.5) order.reverse();
-    order.forEach(k=>{ const b=el('button','qpic',`<img src="${q.pics[k]}" alt=""><span class="qmark"></span>`); b.setAttribute('aria-label','Picture '+(k+1)); b.dataset.k=k;
-      b.addEventListener('click',()=>qAnswer(b,k===q.answer)); play.append(b); });
-  } else if(s.type==='letter'){
-    play.append(el('div','qpic one',`<img src="${q.pic}" alt="${q.word}"><span class="qmark"></span>`));
-    const order=q.letters.map((x,k)=>k); if(Math.random()<.5) order.reverse();
-    order.forEach(k=>{ const b=el('button','rb qbtn qlet'+(q.letters[k].length>1?' two':''),`<span>${q.letters[k]}</span>`); b.setAttribute('aria-label','Letter '+q.letters[k]); b.dataset.k=k;
-      b.addEventListener('click',()=>qAnswer(b,k===q.answer)); ans.append(b); });
-  } else if(s.type==='choice'){
-    play.append(el('div','qpic one',`<img src="${q.pic}" alt="">`));
-    const t=el('div','qtxt',`${q.ask?`<div class="qask">${q.ask}</div>`:''}<div class="qsen">${q.lead?`<span>${q.lead}</span> `:''}<span class="qopts">(${q.options.map(o=>`<button class="qopt">${o}</button>`).join(' - ')})</span>${q.tail?` <span>${q.tail}</span>`:''}<button class="qsay" aria-label="Listen again">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button></div>`);
-    $$('.qopt',t).forEach((b,k)=>b.addEventListener('click',()=>qChoose(b,k,q))); $('.qsay',t).addEventListener('click',()=>qSay());
-    play.append(t);
-  } else if(s.type==='type'){
-    play.append(el('div','qpic one',`<img src="${q.pic}" alt="${q.word}"><span class="qmark"></span>`));
-    qFocus();   // the keyboard stays open from one word to the next; it first opens when the instruction has been read (or when the child taps the letter)
-  } else {
-    play.append(el('div','qpic one',`<img src="${q.pic}" alt="${q.word}"><span class="qmark"></span>`));
-    [[true,'yes',Q_TICK,'It matches'],[false,'no',Q_CROSS,'It does not match']].forEach(([v,c,ic,l])=>{
-      const b=el('button','rb qbtn '+c,ic); b.setAttribute('aria-label',l); b.addEventListener('click',()=>qAnswer(b,v===q.answer,v)); ans.append(b); });
-  }
+  m.draw(play,ans,q,s);
   qLayout(); carFrac(i/qz.list.length);
   // the first question of each exercise: the instruction is read first, then the word
-  setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(q.k===0&&(i===0||qGrp(qz.list[i-1].set)!==qGrp(s))) await qTask(); if(run===qz.run&&inQ()){ if(s.type==='type') qFocus(); qSay(); } },350);
+  setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(qNewEx()) await qTask(); if(run===qz.run&&inQ()){ if(s.type==='type') qFocus(); qSay(); } },350);
 }
+// letter / type: the word with its gaps ("missing" = one letter, "gaps" = several, typed left to right), filled in when the child finds them
+const qGapWord=q=>{ const gps=q.gaps||[q.missing||0]; return (q.scr?`<span class="qscr">${q.scr.split('').join(' ')}</span>`:'')+[...q.word].map((c,k)=>gps.includes(k)?`<span class="qgap" data-i="${k}">_</span>`:c).join(''); };
+const qOnePic=q=>el('div','qpic one',`<img src="${q.pic}" alt="${q.word||''}"><span class="qmark"></span>`);
+const qHalf=a=>{ const o=a.map((x,k)=>k); if(Math.random()<.5) o.reverse(); return o; };   // the right one is not always on the same side
+QM.pick={sheet:'word', draw(play,ans,q){ qHalf(q.pics).forEach(k=>{ const b=el('button','qpic',`<img src="${q.pics[k]}" alt=""><span class="qmark"></span>`); b.setAttribute('aria-label','Picture '+(k+1)); b.dataset.k=k;
+    b.addEventListener('click',()=>qAnswer(b,k===q.answer)); play.append(b); }); },
+  help:(q,w)=>$$('.qpic',w).filter(b=>+b.dataset.k===q.answer)};
+QM.letter={sheet:'word', side:1, word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q));
+    qHalf(q.letters).forEach(k=>{ const b=el('button','rb qbtn qlet'+(q.letters[k].length>1?' two':''),`<span>${q.letters[k]}</span>`); b.setAttribute('aria-label','Letter '+q.letters[k]); b.dataset.k=k;
+      b.addEventListener('click',()=>qAnswer(b,k===q.answer)); ans.append(b); }); },
+  help:(q,w)=>$$('.qans .qlet',w).filter(b=>+b.dataset.k===q.answer)};
+QM.choice={sheet:'word', fit:0, draw(play,ans,q){ play.append(el('div','qpic one',`<img src="${q.pic}" alt="">`));
+    const t=el('div','qtxt',`${q.ask?`<div class="qask">${q.ask}</div>`:''}<div class="qsen">${q.lead?`<span>${q.lead}</span> `:''}<span class="qopts">(${q.options.map(o=>`<button class="qopt">${o}</button>`).join(' - ')})</span>${q.tail?` <span>${q.tail}</span>`:''}<button class="qsay" aria-label="Listen again">${SAY_LN}</button></div>`);
+    $$('.qopt',t).forEach((b,k)=>b.addEventListener('click',()=>qChoose(b,k,q))); $('.qsay',t).addEventListener('click',()=>qSay());
+    play.append(t); },
+  help:(q,w)=>[$$('.qopt',w)[q.answer]].filter(Boolean)};
+QM.type={sheet:'word', side:1, word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q));
+    qFocus(); },   // the keyboard stays open from one word to the next; it first opens when the instruction has been read (or when the child taps the letter)
+  help:(q,w)=>[$('.qword .qgap:not(.got)',w)].filter(Boolean)};
+QM.yesno={sheet:'word', side:1, draw(play,ans,q){ play.append(qOnePic(q));
+    [[true,'yes',Q_TICK,'It matches'],[false,'no',Q_CROSS,'It does not match']].forEach(([v,c,ic,l])=>{
+      const b=el('button','rb qbtn '+c,ic); b.setAttribute('aria-label',l); b.addEventListener('click',()=>qAnswer(b,v===q.answer,v)); ans.append(b); }); },
+  help:(q,w)=>[$(q.answer?'.qans .qbtn.yes':'.qans .qbtn.no',w)].filter(Boolean)};
 // the match board: built once per set; each right picture joined moves on to the next star without rebuilding it
 function qBoard(w,q,i,run){
   const s=q.set; carFrac(i/qz.list.length); qLayout();
   if(w._board===s) return;
   w._board=s; const play=$('.qplay',w); play.innerHTML=''; $('.qans',w).innerHTML='';
-  if(s.type==='tick') return qSheet(w,s,play,run);
-  if(s.type==='link') return qLinkBoard(w,s,play,run);
+  QM[s.type].draw(w,s,play,run);
+}
+// match / circle: the pictures (or words) on one board like the book, the letter / picture in the middle when the set has one
+function qPicBoard(w,s,play,run){
   const b=el('div','qboard'); if(s.bigP) b.classList.add('bigP');   // "bigP": bigger pictures on tall screens (with "posP" per item)
   if(s.centerPic){ const c=el('div','qcenter pic',`<img src="${R_Q(s.centerPic)}" alt="">`); if(s.centerAt){ c.style.setProperty('--cx',s.centerAt[0]); c.style.setProperty('--cy',s.centerAt[1]); } b.append(c); }   // "centerPic": a picture to match (book: circle the SIMILAR picture)
   if(s.center){ const c=el('button','qcenter',`<span>${s.center}</span>`); c.setAttribute('aria-label','Letter '+s.center); c.addEventListener('click',()=>qSound(s.centerSrc,s.center[0]));
@@ -167,10 +172,9 @@ function qSheet(w,s,play,run){
 }
 async function qTick(cell,it,s,val,btn){
   if(qz.busy||cell.classList.contains('done')) return; hideHint();
-  if(val!==it.answer){ tone(170,'square',.06,.18); if(anim) G.fromTo(btn,{x:-9},{x:0,duration:.5,ease:'elastic.out(1.5,.25)'}); return; }
+  if(val!==it.answer) return qBad(btn);
   const run=qz.run; cell.classList.add('done'); btn.classList.add('on'); celebrate(btn); qSound(it.src,it.word);
-  const d=$(`.qdots i[data-i="${qz.i}"]`); if(d){ d.innerHTML=STAR(true); d.classList.add('got'); if(anim) G.fromTo(d,{scale:1.8},{scale:1,duration:.6,ease:'elastic.out(1.2,.4)'}); }
-  carFrac((qz.i+1)/qz.list.length);
+  qStar();
   const next=qz.i+1;
   if(next>=qz.list.length||qz.list[next].set!==s){ qz.busy=true; await new Promise(r=>setTimeout(r,1400)); if(run!==qz.run||!inQ()) return; qz.busy=false;
     if(next>=qz.list.length) award(LESSON.id,qKey()); else qGo(next); return; }
@@ -184,14 +188,16 @@ function qLines(fresh){ const bd=$('.qboard'); if(!bd||$('.quiz').dataset.type!=
     ln.style.cssText=`left:${x1}px;top:${y1}px;width:${len}px;transform:rotate(${Math.atan2(y2-y1,x2-x1)}rad)`+(p===fresh?' scaleX(0)':'');
     if(p===fresh) requestAnimationFrame(()=>requestAnimationFrame(()=>{ ln.style.transform=`rotate(${Math.atan2(y2-y1,x2-x1)}rad) scaleX(1)`; })); });
 }
+// the same for every model: a right answer lights its progress star and moves the car on; a wrong one gives the soft alarm + a shake
+function qStar(){ const d=$(`.qdots i[data-i="${qz.i}"]`); if(d){ d.innerHTML=STAR(true); d.classList.add('got'); if(anim) G.fromTo(d,{scale:1.8},{scale:1,duration:.6,ease:'elastic.out(1.2,.4)'}); } carFrac((qz.i+1)/qz.list.length); }
+const qCross=b=>{ const m=$('.qmark',b); if(!m) return; m.className='qmark bad'; m.innerHTML=Q_CROSS; setTimeout(()=>{ m.className='qmark'; m.innerHTML=''; },700); };   // a wrong picture: a red cross for a moment
+function qBad(b){ tone(170,'square',.06,.18); if(anim) G.fromTo(b,{x:-9},{x:0,duration:.5,ease:'elastic.out(1.5,.25)'}); }
 function qSound(src,text){ vStop(); return (src?playFile(src).catch(()=>tts(text,isAr()?'ar':'en',.75)):tts(text,isAr()?'ar':'en',.75)).catch(()=>{}); }
 async function qMatch(btn,it,s){
   if(qz.busy) return; hideHint();
   if(btn.classList.contains('done')) return s.silent?null:qSound(it.src,it.word);
   if(!it.answer){
-    tone(170,'square',.06,.18); const m=$('.qmark',btn); m.className='qmark bad'; m.innerHTML=Q_CROSS; setTimeout(()=>{ m.className='qmark'; m.innerHTML=''; },700);
-    if(anim) G.fromTo(btn,{x:-9},{x:0,duration:.5,ease:'elastic.out(1.5,.25)'});
-    return;
+    qCross(btn); return qBad(btn);
   }
   const run=qz.run, more=qSetMoreAfter(s); btn.classList.add('done'); if(!more) qz.busy=true;
   // a line from the picture to the letter in the middle, drawn out like a pencil line
@@ -201,15 +207,17 @@ async function qMatch(btn,it,s){
   if(qMore(s)) return; return qDone(s,run,1100);
 }
 // a right answer of a board that has more answers still to find: its star, and on to the next one at once (nothing waits, so the child can tap the next right picture straight away)
+const qBoardHelp=(q,w)=>{ const s=q.set, ps=$$('.qmp',w), it=s.items.find((x,k)=>x.answer&&ps[k]&&!ps[k].classList.contains('done')); return it?[ps[s.items.indexOf(it)]]:[]; };
+QM.match={sheet:'board', draw:qPicBoard, help:qBoardHelp};
+QM.circle={sheet:'board', draw:qPicBoard, help:qBoardHelp};
+QM.tick={sheet:'board', draw:qSheet, help:(q,w)=>{ const cs=$$('.qcell',w), c=cs.find(c=>!c.classList.contains('done')); if(!c) return []; const it=q.set.items[cs.indexOf(c)]; return [$(it.answer?'.qbtn.yes':'.qbtn.no',c)].filter(Boolean); }};
 const qSetMoreAfter=s=>qz.i+1<qz.list.length&&qz.list[qz.i+1].set===s;
 function qMore(s){ const next=qz.i+1; if(next>=qz.list.length||qz.list[next].set!==s) return false;
-  const d=$(`.qdots i[data-i="${qz.i}"]`); if(d){ d.innerHTML=STAR(true); d.classList.add('got'); if(anim) G.fromTo(d,{scale:1.8},{scale:1,duration:.6,ease:'elastic.out(1.2,.4)'}); }
-  carFrac((qz.i+1)/qz.list.length); qz.i=next; $$('.qdots i').forEach((x,k)=>x.classList.toggle('cur',k===next));
-  $('.qarr.prev').disabled=qSetStart(-1)<0; $('.qarr.next').disabled=qSetStart(1)<0; return true; }
+  qStar(); qz.i=next; $$('.qdots i').forEach((x,k)=>x.classList.toggle('cur',k===next));
+  lnavPaint(); return true; }
 // one more right answer of a board: its star, then on to the next one (the same board stays when the exercise has more)
 async function qDone(s,run,ms){
-  const d=$(`.qdots i[data-i="${qz.i}"]`); if(d){ d.innerHTML=STAR(true); d.classList.add('got'); if(anim) G.fromTo(d,{scale:1.8},{scale:1,duration:.6,ease:'elastic.out(1.2,.4)'}); }
-  carFrac((qz.i+1)/qz.list.length);
+  qStar();
   await new Promise(r=>setTimeout(r,ms)); if(run!==qz.run||!inQ()) return;
   const next=qz.i+1;
   if(next>=qz.list.length){ qz.busy=false; award(LESSON.id,qKey()); return; }
@@ -250,18 +258,15 @@ function qStamp(pic,cross){
 async function qAnswer(btn,right,said){
   if(qz.busy) return; hideHint(); const run=qz.run, q=qz.list[qz.i];
   if(!right){
-    tone(170,'square',.06,.18);
-    if(q.set.type==='pick'){ const m=$('.qmark',btn); m.className='qmark bad'; m.innerHTML=Q_CROSS; setTimeout(()=>{ m.className='qmark'; m.innerHTML=''; },700); }
-    if(anim) G.fromTo(btn,{x:-9},{x:0,duration:.5,ease:'elastic.out(1.5,.25)'});
-    return;
+    if(q.set.type==='pick') qCross(btn);
+    return qBad(btn);
   }
   qz.busy=true; vStop();
   if(q.set.type==='pick'){ if(q.set.mark==='ring') qRing(btn); else qStamp(btn,false); } else { btn.classList.add('on'); qStamp($('.qpic.one'),said===false); }
   $$('.qword .qgap').forEach(gap=>{ gap.classList.remove('bad'); gap.textContent=q.word[gap.dataset.i!=null?+gap.dataset.i:q.missing||0]; gap.classList.add('got'); if(anim) G.fromTo(gap,{scale:1.8},{scale:1,duration:.5,ease:'back.out(3)'}); });
   $$('.qpic').forEach(p=>p!==btn&&q.set.type==='pick'&&p.classList.add('dim'));
   celebrate(q.set.type==='pick'?btn:$('.qpic.one'));
-  const d=$(`.qdots i[data-i="${qz.i}"]`); if(d){ d.innerHTML=STAR(true); d.classList.add('got'); if(anim) G.fromTo(d,{scale:1.8},{scale:1,duration:.6,ease:'elastic.out(1.2,.4)'}); }
-  carFrac((qz.i+1)/qz.list.length);
+  qStar();
   await new Promise(r=>setTimeout(r,500)); if(run!==qz.run) return;
   await new Promise(r=>setTimeout(r,900)); if(run!==qz.run||!inQ()) return;
   if(qz.i+1<qz.list.length) qGo(qz.i+1); else { qz.busy=false; award(LESSON.id,qKey()); }
@@ -275,10 +280,10 @@ function qLayout(){ const L=$('#lesson'); if(!L) return;
   L.classList.toggle('q-land',land); L.classList.toggle('q-port',!land); L.classList.toggle('q-short',land&&qScr.h<500);
   // wide screens: the choices go right beside the picture (inside the picture row), so the child sees what to do
   const wr=$('.quiz'), ans=$('.qans'), pla=$('.qplay');
-  if(wr&&ans&&pla){ const side=land&&['yesno','letter','type'].includes(wr.dataset.type); if(side&&ans.parentElement!==pla) pla.append(ans); else if(!side&&ans.parentElement===pla) wr.append(ans); }
+  if(wr&&ans&&pla){ const side=land&&!!(QM[wr.dataset.type]||{}).side; if(side&&ans.parentElement!==pla) pla.append(ans); else if(!side&&ans.parentElement===pla) wr.append(ans); }
   qLinkRefresh(land);
   // two pictures: side by side, or one above the other when that makes them bigger (tall phones)
-  const pl=$('.qplay'); if(!pl) return; pl.classList.remove('stack'); if(wr&&(wr.dataset.type==='choice'||wr.dataset.type==='link')) return; const w=pl.clientWidth, h=pl.clientHeight, a=.8;
+  const pl=$('.qplay'); if(!pl) return; pl.classList.remove('stack'); if(wr&&(QM[wr.dataset.type]||{}).fit===0) return; const w=pl.clientWidth, h=pl.clientHeight, a=.8;
   pl.classList.toggle('stack', Math.min(w,h/2*a) > Math.min(w/2,h*a)*1.15); }
 addEventListener('resize',()=>{ if(inQ()){ qLayout(); qLines(); } });
 
@@ -319,6 +324,7 @@ function qLinkBoard(w,s,play,run){
   if(qNewEx()) setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; await qTask(); },350);
 }
 const L$=()=>$('#lesson');
+QM.link={sheet:'board', fit:0, draw:qLinkBoard, help:(q,w)=>{ const bd=$('.qlink',w); if(!bd) return []; const wb=$$('.qlkw',bd).find(b=>!b.classList.contains('done')); return wb?[wb,$$('.qlkp',bd).find(b=>b.dataset.k===wb.dataset.k)].filter(Boolean):[]; }};
 const qNewEx=()=>{ const i=qz.i; return i<=0||qGrp(qz.list[i-1].set)!==qGrp(qz.list[i].set); };   // the instruction is read only when a new exercise starts, not for each part of it
 // where a line leaves a word / arrives at a picture (bottom / top in rows, right / left in columns), in the board's own pixels
 function qAnchor(bd,b,isWord){ const B=bd.getBoundingClientRect(), r=b.getBoundingClientRect(), cols=bd.classList.contains('cols');
@@ -335,8 +341,7 @@ function qLinkRefresh(land){ const bd=$('.qlink'); if(!bd) return; const s=bd._s
 async function qLinkTry(bd,s,a,b){
   const run=qz.run;   // the board is kept from pair to pair, so it must use the question running NOW, not the one it was built in
   const wb=a.classList.contains('qlkw')?a:b, pb=wb===a?b:a, it=s.items[+wb.dataset.k];
-  if(wb.dataset.k!==pb.dataset.k){ tone(170,'square',.06,.18); const l=qLinkLine(bd,wb,pb,'qlj bad'); setTimeout(()=>l.remove(),500);
-    if(anim) G.fromTo([wb,pb],{x:-8},{x:0,duration:.5,ease:'elastic.out(1.5,.25)'}); return; }
+  if(wb.dataset.k!==pb.dataset.k){ const l=qLinkLine(bd,wb,pb,'qlj bad'); setTimeout(()=>l.remove(),500); return qBad([wb,pb]); }
   if(!qSetMoreAfter(s)) qz.busy=true; wb.classList.add('done'); pb.classList.add('done'); bd._pairs.push([wb,pb]);
   const l=qLinkLine(bd,wb,pb); if(anim){ const len=l.getTotalLength?l.getTotalLength():300; G.fromTo(l,{strokeDasharray:len,strokeDashoffset:len},{strokeDashoffset:0,duration:.35,ease:'power2.out'}); }
   celebrate(pb); if(it.full) (async()=>{ vStop(); for(const f of it.fullSrc){ try{ await playFile(f); }catch(_){} } })(); else qSound(it.src,it.word);   // "full": the joined phrase of the pair (word + its partner), said on a right join
@@ -345,13 +350,12 @@ async function qLinkTry(bd,s,a,b){
 /* choice: tap the right word of the two; it gets a hand-drawn ring */
 async function qChoose(btn,k,q){
   if(qz.busy) return; hideHint();
-  if(k!==q.answer){ tone(170,'square',.06,.18); if(anim) G.fromTo(btn,{x:-9},{x:0,duration:.5,ease:'elastic.out(1.5,.25)'}); return; }
+  if(k!==q.answer) return qBad(btn);
   qz.busy=true; const run=qz.run; qRing(btn); $$('.qopt').forEach(o=>o!==btn&&o.classList.add('dim')); celebrate(btn); qSay();
   return qAdvance(run,1900);
 }
 async function qAdvance(run,ms){
-  const d=$(`.qdots i[data-i="${qz.i}"]`); if(d){ d.innerHTML=STAR(true); d.classList.add('got'); if(anim) G.fromTo(d,{scale:1.8},{scale:1,duration:.6,ease:'elastic.out(1.2,.4)'}); }
-  carFrac((qz.i+1)/qz.list.length);
+  qStar();
   await new Promise(r=>setTimeout(r,ms)); if(run!==qz.run||!inQ()) return;
   if(qz.i+1<qz.list.length) qGo(qz.i+1); else { qz.busy=false; award(LESSON.id,qKey()); }
 }
@@ -360,23 +364,10 @@ function qRing(el0){ const im=el0.classList.contains('qpic')&&$('img',el0);   //
   if(im){ const b=el0.getBoundingClientRect(), r=im.getBoundingClientRect(); el0.style.setProperty('--rt',(r.top-b.top)+'px'); el0.style.setProperty('--rb',(b.bottom-r.bottom)+'px'); el0.style.setProperty('--rl',(r.left-b.left)+'px'); el0.style.setProperty('--rr',(b.right-r.right)+'px'); }
   el0.classList.add('ringed'); if(anim) G.fromTo(el0,{'--ring':1.6},{'--ring':1,duration:.4,ease:'back.out(2)'}); }
 
-/* Help (one for nearly every question type): the right answer lights up faintly for a moment, then fades away again.
-   qHelpEls() = what to light for the question now on screen (nothing = no Help button; write / math types keep their own bulb) */
-function qHelpEls(){ const q=qz.list[qz.i], w=$('.quiz'); if(!q||!w||qz.busy) return [];
-  const s=q.set, t=s.type, one=x=>x?[x]:[];
-  if(t==='pick') return one($$('.qpic',w).find(b=>+b.dataset.k===q.answer));
-  if(t==='yesno'||t==='yes-no') return one($(q.answer?'.qans .qbtn.yes':'.qans .qbtn.no',w));
-  if(t==='letter') return one($$('.qans .qlet',w).find(b=>+b.dataset.k===q.answer));
-  if(t==='choice') return one($$('.qopt',w)[q.answer]);
-  if(t==='type'){ const g=$('.qword .qgap:not(.got)',w); return g&&!g.classList.contains('got')?[g]:[]; }
-  if(t==='match'||t==='circle'){ const ps=$$('.qmp',w), it=s.items.find((x,k)=>x.answer&&ps[k]&&!ps[k].classList.contains('done')); return it?one(ps[s.items.indexOf(it)]):[]; }
-  if(t==='tick'){ const c=$$('.qcell',w).find((c,k)=>!c.classList.contains('done')); if(!c) return []; const it=s.items[$$('.qcell',w).indexOf(c)]; return one($(it.answer?'.qbtn.yes':'.qbtn.no',c)); }
-  if(t==='link'){ const bd=$('.qlink',w); if(!bd) return []; const wb=$$('.qlkw',bd).find(b=>!b.classList.contains('done')); return wb?[wb,$$('.qlkp',bd).find(b=>b.dataset.k===wb.dataset.k)].filter(Boolean):[]; }
-  if(t==='position') return one($$('.qxc',w)[q.at]);
-  if(t==='vowel') return one($$('.qxchoices .qlet',w).find(b=>b.textContent===q.answer));
-  if(typeof QHELP!=='undefined'&&QHELP[t]) return QHELP[t](q,w);
-  if(t==='arrange'){ const n=$('.qxw .lt.hid',w); return n?one($$('.qxtile:not(.used)',w).find(b=>sameLetter(b.dataset.g,n.textContent))):[]; }
-  return []; }
-function qHelpShow(){ const b=$('.qhelpb'); if(!b) return; const t=qz.list[qz.i]&&qz.list[qz.i].set.type; b.hidden=!(t&&!['write','qa'].includes(t)&&qHelpEls().length); }
+/* Help (the same bulb for every model): the right answer lights up faintly for a moment, then fades away again.
+   qHelpEls() = what the question's MODEL lights now (QM[type].help); nothing = no bulb. Models with their own help (write, qa, math keypads) say bulb:0 */
+function qHelpEls(){ const q=qz.list[qz.i], w=$('.quiz'); if(!q||!w||qz.busy) return []; const m=QM[q.set.type];
+  return m&&m.help&&m.bulb!==0?m.help(q,w).filter(Boolean):[]; }
+function qHelpShow(){ const b=$('.quiz .qhelpb'); if(!b) return; b.hidden=!qHelpEls().length; lnavFit(); }
 function qHelp(){ if(qz.busy) return; const L=qHelpEls(); if(!L.length) return; hideHint(); blip(660,.05);
   L.forEach(e=>{ const f=e.classList.contains('qxc')?$('span',e):null; e.classList.remove('qhl'); void e.offsetWidth; e.classList.add('qhl'); if(f) f.classList.add('qhl-t'); setTimeout(()=>{ e.classList.remove('qhl'); if(f) f.classList.remove('qhl-t'); },2000); }); }

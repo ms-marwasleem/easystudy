@@ -80,6 +80,7 @@
    "task": "Match the picture with the correct word.",
    "taskAudio": "../../en-shared/q/match-the-picture-with-the-correct-word.mp3",
    "hint": "Join each word to its picture!",
+   "layout": "cols",
    "items": [
     {
      "word": "apple",
@@ -101,8 +102,7 @@
      "audio": "words/axe.mp3",
      "pic": "../../pics/axe.png"
     }
-   ],
-   "layout": "cols"
+   ]
   },
   {
    "type": "type",
@@ -385,7 +385,7 @@
     },
     {
      "word": "square",
-     "audio": "../../en-shared/q/square.mp3",
+     "audio": "../u2l3/words/square.mp3",
      "pic": "../../pics/square-red.png",
      "gaps": [
       0

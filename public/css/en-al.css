@@ -1,6 +1,6 @@
 /* ---------- English AL: Lesson (book parts) and Booklet tabs, Grammar tab (js/quiz-al.js) ---------- */
 .quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"]) :is(.qword,.qans){display:none}
-.quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"]){grid-template-rows:auto auto minmax(0,1fr) auto;grid-template-areas:"head" "dots" "play" "src"}
+.quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"]){grid-template-rows:auto auto minmax(0,1fr);grid-template-areas:"head" "dots" "play"}
 .qx-explain,.qx-mcq,.qx-cloze,.qx-order{font-family:var(--f-read);align-items:stretch;justify-content:stretch;gap:0}
 .alw{cursor:pointer;border-radius:.3em;padding:0 .04em;transition:background .15s}
 .alw.lit{background:#FFE98A}
@@ -18,17 +18,18 @@
 .alpage.multi .alfig img{max-height:100%}
 .allabel{position:absolute;transform:translate(-50%,-50%);padding:.1em .55em .15em;border-radius:62rem;border:.15rem solid var(--ol);background:#FFFDF6;color:#7A3C8F;font:700 clamp(.8rem,min(3.4cqw,3.2cqh),1.45rem)/1.25 var(--f-read);box-shadow:0 .15rem 0 rgba(90,52,24,.4);white-space:nowrap}
 .allabel.lit{background:#FFE98A}
-.altext{min-height:0;overflow:auto;display:flex;flex-direction:column;gap:min(1.4cqh,.7rem);justify-content:center;padding:.2rem .3rem}
+.altext{min-height:0;overflow:auto;display:flex;flex-direction:column;gap:min(1.4cqh,.7rem);justify-content:safe center;padding:.2rem .3rem}
+.altext>*{flex:none}   /* a long page scrolls: its lines keep their own height (never squeezed onto each other) and the first line can be scrolled to */
 .alline{position:relative;display:flex;gap:.45rem;align-items:flex-start;border-radius:.9rem;padding:.25rem .5rem .3rem .25rem;background:rgba(255,255,255,.55);border:.15rem solid transparent;cursor:pointer;text-align:left}
 .alline.on{background:#FFF3B8;border-color:#F2C230}
 .alline .alsp{flex:none;display:grid;place-items:center;width:2.2rem;height:2.2rem;margin:0;color:#2A7FD8;background:none;border-radius:.6rem}
 .alline .alsp svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .altx{margin:0;font-weight:700;color:#2E1B0C;font-size:clamp(1.05rem,min(4.2cqw,4.8cqh),2.1rem);line-height:1.4;text-align:left}
-.alline.head .altx{font-size:clamp(1.4rem,min(6cqw,7cqh),3rem);font-family:var(--f-title);font-weight:400;color:#3A2A1C}
-.alline.red .altx{color:#C0392B}.alline.blue .altx{color:#1F5FA8}
-.alline.note .altx{font-weight:400;font-size:clamp(.95rem,min(3.6cqw,4cqh),1.7rem);color:#5A4630}
-.alline.sm .altx{font-size:clamp(.95rem,min(3.4cqw,3.8cqh),1.6rem)}
-.alline.yellow{background:#FFF1B0}.alline.green{background:#E2F2C8}.alline.blue2{background:#DCEBFA}
+.alline.al-head .altx{font-size:clamp(1.4rem,min(6cqw,7cqh),3rem);font-family:var(--f-title);font-weight:400;color:#3A2A1C}
+.alline.al-red .altx{color:#C0392B}.alline.al-blue .altx{color:#1F5FA8}
+.alline.al-note .altx{font-weight:400;font-size:clamp(.95rem,min(3.6cqw,4cqh),1.7rem);color:#5A4630}
+.alline.al-sm .altx{font-size:clamp(.95rem,min(3.4cqw,3.8cqh),1.6rem)}
+.alline.al-yellow{background:#FFF1B0}.alline.al-green{background:#E2F2C8}.alline.al-blue2{background:#DCEBFA}
 .altable{border-radius:1rem;background:#2F6B4A;color:#fff;padding:.5rem .7rem .6rem;width:100%}
 .althead{font-family:var(--f-title);color:#FFE98A;font-size:clamp(1.1rem,min(4.4cqw,5cqh),2rem);margin-bottom:.25rem}
 .altrows{display:flex;flex-direction:column;gap:.2rem}

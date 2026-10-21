@@ -1,46 +1,53 @@
-/* QUESTIONS tab — extra types for the Arabic LETTER lessons (called from qGo in quiz.js through QX / qxGo). All use the sheet of quiz.js (task line, stars, speaker).
+/* QUESTIONS tab — the "box" models (QM[type].sheet='box', drawn by qxGo below inside the sheet of quiz.js: task line, stars, speaker) and the letter models.
    position = a picture and one empty circle per letter of its word (right to left): tap the circle where the letter is. item: {word, pic, audio, at: index of the letter}
-   vowel    = a picture, its word with the first letter missing, and the letter with each haraka: tap the right one. set: "choices":["أَ","أُ","إِ","أْ"]; item: {word, pic, audio, answer: the first letter with its haraka}
+   vowel    = a picture, its word with the letter missing, and the letter with each haraka: tap the right one. set: "choices":["أَ","أُ","إِ","أْ"]; item: {word, pic, audio, answer: the letter with its haraka, at?: the letter's place (default 0 = the first)}
    write    = the child types a word on the keyboard, each right letter fills in its place with its marks (the speaker says it, the bulb shows the next letter).
               item: {word, audio, pic?, chips?: syllables shown above (book: merge the syllables)}; set "sentence": true for a sentence
    arrange  = the letters of the word (with their marks) scrambled as tiles; drag them (or tap) in the right order to the word's blanks; the word is written joined as it fills. item: {word, pic, audio} */
 // write: set "faint":true = the book's "write like the example": the text to copy shows faintly and the child types it over it
-const QX={position:1,vowel:1,write:1,arrange:1,qa:1}, QXF={};   // QXF: render functions added by other files (quiz-math.js)
+// every box model: QM[type].draw(box,q,s,run) builds its part; the sheet adds the listen icon beside the thing that is read and reads it, unless the model reads itself (own) or the question is quiet (q.hush)
+// a box with more than its room holds (a tall picture + the writing places + the bulb on a phone): the space between its parts gets smaller first, so nothing is cut at the bottom
+function qxFit(box){ if(!box.isConnected) return; box.style.gap=''; const cs=getComputedStyle(box); if(cs.flexDirection!=='column') return;
+  const kids=[...box.children].filter(e=>e.offsetParent!==null&&getComputedStyle(e).position!=='absolute'); if(kids.length<2) return;
+  const used=kids.reduce((a,e)=>{ const st=getComputedStyle(e); return a+e.getBoundingClientRect().height+parseFloat(st.marginTop)+parseFloat(st.marginBottom); },0), g=parseFloat(cs.rowGap)||0, free=box.clientHeight-used;
+  if(free<g*(kids.length-1)) box.style.gap=Math.max(4,Math.floor(free/(kids.length-1)))+'px'; }
 function qxGo(w,q,i,run){
   const s=q.set, play=$('.qplay',w), ans=$('.qans',w); play.innerHTML=''; ans.innerHTML=''; $('.qword b',w).innerHTML='';
   const box=el('div','qx qx-'+s.type+(s.sentence?' sent':'')); play.append(box);
-  let sp=null; if(!q.together&&!q.hush&&!(typeof QOWN!=='undefined'&&QOWN[s.type])&&(q.audio||q.word)){ sp=el('button','qsay qxsay',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>s.type==='qa'?qxQAPlay(q,qz.run):qSay(); }
+  const m=QM[s.type], quiet=()=>q.together||q.hush||m.own;
+  let sp=null; if(!quiet()&&(q.audio||q.word)){ sp=el('button','qsay qxsay',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>s.type==='qa'?qxQAPlay(q,qz.run):qSay(); }
   if(q.pic) box.append(el('div','qxpic',`<img src="${q.pic}" alt="">`));
-  (q.together?qxQAAll:QXF[s.type]||{position:qxPosition,vowel:qxVowel,write:qxWrite,arrange:qxArrange,qa:qxQA}[s.type])(box,q,s,run);
+  (q.together?qxQAAll:m.draw)(box,q,s,run);
   // the listen icon sits right beside the thing that is read (the word / sentence); with no word (circles, a picture) it sits on the picture's corner
   if(sp&&!q.hush){ const tg=$('.qxline',box)||$('.qxw',box)||$('.qxqa',box)||$('.qxcircles',box);
     if(tg){ const row=el('div','qxrow'); tg.before(row); row.append(sp,tg); } else { const pc=$('.qxpic',box); (pc||box).append(sp); sp.classList.add('onpic'); } }
   { const wi=$('#qxin'); if(wi&&s.type==='write') wi.focus({preventScroll:true}); }   // moving the line into the speaker row dropped the focus: the keyboard opens with the question
+  if(!m.own){ requestAnimationFrame(()=>qxFit(box)); $$('img',box).forEach(im=>{ if(!im.complete) im.addEventListener('load',()=>qxFit(box),{once:true}); }); }
   qLayout(); carFrac(i/qz.list.length);
-  setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(q.k===0&&(i===0||qGrp(qz.list[i-1].set)!==qGrp(s))) await qTask(); if(run===qz.run&&inQ()&&box._after) await box._after(); if(run===qz.run&&inQ()&&!q.together&&!q.hush&&!(typeof QOWN!=='undefined'&&QOWN[s.type])) s.type==='qa'?qxQAPlay(q,run):qSay(); },350);
+  setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(qNewEx()) await qTask(); if(run===qz.run&&inQ()&&box._after) await box._after(); if(run===qz.run&&inQ()&&!quiet()) s.type==='qa'?qxQAPlay(q,run):qSay(); },350);
 }
-const qxBad=(b)=>{ tone(170,'square',.06,.18); if(anim) G.fromTo(b,{x:-9},{x:0,duration:.5,ease:'elastic.out(1.5,.25)'}); };
+const qxBad=b=>qBad(b);
 // a right answer: celebrate, say the word, on to the next
 async function qxWin(target,q,ms=1500){ if(qz.busy) return; qz.busy=true; const run=qz.run; vStop(); q.solved=true; celebrate(target); qSay(); return qAdvance(run,ms); }
 function qxLetters(word){ return glyphs(word); }
 
 function qxPosition(box,q,s,run){
-  const gs=qxLetters(q.word), row=el('div','qxcircles'); row.dir='rtl';
+  const gs=qxLetters(q.word), row=el('div','qxcircles'); row.style.setProperty('--n',gs.length);   // the circles share the width, so a long word stays inside the screen
   gs.forEach((g,k)=>{ const b=el('button','qxc',`<span>${g}</span>`); b.setAttribute('aria-label','Letter '+(k+1)); b.addEventListener('click',()=>{ if(qz.busy) return;
     if(k!==q.at) return qxBad(b);
     $$('.qxc',row).forEach(x=>x.classList.add('show')); b.classList.add('right'); qxWin(b,q); }); row.append(b); });
   box.append(row);
 }
 function qxVowel(box,q,s,run){
-  const gs=qxLetters(q.word), wd=el('b','qxw'); wd.dir='rtl'; const gap=el('span','qgap','_'); wd.append(gap,gs.slice(1).join('')); box.append(wd);
-  const row=el('div','qxchoices'); row.dir='rtl';
+  const gs=qxLetters(q.word), at=q.at||0, wd=el('b','qxw'); const gap=el('span','qgap','_'); wd.append(gs.slice(0,at).join(''),gap,gs.slice(at+1).join('')); box.append(wd);
+  const row=el('div','qxchoices');
   s.choices.forEach(c=>{ const b=el('button','rb qbtn qlet',`<span>${c}</span>`); b.setAttribute('aria-label',c);
     b.addEventListener('click',()=>{ if(qz.busy) return; if(c!==q.answer){ gap.textContent=c; gap.classList.add('bad'); clearTimeout(gap._t); gap._t=setTimeout(()=>{ gap.textContent='_'; gap.classList.remove('bad'); },650); return qxBad(b); }
-      b.classList.add('on'); gap.classList.remove('bad'); gap.textContent=gs[0]; gap.classList.add('got'); qxWin(b,q); }); row.append(b); });
+      b.classList.add('on'); gap.classList.remove('bad'); gap.textContent=gs[at]; gap.classList.add('got'); qxWin(b,q); }); row.append(b); });
   box.append(row);
 }
 // the word (or sentence) as hidden letters with their places underlined; spaces are not letters
-function qxWordEl(word,chips,faint,ltr){ const b=el('b','qxw'); b.dir=ltr?'ltr':'rtl'; const gs=glyphs(word);
+function qxWordEl(word,chips,faint,ltr){ const b=el('b','qxw'); if(ltr) b.dir='ltr';   /* an English word: left to right inside any subject */ const gs=glyphs(word);
   const cnt=(chips||[]).map(c=>glyphs(c).length), ok=cnt.length>1&&cnt.reduce((a,c)=>a+c,0)===gs.length;   // a box per syllable when the chips match the word
   if(ok){ let k=0; cnt.forEach(n=>{ const sg=el('span','qxseg'); gs.slice(k,k+n).forEach(g=>sg.append(el('span','lt hid'+(faint?' fnt':''),g))); k+=n; b.append(sg); }); }
   else gs.forEach(g=>b.append(el('span',g===' '?'sp':'lt hid'+(faint?' fnt':''),g===' '?' ':g)));
@@ -52,7 +59,7 @@ function qxReveal(wd){ const n=qxNext(wd); if(!n) return false; n.classList.remo
 const qxDone=wd=>!qxNext(wd);
 function qxWrite(box,q,s,run,text,onDone){   // text: what to type (default the question's word); onDone: called instead of the win (math: number, then its word)
   text=text||q.word; $$('.qxhelp',box).forEach(x=>x.remove());
-  if(q.chips&&text===q.word){ const c=el('div','qxchips'); c.dir='rtl'; c.innerHTML=q.chips.map(t=>`<i>${t}</i>`).join('<u>/</u>'); box.append(c); }
+  if(q.chips&&text===q.word){ const c=el('div','qxchips'); c.innerHTML=q.chips.map(t=>`<i>${t}</i>`).join('<u>/</u>'); box.append(c); }
   const wd=qxWordEl(text,text===q.word?q.chips:null,s.faint,s.lang==='en'||/^[\x00-\x7f]+$/.test(text)), help=el('button','qxhelp',ICON.hint); help.setAttribute('aria-label','Help');
   const line=el('div','qxline'); line.append(wd); const duo=$('.qxduo',box); (duo||box).append(line); box.append(help);   // duo: number and its word side by side
   let inp=$('#qxin');
@@ -74,10 +81,10 @@ document.addEventListener('keydown',e=>{ const inp=$('#qxin'); if(!inp||!inQ()||
   const a=document.activeElement; if(a&&/^(INPUT|TEXTAREA)$/.test(a.tagName)) return; inp.focus({preventScroll:true}); qxWrite.type(normDigits(e.key)); e.preventDefault(); });
 function qxArrange(box,q,s,run){
   const WS=!!(q.words||s.words), wd=WS?el('b','qxw qxwords'):qxWordEl(q.word), line=el('div','qxline');   // words: the tiles are whole words of a sentence
-  if(WS){ wd.dir='rtl'; q.word.split(' ').forEach(w=>wd.append(el('span','lt hid',w))); }
+  if(WS){ q.word.split(' ').forEach(w=>wd.append(el('span','lt hid',w))); }
   line.append(wd); box.append(line);
   const gs=WS?q.word.split(' '):qxLetters(q.word).filter(g=>g!==' '); let ord=gs.map((g,k)=>k); for(let t=0;t<30;t++){ ord.sort(()=>Math.random()-.5); if(gs.length<2||ord.some((v,k)=>v!==k)) break; }
-  const tiles=el('div','qxtiles'); tiles.dir='rtl'; box.append(tiles);
+  const tiles=el('div','qxtiles'); box.append(tiles);
   const place=tile=>{ const n=qxNext(wd); if(!n||tile.classList.contains('used')) return false;
     if(!sameLetter(tile.dataset.g,n.textContent)) return false;
     qxReveal(wd); tile.classList.add('used'); blip(560+$$('.lt.got',wd).length*40,.05);
@@ -99,7 +106,7 @@ function qxArrange(box,q,s,run){
 // qa = book "question and answer": the picture, the question (red) and its answer (blue); nothing to choose. Both are read aloud, question first, then it goes on.
 // item: {ask, word: the answer sentence, audio: question sound, ansAudio: answer sound, pic}. Tap the question or the answer to hear just that one, the speaker for both.
 function qxQA(box,q,s,run){
-  const t=el('div','qxqa'); t.dir='rtl';
+  const t=el('div','qxqa');
   const a=el('button','qxqq',q.ask), b=el('button','qxqa-a',q.word);
   a.onclick=()=>{ if(!qz.busy) qxQALine(a,q.audio,q.ask); }; b.onclick=()=>{ if(!qz.busy) qxQALine(b,R_Q(q.ansAudio),q.word); };
   t.append(a,b); box.append(t);
@@ -117,7 +124,7 @@ async function qxQAPlay(q,run){
 // and two buttons: listen to all in turn / stop. Done when every pair was heard.
 function qxQAAll(box,q,s,run){
   const wrap=el('div','qaall'); box.classList.add('qa-together'); const heard={}; let tok=0;
-  const rows=q.items.map((it,i)=>{ const r=el('div','qarow'); r.dir='rtl';
+  const rows=q.items.map((it,i)=>{ const r=el('div','qarow');
     const mk=(cls,txt,src)=>{ const ln=el('div','qaline'), b=el('button',cls,txt), sp=el('button','qsay qarsay',SAY_LN); sp.setAttribute('aria-label','Listen'); ln.append(b,sp); return {ln,b,sp,src,txt}; };
     const a=mk('qxqq',it.ask,it.audio), b=mk('qxqa-a',it.word,R_Q(it.ansAudio)), t=el('div','qartxt'); t.append(a.ln,b.ln);
     if(it.pic) r.append(el('div','qarpic',`<img src="${it.pic}" alt="">`));
@@ -138,3 +145,9 @@ function qxQAAll(box,q,s,run){
 addEventListener('keydown',e=>{ if(e.ctrlKey||e.metaKey||e.altKey||e.key.length!==1) return; const a=document.activeElement; if(a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)) return;
   const inp=['qxin','vin'].map(id=>document.getElementById(id)).find(x=>x&&x.isConnected&&x.offsetParent!==null); if(!inp) return;
   e.preventDefault(); inp.focus({preventScroll:true}); inp.value=e.key; inp.dispatchEvent(new Event('input',{bubbles:true})); });
+
+QM.position={sheet:'box', draw:qxPosition, help:(q,w)=>[$$('.qxc',w)[q.at]]};
+QM.vowel={sheet:'box', draw:qxVowel, help:(q,w)=>$$('.qxchoices .qlet',w).filter(b=>b.textContent===q.answer)};
+QM.write={sheet:'box', bulb:0, draw:qxWrite};
+QM.arrange={sheet:'box', draw:qxArrange, help:(q,w)=>{ const n=$('.qxw .lt.hid',w); return n?$$('.qxtile:not(.used)',w).filter(b=>sameLetter(b.dataset.g,n.textContent)).slice(0,1):[]; }};
+QM.qa={sheet:'box', bulb:0, draw:qxQA};

@@ -77,38 +77,38 @@
    "items": [
     {
      "word": "صَقْر",
-     "pic": "../../pics/ar-eagle.jpg",
      "audio": "words/saqr.mp3",
+     "pic": "../../pics/ar-eagle.jpg",
      "at": 0
     },
     {
      "word": "بَصَل",
-     "pic": "../../pics/ar-onion.png",
      "audio": "words/basal.mp3",
+     "pic": "../../pics/ar-onion.png",
      "at": 1
     },
     {
      "word": "مِقَصّ",
-     "pic": "../../pics/ar-scissors.png",
      "audio": "words/miqass.mp3",
+     "pic": "../../pics/ar-scissors.png",
      "at": 2
     },
     {
      "word": "لِصّ",
-     "pic": "../../pics/ar-thief.png",
      "audio": "words/liss.mp3",
+     "pic": "../../pics/ar-thief.png",
      "at": 1
     },
     {
      "word": "عَصِير",
-     "pic": "../../pics/ar-juice.png",
      "audio": "words/aseer.mp3",
+     "pic": "../../pics/ar-juice.png",
      "at": 1
     },
     {
      "word": "حِصَان",
-     "pic": "../../pics/ar-horse-book.jpg",
      "audio": "words/hisan.mp3",
+     "pic": "../../pics/ar-horse-book.jpg",
      "at": 1
     }
    ]
@@ -133,26 +133,27 @@
    "items": [
     {
      "word": "صَيَّاد",
-     "pic": "../../pics/ar-fisherman.jpg",
      "audio": "words/sayyad.mp3",
+     "pic": "../../pics/ar-fisherman.jpg",
      "answer": "صَ"
     },
     {
      "word": "عُصْفُور",
-     "pic": "../../pics/ar-bird.png",
      "audio": "words/usfur.mp3",
+     "pic": "../../pics/ar-bird.png",
+     "at": 1,
      "answer": "صْ"
     },
     {
      "word": "صُنْدُوق",
-     "pic": "../../pics/ar-box.png",
      "audio": "words/sunduq.mp3",
+     "pic": "../../pics/ar-box.png",
      "answer": "صُ"
     },
     {
      "word": "صِغَار",
-     "pic": "../../pics/ar-babies.jpg",
      "audio": "words/sighar.mp3",
+     "pic": "../../pics/ar-babies.jpg",
      "answer": "صِ"
     }
    ]
@@ -167,18 +168,18 @@
    "items": [
     {
      "word": "مِصْر",
-     "pic": "../../pics/ar-flag.png",
-     "audio": "words/misr.mp3"
+     "audio": "words/misr.mp3",
+     "pic": "../../pics/ar-flag.png"
     },
     {
      "word": "صَخْر",
-     "pic": "../../pics/ar-rock.png",
-     "audio": "words/sakhr.mp3"
+     "audio": "words/sakhr.mp3",
+     "pic": "../../pics/ar-rock.png"
     },
     {
      "word": "صَقْر",
-     "pic": "../../pics/ar-eagle.jpg",
-     "audio": "words/saqr.mp3"
+     "audio": "words/saqr.mp3",
+     "pic": "../../pics/ar-eagle.jpg"
     }
    ]
   },
@@ -236,23 +237,23 @@
    "items": [
     {
      "word": "غُصْن",
-     "pic": "../../pics/ar-branch.png",
-     "audio": "words/ghusn.mp3"
+     "audio": "words/ghusn.mp3",
+     "pic": "../../pics/ar-branch.png"
     },
     {
      "word": "عَصِير",
-     "pic": "../../pics/ar-juice.png",
-     "audio": "words/aseer.mp3"
+     "audio": "words/aseer.mp3",
+     "pic": "../../pics/ar-juice.png"
     },
     {
      "word": "مِقَصّ",
-     "pic": "../../pics/ar-scissors.png",
-     "audio": "words/miqass.mp3"
+     "audio": "words/miqass.mp3",
+     "pic": "../../pics/ar-scissors.png"
     },
     {
      "word": "قَفَص",
-     "pic": "../../pics/ar-cage.png",
-     "audio": "words/qafas.mp3"
+     "audio": "words/qafas.mp3",
+     "pic": "../../pics/ar-cage.png"
     }
    ]
   },
@@ -266,18 +267,22 @@
    "items": [
     {
      "word": "عُصْفُور",
+     "audio": "words/usfur.mp3",
      "pic": "../../pics/ar-bird.png"
     },
     {
      "word": "صِغَار",
+     "audio": "words/sighar.mp3",
      "pic": "../../pics/ar-babies.jpg"
     },
     {
      "word": "صَيَّاد",
+     "audio": "words/sayyad.mp3",
      "pic": "../../pics/ar-fisherman.jpg"
     },
     {
      "word": "مِصْبَاح",
+     "audio": "words/misbah.mp3",
      "pic": "../../pics/ar-bulb.png"
     }
    ]

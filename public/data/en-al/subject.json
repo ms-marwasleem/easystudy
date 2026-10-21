@@ -99,11 +99,12 @@
     "read",
     "words"
    ],
-   "revs": [
+   "exams": [
     {
-     "folder": "u1l4",
-     "label": "Revision",
-     "page": 24
+     "id": "rev1",
+     "title": "Test",
+     "label": "Test",
+     "file": "data/en-al/exams/rev1/exam.json"
     }
    ]
   },
@@ -111,7 +112,7 @@
    "unit": 1,
    "lesson": 4,
    "folder": "u1l4",
-   "title": "Revision",
+   "title": "Test",
    "pages": {
     "booklet": [
      24,

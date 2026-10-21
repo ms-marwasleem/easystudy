@@ -1,22 +1,20 @@
 /* ---------- Map: journey drawn straight on the background ---------- */
 .map-wrap{position:relative;min-height:0;container-type:size;overflow-x:hidden;overflow-y:auto;scrollbar-width:none;overscroll-behavior:contain}
 .map-wrap::-webkit-scrollbar{display:none}   /* the road can be longer than the screen when lessons have many pages: it scrolls */
-.journey{position:relative;height:100%;min-width:100%;width:max-content;--tall:0;--rb:clamp(1.5rem,8cqh,3.125rem);--cw:clamp(3.5rem,min(10cqw,16cqh),6.875rem)}
-.ribbon{position:absolute;left:3%;right:3%;top:50%;height:var(--rb);transform:translateY(-50%);border-radius:0.5rem;
-  background:linear-gradient(#D49A70 0 12%,#94503A 12% 30%,#7E3D2B 30% 70%,#94503A 70% 88%,#D49A70 88%);border:0.1875rem solid var(--ol);box-shadow:0 0.25rem 0 rgba(90,52,24,.35);overflow:hidden}
-.ribbon .done{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(#9BE0D4 0 12%,#3BA597 12% 30%,#2A8C80 30% 70%,#3BA597 70% 88%,#9BE0D4 88%);transition:width .8s,height .8s}
+.journey{position:relative;height:100%;min-width:100%;width:max-content;--rb:clamp(1.5rem,8cqh,3.125rem);--cw:clamp(3.5rem,min(10cqw,16cqh),6.875rem)}
 .jrow{position:relative;height:100%;display:flex;align-items:stretch;gap:.6cqw}
 .jend{flex:0 0 auto;width:min(16cqw,32cqh);display:flex;align-items:center;justify-content:center;z-index:1}
 .ubox{position:relative;width:100%;display:grid;place-items:center;cursor:pointer}
 .ubox svg{width:100%;height:auto;display:block;filter:drop-shadow(0 0.375rem 0 rgba(90,52,24,.35))}
-.ubox b{position:absolute;top:30%;left:50%;transform:translateX(-50%);font-size:clamp(1rem,min(3.6cqw,6.4cqh),2.25rem);white-space:nowrap;-webkit-text-stroke-width:0.25rem}
+.ubox b{position:absolute;top:30%;left:50%;transform:translateX(-50%);font-size:clamp(1rem,min(3.6cqw,6.4cqh),2.25rem);white-space:nowrap;-webkit-text-stroke-width:.14em}
 .ubox .ulock{position:absolute;left:50%;top:74%;width:30%;transform:translate(-50%,-50%)}
 .ubox .ulock svg{filter:none}
 .ubox.locked svg{filter:saturate(.7) drop-shadow(0 0.375rem 0 rgba(90,52,24,.35))}
-.jl{flex:1 0 auto;position:relative;min-width:0;min-height:0}   /* map.js roadRoom sets each lesson's length from its pages */
+.jl,.jcont{flex:1 0 auto;position:relative;min-width:0;min-height:0}
+.jcont{--bw:0px}   /* a long lesson's road going on along the next row: only its signs */   /* map.js snakeLayout sets each lesson's length from its pages */
 .jgo{flex:none;width:calc(var(--cw)*.95)}   /* room for the car before lesson 1 */
 /* the lesson sits on the road at the start of its stretch, its square centred on the road (the stars above take 1.8em, half the square 1.7em) */
-.jbox{position:absolute;left:0;top:calc(50% - 3.5em);width:max-content;display:flex;flex-direction:column;align-items:center;
+.jbox{position:absolute;inset-inline-start:0;top:calc(50% - 3.5em);width:max-content;display:flex;flex-direction:column;align-items:center;
   font-size:clamp(0.75rem,min(2.4cqw,3.2cqh),1.625rem);z-index:4}
 .jl.locked .jbox{top:calc(50% - 1.7em)}
 /* the three stars above the lesson: the same shiny stars the child wins, the middle one a bit higher */
@@ -37,14 +35,14 @@
    on top and the page number under it, its tail and a dotted line pointing at the road, spread evenly along that stretch.
    Book pages on one side (above / left), Workbook pages on the other (below / right), all in the same green with a thin border.
    They stay between the lesson's square (--bw, set by map.js) and the next lesson. */
-.jside{--b:clamp(2rem,2.4em,3.25rem);--L:max(1em,calc(2.7em - var(--rb)/2));position:absolute;left:calc(var(--bw,6em) + .4em);right:.4em;height:0;
+.jside{--b:clamp(2rem,2.4em,3.25rem);--L:max(1em,calc(2.7em - var(--rb)/2));position:absolute;inset-inline-start:calc(var(--bw,6em) + .4em);inset-inline-end:.4em;height:0;
   display:flex;gap:.5em;z-index:2;font-size:clamp(0.75rem,min(2.4cqw,3.2cqh),1.625rem)}
 .jside.bkp{bottom:calc(50% + var(--rb)/2 - 2px);align-items:flex-end}
 .jside.wb{--L:max(1.4em,calc(3.2em - var(--rb)/2));top:calc(50% + var(--rb)/2 - 2px);align-items:flex-start}   /* longer: clear of the lesson's name */
 .jpgs{flex:1;display:flex;justify-content:space-evenly;align-items:inherit;gap:0.375rem}
 .jpg{display:flex;flex-direction:column;align-items:center;flex:none}
 .jside.wb .jpg{flex-direction:column-reverse}
-.jsl{display:block;width:0;height:var(--L);border-left:0.1875rem dotted #FFFBF0}
+.jsl{display:block;width:0;height:var(--L);border-left:0.1875rem dotted #fff;filter:drop-shadow(0 0 1px rgba(90,52,24,.6))}
 .jpm{--g:#3A9A2C;--bg:#FBF3DF;position:relative;min-width:calc(var(--b)*1.2);height:calc(var(--b)*1.18);padding:0 .35em;border-radius:calc(var(--b)*.3);
   display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(#FFFDF6,var(--bg));border:2px solid var(--g);
   box-shadow:0 0.1875rem 0 rgba(90,52,24,.3);font-family:var(--f-title);font-weight:400;color:var(--g);line-height:1}
@@ -67,7 +65,7 @@
 .map-wrap{cursor:grab}.map-wrap.drag{cursor:grabbing;user-select:none}
 @media all{
   .journey.snake{--fs:1.25rem;--rb:calc(var(--fs)*1.9);--cw:calc(var(--fs)*3.6);height:auto;min-height:100%;width:max-content;min-width:100%}
-  .snake .jrow{display:block;height:auto;position:relative}
+  .snake .jrow{display:block;height:auto;position:relative;margin-top:calc(var(--fs)*1.4)}
   .jroad{position:absolute;left:0;top:0;pointer-events:none;overflow:visible}
   .jline{position:relative;display:flex;align-items:stretch;height:var(--lh);padding-inline:calc(var(--rb)*1.3 + 0.375rem);gap:0.375rem}
   .jline.rev{flex-direction:row-reverse}
@@ -79,9 +77,9 @@
   .snake .jend{width:calc(var(--fs)*6.4)}
   .snake .jgo{width:calc(var(--cw)*1.1)}
   .snake .ubox b{font-size:calc(var(--fs)*1.4)}
-  /* odd rows run right to left: a lesson's square on the right, its pages stretch to the left */
-  .jline.rev .jbox{left:auto;right:0}
-  .jline.rev .jside{left:.4em;right:calc(var(--bw,6em) + .4em);flex-direction:row-reverse}
+  /* every second row runs back (right to left in languages, left to right in Arabic): a lesson's square at the row's end side, its pages stretch back */
+  .jline.rev .jbox{inset-inline-start:auto;inset-inline-end:0}
+  .jline.rev .jside{inset-inline-start:.4em;inset-inline-end:calc(var(--bw,6em) + .4em);flex-direction:row-reverse}
   .jline.rev .jpgs{flex-direction:row-reverse}
   .jcar.rev svg{transform:scaleX(-1)}
 }
@@ -99,18 +97,22 @@
 .jpm.ex{--g:#D8382A;--bg:#FFE9E4}
 .jpm .jex{display:block;width:calc(var(--b)*.62);height:calc(var(--b)*.62)}.jpm .jex svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-/* the map key: sign colours by book (Book green, Booklet orange, PTS blue, Tests red, Tools yellow) */
+/* sign colours by book: Book green, PTS blue, Booklet orange, Tool yellow, Test red */
 .jpm.bk{--g:#E8760A;--bg:#FFE8CF}
 .jpm.pts{--g:#2E7BD8;--bg:#DCEBFF}
-.rb.keybtn{--t:var(--orange1,#FFB04A);--b:var(--orange2,#F58A1F)}
-.rb.keybtn svg{width:58%;height:58%;fill:currentColor;stroke:currentColor;stroke-width:2.4;stroke-linecap:round}
-.mapkey{width:min(86vw,20rem);max-height:92vh;gap:.75rem}
-.mk-rows{display:flex;flex-direction:column;gap:.7rem;overflow:auto;width:max-content;max-width:100%;margin:0 auto}
-.mk-row{display:flex;align-items:center;gap:1rem;font-family:var(--f-title);font-size:clamp(1.1rem,3.4vh,1.5rem);color:var(--ol)}
-.mk-row .jpm{--b:2.6rem;flex:none;pointer-events:none}
-.mk-row .jpm::after{display:none}
-.mk-row .jpm.tl{width:var(--b);min-width:var(--b);height:var(--b)}
+/* the legend: one line above the map, a coloured square and the name for each kind of sign */
+.maplegend{display:flex;flex-wrap:nowrap;justify-content:center;align-items:center;gap:1.4em;font-size:clamp(0.8rem,2.6vmin,1.4rem);padding:.35em 1em;margin:.3em auto;width:max-content;max-width:96%;background:#fff;border-radius:.9em;box-shadow:0 .15em 0 rgba(90,52,24,.25);
+  font-family:var(--f-title);color:var(--ol);white-space:nowrap}
+.maplegend .lg{display:flex;align-items:center;gap:.4em}
+.maplegend i{display:block;width:1em;height:1em;border-radius:.25em;border:0.125rem solid var(--ol);background:var(--c)}
+.maplegend b{font-weight:400}
+.lg-bk0{--c:#3A9A2C}.lg-pts{--c:#2E7BD8}.lg-bk{--c:#E8760A}.lg-tl{--c:#F2B80F}.lg-ex{--c:#D8382A}
+/* lessons the child has not opened yet are paler */
+.jl.open[data-touched="0"] .jcard,.jl.open[data-touched="0"] .jt,.jl.open[data-touched="0"] .js{filter:saturate(.35) brightness(1.12)}
+/* a tool sign shows its name in words, stacked */
+.jpm .jex.jtx{display:block;width:auto;height:auto;font-size:calc(var(--b)*.24);line-height:1.05;text-align:center;white-space:nowrap}
 /* lesson tabs: a small dot in the colour of the book the tab belongs to */
 .tab .kd{display:inline-block;flex:none;width:.6em;height:.6em;border-radius:50%;border:2px solid var(--ol);background:#3A9A2C}
 .tab[data-book="bk"] .kd{background:#E8760A}
 .mapkey .big{font-size:clamp(1.5rem,5vh,2.2rem);white-space:nowrap}
+.tab[data-book="pts"] .kd{background:#2A7FD8}

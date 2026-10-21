@@ -51,7 +51,7 @@
 .tls{opacity:.55;filter:none}
 .tls.on{opacity:1}
 .jpm.tl .jex img,.qhead .qtool img{width:100%;height:100%;object-fit:contain;border-radius:50%;display:block}
-.jpm.tl .jex{width:calc(var(--b)*.95);height:calc(var(--b)*.95)}
+.jpm.tl .jex:not(.jtx){width:calc(var(--b)*.95);height:calc(var(--b)*.95)}
 .qhead .qtool{padding:0;overflow:hidden;background:#fff;border-color:#8A5CC9;width:3rem;height:3rem}
 .qhead .qtool img{width:100%;height:100%}
 .tlbody::before{content:'';display:none}

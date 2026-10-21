@@ -1,4 +1,4 @@
-/* QUESTIONS tab — extra types for the MATH lessons (called from qGo in quiz.js through QX / QXF). All use the sheet of quiz.js (task line, stars, speaker).
+/* QUESTIONS tab — the number models (box models in QM, quiz.js; drawn through qxGo). All use the sheet of quiz.js (task line, stars, speaker); their help is the bulb next to the answer place (bulb:0).
    Numbers are tapped on a keypad (or on "options"), never typed, so no keyboard opens. Right: celebrate + the answer is said, then on. Wrong: a shake, try again.
    numline = a row of numbers with gaps (book: write the missing number). item: {seq:[1,2,null,4,5,null]} (null = a gap, filled left to right) or {from:1,to:6,gaps:[2,5]} (gap indexes);
              optional "options":[3,6,2,9] (else a keypad 0-10, "max" on the item changes the top number).
@@ -61,5 +61,7 @@ function mCount(box,q,s,run){
     qxWrite(box,q,s,run,String(n),s.both?(()=>{ q.word=mW(n); $$('.qxpre',box).forEach(x=>x.remove()); qxWrite(box,q,s,run,mW(n)); }):null); return; }
   mPad(box,(q.options?mShuffle(q.options):mKeys(q.max||Math.max(10,n))),(v)=>{ if(v!==n) return false; qxWin(grid,q,1600); return true; });
 }
-QX.numline=QX.bond=QX.bigger=QX.count=1;
-Object.assign(QXF,{numline:mNumline,bond:mBond,bigger:mBigger,count:mCount});
+QM.numline={sheet:'box', bulb:0, draw:mNumline};
+QM.bond={sheet:'box', bulb:0, draw:mBond};
+QM.bigger={sheet:'box', bulb:0, draw:mBigger};
+QM.count={sheet:'box', bulb:0, draw:mCount};

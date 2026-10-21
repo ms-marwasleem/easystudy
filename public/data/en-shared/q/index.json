@@ -5,6 +5,15 @@
    "text": "Match the objects that start with the letter ({letter}).",
    "vars": [
     "letter"
+   ],
+   "parts": [
+    {
+     "t": "Match the objects that start with the letter",
+     "path": "en-shared/t/start-match-0.mp3"
+    },
+    {
+     "v": "letter"
+    }
    ]
   },
   {
@@ -13,6 +22,22 @@
    "vars": [
     "which",
     "letter"
+   ],
+   "parts": [
+    {
+     "t": "Circle",
+     "path": "en-shared/t/start-circle-0.mp3"
+    },
+    {
+     "v": "which"
+    },
+    {
+     "t": "that start with the letter",
+     "path": "en-shared/t/start-circle-1.mp3"
+    },
+    {
+     "v": "letter"
+    }
    ]
   },
   {
@@ -20,6 +45,19 @@
    "text": "Circle all the {colour} objects.",
    "vars": [
     "colour"
+   ],
+   "parts": [
+    {
+     "t": "Circle all the",
+     "path": "en-shared/t/circle-colour-0.mp3"
+    },
+    {
+     "v": "colour"
+    },
+    {
+     "t": "objects",
+     "path": "en-shared/t/circle-colour-1.mp3"
+    }
    ]
   },
   {
@@ -28,6 +66,22 @@
    "vars": [
     "thing",
     "colour"
+   ],
+   "parts": [
+    {
+     "t": "The",
+     "path": "en-shared/t/thing-colour-0.mp3"
+    },
+    {
+     "v": "thing"
+    },
+    {
+     "t": "is",
+     "path": "en-shared/t/thing-colour-1.mp3"
+    },
+    {
+     "v": "colour"
+    }
    ]
   },
   {
@@ -35,6 +89,15 @@
    "text": "This is a {thing}.",
    "vars": [
     "thing"
+   ],
+   "parts": [
+    {
+     "t": "This is a",
+     "path": "en-shared/t/this-is-a-0.mp3"
+    },
+    {
+     "v": "thing"
+    }
    ]
   },
   {
@@ -42,6 +105,15 @@
    "text": "This is my {person}.",
    "vars": [
     "person"
+   ],
+   "parts": [
+    {
+     "t": "This is my",
+     "path": "en-shared/t/this-is-my-0.mp3"
+    },
+    {
+     "v": "person"
+    }
    ]
   },
   {
@@ -49,6 +121,15 @@
    "text": "I can see {thing}.",
    "vars": [
     "thing"
+   ],
+   "parts": [
+    {
+     "t": "I can see",
+     "path": "en-shared/t/i-can-see-0.mp3"
+    },
+    {
+     "v": "thing"
+    }
    ]
   },
   {
@@ -57,6 +138,18 @@
    "vars": [
     "n",
     "thing"
+   ],
+   "parts": [
+    {
+     "t": "I have",
+     "path": "en-shared/t/i-have-0.mp3"
+    },
+    {
+     "v": "n"
+    },
+    {
+     "v": "thing"
+    }
    ]
   },
   {
@@ -65,6 +158,18 @@
    "vars": [
     "n",
     "thing"
+   ],
+   "parts": [
+    {
+     "t": "There are",
+     "path": "en-shared/t/there-are-0.mp3"
+    },
+    {
+     "v": "n"
+    },
+    {
+     "v": "thing"
+    }
    ]
   }
  ],
@@ -83,6 +188,9 @@
    "template": "start-match",
    "params": {
     "letter": "Tt"
+   },
+   "vals": {
+    "letter": "en-shared/v/tt.mp3"
    }
   },
   {
@@ -111,6 +219,9 @@
    "template": "start-match",
    "params": {
     "letter": "Ii"
+   },
+   "vals": {
+    "letter": "en-shared/v/ii.mp3"
    }
   },
   {
@@ -120,6 +231,10 @@
    "params": {
     "which": "all the pictures",
     "letter": "Ii"
+   },
+   "vals": {
+    "which": "en-shared/v/all-the-pictures.mp3",
+    "letter": "en-shared/v/ii.mp3"
    }
   },
   {
@@ -141,6 +256,10 @@
    "params": {
     "thing": "grass",
     "colour": "green"
+   },
+   "vals": {
+    "thing": "en-shared/v/grass.mp3",
+    "colour": "en-shared/v/green.mp3"
    }
   },
   {
@@ -149,6 +268,9 @@
    "template": "this-is-a",
    "params": {
     "thing": "bird"
+   },
+   "vals": {
+    "thing": "en-shared/v/bird.mp3"
    }
   },
   {
@@ -157,6 +279,9 @@
    "template": "i-can-see",
    "params": {
     "thing": "the sky"
+   },
+   "vals": {
+    "thing": "en-shared/v/the-sky.mp3"
    }
   },
   {
@@ -165,6 +290,9 @@
    "template": "i-can-see",
    "params": {
     "thing": "a tree"
+   },
+   "vals": {
+    "thing": "en-shared/v/a-tree.mp3"
    }
   },
   {
@@ -173,6 +301,9 @@
    "template": "this-is-a",
    "params": {
     "thing": "butterfly"
+   },
+   "vals": {
+    "thing": "en-shared/v/butterfly.mp3"
    }
   },
   {
@@ -181,6 +312,9 @@
    "template": "this-is-a",
    "params": {
     "thing": "flower"
+   },
+   "vals": {
+    "thing": "en-shared/v/flower.mp3"
    }
   },
   {
@@ -194,6 +328,10 @@
    "params": {
     "which": "the pictures",
     "letter": "Ss"
+   },
+   "vals": {
+    "which": "en-shared/v/the-pictures.mp3",
+    "letter": "en-shared/v/ss.mp3"
    }
   },
   {
@@ -202,6 +340,9 @@
    "template": "circle-colour",
    "params": {
     "colour": "yellow"
+   },
+   "vals": {
+    "colour": "en-shared/v/yellow.mp3"
    }
   },
   {
@@ -210,6 +351,9 @@
    "template": "circle-colour",
    "params": {
     "colour": "green"
+   },
+   "vals": {
+    "colour": "en-shared/v/green.mp3"
    }
   },
   {
@@ -218,6 +362,9 @@
    "template": "circle-colour",
    "params": {
     "colour": "blue"
+   },
+   "vals": {
+    "colour": "en-shared/v/blue.mp3"
    }
   },
   {
@@ -226,6 +373,9 @@
    "template": "circle-colour",
    "params": {
     "colour": "red"
+   },
+   "vals": {
+    "colour": "en-shared/v/red.mp3"
    }
   },
   {
@@ -235,6 +385,10 @@
    "params": {
     "thing": "sky",
     "colour": "blue"
+   },
+   "vals": {
+    "thing": "en-shared/v/sky.mp3",
+    "colour": "en-shared/v/blue.mp3"
    }
   },
   {
@@ -244,6 +398,10 @@
    "params": {
     "thing": "sun",
     "colour": "yellow"
+   },
+   "vals": {
+    "thing": "en-shared/v/sun.mp3",
+    "colour": "en-shared/v/yellow.mp3"
    }
   },
   {
@@ -253,6 +411,10 @@
    "params": {
     "thing": "flower",
     "colour": "red"
+   },
+   "vals": {
+    "thing": "en-shared/v/flower.mp3",
+    "colour": "en-shared/v/red.mp3"
    }
   },
   {
@@ -269,6 +431,9 @@
    "template": "start-match",
    "params": {
     "letter": "Aa"
+   },
+   "vals": {
+    "letter": "en-shared/v/aa.mp3"
    }
   },
   {
@@ -301,6 +466,9 @@
    "template": "this-is-my",
    "params": {
     "person": "sister"
+   },
+   "vals": {
+    "person": "en-shared/v/sister.mp3"
    }
   },
   {
@@ -309,6 +477,9 @@
    "template": "this-is-my",
    "params": {
     "person": "father"
+   },
+   "vals": {
+    "person": "en-shared/v/father.mp3"
    }
   },
   {
@@ -317,6 +488,9 @@
    "template": "this-is-my",
    "params": {
     "person": "grandmother"
+   },
+   "vals": {
+    "person": "en-shared/v/grandmother.mp3"
    }
   },
   {
@@ -342,6 +516,10 @@
    "params": {
     "n": "2",
     "thing": "brothers"
+   },
+   "vals": {
+    "n": "en-shared/v/2.mp3",
+    "thing": "en-shared/v/brothers.mp3"
    }
   },
   {
@@ -351,6 +529,10 @@
    "params": {
     "n": "2",
     "thing": "sisters"
+   },
+   "vals": {
+    "n": "en-shared/v/2.mp3",
+    "thing": "en-shared/v/sisters.mp3"
    }
   },
   {
@@ -360,6 +542,10 @@
    "params": {
     "which": "the objects",
     "letter": "Nn"
+   },
+   "vals": {
+    "which": "en-shared/v/the-objects.mp3",
+    "letter": "en-shared/v/nn.mp3"
    }
   },
   {
@@ -385,6 +571,10 @@
    "params": {
     "which": "the objects",
     "letter": "Pp"
+   },
+   "vals": {
+    "which": "en-shared/v/the-objects.mp3",
+    "letter": "en-shared/v/pp.mp3"
    }
   },
   {
@@ -406,6 +596,10 @@
    "params": {
     "n": "4",
     "thing": "books"
+   },
+   "vals": {
+    "n": "en-shared/v/4.mp3",
+    "thing": "en-shared/v/books.mp3"
    }
   },
   {
@@ -419,6 +613,10 @@
    "params": {
     "n": "1",
     "thing": "brother"
+   },
+   "vals": {
+    "n": "en-shared/v/1.mp3",
+    "thing": "en-shared/v/brother.mp3"
    }
   },
   {
@@ -428,6 +626,10 @@
    "params": {
     "n": "2",
     "thing": "butterflies"
+   },
+   "vals": {
+    "n": "en-shared/v/2.mp3",
+    "thing": "en-shared/v/butterflies.mp3"
    }
   },
   {
@@ -473,6 +675,10 @@
    "params": {
     "n": "2",
     "thing": "pencils"
+   },
+   "vals": {
+    "n": "en-shared/v/2.mp3",
+    "thing": "en-shared/v/pencils.mp3"
    }
   },
   {
@@ -482,6 +688,10 @@
    "params": {
     "n": "4",
     "thing": "bags"
+   },
+   "vals": {
+    "n": "en-shared/v/4.mp3",
+    "thing": "en-shared/v/bags.mp3"
    }
   },
   {
@@ -491,6 +701,10 @@
    "params": {
     "n": "5",
     "thing": "stars"
+   },
+   "vals": {
+    "n": "en-shared/v/5.mp3",
+    "thing": "en-shared/v/stars.mp3"
    }
   }
  ]

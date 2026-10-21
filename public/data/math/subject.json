@@ -43,7 +43,8 @@
     {
      "id": "make-numbers",
      "label": "Tool",
-     "title": "Make numbers"
+     "title": "Make numbers",
+     "map": "make number"
     }
    ]
   },
@@ -242,8 +243,8 @@
    "exams": [
     {
      "id": "models",
-     "title": "Revision",
-     "label": "Revision",
+     "title": "Test",
+     "label": "Test",
      "file": "data/math/exams/models/exam.json"
     }
    ]

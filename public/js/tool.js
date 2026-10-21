@@ -24,7 +24,7 @@ function toolDraw(){
   body.innerHTML=`<h2 class="tlh outline">Make</h2><svg class="tlarr" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 3v34M7 26l13 15 13-15"/></svg><div class="tltgt">${[5,6,7,8,9,10].map(k=>`<button class="tlt${k===T?' on':''}" data-n="${k}" style="--c:${TCOL[k]}"><b>${k}</b></button>`).join('')}</div>
     <div class="tlrow" style="--n:${T==null?6:T+1}">${T==null?'':Array.from({length:T+1},(_,i)=>`<button class="tld" data-i="${i}" style="--c:${TCOL[i]}"><b>${i}</b></button>`).join('')}</div>
     <svg class="tlarcs" viewBox="0 0 ${(N+1)*100} 300" preserveAspectRatio="none" aria-hidden="true"></svg>
-    <div class="tllist" dir="ltr">${rows.map(a=>`<button class="tls" data-a="${a}"><b style="color:${TCOL[a]}">${a}</b> <i>and</i> <b style="color:${TCOL[T-a]}">${T-a}</b> <i>make</i> <b class="m">${T}</b></button>`).join('')}</div>`;
+    <div class="tllist">${rows.map(a=>`<button class="tls" data-a="${a}"><b style="color:${TCOL[a]}">${a}</b> <i>and</i> <b style="color:${TCOL[T-a]}">${T-a}</b> <i>make</i> <b class="m">${T}</b></button>`).join('')}</div>`;
   if(T!=null){ const sv=$('.tlarcs',body); for(let a=0;a<=T-a;a++) arcAdd(sv,a,T-a,T,'ghost'); }
   $$('.tlt',body).forEach(b=>b.addEventListener('click',()=>{ tl.n=+b.dataset.n; vStop(); tl.run++; toolDraw(); if(anim) G.from($('.tlrow',body),{opacity:0,y:-10,duration:.25,clearProps:'all'}); }));
   $$('.tld',body).forEach(b=>b.addEventListener('click',()=>toolPick(+b.dataset.i)));

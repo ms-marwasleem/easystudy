@@ -8,9 +8,9 @@
 .box .name.ar,.ubox b.ar,.jt.ar{font-family:var(--f-ui);font-weight:800}
 
 /* the story: paragraphs right to left, a small speaker on the right of each */
-#lesson.ar .scene .task{direction:rtl;font-family:var(--f-ui);font-weight:800}
-#lesson.ar .line{direction:rtl;align-items:start}
-#lesson.ar .txt{direction:rtl;line-height:1.95;font-weight:700}
+#lesson.ar .scene .task{font-family:var(--f-ui);font-weight:800}
+#lesson.ar .line{align-items:start}
+#lesson.ar .txt{line-height:1.95;font-weight:700}
 #lesson.ar .w{padding:0 .12em}
 .who.say{display:grid;place-items:center;width:2.125rem;height:2.125rem;margin-top:.35em;color:#2A7FD8;min-width:0;padding:0}
 .who.say svg{width:1.75rem;height:1.75rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
@@ -30,7 +30,7 @@
 #lesson.ar .vword{font-size:calc(var(--wfs,3.5rem) * 1.3)}
 
 /* short landscape screens (tablet in a small window, phone on its side): the Arabic task line is long and the stars are many, so the stars get their own thin row under the task line (before, the task line was squeezed to nothing and grew tall, which pushed the pictures out) */
-#lesson.ar.q-short .quiz{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr) auto;grid-template-areas:"head" "dots" "word" "play" "src";gap:2px;padding:0.375rem 0.875rem 0.25rem}
+#lesson.ar.q-short .quiz{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr);grid-template-areas:"head" "dots" "word" "play";gap:2px;padding:0.375rem 0.875rem 0.25rem}
 #lesson.ar.q-short .qhead{padding-right:4rem;min-height:1.875rem}
 #lesson.ar.q-short .qdots{padding-right:0;justify-content:center;gap:1px}
 #lesson.ar.q-short .qdots i{width:clamp(0.75rem,2.6vw,1.25rem);height:clamp(0.75rem,2.6vw,1.25rem)}
@@ -41,3 +41,8 @@
 #lesson.ar.q-short .qtask{font-size:clamp(0.875rem,2.4vw,1.1875rem)}
 /* smaller listen icon beside a story paragraph */
 .who.say{width:1.75rem;height:1.75rem}.who.say svg{width:1.3125rem;height:1.3125rem}
+
+/* DIRECTION RULE (Marwa 2026-10-20): the screen layout is left-to-right in EVERY subject (buttons keep their places); only the TEXT of an Arabic screen
+   reads right to left and starts at the right edge of its box (core.js subjDir sets dir=ltr + class .ar). Text blocks are listed here, once. */
+.ar :is(.txt,.task,.qtask,.qopt,.qtxt,.vword,.vstatus,.vm-t,.sign small,.sign h1,#lessonTitle,.jt,.ubox b,.xpage,.qlk b,.qcw b,.qlkw,.qlkp.tx,.qmp.tx,.note){direction:rtl}
+.ar :is(.txt,.task,.qtask,.qtxt,.xpage,.note){text-align:right}

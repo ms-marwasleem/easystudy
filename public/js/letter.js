@@ -25,7 +25,7 @@ const lPlay=async(url,btn)=>{ vStop(); const run=++lt.run; if(btn){ btn.classLis
 function showLetter(){
   const Lt=LESSON.letter, pg=rd.page, h=lHeard();
   stage.innerHTML=''; rd.words=[]; rd.lineEls=[]; rd.spotEls=[]; lt.run++;
-  const scene=el('div','scene pics letter p'+pg), grid=el('div','lgrid p'+pg); grid.dir='rtl';
+  const scene=el('div','scene pics letter p'+pg), grid=el('div','lgrid p'+pg);
   scene.append(el('p','task',STAR(true)+Lt.tasks[pg-1]),grid);
   const card=(cls,k,html,fn)=>{ const b=el('button','lcard '+cls+(h[pg+':'+k]?' heard':''),html+`<span class="lst">${STAR(true)}</span>`); b.addEventListener('click',()=>fn(b)); grid.append(b); return b; };
   if(pg===1){
@@ -43,40 +43,3 @@ function showLetter(){
 // the rail button: every card of the page in turn
 async function lAll(){ const cards=$$('.lgrid .lcard'); vStop(); lt.auto=0; const run=++lt.run; for(const c of cards){ if(run!==lt.run) return; c.click(); await new Promise(r=>setTimeout(r,4200)); if(run!==lt.run) return; }
   if(run===lt.run&&tab==='read'&&rd.page<nPages()){ lt.auto=1; readGo(1); } }   // the Listen button reads the whole lesson: on to the next page
-
-/* LETTER lesson WORDS tab — the book's word page: one row per haraka (fatha, damma, kasra, sukoon): the vowelled letter (boy card) + its 3 words,
-   taken in order from lesson.json "vocab" (3 per haraka, same order as letter.sounds). Tap a card to hear it; the speaker sits beside the picture.
-   Done (star) when every word was heard. */
-function showLetterWords(){
-  const Lt=LESSON.letter, V=LESSON.vocab, h=lHeard(), per=3;
-  stage.innerHTML=''; $('#lesson').classList.add('vtab','lwtab'); lt.run++; lt.all=(lt.all||0)+1;
-  setRail([{kind:'go',icon:'play',label:tr('Listen'),click:lWordsAll}]);   // the big green Listen reads the whole page in order
-  const scene=el('div','scene pics letter lwords'), grid=el('div','wgrid'); grid.dir='rtl';
-  const rows=Math.ceil(V.length/per); grid.style.setProperty('--rows',rows);
-  const total=V.length, heardN=()=>V.filter((v,i)=>h['w:'+i]).length;
-  for(let r=0;r<rows;r++){
-    const s=Lt.sounds[r];
-    if(s){ const b=el('button','lcard wlet',`<img src="${s.pic}" alt=""><span class="lglyph">${s.t}</span>`); b.addEventListener('click',()=>lPlay(s.audio,b)); grid.append(b); }
-    else grid.append(el('div','wlet'));
-    for(let k=0;k<per;k++){ const i=r*per+k, v=V[i]; if(!v){ grid.append(el('div')); continue; }
-      const b=el('div','lcard wword'+(h['w:'+i]?' heard':''),`<span class="wtop"><span class="wpic"><img src="${v.img}" alt=""${/\.png$/i.test(v.img)?' class="cut"':''}></span><i class="wsay">${SAY_LN}</i><button class="wpen" aria-label="Write">${ICON.pencil}</button></span><span class="wtxt" style="--n:${Math.max(4,glyphs(v.word).length)}">${v.word}</span><span class="lst">${STAR(true)}</span>`);
-      b.setAttribute('role','button'); b.tabIndex=0;
-      $('.wpen',b).addEventListener('click',e=>{ e.stopPropagation(); lWordPop(i); });
-      b.addEventListener('click',async()=>{ h['w:'+i]=1; b.classList.add('heard'); carFrac(heardN()/total); if(heardN()>=total) award(LESSON.id,'words');
-        vStop(); const run=++lt.run; b.classList.add('on'); try{ await sayWord(v); }catch(e){} if(run===lt.run) b.classList.remove('on'); });
-      grid.append(b); }
-  }
-  scene.append(grid); stage.append(scene); carFrac(heardN()/total);
-}
-
-async function lWordsAll(){ const cards=$$('.lwords .lcard:not(.wlet:empty)'), tok=lt.all=(lt.all||0)+1; vStop();
-  for(const c of cards){ if(tok!==lt.all||tab!=='words') return; c.click(); await new Promise(r=>setTimeout(r,150)); while(tok===lt.all&&c.classList.contains('on')) await new Promise(r=>setTimeout(r,80)); await new Promise(r=>setTimeout(r,250)); } }
-/* pencil on a word card: the usual word-memorising page (word, parts x3, then writing with Help) for that ONE word, in a popup over the words page */
-function lWordPop(i){
-  const keep=LESSON.vocab, saved=[...stage.childNodes], L=$('#lesson');
-  vStop(); lt.run++; LESSON.vocab=[keep[i]]; vs.i=0; vs.popup=1; L.classList.add('wpop');
-  showWords();
-  const x=el('button','wpclose','✕'); x.setAttribute('aria-label','Close'); stage.append(x);
-  x.addEventListener('click',()=>{ vStop(); vs.popup=0; vs.mode='idle'; LESSON.vocab=keep; L.classList.remove('wpop','vmode');
-    stage.innerHTML=''; saved.forEach(n=>stage.append(n)); carFrac(Object.keys(lHeard()).filter(k=>k[0]==='w').length/keep.length); });
-}

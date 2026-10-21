@@ -66,7 +66,7 @@
 @media (max-aspect-ratio:5/4){.mxline{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto}.mxstones{grid-column:1/-1;grid-row:2;grid-template-columns:repeat(2,minmax(0,1fr));align-self:stretch;align-content:space-evenly}.mxend{grid-row:1;height:auto;max-height:30cqh}.mxend.bg{grid-column:2}.mxend.sm{grid-column:1}.mxstone{font-size:min(7cqh,12cqw);aspect-ratio:2}.mxstone:nth-child(2n){transform:none}.mxcap{grid-row:3}}
 .qmhelp{align-self:center;margin-top:0.5rem}
 .qmcell.peek b,.qmb.peek b{color:rgba(46,27,12,.28)}
-.qxduo{display:flex;align-items:flex-end;justify-content:center;gap:3rem;flex-wrap:wrap}
+.qxduo{display:flex;align-items:flex-end;justify-content:center;gap:1rem 3rem;flex-wrap:wrap}
 .mxbond .mxdots img{border:0;background:none;padding:0;border-radius:0;max-height:76%;height:auto;width:auto;max-width:100%}
 /* everything stays inside the sheet, margins equal on the sides; the book-page tag has its own strip at the bottom */
 .scene.mx{padding:0.5rem 0.5rem 1.75rem}

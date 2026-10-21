@@ -74,7 +74,7 @@ async function libBuffer(url,ctx){
   const key=path+'@'+e.ts; if(LIB.bufs[key]) return LIB.bufs[key];
   LIB.bufs[key]=(async()=>{
     try{
-      const raw=await libBytes(`${LIB.url}/pub/a/${e.id}?v=${e.ts}`).then(b=>new Promise((ok,no)=>ctx.decodeAudioData(b,ok,no)));
+      const raw=await libBytes(`${LIB.url}/pub/a/${e.id}?v=${e.ts}`).then(b=>decodeSnd(ctx,b));
       const d=libPCM(raw), sr=raw.sampleRate;
       if(e.part==null) return libMake(ctx,d,sr,0,d.length);
       const gk=e.id+'@'+e.ts+'#'+e.n; if(!LIB.groups[gk]) LIB.groups[gk]=libCut(d,sr,e.n);
@@ -83,6 +83,23 @@ async function libBuffer(url,ctx){
   })();
   const b=await LIB.bufs[key]; if(!b) delete LIB.bufs[key]; return b;
 }
+
+
+/* SENTENCES WITH VARIABLES — en-shared/q/index.json lists entries {path,template,params,vals}; their own mp3 is NOT shipped. The sentence is built here from
+   pieces said once: the template's fixed parts (en-shared/t) and each value (en-shared/v), played one after the other. A recording of the whole
+   sentence in the library (same path) still wins. A new combination needs no new file. */
+const COMP={map:null};
+async function composeMap(url){
+  if(!COMP.map) COMP.map=(async()=>{ const m={};
+    try{ const base=(url.match(/^(.*?\/)data\//)||['',''])[1]; const d=await (await fetch(base+'data/en-shared/q/index.json')).json();
+      const T={}; d.templates.forEach(t=>T[t.id]=t);
+      d.entries.forEach(e=>{ const t=T[e.template]; if(t&&t.parts&&e.vals) m[e.path]=t.parts.map(x=>x.path||e.vals[x.v]); }); }catch(e){}
+    return m; })();
+  return COMP.map;
+}
+async function composeFiles(url){ const p=libPath(url); if(!p||p.indexOf('en-shared/q/')!==0) return null;
+  const m=await composeMap(url); const l=m[p]; if(!l) return null;
+  return l.map(f=>url.replace(/data\/.+?(\?.*)?$/,'data/'+f)); }
 
 /* APP UPDATES — index.html carries APP_V (set when the app is published, see sync.sh); version.json says the newest. When the child moves
    to another screen the app quietly checks (a small file), and reloads itself on the home screen, where nothing can be lost
@@ -93,5 +110,8 @@ async function appNav(screen){
   if(!window.APP_V||!/^https?:/.test(location.protocol)) return;
   if(!APPV.newer&&Date.now()-APPV.at>LIB_EVERY){ APPV.at=Date.now();
     try{ const v=await (await fetch('version.json',{cache:'no-cache'})).json(); if(v&&v.v&&v.v!==window.APP_V) APPV.newer=true; }catch(e){} }
-  if(APPV.newer&&screen==='subjects'&&!document.getElementById('subjects').hidden&&!(typeof player!=='undefined'&&player.run)) location.reload();
+  if(APPV.newer&&screen==='subjects'&&!document.getElementById('subjects').hidden&&!(typeof player!=='undefined'&&player.run)){ await swFresh(); location.reload(); }
 }
+// the app is kept on the device (sw.js): before reloading for a new version, it drops the old files there (at most 5 s wait)
+function swFresh(){ const c=navigator.serviceWorker&&navigator.serviceWorker.controller; if(!c) return Promise.resolve();
+  return new Promise(ok=>{ const ch=new MessageChannel(); ch.port1.onmessage=()=>ok(); c.postMessage('update',[ch.port2]); setTimeout(ok,5000); }); }
