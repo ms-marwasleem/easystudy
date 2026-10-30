@@ -86,6 +86,91 @@
      "answer": true
     }
    ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 3,
+   "grp": "classroom-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "play",
+     "scr": "ypla",
+     "audio": "words/play.mp3",
+     "pic": "../../pics/play.jpg",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "friends",
+     "scr": "fenrsid",
+     "audio": "words/friends.mp3",
+     "pic": "../u1l1/q/5-friends.jpg",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "word": "hello",
+     "scr": "elhol",
+     "audio": "words/hello.mp3",
+     "pic": "../../pics/hello.jpg",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 3,
+   "grp": "classroom-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "What's",
+      "your",
+      "name"
+     ],
+     "end": "?",
+     "audio": "../../en-shared/q/what-s-your-name.mp3"
+    },
+    {
+     "chunks": [
+      "My",
+      "name",
+      "is",
+      "Hana"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/my-name-is-hana.mp3"
+    }
+   ]
   }
  ]
 }

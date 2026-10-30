@@ -150,8 +150,7 @@ function bookSides(l,next){
   const box=e=>{ const name=e.tab==='workbook'?tr('PTS'):e.tab==='booklet'?tr('Booklet'):tr('Book');
     return tile(name,`<b>${num(e.page)}</b>`,`data-tab="${e.tab}" data-p="${e.page}" aria-label="${name} page ${e.page}: ${TABNAME[e.tab]}"`).replace('class="jpm"',`class="jpm ${KEYCLS[e.tab]||''}"`); };
   const side=(cls,list,extra=[])=>`<div class="jside ${cls}" data-n="${Math.max(1,list.length+extra.length)}"><span class="jpgs">`+list.map(box).join('')+extra.join('')+`</span></div>`;
-  const wk=l.pages&&l.pages.booklet?'booklet':'workbook';
-  const wb=[].concat(l.pages&&l.pages[wk]||[]).map(Number).sort((a,b)=>a-b).map(p=>({page:p,tab:wk,known:true}));
+  const wb=['workbook','booklet'].flatMap(k=>[].concat(l.pages&&l.pages[k]||[]).map(Number).sort((a,b)=>a-b).map(p=>({page:p,tab:k,known:true})));   // PTS / Assessments pages, then Booklet pages
   // exam papers (Tests): red signs on the Workbook side, after its pages (lesson "exams" in subject.json)
   const exs=(l.exams||[]).map(e=>tile(tr(e.label||'Test'),`<b class="jex">${ICON.exam}</b>`,`class="ex" data-ex="${e.id}" aria-label="${e.title||'Exam'}"`).replace('<button class="jpm" class="ex"','<button class="jpm ex"'));
   const rvs=(l.revs||[]).map(e=>tile(tr(e.label||'Test'),`<b class="jex">${ICON.exam}</b>`,`data-rev="${e.folder}" data-p="${e.page}" aria-label="${e.label||'Test'}"`).replace('class="jpm"','class="jpm ex rv"'));

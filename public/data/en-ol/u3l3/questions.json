@@ -209,6 +209,152 @@
      "answer": 1
     }
    ]
+  },
+  {
+   "type": "link",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 28,
+   "grp": "classroom-1",
+   "task": "Look, count, and match.",
+   "taskAudio": "../../en-shared/q/look-count-and-match.mp3",
+   "hint": "Join each number to its picture!",
+   "items": [
+    {
+     "word": "1",
+     "audio": "../../en-shared/q/1.mp3",
+     "pic": "img/monkey-1.png"
+    },
+    {
+     "word": "4",
+     "audio": "../../en-shared/q/4.mp3",
+     "pic": "img/cats-4.png"
+    },
+    {
+     "word": "2",
+     "audio": "../../en-shared/q/2.mp3",
+     "pic": "img/palms-2.png"
+    },
+    {
+     "word": "5",
+     "audio": "../../en-shared/q/5.mp3",
+     "pic": "img/parrots-5.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 28,
+   "grp": "classroom-2",
+   "task": "Look, read, and answer.",
+   "taskAudio": "../../en-shared/q/look-read-and-answer.mp3",
+   "hint": "Tap the right answer!",
+   "items": [
+    {
+     "ask": "How many flowers are there?",
+     "lead": "There are",
+     "options": [
+      "2",
+      "3"
+     ],
+     "answer": 0,
+     "pic": "../../pics/flowers-2.png",
+     "tail": "flowers.",
+     "audio": "../../en-shared/q/there-are-2-flowers.mp3",
+     "word": "There are 2 flowers."
+    },
+    {
+     "ask": "How many apples are there?",
+     "lead": "There are",
+     "options": [
+      "5",
+      "4"
+     ],
+     "answer": 1,
+     "pic": "img/apples-4.png",
+     "tail": "apples.",
+     "audio": "../../en-shared/q/there-are-4-apples.mp3",
+     "word": "There are 4 apples."
+    },
+    {
+     "ask": "How many bees are there?",
+     "lead": "There are",
+     "options": [
+      "3",
+      "4"
+     ],
+     "answer": 0,
+     "pic": "img/bees-3.png",
+     "tail": "bees.",
+     "audio": "../../en-shared/q/there-are-3-bees.mp3",
+     "word": "There are 3 bees."
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 28,
+   "grp": "homework-1",
+   "task": "Look, count, and write.",
+   "taskAudio": "../../en-shared/q/look-count-and-write.mp3",
+   "hint": "Tap the right number!",
+   "items": [
+    {
+     "lead": "There are",
+     "options": [
+      "4",
+      "5"
+     ],
+     "answer": 0,
+     "pic": "../../pics/books-4.png",
+     "tail": "books.",
+     "audio": "../../en-shared/q/there-are-4-books.mp3",
+     "word": "There are 4 books."
+    },
+    {
+     "lead": "There are",
+     "options": [
+      "4",
+      "5"
+     ],
+     "answer": 1,
+     "pic": "../../pics/birds-5.png",
+     "tail": "birds.",
+     "audio": "../../en-shared/q/there-are-5-birds.mp3",
+     "word": "There are 5 birds."
+    },
+    {
+     "lead": "There are",
+     "options": [
+      "2",
+      "3"
+     ],
+     "answer": 0,
+     "pic": "../../pics/count-2-trees.png",
+     "tail": "trees.",
+     "audio": "../../en-shared/q/there-are-2-trees.mp3",
+     "word": "There are 2 trees."
+    },
+    {
+     "lead": "I have",
+     "options": [
+      "2",
+      "1"
+     ],
+     "answer": 1,
+     "pic": "../../pics/brother-1.png",
+     "tail": "brother.",
+     "audio": "../../en-shared/q/i-have-1-brother.mp3",
+     "word": "I have 1 brother."
+    }
+   ]
   }
  ]
 }

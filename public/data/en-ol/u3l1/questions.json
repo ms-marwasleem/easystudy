@@ -186,6 +186,205 @@
      "word": "I have 2 sisters."
     }
    ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 19,
+   "grp": "classroom-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "brothers",
+     "scr": "ohrbster",
+     "audio": "../../en-shared/q/brothers.mp3",
+     "pic": "../../pics/brothers.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ]
+    },
+    {
+     "word": "grandfather",
+     "scr": "raathrfdgne",
+     "audio": "words/grandfather.mp3",
+     "pic": "../../pics/grandfather.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+     ]
+    },
+    {
+     "word": "sisters",
+     "scr": "sesrist",
+     "audio": "../../en-shared/q/sisters.mp3",
+     "pic": "../../pics/sisters.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "word": "father",
+     "scr": "hetraf",
+     "audio": "words/father.mp3",
+     "pic": "../../pics/father.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "word": "mother",
+     "scr": "ohemrt",
+     "audio": "words/mother.mp3",
+     "pic": "../../pics/mother.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 19,
+   "grp": "classroom-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "lead": "This is my",
+     "options": [
+      "sisters",
+      "grandmother",
+      "brothers",
+      "father"
+     ],
+     "answer": 3,
+     "pic": "../../pics/father.png",
+     "audio": "../../en-shared/q/this-is-my-father.mp3",
+     "word": "This is my father."
+    },
+    {
+     "lead": "I have 2",
+     "options": [
+      "sisters",
+      "grandmother",
+      "brothers",
+      "father"
+     ],
+     "answer": 2,
+     "pic": "../../pics/brothers.png",
+     "audio": "../../en-shared/q/i-have-2-brothers.mp3",
+     "word": "I have 2 brothers."
+    },
+    {
+     "lead": "This is my",
+     "options": [
+      "sisters",
+      "grandmother",
+      "brothers",
+      "father"
+     ],
+     "answer": 1,
+     "pic": "../../pics/grandmother.png",
+     "audio": "../../en-shared/q/this-is-my-grandmother.mp3",
+     "word": "This is my grandmother."
+    },
+    {
+     "lead": "I have 2",
+     "options": [
+      "sisters",
+      "grandmother",
+      "brothers",
+      "father"
+     ],
+     "answer": 0,
+     "pic": "../../pics/sisters.png",
+     "audio": "../../en-shared/q/i-have-2-sisters.mp3",
+     "word": "I have 2 sisters."
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 20,
+   "grp": "homework-1",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "This",
+      "is",
+      "my",
+      "father"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/this-is-my-father.mp3"
+    },
+    {
+     "chunks": [
+      "This",
+      "is",
+      "my",
+      "grandmother"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/this-is-my-grandmother.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "have",
+      "2",
+      "sisters"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-have-2-sisters.mp3"
+    }
+   ]
   }
  ]
 }

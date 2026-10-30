@@ -200,6 +200,459 @@
      "answer": 0
     }
    ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 4,
+   "grp": "classroom-1",
+   "task": "Write the missing sound.",
+   "taskAudio": "../../en-shared/q/write-the-missing-sound.mp3",
+   "hint": "Type the missing letter!",
+   "items": [
+    {
+     "word": "tomato",
+     "audio": "words/tomato.mp3",
+     "pic": "../../pics/tomato.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "teacher",
+     "audio": "words/teacher.mp3",
+     "pic": "../../pics/teacher.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "tiger",
+     "audio": "words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "tree",
+     "audio": "words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "table",
+     "audio": "words/table.mp3",
+     "pic": "../../pics/table.png",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 4,
+   "grp": "classroom-2",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "teacher",
+     "scr": "tcheear",
+     "audio": "words/teacher.mp3",
+     "pic": "../../pics/teacher.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "word": "table",
+     "scr": "aetlb",
+     "audio": "words/table.mp3",
+     "pic": "../../pics/table.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "tree",
+     "scr": "erte",
+     "audio": "words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "tiger",
+     "scr": "ietrg",
+     "audio": "words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "tomato",
+     "scr": "totoma",
+     "audio": "words/tomato.mp3",
+     "pic": "../../pics/tomato.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 4,
+   "grp": "homework-1",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "tiger",
+     "audio": "words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "tree",
+     "audio": "words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "table",
+     "audio": "words/table.mp3",
+     "pic": "../../pics/table.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "tomato",
+     "audio": "words/tomato.mp3",
+     "pic": "../../pics/tomato.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "word": "teacher",
+     "audio": "words/teacher.mp3",
+     "pic": "../../pics/teacher.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 1,
+   "page": 5,
+   "grp": "weekly-a-1",
+   "task": "Write the first letter.",
+   "taskAudio": "../../en-shared/q/write-the-first-letter.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "table",
+     "audio": "words/table.mp3",
+     "pic": "../../pics/table.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "tomato",
+     "audio": "words/tomato.mp3",
+     "pic": "../../pics/tomato.png",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 2,
+   "page": 5,
+   "grp": "weekly-a-2",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "tiger",
+     "scr": "gtrei",
+     "audio": "words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "play",
+     "scr": "apyl",
+     "audio": "../u1l1/words/play.mp3",
+     "pic": "../../pics/play.jpg",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "tree",
+     "scr": "etre",
+     "audio": "words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 1,
+   "page": 5,
+   "grp": "weekly-b-1",
+   "task": "Write the first letter.",
+   "taskAudio": "../../en-shared/q/write-the-first-letter.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "tree",
+     "audio": "words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "tiger",
+     "audio": "words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 2,
+   "page": 6,
+   "grp": "weekly-b-2",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "teacher",
+     "scr": "cerhate",
+     "audio": "words/teacher.mp3",
+     "pic": "../../pics/teacher.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "word": "play",
+     "scr": "lyap",
+     "audio": "../u1l1/words/play.mp3",
+     "pic": "../../pics/play.jpg",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "tomato",
+     "scr": "tomaot",
+     "audio": "words/tomato.mp3",
+     "pic": "../../pics/tomato.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 1,
+   "page": 6,
+   "grp": "weekly-c-1",
+   "task": "Write the first letter.",
+   "taskAudio": "../../en-shared/q/write-the-first-letter.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "teacher",
+     "audio": "words/teacher.mp3",
+     "pic": "../../pics/teacher.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "hello",
+     "audio": "../u1l1/words/hello.mp3",
+     "pic": "../../pics/hello.jpg",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 2,
+   "page": 6,
+   "grp": "weekly-c-2",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "friends",
+     "scr": "rdfsnei",
+     "audio": "../u1l1/words/friends.mp3",
+     "pic": "../u1l1/q/5-friends.jpg",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "word": "hello",
+     "scr": "elhol",
+     "audio": "../u1l1/words/hello.mp3",
+     "pic": "../../pics/hello.jpg",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "table",
+     "scr": "abetl",
+     "audio": "words/table.mp3",
+     "pic": "../../pics/table.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ]
   }
  ]
 }

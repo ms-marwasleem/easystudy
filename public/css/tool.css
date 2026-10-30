@@ -1,13 +1,14 @@
 /* TOOLS (js/tool.js): the round yellow marker on the map, the arcs button on lessons, the Make-numbers slide in a popup */
-.jpm.tl{--g:#D99A0B;--bg:#FFF1B0;min-width:calc(var(--b)*1.25);width:calc(var(--b)*1.25);height:calc(var(--b)*1.25);border-radius:50%;padding:0}
-.jpm.tl::after{display:none}
+/* the tool sign is a gear: gold gear behind, a smaller pale gear on top makes the rim */
+.jpm.tl{--gear:polygon(89.1% 41.5%,99.6% 43.7%,99.6% 56.3%,89.1% 58.5%,83.6% 71.6%,89.5% 80.6%,80.6% 89.5%,71.6% 83.6%,58.5% 89.1%,56.3% 99.6%,43.7% 99.6%,41.5% 89.1%,28.4% 83.6%,19.4% 89.5%,10.5% 80.6%,16.4% 71.6%,10.9% 58.5%,0.4% 56.3%,0.4% 43.7%,10.9% 41.5%,16.4% 28.4%,10.5% 19.4%,19.4% 10.5%,28.4% 16.4%,41.5% 10.9%,43.7% 0.4%,56.3% 0.4%,58.5% 10.9%,71.6% 16.4%,80.6% 10.5%,89.5% 19.4%,83.6% 28.4%);--g:#D99A0B;--bg:#FFF1B0;min-width:calc(var(--b)*1.25);width:calc(var(--b)*1.25);height:calc(var(--b)*1.25);border:0;border-radius:0;padding:0;box-shadow:none;background:var(--g);clip-path:var(--gear);isolation:isolate}
+.jpm.tl::after{content:"";display:block;position:absolute;inset:max(2px,calc(var(--b)*.07));z-index:-1;background:linear-gradient(#FFFDF6,var(--bg));clip-path:var(--gear)}
 .jpm.tl small{font-size:max(0.5rem,calc(var(--b)*.22))}
 .jpm.tl .jex{width:calc(var(--b)*.8);height:calc(var(--b)*.6)}
 .jpm.tl .jex svg{stroke-width:2.6}
 @media (max-aspect-ratio:1/1){.snake .jpm.tl{min-width:calc(var(--b)*1.05);width:calc(var(--b)*1.05);height:calc(var(--b)*1.05)}.snake .jpm.tl .jex{width:calc(var(--b)*.7);height:calc(var(--b)*.5)}}
 .toolpop{z-index:30}
 .tlcard{position:relative;width:min(94vw,64rem);max-height:94vh;overflow:auto;border-radius:1.5rem;background:var(--paper);border:0.3125rem solid var(--ol);box-shadow:0 0.5rem 0 rgba(90,52,24,.35);padding:1rem 1.5rem 1.25rem;font-family:var(--f-read);color:#2E1B0C}
-.tlx{position:absolute;top:0.5rem;right:0.5rem;width:2.5rem;height:2.5rem;--t:var(--red1);--b:var(--red2);color:#fff;z-index:2}
+.tlx{position:absolute;top:0.5rem;right:0.5rem;width:2.5rem;height:2.5rem;--t:var(--red1);--b:var(--red2);color:var(--ol);z-index:2}
 .tlx svg{width:60%;height:60%;fill:none;stroke:currentColor;stroke-width:3.2;stroke-linecap:round}
 .tlbody{display:flex;flex-direction:column;align-items:center;gap:0.5rem}
 .tlh{margin:0;font-size:2.4rem}

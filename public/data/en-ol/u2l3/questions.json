@@ -291,6 +291,172 @@
      "answer": false
     }
    ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 15,
+   "grp": "classroom-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "triangle",
+     "scr": "niltgrae",
+     "audio": "words/triangle.mp3",
+     "pic": "../../pics/triangle-yellow.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ]
+    },
+    {
+     "word": "square",
+     "scr": "ursaqe",
+     "audio": "words/square.mp3",
+     "pic": "../../pics/square-green.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "word": "rectangle",
+     "scr": "crteagnel",
+     "audio": "words/rectangle.mp3",
+     "pic": "../../pics/rectangle-blue.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+     ]
+    },
+    {
+     "word": "circle",
+     "scr": "icelcr",
+     "audio": "words/circle.mp3",
+     "pic": "../../pics/circle-red.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 15,
+   "grp": "classroom-2",
+   "task": "Look, read, and answer.",
+   "taskAudio": "../../en-shared/q/look-read-and-answer.mp3",
+   "hint": "Tap the right answer!",
+   "items": [
+    {
+     "ask": "What shape is this?",
+     "lead": "This is a",
+     "options": [
+      "square",
+      "circle"
+     ],
+     "answer": 1,
+     "pic": "../../pics/circle-red.png",
+     "audio": "../../en-shared/q/this-is-a-circle.mp3",
+     "word": "This is a circle."
+    },
+    {
+     "ask": "What color is the triangle?",
+     "lead": "The triangle is",
+     "options": [
+      "red",
+      "yellow"
+     ],
+     "answer": 1,
+     "pic": "../../pics/triangle-yellow.png",
+     "audio": "../../en-shared/q/the-triangle-is-yellow.mp3",
+     "word": "The triangle is yellow."
+    },
+    {
+     "ask": "What shape is this?",
+     "lead": "This is a",
+     "options": [
+      "square",
+      "rectangle"
+     ],
+     "answer": 0,
+     "pic": "../../pics/square-green.png",
+     "audio": "../../en-shared/q/this-is-a-square.mp3",
+     "word": "This is a square."
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 15,
+   "grp": "homework-1",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "The",
+      "square",
+      "is",
+      "blue"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-square-is-blue.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "sun",
+      "is",
+      "yellow"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-sun-is-yellow.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "grass",
+      "is",
+      "green"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-grass-is-green.mp3"
+    }
+   ]
   }
  ]
 }

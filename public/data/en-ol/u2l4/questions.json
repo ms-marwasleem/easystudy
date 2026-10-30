@@ -528,6 +528,441 @@
      "audio": "../../en-shared/q/what-color-is-this.mp3"
     }
    ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 16,
+   "grp": "classroom-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "apple",
+     "scr": "plpae",
+     "audio": "../u2l3/words/apple.mp3",
+     "pic": "../../pics/apple-toon.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "axe",
+     "scr": "xae",
+     "audio": "words/axe.mp3",
+     "pic": "../../pics/axe.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "ant",
+     "scr": "tan",
+     "audio": "words/ant.mp3",
+     "pic": "../../pics/ant.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "arrow",
+     "scr": "orwra",
+     "audio": "words/arrow.mp3",
+     "pic": "../../pics/arrow.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 16,
+   "grp": "classroom-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "lead": "This is an",
+     "options": [
+      "ant",
+      "apple"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ant.png",
+     "audio": "../../en-shared/q/this-is-an-ant.mp3",
+     "word": "This is an ant."
+    },
+    {
+     "lead": "I can see an",
+     "options": [
+      "axe",
+      "arrow"
+     ],
+     "answer": 1,
+     "pic": "../../pics/arrow.png",
+     "audio": "../../en-shared/q/i-can-see-an-arrow.mp3",
+     "word": "I can see an arrow."
+    },
+    {
+     "lead": "I can see an",
+     "options": [
+      "apple",
+      "ant"
+     ],
+     "answer": 0,
+     "pic": "../../pics/apple-toon.png",
+     "audio": "../../en-shared/q/i-can-see-an-apple.mp3",
+     "word": "I can see an apple."
+    },
+    {
+     "lead": "This is an",
+     "options": [
+      "axe",
+      "arrow"
+     ],
+     "answer": 0,
+     "pic": "../../pics/axe.png",
+     "audio": "../../en-shared/q/this-is-an-axe.mp3",
+     "word": "This is an axe."
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 16,
+   "grp": "homework-1",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "apple",
+     "audio": "../u2l3/words/apple.mp3",
+     "pic": "../../pics/apple-toon.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "axe",
+     "audio": "words/axe.mp3",
+     "pic": "../../pics/axe.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "ant",
+     "audio": "words/ant.mp3",
+     "pic": "../../pics/ant.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "arrow",
+     "audio": "words/arrow.mp3",
+     "pic": "../../pics/arrow.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 1,
+   "page": 17,
+   "grp": "weekly-a-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "circle",
+     "scr": "clcier",
+     "audio": "../u2l3/words/circle.mp3",
+     "pic": "../../pics/circle-blue.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "word": "axe",
+     "scr": "xea",
+     "audio": "words/axe.mp3",
+     "pic": "../../pics/axe.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "ant",
+     "scr": "tan",
+     "audio": "words/ant.mp3",
+     "pic": "../../pics/ant.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 2,
+   "page": 17,
+   "grp": "weekly-a-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "lead": "This is a",
+     "options": [
+      "triangle",
+      "circle"
+     ],
+     "answer": 0,
+     "pic": "../../pics/triangle-yellow.png",
+     "audio": "../../en-shared/q/this-is-a-triangle.mp3",
+     "word": "This is a triangle."
+    },
+    {
+     "lead": "The square is",
+     "options": [
+      "blue",
+      "yellow"
+     ],
+     "answer": 0,
+     "pic": "../../pics/square-blue.png",
+     "audio": "../../en-shared/q/the-square-is-blue.mp3",
+     "word": "The square is blue."
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 1,
+   "page": 17,
+   "grp": "weekly-b-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "square",
+     "scr": "quresa",
+     "audio": "../u2l3/words/square.mp3",
+     "pic": "../../pics/square-green.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "word": "apple",
+     "scr": "plpea",
+     "audio": "../u2l3/words/apple.mp3",
+     "pic": "../../pics/apple-toon.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "arrow",
+     "scr": "rorwa",
+     "audio": "words/arrow.mp3",
+     "pic": "../../pics/arrow.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 2,
+   "page": 17,
+   "grp": "weekly-b-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "lead": "This is a",
+     "options": [
+      "square",
+      "circle"
+     ],
+     "answer": 1,
+     "pic": "../../pics/circle-red.png",
+     "audio": "../../en-shared/q/this-is-a-circle.mp3",
+     "word": "This is a circle."
+    },
+    {
+     "lead": "The triangle is",
+     "options": [
+      "yellow",
+      "red"
+     ],
+     "answer": 0,
+     "pic": "../../pics/triangle-yellow.png",
+     "audio": "../../en-shared/q/the-triangle-is-yellow.mp3",
+     "word": "The triangle is yellow."
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 1,
+   "page": 18,
+   "grp": "weekly-c-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "axe",
+     "scr": "eax",
+     "audio": "words/axe.mp3",
+     "pic": "../../pics/axe.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "apple",
+     "scr": "plpea",
+     "audio": "../u2l3/words/apple.mp3",
+     "pic": "../../pics/apple-toon.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "triangle",
+     "scr": "aglneirt",
+     "audio": "../u2l3/words/triangle.mp3",
+     "pic": "../../pics/triangle-red.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ]
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 2,
+   "page": 18,
+   "grp": "weekly-c-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "lead": "This is a",
+     "options": [
+      "rectangle",
+      "square"
+     ],
+     "answer": 0,
+     "pic": "../../pics/rectangle-blue.png",
+     "audio": "../../en-shared/q/this-is-a-rectangle.mp3",
+     "word": "This is a rectangle."
+    },
+    {
+     "lead": "The circle is",
+     "options": [
+      "blue",
+      "red"
+     ],
+     "answer": 1,
+     "pic": "../../pics/circle-red.png",
+     "audio": "../../en-shared/q/the-circle-is-red.mp3",
+     "word": "The circle is red."
+    }
+   ]
   }
  ]
 }

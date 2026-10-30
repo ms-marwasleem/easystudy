@@ -124,20 +124,34 @@ function snakeLayout(){
   b.c.forEach((e,k)=>{ const a=k?b.c[k-1]:0; if(k&&atoms[a].kind==='l') lines[k].append(mkSpacer()); for(let i=a;i<e;i++) lines[k].append(...atoms[i].els); });
   $$('.jl,.jcont',j).forEach(l=>{ const {need,least}=lessonLens(l); l.style.flex=`${need} 1 ${need}px`; l.style.minWidth=least+'px'; });
   j._rows=lines; j._lh=m.lh; j._rb=m.rb; j._pad=m.pad; j._Wj=Wj;
-  j.style.height=''; drawRoad();
+  rowSpacing(j,lines,fs,m.rb); j.style.height=''; drawRoad();
   const wr=w.getBoundingClientRect(), c=$('.jl.cur',j), cr=c&&c.getBoundingClientRect();
   if(c){ w.scrollLeft+=cr.left+cr.width/2-(wr.left+wr.width/2); w.scrollTop+=cr.top+cr.height/2-(wr.top+wr.height/2); }
+}
+// ONE gap between rows for every map: a row is only as tall as its content (signs above the road, the lesson's name and signs below it), and the
+// content of the next row starts the same distance after it. A row with only a unit box or one sign is short; a full row is tall; the gap never changes.
+function rowSpacing(j,lines,fs,rb){
+  const GAP=fs*1.5, half=rb/2+fs*.5, r=Math.min(rb*1.1,fs*3), ext=[];
+  lines.forEach(ln=>{ ln.style.height=''; ln.style.position=''; ln.style.top=''; ln.style.left='';
+    const c=ln.getBoundingClientRect(); let a=half, b=half; const cy=c.top+c.height/2;
+    $$('.jbox,.jpm,.ubox,.jcar',ln).forEach(e=>{ if(e.checkVisibility&&!e.checkVisibility({visibilityProperty:true})) return;
+      const q=e.getBoundingClientRect(); if(q.width<1) return; a=Math.max(a,cy-q.top); b=Math.max(b,q.bottom-cy); });
+    ext.push({a:Math.ceil(a),b:Math.ceil(b)}); });
+  const ys=[], pad=fs*1.4; let y=ext[0].a;
+  ext.forEach((e,k)=>{ ys.push(y); if(k<ext.length-1) y+=Math.max(2*r,e.b+GAP+ext[k+1].a); });
+  lines.forEach((ln,k)=>{ const h=2*Math.max(ext[k].a,ext[k].b); ln.style.position='absolute'; ln.style.left='0'; ln.style.width=j._Wj+'px'; ln.style.height=h+'px'; ln.style.top=(ys[k]-h/2)+'px'; });
+  const total=y+ext[ext.length-1].b+pad; $('.jrow',j).style.height=total+'px'; j._ys=ys; j._total=total; j._r=r;
 }
 // the road: one svg path through the middle of every row with a half-circle turn at each end; drawn as a few thin strokes on top of each other
 // to look like the straight ribbon (dark edge, light sides, dark middle). The teal copy is the part already driven.
 function drawRoad(){
   const j=$('.journey'), svg=$('.jroad',j); if(!svg||!j._rows) return;
-  const R=j._rows.length, lh=j._lh, rb=j._rb, Wj=j._Wj, xl=rb*.85+6, xr=Wj-xl, r=Math.min(rb*1.1,lh/2), H=Math.max(lh*R,j.parentElement.clientHeight);
+  const R=j._rows.length, ys=j._ys, rb=j._rb, Wj=j._Wj, xl=rb*.85+6, xr=Wj-xl, r=j._r, H=Math.max(j._total,j.parentElement.clientHeight);
   const st=xl, far=xr, sg=1, sw=1;   // the road starts on the left in every subject (only Arabic TEXT runs right to left)
-  let d=`M${st},${lh/2}`;
-  for(let k=0;k<R;k++){ const y=lh*(k+.5), fwd=k%2===0;
+  let d=`M${st},${ys[0]}`;
+  for(let k=0;k<R;k++){ const y=ys[k], y2=ys[k+1], fwd=k%2===0;
     d+=fwd?` H${far-sg*r}`:` H${st+sg*r}`;
-    if(k<R-1) d+=fwd?` A${r},${r} 0 0 ${sw} ${far},${y+r} V${y+lh-r} A${r},${r} 0 0 ${sw} ${far-sg*r},${y+lh}`:` A${r},${r} 0 0 ${1-sw} ${st},${y+r} V${y+lh-r} A${r},${r} 0 0 ${1-sw} ${st+sg*r},${y+lh}`; }
+    if(k<R-1) d+=fwd?` A${r},${r} 0 0 ${sw} ${far},${y+r} V${y2-r} A${r},${r} 0 0 ${sw} ${far-sg*r},${y2}`:` A${r},${r} 0 0 ${1-sw} ${st},${y+r} V${y2-r} A${r},${r} 0 0 ${1-sw} ${st+sg*r},${y2}`; }
   d+=R%2===1?` H${far}`:` H${st}`;
   svg.setAttribute('viewBox',`0 0 ${Wj} ${H}`); svg.setAttribute('width',Wj); svg.setAttribute('height',H); svg.style.height=H+'px';
   const L=(w,c)=>`<path d="${d}" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`;
@@ -145,7 +159,7 @@ function drawRoad(){
   svg.innerHTML=`<path d="${d}" fill="none" stroke="rgba(90,52,24,.35)" stroke-width="${rb+6}" stroke-linecap="round" transform="translate(0,4)"/>`+
     `<path d="${d}" fill="none" stroke="#5A3418" stroke-width="${rb+6}" stroke-linecap="round" stroke-linejoin="round"/>`+layers('#D49A70','#94503A','#7E3D2B')+
     `<g class="rdone" style="display:none">${layers('#9BE0D4','#3BA597','#2A8C80').replace(/<path /g,'<path class="dn" ')}</g>`;
-  j._path=svg.firstElementChild; j._d=d; j._geo={R,lh,r,st,far,sg};
+  j._path=svg.firstElementChild; j._d=d; j._geo={R,ys,r,st,far,sg};
 }
 function placeCar(i, drive){
   const j=$('.journey'), L=$$('.jl',j), car=$('.jcar',j);
@@ -167,9 +181,9 @@ function placeCarSnake(j,L,i,cur,car,drive){
   const path=j._path, done=$('.rdone',j);
   if(path&&done){ const tx=sg?x:card.left+card.width/2-jr.left, ty=y, tot=path.getTotalLength(); let bt=0;
     // worked out from the road's shape (straight rows joined by half circles); searching along the path point by point took seconds on a long road
-    const g=j._geo, k=Math.max(0,Math.min(g.R-1,Math.floor(ty/g.lh))), full=Math.abs(g.far-g.st), turn=Math.PI*g.r+g.lh-2*g.r;
+    const g=j._geo, k=g.ys.reduce((b,v,i)=>Math.abs(v-ty)<Math.abs(g.ys[b]-ty)?i:b,0), full=Math.abs(g.far-g.st), turn=i=>Math.PI*g.r+g.ys[i+1]-g.ys[i]-2*g.r;
     const rowLen=i=>full-(g.R===1?0:(i===0||i===g.R-1)?g.r:2*g.r), rowX=i=>i===0?g.st:i%2?g.far-g.sg*g.r:g.st+g.sg*g.r;
-    for(let i=0;i<k;i++) bt+=rowLen(i)+turn;
+    for(let i=0;i<k;i++) bt+=rowLen(i)+turn(i);
     bt+=Math.max(0,Math.min(rowLen(k),Math.abs(tx-rowX(k))));
     done.style.display=''; $$('.dn',done).forEach(p=>{ p.style.strokeDasharray=`${bt} ${tot+10}`; p.setAttribute('stroke-linecap','butt'); }); }
   if(anim&&drive){
@@ -317,11 +331,11 @@ const TABS={read:['Lesson','book'],words:['Vocab','abc'],quiz:['Q','quiz'],bookl
 const isAL=()=>!!(LESSON&&LESSON.type==='al'), inQ=()=>tab==='quiz'||tab==='workbook'||tab==='booklet'||(isAL()&&tab==='read'), alSrc=()=>tab==='booklet'?'booklet':'lesson', qKey=()=>isAL()?tab:'quiz';
 const KEYTAB={read:'book',quiz:'book',grammar:'book',booklet:'bk',workbook:'pts'};   // the map-key colour each tab belongs to (Words has none)
 function paintTabs(){ $$('.tab').forEach(b=>{ const [l0,ic]=TABS[b.dataset.tab], l=(LESSON&&LESSON.tabLabels&&LESSON.tabLabels[b.dataset.tab])||l0, got=LESSON&&STARS[LESSON.id]&&STARS[LESSON.id][b.dataset.tab];
-  b.dataset.book=KEYTAB[b.dataset.tab]||''; b.innerHTML=ICON[ic]+`<span>${isAr()&&TABAR[l]||tr(l)}</span>`+(b.dataset.book?'<i class="kd"></i>':'')+(got?`<span class="st">${STAR(true)}</span>`:''); b.hidden=LESSON&&LESSON.tabs?!LESSON.tabs.includes(b.dataset.tab):['booklet','workbook'].includes(b.dataset.tab)?!hasBook(b.dataset.tab):b.dataset.tab==='grammar'; b.setAttribute('aria-selected',b.dataset.tab===tab); }); const tb=$('.tabs'); if(tb) tb.classList.toggle('many',$$('.tab:not([hidden])').length>3); }   // optional "tabs": ["read","quiz"] in lesson.json shows only those tabs (Math: explanation + questions, or questions only)
+  b.dataset.book=KEYTAB[b.dataset.tab]||''; b.innerHTML=ICON[ic]+`<span>${isAr()&&TABAR[l]||tr(l)}</span>`+(b.dataset.book?'<i class="kd"></i>':'')+(got?`<span class="st">${STAR(true)}</span>`:''); b.hidden=LESSON&&LESSON.tabs?!LESSON.tabs.includes(b.dataset.tab):['booklet','workbook'].includes(b.dataset.tab)?!hasBook(b.dataset.tab):b.dataset.tab==='grammar'; b.setAttribute('aria-selected',b.dataset.tab===tab); }); const tb=$('.tabs'); if(tb){ const nt=$$('.tab:not([hidden])').length; tb.classList.toggle('many',nt>3); tb.classList.toggle('many5',nt>4); } }   // optional "tabs": ["read","quiz"] in lesson.json shows only those tabs (Math: explanation + questions, or questions only)
 // a default lesson shows Booklet / PTS only when it has that book (its pages in subject.json, or questions of that book)
 function hasBook(k){ const m=SUBJECT&&LESSON&&SUBJECT.lessons.find(l=>l.id===LESSON.id); return !!(m&&m.pages&&[].concat(m.pages[k]||[]).length)||!!(qz.sets&&qz.file&&LESSON&&qz.file.includes('/'+(m&&m.folder)+'/')&&qz.all.some(q=>qSrcOf(q.set)===k)); }
 function setRail(items){ rail.innerHTML=''; items.forEach(it=>{ const b=el('button','dash '+it.kind+(it.on?' on':'')+(it.icon==='restart'?' ln':''),`<span class="rb">${ICON[it.icon]}</span><span>${it.label}</span>`); b.addEventListener('click',it.click); rail.append(b); }); }
-function switchTab(t,at){ if(typeof WP!=='undefined'&&WP.saved) wpClose(); stopAll(); vStop(); hideHint(); $('#lesson').classList.remove('vtab','qtab'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); lnavPaint(); carAt(0); (t==='booklet'||t==='read'&&isAL())?showQuiz(at):t==='grammar'?showGrammar():t==='read'?showRead():t==='words'&&LESSON.vocab?showWords():t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); }
+function switchTab(t,at){ if(typeof WP!=='undefined'&&WP.saved) wpClose(); stopAll(); vStop(); hideHint(); $('#lesson').classList.remove('vtab','qtab'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); lnavPaint(); carAt(0); (t==='booklet'||t==='workbook'||t==='read'&&isAL())?showQuiz(at):t==='grammar'?showGrammar():t==='read'?showRead():t==='words'&&LESSON.vocab?showWords():t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); }
 $$('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
 
 // default speed: slow for a page that is a conversation (2+ speakers), normal for everything else; a child's own choice per page wins
@@ -1770,8 +1784,7 @@ function bookSides(l,next){
   const box=e=>{ const name=e.tab==='workbook'?tr('PTS'):e.tab==='booklet'?tr('Booklet'):tr('Book');
     return tile(name,`<b>${num(e.page)}</b>`,`data-tab="${e.tab}" data-p="${e.page}" aria-label="${name} page ${e.page}: ${TABNAME[e.tab]}"`).replace('class="jpm"',`class="jpm ${KEYCLS[e.tab]||''}"`); };
   const side=(cls,list,extra=[])=>`<div class="jside ${cls}" data-n="${Math.max(1,list.length+extra.length)}"><span class="jpgs">`+list.map(box).join('')+extra.join('')+`</span></div>`;
-  const wk=l.pages&&l.pages.booklet?'booklet':'workbook';
-  const wb=[].concat(l.pages&&l.pages[wk]||[]).map(Number).sort((a,b)=>a-b).map(p=>({page:p,tab:wk,known:true}));
+  const wb=['workbook','booklet'].flatMap(k=>[].concat(l.pages&&l.pages[k]||[]).map(Number).sort((a,b)=>a-b).map(p=>({page:p,tab:k,known:true})));   // PTS / Assessments pages, then Booklet pages
   // exam papers (Tests): red signs on the Workbook side, after its pages (lesson "exams" in subject.json)
   const exs=(l.exams||[]).map(e=>tile(tr(e.label||'Test'),`<b class="jex">${ICON.exam}</b>`,`class="ex" data-ex="${e.id}" aria-label="${e.title||'Exam'}"`).replace('<button class="jpm" class="ex"','<button class="jpm ex"'));
   const rvs=(l.revs||[]).map(e=>tile(tr(e.label||'Test'),`<b class="jex">${ICON.exam}</b>`,`data-rev="${e.folder}" data-p="${e.page}" aria-label="${e.label||'Test'}"`).replace('class="jpm"','class="jpm ex rv"'));

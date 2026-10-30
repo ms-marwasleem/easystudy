@@ -153,3 +153,4 @@
 .pgtag{position:absolute;inset-inline-end:0.25rem;bottom:0.25rem;display:flex;align-items:center;gap:0.25rem;padding:0;background:none;border:0;font-family:var(--f-ui);font-weight:800;font-size:0.75rem;color:#7A4A22;opacity:.9;cursor:pointer}
 .pgtag svg{width:1rem;height:1rem;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linejoin:round}
 @media (max-aspect-ratio:1/1){.tabs{padding-inline-end:3.4rem}.tabs.many{padding-inline-end:3.2rem}.tabs.many .tab{padding:.3em .55em .4em}}
+@media (max-aspect-ratio:1/1){.tabs.many.many5{gap:.12rem;padding-inline-end:2.7rem}.tabs.many.many5 .tab{font-size:min(.8rem,3.3vw);padding:.3em .3em .4em;gap:.1rem}.tabs.many.many5 .tab .kd{transform:scale(.8)}}   /* five tabs (Lesson Vocab Q Booklet Assessments) on a phone */

@@ -510,6 +510,427 @@
      "audio": "../../en-shared/q/we-are-friends.mp3"
     }
    ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 8,
+   "grp": "classroom-1",
+   "task": "Write the first letter.",
+   "taskAudio": "../../en-shared/q/write-the-first-letter.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "ink",
+     "audio": "words/ink.mp3",
+     "pic": "../../pics/ink-icon.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "ill",
+     "audio": "words/ill.mp3",
+     "pic": "../../pics/ill.jpg",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "insect",
+     "audio": "words/insect.mp3",
+     "pic": "../../pics/ladybug.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "in",
+     "audio": "words/in.mp3",
+     "pic": "../../pics/in.png",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 8,
+   "grp": "classroom-2",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "ink",
+     "scr": "nki",
+     "audio": "words/ink.mp3",
+     "pic": "../../pics/ink-icon.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "ill",
+     "scr": "lil",
+     "audio": "words/ill.mp3",
+     "pic": "../../pics/ill.jpg",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "insect",
+     "scr": "nestic",
+     "audio": "words/insect.mp3",
+     "pic": "../../pics/ladybug.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "word": "in",
+     "scr": "ni",
+     "audio": "words/in.mp3",
+     "pic": "../../pics/in.png",
+     "gaps": [
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 8,
+   "grp": "homework-1",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "ink",
+     "audio": "words/ink.mp3",
+     "pic": "../../pics/ink-icon.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "ill",
+     "audio": "words/ill.mp3",
+     "pic": "../../pics/ill.jpg",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "insect",
+     "audio": "words/insect.mp3",
+     "pic": "../../pics/ladybug.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "word": "in",
+     "audio": "words/in.mp3",
+     "pic": "../../pics/in.png",
+     "gaps": [
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 1,
+   "page": 9,
+   "grp": "weekly-a-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "desk",
+     "scr": "kesd",
+     "audio": "../u1l3/words/desk.mp3",
+     "pic": "../../pics/desk.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "book",
+     "scr": "kobo",
+     "audio": "../u1l3/words/book.mp3",
+     "pic": "../../pics/book.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "bag",
+     "scr": "agb",
+     "audio": "../u1l3/words/bag.mp3",
+     "pic": "../../pics/bag.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 2,
+   "page": 9,
+   "grp": "weekly-a-2",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "ink",
+     "audio": "words/ink.mp3",
+     "pic": "../../pics/ink-icon.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "insect",
+     "audio": "words/insect.mp3",
+     "pic": "../../pics/ladybug.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 1,
+   "page": 9,
+   "grp": "weekly-b-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "chair",
+     "scr": "ircah",
+     "audio": "../u1l2/words/chair.mp3",
+     "pic": "../../pics/chair.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "pencil",
+     "scr": "eclpni",
+     "audio": "../u1l3/words/pencil.mp3",
+     "pic": "../../pics/pencil.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "word": "sit down",
+     "scr": "tsi wnod",
+     "audio": "../u1l3/words/sit-down.mp3",
+     "pic": "../../pics/sit-down.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      6,
+      7
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 2,
+   "page": 9,
+   "grp": "weekly-b-2",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "ill",
+     "audio": "words/ill.mp3",
+     "pic": "../../pics/ill.jpg",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "in",
+     "audio": "words/in.mp3",
+     "pic": "../../pics/in.png",
+     "gaps": [
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 1,
+   "page": 10,
+   "grp": "weekly-c-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "board",
+     "scr": "odrab",
+     "audio": "../u1l3/words/board.mp3",
+     "pic": "../../pics/board.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "stand up",
+     "scr": "tadsn pu",
+     "audio": "../u1l3/words/stand-up.mp3",
+     "pic": "../../pics/stand-up.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      7
+     ]
+    },
+    {
+     "word": "insect",
+     "scr": "nestic",
+     "audio": "words/insect.mp3",
+     "pic": "../../pics/ladybug.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 2,
+   "page": 10,
+   "grp": "weekly-c-2",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "ill",
+     "audio": "words/ill.mp3",
+     "pic": "../../pics/ill.jpg",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "insect",
+     "audio": "words/insect.mp3",
+     "pic": "../../pics/ladybug.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    }
+   ]
   }
  ]
 }

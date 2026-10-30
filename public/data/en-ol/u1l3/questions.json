@@ -195,6 +195,181 @@
      "answer": 0
     }
    ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 7,
+   "grp": "classroom-1",
+   "task": "Look, read, and circle.",
+   "taskAudio": "../../en-shared/q/look-read-and-circle.mp3",
+   "hint": "Circle the right word!",
+   "items": [
+    {
+     "options": [
+      "book",
+      "pencil"
+     ],
+     "answer": 0,
+     "pic": "../../pics/book.png",
+     "audio": "words/book.mp3",
+     "word": "book"
+    },
+    {
+     "options": [
+      "chair",
+      "bag"
+     ],
+     "answer": 1,
+     "pic": "../../pics/bag.png",
+     "audio": "words/bag.mp3",
+     "word": "bag"
+    },
+    {
+     "options": [
+      "desk",
+      "pencil"
+     ],
+     "answer": 1,
+     "pic": "../../pics/pencil.png",
+     "audio": "words/pencil.mp3",
+     "word": "pencil"
+    },
+    {
+     "options": [
+      "board",
+      "bag"
+     ],
+     "answer": 0,
+     "pic": "../../pics/board.png",
+     "audio": "words/board.mp3",
+     "word": "board"
+    }
+   ]
+  },
+  {
+   "type": "cloze",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 7,
+   "grp": "classroom-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "text": "Sit [[down]].",
+     "bank": [
+      "books",
+      "up",
+      "down"
+     ],
+     "audio": "../../en-shared/q/sit-down.mp3"
+    },
+    {
+     "text": "Stand [[up]].",
+     "bank": [
+      "books",
+      "up",
+      "down"
+     ],
+     "audio": "../../en-shared/q/stand-up.mp3"
+    },
+    {
+     "text": "Open your [[books]].",
+     "bank": [
+      "books",
+      "up",
+      "down"
+     ],
+     "audio": "../../en-shared/q/open-your-books.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 7,
+   "grp": "homework-1",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "book",
+     "audio": "words/book.mp3",
+     "pic": "../../pics/book.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "bag",
+     "audio": "words/bag.mp3",
+     "pic": "../../pics/bag.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "pencil",
+     "audio": "words/pencil.mp3",
+     "pic": "../../pics/pencil.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "word": "board",
+     "audio": "words/board.mp3",
+     "pic": "../../pics/board.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "chair",
+     "audio": "../u1l2/words/chair.mp3",
+     "pic": "../../pics/chair.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "desk",
+     "audio": "words/desk.mp3",
+     "pic": "../../pics/desk.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    }
+   ]
   }
  ]
 }
