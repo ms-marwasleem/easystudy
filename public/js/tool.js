@@ -15,7 +15,7 @@ function toolOpen(n){
   if(!o){ o=el('div','overlay toolpop'); o.id='toolPop'; o.innerHTML=`<div class="tlcard" role="dialog" aria-label="Make numbers"><button class="rb tlx" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div class="tlbody"></div></div>`;
     document.body.append(o); o.addEventListener('click',e=>{ if(e.target===o) toolClose(); }); $('.tlx',o).addEventListener('click',toolClose);
     document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!o.hidden) toolClose(); }); }
-  o.hidden=false; toolDraw(); if(anim) G.from($('.tlcard',o),{scale:.85,opacity:0,duration:.3,ease:'back.out(1.6)',clearProps:'transform,opacity'});
+  o.hidden=false; toolDraw(); if(anim) G.from($('.tlcard',o),{scale:.92,opacity:0,duration:TM('--t-pop',.22),ease:'power2.out',clearProps:'transform,opacity'});
 }
 function toolClose(){ const o=$('#toolPop'); if(o) o.hidden=true; tl.run++; vStop(); }
 function toolDraw(){

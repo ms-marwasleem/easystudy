@@ -1,6 +1,14 @@
 {
  "grade": "Primary 1",
  "term": "Term 1",
+ "access": {
+  "enabled": false,
+  "trial": {
+   "units": 1
+  },
+  "coins": 50,
+  "_note": "Free-trial rule, OFF for now. When enabled, units after the first N of each subject are locked (cost = coins). Any subject/unit/lesson can also carry its own \"status\": open|soon|locked and \"coins\"; the admin dashboard will write these."
+ },
  "subjects": [
   {
    "id": "arabic",
@@ -9,7 +17,8 @@
    "color": "#1FA88E",
    "badge": "ع",
    "open": true,
-   "file": "data/arabic/subject.json"
+   "file": "data/arabic/subject.json",
+   "book": "green"
   },
   {
    "id": "en-ol",
@@ -17,7 +26,8 @@
    "color": "#2E8BE6",
    "badge": "OL",
    "open": true,
-   "file": "data/en-ol/subject.json"
+   "file": "data/en-ol/subject.json",
+   "book": "blue"
   },
   {
    "id": "en-al",
@@ -25,7 +35,8 @@
    "color": "#8A5BE0",
    "badge": "AL",
    "open": true,
-   "file": "data/en-al/subject.json"
+   "file": "data/en-al/subject.json",
+   "book": "purple"
   },
   {
    "id": "math",
@@ -33,19 +44,22 @@
    "color": "#F57F28",
    "badge": "1+2",
    "open": true,
-   "file": "data/math/subject.json"
+   "file": "data/math/subject.json",
+   "book": "pink"
   },
   {
    "id": "german",
    "name": "German",
    "color": "#E5484D",
-   "badge": "Ä"
+   "badge": "Ä",
+   "book": "red"
   },
   {
    "id": "science",
    "name": "Science",
    "color": "#3DBA4E",
-   "badge": "flask"
+   "badge": "flask",
+   "book": "cyan"
   }
  ],
  "hints": {
@@ -55,5 +69,34 @@
   "soonLesson": "This lesson is coming soon!",
   "garage": "This part is still in the garage. Start with the lesson."
  },
- "_note": "Subjects list. Each open subject points to its own folder (data/<subject>/subject.json). Hints here are the general ones; lesson hints live in each lesson.json."
+ "_note": "Subjects list. Each open subject points to its own folder (data/<subject>/subject.json). Hints here are the general ones; lesson hints live in each lesson.json.",
+ "themes": {
+  "default": "",
+  "list": [
+   {
+    "id": "",
+    "name": "Orange Car",
+    "ar": "برتقالي سيارة",
+    "active": true
+   },
+   {
+    "id": "cardboard",
+    "name": "Boxes (cardboard)",
+    "ar": "الكرتون (boxes)",
+    "active": false
+   },
+   {
+    "id": "plum",
+    "name": "Plum try-out",
+    "ar": "تجربة: بنفسجي",
+    "active": false
+   },
+   {
+    "id": "sea",
+    "name": "Sea try-out",
+    "ar": "تجربة: أخضر مزرق",
+    "active": false
+   }
+  ]
+ }
 }

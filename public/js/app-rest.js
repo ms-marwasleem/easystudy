@@ -4,29 +4,27 @@
 /* ---------- Map: ONE template for every subject (only the names, pages and lessons come from the subject's data).
    All units on one road that zigzags in rows; units are boxes, lessons are numbered squares with their page signs beside the road,
    the car sits at the lesson the child opened last. The rows follow the screen direction (Arabic starts on the right). ---------- */
-const LOCK=`<svg viewBox="0 0 60 64" aria-hidden="true"><path d="M16 28V18a14 14 0 0 1 28 0v10" fill="none" stroke="${OL}" stroke-width="11"/><path d="M16 28V18a14 14 0 0 1 28 0v10" fill="none" stroke="#B9C1C9" stroke-width="6"/>
-  <rect x="6" y="26" width="48" height="34" rx="10" fill="#9AA4AE" stroke="${OL}" stroke-width="4"/><rect x="10" y="30" width="40" height="8" rx="4" fill="#fff" opacity=".35"/><circle cx="30" cy="43" r="5" fill="${OL}"/><path d="M30 46v7" stroke="${OL}" stroke-width="4" stroke-linecap="round"/></svg>`;
-function unitBox(u,open){
-  const hole=open?`<ellipse cx="100" cy="128" rx="34" ry="24" fill="#3A1F0C" stroke="${OL}" stroke-width="4"/><g class="peek"><ellipse cx="88" cy="128" rx="8" ry="9" fill="#fff"/><ellipse cx="112" cy="128" rx="8" ry="9" fill="#fff"/><circle cx="90" cy="130" r="4" fill="${OL}"/><circle cx="114" cy="130" r="4" fill="${OL}"/></g>`
-    :`<path d="M8 104Q100 132 192 104" fill="none" stroke="#6E7781" stroke-width="12" stroke-dasharray="14 6" stroke-linecap="round"/><path d="M8 104Q100 132 192 104" fill="none" stroke="${OL}" stroke-width="3" stroke-dasharray="14 6" opacity=".6"/>`;
-  return `<div class="ubox ${open?'open':'locked'}"><svg viewBox="0 0 200 170" aria-hidden="true">
-    <path d="M14 40L30 18H170L186 40Z" fill="#E8B878" stroke="${OL}" stroke-width="5" stroke-linejoin="round"/><path d="M100 18V40" stroke="${OL}" stroke-width="3" opacity=".5"/>
-    <rect x="14" y="40" width="172" height="122" rx="6" fill="${open?'#D9A764':'#C99A5E'}" stroke="${OL}" stroke-width="5"/>
-    <path d="M22 50H178" stroke="rgba(255,255,255,.35)" stroke-width="4" stroke-linecap="round"/>${hole}</svg>
-    <b class="outline${isAr()?' ar':''}">${tr('Unit')} ${num(u.unit)}</b>${open?'':`<span class="ulock">${LOCK}</span>`}</div>`;
+const LOCK=`<svg viewBox="0 0 60 68" aria-hidden="true">${PADLOCK}</svg>`;
+/* a unit = a small book (the subject's book colour) with "Unit 1" on its cover; a locked one is wrapped in a fat chain with a padlock */
+const CHAINLOCK=`<svg class="uchain" viewBox="0 0 100 100" aria-hidden="true">
+  ${[0,1,2,3,4,5,6,7].map(k=>{ const h=k%2===0, x=9+k*11.7, w=h?15:8, hh=h?9:13; return `<rect x="${(x-w/2).toFixed(1)}" y="${(74-hh/2).toFixed(1)}" width="${w}" height="${hh}" rx="4" fill="none" stroke="var(--btn-ol)" stroke-width="6.500"/><rect x="${(x-w/2).toFixed(1)}" y="${(74-hh/2).toFixed(1)}" width="${w}" height="${hh}" rx="4" fill="none" stroke="var(--lock-metal)" stroke-width="3.200"/><path d="M${(x-w/2+2).toFixed(1)} ${(74-hh/2).toFixed(1)}h${(w*.4).toFixed(1)}" stroke="#fff" stroke-width="1.200" stroke-linecap="round" opacity=".9"/>`; }).join('')}
+  <g transform="translate(26 44) scale(.8)">${PADLOCK}</g></svg>`;
+function unitBox(u,st){
+  const b=(SUBJECT&&SUBJECT.book)||'blue';
+  return `<div class="ubox ${st}"><img src="data/books/${b}.png" alt="" draggable="false"><b class="gt${isAr()?' ar':''}"><small>${GT(tr('Unit'))}</small><span class="n">${num(u.unit)}</span></b>${st==='locked'?CHAINLOCK:st==='soon'?`<span class="usoon">${tr('Soon')}</span>`:''}</div>`;
 }
-function mkLesson(m,nextL,isCur,isLast){
-  const open=!!m.file, n=lessonStars(m.id);
-  const s=el('div','jl'+(open?' open':' locked')+(isCur?' cur':'')); s.dataset.stars=n; s.dataset.touched=lessonTouched(m)?1:0;
-  // the lesson sits on the road: a small square with its number, the stars above it, the name on a label across its bottom edge.
-  // From it to the next lesson its pages stand beside the road, each a little sign: Book pages on one side, Workbook pages on the other.
-  s.innerHTML=`<div class="jbox">`+(open?`<span class="js">${Array.from({length:lessonParts(m)},(_,k)=>`<span>${STAR(k<n)}</span>`).join('')}</span>`:'')+
-    `<button class="jcard" aria-label="${open?`Lesson ${m.lesson} ${m.title}`:`Lesson ${m.lesson} soon`}"><b class="jn${/-/.test(m.lesson)?' two':''}">${num(m.lesson)}</b>${open?'':`<span class="jlock">${LOCK}</span>`}</button>`+
-    (open?`<span class="jt${isAr()?' ar':''}">${m.title}</span>`:'')+`</div>`+
+function mkLesson(m,nextL,isCur,isLast,st,coins){
+  st=st||(m.file?'open':'soon'); const open=st==='open', n=lessonStars(m.id);
+  const s=el('div','jl '+st+(isCur?' cur':'')); s.dataset.stars=n; s.dataset.touched=lessonTouched(m)?1:0;
+  // the lesson sits on the road: a round badge with its number, the stars above it, the name in a pill across its bottom edge.
+  // 'soon' = faded + "Soon" pill, 'locked' = the chunky padlock on the badge. From an open lesson its pages stand beside the road as little signs.
+  s.innerHTML=`<div class="jbox">`+(st!=='soon'?`<span class="js">${Array.from({length:lessonParts(m)},(_,k)=>`<span>${STAR(k<n)}</span>`).join('')}</span>`:'')+
+    `<button class="jcard" aria-label="${open?`Lesson ${m.lesson} ${m.title}`:`Lesson ${m.lesson} ${st}`}"><b class="jn${/-/.test(m.lesson)?' two':''}">${num(m.lesson)}</b>${st==='locked'?`<span class="jlock">${LOCK}</span>`:''}</button>`+
+    (st==='soon'?`<span class="jt soon">${tr('Soon')}</span>`:`<span class="jt gt${isAr()?' ar':''}">${GT(m.title)}</span>`)+`</div>`+
     (open&&typeof bookSides==='function'?bookSides(m,nextL):'');
   if(isLast) s.classList.add('last');
   $('.jbox',s).addEventListener('click',()=>{   // the whole box (number, stars, name) opens the lesson
-    hideHint(); if(open){ blip(600); openLesson(m); } else message(tr('Soon!'),isAr()?'الدرس ده قريبًا!':COURSE.hints.soonLesson,`<span class="car">${CAR('sad')}</span>`); });
+    hideHint(); if(open){ blip(600); openLesson(m); } else if(st==='locked') message(isAr()?'مقفول':'Locked',coins?(isAr()?`تفتحيه بـ ${COINTXT(coins)}`:`Open it with ${COINTXT(coins)}!`):(isAr()?'ده هيتفتح قريبًا':'This opens later!'),`<span class="jlockbig">${LOCK}</span>`); else message(tr('Soon!'),isAr()?'الدرس ده قريبًا!':COURSE.hints.soonLesson,`<span class="car">${CAR('sad')}</span>`); });
   const go=(t,p)=>{ hideHint(); blip(600); bookOpen(m,t,p); };
   $$('.jpm:not(.ex):not(.tl):not(.rv)',s).forEach(b=>b.addEventListener('click',()=>go(b.dataset.tab,+b.dataset.p)));
   $$('.jpm.ex:not(.rv)',s).forEach(b=>b.addEventListener('click',()=>{ hideHint(); blip(600); openExam(m,m.exams.find(x=>x.id===b.dataset.ex)); }));   // red signs: exam papers
@@ -35,175 +33,105 @@ function mkLesson(m,nextL,isCur,isLast){
   return s;
 }
 function drawMap(redraw){
-  const j=el('div','journey snake'); return drawMapAll(j,redraw);
+  const j=el('div','journey vmap'); return drawMapAll(j,redraw);
 }
-// each lesson's stretch of road starts at its square and runs to the next lesson; its page signs stand along it,
-// so the stretch is as long as its pages need (more pages = longer road).
-// one lesson's stretch of road: comfortable length (pages nicely spaced) and the least it can shrink to (signs nearly touching)
-function lessonLens(l){
-  const bx=$('.jbox',l), em=parseFloat(getComputedStyle(bx||$('.jside',l)).fontSize), bw=bx?bx.offsetWidth:0, bh=bx?bx.offsetHeight:0, sides=$$('.jside',l);   // .jcont: the road of a lesson going on along the next row (signs only)
-  l.style.setProperty('--bw',bw+'px'); l.style.setProperty('--bh',bh+'px');
-  const len=gap=>bw+em*(gap?1.4:1)+(sides.length?Math.max(...sides.map(sd=>{ const b=$('.jpm',sd); return b?+sd.dataset.n*(b.offsetWidth+gap):0; })):0);
-  return {need:Math.ceil(len(14)),least:Math.ceil(len(5))};
-}
-// ---- landscape: ONE map with every unit and lesson. The road goes back and forth (snake) in R rows; a unit box sits on the road before its lessons.
-// We look for the biggest size (fs) at which everything fits the screen's width when cut into R rows that fit its height; if even the smallest size
-// does not fit, the map is bigger than the screen and can be dragged, touched or wheel-scrolled.
-let SNAKE_EM=12.2, SNAKE_MAXFS=26;
-const snakeMin=()=>matchMedia('(max-aspect-ratio:1/1)').matches?3.5:8;
+// ---- VERTICAL MAP (one template for every subject): an open book page. A smooth zigzag road runs down it through the unit books and the lesson
+// buttons (lessons swing left / right alternately). Each lesson's page signs stand ON the road, left and right in turn, each tied to the road by a
+// small dotted line; the lesson's name is written on the page beside its button. Everything is placed here (rem-based sizes), so each lesson takes
+// exactly the room its pages need, the same gap everywhere, and the road is drawn through the nodes.
+const KINDS=[['bk0','Book'],['pts','PTS'],['bk','Booklet'],['tl','Tool'],['ex','Test']];
+const kindOf=jp=>jp.classList.contains('pts')?'pts':jp.classList.contains('bk')?'bk':jp.classList.contains('tl')?'tl':(jp.classList.contains('ex')||jp.classList.contains('rv'))?'ex':'bk0';
+const MAPF={};
 function drawMapAll(j,redraw){
   const wrap=$('#mapWrap'), units=SUBJECT.units||[{unit:1}], lessons=SUBJECT.lessons.filter(l=>!l.hidden);
   const openOf=u=>lessons.some(l=>l.unit===u.unit&&l.file);
-  const openL=lessons.filter(l=>l.file), curM=curLessonOf(lessons)||lessons[0];
+  const curM=curLessonOf(lessons.filter(l=>l.file))||lessons[0], items=[];
   j.innerHTML=`<svg class="jroad" aria-hidden="true"></svg><div class="jcar"></div>`;
-  const row=el('div','jrow'), atoms=[];
   units.forEach(u=>{
-    const open=openOf(u), box=el('div','jend'); box.innerHTML=unitBox(u,open);
-    $('.ubox',box).addEventListener('click',()=>{ hideHint(); if(open) blip(600); else message(tr('Soon!'),isAr()?`${tr('Unit')} ${num(u.unit)} قريبًا!`:`Unit ${u.unit} is coming soon!`,unitBox(u,false)); });
-    atoms.push({kind:'u',els:[box,el('span','jgo')]});
+    const ua=accessOf(u,openOf(u),'u:'+SUBJECT.id+':'+u.unit,units.indexOf(u),'unit'), ust=ua.st, box=el('div','jend'); box.innerHTML=unitBox(u,ust);
+    $('.ubox',box).addEventListener('click',()=>{ hideHint(); if(ust==='open') blip(600); else if(ust==='locked') message(isAr()?'مقفول':'Locked',ua.coins?(isAr()?`تفتحيه بـ ${COINTXT(ua.coins)}`:`Open it with ${COINTXT(ua.coins)}!`):(isAr()?'ده هيتفتح قريبًا':'This opens later!'),unitBox(u,'locked')); else message(tr('Soon!'),isAr()?`${tr('Unit')} ${num(u.unit)} قريبًا!`:`Unit ${u.unit} is coming soon!`,unitBox(u,'soon')); });
+    j.append(box); items.push({k:'u',el:box});
     const list=lessons.filter(l=>l.unit===u.unit);
-    list.forEach((m,i)=>atoms.push({kind:'l',els:[mkLesson(m,list[i+1],m===curM,i===list.length-1)]}));
+    list.forEach((m,i)=>{ const L=mkLesson(m,list[i+1],m===curM,i===list.length-1,(()=>{ const la=accessOf(m,!!m.file,'l:'+m.id); return la.st==='open'&&ust==='locked'?'locked':la.st; })(),ua.coins), signs=$$('.jpg',L), nm=$('.jt',L);
+      [nm,...signs].forEach(e=>{ if(e) e.dataset.touched=L.dataset.touched; }); $$('.jside',L).forEach(s=>s.remove()); if(nm){ j.append(nm); nm.addEventListener('click',()=>$('.jbox',L).click()); } j.append(L); signs.forEach(s=>j.append(s)); items.push({k:'l',el:L,signs,name:nm}); });
   });
-  j.append(row); wrap.innerHTML=''; wrap.append(j);
-  j._atoms=atoms; snakeLayout();
+  j._items=items; wrap.innerHTML=`<div class="mtitle"><div><b${isAr()?' class="ar"':''}>${SUBJECT.name}</b><small>${tr(COURSE.grade)} · ${tr(COURSE.term)}</small></div></div>`; wrap.append(j);
+  j.dataset.f=MAPF[subjKey()]||'';
+  mapTabs(j); applyMapFilter(j,false);
   placeCar(Math.max(0,$$('.jl',j).findIndex(e=>e.classList.contains('cur'))), !redraw);
+  const c=$('.jl.cur',j); if(c) wrap.scrollTop=Math.max(0,c.offsetTop-wrap.clientHeight*.38);
 }
-// a lesson with more page signs than one row holds at the readable size goes on along the next row(s): the rest of its signs stand on a
-// continuation of its road (.jcont). Same for every subject; before, a map with one long lesson shrank everything to fit it.
-function snakeSplit(j,W,meas,target){
-  const base=j._atoms0||(j._atoms0=j._atoms);
-  base.forEach(a=>{ if(!a.conts) return; const l=a.els[0];   // put back the signs of an earlier split
-    a.conts.forEach(c=>$$('.jside',c).forEach(sd=>$('.jside.'+sd.classList[1]+' .jpgs',l).append(...$$('.jpg',sd)))); a.conts=null;
-    $$('.jside',l).forEach(sd=>sd.dataset.n=Math.max(1,$$('.jpg',sd).length)); });
-  j._atoms=base; const m=meas(target), room=W-2*m.pad-m.gw-8, out=[];
-  base.forEach(a=>{ out.push(a); if(a.kind!=='l') return; const l=a.els[0]; if(lessonLens(l).least<=room) return;
-    const sg=$('.jpg',l), sw=sg.offsetWidth+5, em=parseFloat(getComputedStyle($('.jbox',l)).fontSize);
-    const first=Math.max(1,Math.floor((room-$('.jbox',l).offsetWidth-em*1.4)/sw)), per=Math.max(1,Math.floor((room-em*1.4)/sw));
-    const sides=$$('.jside',l).map(sd=>({cls:sd.classList[1],rest:$$('.jpg',sd).slice(first)}));
-    const nc=Math.max(...sides.map(s=>Math.ceil(s.rest.length/per))); a.conts=[];
-    for(let k=0;k<nc;k++){ const c=el('div','jcont'); c.innerHTML=sides.map(s=>`<div class="jside ${s.cls}"><span class="jpgs"></span></div>`).join('');
-      sides.forEach((s,i)=>{ const part=s.rest.slice(k*per,(k+1)*per), sd=$$('.jside',c)[i]; $('.jpgs',sd).append(...part); sd.dataset.n=Math.max(1,part.length); if(!part.length) sd.style.visibility='hidden'; });
-      a.conts.push(c); out.push({kind:'c',els:[c]}); }
-    $$('.jside',l).forEach(sd=>sd.dataset.n=Math.max(1,$$('.jpg',sd).length)); });
-  j._atoms=out; return out;
+// the bookmarks at the bottom: only the kinds this subject really has. Tap one = only those signs show and the page scrolls to the first;
+// tap it again (or the page itself) = everything shows (default).
+function mapTabs(j){
+  const g=$('#mapTabs'); if(!g) return; const have=new Set($$('.jpm',j).map(kindOf));
+  g.innerHTML=KINDS.filter(([k])=>have.has(k)).map(([k,n])=>`<button class="mtab mt-${k}" data-k="${k}" aria-pressed="false"><span>${tr(n)}</span></button>`).join('');
+  $$('.mtab',g).forEach(b=>b.addEventListener('click',()=>{ hideHint(); blip(300);
+    const key=subjKey(); MAPF[key]=MAPF[key]===b.dataset.k?'':b.dataset.k; j.dataset.f=MAPF[key]; applyMapFilter(j,!!MAPF[key]); }));
 }
-function snakeLayout(){
-  const j=$('.journey'), w=j.parentElement, row=$('.jrow',j); if(!j._atoms) return;
-  const W=w.clientWidth, H=w.clientHeight;
-  let atoms=j._atoms0||j._atoms, all=atoms.flatMap(a=>a.els), n=atoms.length;
-  SNAKE_EM=all.some(e=>e.querySelector&&e.querySelector('.jside.wb'))?12.2:10.6;   // rows only as tall as their signs need (the two-sided maps need more)
-  const mkSpacer=()=>el('span','jgo');
-  const put=(R,fs)=>{   // size things for (R rows, fs) and put everything in one flat row to measure it
-    const lh=fs*SNAKE_EM; j.style.setProperty('--fs',fs+'px'); j.style.setProperty('--lh',lh+'px');
-    row.innerHTML=''; const ln=el('div','jline'); ln.style.width='max-content'; row.append(ln); ln.append(...all);
-    const wd=atoms.map(a=>a.kind!=='u'?(a.els[0].style.flex=a.els[0].style.minWidth='',lessonLens(a.els[0]).least):a.els.reduce((t,e)=>t+e.offsetWidth+6,0));
-    const cs=getComputedStyle(j), rb=parseFloat(cs.getPropertyValue('--rb'))||fs*1.9, pad=rb*1.3+6;
-    return {lh,wd,pad,gw:atoms[0].els[1].offsetWidth+6,rb};
-  };
-  const split=(m,R)=>{   // cut the items into R rows in order, the widest row as narrow as possible (dynamic programming)
-    const pre=[0]; m.wd.forEach((x,i)=>pre.push(pre[i]+x+(atoms[i].kind!=='u'?6:0)));
-    const rw=(a,b,k)=>2*m.pad+pre[b]-pre[a]+(k?m.gw:0);
-    const best=[], from=[]; for(let k=0;k<R;k++){ best.push([]); from.push([]); }
-    for(let i=1;i<=n;i++){ best[0][i]=rw(0,i,0); from[0][i]=0; }
-    for(let k=1;k<R;k++) for(let i=k+1;i<=n;i++){ let bv=1e12,bj=k; for(let a=k;a<i;a++){ const v=Math.max(best[k-1][a],rw(a,i,k)); if(v<bv){bv=v;bj=a;} } best[k][i]=bv; from[k][i]=bj; }
-    const c=[n]; for(let k=R-1,i=n;k>0;k--){ i=from[k][i]; c.unshift(i); }
-    return {mx:best[R-1][n],c};
-  };
-  // ONE size for every subject on a screen: the readable size (rem-based, so it follows the screen). A lesson too long for a row goes on
-  // along the next row (snakeSplit) and the map scrolls up/down; only when a row still cannot fit (a very narrow screen) the size steps down.
-  const SNAKE_MINFS=snakeMin();
-  const rootPx=parseFloat(getComputedStyle(document.documentElement).fontSize)||16, target=Math.min(SNAKE_MAXFS,rootPx*(matchMedia('(max-aspect-ratio:1/1)').matches?.68:1.15));
-  atoms=snakeSplit(j,W,f=>put(1,f),target); all=atoms.flatMap(a=>a.els); n=atoms.length;
-  const fit=m0=>{ if(split(m0,n).mx>W) return 0; let lo=1, hi=n; while(lo<hi){ const mid=(lo+hi)>>1; if(split(m0,mid).mx<=W) hi=mid; else lo=mid+1; } return lo; };   // fewest rows that fit the width
-  let pick=null; for(let fs=target;fs>=SNAKE_MINFS&&!pick;fs-=.5){ const R=fit(put(1,fs)); if(R) pick={R,fs}; }
-  if(!pick) pick={R:n,fs:SNAKE_MINFS};
-  let {R,fs}=pick, m=put(R,fs), b=split(m,R);
-  for(let k=0;k<8&&b.mx>W&&fs-.25>=SNAKE_MINFS;k++){ fs-=.25; m=put(R,fs); b=split(m,R); }   // the worked-out size was a hair too big: measure for real and step down
-  const Wj=W; row.innerHTML=''; row.style.width=Wj+'px';
-  const lines=[]; for(let k=0;k<R;k++){ const ln=el('div','jline'+(k%2?' rev':'')); lines.push(ln); row.append(ln); }
-  b.c.forEach((e,k)=>{ const a=k?b.c[k-1]:0; if(k&&atoms[a].kind==='l') lines[k].append(mkSpacer()); for(let i=a;i<e;i++) lines[k].append(...atoms[i].els); });
-  $$('.jl,.jcont',j).forEach(l=>{ const {need,least}=lessonLens(l); l.style.flex=`${need} 1 ${need}px`; l.style.minWidth=least+'px'; });
-  j._rows=lines; j._lh=m.lh; j._rb=m.rb; j._pad=m.pad; j._Wj=Wj;
-  rowSpacing(j,lines,fs,m.rb); j.style.height=''; drawRoad();
-  const wr=w.getBoundingClientRect(), c=$('.jl.cur',j), cr=c&&c.getBoundingClientRect();
-  if(c){ w.scrollLeft+=cr.left+cr.width/2-(wr.left+wr.width/2); w.scrollTop+=cr.top+cr.height/2-(wr.top+wr.height/2); }
+function applyMapFilter(j,focus){
+  const f=j.dataset.f||'', wrap=j.parentElement;
+  $$('.jpg',j).forEach(p=>{ const jp=$('.jpm',p); p.style.display=(!f||kindOf(jp)===f)?'':'none'; });
+  $$('.mtab').forEach(b=>{ const on=b.dataset.k===f; b.classList.toggle('on',on); b.setAttribute('aria-pressed',on); });
+  mapLayout(j); placeCar(Math.max(0,$$('.jl',j).findIndex(e=>e.classList.contains('cur'))),false);
+  if(focus){ const first=$$('.jpg',j).find(p=>p.style.display!==''?false:true); if(first) wrap.scrollTo({top:Math.max(0,first.offsetTop-wrap.clientHeight*.3),behavior:'smooth'}); }
 }
-// ONE gap between rows for every map: a row is only as tall as its content (signs above the road, the lesson's name and signs below it), and the
-// content of the next row starts the same distance after it. A row with only a unit box or one sign is short; a full row is tall; the gap never changes.
-function rowSpacing(j,lines,fs,rb){
-  const GAP=fs*1.5, half=rb/2+fs*.5, r=Math.min(rb*1.1,fs*3), ext=[];
-  lines.forEach(ln=>{ ln.style.height=''; ln.style.position=''; ln.style.top=''; ln.style.left='';
-    const c=ln.getBoundingClientRect(); let a=half, b=half; const cy=c.top+c.height/2;
-    $$('.jbox,.jpm,.ubox,.jcar',ln).forEach(e=>{ if(e.checkVisibility&&!e.checkVisibility({visibilityProperty:true})) return;
-      const q=e.getBoundingClientRect(); if(q.width<1) return; a=Math.max(a,cy-q.top); b=Math.max(b,q.bottom-cy); });
-    ext.push({a:Math.ceil(a),b:Math.ceil(b)}); });
-  const ys=[], pad=fs*1.4; let y=ext[0].a;
-  ext.forEach((e,k)=>{ ys.push(y); if(k<ext.length-1) y+=Math.max(2*r,e.b+GAP+ext[k+1].a); });
-  lines.forEach((ln,k)=>{ const h=2*Math.max(ext[k].a,ext[k].b); ln.style.position='absolute'; ln.style.left='0'; ln.style.width=j._Wj+'px'; ln.style.height=h+'px'; ln.style.top=(ys[k]-h/2)+'px'; });
-  const total=y+ext[ext.length-1].b+pad; $('.jrow',j).style.height=total+'px'; j._ys=ys; j._total=total; j._r=r;
-}
-// the road: one svg path through the middle of every row with a half-circle turn at each end; drawn as a few thin strokes on top of each other
-// to look like the straight ribbon (dark edge, light sides, dark middle). The teal copy is the part already driven.
-function drawRoad(){
-  const j=$('.journey'), svg=$('.jroad',j); if(!svg||!j._rows) return;
-  const R=j._rows.length, ys=j._ys, rb=j._rb, Wj=j._Wj, xl=rb*.85+6, xr=Wj-xl, r=j._r, H=Math.max(j._total,j.parentElement.clientHeight);
-  const st=xl, far=xr, sg=1, sw=1;   // the road starts on the left in every subject (only Arabic TEXT runs right to left)
-  let d=`M${st},${ys[0]}`;
-  for(let k=0;k<R;k++){ const y=ys[k], y2=ys[k+1], fwd=k%2===0;
-    d+=fwd?` H${far-sg*r}`:` H${st+sg*r}`;
-    if(k<R-1) d+=fwd?` A${r},${r} 0 0 ${sw} ${far},${y+r} V${y2-r} A${r},${r} 0 0 ${sw} ${far-sg*r},${y2}`:` A${r},${r} 0 0 ${1-sw} ${st},${y+r} V${y2-r} A${r},${r} 0 0 ${1-sw} ${st+sg*r},${y2}`; }
-  d+=R%2===1?` H${far}`:` H${st}`;
-  svg.setAttribute('viewBox',`0 0 ${Wj} ${H}`); svg.setAttribute('width',Wj); svg.setAttribute('height',H); svg.style.height=H+'px';
-  const L=(w,c)=>`<path d="${d}" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`;
-  const layers=(a,b,c)=>`${L(rb,a)}${L(rb*.76,b)}${L(rb*.4,c)}`;
-  svg.innerHTML=`<path d="${d}" fill="none" stroke="rgba(90,52,24,.35)" stroke-width="${rb+6}" stroke-linecap="round" transform="translate(0,4)"/>`+
-    `<path d="${d}" fill="none" stroke="#5A3418" stroke-width="${rb+6}" stroke-linecap="round" stroke-linejoin="round"/>`+layers('#D49A70','#94503A','#7E3D2B')+
-    `<g class="rdone" style="display:none">${layers('#9BE0D4','#3BA597','#2A8C80').replace(/<path /g,'<path class="dn" ')}</g>`;
-  j._path=svg.firstElementChild; j._d=d; j._geo={R,ys,r,st,far,sg};
+function mapLayout(j){
+  const fs=parseFloat(getComputedStyle(j).fontSize)||16, W=j.clientWidth, cx=W/2;
+  const sway=Math.min(W*.2,4.4*fs), off=2.6*fs, step=3.6*fs, rh=.75*fs;
+  let y=fs*3.4, side=-1; const pts=[], place=[];
+  j._items.forEach(it=>{
+    if(it.k==='u'){ const e=it.el; e.style.left=cx+'px'; e.style.top=y+'px'; const h=e.offsetHeight; pts.push([cx,y+h*.55]); y+=h+fs*1.2; return; }
+    const L=it.el, x=cx+side*sway; side=-side; if(L.classList.contains('cur')) y+=4.2*fs; L.style.left=x+'px'; L.style.top=y+'px';
+    const cy=y+3.4*fs; pts.push([x,cy]);
+    let belowName=cy+1.7*fs;
+    const nm=it.name; if(nm){ const nw=nm.offsetWidth, nx=Math.max(nw/2+fs*.4,Math.min(W-nw/2-fs*.4,x)); nm.style.left=nx+'px'; nm.style.top=(cy+1.5*fs)+'px'; belowName=cy+1.5*fs+nm.offsetHeight; }
+    const vis=it.signs.filter(s=>s.style.display!=='none'); let ry=belowName+fs*.9;
+    for(let r=0;r*2<vis.length;r++){ const pair=vis.slice(r*2,r*2+2), h=Math.max(...pair.map(s=>$('.jpm',s).offsetHeight)); pair.forEach((s,k)=>place.push({s,yc:ry+h/2,left:k===0})); ry+=h+fs*.9; }
+    y=vis.length?ry+fs*.3:belowName+fs*1.4;
+  });
+  j.style.height=(y+fs*1.5)+'px';
+  const svg=$('.jroad',j), H=y+fs*1.5; if(!pts.length) return;
+  const all=[[pts[0][0],Math.max(0,pts[0][1]-fs*2)],...pts,[pts[pts.length-1][0],Math.max(pts[pts.length-1][1]+fs*2.5,y-fs*.4)]];   // the road runs to the very last page sign
+
+  let d=`M${all[0][0].toFixed(1)},${all[0][1].toFixed(1)}`;
+  const segs=[];
+  for(let k=0;k<all.length-1;k++){ const a=all[Math.max(0,k-1)],b=all[k],c=all[k+1],e=all[Math.min(all.length-1,k+2)];
+    const c1=[b[0]+(c[0]-a[0])/6,b[1]+(c[1]-a[1])/6], c2=[c[0]-(e[0]-b[0])/6,c[1]-(e[1]-b[1])/6]; segs.push([b,c1,c2,c]);
+    d+=` C${c1[0].toFixed(1)},${c1[1].toFixed(1)} ${c2[0].toFixed(1)},${c2[1].toFixed(1)} ${c[0].toFixed(1)},${c[1].toFixed(1)}`; }
+  const rb=1.5*fs; svg.setAttribute('viewBox',`0 0 ${W} ${H}`); svg.setAttribute('width',W); svg.setAttribute('height',H);
+  svg.innerHTML=`<path class="rbase" d="${d}" fill="none" stroke-width="${rb}" stroke-linecap="round"/><path class="rdone" d="${d}" fill="none" stroke-width="${rb}" stroke-linecap="round" stroke-dasharray="0 99999"/>`;
+  j._road=$('.rbase',svg); j._done=$('.rdone',svg);
+  const bz=(s,t)=>{ const u=1-t, w=[u*u*u,3*u*u*t,3*u*t*t,t*t*t]; return [w[0]*s[0][0]+w[1]*s[1][0]+w[2]*s[2][0]+w[3]*s[3][0], w[0]*s[0][1]+w[1]*s[1][1]+w[2]*s[2][1]+w[3]*s[3][1]]; };
+  const xAt=yy=>{ let a=0,b=segs.length-1; while(a<b){ const mid=(a+b)>>1; if(segs[mid][3][1]<yy) a=mid+1; else b=mid; }   // the segment that holds this height, then bisect inside it (no slow svg path measuring)
+    const s=segs[a]; let lo=0,hi=1; for(let k=0;k<16;k++){ const mid=(lo+hi)/2; if(bz(s,mid)[1]<yy) lo=mid; else hi=mid; } return bz(s,lo)[0]; };
+  place.forEach(p=>{ const s=p.s, jp=$('.jpm',s), w=jp.offsetWidth, h=jp.offsetHeight, rx=xAt(p.yc), ln=$('.jsl',s), len=off-rh;
+    ln.style.width=len+'px'; s.classList.toggle('lf',p.left); s.classList.toggle('rt',!p.left);
+    s.style.top=(p.yc-h/2)+'px'; s.style.left=(p.left?rx-off-w:rx+rh)+'px'; });
 }
 function placeCar(i, drive){
-  const j=$('.journey'), L=$$('.jl',j), car=$('.jcar',j);
-  const cur=L[i]; if(!cur||!car) return;
-  putCar(car); placeCarSnake(j,L,i,cur,car,drive);
-}
-// landscape: the car waits at the start of the road leading to its lesson, facing the way the row goes (left in the odd rows)
-function placeCarSnake(j,L,i,cur,car,drive){
-  const jr=j.getBoundingClientRect(), line=cur.parentElement, rev=line.classList.contains('rev')!==(getComputedStyle(line).direction==='rtl'), d=rev?-1:1;   // rev here = this row runs to the left
-  const card=$('.jcard',cur).getBoundingClientRect(), box=$('.jbox',cur).getBoundingClientRect(), first=!cur.previousElementSibling||!cur.previousElementSibling.classList.contains('jl');
-  const lead=first?cur.previousElementSibling.getBoundingClientRect():$('.jbox',L[i-1]).getBoundingClientRect();
-  const edge=first?(rev?lead.right:lead.left):(rev?lead.left:lead.right), near=rev?box.right:box.left;
-  car.classList.toggle('rev',rev); car.style.width=''; const full=car.offsetWidth;
-  const room=Math.abs(near-edge)-8; car.style.width=Math.max(34,Math.min(full,room))+'px';
-  const lt=LAST[subjKey()], sg=lt&&lt.p&&lt.id===cur.id&&$$('.jpm[data-p="'+lt.p+'"]',cur)[0];   // she came in by a page sign: the car stands at that page
-  const cw=car.offsetWidth, x=sg?(r=>r.left+r.width/2-jr.left)(sg.getBoundingClientRect()):(rev?box.left:box.right)+d*(4+cw/2)-jr.left, y=card.top+card.height/2-jr.top;
-  car.style.left=x+'px'; car.style.top=y+'px';
-  // the driven part of the road: along the path up to the lesson's square
-  const path=j._path, done=$('.rdone',j);
-  if(path&&done){ const tx=sg?x:card.left+card.width/2-jr.left, ty=y, tot=path.getTotalLength(); let bt=0;
-    // worked out from the road's shape (straight rows joined by half circles); searching along the path point by point took seconds on a long road
-    const g=j._geo, k=g.ys.reduce((b,v,i)=>Math.abs(v-ty)<Math.abs(g.ys[b]-ty)?i:b,0), full=Math.abs(g.far-g.st), turn=i=>Math.PI*g.r+g.ys[i+1]-g.ys[i]-2*g.r;
-    const rowLen=i=>full-(g.R===1?0:(i===0||i===g.R-1)?g.r:2*g.r), rowX=i=>i===0?g.st:i%2?g.far-g.sg*g.r:g.st+g.sg*g.r;
-    for(let i=0;i<k;i++) bt+=rowLen(i)+turn(i);
-    bt+=Math.max(0,Math.min(rowLen(k),Math.abs(tx-rowX(k))));
-    done.style.display=''; $$('.dn',done).forEach(p=>{ p.style.strokeDasharray=`${bt} ${tot+10}`; p.setAttribute('stroke-linecap','butt'); }); }
+  const j=$('.journey'), L=$$('.jl',j), car=$('.jcar',j), cur=L[i]; if(!cur||!car) return;
+  putCar(car); const road=j._road; if(!road) return;
+  const jr=j.getBoundingClientRect(), cc=$('.jcard',cur).getBoundingClientRect(), cy=cc.top+cc.height/2-jr.top, cw=car.offsetWidth||80, tot=road.getTotalLength();
+  let lo=0,hi=tot; for(let k=0;k<22;k++){ const mid=(lo+hi)/2; if(road.getPointAtLength(mid).y<cy) lo=mid; else hi=mid; }
+  const at=Math.max(0,lo-cw*1.1), q=road.getPointAtLength(at);
+  car.style.left=q.x+'px'; car.style.top=(q.y-cw*.12)+'px';
+  j._done.setAttribute('stroke-dasharray',`${at} ${tot+10}`);
   if(anim&&drive){
-    const start=$('.jend',j).getBoundingClientRect(), sx=start.left+start.width/2-jr.left, sy=start.top+start.height/2-jr.top;
-    G.from(car,{x:sx-x,y:sy-y,duration:1.2,ease:'power2.out',onStart:()=>G.to($$('.wheel',car),{rotation:360,transformOrigin:'50% 50%',duration:.4,repeat:2,ease:'none'})});
-    G.from('.jl .jcard',{scale:0,duration:.5,ease:'back.out(2)',stagger:.1});
-    G.from('.jend .ubox',{scale:.5,opacity:0,duration:.5,ease:'back.out(2)',stagger:.2});
-    G.to('.ubox.open .peek',{x:5,duration:.9,yoyo:true,repeat:-1,ease:'sine.inOut'});
-    G.to('.jl.cur .jcard',{scale:1.06,duration:.7,yoyo:true,repeat:-1,ease:'sine.inOut',delay:1});
+    G.from(car,{y:-cw*.9,opacity:0,duration:.8,ease:'power2.out',onStart:()=>G.to($$('.wheel',car),{rotation:360,transformOrigin:'50% 50%',duration:.4,repeat:2,ease:'none'})});
+    G.from('.jl .jcard',{scale:.7,opacity:0,duration:TM('--t-pop',.22),ease:'power2.out',stagger:.03,clearProps:'transform,opacity'});
+    G.from('.jend .ubox',{scale:.85,opacity:0,duration:TM('--t-pop',.22),ease:'power2.out',stagger:.05,clearProps:'transform,opacity'});
+    G.to('.jl.cur .jcard',{scale:1.07,duration:.7,yoyo:true,repeat:-1,ease:'sine.inOut',delay:1});
   }
 }
 function openMap(){
   if(!SUBJECT) SUBJECT=COURSE.subjects.find(s=>s.open);
   stopAll(); vStop(); clearMarks(); show('map');
-  $('#mapTitle').textContent=SUBJECT.name; $('#mapSub').textContent=`${tr(COURSE.grade)} · ${tr(COURSE.term)}`;
-  drawLegend(); drawMap(); showHint($('.jl.cur .jcard'),isAr()?'اضغط هنا لتبدأ!':COURSE.hints.map,1500,'map');
+  drawMap(); showHint($('.jl.cur .jcard'),isAr()?'اضغط هنا لتبدأ!':COURSE.hints.map,1500,'map');
 }
 let rsT=0; addEventListener('resize',()=>{ clearTimeout(rsT); rsT=setTimeout(()=>{ if($('#map').hidden) return;
   const j=$('.journey'), cur=Math.max(0,$$('.jl').findIndex(e=>e.classList.contains('cur')));
-  if(j){ snakeLayout(); placeCar(cur,false); } },200); });
+  if(j){ mapLayout(j); placeCar(cur,false); } },200); });
 // moving the map with the mouse (drag), the finger (the page's own touch scrolling) or the wheel (also sideways when the map is only wider than the screen)
 (function(){
   const w=$('#mapWrap'); let dn=null, moved=false;
@@ -214,6 +142,7 @@ let rsT=0; addEventListener('resize',()=>{ clearTimeout(rsT); rsT=setTimeout(()=
   const up=()=>{ dn=null; w.classList.remove('drag'); setTimeout(()=>moved=false,0); };
   addEventListener('pointerup',up); addEventListener('pointercancel',up);
   w.addEventListener('click',e=>{ if(moved){ e.stopPropagation(); e.preventDefault(); } },true);
+  w.addEventListener('click',e=>{ const j=$('.journey',w); if(j&&j.dataset.f&&!e.target.closest('.jpm,.jbox,.ubox,.jt')){ MAPF[subjKey()]=''; j.dataset.f=''; applyMapFilter(j,false); } });
   w.addEventListener('wheel',e=>{ const v=w.scrollHeight>w.clientHeight+1, h=w.scrollWidth>w.clientWidth+1;
     if(!v&&h&&Math.abs(e.deltaY)>Math.abs(e.deltaX)){ w.scrollLeft+=e.deltaY; e.preventDefault(); } },{passive:false});
 })();
@@ -235,7 +164,7 @@ function fixPaths(L,file){
   return L;
 }
 async function openLesson(m){
-  stopAll(); markOpened(m.id);
+  stopVoice(); markOpened(m.id);
   if(!LESSON || LESSON.id!==m.id){
     busy(true);
     try{ LESSON=fixPaths(await get(m.file), m.file); LESSON.id=m.id; }catch(e){ busy(false); message('Oops!','This lesson did not load. Check the internet and try again.'); return; }
@@ -246,11 +175,12 @@ async function openLesson(m){
   $('#lessonMeta').textContent=`${SUBJECT.name} · ${tr(COURSE.grade)} · ${tr(COURSE.term)}`;
   $('#lessonTitle').textContent=isAr()?`${tr('Unit')} ${num(LESSON.unit)} · ${tr('Lesson')} ${num(LESSON.lesson)} · ${LESSON.title}`:`Unit ${LESSON.unit} · Lesson ${LESSON.lesson} · ${LESSON.title}`;
   $('#stage').style.setProperty('--scene',`url("${new URL(LESSON.scene,location.href).href}")`);   // full address: css files live in css/
-  switchTab(LESSON.tabs?LESSON.tabs[0]:'read'); if(!LESSON.tabs&&typeof qLoad==='function') qLoad().then(()=>{ if(LESSON&&LESSON.id===m.id) paintTabs(); }); pop('.l-head > *',{y:-20}); pop('.tabs .tab',{y:30,delay:.1});
+  switchTab(LESSON.tabs?LESSON.tabs[0]:'read'); fitTitle(); if(tab==='read'&&$('.scene.story')&&LESSON.audio) setTimeout(()=>{ if(tab==='read'&&LESSON&&LESSON.id===m.id&&!rd.playing&&!player.run&&$('.scene.story')){ const [ps,pe]=pageSpan(); playFrom(ps,pe,true,true); } },350);   // opening the lesson starts the story by itself
+  if(!LESSON.tabs&&typeof qLoad==='function') qLoad().then(()=>{ if(LESSON&&LESSON.id===m.id) paintTabs(); }); pop('.l-head > *',{y:-20}); pop('.tabs .tab',{y:30,delay:.1});
 }
 
 /* ---------- Audio (lesson recordings are separate mp3 files) ---------- */
-const rd={page:1,done:{},words:[],lineEls:[],spotEls:[],playing:false,slow:false,pick:{},stopAt:null,full:false,cur:-1,curLine:-1,raf:0};
+const rd={auto:false,autoT:0,page:1,done:{},words:[],lineEls:[],spotEls:[],playing:false,slow:false,pick:{},stopAt:null,full:false,cur:-1,curLine:-1,raf:0};
 const player={ctx:null,bufs:{},ready:null,src:null,run:false,startCtx:0,startT:0,pos:0};
 const AC=window.AudioContext||window.webkitAudioContext, nap=ms=>new Promise(r=>setTimeout(r,ms));
 // after the phone locks (or the app is in the background) the speaker can stay asleep: wake it, and if it will not wake, make a new one
@@ -277,8 +207,8 @@ function ensureAudio(){
 const factor=()=>rd.slow?1/(LESSON.audio.slowRate||.75):1;
 function now(){ return player.run?player.startT+Math.max(0,player.ctx.currentTime-player.startCtx)/factor():player.pos; }
 function halt(){ if(player.src){ player.src.onended=null; try{player.src.stop();}catch(e){} player.src=null; } }
-async function playFrom(t,stopAt=null,full=stopAt==null){
-  hideHint(); halt(); player.run=false; rd.stopAt=stopAt; rd.playing=full; rd.full=full; readRail();
+async function playFrom(t,stopAt=null,full=stopAt==null,auto=false){
+  hideHint(); if(typeof vStop==='function') vStop(); halt(); player.run=false; clearTimeout(rd.autoT); rd.auto=auto; rd.stopAt=stopAt; rd.playing=full; rd.full=full; readRail();
   try{ await ensureAudio(); }catch(e){ rd.playing=false; readRail(); return; }
   const f=factor(), src=player.ctx.createBufferSource(); src.buffer=rd.slow?player.bufs.s:player.bufs.n; src.connect(player.ctx.destination);
   const dur=stopAt!=null?Math.max(.05,(stopAt-t)*f):undefined; const lead=.12, at=player.ctx.currentTime+lead; dur!=null?src.start(at,t*f,dur):src.start(at,t*f);
@@ -286,8 +216,8 @@ async function playFrom(t,stopAt=null,full=stopAt==null){
   src.onended=()=>{ if(player.src!==src) return; player.src=null; player.run=false; const w=rd.full; player.pos=0; rd.stopAt=null; rd.full=false; endPlay(w); };
   startLoop();
 }
-function pausePlay(){ if(!player.run) return; player.pos=now(); halt(); player.run=false; rd.playing=false; cancelAnimationFrame(rd.raf); carDrive(false); }
-function stopAll(){ halt(); player.run=false; player.pos=0; rd.stopAt=null; rd.playing=false; rd.full=false; cancelAnimationFrame(rd.raf); carDrive(false); }
+function pausePlay(){ rd.auto=false; clearTimeout(rd.autoT); if(!player.run) return; player.pos=now(); halt(); player.run=false; rd.playing=false; cancelAnimationFrame(rd.raf); carDrive(false); }
+function stopAll(){ rd.auto=false; clearTimeout(rd.autoT); halt(); player.run=false; player.pos=0; rd.stopAt=null; rd.playing=false; rd.full=false; cancelAnimationFrame(rd.raf); carDrive(false); }
 
 const trackCar=$('#trackCar'); putCar(trackCar);
 let spin=null;
@@ -298,7 +228,7 @@ function pageSpan(){ if(nPages()<2) return [0,LESSON.end]; const ls=LESSON.lines
 function carAt(t){ if(!LESSON) return; const [a,b]=pageSpan(); carFrac((t-a)/(b-a)); }
 // p = 0..1 along the header road (reading time in the Lesson tab, words learned in Vocabulary)
 function carFrac(p){ p=Math.max(0,Math.min(1,p||0)); const tw=Math.max(0,trackCar.parentElement.clientWidth-trackCar.offsetWidth-52);
-  trackCar.style.transform=`translate(${(p*tw).toFixed(1)}px,-56%)`; }
+  trackCar.style.transform=`translate(${(p*tw).toFixed(1)}px,0)`; }
 function carDrive(on){
   if(!anim) return;
   if(on){ if(!spin) spin=G.to('#trackCar .wheel',{rotation:360,transformOrigin:'50% 50%',duration:.45,repeat:-1,ease:'none'}); else spin.play();
@@ -320,79 +250,106 @@ function startLoop(){ cancelAnimationFrame(rd.raf); carDrive(rd.full); rd.raf=re
 function clearMarks(){ mark(-1); }
 function endPlay(full){
   rd.playing=false; cancelAnimationFrame(rd.raf); carDrive(false); setTimeout(()=>{ if(!player.run) clearMarks(); },500); readRail();
-  if(full){ carAt(pageSpan()[1]); rd.done[rd.page]=1; if(Object.keys(rd.done).length>=nPages()) award(LESSON.id,'read'); setTimeout(()=>{ if(!player.run) carAt(pageSpan()[0]); },4000); }
+  if(full){ if(rd.auto&&rd.page<nPages()) rd.autoT=setTimeout(()=>{ if(rd.auto&&tab==='read') readGo(1,true); },900); else rd.auto=false;
+    carAt(pageSpan()[1]); rd.done[rd.page]=1; if(Object.keys(rd.done).length>=nPages()) award(LESSON.id,'read'); setTimeout(()=>{ if(!player.run) carAt(pageSpan()[0]); },4000); }
 }
 
 /* ---------- Tabs + rail ---------- */
 const stage=$('#stage'), rail=$('#rail'); let tab='read';
-const TABAR={Lesson:'الدرس',Vocab:'كلمات',Q:'أسئلة',Booklet:'كُتيب',PTS:'التقييمات',Grammar:'القواعد'};   // the bottom tabs in Arabic lessons
-const TABS={read:['Lesson','book'],words:['Vocab','abc'],quiz:['Q','quiz'],booklet:['Booklet','quiz'],workbook:['PTS','quiz'],grammar:['Grammar','hint']};
+const TABAR={Lesson:'الدرس',Vocab:'كلمات',Q:'أسئلة',Vocabulary:'كلمات',Questions:'أسئلة',Assignments:'التقييمات',Booklet:'كُتيب',PTS:'التقييمات',Grammar:'القواعد'};   // the bottom tabs in Arabic lessons
+const TABS={read:['Lesson','book'],words:['Vocabulary','abc'],quiz:['Questions','quiz'],booklet:['Booklet','quiz'],workbook:['Assignments','quiz'],grammar:['Grammar','hint']};
 // English AL: the Lesson tab (book parts) and the Booklet tab both run on the questions engine (quiz.js); inQ() = a questions-style sheet is on screen
 const isAL=()=>!!(LESSON&&LESSON.type==='al'), inQ=()=>tab==='quiz'||tab==='workbook'||tab==='booklet'||(isAL()&&tab==='read'), alSrc=()=>tab==='booklet'?'booklet':'lesson', qKey=()=>isAL()?tab:'quiz';
 const KEYTAB={read:'book',quiz:'book',grammar:'book',booklet:'bk',workbook:'pts'};   // the map-key colour each tab belongs to (Words has none)
 function paintTabs(){ $$('.tab').forEach(b=>{ const [l0,ic]=TABS[b.dataset.tab], l=(LESSON&&LESSON.tabLabels&&LESSON.tabLabels[b.dataset.tab])||l0, got=LESSON&&STARS[LESSON.id]&&STARS[LESSON.id][b.dataset.tab];
-  b.dataset.book=KEYTAB[b.dataset.tab]||''; b.innerHTML=ICON[ic]+`<span>${isAr()&&TABAR[l]||tr(l)}</span>`+(b.dataset.book?'<i class="kd"></i>':'')+(got?`<span class="st">${STAR(true)}</span>`:''); b.hidden=LESSON&&LESSON.tabs?!LESSON.tabs.includes(b.dataset.tab):['booklet','workbook'].includes(b.dataset.tab)?!hasBook(b.dataset.tab):b.dataset.tab==='grammar'; b.setAttribute('aria-selected',b.dataset.tab===tab); }); const tb=$('.tabs'); if(tb){ const nt=$$('.tab:not([hidden])').length; tb.classList.toggle('many',nt>3); tb.classList.toggle('many5',nt>4); } }   // optional "tabs": ["read","quiz"] in lesson.json shows only those tabs (Math: explanation + questions, or questions only)
+  b.dataset.book=KEYTAB[b.dataset.tab]||''; b.innerHTML=ICON[ic]+`<span>${isAr()&&TABAR[l]||tr(l)}</span>`+(b.dataset.book?'<i class="kd"></i>':'')+(got?`<span class="st">${STAR(true)}</span>`:''); b.hidden=LESSON&&LESSON.tabs?!LESSON.tabs.includes(b.dataset.tab):['booklet','workbook'].includes(b.dataset.tab)?!hasBook(b.dataset.tab):b.dataset.tab==='grammar'; b.setAttribute('aria-selected',b.dataset.tab===tab); }); const tb=$('.tabs'); if(tb){ const nt=$$('.tab:not([hidden])').length; tb.classList.toggle('many',nt>3); tb.classList.toggle('many5',nt>4); const on=$('.tab[aria-selected="true"]',tb); if(on) tb.scrollTo({left:on.offsetLeft-tb.clientWidth/2+on.offsetWidth/2,behavior:'auto'}); } }   // optional "tabs": ["read","quiz"] in lesson.json shows only those tabs (Math: explanation + questions, or questions only)
 // a default lesson shows Booklet / PTS only when it has that book (its pages in subject.json, or questions of that book)
 function hasBook(k){ const m=SUBJECT&&LESSON&&SUBJECT.lessons.find(l=>l.id===LESSON.id); return !!(m&&m.pages&&[].concat(m.pages[k]||[]).length)||!!(qz.sets&&qz.file&&LESSON&&qz.file.includes('/'+(m&&m.folder)+'/')&&qz.all.some(q=>qSrcOf(q.set)===k)); }
 function setRail(items){ rail.innerHTML=''; items.forEach(it=>{ const b=el('button','dash '+it.kind+(it.on?' on':'')+(it.icon==='restart'?' ln':''),`<span class="rb">${ICON[it.icon]}</span><span>${it.label}</span>`); b.addEventListener('click',it.click); rail.append(b); }); }
-function switchTab(t,at){ if(typeof WP!=='undefined'&&WP.saved) wpClose(); stopAll(); vStop(); hideHint(); $('#lesson').classList.remove('vtab','qtab'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); lnavPaint(); carAt(0); (t==='booklet'||t==='workbook'||t==='read'&&isAL())?showQuiz(at):t==='grammar'?showGrammar():t==='read'?showRead():t==='words'&&LESSON.vocab?showWords():t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); }
+function switchTab(t,at){ if(typeof WP!=='undefined'&&WP.saved) wpClose(); stopVoice(); { const r=$('#lmeta .lm-r'); if(r) r.innerHTML=''; } hideHint(); $('#lesson').classList.remove('vtab','qtab','story'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); lnavPaint(); carAt(0); (t==='booklet'||t==='workbook'||t==='read'&&isAL())?showQuiz(at):t==='grammar'?showGrammar():t==='read'?showRead():t==='words'&&LESSON.vocab?showWords():t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); }
 $$('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
 
 // default speed: slow for a page that is a conversation (2+ speakers), normal for everything else; a child's own choice per page wins
 function pageDefaultSlow(){ return new Set(LESSON.lines.filter(l=>nPages()<2||l.page===rd.page).map(l=>l.who)).size>1; }
 function showRead(){
   { const k=LESSON.id+':'+rd.page; rd.slow=k in rd.pick?rd.pick[k]:pageDefaultSlow(); }
-  stage.innerHTML=''; rd.words=[]; rd.lineEls=[]; rd.spotEls=[]; rd.cur=-1; rd.curLine=-1;
+  stage.innerHTML=''; rd.words=[]; rd.lineEls=[]; rd.spotEls=[]; rd.cur=-1; rd.curLine=-1; $('#lesson').classList.remove('story');
   if(LESSON.type==='letter'&&typeof showLetter==='function') return showLetter();
   if(LESSON.type==='math'&&typeof showMathExplain==='function') return showMathExplain();
   const pl=(LESSON.pageLayouts||[])[rd.page-1];   // optional per page: "text" (dialog on the scene) or "pictures"
   if(pl==='bubbles') return showBubbles();
   if(LESSON.layout==='pictures'||pl==='pictures') return showPics();
-  const scene=el('div','scene'+(LESSON.picture?' book':'')+(LESSON.compact?' long':'')); scene.setAttribute('role','img'); scene.setAttribute('aria-label',LESSON.sceneAlt||'');
-  const np=nPages(), note=el('div','note'), inn=el('div','in'); const tk=el('p','task',STAR(true)+((LESSON.pageTasks&&LESSON.pageTasks[rd.page-1])||LESSON.task));
-  if(LESSON.titleWords&&rd.page===1){ tk.innerHTML=STAR(true); LESSON.titleWords.forEach(([w,s0,e0],k)=>{ const sp=el('span','w',w); rd.words.push({el:sp,s:s0,e:e0}); sp.addEventListener('click',()=>playFrom(Math.max(0,s0-.04),e0+.06)); tk.append(sp,' '); }); }   // "titleWords": the title line is spoken at the start of the recording and lights up with it
-  inn.append(tk);
-  if(LESSON.titleWords&&rd.page===1){ const tp=$('p.task',inn); tp.innerHTML=STAR(true); LESSON.titleWords.forEach(([w,s,e])=>{ const sp=el('span','w',w); rd.words.push({el:sp,s,e}); sp.addEventListener('click',()=>playFrom(Math.max(0,s-.04),e+.06)); tp.append(sp,' '); }); }   // optional "titleWords": the recording says the title first, so the title words light up with the audio
-  const ul=el('ul','lines');
+  return showStory();   // stories and dialogs: picture as the background, words on a soft panel (below)
+}
+// pages of one lesson: a swipe / drag left or right, the dots above the tabs, or a dot tap. A page the child changes himself NEVER starts reading by itself (it stops the sound).
+const isStoryPage=p=>{ const pl=(LESSON.pageLayouts||[])[p-1]; return !(pl==='bubbles'||pl==='pictures'||LESSON.layout==='pictures'||LESSON.type==='letter'||LESSON.type==='math'); };
+function readGo(d,auto){ const np=nPages(), to=rd.page+d; if(to<1||to>np) return; if($('.scene.story')&&isStoryPage(to)) return storyGo(d,auto);
+  if(!auto) stopVoice(); clearMarks(); rd.page=to; lnavPaint(); showRead(); carAt(pageSpan()[0]);
+  if(auto&&LESSON.lines.some(l=>l.page===rd.page)){ const [ps,pe]=pageSpan(); playFrom(ps,pe,true,true); } }
+function readPager(){}   // swipe itself = the shared pager in book.js
+
+/* ---------- STORY / DIALOG lessons (the default Lesson tab) ----------
+   The lesson picture is the BACKGROUND of the whole content area (under the side buttons too); the words sit on a soft light panel at the bottom.
+   One picture for all pages = only the text slides; a picture per page = the text slides and the picture fades out / in.
+   Opening the lesson starts the reading by itself and, when a page ends, goes to the next page and reads it (rd.auto). ANY touch of the sound
+   (pause, restart, speed, a word or line, another page, another tab) stops the sound and the automatic run (stopAll clears rd.auto). */
+const storyBg=p=>(LESSON.pagePictures&&LESSON.pagePictures[p-1])||LESSON.picture||LESSON.scene;
+const cssUrl=u=>`url("${new URL(u,location.href).href}")`;
+function storyText(){
+  const np=nPages(), inn=el('div','in'), ul=el('ul','lines');
+  if(LESSON.titleWords&&rd.page===1){ const tk=el('p','stitle'); LESSON.titleWords.forEach(([w,s,e])=>{ const sp=el('span','w',w); rd.words.push({el:sp,s,e}); sp.addEventListener('click',ev=>{ ev.stopPropagation(); playFrom(Math.max(0,s-.04),e+.06); }); tk.append(sp,' '); }); inn.append(tk); }   // a title that is spoken in the recording stays (it lights up); the "Listen to the story" sentence is gone
   LESSON.lines.forEach((l,li)=>{
     if(np>1&&l.page!==rd.page) return;
-    const row=el('li','line'), who=l.who?el('button','who',l.who+':'):el('button','who say',SAY_LN); who.style.color=(LESSON.speakers||{})[l.who]||OL;   // a story (no speaker name): a small speaker that reads the paragraph
-    who.setAttribute('aria-label','Listen to this line'); who.addEventListener('click',()=>playLine(li));
-    const txt=el('span','txt'); if(l.color){ txt.style.color=l.color; who.style.color=l.color; }   // optional "color": a story paragraph read in a colour (the book's speaker colours)
-    l.words.forEach(([w,s,e])=>{ const sp=el('span','w',w); rd.words.push({el:sp,s,e}); sp.addEventListener('click',()=>playFrom(Math.max(0,s-.04),e+.06)); txt.append(sp,' '); });
+    const row=el('li','line'), txt=el('span','txt'); if(l.color) txt.style.color=l.color;
+    if(l.who){ const who=el('span','who',l.who+':'); who.style.color=(LESSON.speakers||{})[l.who]||OL; if(l.color) who.style.color=l.color; row.append(who); }
+    l.words.forEach(([w,s,e])=>{ const sp=el('span','w',w); rd.words.push({el:sp,s,e}); sp.addEventListener('click',ev=>{ ev.stopPropagation(); playFrom(Math.max(0,s-.04),e+.06); }); txt.append(sp,' '); });
     if(l.act){ const ac=el('span','act',l.act), ic=actIcon(l.act); if(ic) ac.append(ic); txt.append(ac); }
-    row.append(who,txt); ul.append(row); rd.lineEls[li]=row;
+    row.addEventListener('click',()=>playLine(li)); row.append(txt); ul.append(row); rd.lineEls[li]=row;
   });
-  inn.append(ul); note.append(inn);
-  // a lesson with a book picture ("picture" + a "spot" per line): the whole picture beside the words (above them on tall screens);
-  // the thing being read gets a ring on the picture, and tapping a thing reads its line
-  const bookPic=(LESSON.pagePictures&&LESSON.pagePictures[rd.page-1])||LESSON.picture;   // optional "pagePictures": one picture per page
-  if(bookPic){
-    const box=el('div','bpic'), fit=el('div','bfit',`<img src="${bookPic}" alt="">`);
-    $('img',fit).addEventListener('load',e=>{ const im=e.target; if(im.naturalWidth) box.style.setProperty('--ar',im.naturalWidth/im.naturalHeight); });
-    const same={};   // lines on the same part of the picture share ONE spot (a tap reads the first of them; the ring stays while any of them is read)
-    LESSON.lines.forEach((l,li)=>{ if(!l.spot){ rd.spotEls.push(null); return; } const k=l.spot.join(','); if(same[k]){ rd.spotEls.push(same[k]); return; }
-      const [x,y,w,h]=l.spot, b=el('button','spot'); same[k]=b;
-      b.style.cssText=`left:${x}%;top:${y}%;width:${w}%;height:${h}%`; b.setAttribute('aria-label','Listen: '+l.words.map(w=>w[0]).join(' '));
-      b.addEventListener('click',()=>playLine(li)); fit.append(b); rd.spotEls.push(b); });
-    box.append(fit); scene.append(box);
-  }
-  scene.append(note);
-  readPager(scene);
-  stage.append(scene);
+  inn.append(ul); return inn;
+}
+// the words are as big as the panel allows: shrink only when a page would not fit
+function fitStory(){ const inn=$('.scene.story .in:last-child'); if(!inn) return; inn.style.fontSize=''; let fs=parseFloat(getComputedStyle(inn).fontSize);
+  for(let i=0;i<40&&inn.scrollHeight>inn.clientHeight+1&&fs>11;i++){ fs-=.5; inn.style.fontSize=fs+'px'; } }
+function showStory(){
+  $('#lesson').classList.add('story');
+  const scene=el('div','scene story'), bg=el('div','sbg'), note=el('div','note');
+  scene.setAttribute('role','img'); scene.setAttribute('aria-label',LESSON.sceneAlt||'');
+  bg.style.backgroundImage=cssUrl(storyBg(rd.page)); bg.dataset.u=storyBg(rd.page);
+  note.append(storyText()); scene.append(bg,note); stage.append(scene);
+  const pre=new Set(); for(let p=1;p<=nPages();p++) pre.add(storyBg(p)); preloadImgs([...pre]);
+  fitStory(); fitTitle();
   readRail(); if(typeof bookTag==='function') bookTag(); showHint($('#rail .dash.go .rb'),LESSON.hints&&LESSON.hints.read,1400,'read');
 }
-// pages of one lesson: two arrows in the bottom middle, and a mouse or finger swipe left / right
-function readGo(d){ const np=nPages(); if(rd.page+d<1||rd.page+d>np) return; stopAll(); clearMarks(); rd.page+=d; lnavPaint(); showRead(); carAt(pageSpan()[0]); const [ps,pe]=pageSpan(); if(LESSON.lines.some(l=>l.page===rd.page)) playFrom(ps,pe,true); }   // the new page starts reading by itself
-function readPager(scene){
-  const np=nPages(); if(np<2) return;
-  let x0=null,y0=0,sw=false;
-  scene.addEventListener('pointerdown',e=>{ if(e.target.closest('.pager')) return; x0=e.clientX; y0=e.clientY; sw=false; });
-  scene.addEventListener('pointerup',e=>{ if(x0==null) return; const dx=e.clientX-x0, dy=e.clientY-y0; x0=null;
-    if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){ sw=true; readGo(dx<0?1:-1); } });
-  scene.addEventListener('pointercancel',()=>{ x0=null; });
-  scene.addEventListener('click',e=>{ if(sw){ e.stopPropagation(); e.preventDefault(); sw=false; } },true);
+// d = +1 next / -1 previous. auto = the run that goes by itself (the sound just ended): it reads the new page too
+function storyGo(d,auto){
+  const to=rd.page+d; if(to<1||to>nPages()) return;
+  const scene=$('.scene.story'); if(!scene) return;
+  if(!auto) stopVoice();   // the child's own move: sound off, no automatic run
+  clearMarks(); rd.page=to; rd.words=[]; rd.lineEls=[]; rd.spotEls=[]; rd.cur=-1; rd.curLine=-1;
+  { const k=LESSON.id+':'+rd.page; rd.slow=k in rd.pick?rd.pick[k]:pageDefaultSlow(); }
+  lnavPaint(); carAt(pageSpan()[0]); if(typeof bookTag==='function') bookTag();
+  const note=$('.note',scene), old=$('.in',note), nin=storyText(), bg=$('.sbg',scene), u=storyBg(rd.page);
+  note.append(nin); fitStory();
+  if(anim){
+    G.killTweensOf([old,nin]);
+    G.fromTo(nin,{x:d*60,opacity:0},{x:0,opacity:1,duration:.32,ease:'power2.out',clearProps:'transform,opacity'});
+    if(old) G.to(old,{x:-d*60,opacity:0,duration:.28,ease:'power2.in',onComplete:()=>old.remove()});
+  } else if(old) old.remove();
+  if(bg.dataset.u!==u){   // another picture: fade the old one out, the new one in
+    bg.dataset.u=u;
+    if(anim){ G.killTweensOf(bg); G.timeline().to(bg,{opacity:0,duration:.22,ease:'power1.in'}).call(()=>{ bg.style.backgroundImage=cssUrl(u); }).to(bg,{opacity:1,duration:.3,ease:'power1.out',clearProps:'opacity'}); }
+    else bg.style.backgroundImage=cssUrl(u);
+  }
+  readRail();
+  if(auto&&LESSON.lines.some(l=>l.page===rd.page)){ const [ps,pe]=pageSpan(); playFrom(ps,pe,true,true); }
 }
+// swipe / drag left or right = ONE shared pager in book.js (whole page area); no per-screen swipe code
+// the unit / lesson / name line is ONE line always: the letters shrink until it fits
+function fitTitle(){ const h=$('#lessonTitle'), box=h&&h.parentElement; if(!h||!box||!box.offsetWidth) return; h.style.fontSize=''; let fs=parseFloat(getComputedStyle(h).fontSize);
+  for(let i=0;i<40&&h.scrollWidth>box.clientWidth+1&&fs>7;i++){ fs-=.5; h.style.fontSize=fs+'px'; } }
+addEventListener('resize',()=>{ clearTimeout(fitTitle.t); fitTitle.t=setTimeout(()=>{ fitTitle(); if($('.scene.story')) fitStory(); },150); });
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(()=>{ fitTitle(); fitStory(); });
 // "layout": "pictures" (Lesson 2): no text card; each line is a picture ("pic") spread over the stage at "pos" [x, y] % (its centre),
 // its word written under it. The word being read is marked as usual and its picture pops up a little; tapping the word (or the picture) reads it.
 function showPics(){
@@ -442,7 +399,10 @@ const ACT_ICONS=[[/shake hands/i,`<svg viewBox="0 13 80 40" aria-hidden="true"><
   <path d="M35 26C33 22 36 17 40 17C44 17 45 20 43 23" fill="#F7C99A"/></g></svg>`]];
 function actIcon(text){ const f=ACT_ICONS.find(([re])=>re.test(text)); if(!f) return null; const s=el('span','acticon',f[1]); return s; }
 function playLine(li){ const l=LESSON.lines[li]; playFrom(Math.max(0,l.words[0][1]-.05),l.words[l.words.length-1][2]+.15); }
-function readRail(){
+/* story pages: the text panel starts BELOW the whole button column (RULES.md, story page). --rail-h = height of the rail */
+function railH(){ const r=$('#rail'),l=$('#lesson'); if(r&&l) l.style.setProperty('--rail-h',(((c=>c?c.offsetTop+c.offsetHeight:0)(r.lastElementChild))||0)+'px'); }
+addEventListener('resize',()=>setTimeout(railH,60));
+function readRail(){ setTimeout(railH,0); 
   if(tab!=='read') return; const [ps,pe]=pageSpan(), res=!player.run&&player.pos>ps+.2, part=()=>rd.stopAt!=null&&!rd.full;
   const on=rd.playing||player.run;   // ONE button: Read while it is quiet, Stop while it reads; a tap toggles
   setRail([
@@ -458,6 +418,20 @@ function showGarage(){
   const g=el('div','garage',`<div><span class="car"></span><p class="outline">${tr('Coming soon!')}</p><span>${COURSE.hints.garage}</span></div>`);
   putCar(g.querySelector('.car'),'sad'); stage.append(g); setRail([]);
 }
+
+// the tab bar is a slider: a finger scrolls it, the mouse drags it
+(function(){ const tb=$('.tabs'); let dn=null;
+  tb.addEventListener('pointerdown',e=>{ if(e.pointerType==='mouse') dn={x:e.clientX,l:tb.scrollLeft,m:false}; });
+  addEventListener('pointermove',e=>{ if(dn){ const dx=e.clientX-dn.x; if(Math.abs(dx)>5) dn.m=true; if(dn.m) tb.scrollLeft=dn.l-dx; } });
+  addEventListener('pointerup',()=>{ if(dn&&dn.m) tb.addEventListener('click',e=>{ e.stopPropagation(); e.preventDefault(); },{capture:true,once:true}); dn=null; });
+})();
+
+// a new word of the lesson (its Vocabulary list) inside the reading text gets its own colour
+function markNewWords(){
+  if(!LESSON||!LESSON.vocab) return; const set=new Set(LESSON.vocab.map(v=>String(v.word).toLowerCase().replace(/[^\p{L}\p{N}' ]/gu,'').trim()).filter(Boolean));
+  $$('#stage .w').forEach(w=>{ const t=w.textContent.toLowerCase().replace(/[^\p{L}\p{N}']/gu,''); w.classList.toggle('nw',!!t&&set.has(t)); });
+}
+{ const _sr=showRead; showRead=function(){ const r=_sr.apply(this,arguments); try{ markNewWords(); }catch(e){} return r; }; }
 ;
 /* ===== js/vocab.js ===== */
 /* VOCABULARY tab + the shared celebration. */
@@ -554,11 +528,12 @@ function showWords(){
   const wrap=el('div','vocab'), pick=el('div','vpick');
   LESSON.vocab.forEach((v,i)=>{ const b=el('button','vthumb'+(i===vs.i?' on':''),`${vMode()?`<span class="vtw">${v.word}</span>`:`<img src="${v.img}" alt=""${/\.png$/i.test(v.img)?' class="cut"':''}>`}<b>${i+1}</b>${vDone().includes(v.word)?`<span class="vst">${STAR(true)}</span>`:''}`);
     b.setAttribute('aria-label',`Word ${i+1}: ${v.word}`); b.addEventListener('click',()=>{ vs.i=i; vTeach(); }); pick.append(b); });
-  wrap.innerHTML=`<div class="vword"></div>
+  wrap.innerHTML=`<div class="vwrow"><div class="vword"></div><button class="vsay" aria-label="${isAr()?'اسمع الكلمة':tr('Listen')}">${SAY_LN}</button></div>
     <div class="vinfo"><div class="vstatus"></div><div class="vmeaning" dir="rtl"><span class="vm-t"></span><button class="vm-say" aria-label="Arabic meaning">${SAY_LN}</button></div></div>
     <div class="vtools"></div><div class="vimgwrap"><img class="vimg" alt=""></div>`;
   wrap.append(pick); stage.append(wrap); vPickFit();
   $('.vm-say').addEventListener('click',e=>{ e.stopPropagation(); const v=LESSON.vocab[vs.i]; $('.vmeaning').classList.add('lit'); sayAr(v).then(()=>$('.vmeaning')&&$('.vmeaning').classList.remove('lit')); });
+  $('.vsay').addEventListener('click',e=>{ e.stopPropagation(); if(vMode()) return vMeanSay('all'); vStop(); if(vs.mode==='learn'){ vs.mode='idle'; vRail(); } sayWord(LESSON.vocab[vs.i]); });   // the small speaker beside the word (replaces the Listen / Stop buttons)
   vTools(); vRender(true); vRail(); vCar(false);
   if(vMode()){ $('.vword').addEventListener('click',()=>vMeanSay('word')); $('.vmeaning').addEventListener('click',()=>vMeanSay('rel')); }
   showHint(pick,LESSON.hints.vocabPick,900,'vocabPick');
@@ -694,13 +669,11 @@ async function vWin(v){
 function vTools(){
   const tools=$('.vtools'); tools.innerHTML='';
   const items=[
-    {k:'help',kind:'speed',icon:'hint',label:isAr()?'ساعدني':tr('Help'),click:vHelp},
-    {k:'listen',kind:'again',icon:'sound',label:isAr()?'اسمع الكلمة':tr('Listen'),click:()=>{ if(vMode()) return vMeanSay('all'); vStop(); if(vs.mode==='learn'){ vs.mode='idle'; vRail(); } sayWord(LESSON.vocab[vs.i]); }},
+    {k:'help',kind:'help',icon:'hint',label:isAr()?'ساعدني':tr('Help'),click:vHelp},
     {k:'teach',kind:'go',icon:'restart',label:isAr()?(vMode()?'علّمني':'علّمني الكلمة'):tr('Teach'),click:vTeach},
-    {k:'write',kind:'speed',icon:'pencil',label:isAr()?'اكتب الكلمة':tr('Write'),click:()=>{ if(vs.mode!=='write') vWrite(); else { const i=$('#vin'); i&&i.focus({preventScroll:true}); } }},
-    {k:'stop',kind:'stop',icon:'pause',label:tr('Stop'),click:()=>{ vStop(); if(vs.mode!=='write'){ vs.mode='idle'; vRail(); } }}
+    {k:'write',kind:'speed',icon:'pencil',label:isAr()?'اكتب الكلمة':tr('Write'),click:()=>{ if(vs.mode!=='write') vWrite(); else { const i=$('#vin'); i&&i.focus({preventScroll:true}); } }}
   ];
-  (vMode()?items.filter(it=>!['help','write','listen'].includes(it.k)):items).forEach(it=>{ const b=el('button','dash '+it.kind+(it.icon==='restart'?' ln':''),`<span class="rb">${ICON[it.icon]}</span><span>${it.label}</span>`); b.dataset.k=it.k;
+  (vMode()?items.filter(it=>!['help','write'].includes(it.k)):items).forEach(it=>{ const b=el('button','dash '+it.kind+(it.icon==='restart'?' ln':''),`<span class="rb">${ICON[it.icon]}</span><span>${it.label}</span>`); b.dataset.k=it.k;
     b.addEventListener('pointerdown',e=>{ if($('#vin')&&$('#vin')===document.activeElement) e.preventDefault(); });   // keep the keyboard open
     b.addEventListener('click',it.click); tools.append(b); });
 }
@@ -856,21 +829,24 @@ async function showQuiz(start){
   wrap.innerHTML=`<div class="qhead"><span class="qex"></span><span class="qtask"></span><button class="qsay qtsay" aria-label="Hear the question">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button>${LESSON.tool?`<button class="qtool" aria-label="Make numbers tool"><img src="data/tools/make-numbers/icon.webp" alt=""></button>`:''}</div>
     <div class="qdots"></div>
     <div class="qword" dir="ltr"><b></b><button class="qsay" aria-label="Listen again">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button></div>
-    <div class="qplay"></div><div class="qans"></div><button class="qhelpb" aria-label="${isAr()?'ساعدني':tr('Help')}" hidden>${ICON.hint}</button>`;
+    <div class="qplay"></div><div class="qans"></div>`;
   stage.append(wrap);
+  { const hb=el('button','qhelpb',ICON.hint); hb.hidden=true; hb.setAttribute('aria-label',isAr()?'ساعدني':tr('Help')); $('#lmeta .lm-r').replaceChildren(hb); hb.onclick=()=>qHelp(); }   // the Help bulb stands at the right of the row above the tabs
   $('.qword .qsay',wrap).addEventListener('click',()=>qSay());
   $('.qtsay',wrap).addEventListener('click',()=>qTask());
-  $('.qhelpb',wrap).onclick=()=>qHelp();
   $('.qword',wrap).addEventListener('click',e=>{ if(wrap.dataset.type==='type'&&!e.target.closest('.qsay')) qFocus(); });
   qStart(start!=null?start:0);
 }
 // the questions of one book (Book or Workbook)
 function qPick(src){ qz.src=src; qz.list=qz.all.filter(q=>qSrcOf(q.set)===src); }
 function qStart(i){ const w=$('.quiz'); if(!w) return;
-  $('.qdots',w).innerHTML=qz.list.map((q,k)=>`<i data-i="${k}">${STAR(false)}</i>`).join('');
+  $('.qdots',w).innerHTML=qz.list.map((q,k)=>`${k&&qGrp(q.set)!==qGrp(qz.list[k-1].set)?'<span class="qsep"></span>':''}<i data-i="${k}">${STAR(false)}</i>`).join('');
+  $('.qdots',w).style.setProperty('--n',qz.list.length+$$('.qsep',w).length*2);
   $('.qdots',w).onclick=e=>{ const d=e.target.closest('i[data-i]'); if(!d) return; hideHint(); qz.busy=false; qGo(+d.dataset.i); };   // each star opens its own question
   qLayout(); qGo(Math.min(i,qz.list.length-1)); }
 // the arrows: to the start of the next / previous exercise of this book (not the items inside one)
+// the star of the question we are on is 'cur'; the stars of its whole part (same exercise) are 'grp'
+function qCur(i){ const g=qz.list[i]&&qGrp(qz.list[i].set); $$('.qdots i').forEach((x,k)=>{ x.classList.toggle('cur',k===i); x.classList.toggle('grp',qGrp(qz.list[k].set)===g); }); }
 const qGrp=s=>s.grp?s.page+'|'+s.grp:s.ex!=null?s.page+'|'+s.ex:s;   // sets with the same book exercise (e.g. one circle set per colour) are ONE exercise for the arrows
 function qSetStart(d){ const s=qz.list[qz.i]&&qz.list[qz.i].set; if(!s) return -1; const g=qGrp(s); let i=qz.i;
   if(d>0){ while(i<qz.list.length&&qGrp(qz.list[i].set)===g) i++; return i<qz.list.length?i:-1; }
@@ -880,13 +856,13 @@ function qSet(d){ const i=qSetStart(d); if(i<0) return; hideHint(); blip(600); q
 function qFirstOnPage(p,src){ const f=qz.all.find(q=>q.set.page===p&&(!src||qSrcOf(q.set)===src)); qPick(f?qSrcOf(f.set):src||'book');
   const i=qz.list.findIndex(q=>q.set.page===p); return i<0?0:i; }
 function qGo(i){
-  vStop(); hideHint(); setTimeout(qHelpShow,60); const run=++qz.run; qz.i=i; qz.busy=false;
+  stopVoice(); $$('#lmeta .qxhelp').forEach(x=>x.remove()); hideHint(); setTimeout(qHelpShow,60); const run=++qz.run; qz.i=i; qz.busy=false;
   const q=qz.list[i], s=q.set, w=$('.quiz'); if(!w) return;
   w.dataset.type=s.type;
-  let mdl=$('.qmodel',w); if(!mdl){ mdl=el('span','qmodel'); $('.qhead',w).prepend(mdl); } mdl.textContent=s.model||''; mdl.hidden=!s.model;   // "model": the paper's heading (Model 1) shown as a yellow pill
-  $('.qex',w).textContent=s.ex!=null?num(s.ex):''; $('.qex',w).hidden=!s.ex; $('.qtask',w).textContent=s.task;
+  { const old=$('.qmodel',w); if(old) old.remove(); }   // the paper's heading (Classroom / Homework / Weekly C) is no longer shown on any question
+  $('.qex',w).textContent=s.ex!=null?num(s.ex):''; $('.qex',w).hidden=!s.ex; $('.qtask',w).textContent=s.task; qFitTask();
   footPage(s.page); lnavPaint();
-  $$('.qdots i',w).forEach((d,k)=>{ d.classList.toggle('cur',k===i); });
+  qCur(i);
   if($('#lesson').classList.contains('qrail')){ $('#lesson').classList.remove('qrail'); setRail([]); }   // the side Listen / Stop button belongs to the 'together' page only
   const a0=$('.qans',w); if(a0.parentElement!==w) w.append(a0);   // back in its own place before the pictures are cleared (qLayout moves it beside the picture)
   const qi=$('#qin'); if(qi&&s.type!=='type'){ qi.blur(); qi.remove(); }
@@ -965,7 +941,7 @@ async function qTick(cell,it,s,val,btn){
   const next=qz.i+1;
   if(next>=qz.list.length||qz.list[next].set!==s){ qz.busy=true; await new Promise(r=>setTimeout(r,1400)); if(run!==qz.run||!inQ()) return; qz.busy=false;
     if(next>=qz.list.length) award(LESSON.id,qKey()); else qGo(next); return; }
-  qz.i=next; $$('.qdots i').forEach((x,k)=>x.classList.toggle('cur',k===next));   // same sheet: just move the star on
+  qz.i=next; qCur(next);   // same sheet: just move the star on
 }
 // the lines of the joined pictures, worked out again when the screen changes size
 function qLines(fresh){ const bd=$('.qboard'); if(!bd||$('.quiz').dataset.type!=='match') return; const c=$('.qcenter span',bd); if(!c) return; const B=bd.getBoundingClientRect();
@@ -1000,7 +976,7 @@ QM.circle={sheet:'board', draw:qPicBoard, help:qBoardHelp};
 QM.tick={sheet:'board', draw:qSheet, help:(q,w)=>{ const cs=$$('.qcell',w), c=cs.find(c=>!c.classList.contains('done')); if(!c) return []; const it=q.set.items[cs.indexOf(c)]; return [$(it.answer?'.qbtn.yes':'.qbtn.no',c)].filter(Boolean); }};
 const qSetMoreAfter=s=>qz.i+1<qz.list.length&&qz.list[qz.i+1].set===s;
 function qMore(s){ const next=qz.i+1; if(next>=qz.list.length||qz.list[next].set!==s) return false;
-  qStar(); qz.i=next; $$('.qdots i').forEach((x,k)=>x.classList.toggle('cur',k===next));
+  qStar(); qz.i=next; qCur(next);
   lnavPaint(); return true; }
 // one more right answer of a board: its star, then on to the next one (the same board stays when the exercise has more)
 async function qDone(s,run,ms){
@@ -1155,7 +1131,11 @@ function qRing(el0){ const im=el0.classList.contains('qpic')&&$('img',el0);   //
    qHelpEls() = what the question's MODEL lights now (QM[type].help); nothing = no bulb. Models with their own help (write, qa, math keypads) say bulb:0 */
 function qHelpEls(){ const q=qz.list[qz.i], w=$('.quiz'); if(!q||!w||qz.busy) return []; const m=QM[q.set.type];
   return m&&m.help&&m.bulb!==0?m.help(q,w).filter(Boolean):[]; }
-function qHelpShow(){ const b=$('.quiz .qhelpb'); if(!b) return; b.hidden=!qHelpEls().length; lnavFit(); }
+// a type with its own Help bulb (write, math) puts it at the right of the row above the tabs, where the generic bulb stands
+// the question text takes the whole line: one line, the font shrinks a little when it must (wraps only below 13px)
+function qFitTask(){ const t=$('.quiz .qtask'); if(!t) return; t.style.fontSize=''; t.style.whiteSpace='nowrap'; requestAnimationFrame(()=>{ if(!t.isConnected) return; let fs=parseFloat(getComputedStyle(t).fontSize); for(let k=0;k<20&&t.scrollWidth>t.clientWidth+1&&fs>13;k++){ fs--; t.style.fontSize=fs+'px'; } if(t.scrollWidth>t.clientWidth+1) t.style.whiteSpace=''; }); }
+function qHelpHost(b){ const r=$('#lmeta .lm-r'); if(r) r.append(b); const g=$('#lmeta .qhelpb'); if(g) g.hidden=true; }
+function qHelpShow(){ const b=$('#lmeta .qhelpb'); if(!b) return; b.hidden=!qHelpEls().length; lnavFit(); }
 function qHelp(){ if(qz.busy) return; const L=qHelpEls(); if(!L.length) return; hideHint(); blip(660,.05);
   L.forEach(e=>{ const f=e.classList.contains('qxc')?$('span',e):null; e.classList.remove('qhl'); void e.offsetWidth; e.classList.add('qhl'); if(f) f.classList.add('qhl-t'); setTimeout(()=>{ e.classList.remove('qhl'); if(f) f.classList.remove('qhl-t'); },2000); }); }
 ;
@@ -1256,7 +1236,7 @@ function qxVowel(box,q,s,run){
   box.append(row);
 }
 // the word (or sentence) as hidden letters with their places underlined; spaces are not letters
-function qxWordEl(word,chips,faint,ltr){ const b=el('b','qxw'); if(ltr) b.dir='ltr';   /* an English word: left to right inside any subject */ const gs=glyphs(word);
+function qxWordEl(word,chips,faint,ltr){ const b=el('b','qxw'); if(ltr) b.dir='ltr';   /* an English word: left to right inside any subject */ const gs=glyphs(word); b.style.setProperty('--n',gs.length);
   const cnt=(chips||[]).map(c=>glyphs(c).length), ok=cnt.length>1&&cnt.reduce((a,c)=>a+c,0)===gs.length;   // a box per syllable when the chips match the word
   if(ok){ let k=0; cnt.forEach(n=>{ const sg=el('span','qxseg'); gs.slice(k,k+n).forEach(g=>sg.append(el('span','lt hid'+(faint?' fnt':''),g))); k+=n; b.append(sg); }); }
   else gs.forEach(g=>b.append(el('span',g===' '?'sp':'lt hid'+(faint?' fnt':''),g===' '?' ':g)));
@@ -1270,7 +1250,7 @@ function qxWrite(box,q,s,run,text,onDone){   // text: what to type (default the 
   text=text||q.word; $$('.qxhelp',box).forEach(x=>x.remove());
   if(q.chips&&text===q.word){ const c=el('div','qxchips'); c.innerHTML=q.chips.map(t=>`<i>${t}</i>`).join('<u>/</u>'); box.append(c); }
   const wd=qxWordEl(text,text===q.word?q.chips:null,s.faint,s.lang==='en'||/^[\x00-\x7f]+$/.test(text)), help=el('button','qxhelp',ICON.hint); help.setAttribute('aria-label','Help');
-  const line=el('div','qxline'); line.append(wd); const duo=$('.qxduo',box); (duo||box).append(line); box.append(help);   // duo: number and its word side by side
+  const line=el('div','qxline'); line.append(wd); const duo=$('.qxduo',box); (duo||box).append(line); qHelpHost(help);   // duo: number and its word side by side
   let inp=$('#qxin');
   if(!inp){ inp=el('input','qin'); Object.assign(inp,{type:'text',id:'qxin',autocomplete:'off',spellcheck:false,lang:s.lang||'ar'}); ['autocorrect','autocapitalize'].forEach(a=>inp.setAttribute(a,'off')); inp.setAttribute('enterkeyhint','done'); inp.setAttribute('aria-label','Type the word'); }
   line.append(inp); if(/^\d+$/.test(text)){ inp.setAttribute('inputmode','numeric'); inp.lang='en'; } else inp.removeAttribute('inputmode');
@@ -1292,13 +1272,16 @@ function qxArrange(box,q,s,run){
   const WS=!!(q.words||s.words), wd=WS?el('b','qxw qxwords'):qxWordEl(q.word), line=el('div','qxline');   // words: the tiles are whole words of a sentence
   if(WS){ q.word.split(' ').forEach(w=>wd.append(el('span','lt hid',w))); }
   line.append(wd); box.append(line);
-  const gs=WS?q.word.split(' '):qxLetters(q.word).filter(g=>g!==' '); let ord=gs.map((g,k)=>k); for(let t=0;t<30;t++){ ord.sort(()=>Math.random()-.5); if(gs.length<2||ord.some((v,k)=>v!==k)) break; }
+  const gs=WS?q.word.split(' '):qxLetters(q.word).filter(g=>g!==' '), tg=(!WS&&q.scr)?qxLetters(q.scr).filter(g=>g!==' '):gs;   // q.scr = the letters already scrambled by the book
+  let ord=tg.map((g,k)=>k); if(tg===gs) for(let t=0;t<30;t++){ ord.sort(()=>Math.random()-.5); if(gs.length<2||ord.some((v,k)=>v!==k)) break; }
   const tiles=el('div','qxtiles'); box.append(tiles);
-  const place=tile=>{ const n=qxNext(wd); if(!n||tile.classList.contains('used')) return false;
-    if(!sameLetter(tile.dataset.g,n.textContent)) return false;
-    qxReveal(wd); tile.classList.add('used'); blip(560+$$('.lt.got',wd).length*40,.05);
+  // a tile goes into ITS slot: the slot it is dropped on (a tap = the first empty slot of that letter); a wrong slot = the tile goes back + wrong shake
+  const fill=(tile,n)=>{ if(!n||tile.classList.contains('used')||!n.classList.contains('hid')||!sameLetter(tile.dataset.g,n.textContent)) return false;
+    n.classList.remove('hid'); n.classList.add('got'); tile.classList.add('used'); blip(560+$$('.lt.got',wd).length*40,.05);
     if(qxDone(wd)) qxWin(wd,q,1700); return true; };
-  ord.forEach(k=>{ const t=el('button','qxtile'+(WS?' wide':''),`<span>${gs[k]}</span>`); t.dataset.g=gs[k]; tiles.append(t); });
+  const slotAt=(x,y)=>{ let best=null,bd=1e9; $$('.lt',wd).forEach(n=>{ const r=n.getBoundingClientRect(), d=Math.hypot(x-(r.left+r.right)/2,(y-(r.top+r.bottom)/2)*.6); if(d<bd){ bd=d; best=n; } }); return best; };
+  const place=tile=>fill(tile,$$('.lt.hid',wd).find(n=>sameLetter(tile.dataset.g,n.textContent)));
+  ord.forEach(k=>{ const t=el('button','qxtile'+(WS?' wide':''),`<span>${tg[k]}</span>`); t.dataset.g=tg[k]; tiles.append(t); });
   let drag=null;
   tiles.addEventListener('pointerdown',e=>{ const t=e.target.closest('.qxtile'); if(!t||qz.busy||t.classList.contains('used')) return; e.preventDefault(); hideHint();
     drag={t,x:e.clientX,y:e.clientY,moved:false,g:null}; try{ tiles.setPointerCapture(e.pointerId); }catch(_){} });
@@ -1308,7 +1291,7 @@ function qxArrange(box,q,s,run){
   const end=e=>{ if(!drag) return; const d=drag; drag=null; if(d.g) d.g.remove(); d.t.classList.remove('lift'); if(e.type==='pointercancel') return;
     const L=line.getBoundingClientRect(), pad=24, over=e.clientX>L.left-pad&&e.clientX<L.right+pad&&e.clientY>L.top-pad&&e.clientY<L.bottom+pad;
     if(d.moved&&!over) return;   // dropped somewhere else: it just goes back
-    if(!place(d.t)) qxBad(d.t); };
+    if(!(d.moved?fill(d.t,slotAt(e.clientX,e.clientY)):place(d.t))) qxBad(d.t); };
   tiles.addEventListener('pointerup',end); tiles.addEventListener('pointercancel',end);
 }
 
@@ -1537,7 +1520,7 @@ function mPad(box,values,onPick){ const row=el('div','qmpad'); values.forEach(v=
   b.addEventListener('click',()=>{ if(qz.busy) return; if(onPick(v,b)){ b.classList.add('on'); } else qxBad(b); }); row.append(b); }); box.append(row); return row; }
 // Help: the answer shows faintly in the empty box for a moment, then is wiped; the question never says the answer on its own
 function mHelp(box,getCell,getVal){ const h=el('button','qxhelp qmhelp',ICON.hint); h.setAttribute('aria-label','Help');
-  h.onclick=()=>{ if(qz.busy) return; const c=getCell(); if(!c) return; const b=$('b',c); b.textContent=getVal(); c.classList.add('peek'); setTimeout(()=>{ if(c.classList.contains('peek')){ c.classList.remove('peek'); if(c.classList.contains('gap')) b.textContent=''; } },1500); }; box.append(h); }
+  h.onclick=()=>{ if(qz.busy) return; const c=getCell(); if(!c) return; const b=$('b',c); b.textContent=getVal(); c.classList.add('peek'); setTimeout(()=>{ if(c.classList.contains('peek')){ c.classList.remove('peek'); if(c.classList.contains('gap')) b.textContent=''; } },1500); }; qHelpHost(h); }
 const mKeys=(max=10)=>Array.from({length:max+1},(_,k)=>k);
 const mShuffle=a=>{ a=a.slice(); for(let t=0;t<30;t++){ const b=a.slice().sort(()=>Math.random()-.5); if(b.some((v,k)=>v!==a[k])||a.length<2){ a=b; break; } } return a; };
 
@@ -1661,7 +1644,7 @@ function bookTag(){
 function footPage(n){
   let t=$('#pageTag');
   if(n==null||n===''){ if(t) t.remove(); return; }
-  if(!t){ t=el('button','pgtag'); t.id='pageTag'; t.addEventListener('click',()=>bookPad()); $('#lesson .tabs').append(t); }
+  if(!t){ t=el('button','pgtag'); t.id='pageTag'; t.addEventListener('click',()=>bookPad()); $('#lmeta .lm-l').append(t); }
   t.setAttribute('aria-label','Book page '+n); t.innerHTML=ICON.book+`<span>${isAr()?'ص ':'p. '}${num(n)}</span>`;
 }
 
@@ -1687,35 +1670,42 @@ function lnavModel(){
   }
   return {};
 }
+/* DOTS (replace the old page / part number rows): one small dot per exercise group of the questions (or per page of a lesson read in several pages),
+   the one in use is solid white, the others light white; tap a dot, drag the strip, or swipe the page to move between them. No numbers. */
+let LM={prev:null,next:null};
 function lnavPaint(){
-  const n=$('#lnav'); if(!n) return; const md=lnavModel();
-  const row=(sel,items,prev,next,round)=>{ const r=$(sel,n); r.hidden=!(items&&items.length); if(r.hidden){ r.innerHTML=''; return; }
-    r.className='ln-row '+sel.slice(1).replace('.','')+(round?' round':'');
-    r.innerHTML=`<button class="qarr ln-arr prev" aria-label="Previous" ${prev?'':'disabled'}>${Q_ARR}</button><div class="ln-items">${items.map(it=>`<button class="ln-it${it.on?' on':''}">${it.l}</button>`).join('')}</div><button class="qarr ln-arr next" aria-label="Next" ${next?'':'disabled'}>${Q_ARR}</button>`;
-    $$('.ln-it',r).forEach((b,k)=>b.addEventListener('click',()=>{ if(!items[k].on) items[k].go(); }));
-    $('.prev',r).addEventListener('click',()=>prev&&prev()); $('.next',r).addEventListener('click',()=>next&&next());
-    lnavWin(r); };
-  row('.ln-sec',md.secs,md.sPrev,md.sNext,false); row('.ln-pg',md.pages&&md.pages.length>1?md.pages:[],md.pPrev,md.pNext,true);   // one page only: no page row
-  const hb=$('.quiz .qhelpb'); if(hb&&!inQ()) hb.hidden=true;
-  lnavFit();
-  // the arrows of the rows are laid out after they are visible: scroll the page in use to the middle again
-  $$('.ln-row',n).forEach(lnavWin);
+  const d=$('#lmDots'); if(!d) return; const md=lnavModel();
+  const items=inQ()?(()=>{ const out=[], cg=qz.list[qz.i]&&qGrp(qz.list[qz.i].set); qz.list.forEach((q,i)=>{ const g=qGrp(q.set); if(!out.some(x=>x.g===g)) out.push({g,i,on:g===cg}); }); return out.map(x=>({on:x.on,go:()=>{ hideHint(); blip(600); qz.busy=false; qGo(x.i); }})); })()
+    :(md.pages||[]);
+  LM.prev=md.sPrev||md.pPrev||null; LM.next=md.sNext||md.pNext||null;
+  d.hidden=items.length<2; if(d.hidden){ d.innerHTML=''; } else {
+    d.innerHTML=items.map((it,k)=>`<button class="ldot${it.on?' on':''}" aria-label="${k+1}"></button>`).join('');
+    $$('.ldot',d).forEach((b,k)=>b.addEventListener('click',()=>{ if(!items[k].on) items[k].go(); }));
+    const on=$('.ldot.on',d); if(on) d.scrollLeft=on.offsetLeft-d.clientWidth/2+on.offsetWidth/2; }
+  const hb=$('#lmeta .qhelpb'); if(hb&&!inQ()) hb.hidden=true;
 }
-/* a row with more buttons than the screen holds shows only WHOLE buttons (never a sliver under the arrows): the strip gets the width of the buttons
-   that fit around the one in use, and swiping it stops on a button (scroll-snap in lesson.css) */
-function lnavWin(r){
-  const box=$('.ln-items',r), its=$$('.ln-it',r); if(!box||!its.length||r.hidden) return; box.style.width='';
-  const gap=parseFloat(getComputedStyle(box).columnGap)||0, pad=parseFloat(getComputedStyle(box).paddingLeft)+parseFloat(getComputedStyle(box).paddingRight);
-  const arr=$$('.ln-arr',r).reduce((a,b)=>a+b.offsetWidth,0)+2*(parseFloat(getComputedStyle(r).columnGap)||0);
-  const room=r.clientWidth-arr-pad, w=its.map(b=>b.offsetWidth), all=w.reduce((a,b)=>a+b,0)+gap*(w.length-1);
-  if(all<=room){ box.scrollLeft=0; return; }
-  let k=Math.max(0,its.findIndex(b=>b.classList.contains('on'))), a=k, z=k, used=w[k];
-  for(let side=0;;side^=1){ const i=side?z+1:a-1; if(i>=0&&i<w.length&&used+gap+w[i]<=room){ used+=gap+w[i]; side?z=i:a=i; continue; }
-    const j=side?a-1:z+1; if(j>=0&&j<w.length&&used+gap+w[j]<=room){ used+=gap+w[j]; side?a=j:z=j; continue; } break; }
-  box.style.width=(used+pad)+'px'; box.scrollLeft=its[a].offsetLeft-its[0].offsetLeft;
-}
-function lnavFit(){ const n=$('#lnav'); if(n) n.hidden=!!($('.ln-sec',n).hidden&&$('.ln-pg',n).hidden); }
-addEventListener('resize',()=>{ clearTimeout(bookTag.t); bookTag.t=setTimeout(()=>{ if($('#pageTag')) bookTag(); $$('#lnav .ln-row').forEach(lnavWin); },200); });
+function lnavFit(){}
+const dotsStep=k=>{ const f=k>0?LM.next:LM.prev; if(f) f(); };
+// drag the dots strip with the mouse / finger (touch scrolls it natively), and swipe the page itself (only from empty places, never from an answer or a picture)
+(function(){
+  const d=$('#lmDots'); let dn=null;
+  d.addEventListener('pointerdown',e=>{ if(e.pointerType==='mouse') dn={x:e.clientX,l:d.scrollLeft,m:false}; });
+  addEventListener('pointermove',e=>{ if(dn){ const dx=e.clientX-dn.x; if(Math.abs(dx)>4) dn.m=true; d.scrollLeft=dn.l-dx; } });
+  addEventListener('pointerup',()=>{ if(dn&&dn.m){ d.addEventListener('click',e=>e.stopPropagation(),{capture:true,once:true}); } dn=null; });
+})();
+/* THE ONE PAGER (RULES.md "Swipe"): swipe / drag (finger or mouse) left or right from ANY place of the page area (under the road down to above the tabs: .mid + the dots row)
+   = next / previous page through LM (dots model: reading pages, story pages, question groups, words). Per-screen code never adds its own swipe. */
+(function(){
+  const L=$('#lesson'); let sw=null, moved=false;
+  const own='input,textarea,select,.qlk,.qxtile,.qlink,.xlink,.qbd,.board,.spot,.lm-dots,.tabs,[data-noswipe],.dragging';   // elements that use the drag themselves
+  const inArea=t=>t.closest('.mid,.lmeta');
+  L.addEventListener('pointerdown',e=>{ moved=false; sw=(e.button||!inArea(e.target)||e.target.closest(own))?null:{x:e.clientX,y:e.clientY}; });
+  L.addEventListener('pointerup',e=>{ if(!sw) return; const dx=e.clientX-sw.x, dy=e.clientY-sw.y; sw=null;
+    if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.4){ moved=true; dotsStep(dx<0?1:-1); } });
+  L.addEventListener('pointercancel',()=>{ sw=null; });
+  L.addEventListener('click',e=>{ if(moved){ e.stopPropagation(); e.preventDefault(); moved=false; } },true);
+})();
+addEventListener('resize',()=>{ clearTimeout(bookTag.t); bookTag.t=setTimeout(()=>{ if($('#pageTag')) bookTag(); lnavPaint(); },200); });
 
 /* the book picker: the books of this subject (Book, Workbook, Booklet ...) on top, under them the pages of the chosen book; tap a page to go there.
    A lesson's "pages" can name any other book as a key, e.g. "booklet":[3,4] (its questions are the sets with "book":"booklet"). */
@@ -1735,11 +1725,11 @@ function bookPad(){
   const ks=booksOf(); if(!ks.length) return;
   const inTab=inQ()&&typeof qz!=='undefined'?qz.src:BOOKOF(tab), cur=ks.includes(inTab)?inTab:ks[0];
   bookList(cur); o.hidden=false; spinRays(o);
-  if(anim) G.from('#pagePad .pagepad',{scale:.6,opacity:0,duration:.4,ease:'back.out(2)'});
+  if(anim) G.from('#pagePad .pagepad',{scale:.9,opacity:0,duration:TM('--t-pop',.22),ease:'power2.out',clearProps:'transform,opacity'});
 }
 function bookList(k){
   const o=$('#pagePad'), ks=booksOf();
-  $('.pp-books',o).innerHTML=ks.map(b=>`<button class="pill ${b===k?'blue':'cream'} pp-book" data-b="${b}">${tr(BOOKNAME(b))}</button>`).join('');
+  $('.pp-books',o).innerHTML=ks.map(b=>`<button class="mtab mt-${({book:'bk0',workbook:'pts',booklet:'bk'})[b]||'ex'} pp-book${b===k?' on':''}" data-b="${b}"><span>${tr(BOOKNAME(b))}</span></button>`).join('');
   $('.pp-books',o).hidden=ks.length<2;
   $('.pp-pages',o).innerHTML=bookPages_(k).map(e=>`<button class="rb pp-pg" data-p="${e.page}" data-b="${k}" aria-label="Page ${e.page}: ${e.lesson.title}"><span>${num(e.page)}</span></button>`).join('');
   $$('.pp-book',o).forEach(b=>b.addEventListener('click',()=>bookList(b.dataset.b)));
@@ -2119,7 +2109,7 @@ function toolOpen(n){
   if(!o){ o=el('div','overlay toolpop'); o.id='toolPop'; o.innerHTML=`<div class="tlcard" role="dialog" aria-label="Make numbers"><button class="rb tlx" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div class="tlbody"></div></div>`;
     document.body.append(o); o.addEventListener('click',e=>{ if(e.target===o) toolClose(); }); $('.tlx',o).addEventListener('click',toolClose);
     document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!o.hidden) toolClose(); }); }
-  o.hidden=false; toolDraw(); if(anim) G.from($('.tlcard',o),{scale:.85,opacity:0,duration:.3,ease:'back.out(1.6)',clearProps:'transform,opacity'});
+  o.hidden=false; toolDraw(); if(anim) G.from($('.tlcard',o),{scale:.92,opacity:0,duration:TM('--t-pop',.22),ease:'power2.out',clearProps:'transform,opacity'});
 }
 function toolClose(){ const o=$('#toolPop'); if(o) o.hidden=true; tl.run++; vStop(); }
 function toolDraw(){

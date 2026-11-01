@@ -9,7 +9,7 @@ document.addEventListener('input',e=>{ const t=e.target; if(t&&(t.tagName==='INP
 const G = window.gsap || null;
 const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const anim = !!G && !calm;
-const OL = '#5A3418';
+const OL = 'var(--ol)';   // outline colour (theme.css --ol) for the SVG drawings
 const $ = (s,r=document)=>r.querySelector(s);
 const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
 const el = (tag,cls,html)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e};
@@ -19,57 +19,77 @@ const get = url => fetch(url).then(r=>{ if(!r.ok) throw new Error(url); return r
 
 /* ---------- Drawings ---------- */
 let gid=0;
+/* the game lettering for big names: letters wrapped one by one so css can tilt / resize them (Arabic stays joined: no wrapping) */
+const GT=s=>/[\u0600-\u06FF]/.test(s)?s:String(s).split(' ').map(w=>`<span class="w">${[...w].map(ch=>`<i>${ch}</i>`).join('')}</span>`).join(' ');
 const STAR_PATH = (()=>{ const p=[]; for(let i=0;i<10;i++){ const a=-Math.PI/2+i*Math.PI/5, r=i%2?21:44; p.push((50+r*Math.cos(a)).toFixed(1)+' '+(54+r*Math.sin(a)).toFixed(1)); } return 'M'+p.join('L')+'Z'; })();
 function STAR(on=true){
-  if(!on) return `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="${STAR_PATH}" fill="rgba(90,52,24,.22)" stroke="#7A3E12" stroke-width="7" stroke-linejoin="round"/></svg>`;
+  if(!on) return `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="${STAR_PATH}" fill="rgba(110,60,0,.28)" stroke="rgba(110,60,0,.45)" stroke-width="9" stroke-linejoin="round"/></svg>`;
   const id='st'+(gid++);
-  return `<svg viewBox="0 0 100 100" aria-hidden="true"><defs><radialGradient id="${id}" cx="38%" cy="30%" r="80%"><stop offset="0" stop-color="#FFF7B8"/><stop offset=".45" stop-color="#FFD94A"/><stop offset="1" stop-color="#F3A512"/></radialGradient></defs>
-  <path d="${STAR_PATH}" fill="url(#${id})" stroke="#9A5A12" stroke-width="7" stroke-linejoin="round"/>
-  <ellipse cx="38" cy="40" rx="10" ry="7" fill="#fff" opacity=".92" transform="rotate(-28 38 40)"/><circle cx="62" cy="72" r="4.5" fill="#fff" opacity=".8"/><circle cx="70" cy="66" r="2.5" fill="#fff" opacity=".7"/></svg>`;
+  return `<svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--star-a)"/><stop offset=".5" stop-color="var(--star-b)"/><stop offset="1" stop-color="var(--star-c)"/></linearGradient></defs>
+  <path d="${STAR_PATH}" fill="var(--star-under)" stroke="var(--star-under)" stroke-width="11" stroke-linejoin="round" transform="translate(0 3)"/>
+  <path d="${STAR_PATH}" fill="url(#${id})" stroke="var(--star-edge)" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M30 46Q38 28 50 22" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".85"/><circle cx="25" cy="55" r="3" fill="#fff" opacity=".8"/>
+  <path d="M63 76l5 3 3-5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".5"/></svg>`;
 }
 function CAR(mood='happy'){
+  const id='cr'+(gid++);
   const mouth = mood==='wow'
-    ? `<ellipse cx="78" cy="51" rx="7" ry="8" fill="${OL}"/><ellipse cx="78" cy="55" rx="4.5" ry="3" fill="#FF7A8A"/>`
-    : mood==='sad' ? `<path d="M70 55Q78 47 86 55" fill="none" stroke="${OL}" stroke-width="3.6" stroke-linecap="round"/>`
-    : `<path d="M68 47Q78 60 89 47Z" fill="${OL}" stroke="${OL}" stroke-width="3" stroke-linejoin="round"/><path d="M73 52Q78 56 84 52" fill="#FF7A8A"/>`;
-  return `<svg viewBox="-4 -6 136 98" aria-hidden="true"><g class="cb">
-  <ellipse cx="66" cy="86" rx="54" ry="5" fill="rgba(90,52,24,.28)"/>
-  <path d="M8 58Q8 40 26 37L38 15Q43 7 53 7H84Q94 7 99 16L111 37Q124 40 124 55V64Q124 72 116 72H16Q8 72 8 64Z" fill="#EF4B3C" stroke="${OL}" stroke-width="4" stroke-linejoin="round"/>
-  <path d="M10 61H122V64Q122 70 115 70H17Q10 70 10 64Z" fill="#C2372B"/>
-  <path d="M14 44Q16 39 26 38" fill="none" stroke="#FF9A8A" stroke-width="3" stroke-linecap="round"/>
-  <path d="M46 15H90Q95 15 97 20L105 37H36Z" fill="#CFF0FF" stroke="${OL}" stroke-width="3.5" stroke-linejoin="round"/>
-  <path d="M50 19H62L54 33H43Z" fill="#fff" opacity=".7"/>
-  <ellipse cx="62" cy="27" rx="8.5" ry="9.5" fill="#fff" stroke="${OL}" stroke-width="3"/><ellipse cx="88" cy="27" rx="8.5" ry="9.5" fill="#fff" stroke="${OL}" stroke-width="3"/>
-  <circle cx="64.5" cy="29" r="4.2" fill="${OL}"/><circle cx="90.5" cy="29" r="4.2" fill="${OL}"/>
-  <circle cx="66" cy="27" r="1.5" fill="#fff"/><circle cx="92" cy="27" r="1.5" fill="#fff"/>
-  <rect class="lid" x="52" y="16" width="20" height="22" rx="9" fill="#EF4B3C" transform="scale(1 0)" style="transform-box:fill-box;transform-origin:top"/>
-  <rect class="lid" x="78" y="16" width="20" height="22" rx="9" fill="#EF4B3C" transform="scale(1 0)" style="transform-box:fill-box;transform-origin:top"/>
-  <ellipse cx="57" cy="47" rx="6" ry="3.6" fill="#FF8C8C" opacity=".85"/><ellipse cx="99" cy="47" rx="6" ry="3.6" fill="#FF8C8C" opacity=".85"/>
+    ? `<ellipse cx="104" cy="56" rx="8" ry="9" fill="var(--car-mouth)" stroke="${OL}" stroke-width="3"/><ellipse cx="104" cy="61" rx="5" ry="3.4" fill="var(--car-tongue)"/>`
+    : mood==='sad' ? `<path d="M94 62Q104 52 114 62" fill="none" stroke="${OL}" stroke-width="4" stroke-linecap="round"/>`
+    : `<path d="M88 50Q104 74 122 50Z" fill="var(--car-mouth)" stroke="${OL}" stroke-width="3.5" stroke-linejoin="round"/><path d="M91 51.500H119Q116 56 104 56Q94 56 91 51.500Z" fill="#fff"/><path d="M96 63Q104 58 113 63Q108 69 104 69Q99 69 96 63Z" fill="var(--car-tongue)"/>`;
+  const eye=(x)=>`<ellipse cx="${x}" cy="25" rx="12.5" ry="14" fill="#fff" stroke="${OL}" stroke-width="3.2"/><ellipse cx="${x+2}" cy="28" rx="7.600" ry="8.600" fill="var(--car-iris)"/><circle cx="${x+2}" cy="29" r="4.400" fill="var(--car-pupil)"/><circle cx="${x+4.500}" cy="24.500" r="2.800" fill="#fff"/><circle cx="${x-1}" cy="32" r="1.400" fill="#fff"/>`;
+  const lid=(x)=>`<rect class="lid" x="${x-13}" y="10" width="26" height="30" rx="12" fill="var(--car-lid)" transform="scale(1 0)" style="transform-box:fill-box;transform-origin:top"/>`;
+  return `<svg viewBox="-4 -6 136 98" aria-hidden="true"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--car-1)"/><stop offset=".55" stop-color="var(--car-2)"/><stop offset="1" stop-color="var(--car-3)"/></linearGradient></defs><g class="cb">
+  <ellipse cx="66" cy="87" rx="56" ry="5" fill="rgba(60,20,0,.3)"/>
+  <path d="M5 60Q3 42 21 38L34 14Q41 3 56 3H88Q104 3 110 14L118 34Q130 40 130 56V66Q130 76 120 76H14Q5 76 5 66Z" fill="url(#${id})" stroke="${OL}" stroke-width="3.600" stroke-linejoin="round"/>
+  <path d="M7 64H128V67Q128 74 119 74H15Q7 74 7 67Z" fill="var(--car-shade)" opacity=".55"/>
+  <path d="M44 9Q50 6 58 6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".75"/><path d="M12 46Q14 41 22 40" fill="none" stroke="#fff" stroke-width="3.500" stroke-linecap="round" opacity=".7"/>
+  ${eye(62)}${eye(92)}${lid(62)}${lid(92)}
+  <ellipse cx="80" cy="48" rx="5.500" ry="3.300" fill="var(--car-cheek)" opacity=".9"/><ellipse cx="124" cy="46" rx="4" ry="2.800" fill="var(--car-cheek)" opacity=".0"/>
   ${mouth}
-  <circle cx="117" cy="49" r="5.5" fill="#FFE45C" stroke="${OL}" stroke-width="3"/><rect x="5" y="46" width="8" height="9" rx="3" fill="#FFB31F" stroke="${OL}" stroke-width="2.6"/>
-  <g class="wheel"><circle cx="36" cy="72" r="13" fill="#3B3F4A" stroke="${OL}" stroke-width="4"/><circle cx="36" cy="72" r="5.5" fill="#D9DEE5" stroke="${OL}" stroke-width="2.4"/><path d="M36 61v5" stroke="#8C93A0" stroke-width="3"/></g>
-  <g class="wheel"><circle cx="96" cy="72" r="13" fill="#3B3F4A" stroke="${OL}" stroke-width="4"/><circle cx="96" cy="72" r="5.5" fill="#D9DEE5" stroke="${OL}" stroke-width="2.4"/><path d="M96 61v5" stroke="#8C93A0" stroke-width="3"/></g>
+  <circle cx="124" cy="46" r="6.500" fill="var(--car-light)" stroke="${OL}" stroke-width="3"/><circle cx="122.500" cy="44" r="2" fill="#fff"/>
+  <rect x="3" y="48" width="9" height="10" rx="3.500" fill="var(--car-bumper)" stroke="${OL}" stroke-width="2.800"/>
+  <g class="wheel"><circle cx="34" cy="74" r="14.500" fill="var(--car-tyre)" stroke="${OL}" stroke-width="3.600"/><circle cx="34" cy="74" r="7" fill="var(--car-hub)" stroke="${OL}" stroke-width="2.600"/><path d="M34 66.500v5M34 77v5M26.500 74h5M37 74h5" stroke="var(--car-spoke)" stroke-width="2.600" stroke-linecap="round"/></g>
+  <g class="wheel"><circle cx="98" cy="74" r="14.500" fill="var(--car-tyre)" stroke="${OL}" stroke-width="3.600"/><circle cx="98" cy="74" r="7" fill="var(--car-hub)" stroke="${OL}" stroke-width="2.600"/><path d="M98 66.500v5M98 77v5M90.500 74h5M101 74h5" stroke="var(--car-spoke)" stroke-width="2.600" stroke-linecap="round"/></g>
   </g></svg>`;
 }
 const FLASK = c=>`<svg x="22" y="20" width="36" height="46" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/></svg>`;
+/* ACCESS: every subject / unit / lesson has a status. 'open' = playable. 'soon' = not added yet (faded + "Soon", not tappable). 'locked' = exists but needs coins or a subscription (chunky padlock + chain).
+   Set per item with "status" (and optional "coins" cost) in data/course.json (subjects) or the subject's json (units / lessons); the future admin dashboard writes the same two fields.
+   Nothing written = 'open' when it has content, otherwise 'soon'. COURSE.access (off for now) holds the free-trial rule: {enabled, trial:{units:N free units per subject}, coins:default price}.
+   Things the child unlocked with coins are remembered in localStorage (es.unlocked) by id; the real coin balance / server comes later. */
+function unlockedIds(){ try{ return new Set(JSON.parse(localStorage.getItem('es.unlocked')||'[]')); }catch(e){ return new Set(); } }
+function accessOf(o,hasContent,id,idx,kind){
+  const A=COURSE.access||{}; let st=!hasContent?'soon':(o.status||'open');
+  if(st==='open'&&!o.status&&A.enabled&&A.trial&&kind==='unit'&&idx>=(A.trial.units||1)) st='locked';
+  if(st==='locked'&&id&&unlockedIds().has(id)) st='open';
+  return {st,coins:o.coins!=null?o.coins:(A.coins||0)};
+}
+const COINTXT=n=>n?`${n} ${isAr()?'عملة':'coins'}`:'';
+/* a chunky childlike padlock (3D: dark underside, glossy gold face, thick silver shackle), drawn in a 60 x 68 box; used by the home books, the lesson circles and the chained unit books */
+const PADLOCK=`<g class="padlock"><path d="M17 31V21a13 13 0 0 1 26 0v10" fill="none" stroke="var(--btn-ol)" stroke-width="11.500" stroke-linecap="round"/><path d="M17 31V21a13 13 0 0 1 26 0v10" fill="none" stroke="var(--lock-metal)" stroke-width="6" stroke-linecap="round"/><path d="M20 29V21a10 10 0 0 1 6.500-9.300" fill="none" stroke="#fff" stroke-width="2.200" stroke-linecap="round" opacity=".85"/>
+  <rect x="4" y="32" width="52" height="34" rx="14" fill="var(--lock-body-dk)" stroke="var(--btn-ol)" stroke-width="4"/><rect x="4" y="28" width="52" height="33" rx="14" fill="var(--lock-body)" stroke="var(--btn-ol)" stroke-width="4"/><rect x="10" y="33" width="24" height="6.500" rx="3.250" fill="#fff" opacity=".6"/><circle cx="30" cy="43.500" r="5.500" fill="var(--btn-ol)"/><path d="M30 46v9" stroke="var(--btn-ol)" stroke-width="5" stroke-linecap="round"/></g>`;
 /* a 3D cardboard box; open ones have a hole with eyes peeking out */
+function shade(hex,k){ // k>0 lighter, k<0 darker (own helper for the book colours)
+  const n=parseInt(hex.slice(1),16); const f=v=>Math.round(k>=0?v+(255-v)*k:v*(1+k)); const r=f(n>>16),g=f((n>>8)&255),b=f(n&255);
+  return '#'+[r,g,b].map(v=>v.toString(16).padStart(2,'0')).join(''); }
+/* the subject book: glossy cover, rounded spine with ridges, pages and a ribbon, the NAME standing on the cover in 3D letters (own drawing; colour per subject from course.json) */
 function BOX(s){
-  const badge = s.badge==='flask' ? FLASK(s.color)
-    : `<text x="40" y="${s.rtl?56:52}" text-anchor="middle" font-family="${s.rtl?'Baloo Bhaijaan 2':'Chewy'}, sans-serif" font-weight="800" font-size="${s.badge.length>2?21:s.rtl?34:28}" fill="${s.color}">${s.badge}</text>`;
-  const hole = s.open
-    ? `<g transform="matrix(1 .5 0 1 20 60)"><ellipse cx="40" cy="46" rx="22" ry="17" fill="#3A1F0C" stroke="${OL}" stroke-width="4"/>
-       <g class="peek"><ellipse cx="32" cy="46" rx="7" ry="8" fill="#fff"/><ellipse cx="48" cy="46" rx="7" ry="8" fill="#fff"/><circle cx="34" cy="48" r="3.4" fill="${OL}"/><circle cx="50" cy="48" r="3.4" fill="${OL}"/></g></g>`
-    : `<g transform="matrix(1 .5 0 1 20 60)"><path d="M10 30L70 60M70 30L10 60" stroke="rgba(255,246,220,.85)" stroke-width="13" stroke-linecap="square"/></g>`;
-  return `<svg viewBox="0 0 200 210" aria-hidden="true">
-  <ellipse cx="100" cy="190" rx="86" ry="16" fill="rgba(90,52,24,.25)"/>
-  <path d="M20 60L100 100V186L20 146Z" fill="#D49A55" stroke="${OL}" stroke-width="5" stroke-linejoin="round"/>
-  <path d="M100 100L180 60V146L100 186Z" fill="#BF8240" stroke="${OL}" stroke-width="5" stroke-linejoin="round"/>
-  <path d="M100 20L180 60L100 100L20 60Z" fill="#EDBE7E" stroke="${OL}" stroke-width="5" stroke-linejoin="round"/>
-  <path d="M60 40L140 80" stroke="${OL}" stroke-width="3" opacity=".55"/>
-  <path d="M74 33L154 73L140 80L60 40Z" fill="rgba(255,246,220,.55)"/>
-  <path d="M24 66L96 102" stroke="rgba(255,255,255,.35)" stroke-width="4" stroke-linecap="round"/>
-  ${hole}
-  <g transform="matrix(1 -.5 0 1 100 100)"><circle cx="40" cy="44" r="27" fill="#FFFBF0" stroke="${OL}" stroke-width="4"/>${badge}</g>
+  const c=s.color||'#2E8BE6', c1=shade(c,.38), c2=shade(c,-.22), c3=shade(c,-.4), ex=shade(c,.55), gx='bk'+(gid++);
+  const words=(s.name||'').split(' '), lines=words.length>1&&s.name.length>7?words:[s.name];
+  const longest=Math.max(...lines.map(w=>w.length)), size=Math.min(lines.length>1?34:38, 118/(longest*.66));
+  const font=s.rtl?'Baloo Bhaijaan 2':'Luckiest Guy', cy=90-(lines.length-1)*size*.5;
+  const t=(k,w,dy,fill,stroke,sw,op)=>`<text x="119" y="${(cy+k*size*1.02+size*.34+dy).toFixed(1)}" text-anchor="middle" font-family="${font}, sans-serif" font-weight="800" font-size="${size.toFixed(1)}" fill="${fill}" stroke="${stroke}" stroke-width="${sw}" stroke-linejoin="round" opacity="${op}">${w}</text>`;
+  const txt=lines.map((w,k)=>t(k,w,0,'#fff','none',0,1)).join('')   /* name: plain white, no shadow, in the middle of the cover */;
+  const lock = s._st==='locked'?`<g transform="translate(98 100) scale(.85)">${PADLOCK}</g>`:'';
+  const soon = s._st==='soon'?`<g><rect x="62" y="136" width="116" height="30" rx="15" fill="rgba(110,60,10,.6)"/><text x="120" y="158" text-anchor="middle" font-family="Luckiest Guy, sans-serif" font-size="22" fill="#fff">Soon</text></g>`:'';
+  const bi=s.book||'blue';   // the book picture (Marwa's own art, app/data/books/<colour>.png); the name stands on its cover
+  return `<svg viewBox="0 0 200 210" aria-hidden="true"><defs>
+  <linearGradient id="${gx}t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="${shade(c,.8)}"/></linearGradient></defs>
+  <filter id="${gx}f" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="8"/></filter>
+  <rect x="2" y="12" width="196" height="186" rx="44" fill="rgba(50,20,0,.6)" filter="url(#${gx}f)"/>   <!-- soft shadow round the edges (left, right, sides), not under the book -->
+  <image class="bkimg" href="data/books/${bi}.png" x="2" y="6" width="196" height="202" preserveAspectRatio="xMidYMid meet"/>
+  ${txt}${soon}${lock}
   </svg>`;
 }
 const ICON = {
@@ -92,8 +112,20 @@ const ICON = {
   lock:'<svg viewBox="0 0 24 24" fill="#fff"><rect x="5" y="10" width="14" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="#fff" stroke-width="2.6"/></svg>'
 };
 
+
+/* picture look (theme part 3): png cut-outs of objects have no frame; people / nature pictures keep the photo frame. The words are in data/pic-frame.json. */
+let PFRE=null;
+function markPf(i){ if(!PFRE||!i||i.tagName!=='IMG') return; const f=(i.getAttribute('src')||'').split('/').pop().replace(/\.\w+$/,'').replace(/^[0-9a-z]{1,2}-(?=[a-z])/i,''); i.classList.toggle('pf',PFRE.test(f)); }
+document.addEventListener('load',e=>markPf(e.target),true);
+fetch('data/pic-frame.json').then(r=>r.ok?r.json():null).then(j=>{ if(!j) return; PFRE=new RegExp('(^|-)('+[...(j.people||[]),...(j.nature||[])].join('|')+')(s)?(-|$)','i'); document.querySelectorAll('img').forEach(markPf); }).catch(()=>{});
+
+/* ONE voice at a time: whatever is being read (lesson recording, word, question, exam) stops the moment the child goes somewhere else */
+function stopVoice(){ try{ if(typeof stopAll==='function') stopAll(); if(typeof vStop==='function') vStop(); }catch(e){} }
 /* ---------- Motion helpers ---------- */
-function pop(t,o={}){ if(anim) G.from(t,{scale:.4,opacity:0,y:20,duration:.55,ease:'back.out(2)',stagger:.06,clearProps:'transform,opacity',...o}); }
+/* light motion: times and ease come from theme.css (--t-pop, --t-fade); small scale, no bouncing */
+const TM=(n,d)=>{ const v=parseFloat(getComputedStyle(document.documentElement).getPropertyValue(n)); return isFinite(v)?v:d; };
+function pop(t,o={}){ if(anim) G.from(t,{scale:.85,opacity:0,y:8,duration:TM('--t-pop',.22),ease:'power2.out',stagger:.03,clearProps:'transform,opacity',...o}); }
+function fadeIn(t){ if(anim&&G) G.fromTo(t,{opacity:0},{opacity:1,duration:TM('--t-fade',.18),ease:'power1.out',clearProps:'opacity'}); }
 function blink(svg){
   if(!anim||!svg) return; const lids=svg.querySelectorAll('.lid');
   const go=()=>{ if(!svg.isConnected) return; G.to(lids,{attr:{transform:'scale(1 1)'},duration:.08,yoyo:true,repeat:1,onComplete:()=>G.delayedCall(2+Math.random()*3,go)}); };
@@ -142,7 +174,7 @@ function tick(){ ctx.clearRect(0,0,fx.width,fx.height); bits=bits.filter(b=>b.y<
 const HINT_MAX=2;
 let hintT=0, hintTarget=null, hintTw=null, HC={};
 try{ HC=JSON.parse(localStorage.getItem('zoom-hints')||'{}')||{}; }catch(e){}
-const OBST='.note .in,.box .cube,.box .name,.stop .pop,.tab,.dash,.rb,.hud,.sign,.track,.vthumb,.vimg,.vword,.vmeaning,.pill';
+const OBST='.gamelogo,.hello .car,.note .in,.box .cube,.box .name,.stop .pop,.tab,.dash,.rb,.hud,.sign,.track,.vthumb,.vimg,.vword,.vmeaning,.pill';
 function showHint(target, text, delay=900, key=text){
   clearTimeout(hintT); if(!target||!text||(HC[key]||0)>=HINT_MAX) return;
   hintT=setTimeout(()=>{
@@ -255,7 +287,7 @@ let COURSE=null, SUBJECT=null, LESSON=null;
 /* ---------- Arabic subject: SUBJECT.rtl (course.json) makes the TEXT Arabic (class .ar on the screen; text blocks run right to left, css/arabic.css); the layout and button places stay the same as every subject; numbers are ١٢٣ ---------- */
 const AR_UI={'Models':'تقييمات','Tests':'اختبارات','Test':'اختبار','Tool':'أداة','Tools':'أدوات','Booklet':'كُتيب','Map key':'مفتاح الخريطة','Revision':'مراجعة','Previous':'السابق','Next':'التالي','Lesson':'الدرس','Vocabulary':'الكلمات','Questions':'الأسئلة','Read':'اسمع','Continue':'كمّل','Pause':'وقّف','Restart':'من الأول','Slow':'بطيء','Normal':'عادي',
   'Help':'ساعدني','Listen':'اسمع','Teach':'علّمني','Write':'اكتب','Stop':'وقّف','Listen!':'اسمع!','Read with me!':'اقرأ معي!','Your turn! Write it.':'دورك! اكتب الكلمة','Tap and write!':'اضغط واكتب!',
-  'Great!':'ممتاز!','Super!':'رائع!','Again':'تاني','Map':'الخريطة','Nice!':'تمام!','Unit':'الوحدة','Book':'الكتاب','Loading...':'لحظة...','Coming soon!':'قريبًا!','Soon!':'قريبًا!','Oops!':'أوبس!','Primary 1':'الصف الأول','Term 1':'الترم الأول'};
+  'Great!':'ممتاز!','Super!':'رائع!','Again':'تاني','Map':'الخريطة','Nice!':'تمام!','Unit':'الوحدة','Soon':'قريبًا','Book':'الكتاب','Loading...':'لحظة...','Coming soon!':'قريبًا!','Soon!':'قريبًا!','Oops!':'أوبس!','Primary 1':'الصف الأول','Term 1':'الترم الأول'};
 const isAr=()=>!!(SUBJECT&&SUBJECT.rtl);
 const ptsName=()=>isAr()?'كتاب التقييمات':(SUBJECT&&/^math/.test(SUBJECT.id)?'PTS':'Assessments');   // the Workbook: languages call it Assessments
 const tr=s=>s==='PTS'?ptsName():isAr()&&AR_UI[s]||s;
@@ -268,7 +300,7 @@ const num=n=>isAr()?String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]):String
 // the direction of the subject's screens is set ONCE, here: languages left-to-right, Arabic right-to-left (course.json "rtl").
 // Everything inside follows it (logical css: inline-start/end); only parts that must keep their place say direction:ltr themselves (page/question arrows, the lesson road).
 function subjDir(){ const ar=isAr(); ['map','lesson','exam'].forEach(s=>{ const e=$('#'+s); e.dir='ltr'; e.lang=ar?'ar':'en'; e.classList.toggle('ar',ar); }); }
-function show(id){ if(id!=='subjects') subjDir(); ['subjects','map','lesson','exam'].forEach(s=>$('#'+s).hidden=s!==id); hideHint(); if(typeof appNav==='function') appNav(id); }
+function show(id){ stopVoice(); if(id!=='subjects') subjDir(); { const sj=(id!=='subjects'&&typeof SUBJECT!=='undefined'&&SUBJECT)?SUBJECT.id:''; [document.documentElement,document.body].forEach(e=>{ e.dataset.view=id; e.dataset.subj=sj; }); } ['subjects','map','lesson','exam'].forEach(s=>$('#'+s).hidden=s!==id); hideHint(); if(typeof appNav==='function') appNav(id); fadeIn('#'+id); }
 $$('[data-icon]').forEach(b=>b.innerHTML=ICON[b.dataset.icon]);
 $$('[data-go]').forEach(b=>b.addEventListener('click',()=>b.dataset.go==='map'?openMap():openSubjects()));
 
@@ -428,12 +460,14 @@ function swFresh(){ const c=navigator.serviceWorker&&navigator.serviceWorker.con
 let wig=null;
 function drawSubjects(){
   const g=$('#boxes'); g.innerHTML='';
-  COURSE.subjects.forEach(s=>{
-    const b=el('button','box '+(s.open?'open':'locked'));
-    const tag = s.open ? `${STAR(true)}${s.lessons?s.lessons.reduce((a,l)=>a+lessonStars(l.id),0):0}` : `${ICON.lock}Soon`;
-    b.innerHTML=`<span class="cube">${BOX(s)}</span><span class="name outline${s.rtl?' ar':''}">${s.name}</span><span class="tag">${tag}</span>`;
-    b.setAttribute('aria-label', s.open?s.name:s.name+', coming soon');
-    b.addEventListener('click',()=>{ if(s.open){ SUBJECT=s; needRest(()=>openMap()); }
+  COURSE.subjects.forEach(s0=>{
+    const ac=accessOf(s0,!!s0.open,'s:'+s0.id), st=ac.st, s=Object.assign({},s0,{_st:st});
+    const b=el('button','box '+st);
+    const tag = st==='open' ? `${STAR(true)}${s.lessons?s.lessons.reduce((a,l)=>a+lessonStars(l.id),0):0}` : st==='locked' ? `${ICON.lock}${COINTXT(ac.coins)}` : '';
+    b.innerHTML=`<span class="cube">${BOX(s)}</span>${tag?`<span class="tag">${tag}</span>`:''}`;
+    b.setAttribute('aria-label', st==='open'?s.name:s.name+(st==='locked'?', locked':', coming soon'));
+    b.addEventListener('click',()=>{ if(st==='open'){ SUBJECT=s0; needRest(()=>openMap()); }
+      else if(st==='locked') message(isAr()?'مقفول':'Locked', ac.coins?(isAr()?`تفتحيه بـ ${COINTXT(ac.coins)}`:`Open it with ${COINTXT(ac.coins)}!`):(isAr()?'ده هيتفتح قريبًا':'This opens later!'), `<span class="cube" style="display:block">${BOX(s)}</span>`);
       else message('Soon!', s.rtl?'مادة العربي قريباً!':COURSE.hints.soonSubject, `<span class="cube" style="display:block">${BOX(s)}</span>`); });
     g.append(b);
   });
@@ -467,6 +501,9 @@ async function start(){
       s.units=d.units; s.lessons=d.lessons.map(l=>({...l, id:`${s.id}-${l.folder}`, file:l.title?base+l.folder+'/lesson.json':null}));
     }));
   }catch(e){ busy(false); message('Oops!','The lessons did not load. Check the internet and try again.'); $('#msgOk').onclick=()=>location.reload(); return; }
+  // theme: only an ACTIVE theme in course.json "themes" can be used; an inactive one (cardboard...) is never applied, whatever is saved. Flip "active" to offer it.
+  try{ const T=COURSE.themes||{list:[]}, want=localStorage.getItem('es.theme')||T.default||'', ok=(T.list.find(t=>t.id===want)||{}).active;
+    const r=document.documentElement; if(ok&&want) r.dataset.theme=want; else delete r.dataset.theme; }catch(e){}
   // design file and fonts: wait for them behind the splash screen (fonts at most 2.5 s, then the page shows with the fallback font)
   await cssReady;
   if(document.fonts&&document.fonts.ready) await Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,2500))]);
@@ -477,4 +514,7 @@ async function start(){
 if('serviceWorker' in navigator&&/^https?:/.test(location.protocol)) navigator.serviceWorker.register('sw.js').catch(()=>{});
 start();
 window.__app={award,levelUp,openLesson:m=>openLesson(m),openMap:()=>openMap(),vTeach:()=>vTeach(),vWrite:()=>vWrite(),get LESSON(){return LESSON}};
+
+/* hidden door to the design page (for the grown-ups reviewing): tap the EasyStudy logo 5 times quickly */
+(function(){ let n=0,t=0; document.addEventListener('click',e=>{ if(!e.target.closest('.gamelogo')) return; const now=Date.now(); n=now-t<900?n+1:1; t=now; if(n>=5){ n=0; location.href='design.html'; } }); })();
 ;

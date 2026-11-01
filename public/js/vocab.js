@@ -92,11 +92,12 @@ function showWords(){
   const wrap=el('div','vocab'), pick=el('div','vpick');
   LESSON.vocab.forEach((v,i)=>{ const b=el('button','vthumb'+(i===vs.i?' on':''),`${vMode()?`<span class="vtw">${v.word}</span>`:`<img src="${v.img}" alt=""${/\.png$/i.test(v.img)?' class="cut"':''}>`}<b>${i+1}</b>${vDone().includes(v.word)?`<span class="vst">${STAR(true)}</span>`:''}`);
     b.setAttribute('aria-label',`Word ${i+1}: ${v.word}`); b.addEventListener('click',()=>{ vs.i=i; vTeach(); }); pick.append(b); });
-  wrap.innerHTML=`<div class="vword"></div>
+  wrap.innerHTML=`<div class="vwrow"><div class="vword"></div><button class="vsay" aria-label="${isAr()?'اسمع الكلمة':tr('Listen')}">${SAY_LN}</button></div>
     <div class="vinfo"><div class="vstatus"></div><div class="vmeaning" dir="rtl"><span class="vm-t"></span><button class="vm-say" aria-label="Arabic meaning">${SAY_LN}</button></div></div>
     <div class="vtools"></div><div class="vimgwrap"><img class="vimg" alt=""></div>`;
   wrap.append(pick); stage.append(wrap); vPickFit();
   $('.vm-say').addEventListener('click',e=>{ e.stopPropagation(); const v=LESSON.vocab[vs.i]; $('.vmeaning').classList.add('lit'); sayAr(v).then(()=>$('.vmeaning')&&$('.vmeaning').classList.remove('lit')); });
+  $('.vsay').addEventListener('click',e=>{ e.stopPropagation(); if(vMode()) return vMeanSay('all'); vStop(); if(vs.mode==='learn'){ vs.mode='idle'; vRail(); } sayWord(LESSON.vocab[vs.i]); });   // the small speaker beside the word (replaces the Listen / Stop buttons)
   vTools(); vRender(true); vRail(); vCar(false);
   if(vMode()){ $('.vword').addEventListener('click',()=>vMeanSay('word')); $('.vmeaning').addEventListener('click',()=>vMeanSay('rel')); }
   showHint(pick,LESSON.hints.vocabPick,900,'vocabPick');
@@ -232,13 +233,11 @@ async function vWin(v){
 function vTools(){
   const tools=$('.vtools'); tools.innerHTML='';
   const items=[
-    {k:'help',kind:'speed',icon:'hint',label:isAr()?'ساعدني':tr('Help'),click:vHelp},
-    {k:'listen',kind:'again',icon:'sound',label:isAr()?'اسمع الكلمة':tr('Listen'),click:()=>{ if(vMode()) return vMeanSay('all'); vStop(); if(vs.mode==='learn'){ vs.mode='idle'; vRail(); } sayWord(LESSON.vocab[vs.i]); }},
+    {k:'help',kind:'help',icon:'hint',label:isAr()?'ساعدني':tr('Help'),click:vHelp},
     {k:'teach',kind:'go',icon:'restart',label:isAr()?(vMode()?'علّمني':'علّمني الكلمة'):tr('Teach'),click:vTeach},
-    {k:'write',kind:'speed',icon:'pencil',label:isAr()?'اكتب الكلمة':tr('Write'),click:()=>{ if(vs.mode!=='write') vWrite(); else { const i=$('#vin'); i&&i.focus({preventScroll:true}); } }},
-    {k:'stop',kind:'stop',icon:'pause',label:tr('Stop'),click:()=>{ vStop(); if(vs.mode!=='write'){ vs.mode='idle'; vRail(); } }}
+    {k:'write',kind:'speed',icon:'pencil',label:isAr()?'اكتب الكلمة':tr('Write'),click:()=>{ if(vs.mode!=='write') vWrite(); else { const i=$('#vin'); i&&i.focus({preventScroll:true}); } }}
   ];
-  (vMode()?items.filter(it=>!['help','write','listen'].includes(it.k)):items).forEach(it=>{ const b=el('button','dash '+it.kind+(it.icon==='restart'?' ln':''),`<span class="rb">${ICON[it.icon]}</span><span>${it.label}</span>`); b.dataset.k=it.k;
+  (vMode()?items.filter(it=>!['help','write'].includes(it.k)):items).forEach(it=>{ const b=el('button','dash '+it.kind+(it.icon==='restart'?' ln':''),`<span class="rb">${ICON[it.icon]}</span><span>${it.label}</span>`); b.dataset.k=it.k;
     b.addEventListener('pointerdown',e=>{ if($('#vin')&&$('#vin')===document.activeElement) e.preventDefault(); });   // keep the keyboard open
     b.addEventListener('click',it.click); tools.append(b); });
 }

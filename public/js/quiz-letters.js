@@ -47,7 +47,7 @@ function qxVowel(box,q,s,run){
   box.append(row);
 }
 // the word (or sentence) as hidden letters with their places underlined; spaces are not letters
-function qxWordEl(word,chips,faint,ltr){ const b=el('b','qxw'); if(ltr) b.dir='ltr';   /* an English word: left to right inside any subject */ const gs=glyphs(word);
+function qxWordEl(word,chips,faint,ltr){ const b=el('b','qxw'); if(ltr) b.dir='ltr';   /* an English word: left to right inside any subject */ const gs=glyphs(word); b.style.setProperty('--n',gs.length);
   const cnt=(chips||[]).map(c=>glyphs(c).length), ok=cnt.length>1&&cnt.reduce((a,c)=>a+c,0)===gs.length;   // a box per syllable when the chips match the word
   if(ok){ let k=0; cnt.forEach(n=>{ const sg=el('span','qxseg'); gs.slice(k,k+n).forEach(g=>sg.append(el('span','lt hid'+(faint?' fnt':''),g))); k+=n; b.append(sg); }); }
   else gs.forEach(g=>b.append(el('span',g===' '?'sp':'lt hid'+(faint?' fnt':''),g===' '?' ':g)));
@@ -61,7 +61,7 @@ function qxWrite(box,q,s,run,text,onDone){   // text: what to type (default the 
   text=text||q.word; $$('.qxhelp',box).forEach(x=>x.remove());
   if(q.chips&&text===q.word){ const c=el('div','qxchips'); c.innerHTML=q.chips.map(t=>`<i>${t}</i>`).join('<u>/</u>'); box.append(c); }
   const wd=qxWordEl(text,text===q.word?q.chips:null,s.faint,s.lang==='en'||/^[\x00-\x7f]+$/.test(text)), help=el('button','qxhelp',ICON.hint); help.setAttribute('aria-label','Help');
-  const line=el('div','qxline'); line.append(wd); const duo=$('.qxduo',box); (duo||box).append(line); box.append(help);   // duo: number and its word side by side
+  const line=el('div','qxline'); line.append(wd); const duo=$('.qxduo',box); (duo||box).append(line); qHelpHost(help);   // duo: number and its word side by side
   let inp=$('#qxin');
   if(!inp){ inp=el('input','qin'); Object.assign(inp,{type:'text',id:'qxin',autocomplete:'off',spellcheck:false,lang:s.lang||'ar'}); ['autocorrect','autocapitalize'].forEach(a=>inp.setAttribute(a,'off')); inp.setAttribute('enterkeyhint','done'); inp.setAttribute('aria-label','Type the word'); }
   line.append(inp); if(/^\d+$/.test(text)){ inp.setAttribute('inputmode','numeric'); inp.lang='en'; } else inp.removeAttribute('inputmode');
@@ -83,13 +83,16 @@ function qxArrange(box,q,s,run){
   const WS=!!(q.words||s.words), wd=WS?el('b','qxw qxwords'):qxWordEl(q.word), line=el('div','qxline');   // words: the tiles are whole words of a sentence
   if(WS){ q.word.split(' ').forEach(w=>wd.append(el('span','lt hid',w))); }
   line.append(wd); box.append(line);
-  const gs=WS?q.word.split(' '):qxLetters(q.word).filter(g=>g!==' '); let ord=gs.map((g,k)=>k); for(let t=0;t<30;t++){ ord.sort(()=>Math.random()-.5); if(gs.length<2||ord.some((v,k)=>v!==k)) break; }
+  const gs=WS?q.word.split(' '):qxLetters(q.word).filter(g=>g!==' '), tg=(!WS&&q.scr)?qxLetters(q.scr).filter(g=>g!==' '):gs;   // q.scr = the letters already scrambled by the book
+  let ord=tg.map((g,k)=>k); if(tg===gs) for(let t=0;t<30;t++){ ord.sort(()=>Math.random()-.5); if(gs.length<2||ord.some((v,k)=>v!==k)) break; }
   const tiles=el('div','qxtiles'); box.append(tiles);
-  const place=tile=>{ const n=qxNext(wd); if(!n||tile.classList.contains('used')) return false;
-    if(!sameLetter(tile.dataset.g,n.textContent)) return false;
-    qxReveal(wd); tile.classList.add('used'); blip(560+$$('.lt.got',wd).length*40,.05);
+  // a tile goes into ITS slot: the slot it is dropped on (a tap = the first empty slot of that letter); a wrong slot = the tile goes back + wrong shake
+  const fill=(tile,n)=>{ if(!n||tile.classList.contains('used')||!n.classList.contains('hid')||!sameLetter(tile.dataset.g,n.textContent)) return false;
+    n.classList.remove('hid'); n.classList.add('got'); tile.classList.add('used'); blip(560+$$('.lt.got',wd).length*40,.05);
     if(qxDone(wd)) qxWin(wd,q,1700); return true; };
-  ord.forEach(k=>{ const t=el('button','qxtile'+(WS?' wide':''),`<span>${gs[k]}</span>`); t.dataset.g=gs[k]; tiles.append(t); });
+  const slotAt=(x,y)=>{ let best=null,bd=1e9; $$('.lt',wd).forEach(n=>{ const r=n.getBoundingClientRect(), d=Math.hypot(x-(r.left+r.right)/2,(y-(r.top+r.bottom)/2)*.6); if(d<bd){ bd=d; best=n; } }); return best; };
+  const place=tile=>fill(tile,$$('.lt.hid',wd).find(n=>sameLetter(tile.dataset.g,n.textContent)));
+  ord.forEach(k=>{ const t=el('button','qxtile'+(WS?' wide':''),`<span>${tg[k]}</span>`); t.dataset.g=tg[k]; tiles.append(t); });
   let drag=null;
   tiles.addEventListener('pointerdown',e=>{ const t=e.target.closest('.qxtile'); if(!t||qz.busy||t.classList.contains('used')) return; e.preventDefault(); hideHint();
     drag={t,x:e.clientX,y:e.clientY,moved:false,g:null}; try{ tiles.setPointerCapture(e.pointerId); }catch(_){} });
@@ -99,7 +102,7 @@ function qxArrange(box,q,s,run){
   const end=e=>{ if(!drag) return; const d=drag; drag=null; if(d.g) d.g.remove(); d.t.classList.remove('lift'); if(e.type==='pointercancel') return;
     const L=line.getBoundingClientRect(), pad=24, over=e.clientX>L.left-pad&&e.clientX<L.right+pad&&e.clientY>L.top-pad&&e.clientY<L.bottom+pad;
     if(d.moved&&!over) return;   // dropped somewhere else: it just goes back
-    if(!place(d.t)) qxBad(d.t); };
+    if(!(d.moved?fill(d.t,slotAt(e.clientX,e.clientY)):place(d.t))) qxBad(d.t); };
   tiles.addEventListener('pointerup',end); tiles.addEventListener('pointercancel',end);
 }
 

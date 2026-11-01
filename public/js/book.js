@@ -27,7 +27,7 @@ function bookTag(){
 function footPage(n){
   let t=$('#pageTag');
   if(n==null||n===''){ if(t) t.remove(); return; }
-  if(!t){ t=el('button','pgtag'); t.id='pageTag'; t.addEventListener('click',()=>bookPad()); $('#lesson .tabs').append(t); }
+  if(!t){ t=el('button','pgtag'); t.id='pageTag'; t.addEventListener('click',()=>bookPad()); $('#lmeta .lm-l').append(t); }
   t.setAttribute('aria-label','Book page '+n); t.innerHTML=ICON.book+`<span>${isAr()?'ص ':'p. '}${num(n)}</span>`;
 }
 
@@ -53,35 +53,42 @@ function lnavModel(){
   }
   return {};
 }
+/* DOTS (replace the old page / part number rows): one small dot per exercise group of the questions (or per page of a lesson read in several pages),
+   the one in use is solid white, the others light white; tap a dot, drag the strip, or swipe the page to move between them. No numbers. */
+let LM={prev:null,next:null};
 function lnavPaint(){
-  const n=$('#lnav'); if(!n) return; const md=lnavModel();
-  const row=(sel,items,prev,next,round)=>{ const r=$(sel,n); r.hidden=!(items&&items.length); if(r.hidden){ r.innerHTML=''; return; }
-    r.className='ln-row '+sel.slice(1).replace('.','')+(round?' round':'');
-    r.innerHTML=`<button class="qarr ln-arr prev" aria-label="Previous" ${prev?'':'disabled'}>${Q_ARR}</button><div class="ln-items">${items.map(it=>`<button class="ln-it${it.on?' on':''}">${it.l}</button>`).join('')}</div><button class="qarr ln-arr next" aria-label="Next" ${next?'':'disabled'}>${Q_ARR}</button>`;
-    $$('.ln-it',r).forEach((b,k)=>b.addEventListener('click',()=>{ if(!items[k].on) items[k].go(); }));
-    $('.prev',r).addEventListener('click',()=>prev&&prev()); $('.next',r).addEventListener('click',()=>next&&next());
-    lnavWin(r); };
-  row('.ln-sec',md.secs,md.sPrev,md.sNext,false); row('.ln-pg',md.pages&&md.pages.length>1?md.pages:[],md.pPrev,md.pNext,true);   // one page only: no page row
-  const hb=$('.quiz .qhelpb'); if(hb&&!inQ()) hb.hidden=true;
-  lnavFit();
-  // the arrows of the rows are laid out after they are visible: scroll the page in use to the middle again
-  $$('.ln-row',n).forEach(lnavWin);
+  const d=$('#lmDots'); if(!d) return; const md=lnavModel();
+  const items=inQ()?(()=>{ const out=[], cg=qz.list[qz.i]&&qGrp(qz.list[qz.i].set); qz.list.forEach((q,i)=>{ const g=qGrp(q.set); if(!out.some(x=>x.g===g)) out.push({g,i,on:g===cg}); }); return out.map(x=>({on:x.on,go:()=>{ hideHint(); blip(600); qz.busy=false; qGo(x.i); }})); })()
+    :(md.pages||[]);
+  LM.prev=md.sPrev||md.pPrev||null; LM.next=md.sNext||md.pNext||null;
+  d.hidden=items.length<2; if(d.hidden){ d.innerHTML=''; } else {
+    d.innerHTML=items.map((it,k)=>`<button class="ldot${it.on?' on':''}" aria-label="${k+1}"></button>`).join('');
+    $$('.ldot',d).forEach((b,k)=>b.addEventListener('click',()=>{ if(!items[k].on) items[k].go(); }));
+    const on=$('.ldot.on',d); if(on) d.scrollLeft=on.offsetLeft-d.clientWidth/2+on.offsetWidth/2; }
+  const hb=$('#lmeta .qhelpb'); if(hb&&!inQ()) hb.hidden=true;
 }
-/* a row with more buttons than the screen holds shows only WHOLE buttons (never a sliver under the arrows): the strip gets the width of the buttons
-   that fit around the one in use, and swiping it stops on a button (scroll-snap in lesson.css) */
-function lnavWin(r){
-  const box=$('.ln-items',r), its=$$('.ln-it',r); if(!box||!its.length||r.hidden) return; box.style.width='';
-  const gap=parseFloat(getComputedStyle(box).columnGap)||0, pad=parseFloat(getComputedStyle(box).paddingLeft)+parseFloat(getComputedStyle(box).paddingRight);
-  const arr=$$('.ln-arr',r).reduce((a,b)=>a+b.offsetWidth,0)+2*(parseFloat(getComputedStyle(r).columnGap)||0);
-  const room=r.clientWidth-arr-pad, w=its.map(b=>b.offsetWidth), all=w.reduce((a,b)=>a+b,0)+gap*(w.length-1);
-  if(all<=room){ box.scrollLeft=0; return; }
-  let k=Math.max(0,its.findIndex(b=>b.classList.contains('on'))), a=k, z=k, used=w[k];
-  for(let side=0;;side^=1){ const i=side?z+1:a-1; if(i>=0&&i<w.length&&used+gap+w[i]<=room){ used+=gap+w[i]; side?z=i:a=i; continue; }
-    const j=side?a-1:z+1; if(j>=0&&j<w.length&&used+gap+w[j]<=room){ used+=gap+w[j]; side?a=j:z=j; continue; } break; }
-  box.style.width=(used+pad)+'px'; box.scrollLeft=its[a].offsetLeft-its[0].offsetLeft;
-}
-function lnavFit(){ const n=$('#lnav'); if(n) n.hidden=!!($('.ln-sec',n).hidden&&$('.ln-pg',n).hidden); }
-addEventListener('resize',()=>{ clearTimeout(bookTag.t); bookTag.t=setTimeout(()=>{ if($('#pageTag')) bookTag(); $$('#lnav .ln-row').forEach(lnavWin); },200); });
+function lnavFit(){}
+const dotsStep=k=>{ const f=k>0?LM.next:LM.prev; if(f) f(); };
+// drag the dots strip with the mouse / finger (touch scrolls it natively), and swipe the page itself (only from empty places, never from an answer or a picture)
+(function(){
+  const d=$('#lmDots'); let dn=null;
+  d.addEventListener('pointerdown',e=>{ if(e.pointerType==='mouse') dn={x:e.clientX,l:d.scrollLeft,m:false}; });
+  addEventListener('pointermove',e=>{ if(dn){ const dx=e.clientX-dn.x; if(Math.abs(dx)>4) dn.m=true; d.scrollLeft=dn.l-dx; } });
+  addEventListener('pointerup',()=>{ if(dn&&dn.m){ d.addEventListener('click',e=>e.stopPropagation(),{capture:true,once:true}); } dn=null; });
+})();
+/* THE ONE PAGER (RULES.md "Swipe"): swipe / drag (finger or mouse) left or right from ANY place of the page area (under the road down to above the tabs: .mid + the dots row)
+   = next / previous page through LM (dots model: reading pages, story pages, question groups, words). Per-screen code never adds its own swipe. */
+(function(){
+  const L=$('#lesson'); let sw=null, moved=false;
+  const own='input,textarea,select,.qlk,.qxtile,.qlink,.xlink,.qbd,.board,.spot,.lm-dots,.tabs,[data-noswipe],.dragging';   // elements that use the drag themselves
+  const inArea=t=>t.closest('.mid,.lmeta');
+  L.addEventListener('pointerdown',e=>{ moved=false; sw=(e.button||!inArea(e.target)||e.target.closest(own))?null:{x:e.clientX,y:e.clientY}; });
+  L.addEventListener('pointerup',e=>{ if(!sw) return; const dx=e.clientX-sw.x, dy=e.clientY-sw.y; sw=null;
+    if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.4){ moved=true; dotsStep(dx<0?1:-1); } });
+  L.addEventListener('pointercancel',()=>{ sw=null; });
+  L.addEventListener('click',e=>{ if(moved){ e.stopPropagation(); e.preventDefault(); moved=false; } },true);
+})();
+addEventListener('resize',()=>{ clearTimeout(bookTag.t); bookTag.t=setTimeout(()=>{ if($('#pageTag')) bookTag(); lnavPaint(); },200); });
 
 /* the book picker: the books of this subject (Book, Workbook, Booklet ...) on top, under them the pages of the chosen book; tap a page to go there.
    A lesson's "pages" can name any other book as a key, e.g. "booklet":[3,4] (its questions are the sets with "book":"booklet"). */
@@ -101,11 +108,11 @@ function bookPad(){
   const ks=booksOf(); if(!ks.length) return;
   const inTab=inQ()&&typeof qz!=='undefined'?qz.src:BOOKOF(tab), cur=ks.includes(inTab)?inTab:ks[0];
   bookList(cur); o.hidden=false; spinRays(o);
-  if(anim) G.from('#pagePad .pagepad',{scale:.6,opacity:0,duration:.4,ease:'back.out(2)'});
+  if(anim) G.from('#pagePad .pagepad',{scale:.9,opacity:0,duration:TM('--t-pop',.22),ease:'power2.out',clearProps:'transform,opacity'});
 }
 function bookList(k){
   const o=$('#pagePad'), ks=booksOf();
-  $('.pp-books',o).innerHTML=ks.map(b=>`<button class="pill ${b===k?'blue':'cream'} pp-book" data-b="${b}">${tr(BOOKNAME(b))}</button>`).join('');
+  $('.pp-books',o).innerHTML=ks.map(b=>`<button class="mtab mt-${({book:'bk0',workbook:'pts',booklet:'bk'})[b]||'ex'} pp-book${b===k?' on':''}" data-b="${b}"><span>${tr(BOOKNAME(b))}</span></button>`).join('');
   $('.pp-books',o).hidden=ks.length<2;
   $('.pp-pages',o).innerHTML=bookPages_(k).map(e=>`<button class="rb pp-pg" data-p="${e.page}" data-b="${k}" aria-label="Page ${e.page}: ${e.lesson.title}"><span>${num(e.page)}</span></button>`).join('');
   $$('.pp-book',o).forEach(b=>b.addEventListener('click',()=>bookList(b.dataset.b)));

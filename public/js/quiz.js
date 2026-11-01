@@ -69,21 +69,24 @@ async function showQuiz(start){
   wrap.innerHTML=`<div class="qhead"><span class="qex"></span><span class="qtask"></span><button class="qsay qtsay" aria-label="Hear the question">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button>${LESSON.tool?`<button class="qtool" aria-label="Make numbers tool"><img src="data/tools/make-numbers/icon.webp" alt=""></button>`:''}</div>
     <div class="qdots"></div>
     <div class="qword" dir="ltr"><b></b><button class="qsay" aria-label="Listen again">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button></div>
-    <div class="qplay"></div><div class="qans"></div><button class="qhelpb" aria-label="${isAr()?'ساعدني':tr('Help')}" hidden>${ICON.hint}</button>`;
+    <div class="qplay"></div><div class="qans"></div>`;
   stage.append(wrap);
+  { const hb=el('button','qhelpb',ICON.hint); hb.hidden=true; hb.setAttribute('aria-label',isAr()?'ساعدني':tr('Help')); $('#lmeta .lm-r').replaceChildren(hb); hb.onclick=()=>qHelp(); }   // the Help bulb stands at the right of the row above the tabs
   $('.qword .qsay',wrap).addEventListener('click',()=>qSay());
   $('.qtsay',wrap).addEventListener('click',()=>qTask());
-  $('.qhelpb',wrap).onclick=()=>qHelp();
   $('.qword',wrap).addEventListener('click',e=>{ if(wrap.dataset.type==='type'&&!e.target.closest('.qsay')) qFocus(); });
   qStart(start!=null?start:0);
 }
 // the questions of one book (Book or Workbook)
 function qPick(src){ qz.src=src; qz.list=qz.all.filter(q=>qSrcOf(q.set)===src); }
 function qStart(i){ const w=$('.quiz'); if(!w) return;
-  $('.qdots',w).innerHTML=qz.list.map((q,k)=>`<i data-i="${k}">${STAR(false)}</i>`).join('');
+  $('.qdots',w).innerHTML=qz.list.map((q,k)=>`${k&&qGrp(q.set)!==qGrp(qz.list[k-1].set)?'<span class="qsep"></span>':''}<i data-i="${k}">${STAR(false)}</i>`).join('');
+  $('.qdots',w).style.setProperty('--n',qz.list.length+$$('.qsep',w).length*2);
   $('.qdots',w).onclick=e=>{ const d=e.target.closest('i[data-i]'); if(!d) return; hideHint(); qz.busy=false; qGo(+d.dataset.i); };   // each star opens its own question
   qLayout(); qGo(Math.min(i,qz.list.length-1)); }
 // the arrows: to the start of the next / previous exercise of this book (not the items inside one)
+// the star of the question we are on is 'cur'; the stars of its whole part (same exercise) are 'grp'
+function qCur(i){ const g=qz.list[i]&&qGrp(qz.list[i].set); $$('.qdots i').forEach((x,k)=>{ x.classList.toggle('cur',k===i); x.classList.toggle('grp',qGrp(qz.list[k].set)===g); }); }
 const qGrp=s=>s.grp?s.page+'|'+s.grp:s.ex!=null?s.page+'|'+s.ex:s;   // sets with the same book exercise (e.g. one circle set per colour) are ONE exercise for the arrows
 function qSetStart(d){ const s=qz.list[qz.i]&&qz.list[qz.i].set; if(!s) return -1; const g=qGrp(s); let i=qz.i;
   if(d>0){ while(i<qz.list.length&&qGrp(qz.list[i].set)===g) i++; return i<qz.list.length?i:-1; }
@@ -93,13 +96,13 @@ function qSet(d){ const i=qSetStart(d); if(i<0) return; hideHint(); blip(600); q
 function qFirstOnPage(p,src){ const f=qz.all.find(q=>q.set.page===p&&(!src||qSrcOf(q.set)===src)); qPick(f?qSrcOf(f.set):src||'book');
   const i=qz.list.findIndex(q=>q.set.page===p); return i<0?0:i; }
 function qGo(i){
-  vStop(); hideHint(); setTimeout(qHelpShow,60); const run=++qz.run; qz.i=i; qz.busy=false;
+  stopVoice(); $$('#lmeta .qxhelp').forEach(x=>x.remove()); hideHint(); setTimeout(qHelpShow,60); const run=++qz.run; qz.i=i; qz.busy=false;
   const q=qz.list[i], s=q.set, w=$('.quiz'); if(!w) return;
   w.dataset.type=s.type;
-  let mdl=$('.qmodel',w); if(!mdl){ mdl=el('span','qmodel'); $('.qhead',w).prepend(mdl); } mdl.textContent=s.model||''; mdl.hidden=!s.model;   // "model": the paper's heading (Model 1) shown as a yellow pill
-  $('.qex',w).textContent=s.ex!=null?num(s.ex):''; $('.qex',w).hidden=!s.ex; $('.qtask',w).textContent=s.task;
+  { const old=$('.qmodel',w); if(old) old.remove(); }   // the paper's heading (Classroom / Homework / Weekly C) is no longer shown on any question
+  $('.qex',w).textContent=s.ex!=null?num(s.ex):''; $('.qex',w).hidden=!s.ex; $('.qtask',w).textContent=s.task; qFitTask();
   footPage(s.page); lnavPaint();
-  $$('.qdots i',w).forEach((d,k)=>{ d.classList.toggle('cur',k===i); });
+  qCur(i);
   if($('#lesson').classList.contains('qrail')){ $('#lesson').classList.remove('qrail'); setRail([]); }   // the side Listen / Stop button belongs to the 'together' page only
   const a0=$('.qans',w); if(a0.parentElement!==w) w.append(a0);   // back in its own place before the pictures are cleared (qLayout moves it beside the picture)
   const qi=$('#qin'); if(qi&&s.type!=='type'){ qi.blur(); qi.remove(); }
@@ -178,7 +181,7 @@ async function qTick(cell,it,s,val,btn){
   const next=qz.i+1;
   if(next>=qz.list.length||qz.list[next].set!==s){ qz.busy=true; await new Promise(r=>setTimeout(r,1400)); if(run!==qz.run||!inQ()) return; qz.busy=false;
     if(next>=qz.list.length) award(LESSON.id,qKey()); else qGo(next); return; }
-  qz.i=next; $$('.qdots i').forEach((x,k)=>x.classList.toggle('cur',k===next));   // same sheet: just move the star on
+  qz.i=next; qCur(next);   // same sheet: just move the star on
 }
 // the lines of the joined pictures, worked out again when the screen changes size
 function qLines(fresh){ const bd=$('.qboard'); if(!bd||$('.quiz').dataset.type!=='match') return; const c=$('.qcenter span',bd); if(!c) return; const B=bd.getBoundingClientRect();
@@ -213,7 +216,7 @@ QM.circle={sheet:'board', draw:qPicBoard, help:qBoardHelp};
 QM.tick={sheet:'board', draw:qSheet, help:(q,w)=>{ const cs=$$('.qcell',w), c=cs.find(c=>!c.classList.contains('done')); if(!c) return []; const it=q.set.items[cs.indexOf(c)]; return [$(it.answer?'.qbtn.yes':'.qbtn.no',c)].filter(Boolean); }};
 const qSetMoreAfter=s=>qz.i+1<qz.list.length&&qz.list[qz.i+1].set===s;
 function qMore(s){ const next=qz.i+1; if(next>=qz.list.length||qz.list[next].set!==s) return false;
-  qStar(); qz.i=next; $$('.qdots i').forEach((x,k)=>x.classList.toggle('cur',k===next));
+  qStar(); qz.i=next; qCur(next);
   lnavPaint(); return true; }
 // one more right answer of a board: its star, then on to the next one (the same board stays when the exercise has more)
 async function qDone(s,run,ms){
@@ -368,6 +371,10 @@ function qRing(el0){ const im=el0.classList.contains('qpic')&&$('img',el0);   //
    qHelpEls() = what the question's MODEL lights now (QM[type].help); nothing = no bulb. Models with their own help (write, qa, math keypads) say bulb:0 */
 function qHelpEls(){ const q=qz.list[qz.i], w=$('.quiz'); if(!q||!w||qz.busy) return []; const m=QM[q.set.type];
   return m&&m.help&&m.bulb!==0?m.help(q,w).filter(Boolean):[]; }
-function qHelpShow(){ const b=$('.quiz .qhelpb'); if(!b) return; b.hidden=!qHelpEls().length; lnavFit(); }
+// a type with its own Help bulb (write, math) puts it at the right of the row above the tabs, where the generic bulb stands
+// the question text takes the whole line: one line, the font shrinks a little when it must (wraps only below 13px)
+function qFitTask(){ const t=$('.quiz .qtask'); if(!t) return; t.style.fontSize=''; t.style.whiteSpace='nowrap'; requestAnimationFrame(()=>{ if(!t.isConnected) return; let fs=parseFloat(getComputedStyle(t).fontSize); for(let k=0;k<20&&t.scrollWidth>t.clientWidth+1&&fs>13;k++){ fs--; t.style.fontSize=fs+'px'; } if(t.scrollWidth>t.clientWidth+1) t.style.whiteSpace=''; }); }
+function qHelpHost(b){ const r=$('#lmeta .lm-r'); if(r) r.append(b); const g=$('#lmeta .qhelpb'); if(g) g.hidden=true; }
+function qHelpShow(){ const b=$('#lmeta .qhelpb'); if(!b) return; b.hidden=!qHelpEls().length; lnavFit(); }
 function qHelp(){ if(qz.busy) return; const L=qHelpEls(); if(!L.length) return; hideHint(); blip(660,.05);
   L.forEach(e=>{ const f=e.classList.contains('qxc')?$('span',e):null; e.classList.remove('qhl'); void e.offsetWidth; e.classList.add('qhl'); if(f) f.classList.add('qhl-t'); setTimeout(()=>{ e.classList.remove('qhl'); if(f) f.classList.remove('qhl-t'); },2000); }); }

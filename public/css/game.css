@@ -1,0 +1,222 @@
+/* LESSON ON THE GAME BACKGROUND (theme part 3b, 2026-10-31). Loaded LAST so it wins over the older screen files.
+   Top bar (buttons + stars), info line, car road, content straight on the page colour, dots + page + help above the tabs, tabs as a slider. */
+
+/* ---- header: row 1 = tool bar, row 2 = info, row 3 = car road ---- */
+.l-head{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"nav hud" "sign sign" "track track";gap:var(--head-gap) .75rem}
+.l-head .navbtns{justify-self:start}
+.sign{align-items:flex-start;text-align:left}
+#lesson.ar .sign{align-items:flex-end;text-align:right}
+#lesson .sign h1.outline{-webkit-text-stroke:0;paint-order:normal;text-shadow:none;color:var(--c-on-bg)}
+.sign small{-webkit-text-stroke:0;color:var(--c-on-bg)}
+.l-head .track{height:2.1rem;margin-top:.25rem;background:none;border:0;box-shadow:none;border-radius:0;overflow:visible}
+.track::before{left:.2rem;right:1.9rem;top:auto;bottom:.3rem;height:.26rem;margin:0;border-radius:62rem;background:repeating-linear-gradient(90deg,var(--road-dash) 0 1.05rem,transparent 1.05rem 1.9rem)}
+.track .car{width:2.5rem;top:auto;bottom:.12rem;left:0;transform-origin:50% 100%}
+.track .flag{right:.25rem;top:auto;bottom:.3rem;width:1.5rem;height:1.9rem;border:0;border-radius:0;background:none;transform:none}
+.track .flag::before{content:"";position:absolute;left:.1rem;top:0;bottom:0;width:.17rem;border-radius:.1rem;background:var(--road-dash)}
+.track .flag::after{content:"";position:absolute;left:.27rem;top:.05rem;width:1.1rem;height:.85rem;background:var(--c-bad);clip-path:polygon(0 0,100% 50%,0 100%)}
+
+/* ---- the lesson content sits straight on the page colour ---- */
+.quiz,.vocab{background:none;box-shadow:none;border-radius:0;color:var(--c-on-bg);--ink:var(--c-on-bg);--now:var(--c-now-bg)}
+.quiz,#lesson.ar.q-short .quiz{padding-bottom:clamp(.375rem,1.4vh,.875rem)}
+.scene.pics,.scene.book{background:none;border:0;box-shadow:none;color:var(--c-on-bg)}
+.task,.qtask,.vstatus,.vmeaning,.qword b,.qhead,#lesson.ar.vmode .vmeaning{color:var(--c-on-bg)}
+.qtask.lit,.vmeaning.lit,#lesson.ar.vmode .vmeaning.lit{color:var(--c-now-bg)}
+.scene.pics .txt,.scene.book .txt{color:var(--c-on-bg)}
+.lt{border-bottom-color:var(--c-on-bg-line)}
+.vm-say,.qhead .qsay,.qword .qsay,.vsay{color:var(--c-on-bg)}
+#lesson.ar.vmode .vm-t small{color:var(--c-on-bg);opacity:.8}
+/* the word being read: a colour and a soft glow, no box */
+.w.reading{background:none;box-shadow:none;color:var(--c-now-bg);text-shadow:0 0 .45em var(--c-now-bg)}
+.line.on{background:none}
+.w.nw,.nw{color:var(--c-newword);font-weight:800}
+
+/* ---- Help, page, dots: one row above the tabs ---- */
+.foot{gap:.3rem}
+.lmeta{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;direction:ltr;gap:.5rem}
+.lmeta:not(:has(*:not([hidden]):not(:empty))){display:none}
+.lm-l{justify-self:start;display:flex}.lm-r{justify-self:end;display:flex}
+.pgtag{position:static;color:var(--c-on-bg);opacity:1;font-weight:700;font-size:.8rem;-webkit-text-stroke:0;text-shadow:none}
+.pgtag svg{width:1.05rem;height:1.05rem}
+.lm-dots{display:flex;align-items:center;max-width:min(62vw,24rem);overflow-x:auto;scrollbar-width:none;cursor:grab;touch-action:pan-x}
+.lm-dots::-webkit-scrollbar{display:none}
+.ldot{flex:none;width:1.2rem;height:1.2rem;padding:.3rem;border-radius:50%;background:var(--dot-off);background-clip:content-box;transition:background-color var(--t-fade),transform var(--t-fade)}
+.ldot.on{background-color:var(--dot-on);transform:scale(1.25)}
+#lmeta .qhelpb{width:2.4rem;height:2.4rem}
+.quiz .qpage,#stage .pagetag.pin{display:none}
+.qsep{flex:none;display:block;width:.1rem;height:1.2rem;margin:0 .05rem;border-radius:.1rem;background:var(--c-on-bg-line);align-self:center}
+
+/* ---- tabs: last thing at the bottom, a slider when they do not fit ---- */
+#lesson .tabs{justify-content:safe center;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;padding:.1rem .25rem .5rem;padding-inline-end:.25rem;gap:.5rem;scroll-snap-type:x proximity;touch-action:pan-x;cursor:grab}
+#lesson .tabs::-webkit-scrollbar{display:none}
+#lesson .tabs .tab{flex:none;scroll-snap-align:center;font-size:clamp(.95rem,3.8vw,1.2rem);padding:.3em .9em .4em;gap:.3rem}
+#lesson .tabs.many .tab svg{display:inline-block}
+
+/* ---- Vocabulary: the speaker sits beside the word; fewer, smaller buttons; Help is always yellow ---- */
+.vwrow{grid-area:word;display:flex;align-items:center;justify-content:center;gap:.35rem;min-width:0}
+.vwrow>.vword{grid-area:auto;flex:0 1 auto;min-width:0;max-width:calc(100% - 2.3rem)}
+.vsay{flex:none;display:grid;place-items:center;width:2rem;height:2rem;border-radius:.6rem}
+.vsay svg{width:var(--icon-sm);height:var(--icon-sm);fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.vsay:active{transform:scale(.9)}
+.vtools .dash .rb{width:calc(var(--wbtn,3.125rem)*.7);height:calc(var(--wbtn,3.125rem)*.7)}
+.vtools .dash .rb svg{width:calc(var(--wbtn,3.125rem)*.32);height:calc(var(--wbtn,3.125rem)*.32)}
+.dash.help .rb{--t:var(--help-bg1);--b:var(--help-bg2);--rb-ink:var(--help-icon)}
+.dash.help .rb svg{filter:none}
+.vtools .dash.help.off{opacity:1}
+.vm-say{width:1.8rem;height:1.8rem}.vm-say svg{width:var(--icon-sm);height:var(--icon-sm)}
+.qsay svg{width:clamp(1.2rem,3vh,1.5rem);height:clamp(1.2rem,3vh,1.5rem)}
+.qword .qsay{width:2.1rem;height:2.1rem;margin:-.2rem}
+.qtxt .qsay{width:2.1rem;height:2.1rem}.qtxt .qsay svg{width:1.35rem;height:1.35rem}
+
+/* ---- text that sits directly on the page colour in the question types: light, never dark ---- */
+.qword.lit b,.qword .qscr,.qword.focus .qgap:not(.got):not(.bad){color:var(--c-now-bg)}
+.qgap:not(.got):not(.bad){color:var(--c-on-bg-line)}.qgap.got{color:var(--c-good-bg)}.qgap.bad{color:var(--c-bad-bg)}
+.qxw,.qopts,.qtxt,.alend,.qxline{color:var(--c-on-bg)}
+.qxqq{color:var(--c-on-bg)}.qxqa-a{color:var(--c-now-bg)}
+.qxqq.lit,.qxqa-a.lit{background:none;text-shadow:0 0 .4em var(--c-now-bg)}
+.alph{color:var(--c-on-bg-line)}
+.alck span{color:var(--c-on-bg)}
+.quiz :is(.alw,.altx):not(.alline *):not(.alopt *){color:var(--c-on-bg)}
+.qx .lt.bad{color:var(--c-bad-bg)!important}
+#lesson:not(.ar) .qx .qxw>.lt{border-bottom-color:var(--c-on-bg-line)}
+#lesson:not(.ar) .qx .qxw>.lt.cur{border-bottom-color:var(--c-now-bg)}
+#lmeta .qxhelp{width:2.4rem;height:2.4rem;position:static;margin:0}
+
+/* ---- reading page like a modern story: no frame, no paper card; the picture sits on the page, the words straight on the background ---- */
+.scene{border:0;box-shadow:none;border-radius:1.1rem}
+.bfit img{border:0;border-radius:1.1rem;box-shadow:0 .3rem .6rem rgba(20,40,90,.35)}
+.note{background:none;border:0;box-shadow:none;transform:none;border-radius:0}
+.note::before{display:none}
+.note :is(.txt,.who,.task,.line){color:var(--c-on-bg);-webkit-text-stroke:var(--text-ol) var(--ol);paint-order:stroke fill}
+.note .who{filter:brightness(1.9) saturate(.75)}
+.note .w.nw{color:var(--c-newword)}
+.note .w.reading{color:var(--c-now-bg)}
+.note .task svg{display:none}
+
+/* ---- question line: the question in one line, the speaker on the opposite side ---- */
+.qhead{padding-right:0;flex-wrap:nowrap}
+.qhead{justify-content:flex-start;gap:.35rem}
+.qhead .qtask{flex:0 1 auto;min-width:0}
+.qhead .qtsay{flex:none;margin:0;width:1.75rem;height:1.75rem}.qhead .qtsay svg{width:1.1rem;height:1.1rem}   /* RULE: small speaker straight after the question text */
+#lesson.ar .qhead{justify-content:flex-end}
+#lesson.ar .qhead .qtsay{order:1;margin:0}#lesson.ar .qhead .qtask{order:2}
+
+/* ---- Vocabulary: no instruction text beside the Arabic meaning; the word is white ---- */
+.vstatus{display:none}
+.vocab{--now:var(--c-on-bg)}
+.vseg.on .lt,.vword.lit .lt{color:var(--c-on-bg);text-shadow:0 0 .35em var(--c-now-bg),0 0 .12em var(--c-now-bg)}
+.lt.cur{border-bottom-color:var(--c-now-bg)}
+
+/* ---- the help highlight (the right answer lights up): strong yellow so it shows on the page colour ---- */
+@keyframes qhl{0%{outline:.4rem solid rgba(255,228,92,0);outline-offset:.12rem}10%,70%{outline:.4rem solid #FFE45C;outline-offset:.12rem}100%{outline:.4rem solid rgba(255,228,92,0);outline-offset:.12rem}}
+@keyframes qhlt{0%{opacity:0}12%,70%{opacity:.95}100%{opacity:0}}
+@keyframes qhlg{0%,100%{color:rgba(255,228,92,0)}12%,70%{color:#FFE45C}}
+.scene,.scene.book,.scene.letter,.scene.mx{background-color:transparent}
+.scene.letter,.scene.mx{background-image:none}
+@media (max-aspect-ratio:1/1){
+  .scene{background:none;gap:.5rem}
+  .scene::before{border:0;border-radius:1.1rem;box-shadow:0 .3rem .6rem rgba(20,40,90,.35)}
+  .scene.book{background:none;padding:0}
+  .note{margin:0 .25rem}
+  .scene.book .note{margin:.25rem .125rem 0}
+}
+.note .act{color:var(--c-on-bg)}
+/* the question text stays white while it is read: a soft glow marks it, never a colour change */
+.qtask.lit{color:var(--c-on-bg)}   /* no glow on the question while it is read */
+.qtask{text-shadow:0 .05em .1em rgba(60,16,40,.35)}
+
+/* ---- STORY / DIALOG lesson (2026-11-01): the picture is the background of the whole content area, the words sit on a soft light panel ---- */
+#lesson.story .mid{position:relative}
+#lesson.story .stage{position:static}
+#lesson.story .rail{position:relative;z-index:3}
+#lesson.story .rail .dash>span:last-child{text-shadow:0 .1rem .35rem rgba(0,0,0,.65),0 0 .1rem rgba(0,0,0,.6);color:#fff}
+.scene.story{--story-now:#D9560B;position:absolute;inset:0;height:auto;display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch;padding:0;
+  background:none;border:0;box-shadow:none;border-radius:1.1rem;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.scene.story::before{display:none}
+.scene.story .sbg{position:absolute;inset:0;background:var(--c-bg2,rgba(0,0,0,.15)) center/cover no-repeat;border-radius:inherit}
+.scene.story .note{position:relative;flex:none;display:grid;grid-template:minmax(0,1fr)/minmax(0,1fr);width:auto;height:46%;max-height:none;margin:0 .5rem .5rem;overflow:hidden;
+  background:rgba(255,251,240,.9);border:0;border-radius:1.1rem;box-shadow:0 .25rem .9rem rgba(20,40,40,.28);transform:none;color:var(--c-brown-dk)}
+.scene.story .note .in{grid-area:1/1;overflow-y:auto;overscroll-behavior:contain;padding:.7rem 1rem;font-size:clamp(1.2rem,min(4.7vw,3.6vh),2rem);touch-action:pan-y;scrollbar-width:none}
+.scene.story .note .in::-webkit-scrollbar{display:none}
+.scene.story .note :is(.txt,.who,.line,.stitle,.act){color:var(--c-brown-dk);-webkit-text-stroke:0;paint-order:normal;filter:none;font-size:1em;line-height:1.65;margin:0}
+.scene.story .stitle{font-weight:800;text-align:center;padding-bottom:.2em;font-family:var(--f-read)}
+#lesson.ar .scene.story .stitle{font-family:var(--f-ar)}
+.scene.story .line{display:block;padding:.05em .25rem;border-radius:.6rem}
+.scene.story .who{display:inline;margin-inline-end:.4em;min-width:0;font-weight:800;cursor:default}
+.scene.story .line.on{background:none}
+.scene.story .note .who{margin-inline-end:.45em}
+.scene.story .w{color:inherit;padding:0 .06em;border-radius:.3em}
+.scene.story .w.nw,.scene.story .note .w.nw{color:#C0397A;font-weight:800}
+.scene.story .w.reading,.scene.story .note .w.reading{color:var(--story-now);background:none;text-shadow:none}
+@media (min-aspect-ratio:5/4){ .scene.story .note{height:54%;margin:0 6.75rem .6rem .75rem;width:auto;align-self:stretch} .scene.story .note .in{font-size:clamp(1.15rem,min(2.6vw,4.2vh),1.9rem)} }
+
+/* the unit / lesson / name line: always ONE line (lesson.js fitTitle shrinks the letters until it fits) */
+#lessonTitle{white-space:nowrap;max-width:none;overflow:visible}
+.sign{min-width:0;max-width:100%}
+
+/* WORD-READING lesson (layout "pictures"): the word under each picture + its pencil are white and bigger (theme tokens --pk-word-*) */
+.scene.pics .pk .txt{color:var(--pk-word-color)}
+.scene.pics .pk .w{color:var(--pk-word-color)!important}
+.scene.pics .pk .w.reading{color:var(--c-now-bg)!important}
+.scene.pics .pk .txt{font-size:calc(var(--pk-word-size) * clamp(1.125rem,min(7cqh,5cqw),2.125rem))}
+.scene.pics.wrap .pk .txt{font-size:calc(var(--pk-word-size) * clamp(0.9375rem,min(6cqh,4.2cqw),1.875rem))}
+.scene.pics.wrap .pk.two .txt{font-size:calc(var(--pk-word-size) * clamp(0.8125rem,min(4.6cqh,3.5cqw),1.5rem))}
+.scene.pics .wpn{color:var(--pk-word-color)}
+
+/* ---- Words tab, ONE look for every subject (Marwa 2026-11-01): word + typed letters plain WHITE, no yellow glow, no outline on any text ---- */
+.vseg.on .lt,.vword.lit .lt{color:var(--c-on-bg);text-shadow:none}
+.vword .lt{text-shadow:none;-webkit-text-stroke:0}
+.lt.cur{border-bottom-color:var(--c-on-bg-line)}
+#lesson.ar .lt{text-decoration-color:var(--c-on-bg-line)}
+#lesson.ar .lt.cur,#lesson.ar .vword.writing:not(.focus) .lt.cur{text-decoration-color:var(--c-on-bg)}
+.lt.peek{color:var(--c-on-bg);opacity:.4}                       /* help: the letter whose turn it is, light see-through white */
+.vtools .dash,.vtools .dash>span{-webkit-text-stroke:0;paint-order:normal;text-shadow:none}
+#lesson.ar:not(.vmode) .vinfo{display:none}                       /* empty meaning line took a gap between the word and the buttons */
+#lesson.ar .vword{line-height:1.5}
+.vtools{margin-top:-.2rem}
+
+/* ---- story page, portrait: the text panel starts BELOW the whole button column (speed button + its label included) ---- */
+@media (max-aspect-ratio:5/4){ .scene.story{padding-top:calc(var(--rail-h,0px) + .5rem)} .scene.story .note{height:auto;flex:1 1 0;min-height:0} }
+
+/* the shared swipe pager (book.js): horizontal gestures over the page area reach the pager, vertical scroll stays native */
+#lesson .mid,#lesson .lmeta{touch-action:pan-y;-webkit-user-select:none;user-select:none}
+#lesson input,#lesson textarea{-webkit-user-select:text;user-select:text}
+
+/* question line: the text uses the whole line up to the speaker (no side padding in any subject / size) */
+#lesson .qhead,#lesson.q-short .qhead,#lesson.ar.q-short .qhead{padding-right:0;padding-left:0}
+
+
+/* ---- RULES 2026-11-01: ONE size for question stars / choice circles, icon colours, bigger question content (shared components only) ---- */
+.qdots{flex-wrap:nowrap;justify-content:center;--sw:min(var(--q-star),calc((100vw - 5rem)/((var(--n,10) + 1)*1.15)));gap:calc(var(--sw)*.15);max-width:100%;padding:0 0 clamp(.375rem,1.6vh,.875rem)}
+/* RULE: stars = ONE line under the question, centered, portrait and landscape; they shrink to fit (--n = number of stars, set in quiz.js), never wrap */
+.qdots i,#lesson.ar.q-short .qdots i{flex:none;width:var(--sw);height:var(--sw);transition:opacity .2s,transform .2s;opacity:.5}
+.qdots i.grp,.qdots i.cur{opacity:1}
+.qdots i.cur,#lesson.ar.q-short .qdots i.cur{transform:scale(1.25)}
+.qdots i.grp:not(.cur){filter:drop-shadow(0 0 .15rem rgba(255,255,255,.9))}
+#lesson.q-short .quiz,#lesson.ar.q-short .quiz{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr);grid-template-areas:"head" "dots" "word" "play"}
+#lesson.q-short .qdots,#lesson.ar.q-short .qdots{max-width:100%;padding:0;justify-content:center;flex-wrap:nowrap}
+#lesson.q-short .qhead,#lesson.ar.q-short .qhead{padding:0}
+.quiz{gap:clamp(.5rem,1.8vh,1rem)}
+.qword b{font-size:clamp(2.1rem,min(8vw,9vh),4.5rem)}
+.qtask{font-size:clamp(1.1rem,2.6vw,1.5rem)}
+.qtxt{font-size:clamp(1.4rem,min(5.2vw,6vh),3rem)}
+.qlkw b,.qlkp.tx b{font-size:calc(var(--fs)*1.12)}
+.qxc{--cs:min(var(--q-choice),17cqw)}
+.qans .qlet,.qxchoices .qlet,.qmpad .qmn{--bs:var(--q-choice);width:var(--q-choice)!important;height:var(--q-choice)!important}
+.qans .qlet span,.qxchoices .qlet span,.qmpad .qmn span{font-size:calc(var(--q-choice)*.5)!important;line-height:1!important}
+.qans .qlet.two span{font-size:calc(var(--q-choice)*.4)!important}
+/* icons: white on the coloured page, black on white surfaces */
+.quiz .qsay,.quiz .qhead .qtsay,.quiz .qword .qsay,.vsay,.vm-say{color:var(--icon-on-color)}
+:is(.qlkw,.qlkp,.qmp.tx,.qopt,.qlet,.qxc,.qxtile,.qmcell,.qmb,.qmbn,.qcb .qbtn,#exam,.exam) :is(.qsay,.vsay){color:var(--icon-on-white)}
+#exam .qsay,#exam .vsay,.exam .qsay{color:var(--icon-on-white)}
+.qcb .qbtn:not(.on){color:var(--icon-on-white)}
+
+/* every place a word is written: ONE box per letter, each with its own dash, a clear gap between neighbours (Marwa 2026-11-01) */
+:root{--wslot-gap:.2em}
+.qgap{display:inline-block;min-width:.75em;text-align:center;margin:0 var(--wslot-gap);border-bottom:.22em solid var(--c-on-bg-line);border-radius:.05em;line-height:1.1}
+.qgap:not(.got):not(.bad){color:transparent}
+.qword.focus .qgap:not(.got):not(.bad){border-bottom-color:var(--c-now-bg);color:transparent}
+.qgap.got{border-bottom-color:var(--c-good-bg)}.qgap.bad{border-bottom-color:var(--c-bad-bg)}
+#lesson:not(.ar) .qx .qxw>.lt{margin:0 var(--wslot-gap)}
+#lesson:not(.ar) .vword>.lt{margin:0 var(--wslot-gap)}
+.qxwords .lt{margin:0!important}
+#lesson:not(.ar) .qx:not(.sent) .qxw:not(.qxwords){font-size:min(14cqh,18cqw,calc(92cqw / (var(--n,6) * 1.12)))}   /* a long word shrinks so all its boxes stay inside the screen */

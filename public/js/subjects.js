@@ -3,12 +3,14 @@
 let wig=null;
 function drawSubjects(){
   const g=$('#boxes'); g.innerHTML='';
-  COURSE.subjects.forEach(s=>{
-    const b=el('button','box '+(s.open?'open':'locked'));
-    const tag = s.open ? `${STAR(true)}${s.lessons?s.lessons.reduce((a,l)=>a+lessonStars(l.id),0):0}` : `${ICON.lock}Soon`;
-    b.innerHTML=`<span class="cube">${BOX(s)}</span><span class="name outline${s.rtl?' ar':''}">${s.name}</span><span class="tag">${tag}</span>`;
-    b.setAttribute('aria-label', s.open?s.name:s.name+', coming soon');
-    b.addEventListener('click',()=>{ if(s.open){ SUBJECT=s; needRest(()=>openMap()); }
+  COURSE.subjects.forEach(s0=>{
+    const ac=accessOf(s0,!!s0.open,'s:'+s0.id), st=ac.st, s=Object.assign({},s0,{_st:st});
+    const b=el('button','box '+st);
+    const tag = st==='open' ? `${STAR(true)}${s.lessons?s.lessons.reduce((a,l)=>a+lessonStars(l.id),0):0}` : st==='locked' ? `${ICON.lock}${COINTXT(ac.coins)}` : '';
+    b.innerHTML=`<span class="cube">${BOX(s)}</span>${tag?`<span class="tag">${tag}</span>`:''}`;
+    b.setAttribute('aria-label', st==='open'?s.name:s.name+(st==='locked'?', locked':', coming soon'));
+    b.addEventListener('click',()=>{ if(st==='open'){ SUBJECT=s0; needRest(()=>openMap()); }
+      else if(st==='locked') message(isAr()?'مقفول':'Locked', ac.coins?(isAr()?`تفتحيه بـ ${COINTXT(ac.coins)}`:`Open it with ${COINTXT(ac.coins)}!`):(isAr()?'ده هيتفتح قريبًا':'This opens later!'), `<span class="cube" style="display:block">${BOX(s)}</span>`);
       else message('Soon!', s.rtl?'مادة العربي قريباً!':COURSE.hints.soonSubject, `<span class="cube" style="display:block">${BOX(s)}</span>`); });
     g.append(b);
   });

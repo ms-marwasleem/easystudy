@@ -1,0 +1,511 @@
+{
+ "types": {
+  "link": {
+   "arabic": [
+    {
+     "lesson": "u1l1",
+     "book": "book",
+     "page": 5,
+     "ex": 1
+    }
+   ],
+   "en-ol": [
+    {
+     "lesson": "u2l1",
+     "book": "book",
+     "page": 29,
+     "ex": 5
+    }
+   ],
+   "en-al": [
+    {
+     "lesson": "u1l1",
+     "book": "lesson",
+     "page": 5,
+     "ex": "F"
+    }
+   ],
+   "math": [
+    {
+     "lesson": "u1l2",
+     "book": "book",
+     "page": 4,
+     "ex": 2
+    }
+   ]
+  },
+  "circle": {
+   "arabic": [
+    {
+     "lesson": "u1l1",
+     "book": "book",
+     "page": 5,
+     "ex": 3
+    }
+   ],
+   "en-ol": [
+    {
+     "lesson": "u1l3",
+     "book": "book",
+     "page": 19,
+     "ex": 3
+    }
+   ],
+   "en-al": [
+    {
+     "lesson": "u1l1",
+     "book": "booklet",
+     "page": 7,
+     "ex": 1
+    }
+   ]
+  },
+  "qa": {
+   "arabic": [
+    {
+     "lesson": "u1l2",
+     "book": "book",
+     "page": 6,
+     "ex": 1
+    }
+   ]
+  },
+  "position": {
+   "arabic": [
+    {
+     "lesson": "u1l3",
+     "book": "book",
+     "page": 9,
+     "ex": 6
+    }
+   ]
+  },
+  "vowel": {
+   "arabic": [
+    {
+     "lesson": "u1l3",
+     "book": "book",
+     "page": 9,
+     "ex": 7
+    }
+   ]
+  },
+  "write": {
+   "arabic": [
+    {
+     "lesson": "u1l3",
+     "book": "book",
+     "page": 9,
+     "ex": 8
+    }
+   ],
+   "math": [
+    {
+     "lesson": "u1l3",
+     "book": "book",
+     "page": 8,
+     "ex": 3
+    }
+   ]
+  },
+  "arrange": {
+   "arabic": [
+    {
+     "lesson": "u1l3",
+     "book": "book",
+     "page": 9,
+     "ex": 9
+    }
+   ]
+  },
+  "tick": {
+   "arabic": [
+    {
+     "lesson": "u2l1",
+     "book": "book",
+     "page": 42,
+     "ex": 2
+    }
+   ],
+   "en-ol": [
+    {
+     "lesson": "u1l1",
+     "book": "book",
+     "page": 11,
+     "ex": 5
+    }
+   ]
+  },
+  "choice": {
+   "arabic": [
+    {
+     "lesson": "u2l10",
+     "book": "book",
+     "page": 73,
+     "ex": 1
+    }
+   ],
+   "en-ol": [
+    {
+     "lesson": "u1l3",
+     "book": "workbook",
+     "page": 7,
+     "ex": 1
+    }
+   ],
+   "en-al": [
+    {
+     "lesson": "u1l1",
+     "book": "lesson",
+     "page": 4,
+     "ex": "B"
+    }
+   ]
+  },
+  "pick": {
+   "en-ol": [
+    {
+     "lesson": "u1l1",
+     "book": "book",
+     "page": 11,
+     "ex": 4
+    }
+   ]
+  },
+  "type": {
+   "en-ol": [
+    {
+     "lesson": "u1l1",
+     "book": "workbook",
+     "page": 3,
+     "ex": 1
+    }
+   ],
+   "en-al": [
+    {
+     "lesson": "u1l1",
+     "book": "booklet",
+     "page": 4,
+     "ex": 1
+    }
+   ]
+  },
+  "order": {
+   "en-ol": [
+    {
+     "lesson": "u1l1",
+     "book": "workbook",
+     "page": 3,
+     "ex": 2
+    }
+   ],
+   "en-al": [
+    {
+     "lesson": "u1l1",
+     "book": "booklet",
+     "page": 6,
+     "ex": 5
+    }
+   ]
+  },
+  "match": {
+   "en-ol": [
+    {
+     "lesson": "u1l2",
+     "book": "book",
+     "page": 13,
+     "ex": 4
+    }
+   ]
+  },
+  "letter": {
+   "en-ol": [
+    {
+     "lesson": "u1l2",
+     "book": "book",
+     "page": 15,
+     "ex": 7
+    }
+   ]
+  },
+  "cloze": {
+   "en-ol": [
+    {
+     "lesson": "u1l3",
+     "book": "workbook",
+     "page": 7,
+     "ex": 2
+    }
+   ],
+   "en-al": [
+    {
+     "lesson": "u1l1",
+     "book": "booklet",
+     "page": 6,
+     "ex": 4
+    }
+   ]
+  },
+  "explain": {
+   "en-al": [
+    {
+     "lesson": "u1l1",
+     "book": "lesson",
+     "page": 4,
+     "ex": "A"
+    }
+   ]
+  },
+  "mcq": {
+   "en-al": [
+    {
+     "lesson": "u1l1",
+     "book": "lesson",
+     "page": 4,
+     "ex": "C"
+    }
+   ]
+  },
+  "check": {
+   "en-al": [
+    {
+     "lesson": "u1l2",
+     "book": "lesson",
+     "page": 12,
+     "ex": "D"
+    }
+   ]
+  },
+  "count": {
+   "math": [
+    {
+     "lesson": "u1l1",
+     "book": "book",
+     "page": 2,
+     "ex": 1
+    }
+   ]
+  },
+  "bond": {
+   "math": [
+    {
+     "lesson": "u1l3",
+     "book": "book",
+     "page": 6,
+     "ex": 1
+    }
+   ]
+  },
+  "bigger": {
+   "math": [
+    {
+     "lesson": "u1l9",
+     "book": "book",
+     "page": 21,
+     "ex": 1
+    }
+   ]
+  }
+ },
+ "atoms": {
+  "mcq": {
+   "arabic": [
+    {
+     "lesson": "u1l7",
+     "exam": "t3",
+     "file": "data/arabic/exams/t3/exam.json",
+     "title": "تقييم ٣",
+     "page": 0,
+     "q": 0,
+     "n": "١"
+    }
+   ],
+   "en-ol": [
+    {
+     "lesson": "u1l4",
+     "exam": "rev1",
+     "file": "data/en-ol/exams/rev1/exam.json",
+     "title": "Test",
+     "page": 1,
+     "q": 5,
+     "n": "2"
+    }
+   ],
+   "en-al": [
+    {
+     "lesson": "u1l3",
+     "exam": "rev1",
+     "file": "data/en-al/exams/rev1/exam.json",
+     "title": "Test",
+     "page": 1,
+     "q": 2,
+     "n": "1"
+    }
+   ],
+   "math": [
+    {
+     "lesson": "u1l10",
+     "exam": "models",
+     "file": "data/math/exams/models/exam.json",
+     "title": "Test",
+     "page": 0,
+     "q": 0,
+     "n": "1"
+    }
+   ]
+  },
+  "link": {
+   "arabic": [
+    {
+     "lesson": "u1l7",
+     "exam": "t3",
+     "file": "data/arabic/exams/t3/exam.json",
+     "title": "تقييم ٣",
+     "page": 0,
+     "q": 2,
+     "n": "٣"
+    }
+   ],
+   "en-ol": [
+    {
+     "lesson": "u1l4",
+     "exam": "rev1",
+     "file": "data/en-ol/exams/rev1/exam.json",
+     "title": "Test",
+     "page": 2,
+     "q": 9,
+     "n": "2"
+    }
+   ],
+   "en-al": [
+    {
+     "lesson": "u1l3",
+     "exam": "rev1",
+     "file": "data/en-al/exams/rev1/exam.json",
+     "title": "Test",
+     "page": 2,
+     "q": 5,
+     "n": "2"
+    }
+   ],
+   "math": [
+    {
+     "lesson": "u1l10",
+     "exam": "models",
+     "file": "data/math/exams/models/exam.json",
+     "title": "Test",
+     "page": 0,
+     "q": 6,
+     "n": "2"
+    }
+   ]
+  },
+  "text": {
+   "en-ol": [
+    {
+     "lesson": "u1l4",
+     "exam": "rev1",
+     "file": "data/en-ol/exams/rev1/exam.json",
+     "title": "Test",
+     "page": 0,
+     "q": 0,
+     "n": "1"
+    }
+   ],
+   "en-al": [
+    {
+     "lesson": "u1l3",
+     "exam": "rev1",
+     "file": "data/en-al/exams/rev1/exam.json",
+     "title": "Test",
+     "page": 0,
+     "q": 0,
+     "n": "1"
+    }
+   ],
+   "math": [
+    {
+     "lesson": "u1l10",
+     "exam": "models",
+     "file": "data/math/exams/models/exam.json",
+     "title": "Test",
+     "page": 1,
+     "q": 16,
+     "n": "2"
+    }
+   ]
+  },
+  "order": {
+   "en-ol": [
+    {
+     "lesson": "u1l4",
+     "exam": "rev1",
+     "file": "data/en-ol/exams/rev1/exam.json",
+     "title": "Test",
+     "page": 0,
+     "q": 3,
+     "n": "4"
+    }
+   ],
+   "en-al": [
+    {
+     "lesson": "u1l3",
+     "exam": "rev1",
+     "file": "data/en-al/exams/rev1/exam.json",
+     "title": "Test",
+     "page": 2,
+     "q": 7,
+     "n": "4"
+    }
+   ]
+  },
+  "bond": {
+   "math": [
+    {
+     "lesson": "u1l10",
+     "exam": "models",
+     "file": "data/math/exams/models/exam.json",
+     "title": "Test",
+     "page": 0,
+     "q": 5,
+     "n": "1"
+    }
+   ]
+  },
+  "fill": {
+   "math": [
+    {
+     "lesson": "u1l10",
+     "exam": "models",
+     "file": "data/math/exams/models/exam.json",
+     "title": "Test",
+     "page": 3,
+     "q": 35,
+     "n": "1"
+    }
+   ]
+  }
+ },
+ "subjects": [
+  {
+   "id": "arabic",
+   "name": "عربي",
+   "rtl": true
+  },
+  {
+   "id": "en-ol",
+   "name": "English OL",
+   "rtl": false
+  },
+  {
+   "id": "en-al",
+   "name": "English AL",
+   "rtl": false
+  },
+  {
+   "id": "math",
+   "name": "Math",
+   "rtl": false
+  }
+ ]
+}

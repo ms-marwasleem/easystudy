@@ -1,7 +1,6 @@
 /* ---------- Arabic subject (#lesson.ar, set in lesson.js) ----------
    Text runs right to left in a naskh font (shows the vowel marks well). Letters of a word are plain inline text,
    so they join the way Arabic is written (no boxes per letter: a box would cut the connection). */
-:root{--f-ar:'Noto Naskh Arabic','Baloo Bhaijaan 2','Geeza Pro',serif}
 .ar-t,#lesson.ar .txt,#lesson.ar .qtask,#lesson.ar .qword b,#lesson.ar .vword,#lesson.ar .task,#lesson.ar .qopt,#lesson.ar .qlk b,#lesson.ar .qcw b{font-family:var(--f-ar)}
 #lesson.ar .tabs .tab,#lesson.ar .dash>span,#lesson.ar .slot .lbl,#lesson.ar .vstatus,#lesson.ar .sign h1,#lesson.ar .sign small,#lesson.ar .qhead,#lesson.ar .qsb span{font-family:var(--f-ui)}
 #lesson.ar .sign h1{font-weight:800}
@@ -12,7 +11,7 @@
 #lesson.ar .line{align-items:start}
 #lesson.ar .txt{line-height:1.95;font-weight:700}
 #lesson.ar .w{padding:0 .12em}
-.who.say{display:grid;place-items:center;width:2.125rem;height:2.125rem;margin-top:.35em;color:#2A7FD8;min-width:0;padding:0}
+.who.say{display:grid;place-items:center;width:2.125rem;height:2.125rem;margin-top:.35em;color:var(--c-accent);min-width:0;padding:0}
 .who.say svg{width:1.75rem;height:1.75rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .who.say:active{transform:scale(.9)}
 
@@ -46,3 +45,7 @@
    reads right to left and starts at the right edge of its box (core.js subjDir sets dir=ltr + class .ar). Text blocks are listed here, once. */
 .ar :is(.txt,.task,.qtask,.qopt,.qtxt,.vword,.vstatus,.vm-t,.sign small,.sign h1,#lessonTitle,.jt,.ubox b,.xpage,.qlk b,.qcw b,.qlkw,.qlkp.tx,.qmp.tx,.note){direction:rtl}
 .ar :is(.txt,.task,.qtask,.qtxt,.xpage,.note){text-align:right}
+
+/* ARABIC LETTER ROWS (Marwa 2026-11-01): letters of an Arabic word, letter choices and tiles flow right to left; the question number sits at the START (right) of the question line. English stays LTR (rule scoped to .ar). */
+.ar :is(.qxw,.qxwords,.qxline,.qxchoices,.qxtiles,.qxchips,.qans,.qword b){direction:rtl}
+#lesson.ar .qhead .qex{order:3}
