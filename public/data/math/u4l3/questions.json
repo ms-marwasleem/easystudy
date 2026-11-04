@@ -1,0 +1,185 @@
+{
+  "sets": [
+    {
+      "type": "mcq",
+      "ex": 1,
+      "page": 49,
+      "task": "Let's do subtraction.",
+      "taskAudio": "q/task-1.mp3",
+      "items": [
+        {
+          "stem": "3 − 0 = ___",
+          "options": [
+            "2",
+            "3",
+            "4"
+          ],
+          "answer": 1,
+          "askAudio": "q/sum-1-q.mp3",
+          "audio": "q/sum-1.mp3",
+          "word": "3 − 0 = 3"
+        },
+        {
+          "stem": "5 − 0 = ___",
+          "options": [
+            "4",
+            "5",
+            "6"
+          ],
+          "answer": 1,
+          "askAudio": "q/sum-2-q.mp3",
+          "audio": "q/sum-2.mp3",
+          "word": "5 − 0 = 5"
+        },
+        {
+          "stem": "8 − 2 = ___",
+          "options": [
+            "5",
+            "6",
+            "7"
+          ],
+          "answer": 1,
+          "askAudio": "q/sum-3-q.mp3",
+          "audio": "q/sum-3.mp3",
+          "word": "8 − 2 = 6"
+        },
+        {
+          "stem": "6 − 6 = ___",
+          "options": [
+            "0",
+            "1",
+            "2"
+          ],
+          "answer": 0,
+          "askAudio": "q/sum-4-q.mp3",
+          "audio": "q/sum-4.mp3",
+          "word": "6 − 6 = 0"
+        },
+        {
+          "stem": "3 − 3 = ___",
+          "options": [
+            "0",
+            "1",
+            "2"
+          ],
+          "answer": 0,
+          "askAudio": "q/sum-5-q.mp3",
+          "audio": "q/sum-5.mp3",
+          "word": "3 − 3 = 0"
+        },
+        {
+          "stem": "4 − 3 = ___",
+          "options": [
+            "0",
+            "1",
+            "2"
+          ],
+          "answer": 1,
+          "askAudio": "q/sum-6-q.mp3",
+          "audio": "q/sum-6.mp3",
+          "word": "4 − 3 = 1"
+        }
+      ]
+    },
+    {
+      "type": "mwrite",
+      "ex": 2,
+      "page": 49,
+      "task": "Write the subtraction sentence and the answer.",
+      "taskAudio": "q/task-2.mp3",
+      "items": [
+        {
+          "pics": [
+            "story-2.png"
+          ],
+          "ask": "There are 5 apples. You didn't eat any. How many apples are left?",
+          "lead": "Subtraction sentence:",
+          "word": "5 − 0 = 5",
+          "keys": "1234567890+−=",
+          "askSay": "There are five apples. You didn't eat any. How many apples are left? Write the subtraction sentence.",
+          "askAudio": "q/p1-s-q.mp3",
+          "audio": "q/p1-s.mp3",
+          "picsTall": [
+            "story-2-tall.png"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "mcq",
+      "ex": 2,
+      "page": 49,
+      "task": "Write the subtraction sentence and the answer.",
+      "taskAudio": "q/task-2.mp3",
+      "items": [
+        {
+          "pics": [
+            "story-2.png"
+          ],
+          "ask": "How many apples are left?",
+          "stem": "Answer: ___",
+          "options": [
+            "0 apples",
+            "5 apples",
+            "5"
+          ],
+          "answer": 1,
+          "askSay": "How many apples are left? What is the answer?",
+          "askAudio": "q/p1-a-q.mp3",
+          "audio": "q/p1-a.mp3",
+          "word": "Answer: 5 apples",
+          "picsTall": [
+            "story-2-tall.png"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "mwrite",
+      "ex": 2,
+      "page": 49,
+      "task": "Write the subtraction sentence and the answer.",
+      "taskAudio": "q/task-2.mp3",
+      "items": [
+        {
+          "pics": [
+            "story-3.png"
+          ],
+          "ask": "There are 2 pieces of cake. You ate all 2. How many are left?",
+          "lead": "Subtraction sentence:",
+          "word": "2 − 2 = 0",
+          "keys": "1234567890+−=",
+          "askSay": "There are two pieces of cake. You ate all two. How many are left? Write the subtraction sentence.",
+          "askAudio": "q/p2-s-q.mp3",
+          "audio": "q/p2-s.mp3"
+        }
+      ]
+    },
+    {
+      "type": "mcq",
+      "ex": 2,
+      "page": 49,
+      "task": "Write the subtraction sentence and the answer.",
+      "taskAudio": "q/task-2.mp3",
+      "items": [
+        {
+          "pics": [
+            "story-3.png"
+          ],
+          "ask": "How many are left?",
+          "stem": "Answer: ___",
+          "options": [
+            "0 pieces",
+            "0",
+            "2 pieces"
+          ],
+          "answer": 0,
+          "askSay": "How many are left? What is the answer?",
+          "askAudio": "q/p2-a-q.mp3",
+          "audio": "q/p2-a.mp3",
+          "word": "Answer: 0 pieces"
+        }
+      ]
+    }
+  ]
+}

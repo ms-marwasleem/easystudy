@@ -1,0 +1,49 @@
+{
+ "sets": [
+  {
+   "type": "count",
+   "ex": 1,
+   "page": 11,
+   "task": "Write the number.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "img": "../../pics/ants-7.png",
+     "n": 7,
+     "group": true,
+     "audio": "words/seven.mp3"
+    },
+    {
+     "img": "../../pics/flowers-6.png",
+     "n": 6,
+     "group": true,
+     "audio": "words/six.mp3"
+    },
+    {
+     "img": "../../pics/caps-10.png",
+     "n": 10,
+     "group": true,
+     "audio": "words/ten.mp3"
+    },
+    {
+     "img": "../../pics/burgers-8.png",
+     "n": 8,
+     "group": true,
+     "audio": "words/eight.mp3"
+    },
+    {
+     "img": "../../pics/cats-6.png",
+     "n": 6,
+     "group": true,
+     "audio": "words/six.mp3"
+    },
+    {
+     "img": "../../pics/frogs-9.png",
+     "n": 9,
+     "group": true,
+     "audio": "words/nine.mp3"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,568 @@
+{
+ "title": "Math",
+ "units": [
+  {
+   "unit": 1
+  },
+  {
+   "unit": 2
+  },
+  {
+   "unit": 3
+  },
+  {
+   "unit": 4
+  },
+  {
+   "unit": 5
+  },
+  {
+   "unit": 6
+  },
+  {
+   "unit": 7
+  },
+  {
+   "unit": 8
+  },
+  {
+   "unit": 9
+  }
+ ],
+ "lessons": [
+  {
+   "unit": 1,
+   "lesson": 1,
+   "folder": "u1l1",
+   "title": "How many?",
+   "pages": {
+    "quiz": [
+     2
+    ]
+   },
+   "tabs": [
+    "quiz"
+   ]
+  },
+  {
+   "unit": 1,
+   "lesson": "2-3",
+   "folder": "u1l2",
+   "title": "Numbers 1 to 5",
+   "pages": {
+    "read": [
+     3
+    ],
+    "quiz": [
+     3,
+     4,
+     5
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ],
+   "tools": [
+    {
+     "id": "make-numbers",
+     "label": "Tool",
+     "title": "Make numbers",
+     "map": "make number"
+    }
+   ]
+  },
+  {
+   "unit": 1,
+   "lesson": 4,
+   "folder": "u1l3",
+   "title": "What makes 5?",
+   "pages": {
+    "read": [
+     6
+    ],
+    "quiz": [
+     6,
+     8,
+     9,
+     10
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ],
+   "tool": "make-numbers",
+   "toolN": 5
+  },
+  {
+   "unit": 1,
+   "lesson": 5,
+   "folder": "u1l4",
+   "title": "Numbers 6 to 10",
+   "pages": {
+    "read": [
+     11
+    ],
+    "quiz": [
+     11
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ]
+  },
+  {
+   "unit": 1,
+   "lesson": 6,
+   "folder": "u1l4b",
+   "title": "Let's count from 6 to 10",
+   "pages": {
+    "quiz": [
+     12
+    ]
+   },
+   "tabs": [
+    "quiz"
+   ]
+  },
+  {
+   "unit": 1,
+   "lesson": 7,
+   "folder": "u1l5",
+   "title": "What makes 6?",
+   "pages": {
+    "read": [
+     13
+    ],
+    "quiz": [
+     13,
+     14,
+     15
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ],
+   "tool": "make-numbers",
+   "toolN": 6
+  },
+  {
+   "unit": 1,
+   "lesson": 8,
+   "folder": "u1l5b",
+   "title": "What makes 7?",
+   "pages": {
+    "read": [
+     16
+    ],
+    "quiz": [
+     16
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ],
+   "tool": "make-numbers",
+   "toolN": 7
+  },
+  {
+   "unit": 1,
+   "lesson": 9,
+   "folder": "u1l6",
+   "title": "What makes 8?",
+   "pages": {
+    "read": [
+     17
+    ],
+    "quiz": [
+     17
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ],
+   "tool": "make-numbers",
+   "toolN": 8
+  },
+  {
+   "unit": 1,
+   "lesson": 10,
+   "folder": "u1l7",
+   "title": "What makes 9?",
+   "pages": {
+    "read": [
+     18
+    ],
+    "quiz": [
+     18
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ],
+   "tool": "make-numbers",
+   "toolN": 9
+  },
+  {
+   "unit": 1,
+   "lesson": 11,
+   "folder": "u1l8",
+   "title": "What makes 10?",
+   "pages": {
+    "read": [
+     19
+    ],
+    "quiz": [
+     19
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ],
+   "tool": "make-numbers",
+   "toolN": 10
+  },
+  {
+   "unit": 1,
+   "lesson": 12,
+   "folder": "u1l9",
+   "title": "Compare numbers",
+   "pages": {
+    "read": [
+     20
+    ],
+    "quiz": [
+     21
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ]
+  },
+  {
+   "unit": 1,
+   "lesson": 13,
+   "folder": "u1l10",
+   "title": "The number zero",
+   "pages": {
+    "read": [
+     21
+    ],
+    "quiz": [
+     22
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ],
+   "exams": [
+    {
+     "id": "model1",
+     "title": "Test",
+     "label": "Model 1",
+     "file": "data/math/exams/models/exam.json",
+     "only": [
+      0
+     ]
+    },
+    {
+     "id": "model2",
+     "title": "Test",
+     "label": "Model 2",
+     "file": "data/math/exams/models/exam.json",
+     "only": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "unit": 2,
+   "lesson": 1,
+   "folder": "u2l1",
+   "planned": "What's the Position?"
+  },
+  {
+   "unit": 2,
+   "lesson": 2,
+   "folder": "u2l2",
+   "planned": "Where Is It?"
+  },
+  {
+   "unit": 3,
+   "lesson": 1,
+   "folder": "u3l1",
+   "title": "Addition (Part 1)",
+   "pages": {
+    "read": [
+     36,
+     37
+    ],
+    "quiz": [
+     37
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ]
+  },
+  {
+   "unit": 3,
+   "lesson": 2,
+   "folder": "u3l2",
+   "title": "Addition (Part 2)",
+   "pages": {
+    "read": [
+     38,
+     39
+    ],
+    "quiz": [
+     39
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ]
+  },
+  {
+   "unit": 3,
+   "lesson": 3,
+   "folder": "u3l3",
+   "title": "Addition with Zero",
+   "pages": {
+    "read": [
+     40,
+     41
+    ],
+    "quiz": [
+     41
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ]
+  },
+  {
+   "unit": 3,
+   "lesson": 4,
+   "folder": "u3l4",
+   "title": "Making Addition Stories",
+   "pages": {
+    "read": [
+     42,
+     43
+    ],
+    "quiz": [
+     43
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ]
+  },
+  {
+   "unit": 4,
+   "lesson": 1,
+   "folder": "u4l1",
+   "title": "Subtraction (Part 1)",
+   "pages": {
+    "read": [
+     44,
+     45
+    ],
+    "quiz": [
+     45
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ]
+  },
+  {
+   "unit": 4,
+   "lesson": 2,
+   "folder": "u4l2",
+   "title": "Subtraction (Part 2)",
+   "pages": {
+    "read": [
+     46,
+     47
+    ],
+    "quiz": [
+     47
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ]
+  },
+  {
+   "unit": 4,
+   "lesson": 3,
+   "folder": "u4l3",
+   "title": "Subtraction with Zero",
+   "pages": {
+    "read": [
+     48,
+     49
+    ],
+    "quiz": [
+     49
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ]
+  },
+  {
+   "unit": 4,
+   "lesson": 4,
+   "folder": "u4l4",
+   "title": "What Is the Difference?",
+   "pages": {
+    "read": [
+     50,
+     51
+    ],
+    "quiz": [
+     51
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ]
+  },
+  {
+   "unit": 4,
+   "lesson": 5,
+   "folder": "u4l5",
+   "title": "Making Subtraction Stories",
+   "pages": {
+    "read": [
+     52,
+     53
+    ],
+    "quiz": [
+     53
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ]
+  },
+  {
+   "unit": 5,
+   "lesson": 1,
+   "folder": "u5l1",
+   "planned": "Which One Is Longer?"
+  },
+  {
+   "unit": 5,
+   "lesson": 2,
+   "folder": "u5l2",
+   "planned": "How Can We Measure?"
+  },
+  {
+   "unit": 5,
+   "lesson": 3,
+   "folder": "u5l3",
+   "planned": "Let's Compare Lengths"
+  },
+  {
+   "unit": 6,
+   "lesson": 1,
+   "folder": "u6l1",
+   "planned": "Representing Data with Pictures"
+  },
+  {
+   "unit": 6,
+   "lesson": 2,
+   "folder": "u6l2",
+   "planned": "What We Learn from Results"
+  },
+  {
+   "unit": 6,
+   "lesson": 3,
+   "folder": "u6l3",
+   "planned": "Let's Compare Results"
+  },
+  {
+   "unit": 7,
+   "lesson": 1,
+   "folder": "u7l1",
+   "planned": "Numbers up to 20"
+  },
+  {
+   "unit": 7,
+   "lesson": 2,
+   "folder": "u7l2",
+   "planned": "Ten and Some Number (from 1 to 10)"
+  },
+  {
+   "unit": 7,
+   "lesson": 3,
+   "folder": "u7l3",
+   "planned": "Number Line"
+  },
+  {
+   "unit": 7,
+   "lesson": 4,
+   "folder": "u7l4",
+   "planned": "Adding and Subtracting Numbers (Part 1)"
+  },
+  {
+   "unit": 7,
+   "lesson": 5,
+   "folder": "u7l5",
+   "planned": "Adding and Subtracting Numbers (Part 2)"
+  },
+  {
+   "unit": 7,
+   "lesson": 6,
+   "folder": "u7l6",
+   "planned": "Numbers Greater than 20"
+  },
+  {
+   "unit": 8,
+   "lesson": 1,
+   "folder": "u8l1",
+   "planned": "Telling Time on a Clock"
+  },
+  {
+   "unit": 9,
+   "lesson": 1,
+   "folder": "u9l1",
+   "planned": "Adding Three Numbers"
+  },
+  {
+   "unit": 9,
+   "lesson": 2,
+   "folder": "u9l2",
+   "planned": "Subtracting Three Numbers"
+  },
+  {
+   "unit": 9,
+   "lesson": 3,
+   "folder": "u9l3",
+   "planned": "Calculating with Three Numbers"
+  }
+ ]
+}

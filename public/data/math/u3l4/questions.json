@@ -1,0 +1,122 @@
+{
+  "sets": [
+    {
+      "type": "order",
+      "page": 43,
+      "grp": "ex-1",
+      "task": "Let's make a story for 2 + 1 = 3.",
+      "taskAudio": "q/task-ex.mp3",
+      "items": [
+        {
+          "img": "story-5.jpg",
+          "chunks": [
+            "There",
+            "are",
+            "2",
+            "red",
+            "bikes",
+            "and",
+            "1",
+            "blue",
+            "bike.",
+            "How",
+            "many",
+            "bikes",
+            "are",
+            "there?"
+          ],
+          "word": "There are 2 red bikes and 1 blue bike. How many bikes are there?",
+          "audio": "q/story-5.mp3"
+        }
+      ]
+    },
+    {
+      "type": "order",
+      "page": 43,
+      "grp": "ex-2",
+      "task": "Let's make a story for 2 + 1 = 3.",
+      "taskAudio": "q/task-ex.mp3",
+      "items": [
+        {
+          "img": "story-6.jpg",
+          "chunks": [
+            "There",
+            "are",
+            "2",
+            "black",
+            "cats",
+            "and",
+            "1",
+            "white",
+            "cat.",
+            "How",
+            "many",
+            "cats",
+            "are",
+            "there?"
+          ],
+          "word": "There are 2 black cats and 1 white cat. How many cats are there?",
+          "audio": "q/story-6.mp3"
+        }
+      ]
+    },
+    {
+      "type": "order",
+      "page": 43,
+      "grp": "ex-3",
+      "task": "Let's make a story for 2 + 1 = 3.",
+      "taskAudio": "q/task-ex.mp3",
+      "items": [
+        {
+          "img": "story-7.jpg",
+          "chunks": [
+            "There",
+            "are",
+            "2",
+            "blue",
+            "birds",
+            "and",
+            "1",
+            "orange",
+            "bird.",
+            "How",
+            "many",
+            "birds",
+            "are",
+            "there?"
+          ],
+          "word": "There are 2 blue birds and 1 orange bird. How many birds are there?",
+          "audio": "q/story-7.mp3"
+        }
+      ]
+    },
+    {
+      "type": "order",
+      "page": 43,
+      "grp": "ex-4",
+      "task": "Let's make a story for 2 + 1 = 3.",
+      "taskAudio": "q/task-ex.mp3",
+      "items": [
+        {
+          "img": "story-8.jpg",
+          "chunks": [
+            "There",
+            "are",
+            "2",
+            "children",
+            "and",
+            "1",
+            "mother.",
+            "How",
+            "many",
+            "people",
+            "are",
+            "there?"
+          ],
+          "word": "There are 2 children and 1 mother. How many people are there?",
+          "audio": "q/story-8.mp3"
+        }
+      ]
+    }
+  ]
+}

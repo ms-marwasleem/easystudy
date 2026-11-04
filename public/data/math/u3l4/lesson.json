@@ -1,0 +1,1695 @@
+{
+ "id": "u3l4",
+ "unit": 3,
+ "lesson": 4,
+ "title": "Making Addition Stories",
+ "task": "Making Addition Stories",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz"
+ ],
+ "tabLabels": {
+  "read": "Lesson",
+  "quiz": "Exercise"
+ },
+ "pages": 8,
+ "explain": {
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3"
+  },
+  "steps": [
+   {
+    "name": "2 + 3 = 5",
+    "beats": [
+     {
+      "say": "Let's make a story.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "scene.jpg",
+        "w": 1022,
+        "h": 809
+       },
+       {
+        "eq": [
+         "2",
+         "+",
+         "3",
+         "=",
+         "5"
+        ],
+        "state": "show"
+       }
+      ],
+      "audio": "explain/s1-1.mp3"
+     },
+     {
+      "say": "Two, plus three, equals five.",
+      "do": [
+       {
+        "pulse": 0
+       },
+       {
+        "pulse": 1
+       },
+       {
+        "pulse": 2
+       },
+       {
+        "pulse": 3
+       },
+       {
+        "pulse": 4
+       }
+      ],
+      "audio": "explain/s1-2.mp3"
+     },
+     {
+      "say": "Look at the picture.",
+      "do": [
+       {
+        "eqState": "dim"
+       }
+      ],
+      "audio": "explain/s1-3.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Fish",
+    "beats": [
+     {
+      "say": "Look at the fish.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "scene.jpg",
+        "w": 1022,
+        "h": 809
+       },
+       {
+        "eq": [
+         "2",
+         "+",
+         "3",
+         "=",
+         "5"
+        ],
+        "state": "dim"
+       }
+      ],
+      "audio": "explain/s2-1.mp3"
+     },
+     {
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          200,
+          705
+         ],
+         [
+          345,
+          758
+         ]
+        ],
+        "r": 38,
+        "color": "black",
+        "id": "g1"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          200,
+          705
+         ],
+         [
+          345,
+          758
+         ]
+        ],
+        "color": "black"
+       }
+      ]
+     },
+     {
+      "say": "There are two black fish.",
+      "do": [
+       {
+        "add": "There are"
+       },
+       {
+        "add": "2 black fish",
+        "color": "black"
+       },
+       {
+        "fly": "2",
+        "from": "g1",
+        "to": 0,
+        "color": "black"
+       }
+      ],
+      "audio": "explain/s2-2.mp3"
+     },
+     {
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          85,
+          718
+         ],
+         [
+          295,
+          710
+         ],
+         [
+          150,
+          765
+         ]
+        ],
+        "r": 38,
+        "color": "red",
+        "id": "g2"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          85,
+          718
+         ],
+         [
+          295,
+          710
+         ],
+         [
+          150,
+          765
+         ]
+        ],
+        "color": "red"
+       }
+      ]
+     },
+     {
+      "say": "And three red fish.",
+      "do": [
+       {
+        "add": "and"
+       },
+       {
+        "add": "3 red fish.",
+        "color": "red"
+       },
+       {
+        "fly": "3",
+        "from": "g2",
+        "to": 2,
+        "color": "red"
+       },
+       {
+        "pulse": 1
+       }
+      ],
+      "audio": "explain/s2-3.mp3"
+     },
+     {
+      "say": "How many fish are there?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "How many fish are there?"
+       },
+       {
+        "pulse": 3
+       }
+      ],
+      "audio": "explain/s2-4.mp3"
+     },
+     {
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          200,
+          705
+         ],
+         [
+          345,
+          758
+         ],
+         [
+          85,
+          718
+         ],
+         [
+          295,
+          710
+         ],
+         [
+          150,
+          765
+         ]
+        ],
+        "color": "green"
+       },
+       {
+        "lit": 4,
+        "color": "green",
+        "value": "5"
+       }
+      ]
+     },
+     {
+      "say": "There are two black fish, and three red fish. How many fish are there?",
+      "do": [],
+      "audio": "explain/s2-5.mp3",
+      "hl": [
+       [
+        0,
+        0.35
+       ],
+       [
+        0.35,
+        0.6
+       ],
+       [
+        0.6,
+        0.84
+       ],
+       [
+        0.84,
+        1.2
+       ],
+       [
+        1.2,
+        1.5
+       ],
+       [
+        1.9,
+        2.2
+       ],
+       [
+        2.2,
+        2.64
+       ],
+       [
+        2.64,
+        2.94
+       ],
+       [
+        2.94,
+        3.31
+       ],
+       [
+        4.16,
+        4.42
+       ],
+       [
+        4.42,
+        4.72
+       ],
+       [
+        4.72,
+        5.03
+       ],
+       [
+        5.03,
+        5.28
+       ],
+       [
+        5.28,
+        5.64
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Birds",
+    "beats": [
+     {
+      "say": "Look at the birds.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "scene.jpg",
+        "w": 1022,
+        "h": 809
+       },
+       {
+        "eq": [
+         "2",
+         "+",
+         "3",
+         "=",
+         "5"
+        ],
+        "state": "dim"
+       }
+      ],
+      "audio": "explain/s3-1.mp3"
+     },
+     {
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          870,
+          100
+         ],
+         [
+          963,
+          75
+         ]
+        ],
+        "r": 42,
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          870,
+          100
+         ],
+         [
+          963,
+          75
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "There are two orange birds.",
+      "do": [
+       {
+        "add": "There are"
+       },
+       {
+        "add": "2 orange birds",
+        "color": "orange"
+       },
+       {
+        "fly": "2",
+        "from": "g1",
+        "to": 0,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/s3-2.mp3"
+     },
+     {
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          680,
+          58
+         ],
+         [
+          790,
+          52
+         ],
+         [
+          725,
+          127
+         ]
+        ],
+        "r": 42,
+        "color": "blue",
+        "id": "g2"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          680,
+          58
+         ],
+         [
+          790,
+          52
+         ],
+         [
+          725,
+          127
+         ]
+        ],
+        "color": "blue"
+       }
+      ]
+     },
+     {
+      "say": "And three blue birds.",
+      "do": [
+       {
+        "add": "and"
+       },
+       {
+        "add": "3 blue birds.",
+        "color": "blue"
+       },
+       {
+        "fly": "3",
+        "from": "g2",
+        "to": 2,
+        "color": "blue"
+       },
+       {
+        "pulse": 1
+       }
+      ],
+      "audio": "explain/s3-3.mp3"
+     },
+     {
+      "say": "How many birds are there?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "How many birds are there?"
+       },
+       {
+        "pulse": 3
+       }
+      ],
+      "audio": "explain/s3-4.mp3"
+     },
+     {
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          870,
+          100
+         ],
+         [
+          963,
+          75
+         ],
+         [
+          680,
+          58
+         ],
+         [
+          790,
+          52
+         ],
+         [
+          725,
+          127
+         ]
+        ],
+        "color": "green"
+       },
+       {
+        "lit": 4,
+        "color": "green",
+        "value": "5"
+       }
+      ]
+     },
+     {
+      "say": "There are two orange birds, and three blue birds. How many birds are there?",
+      "do": [],
+      "audio": "explain/s3-5.mp3",
+      "hl": [
+       [
+        0,
+        0.41
+       ],
+       [
+        0.41,
+        0.69
+       ],
+       [
+        0.69,
+        0.97
+       ],
+       [
+        0.97,
+        1.45
+       ],
+       [
+        1.45,
+        1.86
+       ],
+       [
+        2.26,
+        2.56
+       ],
+       [
+        2.56,
+        3.01
+       ],
+       [
+        3.01,
+        3.38
+       ],
+       [
+        3.38,
+        3.83
+       ],
+       [
+        4.68,
+        4.93
+       ],
+       [
+        4.93,
+        5.23
+       ],
+       [
+        5.23,
+        5.59
+       ],
+       [
+        5.59,
+        5.84
+       ],
+       [
+        5.84,
+        6.19
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "name": "People",
+    "beats": [
+     {
+      "say": "Look at the people.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "scene.jpg",
+        "w": 1022,
+        "h": 809
+       },
+       {
+        "eq": [
+         "2",
+         "+",
+         "3",
+         "=",
+         "5"
+        ],
+        "state": "dim"
+       }
+      ],
+      "audio": "explain/s4-1.mp3"
+     },
+     {
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          395,
+          330
+         ],
+         [
+          520,
+          320
+         ]
+        ],
+        "r": 95,
+        "color": "#8A5CC9",
+        "id": "g1"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          395,
+          330
+         ],
+         [
+          520,
+          320
+         ]
+        ],
+        "color": "#8A5CC9"
+       }
+      ]
+     },
+     {
+      "say": "There are two grown-ups.",
+      "do": [
+       {
+        "add": "There are"
+       },
+       {
+        "add": "2 grown-ups",
+        "color": "#8A5CC9"
+       },
+       {
+        "fly": "2",
+        "from": "g1",
+        "to": 0,
+        "color": "#8A5CC9"
+       }
+      ],
+      "audio": "explain/s4-2.mp3"
+     },
+     {
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          625,
+          630
+         ],
+         [
+          780,
+          600
+         ],
+         [
+          915,
+          640
+         ]
+        ],
+        "r": 95,
+        "color": "blue",
+        "id": "g2"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          625,
+          630
+         ],
+         [
+          780,
+          600
+         ],
+         [
+          915,
+          640
+         ]
+        ],
+        "color": "blue"
+       }
+      ]
+     },
+     {
+      "say": "And three children.",
+      "do": [
+       {
+        "add": "and"
+       },
+       {
+        "add": "3 children.",
+        "color": "blue"
+       },
+       {
+        "fly": "3",
+        "from": "g2",
+        "to": 2,
+        "color": "blue"
+       },
+       {
+        "pulse": 1
+       }
+      ],
+      "audio": "explain/s4-3.mp3"
+     },
+     {
+      "say": "How many people are there?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "How many people are there?"
+       },
+       {
+        "pulse": 3
+       }
+      ],
+      "audio": "explain/s4-4.mp3"
+     },
+     {
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          395,
+          330
+         ],
+         [
+          520,
+          320
+         ],
+         [
+          625,
+          630
+         ],
+         [
+          780,
+          600
+         ],
+         [
+          915,
+          640
+         ]
+        ],
+        "color": "green"
+       },
+       {
+        "lit": 4,
+        "color": "green",
+        "value": "5"
+       }
+      ]
+     },
+     {
+      "say": "There are two grown-ups, and three children. How many people are there?",
+      "do": [],
+      "audio": "explain/s4-5.mp3",
+      "hl": [
+       [
+        0,
+        0.39
+       ],
+       [
+        0.39,
+        0.67
+       ],
+       [
+        0.67,
+        0.94
+       ],
+       [
+        0.94,
+        1.52
+       ],
+       [
+        1.92,
+        2.21
+       ],
+       [
+        2.21,
+        2.62
+       ],
+       [
+        2.62,
+        3.23
+       ],
+       [
+        4.08,
+        4.32
+       ],
+       [
+        4.32,
+        4.61
+       ],
+       [
+        4.61,
+        5.0
+       ],
+       [
+        5.0,
+        5.24
+       ],
+       [
+        5.24,
+        5.58
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Try: rabbits",
+    "beats": [
+     {
+      "say": "Try! Let's make a story for four, plus one, equals five.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-0.jpg",
+        "w": 731,
+        "h": 620
+       },
+       {
+        "eq": [
+         "4",
+         "+",
+         "1",
+         "=",
+         "5"
+        ],
+        "state": "show"
+       }
+      ],
+      "audio": "explain/s5-1.mp3"
+     },
+     {
+      "say": "Look at the rabbits.",
+      "do": [],
+      "audio": "explain/s5-2.mp3"
+     },
+     {
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          60,
+          310
+         ],
+         [
+          135,
+          290
+         ],
+         [
+          100,
+          430
+         ],
+         [
+          75,
+          545
+         ]
+        ],
+        "r": 50,
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          60,
+          310
+         ],
+         [
+          135,
+          290
+         ],
+         [
+          100,
+          430
+         ],
+         [
+          75,
+          545
+         ]
+        ],
+        "color": "orange"
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          192,
+          538
+         ]
+        ],
+        "r": 50,
+        "color": "blue",
+        "id": "g2"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          192,
+          538
+         ]
+        ],
+        "color": "blue"
+       }
+      ]
+     },
+     {
+      "say": "Put the words in order.",
+      "do": [
+       {
+        "order": {
+         "chunks": [
+          "There are",
+          "4 white rabbits",
+          "and",
+          "1 brown rabbit.",
+          "How many rabbits are there?"
+         ],
+         "colors": [
+          null,
+          "orange",
+          null,
+          "blue",
+          null
+         ],
+         "audios": [
+          "../../en-shared/q/there-are.mp3",
+          "../../en-shared/q/4-white-rabbits.mp3",
+          "../../en-shared/q/and.mp3",
+          "../../en-shared/q/1-brown-rabbit.mp3",
+          "../../en-shared/q/how-many-rabbits-are-there.mp3"
+         ]
+        }
+       }
+      ],
+      "audio": "explain/s5-3.mp3"
+     },
+     {
+      "say": "There are four white rabbits, and one brown rabbit. How many rabbits are there?",
+      "do": [
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s5-4.mp3",
+      "hl": [
+       [
+        0,
+        0.36
+       ],
+       [
+        0.36,
+        0.6
+       ],
+       [
+        0.6,
+        0.91
+       ],
+       [
+        0.91,
+        1.26
+       ],
+       [
+        1.26,
+        1.73
+       ],
+       [
+        2.13,
+        2.43
+       ],
+       [
+        2.43,
+        2.73
+       ],
+       [
+        2.73,
+        3.17
+       ],
+       [
+        3.17,
+        3.67
+       ],
+       [
+        4.52,
+        4.76
+       ],
+       [
+        4.76,
+        5.07
+       ],
+       [
+        5.07,
+        5.54
+       ],
+       [
+        5.54,
+        5.78
+       ],
+       [
+        5.78,
+        6.14
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Try: birds",
+    "beats": [
+     {
+      "say": "Look at the birds.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-0.jpg",
+        "w": 731,
+        "h": 620
+       },
+       {
+        "eq": [
+         "4",
+         "+",
+         "1",
+         "=",
+         "5"
+        ],
+        "state": "show"
+       }
+      ],
+      "audio": "explain/s6-1.mp3"
+     },
+     {
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          90,
+          158
+         ],
+         [
+          148,
+          158
+         ],
+         [
+          205,
+          158
+         ],
+         [
+          258,
+          158
+         ]
+        ],
+        "r": 32,
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          90,
+          158
+         ],
+         [
+          148,
+          158
+         ],
+         [
+          205,
+          158
+         ],
+         [
+          258,
+          158
+         ]
+        ],
+        "color": "orange"
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          296,
+          72
+         ]
+        ],
+        "r": 32,
+        "color": "blue",
+        "id": "g2"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          296,
+          72
+         ]
+        ],
+        "color": "blue"
+       }
+      ]
+     },
+     {
+      "say": "Put the words in order.",
+      "do": [
+       {
+        "order": {
+         "chunks": [
+          "There are",
+          "4 birds sitting",
+          "and",
+          "1 bird flying.",
+          "How many birds are there?"
+         ],
+         "colors": [
+          null,
+          "orange",
+          null,
+          "blue",
+          null
+         ],
+         "audios": [
+          "../../en-shared/q/there-are.mp3",
+          "../../en-shared/q/4-birds-sitting.mp3",
+          "../../en-shared/q/and.mp3",
+          "../../en-shared/q/1-bird-flying.mp3",
+          "../../en-shared/q/how-many-birds-are-there.mp3"
+         ]
+        }
+       }
+      ],
+      "audio": "explain/s6-2.mp3"
+     },
+     {
+      "say": "There are four birds sitting, and one bird flying. How many birds are there?",
+      "do": [
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s6-3.mp3",
+      "hl": [
+       [
+        0,
+        0.35
+       ],
+       [
+        0.35,
+        0.6
+       ],
+       [
+        0.6,
+        0.9
+       ],
+       [
+        0.9,
+        1.25
+       ],
+       [
+        1.25,
+        1.72
+       ],
+       [
+        2.12,
+        2.43
+       ],
+       [
+        2.43,
+        2.74
+       ],
+       [
+        2.74,
+        3.12
+       ],
+       [
+        3.12,
+        3.64
+       ],
+       [
+        4.49,
+        4.74
+       ],
+       [
+        4.74,
+        5.04
+       ],
+       [
+        5.04,
+        5.4
+       ],
+       [
+        5.4,
+        5.65
+       ],
+       [
+        5.65,
+        6.01
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Try: balls",
+    "beats": [
+     {
+      "say": "Look at the balls.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-0.jpg",
+        "w": 731,
+        "h": 620
+       },
+       {
+        "eq": [
+         "4",
+         "+",
+         "1",
+         "=",
+         "5"
+        ],
+        "state": "show"
+       }
+      ],
+      "audio": "explain/s7-1.mp3"
+     },
+     {
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          425,
+          527
+         ],
+         [
+          492,
+          530
+         ],
+         [
+          457,
+          577
+         ],
+         [
+          537,
+          565
+         ]
+        ],
+        "r": 30,
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          425,
+          527
+         ],
+         [
+          492,
+          530
+         ],
+         [
+          457,
+          577
+         ],
+         [
+          537,
+          565
+         ]
+        ],
+        "color": "orange"
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          320,
+          522
+         ]
+        ],
+        "r": 30,
+        "color": "blue",
+        "id": "g2"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          320,
+          522
+         ]
+        ],
+        "color": "blue"
+       }
+      ]
+     },
+     {
+      "say": "Put the words in order.",
+      "do": [
+       {
+        "order": {
+         "chunks": [
+          "There",
+          "are",
+          "4",
+          "small",
+          "balls",
+          "and",
+          "1",
+          "big",
+          "ball.",
+          "How",
+          "many",
+          "balls",
+          "are",
+          "there?"
+         ],
+         "colors": [
+          null,
+          null,
+          "orange",
+          "orange",
+          "orange",
+          null,
+          "blue",
+          "blue",
+          "blue",
+          null,
+          null,
+          null,
+          null,
+          null
+         ],
+         "audios": [
+          "../../en-shared/q/there.mp3",
+          "../../en-shared/q/are.mp3",
+          "../../en-shared/q/4.mp3",
+          "../../en-shared/q/small.mp3",
+          "../../en-shared/q/balls.mp3",
+          "../../en-shared/q/and.mp3",
+          "../../en-shared/q/1.mp3",
+          "../../en-shared/q/big.mp3",
+          "../../en-shared/q/ball.mp3",
+          "../../en-shared/q/how.mp3",
+          "../../en-shared/q/many.mp3",
+          "../../en-shared/q/balls.mp3",
+          "../../en-shared/q/are.mp3",
+          "../../en-shared/q/there.mp3"
+         ]
+        }
+       }
+      ],
+      "audio": "explain/s7-2.mp3"
+     },
+     {
+      "say": "There are four small balls, and one big ball. How many balls are there?",
+      "do": [
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s7-3.mp3",
+      "hl": [
+       [
+        0,
+        0.4
+       ],
+       [
+        0.4,
+        0.68
+       ],
+       [
+        0.68,
+        1.01
+       ],
+       [
+        1.01,
+        1.41
+       ],
+       [
+        1.41,
+        1.81
+       ],
+       [
+        2.21,
+        2.54
+       ],
+       [
+        2.54,
+        2.88
+       ],
+       [
+        2.88,
+        3.21
+       ],
+       [
+        3.21,
+        3.62
+       ],
+       [
+        4.47,
+        4.73
+       ],
+       [
+        4.73,
+        5.04
+       ],
+       [
+        5.04,
+        5.41
+       ],
+       [
+        5.41,
+        5.67
+       ],
+       [
+        5.67,
+        6.04
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Try: people",
+    "beats": [
+     {
+      "say": "Look at the people.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-0.jpg",
+        "w": 731,
+        "h": 620
+       },
+       {
+        "eq": [
+         "4",
+         "+",
+         "1",
+         "=",
+         "5"
+        ],
+        "state": "show"
+       }
+      ],
+      "audio": "explain/s8-1.mp3"
+     },
+     {
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          225,
+          395
+         ],
+         [
+          330,
+          370
+         ],
+         [
+          555,
+          385
+         ],
+         [
+          650,
+          480
+         ]
+        ],
+        "r": 80,
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          225,
+          395
+         ],
+         [
+          330,
+          370
+         ],
+         [
+          555,
+          385
+         ],
+         [
+          650,
+          480
+         ]
+        ],
+        "color": "orange"
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          455,
+          250
+         ]
+        ],
+        "r": 110,
+        "color": "blue",
+        "id": "g2"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          455,
+          250
+         ]
+        ],
+        "color": "blue"
+       }
+      ]
+     },
+     {
+      "say": "Put the words in order.",
+      "do": [
+       {
+        "order": {
+         "chunks": [
+          "There",
+          "are",
+          "4",
+          "children",
+          "and",
+          "1",
+          "teacher.",
+          "How",
+          "many",
+          "people",
+          "are",
+          "there?"
+         ],
+         "colors": [
+          null,
+          null,
+          "orange",
+          "orange",
+          null,
+          "blue",
+          "blue",
+          null,
+          null,
+          null,
+          null,
+          null
+         ],
+         "audios": [
+          "../../en-shared/q/there.mp3",
+          "../../en-shared/q/are.mp3",
+          "../../en-shared/q/4.mp3",
+          "../../en-shared/q/children.mp3",
+          "../../en-shared/q/and.mp3",
+          "../../en-shared/q/1.mp3",
+          "../../en-shared/q/teacher.mp3",
+          "../../en-shared/q/how.mp3",
+          "../../en-shared/q/many.mp3",
+          "../../en-shared/q/people.mp3",
+          "../../en-shared/q/are.mp3",
+          "../../en-shared/q/there.mp3"
+         ]
+        }
+       }
+      ],
+      "audio": "explain/s8-2.mp3"
+     },
+     {
+      "say": "There are four children, and one teacher. How many people are there?",
+      "do": [
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s8-3.mp3",
+      "hl": [
+       [
+        0,
+        0.36
+       ],
+       [
+        0.36,
+        0.61
+       ],
+       [
+        0.61,
+        0.91
+       ],
+       [
+        0.91,
+        1.44
+       ],
+       [
+        1.84,
+        2.15
+       ],
+       [
+        2.15,
+        2.46
+       ],
+       [
+        2.46,
+        3.03
+       ],
+       [
+        3.88,
+        4.12
+       ],
+       [
+        4.12,
+        4.41
+       ],
+       [
+        4.41,
+        4.8
+       ],
+       [
+        4.8,
+        5.04
+       ],
+       [
+        5.04,
+        5.38
+       ]
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "layout": "explain",
+ "pageNums": [
+  42,
+  42,
+  42,
+  42,
+  43,
+  43,
+  43,
+  43
+ ]
+}

@@ -1,0 +1,46 @@
+{
+ "id": "u1l3",
+ "unit": 1,
+ "lesson": 4,
+ "title": "What makes 5?",
+ "task": "What makes 5?",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz"
+ ],
+ "tabLabels": {
+  "read": "Explain"
+ },
+ "type": "math",
+ "math": {
+  "bonds": {
+   "whole": 5,
+   "rows": [
+    {
+     "a": 1,
+     "b": 4,
+     "audio": "words/one-and-four-make-five.mp3"
+    },
+    {
+     "a": 2,
+     "b": 3,
+     "audio": "words/two-and-three-make-five.mp3"
+    },
+    {
+     "a": 3,
+     "b": 2,
+     "audio": "words/three-and-two-make-five.mp3"
+    },
+    {
+     "a": 4,
+     "b": 1,
+     "audio": "words/four-and-one-make-five.mp3"
+    }
+   ]
+  }
+ }
+}

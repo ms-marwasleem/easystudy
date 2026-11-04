@@ -1,1 +1,1261 @@
-{"sets": [{"type": "circle", "ex": 2, "page": 17, "task": "أُسَاعِدُ الصَّيَّادَ، وَأَضَعُ دَائِرَةً حَوْلَ أَشْكَالِ حَرْفِ الْأَلِفِ", "taskAudio": "../q-prompts/circle-letter-shapes.mp3", "hint": "اضغط على الأسماك اللي عليها شكل الألف", "items": [{"word": "أ", "text": "أ", "pic": "../../pics/ar-fish-yellow.png", "answer": true, "pos": [88, 22], "posP": [78, 26]}, {"word": "ب", "text": "ب", "pic": "../../pics/ar-fish-purple.png", "answer": false, "pos": [70, 20], "posP": [48, 36]}, {"word": "ـأ", "text": "ـأ", "pic": "../../pics/ar-fish-yellow.png", "answer": true, "pos": [54, 24], "posP": [24, 46]}, {"word": "إ", "text": "إ", "pic": "../../pics/ar-fish-purple.png", "answer": true, "pos": [41, 22], "posP": [66, 48]}, {"word": "إ", "text": "إ", "pic": "../../pics/ar-fish-yellow.png", "answer": true, "pos": [89, 66], "posP": [80, 64]}, {"word": "ج", "text": "ج", "pic": "../../pics/ar-fish-purple.png", "answer": false, "pos": [71, 70], "posP": [46, 60]}, {"word": "ص", "text": "ص", "pic": "../../pics/ar-fish-purple.png", "answer": false, "pos": [53, 72], "posP": [26, 76]}, {"word": "أ", "text": "أ", "pic": "../../pics/ar-fish-yellow.png", "answer": true, "pos": [36, 72], "posP": [62, 80]}], "centerPic": "../../pics/ar-fisherman-school.png", "centerAt": [16, 36], "bigP": true, "silent": true, "centerAtP": [24, 14]}, {"type": "circle", "ex": 3, "page": 17, "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الْأَلِفِ", "taskAudio": ["../q-prompts/circle-word-letter.mp3", "../letters/623/name.mp3"], "hint": "اضغط على الكلمة اللي فيها الألف", "items": [{"word": "أَسَد", "audio": "words/asad.mp3", "answer": true}, {"word": "أُمّ", "audio": "words/umm.mp3", "answer": true}, {"word": "إِشَارَة", "audio": "q/c5-ishara.mp3", "answer": true}, {"word": "قَلَم", "audio": "../u4l2/words/qalam.mp3", "answer": false}, {"word": "فَأْس", "audio": "q/c6-1.mp3", "answer": true}, {"word": "فَصْل", "audio": "words/fasl.mp3", "answer": false}]}, {"type": "sound", "ex": 4, "page": 18, "task": "أَنْطِقُ صَوْتَ حَرْفِ الْأَلِفِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ", "taskAudio": "q/task-4.mp3", "hint": "اسمع الجملة وردد وراها", "items": [{"ask": "أَ", "word": "أَسَد", "pic": "../../pics/ar-lion.png", "audio": ["../letters/623/name.mp3", "../shared/h-fatha.mp3", "../../syl-ar/623-64e.mp3", "words/asad.mp3"]}, {"ask": "أُ", "word": "أُمّ", "pic": "../../pics/ar-mother-baby.png", "audio": ["../letters/623/name.mp3", "../shared/h-damma.mp3", "../../syl-ar/623-64f.mp3", "words/umm.mp3"]}, {"ask": "إِ", "word": "إِشَارَة", "pic": "../../pics/ar-traffic-light.png", "audio": ["../letters/623/name.mp3", "../shared/h-kasra.mp3", "../../syl-ar/625-650.mp3", "q/c5-ishara.mp3"]}, {"ask": "أْ", "word": "كَأْس", "pic": "../../pics/ar-trophy.png", "audio": ["../letters/623/name.mp3", "../shared/h-sukoon.mp3", "../../syl-ar/623-652.mp3", "words/kas.mp3"]}]}, {"type": "vowel", "ex": 5, "page": 18, "task": "أَنْطِقُ، وَأَضَعُ دَائِرَةً حَوْلَ صَوْتِ الْأَلِفِ الْمُنَاسِبِ لِكُلِّ صُورَةٍ", "taskAudio": ["../q-prompts/choose-letter-sound-a.mp3", "../letters/623/name.mp3", "../q-prompts/choose-letter-sound-b.mp3"], "hint": "اختار صوت الألف", "choices": ["أَ", "أُ", "إِ", "أْ"], "items": [{"word": "أُذُن", "pic": "../../pics/ar-ear.png", "audio": "words/udhun.mp3", "answer": "أُ", "choices": ["أُ", "أْ", "إِ"]}, {"word": "فَأْس", "pic": "../../pics/ar-axe.png", "audio": "q/c6-1.mp3", "answer": "أْ", "choices": ["أَ", "أْ", "إِ"], "at": 1}, {"word": "أَرْنَب", "pic": "../../pics/ar-rabbit.png", "audio": "words/arnab.mp3", "answer": "أَ", "choices": ["إِ", "أْ", "أَ"]}, {"word": "إِبْرَة", "pic": "../../pics/ar-needle.jpg", "audio": "words/ibra.mp3", "answer": "إِ", "choices": ["أْ", "إِ", "أُ"]}]}, {"type": "vowel", "ex": 7, "page": 19, "task": "أَنْطِقُ، وَأَخْتَارُ حَرْفَ الْأَلِفِ مَضْبُوطًا بِالشَّكْلِ", "taskAudio": "q/task-7.mp3", "hint": "اختار الألف بالحركة الصح", "choices": ["أَ", "أُ", "إِ", "أْ"], "items": [{"word": "أَنَاناس", "pic": "../../pics/ar-pineapple.png", "audio": "q/c7-1.mp3", "answer": "أَ"}, {"word": "أُمّ", "pic": "../../pics/ar-mother.jpg", "audio": "words/umm.mp3", "answer": "أُ"}, {"word": "إِشَارَة", "pic": "../../pics/ar-traffic-light.png", "audio": "q/c5-ishara.mp3", "answer": "إِ"}, {"word": "فَأْر", "pic": "../../pics/ar-mouse.png", "audio": "words/fa_r.mp3", "answer": "أْ", "at": 1}]}, {"type": "story", "ex": 8, "page": 19, "task": "أَسْتَمِعُ إِلَى الْقِصَّةِ، وَأَقْفِزُ عِنْدَمَا أَسْمَعُ كَلِمَةً بِهَا حَرْفُ الْأَلِفِ", "taskAudio": "q/task-8.mp3", "hint": "اسمع القصة، واقفز لما تسمع كلمة فيها الألف", "letter": "ا", "items": [{"scene": "../../pics/ar-story-alef-cut.png", "text": "فِي يَوْمٍ مِنَ الْأَيَّامِ زَارَ الْأَرْنَبُ الْأَسَدَ، وَقَالَ لَهُ: هُنَاكَ أَسَدٌ قَوِيٌّ عِنْدَ النَّهْرِ، تَعَالَ مَعِي؛ لِتُبْعِدَهُ عَنْ مَمْلَكَتِكَ، وَعِنْدَ النَّهْرِ قَالَ الْأَرْنَبُ لِلْأَسَدِ: انْظُرْ إِلَى النَّهْرِ، هَذَا هُوَ الْأَسَدُ، فَنَظَرَ الْأَسَدُ إِلَى النَّهْرِ؛ فَرَأَى صُورَتَهُ عَلَى الْمَاءِ، فَقَفَزَ فِي النَّهْرِ، وَهَرَبَ الْأَرْنَبُ.", "audio": "q/story.mp3", "ask": "وَالْآنَ، كَيْفَ هَرَبَ الْأَرْنَبُ مِنَ الْأَسَدِ؟", "askAudio": "q/story-ask.mp3"}]}, {"type": "circle", "ex": 5, "page": 8, "task": "أَنْطِقُ وَأَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الْأَلِفِ", "taskAudio": ["../q-prompts/circle-letter-sound.mp3", "../letters/623/name.mp3"], "hint": "اضغط على الصور التي فيها صوت الألف", "bigP": true, "items": [{"word": "أَسَد", "pic": "../../pics/ar-lion.png", "audio": "words/asad.mp3", "answer": true, "pos": [90, 27], "posP": [83.3, 12.5]}, {"word": "فِيل", "pic": "../../pics/ar-elephant.png", "audio": "q/c5-fil.mp3", "answer": false, "pos": [70, 27], "posP": [50.0, 12.5]}, {"word": "فَأْر", "pic": "../../pics/ar-mouse.png", "audio": "words/fa_r.mp3", "answer": true, "pos": [50, 27], "posP": [16.7, 12.5]}, {"word": "أُخْطُبُوط", "pic": "../../pics/ar-octopus.png", "audio": "words/ukhtubut.mp3", "answer": true, "pos": [30, 27], "posP": [83.3, 37.5]}, {"word": "جَدَّة", "pic": "../../pics/ar-grandmother.jpg", "audio": "q/c5-jadda.mp3", "answer": false, "pos": [10, 27], "posP": [50.0, 37.5]}, {"word": "سَمَكَة", "pic": "../../pics/ar-fish.png", "audio": "q/c5-samaka.mp3", "answer": false, "pos": [90, 73], "posP": [16.7, 37.5]}, {"word": "أَرْنَب", "pic": "../../pics/ar-rabbit.png", "audio": "words/arnab.mp3", "answer": true, "pos": [70, 73], "posP": [83.3, 62.5]}, {"word": "رَأْس", "pic": "../../pics/ar-head.png", "audio": "words/ras.mp3", "answer": true, "pos": [50, 73], "posP": [50.0, 62.5]}, {"word": "بَطَّة", "pic": "../../pics/ar-duckling.png", "audio": "q/c5-batta.mp3", "answer": false, "pos": [30, 73], "posP": [16.7, 62.5]}, {"word": "إِشَارَة", "pic": "../../pics/ar-traffic-light.png", "audio": "q/c5-ishara.mp3", "answer": true, "pos": [10, 73], "posP": [50, 87.5]}], "book": "booklet"}, {"type": "position", "ex": 6, "page": 9, "task": "أَنْطِقُ وَأُحَدِّدُ مَوْضِعَ حَرْفِ الْأَلِفِ", "taskAudio": ["../q-prompts/mark-letter-position.mp3", "../letters/623/name.mp3"], "hint": "اضغط على الدائرة التي فيها الألف", "items": [{"word": "أَنْف", "pic": "../../pics/ar-nose-u1l3.png", "audio": "q/c6-0.mp3", "at": 0}, {"word": "فَأْس", "pic": "../../pics/ar-axe.png", "audio": "q/c6-1.mp3", "at": 1}, {"word": "كَأْس", "pic": "../../pics/ar-trophy.png", "audio": "words/kas.mp3", "at": 1}, {"word": "فَأْر", "pic": "../../pics/ar-mouse.png", "audio": "words/fa_r.mp3", "at": 1}, {"word": "أَسَد", "pic": "../../pics/ar-lion.png", "audio": "words/asad.mp3", "at": 0}, {"word": "إِبْرَة", "pic": "../../pics/ar-needle.jpg", "audio": "words/ibra.mp3", "at": 0}], "book": "booklet"}, {"type": "vowel", "ex": 7, "page": 9, "task": "أَنْطِقُ وَأَخْتَارُ صَوْتَ حَرْفِ الْأَلِفِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ", "taskAudio": ["../q-prompts/choose-letter-sound-a.mp3", "../letters/623/name.mp3", "../q-prompts/choose-letter-sound-b.mp3"], "hint": "اختار صوت الألف", "choices": ["أَ", "أُ", "إِ", "أْ"], "items": [{"word": "أُخْطُبُوط", "pic": "../../pics/ar-octopus.png", "audio": "words/ukhtubut.mp3", "answer": "أُ"}, {"word": "أَنَاناس", "pic": "../../pics/ar-pineapple.png", "audio": "q/c7-1.mp3", "answer": "أَ"}, {"word": "إِشَارَة", "pic": "../../pics/ar-traffic-light.png", "audio": "q/c5-ishara.mp3", "answer": "إِ"}], "book": "booklet"}, {"type": "write", "ex": 8, "page": 9, "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ", "taskAudio": "../q-prompts/merge-syllables.mp3", "hint": "اكتب الكلمة بعد ما تدمج المقاطع", "items": [{"word": "أَرْنَبٌ", "chips": ["أَرْ", "نَ", "بٌ"], "audio": "q/c8-0.mp3"}, {"word": "أُذُنٌ", "chips": ["أُ", "ذُ", "نٌ"], "audio": "q/c8-1.mp3"}, {"word": "إِبْرِيقٌ", "chips": ["إِبْ", "رِي", "قٌ"], "audio": "q/c8-2.mp3"}, {"word": "رَأْسٌ", "chips": ["رَ", "أْ", "سٌ"], "audio": "q/c8-3.mp3"}], "book": "booklet"}, {"type": "arrange", "ex": 9, "page": 9, "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ", "taskAudio": "../q-prompts/arrange-letters.mp3", "hint": "رتب الحروف", "items": [{"word": "إِبْرِيقٌ", "pic": "../../pics/ar-teapot.png", "audio": "q/c8-2.mp3"}, {"word": "أُذُنٌ", "pic": "../../pics/ar-ear.png", "audio": "q/c8-1.mp3"}, {"word": "رَأْسٌ", "pic": "../../pics/ar-head.png", "audio": "q/c8-3.mp3"}, {"word": "أَسَدٌ", "pic": "../../pics/ar-lion.png", "audio": "q/c9-3.mp3"}], "book": "booklet"}, {"type": "write", "ex": 10, "page": 9, "task": "أَكْتُبُ كَمَا بِالْمِثَالِ", "taskAudio": "../q-prompts/write-example.mp3", "hint": "اكتب الجملة", "sentence": true, "faint": true, "items": [{"word": "هَذَا أَسَدٌ يَأْكُلُ لَحْمًا", "pic": "../../pics/ar-lion-eating.jpg", "audio": "q/s10.mp3"}], "book": "booklet"}, {"type": "circle", "task": "أَرْسُمُ دَائِرَةً حَوْلَ أَشْكَالِ حَرْفِ الْأَلِفِ", "taskAudio": "q/w-task-shapes.mp3", "items": [{"word": "أ", "text": "أ", "answer": true}, {"word": "ب", "text": "ب", "answer": false}, {"word": "إ", "text": "إ", "answer": true}, {"word": "ج", "text": "ج", "answer": false}, {"word": "س", "text": "س", "answer": false}, {"word": "ـأ", "text": "ـأ", "answer": true}], "book": "workbook", "page": 16, "ex": 1, "hint": "اضغط على أشكال الألف"}, {"type": "position", "task": "أَنْطِقُ وَأُحَدِّدُ مَوْضِعَ حَرْفِ الْأَلِفِ", "taskAudio": ["../q-prompts/mark-letter-position.mp3", "../letters/623/name.mp3"], "items": [{"word": "أَرْنَب", "pic": "../../pics/ar-rabbit.png", "audio": "words/arnab.mp3", "at": 0}, {"word": "فَأْس", "pic": "../../pics/ar-axe.png", "audio": "q/c6-1.mp3", "at": 1}, {"word": "أَسَد", "pic": "../../pics/ar-lion.png", "audio": "words/asad.mp3", "at": 0}, {"word": "كَأْس", "pic": "../../pics/ar-trophy.png", "audio": "words/kas.mp3", "at": 1}], "book": "workbook", "page": 16, "ex": 2, "hint": "اضغط على الدائرة التي فيها الألف"}, {"type": "link", "task": "أَنْطِقُ، وَأَصِلُ صَوْتَ حَرْفِ الْأَلِفِ بِالصُّورَةِ الْمُنَاسِبَةِ لَهُ", "taskAudio": "q/w-task-link.mp3", "items": [{"word": "أَ", "pic": "../../pics/ar-lion.png", "audio": "../../syl-ar/623-64e.mp3"}, {"word": "إِ", "pic": "../../pics/ar-traffic-light.png", "audio": "../../syl-ar/625-650.mp3"}, {"word": "أْ", "pic": "../../pics/ar-mouse.png", "audio": "../../syl-ar/623-652.mp3"}, {"word": "أُ", "pic": "../../pics/ar-ear.png", "audio": "../../syl-ar/623-64f.mp3"}], "book": "workbook", "page": 16, "ex": 3, "hint": "صل الصوت بالصورة"}, {"type": "position", "task": "أَضَعُ دَائِرَةً حَوْلَ حَرْفِ الْأَلِفِ فِي الْكَلِمَاتِ الْآتِيَةِ", "taskAudio": ["../q-prompts/mark-letter-position.mp3", "../letters/623/name.mp3"], "items": [{"word": "فَأْس", "pic": "../../pics/ar-axe.png", "audio": "q/c6-1.mp3", "at": 1}, {"word": "أَسَد", "pic": "../../pics/ar-lion.png", "audio": "words/asad.mp3", "at": 0}, {"word": "إِبْرَة", "pic": "../../pics/ar-needle.jpg", "audio": "words/ibra.mp3", "at": 0}, {"word": "إِشَارَة", "pic": "../../pics/ar-traffic-light.png", "audio": "q/c5-ishara.mp3", "at": 0}], "book": "workbook", "page": 16, "ex": 4, "hint": "اضغط على الدائرة التي فيها الألف"}, {"type": "circle", "task": "الْمَجْمُوعَةُ (أ): أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الْأَلِفِ", "taskAudio": ["../q-prompts/circle-word-letter.mp3", "../letters/623/name.mp3"], "items": [{"word": "علم", "answer": false}, {"word": "أُذُن", "answer": true}, {"word": "كَأْس", "answer": true}, {"word": "بَطَّة", "answer": false}, {"word": "إِشَارَة", "answer": true}], "book": "workbook", "page": 17, "ex": 1, "hint": "اضغط على الكلمة اللي فيها الألف"}, {"type": "vowel", "task": "الْمَجْمُوعَةُ (أ): أَضْبِطُ حَرْفَ الْأَلِفِ فِي الْكَلِمَاتِ الْآتِيَةِ", "taskAudio": "q/w-task-vowel.mp3", "choices": ["أَ", "أُ", "إِ", "أْ"], "items": [{"word": "فَأْر", "pic": "../../pics/ar-mouse.png", "audio": "words/fa_r.mp3", "answer": "أْ", "at": 1}, {"word": "أَسَد", "pic": "../../pics/ar-lion.png", "audio": "words/asad.mp3", "answer": "أَ"}, {"word": "أُذُن", "pic": "../../pics/ar-ear.png", "audio": "words/udhun.mp3", "answer": "أُ"}, {"word": "أُمّ", "pic": "../../pics/ar-mother.jpg", "audio": "words/umm.mp3", "answer": "أُ"}, {"word": "أَرْنَب", "pic": "../../pics/ar-rabbit.png", "audio": "words/arnab.mp3", "answer": "أَ"}], "book": "workbook", "page": 17, "ex": 2, "hint": "اختار الألف بالحركة الصح"}, {"type": "circle", "task": "الْمَجْمُوعَةُ (ب): أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الْأَلِفِ", "taskAudio": ["../q-prompts/circle-word-letter.mp3", "../letters/623/name.mp3"], "items": [{"word": "كَأْس", "answer": true}, {"word": "دُب", "answer": false}, {"word": "إِبْرَة", "answer": true}, {"word": "أُسْرَة", "answer": true}, {"word": "نَبَأ", "answer": true}], "book": "workbook", "page": 17, "ex": 1, "hint": "اضغط على الكلمة اللي فيها الألف"}, {"type": "vowel", "task": "الْمَجْمُوعَةُ (ب): أَضْبِطُ حَرْفَ الْأَلِفِ فِي الْكَلِمَاتِ الْآتِيَةِ", "taskAudio": "q/w-task-vowel.mp3", "choices": ["أَ", "أُ", "إِ", "أْ"], "items": [{"word": "فَأْس", "pic": "../../pics/ar-axe.png", "audio": "q/c6-1.mp3", "answer": "أْ", "at": 1}, {"word": "إِشَارَة", "pic": "../../pics/ar-traffic-light.png", "audio": "q/c5-ishara.mp3", "answer": "إِ"}, {"word": "أُذُن", "pic": "../../pics/ar-ear.png", "audio": "words/udhun.mp3", "answer": "أُ"}, {"word": "كَأْس", "pic": "../../pics/ar-trophy.png", "audio": "words/kas.mp3", "answer": "أْ", "at": 1}, {"word": "أَرْنَب", "pic": "../../pics/ar-rabbit.png", "audio": "words/arnab.mp3", "answer": "أَ"}], "book": "workbook", "page": 17, "ex": 2, "hint": "اختار الألف بالحركة الصح"}, {"type": "circle", "task": "الْمَجْمُوعَةُ (ج): أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الْأَلِفِ", "taskAudio": ["../q-prompts/circle-word-letter.mp3", "../letters/623/name.mp3"], "items": [{"word": "فَصْل", "answer": false}, {"word": "أَسَد", "answer": true}, {"word": "أُمّ", "answer": true}, {"word": "فَأْر", "answer": true}, {"word": "إِشَارَة", "answer": true}], "book": "workbook", "page": 17, "ex": 1, "hint": "اضغط على الكلمة اللي فيها الألف"}, {"type": "vowel", "task": "الْمَجْمُوعَةُ (ج): أَضْبِطُ حَرْفَ الْأَلِفِ فِي الْكَلِمَاتِ الْآتِيَةِ", "taskAudio": "q/w-task-vowel.mp3", "choices": ["أَ", "أُ", "إِ", "أْ"], "items": [{"word": "إِبْرَة", "pic": "../../pics/ar-needle.jpg", "audio": "words/ibra.mp3", "answer": "إِ"}, {"word": "أُذُن", "pic": "../../pics/ar-ear.png", "audio": "words/udhun.mp3", "answer": "أُ"}, {"word": "كَأْس", "pic": "../../pics/ar-trophy.png", "audio": "words/kas.mp3", "answer": "أْ", "at": 1}, {"word": "أُمّ", "pic": "../../pics/ar-mother.jpg", "audio": "words/umm.mp3", "answer": "أُ"}], "book": "workbook", "page": 17, "ex": 2, "hint": "اختار الألف بالحركة الصح"}]}
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 2,
+   "page": 17,
+   "task": "أُسَاعِدُ الصَّيَّادَ، وَأَضَعُ دَائِرَةً حَوْلَ أَشْكَالِ حَرْفِ الْأَلِفِ",
+   "taskAudio": "../q-prompts/circle-letter-shapes.mp3",
+   "hint": "اضغط على الأسماك اللي عليها شكل الألف",
+   "items": [
+    {
+     "word": "أ",
+     "text": "أ",
+     "pic": "../../pics/ar-fish-yellow.png",
+     "answer": true,
+     "pos": [
+      88,
+      22
+     ],
+     "posP": [
+      78,
+      26
+     ]
+    },
+    {
+     "word": "ب",
+     "text": "ب",
+     "pic": "../../pics/ar-fish-purple.png",
+     "answer": false,
+     "pos": [
+      70,
+      20
+     ],
+     "posP": [
+      48,
+      36
+     ]
+    },
+    {
+     "word": "ـأ",
+     "text": "ـأ",
+     "pic": "../../pics/ar-fish-yellow.png",
+     "answer": true,
+     "pos": [
+      54,
+      24
+     ],
+     "posP": [
+      24,
+      46
+     ]
+    },
+    {
+     "word": "إ",
+     "text": "إ",
+     "pic": "../../pics/ar-fish-purple.png",
+     "answer": true,
+     "pos": [
+      41,
+      22
+     ],
+     "posP": [
+      66,
+      48
+     ]
+    },
+    {
+     "word": "إ",
+     "text": "إ",
+     "pic": "../../pics/ar-fish-yellow.png",
+     "answer": true,
+     "pos": [
+      89,
+      66
+     ],
+     "posP": [
+      80,
+      64
+     ]
+    },
+    {
+     "word": "ج",
+     "text": "ج",
+     "pic": "../../pics/ar-fish-purple.png",
+     "answer": false,
+     "pos": [
+      71,
+      70
+     ],
+     "posP": [
+      46,
+      60
+     ]
+    },
+    {
+     "word": "ص",
+     "text": "ص",
+     "pic": "../../pics/ar-fish-purple.png",
+     "answer": false,
+     "pos": [
+      53,
+      72
+     ],
+     "posP": [
+      26,
+      76
+     ]
+    },
+    {
+     "word": "أ",
+     "text": "أ",
+     "pic": "../../pics/ar-fish-yellow.png",
+     "answer": true,
+     "pos": [
+      36,
+      72
+     ],
+     "posP": [
+      62,
+      80
+     ]
+    }
+   ],
+   "centerPic": "../../pics/ar-fisherman-school.png",
+   "centerAt": [
+    16,
+    36
+   ],
+   "bigP": true,
+   "silent": true,
+   "centerAtP": [
+    24,
+    14
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 3,
+   "page": 17,
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الْأَلِفِ",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/623/name.mp3"
+   ],
+   "hint": "اضغط على الكلمة اللي فيها الألف",
+   "items": [
+    {
+     "word": "أَسَد",
+     "audio": "words/asad.mp3",
+     "answer": true
+    },
+    {
+     "word": "أُمّ",
+     "audio": "words/umm.mp3",
+     "answer": true
+    },
+    {
+     "word": "إِشَارَة",
+     "audio": "q/c5-ishara.mp3",
+     "answer": true
+    },
+    {
+     "word": "قَلَم",
+     "audio": "../u4l2/words/qalam.mp3",
+     "answer": false
+    },
+    {
+     "word": "فَأْس",
+     "audio": "q/c6-1.mp3",
+     "answer": true
+    },
+    {
+     "word": "فَصْل",
+     "audio": "words/fasl.mp3",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "sound",
+   "ex": 4,
+   "page": 18,
+   "task": "أَنْطِقُ صَوْتَ حَرْفِ الْأَلِفِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "اسمع الجملة وردد وراها",
+   "items": [
+    {
+     "ask": "أَ",
+     "word": "أَسَد",
+     "pic": "../../pics/ar-lion.png",
+     "audio": [
+      "../letters/623/name.mp3",
+      "../shared/h-fatha.mp3",
+      "../../syl-ar/623-64e.mp3",
+      "words/asad.mp3"
+     ]
+    },
+    {
+     "ask": "أُ",
+     "word": "أُمّ",
+     "pic": "../../pics/ar-mother-baby.png",
+     "audio": [
+      "../letters/623/name.mp3",
+      "../shared/h-damma.mp3",
+      "../../syl-ar/623-64f.mp3",
+      "words/umm.mp3"
+     ]
+    },
+    {
+     "ask": "إِ",
+     "word": "إِشَارَة",
+     "pic": "../../pics/ar-traffic-light.png",
+     "audio": [
+      "../letters/623/name.mp3",
+      "../shared/h-kasra.mp3",
+      "../../syl-ar/625-650.mp3",
+      "q/c5-ishara.mp3"
+     ]
+    },
+    {
+     "ask": "أْ",
+     "word": "كَأْس",
+     "pic": "../../pics/ar-trophy.png",
+     "audio": [
+      "../letters/623/name.mp3",
+      "../shared/h-sukoon.mp3",
+      "../../syl-ar/623-652.mp3",
+      "words/kas.mp3"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 5,
+   "page": 18,
+   "task": "أَنْطِقُ، وَأَضَعُ دَائِرَةً حَوْلَ صَوْتِ الْأَلِفِ الْمُنَاسِبِ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/623/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الألف",
+   "choices": [
+    "أَ",
+    "أُ",
+    "إِ",
+    "أْ"
+   ],
+   "items": [
+    {
+     "word": "أُذُن",
+     "pic": "../../pics/ar-ear.png",
+     "audio": "words/udhun.mp3",
+     "answer": "أُ",
+     "choices": [
+      "أُ",
+      "أْ",
+      "إِ"
+     ]
+    },
+    {
+     "word": "فَأْس",
+     "pic": "../../pics/ar-axe.png",
+     "audio": "q/c6-1.mp3",
+     "answer": "أْ",
+     "choices": [
+      "أَ",
+      "أْ",
+      "إِ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "أَرْنَب",
+     "pic": "../../pics/ar-rabbit.png",
+     "audio": "words/arnab.mp3",
+     "answer": "أَ",
+     "choices": [
+      "إِ",
+      "أْ",
+      "أَ"
+     ]
+    },
+    {
+     "word": "إِبْرَة",
+     "pic": "../../pics/ar-needle.jpg",
+     "audio": "words/ibra.mp3",
+     "answer": "إِ",
+     "choices": [
+      "أْ",
+      "إِ",
+      "أُ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 7,
+   "page": 19,
+   "task": "أَنْطِقُ، وَأَخْتَارُ حَرْفَ الْأَلِفِ مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "q/task-7.mp3",
+   "hint": "اختار الألف بالحركة الصح",
+   "choices": [
+    "أَ",
+    "أُ",
+    "إِ",
+    "أْ"
+   ],
+   "items": [
+    {
+     "word": "أَنَاناس",
+     "pic": "../../pics/ar-pineapple.png",
+     "audio": "q/c7-1.mp3",
+     "answer": "أَ"
+    },
+    {
+     "word": "أُمّ",
+     "pic": "../../pics/ar-mother.jpg",
+     "audio": "words/umm.mp3",
+     "answer": "أُ"
+    },
+    {
+     "word": "إِشَارَة",
+     "pic": "../../pics/ar-traffic-light.png",
+     "audio": "q/c5-ishara.mp3",
+     "answer": "إِ"
+    },
+    {
+     "word": "فَأْر",
+     "pic": "../../pics/ar-mouse.png",
+     "audio": "words/fa_r.mp3",
+     "answer": "أْ",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "story",
+   "ex": 8,
+   "page": 19,
+   "task": "أَسْتَمِعُ إِلَى الْقِصَّةِ، وَأَقْفِزُ عِنْدَمَا أَسْمَعُ كَلِمَةً بِهَا حَرْفُ الْأَلِفِ",
+   "taskAudio": "q/task-8.mp3",
+   "hint": "اسمع القصة، واقفز لما تسمع كلمة فيها الألف",
+   "letter": "ا",
+   "items": [
+    {
+     "scene": "../../pics/ar-story-alef-cut.png",
+     "text": "فِي يَوْمٍ مِنَ الْأَيَّامِ زَارَ الْأَرْنَبُ الْأَسَدَ، وَقَالَ لَهُ: هُنَاكَ أَسَدٌ قَوِيٌّ عِنْدَ النَّهْرِ، تَعَالَ مَعِي؛ لِتُبْعِدَهُ عَنْ مَمْلَكَتِكَ، وَعِنْدَ النَّهْرِ قَالَ الْأَرْنَبُ لِلْأَسَدِ: انْظُرْ إِلَى النَّهْرِ، هَذَا هُوَ الْأَسَدُ، فَنَظَرَ الْأَسَدُ إِلَى النَّهْرِ؛ فَرَأَى صُورَتَهُ عَلَى الْمَاءِ، فَقَفَزَ فِي النَّهْرِ، وَهَرَبَ الْأَرْنَبُ.",
+     "audio": "q/story.mp3",
+     "ask": "وَالْآنَ، كَيْفَ هَرَبَ الْأَرْنَبُ مِنَ الْأَسَدِ؟",
+     "askAudio": "q/story-ask.mp3",
+     "times": [
+      [
+       0,
+       0.26
+      ],
+      [
+       0.26,
+       0.64
+      ],
+      [
+       0.64,
+       0.9
+      ],
+      [
+       0.9,
+       1.67
+      ],
+      [
+       1.67,
+       2.05
+      ],
+      [
+       2.05,
+       2.82
+      ],
+      [
+       2.82,
+       3.6
+      ],
+      [
+       3.98,
+       4.49
+      ],
+      [
+       4.49,
+       4.88
+      ],
+      [
+       5.26,
+       5.78
+      ],
+      [
+       5.78,
+       6.16
+      ],
+      [
+       6.16,
+       6.55
+      ],
+      [
+       6.55,
+       6.93
+      ],
+      [
+       6.93,
+       7.7
+      ],
+      [
+       8.09,
+       8.6
+      ],
+      [
+       8.6,
+       9.12
+      ],
+      [
+       9.5,
+       10.27
+      ],
+      [
+       10.27,
+       10.53
+      ],
+      [
+       10.53,
+       11.43
+      ],
+      [
+       11.81,
+       12.33
+      ],
+      [
+       12.33,
+       12.97
+      ],
+      [
+       12.97,
+       13.35
+      ],
+      [
+       13.35,
+       14.12
+      ],
+      [
+       14.12,
+       14.89
+      ],
+      [
+       15.28,
+       15.79
+      ],
+      [
+       15.79,
+       16.18
+      ],
+      [
+       16.18,
+       16.95
+      ],
+      [
+       17.33,
+       17.72
+      ],
+      [
+       17.72,
+       17.98
+      ],
+      [
+       17.98,
+       18.75
+      ],
+      [
+       19.13,
+       19.65
+      ],
+      [
+       19.65,
+       20.29
+      ],
+      [
+       20.29,
+       20.67
+      ],
+      [
+       20.67,
+       21.44
+      ],
+      [
+       21.83,
+       22.34
+      ],
+      [
+       22.34,
+       22.98
+      ],
+      [
+       22.98,
+       23.37
+      ],
+      [
+       23.37,
+       24.14
+      ],
+      [
+       24.52,
+       25.04
+      ],
+      [
+       25.04,
+       25.29
+      ],
+      [
+       25.29,
+       26.07
+      ],
+      [
+       26.45,
+       26.96
+      ],
+      [
+       26.96,
+       27.86
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 5,
+   "page": 8,
+   "task": "أَنْطِقُ وَأَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الْأَلِفِ",
+   "taskAudio": [
+    "../q-prompts/circle-letter-sound.mp3",
+    "../letters/623/name.mp3"
+   ],
+   "hint": "اضغط على الصور التي فيها صوت الألف",
+   "bigP": true,
+   "items": [
+    {
+     "word": "أَسَد",
+     "pic": "../../pics/ar-lion.png",
+     "audio": "words/asad.mp3",
+     "answer": true,
+     "pos": [
+      90,
+      27
+     ],
+     "posP": [
+      83.3,
+      12.5
+     ]
+    },
+    {
+     "word": "فِيل",
+     "pic": "../../pics/ar-elephant.png",
+     "audio": "q/c5-fil.mp3",
+     "answer": false,
+     "pos": [
+      70,
+      27
+     ],
+     "posP": [
+      50.0,
+      12.5
+     ]
+    },
+    {
+     "word": "فَأْر",
+     "pic": "../../pics/ar-mouse.png",
+     "audio": "words/fa_r.mp3",
+     "answer": true,
+     "pos": [
+      50,
+      27
+     ],
+     "posP": [
+      16.7,
+      12.5
+     ]
+    },
+    {
+     "word": "أُخْطُبُوط",
+     "pic": "../../pics/ar-octopus.png",
+     "audio": "words/ukhtubut.mp3",
+     "answer": true,
+     "pos": [
+      30,
+      27
+     ],
+     "posP": [
+      83.3,
+      37.5
+     ]
+    },
+    {
+     "word": "جَدَّة",
+     "pic": "../../pics/ar-grandmother.jpg",
+     "audio": "q/c5-jadda.mp3",
+     "answer": false,
+     "pos": [
+      10,
+      27
+     ],
+     "posP": [
+      50.0,
+      37.5
+     ]
+    },
+    {
+     "word": "سَمَكَة",
+     "pic": "../../pics/ar-fish.png",
+     "audio": "q/c5-samaka.mp3",
+     "answer": false,
+     "pos": [
+      90,
+      73
+     ],
+     "posP": [
+      16.7,
+      37.5
+     ]
+    },
+    {
+     "word": "أَرْنَب",
+     "pic": "../../pics/ar-rabbit.png",
+     "audio": "words/arnab.mp3",
+     "answer": true,
+     "pos": [
+      70,
+      73
+     ],
+     "posP": [
+      83.3,
+      62.5
+     ]
+    },
+    {
+     "word": "رَأْس",
+     "pic": "../../pics/ar-head.png",
+     "audio": "words/ras.mp3",
+     "answer": true,
+     "pos": [
+      50,
+      73
+     ],
+     "posP": [
+      50.0,
+      62.5
+     ]
+    },
+    {
+     "word": "بَطَّة",
+     "pic": "../../pics/ar-duckling.png",
+     "audio": "q/c5-batta.mp3",
+     "answer": false,
+     "pos": [
+      30,
+      73
+     ],
+     "posP": [
+      16.7,
+      62.5
+     ]
+    },
+    {
+     "word": "إِشَارَة",
+     "pic": "../../pics/ar-traffic-light.png",
+     "audio": "q/c5-ishara.mp3",
+     "answer": true,
+     "pos": [
+      10,
+      73
+     ],
+     "posP": [
+      50,
+      87.5
+     ]
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "position",
+   "ex": 6,
+   "page": 9,
+   "task": "أَنْطِقُ وَأُحَدِّدُ مَوْضِعَ حَرْفِ الْأَلِفِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/623/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الألف",
+   "items": [
+    {
+     "word": "أَنْف",
+     "pic": "../../pics/ar-nose-u1l3.png",
+     "audio": "q/c6-0.mp3",
+     "at": 0
+    },
+    {
+     "word": "فَأْس",
+     "pic": "../../pics/ar-axe.png",
+     "audio": "q/c6-1.mp3",
+     "at": 1
+    },
+    {
+     "word": "كَأْس",
+     "pic": "../../pics/ar-trophy.png",
+     "audio": "words/kas.mp3",
+     "at": 1
+    },
+    {
+     "word": "فَأْر",
+     "pic": "../../pics/ar-mouse.png",
+     "audio": "words/fa_r.mp3",
+     "at": 1
+    },
+    {
+     "word": "أَسَد",
+     "pic": "../../pics/ar-lion.png",
+     "audio": "words/asad.mp3",
+     "at": 0
+    },
+    {
+     "word": "إِبْرَة",
+     "pic": "../../pics/ar-needle.jpg",
+     "audio": "words/ibra.mp3",
+     "at": 0
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "vowel",
+   "ex": 7,
+   "page": 9,
+   "task": "أَنْطِقُ وَأَخْتَارُ صَوْتَ حَرْفِ الْأَلِفِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/623/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الألف",
+   "choices": [
+    "أَ",
+    "أُ",
+    "إِ",
+    "أْ"
+   ],
+   "items": [
+    {
+     "word": "أُخْطُبُوط",
+     "pic": "../../pics/ar-octopus.png",
+     "audio": "words/ukhtubut.mp3",
+     "answer": "أُ"
+    },
+    {
+     "word": "أَنَاناس",
+     "pic": "../../pics/ar-pineapple.png",
+     "audio": "q/c7-1.mp3",
+     "answer": "أَ"
+    },
+    {
+     "word": "إِشَارَة",
+     "pic": "../../pics/ar-traffic-light.png",
+     "audio": "q/c5-ishara.mp3",
+     "answer": "إِ"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "write",
+   "ex": 8,
+   "page": 9,
+   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "items": [
+    {
+     "word": "أَرْنَبٌ",
+     "chips": [
+      "أَرْ",
+      "نَ",
+      "بٌ"
+     ],
+     "audio": "q/c8-0.mp3"
+    },
+    {
+     "word": "أُذُنٌ",
+     "chips": [
+      "أُ",
+      "ذُ",
+      "نٌ"
+     ],
+     "audio": "q/c8-1.mp3"
+    },
+    {
+     "word": "إِبْرِيقٌ",
+     "chips": [
+      "إِبْ",
+      "رِي",
+      "قٌ"
+     ],
+     "audio": "q/c8-2.mp3"
+    },
+    {
+     "word": "رَأْسٌ",
+     "chips": [
+      "رَ",
+      "أْ",
+      "سٌ"
+     ],
+     "audio": "q/c8-3.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "arrange",
+   "ex": 9,
+   "page": 9,
+   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "hint": "رتب الحروف",
+   "items": [
+    {
+     "word": "إِبْرِيقٌ",
+     "pic": "../../pics/ar-teapot.png",
+     "audio": "q/c8-2.mp3"
+    },
+    {
+     "word": "أُذُنٌ",
+     "pic": "../../pics/ar-ear.png",
+     "audio": "q/c8-1.mp3"
+    },
+    {
+     "word": "رَأْسٌ",
+     "pic": "../../pics/ar-head.png",
+     "audio": "q/c8-3.mp3"
+    },
+    {
+     "word": "أَسَدٌ",
+     "pic": "../../pics/ar-lion.png",
+     "audio": "q/c9-3.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 9,
+   "task": "أَكْتُبُ كَمَا بِالْمِثَالِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اكتب الجملة",
+   "sentence": true,
+   "faint": true,
+   "items": [
+    {
+     "word": "هَذَا أَسَدٌ يَأْكُلُ لَحْمًا",
+     "pic": "../../pics/ar-lion-eating.jpg",
+     "audio": "q/s10.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "circle",
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ أَشْكَالِ حَرْفِ الْأَلِفِ",
+   "taskAudio": "q/w-task-shapes.mp3",
+   "items": [
+    {
+     "word": "أ",
+     "text": "أ",
+     "answer": true
+    },
+    {
+     "word": "ب",
+     "text": "ب",
+     "answer": false
+    },
+    {
+     "word": "إ",
+     "text": "إ",
+     "answer": true
+    },
+    {
+     "word": "ج",
+     "text": "ج",
+     "answer": false
+    },
+    {
+     "word": "س",
+     "text": "س",
+     "answer": false
+    },
+    {
+     "word": "ـأ",
+     "text": "ـأ",
+     "answer": true
+    }
+   ],
+   "book": "workbook",
+   "page": 16,
+   "ex": 1,
+   "hint": "اضغط على أشكال الألف"
+  },
+  {
+   "type": "position",
+   "task": "أَنْطِقُ وَأُحَدِّدُ مَوْضِعَ حَرْفِ الْأَلِفِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/623/name.mp3"
+   ],
+   "items": [
+    {
+     "word": "أَرْنَب",
+     "pic": "../../pics/ar-rabbit.png",
+     "audio": "words/arnab.mp3",
+     "at": 0
+    },
+    {
+     "word": "فَأْس",
+     "pic": "../../pics/ar-axe.png",
+     "audio": "q/c6-1.mp3",
+     "at": 1
+    },
+    {
+     "word": "أَسَد",
+     "pic": "../../pics/ar-lion.png",
+     "audio": "words/asad.mp3",
+     "at": 0
+    },
+    {
+     "word": "كَأْس",
+     "pic": "../../pics/ar-trophy.png",
+     "audio": "words/kas.mp3",
+     "at": 1
+    }
+   ],
+   "book": "workbook",
+   "page": 16,
+   "ex": 2,
+   "hint": "اضغط على الدائرة التي فيها الألف"
+  },
+  {
+   "type": "link",
+   "task": "أَنْطِقُ، وَأَصِلُ صَوْتَ حَرْفِ الْأَلِفِ بِالصُّورَةِ الْمُنَاسِبَةِ لَهُ",
+   "taskAudio": "q/w-task-link.mp3",
+   "items": [
+    {
+     "word": "أَ",
+     "pic": "../../pics/ar-lion.png",
+     "audio": "../../syl-ar/623-64e.mp3"
+    },
+    {
+     "word": "إِ",
+     "pic": "../../pics/ar-traffic-light.png",
+     "audio": "../../syl-ar/625-650.mp3"
+    },
+    {
+     "word": "أْ",
+     "pic": "../../pics/ar-mouse.png",
+     "audio": "../../syl-ar/623-652.mp3"
+    },
+    {
+     "word": "أُ",
+     "pic": "../../pics/ar-ear.png",
+     "audio": "../../syl-ar/623-64f.mp3"
+    }
+   ],
+   "book": "workbook",
+   "page": 16,
+   "ex": 3,
+   "hint": "صل الصوت بالصورة"
+  },
+  {
+   "type": "position",
+   "task": "أَضَعُ دَائِرَةً حَوْلَ حَرْفِ الْأَلِفِ فِي الْكَلِمَاتِ الْآتِيَةِ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/623/name.mp3"
+   ],
+   "items": [
+    {
+     "word": "فَأْس",
+     "pic": "../../pics/ar-axe.png",
+     "audio": "q/c6-1.mp3",
+     "at": 1
+    },
+    {
+     "word": "أَسَد",
+     "pic": "../../pics/ar-lion.png",
+     "audio": "words/asad.mp3",
+     "at": 0
+    },
+    {
+     "word": "إِبْرَة",
+     "pic": "../../pics/ar-needle.jpg",
+     "audio": "words/ibra.mp3",
+     "at": 0
+    },
+    {
+     "word": "إِشَارَة",
+     "pic": "../../pics/ar-traffic-light.png",
+     "audio": "q/c5-ishara.mp3",
+     "at": 0
+    }
+   ],
+   "book": "workbook",
+   "page": 16,
+   "ex": 4,
+   "hint": "اضغط على الدائرة التي فيها الألف"
+  },
+  {
+   "type": "circle",
+   "task": "الْمَجْمُوعَةُ (أ): أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الْأَلِفِ",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/623/name.mp3"
+   ],
+   "items": [
+    {
+     "word": "علم",
+     "answer": false
+    },
+    {
+     "word": "أُذُن",
+     "answer": true
+    },
+    {
+     "word": "كَأْس",
+     "answer": true
+    },
+    {
+     "word": "بَطَّة",
+     "answer": false
+    },
+    {
+     "word": "إِشَارَة",
+     "answer": true
+    }
+   ],
+   "book": "workbook",
+   "page": 17,
+   "ex": 1,
+   "hint": "اضغط على الكلمة اللي فيها الألف"
+  },
+  {
+   "type": "vowel",
+   "task": "الْمَجْمُوعَةُ (أ): أَضْبِطُ حَرْفَ الْأَلِفِ فِي الْكَلِمَاتِ الْآتِيَةِ",
+   "taskAudio": "q/w-task-vowel.mp3",
+   "choices": [
+    "أَ",
+    "أُ",
+    "إِ",
+    "أْ"
+   ],
+   "items": [
+    {
+     "word": "فَأْر",
+     "pic": "../../pics/ar-mouse.png",
+     "audio": "words/fa_r.mp3",
+     "answer": "أْ",
+     "at": 1
+    },
+    {
+     "word": "أَسَد",
+     "pic": "../../pics/ar-lion.png",
+     "audio": "words/asad.mp3",
+     "answer": "أَ"
+    },
+    {
+     "word": "أُذُن",
+     "pic": "../../pics/ar-ear.png",
+     "audio": "words/udhun.mp3",
+     "answer": "أُ"
+    },
+    {
+     "word": "أُمّ",
+     "pic": "../../pics/ar-mother.jpg",
+     "audio": "words/umm.mp3",
+     "answer": "أُ"
+    },
+    {
+     "word": "أَرْنَب",
+     "pic": "../../pics/ar-rabbit.png",
+     "audio": "words/arnab.mp3",
+     "answer": "أَ"
+    }
+   ],
+   "book": "workbook",
+   "page": 17,
+   "ex": 2,
+   "hint": "اختار الألف بالحركة الصح"
+  },
+  {
+   "type": "circle",
+   "task": "الْمَجْمُوعَةُ (ب): أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الْأَلِفِ",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/623/name.mp3"
+   ],
+   "items": [
+    {
+     "word": "كَأْس",
+     "answer": true
+    },
+    {
+     "word": "دُب",
+     "answer": false
+    },
+    {
+     "word": "إِبْرَة",
+     "answer": true
+    },
+    {
+     "word": "أُسْرَة",
+     "answer": true
+    },
+    {
+     "word": "نَبَأ",
+     "answer": true
+    }
+   ],
+   "book": "workbook",
+   "page": 17,
+   "ex": 1,
+   "hint": "اضغط على الكلمة اللي فيها الألف"
+  },
+  {
+   "type": "vowel",
+   "task": "الْمَجْمُوعَةُ (ب): أَضْبِطُ حَرْفَ الْأَلِفِ فِي الْكَلِمَاتِ الْآتِيَةِ",
+   "taskAudio": "q/w-task-vowel.mp3",
+   "choices": [
+    "أَ",
+    "أُ",
+    "إِ",
+    "أْ"
+   ],
+   "items": [
+    {
+     "word": "فَأْس",
+     "pic": "../../pics/ar-axe.png",
+     "audio": "q/c6-1.mp3",
+     "answer": "أْ",
+     "at": 1
+    },
+    {
+     "word": "إِشَارَة",
+     "pic": "../../pics/ar-traffic-light.png",
+     "audio": "q/c5-ishara.mp3",
+     "answer": "إِ"
+    },
+    {
+     "word": "أُذُن",
+     "pic": "../../pics/ar-ear.png",
+     "audio": "words/udhun.mp3",
+     "answer": "أُ"
+    },
+    {
+     "word": "كَأْس",
+     "pic": "../../pics/ar-trophy.png",
+     "audio": "words/kas.mp3",
+     "answer": "أْ",
+     "at": 1
+    },
+    {
+     "word": "أَرْنَب",
+     "pic": "../../pics/ar-rabbit.png",
+     "audio": "words/arnab.mp3",
+     "answer": "أَ"
+    }
+   ],
+   "book": "workbook",
+   "page": 17,
+   "ex": 2,
+   "hint": "اختار الألف بالحركة الصح"
+  },
+  {
+   "type": "circle",
+   "task": "الْمَجْمُوعَةُ (ج): أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الْأَلِفِ",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/623/name.mp3"
+   ],
+   "items": [
+    {
+     "word": "فَصْل",
+     "answer": false
+    },
+    {
+     "word": "أَسَد",
+     "answer": true
+    },
+    {
+     "word": "أُمّ",
+     "answer": true
+    },
+    {
+     "word": "فَأْر",
+     "answer": true
+    },
+    {
+     "word": "إِشَارَة",
+     "answer": true
+    }
+   ],
+   "book": "workbook",
+   "page": 17,
+   "ex": 1,
+   "hint": "اضغط على الكلمة اللي فيها الألف"
+  },
+  {
+   "type": "vowel",
+   "task": "الْمَجْمُوعَةُ (ج): أَضْبِطُ حَرْفَ الْأَلِفِ فِي الْكَلِمَاتِ الْآتِيَةِ",
+   "taskAudio": "q/w-task-vowel.mp3",
+   "choices": [
+    "أَ",
+    "أُ",
+    "إِ",
+    "أْ"
+   ],
+   "items": [
+    {
+     "word": "إِبْرَة",
+     "pic": "../../pics/ar-needle.jpg",
+     "audio": "words/ibra.mp3",
+     "answer": "إِ"
+    },
+    {
+     "word": "أُذُن",
+     "pic": "../../pics/ar-ear.png",
+     "audio": "words/udhun.mp3",
+     "answer": "أُ"
+    },
+    {
+     "word": "كَأْس",
+     "pic": "../../pics/ar-trophy.png",
+     "audio": "words/kas.mp3",
+     "answer": "أْ",
+     "at": 1
+    },
+    {
+     "word": "أُمّ",
+     "pic": "../../pics/ar-mother.jpg",
+     "audio": "words/umm.mp3",
+     "answer": "أُ"
+    }
+   ],
+   "book": "workbook",
+   "page": 17,
+   "ex": 2,
+   "hint": "اختار الألف بالحركة الصح"
+  }
+ ]
+}

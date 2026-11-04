@@ -1,0 +1,1422 @@
+{
+ "id": "u4l5",
+ "unit": 4,
+ "lesson": 5,
+ "title": "Making Subtraction Stories",
+ "task": "Making Subtraction Stories",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz"
+ ],
+ "tabLabels": {
+  "read": "Lesson",
+  "quiz": "Exercise"
+ },
+ "pages": 7,
+ "layout": "explain",
+ "explain": {
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3"
+  },
+  "steps": [
+   {
+    "name": "5 − 3 = 2",
+    "beats": [
+     {
+      "say": "Let's make a story.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "scene.jpg",
+        "w": 1000,
+        "h": 782
+       },
+       {
+        "eq": [
+         "5",
+         "−",
+         "3",
+         "=",
+         "2"
+        ],
+        "state": "show"
+       }
+      ],
+      "audio": "explain/s1-1.mp3"
+     },
+     {
+      "say": "Five, minus three, equals two.",
+      "do": [
+       {
+        "pulse": 0
+       },
+       {
+        "pulse": 1
+       },
+       {
+        "pulse": 2
+       },
+       {
+        "pulse": 3
+       },
+       {
+        "pulse": 4
+       }
+      ],
+      "audio": "explain/s1-2.mp3"
+     },
+     {
+      "say": "Look at the picture.",
+      "do": [
+       {
+        "eqState": "dim"
+       }
+      ],
+      "audio": "explain/s1-3.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Cats",
+    "beats": [
+     {
+      "say": "Look at the cats.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "scene.jpg",
+        "w": 1000,
+        "h": 782
+       },
+       {
+        "eq": [
+         "5",
+         "−",
+         "3",
+         "=",
+         "2"
+        ],
+        "state": "dim"
+       }
+      ],
+      "audio": "explain/s2-1.mp3"
+     },
+     {
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          480,
+          385
+         ],
+         [
+          550,
+          485
+         ],
+         [
+          100,
+          560
+         ],
+         [
+          920,
+          500
+         ],
+         [
+          875,
+          625
+         ]
+        ],
+        "r": 55,
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          480,
+          385
+         ],
+         [
+          550,
+          485
+         ],
+         [
+          100,
+          560
+         ],
+         [
+          920,
+          500
+         ],
+         [
+          875,
+          625
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "There are five cats.",
+      "do": [
+       {
+        "add": "There are"
+       },
+       {
+        "add": "5 cats.",
+        "color": "orange"
+       },
+       {
+        "fly": "5",
+        "from": "g1",
+        "to": 0,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/s2-2.mp3"
+     },
+     {
+      "do": [
+       {
+        "cross": true,
+        "pts": [
+         [
+          100,
+          560
+         ],
+         [
+          920,
+          500
+         ],
+         [
+          875,
+          625
+         ]
+        ],
+        "r": 55,
+        "color": "red"
+       }
+      ]
+     },
+     {
+      "say": "Three run away.",
+      "do": [
+       {
+        "add": "3 run away.",
+        "color": "red"
+       },
+       {
+        "fly": "3",
+        "from": "g1",
+        "to": 2,
+        "color": "red"
+       },
+       {
+        "pulse": 1
+       }
+      ],
+      "audio": "explain/s2-3.mp3"
+     },
+     {
+      "say": "How many cats are left?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "How many cats are left?"
+       },
+       {
+        "pulse": 3
+       }
+      ],
+      "audio": "explain/s2-4.mp3"
+     },
+     {
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          480,
+          385
+         ],
+         [
+          550,
+          485
+         ]
+        ],
+        "color": "green"
+       },
+       {
+        "lit": 4,
+        "color": "green",
+        "value": "2"
+       }
+      ]
+     },
+     {
+      "say": "There are five cats. Three run away. How many cats are left?",
+      "do": [],
+      "audio": "explain/s2-5.mp3",
+      "hl": [
+       [
+        0,
+        0.42
+       ],
+       [
+        0.42,
+        0.71
+       ],
+       [
+        0.71,
+        1.07
+       ],
+       [
+        1.07,
+        1.43
+       ],
+       [
+        2.28,
+        2.78
+       ],
+       [
+        2.78,
+        3.12
+       ],
+       [
+        3.12,
+        3.54
+       ],
+       [
+        4.39,
+        4.67
+       ],
+       [
+        4.67,
+        5.0
+       ],
+       [
+        5.0,
+        5.33
+       ],
+       [
+        5.33,
+        5.6
+       ],
+       [
+        5.6,
+        5.93
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Birds",
+    "beats": [
+     {
+      "say": "Look at the gray birds.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "scene.jpg",
+        "w": 1000,
+        "h": 782
+       },
+       {
+        "eq": [
+         "5",
+         "−",
+         "3",
+         "=",
+         "2"
+        ],
+        "state": "dim"
+       }
+      ],
+      "audio": "explain/s3-1.mp3"
+     },
+     {
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          190,
+          50
+         ],
+         [
+          400,
+          115
+         ],
+         [
+          475,
+          60
+         ],
+         [
+          775,
+          60
+         ],
+         [
+          680,
+          160
+         ]
+        ],
+        "r": 45,
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          190,
+          50
+         ],
+         [
+          400,
+          115
+         ],
+         [
+          475,
+          60
+         ],
+         [
+          775,
+          60
+         ],
+         [
+          680,
+          160
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "There are five gray birds.",
+      "do": [
+       {
+        "add": "There are"
+       },
+       {
+        "add": "5 gray birds.",
+        "color": "orange"
+       },
+       {
+        "fly": "5",
+        "from": "g1",
+        "to": 0,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/s3-2.mp3"
+     },
+     {
+      "do": [
+       {
+        "cross": true,
+        "pts": [
+         [
+          190,
+          50
+         ],
+         [
+          400,
+          115
+         ],
+         [
+          475,
+          60
+         ]
+        ],
+        "r": 45,
+        "color": "red"
+       }
+      ]
+     },
+     {
+      "say": "Three fly away.",
+      "do": [
+       {
+        "add": "3 fly away.",
+        "color": "red"
+       },
+       {
+        "fly": "3",
+        "from": "g1",
+        "to": 2,
+        "color": "red"
+       },
+       {
+        "pulse": 1
+       }
+      ],
+      "audio": "explain/s3-3.mp3"
+     },
+     {
+      "say": "How many gray birds are left?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "How many gray birds are left?"
+       },
+       {
+        "pulse": 3
+       }
+      ],
+      "audio": "explain/s3-4.mp3"
+     },
+     {
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          775,
+          60
+         ],
+         [
+          680,
+          160
+         ]
+        ],
+        "color": "green"
+       },
+       {
+        "lit": 4,
+        "color": "green",
+        "value": "2"
+       }
+      ]
+     },
+     {
+      "say": "There are five gray birds. Three fly away. How many gray birds are left?",
+      "do": [],
+      "audio": "explain/s3-5.mp3",
+      "hl": [
+       [
+        0,
+        0.42
+       ],
+       [
+        0.42,
+        0.71
+       ],
+       [
+        0.71,
+        1.06
+       ],
+       [
+        1.06,
+        1.41
+       ],
+       [
+        1.41,
+        1.83
+       ],
+       [
+        2.68,
+        3.18
+       ],
+       [
+        3.18,
+        3.53
+       ],
+       [
+        3.53,
+        3.96
+       ],
+       [
+        4.81,
+        5.1
+       ],
+       [
+        5.1,
+        5.45
+       ],
+       [
+        5.45,
+        5.8
+       ],
+       [
+        5.8,
+        6.21
+       ],
+       [
+        6.21,
+        6.5
+       ],
+       [
+        6.5,
+        6.85
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "name": "People",
+    "beats": [
+     {
+      "say": "Look at the people.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "scene.jpg",
+        "w": 1000,
+        "h": 782
+       },
+       {
+        "eq": [
+         "5",
+         "−",
+         "3",
+         "=",
+         "2"
+        ],
+        "state": "dim"
+       }
+      ],
+      "audio": "explain/s4-1.mp3"
+     },
+     {
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          150,
+          215
+         ],
+         [
+          260,
+          215
+         ],
+         [
+          835,
+          205
+         ],
+         [
+          270,
+          520
+         ],
+         [
+          715,
+          540
+         ]
+        ],
+        "r": 75,
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          150,
+          215
+         ],
+         [
+          260,
+          215
+         ],
+         [
+          835,
+          205
+         ],
+         [
+          270,
+          520
+         ],
+         [
+          715,
+          540
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "There are five people.",
+      "do": [
+       {
+        "add": "There are"
+       },
+       {
+        "add": "5 people.",
+        "color": "orange"
+       },
+       {
+        "fly": "5",
+        "from": "g1",
+        "to": 0,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/s4-2.mp3"
+     },
+     {
+      "do": [
+       {
+        "cross": true,
+        "pts": [
+         [
+          150,
+          215
+         ],
+         [
+          260,
+          215
+         ],
+         [
+          835,
+          205
+         ]
+        ],
+        "r": 75,
+        "color": "red"
+       }
+      ]
+     },
+     {
+      "say": "Three go home.",
+      "do": [
+       {
+        "add": "3 go home.",
+        "color": "red"
+       },
+       {
+        "fly": "3",
+        "from": "g1",
+        "to": 2,
+        "color": "red"
+       },
+       {
+        "pulse": 1
+       }
+      ],
+      "audio": "explain/s4-3.mp3"
+     },
+     {
+      "say": "How many people are left?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "How many people are left?"
+       },
+       {
+        "pulse": 3
+       }
+      ],
+      "audio": "explain/s4-4.mp3"
+     },
+     {
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          270,
+          520
+         ],
+         [
+          715,
+          540
+         ]
+        ],
+        "color": "green"
+       },
+       {
+        "lit": 4,
+        "color": "green",
+        "value": "2"
+       }
+      ]
+     },
+     {
+      "say": "There are five people. Three go home. How many people are left?",
+      "do": [],
+      "audio": "explain/s4-5.mp3",
+      "hl": [
+       [
+        0,
+        0.39
+       ],
+       [
+        0.39,
+        0.65
+       ],
+       [
+        0.65,
+        0.98
+       ],
+       [
+        0.98,
+        1.42
+       ],
+       [
+        2.27,
+        2.75
+       ],
+       [
+        2.75,
+        3.0
+       ],
+       [
+        3.0,
+        3.41
+       ],
+       [
+        4.26,
+        4.51
+       ],
+       [
+        4.51,
+        4.82
+       ],
+       [
+        4.82,
+        5.24
+       ],
+       [
+        5.24,
+        5.5
+       ],
+       [
+        5.5,
+        5.81
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Try: ducks",
+    "beats": [
+     {
+      "say": "Try! Let's make a story for four, minus one, equals three.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-0.jpg",
+        "w": 1000,
+        "h": 848
+       },
+       {
+        "eq": [
+         "4",
+         "−",
+         "1",
+         "=",
+         "3"
+        ],
+        "state": "show"
+       }
+      ],
+      "audio": "explain/s5-1.mp3"
+     },
+     {
+      "say": "Look at the ducks.",
+      "do": [],
+      "audio": "explain/s5-2.mp3"
+     },
+     {
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          240,
+          415
+         ],
+         [
+          340,
+          565
+         ],
+         [
+          105,
+          705
+         ],
+         [
+          255,
+          700
+         ]
+        ],
+        "r": 60,
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          240,
+          415
+         ],
+         [
+          340,
+          565
+         ],
+         [
+          105,
+          705
+         ],
+         [
+          255,
+          700
+         ]
+        ],
+        "color": "orange"
+       },
+       {
+        "cross": true,
+        "pts": [
+         [
+          340,
+          565
+         ]
+        ],
+        "r": 60,
+        "color": "red"
+       }
+      ]
+     },
+     {
+      "say": "Put the words in order.",
+      "do": [
+       {
+        "order": {
+         "chunks": [
+          "There are",
+          "4 ducks.",
+          "1 swims away.",
+          "How many ducks are left?"
+         ],
+         "colors": [
+          null,
+          "orange",
+          "red",
+          null
+         ],
+         "audios": [
+          "../../en-shared/q/there-are.mp3",
+          "../../en-shared/q/4-ducks.mp3",
+          "../../en-shared/q/1-swims-away.mp3",
+          "../../en-shared/q/how-many-ducks-are-left.mp3"
+         ]
+        }
+       }
+      ],
+      "audio": "explain/s5-3.mp3"
+     },
+     {
+      "say": "There are four ducks. One swims away. How many ducks are left?",
+      "do": [
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s5-4.mp3",
+      "hl": [
+       [
+        0,
+        0.38
+       ],
+       [
+        0.38,
+        0.65
+       ],
+       [
+        0.65,
+        0.97
+       ],
+       [
+        0.97,
+        1.36
+       ],
+       [
+        2.21,
+        2.56
+       ],
+       [
+        2.56,
+        3.08
+       ],
+       [
+        3.08,
+        3.51
+       ],
+       [
+        4.36,
+        4.62
+       ],
+       [
+        4.62,
+        4.95
+       ],
+       [
+        4.95,
+        5.33
+       ],
+       [
+        5.33,
+        5.6
+       ],
+       [
+        5.6,
+        5.92
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Try: red birds",
+    "beats": [
+     {
+      "say": "Look at the red birds.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-0.jpg",
+        "w": 1000,
+        "h": 848
+       },
+       {
+        "eq": [
+         "4",
+         "−",
+         "1",
+         "=",
+         "3"
+        ],
+        "state": "show"
+       }
+      ],
+      "audio": "explain/s6-1.mp3"
+     },
+     {
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          130,
+          140
+         ],
+         [
+          345,
+          70
+         ],
+         [
+          315,
+          155
+         ],
+         [
+          645,
+          65
+         ]
+        ],
+        "r": 45,
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          130,
+          140
+         ],
+         [
+          345,
+          70
+         ],
+         [
+          315,
+          155
+         ],
+         [
+          645,
+          65
+         ]
+        ],
+        "color": "orange"
+       },
+       {
+        "cross": true,
+        "pts": [
+         [
+          645,
+          65
+         ]
+        ],
+        "r": 45,
+        "color": "red"
+       }
+      ]
+     },
+     {
+      "say": "Put the words in order.",
+      "do": [
+       {
+        "order": {
+         "chunks": [
+          "There",
+          "are",
+          "4",
+          "red",
+          "birds.",
+          "1",
+          "flies",
+          "away.",
+          "How",
+          "many",
+          "red",
+          "birds",
+          "are",
+          "left?"
+         ],
+         "colors": [
+          null,
+          null,
+          "orange",
+          "orange",
+          "orange",
+          "red",
+          "red",
+          "red",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+         ],
+         "audios": [
+          "../../en-shared/q/there.mp3",
+          "../../en-shared/q/are.mp3",
+          "../../en-shared/q/4.mp3",
+          "../../en-shared/q/red.mp3",
+          "../../en-shared/q/birds.mp3",
+          "../../en-shared/q/1.mp3",
+          "../../en-shared/q/flies.mp3",
+          "../../en-shared/q/away.mp3",
+          "../../en-shared/q/how.mp3",
+          "../../en-shared/q/many.mp3",
+          "../../en-shared/q/red.mp3",
+          "../../en-shared/q/birds.mp3",
+          "../../en-shared/q/are.mp3",
+          "../../en-shared/q/left.mp3"
+         ]
+        }
+       }
+      ],
+      "audio": "explain/s6-2.mp3"
+     },
+     {
+      "say": "There are four red birds. One flies away. How many red birds are left?",
+      "do": [
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s6-3.mp3",
+      "hl": [
+       [
+        0,
+        0.39
+       ],
+       [
+        0.39,
+        0.66
+       ],
+       [
+        0.66,
+        1.0
+       ],
+       [
+        1.0,
+        1.27
+       ],
+       [
+        1.27,
+        1.66
+       ],
+       [
+        2.51,
+        2.88
+       ],
+       [
+        2.88,
+        3.4
+       ],
+       [
+        3.4,
+        3.85
+       ],
+       [
+        4.7,
+        4.99
+       ],
+       [
+        4.99,
+        5.34
+       ],
+       [
+        5.34,
+        5.62
+       ],
+       [
+        5.62,
+        6.04
+       ],
+       [
+        6.04,
+        6.32
+       ],
+       [
+        6.32,
+        6.68
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Try: flowers",
+    "beats": [
+     {
+      "say": "Look at the flowers.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-0.jpg",
+        "w": 1000,
+        "h": 848
+       },
+       {
+        "eq": [
+         "4",
+         "−",
+         "1",
+         "=",
+         "3"
+        ],
+        "state": "show"
+       }
+      ],
+      "audio": "explain/s7-1.mp3"
+     },
+     {
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          600,
+          565
+         ],
+         [
+          658,
+          550
+         ],
+         [
+          655,
+          610
+         ],
+         [
+          752,
+          595
+         ]
+        ],
+        "r": 30,
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          600,
+          565
+         ],
+         [
+          658,
+          550
+         ],
+         [
+          655,
+          610
+         ],
+         [
+          752,
+          595
+         ]
+        ],
+        "color": "orange"
+       },
+       {
+        "cross": true,
+        "pts": [
+         [
+          752,
+          595
+         ]
+        ],
+        "r": 30,
+        "color": "red"
+       }
+      ]
+     },
+     {
+      "say": "Put the words in order.",
+      "do": [
+       {
+        "order": {
+         "chunks": [
+          "There",
+          "are",
+          "4",
+          "flowers.",
+          "The",
+          "girl",
+          "takes",
+          "1.",
+          "How",
+          "many",
+          "flowers",
+          "are",
+          "left?"
+         ],
+         "colors": [
+          null,
+          null,
+          "orange",
+          "orange",
+          "red",
+          "red",
+          "red",
+          "red",
+          null,
+          null,
+          null,
+          null,
+          null
+         ],
+         "audios": [
+          "../../en-shared/q/there.mp3",
+          "../../en-shared/q/are.mp3",
+          "../../en-shared/q/4.mp3",
+          "../../en-shared/q/flowers.mp3",
+          "../../en-shared/q/the.mp3",
+          "../../en-shared/q/girl.mp3",
+          "../../en-shared/q/takes.mp3",
+          "../../en-shared/q/1.mp3",
+          "../../en-shared/q/how.mp3",
+          "../../en-shared/q/many.mp3",
+          "../../en-shared/q/flowers.mp3",
+          "../../en-shared/q/are.mp3",
+          "../../en-shared/q/left.mp3"
+         ]
+        }
+       }
+      ],
+      "audio": "explain/s7-2.mp3"
+     },
+     {
+      "say": "There are four flowers. The girl takes one. How many flowers are left?",
+      "do": [
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s7-3.mp3",
+      "hl": [
+       [
+        0,
+        0.4
+       ],
+       [
+        0.4,
+        0.68
+       ],
+       [
+        0.68,
+        1.03
+       ],
+       [
+        1.03,
+        1.56
+       ],
+       [
+        2.41,
+        2.7
+       ],
+       [
+        2.7,
+        3.07
+       ],
+       [
+        3.07,
+        3.5
+       ],
+       [
+        3.5,
+        3.79
+       ],
+       [
+        4.64,
+        4.93
+       ],
+       [
+        4.93,
+        5.27
+       ],
+       [
+        5.27,
+        5.8
+       ],
+       [
+        5.8,
+        6.08
+       ],
+       [
+        6.08,
+        6.42
+       ]
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "pageNums": [
+  52,
+  52,
+  52,
+  52,
+  53,
+  53,
+  53
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "id": "u1l5",
+ "unit": 1,
+ "lesson": 7,
+ "title": "What makes 6?",
+ "task": "What makes 6?",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz"
+ ],
+ "tabLabels": {
+  "read": "Explain"
+ },
+ "type": "math",
+ "math": {
+  "bonds": {
+   "whole": 6,
+   "rows": [
+    {
+     "a": 1,
+     "b": 5,
+     "audio": "words/one-and-five-make-six.mp3"
+    },
+    {
+     "a": 2,
+     "b": 4,
+     "audio": "words/two-and-four-make-six.mp3"
+    },
+    {
+     "a": 3,
+     "b": 3,
+     "audio": "words/three-and-three-make-six.mp3"
+    },
+    {
+     "a": 4,
+     "b": 2,
+     "audio": "words/four-and-two-make-six.mp3"
+    },
+    {
+     "a": 5,
+     "b": 1,
+     "audio": "words/five-and-one-make-six.mp3"
+    }
+   ]
+  }
+ }
+}

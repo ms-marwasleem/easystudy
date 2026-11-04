@@ -1,0 +1,1106 @@
+{
+ "id": "u4l2",
+ "unit": 4,
+ "lesson": 2,
+ "title": "Subtraction (Part 2)",
+ "task": "Subtraction (Part 2)",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz"
+ ],
+ "tabLabels": {
+  "read": "Lesson",
+  "quiz": "Exercise"
+ },
+ "pages": 6,
+ "pageNums": [
+  46,
+  46,
+  46,
+  46,
+  47,
+  47
+ ],
+ "layout": "explain",
+ "explain": {
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3",
+   "6": "../u1l4/words/six.mp3",
+   "7": "../u1l4/words/seven.mp3",
+   "8": "../u1l4/words/eight.mp3",
+   "9": "../u1l4/words/nine.mp3",
+   "10": "../u1l4/words/ten.mp3"
+  },
+  "steps": [
+   {
+    "name": "Use subtraction",
+    "beats": [
+     {
+      "say": "Use subtraction when you want to find out: How many are left?",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "scene.png",
+        "w": 1000,
+        "h": 500,
+        "frame": false
+       },
+       {
+        "eq": [
+         "?",
+         "−",
+         "?",
+         "=",
+         "?"
+        ],
+        "state": "show"
+       },
+       {
+        "add": "How many are left?",
+        "color": "green"
+       }
+      ],
+      "audio": "explain/s1-1.mp3"
+     },
+     {
+      "say": "There are three apples.",
+      "do": [
+       {
+        "line": "clear"
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          201,
+          267
+         ],
+         [
+          450,
+          267
+         ],
+         [
+          765,
+          267
+         ]
+        ],
+        "r": 32,
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          201,
+          267
+         ],
+         [
+          450,
+          267
+         ],
+         [
+          765,
+          267
+         ]
+        ],
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/s1-2.mp3"
+     },
+     {
+      "do": [
+       {
+        "fly": "3",
+        "from": "g1",
+        "to": 0,
+        "color": "orange"
+       },
+       {
+        "unring": "g1"
+       }
+      ]
+     },
+     {
+      "say": "If you eat one apple,",
+      "do": [
+       {
+        "lit": 1
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          765,
+          267
+         ]
+        ],
+        "r": 32,
+        "color": "red",
+        "id": "g2"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          765,
+          267
+         ]
+        ],
+        "color": "red"
+       }
+      ],
+      "audio": "explain/s1-3.mp3"
+     },
+     {
+      "do": [
+       {
+        "fly": "1",
+        "from": "g2",
+        "to": 2,
+        "color": "red"
+       },
+       {
+        "unring": "g2"
+       },
+       {
+        "cross": true,
+        "pts": [
+         [
+          765,
+          267
+         ]
+        ],
+        "r": 32,
+        "color": "red"
+       },
+       {
+        "lit": 3
+       }
+      ]
+     },
+     {
+      "say": "two apples are left.",
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          201,
+          267
+         ],
+         [
+          450,
+          267
+         ]
+        ],
+        "r": 32,
+        "color": "green",
+        "id": "left"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          201,
+          267
+         ],
+         [
+          450,
+          267
+         ]
+        ],
+        "color": "green"
+       }
+      ],
+      "audio": "explain/s1-4.mp3"
+     },
+     {
+      "say": "Three minus one equals two.",
+      "do": [
+       {
+        "fly": "2",
+        "from": "left",
+        "to": 4,
+        "color": "green"
+       },
+       {
+        "add": "3 − 1 = 2"
+       }
+      ],
+      "audio": "explain/s1-5.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Sentence and answer",
+    "beats": [
+     {
+      "say": "In a word problem, write both the subtraction sentence and the answer.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "scene.png",
+        "w": 1000,
+        "h": 500,
+        "frame": false
+       },
+       {
+        "eq": [
+         "3",
+         "−",
+         "1",
+         "=",
+         "2"
+        ],
+        "state": "show"
+       },
+       {
+        "cross": true,
+        "pts": [
+         [
+          765,
+          267
+         ]
+        ],
+        "r": 32,
+        "color": "red"
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          201,
+          267
+         ],
+         [
+          450,
+          267
+         ]
+        ],
+        "r": 32,
+        "color": "green",
+        "id": "left"
+       }
+      ],
+      "audio": "explain/s2-1.mp3"
+     },
+     {
+      "say": "Subtraction sentence: three minus one equals two.",
+      "do": [
+       {
+        "add": "Subtraction sentence:"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "3 − 1 = 2"
+       }
+      ],
+      "audio": "explain/s2-2.mp3"
+     },
+     {
+      "say": "At the end of the answer, write a word, like pieces, animals, or sticks.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "Answer:"
+       },
+       {
+        "add": "2 apples",
+        "card": true
+       }
+      ],
+      "audio": "explain/s2-3.mp3"
+     },
+     {
+      "say": "Answer: two apples.",
+      "do": [
+       {
+        "pulse": 4
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s2-4.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Warm Up: pencils",
+    "beats": [
+     {
+      "say": "You have five pencils.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-0.png",
+        "w": 1000,
+        "h": 535,
+        "frame": false
+       },
+       {
+        "eq": [
+         "?",
+         "−",
+         "?",
+         "=",
+         "?"
+        ],
+        "state": "show"
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          142,
+          282
+         ],
+         [
+          261,
+          282
+         ],
+         [
+          557,
+          282
+         ],
+         [
+          684,
+          282
+         ],
+         [
+          811,
+          282
+         ]
+        ],
+        "r": 32,
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          142,
+          282
+         ],
+         [
+          261,
+          282
+         ],
+         [
+          557,
+          282
+         ],
+         [
+          684,
+          282
+         ],
+         [
+          811,
+          282
+         ]
+        ],
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/s3-1.mp3"
+     },
+     {
+      "do": [
+       {
+        "fly": "5",
+        "from": "g1",
+        "to": 0,
+        "color": "orange"
+       },
+       {
+        "unring": "g1"
+       }
+      ]
+     },
+     {
+      "say": "You give away three.",
+      "do": [
+       {
+        "lit": 1
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          557,
+          282
+         ],
+         [
+          684,
+          282
+         ],
+         [
+          811,
+          282
+         ]
+        ],
+        "r": 32,
+        "color": "red",
+        "id": "g2"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          557,
+          282
+         ],
+         [
+          684,
+          282
+         ],
+         [
+          811,
+          282
+         ]
+        ],
+        "color": "red"
+       }
+      ],
+      "audio": "explain/s3-2.mp3"
+     },
+     {
+      "do": [
+       {
+        "fly": "3",
+        "from": "g2",
+        "to": 2,
+        "color": "red"
+       },
+       {
+        "unring": "g2"
+       },
+       {
+        "cross": true,
+        "pts": [
+         [
+          557,
+          282
+         ],
+         [
+          684,
+          282
+         ],
+         [
+          811,
+          282
+         ]
+        ],
+        "r": 32,
+        "color": "red"
+       },
+       {
+        "lit": 3
+       }
+      ]
+     },
+     {
+      "say": "How many are left?",
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          142,
+          282
+         ],
+         [
+          261,
+          282
+         ]
+        ],
+        "r": 32,
+        "color": "green",
+        "id": "left"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          142,
+          282
+         ],
+         [
+          261,
+          282
+         ]
+        ],
+        "color": "green"
+       }
+      ],
+      "audio": "explain/s3-3.mp3"
+     },
+     {
+      "say": "Subtraction sentence: five minus three equals two.",
+      "do": [
+       {
+        "fly": "2",
+        "from": "left",
+        "to": 4,
+        "color": "green"
+       },
+       {
+        "add": "Subtraction sentence:"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "5 − 3 = 2"
+       }
+      ],
+      "audio": "explain/s3-4.mp3"
+     },
+     {
+      "say": "Answer: two pencils.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "Answer:"
+       },
+       {
+        "add": "2 pencils",
+        "card": true
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s3-5.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Warm Up: butterflies",
+    "beats": [
+     {
+      "say": "There are six butterflies.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-1.png",
+        "w": 1000,
+        "h": 561,
+        "frame": false
+       },
+       {
+        "eq": [
+         "?",
+         "−",
+         "?",
+         "=",
+         "?"
+        ],
+        "state": "show"
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          200,
+          196
+         ],
+         [
+          361,
+          196
+         ],
+         [
+          200,
+          383
+         ],
+         [
+          361,
+          383
+         ],
+         [
+          811,
+          185
+         ],
+         [
+          815,
+          390
+         ]
+        ],
+        "r": 32,
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          200,
+          196
+         ],
+         [
+          361,
+          196
+         ],
+         [
+          200,
+          383
+         ],
+         [
+          361,
+          383
+         ],
+         [
+          811,
+          185
+         ],
+         [
+          815,
+          390
+         ]
+        ],
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/s4-1.mp3"
+     },
+     {
+      "do": [
+       {
+        "fly": "6",
+        "from": "g1",
+        "to": 0,
+        "color": "orange"
+       },
+       {
+        "unring": "g1"
+       }
+      ]
+     },
+     {
+      "say": "Two fly away.",
+      "do": [
+       {
+        "lit": 1
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          811,
+          185
+         ],
+         [
+          815,
+          390
+         ]
+        ],
+        "r": 32,
+        "color": "red",
+        "id": "g2"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          811,
+          185
+         ],
+         [
+          815,
+          390
+         ]
+        ],
+        "color": "red"
+       }
+      ],
+      "audio": "explain/s4-2.mp3"
+     },
+     {
+      "do": [
+       {
+        "fly": "2",
+        "from": "g2",
+        "to": 2,
+        "color": "red"
+       },
+       {
+        "unring": "g2"
+       },
+       {
+        "cross": true,
+        "pts": [
+         [
+          811,
+          185
+         ],
+         [
+          815,
+          390
+         ]
+        ],
+        "r": 32,
+        "color": "red"
+       },
+       {
+        "lit": 3
+       }
+      ]
+     },
+     {
+      "say": "How many are left?",
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          200,
+          196
+         ],
+         [
+          361,
+          196
+         ],
+         [
+          200,
+          383
+         ],
+         [
+          361,
+          383
+         ]
+        ],
+        "r": 32,
+        "color": "green",
+        "id": "left"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          200,
+          196
+         ],
+         [
+          361,
+          196
+         ],
+         [
+          200,
+          383
+         ],
+         [
+          361,
+          383
+         ]
+        ],
+        "color": "green"
+       }
+      ],
+      "audio": "explain/s4-3.mp3"
+     },
+     {
+      "say": "Subtraction sentence: six minus two equals four.",
+      "do": [
+       {
+        "fly": "4",
+        "from": "left",
+        "to": 4,
+        "color": "green"
+       },
+       {
+        "add": "Subtraction sentence:"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "6 − 2 = 4"
+       }
+      ],
+      "audio": "explain/s4-4.mp3"
+     },
+     {
+      "say": "Answer: four butterflies.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "Answer:"
+       },
+       {
+        "add": "4 butterflies",
+        "card": true
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s4-5.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Try: tomatoes",
+    "beats": [
+     {
+      "say": "Try! You have seven tomatoes. You eat four. How many are left?",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-2.png",
+        "w": 1000,
+        "h": 500,
+        "frame": false
+       },
+       {
+        "eq": [
+         "7",
+         "−",
+         "4",
+         "=",
+         "?"
+        ],
+        "state": "show"
+       }
+      ],
+      "audio": "explain/s5-1.mp3"
+     },
+     {
+      "say": "You eat four. Count the ones that are left.",
+      "do": [
+       {
+        "cross": true,
+        "pts": [
+         [
+          515,
+          248
+         ],
+         [
+          635,
+          248
+         ],
+         [
+          753,
+          248
+         ],
+         [
+          870,
+          248
+         ]
+        ],
+        "r": 32,
+        "color": "red"
+       }
+      ],
+      "audio": "explain/s5-2.mp3"
+     },
+     {
+      "say": "Write the subtraction sentence.",
+      "do": [
+       {
+        "add": "Subtraction sentence:"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "write": {
+         "text": "7 − 4 = 3"
+        }
+       }
+      ],
+      "audio": "explain/s5-3.mp3"
+     },
+     {
+      "say": "Yes! Seven minus four equals three.",
+      "do": [
+       {
+        "lit": 4,
+        "color": "green",
+        "value": 3
+       }
+      ],
+      "audio": "explain/s5-4.mp3"
+     },
+     {
+      "say": "What is the answer? Tap it.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "4 tomatoes",
+          "3 tomatoes",
+          "3"
+         ],
+         "answer": "3 tomatoes"
+        }
+       }
+      ],
+      "audio": "explain/s5-5.mp3"
+     },
+     {
+      "say": "Yes! Answer: three tomatoes.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "Answer:"
+       },
+       {
+        "add": "3 tomatoes",
+        "card": true
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s5-6.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Try: cars",
+    "beats": [
+     {
+      "say": "Try! There are eight cars. Five cars leave. How many are left?",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-3.png",
+        "w": 1000,
+        "h": 500,
+        "frame": false
+       },
+       {
+        "eq": [
+         "8",
+         "−",
+         "5",
+         "=",
+         "?"
+        ],
+        "state": "show"
+       }
+      ],
+      "audio": "explain/s6-1.mp3"
+     },
+     {
+      "say": "Five cars leave. Count the ones that are left.",
+      "do": [
+       {
+        "cross": true,
+        "pts": [
+         [
+          132,
+          200
+         ],
+         [
+          132,
+          291
+         ],
+         [
+          388,
+          155
+         ],
+         [
+          388,
+          246
+         ],
+         [
+          388,
+          338
+         ]
+        ],
+        "r": 32,
+        "color": "red"
+       }
+      ],
+      "audio": "explain/s6-2.mp3"
+     },
+     {
+      "say": "Write the subtraction sentence.",
+      "do": [
+       {
+        "add": "Subtraction sentence:"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "write": {
+         "text": "8 − 5 = 3"
+        }
+       }
+      ],
+      "audio": "explain/s6-3.mp3"
+     },
+     {
+      "say": "Yes! Eight minus five equals three.",
+      "do": [
+       {
+        "lit": 4,
+        "color": "green",
+        "value": 3
+       }
+      ],
+      "audio": "explain/s6-4.mp3"
+     },
+     {
+      "say": "What is the answer? Tap it.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "3 cars",
+          "3",
+          "5 cars"
+         ],
+         "answer": "3 cars"
+        }
+       }
+      ],
+      "audio": "explain/s6-5.mp3"
+     },
+     {
+      "say": "Yes! Answer: three cars.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "Answer:"
+       },
+       {
+        "add": "3 cars",
+        "card": true
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s6-6.mp3"
+     }
+    ]
+   }
+  ]
+ }
+}

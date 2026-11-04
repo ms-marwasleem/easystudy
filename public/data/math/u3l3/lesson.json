@@ -1,0 +1,1781 @@
+{
+ "id": "u3l3",
+ "unit": 3,
+ "lesson": 3,
+ "title": "Addition with Zero",
+ "task": "Addition with Zero",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz"
+ ],
+ "tabLabels": {
+  "read": "Lesson",
+  "quiz": "Exercise"
+ },
+ "pages": 12,
+ "pageNums": [
+  40,
+  40,
+  40,
+  40,
+  40,
+  41,
+  41,
+  41,
+  41,
+  41,
+  41,
+  41
+ ],
+ "layout": "explain",
+ "explain": {
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3",
+   "6": "../u1l4/words/six.mp3",
+   "7": "../u1l4/words/seven.mp3",
+   "8": "../u1l4/words/eight.mp3",
+   "9": "../u1l4/words/nine.mp3",
+   "10": "../u1l4/words/ten.mp3"
+  },
+  "steps": [
+   {
+    "name": "2 + 0 = 2",
+    "beats": [
+     {
+      "say": "You can add zero, just like any other number.",
+      "do": [
+       {
+        "scene": "tree",
+        "actors": {
+         "b0": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 465,
+          "y": 345,
+          "face": 1
+         },
+         "b1": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 535,
+          "y": 345,
+          "face": 1
+         }
+        }
+       },
+       {
+        "eq": [
+         "?",
+         "+",
+         "?",
+         "=",
+         "?"
+        ],
+        "state": "show"
+       },
+       {
+        "enter": [
+         "b0",
+         "b1"
+        ],
+        "gap": 150
+       }
+      ],
+      "audio": "explain/s1-1.mp3"
+     },
+     {
+      "say": "Look! Two birds.",
+      "do": [
+       {
+        "ring": [
+         "b0",
+         "b1"
+        ],
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "count": [
+         "b0",
+         "b1"
+        ],
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/s1-2.mp3"
+     },
+     {
+      "do": [
+       {
+        "fly": "2",
+        "from": "g1",
+        "to": 0,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "Plus",
+      "do": [
+       {
+        "lit": 1
+       }
+      ],
+      "audio": "explain/s1-3.mp3"
+     },
+     {
+      "say": "Zero more birds. No birds come.",
+      "do": [
+       {
+        "fly": "0",
+        "from": null,
+        "to": 2,
+        "color": "blue"
+       },
+       {
+        "lit": 3
+       }
+      ],
+      "audio": "explain/s1-4.mp3"
+     },
+     {
+      "say": "When you add zero, the number stays the same.",
+      "do": [
+       {
+        "unring": "all"
+       },
+       {
+        "ring": [
+         "b0",
+         "b1"
+        ],
+        "color": "green",
+        "id": "all"
+       },
+       {
+        "fly": "2",
+        "from": "all",
+        "to": 4,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/s1-5.mp3"
+     },
+     {
+      "say": "Two plus zero equals two.",
+      "read": true,
+      "do": [
+       {
+        "add": "Two plus zero equals two."
+       }
+      ],
+      "audio": "explain/s1-6.mp3"
+     },
+     {
+      "say": "When you add zero to a number, the number stays the same.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "2 + 0 = 2"
+       },
+       {
+        "pulse": 0
+       },
+       {
+        "pulse": 4
+       }
+      ],
+      "audio": "explain/s1-7.mp3"
+     }
+    ]
+   },
+   {
+    "name": "0 + 2 = 2",
+    "beats": [
+     {
+      "say": "In the same way, zero plus two.",
+      "do": [
+       {
+        "scene": "tree",
+        "actors": {
+         "b0": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 465,
+          "y": 345,
+          "face": -1
+         },
+         "b1": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 535,
+          "y": 345,
+          "face": -1
+         }
+        }
+       },
+       {
+        "eq": [
+         "?",
+         "+",
+         "?",
+         "=",
+         "?"
+        ],
+        "state": "show"
+       }
+      ],
+      "audio": "explain/s2-1.mp3"
+     },
+     {
+      "say": "Look! Zero birds. There are no birds.",
+      "do": [
+       {
+        "fly": "0",
+        "from": null,
+        "to": 0,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/s2-2.mp3"
+     },
+     {
+      "say": "Plus",
+      "do": [
+       {
+        "lit": 1
+       }
+      ],
+      "audio": "explain/s2-3.mp3"
+     },
+     {
+      "say": "Two birds come.",
+      "do": [
+       {
+        "enter": [
+         "b0",
+         "b1"
+        ],
+        "gap": 150
+       },
+       {
+        "ring": [
+         "b0",
+         "b1"
+        ],
+        "color": "blue",
+        "id": "g2"
+       },
+       {
+        "count": [
+         "b0",
+         "b1"
+        ],
+        "color": "blue"
+       }
+      ],
+      "audio": "explain/s2-4.mp3"
+     },
+     {
+      "do": [
+       {
+        "fly": "2",
+        "from": "g2",
+        "to": 2,
+        "color": "blue"
+       },
+       {
+        "lit": 3
+       }
+      ]
+     },
+     {
+      "say": "When you add zero, the number stays the same.",
+      "do": [
+       {
+        "unring": "all"
+       },
+       {
+        "ring": [
+         "b0",
+         "b1"
+        ],
+        "color": "green",
+        "id": "all"
+       },
+       {
+        "fly": "2",
+        "from": "all",
+        "to": 4,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/s2-5.mp3"
+     },
+     {
+      "say": "Zero plus two equals two.",
+      "read": true,
+      "do": [
+       {
+        "add": "Zero plus two equals two."
+       }
+      ],
+      "audio": "explain/s2-6.mp3"
+     },
+     {
+      "say": "Two plus zero equals two, and zero plus two equals two.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "2 + 0 = 2 and 0 + 2 = 2"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s2-7.mp3"
+     }
+    ]
+   },
+   {
+    "name": "5 + 0",
+    "beats": [
+     {
+      "say": "Let's do addition. Five plus zero.",
+      "do": [
+       {
+        "scene": "tree",
+        "actors": {
+         "b0": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 360,
+          "y": 345,
+          "face": 1
+         },
+         "b1": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 430,
+          "y": 345,
+          "face": 1
+         },
+         "b2": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 500,
+          "y": 345,
+          "face": 1
+         },
+         "b3": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 570,
+          "y": 345,
+          "face": 1
+         },
+         "b4": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 640,
+          "y": 345,
+          "face": 1
+         }
+        }
+       },
+       {
+        "eq": [
+         "?",
+         "+",
+         "?",
+         "=",
+         "?"
+        ],
+        "state": "show"
+       },
+       {
+        "enter": [
+         "b0",
+         "b1",
+         "b2",
+         "b3",
+         "b4"
+        ],
+        "gap": 150
+       }
+      ],
+      "audio": "explain/s3-1.mp3"
+     },
+     {
+      "say": "Look! Five birds.",
+      "do": [
+       {
+        "ring": [
+         "b0",
+         "b1",
+         "b2",
+         "b3",
+         "b4"
+        ],
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "count": [
+         "b0",
+         "b1",
+         "b2",
+         "b3",
+         "b4"
+        ],
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/s3-2.mp3"
+     },
+     {
+      "do": [
+       {
+        "fly": "5",
+        "from": "g1",
+        "to": 0,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "Plus",
+      "do": [
+       {
+        "lit": 1
+       }
+      ],
+      "audio": "explain/s3-3.mp3"
+     },
+     {
+      "say": "Zero more birds. No birds come.",
+      "do": [
+       {
+        "fly": "0",
+        "from": null,
+        "to": 2,
+        "color": "blue"
+       },
+       {
+        "lit": 3
+       }
+      ],
+      "audio": "explain/s3-4.mp3"
+     },
+     {
+      "say": "When you add zero, the number stays the same.",
+      "do": [
+       {
+        "unring": "all"
+       },
+       {
+        "ring": [
+         "b0",
+         "b1",
+         "b2",
+         "b3",
+         "b4"
+        ],
+        "color": "green",
+        "id": "all"
+       },
+       {
+        "fly": "5",
+        "from": "all",
+        "to": 4,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/s3-5.mp3"
+     },
+     {
+      "say": "Five plus zero equals five.",
+      "read": true,
+      "do": [
+       {
+        "add": "Five plus zero equals five."
+       }
+      ],
+      "audio": "explain/s3-6.mp3"
+     }
+    ]
+   },
+   {
+    "name": "0 + 8",
+    "beats": [
+     {
+      "say": "Let's do addition. Zero plus eight.",
+      "do": [
+       {
+        "scene": "tree",
+        "actors": {
+         "b0": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 255,
+          "y": 345,
+          "face": -1
+         },
+         "b1": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 325,
+          "y": 345,
+          "face": -1
+         },
+         "b2": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 395,
+          "y": 345,
+          "face": -1
+         },
+         "b3": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 465,
+          "y": 345,
+          "face": -1
+         },
+         "b4": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 535,
+          "y": 345,
+          "face": -1
+         },
+         "b5": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 605,
+          "y": 345,
+          "face": -1
+         },
+         "b6": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 675,
+          "y": 345,
+          "face": -1
+         },
+         "b7": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 745,
+          "y": 345,
+          "face": -1
+         }
+        }
+       },
+       {
+        "eq": [
+         "?",
+         "+",
+         "?",
+         "=",
+         "?"
+        ],
+        "state": "show"
+       }
+      ],
+      "audio": "explain/s4-1.mp3"
+     },
+     {
+      "say": "Look! Zero birds. There are no birds.",
+      "do": [
+       {
+        "fly": "0",
+        "from": null,
+        "to": 0,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/s4-2.mp3"
+     },
+     {
+      "say": "Plus",
+      "do": [
+       {
+        "lit": 1
+       }
+      ],
+      "audio": "explain/s4-3.mp3"
+     },
+     {
+      "say": "Eight birds come.",
+      "do": [
+       {
+        "enter": [
+         "b0",
+         "b1",
+         "b2",
+         "b3",
+         "b4",
+         "b5",
+         "b6",
+         "b7"
+        ],
+        "gap": 150
+       },
+       {
+        "ring": [
+         "b0",
+         "b1",
+         "b2",
+         "b3",
+         "b4",
+         "b5",
+         "b6",
+         "b7"
+        ],
+        "color": "blue",
+        "id": "g2"
+       },
+       {
+        "count": [
+         "b0",
+         "b1",
+         "b2",
+         "b3",
+         "b4",
+         "b5",
+         "b6",
+         "b7"
+        ],
+        "color": "blue"
+       }
+      ],
+      "audio": "explain/s4-4.mp3"
+     },
+     {
+      "do": [
+       {
+        "fly": "8",
+        "from": "g2",
+        "to": 2,
+        "color": "blue"
+       },
+       {
+        "lit": 3
+       }
+      ]
+     },
+     {
+      "say": "When you add zero, the number stays the same.",
+      "do": [
+       {
+        "unring": "all"
+       },
+       {
+        "ring": [
+         "b0",
+         "b1",
+         "b2",
+         "b3",
+         "b4",
+         "b5",
+         "b6",
+         "b7"
+        ],
+        "color": "green",
+        "id": "all"
+       },
+       {
+        "fly": "8",
+        "from": "all",
+        "to": 4,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/s4-5.mp3"
+     },
+     {
+      "say": "Zero plus eight equals eight.",
+      "read": true,
+      "do": [
+       {
+        "add": "Zero plus eight equals eight."
+       }
+      ],
+      "audio": "explain/s4-6.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Warm Up: oranges",
+    "beats": [
+     {
+      "say": "You put three oranges in the first basket.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "scene.png",
+        "w": 1000,
+        "h": 500,
+        "frame": false
+       },
+       {
+        "eq": [
+         "?",
+         "+",
+         "?",
+         "=",
+         "?"
+        ],
+        "state": "show"
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          152,
+          231
+         ],
+         [
+          250,
+          166
+         ],
+         [
+          327,
+          231
+         ]
+        ],
+        "r": 30,
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          152,
+          231
+         ],
+         [
+          250,
+          166
+         ],
+         [
+          327,
+          231
+         ]
+        ],
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/s5-1.mp3"
+     },
+     {
+      "do": [
+       {
+        "fly": "3",
+        "from": "g1",
+        "to": 0,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "And zero oranges in the second basket.",
+      "do": [
+       {
+        "lit": 1
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          750,
+          264
+         ]
+        ],
+        "r": 62,
+        "color": "blue",
+        "id": "g2"
+       }
+      ],
+      "audio": "explain/s5-2.mp3"
+     },
+     {
+      "do": [
+       {
+        "fly": "0",
+        "from": "g2",
+        "to": 2,
+        "color": "blue"
+       },
+       {
+        "lit": 3
+       }
+      ]
+     },
+     {
+      "say": "How many oranges did you put in total?",
+      "do": [
+       {
+        "pulse": 4
+       }
+      ],
+      "audio": "explain/s5-3.mp3"
+     },
+     {
+      "say": "When you add zero, the number stays the same.",
+      "do": [
+       {
+        "fly": "3",
+        "from": "g1",
+        "to": 4,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/s5-4.mp3"
+     },
+     {
+      "say": "Addition sentence: three plus zero equals three.",
+      "do": [
+       {
+        "add": "Addition sentence:"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "3 + 0 = 3"
+       }
+      ],
+      "audio": "explain/s5-5.mp3"
+     },
+     {
+      "say": "Answer: three oranges.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "Answer:"
+       },
+       {
+        "add": "3 oranges",
+        "card": true
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s5-6.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Try: 1 + 0",
+    "beats": [
+     {
+      "say": "Try! Let's do addition. One plus zero equals what?",
+      "do": [
+       {
+        "scene": "tree",
+        "actors": {
+         "b0": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 500,
+          "y": 345,
+          "face": 1
+         }
+        }
+       },
+       {
+        "eq": [
+         "1",
+         "+",
+         "0",
+         "=",
+         "?"
+        ],
+        "state": "show"
+       },
+       {
+        "enter": [
+         "b0"
+        ],
+        "gap": 120
+       }
+      ],
+      "audio": "explain/s6-1.mp3"
+     },
+     {
+      "say": "When you add zero, the number stays the same. Tap the answer.",
+      "do": [
+       {
+        "ring": [
+         "b0"
+        ],
+        "color": "orange",
+        "id": "big"
+       },
+       {
+        "ask": {
+         "options": [
+          0,
+          1,
+          2
+         ],
+         "answer": 1,
+         "to": 4,
+         "color": "green"
+        }
+       }
+      ],
+      "audio": "explain/s6-2.mp3"
+     },
+     {
+      "say": "One plus zero equals one.",
+      "read": true,
+      "do": [
+       {
+        "add": "One plus zero equals one."
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s6-3.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Try: 4 + 0",
+    "beats": [
+     {
+      "say": "Four plus zero equals what?",
+      "do": [
+       {
+        "scene": "tree",
+        "actors": {
+         "b0": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 395,
+          "y": 345,
+          "face": 1
+         },
+         "b1": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 465,
+          "y": 345,
+          "face": 1
+         },
+         "b2": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 535,
+          "y": 345,
+          "face": 1
+         },
+         "b3": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 605,
+          "y": 345,
+          "face": 1
+         }
+        }
+       },
+       {
+        "eq": [
+         "4",
+         "+",
+         "0",
+         "=",
+         "?"
+        ],
+        "state": "show"
+       },
+       {
+        "enter": [
+         "b0",
+         "b1",
+         "b2",
+         "b3"
+        ],
+        "gap": 120
+       }
+      ],
+      "audio": "explain/s7-1.mp3"
+     },
+     {
+      "say": "When you add zero, the number stays the same. Tap the answer.",
+      "do": [
+       {
+        "ring": [
+         "b0",
+         "b1",
+         "b2",
+         "b3"
+        ],
+        "color": "orange",
+        "id": "big"
+       },
+       {
+        "ask": {
+         "options": [
+          4,
+          5,
+          3
+         ],
+         "answer": 4,
+         "to": 4,
+         "color": "green"
+        }
+       }
+      ],
+      "audio": "explain/s7-2.mp3"
+     },
+     {
+      "say": "Four plus zero equals four.",
+      "read": true,
+      "do": [
+       {
+        "add": "Four plus zero equals four."
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s7-3.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Try: 6 + 1",
+    "beats": [
+     {
+      "say": "Six plus one equals what?",
+      "do": [
+       {
+        "scene": "tree",
+        "actors": {
+         "b0": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 275,
+          "y": 345,
+          "face": 1
+         },
+         "b1": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 345,
+          "y": 345,
+          "face": 1
+         },
+         "b2": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 415,
+          "y": 345,
+          "face": 1
+         },
+         "b3": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 485,
+          "y": 345,
+          "face": 1
+         },
+         "b4": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 555,
+          "y": 345,
+          "face": 1
+         },
+         "b5": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 625,
+          "y": 345,
+          "face": 1
+         },
+         "b6": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 725,
+          "y": 345,
+          "face": -1
+         }
+        }
+       },
+       {
+        "eq": [
+         "6",
+         "+",
+         "1",
+         "=",
+         "?"
+        ],
+        "state": "show"
+       },
+       {
+        "enter": [
+         "b0",
+         "b1",
+         "b2",
+         "b3",
+         "b4",
+         "b5",
+         "b6"
+        ],
+        "gap": 120
+       }
+      ],
+      "audio": "explain/s8-1.mp3"
+     },
+     {
+      "say": "Put six in your head, and count on. Then tap the answer.",
+      "do": [
+       {
+        "ring": [
+         "b0",
+         "b1",
+         "b2",
+         "b3",
+         "b4",
+         "b5"
+        ],
+        "color": "orange",
+        "id": "big"
+       },
+       {
+        "hold": 6,
+        "on": "big",
+        "color": "orange"
+       },
+       {
+        "ask": {
+         "options": [
+          6,
+          8,
+          7
+         ],
+         "answer": 7,
+         "to": 4,
+         "color": "green"
+        }
+       }
+      ],
+      "audio": "explain/s8-2.mp3"
+     },
+     {
+      "say": "Six plus one equals seven.",
+      "read": true,
+      "do": [
+       {
+        "add": "Six plus one equals seven."
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s8-3.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Try: 0 + 7",
+    "beats": [
+     {
+      "say": "Zero plus seven equals what?",
+      "do": [
+       {
+        "scene": "tree",
+        "actors": {
+         "b0": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 290,
+          "y": 345,
+          "face": -1
+         },
+         "b1": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 360,
+          "y": 345,
+          "face": -1
+         },
+         "b2": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 430,
+          "y": 345,
+          "face": -1
+         },
+         "b3": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 500,
+          "y": 345,
+          "face": -1
+         },
+         "b4": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 570,
+          "y": 345,
+          "face": -1
+         },
+         "b5": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 640,
+          "y": 345,
+          "face": -1
+         },
+         "b6": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 710,
+          "y": 345,
+          "face": -1
+         }
+        }
+       },
+       {
+        "eq": [
+         "0",
+         "+",
+         "7",
+         "=",
+         "?"
+        ],
+        "state": "show"
+       },
+       {
+        "enter": [
+         "b0",
+         "b1",
+         "b2",
+         "b3",
+         "b4",
+         "b5",
+         "b6"
+        ],
+        "gap": 120
+       }
+      ],
+      "audio": "explain/s9-1.mp3"
+     },
+     {
+      "say": "When you add zero, the number stays the same. Tap the answer.",
+      "do": [
+       {
+        "ring": [
+         "b0",
+         "b1",
+         "b2",
+         "b3",
+         "b4",
+         "b5",
+         "b6"
+        ],
+        "color": "blue",
+        "id": "big"
+       },
+       {
+        "ask": {
+         "options": [
+          7,
+          0,
+          8
+         ],
+         "answer": 7,
+         "to": 4,
+         "color": "green"
+        }
+       }
+      ],
+      "audio": "explain/s9-2.mp3"
+     },
+     {
+      "say": "Zero plus seven equals seven.",
+      "read": true,
+      "do": [
+       {
+        "add": "Zero plus seven equals seven."
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s9-3.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Try: 0 + 9",
+    "beats": [
+     {
+      "say": "Zero plus nine equals what?",
+      "do": [
+       {
+        "scene": "tree",
+        "actors": {
+         "b0": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 244,
+          "y": 345,
+          "face": -1
+         },
+         "b1": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 308,
+          "y": 345,
+          "face": -1
+         },
+         "b2": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 372,
+          "y": 345,
+          "face": -1
+         },
+         "b3": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 436,
+          "y": 345,
+          "face": -1
+         },
+         "b4": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 500,
+          "y": 345,
+          "face": -1
+         },
+         "b5": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 564,
+          "y": 345,
+          "face": -1
+         },
+         "b6": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 628,
+          "y": 345,
+          "face": -1
+         },
+         "b7": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 692,
+          "y": 345,
+          "face": -1
+         },
+         "b8": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 756,
+          "y": 345,
+          "face": -1
+         }
+        }
+       },
+       {
+        "eq": [
+         "0",
+         "+",
+         "9",
+         "=",
+         "?"
+        ],
+        "state": "show"
+       },
+       {
+        "enter": [
+         "b0",
+         "b1",
+         "b2",
+         "b3",
+         "b4",
+         "b5",
+         "b6",
+         "b7",
+         "b8"
+        ],
+        "gap": 120
+       }
+      ],
+      "audio": "explain/s10-1.mp3"
+     },
+     {
+      "say": "When you add zero, the number stays the same. Tap the answer.",
+      "do": [
+       {
+        "ring": [
+         "b0",
+         "b1",
+         "b2",
+         "b3",
+         "b4",
+         "b5",
+         "b6",
+         "b7",
+         "b8"
+        ],
+        "color": "blue",
+        "id": "big"
+       },
+       {
+        "ask": {
+         "options": [
+          8,
+          9,
+          10
+         ],
+         "answer": 9,
+         "to": 4,
+         "color": "green"
+        }
+       }
+      ],
+      "audio": "explain/s10-2.mp3"
+     },
+     {
+      "say": "Zero plus nine equals nine.",
+      "read": true,
+      "do": [
+       {
+        "add": "Zero plus nine equals nine."
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s10-3.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Try: 3 + 7",
+    "beats": [
+     {
+      "say": "Three plus seven equals what?",
+      "do": [
+       {
+        "scene": "tree",
+        "actors": {
+         "b0": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 197,
+          "y": 345,
+          "face": 1
+         },
+         "b1": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 261,
+          "y": 345,
+          "face": 1
+         },
+         "b2": {
+          "kind": "bird",
+          "color": "orange",
+          "x": 325,
+          "y": 345,
+          "face": 1
+         },
+         "b3": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 419,
+          "y": 345,
+          "face": -1
+         },
+         "b4": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 483,
+          "y": 345,
+          "face": -1
+         },
+         "b5": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 547,
+          "y": 345,
+          "face": -1
+         },
+         "b6": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 611,
+          "y": 345,
+          "face": -1
+         },
+         "b7": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 675,
+          "y": 345,
+          "face": -1
+         },
+         "b8": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 739,
+          "y": 345,
+          "face": -1
+         },
+         "b9": {
+          "kind": "bird",
+          "color": "blue",
+          "x": 803,
+          "y": 345,
+          "face": -1
+         }
+        }
+       },
+       {
+        "eq": [
+         "3",
+         "+",
+         "7",
+         "=",
+         "?"
+        ],
+        "state": "show"
+       },
+       {
+        "enter": [
+         "b0",
+         "b1",
+         "b2",
+         "b3",
+         "b4",
+         "b5",
+         "b6",
+         "b7",
+         "b8",
+         "b9"
+        ],
+        "gap": 120
+       }
+      ],
+      "audio": "explain/s11-1.mp3"
+     },
+     {
+      "say": "Put seven in your head, and count on. Then tap the answer.",
+      "do": [
+       {
+        "ring": [
+         "b3",
+         "b4",
+         "b5",
+         "b6",
+         "b7",
+         "b8",
+         "b9"
+        ],
+        "color": "blue",
+        "id": "big"
+       },
+       {
+        "hold": 7,
+        "on": "big",
+        "color": "blue"
+       },
+       {
+        "ask": {
+         "options": [
+          10,
+          9,
+          8
+         ],
+         "answer": 10,
+         "to": 4,
+         "color": "green"
+        }
+       }
+      ],
+      "audio": "explain/s11-2.mp3"
+     },
+     {
+      "say": "Three plus seven equals ten.",
+      "read": true,
+      "do": [
+       {
+        "add": "Three plus seven equals ten."
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s11-3.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Try: balls",
+    "beats": [
+     {
+      "say": "Try! You put zero balls in the basket the first time, and five balls the second time. How many balls did you put in total?",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-0.png",
+        "w": 1000,
+        "h": 500,
+        "frame": false
+       },
+       {
+        "eq": [
+         "0",
+         "+",
+         "5",
+         "=",
+         "?"
+        ],
+        "state": "show"
+       }
+      ],
+      "audio": "explain/s12-1.mp3"
+     },
+     {
+      "say": "Zero balls, and five balls. When you add zero, the number stays the same.",
+      "do": [
+       {
+        "ring": true,
+        "pts": [
+         [
+          213,
+          244
+         ]
+        ],
+        "r": 62,
+        "color": "orange",
+        "id": "g1"
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          722,
+          208
+         ],
+         [
+          838,
+          201
+         ],
+         [
+          668,
+          310
+         ],
+         [
+          775,
+          310
+         ],
+         [
+          882,
+          310
+         ]
+        ],
+        "r": 24,
+        "color": "blue",
+        "id": "g2"
+       }
+      ],
+      "audio": "explain/s12-2.mp3"
+     },
+     {
+      "say": "Write the addition sentence.",
+      "do": [
+       {
+        "add": "Addition sentence:"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "write": {
+         "text": "0 + 5 = 5"
+        }
+       }
+      ],
+      "audio": "explain/s12-3.mp3"
+     },
+     {
+      "say": "Yes! Zero plus five equals five.",
+      "do": [
+       {
+        "lit": 4,
+        "color": "green",
+        "value": 5
+       }
+      ],
+      "audio": "explain/s12-4.mp3"
+     },
+     {
+      "say": "What is the answer? Tap it.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "6 balls",
+          "5 balls",
+          "5"
+         ],
+         "answer": "5 balls"
+        }
+       }
+      ],
+      "audio": "explain/s12-5.mp3"
+     },
+     {
+      "say": "Yes! Answer: five balls.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "Answer:"
+       },
+       {
+        "add": "5 balls",
+        "card": true
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s12-6.mp3"
+     }
+    ]
+   }
+  ]
+ }
+}

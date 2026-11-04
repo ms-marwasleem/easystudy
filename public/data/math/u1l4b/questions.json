@@ -1,0 +1,112 @@
+{
+ "sets": [
+  {
+   "type": "count",
+   "ex": 1,
+   "page": 12,
+   "task": "Circle the correct number.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "img": "../../pics/balloons-7.png",
+     "n": 7,
+     "group": true,
+     "audio": "words/seven.mp3",
+     "options": [
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "img": "../../pics/caterpillars-8.png",
+     "n": 8,
+     "group": true,
+     "audio": "words/eight.mp3",
+     "options": [
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "img": "../../pics/ice-creams-3.png",
+     "n": 3,
+     "group": true,
+     "audio": "words/three.mp3",
+     "options": [
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "img": "../../pics/legos-9.png",
+     "n": 9,
+     "group": true,
+     "audio": "words/nine.mp3",
+     "options": [
+      7,
+      9,
+      10
+     ]
+    },
+    {
+     "img": "../../pics/gummy-bears-7.png",
+     "n": 7,
+     "group": true,
+     "audio": "words/seven.mp3",
+     "options": [
+      6,
+      7,
+      8
+     ]
+    },
+    {
+     "img": "../../pics/keys-6.png",
+     "n": 6,
+     "group": true,
+     "audio": "words/six.mp3",
+     "options": [
+      6,
+      7,
+      8
+     ]
+    },
+    {
+     "img": "../../pics/marbles-9.png",
+     "n": 9,
+     "group": true,
+     "audio": "words/nine.mp3",
+     "options": [
+      8,
+      10,
+      9
+     ]
+    },
+    {
+     "img": "../../pics/cacti-6.png",
+     "n": 6,
+     "group": true,
+     "audio": "words/six.mp3",
+     "options": [
+      7,
+      6,
+      4
+     ]
+    },
+    {
+     "img": "../../pics/sushi-5.png",
+     "n": 5,
+     "group": true,
+     "audio": "words/five.mp3",
+     "options": [
+      6,
+      5,
+      4
+     ]
+    }
+   ]
+  }
+ ]
+}
