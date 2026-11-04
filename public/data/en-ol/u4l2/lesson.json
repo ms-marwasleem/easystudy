@@ -1,0 +1,491 @@
+{
+ "id": "u4l2",
+ "unit": 4,
+ "lesson": 2,
+ "title": "Phonics Rr Ee",
+ "task": "Listen to your teacher and repeat.",
+ "scene": "../u1l2/scene.jpg",
+ "sceneAlt": "Phonics Rr and Ee pictures",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "speakers": {
+  "Rr": "#D93D78",
+  "Ee": "#D93D78"
+ },
+ "pages": 2,
+ "pageLayouts": [
+  "pictures",
+  "pictures"
+ ],
+ "pageTasks": [
+  "Listen to your teacher and repeat.",
+  "Listen to your teacher and repeat."
+ ],
+ "pagesBook": [
+  70,
+  72
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "red",
+   "ar": "احمر",
+   "img": "../../pics/red-u4l2.png",
+   "parts": [
+    {
+     "t": "re",
+     "ph": "r_e",
+     "audio": "../../phonics/chunks/r_e.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u2l3/words/red.mp3"
+   }
+  },
+  {
+   "word": "ring",
+   "ar": "خاتم",
+   "img": "../../pics/ring-u4l2.png",
+   "parts": [
+    {
+     "t": "ri",
+     "ph": "r_i",
+     "audio": "../../phonics/chunks/r_i.mp3"
+    },
+    {
+     "t": "ng",
+     "ph": "ng",
+     "audio": "../../phonics/ng.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/ring.mp3"
+   }
+  },
+  {
+   "word": "rabbit",
+   "ar": "ارنب",
+   "img": "../../pics/rabbit-u4l2.png",
+   "parts": [
+    {
+     "t": "ra",
+     "ph": "r_a",
+     "audio": "../../phonics/chunks/r_a.mp3"
+    },
+    {
+     "t": "bb",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/rabbit.mp3"
+   }
+  },
+  {
+   "word": "robot",
+   "ar": "روبوت",
+   "img": "../../pics/robot-u4l2.png",
+   "parts": [
+    {
+     "t": "ro",
+     "ph": "r_oa",
+     "audio": "../../phonics/chunks/r_oa.mp3"
+    },
+    {
+     "t": "bo",
+     "ph": "b_o",
+     "audio": "../../phonics/chunks/b_o.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/robot.mp3"
+   }
+  },
+  {
+   "word": "rocket",
+   "ar": "صاروخ",
+   "img": "../../pics/rocket.png",
+   "parts": [
+    {
+     "t": "ro",
+     "ph": "r_o",
+     "audio": "../../phonics/chunks/r_o.mp3"
+    },
+    {
+     "t": "ck",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u2l2/words/rocket.mp3"
+   }
+  },
+  {
+   "word": "eggplant",
+   "ar": "باذنجان",
+   "img": "../../pics/eggplant-u4l2.png",
+   "parts": [
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "gg",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "la",
+     "ph": "l_a",
+     "audio": "../../phonics/chunks/l_a.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/eggplant.mp3"
+   }
+  },
+  {
+   "word": "egg",
+   "ar": "بيضة",
+   "img": "../../pics/egg-u4l2.png",
+   "parts": [
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "gg",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/egg.mp3"
+   }
+  },
+  {
+   "word": "elephant",
+   "ar": "فيل",
+   "img": "../../pics/elephant-u4l2.png",
+   "parts": [
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "le",
+     "ph": "l_i",
+     "audio": "../../phonics/chunks/l_i.mp3"
+    },
+    {
+     "t": "ph",
+     "ph": "f",
+     "audio": "../../phonics/f.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/elephant.mp3"
+   }
+  },
+  {
+   "word": "enter",
+   "ar": "يدخل",
+   "img": "../../pics/enter-u4l2.png",
+   "parts": [
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "te",
+     "ph": "t_er",
+     "audio": "../../phonics/chunks/t_er.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/enter.mp3"
+   }
+  },
+  {
+   "word": "elbow",
+   "ar": "كوع",
+   "img": "../../pics/elbow-u4l2.png",
+   "parts": [
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "ow",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/elbow.mp3"
+   }
+  }
+ ],
+ "_note": "Book p70 (Rr: red ring rabbit robot rocket) and p72 (Ee: eggplant egg elephant enter elbow). Tracing skipped. Pictures = round badges from the book (*-u4l2).",
+ "lines": [
+  {
+   "who": "Rr",
+   "page": 1,
+   "words": [
+    [
+     "red",
+     0.03,
+     0.49
+    ]
+   ],
+   "pic": "../../pics/red-u4l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Rr",
+   "page": 1,
+   "words": [
+    [
+     "ring",
+     1.66,
+     2.25
+    ]
+   ],
+   "pic": "../../pics/ring-u4l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Rr",
+   "page": 1,
+   "words": [
+    [
+     "rabbit",
+     3.4,
+     4.08
+    ]
+   ],
+   "pic": "../../pics/rabbit-u4l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Rr",
+   "page": 1,
+   "words": [
+    [
+     "robot",
+     5.25,
+     6.02
+    ]
+   ],
+   "pic": "../../pics/robot-u4l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Rr",
+   "page": 1,
+   "words": [
+    [
+     "rocket",
+     7.18,
+     7.99
+    ]
+   ],
+   "pic": "../../pics/rocket.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Ee",
+   "page": 2,
+   "words": [
+    [
+     "eggplant",
+     9.16,
+     9.94
+    ]
+   ],
+   "pic": "../../pics/eggplant-u4l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Ee",
+   "page": 2,
+   "words": [
+    [
+     "egg",
+     11.1,
+     11.59
+    ]
+   ],
+   "pic": "../../pics/egg-u4l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Ee",
+   "page": 2,
+   "words": [
+    [
+     "elephant",
+     12.75,
+     13.49
+    ]
+   ],
+   "pic": "../../pics/elephant-u4l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Ee",
+   "page": 2,
+   "words": [
+    [
+     "enter",
+     14.67,
+     15.36
+    ]
+   ],
+   "pic": "../../pics/enter-u4l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Ee",
+   "page": 2,
+   "words": [
+    [
+     "elbow",
+     16.51,
+     17.23
+    ]
+   ],
+   "pic": "../../pics/elbow-u4l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  }
+ ],
+ "end": 17.23
+}

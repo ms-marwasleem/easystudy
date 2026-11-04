@@ -2,6 +2,240 @@
  "sets": [
   {
    "type": "circle",
+   "ex": 2,
+   "page": 89,
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ حَرْفِ الْعَيْنِ",
+   "taskAudio": "q/task-2.mp3",
+   "hint": "اضغط على أشكال العين",
+   "items": [
+    {
+     "word": "ع",
+     "text": "ع",
+     "answer": 1
+    },
+    {
+     "word": "خ",
+     "text": "خ",
+     "answer": 0
+    },
+    {
+     "word": "ح",
+     "text": "ح",
+     "answer": 0
+    },
+    {
+     "word": "ـع",
+     "text": "ـع",
+     "answer": 1
+    },
+    {
+     "word": "جـ",
+     "text": "جـ",
+     "answer": 0
+    },
+    {
+     "word": "ص",
+     "text": "ص",
+     "answer": 0
+    },
+    {
+     "word": "ـعـ",
+     "text": "ـعـ",
+     "answer": 1
+    },
+    {
+     "word": "عـ",
+     "text": "عـ",
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 4,
+   "page": 90,
+   "task": "أَتَتَبَّعُ الْخَرِيطَةَ؛ لِكَيْ أَصِلَ الصُّوَرَ الَّتِي بِهَا حَرْفُ الْعَيْنِ",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "اضغط على الصور اللي فيها العين",
+   "items": [
+    {
+     "word": "عُصْفُور",
+     "audio": "../u3l3/words/usfur.mp3",
+     "pic": "../../pics/ar-bird.png",
+     "answer": true
+    },
+    {
+     "word": "عِنَب",
+     "audio": "words/inab.mp3",
+     "pic": "../../pics/ar-grapes.png",
+     "answer": true
+    },
+    {
+     "word": "أَنْف",
+     "audio": "../u1l3/q/c6-0.mp3",
+     "pic": "../../pics/ar-nose.jpg",
+     "answer": false
+    },
+    {
+     "word": "عَيْن",
+     "audio": "../u3l3/words/ayn.mp3",
+     "pic": "../../pics/ar-eye.png",
+     "answer": true
+    },
+    {
+     "word": "ثَعْلَب",
+     "audio": "../exams/t3/w-thalab.mp3",
+     "pic": "../../pics/ar-fox.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "sound",
+   "ex": 5,
+   "page": 90,
+   "task": "أَنْطِقُ صَوْتَ حَرْفِ الْعَيْنِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
+   "taskAudio": "q/task-5.mp3",
+   "hint": "اسمع الجملة وردد وراها",
+   "items": [
+    {
+     "word": "عَلَم",
+     "ask": "عَ",
+     "pic": "../../pics/ar-flag.png",
+     "audio": [
+      "../letters/639/name.mp3",
+      "../shared/h-fatha.mp3",
+      "../../syl-ar/639-64e.mp3",
+      "words/alam.mp3"
+     ]
+    },
+    {
+     "word": "عُصْفُور",
+     "ask": "عُ",
+     "pic": "../../pics/ar-bird.png",
+     "audio": [
+      "../letters/639/name.mp3",
+      "../shared/h-damma.mp3",
+      "../../syl-ar/639-64f.mp3",
+      "../u3l3/words/usfur.mp3"
+     ]
+    },
+    {
+     "word": "عِنَب",
+     "ask": "عِ",
+     "pic": "../../pics/ar-grapes.png",
+     "audio": [
+      "../letters/639/name.mp3",
+      "../shared/h-kasra.mp3",
+      "../../syl-ar/639-650.mp3",
+      "words/inab.mp3"
+     ]
+    },
+    {
+     "word": "ثُعْبَان",
+     "ask": "عْ",
+     "pic": "../../pics/ar-snake.png",
+     "audio": [
+      "../letters/639/name.mp3",
+      "../shared/h-sukoon.mp3",
+      "../../syl-ar/639-652.mp3",
+      "words/thuban.mp3"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 8,
+   "page": 91,
+   "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الْعَيْنِ مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار العين بالحركة الصح",
+   "choices": [
+    "عَ",
+    "عُ",
+    "عِ",
+    "عْ"
+   ],
+   "items": [
+    {
+     "word": "عَسَل",
+     "audio": "words/asal.mp3",
+     "pic": "../../pics/ar-honey.png",
+     "answer": "عَ",
+     "choices": [
+      "عَ",
+      "عُ",
+      "عِ"
+     ]
+    },
+    {
+     "word": "عِنَب",
+     "audio": "words/inab.mp3",
+     "pic": "../../pics/ar-grapes.png",
+     "answer": "عِ",
+     "choices": [
+      "عَ",
+      "عُ",
+      "عِ"
+     ]
+    },
+    {
+     "word": "عُصْفُور",
+     "audio": "../u3l3/words/usfur.mp3",
+     "pic": "../../pics/ar-bird.png",
+     "answer": "عُ",
+     "choices": [
+      "عَ",
+      "عُ",
+      "عِ"
+     ]
+    },
+    {
+     "word": "ثُعْبَان",
+     "audio": "words/thuban.mp3",
+     "pic": "../../pics/ar-snake.png",
+     "answer": "عْ",
+     "choices": [
+      "عَ",
+      "عُ",
+      "عِ"
+     ],
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 92,
+   "task": "أَدْمِجُ الْحُرُوفَ لِأُكَوِّنَ كَلِمَةً",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "items": [
+    {
+     "word": "عَيْن",
+     "audio": "../u3l3/words/ayn.mp3",
+     "pic": "../../pics/ar-eye.png",
+     "chips": [
+      "عَيْ",
+      "ن"
+     ]
+    },
+    {
+     "word": "عِنَب",
+     "audio": "words/inab.mp3",
+     "pic": "../../pics/ar-grapes.png",
+     "chips": [
+      "عِ",
+      "نَ",
+      "ب"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
    "ex": 7,
    "page": 85,
    "task": "اسْتَمِعْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الْعَيْنِ",
@@ -11,6 +245,7 @@
    ],
    "hint": "اضغط على الصور التي فيها صوت العين",
    "silent": true,
+   "book": "booklet",
    "items": [
     {
      "word": "grass",
@@ -54,7 +289,7 @@
     },
     {
      "word": "sun",
-     "pic": "../../pics/ar-sun.jpg",
+     "pic": "../../pics/ar-sun.png",
      "answer": false
     },
     {
@@ -74,6 +309,7 @@
     "../letters/639/name.mp3"
    ],
    "hint": "اضغط على الدائرة التي فيها العين",
+   "book": "booklet",
    "items": [
     {
      "word": "عِظَام",
@@ -124,6 +360,7 @@
     "عِ",
     "عْ"
    ],
+   "book": "booklet",
    "items": [
     {
      "word": "عُصْفُور",
@@ -171,6 +408,7 @@
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/arrange-letters.mp3",
    "hint": "رتب الحروف",
+   "book": "booklet",
    "items": [
     {
      "word": "عِنَب",
@@ -196,6 +434,7 @@
    "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/merge-syllables.mp3",
    "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "book": "booklet",
    "items": [
     {
      "word": "عُصْفُور",
@@ -232,6 +471,7 @@
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/arrange-letters.mp3",
    "hint": "رتب الحروف",
+   "book": "booklet",
    "items": [
     {
      "word": "عَسَل",
@@ -247,6 +487,47 @@
      "word": "ثُعْبَان",
      "pic": "../../pics/ar-snake.png",
      "audio": "words/thuban.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 1,
+   "page": 48,
+   "book": "workbook",
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي فِيهَا حَرْفُ (ع)",
+   "taskAudio": "q/wb-circle-48.mp3",
+   "hint": "اضغط على الكلمات اللي فيها حرف ع",
+   "items": [
+    {
+     "word": "عَلَم",
+     "text": "عَلَم",
+     "answer": true
+    },
+    {
+     "word": "عُصْفُور",
+     "text": "عُصْفُور",
+     "answer": true
+    },
+    {
+     "word": "شُعْلَة",
+     "text": "شُعْلَة",
+     "answer": true
+    },
+    {
+     "word": "ثَعْلَب",
+     "text": "ثَعْلَب",
+     "answer": true
+    },
+    {
+     "word": "قَمْع",
+     "text": "قَمْع",
+     "answer": true
+    },
+    {
+     "word": "مُرَبَّع",
+     "text": "مُرَبَّع",
+     "answer": true
     }
    ]
   }

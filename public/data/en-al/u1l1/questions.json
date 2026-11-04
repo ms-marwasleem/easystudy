@@ -10,8 +10,8 @@
    "items": [
     {
      "pics": [
-      "img/family-a.jpg",
-      "img/family-b.png"
+      "../../pics/family-a.jpg",
+      "../../pics/family-b.png"
      ],
      "labels": [
       {
@@ -102,7 +102,7 @@
    "items": [
     {
      "word": "dad",
-     "pic": "img/dad.png",
+     "pic": "../../pics/dad.png",
      "options": [
       "dad",
       "mom"
@@ -112,7 +112,7 @@
     },
     {
      "word": "sister",
-     "pic": "img/sister.png",
+     "pic": "../../pics/sister.png",
      "options": [
       "grandma",
       "sister"
@@ -122,7 +122,7 @@
     },
     {
      "word": "baby",
-     "pic": "img/baby.png",
+     "pic": "../../pics/baby.png",
      "options": [
       "uncle",
       "baby"
@@ -132,7 +132,7 @@
     },
     {
      "word": "grandpa",
-     "pic": "img/grandpa.jpg",
+     "pic": "../../pics/grandpa.jpg",
      "options": [
       "grandpa",
       "aunt"
@@ -166,7 +166,10 @@
       "mo"
      ],
      "ask": "Female",
-     "parts": []
+     "parts": [
+      "../../en-shared/q/ask-662f005960.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-5a886f761a.mp3"
     },
     {
      "word": "mom",
@@ -184,7 +187,10 @@
       "ap"
      ],
      "ask": "Female",
-     "parts": []
+     "parts": [
+      "../../en-shared/q/ask-6f8f577150.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-66cb0f212d.mp3"
     },
     {
      "word": "aunt",
@@ -202,7 +208,11 @@
       "e"
      ],
      "ask": "Female",
-     "parts": []
+     "parts": [
+      "../../en-shared/q/ask-0cc175b9c0.mp3",
+      "../../en-shared/q/ask-25930e3036.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-3d925019e3.mp3"
     },
     {
      "word": "brother",
@@ -220,7 +230,10 @@
       "sr"
      ],
      "ask": "Male",
-     "parts": []
+     "parts": [
+      "../../en-shared/q/ask-795f3202b1.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-e912df1301.mp3"
     },
     {
      "word": "uncle",
@@ -238,7 +251,10 @@
       "an"
      ],
      "ask": "Male",
-     "parts": []
+     "parts": [
+      "../../en-shared/q/ask-9d77563602.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-75e17d9014.mp3"
     },
     {
      "word": "cousin",
@@ -256,7 +272,11 @@
       "e"
      ],
      "ask": "Both",
-     "parts": []
+     "parts": [
+      "../../en-shared/q/ask-4a8a08f09d.mp3",
+      "../../en-shared/q/ask-7366ef27aa.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-a42e545e53.mp3"
     }
    ]
   },
@@ -271,9 +291,9 @@
    "items": [
     {
      "pics": [
-      "img/dad-girls.png",
-      "img/pen.png",
-      "img/sister.png"
+      "../../pics/dad-girls.png",
+      "../../pics/pen.png",
+      "../../pics/sister.png"
      ],
      "caps": [
       "dad",
@@ -323,8 +343,8 @@
    "items": [
     {
      "pics": [
-      "img/family-b.png",
-      "img/big-family.png"
+      "../../pics/family-b.png",
+      "../../pics/big-family.png"
      ],
      "lines": [
       {
@@ -366,7 +386,7 @@
    "items": [
     {
      "pics": [
-      "img/art-family.jpg"
+      "../../pics/art-family.jpg"
      ],
      "lines": [
       {
@@ -410,7 +430,7 @@
    "items": [
     {
      "pics": [
-      "img/art-grandma.jpg"
+      "../../pics/art-grandma.jpg"
      ],
      "lines": [
       {
@@ -451,7 +471,7 @@
    "items": [
     {
      "pics": [
-      "img/art-big.jpg"
+      "../../pics/art-big.jpg"
      ],
      "lines": [
       {
@@ -504,7 +524,7 @@
    "items": [
     {
      "pics": [
-      "img/art-park.jpg"
+      "../../pics/art-park.jpg"
      ],
      "lines": [
       {
@@ -533,7 +553,7 @@
    "items": [
     {
      "pics": [
-      "img/art-grandpa.jpg"
+      "../../pics/art-grandpa.jpg"
      ],
      "lines": [
       {
@@ -574,13 +594,14 @@
      "answer": 0,
      "audio": "../../en-shared/q/there-are-four-children-in-this-family-family-a.mp3",
      "pics": [
-      "img/art-park.jpg",
-      "img/art-grandma.jpg"
+      "../../pics/art-park.jpg",
+      "../../pics/art-grandma.jpg"
      ],
      "caps": [
       "Family A",
       "Family B"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/ask-4a923792fe.mp3"
     },
     {
      "word": "The boy has two sisters. Family A.",
@@ -592,13 +613,14 @@
      "answer": 0,
      "audio": "../../en-shared/q/the-boy-has-two-sisters-family-a.mp3",
      "pics": [
-      "img/art-park.jpg",
-      "img/art-grandma.jpg"
+      "../../pics/art-park.jpg",
+      "../../pics/art-grandma.jpg"
      ],
      "caps": [
       "Family A",
       "Family B"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/ask-16ceaf5ff5.mp3"
     },
     {
      "word": "There is a baby. Family B.",
@@ -610,13 +632,14 @@
      "answer": 1,
      "audio": "../../en-shared/q/there-is-a-baby-family-b.mp3",
      "pics": [
-      "img/art-park.jpg",
-      "img/art-grandma.jpg"
+      "../../pics/art-park.jpg",
+      "../../pics/art-grandma.jpg"
      ],
      "caps": [
       "Family A",
       "Family B"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/ask-0c6895b08c.mp3"
     },
     {
      "word": "There is a grandma. Family B.",
@@ -628,13 +651,14 @@
      "answer": 1,
      "audio": "../../en-shared/q/there-is-a-grandma-family-b.mp3",
      "pics": [
-      "img/art-park.jpg",
-      "img/art-grandma.jpg"
+      "../../pics/art-park.jpg",
+      "../../pics/art-grandma.jpg"
      ],
      "caps": [
       "Family A",
       "Family B"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/ask-7d3de5a87a.mp3"
     },
     {
      "word": "They walk in the park. Family A.",
@@ -646,13 +670,14 @@
      "answer": 0,
      "audio": "../../en-shared/q/they-walk-in-the-park-family-a.mp3",
      "pics": [
-      "img/art-park.jpg",
-      "img/art-grandma.jpg"
+      "../../pics/art-park.jpg",
+      "../../pics/art-grandma.jpg"
      ],
      "caps": [
       "Family A",
       "Family B"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/ask-f8603f63db.mp3"
     }
    ]
   },
@@ -675,7 +700,8 @@
      "audio": "../../en-shared/q/a-social-studies-article-is-about-people.mp3",
      "parts": [
       "../../en-shared/q/a-social-studies-article-is-about.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-708a355a89.mp3"
     }
    ]
   },
@@ -737,7 +763,7 @@
    "items": [
     {
      "pics": [
-      "img/grammar-girls.jpg"
+      "../../pics/grammar-girls.jpg"
      ],
      "lines": [
       {
@@ -864,7 +890,8 @@
      "parts": [
       "../../en-shared/q/she.mp3",
       "../../en-shared/q/my-aunt.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-8b551102f5.mp3"
     },
     {
      "word": "I'm seven years old.",
@@ -879,7 +906,8 @@
      "parts": [
       "../../en-shared/q/i.mp3",
       "../../en-shared/q/seven-years-old.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-ffd9fa9ccc.mp3"
     },
     {
      "word": "We're a small family.",
@@ -894,7 +922,8 @@
      "parts": [
       "../../en-shared/q/we.mp3",
       "../../en-shared/q/a-small-family.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-687612642f.mp3"
     },
     {
      "word": "They're my mom and dad.",
@@ -909,7 +938,8 @@
      "parts": [
       "../../en-shared/q/they.mp3",
       "../../en-shared/q/my-mom-and-dad.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-b48add6594.mp3"
     },
     {
      "word": "You're happy.",
@@ -924,7 +954,8 @@
      "parts": [
       "../../en-shared/q/you.mp3",
       "../../en-shared/q/happy.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-f2d1818b04.mp3"
     }
    ]
   },
@@ -963,7 +994,7 @@
    "items": [
     {
      "pics": [
-      "img/friends.jpg"
+      "../../pics/friends.jpg"
      ],
      "lines": [
       {
@@ -1000,7 +1031,8 @@
      "audio": "../../en-shared/q/this-is-my-friend-isabel.mp3",
      "parts": [
       "../../en-shared/q/is-my-friend-isabel.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-1919a25706.mp3"
     },
     {
      "word": "These are my friends, Li and Barasa.",
@@ -1013,7 +1045,8 @@
      "audio": "../../en-shared/q/these-are-my-friends-li-and-barasa.mp3",
      "parts": [
       "../../en-shared/q/are-my-friends-li-and-barasa.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-2ca19d9287.mp3"
     }
    ]
   },
@@ -1036,7 +1069,8 @@
      "audio": "../../en-shared/q/this-is-my-dad.mp3",
      "parts": [
       "../../en-shared/q/is-my-dad.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-9160403ca8.mp3"
     },
     {
      "word": "These are my grandpa and my grandma.",
@@ -1049,31 +1083,8 @@
      "audio": "../../en-shared/q/these-are-my-grandpa-and-my-grandma.mp3",
      "parts": [
       "../../en-shared/q/are-my-grandpa-and-my-grandma.mp3"
-     ]
-    }
-   ]
-  },
-  {
-   "type": "explain",
-   "task": "Vocabulary. Listen and read.",
-   "taskAudio": "../../en-shared/q/vocabulary-listen-and-read.mp3",
-   "book": "booklet",
-   "page": 4,
-   "grp": "aunt",
-   "items": [
-    {
-     "pics": [
-      "img/aunt.jpg"
      ],
-     "caps": [
-      "aunt"
-     ],
-     "lines": [
-      {
-       "t": "aunt (n.)  An aunt is your mom's sister or your dad's sister.  Ex. We went shopping with my aunt today.",
-       "a": "../../en-shared/q/aunt-n-an-aunt-is-your-mom-s-sister-or-your-dad-s-93cdb006.mp3"
-      }
-     ]
+     "askAudio": "../../en-shared/q/askc-eeb53c4cc8.mp3"
     }
    ]
   },
@@ -1089,35 +1100,35 @@
      "word": "uncle",
      "missing": 1,
      "answer": "n",
-     "pic": "img/uncle.jpg",
+     "pic": "../../pics/uncle.jpg",
      "audio": "../../en-shared/q/uncle.mp3"
     },
     {
      "word": "cousin",
      "missing": 3,
      "answer": "s",
-     "pic": "img/cousin.jpg",
+     "pic": "../../pics/cousin.jpg",
      "audio": "../../en-shared/q/cousin.mp3"
     },
     {
      "word": "sister",
      "missing": 1,
      "answer": "i",
-     "pic": "img/sister.png",
+     "pic": "../../pics/sister.png",
      "audio": "../../en-shared/q/sister.mp3"
     },
     {
      "word": "grandpa",
      "missing": 5,
      "answer": "p",
-     "pic": "img/grandpa.jpg",
+     "pic": "../../pics/grandpa.jpg",
      "audio": "../../en-shared/q/grandpa.mp3"
     },
     {
      "word": "aunt",
      "missing": 1,
      "answer": "u",
-     "pic": "img/aunt.jpg",
+     "pic": "../../pics/aunt.jpg",
      "audio": "../../en-shared/q/aunt.mp3"
     }
    ]
@@ -1132,27 +1143,27 @@
    "items": [
     {
      "word": "brother",
-     "pic": "img/brother.jpg",
+     "pic": "../../pics/rv-brother.jpg",
      "audio": "../../en-shared/q/brother.mp3"
     },
     {
      "word": "mom",
-     "pic": "img/mom.jpg",
+     "pic": "../../pics/mom.jpg",
      "audio": "../../en-shared/q/mom.mp3"
     },
     {
      "word": "grandma",
-     "pic": "img/grandma.jpg",
+     "pic": "../../pics/grandma.jpg",
      "audio": "../../en-shared/q/grandma.mp3"
     },
     {
      "word": "baby",
-     "pic": "img/baby.png",
+     "pic": "../../pics/baby.png",
      "audio": "../../en-shared/q/baby.mp3"
     },
     {
      "word": "dad",
-     "pic": "img/dad.png",
+     "pic": "../../pics/dad.png",
      "audio": "../../en-shared/q/dad.mp3"
     }
    ]
@@ -1179,7 +1190,8 @@
      "parts": [
       "../../en-shared/q/my.mp3",
       "../../en-shared/q/always-helps-me-with-my-homework-he-is-helpful.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-302cf2ac0e.mp3"
     },
     {
      "word": "For my birthday, my mom baked a delicious chocolate cake. She is a chef.",
@@ -1195,7 +1207,8 @@
      "parts": [
       "../../en-shared/q/for-my-birthday-my.mp3",
       "../../en-shared/q/baked-a-delicious-chocolate-cake-she-is-a-chef.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-4af2a965cf.mp3"
     },
     {
      "word": "When I was little, my grandpa used to read me bedtime stories every night.",
@@ -1211,7 +1224,8 @@
      "parts": [
       "../../en-shared/q/when-i-was-little-my.mp3",
       "../../en-shared/q/used-to-read-me-bedtime-stories-every-night.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-a63e6ac394.mp3"
     },
     {
      "word": "My uncle taught me how to fish by the lake last summer.",
@@ -1227,7 +1241,8 @@
      "parts": [
       "../../en-shared/q/my.mp3",
       "../../en-shared/q/taught-me-how-to-fish-by-the-lake-last-summer.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-2c2546f47f.mp3"
     },
     {
      "word": "My parents and I went to visit our grandma and her new kitten last weekend.",
@@ -1243,7 +1258,8 @@
      "parts": [
       "../../en-shared/q/my-parents-and-i-went-to-visit-our.mp3",
       "../../en-shared/q/and-her-new-kitten-last-weekend.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-8962070d6a.mp3"
     },
     {
      "word": "My little baby is finally learning to walk and says \"mama.\"",
@@ -1259,7 +1275,8 @@
      "parts": [
       "../../en-shared/q/my-little.mp3",
       "../../en-shared/q/is-finally-learning-to-walk-and-says-mama.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-1788897c26.mp3"
     },
     {
      "word": "My older brother gives me good advice about school and friends.",
@@ -1275,7 +1292,8 @@
      "parts": [
       "../../en-shared/q/my-older.mp3",
       "../../en-shared/q/gives-me-good-advice-about-school-and-friends.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-05e8ba344d.mp3"
     },
     {
      "word": "My sister is older than me, but we still love playing playstation games together.",
@@ -1291,7 +1309,8 @@
      "parts": [
       "../../en-shared/q/my.mp3",
       "../../en-shared/q/is-older-than-me-but-we-still-love-playing-playsta-d005c7ed.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-6a1c37897a.mp3"
     },
     {
      "word": "My cousin just started kindergarten and is excited about making new friends.",
@@ -1307,7 +1326,8 @@
      "parts": [
       "../../en-shared/q/my.mp3",
       "../../en-shared/q/just-started-kindergarten-and-is-excited-about-mak-9f3e6512.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-4e5fcf59ee.mp3"
     },
     {
      "word": "I have two uncles and three aunts.",
@@ -1322,7 +1342,8 @@
      "audio": "../../en-shared/q/i-have-two-uncles-and-three-aunts.mp3",
      "parts": [
       "../../en-shared/q/i-have-two-uncles-and-three.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-24e2281691.mp3"
     }
    ]
   },
@@ -1335,7 +1356,7 @@
    "ex": 4,
    "items": [
     {
-     "text": "My family. Hello! My name is Lily. I love my family very much. My [[mom]] helps me with my homework every night. My [[dad]] takes me to the park to play when he comes back from his work. I also have a little [[sister]] named Daisy, and she loves to draw with crayons. Last weekend, we visited my [[grandpa]]. He showed me how to plant flowers in his garden. My [[cousin]] came over too, and we played hide-and-seek!",
+     "text": "Hello! My name is Lily. I love my family very much. My [[mom]] helps me with my homework every night. My [[dad]] takes me to the park to play when he comes back from his work. I also have a little [[sister]] named Daisy, and she loves to draw with crayons. Last weekend, we visited my [[grandpa]]. He showed me how to plant flowers in his garden. My [[cousin]] came over too, and we played hide-and-seek!",
      "bank": [
       "mom",
       "dad",
@@ -1343,7 +1364,7 @@
       "cousin",
       "grandpa"
      ],
-     "audio": "../../en-shared/q/my-family-hello-my-name-is-lily-i-love-my-family-v-26301b41.mp3"
+     "audio": "../../en-shared/q/passage-e360f47a97.mp3"
     }
    ]
   },
@@ -1409,210 +1430,6 @@
      ],
      "end": ".",
      "audio": "../../en-shared/q/his-uncle-is-cool.mp3"
-    }
-   ]
-  },
-  {
-   "type": "explain",
-   "task": "Short vowels. Listen and say.",
-   "taskAudio": "../../en-shared/q/short-vowels-listen-and-say.mp3",
-   "book": "booklet",
-   "page": 7,
-   "grp": "short",
-   "items": [
-    {
-     "pics": [
-      "img/ph-apple.jpg",
-      "img/ph-cat.jpg",
-      "img/ph-bed.jpg",
-      "img/ph-egg.jpg",
-      "img/pen.png",
-      "img/ph-pig.jpg",
-      "img/ph-fish.jpg",
-      "img/ph-zip.jpg"
-     ],
-     "caps": [
-      "apple",
-      "cat",
-      "bed",
-      "egg",
-      "pen",
-      "pig",
-      "fish",
-      "zip"
-     ],
-     "lines": [
-      {
-       "t": "Short a: apple, cat.",
-       "a": "../../en-shared/q/short-a-apple-cat.mp3"
-      },
-      {
-       "t": "Short e: bed, egg, pen.",
-       "a": "../../en-shared/q/short-e-bed-egg-pen.mp3"
-      },
-      {
-       "t": "Short i: pig, fish, zip.",
-       "a": "../../en-shared/q/short-i-pig-fish-zip.mp3"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "type": "circle",
-   "task": "Read and say. Circle the words with the same sound.",
-   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-same-sound.mp3",
-   "book": "booklet",
-   "page": 7,
-   "ex": 1,
-   "grp": "sv",
-   "items": [
-    {
-     "word": "bag",
-     "audio": "../../en-shared/q/bag.mp3",
-     "answer": true
-    },
-    {
-     "word": "pen",
-     "audio": "../../en-shared/q/pen.mp3",
-     "answer": false
-    },
-    {
-     "word": "fan",
-     "audio": "../../en-shared/q/fan.mp3",
-     "answer": true
-    }
-   ]
-  },
-  {
-   "type": "circle",
-   "task": "Read and say. Circle the words with the same sound.",
-   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-same-sound.mp3",
-   "book": "booklet",
-   "page": 7,
-   "ex": 1,
-   "grp": "sv",
-   "items": [
-    {
-     "word": "hen",
-     "audio": "../../en-shared/q/hen.mp3",
-     "answer": true
-    },
-    {
-     "word": "pig",
-     "audio": "../../en-shared/q/pig.mp3",
-     "answer": false
-    },
-    {
-     "word": "red",
-     "audio": "../../en-shared/q/red.mp3",
-     "answer": true
-    }
-   ]
-  },
-  {
-   "type": "circle",
-   "task": "Read and say. Circle the words with the same sound.",
-   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-same-sound.mp3",
-   "book": "booklet",
-   "page": 7,
-   "ex": 1,
-   "grp": "sv",
-   "items": [
-    {
-     "word": "bin",
-     "audio": "../../en-shared/q/bin.mp3",
-     "answer": true
-    },
-    {
-     "word": "pot",
-     "audio": "../../en-shared/q/pot.mp3",
-     "answer": false
-    },
-    {
-     "word": "pin",
-     "audio": "../../en-shared/q/pin.mp3",
-     "answer": true
-    }
-   ]
-  },
-  {
-   "type": "circle",
-   "task": "Read and say. Circle the words with the same sound.",
-   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-same-sound.mp3",
-   "book": "booklet",
-   "page": 7,
-   "ex": 1,
-   "grp": "sv",
-   "items": [
-    {
-     "word": "map",
-     "audio": "../../en-shared/q/map.mp3",
-     "answer": true
-    },
-    {
-     "word": "big",
-     "audio": "../../en-shared/q/big.mp3",
-     "answer": false
-    },
-    {
-     "word": "cap",
-     "audio": "../../en-shared/q/cap.mp3",
-     "answer": true
-    }
-   ]
-  },
-  {
-   "type": "circle",
-   "task": "Read and say. Circle the words with the same sound.",
-   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-same-sound.mp3",
-   "book": "booklet",
-   "page": 7,
-   "ex": 1,
-   "grp": "sv",
-   "items": [
-    {
-     "word": "ten",
-     "audio": "../../en-shared/q/ten.mp3",
-     "answer": true
-    },
-    {
-     "word": "pet",
-     "audio": "../../en-shared/q/pet.mp3",
-     "answer": true
-    },
-    {
-     "word": "hit",
-     "audio": "../../en-shared/q/hit.mp3",
-     "answer": false
-    }
-   ]
-  },
-  {
-   "type": "link",
-   "task": "Match the words with the same sound.",
-   "taskAudio": "../../en-shared/q/match-the-words-with-the-same-sound.mp3",
-   "book": "booklet",
-   "page": 7,
-   "ex": 2,
-   "items": [
-    {
-     "word": "cat",
-     "text2": "bat",
-     "audio": "../../en-shared/q/cat.mp3",
-     "audio2": "../../en-shared/q/bat.mp3"
-    },
-    {
-     "word": "wig",
-     "text2": "zip",
-     "audio": "../../en-shared/q/wig.mp3",
-     "audio2": "../../en-shared/q/zip.mp3"
-    },
-    {
-     "word": "bed",
-     "text2": "vet",
-     "audio": "../../en-shared/q/bed.mp3",
-     "audio2": "../../en-shared/q/vet.mp3"
     }
    ]
   },
@@ -1705,7 +1522,8 @@
       "In a house"
      ],
      "answer": 1,
-     "audio": "../../en-shared/q/both-the-bear-and-the-squirrel-live-in-the-forest.mp3"
+     "audio": "../../en-shared/q/both-the-bear-and-the-squirrel-live-in-the-forest.mp3",
+     "askAudio": "../../en-shared/q/ask-aad5a5e43f.mp3"
     },
     {
      "word": "The bear eats berries and fish.",
@@ -1716,7 +1534,8 @@
       "Seeds"
      ],
      "answer": 1,
-     "audio": "../../en-shared/q/the-bear-eats-berries-and-fish.mp3"
+     "audio": "../../en-shared/q/the-bear-eats-berries-and-fish.mp3",
+     "askAudio": "../../en-shared/q/ask-73b05feaa1.mp3"
     },
     {
      "word": "The squirrel eats nuts and seeds.",
@@ -1727,7 +1546,8 @@
       "Nuts and seeds"
      ],
      "answer": 2,
-     "audio": "../../en-shared/q/the-squirrel-eats-nuts-and-seeds.mp3"
+     "audio": "../../en-shared/q/the-squirrel-eats-nuts-and-seeds.mp3",
+     "askAudio": "../../en-shared/q/ask-fe15305c4f.mp3"
     },
     {
      "word": "The bear sleeps, and the squirrel looks for food.",
@@ -1738,83 +1558,8 @@
       "Both sleep in winter."
      ],
      "answer": 0,
-     "audio": "../../en-shared/q/the-bear-sleeps-and-the-squirrel-looks-for-food.mp3"
-    }
-   ]
-  },
-  {
-   "type": "explain",
-   "task": "Grammar. Verb to be.",
-   "taskAudio": "../../en-shared/q/grammar-verb-to-be.mp3",
-   "book": "booklet",
-   "page": 9,
-   "grp": "tobe",
-   "items": [
-    {
-     "lines": [
-      {
-       "t": "Verb to be",
-       "a": "../../en-shared/q/verb-to-be.mp3",
-       "cls": "head"
-      },
-      {
-       "t": "I am.",
-       "a": "../../en-shared/q/i-am.mp3"
-      },
-      {
-       "t": "He is. She is. It is.",
-       "a": "../../en-shared/q/he-is-she-is-it-is.mp3"
-      },
-      {
-       "t": "We are. You are. They are.",
-       "a": "../../en-shared/q/we-are-you-are-they-are.mp3"
-      }
-     ],
-     "table": {
-      "title": "Long Form and Short Form",
-      "rows": [
-       [
-        {
-         "t": "I am a good girl.",
-         "a": "../../en-shared/q/i-am-a-good-girl.mp3"
-        },
-        {
-         "t": "I'm a good girl.",
-         "a": "../../en-shared/q/i-m-a-good-girl.mp3"
-        }
-       ],
-       [
-        {
-         "t": "He is a teacher.",
-         "a": "../../en-shared/q/he-is-a-teacher.mp3"
-        },
-        {
-         "t": "He's a teacher.",
-         "a": "../../en-shared/q/he-s-a-teacher.mp3"
-        }
-       ],
-       [
-        {
-         "t": "We are in the class.",
-         "a": "../../en-shared/q/we-are-in-the-class.mp3"
-        },
-        {
-         "t": "We're in the class.",
-         "a": "../../en-shared/q/we-re-in-the-class.mp3"
-        }
-       ],
-       [
-        {
-         "t": "You are a nice person.",
-         "a": "../../en-shared/q/you-are-a-nice-person.mp3"
-        },
-        {
-         "t": "You're a nice person.",
-         "a": "../../en-shared/q/you-re-a-nice-person.mp3"
-        }
-       ]
-      ]
-     }
+     "audio": "../../en-shared/q/the-bear-sleeps-and-the-squirrel-looks-for-food.mp3",
+     "askAudio": "../../en-shared/q/ask-355513da49.mp3"
     }
    ]
   },
@@ -1839,7 +1584,8 @@
      "parts": [
       "../../en-shared/q/i.mp3",
       "../../en-shared/q/happy-today.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-ade8c74dde.mp3"
     },
     {
      "word": "She is my best friend.",
@@ -1854,7 +1600,8 @@
      "parts": [
       "../../en-shared/q/she.mp3",
       "../../en-shared/q/my-best-friend.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-19dfec5908.mp3"
     },
     {
      "word": "They are playing in the park.",
@@ -1869,7 +1616,8 @@
      "parts": [
       "../../en-shared/q/they.mp3",
       "../../en-shared/q/playing-in-the-park.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-a8c0baab6b.mp3"
     },
     {
      "word": "He is a good student.",
@@ -1884,7 +1632,8 @@
      "parts": [
       "../../en-shared/q/he.mp3",
       "../../en-shared/q/a-good-student.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-158919bea7.mp3"
     },
     {
      "word": "We are ready for the trip.",
@@ -1899,7 +1648,8 @@
      "parts": [
       "../../en-shared/q/we.mp3",
       "../../en-shared/q/ready-for-the-trip.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-6a044120fe.mp3"
     },
     {
      "word": "It is a sunny day.",
@@ -1914,7 +1664,8 @@
      "parts": [
       "../../en-shared/q/it.mp3",
       "../../en-shared/q/a-sunny-day.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-7fe9a124ee.mp3"
     },
     {
      "word": "You are kind to everyone.",
@@ -1929,7 +1680,8 @@
      "parts": [
       "../../en-shared/q/you.mp3",
       "../../en-shared/q/kind-to-everyone.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-40e79661eb.mp3"
     },
     {
      "word": "The cat is on the mat.",
@@ -1944,7 +1696,8 @@
      "parts": [
       "../../en-shared/q/the-cat.mp3",
       "../../en-shared/q/on-the-mat.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-53dc7a11c6.mp3"
     },
     {
      "word": "My parents are at home.",
@@ -1959,7 +1712,8 @@
      "parts": [
       "../../en-shared/q/my-parents.mp3",
       "../../en-shared/q/at-home.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-b1df6414f4.mp3"
     },
     {
      "word": "This is an interesting book.",
@@ -1974,7 +1728,8 @@
      "parts": [
       "../../en-shared/q/this.mp3",
       "../../en-shared/q/an-interesting-book.mp3"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-d0580e812d.mp3"
     }
    ]
   },
@@ -2004,7 +1759,8 @@
       "am",
       "is",
       "are"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-ce392168d3.mp3"
     },
     {
      "word": "My dad is tall and strong.",
@@ -2024,7 +1780,8 @@
       "am",
       "is",
       "are"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-1ea10e3ebe.mp3"
     },
     {
      "word": "It is my dad's car.",
@@ -2044,7 +1801,8 @@
       "am",
       "is",
       "are"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-8d221e64bc.mp3"
     },
     {
      "word": "You are a kind cousin.",
@@ -2064,7 +1822,8 @@
       "am",
       "is",
       "are"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-f6b5582a00.mp3"
     },
     {
      "word": "He is my brave big brother.",
@@ -2084,7 +1843,8 @@
       "am",
       "is",
       "are"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-2ead9b76ee.mp3"
     },
     {
      "word": "They are my grandparents.",
@@ -2104,7 +1864,8 @@
       "am",
       "is",
       "are"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-4ec6e550dd.mp3"
     },
     {
      "word": "She is my sweet little cousin.",
@@ -2124,7 +1885,8 @@
       "am",
       "is",
       "are"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-e34f2bd369.mp3"
     },
     {
      "word": "My grandpa is a professional storyteller.",
@@ -2144,7 +1906,8 @@
       "am",
       "is",
       "are"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-a5bab98c60.mp3"
     },
     {
      "word": "You are part of our wonderful family.",
@@ -2164,7 +1927,8 @@
       "am",
       "is",
       "are"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-f69b382b35.mp3"
     },
     {
      "word": "The baby is in his bed.",
@@ -2184,7 +1948,8 @@
       "am",
       "is",
       "are"
-     ]
+     ],
+     "askAudio": "../../en-shared/q/askc-554566f90a.mp3"
     }
    ]
   },
@@ -2197,13 +1962,13 @@
    "ex": 3,
    "items": [
     {
-     "text": "Our Beach Vacation! Hello! My name [['s]] Maya. I [['m]] so happy! We [['re]] on vacation at the beach. My mom [['s]] swimming in the ocean. My dad [['s]] building a big sandcastle. The weather [['s]] warm and sunny! We [['re]] having a great time!",
+     "text": "Hello! My name [['s]] Maya. I [['m]] so happy! We [['re]] on vacation at the beach. My mom [['s]] swimming in the ocean. My dad [['s]] building a big sandcastle. The weather [['s]] warm and sunny! We [['re]] having a great time!",
      "bank": [
       "'m",
       "'s",
       "'re"
      ],
-     "audio": "../../en-shared/q/our-beach-vacation-hello-my-name-s-maya-i-m-so-hap-4a62a41b.mp3",
+     "audio": "../../en-shared/q/passage-541043e4e1.mp3",
      "reuse": true,
      "bankSay": [
       "am",
@@ -2235,7 +2000,8 @@
       "../../en-shared/q/my-dog.mp3",
       "../../en-shared/q/very-playful.mp3"
      ],
-     "ask": "My dog are very playful."
+     "ask": "My dog are very playful.",
+     "askAudio": "../../en-shared/q/askc-04547cca96.mp3"
     },
     {
      "word": "You are a good friend.",
@@ -2251,7 +2017,8 @@
       "../../en-shared/q/you.mp3",
       "../../en-shared/q/a-good-friend.mp3"
      ],
-     "ask": "You is a good friend."
+     "ask": "You is a good friend.",
+     "askAudio": "../../en-shared/q/askc-5698989701.mp3"
     },
     {
      "word": "I am happy to see you.",
@@ -2267,7 +2034,8 @@
       "../../en-shared/q/i.mp3",
       "../../en-shared/q/happy-to-see-you.mp3"
      ],
-     "ask": "I is happy to see you."
+     "ask": "I is happy to see you.",
+     "askAudio": "../../en-shared/q/askc-184d3ef69b.mp3"
     }
    ]
   }

@@ -1,0 +1,444 @@
+{
+ "id": "u3l4",
+ "unit": 3,
+ "lesson": 4,
+ "title": "Phonics Hh Dd",
+ "task": "Listen to your teacher and repeat.",
+ "scene": "../u1l2/scene.jpg",
+ "sceneAlt": "Phonics Hh and Dd pictures",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "speakers": {
+  "Hh": "#D93D78",
+  "Dd": "#D93D78"
+ },
+ "pages": 2,
+ "pageLayouts": [
+  "pictures",
+  "pictures"
+ ],
+ "pageTasks": [
+  "Listen to your teacher and repeat.",
+  "Listen to your teacher and repeat."
+ ],
+ "pagesBook": [
+  56,
+  58
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "hat",
+   "ar": "قبعة",
+   "img": "../../pics/hat.png",
+   "parts": [
+    {
+     "t": "ha",
+     "ph": "h_a",
+     "audio": "../../phonics/chunks/h_a.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/hat.mp3"
+   }
+  },
+  {
+   "word": "hair",
+   "ar": "شعر",
+   "img": "../../pics/hair-u3l4.png",
+   "parts": [
+    {
+     "t": "h",
+     "ph": "h",
+     "audio": "../../phonics/h.mp3"
+    },
+    {
+     "t": "air",
+     "ph": "air",
+     "audio": "../../phonics/air.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/hair.mp3"
+   }
+  },
+  {
+   "word": "horse",
+   "ar": "حصان",
+   "img": "../../pics/horse-u3l4.png",
+   "parts": [
+    {
+     "t": "ho",
+     "ph": "h_or",
+     "audio": "../../phonics/chunks/h_or.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "e",
+     "spell": true,
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u2l3/words/horse.mp3"
+   }
+  },
+  {
+   "word": "hands",
+   "ar": "أيدي",
+   "img": "../../pics/hands-u3l4.png",
+   "parts": [
+    {
+     "t": "ha",
+     "ph": "h_a",
+     "audio": "../../phonics/chunks/h_a.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/hands.mp3"
+   }
+  },
+  {
+   "word": "house",
+   "ar": "بيت",
+   "img": "../../pics/house-u3l4.png",
+   "parts": [
+    {
+     "t": "h",
+     "ph": "h",
+     "audio": "../../phonics/h.mp3"
+    },
+    {
+     "t": "ou",
+     "ph": "ow",
+     "audio": "../../phonics/ow.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "e",
+     "spell": true,
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u1l3/words/house.mp3"
+   }
+  },
+  {
+   "word": "door",
+   "ar": "باب",
+   "img": "../../pics/door-u3l4.png",
+   "parts": [
+    {
+     "t": "doo",
+     "ph": "d_or",
+     "audio": "../../phonics/chunks/d_or.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/door.mp3"
+   }
+  },
+  {
+   "word": "dog",
+   "ar": "كلب",
+   "img": "../../pics/dog-u3l4.png",
+   "parts": [
+    {
+     "t": "do",
+     "ph": "d_o",
+     "audio": "../../phonics/chunks/d_o.mp3"
+    },
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u1l4/words/dog.mp3"
+   }
+  },
+  {
+   "word": "drum",
+   "ar": "طبلة",
+   "img": "../../pics/drum-u3l4.png",
+   "parts": [
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "ru",
+     "ph": "r_u",
+     "audio": "../../phonics/chunks/r_u.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/drum.mp3"
+   }
+  },
+  {
+   "word": "doll",
+   "ar": "عروسة",
+   "img": "../../pics/doll-u3l4.png",
+   "parts": [
+    {
+     "t": "do",
+     "ph": "d_o",
+     "audio": "../../phonics/chunks/d_o.mp3"
+    },
+    {
+     "t": "ll",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/doll.mp3"
+   }
+  },
+  {
+   "word": "duck",
+   "ar": "بطة",
+   "img": "../../pics/duck-u3l4.png",
+   "parts": [
+    {
+     "t": "du",
+     "ph": "d_u",
+     "audio": "../../phonics/chunks/d_u.mp3"
+    },
+    {
+     "t": "ck",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u2l3/words/duck.mp3"
+   }
+  }
+ ],
+ "_note": "Book p56 ex1 (hat, hair, hands, horse, house) and p58 ex5 (door, doll, dog, duck, drum). Tracing / colouring exercises skipped (Marwa 2026-11-02). Reading = Kokoro am_michael 0.85. Pictures cut from the book as round badges (pics *-u3l4). Splits from vocab-review.md (suggested, Marwa can change them in the sound library).",
+ "lines": [
+  {
+   "who": "Hh",
+   "page": 1,
+   "words": [
+    [
+     "hat",
+     0.03,
+     0.54
+    ]
+   ],
+   "pic": "../../pics/hat.png",
+   "pos": [
+    17,
+    25
+   ]
+  },
+  {
+   "who": "Hh",
+   "page": 1,
+   "words": [
+    [
+     "hair",
+     1.7,
+     2.25
+    ]
+   ],
+   "pic": "../../pics/hair-u3l4.png",
+   "pos": [
+    83,
+    25
+   ]
+  },
+  {
+   "who": "Hh",
+   "page": 1,
+   "words": [
+    [
+     "hands",
+     3.4,
+     4.1
+    ]
+   ],
+   "pic": "../../pics/hands-u3l4.png",
+   "pos": [
+    17,
+    76
+   ]
+  },
+  {
+   "who": "Hh",
+   "page": 1,
+   "words": [
+    [
+     "horse",
+     5.26,
+     5.89
+    ]
+   ],
+   "pic": "../../pics/horse-u3l4.png",
+   "pos": [
+    50,
+    76
+   ]
+  },
+  {
+   "who": "Hh",
+   "page": 1,
+   "words": [
+    [
+     "house",
+     7.05,
+     7.66
+    ]
+   ],
+   "pic": "../../pics/house-u3l4.png",
+   "pos": [
+    83,
+    76
+   ]
+  },
+  {
+   "who": "Dd",
+   "page": 2,
+   "words": [
+    [
+     "door",
+     8.8,
+     9.37
+    ]
+   ],
+   "pic": "../../pics/door-u3l4.png",
+   "pos": [
+    17,
+    25
+   ]
+  },
+  {
+   "who": "Dd",
+   "page": 2,
+   "words": [
+    [
+     "doll",
+     10.53,
+     11.04
+    ]
+   ],
+   "pic": "../../pics/doll-u3l4.png",
+   "pos": [
+    83,
+    25
+   ]
+  },
+  {
+   "who": "Dd",
+   "page": 2,
+   "words": [
+    [
+     "dog",
+     12.2,
+     12.77
+    ]
+   ],
+   "pic": "../../pics/dog-u3l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Dd",
+   "page": 2,
+   "words": [
+    [
+     "duck",
+     13.93,
+     14.42
+    ]
+   ],
+   "pic": "../../pics/duck-u3l4.png",
+   "pos": [
+    17,
+    76
+   ]
+  },
+  {
+   "who": "Dd",
+   "page": 2,
+   "words": [
+    [
+     "drum",
+     15.58,
+     16.18
+    ]
+   ],
+   "pic": "../../pics/drum-u3l4.png",
+   "pos": [
+    83,
+    76
+   ]
+  }
+ ],
+ "end": 16.18
+}

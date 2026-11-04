@@ -1,0 +1,182 @@
+{
+ "title": "Test 1",
+ "ratio": 0.707,
+ "head": {
+  "l": "Department of English<br>1st Term OL Booklet Grade 1<br>2026/2027",
+  "r": "Noor El Elm<br>Modern School"
+ },
+ "pages": [
+  {
+   "title": "Model 1",
+   "chip": "Model 1",
+   "foot": 17,
+   "blocks": [
+    {
+     "t": "q",
+     "n": "1",
+     "text": "Listen and write the missing letters:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/father.png"
+          },
+          {
+           "t": "text",
+           "text": "f [[a:tiny]] t h [[e:tiny]] r",
+           "listen": "father"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/potato.png"
+          },
+          {
+           "t": "text",
+           "text": "[[p:tiny]] o t a t o",
+           "listen": "potato"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/drum-u3l4.png"
+          },
+          {
+           "t": "text",
+           "text": "[[d:tiny]] r u m",
+           "listen": "drum"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "Read and complete:",
+     "body": [
+      {
+       "t": "text",
+       "style": "bank",
+       "text": "Who – nurse – father – have"
+      },
+      {
+       "t": "text",
+       "text": "1- My [[father]] is Ali."
+      },
+      {
+       "t": "text",
+       "text": "2- I [[have]] two sisters."
+      },
+      {
+       "t": "text",
+       "text": "3- [[Who]] is this?"
+      },
+      {
+       "t": "text",
+       "text": "4- She is a [[nurse]]."
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Unscramble and write:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/door-u3l4.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>d o r o</span> [[door:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/panda.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>a d a n p</span> [[panda:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/en-bk-five.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>v e i f</span> [[five:wide]]"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Reorder to form sentences:",
+     "body": [
+      {
+       "t": "order",
+       "words": [
+        "one",
+        "brother",
+        "I",
+        "have"
+       ],
+       "answer": "I have one brother"
+      },
+      {
+       "t": "order",
+       "words": [
+        "there",
+        "birds",
+        "How",
+        "many",
+        "are"
+       ],
+       "answer": "How many birds are there"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

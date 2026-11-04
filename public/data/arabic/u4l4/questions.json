@@ -1,6 +1,150 @@
 {
  "sets": [
   {
+   "type": "sound",
+   "ex": 4,
+   "page": 124,
+   "task": "أَنْطِقُ صَوْتَ حَرْفِ الطَّاءِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "اسمع الجملة وردد وراها",
+   "items": [
+    {
+     "word": "طَبَّاخ",
+     "ask": "طَ",
+     "pic": "../../pics/ar-chef.png",
+     "audio": [
+      "../letters/637/name.mp3",
+      "../shared/h-fatha.mp3",
+      "../../syl-ar/637-64e.mp3",
+      "q/w-tabbakh.mp3"
+     ]
+    },
+    {
+     "word": "طُيُور",
+     "ask": "طُ",
+     "pic": "../../pics/ar-bird.png",
+     "audio": [
+      "../letters/637/name.mp3",
+      "../shared/h-damma.mp3",
+      "../../syl-ar/637-64f.mp3",
+      "q/w-tuyur.mp3"
+     ]
+    },
+    {
+     "word": "طِفْل",
+     "ask": "طِ",
+     "pic": "../../pics/ar-baby.png",
+     "audio": [
+      "../letters/637/name.mp3",
+      "../shared/h-kasra.mp3",
+      "../../syl-ar/637-650.mp3",
+      "../u2l7/words/tifl.mp3"
+     ]
+    },
+    {
+     "word": "بَطْرِيق",
+     "ask": "طْ",
+     "pic": "../../pics/ar-penguin.png",
+     "audio": [
+      "../letters/637/name.mp3",
+      "../shared/h-sukoon.mp3",
+      "../../syl-ar/637-652.mp3",
+      "words/batriq.mp3"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 8,
+   "page": 125,
+   "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الطَّاءِ مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار الطاء بالحركة الصح",
+   "choices": [
+    "طَ",
+    "طُ",
+    "طِ",
+    "طْ"
+   ],
+   "items": [
+    {
+     "word": "طُيُور",
+     "audio": "q/w-tuyur.mp3",
+     "pic": "../../pics/ar-bird.png",
+     "answer": "طُ",
+     "choices": [
+      "طَ",
+      "طُ",
+      "طِ"
+     ]
+    },
+    {
+     "word": "عِطْر",
+     "audio": "q/w-itr.mp3",
+     "pic": "../../pics/ar-perfume.png",
+     "answer": "طْ",
+     "choices": [
+      "طَ",
+      "طُ",
+      "طِ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "طِفْل",
+     "audio": "../u2l7/words/tifl.mp3",
+     "pic": "../../pics/ar-baby.png",
+     "answer": "طِ",
+     "choices": [
+      "طَ",
+      "طُ",
+      "طِ"
+     ]
+    },
+    {
+     "word": "طَرِيق",
+     "audio": "q/w-tariq.mp3",
+     "pic": "../../pics/ar-road.jpg",
+     "answer": "طَ",
+     "choices": [
+      "طَ",
+      "طُ",
+      "طِ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 9,
+   "page": 125,
+   "task": "أَدْمِجُ الْحُرُوفَ لِأُكَوِّنَ كَلِمَةً",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "items": [
+    {
+     "word": "طَبَق",
+     "audio": "words/tabaq.mp3",
+     "pic": "../../pics/ar-plate.jpg",
+     "chips": [
+      "طَ",
+      "بَ",
+      "ق"
+     ]
+    },
+    {
+     "word": "طِفْل",
+     "audio": "../u2l7/words/tifl.mp3",
+     "pic": "../../pics/ar-baby.png",
+     "chips": [
+      "طِفْ",
+      "ل"
+     ]
+    }
+   ]
+  },
+  {
    "type": "circle",
    "ex": 7,
    "page": 118,
@@ -11,6 +155,7 @@
    ],
    "hint": "اضغط على الصور التي فيها صوت الطاء",
    "silent": true,
+   "book": "booklet",
    "items": [
     {
      "word": "bird",
@@ -29,7 +174,7 @@
     },
     {
      "word": "sun",
-     "pic": "../../pics/ar-sun.jpg",
+     "pic": "../../pics/ar-sun.png",
      "answer": false
     },
     {
@@ -69,6 +214,7 @@
     "../letters/637/name.mp3"
    ],
    "hint": "اضغط على الدائرة التي فيها الطاء",
+   "book": "booklet",
    "items": [
     {
      "word": "قُطْن",
@@ -113,6 +259,7 @@
     "طِ",
     "طْ"
    ],
+   "book": "booklet",
    "items": [
     {
      "word": "طَاوُوس",
@@ -154,6 +301,7 @@
    "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/merge-syllables.mp3",
    "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "book": "booklet",
    "items": [
     {
      "word": "قِرْد",
@@ -199,6 +347,7 @@
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/arrange-letters.mp3",
    "hint": "رتب الحروف",
+   "book": "booklet",
    "items": [
     {
      "word": "قُطْن",
@@ -229,6 +378,7 @@
    "task": "أَقْرَأُ كُلَّ جُمْلَةٍ ثُمَّ أَصِلُهَا بِالصُّورَةِ الْمُنَاسِبَةِ لَهَا",
    "taskAudio": "../q-prompts/match-picture.mp3",
    "hint": "صل الجملة بالصورة",
+   "book": "booklet",
    "items": [
     {
      "word": "رَبَطَ أَبِي الْحَبْلَ",
@@ -241,6 +391,52 @@
     {
      "word": "حَمَلَتِ الْبِنْتُ الْبَطَّ",
      "pic": "../../pics/ar-girlbasket.png"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 1,
+   "page": 62,
+   "book": "workbook",
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي فِيهَا حَرْفُ (ط)",
+   "taskAudio": "q/wb-circle-62.mp3",
+   "hint": "اضغط على الكلمات اللي فيها حرف ط",
+   "items": [
+    {
+     "word": "بِطِّيخ",
+     "text": "بِطِّيخ",
+     "answer": true
+    },
+    {
+     "word": "بَطْن",
+     "text": "بَطْن",
+     "answer": true
+    },
+    {
+     "word": "قِطَّة",
+     "text": "قِطَّة",
+     "answer": true
+    },
+    {
+     "word": "مَطْبَخ",
+     "text": "مَطْبَخ",
+     "answer": true
+    },
+    {
+     "word": "سَمَك",
+     "text": "سَمَك",
+     "answer": false
+    },
+    {
+     "word": "ضَابِط",
+     "text": "ضَابِط",
+     "answer": true
+    },
+    {
+     "word": "طِفْل",
+     "text": "طِفْل",
+     "answer": true
     }
    ]
   }

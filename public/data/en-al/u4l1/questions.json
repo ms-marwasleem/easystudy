@@ -1,0 +1,1010 @@
+{
+ "sets": [
+  {
+   "type": "type",
+   "task": "Read and complete the missing letters.",
+   "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "floor",
+     "pic": "../../pics/u4-floor.png",
+     "audio": "../../en-shared/q/floor.mp3",
+     "answer": "o",
+     "missing": 3
+    },
+    {
+     "word": "painting",
+     "pic": "../../pics/u4-painting.png",
+     "audio": "../../en-shared/q/painting.mp3",
+     "answer": "a",
+     "missing": 1
+    },
+    {
+     "word": "room",
+     "pic": "../../pics/u4-room.png",
+     "audio": "../../en-shared/q/room.mp3",
+     "answer": "o",
+     "missing": 2
+    },
+    {
+     "word": "stairs",
+     "pic": "../../pics/u4-stairs.png",
+     "audio": "../../en-shared/q/stairs.mp3",
+     "answer": "i",
+     "missing": 3
+    },
+    {
+     "word": "garden",
+     "pic": "../../pics/u4-garden.png",
+     "audio": "../../en-shared/q/garden.mp3",
+     "answer": "r",
+     "gaps": [
+      2,
+      5
+     ]
+    }
+   ],
+   "page": 80,
+   "ex": 1
+  },
+  {
+   "type": "link",
+   "task": "Match the words and the pictures.",
+   "taskAudio": "../../en-shared/q/match-the-words-and-the-pictures.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "upstairs",
+     "pic": "../../pics/u4-upstairs.png",
+     "audio": "../../en-shared/q/upstairs.mp3"
+    },
+    {
+     "word": "elevator",
+     "pic": "../../pics/u4-elevator.png",
+     "audio": "../../en-shared/q/elevator.mp3"
+    },
+    {
+     "word": "armchair",
+     "pic": "../../pics/u4-armchair.png",
+     "audio": "../../en-shared/q/armchair.mp3"
+    },
+    {
+     "word": "closet",
+     "pic": "../../pics/u4-closet.png",
+     "audio": "../../en-shared/q/closet.mp3"
+    },
+    {
+     "word": "downstairs",
+     "pic": "../../pics/u4-downstairs.png",
+     "audio": "../../en-shared/q/downstairs.mp3"
+    }
+   ],
+   "page": 81,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer from a, b, c or d.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-from-a-b-c-or-d.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "I put my coat and shoes in the ____ when I get home.",
+     "options": [
+      "sofa",
+      "closet",
+      "garden",
+      "toy"
+     ],
+     "answer": 1,
+     "word": "I put my coat and shoes in the closet when I get home.",
+     "audio": "../../en-shared/q/i-put-my-coat-and-shoes-in-the-closet-when-i-get-home.mp3",
+     "parts": [
+      "../../en-shared/q/i-put-my-coat-and-shoes-in-the.mp3",
+      "../../en-shared/q/when-i-get-home.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-5a305d4e01.mp3"
+    },
+    {
+     "stem": "To go to a different floor in a tall building, we can use the ____.",
+     "options": [
+      "elevator",
+      "bin",
+      "bedroom",
+      "game"
+     ],
+     "answer": 0,
+     "word": "To go to a different floor in a tall building, we can use the elevator.",
+     "audio": "../../en-shared/q/to-go-to-a-different-floor-in-a-tall-building-we-c-4b8c67c7.mp3",
+     "parts": [
+      "../../en-shared/q/to-go-to-a-different-floor-in-a-tall-building-we-can-use-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-ce710a2e0f.mp3"
+    },
+    {
+     "stem": "We go ____ to the kitchen for a snack.",
+     "options": [
+      "chair",
+      "downstairs",
+      "desk",
+      "garden"
+     ],
+     "answer": 1,
+     "word": "We go downstairs to the kitchen for a snack.",
+     "audio": "../../en-shared/q/we-go-downstairs-to-the-kitchen-for-a-snack.mp3",
+     "parts": [
+      "../../en-shared/q/we-go.mp3",
+      "../../en-shared/q/to-the-kitchen-for-a-snack.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-663beb8d0a.mp3"
+    },
+    {
+     "stem": "We sit in a comfy ____ to read our favorite book.",
+     "options": [
+      "stairs",
+      "painting",
+      "armchair",
+      "room"
+     ],
+     "answer": 2,
+     "word": "We sit in a comfy armchair to read our favorite book.",
+     "audio": "../../en-shared/q/we-sit-in-a-comfy-armchair-to-read-our-favorite-book.mp3",
+     "parts": [
+      "../../en-shared/q/we-sit-in-a-comfy.mp3",
+      "../../en-shared/q/to-read-our-favorite-book.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-70e3e49446.mp3"
+    },
+    {
+     "stem": "My bedroom is ____ on the second floor of the house.",
+     "options": [
+      "floor",
+      "upstairs",
+      "game",
+      "closet"
+     ],
+     "answer": 1,
+     "word": "My bedroom is upstairs on the second floor of the house.",
+     "audio": "../../en-shared/q/my-bedroom-is-upstairs-on-the-second-floor-of-the-house.mp3",
+     "parts": [
+      "../../en-shared/q/my-bedroom-is.mp3",
+      "../../en-shared/q/on-the-second-floor-of-the-house.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-c49d5ea4c3.mp3"
+    },
+    {
+     "stem": "We plant flowers and vegetables in our ____ outside.",
+     "options": [
+      "elevator",
+      "room",
+      "downstairs",
+      "garden"
+     ],
+     "answer": 3,
+     "word": "We plant flowers and vegetables in our garden outside.",
+     "audio": "../../en-shared/q/we-plant-flowers-and-vegetables-in-our-garden-outside.mp3",
+     "parts": [
+      "../../en-shared/q/we-plant-flowers-and-vegetables-in-our.mp3",
+      "../../en-shared/q/outside.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-2a5e2c6fb5.mp3"
+    },
+    {
+     "stem": "My sister made a beautiful ____ of a sun and a rainbow.",
+     "options": [
+      "painting",
+      "closet",
+      "room",
+      "stairs"
+     ],
+     "answer": 0,
+     "word": "My sister made a beautiful painting of a sun and a rainbow.",
+     "audio": "../../en-shared/q/my-sister-made-a-beautiful-painting-of-a-sun-and-a-rainbow.mp3",
+     "parts": [
+      "../../en-shared/q/my-sister-made-a-beautiful.mp3",
+      "../../en-shared/q/of-a-sun-and-a-rainbow.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-a64af9a99a.mp3"
+    },
+    {
+     "stem": "A living ____ is a place where we watch TV and play games.",
+     "options": [
+      "armchair",
+      "floor",
+      "box",
+      "room"
+     ],
+     "answer": 3,
+     "word": "A living room is a place where we watch TV and play games.",
+     "audio": "../../en-shared/q/a-living-room-is-a-place-where-we-watch-tv-and-play-games.mp3",
+     "parts": [
+      "../../en-shared/q/a-living.mp3",
+      "../../en-shared/q/is-a-place-where-we-watch-tv-and-play-games.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-e94e2d5aa5.mp3"
+    },
+    {
+     "stem": "We walk up the ____ to get to the second floor of our house.",
+     "options": [
+      "stairs",
+      "house",
+      "chair",
+      "mop"
+     ],
+     "answer": 0,
+     "word": "We walk up the stairs to get to the second floor of our house.",
+     "audio": "../../en-shared/q/we-walk-up-the-stairs-to-get-to-the-second-floor-o-1e01ccf0.mp3",
+     "parts": [
+      "../../en-shared/q/we-walk-up-the.mp3",
+      "../../en-shared/q/to-get-to-the-second-floor-of-our-house.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-0d68028525.mp3"
+    },
+    {
+     "stem": "The toys are all on the ____ of the playroom.",
+     "options": [
+      "board",
+      "floor",
+      "computer",
+      "painting"
+     ],
+     "answer": 1,
+     "word": "The toys are all on the floor of the playroom.",
+     "audio": "../../en-shared/q/the-toys-are-all-on-the-floor-of-the-playroom.mp3",
+     "parts": [
+      "../../en-shared/q/the-toys-are-all-on-the.mp3",
+      "../../en-shared/q/of-the-playroom.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-f7b3799642.mp3"
+    }
+   ],
+   "page": 82,
+   "ex": 3
+  },
+  {
+   "type": "cloze",
+   "task": "Choose the correct answer to complete the text.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-to-complete-the-text.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "text": "Our home is a happy place! We play in the living [[room]] all day long. My favorite thing to do is find my crayons and make a colorful [[painting]] of my dog. Sometimes, my brother and I run up and down the [[stairs]] to the kitchen to get a snack. After playing, I put my jacket away in the [[closet]]. Then, my family and I like to go outside. We water the flowers and watch the butterflies flutter around our beautiful [[garden]].",
+     "bank": [
+      "closet",
+      "painting",
+      "garden",
+      "room",
+      "stairs"
+     ],
+     "audio": "../../en-shared/q/passage-5d6caf2ce0.mp3"
+    }
+   ],
+   "page": 83,
+   "ex": 4
+  },
+  {
+   "type": "order",
+   "task": "Rearrange the following sentences.",
+   "taskAudio": "../../en-shared/q/rearrange-the-following-sentences.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "chunks": [
+      "The",
+      "toys",
+      "are",
+      "on the",
+      "floor"
+     ],
+     "end": ".",
+     "word": "The toys are on the floor.",
+     "audio": "../../en-shared/q/the-toys-are-on-the-floor.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "love",
+      "my",
+      "room"
+     ],
+     "end": ".",
+     "word": "I love my room.",
+     "audio": "../../en-shared/q/i-love-my-room.mp3"
+    },
+    {
+     "chunks": [
+      "We",
+      "went",
+      "upstairs"
+     ],
+     "end": ".",
+     "word": "We went upstairs.",
+     "audio": "../../en-shared/q/we-went-upstairs.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "have",
+      "a big",
+      "armchair"
+     ],
+     "end": ".",
+     "word": "I have a big armchair.",
+     "audio": "../../en-shared/q/i-have-a-big-armchair.mp3"
+    },
+    {
+     "chunks": [
+      "We",
+      "use",
+      "the",
+      "elevator"
+     ],
+     "end": ".",
+     "word": "We use the elevator.",
+     "audio": "../../en-shared/q/we-use-the-elevator.mp3"
+    }
+   ],
+   "page": 83,
+   "ex": 5
+  },
+  {
+   "type": "explain",
+   "task": "Reading Comprehension. My Big House.",
+   "taskAudio": "../../en-shared/q/reading-comprehension-my-big-house.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "lines": [
+      {
+       "t": "My Big House",
+       "a": "../../en-shared/q/my-big-house.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "I live in a big house. My bedroom is upstairs. It has a red armchair and a big closet for my clothes.",
+       "a": "../../en-shared/q/i-live-in-a-big-house-my-bedroom-is-upstairs-it-ha-e0b2ca75.mp3"
+      },
+      {
+       "t": "I like to go downstairs to the kitchen. Outside, there is a green garden with flowers. My house is very nice!",
+       "a": "../../en-shared/q/i-like-to-go-downstairs-to-the-kitchen-outside-the-618371b3.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 85,
+   "grp": "house"
+  },
+  {
+   "type": "mcq",
+   "task": "Circle the correct answer.",
+   "taskAudio": "../../en-shared/q/circle-the-correct-answer.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "Where is the bedroom?",
+     "options": [
+      "Downstairs",
+      "Upstairs",
+      "In the garden"
+     ],
+     "answer": 1,
+     "word": "Where is the bedroom?",
+     "audio": "../../en-shared/q/where-is-the-bedroom.mp3",
+     "askAudio": "../../en-shared/q/ask-5d915f98e2.mp3"
+    },
+    {
+     "stem": "What color is the armchair?",
+     "options": [
+      "Green",
+      "Blue",
+      "Red"
+     ],
+     "answer": 2,
+     "word": "What color is the armchair?",
+     "audio": "../../en-shared/q/what-color-is-the-armchair.mp3",
+     "askAudio": "../../en-shared/q/ask-7ce134c9b1.mp3"
+    },
+    {
+     "stem": "What is in the garden?",
+     "options": [
+      "Flowers",
+      "An elevator",
+      "A bed"
+     ],
+     "answer": 0,
+     "word": "What is in the garden?",
+     "audio": "../../en-shared/q/what-is-in-the-garden.mp3",
+     "askAudio": "../../en-shared/q/ask-8d2c02a84b.mp3"
+    },
+    {
+     "stem": "Where do the clothes go?",
+     "options": [
+      "In the armchair",
+      "In the closet",
+      "On the floor"
+     ],
+     "answer": 1,
+     "word": "Where do the clothes go?",
+     "audio": "../../en-shared/q/where-do-the-clothes-go.mp3",
+     "askAudio": "../../en-shared/q/ask-4f4b3e71af.mp3"
+    }
+   ],
+   "page": 85,
+   "ex": 1,
+   "grp": "house"
+  },
+  {
+   "type": "mcq",
+   "task": "Write Yes or No.",
+   "taskAudio": "../../en-shared/q/write-yes-or-no.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "The house is small.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 1,
+     "word": "The house is small.",
+     "audio": "../../en-shared/q/the-house-is-small.mp3",
+     "askAudio": "../../en-shared/q/ask-5c48250b47.mp3"
+    },
+    {
+     "stem": "The kitchen is downstairs.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 0,
+     "word": "The kitchen is downstairs.",
+     "audio": "../../en-shared/q/the-kitchen-is-downstairs.mp3",
+     "askAudio": "../../en-shared/q/ask-aed5ee6354.mp3"
+    },
+    {
+     "stem": "There is a red armchair in the bedroom.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 0,
+     "word": "There is a red armchair in the bedroom.",
+     "audio": "../../en-shared/q/there-is-a-red-armchair-in-the-bedroom.mp3",
+     "askAudio": "../../en-shared/q/ask-472247a079.mp3"
+    },
+    {
+     "stem": "There are flowers in the garden.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 0,
+     "word": "There are flowers in the garden.",
+     "audio": "../../en-shared/q/there-are-flowers-in-the-garden.mp3",
+     "askAudio": "../../en-shared/q/ask-51f8a3259c.mp3"
+    }
+   ],
+   "page": 86,
+   "ex": 2,
+   "grp": "house"
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "Is there a pencil on your desk?",
+     "options": [
+      "Yes, there is.",
+      "Yes, there are."
+     ],
+     "answer": 0,
+     "word": "Is there a pencil on your desk?",
+     "audio": "../../en-shared/q/is-there-a-pencil-on-your-desk.mp3",
+     "optSay": [
+      "Yes, there is.",
+      "Yes, there are."
+     ],
+     "ask": "Is there a pencil on your desk?",
+     "askAudio": "../../en-shared/q/ask-9e3e768a8d.mp3"
+    },
+    {
+     "stem": "Are there two apples in the basket?",
+     "options": [
+      "Yes, there is.",
+      "Yes, there are."
+     ],
+     "answer": 1,
+     "word": "Are there two apples in the basket?",
+     "audio": "../../en-shared/q/are-there-two-apples-in-the-basket.mp3",
+     "optSay": [
+      "Yes, there is.",
+      "Yes, there are."
+     ],
+     "ask": "Are there two apples in the basket?",
+     "askAudio": "../../en-shared/q/ask-6a524a543c.mp3"
+    },
+    {
+     "stem": "Is there a big blue car outside?",
+     "options": [
+      "Yes, there is.",
+      "Yes, there are."
+     ],
+     "answer": 0,
+     "word": "Is there a big blue car outside?",
+     "audio": "../../en-shared/q/is-there-a-big-blue-car-outside.mp3",
+     "optSay": [
+      "Yes, there is.",
+      "Yes, there are."
+     ],
+     "ask": "Is there a big blue car outside?",
+     "askAudio": "../../en-shared/q/ask-20670886d4.mp3"
+    },
+    {
+     "stem": "Are there three balloons in the sky?",
+     "options": [
+      "No, there isn't.",
+      "No, there aren't."
+     ],
+     "answer": 1,
+     "word": "Are there three balloons in the sky?",
+     "audio": "../../en-shared/q/are-there-three-balloons-in-the-sky.mp3",
+     "optSay": [
+      "No, there isn't.",
+      "No, there aren't."
+     ],
+     "ask": "Are there three balloons in the sky?",
+     "askAudio": "../../en-shared/q/ask-fc9415e632.mp3"
+    },
+    {
+     "stem": "Is there a cat under the chair?",
+     "options": [
+      "No, there isn't.",
+      "No, there aren't."
+     ],
+     "answer": 0,
+     "word": "Is there a cat under the chair?",
+     "audio": "../../en-shared/q/is-there-a-cat-under-the-chair.mp3",
+     "optSay": [
+      "No, there isn't.",
+      "No, there aren't."
+     ],
+     "ask": "Is there a cat under the chair?",
+     "askAudio": "../../en-shared/q/ask-8b70b4cec1.mp3"
+    },
+    {
+     "stem": "Are there toys on the floor?",
+     "options": [
+      "Yes, there is.",
+      "Yes, there are."
+     ],
+     "answer": 1,
+     "word": "Are there toys on the floor?",
+     "audio": "../../en-shared/q/are-there-toys-on-the-floor.mp3",
+     "optSay": [
+      "Yes, there is.",
+      "Yes, there are."
+     ],
+     "ask": "Are there toys on the floor?",
+     "askAudio": "../../en-shared/q/ask-c8abcba386.mp3"
+    },
+    {
+     "stem": "Is there one book on the shelf?",
+     "options": [
+      "Yes, there is.",
+      "Yes, there are."
+     ],
+     "answer": 0,
+     "word": "Is there one book on the shelf?",
+     "audio": "../../en-shared/q/is-there-one-book-on-the-shelf.mp3",
+     "optSay": [
+      "Yes, there is.",
+      "Yes, there are."
+     ],
+     "ask": "Is there one book on the shelf?",
+     "askAudio": "../../en-shared/q/ask-5544d58111.mp3"
+    },
+    {
+     "stem": "Are there many stars in the sky?",
+     "options": [
+      "No, there isn't.",
+      "No, there aren't."
+     ],
+     "answer": 1,
+     "word": "Are there many stars in the sky?",
+     "audio": "../../en-shared/q/are-there-many-stars-in-the-sky.mp3",
+     "optSay": [
+      "No, there isn't.",
+      "No, there aren't."
+     ],
+     "ask": "Are there many stars in the sky?",
+     "askAudio": "../../en-shared/q/ask-ad256a4c7d.mp3"
+    },
+    {
+     "stem": "Is there a cookie in the jar?",
+     "options": [
+      "Yes, there is.",
+      "Yes, there are."
+     ],
+     "answer": 0,
+     "word": "Is there a cookie in the jar?",
+     "audio": "../../en-shared/q/is-there-a-cookie-in-the-jar.mp3",
+     "optSay": [
+      "Yes, there is.",
+      "Yes, there are."
+     ],
+     "ask": "Is there a cookie in the jar?",
+     "askAudio": "../../en-shared/q/ask-856dfc8d02.mp3"
+    },
+    {
+     "stem": "Are there two birds in the tree?",
+     "options": [
+      "No, there isn't.",
+      "No, there aren't."
+     ],
+     "answer": 1,
+     "word": "Are there two birds in the tree?",
+     "audio": "../../en-shared/q/are-there-two-birds-in-the-tree.mp3",
+     "optSay": [
+      "No, there isn't.",
+      "No, there aren't."
+     ],
+     "ask": "Are there two birds in the tree?",
+     "askAudio": "../../en-shared/q/ask-6b2d8a1dc1.mp3"
+    }
+   ],
+   "page": 87,
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "task": "Complete the sentences using Is there, Are there, There is or There are.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences-using-is-there-are-there-th-7983d9f8.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "____ a dog in the park? Yes, there is.",
+     "options": [
+      "Is there",
+      "Are there"
+     ],
+     "answer": 0,
+     "word": "Is there a dog in the park? Yes, there is.",
+     "audio": "../../en-shared/q/is-there-a-dog-in-the-park-yes-there-is.mp3",
+     "parts": [
+      "../../en-shared/q/a-dog-in-the-park-yes-there-is.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-538aaf6013.mp3"
+    },
+    {
+     "stem": "Are there three books on the table? Yes, ____.",
+     "options": [
+      "there is",
+      "there are"
+     ],
+     "answer": 1,
+     "word": "Are there three books on the table? Yes, there are.",
+     "audio": "../../en-shared/q/are-there-three-books-on-the-table-yes-there-are.mp3",
+     "parts": [
+      "../../en-shared/q/are-there-three-books-on-the-table-yes.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-a989733390.mp3"
+    },
+    {
+     "stem": "____ a red flower in the garden? Yes, there is.",
+     "options": [
+      "Is there",
+      "Are there"
+     ],
+     "answer": 0,
+     "word": "Is there a red flower in the garden? Yes, there is.",
+     "audio": "../../en-shared/q/is-there-a-red-flower-in-the-garden-yes-there-is.mp3",
+     "parts": [
+      "../../en-shared/q/a-red-flower-in-the-garden-yes-there-is.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-8e897b55ce.mp3"
+    },
+    {
+     "stem": "____ two pencils in your box? No, there aren't.",
+     "options": [
+      "Is there",
+      "Are there"
+     ],
+     "answer": 1,
+     "word": "Are there two pencils in your box? No, there aren't.",
+     "audio": "../../en-shared/q/are-there-two-pencils-in-your-box-no-there-aren-t.mp3",
+     "parts": [
+      "../../en-shared/q/two-pencils-in-your-box-no-there-aren-t.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-b40eeb76f7.mp3"
+    },
+    {
+     "stem": "Is there a cat on the roof? No, ____.",
+     "options": [
+      "there isn't",
+      "there aren't"
+     ],
+     "answer": 0,
+     "word": "Is there a cat on the roof? No, there isn't.",
+     "audio": "../../en-shared/q/is-there-a-cat-on-the-roof-no-there-isn-t.mp3",
+     "parts": [
+      "../../en-shared/q/is-there-a-cat-on-the-roof-no.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-f592dcb257.mp3"
+    },
+    {
+     "stem": "____ many birds in the tree? Yes, there are.",
+     "options": [
+      "Is there",
+      "Are there"
+     ],
+     "answer": 1,
+     "word": "Are there many birds in the tree? Yes, there are.",
+     "audio": "../../en-shared/q/are-there-many-birds-in-the-tree-yes-there-are.mp3",
+     "parts": [
+      "../../en-shared/q/many-birds-in-the-tree-yes-there-are.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-f8d0b9c4d8.mp3"
+    },
+    {
+     "stem": "Is there one star in the sky? No, ____.",
+     "options": [
+      "there isn't",
+      "there aren't"
+     ],
+     "answer": 0,
+     "word": "Is there one star in the sky? No, there isn't.",
+     "audio": "../../en-shared/q/is-there-one-star-in-the-sky-no-there-isn-t.mp3",
+     "parts": [
+      "../../en-shared/q/is-there-one-star-in-the-sky-no.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-2b21f421f6.mp3"
+    },
+    {
+     "stem": "____ a ball on the grass? Yes, there is.",
+     "options": [
+      "Is there",
+      "Are there"
+     ],
+     "answer": 0,
+     "word": "Is there a ball on the grass? Yes, there is.",
+     "audio": "../../en-shared/q/is-there-a-ball-on-the-grass-yes-there-is.mp3",
+     "parts": [
+      "../../en-shared/q/a-ball-on-the-grass-yes-there-is.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-0e38b4cc2e.mp3"
+    },
+    {
+     "stem": "Are there five cookies on the plate? No, ____.",
+     "options": [
+      "there isn't",
+      "there aren't"
+     ],
+     "answer": 1,
+     "word": "Are there five cookies on the plate? No, there aren't.",
+     "audio": "../../en-shared/q/are-there-five-cookies-on-the-plate-no-there-aren-t.mp3",
+     "parts": [
+      "../../en-shared/q/are-there-five-cookies-on-the-plate-no.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-5cd2701d9c.mp3"
+    },
+    {
+     "stem": "Is there a big elephant at the zoo? Yes, ____.",
+     "options": [
+      "there is",
+      "there are"
+     ],
+     "answer": 0,
+     "word": "Is there a big elephant at the zoo? Yes, there is.",
+     "audio": "../../en-shared/q/is-there-a-big-elephant-at-the-zoo-yes-there-is.mp3",
+     "parts": [
+      "../../en-shared/q/is-there-a-big-elephant-at-the-zoo-yes.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-c530d226b2.mp3"
+    }
+   ],
+   "page": 88,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Read and choose the answer.",
+   "taskAudio": "../../en-shared/q/read-and-choose-the-answer.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "Is there a big sofa in the living room?",
+     "options": [
+      "Yes, there is.",
+      "No, there isn't."
+     ],
+     "answer": 0,
+     "word": "Is there a big sofa in the living room?",
+     "audio": "../../en-shared/q/is-there-a-big-sofa-in-the-living-room.mp3",
+     "optSay": [
+      "Yes, there is.",
+      "No, there isn't."
+     ],
+     "ask": "Is there a big sofa in the living room?",
+     "askAudio": "../../en-shared/q/ask-2fa061a12a.mp3"
+    },
+    {
+     "stem": "Are there two chairs at the kitchen table?",
+     "options": [
+      "Yes, there are.",
+      "No, there aren't."
+     ],
+     "answer": 0,
+     "word": "Are there two chairs at the kitchen table?",
+     "audio": "../../en-shared/q/are-there-two-chairs-at-the-kitchen-table.mp3",
+     "optSay": [
+      "Yes, there are.",
+      "No, there aren't."
+     ],
+     "ask": "Are there two chairs at the kitchen table?",
+     "askAudio": "../../en-shared/q/ask-0d9164d80d.mp3"
+    },
+    {
+     "stem": "Is there a lamp on your desk?",
+     "options": [
+      "Yes, there is.",
+      "No, there isn't."
+     ],
+     "answer": 1,
+     "word": "Is there a lamp on your desk?",
+     "audio": "../../en-shared/q/is-there-a-lamp-on-your-desk.mp3",
+     "optSay": [
+      "Yes, there is.",
+      "No, there isn't."
+     ],
+     "ask": "Is there a lamp on your desk?",
+     "askAudio": "../../en-shared/q/ask-9a823acf1b.mp3"
+    },
+    {
+     "stem": "Are there any toys on the floor?",
+     "options": [
+      "Yes, there are.",
+      "No, there aren't."
+     ],
+     "answer": 1,
+     "word": "Are there any toys on the floor?",
+     "audio": "../../en-shared/q/are-there-any-toys-on-the-floor.mp3",
+     "optSay": [
+      "Yes, there are.",
+      "No, there aren't."
+     ],
+     "ask": "Are there any toys on the floor?",
+     "askAudio": "../../en-shared/q/ask-7de88cedd0.mp3"
+    },
+    {
+     "stem": "Is there a TV in the bedroom?",
+     "options": [
+      "Yes, there is.",
+      "No, there isn't."
+     ],
+     "answer": 0,
+     "word": "Is there a TV in the bedroom?",
+     "audio": "../../en-shared/q/is-there-a-tv-in-the-bedroom.mp3",
+     "optSay": [
+      "Yes, there is.",
+      "No, there isn't."
+     ],
+     "ask": "Is there a TV in the bedroom?",
+     "askAudio": "../../en-shared/q/ask-84c8d731f8.mp3"
+    }
+   ],
+   "page": 89,
+   "ex": 3
+  },
+  {
+   "type": "mcq",
+   "task": "Correct the mistake in each sentence.",
+   "taskAudio": "../../en-shared/q/correct-the-mistake-in-each-sentence.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "There ____ four chairs at the table.",
+     "options": [
+      "is",
+      "are"
+     ],
+     "answer": 1,
+     "word": "There are four chairs at the table.",
+     "audio": "../../en-shared/q/there-are-four-chairs-at-the-table.mp3",
+     "parts": [
+      "../../en-shared/q/there.mp3",
+      "../../en-shared/q/four-chairs-at-the-table.mp3"
+     ],
+     "optSay": [
+      "is",
+      "are"
+     ],
+     "ask": "There is four chairs at the table.",
+     "askAudio": "../../en-shared/q/askc-67a11484de.mp3"
+    },
+    {
+     "stem": "____ there a big sofa in the living room?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "Is there a big sofa in the living room?",
+     "audio": "../../en-shared/q/is-there-a-big-sofa-in-the-living-room.mp3",
+     "parts": [
+      "../../en-shared/q/there-a-big-sofa-in-the-living-room.mp3"
+     ],
+     "optSay": [
+      "Is",
+      "Are"
+     ],
+     "ask": "Are there a big sofa in the living room?",
+     "askAudio": "../../en-shared/q/askc-157cb318be.mp3"
+    },
+    {
+     "stem": "____ there three windows in the kitchen?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 1,
+     "word": "Are there three windows in the kitchen?",
+     "audio": "../../en-shared/q/are-there-three-windows-in-the-kitchen.mp3",
+     "parts": [
+      "../../en-shared/q/there-three-windows-in-the-kitchen.mp3"
+     ],
+     "optSay": [
+      "Is",
+      "Are"
+     ],
+     "ask": "Is there three windows in the kitchen?",
+     "askAudio": "../../en-shared/q/askc-85e0ac557b.mp3"
+    },
+    {
+     "stem": "There ____ two cats sleeping.",
+     "options": [
+      "is",
+      "are"
+     ],
+     "answer": 1,
+     "word": "There are two cats sleeping.",
+     "audio": "../../en-shared/q/there-are-two-cats-sleeping.mp3",
+     "parts": [
+      "../../en-shared/q/there.mp3",
+      "../../en-shared/q/two-cats-sleeping.mp3"
+     ],
+     "optSay": [
+      "is",
+      "are"
+     ],
+     "ask": "There is two cats sleeping.",
+     "askAudio": "../../en-shared/q/askc-5748f0fa86.mp3"
+    },
+    {
+     "stem": "____ there one TV in the room?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "Is there one TV in the room?",
+     "audio": "../../en-shared/q/is-there-one-tv-in-the-room.mp3",
+     "parts": [
+      "../../en-shared/q/there-one-tv-in-the-room.mp3"
+     ],
+     "optSay": [
+      "Is",
+      "Are"
+     ],
+     "ask": "Are there one TV in the room?",
+     "askAudio": "../../en-shared/q/askc-c33e7f230d.mp3"
+    }
+   ],
+   "page": 89,
+   "ex": 4
+  }
+ ]
+}

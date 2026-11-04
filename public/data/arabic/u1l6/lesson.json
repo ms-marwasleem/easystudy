@@ -5,12 +5,12 @@
  "type": "letter",
  "title": "حرف ح",
  "task": "أتعرّف على حرف الحاء",
- "pages": 2,
+ "pages": 3,
  "pageNums": [
   18,
   19
  ],
- "scene": "img/ar-horse.png",
+ "scene": "../../pics/ar-horse.png",
  "sceneAlt": "حَاء",
  "lines": [],
  "end": 1,
@@ -19,27 +19,19 @@
   "ch": "ح",
   "name": "حَاء",
   "nameAudio": "../letters/62d/name.mp3",
-  "pic": "img/ar-horse.png",
+  "pic": "../../pics/ar-horse.png",
   "forms": [
    {
-    "label": "أول الكلمة",
-    "t": "حـ",
-    "pos": "start"
+    "t": "ح"
    },
    {
-    "label": "وسط الكلمة",
-    "t": "ـحـ",
-    "pos": "mid"
+    "t": "حـ"
    },
    {
-    "label": "آخر الكلمة (متصل)",
-    "t": "ـح",
-    "pos": "end-joined"
+    "t": "ـحـ"
    },
    {
-    "label": "آخر الكلمة (منفصل)",
-    "t": "ح",
-    "pos": "end-alone"
+    "t": "ـح"
    }
   ],
   "sounds": [
@@ -73,16 +65,31 @@
    }
   ],
   "tasks": [
-   "أشكال حرف الحاء في الكلمة",
+   "أتعرّف شكل حرف الحاء",
    "أصوات حرف الحاء بالحركات"
-  ]
+  ],
+  "chant": {
+   "pic": "img/chant.jpg",
+   "task": "نشيد الحرف",
+   "lines": [
+    {
+     "t": "حَاءٌ حِصَانٌ … هَيَّا نَرْكَبْ",
+     "audio": "chant-1.mp3"
+    },
+    {
+     "t": "وَلِمَزْرَعَتِي … هَيَّا نَذْهَبْ",
+     "audio": "chant-2.mp3"
+    }
+   ]
+  }
  },
  "hints": {
   "read": "اضغط على الحرف واسمعه",
   "word": "اضغط",
   "vocabPick": "اختار كلمة",
   "vocabTeach": "اسمع وردد",
-  "vocabWrite": "اكتب الكلمة حرف حرف"
+  "vocabWrite": "اكتب الكلمة حرف حرف",
+  "chant": "اضغط هنا واسمع النشيد!"
  },
  "vocab": [
   {
@@ -104,7 +111,8 @@
      "t": "مَة",
      "audio": "../../syl-ar/645-64e-629.mp3"
     }
-   ]
+   ],
+   "har": "fatha"
   },
   {
    "word": "حَوْض",
@@ -117,7 +125,8 @@
      "t": "حَوْض",
      "audio": "words/hawd.mp3"
     }
-   ]
+   ],
+   "har": "fatha"
   },
   {
    "word": "حَبْل",
@@ -130,7 +139,8 @@
      "t": "حَبْل",
      "audio": "words/habl.mp3"
     }
-   ]
+   ],
+   "har": "fatha"
   },
   {
    "word": "حُوت",
@@ -143,7 +153,8 @@
      "t": "حُوت",
      "audio": "words/hut.mp3"
     }
-   ]
+   ],
+   "har": "damma"
   },
   {
    "word": "حُبُوب",
@@ -160,7 +171,8 @@
      "t": "بُوب",
      "audio": "../../syl-ar/628-64f-648-628.mp3"
     }
-   ]
+   ],
+   "har": "damma"
   },
   {
    "word": "حُفْرَة",
@@ -177,7 +189,8 @@
      "t": "رَة",
      "audio": "../../syl-ar/631-64e-629.mp3"
     }
-   ]
+   ],
+   "har": "damma"
   },
   {
    "word": "حِمَار",
@@ -194,11 +207,12 @@
      "t": "مَار",
      "audio": "../../syl-ar/645-64e-627-631.mp3"
     }
-   ]
+   ],
+   "har": "kasra"
   },
   {
    "word": "حِصَان",
-   "img": "img/ar-horse.png",
+   "img": "../../pics/ar-horse.png",
    "audio": {
     "word": "words/hisan.mp3"
    },
@@ -211,7 +225,8 @@
      "t": "صَان",
      "audio": "../../syl-ar/635-64e-627-646.mp3"
     }
-   ]
+   ],
+   "har": "kasra"
   },
   {
    "word": "حِذَاء",
@@ -228,7 +243,8 @@
      "t": "ذَاء",
      "audio": "../../syl-ar/630-64e-627-621.mp3"
     }
-   ]
+   ],
+   "har": "kasra"
   },
   {
    "word": "بَحْر",
@@ -241,7 +257,8 @@
      "t": "بَحْر",
      "audio": "words/bahr.mp3"
     }
-   ]
+   ],
+   "har": "sukoon"
   },
   {
    "word": "لَحْم",
@@ -254,7 +271,8 @@
      "t": "لَحْم",
      "audio": "words/lahm.mp3"
     }
-   ]
+   ],
+   "har": "sukoon"
   },
   {
    "word": "سُلَحْفَاة",
@@ -275,7 +293,8 @@
      "t": "فَاة",
      "audio": "../../syl-ar/641-64e-627-629.mp3"
     }
-   ]
+   ],
+   "har": "sukoon"
   }
  ],
  "vocabRepeats": 3

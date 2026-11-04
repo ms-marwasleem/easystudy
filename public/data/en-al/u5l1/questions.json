@@ -1,0 +1,654 @@
+{
+ "sets": [
+  {
+   "type": "type",
+   "task": "Read and complete the missing letters.",
+   "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "taxi",
+     "missing": 1,
+     "answer": "a",
+     "pic": "../../pics/u5-taxi.jpg",
+     "audio": "../../en-shared/q/taxi.mp3"
+    },
+    {
+     "word": "street",
+     "missing": 4,
+     "answer": "e",
+     "pic": "../../pics/u5-street.jpg",
+     "audio": "../../en-shared/q/street.mp3"
+    },
+    {
+     "word": "supermarket",
+     "missing": 5,
+     "answer": "m",
+     "pic": "../../pics/u5-supermarket.jpg",
+     "audio": "../../en-shared/q/supermarket.mp3"
+    },
+    {
+     "word": "bus",
+     "missing": 1,
+     "answer": "u",
+     "pic": "../../pics/u5-bus.jpg",
+     "audio": "../../en-shared/q/bus.mp3"
+    },
+    {
+     "word": "neighborhood",
+     "missing": 3,
+     "answer": "g",
+     "pic": "../../pics/u5-neighborhood.jpg",
+     "audio": "../../en-shared/q/neighborhood.mp3"
+    }
+   ],
+   "page": 108,
+   "ex": 1
+  },
+  {
+   "type": "link",
+   "task": "Match the words and the pictures.",
+   "taskAudio": "../../en-shared/q/match-the-words-and-the-pictures.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "toy store",
+     "pic": "../../pics/u5-toy-store.jpg",
+     "audio": "../../en-shared/q/toy-store.mp3"
+    },
+    {
+     "word": "swimming pool",
+     "pic": "../../pics/u5-swimming-pool.jpg",
+     "audio": "../../en-shared/q/swimming-pool.mp3"
+    },
+    {
+     "word": "street",
+     "pic": "../../pics/u5-street.jpg",
+     "audio": "../../en-shared/q/street.mp3"
+    },
+    {
+     "word": "recreation center",
+     "pic": "../../pics/u5-recreation-center.jpg",
+     "audio": "../../en-shared/q/recreation-center.mp3"
+    },
+    {
+     "word": "supermarket",
+     "pic": "../../pics/u5-supermarket.jpg",
+     "audio": "../../en-shared/q/supermarket.mp3"
+    }
+   ],
+   "page": 109,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer from a, b, c or d.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-from-a-b-c-or-d.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "My mom buys our food at the ____.",
+     "options": [
+      "toy store",
+      "supermarket",
+      "movie theater",
+      "swimming pool"
+     ],
+     "answer": 1,
+     "word": "My mom buys our food at the supermarket.",
+     "audio": "../../en-shared/q/my-mom-buys-our-food-at-the-supermarket.mp3",
+     "parts": [
+      "../../en-shared/q/my-mom-buys-our-food-at-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-72352d7187.mp3"
+    },
+    {
+     "stem": "We go to the ____ to watch a cartoon on a big screen.",
+     "options": [
+      "bus",
+      "taxi",
+      "movie theater",
+      "recreation center"
+     ],
+     "answer": 2,
+     "word": "We go to the movie theater to watch a cartoon on a big screen.",
+     "audio": "../../en-shared/q/we-go-to-the-movie-theater-to-watch-a-cartoon-on-a-f646a86b.mp3",
+     "parts": [
+      "../../en-shared/q/we-go-to-the.mp3",
+      "../../en-shared/q/to-watch-a-cartoon-on-a-big-screen.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-7bdb4b87b6.mp3"
+    },
+    {
+     "stem": "I got a new train for my birthday from the ____.",
+     "options": [
+      "toy store",
+      "street",
+      "supermarket",
+      "bus"
+     ],
+     "answer": 0,
+     "word": "I got a new train for my birthday from the toy store.",
+     "audio": "../../en-shared/q/i-got-a-new-train-for-my-birthday-from-the-toy-store.mp3",
+     "parts": [
+      "../../en-shared/q/i-got-a-new-train-for-my-birthday-from-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-dbcbea40da.mp3"
+    },
+    {
+     "stem": "We rode the yellow ____ to get to school.",
+     "options": [
+      "taxi",
+      "bus",
+      "department store",
+      "neighborhood"
+     ],
+     "answer": 1,
+     "word": "We rode the yellow bus to get to school.",
+     "audio": "../../en-shared/q/we-rode-the-yellow-bus-to-get-to-school.mp3",
+     "parts": [
+      "../../en-shared/q/we-rode-the-yellow.mp3",
+      "../../en-shared/q/to-get-to-school.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-c2a3969299.mp3"
+    },
+    {
+     "stem": "My family lives in a friendly ____ with many houses.",
+     "options": [
+      "department store",
+      "street",
+      "neighborhood",
+      "swimming pool"
+     ],
+     "answer": 2,
+     "word": "My family lives in a friendly neighborhood with many houses.",
+     "audio": "../../en-shared/q/my-family-lives-in-a-friendly-neighborhood-with-many-houses.mp3",
+     "parts": [
+      "../../en-shared/q/my-family-lives-in-a-friendly.mp3",
+      "../../en-shared/q/with-many-houses.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-784c08491e.mp3"
+    },
+    {
+     "stem": "My dad took a ____ to the airport because he was in a hurry.",
+     "options": [
+      "taxi",
+      "bus",
+      "toy store",
+      "supermarket"
+     ],
+     "answer": 0,
+     "word": "My dad took a taxi to the airport because he was in a hurry.",
+     "audio": "../../en-shared/q/my-dad-took-a-taxi-to-the-airport-because-he-was-in-a-hurry.mp3",
+     "parts": [
+      "../../en-shared/q/my-dad-took-a.mp3",
+      "../../en-shared/q/to-the-airport-because-he-was-in-a-hurry.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-5ab8ce1adf.mp3"
+    },
+    {
+     "stem": "We went to the big ____ to buy clothes and shoes.",
+     "options": [
+      "swimming pool",
+      "recreation center",
+      "department store",
+      "movie theater"
+     ],
+     "answer": 2,
+     "word": "We went to the big department store to buy clothes and shoes.",
+     "audio": "../../en-shared/q/we-went-to-the-big-department-store-to-buy-clothes-and-shoes.mp3",
+     "parts": [
+      "../../en-shared/q/we-went-to-the-big.mp3",
+      "../../en-shared/q/to-buy-clothes-and-shoes.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-3689a1fde8.mp3"
+    },
+    {
+     "stem": "We play basketball and do crafts at the ____.",
+     "options": [
+      "supermarket",
+      "recreation center",
+      "street",
+      "bus"
+     ],
+     "answer": 1,
+     "word": "We play basketball and do crafts at the recreation center.",
+     "audio": "../../en-shared/q/we-play-basketball-and-do-crafts-at-the-recreation-center.mp3",
+     "parts": [
+      "../../en-shared/q/we-play-basketball-and-do-crafts-at-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-7a771a42fb.mp3"
+    },
+    {
+     "stem": "I ride my bicycle on the quiet ____ in front of my house.",
+     "options": [
+      "neighborhood",
+      "street",
+      "bus",
+      "taxi"
+     ],
+     "answer": 1,
+     "word": "I ride my bicycle on the quiet street in front of my house.",
+     "audio": "../../en-shared/q/i-ride-my-bicycle-on-the-quiet-street-in-front-of-my-house.mp3",
+     "parts": [
+      "../../en-shared/q/i-ride-my-bicycle-on-the-quiet.mp3",
+      "../../en-shared/q/in-front-of-my-house.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-5bdebeedf6.mp3"
+    },
+    {
+     "stem": "On a hot day, we splash and play in the ____.",
+     "options": [
+      "department store",
+      "swimming pool",
+      "toy store",
+      "movie theater"
+     ],
+     "answer": 1,
+     "word": "On a hot day, we splash and play in the swimming pool.",
+     "audio": "../../en-shared/q/on-a-hot-day-we-splash-and-play-in-the-swimming-pool.mp3",
+     "parts": [
+      "../../en-shared/q/on-a-hot-day-we-splash-and-play-in-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-2ea094cd16.mp3"
+    }
+   ],
+   "page": 110,
+   "ex": 3
+  },
+  {
+   "type": "cloze",
+   "task": "Choose the correct answer to complete the text.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-to-complete-the-text.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "text": "We had a busy weekend! On Saturday, we took the yellow [[bus]] to the city. My little brother was so excited to go to the [[toy store]] and choose a new race car. After that, we all went to the big [[movie theater]] to watch a funny cartoon. On Sunday, my mom needed to buy a new coat, so we went to the [[department store]]. It was very big and had so many things to look at. Later, we took a taxi home to our quiet [[neighborhood]]. It was a fun two days!",
+     "bank": [
+      "movie theater",
+      "bus",
+      "department store",
+      "neighborhood",
+      "toy store"
+     ],
+     "audio": "../../en-shared/q/passage-7c9a430cb5.mp3"
+    }
+   ],
+   "page": 111,
+   "ex": 4
+  },
+  {
+   "type": "order",
+   "task": "Rearrange the following sentences.",
+   "taskAudio": "../../en-shared/q/rearrange-the-following-sentences.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "chunks": [
+      "Walk",
+      "down",
+      "the",
+      "street"
+     ],
+     "end": ".",
+     "word": "Walk down the street.",
+     "audio": "../../en-shared/q/walk-down-the-street.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "go",
+      "to",
+      "the",
+      "supermarket"
+     ],
+     "end": ".",
+     "word": "I go to the supermarket.",
+     "audio": "../../en-shared/q/i-go-to-the-supermarket.mp3"
+    },
+    {
+     "chunks": [
+      "We",
+      "swim",
+      "in",
+      "the",
+      "swimming pool"
+     ],
+     "end": ".",
+     "word": "We swim in the swimming pool.",
+     "audio": "../../en-shared/q/we-swim-in-the-swimming-pool.mp3"
+    },
+    {
+     "chunks": [
+      "My",
+      "dad",
+      "took",
+      "a taxi",
+      "to the",
+      "airport"
+     ],
+     "end": ".",
+     "word": "My dad took a taxi to the airport.",
+     "audio": "../../en-shared/q/my-dad-took-a-taxi-to-the-airport.mp3"
+    },
+    {
+     "chunks": [
+      "They",
+      "play",
+      "at the",
+      "recreation",
+      "center"
+     ],
+     "end": ".",
+     "word": "They play at the recreation center.",
+     "audio": "../../en-shared/q/they-play-at-the-recreation-center.mp3"
+    }
+   ],
+   "page": 111,
+   "ex": 5
+  },
+  {
+   "type": "explain",
+   "task": "Reading Comprehension. My Neighborhood.",
+   "taskAudio": "../../en-shared/q/reading-comprehension-my-neighborhood.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "lines": [
+      {
+       "t": "My Neighborhood",
+       "a": "../../en-shared/q/my-neighborhood.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "I live in a friendly neighborhood on a quiet street. Every Saturday, my family takes a bus to the department store to buy clothes. Then, we go to the supermarket to get snacks and food. In the evening, we watch a fun film at the movie theater.",
+       "a": "../../en-shared/q/i-live-in-a-friendly-neighborhood-on-a-quiet-stree-f926ff2f.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 113,
+   "grp": "nb"
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "Is the neighborhood friendly or mean?",
+     "options": [
+      "friendly",
+      "mean"
+     ],
+     "answer": 0,
+     "word": "Is the neighborhood friendly or mean?",
+     "audio": "../../en-shared/q/is-the-neighborhood-friendly-or-mean.mp3",
+     "askAudio": "../../en-shared/q/ask-0fc3436576.mp3"
+    },
+    {
+     "stem": "Is the street loud or quiet?",
+     "options": [
+      "loud",
+      "quiet"
+     ],
+     "answer": 1,
+     "word": "Is the street loud or quiet?",
+     "audio": "../../en-shared/q/is-the-street-loud-or-quiet.mp3",
+     "askAudio": "../../en-shared/q/ask-a123849c70.mp3"
+    },
+    {
+     "stem": "What do they ride to the store?",
+     "options": [
+      "a bus",
+      "a bike"
+     ],
+     "answer": 0,
+     "word": "What do they ride to the store?",
+     "audio": "../../en-shared/q/what-do-they-ride-to-the-store.mp3",
+     "askAudio": "../../en-shared/q/ask-3f9c743333.mp3"
+    },
+    {
+     "stem": "Where do they buy new clothes?",
+     "options": [
+      "at the department store",
+      "at the movie theater"
+     ],
+     "answer": 0,
+     "word": "Where do they buy new clothes?",
+     "audio": "../../en-shared/q/where-do-they-buy-new-clothes.mp3",
+     "askAudio": "../../en-shared/q/ask-fc97b55f67.mp3"
+    },
+    {
+     "stem": "Where do they get snacks and food?",
+     "options": [
+      "at the supermarket",
+      "at the street"
+     ],
+     "answer": 0,
+     "word": "Where do they get snacks and food?",
+     "audio": "../../en-shared/q/where-do-they-get-snacks-and-food.mp3",
+     "askAudio": "../../en-shared/q/ask-adc175aeb4.mp3"
+    },
+    {
+     "stem": "What do they watch at the movie theater?",
+     "options": [
+      "a film",
+      "a bus"
+     ],
+     "answer": 0,
+     "word": "What do they watch at the movie theater?",
+     "audio": "../../en-shared/q/what-do-they-watch-at-the-movie-theater.mp3",
+     "askAudio": "../../en-shared/q/ask-163d6c6e50.mp3"
+    }
+   ],
+   "page": 113,
+   "ex": 1,
+   "grp": "nb"
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "To get to the park, turn ____.",
+     "options": [
+      "turn left",
+      "stop",
+      "go straight",
+      "right"
+     ],
+     "answer": 3,
+     "word": "To get to the park, turn right.",
+     "audio": "../../en-shared/q/to-get-to-the-park-turn-right.mp3",
+     "parts": [
+      "../../en-shared/q/to-get-to-the-park-turn.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-d61be53199.mp3"
+    },
+    {
+     "stem": "The school is on ____ of the bakery.",
+     "options": [
+      "turn right",
+      "go straight",
+      "the left",
+      "on the right"
+     ],
+     "answer": 2,
+     "word": "The school is on the left of the bakery.",
+     "audio": "../../en-shared/q/the-school-is-on-the-left-of-the-bakery.mp3",
+     "parts": [
+      "../../en-shared/q/the-school-is-on.mp3",
+      "../../en-shared/q/of-the-bakery.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-1f823b41ac.mp3"
+    },
+    {
+     "stem": "Walk all the way to the end then turn ____.",
+     "options": [
+      "left",
+      "turn right",
+      "go straight",
+      "stop"
+     ],
+     "answer": 0,
+     "word": "Walk all the way to the end then turn left.",
+     "audio": "../../en-shared/q/walk-all-the-way-to-the-end-then-turn-left.mp3",
+     "parts": [
+      "../../en-shared/q/walk-all-the-way-to-the-end-then-turn.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-5996442b78.mp3"
+    },
+    {
+     "stem": "Look at the red sign. You must ____.",
+     "options": [
+      "left",
+      "right",
+      "stop",
+      "straight"
+     ],
+     "answer": 2,
+     "word": "Look at the red sign. You must stop.",
+     "audio": "../../en-shared/q/look-at-the-red-sign-you-must-stop.mp3",
+     "parts": [
+      "../../en-shared/q/look-at-the-red-sign-you-must.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-949401ba13.mp3"
+    },
+    {
+     "stem": "The library is ____ of the playground.",
+     "options": [
+      "right",
+      "go straight",
+      "on the left",
+      "stop"
+     ],
+     "answer": 2,
+     "word": "The library is on the left of the playground.",
+     "audio": "../../en-shared/q/the-library-is-on-the-left-of-the-playground.mp3",
+     "parts": [
+      "../../en-shared/q/the-library-is.mp3",
+      "../../en-shared/q/of-the-playground.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-4a5178cfe9.mp3"
+    }
+   ],
+   "page": 115,
+   "ex": 1,
+   "grp": "dir"
+  },
+  {
+   "type": "mcq",
+   "task": "Correct the mistake in each sentence.",
+   "taskAudio": "../../en-shared/q/correct-the-mistake-in-each-sentence.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "____ at the corner before you cross the street.",
+     "options": [
+      "Turn",
+      "Stop"
+     ],
+     "answer": 1,
+     "word": "Stop at the corner before you cross the street.",
+     "audio": "../../en-shared/q/stop-at-the-corner-before-you-cross-the-street.mp3",
+     "parts": [
+      "../../en-shared/q/at-the-corner-before-you-cross-the-street.mp3"
+     ],
+     "optSay": [
+      "Turn",
+      "Stop"
+     ],
+     "ask": "Turn at the corner before you cross the street.",
+     "askAudio": "../../en-shared/q/askc-ff4ee9a489.mp3"
+    },
+    {
+     "stem": "The school is ____ of the post office.",
+     "options": [
+      "turn right",
+      "on the right"
+     ],
+     "answer": 1,
+     "word": "The school is on the right of the post office.",
+     "audio": "../../en-shared/q/the-school-is-on-the-right-of-the-post-office.mp3",
+     "parts": [
+      "../../en-shared/q/the-school-is.mp3",
+      "../../en-shared/q/of-the-post-office.mp3"
+     ],
+     "optSay": [
+      "turn right",
+      "on the right"
+     ],
+     "ask": "The school is turn right of the post office.",
+     "askAudio": "../../en-shared/q/askc-9ceb004ae1.mp3"
+    },
+    {
+     "stem": "You need to ____ at the big red building.",
+     "options": [
+      "turn straight",
+      "go straight"
+     ],
+     "answer": 1,
+     "word": "You need to go straight at the big red building.",
+     "audio": "../../en-shared/q/you-need-to-go-straight-at-the-big-red-building.mp3",
+     "parts": [
+      "../../en-shared/q/you-need-to.mp3",
+      "../../en-shared/q/at-the-big-red-building.mp3"
+     ],
+     "optSay": [
+      "turn straight",
+      "go straight"
+     ],
+     "ask": "You need to turn straight at the big red building.",
+     "askAudio": "../../en-shared/q/askc-90c58447d3.mp3"
+    },
+    {
+     "stem": "My house is ____ of the bakery.",
+     "options": [
+      "go left",
+      "on the left"
+     ],
+     "answer": 1,
+     "word": "My house is on the left of the bakery.",
+     "audio": "../../en-shared/q/my-house-is-on-the-left-of-the-bakery.mp3",
+     "parts": [
+      "../../en-shared/q/my-house-is.mp3",
+      "../../en-shared/q/of-the-bakery.mp3"
+     ],
+     "optSay": [
+      "go left",
+      "on the left"
+     ],
+     "ask": "My house is go left of the bakery.",
+     "askAudio": "../../en-shared/q/askc-3ab5428231.mp3"
+    },
+    {
+     "stem": "You ____ on the street for the supermarket.",
+     "options": [
+      "turn",
+      "go straight"
+     ],
+     "answer": 1,
+     "word": "You go straight on the street for the supermarket.",
+     "audio": "../../en-shared/q/you-go-straight-on-the-street-for-the-supermarket.mp3",
+     "parts": [
+      "../../en-shared/q/you.mp3",
+      "../../en-shared/q/on-the-street-for-the-supermarket.mp3"
+     ],
+     "optSay": [
+      "turn",
+      "go straight"
+     ],
+     "ask": "You turn on the street for the supermarket.",
+     "askAudio": "../../en-shared/q/askc-4355c8466f.mp3"
+    }
+   ],
+   "page": 116,
+   "ex": 2,
+   "grp": "dir"
+  }
+ ]
+}

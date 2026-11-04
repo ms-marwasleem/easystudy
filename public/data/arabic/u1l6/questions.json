@@ -2,68 +2,622 @@
  "sets": [
   {
    "type": "circle",
+   "ex": 2,
+   "page": 26,
+   "task": "أُسَاعِدُ الصَّيَّادَ، وَأَضَعُ دَائِرَةً حَوْلَ أَشْكَالِ حَرْفِ الْحَاءِ",
+   "taskAudio": "q/task-2.mp3",
+   "hint": "اضغط على الأسماك اللي عليها شكل الحاء",
+   "centerPic": "../../pics/ar-fisherman-school.png",
+   "centerAt": [
+    16,
+    36
+   ],
+   "centerAtP": [
+    24,
+    14
+   ],
+   "bigP": true,
+   "silent": true,
+   "items": [
+    {
+     "word": "ـح",
+     "text": "ـح",
+     "pic": "../../pics/ar-fish-yellow.png",
+     "answer": true,
+     "pos": [
+      88,
+      22
+     ],
+     "posP": [
+      78,
+      26
+     ]
+    },
+    {
+     "word": "س",
+     "text": "س",
+     "pic": "../../pics/ar-fish-purple.png",
+     "answer": false,
+     "pos": [
+      70,
+      20
+     ],
+     "posP": [
+      48,
+      36
+     ]
+    },
+    {
+     "word": "د",
+     "text": "د",
+     "pic": "../../pics/ar-fish-yellow.png",
+     "answer": false,
+     "pos": [
+      54,
+      24
+     ],
+     "posP": [
+      24,
+      46
+     ]
+    },
+    {
+     "word": "ـحـ",
+     "text": "ـحـ",
+     "pic": "../../pics/ar-fish-purple.png",
+     "answer": true,
+     "pos": [
+      41,
+      22
+     ],
+     "posP": [
+      66,
+      48
+     ]
+    },
+    {
+     "word": "ب",
+     "text": "ب",
+     "pic": "../../pics/ar-fish-yellow.png",
+     "answer": false,
+     "pos": [
+      89,
+      66
+     ],
+     "posP": [
+      80,
+      64
+     ]
+    },
+    {
+     "word": "حـ",
+     "text": "حـ",
+     "pic": "../../pics/ar-fish-purple.png",
+     "answer": true,
+     "pos": [
+      71,
+      70
+     ],
+     "posP": [
+      46,
+      60
+     ]
+    },
+    {
+     "word": "ج",
+     "text": "ج",
+     "pic": "../../pics/ar-fish-purple.png",
+     "answer": false,
+     "pos": [
+      53,
+      72
+     ],
+     "posP": [
+      26,
+      76
+     ]
+    },
+    {
+     "word": "ح",
+     "text": "ح",
+     "pic": "../../pics/ar-fish-yellow.png",
+     "answer": true,
+     "pos": [
+      36,
+      72
+     ],
+     "posP": [
+      62,
+      80
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 3,
+   "page": 26,
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الْحَاءِ",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/62d/name.mp3"
+   ],
+   "hint": "اضغط على الكلمة اللي فيها الحاء",
+   "items": [
+    {
+     "word": "حِصَان",
+     "audio": "words/hisan.mp3",
+     "answer": true
+    },
+    {
+     "word": "وَلَد",
+     "audio": "../u3l6/words/walad.mp3",
+     "answer": false
+    },
+    {
+     "word": "شَجَرَة",
+     "audio": "../u2l6/words/shajara.mp3",
+     "answer": false
+    },
+    {
+     "word": "لَحْم",
+     "audio": "words/lahm.mp3",
+     "answer": true
+    },
+    {
+     "word": "بَلَح",
+     "audio": "words/balah.mp3",
+     "answer": true
+    },
+    {
+     "word": "مَكْتَب",
+     "audio": "../u2l8/words/maktab.mp3",
+     "answer": false
+    },
+    {
+     "word": "مِفْتَاح",
+     "audio": "../u1l5/words/miftah.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "sound",
+   "ex": 4,
+   "page": 27,
+   "task": "أَنْطِقُ صَوْتَ حَرْفِ الْحَاءِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "اسمع الجملة وردد وراها",
+   "items": [
+    {
+     "word": "حَمَامَة",
+     "ask": "حَ",
+     "pic": "../../pics/ar-pigeon.png",
+     "audio": [
+      "../letters/62d/name.mp3",
+      "../shared/h-fatha.mp3",
+      "../../syl-ar/62d-64e.mp3",
+      "words/hamama.mp3"
+     ]
+    },
+    {
+     "word": "حُرُوف",
+     "ask": "حُ",
+     "pic": "../../pics/ar-letters-cloud.png",
+     "audio": [
+      "../letters/62d/name.mp3",
+      "../shared/h-damma.mp3",
+      "../../syl-ar/62d-64f.mp3",
+      "words/huruf.mp3"
+     ]
+    },
+    {
+     "word": "حِصَان",
+     "ask": "حِ",
+     "pic": "../../pics/ar-horse.png",
+     "audio": [
+      "../letters/62d/name.mp3",
+      "../shared/h-kasra.mp3",
+      "../../syl-ar/62d-650.mp3",
+      "words/hisan.mp3"
+     ]
+    },
+    {
+     "word": "لَحْم",
+     "ask": "حْ",
+     "pic": "../../pics/ar-meat.png",
+     "audio": [
+      "../letters/62d/name.mp3",
+      "../shared/h-sukoon.mp3",
+      "../../syl-ar/62d-652.mp3",
+      "words/lahm.mp3"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 5,
+   "page": 27,
+   "task": "أَنْطِقُ، وَأَضَعُ دَائِرَةً حَوْلَ حَرْفِ الْحَاءِ الْمُنَاسِبِ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/62d/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الحاء",
+   "choices": [
+    "حَ",
+    "حُ",
+    "حِ",
+    "حْ"
+   ],
+   "items": [
+    {
+     "word": "حَقِيبَة",
+     "audio": "words/haqiba.mp3",
+     "pic": "../../pics/ar-bag.jpg",
+     "answer": "حَ",
+     "choices": [
+      "حُ",
+      "حَ",
+      "حِ"
+     ]
+    },
+    {
+     "word": "حِبْر",
+     "audio": "words/hibr.mp3",
+     "pic": "../../pics/ar-ink.png",
+     "answer": "حِ",
+     "choices": [
+      "حِ",
+      "حْ",
+      "حُ"
+     ]
+    },
+    {
+     "word": "حِزَام",
+     "audio": "words/hizam.mp3",
+     "pic": "../../pics/ar-belt.png",
+     "answer": "حِ",
+     "choices": [
+      "حُ",
+      "حَ",
+      "حِ"
+     ]
+    },
+    {
+     "word": "حُوت",
+     "audio": "words/hut.mp3",
+     "pic": "../../pics/ar-whale.png",
+     "answer": "حُ",
+     "choices": [
+      "حْ",
+      "حَ",
+      "حُ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
    "ex": 7,
-   "page": 20,
-   "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الحاء",
+   "page": 28,
+   "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الْحَاءِ مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "q/task-7.mp3",
+   "hint": "اختار الحاء بالحركة الصح",
+   "choices": [
+    "حَ",
+    "حُ",
+    "حِ",
+    "حْ"
+   ],
+   "items": [
+    {
+     "word": "حُجْرَة",
+     "audio": "words/hujra.mp3",
+     "pic": "../../pics/ar-bedroom.png",
+     "answer": "حُ"
+    },
+    {
+     "word": "حَبْل",
+     "audio": "words/habl.mp3",
+     "pic": "../../pics/ar-rope.jpg",
+     "answer": "حَ"
+    },
+    {
+     "word": "نَحْلَة",
+     "audio": "../u2l5/words/nahla.mp3",
+     "pic": "../../pics/ar-bee.jpg",
+     "answer": "حْ",
+     "at": 1
+    },
+    {
+     "word": "حِمَار",
+     "audio": "words/himar.mp3",
+     "pic": "../../pics/ar-donkey.png",
+     "answer": "حِ"
+    }
+   ]
+  },
+  {
+   "type": "puzzle",
+   "ex": 8,
+   "page": 28,
+   "task": "أَنْطِقُ، ثُمَّ أَدْمِجُ الْحُرُوفَ؛ لِأُكَوِّنَ كَلِمَةً",
+   "taskAudio": "q/task-8.mp3",
+   "hint": "اسحب القطع وركّبها جنب بعض",
+   "items": [
+    {
+     "word": "أُحِبّ",
+     "pieces": [
+      "أُ",
+      "حِ",
+      "بّ"
+     ],
+     "pieceAudio": [
+      "../../syl-ar/623-64f.mp3",
+      "../../syl-ar/62d-650.mp3",
+      "../../syl-ar/628-651.mp3"
+     ],
+     "audio": "words/uhibb.mp3",
+     "pic": "../../pics/ar-mother-baby.png"
+    }
+   ]
+  },
+  {
+   "type": "story",
+   "ex": 9,
+   "page": 28,
+   "task": "أَسْتَمِعُ إِلَى الْقِصَّةِ، وَأُصَفِّقُ عِنْدَمَا أَسْمَعُ كَلِمَةً بِهَا حَرْفُ الْحَاءِ",
+   "taskAudio": "q/task-9.mp3",
+   "hint": "اسمع القصة، وصفّق لما تسمع كلمة فيها الحاء",
+   "items": [
+    {
+     "scene": "../../pics/ar-story-haa-cut.png",
+     "text": "خَرَجَ حُسَامٌ مَعَ وَالِدِهِ إِلَى الْحَقْلِ، لِيُسَاعِدَهُ فِي حَصْدِ الْقَمْحِ. كَانَ حُسَامٌ يَحْصُدُ، وَالْوَالِدُ يَحْمِلُ الْحُبُوبَ إِلَى الْعَرَبَةِ، وَالْحِصَانُ يَجُرُّ الْعَرَبَةَ. رَأَى حُسَامٌ خَلِيَّةَ نَحْلٍ عَلَى الشَّجَرَةِ، فَابْتَسَمَ وَقَالَ لِأَبِيهِ: «الْجَمِيعُ يَعْمَلُ: أَنَا، وَأَنْتَ، وَالْحِصَانُ، حَتَّى النَّحْلُ يَعْمَلُ مِثْلَنَا!».",
+     "audio": "q/story.mp3",
+     "ask": "مَاذَا فَعَلَ الْحِصَانُ وَالنَّحْلُ فِي الْقِصَّةِ؟",
+     "askAudio": "q/story-ask.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 5,
+   "page": 19,
+   "task": "أَنْطِقُ، وَأَضَعُ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الْحَاءِ",
    "taskAudio": [
     "../q-prompts/circle-letter-sound.mp3",
     "../letters/62d/name.mp3"
    ],
    "hint": "اضغط على الصور التي فيها صوت الحاء",
+   "book": "booklet",
    "items": [
     {
-     "word": "لَحْم",
-     "pic": "../../pics/ar-meat.png",
-     "audio": "words/lahm.mp3",
+     "word": "حِصَان",
+     "audio": "words/hisan.mp3",
+     "pic": "../../pics/ar-horse.png",
      "answer": true
     },
     {
-     "word": "أُذُن",
-     "pic": "../../pics/ar-ear.png",
-     "audio": "../u1l3/words/udhun.mp3",
+     "word": "فَأْر",
+     "audio": "../u1l3/words/fa_r.mp3",
+     "pic": "../../pics/ar-mouse.png",
      "answer": false
     },
     {
-     "word": "حُوت",
-     "pic": "../../pics/ar-whale.png",
-     "audio": "words/hut.mp3",
+     "word": "سُلَحْفَاة",
+     "audio": "words/sulahfa.mp3",
+     "pic": "../../pics/ar-turtle.png",
      "answer": true
     },
     {
-     "word": "حِمَار",
-     "pic": "../../pics/ar-donkey.png",
-     "audio": "words/himar.mp3",
-     "answer": true
+     "word": "كَلْب",
+     "audio": "../u2l3/words/kalb.mp3",
+     "pic": "../../pics/ar-dog.png",
+     "answer": false
     },
     {
      "word": "حَمَامَة",
-     "pic": "../../pics/ar-pigeon.png",
      "audio": "words/hamama.mp3",
+     "pic": "../../pics/ar-pigeon.png",
      "answer": true
-    },
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 6,
+   "page": 20,
+   "task": "أَنْطِقُ، وَأَصِلُ كُلَّ صُورَةٍ بِصَوْتِ حَرْفِ الْحَاءِ الْمُنَاسِبِ لَهَا",
+   "taskAudio": "q/task-link-sound-pic.mp3",
+   "hint": "صل الصوت بالصورة",
+   "book": "booklet",
+   "items": [
     {
-     "word": "حَبْل",
+     "word": "حَ",
      "pic": "../../pics/ar-rope.jpg",
-     "audio": "words/habl.mp3",
-     "answer": true
+     "audio": "../../syl-ar/62d-64e.mp3"
     },
     {
-     "word": "أَرْنَب",
-     "pic": "../../pics/ar-rabbit.png",
-     "audio": "../u1l3/words/arnab.mp3",
-     "answer": false
+     "word": "حِ",
+     "pic": "../../pics/ar-horse.png",
+     "audio": "../../syl-ar/62d-650.mp3"
     },
     {
-     "word": "أَسَد",
-     "pic": "../../pics/ar-lion.png",
-     "audio": "../u1l3/words/asad.mp3",
-     "answer": false
+     "word": "حُ",
+     "pic": "../../pics/ar-grains.png",
+     "audio": "../../syl-ar/62d-64f.mp3"
     },
     {
-     "word": "حَوْض",
-     "pic": "../../pics/ar-sink.png",
-     "audio": "words/hawd.mp3",
-     "answer": true
+     "word": "حْ",
+     "pic": "../../pics/ar-turtle.png",
+     "audio": "../../syl-ar/62d-652.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 20,
+   "task": "أَنْطِقُ، وَأَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الْمُنَاسِبَةِ لِصَوْتِ حَرْفِ الْحَاءِ",
+   "taskAudio": "q/task-pic-for-sound.mp3",
+   "hint": "اضغط على الصورة اللي فيها الصوت ده",
+   "center": "حَ",
+   "centerAudio": "../../syl-ar/62d-64e.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "حَقِيبَة",
+     "audio": "words/haqiba.mp3",
+     "pic": "../../pics/ar-bag.jpg",
+     "answer": true,
+     "pos": [
+      25,
+      50
+     ],
+     "posP": [
+      50,
+      24
+     ]
+    },
+    {
+     "word": "حُجْرَة",
+     "audio": "words/hujra.mp3",
+     "pic": "../../pics/ar-bedroom.png",
+     "answer": false,
+     "pos": [
+      75,
+      50
+     ],
+     "posP": [
+      50,
+      76
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 20,
+   "task": "أَنْطِقُ، وَأَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الْمُنَاسِبَةِ لِصَوْتِ حَرْفِ الْحَاءِ",
+   "taskAudio": "q/task-pic-for-sound.mp3",
+   "hint": "اضغط على الصورة اللي فيها الصوت ده",
+   "center": "حِ",
+   "centerAudio": "../../syl-ar/62d-650.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "حِزَام",
+     "audio": "words/hizam.mp3",
+     "pic": "../../pics/ar-belt.png",
+     "answer": true,
+     "pos": [
+      25,
+      50
+     ],
+     "posP": [
+      50,
+      24
+     ]
+    },
+    {
+     "word": "حُرُوف",
+     "audio": "words/huruf.mp3",
+     "pic": "../../pics/ar-letters-cloud.png",
+     "answer": false,
+     "pos": [
+      75,
+      50
+     ],
+     "posP": [
+      50,
+      76
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 20,
+   "task": "أَنْطِقُ، وَأَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الْمُنَاسِبَةِ لِصَوْتِ حَرْفِ الْحَاءِ",
+   "taskAudio": "q/task-pic-for-sound.mp3",
+   "hint": "اضغط على الصورة اللي فيها الصوت ده",
+   "center": "حُ",
+   "centerAudio": "../../syl-ar/62d-64f.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "حُجْرَة",
+     "audio": "words/hujra.mp3",
+     "pic": "../../pics/ar-bedroom.png",
+     "answer": true,
+     "pos": [
+      25,
+      50
+     ],
+     "posP": [
+      50,
+      24
+     ]
+    },
+    {
+     "word": "حِزَام",
+     "audio": "words/hizam.mp3",
+     "pic": "../../pics/ar-belt.png",
+     "answer": false,
+     "pos": [
+      75,
+      50
+     ],
+     "posP": [
+      50,
+      76
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 20,
+   "task": "أَنْطِقُ، وَأَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الْمُنَاسِبَةِ لِصَوْتِ حَرْفِ الْحَاءِ",
+   "taskAudio": "q/task-pic-for-sound.mp3",
+   "hint": "اضغط على الصورة اللي فيها الصوت ده",
+   "center": "حْ",
+   "centerAudio": "../../syl-ar/62d-652.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "بَحْر",
+     "audio": "words/bahr.mp3",
+     "pic": "../../pics/ar-sea.png",
+     "answer": true,
+     "pos": [
+      25,
+      50
+     ],
+     "posP": [
+      50,
+      24
+     ]
+    },
+    {
+     "word": "حُرُوف",
+     "audio": "words/huruf.mp3",
+     "pic": "../../pics/ar-letters-cloud.png",
+     "answer": false,
+     "pos": [
+      75,
+      50
+     ],
+     "posP": [
+      50,
+      76
+     ]
     }
    ]
   },
@@ -71,47 +625,30 @@
    "type": "position",
    "ex": 8,
    "page": 20,
-   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الحاء",
+   "task": "أَنْطِقُ وَأُحَدِّدُ مَوْضِعَ حَرْفِ الْحَاءِ",
    "taskAudio": [
     "../q-prompts/mark-letter-position.mp3",
     "../letters/62d/name.mp3"
    ],
    "hint": "اضغط على الدائرة التي فيها الحاء",
+   "book": "booklet",
    "items": [
     {
-     "word": "بَحْر",
-     "pic": "../../pics/ar-sea.png",
-     "audio": "words/bahr.mp3",
-     "at": 1
+     "word": "تِمْسَاح",
+     "audio": "../u1l10/words/timsah.mp3",
+     "pic": "../../pics/ar-crocodile.png",
+     "at": 4
     },
     {
-     "word": "لَحْم",
-     "pic": "../../pics/ar-meat.png",
-     "audio": "words/lahm.mp3",
+     "word": "نَحْلَة",
+     "audio": "../u2l5/words/nahla.mp3",
+     "pic": "../../pics/ar-bee.jpg",
      "at": 1
-    },
-    {
-     "word": "حَبْل",
-     "pic": "../../pics/ar-rope.jpg",
-     "audio": "words/habl.mp3",
-     "at": 0
     },
     {
      "word": "حَوْض",
-     "pic": "../../pics/ar-sink.png",
      "audio": "words/hawd.mp3",
-     "at": 0
-    },
-    {
-     "word": "سُلَحْفَاة",
-     "pic": "../../pics/ar-turtle.png",
-     "audio": "words/sulahfa.mp3",
-     "at": 2
-    },
-    {
-     "word": "حُفْرَة",
-     "pic": "../../pics/ar-hole.png",
-     "audio": "words/hufra.mp3",
+     "pic": "../../pics/ar-sink.png",
      "at": 0
     }
    ]
@@ -120,44 +657,42 @@
    "type": "vowel",
    "ex": 9,
    "page": 20,
-   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الحاء الْمُنَاسِبَ",
-   "taskAudio": [
-    "../q-prompts/choose-letter-sound-a.mp3",
-    "../letters/62d/name.mp3",
-    "../q-prompts/choose-letter-sound-b.mp3"
-   ],
-   "hint": "اختار صوت الحاء",
-   "items": [
-    {
-     "word": "حَبْل",
-     "pic": "../../pics/ar-rope.jpg",
-     "audio": "words/habl.mp3",
-     "answer": "حَ"
-    },
-    {
-     "word": "حُوت",
-     "pic": "../../pics/ar-whale.png",
-     "audio": "words/hut.mp3",
-     "answer": "حُ"
-    },
-    {
-     "word": "حِمَار",
-     "pic": "../../pics/ar-donkey.png",
-     "audio": "words/himar.mp3",
-     "answer": "حِ"
-    },
-    {
-     "word": "حَمَامَة",
-     "pic": "../../pics/ar-pigeon.png",
-     "audio": "words/hamama.mp3",
-     "answer": "حَ"
-    }
-   ],
+   "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الْحَاءِ مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "q/task-9b.mp3",
+   "hint": "اختار الحاء بالحركة الصح",
    "choices": [
     "حَ",
     "حُ",
     "حِ",
     "حْ"
+   ],
+   "book": "booklet",
+   "items": [
+    {
+     "word": "حِصَان",
+     "audio": "words/hisan.mp3",
+     "pic": "../../pics/ar-horse.png",
+     "answer": "حِ"
+    },
+    {
+     "word": "حَمَامَة",
+     "audio": "words/hamama.mp3",
+     "pic": "../../pics/ar-pigeon.png",
+     "answer": "حَ"
+    },
+    {
+     "word": "سُلَحْفَاة",
+     "audio": "words/sulahfa.mp3",
+     "pic": "../../pics/ar-turtle.png",
+     "answer": "حْ",
+     "at": 2
+    },
+    {
+     "word": "حُبُوب",
+     "audio": "words/hubub.mp3",
+     "pic": "../../pics/ar-grains.png",
+     "answer": "حُ"
+    }
    ]
   },
   {
@@ -167,11 +702,13 @@
    "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/merge-syllables.mp3",
    "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "book": "booklet",
    "items": [
     {
      "word": "لَحْم",
      "chips": [
-      "لَحْم"
+      "لَحْ",
+      "م"
      ],
      "audio": "words/lahm.mp3"
     },
@@ -185,19 +722,21 @@
      "audio": "words/hamama.mp3"
     },
     {
-     "word": "حَبْل",
+     "word": "نَحْلَة",
      "chips": [
-      "حَبْل"
+      "نَحْ",
+      "لَ",
+      "ة"
      ],
-     "audio": "words/habl.mp3"
+     "audio": "../u2l5/words/nahla.mp3"
     },
     {
-     "word": "حُفْرَة",
+     "word": "حَبْل",
      "chips": [
-      "حُفْ",
-      "رَة"
+      "حَبْ",
+      "ل"
      ],
-     "audio": "words/hufra.mp3"
+     "audio": "words/habl.mp3"
     }
    ]
   },
@@ -208,26 +747,22 @@
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/arrange-letters.mp3",
    "hint": "رتب الحروف",
+   "book": "booklet",
    "items": [
     {
      "word": "حِمَار",
-     "pic": "../../pics/ar-donkey.png",
-     "audio": "words/himar.mp3"
+     "audio": "words/himar.mp3",
+     "pic": "../../pics/ar-donkey.png"
     },
     {
      "word": "بَحْر",
-     "pic": "../../pics/ar-sea.png",
-     "audio": "words/bahr.mp3"
+     "audio": "words/bahr.mp3",
+     "pic": "../../pics/ar-sea.png"
     },
     {
      "word": "حُوت",
-     "pic": "../../pics/ar-whale.png",
-     "audio": "words/hut.mp3"
-    },
-    {
-     "word": "حَبْل",
-     "pic": "../../pics/ar-rope.jpg",
-     "audio": "words/habl.mp3"
+     "audio": "words/hut.mp3",
+     "pic": "../../pics/ar-whale.png"
     }
    ]
   },
@@ -235,51 +770,341 @@
    "type": "circle",
    "ex": 12,
    "page": 21,
-   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الحاء",
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي تَحْتَوِي عَلَى حَرْفِ الْحَاءِ",
    "taskAudio": [
     "../q-prompts/circle-word-letter.mp3",
     "../letters/62d/name.mp3"
    ],
-   "hint": "اضغط على الكلمة اللي فيها الحرف",
+   "hint": "اضغط على الكلمة اللي فيها الحاء",
+   "book": "booklet",
    "items": [
     {
-     "word": "حَبْل",
-     "audio": "words/habl.mp3",
+     "word": "لَوْحَة",
+     "audio": "words/lawha.mp3",
+     "answer": true
+    },
+    {
+     "word": "حُقُول",
+     "audio": "../u2l3/words/huqul.mp3",
      "answer": true
     },
     {
      "word": "أَرْنَب",
-     "audio": "../u1l3/words/arnab.mp3"
+     "audio": "../u1l3/words/arnab.mp3",
+     "answer": false
     },
     {
-     "word": "أَسَد",
-     "audio": "../u1l3/words/asad.mp3"
+     "word": "حَمَل",
+     "audio": "words/hamal.mp3",
+     "answer": true
+    },
+    {
+     "word": "صَحْن",
+     "audio": "words/sahn.mp3",
+     "answer": true
+    },
+    {
+     "word": "قَلَم",
+     "audio": "../u4l2/words/qalam.mp3",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 13,
+   "page": 21,
+   "task": "أُعَبِّرُ عَنْ كُلِّ صُورَةٍ بِكَلِمَةٍ مُنَاسِبَةٍ",
+   "taskAudio": "q/task-13.mp3",
+   "hint": "اكتب اسم الصورة",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "بَلَح",
+     "chips": [
+      "بَلَح"
+     ],
+     "pic": "../../pics/ar-dates.png",
+     "audio": "words/balah.mp3"
+    },
+    {
+     "word": "حَبْل",
+     "chips": [
+      "حَبْل"
+     ],
+     "pic": "../../pics/ar-rope.jpg",
+     "audio": "words/habl.mp3"
+    },
+    {
+     "word": "قَمْح",
+     "chips": [
+      "قَمْح"
+     ],
+     "pic": "../../pics/ar-wheat.jpg",
+     "audio": "../u2l9/words/qamh.mp3"
+    },
+    {
+     "word": "لَحْم",
+     "chips": [
+      "لَحْم"
+     ],
+     "pic": "../../pics/ar-meat.png",
+     "audio": "words/lahm.mp3"
     }
    ]
   },
   {
    "type": "circle",
-   "ex": 12,
-   "page": 21,
-   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الحاء",
-   "taskAudio": [
-    "../q-prompts/circle-word-letter.mp3",
-    "../letters/62d/name.mp3"
-   ],
-   "hint": "اضغط على الكلمة اللي فيها الحرف",
+   "ex": 1,
+   "page": 19,
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ أَشْكَالِ حَرْفِ الْحَاءِ",
+   "taskAudio": "q/task-wb-shapes.mp3",
+   "hint": "اضغط على أشكال الحاء",
+   "book": "workbook",
    "items": [
     {
-     "word": "إِبْرَة",
-     "audio": "../u1l3/words/ibra.mp3"
+     "word": "ح",
+     "text": "ح",
+     "answer": 1,
+     "pos": [
+      10,
+      30
+     ],
+     "posP": [
+      20,
+      10
+     ]
+    },
+    {
+     "word": "س",
+     "text": "س",
+     "answer": 0,
+     "pos": [
+      26,
+      30
+     ],
+     "posP": [
+      50,
+      10
+     ]
+    },
+    {
+     "word": "ـحـ",
+     "text": "ـحـ",
+     "answer": 1,
+     "pos": [
+      42,
+      30
+     ],
+     "posP": [
+      80,
+      10
+     ]
+    },
+    {
+     "word": "د",
+     "text": "د",
+     "answer": 0,
+     "pos": [
+      58,
+      30
+     ],
+     "posP": [
+      20,
+      32
+     ]
+    },
+    {
+     "word": "ـح",
+     "text": "ـح",
+     "answer": 1,
+     "pos": [
+      74,
+      30
+     ],
+     "posP": [
+      50,
+      32
+     ]
+    },
+    {
+     "word": "ع",
+     "text": "ع",
+     "answer": 0,
+     "pos": [
+      90,
+      30
+     ],
+     "posP": [
+      80,
+      32
+     ]
+    },
+    {
+     "word": "حـ",
+     "text": "حـ",
+     "answer": 1,
+     "pos": [
+      10,
+      70
+     ],
+     "posP": [
+      20,
+      54
+     ]
+    },
+    {
+     "word": "ج",
+     "text": "ج",
+     "answer": 0,
+     "pos": [
+      26,
+      70
+     ],
+     "posP": [
+      50,
+      54
+     ]
+    },
+    {
+     "word": "ـحـ",
+     "text": "ـحـ",
+     "answer": 1,
+     "pos": [
+      42,
+      70
+     ],
+     "posP": [
+      80,
+      54
+     ]
+    },
+    {
+     "word": "خ",
+     "text": "خ",
+     "answer": 0,
+     "pos": [
+      58,
+      70
+     ],
+     "posP": [
+      20,
+      76
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 2,
+   "task": "أَنْطِقُ اسْمَ الصُّورَةِ، ثُمَّ أَضَعُ دَائِرَةً حَوْلَ صَوْتِ حَرْفِ الْحَاءِ الْمُنَاسِبِ",
+   "taskAudio": "q/task-wb-vowel.mp3",
+   "hint": "اختار الحاء بالحركة الصح",
+   "choices": [
+    "حَ",
+    "حُ",
+    "حِ",
+    "حْ"
+   ],
+   "book": "workbook",
+   "page": 20,
+   "items": [
+    {
+     "word": "حِصَان",
+     "audio": "words/hisan.mp3",
+     "pic": "../../pics/ar-horse.png",
+     "answer": "حِ"
     },
     {
      "word": "لَحْم",
      "audio": "words/lahm.mp3",
-     "answer": true
+     "pic": "../../pics/ar-meat.png",
+     "answer": "حْ",
+     "at": 1
     },
     {
-     "word": "أُذُن",
-     "audio": "../u1l3/words/udhun.mp3"
+     "word": "حَمَامَة",
+     "audio": "words/hamama.mp3",
+     "pic": "../../pics/ar-pigeon.png",
+     "answer": "حَ"
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 3,
+   "task": "أَكْتُبُ صَوْتَ حَرْفِ (حَ - حِ - حُ - حْ) تَحْتَ الصُّورَةِ الْمُنَاسِبَةِ لَهُ",
+   "taskAudio": "q/task-wb-write.mp3",
+   "hint": "اختار الحاء بالحركة الصح",
+   "choices": [
+    "حَ",
+    "حُ",
+    "حِ",
+    "حْ"
+   ],
+   "book": "workbook",
+   "page": 20,
+   "items": [
+    {
+     "word": "حُوت",
+     "audio": "words/hut.mp3",
+     "pic": "../../pics/ar-whale.png",
+     "answer": "حُ"
+    },
+    {
+     "word": "نَحْلَة",
+     "audio": "../u2l5/words/nahla.mp3",
+     "pic": "../../pics/ar-bee.jpg",
+     "answer": "حْ",
+     "at": 1
+    },
+    {
+     "word": "حَمَامَة",
+     "audio": "words/hamama.mp3",
+     "pic": "../../pics/ar-pigeon.png",
+     "answer": "حَ"
+    },
+    {
+     "word": "حِصَان",
+     "audio": "words/hisan.mp3",
+     "pic": "../../pics/ar-horse.png",
+     "answer": "حِ"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 4,
+   "task": "أَدْمِجُ الْحُرُوفَ وَأُكَوِّنُ كَلِمَةً",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "book": "workbook",
+   "page": 20,
+   "items": [
+    {
+     "word": "أُحِبّ",
+     "chips": [
+      "أُ",
+      "حِ",
+      "بّ"
+     ],
+     "audio": "words/uhibb.mp3"
+    },
+    {
+     "word": "أَب",
+     "chips": [
+      "أَ",
+      "ب"
+     ],
+     "audio": "../u1l4/q/ab.mp3"
+    },
+    {
+     "word": "أُم",
+     "chips": [
+      "أُ",
+      "م"
+     ],
+     "audio": "../u1l3/words/umm.mp3"
     }
    ]
   }

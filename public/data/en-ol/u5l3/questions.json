@@ -1,0 +1,422 @@
+{
+ "_note": "u5l3: p95 ex3 (new tap-to-colour: only the written number of shapes colour), p96 ex4-5, p97 ex6-7. Performance p46.",
+ "sets": [
+  {
+   "type": "colour",
+   "ex": 3,
+   "page": 95,
+   "task": "Look at the number. Color the correct number of objects.",
+   "taskAudio": "../../en-shared/q/look-at-the-number-color-the-correct-number-of-objects.mp3",
+   "hint": "Tap the shapes to color them!",
+   "items": [
+    {
+     "word": "six",
+     "audio": "words/six.mp3",
+     "num": 6,
+     "off": "../../pics/eggplant-off-u5l3.png",
+     "on": "../../pics/eggplant-on-u5l3.png",
+     "total": 10
+    },
+    {
+     "word": "seven",
+     "audio": "words/seven.mp3",
+     "num": 7,
+     "off": "../../pics/tomato-off-u5l3.png",
+     "on": "../../pics/tomato-on-u5l3.png",
+     "total": 10
+    },
+    {
+     "word": "eight",
+     "audio": "words/eight.mp3",
+     "num": 8,
+     "off": "../../pics/onion-off-u5l3.png",
+     "on": "../../pics/onion-on-u5l3.png",
+     "total": 10
+    },
+    {
+     "word": "nine",
+     "audio": "words/nine.mp3",
+     "num": 9,
+     "off": "../../pics/pepper-off-u5l3.png",
+     "on": "../../pics/pepper-on-u5l3.png",
+     "total": 10
+    },
+    {
+     "word": "ten",
+     "audio": "words/ten.mp3",
+     "num": 10,
+     "off": "../../pics/raspberry-off-u5l3.png",
+     "on": "../../pics/raspberry-on-u5l3.png",
+     "total": 10
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 4,
+   "page": 96,
+   "task": "Listen, count, and tick the correct picture.",
+   "taskAudio": "../../en-shared/q/listen-count-and-tick-the-correct-picture.mp3",
+   "hint": "Listen, count, then tap the right picture!",
+   "items": [
+    {
+     "word": "I can see 6 ducks.",
+     "audio": "../../en-shared/q/i-can-see-6-ducks.mp3",
+     "pics": [
+      "../../pics/ducks-6-u5l3.jpg",
+      "../../pics/horse-u3l4.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "I can see 7 birds.",
+     "audio": "../../en-shared/q/i-can-see-7-birds.mp3",
+     "pics": [
+      "../../pics/birds-7-u5l3.jpg",
+      "../../pics/cow-u5l1.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "I can see 10 stars.",
+     "audio": "../../en-shared/q/i-can-see-10-stars.mp3",
+     "pics": [
+      "../../pics/stars-10-u5l3.jpg",
+      "../../pics/flowers-2.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "I can see 8 pens.",
+     "audio": "../../en-shared/q/i-can-see-8-pens.mp3",
+     "pics": [
+      "../../pics/pens-8-u5l3.jpg",
+      "../../pics/books-4.png"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "yesno",
+   "ex": 5,
+   "page": 96,
+   "task": "Does the number match the picture?",
+   "taskAudio": "../../en-shared/q/does-the-number-match-the-picture.mp3",
+   "hint": "Match? Tap the tick. No? Tap the cross.",
+   "items": [
+    {
+     "word": "6",
+     "audio": "words/six.mp3",
+     "pic": "../../pics/fish-7-u5l3.jpg",
+     "answer": false
+    },
+    {
+     "word": "8",
+     "audio": "words/eight.mp3",
+     "pic": "../../pics/flowers-8-u5l3.jpg",
+     "answer": true
+    },
+    {
+     "word": "8",
+     "audio": "words/eight.mp3",
+     "pic": "../../pics/apples-6-u5l3.jpg",
+     "answer": false
+    },
+    {
+     "word": "9",
+     "audio": "words/nine.mp3",
+     "pic": "../../pics/frogs-9.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 6,
+   "page": 97,
+   "task": "Count the objects and match them to the correct number.",
+   "taskAudio": "../../en-shared/q/count-the-objects-and-match-them-to-the-correct-number.mp3",
+   "hint": "Count, then match!",
+   "items": [
+    {
+     "word": "6",
+     "audio": "words/six.mp3",
+     "pic": "../../pics/apples-6-u5l3.jpg"
+    },
+    {
+     "word": "7",
+     "audio": "words/seven.mp3",
+     "pic": "../../pics/pencils-7-u5l3.jpg"
+    },
+    {
+     "word": "8",
+     "audio": "words/eight.mp3",
+     "pic": "../../pics/flowers-8-u5l3.jpg"
+    },
+    {
+     "word": "9",
+     "audio": "words/nine.mp3",
+     "pic": "../../pics/frogs-9.png"
+    },
+    {
+     "word": "10",
+     "audio": "words/ten.mp3",
+     "pic": "../../pics/ducks-10-u5l3.jpg"
+    }
+   ]
+  },
+  {
+   "type": "letter",
+   "ex": 7,
+   "page": 97,
+   "task": "Count the fruits and write the number.",
+   "taskAudio": "../../en-shared/q/count-the-fruits-and-write-the-number.mp3",
+   "hint": "Count, then tap the number!",
+   "items": [
+    {
+     "word": "10 pineapples",
+     "audio": "../../en-shared/q/10-pineapples.mp3",
+     "pic": "../../pics/pineapples-10-u5l3.jpg",
+     "letters": [
+      "9",
+      "10",
+      "9"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "8 apples",
+     "audio": "../../en-shared/q/8-apples.mp3",
+     "pic": "../../pics/redapples-8-u5l3.jpg",
+     "letters": [
+      "7",
+      "8",
+      "9"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "6 watermelons",
+     "audio": "../../en-shared/q/6-watermelons.mp3",
+     "pic": "../../pics/watermelon-6-u5l3.jpg",
+     "letters": [
+      "6",
+      "7",
+      "8"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "7 mangoes",
+     "audio": "../../en-shared/q/7-mangoes.mp3",
+     "pic": "../../pics/greenmangos-7-u5l3.jpg",
+     "letters": [
+      "6",
+      "8",
+      "7"
+     ],
+     "answer": 2
+    },
+    {
+     "word": "9 oranges",
+     "audio": "../../en-shared/q/9-oranges.mp3",
+     "pic": "../../pics/oranges-9-u5l3.jpg",
+     "letters": [
+      "9",
+      "8",
+      "10"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 46,
+   "grp": "classroom-1",
+   "task": "Look, count, and complete.",
+   "taskAudio": "../../en-shared/q/look-count-and-complete.mp3",
+   "hint": "Count, then tap the number!",
+   "items": [
+    {
+     "word": "I can see 6 pencils.",
+     "lead": "I can see",
+     "options": [
+      "7",
+      "6"
+     ],
+     "answer": 1,
+     "pic": "../../pics/pencils-6-u5l3.jpg",
+     "tail": "pencils.",
+     "audio": "../../en-shared/q/i-can-see-6-pencils.mp3"
+    },
+    {
+     "word": "I can see 9 flowers.",
+     "lead": "I can see",
+     "options": [
+      "10",
+      "9"
+     ],
+     "answer": 1,
+     "pic": "../../pics/flowers-9-u5l3.jpg",
+     "tail": "flowers.",
+     "audio": "../../en-shared/q/i-can-see-9-flowers.mp3"
+    },
+    {
+     "word": "I can see 10 cats.",
+     "lead": "I can see",
+     "options": [
+      "10",
+      "9"
+     ],
+     "answer": 0,
+     "pic": "../../pics/cats-10-u5l3.jpg",
+     "tail": "cats.",
+     "audio": "../../en-shared/q/i-can-see-10-cats.mp3"
+    },
+    {
+     "word": "I can see 7 stars.",
+     "lead": "I can see",
+     "options": [
+      "7",
+      "8"
+     ],
+     "answer": 0,
+     "pic": "../../pics/stars-7-u5l3.jpg",
+     "tail": "stars.",
+     "audio": "../../en-shared/q/i-can-see-7-stars.mp3"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 46,
+   "grp": "classroom-2",
+   "task": "Look, read, and answer.",
+   "taskAudio": "../../en-shared/q/look-read-and-answer.mp3",
+   "hint": "Count, then tap the number!",
+   "items": [
+    {
+     "word": "I can see 9 pencils.",
+     "lead": "I can see",
+     "options": [
+      "10",
+      "9"
+     ],
+     "answer": 1,
+     "pic": "../../pics/pencils-9-u5l3.jpg",
+     "tail": "pencils.",
+     "audio": "../../en-shared/q/i-can-see-9-pencils.mp3",
+     "ask": "How many pencils can you see?"
+    },
+    {
+     "word": "I can see 6 apples.",
+     "lead": "I can see",
+     "options": [
+      "7",
+      "6"
+     ],
+     "answer": 1,
+     "pic": "../../pics/apples-6-u5l3.jpg",
+     "tail": "apples.",
+     "audio": "../../en-shared/q/i-can-see-6-apples.mp3",
+     "ask": "How many apples can you see?"
+    },
+    {
+     "word": "I can see 7 cars.",
+     "lead": "I can see",
+     "options": [
+      "7",
+      "8"
+     ],
+     "answer": 0,
+     "pic": "../../pics/cars-7-u5l3.jpg",
+     "tail": "cars.",
+     "audio": "../../en-shared/q/i-can-see-7-cars.mp3",
+     "ask": "How many cars can you see?"
+    },
+    {
+     "word": "I can see 10 bees.",
+     "lead": "I can see",
+     "options": [
+      "9",
+      "10"
+     ],
+     "answer": 1,
+     "pic": "../../pics/bees-10-u5l3.jpg",
+     "tail": "bees.",
+     "audio": "../../en-shared/q/i-can-see-10-bees.mp3",
+     "ask": "How many bees can you see?"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 46,
+   "grp": "homework-1",
+   "task": "Look, count, and write.",
+   "taskAudio": "../../en-shared/q/look-count-and-write.mp3",
+   "hint": "Count, then tap the number!",
+   "items": [
+    {
+     "word": "There are 6 pencils.",
+     "lead": "There are",
+     "options": [
+      "7",
+      "6"
+     ],
+     "answer": 1,
+     "pic": "../../pics/pencils-6-u5l3.jpg",
+     "tail": "pencils.",
+     "audio": "../../en-shared/q/there-are-6-pencils.mp3"
+    },
+    {
+     "word": "There are 9 olives.",
+     "lead": "There are",
+     "options": [
+      "10",
+      "9"
+     ],
+     "answer": 1,
+     "pic": "../../pics/olives-9-u5l3.jpg",
+     "tail": "olives.",
+     "audio": "../../en-shared/q/there-are-9-olives.mp3"
+    },
+    {
+     "word": "There are 8 stars.",
+     "lead": "There are",
+     "options": [
+      "8",
+      "9"
+     ],
+     "answer": 0,
+     "pic": "../../pics/stars-8-u5l3.jpg",
+     "tail": "stars.",
+     "audio": "../../en-shared/q/there-are-8-stars.mp3"
+    },
+    {
+     "word": "There are 10 mangos.",
+     "lead": "There are",
+     "options": [
+      "9",
+      "10"
+     ],
+     "answer": 1,
+     "pic": "../../pics/mangos-10-u5l3.jpg",
+     "tail": "mangos.",
+     "audio": "../../en-shared/q/there-are-10-mangos.mp3"
+    }
+   ]
+  }
+ ]
+}

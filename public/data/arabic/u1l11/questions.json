@@ -1,0 +1,238 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 1,
+   "page": 41,
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْحُرُوفِ الَّتِي تَعَلَّمْتُهَا",
+   "taskAudio": "q/task-1.mp3",
+   "hint": "اضغط على الحروف اللي اتعلمتها",
+   "items": [
+    {
+     "word": "أ",
+     "text": "أ",
+     "answer": true
+    },
+    {
+     "word": "ب",
+     "text": "ب",
+     "answer": true
+    },
+    {
+     "word": "ر",
+     "text": "ر",
+     "answer": false
+    },
+    {
+     "word": "ت",
+     "text": "ت",
+     "answer": true
+    },
+    {
+     "word": "ن",
+     "text": "ن",
+     "answer": false
+    },
+    {
+     "word": "م",
+     "text": "م",
+     "answer": true
+    },
+    {
+     "word": "د",
+     "text": "د",
+     "answer": true
+    },
+    {
+     "word": "خ",
+     "text": "خ",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 3,
+   "page": 39,
+   "task": "أَصِلُ كُلَّ جُمْلَةٍ بِالصُّورَةِ الْمُنَاسِبَةِ",
+   "taskAudio": "../q-prompts/match-picture.mp3",
+   "hint": "صل الجملة بالصورة",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "أَنَا أُحِبُّ أُمِّي",
+     "pic": "../../pics/ar-love-mom.jpg",
+     "audio": "q/s-mom.mp3"
+    },
+    {
+     "word": "أَنَا أُحِبُّ أَبِي",
+     "pic": "../../pics/ar-love-dad.jpg",
+     "audio": "q/s-dad.mp3"
+    },
+    {
+     "word": "أَنَا أُحِبُّ جَدِّي وَجَدَّتِي",
+     "pic": "../../pics/ar-love-grandparents.jpg",
+     "audio": "q/s-grand.mp3"
+    },
+    {
+     "word": "أَنَا أُحِبُّ أَخِي وَأُخْتِي",
+     "pic": "../../pics/ar-love-siblings.jpg",
+     "audio": "q/s-sib.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 5,
+   "page": 39,
+   "words": true,
+   "task": "أُرَتِّبُ الْكَلِمَاتِ لِأُكَوِّنَ جُمْلَةً",
+   "taskAudio": "../u2l10/q/p-arrange-words.mp3",
+   "hint": "رتب الكلمات",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "أَنَا أُحِبُّ أُمِّي",
+     "pic": "../../pics/ar-love-mom.jpg",
+     "audio": "q/s-mom.mp3"
+    },
+    {
+     "word": "أَنَا أُحِبُّ جَدِّي وَجَدَّتِي",
+     "pic": "../../pics/ar-love-grandparents.jpg",
+     "audio": "q/s-grand.mp3"
+    },
+    {
+     "word": "أَنَا أُحِبُّ أَخِي وَأُخْتِي",
+     "pic": "../../pics/ar-love-siblings.jpg",
+     "audio": "q/s-sib.mp3"
+    },
+    {
+     "word": "أَنَا أُحِبُّ أُسْرَتِي",
+     "pic": "../../pics/ar-love-family.jpg",
+     "audio": "q/s-fam.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 2,
+   "page": 28,
+   "task": "أَصِلُ كُلَّ كَلِمَةٍ بِالصُّورَةِ الْمُنَاسِبَةِ",
+   "taskAudio": "../q-prompts/match-picture.mp3",
+   "hint": "صل الكلمة بالصورة",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "أُمِّي",
+     "pic": "../../pics/ar-love-mom.jpg",
+     "audio": "../u1l1/words/ummi-h.mp3"
+    },
+    {
+     "word": "أَبِي",
+     "pic": "../../pics/ar-love-dad.jpg",
+     "audio": "../u4l1/q/h-abi.mp3"
+    },
+    {
+     "word": "أُسْرَتِي",
+     "pic": "../../pics/ar-love-family.jpg",
+     "audio": "../u1l1/words/usrati-h.mp3"
+    },
+    {
+     "word": "جَدِّي",
+     "pic": "../../pics/ar-love-grandparents.jpg",
+     "audio": "../u1l8/words/jaddi.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": "h1",
+   "page": 28,
+   "words": true,
+   "task": "أُرَتِّبُ الْكَلِمَاتِ لِأُكَوِّنَ جُمْلَةً",
+   "taskAudio": "../u2l10/q/p-arrange-words.mp3",
+   "hint": "رتب الكلمات",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "أَنَا أُحِبُّ أُسْرَتِي",
+     "pic": "../../pics/ar-love-family.jpg",
+     "audio": "q/s-fam.mp3"
+    },
+    {
+     "word": "أَنَا أُحِبُّ أُمِّي",
+     "pic": "../../pics/ar-love-mom.jpg",
+     "audio": "q/s-mom.mp3"
+    },
+    {
+     "word": "أَنَا أُحِبُّ أَبِي",
+     "pic": "../../pics/ar-love-dad.jpg",
+     "audio": "q/s-dad.mp3"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "ex": 3,
+   "page": 43,
+   "task": "أَنْطِقُ، وَأَكْتُبُ الْحَرْفَ الْأَوَّلَ مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار الحرف الأول بالحركة الصح",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "جَمَل",
+     "audio": "../u1l7/words/jamal.mp3",
+     "pic": "../../pics/ar-camel.png",
+     "answer": 0,
+     "options": [
+      "جَ",
+      "جُ",
+      "جِ"
+     ],
+     "lead": "الْحَرْفُ الْأَوَّلُ فِي جَمَل",
+     "tail": ""
+    },
+    {
+     "word": "أَنْف",
+     "audio": "../u1l3/q/c6-0.mp3",
+     "pic": "../../pics/ar-nose.jpg",
+     "answer": 0,
+     "options": [
+      "أَ",
+      "أُ",
+      "إِ"
+     ],
+     "lead": "الْحَرْفُ الْأَوَّلُ فِي أَنْف",
+     "tail": ""
+    },
+    {
+     "word": "حَبْل",
+     "audio": "../u1l6/words/habl.mp3",
+     "pic": "../../pics/ar-rope.jpg",
+     "answer": 0,
+     "options": [
+      "حَ",
+      "حُ",
+      "حِ"
+     ],
+     "lead": "الْحَرْفُ الْأَوَّلُ فِي حَبْل",
+     "tail": ""
+    },
+    {
+     "word": "دُبّ",
+     "audio": "../u1l8/words/dubb.mp3",
+     "pic": "../../pics/ar-bear.png",
+     "answer": 1,
+     "options": [
+      "دَ",
+      "دُ",
+      "دِ"
+     ],
+     "lead": "الْحَرْفُ الْأَوَّلُ فِي دُبّ",
+     "tail": ""
+    }
+   ]
+  }
+ ]
+}

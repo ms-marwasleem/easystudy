@@ -2,9 +2,456 @@
  "sets": [
   {
    "type": "circle",
+   "ex": 2,
+   "page": 35,
+   "task": "أُسَاعِدُ الصَّيَّادَ، وَأَضَعُ دَائِرَةً حَوْلَ أَشْكَالِ حَرْفِ الْخَاءِ",
+   "taskAudio": "q/task-2.mp3",
+   "hint": "اضغط على الأسماك اللي عليها شكل الخاء",
+   "centerPic": "../../pics/ar-fisherman-school.png",
+   "centerAt": [
+    16,
+    36
+   ],
+   "centerAtP": [
+    24,
+    14
+   ],
+   "bigP": true,
+   "silent": true,
+   "items": [
+    {
+     "word": "ج",
+     "text": "ج",
+     "pic": "../../pics/ar-fish-yellow.png",
+     "answer": false,
+     "pos": [
+      88,
+      22
+     ],
+     "posP": [
+      78,
+      26
+     ]
+    },
+    {
+     "word": "خ",
+     "text": "خ",
+     "pic": "../../pics/ar-fish-purple.png",
+     "answer": true,
+     "pos": [
+      70,
+      20
+     ],
+     "posP": [
+      48,
+      36
+     ]
+    },
+    {
+     "word": "أ",
+     "text": "أ",
+     "pic": "../../pics/ar-fish-yellow.png",
+     "answer": false,
+     "pos": [
+      54,
+      24
+     ],
+     "posP": [
+      24,
+      46
+     ]
+    },
+    {
+     "word": "خـ",
+     "text": "خـ",
+     "pic": "../../pics/ar-fish-purple.png",
+     "answer": true,
+     "pos": [
+      41,
+      22
+     ],
+     "posP": [
+      66,
+      48
+     ]
+    },
+    {
+     "word": "د",
+     "text": "د",
+     "pic": "../../pics/ar-fish-yellow.png",
+     "answer": false,
+     "pos": [
+      89,
+      66
+     ],
+     "posP": [
+      80,
+      64
+     ]
+    },
+    {
+     "word": "ت",
+     "text": "ت",
+     "pic": "../../pics/ar-fish-purple.png",
+     "answer": false,
+     "pos": [
+      71,
+      70
+     ],
+     "posP": [
+      46,
+      60
+     ]
+    },
+    {
+     "word": "ـخ",
+     "text": "ـخ",
+     "pic": "../../pics/ar-fish-purple.png",
+     "answer": true,
+     "pos": [
+      53,
+      72
+     ],
+     "posP": [
+      26,
+      76
+     ]
+    },
+    {
+     "word": "خ",
+     "text": "خ",
+     "pic": "../../pics/ar-fish-yellow.png",
+     "answer": true,
+     "pos": [
+      36,
+      72
+     ],
+     "posP": [
+      62,
+      80
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 3,
+   "page": 35,
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الْخَاءِ",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/62e/name.mp3"
+   ],
+   "hint": "اضغط على الكلمة اللي فيها الخاء",
+   "items": [
+    {
+     "word": "خُبْز",
+     "audio": "words/khubz.mp3",
+     "answer": true
+    },
+    {
+     "word": "زَهْرَة",
+     "audio": "../u3l7/words/zahra.mp3",
+     "answer": false
+    },
+    {
+     "word": "بِطِّيخ",
+     "audio": "../u4l4/words/bittikh.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَخْضَر",
+     "audio": "words/akhdar.mp3",
+     "answer": true
+    },
+    {
+     "word": "أُخْتِي",
+     "audio": "../u1l1/words/ukhti-h.mp3",
+     "answer": true
+    },
+    {
+     "word": "طَبَّاخ",
+     "audio": "../u4l4/words/tabbakh.mp3",
+     "answer": true
+    },
+    {
+     "word": "صَخْرَة",
+     "audio": "words/sakhra.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "sound",
+   "ex": 4,
+   "page": 36,
+   "task": "أَنْطِقُ صَوْتَ حَرْفِ الْخَاءِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "اسمع الجملة وردد وراها",
+   "items": [
+    {
+     "word": "خَرُوف",
+     "ask": "خَ",
+     "pic": "../../pics/ar-sheep.png",
+     "audio": [
+      "../letters/62e/name.mp3",
+      "../shared/h-fatha.mp3",
+      "../../syl-ar/62e-64e.mp3",
+      "words/kharuf.mp3"
+     ]
+    },
+    {
+     "word": "خُبْز",
+     "ask": "خُ",
+     "pic": "../../pics/ar-bread.png",
+     "audio": [
+      "../letters/62e/name.mp3",
+      "../shared/h-damma.mp3",
+      "../../syl-ar/62e-64f.mp3",
+      "words/khubz.mp3"
+     ]
+    },
+    {
+     "word": "خِيَار",
+     "ask": "خِ",
+     "pic": "../../pics/ar-cucumber.png",
+     "audio": [
+      "../letters/62e/name.mp3",
+      "../shared/h-kasra.mp3",
+      "../../syl-ar/62e-650.mp3",
+      "words/khiyar.mp3"
+     ]
+    },
+    {
+     "word": "نَخْل",
+     "ask": "خْ",
+     "pic": "../../pics/ar-palm.png",
+     "audio": [
+      "../letters/62e/name.mp3",
+      "../shared/h-sukoon.mp3",
+      "../../syl-ar/62e-652.mp3",
+      "words/nakhl.mp3"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 5,
+   "page": 36,
+   "task": "أَضَعُ دَائِرَةً حَوْلَ صَوْتِ حَرْفِ الْخَاءِ الْمُنَاسِبِ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/62e/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الخاء",
+   "choices": [
+    "خَ",
+    "خُ",
+    "خِ",
+    "خْ"
+   ],
+   "items": [
+    {
+     "word": "خَرُوف",
+     "audio": "words/kharuf.mp3",
+     "pic": "../../pics/ar-sheep.png",
+     "answer": "خَ",
+     "choices": [
+      "خَ",
+      "خِ",
+      "خُ"
+     ]
+    },
+    {
+     "word": "خُبْز",
+     "audio": "words/khubz.mp3",
+     "pic": "../../pics/ar-bread.png",
+     "answer": "خُ",
+     "choices": [
+      "خَ",
+      "خِ",
+      "خُ"
+     ]
+    },
+    {
+     "word": "نَخْل",
+     "audio": "words/nakhl.mp3",
+     "pic": "../../pics/ar-palm.png",
+     "answer": "خْ",
+     "choices": [
+      "خَ",
+      "خِ",
+      "خْ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "خِيَار",
+     "audio": "words/khiyar.mp3",
+     "pic": "../../pics/ar-cucumber.png",
+     "answer": "خِ",
+     "choices": [
+      "خَ",
+      "خِ",
+      "خُ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 8,
+   "page": 37,
+   "task": "أَنْطِقُ، وَأَخْتَارُ حَرْفَ الْخَاءِ مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار الخاء بالحركة الصح",
+   "choices": [
+    "خَ",
+    "خُ",
+    "خِ",
+    "خْ"
+   ],
+   "items": [
+    {
+     "word": "خَسّ",
+     "audio": "words/khass.mp3",
+     "pic": "../../pics/ar-lettuce.png",
+     "answer": "خَ",
+     "choices": [
+      "خَ",
+      "خُ",
+      "خِ"
+     ]
+    },
+    {
+     "word": "خُفَّاش",
+     "audio": "words/khuffash.mp3",
+     "pic": "../../pics/ar-bat.png",
+     "answer": "خُ",
+     "choices": [
+      "خَ",
+      "خُ",
+      "خِ"
+     ]
+    },
+    {
+     "word": "خِزَانَة",
+     "audio": "words/khizana.mp3",
+     "pic": "../../pics/ar-safe.png",
+     "answer": "خِ",
+     "choices": [
+      "خَ",
+      "خُ",
+      "خِ"
+     ]
+    },
+    {
+     "word": "صَخْرَة",
+     "audio": "words/sakhra.mp3",
+     "pic": "../../pics/ar-rock.png",
+     "answer": "خْ",
+     "choices": [
+      "خَ",
+      "خُ",
+      "خْ"
+     ],
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 9,
+   "page": 37,
+   "task": "أَنْطِقُ، ثُمَّ أَدْمِجُ الْحَرْفَيْنِ لِأُكَوِّنَ كَلِمَةً",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "items": [
+    {
+     "word": "أَخ",
+     "audio": "../u1l4/words/akh.mp3",
+     "pic": "../../pics/brother-1.png",
+     "chips": [
+      "أَ",
+      "خ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "story",
+   "ex": 10,
+   "page": 37,
+   "task": "أَسْتَمِعُ إِلَى الْقِصَّةِ، وَأَرْفَعُ يَدِي عِنْدَمَا أَسْمَعُ كَلِمَةً بِهَا حَرْفُ الْخَاءِ",
+   "taskAudio": "q/task-10.mp3",
+   "hint": "اسمع القصة، وارفع إيدك لما تسمع كلمة فيها الخاء",
+   "items": [
+    {
+     "scene": "../../pics/ar-story-khaa-cut.jpg",
+     "text": "كَانَتْ خَدِيجَةُ تُطْعِمُ خُرُوفَهَا، وَضَعَتْ لَهُ قِطْعَةً صَغِيرَةً مِنَ اللَّحْمِ، لَكِنَّهُ لَمْ يَأْكُلْهَا. فَوَضَعَتْ لَهُ خَسًّا وَقَالَتْ: «يَا خَرُوفِي، الْخَسُّ لَذِيذٌ، جَرِّبْهُ». أَكَلَ الْخَرُوفُ الْخَسَّ وَبَدَأَ يَهُزُّ رَأْسَهُ بِسَعَادَةٍ، فَضَحِكَتْ خَدِيجَةُ وَقَالَتْ: «الْخَسُّ لَذِيذٌ وَمُفِيدٌ أَيْضًا!».",
+     "audio": "q/story.mp3",
+     "ask": "مَا الْأَطْعِمَةُ الَّتِي قَدَّمَتْهَا خَدِيجَةُ لِلْخَرُوفِ؟",
+     "askAudio": "q/story-ask.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 6,
+   "page": 31,
+   "book": "booklet",
+   "task": "أَضَعُ خَطًّا تَحْتَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الْخَاءِ",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/62e/name.mp3"
+   ],
+   "hint": "اضغط على الكلمات اللي فيها الخاء",
+   "items": [
+    {
+     "word": "دَخَلَ",
+     "audio": "words/dakhala.mp3",
+     "answer": true
+    },
+    {
+     "word": "مُخّ",
+     "audio": "words/mukh.mp3",
+     "answer": true
+    },
+    {
+     "word": "خَرُوف",
+     "audio": "words/kharuf.mp3",
+     "answer": true
+    },
+    {
+     "word": "مَلِك",
+     "audio": "words/malik.mp3",
+     "answer": false
+    },
+    {
+     "word": "خَرَجَ",
+     "audio": "../u2l6/words/kharaj.mp3",
+     "answer": true
+    },
+    {
+     "word": "مَخْرَج",
+     "audio": "words/makhraj.mp3",
+     "answer": true
+    },
+    {
+     "word": "بِطِّيخ",
+     "audio": "../u4l4/words/bittikh.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "circle",
    "ex": 7,
    "page": 32,
-   "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الخاء",
+   "book": "booklet",
+   "task": "أَسْتَمِعُ وَأَضَعُ عَلَامَةً تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الْخَاءِ",
    "taskAudio": [
     "../q-prompts/circle-letter-sound.mp3",
     "../letters/62e/name.mp3"
@@ -12,58 +459,64 @@
    "hint": "اضغط على الصور التي فيها صوت الخاء",
    "items": [
     {
-     "word": "خُبْز",
-     "pic": "../../pics/ar-bread.png",
-     "audio": "words/khubz.mp3",
+     "word": "بِطِّيخ",
+     "audio": "../u4l4/words/bittikh.mp3",
+     "pic": "../../pics/ar-watermelon.png",
      "answer": true
     },
     {
-     "word": "أَرْنَب",
-     "pic": "../../pics/ar-rabbit.png",
-     "audio": "../u1l3/words/arnab.mp3",
+     "word": "حِصَان",
+     "audio": "../u4l5/words/hisan.mp3",
+     "pic": "../../pics/ar-horse.png",
      "answer": false
     },
     {
-     "word": "خِيَار",
-     "pic": "../../pics/ar-cucumber.png",
-     "audio": "words/khiyar.mp3",
+     "word": "أُخْطُبُوط",
+     "audio": "../u1l3/words/ukhtubut.mp3",
+     "pic": "../../pics/ar-octopus.png",
      "answer": true
+    },
+    {
+     "word": "جَمَل",
+     "audio": "../u1l7/words/jamal.mp3",
+     "pic": "../../pics/ar-camel.png",
+     "answer": false
     },
     {
      "word": "خَسّ",
-     "pic": "../../pics/ar-lettuce.png",
      "audio": "words/khass.mp3",
+     "pic": "../../pics/ar-lettuce.png",
      "answer": true
     },
     {
-     "word": "أُذُن",
-     "pic": "../../pics/ar-ear.png",
-     "audio": "../u1l3/words/udhun.mp3",
+     "word": "خُيُوط",
+     "audio": "words/khuyut.mp3",
+     "pic": "../../pics/ar-threads.png",
+     "answer": true
+    },
+    {
+     "word": "بَاذِنْجَان",
+     "audio": "../u3l8/words/badhinjan.mp3",
+     "pic": "../../pics/ar-eggplant.png",
      "answer": false
+    },
+    {
+     "word": "خُبْز",
+     "audio": "words/khubz.mp3",
+     "pic": "../../pics/ar-bread.png",
+     "answer": true
+    },
+    {
+     "word": "خِيَار",
+     "audio": "words/khiyar.mp3",
+     "pic": "../../pics/ar-cucumber.png",
+     "answer": true
     },
     {
      "word": "خَرُوف",
-     "pic": "../../pics/ar-sheep.png",
      "audio": "words/kharuf.mp3",
+     "pic": "../../pics/ar-sheep.png",
      "answer": true
-    },
-    {
-     "word": "خَشَب",
-     "pic": "../../pics/ar-wood.png",
-     "audio": "words/khashab.mp3",
-     "answer": true
-    },
-    {
-     "word": "خِنْجَر",
-     "pic": "../../pics/ar-dagger.png",
-     "audio": "words/khanjar.mp3",
-     "answer": true
-    },
-    {
-     "word": "أَسَد",
-     "pic": "../../pics/ar-lion.png",
-     "audio": "../u1l3/words/asad.mp3",
-     "answer": false
     }
    ]
   },
@@ -71,7 +524,8 @@
    "type": "position",
    "ex": 8,
    "page": 32,
-   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الخاء",
+   "book": "booklet",
+   "task": "أَنْطِقُ، وَأَرْسُمُ دَائِرَةً فِي مَكَانِ صَوْتِ حَرْفِ الْخَاءِ",
    "taskAudio": [
     "../q-prompts/mark-letter-position.mp3",
     "../letters/62e/name.mp3"
@@ -80,208 +534,317 @@
    "items": [
     {
      "word": "خَسّ",
-     "pic": "../../pics/ar-lettuce.png",
      "audio": "words/khass.mp3",
+     "pic": "../../pics/ar-lettuce.png",
      "at": 0
     },
     {
      "word": "خُبْز",
-     "pic": "../../pics/ar-bread.png",
      "audio": "words/khubz.mp3",
+     "pic": "../../pics/ar-bread.png",
      "at": 0
     },
     {
      "word": "نَخْل",
-     "pic": "../../pics/ar-palm.png",
      "audio": "words/nakhl.mp3",
-     "at": 1
-    },
-    {
-     "word": "صَخْرَة",
-     "pic": "../../pics/ar-rock.png",
-     "audio": "words/sakhra.mp3",
+     "pic": "../../pics/ar-palm.png",
      "at": 1
     },
     {
      "word": "خَشَب",
-     "pic": "../../pics/ar-wood.png",
      "audio": "words/khashab.mp3",
+     "pic": "../../pics/ar-wood.png",
      "at": 0
     },
     {
-     "word": "أُخْطُبُوط",
-     "pic": "../../pics/ar-octopus.png",
-     "audio": "../u1l3/words/ukhtubut.mp3",
-     "at": 1
+     "word": "بِطِّيخ",
+     "audio": "../u4l4/words/bittikh.mp3",
+     "pic": "../../pics/ar-watermelon.png",
+     "at": 3
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 9,
+   "page": 32,
+   "book": "booklet",
+   "task": "أُرَتِّبُ الْحُرُوفَ ثُمَّ أَدْمِجُهَا لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "items": [
+    {
+     "word": "خَوْخ",
+     "audio": "words/khawkh.mp3",
+     "pic": "../../pics/ar-peach.png",
+     "chips": [
+      "خَ",
+      "وْ",
+      "خ"
+     ]
+    },
+    {
+     "word": "خُبْز",
+     "audio": "words/khubz.mp3",
+     "pic": "../../pics/ar-bread.png",
+     "chips": [
+      "خُ",
+      "بْ",
+      "زْ"
+     ]
+    },
+    {
+     "word": "نَخْل",
+     "audio": "words/nakhl.mp3",
+     "pic": "../../pics/ar-palm.png",
+     "chips": [
+      "نَ",
+      "خْ",
+      "ل"
+     ]
     }
    ]
   },
   {
    "type": "vowel",
-   "ex": 9,
+   "ex": 10,
    "page": 32,
-   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الخاء الْمُنَاسِبَ",
-   "taskAudio": [
-    "../q-prompts/choose-letter-sound-a.mp3",
-    "../letters/62e/name.mp3",
-    "../q-prompts/choose-letter-sound-b.mp3"
-   ],
-   "hint": "اختار صوت الخاء",
-   "items": [
-    {
-     "word": "خَسّ",
-     "pic": "../../pics/ar-lettuce.png",
-     "audio": "words/khass.mp3",
-     "answer": "خَ"
-    },
-    {
-     "word": "خُبْز",
-     "pic": "../../pics/ar-bread.png",
-     "audio": "words/khubz.mp3",
-     "answer": "خُ"
-    },
-    {
-     "word": "خِيَار",
-     "pic": "../../pics/ar-cucumber.png",
-     "audio": "words/khiyar.mp3",
-     "answer": "خِ"
-    },
-    {
-     "word": "خَرُوف",
-     "pic": "../../pics/ar-sheep.png",
-     "audio": "words/kharuf.mp3",
-     "answer": "خَ"
-    }
-   ],
+   "book": "booklet",
+   "task": "أَنْطِقُ، وَأَخْتَارُ حَرْفَ الْخَاءِ مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار الخاء بالحركة الصح",
    "choices": [
     "خَ",
     "خُ",
     "خِ",
     "خْ"
-   ]
-  },
-  {
-   "type": "write",
-   "ex": 10,
-   "page": 33,
-   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
-   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   ],
    "items": [
     {
-     "word": "خُفَّاش",
-     "chips": [
+     "word": "مَخْبَز",
+     "audio": "words/makhbaz.mp3",
+     "pic": "../../pics/ar-bakery.png",
+     "answer": "خْ",
+     "choices": [
+      "خَ",
       "خُ",
-      "فَّاش"
+      "خْ"
      ],
-     "audio": "words/khuffash.mp3"
-    },
-    {
-     "word": "خُيُوط",
-     "chips": [
-      "خُ",
-      "يُوط"
-     ],
-     "audio": "words/khuyut.mp3"
-    },
-    {
-     "word": "خِزَانَة",
-     "chips": [
-      "خِ",
-      "زَا",
-      "نَة"
-     ],
-     "audio": "words/khizana.mp3"
-    },
-    {
-     "word": "خِنْجَر",
-     "chips": [
-      "خِنْ",
-      "جَر"
-     ],
-     "audio": "words/khanjar.mp3"
-    }
-   ]
-  },
-  {
-   "type": "arrange",
-   "ex": 11,
-   "page": 33,
-   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/arrange-letters.mp3",
-   "hint": "رتب الحروف",
-   "items": [
-    {
-     "word": "خَسّ",
-     "pic": "../../pics/ar-lettuce.png",
-     "audio": "words/khass.mp3"
+     "at": 1
     },
     {
      "word": "خُبْز",
+     "audio": "words/khubz.mp3",
      "pic": "../../pics/ar-bread.png",
-     "audio": "words/khubz.mp3"
-    },
-    {
-     "word": "نَخْل",
-     "pic": "../../pics/ar-palm.png",
-     "audio": "words/nakhl.mp3"
-    },
-    {
-     "word": "خَشَب",
-     "pic": "../../pics/ar-wood.png",
-     "audio": "words/khashab.mp3"
-    }
-   ]
-  },
-  {
-   "type": "circle",
-   "ex": 12,
-   "page": 33,
-   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الخاء",
-   "taskAudio": [
-    "../q-prompts/circle-word-letter.mp3",
-    "../letters/62e/name.mp3"
-   ],
-   "hint": "اضغط على الكلمة اللي فيها الحرف",
-   "items": [
-    {
-     "word": "أَرْنَب",
-     "audio": "../u1l3/words/arnab.mp3"
+     "answer": "خُ",
+     "choices": [
+      "خَ",
+      "خُ",
+      "خِ"
+     ]
     },
     {
      "word": "خَسّ",
      "audio": "words/khass.mp3",
-     "answer": true
+     "pic": "../../pics/ar-lettuce.png",
+     "answer": "خَ",
+     "choices": [
+      "خَ",
+      "خُ",
+      "خِ"
+     ]
     },
     {
-     "word": "أَسَد",
-     "audio": "../u1l3/words/asad.mp3"
+     "word": "خِنْجَر",
+     "audio": "words/khanjar.mp3",
+     "pic": "../../pics/ar-dagger.png",
+     "answer": "خِ",
+     "choices": [
+      "خَ",
+      "خُ",
+      "خِ"
+     ]
     }
    ]
   },
   {
    "type": "circle",
-   "ex": 12,
-   "page": 33,
-   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الخاء",
-   "taskAudio": [
-    "../q-prompts/circle-word-letter.mp3",
-    "../letters/62e/name.mp3"
-   ],
-   "hint": "اضغط على الكلمة اللي فيها الحرف",
+   "ex": 1,
+   "page": 25,
+   "book": "workbook",
+   "task": "أَضَعُ دَائِرَةً حَوْلَ أَشْكَالِ حَرْفِ الْخَاءِ",
+   "taskAudio": "q/task-2.mp3",
+   "hint": "اضغط على أشكال الخاء",
    "items": [
     {
-     "word": "إِبْرَة",
-     "audio": "../u1l3/words/ibra.mp3"
+     "word": "خـ",
+     "text": "خـ",
+     "answer": true
+    },
+    {
+     "word": "ع",
+     "text": "ع",
+     "answer": false
+    },
+    {
+     "word": "خ",
+     "text": "خ",
+     "answer": true
+    },
+    {
+     "word": "ـخـ",
+     "text": "ـخـ",
+     "answer": true
+    },
+    {
+     "word": "ـخ",
+     "text": "ـخ",
+     "answer": true
+    },
+    {
+     "word": "ج",
+     "text": "ج",
+     "answer": false
+    },
+    {
+     "word": "ـخـ",
+     "text": "ـخـ",
+     "answer": true
+    },
+    {
+     "word": "خـ",
+     "text": "خـ",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": "h1",
+   "page": 25,
+   "book": "workbook",
+   "task": "أَنْطِقُ، ثُمَّ أَخْتَارُ حَرْفَ الْخَاءِ بِالْحَرَكَةِ الصَّحِيحَةِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار الخاء بالحركة الصح",
+   "choices": [
+    "خَ",
+    "خُ",
+    "خِ",
+    "خْ"
+   ],
+   "items": [
+    {
+     "word": "خَرُوف",
+     "audio": "words/kharuf.mp3",
+     "pic": "../../pics/ar-sheep.png",
+     "answer": "خَ",
+     "choices": [
+      "خَ",
+      "خُ",
+      "خِ"
+     ]
+    },
+    {
+     "word": "خُبْز",
+     "audio": "words/khubz.mp3",
+     "pic": "../../pics/ar-bread.png",
+     "answer": "خُ",
+     "choices": [
+      "خَ",
+      "خُ",
+      "خِ"
+     ]
+    },
+    {
+     "word": "خِيَار",
+     "audio": "words/khiyar.mp3",
+     "pic": "../../pics/ar-cucumber.png",
+     "answer": "خِ",
+     "choices": [
+      "خَ",
+      "خُ",
+      "خِ"
+     ]
     },
     {
      "word": "نَخْل",
      "audio": "words/nakhl.mp3",
-     "answer": true
+     "pic": "../../pics/ar-palm.png",
+     "answer": "خْ",
+     "choices": [
+      "خَ",
+      "خِ",
+      "خْ"
+     ],
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": "h3",
+   "page": 25,
+   "book": "workbook",
+   "task": "أَنْطِقُ، ثُمَّ أُظَلِّلُ مَكَانَ صَوْتِ حَرْفِ الْخَاءِ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/mark-letter-position.mp3",
+    "../letters/62e/name.mp3"
+   ],
+   "hint": "اضغط على الدائرة التي فيها الخاء",
+   "items": [
+    {
+     "word": "خِيَار",
+     "audio": "words/khiyar.mp3",
+     "pic": "../../pics/ar-cucumber.png",
+     "at": 0
     },
     {
-     "word": "أُذُن",
-     "audio": "../u1l3/words/udhun.mp3"
+     "word": "نَخْل",
+     "audio": "words/nakhl.mp3",
+     "pic": "../../pics/ar-palm.png",
+     "at": 1
+    },
+    {
+     "word": "خُبْز",
+     "audio": "words/khubz.mp3",
+     "pic": "../../pics/ar-bread.png",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": "h2",
+   "page": 25,
+   "book": "workbook",
+   "task": "أَدْمِجُ وَأُكَوِّنُ كَلِمَةً",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "items": [
+    {
+     "word": "أَخ",
+     "audio": "../u1l4/words/akh.mp3",
+     "chips": [
+      "أَ",
+      "خ"
+     ]
+    },
+    {
+     "word": "جَدِّي",
+     "audio": "../u1l8/words/jaddi.mp3",
+     "chips": [
+      "جَ",
+      "دِّي"
+     ]
+    },
+    {
+     "word": "أُحِبّ",
+     "audio": "../u1l6/words/uhibb.mp3",
+     "chips": [
+      "أُ",
+      "حِ",
+      "بّ"
+     ]
     }
    ]
   }

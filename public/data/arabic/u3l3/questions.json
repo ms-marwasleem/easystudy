@@ -2,6 +2,258 @@
  "sets": [
   {
    "type": "circle",
+   "ex": 2,
+   "page": 85,
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ حَرْفِ الْيَاءِ",
+   "taskAudio": "q/task-2.mp3",
+   "hint": "اضغط على أشكال الياء",
+   "items": [
+    {
+     "word": "أ",
+     "text": "أ",
+     "answer": 0
+    },
+    {
+     "word": "ش",
+     "text": "ش",
+     "answer": 0
+    },
+    {
+     "word": "ي",
+     "text": "ي",
+     "answer": 1
+    },
+    {
+     "word": "ت",
+     "text": "ت",
+     "answer": 0
+    },
+    {
+     "word": "يـ",
+     "text": "يـ",
+     "answer": 1
+    },
+    {
+     "word": "ب",
+     "text": "ب",
+     "answer": 0
+    },
+    {
+     "word": "ـيـ",
+     "text": "ـيـ",
+     "answer": 1
+    },
+    {
+     "word": "ـي",
+     "text": "ـي",
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 4,
+   "page": 86,
+   "task": "أَتَتَبَّعُ الْخَرِيطَةَ؛ لِكَيْ أَصِلَ الصُّوَرَ الَّتِي بِهَا حَرْفُ الْيَاءِ",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "اضغط على الصور اللي فيها الياء",
+   "items": [
+    {
+     "word": "فَهْد",
+     "audio": "q/w-fahd.mp3",
+     "pic": "../../pics/ar-cheetah.png",
+     "answer": false
+    },
+    {
+     "word": "يَد",
+     "audio": "words/yad.mp3",
+     "pic": "../../pics/ar-hand.jpg",
+     "answer": true
+    },
+    {
+     "word": "عَيْن",
+     "audio": "words/ayn.mp3",
+     "pic": "../../pics/ar-eye.png",
+     "answer": true
+    },
+    {
+     "word": "يَمَامَة",
+     "audio": "words/yamama.mp3",
+     "pic": "../../pics/ar-dove.jpg",
+     "answer": true
+    },
+    {
+     "word": "بَيْت",
+     "audio": "../u2l3/words/bayt.mp3",
+     "pic": "../../pics/ar-houses.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "sound",
+   "ex": 5,
+   "page": 86,
+   "task": "أَنْطِقُ صَوْتَ حَرْفِ الْيَاءِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
+   "taskAudio": "q/task-5.mp3",
+   "hint": "اسمع الجملة وردد وراها",
+   "items": [
+    {
+     "word": "يَد",
+     "ask": "يَ",
+     "pic": "../../pics/ar-hand.jpg",
+     "audio": [
+      "../letters/64a/name.mp3",
+      "../shared/h-fatha.mp3",
+      "../../syl-ar/64a-64e.mp3",
+      "words/yad.mp3"
+     ]
+    },
+    {
+     "word": "يُوسُفِيّ",
+     "ask": "يُ",
+     "pic": "../../pics/ar-tangerine.jpg",
+     "audio": [
+      "../letters/64a/name.mp3",
+      "../shared/h-damma.mp3",
+      "../../syl-ar/64a-64f.mp3",
+      "words/yusufi.mp3"
+     ]
+    },
+    {
+     "word": "يِن",
+     "ask": "يِ",
+     "pic": "../../pics/ar-coin.png",
+     "audio": [
+      "../letters/64a/name.mp3",
+      "../shared/h-kasra.mp3",
+      "../../syl-ar/64a-650.mp3",
+      "q/w-yin.mp3"
+     ]
+    },
+    {
+     "word": "لَيْمُون",
+     "ask": "يْ",
+     "pic": "../../pics/ar-lemon.png",
+     "audio": [
+      "../letters/64a/name.mp3",
+      "../shared/h-sukoon.mp3",
+      "../../syl-ar/64a-652.mp3",
+      "../u2l3/words/laymun.mp3"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 8,
+   "page": 87,
+   "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الْيَاءِ مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار الياء بالحركة الصح",
+   "choices": [
+    "يَ",
+    "يُ",
+    "يِ",
+    "يْ"
+   ],
+   "items": [
+    {
+     "word": "بَيْض",
+     "audio": "../u1l4/words/bayd.mp3",
+     "pic": "../../pics/ar-eggs.png",
+     "answer": "يْ",
+     "choices": [
+      "يَ",
+      "يُ",
+      "يِ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "يُوسُفِيّ",
+     "audio": "words/yusufi.mp3",
+     "pic": "../../pics/ar-tangerine.jpg",
+     "answer": "يُ",
+     "choices": [
+      "يَ",
+      "يُ",
+      "يِ"
+     ]
+    },
+    {
+     "word": "يِن",
+     "audio": "q/w-yin.mp3",
+     "pic": "../../pics/ar-coin.png",
+     "answer": "يِ",
+     "choices": [
+      "يَ",
+      "يُ",
+      "يِ"
+     ]
+    },
+    {
+     "word": "يَد",
+     "audio": "words/yad.mp3",
+     "pic": "../../pics/ar-hand.jpg",
+     "answer": "يَ",
+     "choices": [
+      "يَ",
+      "يُ",
+      "يِ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 9,
+   "page": 87,
+   "task": "أَدْمِجُ الْحُرُوفَ لِأُكَوِّنَ كَلِمَةً",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "items": [
+    {
+     "word": "بَيْت",
+     "audio": "../u2l3/words/bayt.mp3",
+     "pic": "../../pics/ar-houses.png",
+     "chips": [
+      "بَيْ",
+      "ت"
+     ]
+    },
+    {
+     "word": "سَيْف",
+     "audio": "q/w-sayf.mp3",
+     "pic": "../../pics/ar-swords.png",
+     "chips": [
+      "سَيْ",
+      "ف"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 88,
+   "task": "أُكَوِّنُ كَلِمَةً مِنَ الْحُرُوفِ لِأَكْتَشِفَ الْجُزْءَ النَّاقِصَ",
+   "taskAudio": "q/task-10.mp3",
+   "hint": "اكتب الكلمة بعد ما ترتب الحروف",
+   "items": [
+    {
+     "word": "يَد",
+     "audio": "words/yad.mp3",
+     "pic": "../../pics/ar-hand.jpg",
+     "chips": [
+      "يَ",
+      "د"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
    "ex": 7,
    "page": 81,
    "task": "اسْتَمِعْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الْيَاءِ",
@@ -11,6 +263,7 @@
    ],
    "hint": "اضغط على الصور التي فيها صوت الياء",
    "silent": true,
+   "book": "booklet",
    "items": [
     {
      "word": "eye",
@@ -74,6 +327,7 @@
     "../letters/64a/name.mp3"
    ],
    "hint": "اضغط على الدائرة التي فيها الياء",
+   "book": "booklet",
    "items": [
     {
      "word": "يَد",
@@ -124,6 +378,7 @@
     "يِ",
     "يْ"
    ],
+   "book": "booklet",
    "items": [
     {
      "word": "يَمَامَة",
@@ -160,6 +415,7 @@
    "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/merge-syllables.mp3",
    "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "book": "booklet",
    "items": [
     {
      "word": "عُصْفُور",
@@ -205,6 +461,7 @@
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/arrange-letters.mp3",
    "hint": "رتب الحروف",
+   "book": "booklet",
    "items": [
     {
      "word": "بَيْض",
@@ -235,6 +492,7 @@
    "task": "أَقْرَأُ ثُمَّ أَصِلُ",
    "taskAudio": "../q-prompts/match-picture.mp3",
    "hint": "صل الكلمة بالصورة",
+   "book": "booklet",
    "items": [
     {
      "word": "شَيْخ",
@@ -253,8 +511,52 @@
     },
     {
      "word": "ظَبْي",
-     "pic": "../../pics/ar-deer.jpg",
+     "pic": "../../pics/ar-deer.png",
      "audio": "words/zabi.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 1,
+   "page": 46,
+   "task": "أَضَعُ دَائِرَةً حَوْلَ حَرْفِ الْيَاءِ فِي الْكَلِمَاتِ التَّالِيَةِ",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/64a/name.mp3"
+   ],
+   "hint": "اضغط على الكلمات اللي فيها الياء",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "بَيْت",
+     "audio": "../u2l3/words/bayt.mp3",
+     "answer": true
+    },
+    {
+     "word": "كُرْسِيّ",
+     "audio": "../u2l4/words/kursi.mp3",
+     "answer": true
+    },
+    {
+     "word": "جَدِّي",
+     "audio": "../u1l8/words/jaddi.mp3",
+     "answer": true
+    },
+    {
+     "word": "يَد",
+     "audio": "words/yad.mp3",
+     "answer": true
+    },
+    {
+     "word": "قَمَر",
+     "audio": "../u2l9/q/w-qamar.mp3",
+     "answer": false
+    },
+    {
+     "word": "حَبْل",
+     "audio": "../u1l6/words/habl.mp3",
+     "answer": false
     }
    ]
   }

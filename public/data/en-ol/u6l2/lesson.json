@@ -1,0 +1,452 @@
+{
+ "id": "u6l2",
+ "unit": 6,
+ "lesson": 2,
+ "title": "Phonics Bb Ll",
+ "task": "Listen to your teacher and repeat.",
+ "scene": "../u1l2/scene.jpg",
+ "sceneAlt": "Phonics Bb and Ll pictures",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "speakers": {
+  "Bb": "#D93D78",
+  "Ll": "#D93D78"
+ },
+ "pages": 2,
+ "pageLayouts": [
+  "pictures",
+  "pictures"
+ ],
+ "pageTasks": [
+  "Listen to your teacher and repeat.",
+  "Listen to your teacher and repeat."
+ ],
+ "pagesBook": [
+  108,
+  110
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "bird",
+   "ar": "طائر",
+   "img": "../../pics/bird.png",
+   "parts": [
+    {
+     "t": "bi",
+     "ph": "b_er",
+     "audio": "../../phonics/chunks/b_er.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u2l1/words/bird.mp3"
+   }
+  },
+  {
+   "word": "boy",
+   "ar": "ولد",
+   "img": "../../pics/boy-u6l2.png",
+   "parts": [
+    {
+     "t": "bo",
+     "ph": "b_oi",
+     "audio": "../../phonics/chunks/b_oi.mp3"
+    },
+    {
+     "t": "y",
+     "spell": true,
+     "ph": "y",
+     "audio": "../../phonics/y.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/boy.mp3"
+   }
+  },
+  {
+   "word": "ball",
+   "ar": "كرة",
+   "img": "../../pics/ball.png",
+   "parts": [
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "aw",
+     "audio": "../../phonics/aw.mp3"
+    },
+    {
+     "t": "ll",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u2l1/words/ball.mp3"
+   }
+  },
+  {
+   "word": "banana",
+   "ar": "موز",
+   "img": "../../pics/banana-u4l2.png",
+   "parts": [
+    {
+     "t": "ba",
+     "ph": "b_a",
+     "audio": "../../phonics/chunks/b_a.mp3"
+    },
+    {
+     "t": "na",
+     "ph": "n_a",
+     "audio": "../../phonics/chunks/n_a.mp3"
+    },
+    {
+     "t": "na",
+     "ph": "n_a",
+     "audio": "../../phonics/chunks/n_a.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u4l2/words/banana.mp3"
+   }
+  },
+  {
+   "word": "bike",
+   "ar": "دراجة",
+   "img": "../../pics/bike-u6l2.png",
+   "parts": [
+    {
+     "t": "bi",
+     "ph": "b_igh",
+     "audio": "../../phonics/chunks/b_igh.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/bike.mp3"
+   }
+  },
+  {
+   "word": "lamp",
+   "ar": "مصباح",
+   "img": "../../pics/lamp-u6l2.png",
+   "parts": [
+    {
+     "t": "la",
+     "ph": "l_a",
+     "audio": "../../phonics/chunks/l_a.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/lamp.mp3"
+   }
+  },
+  {
+   "word": "lion",
+   "ar": "أسد",
+   "img": "../../pics/lion-u6l1.png",
+   "parts": [
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "io",
+     "ph": "igh_o",
+     "audio": "../../phonics/chunks/igh_o.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u6l1/words/lion.mp3"
+   }
+  },
+  {
+   "word": "lemon",
+   "ar": "ليمون",
+   "img": "../../pics/lemon-u6l2.png",
+   "parts": [
+    {
+     "t": "le",
+     "ph": "l_e",
+     "audio": "../../phonics/chunks/l_e.mp3"
+    },
+    {
+     "t": "mo",
+     "ph": "m_o",
+     "audio": "../../phonics/chunks/m_o.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/lemon.mp3"
+   }
+  },
+  {
+   "word": "leaf",
+   "ar": "ورقة شجر",
+   "img": "../../pics/leaf.png",
+   "parts": [
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "ea",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    },
+    {
+     "t": "f",
+     "ph": "f",
+     "audio": "../../phonics/f.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u2l3/words/leaf.mp3"
+   }
+  },
+  {
+   "word": "lunch",
+   "ar": "غداء",
+   "img": "../../pics/lunch-u6l2.png",
+   "parts": [
+    {
+     "t": "lu",
+     "ph": "l_u",
+     "audio": "../../phonics/chunks/l_u.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "ch",
+     "ph": "ch",
+     "audio": "../../phonics/ch.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/lunch.mp3"
+   }
+  }
+ ],
+ "_note": "Book p108 (Bb: bird boy ball banana bike) and p110 (Ll: lamp lion lemon leaf lunch). Tracing skipped.",
+ "lines": [
+  {
+   "who": "Bb",
+   "page": 1,
+   "words": [
+    [
+     "bird",
+     0.03,
+     0.62
+    ]
+   ],
+   "pic": "../../pics/bird.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Bb",
+   "page": 1,
+   "words": [
+    [
+     "boy",
+     1.78,
+     2.31
+    ]
+   ],
+   "pic": "../../pics/boy-u6l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Bb",
+   "page": 1,
+   "words": [
+    [
+     "ball",
+     3.47,
+     3.9
+    ]
+   ],
+   "pic": "../../pics/ball.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Bb",
+   "page": 1,
+   "words": [
+    [
+     "banana",
+     5.06,
+     5.78
+    ]
+   ],
+   "pic": "../../pics/banana-u4l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Bb",
+   "page": 1,
+   "words": [
+    [
+     "bike",
+     6.99,
+     7.57
+    ]
+   ],
+   "pic": "../../pics/bike-u6l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Ll",
+   "page": 2,
+   "words": [
+    [
+     "lamp",
+     8.74,
+     9.23
+    ]
+   ],
+   "pic": "../../pics/lamp-u6l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Ll",
+   "page": 2,
+   "words": [
+    [
+     "lion",
+     10.38,
+     11.05
+    ]
+   ],
+   "pic": "../../pics/lion-u6l1.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Ll",
+   "page": 2,
+   "words": [
+    [
+     "lemon",
+     12.21,
+     12.83
+    ]
+   ],
+   "pic": "../../pics/lemon-u6l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Ll",
+   "page": 2,
+   "words": [
+    [
+     "leaf",
+     14.01,
+     14.52
+    ]
+   ],
+   "pic": "../../pics/leaf.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Ll",
+   "page": 2,
+   "words": [
+    [
+     "lunch",
+     15.7,
+     16.32
+    ]
+   ],
+   "pic": "../../pics/lunch-u6l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  }
+ ],
+ "end": 16.32
+}

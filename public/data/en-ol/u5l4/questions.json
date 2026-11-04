@@ -1,0 +1,892 @@
+{
+ "_note": "u5l4: p99 ex4, p101 ex8, p102 ex10 (tracing and colouring skipped). Performance p47-49.",
+ "sets": [
+  {
+   "type": "match",
+   "ex": 4,
+   "page": 99,
+   "task": "Circle the pictures that start with the letter (Oo).",
+   "taskAudio": "../../en-shared/q/start-circle-the-pictures-oo.mp3",
+   "hint": "Tap the pictures that start with Oo!",
+   "center": "Oo",
+   "centerAudio": "../../phonics/o.mp3",
+   "items": [
+    {
+     "word": "horse",
+     "audio": "../u2l3/words/horse.mp3",
+     "pic": "../../pics/horse-u3l4.png",
+     "answer": false,
+     "pos": [
+      10,
+      16
+     ]
+    },
+    {
+     "word": "ostrich",
+     "audio": "../u4l2/words/ostrich.mp3",
+     "pic": "../../pics/ostrich-u4l2.png",
+     "answer": true,
+     "pos": [
+      90,
+      16
+     ]
+    },
+    {
+     "word": "carrot",
+     "audio": "../u4l4/words/carrot.mp3",
+     "pic": "../../pics/carrot-u4l4.png",
+     "answer": false,
+     "pos": [
+      10,
+      50
+     ]
+    },
+    {
+     "word": "panda",
+     "audio": "../u3l2/words/panda.mp3",
+     "pic": "../../pics/panda.png",
+     "answer": false,
+     "pos": [
+      90,
+      50
+     ]
+    },
+    {
+     "word": "olive",
+     "audio": "words/olive.mp3",
+     "pic": "../../pics/olive-u5l4.png",
+     "answer": true,
+     "pos": [
+      28,
+      82
+     ]
+    },
+    {
+     "word": "cat",
+     "audio": "../u1l4/words/cat.mp3",
+     "pic": "../../pics/cat-u4l4.png",
+     "answer": false,
+     "pos": [
+      72,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 8,
+   "page": 101,
+   "task": "Circle the pictures that start with the letter (Ff).",
+   "taskAudio": "../../en-shared/q/start-circle-the-pictures-ff.mp3",
+   "hint": "Tap the pictures that start with Ff!",
+   "center": "Ff",
+   "centerAudio": "../../phonics/f.mp3",
+   "items": [
+    {
+     "word": "tree",
+     "audio": "../u1l2/words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "answer": false,
+     "pos": [
+      10,
+      16
+     ]
+    },
+    {
+     "word": "fish",
+     "audio": "../u4l2/words/fish.mp3",
+     "pic": "../../pics/fish-u4l2.png",
+     "answer": true,
+     "pos": [
+      90,
+      16
+     ]
+    },
+    {
+     "word": "orange",
+     "audio": "words/orange.mp3",
+     "pic": "../../pics/orange-u5l4.png",
+     "answer": false,
+     "pos": [
+      10,
+      50
+     ]
+    },
+    {
+     "word": "fox",
+     "audio": "../u4l2/words/fox.mp3",
+     "pic": "../../pics/fox-u4l2.png",
+     "answer": true,
+     "pos": [
+      90,
+      50
+     ]
+    },
+    {
+     "word": "fork",
+     "audio": "../u4l2/words/fork.mp3",
+     "pic": "../../pics/fork-u4l2.png",
+     "answer": true,
+     "pos": [
+      28,
+      82
+     ]
+    },
+    {
+     "word": "frog",
+     "audio": "../u2l3/words/frog.mp3",
+     "pic": "../../pics/frog.png",
+     "answer": true,
+     "pos": [
+      72,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "ex": 10,
+   "page": 102,
+   "task": "Look, say, and write the beginning letter of the word.",
+   "taskAudio": "../../en-shared/q/look-say-and-write-the-beginning-letter-of-the-word.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "on",
+     "audio": "words/on.mp3",
+     "pic": "../../pics/on-u5l4.png",
+     "missing": 0,
+     "answer": "o"
+    },
+    {
+     "word": "ostrich",
+     "audio": "../u4l2/words/ostrich.mp3",
+     "pic": "../../pics/ostrich-u4l2.png",
+     "missing": 0,
+     "answer": "o"
+    },
+    {
+     "word": "fork",
+     "audio": "../u4l2/words/fork.mp3",
+     "pic": "../../pics/fork-u4l2.png",
+     "missing": 0,
+     "answer": "f"
+    },
+    {
+     "word": "fan",
+     "audio": "words/fan.mp3",
+     "pic": "../../pics/fan-u5l4.png",
+     "missing": 0,
+     "answer": "f"
+    },
+    {
+     "word": "frog",
+     "audio": "../u2l3/words/frog.mp3",
+     "pic": "../../pics/frog.png",
+     "missing": 0,
+     "answer": "f"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 47,
+   "grp": "classroom-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "olive",
+     "scr": "oliev",
+     "audio": "words/olive.mp3",
+     "pic": "../../pics/olive-u5l4.png"
+    },
+    {
+     "word": "fish",
+     "scr": "sihf",
+     "audio": "../u4l2/words/fish.mp3",
+     "pic": "../../pics/fish-u4l2.png"
+    },
+    {
+     "word": "ostrich",
+     "scr": "oicshtr",
+     "audio": "../u4l2/words/ostrich.mp3",
+     "pic": "../../pics/ostrich-u4l2.png"
+    },
+    {
+     "word": "frog",
+     "scr": "orfg",
+     "audio": "../u2l3/words/frog.mp3",
+     "pic": "../../pics/frog.png"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 47,
+   "grp": "classroom-2",
+   "task": "Circle the odd sound word.",
+   "taskAudio": "../../en-shared/q/circle-the-odd-sound-word.mp3",
+   "hint": "Tap the word that starts with a different sound!",
+   "items": [
+    {
+     "word": "octopus",
+     "audio": "words/octopus.mp3",
+     "pic": "../../pics/octopus.png",
+     "answer": false
+    },
+    {
+     "word": "on",
+     "audio": "words/on.mp3",
+     "pic": "../../pics/on-u5l4.png",
+     "answer": false
+    },
+    {
+     "word": "fork",
+     "audio": "../u4l2/words/fork.mp3",
+     "pic": "../../pics/fork-u4l2.png",
+     "answer": true
+    },
+    {
+     "word": "olive",
+     "audio": "words/olive.mp3",
+     "pic": "../../pics/olive-u5l4.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 3,
+   "page": 47,
+   "grp": "classroom-3",
+   "task": "Circle the odd sound word.",
+   "taskAudio": "../../en-shared/q/circle-the-odd-sound-word.mp3",
+   "hint": "Tap the word that starts with a different sound!",
+   "items": [
+    {
+     "word": "ostrich",
+     "audio": "../u4l2/words/ostrich.mp3",
+     "pic": "../../pics/ostrich-u4l2.png",
+     "answer": true
+    },
+    {
+     "word": "fish",
+     "audio": "../u4l2/words/fish.mp3",
+     "pic": "../../pics/fish-u4l2.png",
+     "answer": false
+    },
+    {
+     "word": "frog",
+     "audio": "../u2l3/words/frog.mp3",
+     "pic": "../../pics/frog.png",
+     "answer": false
+    },
+    {
+     "word": "fan",
+     "audio": "words/fan.mp3",
+     "pic": "../../pics/fan-u5l4.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 4,
+   "page": 47,
+   "grp": "classroom-4",
+   "task": "Circle the odd sound word.",
+   "taskAudio": "../../en-shared/q/circle-the-odd-sound-word.mp3",
+   "hint": "Tap the word that starts with a different sound!",
+   "items": [
+    {
+     "word": "fox",
+     "audio": "../u4l2/words/fox.mp3",
+     "pic": "../../pics/fox-u4l2.png",
+     "answer": false
+    },
+    {
+     "word": "on",
+     "audio": "words/on.mp3",
+     "pic": "../../pics/on-u5l4.png",
+     "answer": true
+    },
+    {
+     "word": "fan",
+     "audio": "words/fan.mp3",
+     "pic": "../../pics/fan-u5l4.png",
+     "answer": false
+    },
+    {
+     "word": "fork",
+     "audio": "../u4l2/words/fork.mp3",
+     "pic": "../../pics/fork-u4l2.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 47,
+   "grp": "homework-1",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "fan",
+     "audio": "words/fan.mp3",
+     "pic": "../../pics/fan-u5l4.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "octopus",
+     "audio": "words/octopus.mp3",
+     "pic": "../../pics/octopus.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "word": "fox",
+     "audio": "../u4l2/words/fox.mp3",
+     "pic": "../../pics/fox-u4l2.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "on",
+     "audio": "words/on.mp3",
+     "pic": "../../pics/on-u5l4.png",
+     "gaps": [
+      0,
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 1,
+   "page": 49,
+   "grp": "weekly-c-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "ostrich",
+     "scr": "oicshtr",
+     "audio": "../u4l2/words/ostrich.mp3",
+     "pic": "../../pics/ostrich-u4l2.png"
+    },
+    {
+     "word": "fork",
+     "scr": "fokr",
+     "audio": "../u4l2/words/fork.mp3",
+     "pic": "../../pics/fork-u4l2.png"
+    },
+    {
+     "word": "fan",
+     "scr": "nfa",
+     "audio": "words/fan.mp3",
+     "pic": "../../pics/fan-u5l4.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 2,
+   "page": 49,
+   "grp": "weekly-c-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "word": "I can see an octopus.",
+     "lead": "I can see an",
+     "options": [
+      "ostrich",
+      "octopus"
+     ],
+     "answer": 1,
+     "pic": "../../pics/octopus.png",
+     "audio": "../../en-shared/q/i-can-see-an-octopus.mp3"
+    },
+    {
+     "word": "This is a fish.",
+     "lead": "This is a",
+     "options": [
+      "fish",
+      "frog"
+     ],
+     "answer": 0,
+     "pic": "../../pics/fish-u4l2.png",
+     "audio": "../../en-shared/q/this-is-a-fish.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 1,
+   "page": 48,
+   "grp": "weekly-a-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "frog",
+     "scr": "orfg",
+     "audio": "../u2l3/words/frog.mp3",
+     "pic": "../../pics/frog.png"
+    },
+    {
+     "word": "olive",
+     "scr": "oliev",
+     "audio": "words/olive.mp3",
+     "pic": "../../pics/olive-u5l4.png"
+    },
+    {
+     "word": "fox",
+     "scr": "xfo",
+     "audio": "../u4l2/words/fox.mp3",
+     "pic": "../../pics/fox-u4l2.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 2,
+   "page": 48,
+   "grp": "weekly-a-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "word": "I can see a fan.",
+     "lead": "I can see a",
+     "options": [
+      "fox",
+      "fan"
+     ],
+     "answer": 1,
+     "pic": "../../pics/fan-u5l4.png",
+     "audio": "../../en-shared/q/i-can-see-a-fan.mp3"
+    },
+    {
+     "word": "This is an ostrich.",
+     "lead": "This is an",
+     "options": [
+      "octopus",
+      "ostrich"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ostrich-u4l2.png",
+     "audio": "../../en-shared/q/this-is-an-ostrich.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 1,
+   "page": 48,
+   "grp": "weekly-b-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "on",
+     "scr": "no",
+     "audio": "words/on.mp3",
+     "pic": "../../pics/on-u5l4.png"
+    },
+    {
+     "word": "fish",
+     "scr": "sihf",
+     "audio": "../u4l2/words/fish.mp3",
+     "pic": "../../pics/fish-u4l2.png"
+    },
+    {
+     "word": "octopus",
+     "scr": "outcpso",
+     "audio": "words/octopus.mp3",
+     "pic": "../../pics/octopus.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 2,
+   "page": 48,
+   "grp": "weekly-b-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "word": "I can see a fox.",
+     "lead": "I can see a",
+     "options": [
+      "fox",
+      "fan"
+     ],
+     "answer": 0,
+     "pic": "../../pics/fox-u4l2.png",
+     "audio": "../../en-shared/q/i-can-see-a-fox.mp3"
+    },
+    {
+     "word": "This is a fork.",
+     "lead": "This is a",
+     "options": [
+      "fox",
+      "fork"
+     ],
+     "answer": 1,
+     "pic": "../../pics/fork-u4l2.png",
+     "audio": "../../en-shared/q/this-is-a-fork.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 1,
+   "page": 29,
+   "task": "Listen and write the missing letters:",
+   "taskAudio": "../../en-shared/q/listen-and-write-the-missing-letters.mp3",
+   "hint": "Type the missing letters!",
+   "items": [
+    {
+     "word": "monkey",
+     "audio": "../u5l2/words/monkey.mp3",
+     "pic": "../../pics/monkey-u5l2.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "ostrich",
+     "audio": "../u4l2/words/ostrich.mp3",
+     "pic": "../../pics/ostrich-u4l2.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "frog",
+     "audio": "../u2l3/words/frog.mp3",
+     "pic": "../../pics/frog.png",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "cloze",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 2,
+   "page": 29,
+   "task": "Read and complete:",
+   "taskAudio": "../../en-shared/q/read-and-complete.mp3",
+   "hint": "Tap the missing word!",
+   "items": [
+    {
+     "text": "It's an [[octopus]].",
+     "bank": [
+      "eight",
+      "animals",
+      "monkeys",
+      "octopus"
+     ],
+     "audio": "../../en-shared/q/it-s-an-octopus.mp3"
+    },
+    {
+     "text": "There are three [[monkeys]].",
+     "bank": [
+      "eight",
+      "animals",
+      "monkeys",
+      "octopus"
+     ],
+     "audio": "../../en-shared/q/there-are-three-monkeys.mp3"
+    },
+    {
+     "text": "Ducks and horses are farm [[animals]].",
+     "bank": [
+      "eight",
+      "animals",
+      "monkeys",
+      "octopus"
+     ],
+     "audio": "../../en-shared/q/ducks-and-horses-are-farm-animals.mp3"
+    },
+    {
+     "text": "There are [[eight]] pens.",
+     "bank": [
+      "eight",
+      "animals",
+      "monkeys",
+      "octopus"
+     ],
+     "audio": "../../en-shared/q/there-are-eight-pens.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 3,
+   "page": 29,
+   "task": "Unscramble and write:",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "girl",
+     "scr": "lrig",
+     "audio": "../u5l2/words/girl.mp3",
+     "pic": "../../pics/girl-u5l2.png"
+    },
+    {
+     "word": "mango",
+     "scr": "mgnoa",
+     "audio": "../u5l2/words/mango.mp3",
+     "pic": "../../pics/mango-u5l2.png"
+    },
+    {
+     "word": "fox",
+     "scr": "xfo",
+     "audio": "../u4l2/words/fox.mp3",
+     "pic": "../../pics/fox-u4l2.png"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 4,
+   "page": 29,
+   "task": "Reorder to form sentences:",
+   "taskAudio": "../../en-shared/q/reorder-to-form-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "can",
+      "see",
+      "an",
+      "octopus"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-see-an-octopus.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "horse",
+      "is",
+      "big"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-horse-is-big.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 1,
+   "page": 30,
+   "task": "Listen and write the missing letters:",
+   "taskAudio": "../../en-shared/q/listen-and-write-the-missing-letters.mp3",
+   "hint": "Type the missing letters!",
+   "items": [
+    {
+     "word": "fish",
+     "audio": "../u4l2/words/fish.mp3",
+     "pic": "../../pics/fish-u4l2.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "gloves",
+     "audio": "../u5l2/words/gloves.mp3",
+     "pic": "../../pics/gloves-u5l2.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "octopus",
+     "audio": "../u5l4/words/octopus.mp3",
+     "pic": "../../pics/octopus.png",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "cloze",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 2,
+   "page": 30,
+   "task": "Read and choose the correct answer:",
+   "taskAudio": "../../en-shared/q/read-and-choose-the-correct-answer.mp3",
+   "hint": "Tap the correct word!",
+   "items": [
+    {
+     "text": "I can see [[three]] ducks.",
+     "bank": [
+      "one",
+      "three"
+     ],
+     "audio": "../../en-shared/q/i-can-see-three-ducks.mp3"
+    },
+    {
+     "text": "How [[many]] bags do you have?",
+     "bank": [
+      "much",
+      "many"
+     ],
+     "audio": "../../en-shared/q/how-many-bags-do-you-have.mp3"
+    },
+    {
+     "text": "The bee is [[small]].",
+     "bank": [
+      "small",
+      "big"
+     ],
+     "audio": "../../en-shared/q/the-bee-is-small.mp3"
+    },
+    {
+     "text": "A chicken is a [[farm]] animal.",
+     "bank": [
+      "farm",
+      "sea"
+     ],
+     "audio": "../../en-shared/q/a-chicken-is-a-farm-animal.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 3,
+   "page": 30,
+   "task": "Unscramble and write:",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "small",
+     "scr": "sllam",
+     "audio": "../../en-shared/q/small.mp3",
+     "pic": "../../pics/ant.png"
+    },
+    {
+     "word": "fork",
+     "scr": "fokr",
+     "audio": "../u4l2/words/fork.mp3",
+     "pic": "../../pics/fork-u4l2.png"
+    },
+    {
+     "word": "moon",
+     "scr": "mnoo",
+     "audio": "../u5l2/words/moon.mp3",
+     "pic": "../../pics/moon-u5l2.png"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 4,
+   "page": 30,
+   "task": "Reorder to form sentences:",
+   "taskAudio": "../../en-shared/q/reorder-to-form-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "can",
+      "see",
+      "seven",
+      "horses"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-see-seven-horses.mp3"
+    },
+    {
+     "chunks": [
+      "How",
+      "many",
+      "cows",
+      "can",
+      "you",
+      "see"
+     ],
+     "end": "?",
+     "audio": "../../en-shared/q/how-many-cows-can-you-see.mp3"
+    }
+   ]
+  }
+ ]
+}

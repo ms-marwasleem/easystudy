@@ -1,0 +1,182 @@
+{
+ "title": "Test 1",
+ "ratio": 0.707,
+ "head": {
+  "l": "Department of English<br>1st Term OL Booklet Grade 1<br>2026/2027",
+  "r": "Noor El Elm<br>Modern School"
+ },
+ "pages": [
+  {
+   "title": "Model 1",
+   "chip": "Model 1",
+   "foot": 11,
+   "blocks": [
+    {
+     "t": "q",
+     "n": "1",
+     "text": "Listen and write the missing letters:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/grass-exrev2.jpg"
+          },
+          {
+           "t": "text",
+           "text": "gr [[a:tiny]] [[s:tiny]] s",
+           "listen": "grass"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/spoon-exrev2.png"
+          },
+          {
+           "t": "text",
+           "text": "sp [[o:tiny]] [[o:tiny]] n",
+           "listen": "spoon"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/blue.jpg"
+          },
+          {
+           "t": "text",
+           "text": "b [[l:tiny]] ue",
+           "listen": "blue"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "Read and complete:",
+     "body": [
+      {
+       "t": "text",
+       "style": "bank",
+       "text": "arrow – triangle – flying – apple"
+      },
+      {
+       "t": "text",
+       "text": "1- The [[triangle]] has 3 sides."
+      },
+      {
+       "t": "text",
+       "text": "2- The [[apple]] is red."
+      },
+      {
+       "t": "text",
+       "text": "3- It's an [[arrow]] ."
+      },
+      {
+       "t": "text",
+       "text": "4- The butterfly is [[flying]] ."
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Unscramble and write:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/green.jpg"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>n r e g e</span> [[green:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/stars.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>a s s r t</span> [[stars:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/hair.jpg"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>a r h i</span> [[hair:wide]]"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Reorder to form sentences:",
+     "body": [
+      {
+       "t": "order",
+       "words": [
+        "a",
+        "I",
+        "see",
+        "snake",
+        "can"
+       ],
+       "answer": "I can see a snake"
+      },
+      {
+       "t": "order",
+       "words": [
+        "a",
+        "This",
+        "circle",
+        "is"
+       ],
+       "answer": "This is a circle"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

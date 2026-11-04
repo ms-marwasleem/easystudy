@@ -1,0 +1,259 @@
+{
+ "title": "Test 2",
+ "ratio": 0.707,
+ "head": {
+  "l": "Department of English<br>1st Term OL Booklet Grade 1<br>2026/2027",
+  "r": "Noor El Elm<br>Modern School"
+ },
+ "pages": [
+  {
+   "title": "Model 2",
+   "chip": "Model 2",
+   "foot": 30,
+   "blocks": [
+    {
+     "t": "q",
+     "n": "1",
+     "text": "Listen and write the missing letters:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/fish-u4l2.png"
+          },
+          {
+           "t": "text",
+           "text": "[[f:tiny]] i s h",
+           "listen": "fish"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/gloves-u5l2.png"
+          },
+          {
+           "t": "text",
+           "text": "[[g:tiny]] l o v e s",
+           "listen": "gloves"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/octopus.png"
+          },
+          {
+           "t": "text",
+           "text": "[[o:tiny]] c t o p u s",
+           "listen": "octopus"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "Read and choose the correct answer:",
+     "body": [
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "1- I can see"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "one",
+          "three"
+         ],
+         "answer": 1,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "ducks."
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "2- How"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "much",
+          "many"
+         ],
+         "answer": 1,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "bags do you have?"
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "3- The bee is"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "small",
+          "big"
+         ],
+         "answer": 0,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "."
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "4- A chicken is a"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "farm",
+          "sea"
+         ],
+         "answer": 0,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "animal."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Unscramble and write:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ant.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>s l l a m</span> [[small:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/fork-u4l2.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>f o k r</span> [[fork:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/moon-u5l2.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>m n o o</span> [[moon:wide]]"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Reorder to form sentences:",
+     "body": [
+      {
+       "t": "order",
+       "words": [
+        "see",
+        "seven",
+        "I",
+        "horses",
+        "can"
+       ],
+       "answer": "I can see seven horses"
+      },
+      {
+       "t": "order",
+       "words": [
+        "you",
+        "cows",
+        "see",
+        "many",
+        "How",
+        "can"
+       ],
+       "answer": "How many cows can you see"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

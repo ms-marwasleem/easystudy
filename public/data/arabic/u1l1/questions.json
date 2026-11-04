@@ -2,6 +2,93 @@
  "sets": [
   {
    "type": "link",
+   "ex": 2,
+   "page": 15,
+   "task": "أَصِلُ أَفْرَادَ أُسْرَةِ أَمِيرَةَ بِمَا يَقُومُونَ بِهِ مَعَهَا",
+   "taskAudio": "q/task-family-link.mp3",
+   "hint": "صل كل فرد من الأسرة بالصورة اللي بيعملها مع أميرة",
+   "items": [
+    {
+     "word": "أُمِّي",
+     "wpic": "../../pics/ar-fam-mother-head.png",
+     "pic": "../../pics/ar-amira-mother-blocks.jpg"
+    },
+    {
+     "word": "أَبِي وَأُمِّي",
+     "wpic": "../../pics/ar-fam-both-head.png",
+     "pic": "../../pics/ar-amira-with-parents.jpg"
+    },
+    {
+     "word": "جَدَّتِي",
+     "wpic": "../../pics/ar-fam-grandma-head.png",
+     "pic": "../../pics/ar-amira-grandma-book.jpg"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 3,
+   "page": 15,
+   "task": "أَضَعُ عَلَامَةً عِنْدَ الْأَشْيَاءِ الَّتِي سَتَجِدُهَا أَمِيرَةُ فِي الْمَدْرَسَةِ",
+   "taskAudio": "q/task-school.mp3",
+   "hint": "اضغط على الصور اللي هتلاقيها أميرة في المدرسة",
+   "silent": true,
+   "bigP": true,
+   "items": [
+    {
+     "word": "مُعَلِّمَةٌ",
+     "pic": "../../pics/ar-school-teacher.jpg",
+     "pos": [
+      85,
+      50
+     ],
+     "posP": [
+      72,
+      26
+     ],
+     "answer": true
+    },
+    {
+     "word": "سَرِيرٌ",
+     "pic": "../../pics/ar-bed-school.png",
+     "pos": [
+      62,
+      50
+     ],
+     "posP": [
+      28,
+      26
+     ]
+    },
+    {
+     "word": "مُكَعَّبَاتٌ",
+     "pic": "../../pics/ar-toy-blocks.png",
+     "pos": [
+      38,
+      50
+     ],
+     "posP": [
+      72,
+      72
+     ]
+    },
+    {
+     "word": "تِلْمِيذَانِ",
+     "pic": "../../pics/ar-school-kids.jpg",
+     "pos": [
+      15,
+      50
+     ],
+     "posP": [
+      28,
+      72
+     ],
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "link",
    "ex": 1,
    "page": 5,
    "task": "أَصِلُ كُلَّ كَلِمَةٍ بِمَكَانِهَا الْمُنَاسِبِ",
@@ -22,7 +109,8 @@
      "audio": "words/usrati-h.mp3",
      "full": "words/usrati-h.mp3"
     }
-   ]
+   ],
+   "book": "booklet"
   },
   {
    "type": "link",
@@ -40,7 +128,7 @@
     {
      "word": "أُخْتِي",
      "audio": "words/ukhti-h.mp3",
-     "pic": "../../pics/ar-sister.jpg"
+     "pic": "../../pics/ar-bk-sis.jpg"
     },
     {
      "word": "أُسْرَتِي",
@@ -50,9 +138,10 @@
     {
      "word": "أُمِّي",
      "audio": "words/ummi-h.mp3",
-     "pic": "img/ar-mother.jpg"
+     "pic": "../../pics/ar-bk-mum.jpg"
     }
-   ]
+   ],
+   "book": "booklet"
   },
   {
    "type": "circle",
@@ -94,7 +183,8 @@
      ],
      "answer": true
     }
-   ]
+   ],
+   "book": "booklet"
   },
   {
    "type": "circle",
@@ -121,7 +211,7 @@
     },
     {
      "word": "ar-teacher-man.jpg",
-     "pic": "img/ar-teacher-man.jpg",
+     "pic": "../../pics/ar-teacher-man.jpg",
      "pos": [
       50,
       72
@@ -136,7 +226,8 @@
      ],
      "answer": true
     }
-   ]
+   ],
+   "book": "booklet"
   },
   {
    "type": "circle",
@@ -178,7 +269,8 @@
      ],
      "answer": true
     }
-   ]
+   ],
+   "book": "booklet"
   },
   {
    "type": "circle",
@@ -201,7 +293,8 @@
      "word": "أُمِّي",
      "audio": "words/ummi-h.mp3"
     }
-   ]
+   ],
+   "book": "booklet"
   },
   {
    "type": "circle",
@@ -224,7 +317,8 @@
      "word": "أُمِّي",
      "audio": "words/ummi-h.mp3"
     }
-   ]
+   ],
+   "book": "booklet"
   },
   {
    "type": "circle",
@@ -246,6 +340,71 @@
      "word": "أُخْتِي",
      "audio": "words/ukhti-h.mp3",
      "answer": true
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "circle",
+   "ex": 1,
+   "page": 15,
+   "task": "أَضَعُ عَلَامَةً عِنْدَ الْأَشْيَاءِ الَّتِي سَتَجِدُهَا أَمِيرَةُ فِي الْمَدْرَسَةِ",
+   "taskAudio": "q/task-school.mp3",
+   "hint": "اضغط على الصور اللي هتلاقيها أميرة في المدرسة",
+   "silent": true,
+   "bigP": true,
+   "book": "workbook",
+   "items": [
+    {
+     "word": "عَلَمٌ",
+     "pic": "../../pics/ar-flag.png",
+     "pos": [
+      85,
+      50
+     ],
+     "posP": [
+      72,
+      26
+     ],
+     "answer": true
+    },
+    {
+     "word": "مَكْتَبٌ",
+     "pic": "../../pics/ar-desk.png",
+     "pos": [
+      62,
+      50
+     ],
+     "posP": [
+      28,
+      26
+     ],
+     "answer": true
+    },
+    {
+     "word": "كُتُبٌ",
+     "pic": "../../pics/ar-book-stack.png",
+     "pos": [
+      38,
+      50
+     ],
+     "posP": [
+      72,
+      72
+     ],
+     "answer": true
+    },
+    {
+     "word": "جَرَّارٌ",
+     "pic": "../../pics/ar-tractor.png",
+     "pos": [
+      15,
+      50
+     ],
+     "posP": [
+      28,
+      72
+     ]
     }
    ]
   }

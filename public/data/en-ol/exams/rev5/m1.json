@@ -1,0 +1,182 @@
+{
+ "title": "Test 1",
+ "ratio": 0.707,
+ "head": {
+  "l": "Department of English<br>1st Term OL Booklet Grade 1<br>2026/2027",
+  "r": "Noor El Elm<br>Modern School"
+ },
+ "pages": [
+  {
+   "title": "Model 1",
+   "chip": "Model 1",
+   "foot": 29,
+   "blocks": [
+    {
+     "t": "q",
+     "n": "1",
+     "text": "Listen and write the missing letters:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/monkey-u5l2.png"
+          },
+          {
+           "t": "text",
+           "text": "[[m:tiny]] o n k e y",
+           "listen": "monkey"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ostrich-u4l2.png"
+          },
+          {
+           "t": "text",
+           "text": "[[o:tiny]] s t r i c h",
+           "listen": "ostrich"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/frog.png"
+          },
+          {
+           "t": "text",
+           "text": "[[f:tiny]] r o g",
+           "listen": "frog"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "Read and complete:",
+     "body": [
+      {
+       "t": "text",
+       "style": "bank",
+       "text": "eight – animals – monkeys – octopus"
+      },
+      {
+       "t": "text",
+       "text": "1- It's an [[octopus]]."
+      },
+      {
+       "t": "text",
+       "text": "2- There are three [[monkeys]]."
+      },
+      {
+       "t": "text",
+       "text": "3- Ducks and horses are farm [[animals]]."
+      },
+      {
+       "t": "text",
+       "text": "4- There are [[eight]] pens."
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Unscramble and write:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/girl-u5l2.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>l r i g</span> [[girl:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/mango-u5l2.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>m g n o a</span> [[mango:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/fox-u4l2.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>x f o</span> [[fox:wide]]"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Reorder to form sentences:",
+     "body": [
+      {
+       "t": "order",
+       "words": [
+        "octopus",
+        "I",
+        "an",
+        "see",
+        "can"
+       ],
+       "answer": "I can see an octopus"
+      },
+      {
+       "t": "order",
+       "words": [
+        "The",
+        "big",
+        "horse",
+        "is"
+       ],
+       "answer": "The horse is big"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

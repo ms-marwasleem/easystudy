@@ -9,7 +9,7 @@
   "grammar"
  ],
  "type": "al",
- "scene": "img/scene.jpg",
+ "scene": "../../pics/park.jpg",
  "hints": {
   "read": "Tap Read and listen!",
   "word": "Tap a word to hear it again.",
@@ -22,7 +22,7 @@
   {
    "word": "go shopping",
    "ar": "يذهب للتسوق",
-   "img": "img/living-room.jpg",
+   "img": "../../pics/living-room.jpg",
    "parts": [
     {
      "t": "g",
@@ -71,7 +71,7 @@
   {
    "word": "pick up",
    "ar": "يلتقط / يحمل",
-   "img": "img/park.jpg",
+   "img": "../../pics/park.jpg",
    "parts": [
     {
      "t": "p",
@@ -133,7 +133,48 @@
       "a": "data/en-shared/q/we-are-you-are-they-are.mp3"
      }
     ]
-   ]
+   ],
+   "anim": {
+    "kind": "sort",
+    "bins": [
+     "am",
+     "is",
+     "are"
+    ],
+    "items": [
+     {
+      "t": "I",
+      "bin": 0,
+      "a": "data/en-shared/q/i-am.mp3"
+     },
+     {
+      "t": "He",
+      "bin": 1
+     },
+     {
+      "t": "She",
+      "bin": 1
+     },
+     {
+      "t": "It",
+      "bin": 1,
+      "a": "data/en-shared/q/he-is-she-is-it-is.mp3"
+     },
+     {
+      "t": "We",
+      "bin": 2
+     },
+     {
+      "t": "You",
+      "bin": 2
+     },
+     {
+      "t": "They",
+      "bin": 2,
+      "a": "data/en-shared/q/we-are-you-are-they-are.mp3"
+     }
+    ]
+   }
   },
   {
    "title": "Long form and short form",
@@ -199,7 +240,87 @@
       "a": "data/en-shared/q/they-aren-t-teachers.mp3"
      }
     ]
-   ]
+   ],
+   "anim": {
+    "kind": "morph",
+    "steps": [
+     {
+      "from": "I am a child.",
+      "to": "I'm a child.",
+      "map": [
+       [
+        0,
+        1
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ]
+      ],
+      "fa": "data/en-shared/q/i-am-a-child.mp3",
+      "ta": "data/en-shared/q/i-m-a-child.mp3"
+     },
+     {
+      "from": "He is my brother.",
+      "to": "He's my brother.",
+      "map": [
+       [
+        0,
+        1
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ]
+      ],
+      "fa": "data/en-shared/q/he-is-my-brother.mp3",
+      "ta": "data/en-shared/q/he-s-my-brother.mp3"
+     },
+     {
+      "from": "She is not my sister.",
+      "to": "She isn't my sister.",
+      "map": [
+       [
+        0
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        3
+       ],
+       [
+        4
+       ]
+      ],
+      "fa": "data/en-shared/q/she-is-not-my-sister.mp3",
+      "ta": "data/en-shared/q/she-isn-t-my-sister.mp3"
+     },
+     {
+      "from": "They are not teachers.",
+      "to": "They aren't teachers.",
+      "map": [
+       [
+        0
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        3
+       ]
+      ],
+      "fa": "data/en-shared/q/they-are-not-teachers.mp3",
+      "ta": "data/en-shared/q/they-aren-t-teachers.mp3"
+     }
+    ]
+   }
   },
   {
    "title": "Questions with Am, Is, and Are",
@@ -255,7 +376,84 @@
       "a": "data/en-shared/q/yes-it-is-no-it-isn-t.mp3"
      }
     ]
-   ]
+   ],
+   "anim": {
+    "kind": "morph",
+    "steps": [
+     {
+      "from": "I am sad.",
+      "to": "Am I sad?",
+      "map": [
+       [
+        1
+       ],
+       [
+        0
+       ],
+       [
+        2
+       ]
+      ],
+      "hl": [
+       0,
+       1
+      ],
+      "ta": "data/en-shared/q/am-i-sad.mp3",
+      "ans": {
+       "t": "Yes, I am. / No, I'm not.",
+       "a": "data/en-shared/q/yes-i-am-no-i-m-not.mp3"
+      }
+     },
+     {
+      "from": "You are lazy.",
+      "to": "Are you lazy?",
+      "map": [
+       [
+        1
+       ],
+       [
+        0
+       ],
+       [
+        2
+       ]
+      ],
+      "hl": [
+       0,
+       1
+      ],
+      "ta": "data/en-shared/q/are-you-lazy.mp3",
+      "ans": {
+       "t": "Yes, you are. / No, you aren't.",
+       "a": "data/en-shared/q/yes-you-are-no-you-aren-t.mp3"
+      }
+     },
+     {
+      "from": "He/she is happy.",
+      "to": "Is he/she happy?",
+      "map": [
+       [
+        1
+       ],
+       [
+        0
+       ],
+       [
+        2
+       ]
+      ],
+      "hl": [
+       0,
+       1
+      ],
+      "ta": "data/en-shared/q/is-he-she-happy.mp3",
+      "ans": {
+       "t": "Yes, he/she is. / No, he/she isn't.",
+       "a": "data/en-shared/q/yes-he-she-is-no-he-she-isn-t.mp3"
+      }
+     }
+    ]
+   }
   }
  ]
 }

@@ -1,0 +1,734 @@
+{
+ "sets": [
+  {
+   "type": "type",
+   "task": "Read and complete the missing letters.",
+   "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "blanket",
+     "pic": "../../pics/u4-blanket.png",
+     "audio": "../../en-shared/q/blanket.mp3",
+     "answer": "a",
+     "missing": 2
+    },
+    {
+     "word": "alarm clock",
+     "pic": "../../pics/u4-alarmclock.png",
+     "audio": "../../en-shared/q/alarm-clock.mp3",
+     "answer": "a",
+     "gaps": [
+      2,
+      7
+     ]
+    },
+    {
+     "word": "nightstand",
+     "pic": "../../pics/u4-nightstand.png",
+     "audio": "../../en-shared/q/nightstand.mp3",
+     "answer": "g",
+     "missing": 2
+    },
+    {
+     "word": "lamp",
+     "pic": "../../pics/u4-lamp.png",
+     "audio": "../../en-shared/q/lamp.mp3",
+     "answer": "m",
+     "missing": 2
+    },
+    {
+     "word": "cushion",
+     "pic": "../../pics/u4-cushion.png",
+     "audio": "../../en-shared/q/cushion.mp3",
+     "answer": "u",
+     "missing": 1
+    }
+   ],
+   "page": 93,
+   "ex": 1
+  },
+  {
+   "type": "link",
+   "task": "Match the words and the pictures.",
+   "taskAudio": "../../en-shared/q/match-the-words-and-the-pictures.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "drawers",
+     "pic": "../../pics/u4-drawers.png",
+     "audio": "../../en-shared/q/drawers.mp3"
+    },
+    {
+     "word": "towel",
+     "pic": "../../pics/u4-towel.png",
+     "audio": "../../en-shared/q/towel.mp3"
+    },
+    {
+     "word": "shampoo",
+     "pic": "../../pics/u4-shampoo.png",
+     "audio": "../../en-shared/q/shampoo.mp3"
+    },
+    {
+     "word": "ceiling",
+     "pic": "../../pics/u4-ceiling.png",
+     "audio": "../../en-shared/q/ceiling.mp3"
+    },
+    {
+     "word": "mirror",
+     "pic": "../../pics/u4-mirror.png",
+     "audio": "../../en-shared/q/mirror.mp3"
+    }
+   ],
+   "page": 94,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer from a, b, c or d.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-from-a-b-c-or-d.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "My ____ makes a loud noise in the morning.",
+     "options": [
+      "pillow",
+      "alarm clock",
+      "bed",
+      "bag"
+     ],
+     "answer": 1,
+     "word": "My alarm clock makes a loud noise in the morning.",
+     "audio": "../../en-shared/q/my-alarm-clock-makes-a-loud-noise-in-the-morning.mp3",
+     "parts": [
+      "../../en-shared/q/my.mp3",
+      "../../en-shared/q/makes-a-loud-noise-in-the-morning.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-e1370c2916.mp3"
+    },
+    {
+     "stem": "I get a warm and soft ____ to put on my bed.",
+     "options": [
+      "blanket",
+      "keep",
+      "mirror",
+      "rug"
+     ],
+     "answer": 0,
+     "word": "I get a warm and soft blanket to put on my bed.",
+     "audio": "../../en-shared/q/i-get-a-warm-and-soft-blanket-to-put-on-my-bed.mp3",
+     "parts": [
+      "../../en-shared/q/i-get-a-warm-and-soft.mp3",
+      "../../en-shared/q/to-put-on-my-bed.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-d5c66f39e9.mp3"
+    },
+    {
+     "stem": "I look up and see a fan on the ____.",
+     "options": [
+      "towel",
+      "toy",
+      "ceiling",
+      "tissue"
+     ],
+     "answer": 2,
+     "word": "I look up and see a fan on the ceiling.",
+     "audio": "../../en-shared/q/i-look-up-and-see-a-fan-on-the-ceiling.mp3",
+     "parts": [
+      "../../en-shared/q/i-look-up-and-see-a-fan-on-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-6b388d9d82.mp3"
+    },
+    {
+     "stem": "This table is a ____.",
+     "options": [
+      "race",
+      "nap",
+      "lunch",
+      "nightstand"
+     ],
+     "answer": 3,
+     "word": "This table is a nightstand.",
+     "audio": "../../en-shared/q/this-table-is-a-nightstand.mp3",
+     "parts": [
+      "../../en-shared/q/this-table-is-a.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-a34239e7b1.mp3"
+    },
+    {
+     "stem": "I turn on the ____ so I can see better.",
+     "options": [
+      "alarm clock",
+      "lamp",
+      "table",
+      "sofa"
+     ],
+     "answer": 1,
+     "word": "I turn on the lamp so I can see better.",
+     "audio": "../../en-shared/q/i-turn-on-the-lamp-so-i-can-see-better.mp3",
+     "parts": [
+      "../../en-shared/q/i-turn-on-the.mp3",
+      "../../en-shared/q/so-i-can-see-better.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-3af8c9cecd.mp3"
+    },
+    {
+     "stem": "I sit on the sofa and put a soft ____ behind my back.",
+     "options": [
+      "sheets",
+      "cushion",
+      "chair",
+      "bottle"
+     ],
+     "answer": 1,
+     "word": "I sit on the sofa and put a soft cushion behind my back.",
+     "audio": "../../en-shared/q/i-sit-on-the-sofa-and-put-a-soft-cushion-behind-my-back.mp3",
+     "parts": [
+      "../../en-shared/q/i-sit-on-the-sofa-and-put-a-soft.mp3",
+      "../../en-shared/q/behind-my-back.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-720a49edae.mp3"
+    },
+    {
+     "stem": "I pull out the ____ in my dresser to get my socks.",
+     "options": [
+      "drawer",
+      "towel",
+      "curtains",
+      "ceiling"
+     ],
+     "answer": 0,
+     "word": "I pull out the drawer in my dresser to get my socks.",
+     "audio": "../../en-shared/q/i-pull-out-the-drawer-in-my-dresser-to-get-my-socks.mp3",
+     "parts": [
+      "../../en-shared/q/i-pull-out-the.mp3",
+      "../../en-shared/q/in-my-dresser-to-get-my-socks.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-95c264aa6d.mp3"
+    },
+    {
+     "stem": "I look at my face and brush my hair in the ____.",
+     "options": [
+      "nightstand",
+      "mirror",
+      "hair brush",
+      "game"
+     ],
+     "answer": 1,
+     "word": "I look at my face and brush my hair in the mirror.",
+     "audio": "../../en-shared/q/i-look-at-my-face-and-brush-my-hair-in-the-mirror.mp3",
+     "parts": [
+      "../../en-shared/q/i-look-at-my-face-and-brush-my-hair-in-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-ac4986831f.mp3"
+    },
+    {
+     "stem": "I use this to wash my hair and make it smell nice. It's called ____.",
+     "options": [
+      "shampoo",
+      "drawer",
+      "pajamas",
+      "closet"
+     ],
+     "answer": 0,
+     "word": "I use this to wash my hair and make it smell nice. It's called shampoo.",
+     "audio": "../../en-shared/q/i-use-this-to-wash-my-hair-and-make-it-smell-nice-76f9d05d.mp3",
+     "parts": [
+      "../../en-shared/q/i-use-this-to-wash-my-hair-and-make-it-smell-nice-8300998f.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-ace9fbb9bf.mp3"
+    },
+    {
+     "stem": "After I get out of the bath, I dry myself with a clean ____.",
+     "options": [
+      "room",
+      "upstairs",
+      "towel",
+      "blank"
+     ],
+     "answer": 2,
+     "word": "After I get out of the bath, I dry myself with a clean towel.",
+     "audio": "../../en-shared/q/after-i-get-out-of-the-bath-i-dry-myself-with-a-clean-towel.mp3",
+     "parts": [
+      "../../en-shared/q/after-i-get-out-of-the-bath-i-dry-myself-with-a-clean.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-2770dab593.mp3"
+    }
+   ],
+   "page": 94,
+   "ex": 3
+  },
+  {
+   "type": "cloze",
+   "task": "Choose the correct answer to complete the text.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-to-complete-the-text.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "text": "On the [[nightstand]] next to my bed, I have a red [[alarm clock]] and a blue [[lamp]]. When I go to sleep, I pull the warm [[blanket]] over me. My brother's bed is across the room. He has a toy plane hanging from the [[ceiling]] above his bed. I look at it and wonder if it will ever fly.",
+     "bank": [
+      "ceiling",
+      "blanket",
+      "lamp",
+      "alarm clock",
+      "nightstand"
+     ],
+     "audio": "../../en-shared/q/passage-61e692c958.mp3"
+    }
+   ],
+   "page": 95,
+   "ex": 4
+  },
+  {
+   "type": "order",
+   "task": "Rearrange the following sentences.",
+   "taskAudio": "../../en-shared/q/rearrange-the-following-sentences.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "chunks": [
+      "The",
+      "cushion",
+      "is",
+      "soft"
+     ],
+     "end": ".",
+     "word": "The cushion is soft.",
+     "audio": "../../en-shared/q/the-cushion-is-soft.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "mirror",
+      "is",
+      "big"
+     ],
+     "end": ".",
+     "word": "The mirror is big.",
+     "audio": "../../en-shared/q/the-mirror-is-big.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "shampoo",
+      "smells",
+      "nice"
+     ],
+     "end": ".",
+     "word": "The shampoo smells nice.",
+     "audio": "../../en-shared/q/the-shampoo-smells-nice.mp3"
+    },
+    {
+     "chunks": [
+      "There",
+      "is",
+      "a towel",
+      "on the",
+      "shelf"
+     ],
+     "end": ".",
+     "word": "There is a towel on the shelf.",
+     "audio": "../../en-shared/q/there-is-a-towel-on-the-shelf.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "have",
+      "two",
+      "towels"
+     ],
+     "end": ".",
+     "word": "I have two towels.",
+     "audio": "../../en-shared/q/i-have-two-towels.mp3"
+    }
+   ],
+   "page": 96,
+   "ex": 5
+  },
+  {
+   "type": "explain",
+   "task": "Reading Comprehension. Morning Time.",
+   "taskAudio": "../../en-shared/q/reading-comprehension-morning-time.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "lines": [
+      {
+       "t": "Morning Time",
+       "a": "../../en-shared/q/morning-time.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "Brrrring! The alarm clock makes a fun sound. I wake up under my warm blanket. I look up at the fan on the ceiling.",
+       "a": "../../en-shared/q/brrrring-the-alarm-clock-makes-a-fun-sound-i-wake-12f62ee5.mp3"
+      },
+      {
+       "t": "I put my book on the nightstand and turn off the lamp. Then, I go to the bathroom. I use shampoo for my hair and a fluffy towel to dry off. I look in the mirror and smile!",
+       "a": "../../en-shared/q/i-put-my-book-on-the-nightstand-and-turn-off-the-l-a0d4b1d1.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 98,
+   "grp": "morning"
+  },
+  {
+   "type": "mcq",
+   "task": "Circle the correct answer.",
+   "taskAudio": "../../en-shared/q/circle-the-correct-answer.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "What makes a noise to wake you up?",
+     "options": [
+      "A towel",
+      "An alarm clock",
+      "A cushion"
+     ],
+     "answer": 1,
+     "word": "What makes a noise to wake you up?",
+     "audio": "../../en-shared/q/what-makes-a-noise-to-wake-you-up.mp3",
+     "askAudio": "../../en-shared/q/ask-b88e900e54.mp3"
+    },
+    {
+     "stem": "Where does the book go?",
+     "options": [
+      "On the nightstand",
+      "On the ceiling",
+      "In the shampoo"
+     ],
+     "answer": 0,
+     "word": "Where does the book go?",
+     "audio": "../../en-shared/q/where-does-the-book-go.mp3",
+     "askAudio": "../../en-shared/q/ask-590b388116.mp3"
+    },
+    {
+     "stem": "What is the blanket like?",
+     "options": [
+      "Cold and thin",
+      "Thick and warm",
+      "Shiny and metal"
+     ],
+     "answer": 1,
+     "word": "What is the blanket like?",
+     "audio": "../../en-shared/q/what-is-the-blanket-like.mp3",
+     "askAudio": "../../en-shared/q/ask-3d840fdfa8.mp3"
+    },
+    {
+     "stem": "What do you use to dry off?",
+     "options": [
+      "A mirror",
+      "Drawers",
+      "A towel"
+     ],
+     "answer": 2,
+     "word": "What do you use to dry off?",
+     "audio": "../../en-shared/q/what-do-you-use-to-dry-off.mp3",
+     "askAudio": "../../en-shared/q/ask-f15c6c9bfe.mp3"
+    }
+   ],
+   "page": 98,
+   "ex": 1,
+   "grp": "morning"
+  },
+  {
+   "type": "mcq",
+   "task": "Write Yes or No.",
+   "taskAudio": "../../en-shared/q/write-yes-or-no.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "The lamp gives light.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 0,
+     "word": "The lamp gives light.",
+     "audio": "../../en-shared/q/the-lamp-gives-light.mp3",
+     "askAudio": "../../en-shared/q/ask-9dcd2dbcf1.mp3"
+    },
+    {
+     "stem": "You use shampoo to wash your hair.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 0,
+     "word": "You use shampoo to wash your hair.",
+     "audio": "../../en-shared/q/you-use-shampoo-to-wash-your-hair.mp3",
+     "askAudio": "../../en-shared/q/ask-34c20206a0.mp3"
+    },
+    {
+     "stem": "The mirror is on the ceiling.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 1,
+     "word": "The mirror is on the ceiling.",
+     "audio": "../../en-shared/q/the-mirror-is-on-the-ceiling.mp3",
+     "askAudio": "../../en-shared/q/ask-b6178a5179.mp3"
+    },
+    {
+     "stem": "You put clean clothes in the drawers.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 0,
+     "word": "You put clean clothes in the drawers.",
+     "audio": "../../en-shared/q/you-put-clean-clothes-in-the-drawers.mp3",
+     "askAudio": "../../en-shared/q/ask-6efcfcf848.mp3"
+    }
+   ],
+   "page": 99,
+   "ex": 2,
+   "grp": "morning"
+  },
+  {
+   "type": "mcq",
+   "task": "Complete the following sentences with on, in, under, between or next to.",
+   "taskAudio": "../../en-shared/q/complete-the-following-sentences-with-on-in-under-5382804f.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "The cat is sleeping ____ the table.",
+     "options": [
+      "on",
+      "under",
+      "between",
+      "next to"
+     ],
+     "answer": 1,
+     "word": "The cat is sleeping under the table.",
+     "audio": "../../en-shared/q/the-cat-is-sleeping-under-the-table.mp3",
+     "parts": [
+      "../../en-shared/q/the-cat-is-sleeping.mp3",
+      "../../en-shared/q/the-table.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-b814de0d87.mp3"
+    },
+    {
+     "stem": "The books are ____ the shelf.",
+     "options": [
+      "on",
+      "in",
+      "under",
+      "between"
+     ],
+     "answer": 0,
+     "word": "The books are on the shelf.",
+     "audio": "../../en-shared/q/the-books-are-on-the-shelf.mp3",
+     "parts": [
+      "../../en-shared/q/the-books-are.mp3",
+      "../../en-shared/q/the-shelf.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-7727726982.mp3"
+    },
+    {
+     "stem": "The boy is sitting ____ his mother and father.",
+     "options": [
+      "on",
+      "in",
+      "under",
+      "between"
+     ],
+     "answer": 3,
+     "word": "The boy is sitting between his mother and father.",
+     "audio": "../../en-shared/q/the-boy-is-sitting-between-his-mother-and-father.mp3",
+     "parts": [
+      "../../en-shared/q/the-boy-is-sitting.mp3",
+      "../../en-shared/q/his-mother-and-father.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-e9c54aad02.mp3"
+    },
+    {
+     "stem": "The ball is ____ the chair on the floor.",
+     "options": [
+      "in",
+      "under",
+      "between",
+      "next to"
+     ],
+     "answer": 3,
+     "word": "The ball is next to the chair on the floor.",
+     "audio": "../../en-shared/q/the-ball-is-next-to-the-chair-on-the-floor.mp3",
+     "parts": [
+      "../../en-shared/q/the-ball-is.mp3",
+      "../../en-shared/q/the-chair-on-the-floor.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-39741ced92.mp3"
+    },
+    {
+     "stem": "The school is ____ to the park.",
+     "options": [
+      "in",
+      "on",
+      "between",
+      "next"
+     ],
+     "answer": 3,
+     "word": "The school is next to the park.",
+     "audio": "../../en-shared/q/the-school-is-next-to-the-park.mp3",
+     "parts": [
+      "../../en-shared/q/the-school-is.mp3",
+      "../../en-shared/q/to-the-park.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-790f26f55a.mp3"
+    }
+   ],
+   "page": 99,
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "The cat is sleeping peacefully ____ the table.",
+     "options": [
+      "next",
+      "under",
+      "between",
+      "in"
+     ],
+     "answer": 1,
+     "word": "The cat is sleeping peacefully under the table.",
+     "audio": "../../en-shared/q/the-cat-is-sleeping-peacefully-under-the-table.mp3",
+     "parts": [
+      "../../en-shared/q/the-cat-is-sleeping-peacefully.mp3",
+      "../../en-shared/q/the-table.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-c42ea886c7.mp3"
+    },
+    {
+     "stem": "I put the book ____ the shelf with all the others.",
+     "options": [
+      "under",
+      "next to",
+      "on",
+      "between"
+     ],
+     "answer": 2,
+     "word": "I put the book on the shelf with all the others.",
+     "audio": "../../en-shared/q/i-put-the-book-on-the-shelf-with-all-the-others.mp3",
+     "parts": [
+      "../../en-shared/q/i-put-the-book.mp3",
+      "../../en-shared/q/the-shelf-with-all-the-others.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-448eb79070.mp3"
+    },
+    {
+     "stem": "The store is located ____ the bank and the post office.",
+     "options": [
+      "in",
+      "on",
+      "between",
+      "under"
+     ],
+     "answer": 2,
+     "word": "The store is located between the bank and the post office.",
+     "audio": "../../en-shared/q/the-store-is-located-between-the-bank-and-the-post-office.mp3",
+     "parts": [
+      "../../en-shared/q/the-store-is-located.mp3",
+      "../../en-shared/q/the-bank-and-the-post-office.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-5add75c585.mp3"
+    },
+    {
+     "stem": "My keys are ____ the drawer in my desk.",
+     "options": [
+      "on",
+      "under",
+      "next to",
+      "in"
+     ],
+     "answer": 3,
+     "word": "My keys are in the drawer in my desk.",
+     "audio": "../../en-shared/q/my-keys-are-in-the-drawer-in-my-desk.mp3",
+     "parts": [
+      "../../en-shared/q/my-keys-are.mp3",
+      "../../en-shared/q/the-drawer-in-my-desk.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-bb44d0fb62.mp3"
+    },
+    {
+     "stem": "The little boy is standing ____ his mother, holding her hand.",
+     "options": [
+      "between",
+      "under",
+      "next to",
+      "on"
+     ],
+     "answer": 2,
+     "word": "The little boy is standing next to his mother, holding her hand.",
+     "audio": "../../en-shared/q/the-little-boy-is-standing-next-to-his-mother-hold-6d5bcd4a.mp3",
+     "parts": [
+      "../../en-shared/q/the-little-boy-is-standing.mp3",
+      "../../en-shared/q/his-mother-holding-her-hand.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-0e16dbb5d0.mp3"
+    }
+   ],
+   "page": 100,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Correct the mistake in each sentence.",
+   "taskAudio": "../../en-shared/q/correct-the-mistake-in-each-sentence.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "The lamp is ____ the bed.",
+     "options": [
+      "in",
+      "on",
+      "under"
+     ],
+     "answer": 1,
+     "word": "The lamp is on the bed.",
+     "audio": "../../en-shared/q/the-lamp-is-on-the-bed.mp3",
+     "parts": [
+      "../../en-shared/q/the-lamp-is.mp3",
+      "../../en-shared/q/the-bed.mp3"
+     ],
+     "optSay": [
+      "in",
+      "on",
+      "under"
+     ],
+     "ask": "The lamp is in the bed.",
+     "askAudio": "../../en-shared/q/askc-6858d337f7.mp3"
+    },
+    {
+     "stem": "The book is ____ the chair.",
+     "options": [
+      "in",
+      "on",
+      "under"
+     ],
+     "answer": 1,
+     "word": "The book is on the chair.",
+     "audio": "../../en-shared/q/the-book-is-on-the-chair.mp3",
+     "parts": [
+      "../../en-shared/q/the-book-is.mp3",
+      "../../en-shared/q/the-chair.mp3"
+     ],
+     "optSay": [
+      "in",
+      "on",
+      "under"
+     ],
+     "ask": "The book is in the chair.",
+     "askAudio": "../../en-shared/q/askc-334e3ee671.mp3"
+    }
+   ],
+   "page": 100,
+   "ex": 3
+  }
+ ]
+}

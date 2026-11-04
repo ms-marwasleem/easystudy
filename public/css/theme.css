@@ -84,7 +84,10 @@
   /* progress star (lit / unlit) */
   --star-on:var(--gold2); --star-off:#E5D3B0;
   /* picture frame (frame.css) */
-  --pk-word-color:var(--c-on-bg); --pk-word-size:1.3; /* word-reading lessons: word + pencil white, 1.3x bigger */
+  --pk-word-color:var(--c-on-bg);   /* word-reading lessons: word + pencil white */
+  --card-panel:#eef8f8;   /* the light panel of the book card (segment slide) */
+  --focus-word-size:clamp(1.7rem,min(6.6vw,5.2vh),3.2rem);   /* THE size of a word the child studies (reading page, question head word, Words tab): one size, whole app */
+  --q-sentence-size:clamp(1.7rem,min(7.4vw,5.6vh),3rem);   /* a sentence the child reads in a question (complete / circle): big, centred */
   --pf-border:0.25rem; --pf-radius:0.75rem; --pf-shadow:0 0.1875rem 0.5rem rgba(90,52,24,.25);
   /* behaviour settings read by the components (numbers, milliseconds) — wired in step 4 */
   --help-letter-ms:1500;   /* write: the current letter shows in light colour this long */
@@ -95,8 +98,8 @@
 
 
   /* lesson / unit header (rows: buttons + stars, name, subject) */
-  --thin-weight:400; --head-gap:0.2rem; --head-title-size:clamp(1.1rem,min(5.2vw,3.4vh),1.7rem); --head-title-stroke:0.07rem;
-  --head-sub-size:clamp(.7rem,min(3vw,2.2vh),.95rem); --head-sub-stroke:0; --head-track-h:2.6rem;
+  --thin-weight:400; --head-gap:0.2rem; --head-title-size:clamp(1.25rem,min(5.8vw,3.8vh),1.95rem); --head-title-stroke:0.07rem;
+  --head-sub-size:clamp(.85rem,min(3.4vw,2.5vh),1.1rem); --head-sub-stroke:0; --head-track-h:2.6rem;
   /* pictures: transparent object cut-out (png) = no frame, soft shadow; people / nature photos = framed (frame.css) */
   --cut-shadow:drop-shadow(0 0.25rem 0.35rem rgba(90,52,24,.32)); --cut-ring:drop-shadow(0 0 0.2rem rgba(42,127,216,.95)) drop-shadow(0 0 0.1rem rgba(42,127,216,.95));
   /* transitions: light and quick */
@@ -112,10 +115,18 @@
   --text-ol:0.04rem;        /* the thin outline of light text laid on a picture */
   --icon-on-color:#FFFFFF;  /* RULE: icon on a coloured background = white */
   --icon-on-white:#111111;  /* RULE: icon on a white / paper surface = black */
-  --q-star:1.1rem;          /* RULE: every progress star in every question is this one small size */
+  --pop-dim:rgba(8,20,48,.62); --pop-inset-x:min(5vw,3rem); --pop-inset-y:min(7vh,3rem); --pop-radius:1.5rem; --pop-border:.22rem; --pop-rim:rgba(255,255,255,.85); --pop-shadow:0 .75rem 2.5rem rgba(0,0,0,.55); --pop-x-size:3rem;   /* word popup card + its round X button */
+  --q-star:0.65rem;          /* RULE: every progress star in every question is this one size (one third of the old 1.9rem, 2026-11-02); more stars than fit = next line */
   --q-choice:clamp(3.25rem,9vh,4rem);  /* RULE: every round choice button (letters, numbers) is this one size */
+  --icon-speaker:1.6rem;    /* RULE (Marwa 2026-11-04): EVERY speaker icon in the app is this one size (end of hug.css applies it) */
   --icon-sm:1.35rem;        /* small line icons (speaker, pencil) */
   --road-dash:var(--ol);    /* car road: dark dashes only */
+
+
+  /* ---- 5. BOOK LOOK (2026-11-02): the question strip of the printed book. Default = no strip (today's look); a book look re-points these in [data-look="<subject>-<book>"] below ---- */
+  --bk-strip-bg:transparent; --bk-strip-ink:var(--c-on-bg); --bk-strip-pad:0; --bk-strip-radius:0; --bk-strip-edge:transparent;
+  --bk-badge-bg:var(--c-pink); --bk-badge-ink:var(--c-white); --bk-badge-text:""; --bk-badge-radius:50%; --bk-badge-pad:0;
+  --bk-box-bg:transparent; --bk-box-edge:transparent;   /* choice boxes / letter boxes of the book (next step) */
 
   /* ---- 4. COMPONENT TOKENS (every shared colour of the parts; change here = changes the whole app and the theme page) ---- */
   --c-bad-bg:#FFD9D2;  /* wrong answer background */
@@ -207,4 +218,18 @@
 :root[data-theme="sea"]{
   --c-accent:#0E8F8A; --c-accent-dk:#0A6B67; --c-pink:#E8683E; --blue1:#6FE0D6; --blue2:#0E8F8A;
   --kraft:#CFA97A; --kraft-lt:#E8D2AE; --kraft-dk:#B58D5E;
+}
+
+/* ---- BOOK LOOKS (docs/RULES.md "Book looks"): html[data-look] = <subject>-<book>, set by setLook() in core.js. A new book = one block here. ---- */
+/* Arabic G1 T1 school book (Ministry): teal header, soft-pink strips, green "نشاط" badge, magenta number */
+:root[data-look="arabic-school"]{
+  --bk-strip-bg:#F8E8F2; --bk-strip-ink:#3A1A30; --bk-strip-pad:.15rem .6rem; --bk-strip-radius:.9rem; --bk-strip-edge:#EFC4DE;
+  --bk-badge-bg:#2CA84A; --bk-badge-ink:#FFFFFF; --bk-badge-text:"نشاط"; --bk-badge-radius:.9rem; --bk-badge-pad:0 .55rem;
+  --bk-box-bg:#E0F0F8; --bk-box-edge:#B9DCEE;
+}
+/* Arabic booklet (NEM): yellow strips, dark-blue number tab */
+:root[data-look="arabic-booklet"]{
+  --bk-strip-bg:#FFF3B0; --bk-strip-ink:#1B1B1B; --bk-strip-pad:.15rem .6rem; --bk-strip-radius:.5rem; --bk-strip-edge:#E8CF55;
+  --bk-badge-bg:#1F66C8; --bk-badge-ink:#FFFFFF; --bk-badge-text:""; --bk-badge-radius:.5rem; --bk-badge-pad:0 .4rem;
+  --bk-box-bg:#FFFFFF; --bk-box-edge:#222;
 }

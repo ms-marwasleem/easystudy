@@ -1,0 +1,16 @@
+/* ---------- LAYOUT PRIMITIVES (responsive system, 2026-11-02; docs/RULES.md "Responsive layout") ----------
+   Every page, template and question type is built from these zones. They take their size from the PARENT (never from their content),
+   so a picture or a text can never push the page past the screen. Sizes inside are cqw/cqh (of the zone) or rem (the root size follows the screen).
+   .fit        a zone that fills what the parent gives it; its children can measure it with cqw/cqh. Never bigger than the parent.
+   .fit-media  a zone holding ONE picture: the picture is shown WHOLE (object-fit:contain), as big as the zone allows, centred. Never cropped.
+   .fit-text   a zone holding a text: the text stays inside; if it is longer than the room it scrolls INSIDE the zone (the page never grows).
+   .fit-row    zones side by side in landscape; stacked in portrait (picture on top, text below). Gap = --zone-gap.
+   .zone-side  the shared button column (listen / restart / speed): stays on the RIGHT, never moves with the screen shape. */
+:root{--zone-gap:min(3cqw,2.5cqh)}
+.fit{min-width:0;min-height:0;container-type:size}
+.fit-media{min-width:0;min-height:0;display:grid;grid-template:minmax(0,1fr)/minmax(0,1fr);place-items:center}
+.fit-media>img,.fit-media>picture img{max-width:100%;max-height:100%;min-width:0;min-height:0;object-fit:contain}
+.fit-text{min-width:0;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}
+.fit-row{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:var(--zone-gap);min-width:0;min-height:0}
+@media (orientation:portrait){.fit-row{flex-direction:column}}
+.zone-side{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;flex:none}

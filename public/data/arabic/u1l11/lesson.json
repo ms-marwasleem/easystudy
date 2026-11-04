@@ -41,7 +41,7 @@
     0.0,
     0.0,
     100.0,
-    19.0
+    20.2
    ]
   },
   {
@@ -65,9 +65,9 @@
    "page": 1,
    "spot": [
     0.0,
-    19.8,
+    20.9,
     100.0,
-    20.5
+    19.4
    ]
   },
   {
@@ -96,9 +96,9 @@
    "page": 1,
    "spot": [
     0.0,
-    41.2,
+    40.9,
     100.0,
-    20.2
+    19.7
    ]
   },
   {
@@ -127,9 +127,9 @@
    "page": 1,
    "spot": [
     0.0,
-    62.2,
+    61.3,
     100.0,
-    18.1
+    18.8
    ]
   },
   {
@@ -153,14 +153,111 @@
    "page": 1,
    "spot": [
     0.0,
-    81.1,
+    80.8,
     100.0,
-    18.9
+    19.2
    ]
   }
  ],
  "hints": {
   "read": "اضغط هنا واسمع القصة!",
-  "word": "اضغط على أي كلمة تسمعها"
- }
+  "word": "اضغط على أي كلمة تسمعها",
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف"
+ },
+ "vocab": [
+  {
+   "word": "أُحِبُّ",
+   "img": "../../pics/ar-heart.png",
+   "audio": {
+    "word": "../u1l6/words/uhibb.mp3"
+   },
+   "parts": [
+    {
+     "t": "أُحِبُّ",
+     "audio": "../u1l6/words/uhibb.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أَبِي",
+   "img": "../../pics/ar-father.jpg",
+   "audio": {
+    "word": "../u4l1/q/h-abi.mp3"
+   },
+   "parts": [
+    {
+     "t": "أَبِي",
+     "audio": "../u4l1/q/h-abi.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أُمِّي",
+   "img": "../../pics/ar-mother.jpg",
+   "audio": {
+    "word": "../u1l1/words/ummi-h.mp3"
+   },
+   "parts": [
+    {
+     "t": "أُمِّي",
+     "audio": "../u1l1/words/ummi-h.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أُخْتِي",
+   "img": "../../pics/ar-sister.jpg",
+   "audio": {
+    "word": "../u1l1/words/ukhti-h.mp3"
+   },
+   "parts": [
+    {
+     "t": "أُخْتِي",
+     "audio": "../u1l1/words/ukhti-h.mp3"
+    }
+   ]
+  },
+  {
+   "word": "جَدِّي",
+   "img": "../../pics/ar-grandfather-family.jpg",
+   "audio": {
+    "word": "../u1l8/words/jaddi.mp3"
+   },
+   "parts": [
+    {
+     "t": "جَدِّي",
+     "audio": "../u1l8/words/jaddi.mp3"
+    }
+   ]
+  },
+  {
+   "word": "جَدَّتِي",
+   "img": "../../pics/ar-grandmother.jpg",
+   "audio": {
+    "word": "words/jaddati-h.mp3"
+   },
+   "parts": [
+    {
+     "t": "جَدَّتِي",
+     "audio": "words/jaddati-h.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أُسْرَتِي",
+   "img": "../../pics/ar-love-family.jpg",
+   "audio": {
+    "word": "../u1l1/words/usrati-h.mp3"
+   },
+   "parts": [
+    {
+     "t": "أُسْرَتِي",
+     "audio": "../u1l1/words/usrati-h.mp3"
+    }
+   ]
+  }
+ ],
+ "vocabRepeats": 3
 }

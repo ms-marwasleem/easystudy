@@ -5,7 +5,7 @@
  "type": "letter",
  "title": "حرف الهاء",
  "task": "أتعرّف على حرف الهاء",
- "pages": 2,
+ "pages": 3,
  "pageNums": [
   95,
   96
@@ -75,14 +75,29 @@
   "tasks": [
    "أشكال حرف الهاء في الكلمة",
    "أصوات حرف الهاء بالحركات"
-  ]
+  ],
+  "chant": {
+   "pic": "img/chant.jpg",
+   "task": "نشيد الحرف",
+   "lines": [
+    {
+     "t": "هَاءٌ هُدْهُدْ … بَيْنَ الزَّهَرِ",
+     "audio": "chant-1.mp3"
+    },
+    {
+     "t": "طَارَ بَعِيدًا … فَوْقَ النَّهْرِ",
+     "audio": "chant-2.mp3"
+    }
+   ]
+  }
  },
  "hints": {
   "read": "اضغط على الحرف واسمعه",
   "word": "اضغط",
   "vocabPick": "اختار كلمة",
   "vocabTeach": "اسمع وردد",
-  "vocabWrite": "اكتب الكلمة حرف حرف"
+  "vocabWrite": "اكتب الكلمة حرف حرف",
+  "chant": "اضغط هنا واسمع النشيد!"
  },
  "vocab": [
   {
@@ -176,7 +191,7 @@
   },
   {
    "word": "زُهُور",
-   "img": "../../pics/ar-flowers.jpg",
+   "img": "../../pics/ar-flowers.png",
    "audio": {
     "word": "words/zuhur.mp3"
    },

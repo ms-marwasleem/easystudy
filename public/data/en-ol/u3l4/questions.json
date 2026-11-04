@@ -1,0 +1,788 @@
+{
+ "_note": "u3l4 questions: p57 ex4 (beginning letter), p59 ex8 (circle Dd). Tracing/colouring skipped. Workbook = Performance book p29-31.",
+ "sets": [
+  {
+   "type": "letter",
+   "ex": 4,
+   "page": 57,
+   "task": "Look at the picture, then circle the beginning letter.",
+   "taskAudio": "../../en-shared/q/look-at-the-picture-then-circle-the-beginning-letter.mp3",
+   "hint": "Tap the first letter!",
+   "items": [
+    {
+     "word": "house",
+     "audio": "../u1l3/words/house.mp3",
+     "pic": "../../pics/house-u3l4.png",
+     "letters": [
+      "Aa",
+      "Hh",
+      "Nn"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "horse",
+     "audio": "../u2l3/words/horse.mp3",
+     "pic": "../../pics/horse-q57.png",
+     "letters": [
+      "Hh",
+      "Aa",
+      "Ss"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "hair",
+     "audio": "words/hair.mp3",
+     "pic": "../../pics/hair-q57.png",
+     "letters": [
+      "Pp",
+      "Tt",
+      "Hh"
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 8,
+   "page": 59,
+   "task": "Look, say, then circle the pictures that start with the letter (Dd).",
+   "taskAudio": "../../en-shared/q/look-say-then-circle-the-pictures-that-start-with-the-letter.mp3",
+   "hint": "Tap the pictures that start with Dd!",
+   "center": "Dd",
+   "centerAudio": "../../phonics/d.mp3",
+   "items": [
+    {
+     "word": "doll",
+     "audio": "words/doll.mp3",
+     "pic": "../../pics/doll-q59.png",
+     "answer": true,
+     "pos": [
+      10,
+      14
+     ]
+    },
+    {
+     "word": "grass",
+     "audio": "../u2l1/words/grass.mp3",
+     "pic": "../../pics/grass-q59.png",
+     "answer": false,
+     "pos": [
+      12,
+      36
+     ]
+    },
+    {
+     "word": "planet",
+     "audio": "words/planet.mp3",
+     "pic": "../../pics/globe-q59.png",
+     "answer": false,
+     "pos": [
+      88,
+      22
+     ]
+    },
+    {
+     "word": "drum",
+     "audio": "words/drum.mp3",
+     "pic": "../../pics/drum-q59.png",
+     "answer": true,
+     "pos": [
+      88,
+      52
+     ]
+    },
+    {
+     "word": "dog",
+     "audio": "../u1l4/words/dog.mp3",
+     "pic": "../../pics/dog-q59.png",
+     "answer": true,
+     "pos": [
+      20,
+      80
+     ]
+    },
+    {
+     "word": "door",
+     "audio": "words/door.mp3",
+     "pic": "../../pics/door-q59.png",
+     "answer": true,
+     "pos": [
+      40,
+      82
+     ]
+    },
+    {
+     "word": "duck",
+     "audio": "../u2l3/words/duck.mp3",
+     "pic": "../../pics/duck-q59.png",
+     "answer": true,
+     "pos": [
+      60,
+      82
+     ]
+    },
+    {
+     "word": "butterfly",
+     "audio": "../u2l1/words/butterfly.mp3",
+     "pic": "../../pics/butterfly-q59.png",
+     "answer": false,
+     "pos": [
+      80,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 29,
+   "grp": "classroom-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "hat",
+     "scr": "tah",
+     "audio": "words/hat.mp3",
+     "pic": "../../pics/hat.png"
+    },
+    {
+     "word": "dog",
+     "scr": "gdo",
+     "audio": "../u1l4/words/dog.mp3",
+     "pic": "../../pics/dog-u3l4.png"
+    },
+    {
+     "word": "horse",
+     "scr": "ehsor",
+     "audio": "../u2l3/words/horse.mp3",
+     "pic": "../../pics/horse-u3l4.png"
+    },
+    {
+     "word": "duck",
+     "scr": "ukdc",
+     "audio": "../u2l3/words/duck.mp3",
+     "pic": "../../pics/duck-u3l4.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 29,
+   "grp": "classroom-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "word": "This is a house.",
+     "lead": "This is a",
+     "options": [
+      "horse",
+      "house"
+     ],
+     "answer": 1,
+     "pic": "../../pics/house-u3l4.png",
+     "audio": "../../en-shared/q/this-is-a-house.mp3"
+    },
+    {
+     "word": "I can see a door.",
+     "lead": "I can see a",
+     "options": [
+      "door",
+      "dog"
+     ],
+     "answer": 0,
+     "pic": "../../pics/door-u3l4.png",
+     "audio": "../../en-shared/q/i-can-see-a-door.mp3"
+    },
+    {
+     "word": "This is my hair.",
+     "lead": "This is my",
+     "options": [
+      "hair",
+      "hands"
+     ],
+     "answer": 0,
+     "pic": "../../pics/hair-u3l4.png",
+     "audio": "../../en-shared/q/this-is-my-hair.mp3"
+    },
+    {
+     "word": "There is 1 drum.",
+     "lead": "There is 1",
+     "options": [
+      "drum",
+      "doll"
+     ],
+     "answer": 0,
+     "pic": "../../pics/drum-u3l4.png",
+     "audio": "../../en-shared/q/there-is-1-drum.mp3"
+    },
+    {
+     "word": "I have 2 hands.",
+     "lead": "I have 2",
+     "options": [
+      "hair",
+      "hands"
+     ],
+     "answer": 1,
+     "pic": "../../pics/hands-u3l4.png",
+     "audio": "../../en-shared/q/i-have-2-hands.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 29,
+   "grp": "homework-1",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "doll",
+     "audio": "words/doll.mp3",
+     "pic": "../../pics/doll-u3l4.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "horse",
+     "audio": "../u2l3/words/horse.mp3",
+     "pic": "../../pics/horse-u3l4.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "hat",
+     "audio": "words/hat.mp3",
+     "pic": "../../pics/hat.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "door",
+     "audio": "words/door.mp3",
+     "pic": "../../pics/door-u3l4.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "hands",
+     "audio": "words/hands.mp3",
+     "pic": "../../pics/hands-u3l4.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 1,
+   "page": 30,
+   "grp": "weekly-a-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "hat",
+     "scr": "tah",
+     "audio": "words/hat.mp3",
+     "pic": "../../pics/hat.png"
+    },
+    {
+     "word": "door",
+     "scr": "doro",
+     "audio": "words/door.mp3",
+     "pic": "../../pics/door-u3l4.png"
+    },
+    {
+     "word": "hands",
+     "scr": "ndsah",
+     "audio": "words/hands.mp3",
+     "pic": "../../pics/hands-u3l4.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 2,
+   "page": 30,
+   "grp": "weekly-a-2",
+   "task": "Look, count, and write.",
+   "taskAudio": "../../en-shared/q/look-count-and-write.mp3",
+   "hint": "Tap the right number!",
+   "items": [
+    {
+     "word": "There is 1 apple.",
+     "lead": "There is",
+     "options": [
+      "1",
+      "2"
+     ],
+     "answer": 0,
+     "pic": "../../pics/apple-1.png",
+     "tail": "apple.",
+     "audio": "../../en-shared/q/there-is-1-apple.mp3"
+    },
+    {
+     "word": "There are 3 trees.",
+     "lead": "There are",
+     "options": [
+      "3",
+      "4"
+     ],
+     "answer": 0,
+     "pic": "../../pics/trees-3.jpg",
+     "tail": "trees.",
+     "audio": "../../en-shared/q/there-are-3-trees.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 1,
+   "page": 30,
+   "grp": "weekly-b-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "duck",
+     "scr": "ukdc",
+     "audio": "../u2l3/words/duck.mp3",
+     "pic": "../../pics/duck-u3l4.png"
+    },
+    {
+     "word": "house",
+     "scr": "oehus",
+     "audio": "../u1l3/words/house.mp3",
+     "pic": "../../pics/house-u3l4.png"
+    },
+    {
+     "word": "dog",
+     "scr": "gdo",
+     "audio": "../u1l4/words/dog.mp3",
+     "pic": "../../pics/dog-u3l4.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 2,
+   "page": 30,
+   "grp": "weekly-b-2",
+   "task": "Look, count, and write.",
+   "taskAudio": "../../en-shared/q/look-count-and-write.mp3",
+   "hint": "Tap the right number!",
+   "items": [
+    {
+     "word": "There are 2 birds.",
+     "lead": "There are",
+     "options": [
+      "3",
+      "2"
+     ],
+     "answer": 1,
+     "pic": "../../pics/birds-2.png",
+     "tail": "birds.",
+     "audio": "../../en-shared/q/there-are-2-birds.mp3"
+    },
+    {
+     "word": "There are 4 flowers.",
+     "lead": "There are",
+     "options": [
+      "3",
+      "4"
+     ],
+     "answer": 1,
+     "pic": "../../pics/flowers-4.jpg",
+     "tail": "flowers.",
+     "audio": "../../en-shared/q/there-are-4-flowers.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 1,
+   "page": 31,
+   "grp": "weekly-c-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "hair",
+     "scr": "rahi",
+     "audio": "words/hair.mp3",
+     "pic": "../../pics/hair-u3l4.png"
+    },
+    {
+     "word": "doll",
+     "scr": "lldo",
+     "audio": "words/doll.mp3",
+     "pic": "../../pics/doll-u3l4.png"
+    },
+    {
+     "word": "drum",
+     "scr": "umrd",
+     "audio": "words/drum.mp3",
+     "pic": "../../pics/drum-u3l4.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 2,
+   "page": 31,
+   "grp": "weekly-c-2",
+   "task": "Look, count, and write.",
+   "taskAudio": "../../en-shared/q/look-count-and-write.mp3",
+   "hint": "Tap the right number!",
+   "items": [
+    {
+     "word": "There are 5 butterflies.",
+     "lead": "There are",
+     "options": [
+      "5",
+      "4"
+     ],
+     "answer": 0,
+     "pic": "../../pics/butterflies-5.jpg",
+     "tail": "butterflies.",
+     "audio": "../../en-shared/q/there-are-5-butterflies.mp3"
+    },
+    {
+     "word": "There is 1 bird.",
+     "lead": "There is",
+     "options": [
+      "2",
+      "1"
+     ],
+     "answer": 1,
+     "pic": "../../pics/bird-1.jpg",
+     "tail": "bird.",
+     "audio": "../../en-shared/q/there-is-1-bird.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 1,
+   "page": 17,
+   "task": "Listen and write the missing letters:",
+   "taskAudio": "../../en-shared/q/listen-and-write-the-missing-letters.mp3",
+   "hint": "Type the missing letters!",
+   "items": [
+    {
+     "word": "father",
+     "audio": "../u3l1/words/father.mp3",
+     "pic": "../../pics/father.png",
+     "gaps": [
+      1,
+      4
+     ]
+    },
+    {
+     "word": "potato",
+     "audio": "../u3l2/words/potato.mp3",
+     "pic": "../../pics/potato.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "drum",
+     "audio": "../u3l4/words/drum.mp3",
+     "pic": "../../pics/drum-u3l4.png",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "cloze",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 2,
+   "page": 17,
+   "task": "Read and complete:",
+   "taskAudio": "../../en-shared/q/read-and-complete.mp3",
+   "hint": "Tap the missing word!",
+   "items": [
+    {
+     "text": "My [[father]] is Ali.",
+     "bank": [
+      "Who",
+      "nurse",
+      "father",
+      "have"
+     ],
+     "audio": "../../en-shared/q/my-father-is-ali.mp3"
+    },
+    {
+     "text": "I [[have]] two sisters.",
+     "bank": [
+      "Who",
+      "nurse",
+      "father",
+      "have"
+     ],
+     "audio": "../../en-shared/q/i-have-two-sisters.mp3"
+    },
+    {
+     "text": "[[Who]] is this?",
+     "bank": [
+      "Who",
+      "nurse",
+      "father",
+      "have"
+     ],
+     "audio": "../../en-shared/q/who-is-this.mp3"
+    },
+    {
+     "text": "She is a [[nurse]].",
+     "bank": [
+      "Who",
+      "nurse",
+      "father",
+      "have"
+     ],
+     "audio": "../../en-shared/q/she-is-a-nurse.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 3,
+   "page": 17,
+   "task": "Unscramble and write:",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "door",
+     "scr": "doro",
+     "audio": "../u3l4/words/door.mp3",
+     "pic": "../../pics/door-u3l4.png"
+    },
+    {
+     "word": "panda",
+     "scr": "adanp",
+     "audio": "../u3l2/words/panda.mp3",
+     "pic": "../../pics/panda.png"
+    },
+    {
+     "word": "five",
+     "scr": "veif",
+     "audio": "../u3l3/words/five.mp3",
+     "pic": "../../pics/en-bk-five.png"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 4,
+   "page": 17,
+   "task": "Reorder to form sentences:",
+   "taskAudio": "../../en-shared/q/reorder-to-form-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "have",
+      "one",
+      "brother"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-have-one-brother.mp3"
+    },
+    {
+     "chunks": [
+      "How",
+      "many",
+      "birds",
+      "are",
+      "there"
+     ],
+     "end": "?",
+     "audio": "../../en-shared/q/how-many-birds-are-there.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 1,
+   "page": 18,
+   "task": "Listen and write the missing letters:",
+   "taskAudio": "../../en-shared/q/listen-and-write-the-missing-letters.mp3",
+   "hint": "Type the missing letters!",
+   "items": [
+    {
+     "word": "nurse",
+     "audio": "../u3l2/words/nurse.mp3",
+     "pic": "../../pics/nurse.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "parrot",
+     "audio": "../u1l2/words/parrot.mp3",
+     "pic": "../../pics/parrot.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "dog",
+     "audio": "../u1l4/words/dog.mp3",
+     "pic": "../../pics/dog.png",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "cloze",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 2,
+   "page": 18,
+   "task": "Read and choose the correct answer:",
+   "taskAudio": "../../en-shared/q/read-and-choose-the-correct-answer.mp3",
+   "hint": "Tap the correct word!",
+   "items": [
+    {
+     "text": "[[Who]] is this? - This is my sister.",
+     "bank": [
+      "How",
+      "Who"
+     ],
+     "audio": "../../en-shared/q/who-is-this-this-is-my-sister.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 3,
+   "page": 18,
+   "task": "Unscramble and write:",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "duck",
+     "scr": "ukdc",
+     "audio": "../u2l3/words/duck.mp3",
+     "pic": "../../pics/duck-u3l4.png"
+    },
+    {
+     "word": "hair",
+     "scr": "rahi",
+     "audio": "../u3l4/words/hair.mp3",
+     "pic": "../../pics/hair-u3l4.png"
+    },
+    {
+     "word": "four",
+     "scr": "frou",
+     "audio": "../u3l3/words/four.mp3",
+     "pic": "../../pics/en-bk-four.png"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 4,
+   "page": 18,
+   "task": "Reorder to form sentences:",
+   "taskAudio": "../../en-shared/q/reorder-to-form-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "There",
+      "are",
+      "seven",
+      "pens"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/there-are-seven-pens.mp3"
+    },
+    {
+     "chunks": [
+      "This",
+      "is",
+      "my",
+      "brother"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/this-is-my-brother.mp3"
+    }
+   ]
+  }
+ ]
+}

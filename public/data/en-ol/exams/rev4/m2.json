@@ -1,0 +1,258 @@
+{
+ "title": "Test 2",
+ "ratio": 0.707,
+ "head": {
+  "l": "Department of English<br>1st Term OL Booklet Grade 1<br>2026/2027",
+  "r": "Noor El Elm<br>Modern School"
+ },
+ "pages": [
+  {
+   "title": "Model 2",
+   "chip": "Model 2",
+   "foot": 24,
+   "blocks": [
+    {
+     "t": "q",
+     "n": "1",
+     "text": "Listen and write the missing letters:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/en-bk-touch.png"
+          },
+          {
+           "t": "text",
+           "text": "[[t:tiny]] o u c h",
+           "listen": "touch"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/cup-u4l4.png"
+          },
+          {
+           "t": "text",
+           "text": "[[c:tiny]] u p",
+           "listen": "cup"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ring-u4l2.png"
+          },
+          {
+           "t": "text",
+           "text": "[[r:tiny]] i n g",
+           "listen": "ring"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "Read and choose the correct answer:",
+     "body": [
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "1- I"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "have",
+          "can"
+         ],
+         "answer": 1,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "touch the desk."
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "2- I have two"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "elbows",
+          "elbow"
+         ],
+         "answer": 0,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "."
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "3- I"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "am",
+          "have"
+         ],
+         "answer": 1,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "two hands."
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "4- I have two"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "foot",
+          "feet"
+         ],
+         "answer": 1,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Unscramble and write:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/boy-hear-u4l3.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>a r e h</span> [[hear:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/key-u4l4.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>k y e</span> [[key:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/toes-u4l1.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>s e t o</span> [[toes:wide]]"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Reorder to form sentences:",
+     "body": [
+      {
+       "t": "order",
+       "words": [
+        "my",
+        "smell",
+        "I",
+        "can",
+        "with",
+        "nose"
+       ],
+       "answer": "I can smell with my nose"
+      },
+      {
+       "t": "order",
+       "words": [
+        "legs",
+        "two",
+        "I",
+        "have"
+       ],
+       "answer": "I have two legs"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

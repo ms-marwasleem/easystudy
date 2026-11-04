@@ -1,0 +1,883 @@
+{
+ "_note": "u6l4: p118 ex4, p120 ex8, p121 ex10 (tracing and colouring skipped). Performance p59-61 (weekly A/B/C of lessons 3-4).",
+ "sets": [
+  {
+   "type": "match",
+   "ex": 4,
+   "page": 118,
+   "task": "Circle the pictures that start with the letter (Uu).",
+   "taskAudio": "../../en-shared/q/start-circle-the-pictures-uu.mp3",
+   "hint": "Tap the pictures that start with Uu!",
+   "center": "Uu",
+   "centerAudio": "../../phonics/u.mp3",
+   "items": [
+    {
+     "word": "duck",
+     "audio": "../u2l3/words/duck.mp3",
+     "pic": "../../pics/duck-u3l4.png",
+     "answer": false,
+     "pos": [
+      10,
+      16
+     ]
+    },
+    {
+     "word": "ball",
+     "audio": "../u2l1/words/ball.mp3",
+     "pic": "../../pics/volleyball-u6l2.png",
+     "answer": false,
+     "pos": [
+      90,
+      16
+     ]
+    },
+    {
+     "word": "unlock",
+     "audio": "words/unlock.mp3",
+     "pic": "../../pics/unlock-u6l4.png",
+     "answer": true,
+     "pos": [
+      10,
+      50
+     ]
+    },
+    {
+     "word": "umbrella",
+     "audio": "words/umbrella.mp3",
+     "pic": "../../pics/umbrella-u6l4.png",
+     "answer": true,
+     "pos": [
+      90,
+      50
+     ]
+    },
+    {
+     "word": "up",
+     "audio": "words/up.mp3",
+     "pic": "../../pics/up-u6l4.png",
+     "answer": true,
+     "pos": [
+      28,
+      82
+     ]
+    },
+    {
+     "word": "star",
+     "audio": "../u2l2/words/star.mp3",
+     "pic": "../../pics/star.png",
+     "answer": false,
+     "pos": [
+      72,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 8,
+   "page": 120,
+   "task": "Circle the pictures that start with the letter (Jj).",
+   "taskAudio": "../../en-shared/q/start-circle-the-pictures-jj.mp3",
+   "hint": "Tap the pictures that start with Jj!",
+   "center": "Jj",
+   "centerAudio": "../../phonics/j.mp3",
+   "items": [
+    {
+     "word": "jacket",
+     "audio": "words/jacket.mp3",
+     "pic": "../../pics/jacket-u6l4.png",
+     "answer": true,
+     "pos": [
+      10,
+      16
+     ]
+    },
+    {
+     "word": "jeans",
+     "audio": "words/jeans.mp3",
+     "pic": "../../pics/jeans-u6l4.png",
+     "answer": true,
+     "pos": [
+      90,
+      16
+     ]
+    },
+    {
+     "word": "unlock",
+     "audio": "words/unlock.mp3",
+     "pic": "../../pics/unlock-u6l4.png",
+     "answer": false,
+     "pos": [
+      10,
+      50
+     ]
+    },
+    {
+     "word": "olive",
+     "audio": "../u5l4/words/olive.mp3",
+     "pic": "../../pics/olive-u5l4.png",
+     "answer": false,
+     "pos": [
+      90,
+      50
+     ]
+    },
+    {
+     "word": "frog",
+     "audio": "../u2l3/words/frog.mp3",
+     "pic": "../../pics/frog.png",
+     "answer": false,
+     "pos": [
+      28,
+      82
+     ]
+    },
+    {
+     "word": "jar",
+     "audio": "words/jar.mp3",
+     "pic": "../../pics/jar-u6l4.png",
+     "answer": true,
+     "pos": [
+      72,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "ex": 10,
+   "page": 121,
+   "task": "Write the missing letter.",
+   "taskAudio": "../../en-shared/q/write-the-missing-letter.mp3",
+   "hint": "Type the missing letter!",
+   "items": [
+    {
+     "word": "jar",
+     "audio": "words/jar.mp3",
+     "pic": "../../pics/jar-u6l4.png",
+     "missing": 0,
+     "answer": "j"
+    },
+    {
+     "word": "up",
+     "audio": "words/up.mp3",
+     "pic": "../../pics/up-u6l4.png",
+     "missing": 0,
+     "answer": "u"
+    },
+    {
+     "word": "jam",
+     "audio": "words/jam.mp3",
+     "pic": "../../pics/jam-u6l4.png",
+     "missing": 0,
+     "answer": "j"
+    },
+    {
+     "word": "unlock",
+     "audio": "words/unlock.mp3",
+     "pic": "../../pics/unlock-u6l4.png",
+     "missing": 0,
+     "answer": "u"
+    },
+    {
+     "word": "jacket",
+     "audio": "words/jacket.mp3",
+     "pic": "../../pics/jacket-u6l4.png",
+     "missing": 0,
+     "answer": "j"
+    },
+    {
+     "word": "under",
+     "audio": "../u6l3/words/under.mp3",
+     "pic": "../../pics/box-under-u6l3.png",
+     "missing": 0,
+     "answer": "u"
+    },
+    {
+     "word": "jeans",
+     "audio": "words/jeans.mp3",
+     "pic": "../../pics/jeans-u6l4.png",
+     "missing": 0,
+     "answer": "j"
+    },
+    {
+     "word": "umbrella",
+     "audio": "words/umbrella.mp3",
+     "pic": "../../pics/umbrella-u6l4.png",
+     "missing": 0,
+     "answer": "u"
+    },
+    {
+     "word": "jellyfish",
+     "audio": "words/jellyfish.mp3",
+     "pic": "../../pics/jellyfish-u6l4.png",
+     "missing": 0,
+     "answer": "j"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 59,
+   "grp": "classroom-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "jar",
+     "scr": "raj",
+     "audio": "words/jar.mp3",
+     "pic": "../../pics/jar-u6l4.png"
+    },
+    {
+     "word": "under",
+     "scr": "nerdu",
+     "audio": "../u6l3/words/under.mp3",
+     "pic": "../../pics/box-under-u6l3.png"
+    },
+    {
+     "word": "unlock",
+     "scr": "unlokc",
+     "audio": "words/unlock.mp3",
+     "pic": "../../pics/unlock-u6l4.png"
+    },
+    {
+     "word": "jacket",
+     "scr": "akecjt",
+     "audio": "words/jacket.mp3",
+     "pic": "../../pics/jacket-u6l4.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 59,
+   "grp": "classroom-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "word": "The ball is under the box.",
+     "lead": "The ball is",
+     "options": [
+      "under",
+      "in"
+     ],
+     "answer": 0,
+     "pic": "../../pics/box-under-u6l3.png",
+     "tail": "the box.",
+     "audio": "../../en-shared/q/thing-colour-ball-under-the-box.mp3"
+    },
+    {
+     "word": "I can see a jacket.",
+     "lead": "I can see a",
+     "options": [
+      "jar",
+      "jacket"
+     ],
+     "answer": 1,
+     "pic": "../../pics/jacket-u6l4.png",
+     "audio": "../../en-shared/q/i-can-see-a-jacket.mp3"
+    },
+    {
+     "word": "These are jeans.",
+     "lead": "These are",
+     "options": [
+      "jeans",
+      "jackets"
+     ],
+     "answer": 0,
+     "pic": "../../pics/jeans-u6l4.png",
+     "audio": "../../en-shared/q/these-are-jeans.mp3"
+    },
+    {
+     "word": "I have an umbrella.",
+     "lead": "I have an",
+     "options": [
+      "unlock",
+      "umbrella"
+     ],
+     "answer": 1,
+     "pic": "../../pics/umbrella-u6l4.png",
+     "audio": "../../en-shared/q/i-have-an-umbrella.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 59,
+   "grp": "homework-1",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "up",
+     "audio": "words/up.mp3",
+     "pic": "../../pics/up-u6l4.png",
+     "gaps": [
+      0,
+      1
+     ]
+    },
+    {
+     "word": "jellyfish",
+     "audio": "words/jellyfish.mp3",
+     "pic": "../../pics/jellyfish-u6l4.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+     ]
+    },
+    {
+     "word": "umbrella",
+     "audio": "words/umbrella.mp3",
+     "pic": "../../pics/umbrella-u6l4.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ]
+    },
+    {
+     "word": "jam",
+     "audio": "words/jam.mp3",
+     "pic": "../../pics/jam-u6l4.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 1,
+   "page": 60,
+   "grp": "weekly-a-1",
+   "task": "Write the missing letter.",
+   "taskAudio": "../../en-shared/q/write-the-missing-letter.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "jeans",
+     "audio": "words/jeans.mp3",
+     "pic": "../../pics/jeans-u6l4.png",
+     "missing": 0,
+     "answer": "j"
+    },
+    {
+     "word": "unlock",
+     "audio": "words/unlock.mp3",
+     "pic": "../../pics/unlock-u6l4.png",
+     "missing": 0,
+     "answer": "u"
+    },
+    {
+     "word": "jar",
+     "audio": "words/jar.mp3",
+     "pic": "../../pics/jar-u6l4.png",
+     "missing": 0,
+     "answer": "j"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 2,
+   "page": 60,
+   "grp": "weekly-a-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "Where",
+      "is",
+      "the",
+      "bird"
+     ],
+     "end": "?",
+     "audio": "../../en-shared/q/where-is-the-bird-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "turtle",
+      "is",
+      "under",
+      "the",
+      "table"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-turtle-is-under-the-table-mp3.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 1,
+   "page": 60,
+   "grp": "weekly-b-1",
+   "task": "Write the missing letter.",
+   "taskAudio": "../../en-shared/q/write-the-missing-letter.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "umbrella",
+     "audio": "words/umbrella.mp3",
+     "pic": "../../pics/umbrella-u6l4.png",
+     "missing": 0,
+     "answer": "u"
+    },
+    {
+     "word": "jellyfish",
+     "audio": "words/jellyfish.mp3",
+     "pic": "../../pics/jellyfish-u6l4.png",
+     "missing": 0,
+     "answer": "j"
+    },
+    {
+     "word": "lamp",
+     "audio": "../u6l2/words/lamp.mp3",
+     "pic": "../../pics/lamp-u6l2.png",
+     "missing": 0,
+     "answer": "l"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 2,
+   "page": 60,
+   "grp": "weekly-b-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "love",
+      "pets"
+     ],
+     "end": "!",
+     "audio": "../../en-shared/q/i-love-pets-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "cat",
+      "is",
+      "under",
+      "the",
+      "chair"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-cat-is-under-the-chair-mp3.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 1,
+   "page": 61,
+   "grp": "weekly-c-1",
+   "task": "Write the missing letter.",
+   "taskAudio": "../../en-shared/q/write-the-missing-letter.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "under",
+     "audio": "../u6l3/words/under.mp3",
+     "pic": "../../pics/box-under-u6l3.png",
+     "missing": 0,
+     "answer": "u"
+    },
+    {
+     "word": "jacket",
+     "audio": "words/jacket.mp3",
+     "pic": "../../pics/jacket-u6l4.png",
+     "missing": 0,
+     "answer": "j"
+    },
+    {
+     "word": "jam",
+     "audio": "words/jam.mp3",
+     "pic": "../../pics/jam-u6l4.png",
+     "missing": 0,
+     "answer": "j"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 2,
+   "page": 61,
+   "grp": "weekly-c-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "Where",
+      "is",
+      "the",
+      "cat"
+     ],
+     "end": "?",
+     "audio": "../../en-shared/q/where-is-the-cat-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "bird",
+      "is",
+      "in",
+      "the",
+      "cage"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-bird-is-in-the-cage-mp3.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 1,
+   "page": 35,
+   "task": "Listen and write the missing letters:",
+   "taskAudio": "../../en-shared/q/listen-and-write-the-missing-letters.mp3",
+   "hint": "Type the missing letters!",
+   "items": [
+    {
+     "word": "monkey",
+     "audio": "../u5l2/words/monkey.mp3",
+     "pic": "../../pics/monkey-u5l2.png",
+     "gaps": [
+      2,
+      3
+     ]
+    },
+    {
+     "word": "bike",
+     "audio": "../u6l2/words/bike.mp3",
+     "pic": "../../pics/bike-u6l2.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "leaf",
+     "audio": "../u2l3/words/leaf.mp3",
+     "pic": "../../pics/leaf.png",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "cloze",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 2,
+   "page": 35,
+   "task": "Read and complete:",
+   "taskAudio": "../../en-shared/q/read-and-complete.mp3",
+   "hint": "Tap the missing word!",
+   "items": [
+    {
+     "text": "The bird is in the [[cage]].",
+     "bank": [
+      "up",
+      "Where",
+      "no",
+      "cage"
+     ],
+     "audio": "../../en-shared/q/the-bird-is-in-the-cage.mp3"
+    },
+    {
+     "text": "[[Where]] is the dog?",
+     "bank": [
+      "up",
+      "Where",
+      "no",
+      "cage"
+     ],
+     "audio": "../../en-shared/q/where-is-the-dog.mp3"
+    },
+    {
+     "text": "The arrow is [[up]].",
+     "bank": [
+      "up",
+      "Where",
+      "no",
+      "cage"
+     ],
+     "audio": "../../en-shared/q/the-arrow-is-up.mp3"
+    },
+    {
+     "text": "The snake has [[no]] legs.",
+     "bank": [
+      "up",
+      "Where",
+      "no",
+      "cage"
+     ],
+     "audio": "../../en-shared/q/the-snake-has-no-legs.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 3,
+   "page": 35,
+   "task": "Unscramble and write:",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "lion",
+     "scr": "oinl",
+     "audio": "../u6l1/words/lion.mp3",
+     "pic": "../../pics/lion-u6l1.png"
+    },
+    {
+     "word": "turtle",
+     "scr": "leurtt",
+     "audio": "../u5l1/words/turtle.mp3",
+     "pic": "../../pics/turtle-u5l1.png"
+    },
+    {
+     "word": "boy",
+     "scr": "oby",
+     "audio": "../u6l2/words/boy.mp3",
+     "pic": "../../pics/boy-u6l2.png"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 4,
+   "page": 35,
+   "task": "Reorder to form sentences:",
+   "taskAudio": "../../en-shared/q/reorder-to-form-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "A",
+      "tiger",
+      "has",
+      "four",
+      "legs"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/a-tiger-has-four-legs.mp3"
+    },
+    {
+     "chunks": [
+      "Where",
+      "is",
+      "the",
+      "cow"
+     ],
+     "end": "?",
+     "audio": "../../en-shared/q/where-is-the-cow.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 1,
+   "page": 36,
+   "task": "Listen and write the missing letters:",
+   "taskAudio": "../../en-shared/q/listen-and-write-the-missing-letters.mp3",
+   "hint": "Type the missing letters!",
+   "items": [
+    {
+     "word": "umbrella",
+     "audio": "../u6l4/words/umbrella.mp3",
+     "pic": "../../pics/umbrella-u6l4.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "lemon",
+     "audio": "../u6l2/words/lemon.mp3",
+     "pic": "../../pics/lemon-u6l2.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "banana",
+     "audio": "../u4l2/words/banana.mp3",
+     "pic": "../../pics/banana-u4l2.png",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "cloze",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 2,
+   "page": 36,
+   "task": "Read and choose the correct answer:",
+   "taskAudio": "../../en-shared/q/read-and-choose-the-correct-answer.mp3",
+   "hint": "Tap the correct word!",
+   "items": [
+    {
+     "text": "Cats and [[dogs]] are pets.",
+     "bank": [
+      "lions",
+      "dogs"
+     ],
+     "audio": "../../en-shared/q/cats-and-dogs-are-pets.mp3"
+    },
+    {
+     "text": "The bird is [[in]] the cage.",
+     "bank": [
+      "in",
+      "of"
+     ],
+     "audio": "../../en-shared/q/the-bird-is-in-the-cage.mp3"
+    },
+    {
+     "text": "[[Where]] is the ball? - It's under the chair.",
+     "bank": [
+      "What",
+      "Where"
+     ],
+     "audio": "../../en-shared/q/where-is-the-ball-it-s-under-the-chair.mp3"
+    },
+    {
+     "text": "I can see a [[tiger]] in the jungle.",
+     "bank": [
+      "bike",
+      "tiger"
+     ],
+     "audio": "../../en-shared/q/i-can-see-a-tiger-in-the-jungle.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 3,
+   "page": 36,
+   "task": "Unscramble and write:",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "cage",
+     "scr": "ceag",
+     "audio": "../../en-shared/q/cage.mp3",
+     "pic": "../../pics/en-bk-cage.png"
+    },
+    {
+     "word": "lunch",
+     "scr": "cnhul",
+     "audio": "../u6l2/words/lunch.mp3",
+     "pic": "../../pics/lunch-u6l2.png"
+    },
+    {
+     "word": "jam",
+     "scr": "maj",
+     "audio": "../u6l4/words/jam.mp3",
+     "pic": "../../pics/jam-u6l4.png"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 4,
+   "page": 36,
+   "task": "Reorder to form sentences:",
+   "taskAudio": "../../en-shared/q/reorder-to-form-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "The",
+      "cat",
+      "is",
+      "under",
+      "the",
+      "chair"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-cat-is-under-the-chair.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "giraffe",
+      "has",
+      "four",
+      "legs"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-giraffe-has-four-legs.mp3"
+    }
+   ]
+  }
+ ]
+}

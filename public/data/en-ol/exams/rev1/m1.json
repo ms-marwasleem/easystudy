@@ -1,0 +1,181 @@
+{
+ "title": "Test 1",
+ "ratio": 0.707,
+ "head": {
+  "l": "Department of English<br>1st Term OL Booklet Grade 1<br>2026/2027",
+  "r": "Noor El Elm<br>Modern School"
+ },
+ "pages": [
+  {
+   "title": "Model 1",
+   "chip": "Model 1",
+   "foot": 5,
+   "blocks": [
+    {
+     "t": "q",
+     "n": "1",
+     "text": "Listen and write the missing letters:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/handshake.png"
+          },
+          {
+           "t": "text",
+           "text": "sha [[k:tiny]] e ha [[n:tiny]] ds",
+           "listen": "shake hands"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/table-exrev1.jpg"
+          },
+          {
+           "t": "text",
+           "text": "[[t:tiny]] able",
+           "listen": "table"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/book-exrev1.png"
+          },
+          {
+           "t": "text",
+           "text": "b [[o:tiny]] [[o:tiny]] k",
+           "listen": "book"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "Read and complete:",
+     "body": [
+      {
+       "t": "text",
+       "style": "bank",
+       "text": "name – teacher – board – play"
+      },
+      {
+       "t": "text",
+       "text": "1- I [[play]] with my friends."
+      },
+      {
+       "t": "text",
+       "text": "2- My [[name]] is Hana."
+      },
+      {
+       "t": "text",
+       "text": "3- She is my [[teacher]]."
+      },
+      {
+       "t": "text",
+       "text": "4- Look at the [[board]]."
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Unscramble and write:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/pen-exrev1.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>e p n</span> [[pen:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/desk-exrev1.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>s d e k</span> [[desk:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ink.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>n k i</span> [[ink:wide]]"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Reorder to form sentences:",
+     "body": [
+      {
+       "t": "order",
+       "words": [
+        "meet",
+        "Nice",
+        "you",
+        "to"
+       ],
+       "answer": "Nice to meet you"
+      },
+      {
+       "t": "order",
+       "words": [
+        "is",
+        "friend",
+        "This",
+        "my"
+       ],
+       "answer": "This is my friend"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

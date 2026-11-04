@@ -1,0 +1,336 @@
+{
+ "_note": "u6l3: p115 ex3-4, p116 ex5-6. Performance p58.",
+ "sets": [
+  {
+   "type": "pick",
+   "ex": 3,
+   "page": 115,
+   "mark": "circle",
+   "task": "Listen, point, and tick.",
+   "taskAudio": "../../en-shared/q/listen-point-and-tick.mp3",
+   "hint": "Listen, then tap the right picture!",
+   "items": [
+    {
+     "word": "cat",
+     "audio": "../u1l4/words/cat.mp3",
+     "pics": [
+      "../../pics/cat-u4l4.png",
+      "../../pics/hat-u6l3.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "dog",
+     "audio": "../u1l4/words/dog.mp3",
+     "pics": [
+      "../../pics/frog-lilypad.png",
+      "../../pics/dog-u3l4.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "bird",
+     "audio": "../u2l1/words/bird.mp3",
+     "pics": [
+      "../../pics/bird.png",
+      "../../pics/bee-u6l3.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "in",
+     "audio": "../u1l4/words/in.mp3",
+     "pics": [
+      "../../pics/box-in-u6l3.png",
+      "../../pics/box-on-u6l3.png"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "yesno",
+   "ex": 4,
+   "page": 115,
+   "task": "Do the word and the picture match?",
+   "taskAudio": "../../en-shared/q/do-the-word-and-the-picture-match.mp3",
+   "hint": "Match? Tap the tick. No? Tap the cross.",
+   "items": [
+    {
+     "word": "turtle",
+     "audio": "../u5l1/words/turtle.mp3",
+     "pic": "../../pics/turtle-u5l1.png",
+     "answer": true
+    },
+    {
+     "word": "on",
+     "audio": "../u5l4/words/on.mp3",
+     "pic": "../../pics/box-in-u6l3.png",
+     "answer": false
+    },
+    {
+     "word": "under",
+     "audio": "words/under.mp3",
+     "pic": "../../pics/cat-sit-u6l3.png",
+     "answer": false
+    },
+    {
+     "word": "The cat is under the chair.",
+     "audio": "../../en-shared/q/thing-colour-cat-under-the-chair.mp3",
+     "pic": "../../pics/cat-purple-u6l3.png",
+     "answer": true
+    },
+    {
+     "word": "The dog is on the couch.",
+     "audio": "../../en-shared/q/thing-colour-dog-on-the-couch.mp3",
+     "pic": "../../pics/dog-couch-u6l3.png",
+     "answer": true
+    },
+    {
+     "word": "The bird is in the cage.",
+     "audio": "../../en-shared/q/thing-colour-bird-in-the-cage.mp3",
+     "pic": "../../pics/bird-cage-u6l3.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 5,
+   "page": 116,
+   "task": "Match the pictures to the correct words.",
+   "taskAudio": "../../en-shared/q/match-the-pictures-to-the-correct-words.mp3",
+   "hint": "Match the picture and the word!",
+   "items": [
+    {
+     "word": "dog",
+     "audio": "../u1l4/words/dog.mp3",
+     "pic": "../../pics/dog-u3l4.png"
+    },
+    {
+     "word": "in",
+     "audio": "../u1l4/words/in.mp3",
+     "pic": "../../pics/box-in-u6l3.png"
+    },
+    {
+     "word": "under",
+     "audio": "words/under.mp3",
+     "pic": "../../pics/box-under-u6l3.png"
+    },
+    {
+     "word": "turtle",
+     "audio": "../u5l1/words/turtle.mp3",
+     "pic": "../../pics/turtle-u5l1.png"
+    },
+    {
+     "word": "bird",
+     "audio": "../u2l1/words/bird.mp3",
+     "pic": "../../pics/bird.png"
+    },
+    {
+     "word": "cat",
+     "audio": "../u1l4/words/cat.mp3",
+     "pic": "../../pics/cat-u4l4.png"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 6,
+   "page": 116,
+   "task": "Circle the pictures that belong to the pets.",
+   "taskAudio": "../../en-shared/q/circle-the-pictures-that-belong-to-the-pets.mp3",
+   "hint": "Tap the pets!",
+   "items": [
+    {
+     "word": "elephant",
+     "audio": "../u4l2/words/elephant.mp3",
+     "pic": "../../pics/elephant-u4l2.png",
+     "answer": false
+    },
+    {
+     "word": "giraffe",
+     "audio": "../u6l1/words/giraffe.mp3",
+     "pic": "../../pics/giraffe-u6l1.png",
+     "answer": false
+    },
+    {
+     "word": "turtle",
+     "audio": "../u5l1/words/turtle.mp3",
+     "pic": "../../pics/turtle-u5l1.png",
+     "answer": true
+    },
+    {
+     "word": "cat",
+     "audio": "../u1l4/words/cat.mp3",
+     "pic": "../../pics/cat-u4l4.png",
+     "answer": true
+    },
+    {
+     "word": "dog",
+     "audio": "../u1l4/words/dog.mp3",
+     "pic": "../../pics/dog-u3l4.png",
+     "answer": true
+    },
+    {
+     "word": "bird",
+     "audio": "../u2l1/words/bird.mp3",
+     "pic": "../../pics/bird.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 58,
+   "grp": "classroom-1",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "word": "The cat is on the couch.",
+     "lead": "The cat is",
+     "options": [
+      "on",
+      "under"
+     ],
+     "answer": 0,
+     "pic": "../../pics/catcouch-u6l3.png",
+     "tail": "the couch.",
+     "audio": "../../en-shared/q/thing-colour-cat-on-the-couch.mp3"
+    },
+    {
+     "word": "The dog is under the chair.",
+     "lead": "The dog is",
+     "options": [
+      "on",
+      "under"
+     ],
+     "answer": 1,
+     "pic": "../../pics/dogchair-u6l3.png",
+     "tail": "the chair.",
+     "audio": "../../en-shared/q/thing-colour-dog-under-the-chair.mp3"
+    },
+    {
+     "word": "The bird is in the cage.",
+     "lead": "The bird is",
+     "options": [
+      "in",
+      "on"
+     ],
+     "answer": 0,
+     "pic": "../../pics/birdcage2-u6l3.png",
+     "tail": "the cage.",
+     "audio": "../../en-shared/q/thing-colour-bird-in-the-cage.mp3"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 58,
+   "grp": "classroom-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "The",
+      "cat",
+      "is",
+      "on",
+      "my",
+      "leg"
+     ],
+     "end": "!",
+     "audio": "../../en-shared/q/the-cat-is-on-my-leg-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "Where",
+      "is",
+      "the",
+      "dog"
+     ],
+     "end": "?",
+     "audio": "../../en-shared/q/where-is-the-dog-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "dog",
+      "is",
+      "on",
+      "the",
+      "couch"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/thing-colour-dog-on-the-couch.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 58,
+   "grp": "homework-1",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "turtle",
+     "audio": "../u5l1/words/turtle.mp3",
+     "pic": "../../pics/turtle-u5l1.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "word": "in",
+     "audio": "../u1l4/words/in.mp3",
+     "pic": "../../pics/box-in-u6l3.png",
+     "gaps": [
+      0,
+      1
+     ]
+    },
+    {
+     "word": "on",
+     "audio": "../u5l4/words/on.mp3",
+     "pic": "../../pics/box-on-u6l3.png",
+     "gaps": [
+      0,
+      1
+     ]
+    },
+    {
+     "word": "under",
+     "audio": "words/under.mp3",
+     "pic": "../../pics/box-under-u6l3.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ]
+  }
+ ]
+}

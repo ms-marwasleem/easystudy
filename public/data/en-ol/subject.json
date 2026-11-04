@@ -18,6 +18,10 @@
   },
   {
    "unit": 6
+  },
+  {
+   "unit": 7,
+   "label": "Revision"
   }
  ],
  "lessons": [
@@ -116,10 +120,16 @@
    },
    "exams": [
     {
-     "id": "rev1",
-     "title": "Test",
-     "label": "Test",
-     "file": "data/en-ol/exams/rev1/exam.json"
+     "id": "rev1m1",
+     "title": "Test 1",
+     "label": "Test 1",
+     "file": "data/en-ol/exams/rev1/m1.json"
+    },
+    {
+     "id": "rev1m2",
+     "title": "Test 2",
+     "label": "Test 2",
+     "file": "data/en-ol/exams/rev1/m2.json"
     }
    ]
   },
@@ -219,10 +229,16 @@
    },
    "exams": [
     {
-     "id": "rev2",
-     "title": "Test",
-     "label": "Test",
-     "file": "data/en-ol/exams/rev2/exam.json"
+     "id": "rev2m1",
+     "title": "Test 1",
+     "label": "Test 1",
+     "file": "data/en-ol/exams/rev2/m1.json"
+    },
+    {
+     "id": "rev2m2",
+     "title": "Test 2",
+     "label": "Test 2",
+     "file": "data/en-ol/exams/rev2/m2.json"
     }
    ]
   },
@@ -296,7 +312,493 @@
      28
     ]
    }
+  },
+  {
+   "unit": 3,
+   "lesson": 4,
+   "folder": "u3l4",
+   "title": "Phonics Hh Dd",
+   "pages": {
+    "read": [
+     56,
+     58
+    ],
+    "words": [
+     56,
+     58
+    ],
+    "quiz": [
+     57,
+     59
+    ],
+    "workbook": [
+     29,
+     30,
+     31
+    ],
+    "booklet": [
+     17,
+     18
+    ]
+   },
+   "exams": [
+    {
+     "id": "rev3m1",
+     "title": "Test 1",
+     "label": "Test 1",
+     "file": "data/en-ol/exams/rev3/m1.json"
+    },
+    {
+     "id": "rev3m2",
+     "title": "Test 2",
+     "label": "Test 2",
+     "file": "data/en-ol/exams/rev3/m2.json"
+    }
+   ]
+  },
+  {
+   "unit": 3,
+   "lesson": 5,
+   "folder": "r1",
+   "title": "Review 1",
+   "pages": {
+    "quiz": [
+     61,
+     62,
+     63,
+     64
+    ],
+    "workbook": [
+     32
+    ]
+   },
+   "tabs": [
+    "quiz",
+    "workbook"
+   ]
+  },
+  {
+   "unit": 4,
+   "lesson": 1,
+   "folder": "u4l1",
+   "title": "Head to Toe",
+   "pages": {
+    "read": [
+     66
+    ],
+    "words": [
+     66
+    ],
+    "quiz": [
+     67,
+     68,
+     69
+    ],
+    "workbook": [
+     33,
+     34
+    ]
+   }
+  },
+  {
+   "unit": 4,
+   "lesson": 2,
+   "folder": "u4l2",
+   "title": "Phonics Rr Ee",
+   "pages": {
+    "read": [
+     70,
+     72
+    ],
+    "words": [
+     70,
+     72
+    ],
+    "quiz": [
+     71,
+     73,
+     74
+    ],
+    "workbook": [
+     35,
+     36,
+     37
+    ]
+   }
+  },
+  {
+   "unit": 4,
+   "lesson": 3,
+   "folder": "u4l3",
+   "title": "My 5 Senses",
+   "pages": {
+    "read": [
+     75,
+     76
+    ],
+    "words": [
+     76
+    ],
+    "quiz": [
+     77,
+     78
+    ],
+    "workbook": [
+     38
+    ]
+   }
+  },
+  {
+   "unit": 4,
+   "lesson": 4,
+   "folder": "u4l4",
+   "title": "Phonics Cc Kk",
+   "pages": {
+    "read": [
+     79,
+     81
+    ],
+    "words": [
+     79,
+     81
+    ],
+    "quiz": [
+     80,
+     82,
+     83
+    ],
+    "workbook": [
+     39,
+     40,
+     41
+    ],
+    "booklet": [
+     23,
+     24
+    ]
+   },
+   "exams": [
+    {
+     "id": "rev4m1",
+     "title": "Test 1",
+     "label": "Test 1",
+     "file": "data/en-ol/exams/rev4/m1.json"
+    },
+    {
+     "id": "rev4m2",
+     "title": "Test 2",
+     "label": "Test 2",
+     "file": "data/en-ol/exams/rev4/m2.json"
+    }
+   ]
+  },
+  {
+   "unit": 5,
+   "lesson": 1,
+   "folder": "u5l1",
+   "title": "Welcome to the Farm",
+   "pages": {
+    "read": [
+     85,
+     86
+    ],
+    "words": [
+     86
+    ],
+    "quiz": [
+     87,
+     88
+    ],
+    "workbook": [
+     42
+    ]
+   }
+  },
+  {
+   "unit": 5,
+   "lesson": 2,
+   "folder": "u5l2",
+   "title": "Phonics Mm Gg",
+   "pages": {
+    "read": [
+     89,
+     91
+    ],
+    "words": [
+     89,
+     91
+    ],
+    "quiz": [
+     90,
+     92,
+     93
+    ],
+    "workbook": [
+     43,
+     44,
+     45
+    ]
+   }
+  },
+  {
+   "unit": 5,
+   "lesson": 3,
+   "folder": "u5l3",
+   "title": "Numbers From 6 to 10",
+   "pages": {
+    "read": [
+     94,
+     95
+    ],
+    "words": [
+     95
+    ],
+    "quiz": [
+     95,
+     96,
+     97
+    ],
+    "workbook": [
+     46
+    ]
+   }
+  },
+  {
+   "unit": 5,
+   "lesson": 4,
+   "folder": "u5l4",
+   "title": "Phonics Oo Ff",
+   "pages": {
+    "read": [
+     98,
+     100
+    ],
+    "words": [
+     98,
+     100
+    ],
+    "quiz": [
+     99,
+     101,
+     102
+    ],
+    "workbook": [
+     47,
+     48,
+     49
+    ],
+    "booklet": [
+     29,
+     30
+    ]
+   },
+   "exams": [
+    {
+     "id": "rev5m1",
+     "title": "Test 1",
+     "label": "Test 1",
+     "file": "data/en-ol/exams/rev5/m1.json"
+    },
+    {
+     "id": "rev5m2",
+     "title": "Test 2",
+     "label": "Test 2",
+     "file": "data/en-ol/exams/rev5/m2.json"
+    }
+   ]
+  },
+  {
+   "unit": 6,
+   "lesson": 1,
+   "folder": "u6l1",
+   "title": "Welcome to the Jungle",
+   "pages": {
+    "read": [
+     104,
+     105
+    ],
+    "words": [
+     105
+    ],
+    "quiz": [
+     106,
+     107
+    ],
+    "workbook": [
+     54
+    ]
+   }
+  },
+  {
+   "unit": 6,
+   "lesson": 2,
+   "folder": "u6l2",
+   "title": "Phonics Bb Ll",
+   "pages": {
+    "read": [
+     108,
+     110
+    ],
+    "words": [
+     108,
+     110
+    ],
+    "quiz": [
+     109,
+     111,
+     112
+    ],
+    "workbook": [
+     55,
+     56,
+     57
+    ]
+   }
+  },
+  {
+   "unit": 6,
+   "lesson": 3,
+   "folder": "u6l3",
+   "title": "My Pets",
+   "pages": {
+    "read": [
+     113,
+     114
+    ],
+    "words": [
+     114
+    ],
+    "quiz": [
+     115,
+     116
+    ],
+    "workbook": [
+     58
+    ]
+   }
+  },
+  {
+   "unit": 6,
+   "lesson": 4,
+   "folder": "u6l4",
+   "title": "Phonics Uu Jj",
+   "pages": {
+    "read": [
+     117,
+     119
+    ],
+    "words": [
+     117,
+     119
+    ],
+    "quiz": [
+     118,
+     120,
+     121
+    ],
+    "workbook": [
+     59,
+     60,
+     61
+    ],
+    "booklet": [
+     35,
+     36
+    ]
+   },
+   "exams": [
+    {
+     "id": "rev6m1",
+     "title": "Test 1",
+     "label": "Test 1",
+     "file": "data/en-ol/exams/rev6/m1.json"
+    },
+    {
+     "id": "rev6m2",
+     "title": "Test 2",
+     "label": "Test 2",
+     "file": "data/en-ol/exams/rev6/m2.json"
+    }
+   ]
+  },
+  {
+   "unit": 6,
+   "lesson": 5,
+   "folder": "r2",
+   "title": "Review 2",
+   "pages": {
+    "quiz": [
+     122,
+     123,
+     124
+    ],
+    "workbook": [
+     50,
+     51,
+     52,
+     53
+    ]
+   },
+   "tabs": [
+    "quiz",
+    "workbook"
+   ]
+  },
+  {
+   "unit": 7,
+   "lesson": 1,
+   "folder": "fr",
+   "title": "Final Revision",
+   "pages": {
+    "booklet": [
+     37,
+     38,
+     39,
+     40,
+     41
+    ]
+   },
+   "tabs": [
+    "booklet"
+   ],
+   "exams": [
+    {
+     "id": "revfinalm1",
+     "title": "Test 1",
+     "label": "Test 1",
+     "file": "data/en-ol/exams/revfinal/m1.json"
+    },
+    {
+     "id": "revfinalm2",
+     "title": "Test 2",
+     "label": "Test 2",
+     "file": "data/en-ol/exams/revfinal/m2.json"
+    },
+    {
+     "id": "revfinalm3",
+     "title": "Test 3",
+     "label": "Test 3",
+     "file": "data/en-ol/exams/revfinal/m3.json"
+    },
+    {
+     "id": "revfinalm4",
+     "title": "Test 4",
+     "label": "Test 4",
+     "file": "data/en-ol/exams/revfinal/m4.json"
+    },
+    {
+     "id": "revfinalm5",
+     "title": "Test 5",
+     "label": "Test 5",
+     "file": "data/en-ol/exams/revfinal/m5.json"
+    }
+   ]
   }
  ],
- "_note": "One entry per lesson. A lesson opens on the map when it has a title and its folder data/en-ol/<folder>/lesson.json exists. Units listed here show as boxes. \"pages\" = the school-book pages each tab covers (read / words / quiz), used by the Book page button."
+ "_note": "One entry per lesson. A lesson opens on the map when it has a title and its folder data/en-ol/<folder>/lesson.json exists. Units listed here show as boxes. \"pages\" = the school-book pages each tab covers (read / words / quiz), used by the Book page button.",
+ "labels": {
+  "Questions": "Book's questions",
+  "Assignments": "Performance book",
+  "PTS": "Performance"
+ }
 }

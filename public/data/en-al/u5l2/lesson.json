@@ -1,0 +1,410 @@
+{
+ "unit": 5,
+ "lesson": 2,
+ "title": "Cities of the World",
+ "sceneAlt": "A town",
+ "tabs": [
+  "words",
+  "booklet",
+  "grammar"
+ ],
+ "type": "al",
+ "scene": "img/scene.jpg",
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "amusement park",
+   "ar": "مدينة ملاهي",
+   "img": "../../pics/u5-amusement-park.jpg",
+   "parts": [
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "u",
+     "ph": "ue",
+     "audio": "../../phonics/ue.mp3"
+    },
+    {
+     "t": "se",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": " ",
+     "ph": ""
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "ar",
+     "ph": "ar",
+     "audio": "../../phonics/ar.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/amusement park.mp3"
+   }
+  },
+  {
+   "word": "coffee shop",
+   "ar": "مقهى",
+   "img": "../../pics/u5-coffee-shop.jpg",
+   "parts": [
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    },
+    {
+     "t": "ff",
+     "ph": "f",
+     "audio": "../../phonics/f.mp3"
+    },
+    {
+     "t": "ee",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    },
+    {
+     "t": " ",
+     "ph": ""
+    },
+    {
+     "t": "sh",
+     "ph": "sh",
+     "audio": "../../phonics/sh.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/coffee shop.mp3"
+   }
+  },
+  {
+   "word": "market",
+   "ar": "سوق",
+   "img": "../../pics/u5-market.jpg",
+   "parts": [
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "ar",
+     "ph": "ar",
+     "audio": "../../phonics/ar.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/market.mp3"
+   }
+  },
+  {
+   "word": "monument",
+   "ar": "نصب تذكاري",
+   "img": "../../pics/u5-monument.jpg",
+   "parts": [
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "u",
+     "ph": "ue",
+     "audio": "../../phonics/ue.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/monument.mp3"
+   }
+  },
+  {
+   "word": "square",
+   "ar": "ميدان",
+   "img": "../../pics/u5-square.jpg",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "qu",
+     "ph": "qu",
+     "audio": "../../phonics/qu.mp3"
+    },
+    {
+     "t": "are",
+     "ph": "air",
+     "audio": "../../phonics/air.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/square.mp3"
+   }
+  },
+  {
+   "word": "park",
+   "ar": "حديقة",
+   "img": "../../pics/u5-park.jpg",
+   "parts": [
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "ar",
+     "ph": "ar",
+     "audio": "../../phonics/ar.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/park.mp3"
+   }
+  },
+  {
+   "word": "station",
+   "ar": "محطة",
+   "img": "../../pics/u5-station.jpg",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3",
+     "spell": true
+    }
+   ],
+   "audio": {
+    "word": "words/station.mp3"
+   }
+  },
+  {
+   "word": "city",
+   "ar": "مدينة",
+   "img": "../../pics/u5-city.jpg",
+   "parts": [
+    {
+     "t": "c",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "y",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/city.mp3"
+   }
+  },
+  {
+   "word": "country",
+   "ar": "بلد",
+   "img": "../../pics/u5-country.jpg",
+   "parts": [
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "ou",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "y",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/country.mp3"
+   }
+  },
+  {
+   "word": "world",
+   "ar": "عالم",
+   "img": "../../pics/u5-world.jpg",
+   "parts": [
+    {
+     "t": "w",
+     "ph": "w",
+     "audio": "../../phonics/w.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/world.mp3"
+   }
+  }
+ ],
+ "lines": [],
+ "end": 1,
+ "grammar": [
+  {
+   "title": "Prepositions of place",
+   "note": "We use in front of, behind and opposite to say where things are.",
+   "rows": [
+    [
+     {
+      "t": "The tree is in front of the dog.",
+      "a": "data/en-shared/q/the-tree-is-in-front-of-the-dog.mp3"
+     }
+    ],
+    [
+     {
+      "t": "The dog is behind the car.",
+      "a": "data/en-shared/q/the-dog-is-behind-the-car.mp3"
+     }
+    ],
+    [
+     {
+      "t": "The owls are opposite each other.",
+      "a": "data/en-shared/q/the-owls-are-opposite-each-other.mp3"
+     }
+    ]
+   ]
+  }
+ ]
+}

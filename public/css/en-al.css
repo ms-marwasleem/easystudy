@@ -1,7 +1,7 @@
 /* ---------- English AL: Lesson (book parts) and Booklet tabs, Grammar tab (js/quiz-al.js) ---------- */
-.quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"]) :is(.qword,.qans){display:none}
-.quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"]){grid-template-rows:auto auto minmax(0,1fr);grid-template-areas:"head" "dots" "play"}
-.qx-explain,.qx-mcq,.qx-cloze,.qx-order{font-family:var(--f-read);align-items:stretch;justify-content:stretch;gap:0}
+.quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"],[data-type="mwrite"]) :is(.qword,.qans){display:none}
+.quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"],[data-type="mwrite"]){grid-template-rows:auto auto minmax(0,1fr);grid-template-areas:"head" "dots" "play"}
+.qx-explain,.qx-mcq,.qx-cloze,.qx-order,.qx-mwrite{font-family:var(--f-read);align-items:stretch;justify-content:stretch;gap:0}
 .alw{cursor:pointer;border-radius:.3em;padding:0 .04em;transition:background .15s}
 .alw.lit{background:var(--c-hint)}
 @media (hover:hover){.alw:hover{background:rgba(255,226,120,.55)}}
@@ -22,8 +22,8 @@
 .altext>*{flex:none}   /* a long page scrolls: its lines keep their own height (never squeezed onto each other) and the first line can be scrolled to */
 .alline{position:relative;display:flex;gap:.45rem;align-items:flex-start;border-radius:.9rem;padding:.25rem .5rem .3rem .25rem;background:rgba(255,255,255,.55);border:.15rem solid transparent;cursor:pointer;text-align:left}
 .alline.on{background:#FFF3B8;border-color:#F2C230}
-.alline .alsp{flex:none;display:grid;place-items:center;width:2.2rem;height:2.2rem;margin:0;color:var(--c-accent);background:none;border-radius:.6rem}
-.alline .alsp svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.alline .alsp{flex:none;display:grid;place-items:center;width:2.1rem;height:2.1rem;margin:0;color:var(--c-accent);background:none;border-radius:.6rem}
+.alline .alsp svg{width:1.35rem;height:1.35rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .altx{margin:0;font-weight:700;color:var(--c-text);font-size:clamp(1.05rem,min(4.2cqw,4.8cqh),2.1rem);line-height:1.4;text-align:left}
 .alline.al-head .altx{font-size:clamp(1.4rem,min(6cqw,7cqh),3rem);font-family:var(--f-title);font-weight:400;color:#3A2A1C}
 .alline.al-red .altx{color:#C0392B}.alline.al-blue .altx{color:var(--c-accent-dk)}
@@ -37,22 +37,16 @@
 .altcell{background:none;color:var(--c-white);text-align:left;border-radius:.5rem;padding:.1rem .3rem;font:700 clamp(.9rem,min(3.4cqw,3.8cqh),1.6rem)/1.35 var(--f-read);border:.12rem solid transparent}
 .altcell.on{background:rgba(255,255,255,.22);border-color:var(--c-hint)}
 .altcell .alw.lit{color:var(--c-text)}
-.alnext{position:absolute;right:.4rem;bottom:.2rem;--t:#E8E2D4;--b:#CFC6B4;color:#8A7E69;opacity:.7}
-.alnext svg{width:60%;height:60%;fill:none;stroke:currentColor;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round}
-.alnext.ready{--t:var(--green1);--b:var(--green2);color:var(--c-white);opacity:1;animation:alpulse 1.4s ease-in-out infinite}
-@keyframes alpulse{50%{transform:scale(1.12)}}
-.alall{position:absolute;left:.4rem;bottom:.3rem;display:flex;align-items:center;gap:.4rem;height:2.9rem;padding:0 1rem 0 .7rem;border-radius:62rem;border:.19rem solid var(--ol);background:linear-gradient(var(--blue1),var(--blue2));color:var(--c-white);font:400 1.2rem var(--f-title);box-shadow:0 .2rem 0 rgba(90,52,24,.4);-webkit-text-stroke:.1rem rgba(20,60,120,.6);paint-order:stroke fill}
-.alall svg{width:1.5rem;height:1.5rem;fill:none;stroke:var(--c-white);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 
 /* mcq / cloze / order */
 .almcq,.alcloze,.alorder{position:relative;width:100%;height:100%;min-height:0;display:flex;flex-direction:column;gap:min(2cqh,1rem);justify-content:center;padding-bottom:1.2rem}
 .almcq.haspic{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,.8fr) auto auto;align-content:center}
 #lesson.q-land .almcq.haspic{grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);grid-template-rows:auto auto;column-gap:1.5rem}
 #lesson.q-land .almcq.haspic .alpics{grid-row:1 / span 2}
-.alstem{display:flex;gap:.5rem;align-items:flex-start;flex-wrap:wrap;justify-content:center}
-.alstem .alsp{flex:none;display:grid;place-items:center;width:2.6rem;height:2.6rem;margin:0;color:var(--c-accent);background:none}
-.alstem .alsp svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.alstem .altx{flex:0 1 auto;max-width:100%;text-align:center;font-size:clamp(1.2rem,min(4.8cqw,5.6cqh),2.5rem)}
+.alstem{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;justify-content:center}
+.alstem .alsp{flex:none;display:grid;place-items:center;width:2.1rem;height:2.1rem;margin:0;color:var(--c-accent);background:none}
+.alstem .alsp svg{width:1.35rem;height:1.35rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.alstem .altx{flex:0 1 auto;max-width:100%;text-align:center;font-size:calc(var(--q-sentence-size) * .75)}
 .alask{margin:0;flex:1 0 100%;color:#C0392B;font-weight:700;font-size:clamp(1rem,min(3.6cqw,4cqh),1.8rem);text-align:center}
 .alblank{display:inline-grid;place-items:center;vertical-align:baseline;min-width:3.4em;height:1.3em;margin:0 .15em;padding:0 .35em;border:0;border-bottom:.2rem solid var(--c-accent);background:rgba(42,127,216,.1);border-radius:.35em .35em 0 0;font:inherit;font-weight:700;color:var(--c-accent-dk);position:relative}
 .alblank small{position:absolute;left:.15em;top:-.45em;font:700 .55em var(--f-ui);color:var(--c-muted)}
@@ -62,18 +56,17 @@
 .alopts,.albank,.alpool,.alsent{display:flex;flex-wrap:wrap;gap:min(1.6cqw,.8rem);justify-content:center}
 .alopts{flex-direction:row}
 .alopts.long{flex-direction:column;align-items:center}
-.alopt{display:flex;align-items:center;gap:.45rem;min-height:2.8rem;padding:.25rem 1rem .3rem .5rem;border-radius:62rem;border:.19rem solid var(--ol);background:linear-gradient(var(--c-paper2),var(--c-paper3));box-shadow:0 .22rem 0 rgba(90,52,24,.4);color:var(--c-text);font:700 clamp(1rem,min(3.8cqw,4.4cqh),1.9rem)/1.2 var(--f-read);position:relative}
-.alopt i{display:grid;place-items:center;width:1.7em;height:1.7em;border-radius:50%;background:var(--c-accent);color:var(--c-white);font:700 .7em var(--f-ui);font-style:normal;flex:none}
+.alopt{display:flex;align-items:center;gap:.45rem;min-height:2.8rem;padding:.25rem 1rem .3rem 1rem;border-radius:62rem;border:.19rem solid var(--ol);background:linear-gradient(var(--c-paper2),var(--c-paper3));box-shadow:0 .22rem 0 rgba(90,52,24,.4);color:var(--c-text);font:700 clamp(1rem,min(3.8cqw,4.4cqh),1.9rem)/1.2 var(--f-read);position:relative}
+/* (the a/b/c badges are gone, Marwa 2026-11-04) */
 .alopt:active{transform:scale(.96)}
 .alopt.bad{background:var(--c-bad-bg);border-color:var(--c-bad-dk)}
 .alopt.dim,.alchip.used{opacity:.28;pointer-events:none}
 .alopt.ringed::after{content:"";position:absolute;inset:-.35rem -.5rem;border:.22rem solid #E24B7A;border-radius:62rem;transform:scale(var(--ring,1));pointer-events:none}
 .alchip{padding:.25rem 1rem .3rem 1rem}
 .albank{margin-top:.2rem}
-.alcloze .altx{font-size:clamp(1rem,min(3.4cqw,3.8cqh),1.8rem);line-height:1.75;text-align:left;font-weight:400}
+.alcloze .altx{font-size:calc(var(--q-sentence-size) * .85);line-height:1.7;text-align:center;font-weight:700;margin:0}
 .alcloze .altx .alw{font-weight:700}
-.alcloze{overflow:auto;justify-content:flex-start}
-.alcloze .alall{position:static;align-self:center;flex:none}
+.alcloze{overflow:auto;justify-content:center;align-items:center;gap:min(4cqh,2rem)}
 .alsent{min-height:3.6rem;align-items:center;border-bottom:.2rem dashed #BFA67A;padding:.3rem .2rem;margin:0 .5rem}
 .alsent.bad{animation:alshake .4s}
 @keyframes alshake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
@@ -118,10 +111,76 @@
 @media (max-aspect-ratio:1/1){.alpage.notext .alpics{flex-direction:column}.alpage.notext .alfig{flex:1 1 0}}
 @media (max-aspect-ratio:1/1){.alpage.notext .alfig{height:0;flex:1 1 0;min-height:0}}
 @media (max-aspect-ratio:1/1){.alpage.many .alpics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:min(1.5cqw,1.2cqh)}.alpage.many .alfig{height:auto;flex:none}}
-.alspellpic{display:flex;justify-content:center;height:0;min-height:0;flex:1 1 0}.alspellpic img{height:100%;width:auto;max-width:70%;object-fit:contain;border-radius:.9rem;filter:drop-shadow(0 .2rem .25rem rgba(90,52,24,.3))}
+.alspellpic{display:flex;justify-content:center;align-items:center;height:0;min-height:min(38cqh,15rem);flex:1 1 0}.alspellpic img{height:auto;width:auto;max-height:100%;max-width:70%;object-fit:contain;border-radius:.9rem;filter:drop-shadow(0 .2rem .25rem rgba(90,52,24,.3))}
 .alorder:has(.alspellpic){justify-content:flex-start}
 .qlink.cols .qlkw b{white-space:normal}   /* long sentences in a match exercise wrap inside their box (the dot stays on the border) */
 .alpage.hastable .altext{justify-content:flex-start}
 .alpage.hastable .altable{padding:.35rem .6rem .45rem}
 .alpage.hastable .altrows{gap:.1rem}
 .alpage.hastable .altcell{font-size:clamp(.85rem,min(3cqw,3.2cqh),1.45rem);line-height:1.25}
+.chipghost{box-shadow:0 .7rem 1.2rem rgba(60,25,0,.35)!important;opacity:.95}
+/* order question built word by word (many pieces): smaller pieces so the picture keeps its room */
+.alorder.many .alpool,.alorder.many .alsent{gap:.35rem .4rem}
+.alorder.many .alchip{min-height:0;padding:.12rem .65rem .18rem;font-size:clamp(.95rem,min(3.4cqw,3.4cqh),1.6rem);border-width:.14rem}
+.alorder.many .alsent{min-height:2.6rem}
+
+/* ORDER question (Marwa 2026-11-03): FIXED zones = picture (as big as possible, never changes size) / sentence line (fixed height)
+   / pieces (used pieces keep their place). Chosen pieces are WRITTEN on the line as normal story text, no bubbles (tap one to take it back). */
+.alorder:has(.alspellpic){display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto auto;align-content:stretch;padding-bottom:.3rem}
+.alorder .alspellpic{height:auto;min-height:0}
+.alorder .alspellpic img{max-width:100%;max-height:100%}
+.alorder .alsent{--alsz:clamp(1.15rem,min(4.6cqw,4.4cqh),2.1rem);font:700 var(--alsz)/1.4 var(--f-read);height:calc(2 * 1.4em + .7rem);min-height:0;overflow:hidden;
+  display:block;text-align:center;align-content:center;color:var(--c-on-bg)}
+.alorder.many .alsent{height:calc(3 * 1.4em + .7rem)}
+.alorder .alsent .alph,.alorder .alsent .alend{font:inherit;color:inherit}
+.alword{all:unset;display:inline;cursor:pointer;font:inherit;color:inherit;margin:0 .14em;border-radius:.3em;-webkit-tap-highlight-color:transparent}
+.alword.good{color:#D7FFC4}
+/* wide screens: picture on the left (full height), sentence line + pieces on the right */
+#lesson.q-land .alorder:has(.alspellpic){grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto auto minmax(0,1fr);column-gap:1.2rem}
+#lesson.q-land .alorder .alspellpic{grid-column:1;grid-row:1 / -1}
+#lesson.q-land .alorder .alsent{grid-column:2;grid-row:2}
+#lesson.q-land .alorder .alpool{grid-column:2;grid-row:3;align-content:flex-start;padding-top:.5rem}
+
+.alorder .alchip.bad{animation:alshake .4s;background:var(--c-bad-bg);border-color:var(--c-bad-dk)}
+
+/* words outside the picture + leader line ending in a dot (labels in alExplain) */
+.alfig.haslab{box-sizing:border-box;padding:0 27%}
+.allines{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.allines line{stroke:var(--ol);stroke-width:1.6;stroke-linecap:round}
+.allines circle{fill:var(--ol)}
+#lesson.q-land .alpage.multi.notext .alpics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.alcloze .alreplay{display:inline-grid;place-items:center;vertical-align:middle;width:2.1rem;height:2.1rem;margin:0;color:var(--c-accent);background:none}
+.alcloze .alreplay svg{width:1.35rem;height:1.35rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.alcloze .alreplay.on{color:var(--c-hint)}
+.alcloze .altx{font-size:clamp(.9rem,min(4cqw,3.2cqh),1.9rem);line-height:1.6;text-align:left}
+.alcloze{justify-content:safe center}
+@media (max-aspect-ratio:1/1){.alcloze .altx{font-size:clamp(.8rem,3.5cqw,1.2rem);line-height:1.5}}
+
+/* plain reading text (explain lines): no boxes, no speaker per line; the words light up while read */
+.altext.alprose{display:block;overflow:auto;padding:.2rem .5rem}
+.alprose .alline{display:inline;background:none;border:0;padding:0}
+.alprose .alline .altx{display:inline;font-size:clamp(.9rem,min(3.5cqw,3.1cqh),1.7rem);color:var(--c-on-bg);text-shadow:0 .08rem .2rem rgba(60,20,90,.45)}
+.alprose .alline.al-head,.alprose .alline.al-red,.alprose .alline.al-blue,.alprose .alline.al-note{display:block;margin:.2rem 0}
+.alprose .alline.al-head .altx,.alprose .alline.al-red .altx{display:block;color:var(--c-hint)}
+.alprose .alline.al-blue .altx,.alprose .alline.al-note .altx{display:block}
+.alw.rd{background:var(--c-hint);color:var(--c-text);text-shadow:none}
+.alprose .alline.on{background:none}
+.alprose .alline.al-head .altx{font-size:clamp(1.2rem,min(5cqw,5cqh),2.2rem)}
+/* the learn-the-word pencil: white, a small icon on the top-right corner of the word itself (never on a line of its own) */
+.alw{position:relative}
+.alw .wpn{position:absolute;right:-.7em;top:-.75em;margin:0;width:1em;height:1em;color:var(--icon-on-color);filter:drop-shadow(0 0 .12rem rgba(60,20,90,.7))}
+/* passage cloze: the word choices are pinned at the TOP (always visible); the passage scrolls under them and never covers them */
+.alcloze{overflow:hidden;justify-content:flex-start;align-items:stretch;gap:.5rem;padding-bottom:.3rem}
+.alcloze .albank{flex:none;position:relative;z-index:2}
+.alcloze .altx{flex:1 1 0;min-height:0;overflow:auto;padding:.2rem .3rem}
+
+/* check with a lesson picture (book p20 A): picture on top, tick boxes under it */
+.alcheck:has(.alpics){justify-content:flex-start}
+.alcheck .alpics{flex:1 1 0;width:100%;min-height:0}
+
+/* underline: a right word gets a thick underline + green; a wrong tap shakes */
+.alunder .alw{padding:0 .08em;border-bottom:.2rem solid transparent}
+.alunder .alw.right{border-bottom-color:var(--c-good);color:var(--c-hint)}
+.alunder .alw.bad{background:var(--c-bad-bg);color:var(--c-text)}
+.alunder .alpics{flex:none;max-height:34%;width:100%}
+.alunder .alans.help{box-shadow:0 0 0 .25rem rgba(255,226,120,.8);border-radius:.3em}

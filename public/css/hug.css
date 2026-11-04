@@ -1,0 +1,26 @@
+/* HUG RULE (Marwa 2026-11-01): a picture frame is exactly as big as its picture, never a white bar round it, in EVERY question / lesson type.
+   How: the picture is sized by its OWN shape (--ar = width / height, set in core.js when it loads) inside the room its place gives; aspect-ratio keeps the box that shape.
+   Loaded after every other css file. tools/check (screens.js "frame-gap") fails a frame that leaves more than 6px of empty space. A new picture place must use this too. */
+.qxpic,.qcp{container-type:size}
+.qxpic img,.qcp img{position:static;inset:auto;width:min(100cqw,calc(100cqh * var(--ar,1)));height:auto;aspect-ratio:var(--ar,1);max-width:none;max-height:none;object-fit:fill}
+.qxpic img:not([src$=".png" i]):not(.pf),.qcp img:not([src$=".png" i]):not(.pf){box-sizing:content-box;width:calc(min(100cqw,calc(100cqh * var(--ar,1))) - 2 * var(--pf-border))}   /* framed photo: its own ratio inside, the border is added round it */
+.qmp img{position:static;inset:auto;width:calc((var(--w,100%) - .375rem) * min(1,var(--ar,1)));height:auto;aspect-ratio:var(--ar,1);object-fit:fill}
+.pkpic img{height:auto;width:min(calc(.8 * 100cqw / var(--pc,2)),calc(.52 * 100cqh / var(--pr,2) * var(--ar,1)));aspect-ratio:var(--ar,1);max-width:none;object-fit:fill}
+.pkpic img:not([src$=".png" i]):not(.pf){box-sizing:content-box;width:calc(min(calc(.8 * 100cqw / var(--pc,2)),calc(.52 * 100cqh / var(--pr,2) * var(--ar,1))) - 2 * var(--pf-border))}   /* a picture is sized by its own cell (word-reading page) */
+.qmcount img{height:auto;max-height:none;width:min(100%,calc(42cqh / var(--r) * var(--ar,1)));aspect-ratio:var(--ar,1);object-fit:fill}
+.qmcount>img:only-child{width:min(70cqw,18.75rem,calc(30cqh * var(--ar,1)));max-height:none}
+.qmcount.grp>img{width:min(86cqw,28.75rem,calc(44cqh * var(--ar,1)));max-height:none}
+.xcol .xartbox img.xart,.xrow.pics .xart{box-sizing:content-box;height:auto;width:calc(min(100%,calc(5.2em * var(--ar,1))) - 2 * var(--pf-border));aspect-ratio:var(--ar,1);object-fit:fill}   /* content-box: the ratio is the picture's own, the border is added round it */
+/* choice ("Look, read, and circle"): the picture is sized by the room its place gives (container units), never by a percent of an auto-height flex item
+   (Safari/iPhone collapsed that to nothing = blank picture, Marwa 2026-11-01). Same pattern as .qxpic above. */
+.quiz[data-type="choice"] .qpic.one{container-type:size}
+.quiz[data-type="choice"] .qpic.one img{width:min(100cqw,calc(100cqh * var(--ar,1)));height:auto;aspect-ratio:var(--ar,1);max-width:none;max-height:none;object-fit:fill}
+#lesson.q-port .quiz[data-type="choice"] .qpic.one{width:100%;align-self:stretch}
+/* Arabic "circle" centre picture: same hug rule as the other frames */
+.qcenter.pic{container-type:size}
+.qcenter.pic img{position:static;inset:auto;max-width:none;max-height:none;object-fit:fill;height:auto;aspect-ratio:var(--ar,1);width:min(100cqw,calc(100cqh * var(--ar,1)))}
+.qcenter.pic img:not([src$=".png" i]):not(.pf-x){box-sizing:content-box;width:calc(min(100cqw,calc(100cqh * var(--ar,1))) - 2 * var(--pf-border))}
+
+/* ONE speaker-icon size everywhere (Marwa 2026-11-04): --icon-speaker in theme.css; the touch box is the icon + a margin */
+:is(#lesson,#exam,#map,.exam) :is(.qsay,.vsay,.vm-say,.alsp,.alreplay) svg{width:var(--icon-speaker);height:var(--icon-speaker)}
+:is(#lesson,#exam,#map,.exam) :is(.qsay,.vsay,.vm-say,.alsp,.alreplay){width:calc(var(--icon-speaker) + .7rem);height:calc(var(--icon-speaker) + .7rem);margin:0}

@@ -1,0 +1,447 @@
+{
+ "unit": 4,
+ "lesson": 1,
+ "title": "Home and Furniture",
+ "sceneAlt": "Home",
+ "tabs": [
+  "words",
+  "booklet",
+  "grammar"
+ ],
+ "type": "al",
+ "scene": "img/scene.jpg",
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "armchair",
+   "ar": "كرسي بذراعين",
+   "img": "../../pics/u4-armchair.png",
+   "parts": [
+    {
+     "t": "ar",
+     "ph": "ar",
+     "audio": "../../phonics/ar.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "ch",
+     "ph": "ch",
+     "audio": "../../phonics/ch.mp3"
+    },
+    {
+     "t": "air",
+     "ph": "air",
+     "audio": "../../phonics/air.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/armchair.mp3"
+   }
+  },
+  {
+   "word": "closet",
+   "ar": "خزانة ملابس",
+   "img": "../../pics/u4-closet.png",
+   "parts": [
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/closet.mp3"
+   }
+  },
+  {
+   "word": "elevator",
+   "ar": "مصعد",
+   "img": "../../pics/u4-elevator.png",
+   "parts": [
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3",
+     "spell": true
+    }
+   ],
+   "audio": {
+    "word": "words/elevator.mp3"
+   }
+  },
+  {
+   "word": "upstairs",
+   "ar": "في الطابق العلوي",
+   "img": "../../pics/u4-upstairs.png",
+   "parts": [
+    {
+     "t": "u",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "air",
+     "ph": "air",
+     "audio": "../../phonics/air.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/upstairs.mp3"
+   }
+  },
+  {
+   "word": "downstairs",
+   "ar": "في الطابق السفلي",
+   "img": "../../pics/u4-downstairs.png",
+   "parts": [
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "ow",
+     "ph": "ow",
+     "audio": "../../phonics/ow.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "air",
+     "ph": "air",
+     "audio": "../../phonics/air.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/downstairs.mp3"
+   }
+  },
+  {
+   "word": "floor",
+   "ar": "أرضية",
+   "img": "../../pics/u4-floor.png",
+   "parts": [
+    {
+     "t": "f",
+     "ph": "f",
+     "audio": "../../phonics/f.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "oor",
+     "ph": "or",
+     "audio": "../../phonics/or.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/floor.mp3"
+   }
+  },
+  {
+   "word": "garden",
+   "ar": "حديقة",
+   "img": "../../pics/u4-garden.png",
+   "parts": [
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "ar",
+     "ph": "ar",
+     "audio": "../../phonics/ar.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/garden.mp3"
+   }
+  },
+  {
+   "word": "painting",
+   "ar": "لوحة",
+   "img": "../../pics/u4-painting.png",
+   "parts": [
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "ai",
+     "ph": "ai",
+     "audio": "../../phonics/ai.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "ng",
+     "ph": "ng",
+     "audio": "../../phonics/ng.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/painting.mp3"
+   }
+  },
+  {
+   "word": "room",
+   "ar": "غرفة",
+   "img": "../../pics/u4-room.png",
+   "parts": [
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "oo",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/room.mp3"
+   }
+  },
+  {
+   "word": "stairs",
+   "ar": "سلالم",
+   "img": "../../pics/u4-stairs.png",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "air",
+     "ph": "air",
+     "audio": "../../phonics/air.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/stairs.mp3"
+   }
+  }
+ ],
+ "lines": [],
+ "end": 1,
+ "grammar": [
+  {
+   "title": "Is there and Are there",
+   "note": "We say Is there for one thing and Are there for many things. Answer: Yes, there is. / No, there isn't. Yes, there are. / No, there aren't.",
+   "rows": [
+    [
+     {
+      "t": "Is there a tree in the garden?",
+      "a": "data/en-shared/q/is-there-a-tree-in-the-garden.mp3"
+     },
+     {
+      "t": "Yes, there is. / No, there isn't.",
+      "a": "data/en-shared/q/yes-there-is-no-there-isn-t.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Are there bedrooms upstairs?",
+      "a": "data/en-shared/q/are-there-bedrooms-upstairs.mp3"
+     },
+     {
+      "t": "Yes, there are. / No, there aren't.",
+      "a": "data/en-shared/q/yes-there-are-no-there-aren-t.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "morph",
+    "steps": [
+     {
+      "from": "There is a tree in the garden.",
+      "to": "Is there a tree in the garden?",
+      "map": [
+       [
+        1
+       ],
+       [
+        0
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ],
+       [
+        4
+       ],
+       [
+        5
+       ],
+       [
+        6
+       ]
+      ],
+      "hl": [
+       0,
+       1
+      ],
+      "ta": "data/en-shared/q/is-there-a-tree-in-the-garden.mp3",
+      "ans": {
+       "t": "Yes, there is. / No, there isn't.",
+       "a": "data/en-shared/q/yes-there-is-no-there-isn-t.mp3"
+      }
+     },
+     {
+      "from": "There are bedrooms upstairs.",
+      "to": "Are there bedrooms upstairs?",
+      "map": [
+       [
+        1
+       ],
+       [
+        0
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ]
+      ],
+      "hl": [
+       0,
+       1
+      ],
+      "ta": "data/en-shared/q/are-there-bedrooms-upstairs.mp3",
+      "ans": {
+       "t": "Yes, there are. / No, there aren't.",
+       "a": "data/en-shared/q/yes-there-are-no-there-aren-t.mp3"
+      }
+     }
+    ]
+   }
+  }
+ ]
+}

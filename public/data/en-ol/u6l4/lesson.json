@@ -1,0 +1,441 @@
+{
+ "id": "u6l4",
+ "unit": 6,
+ "lesson": 4,
+ "title": "Phonics Uu Jj",
+ "task": "Listen to your teacher and repeat.",
+ "scene": "../u1l2/scene.jpg",
+ "sceneAlt": "Phonics Uu and Jj pictures",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "speakers": {
+  "Uu": "#D93D78",
+  "Jj": "#D93D78"
+ },
+ "pages": 2,
+ "pageLayouts": [
+  "pictures",
+  "pictures"
+ ],
+ "pageTasks": [
+  "Listen to your teacher and repeat.",
+  "Listen to your teacher and repeat."
+ ],
+ "pagesBook": [
+  117,
+  119
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "up",
+   "ar": "فوق",
+   "img": "../../pics/up-u6l4.png",
+   "parts": [
+    {
+     "t": "u",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/up.mp3"
+   }
+  },
+  {
+   "word": "unlock",
+   "ar": "يفتح القفل",
+   "img": "../../pics/unlock-u6l4.png",
+   "parts": [
+    {
+     "t": "u",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "lo",
+     "ph": "l_o",
+     "audio": "../../phonics/chunks/l_o.mp3"
+    },
+    {
+     "t": "ck",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/unlock.mp3"
+   }
+  },
+  {
+   "word": "umbrella",
+   "ar": "شمسية",
+   "img": "../../pics/umbrella-u6l4.png",
+   "parts": [
+    {
+     "t": "u",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "bre",
+     "ph": "b_r_e",
+     "audio": "../../phonics/chunks/b_r_e.mp3"
+    },
+    {
+     "t": "ll",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/umbrella.mp3"
+   }
+  },
+  {
+   "word": "under",
+   "ar": "تحت",
+   "img": "../../pics/box-under-u6l3.png",
+   "parts": [
+    {
+     "t": "u",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "de",
+     "ph": "d_er",
+     "audio": "../../phonics/chunks/d_er.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u6l3/words/under.mp3"
+   }
+  },
+  {
+   "word": "jam",
+   "ar": "مربى",
+   "img": "../../pics/jam-u6l4.png",
+   "parts": [
+    {
+     "t": "ja",
+     "ph": "j_a",
+     "audio": "../../phonics/chunks/j_a.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/jam.mp3"
+   }
+  },
+  {
+   "word": "jar",
+   "ar": "برطمان",
+   "img": "../../pics/jar-u6l4.png",
+   "parts": [
+    {
+     "t": "ja",
+     "ph": "j_ar",
+     "audio": "../../phonics/chunks/j_ar.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/jar.mp3"
+   }
+  },
+  {
+   "word": "jacket",
+   "ar": "جاكت",
+   "img": "../../pics/jacket-u6l4.png",
+   "parts": [
+    {
+     "t": "ja",
+     "ph": "j_a",
+     "audio": "../../phonics/chunks/j_a.mp3"
+    },
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "ke",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/jacket.mp3"
+   }
+  },
+  {
+   "word": "jellyfish",
+   "ar": "قنديل البحر",
+   "img": "../../pics/jellyfish-u6l4.png",
+   "parts": [
+    {
+     "t": "je",
+     "ph": "j_e",
+     "audio": "../../phonics/chunks/j_e.mp3"
+    },
+    {
+     "t": "ll",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "y",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "fi",
+     "ph": "f_i",
+     "audio": "../../phonics/chunks/f_i.mp3"
+    },
+    {
+     "t": "sh",
+     "ph": "sh",
+     "audio": "../../phonics/sh.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/jellyfish.mp3"
+   }
+  },
+  {
+   "word": "jeans",
+   "ar": "جينز",
+   "img": "../../pics/jeans-u6l4.png",
+   "parts": [
+    {
+     "t": "j",
+     "ph": "j",
+     "audio": "../../phonics/j.mp3"
+    },
+    {
+     "t": "ea",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/jeans.mp3"
+   }
+  }
+ ],
+ "_note": "Book p117 (Uu: up unlock umbrella under) and p119 (Jj: jam jar jacket jellyfish jeans). Tracing and colouring skipped.",
+ "lines": [
+  {
+   "who": "Uu",
+   "page": 1,
+   "words": [
+    [
+     "up",
+     0.03,
+     0.43
+    ]
+   ],
+   "pic": "../../pics/up-u6l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Uu",
+   "page": 1,
+   "words": [
+    [
+     "unlock",
+     1.59,
+     2.37
+    ]
+   ],
+   "pic": "../../pics/unlock-u6l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Uu",
+   "page": 1,
+   "words": [
+    [
+     "umbrella",
+     3.53,
+     4.33
+    ]
+   ],
+   "pic": "../../pics/umbrella-u6l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Uu",
+   "page": 1,
+   "words": [
+    [
+     "under",
+     5.48,
+     6.13
+    ]
+   ],
+   "pic": "../../pics/box-under-u6l3.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Jj",
+   "page": 2,
+   "words": [
+    [
+     "jam",
+     7.3,
+     7.97
+    ]
+   ],
+   "pic": "../../pics/jam-u6l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Jj",
+   "page": 2,
+   "words": [
+    [
+     "jar",
+     9.12,
+     9.76
+    ]
+   ],
+   "pic": "../../pics/jar-u6l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Jj",
+   "page": 2,
+   "words": [
+    [
+     "jacket",
+     10.91,
+     11.57
+    ]
+   ],
+   "pic": "../../pics/jacket-u6l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Jj",
+   "page": 2,
+   "words": [
+    [
+     "jellyfish",
+     12.81,
+     13.67
+    ]
+   ],
+   "pic": "../../pics/jellyfish-u6l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Jj",
+   "page": 2,
+   "words": [
+    [
+     "jeans",
+     14.85,
+     15.61
+    ]
+   ],
+   "pic": "../../pics/jeans-u6l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  }
+ ],
+ "end": 15.61
+}

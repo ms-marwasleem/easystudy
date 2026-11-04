@@ -30,7 +30,7 @@
     {
      "word": "bag",
      "audio": "words/bag.mp3",
-     "pic": "img/bag-orange.png",
+     "pic": "../../pics/bag-orange.png",
      "answer": true
     },
     {
@@ -60,13 +60,13 @@
     {
      "word": "chair",
      "audio": "words/chair.mp3",
-     "pic": "img/chair-brown.png",
+     "pic": "../../pics/chair-brown.png",
      "answer": true
     }
    ]
   },
   {
-   "type": "tick",
+   "type": "yesno",
    "ex": 4,
    "page": 19,
    "task": "Look at the picture and the word. Put a tick if they match, and a cross if they don't.",
@@ -112,13 +112,13 @@
     {
      "word": "chair",
      "audio": "words/chair.mp3",
-     "pic": "img/chair-brown.png",
+     "pic": "../../pics/chair-brown.png",
      "answer": true
     },
     {
      "word": "bag",
      "audio": "words/bag.mp3",
-     "pic": "img/bag-orange.png",
+     "pic": "../../pics/bag-orange.png",
      "answer": true
     }
    ]
@@ -153,7 +153,7 @@
      "word": "stand up",
      "audio": "words/stand-up.mp3",
      "pics": [
-      "img/bag-orange.png",
+      "../../pics/bag-orange.png",
       "../../pics/girl-stand.png"
      ],
      "answer": 1
@@ -172,7 +172,7 @@
      "audio": "words/chair.mp3",
      "pics": [
       "../../pics/tree.png",
-      "img/chair-brown.png"
+      "../../pics/chair-brown.png"
      ],
      "answer": 1
     },
@@ -189,7 +189,7 @@
      "word": "bag",
      "audio": "words/bag.mp3",
      "pics": [
-      "img/bag-orange.png",
+      "../../pics/bag-orange.png",
       "../../pics/tiger.png"
      ],
      "answer": 0

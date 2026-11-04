@@ -5,7 +5,7 @@
  "type": "letter",
  "title": "حرف الواو",
  "task": "أتعرّف على حرف الواو",
- "pages": 2,
+ "pages": 3,
  "pageNums": [
   91,
   92
@@ -75,14 +75,29 @@
   "tasks": [
    "أشكال حرف الواو في الكلمة",
    "أصوات حرف الواو بالحركات"
-  ]
+  ],
+  "chant": {
+   "pic": "img/chant.jpg",
+   "task": "نشيد الحرف",
+   "lines": [
+    {
+     "t": "وَاوُ وَرْدَةْ … مِنْ بُسْتَانِي",
+     "audio": "chant-1.mp3"
+    },
+    {
+     "t": "وَسَأُهْدِيهَا … لِلْجِيرَانِ",
+     "audio": "chant-2.mp3"
+    }
+   ]
+  }
  },
  "hints": {
   "read": "اضغط على الحرف واسمعه",
   "word": "اضغط",
   "vocabPick": "اختار كلمة",
   "vocabTeach": "اسمع وردد",
-  "vocabWrite": "اكتب الكلمة حرف حرف"
+  "vocabWrite": "اكتب الكلمة حرف حرف",
+  "chant": "اضغط هنا واسمع النشيد!"
  },
  "vocab": [
   {
@@ -142,7 +157,7 @@
   },
   {
    "word": "وُجُوه",
-   "img": "../../pics/ar-faces.jpg",
+   "img": "../../pics/ar-faces.png",
    "audio": {
     "word": "words/wujuh.mp3"
    },
@@ -176,7 +191,7 @@
   },
   {
    "word": "وُرُود",
-   "img": "../../pics/ar-flowers.jpg",
+   "img": "../../pics/ar-flowers.png",
    "audio": {
     "word": "words/wurud.mp3"
    },

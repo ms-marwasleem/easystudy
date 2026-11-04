@@ -1,0 +1,406 @@
+{
+ "id": "u5l4",
+ "unit": 5,
+ "lesson": 4,
+ "title": "Phonics Oo Ff",
+ "task": "Listen to your teacher and repeat.",
+ "scene": "../u1l2/scene.jpg",
+ "sceneAlt": "Phonics Oo and Ff pictures",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "speakers": {
+  "Oo": "#D93D78",
+  "Ff": "#D93D78"
+ },
+ "pages": 2,
+ "pageLayouts": [
+  "pictures",
+  "pictures"
+ ],
+ "pageTasks": [
+  "Listen to your teacher and repeat.",
+  "Listen to your teacher and repeat."
+ ],
+ "pagesBook": [
+  98,
+  100
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "octopus",
+   "ar": "أخطبوط",
+   "img": "../../pics/octopus.png",
+   "parts": [
+    {
+     "t": "oc",
+     "ph": "o_k",
+     "audio": "../../phonics/chunks/o_k.mp3"
+    },
+    {
+     "t": "to",
+     "ph": "t_o",
+     "audio": "../../phonics/chunks/t_o.mp3"
+    },
+    {
+     "t": "pu",
+     "ph": "p_u",
+     "audio": "../../phonics/chunks/p_u.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/octopus.mp3"
+   }
+  },
+  {
+   "word": "on",
+   "ar": "على",
+   "img": "../../pics/on-u5l4.png",
+   "parts": [
+    {
+     "t": "o",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/on.mp3"
+   }
+  },
+  {
+   "word": "ostrich",
+   "ar": "نعامة",
+   "img": "../../pics/ostrich-u4l2.png",
+   "parts": [
+    {
+     "t": "o",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "tri",
+     "ph": "t_r_i",
+     "audio": "../../phonics/chunks/t_r_i.mp3"
+    },
+    {
+     "t": "ch",
+     "ph": "ch",
+     "audio": "../../phonics/ch.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u4l2/words/ostrich.mp3"
+   }
+  },
+  {
+   "word": "olive",
+   "ar": "زيتون",
+   "img": "../../pics/olive-u5l4.png",
+   "parts": [
+    {
+     "t": "o",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    },
+    {
+     "t": "li",
+     "ph": "l_i",
+     "audio": "../../phonics/chunks/l_i.mp3"
+    },
+    {
+     "t": "v",
+     "ph": "v",
+     "audio": "../../phonics/v.mp3"
+    },
+    {
+     "t": "e",
+     "spell": true,
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/olive.mp3"
+   }
+  },
+  {
+   "word": "fan",
+   "ar": "مروحة",
+   "img": "../../pics/fan-u5l4.png",
+   "parts": [
+    {
+     "t": "fa",
+     "ph": "f_a",
+     "audio": "../../phonics/chunks/f_a.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/fan.mp3"
+   }
+  },
+  {
+   "word": "fox",
+   "ar": "ثعلب",
+   "img": "../../pics/fox-u4l2.png",
+   "parts": [
+    {
+     "t": "fo",
+     "ph": "f_o",
+     "audio": "../../phonics/chunks/f_o.mp3"
+    },
+    {
+     "t": "x",
+     "ph": "x",
+     "audio": "../../phonics/x.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u4l2/words/fox.mp3"
+   }
+  },
+  {
+   "word": "fish",
+   "ar": "سمكة",
+   "img": "../../pics/fish-u4l2.png",
+   "parts": [
+    {
+     "t": "fi",
+     "ph": "f_i",
+     "audio": "../../phonics/chunks/f_i.mp3"
+    },
+    {
+     "t": "sh",
+     "ph": "sh",
+     "audio": "../../phonics/sh.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u4l2/words/fish.mp3"
+   }
+  },
+  {
+   "word": "fork",
+   "ar": "شوكة",
+   "img": "../../pics/fork-u4l2.png",
+   "parts": [
+    {
+     "t": "fo",
+     "ph": "f_or",
+     "audio": "../../phonics/chunks/f_or.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u4l2/words/fork.mp3"
+   }
+  },
+  {
+   "word": "frog",
+   "ar": "ضفدع",
+   "img": "../../pics/frog.png",
+   "parts": [
+    {
+     "t": "fro",
+     "ph": "f_r_o",
+     "audio": "../../phonics/chunks/f_r_o.mp3"
+    },
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u2l3/words/frog.mp3"
+   }
+  }
+ ],
+ "_note": "Book p98 (Oo: octopus on ostrich olive) and p100 (Ff: fan fox fish fork frog). Tracing and colouring skipped.",
+ "lines": [
+  {
+   "who": "Oo",
+   "page": 1,
+   "words": [
+    [
+     "octopus",
+     0.03,
+     0.85
+    ]
+   ],
+   "pic": "../../pics/octopus.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Oo",
+   "page": 1,
+   "words": [
+    [
+     "on",
+     2.01,
+     2.54
+    ]
+   ],
+   "pic": "../../pics/on-u5l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Oo",
+   "page": 1,
+   "words": [
+    [
+     "ostrich",
+     3.71,
+     4.61
+    ]
+   ],
+   "pic": "../../pics/ostrich-u4l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Oo",
+   "page": 1,
+   "words": [
+    [
+     "olive",
+     5.76,
+     6.38
+    ]
+   ],
+   "pic": "../../pics/olive-u5l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Ff",
+   "page": 2,
+   "words": [
+    [
+     "fan",
+     7.54,
+     8.13
+    ]
+   ],
+   "pic": "../../pics/fan-u5l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Ff",
+   "page": 2,
+   "words": [
+    [
+     "fox",
+     9.29,
+     9.95
+    ]
+   ],
+   "pic": "../../pics/fox-u4l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Ff",
+   "page": 2,
+   "words": [
+    [
+     "fish",
+     11.14,
+     11.76
+    ]
+   ],
+   "pic": "../../pics/fish-u4l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Ff",
+   "page": 2,
+   "words": [
+    [
+     "fork",
+     12.91,
+     13.5
+    ]
+   ],
+   "pic": "../../pics/fork-u4l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Ff",
+   "page": 2,
+   "words": [
+    [
+     "frog",
+     14.67,
+     15.39
+    ]
+   ],
+   "pic": "../../pics/frog.png",
+   "pos": [
+    50,
+    50
+   ]
+  }
+ ],
+ "end": 15.39
+}

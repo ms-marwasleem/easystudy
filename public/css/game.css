@@ -34,7 +34,7 @@
 .foot{gap:.3rem}
 .lmeta{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;direction:ltr;gap:.5rem}
 .lmeta:not(:has(*:not([hidden]):not(:empty))){display:none}
-.lm-l{justify-self:start;display:flex}.lm-r{justify-self:end;display:flex}
+.lm-l{justify-self:start;display:flex;grid-column:1}.lm-r{justify-self:end;display:flex;grid-column:3}.lm-dots{grid-column:2}   /* fixed places: help always right, dots always centre (even when there are no dots) */
 .pgtag{position:static;color:var(--c-on-bg);opacity:1;font-weight:700;font-size:.8rem;-webkit-text-stroke:0;text-shadow:none}
 .pgtag svg{width:1.05rem;height:1.05rem}
 .lm-dots{display:flex;align-items:center;max-width:min(62vw,24rem);overflow-x:auto;scrollbar-width:none;cursor:grab;touch-action:pan-x}
@@ -157,9 +157,8 @@
 .scene.pics .pk .txt{color:var(--pk-word-color)}
 .scene.pics .pk .w{color:var(--pk-word-color)!important}
 .scene.pics .pk .w.reading{color:var(--c-now-bg)!important}
-.scene.pics .pk .txt{font-size:calc(var(--pk-word-size) * clamp(1.125rem,min(7cqh,5cqw),2.125rem))}
-.scene.pics.wrap .pk .txt{font-size:calc(var(--pk-word-size) * clamp(0.9375rem,min(6cqh,4.2cqw),1.875rem))}
-.scene.pics.wrap .pk.two .txt{font-size:calc(var(--pk-word-size) * clamp(0.8125rem,min(4.6cqh,3.5cqw),1.5rem))}
+.scene.pics .pk .txt{font-size:var(--focus-word-size);white-space:normal;text-align:center;max-width:calc(94cqw / var(--pc));line-height:1.15}   /* a phrase wraps inside its cell, a single word stays one line */   /* same size as every focus word (theme.css) */
+.scene.pics.wrap .pk .txt{font-size:calc(var(--focus-word-size) * .62);max-width:calc(92cqw / var(--pc))}   /* sentences under the pictures: smaller, may wrap */
 .scene.pics .wpn{color:var(--pk-word-color)}
 
 /* ---- Words tab, ONE look for every subject (Marwa 2026-11-01): word + typed letters plain WHITE, no yellow glow, no outline on any text ---- */
@@ -171,7 +170,7 @@
 .lt.peek{color:var(--c-on-bg);opacity:.4}                       /* help: the letter whose turn it is, light see-through white */
 .vtools .dash,.vtools .dash>span{-webkit-text-stroke:0;paint-order:normal;text-shadow:none}
 #lesson.ar:not(.vmode) .vinfo{display:none}                       /* empty meaning line took a gap between the word and the buttons */
-#lesson.ar .vword{line-height:1.5}
+#lesson.ar .vword{line-height:1.5;padding:.15em 0 .2em}   /* tall marks stay inside the word row */
 .vtools{margin-top:-.2rem}
 
 /* ---- story page, portrait: the text panel starts BELOW the whole button column (speed button + its label included) ---- */
@@ -186,14 +185,14 @@
 
 
 /* ---- RULES 2026-11-01: ONE size for question stars / choice circles, icon colours, bigger question content (shared components only) ---- */
-.qdots{flex-wrap:nowrap;justify-content:center;--sw:min(var(--q-star),calc((100vw - 5rem)/((var(--n,10) + 1)*1.15)));gap:calc(var(--sw)*.15);max-width:100%;padding:0 0 clamp(.375rem,1.6vh,.875rem)}
-/* RULE: stars = ONE line under the question, centered, portrait and landscape; they shrink to fit (--n = number of stars, set in quiz.js), never wrap */
+.qdots{display:flex;flex-wrap:wrap;justify-content:center;align-content:flex-start;--sw:var(--q-star);gap:calc(var(--sw)*.18) calc(var(--sw)*.22);width:100%;max-width:100%;padding:0 0 clamp(.375rem,1.6vh,.875rem)}
+/* RULE (2026-11-01): stars use the whole line, centered; ONE size everywhere (--q-star, big enough to tap); when they do not fit one line they wrap to the next line (never shrink) */
 .qdots i,#lesson.ar.q-short .qdots i{flex:none;width:var(--sw);height:var(--sw);transition:opacity .2s,transform .2s;opacity:.5}
 .qdots i.grp,.qdots i.cur{opacity:1}
 .qdots i.cur,#lesson.ar.q-short .qdots i.cur{transform:scale(1.25)}
 .qdots i.grp:not(.cur){filter:drop-shadow(0 0 .15rem rgba(255,255,255,.9))}
 #lesson.q-short .quiz,#lesson.ar.q-short .quiz{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr);grid-template-areas:"head" "dots" "word" "play"}
-#lesson.q-short .qdots,#lesson.ar.q-short .qdots{max-width:100%;padding:0;justify-content:center;flex-wrap:nowrap}
+#lesson.q-short .qdots,#lesson.ar.q-short .qdots{max-width:100%;padding:0;justify-content:center;flex-wrap:wrap}
 #lesson.q-short .qhead,#lesson.ar.q-short .qhead{padding:0}
 .quiz{gap:clamp(.5rem,1.8vh,1rem)}
 .qword b{font-size:clamp(2.1rem,min(8vw,9vh),4.5rem)}
@@ -220,3 +219,62 @@
 #lesson:not(.ar) .vword>.lt{margin:0 var(--wslot-gap)}
 .qxwords .lt{margin:0!important}
 #lesson:not(.ar) .qx:not(.sent) .qxw:not(.qxwords){font-size:min(14cqh,18cqw,calc(92cqw / (var(--n,6) * 1.12)))}   /* a long word shrinks so all its boxes stay inside the screen */
+
+/* ---- focus words (2026-11-01): the word the child studies has ONE size everywhere (--focus-word-size, theme.css): reading page, question head word, Words tab.
+   A word too long for its room shrinks only as much as it must (Words tab: JS fit --wfs). Arabic keeps its own larger script size. ---- */
+#lesson:not(.ar) .vword{font-size:min(var(--wfs,3.5rem),var(--focus-word-size))}
+/* sentences the child reads in a question: centred and big (--q-sentence-size); the options of "circle the word" stay readable on the blue page */
+.qopt{color:var(--c-on-bg);background:rgba(10,45,110,.28);font-weight:700}
+.qopt.ringed{color:var(--c-on-bg);background:none}
+
+/* ---- POINTING page (RULES.md "Pointing page", 2026-11-01): whole picture on top (never cropped), words below, a circle on what the sentence talks about ---- */
+:root{--point-mark:var(--mark);--point-ring:var(--ol)}
+.scene.point{justify-content:flex-start;gap:.5rem;padding-bottom:.5rem}
+.scene.point .pfig{flex:1 1 0;min-height:0;container-type:size;display:flex;align-items:center;justify-content:center;margin:0 .5rem;position:relative}
+.scene.point .pbox{--ar:1.4;position:relative;width:min(100cqw,100cqh*var(--ar));aspect-ratio:var(--ar);border-radius:1.1rem;box-shadow:0 .25rem .9rem rgba(20,40,40,.28)}
+.scene.point .pbox img{display:block;width:100%;height:100%;border-radius:inherit;pointer-events:none;-webkit-user-drag:none}
+.scene.point .pmg{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .25s}
+.scene.point .pmg.on{opacity:1}
+.scene.point .pmk{position:absolute;transform:translate(-50%,-50%);aspect-ratio:1;box-sizing:border-box;border-radius:50%;border:.28rem solid var(--point-mark);box-shadow:0 0 0 .14rem var(--point-ring),inset 0 0 0 .14rem var(--point-ring)}
+/* the words sit EXACTLY where they do on every story page (the shared .scene.story .note rules); the picture takes all the free area above them, beside the button column */
+.scene.point .pfig{margin:0 6.75rem 0 .75rem}
+@media (max-aspect-ratio:5/4){ .scene.point{padding-top:.5rem} .scene.point .note{flex:0 0 auto;height:calc(100% - var(--rail-h,0px) - .5rem)} }
+
+/* pointing page with a figure built from text (no picture): the formula (parts) and the word; the parts being talked about pop */
+.scene.point .pbox.figbox{width:100%;height:100%;aspect-ratio:auto;display:grid;place-items:center;background:none;box-shadow:none}
+.pfx{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(.5rem,3cqh,1.5rem);font-family:var(--f-ar);font-weight:700;color:var(--c-on-bg);direction:rtl}
+.pfx-f{display:flex;align-items:center;gap:clamp(.6rem,4cqw,1.5rem);font-size:min(40cqh,24cqw,7rem);line-height:1.1}
+.pfx-p{display:grid;place-items:center;min-width:1.2em;padding:0 .1em;transition:transform .25s,color .25s}
+.scene.point .pbox .pfx-i img{display:block;border-radius:0;height:min(44cqh,36cqw,9rem);width:auto;pointer-events:none;-webkit-user-drag:none}
+.pfx-o{opacity:.7}
+.pfx-w{font-size:min(36cqh,26cqw,7rem);line-height:1.3;white-space:nowrap}
+.pfx-g{transition:color .25s}
+.pfx .pfx-p.pop{transform:scale(1.25);color:var(--c-accent)}
+.pfx .pfx-g.pop{color:var(--c-accent);font-size:1.22em}
+
+/* ---- NASHEED page (layout "poem", 2026-11-02): the book page is the background, the poem is live text placed where the book prints it (lesson.js showPoem) ---- */
+.scene.story.poem{background:none;display:grid;place-items:center;padding:0!important;container-type:size;justify-content:center;align-content:center}
+.scene.poem .pg{position:relative;border-radius:1.1rem;overflow:hidden;width:min(100cqw,calc(100cqh * var(--arn)));aspect-ratio:var(--ar);container-type:inline-size;background:center/100% 100% no-repeat}
+.scene.poem .pline{position:absolute;left:0;right:0;height:0;margin:0;padding:0}
+.scene.poem .ph{position:absolute;top:0;transform:translateY(calc(-1 * var(--base)));white-space:nowrap;direction:rtl;text-align:right;line-height:1;font-family:var(--f-ar);font-weight:600;
+  font-size:calc(var(--fs) * 1cqw);color:#1b1b1b;cursor:pointer;text-align-last:justify}
+.scene.poem .ph .w{display:inline-block;color:inherit;padding:0;border-radius:0}
+.scene.poem .ph .w.reading{color:var(--story-now)}
+.scene.story.poem{padding:0 5.6rem 0 .25rem!important}   /* NO panel behind the page (it sits on the app background); the page sits BESIDE the button column (never under a button), centred in the room that is left, whole page visible */
+
+/* ---- SEGMENT SLIDE (RULES.md "Segment slides", 2026-11-02): the BOOK CARD = the picture in its rounded frame with the sentence on a light panel that overlaps its bottom edge ---- */
+.scene.point.slide .scard{--ar:1.6;--over:.17;position:relative;container-type:inline-size;width:min(100cqw,100cqh*var(--ar)/(1 + var(--over)));aspect-ratio:calc(var(--ar) / (1 + var(--over)))}
+.scene.point.slide .scard .pbox{position:absolute;left:0;top:0;width:100%;aspect-ratio:var(--ar);border-radius:9% / 13%}
+.scene.point.slide .scard .note{position:absolute;left:7%;right:7%;bottom:0;width:auto;height:30% !important;margin:0;flex:none;min-height:0;border-radius:6cqw;background:var(--card-panel);box-shadow:0 .15rem .5rem rgba(20,40,40,.18);overflow:hidden}
+.scene.point.slide .scard .note .in{display:flex;align-items:center;justify-content:center;height:100%;padding:0 .5rem;overflow:hidden;font-size:9.5cqw;line-height:1.3;text-align:center}
+.scene.point.slide .scard .note :is(.line,.txt){line-height:1.3}
+.scene.point.slide .note{flex:0 0 auto}
+
+/* ---- BOOK LOOK of the question strip (tokens --bk-* in theme.css; default = no strip). Arabic: text right, badge on the right edge ---- */
+.qhead{background:var(--bk-strip-bg);padding:var(--bk-strip-pad);border-radius:var(--bk-strip-radius);box-shadow:inset 0 0 0 .08rem var(--bk-strip-edge)}
+.qhead .qtask{color:var(--bk-strip-ink);text-shadow:none}
+.quiz .qhead .qtsay,.qhead .qsay{color:var(--bk-strip-ink)}
+.qex{background:var(--bk-badge-bg);color:var(--bk-badge-ink);border-radius:var(--bk-badge-radius);box-shadow:none}
+.qex::before{content:var(--bk-badge-text);margin-inline-end:.3rem;font-size:.8em}
+:root[data-look] .qex{display:inline-flex;align-items:center;justify-content:center;height:1.6rem;width:auto;min-width:1.875rem;padding:var(--bk-badge-pad);white-space:nowrap}
+

@@ -12,24 +12,25 @@
      "word": "نُورُ الْقَلْبِ هِيَ أُمِّي.",
      "audio": "q/qa1-q.mp3",
      "ansAudio": "q/qa1-a.mp3",
-     "pic": "img/ar-mother.jpg"
+     "pic": "../../pics/ar-mother.jpg"
     },
     {
      "ask": "مَنْ يَكُونُ بِقُرْبِكَ دَائِمًا؟",
      "word": "يَكُونُ بِقُرْبِي دَائِمًا أَخِي الْغَالِي.",
      "audio": "q/qa2-q.mp3",
      "ansAudio": "q/qa2-a.mp3",
-     "pic": "img/ar-boy.png"
+     "pic": "../../pics/ar-boy-u1l2.png"
     },
     {
      "ask": "مَنْ رَمْزُ الْحُبِّ؟",
      "word": "رَمْزُ الْحُبِّ هُوَ أَبِي.",
      "audio": "q/qa3-q.mp3",
      "ansAudio": "q/qa3-a.mp3",
-     "pic": "img/ar-father.jpg"
+     "pic": "../../pics/ar-father.jpg"
     }
    ],
-   "together": true
+   "together": true,
+   "book": "booklet"
   },
   {
    "type": "link",
@@ -74,6 +75,29 @@
      ],
      "rel": "جَمْعُهَا",
      "audio2": "words/m-nur.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "choice",
+   "ex": 1,
+   "page": 16,
+   "task": "أَسْتَمِعُ ثُمَّ أَخْتَارُ الْعُنْوَانَ الصَّحِيحَ لِلنَّشِيدِ",
+   "taskAudio": "q/task-title.mp3",
+   "hint": "اسمع النشيد واختار عنوانه",
+   "book": "workbook",
+   "items": [
+    {
+     "options": [
+      "مَدْرَسَتِي",
+      "أُسْرَتِي",
+      "أَصْحَابِي"
+     ],
+     "answer": 1,
+     "audio": "normal.mp3",
+     "word": "أُسْرَتِي",
+     "pic": "../../pics/ar-family-song.png"
     }
    ]
   }

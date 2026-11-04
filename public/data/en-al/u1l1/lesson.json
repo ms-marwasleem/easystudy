@@ -17,7 +17,7 @@
   {
    "word": "dad",
    "ar": "بابا",
-   "img": "img/dad.png",
+   "img": "../../pics/dad.png",
    "parts": [
     {
      "t": "d",
@@ -42,7 +42,7 @@
   {
    "word": "mom",
    "ar": "ماما",
-   "img": "img/mom.jpg",
+   "img": "../../pics/mom.jpg",
    "parts": [
     {
      "t": "m",
@@ -67,7 +67,7 @@
   {
    "word": "brother",
    "ar": "أخ",
-   "img": "img/brother.jpg",
+   "img": "../../pics/rv-brother.jpg",
    "parts": [
     {
      "t": "b",
@@ -102,7 +102,7 @@
   {
    "word": "sister",
    "ar": "أخت",
-   "img": "img/sister.png",
+   "img": "../../pics/sister.png",
    "parts": [
     {
      "t": "s",
@@ -137,7 +137,7 @@
   {
    "word": "grandma",
    "ar": "جدة",
-   "img": "img/grandma.jpg",
+   "img": "../../pics/grandma.jpg",
    "parts": [
     {
      "t": "g",
@@ -182,7 +182,7 @@
   {
    "word": "grandpa",
    "ar": "جد",
-   "img": "img/grandpa.jpg",
+   "img": "../../pics/grandpa.jpg",
    "parts": [
     {
      "t": "g",
@@ -227,7 +227,7 @@
   {
    "word": "baby",
    "ar": "طفل رضيع",
-   "img": "img/baby.png",
+   "img": "../../pics/baby.png",
    "parts": [
     {
      "t": "b",
@@ -257,7 +257,7 @@
   {
    "word": "uncle",
    "ar": "عم / خال",
-   "img": "img/uncle.jpg",
+   "img": "../../pics/uncle.jpg",
    "parts": [
     {
      "t": "u",
@@ -293,7 +293,7 @@
   {
    "word": "aunt",
    "ar": "عمة / خالة",
-   "img": "img/aunt.jpg",
+   "img": "../../pics/aunt.jpg",
    "parts": [
     {
      "t": "au",
@@ -318,7 +318,7 @@
   {
    "word": "cousin",
    "ar": "ابن / بنت العم",
-   "img": "img/cousin.jpg",
+   "img": "../../pics/cousin.jpg",
    "parts": [
     {
      "t": "c",
@@ -385,7 +385,48 @@
       "cls": "b"
      }
     ]
-   ]
+   ],
+   "anim": {
+    "kind": "sort",
+    "bins": [
+     "am",
+     "is",
+     "are"
+    ],
+    "items": [
+     {
+      "t": "I",
+      "bin": 0,
+      "a": "data/en-shared/q/i-am.mp3"
+     },
+     {
+      "t": "He",
+      "bin": 1
+     },
+     {
+      "t": "She",
+      "bin": 1
+     },
+     {
+      "t": "It",
+      "bin": 1,
+      "a": "data/en-shared/q/he-is-she-is-it-is.mp3"
+     },
+     {
+      "t": "We",
+      "bin": 2
+     },
+     {
+      "t": "You",
+      "bin": 2
+     },
+     {
+      "t": "They",
+      "bin": 2,
+      "a": "data/en-shared/q/we-are-you-are-they-are.mp3"
+     }
+    ]
+   }
   },
   {
    "title": "Long form and short form",
@@ -461,7 +502,87 @@
       "a": "data/en-shared/q/they-aren-t-teachers.mp3"
      }
     ]
-   ]
+   ],
+   "anim": {
+    "kind": "morph",
+    "steps": [
+     {
+      "from": "I am a child.",
+      "to": "I'm a child.",
+      "map": [
+       [
+        0,
+        1
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ]
+      ],
+      "fa": "data/en-shared/q/i-am-a-child.mp3",
+      "ta": "data/en-shared/q/i-m-a-child.mp3"
+     },
+     {
+      "from": "He is my brother.",
+      "to": "He's my brother.",
+      "map": [
+       [
+        0,
+        1
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ]
+      ],
+      "fa": "data/en-shared/q/he-is-my-brother.mp3",
+      "ta": "data/en-shared/q/he-s-my-brother.mp3"
+     },
+     {
+      "from": "She is not my sister.",
+      "to": "She isn't my sister.",
+      "map": [
+       [
+        0
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        3
+       ],
+       [
+        4
+       ]
+      ],
+      "fa": "data/en-shared/q/she-is-not-my-sister.mp3",
+      "ta": "data/en-shared/q/she-isn-t-my-sister.mp3"
+     },
+     {
+      "from": "They are not teachers.",
+      "to": "They aren't teachers.",
+      "map": [
+       [
+        0
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        3
+       ]
+      ],
+      "fa": "data/en-shared/q/they-are-not-teachers.mp3",
+      "ta": "data/en-shared/q/they-aren-t-teachers.mp3"
+     }
+    ]
+   }
   }
  ]
 }

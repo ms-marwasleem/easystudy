@@ -1,0 +1,200 @@
+{
+ "sets": [
+  {
+   "type": "choice",
+   "ex": 2,
+   "page": 145,
+   "book": "booklet",
+   "task": "ضَعِ اسْمَ الْإِشَارَةِ الْمُنَاسِبَ مَكَانَ النُّقَطِ: هَذَا أَمْ هَذِهِ",
+   "hint": "اختار الإجابة الصح",
+   "items": [
+    {
+     "word": "بِنْت",
+     "lead": "",
+     "tail": "بِنْت",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-boy.png"
+    },
+    {
+     "word": "وَلَد",
+     "lead": "",
+     "tail": "وَلَد",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-girl.png"
+    },
+    {
+     "word": "قَلَم",
+     "lead": "",
+     "tail": "قَلَم",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-students.png"
+    },
+    {
+     "word": "سَمَكَة",
+     "lead": "",
+     "tail": "سَمَكَة",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-boy.png"
+    },
+    {
+     "word": "لُعْبَة",
+     "lead": "",
+     "tail": "لُعْبَة",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-girl.png"
+    },
+    {
+     "word": "بَيْت",
+     "lead": "",
+     "tail": "بَيْت",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-students.png"
+    },
+    {
+     "word": "قِرْد",
+     "lead": "",
+     "tail": "قِرْد",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-boy.png"
+    },
+    {
+     "word": "زَرَافَة",
+     "lead": "",
+     "tail": "زَرَافَة",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-girl.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "ex": 2,
+   "page": 146,
+   "book": "booklet",
+   "task": "ضَعِ اسْمَ الْإِشَارَةِ الْمُنَاسِبَ مَكَانَ النُّقَطِ: هَذَا أَمْ هَذِهِ",
+   "hint": "اختار الإجابة الصح",
+   "items": [
+    {
+     "word": "سَرِير",
+     "lead": "",
+     "tail": "سَرِير",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-students.png"
+    },
+    {
+     "word": "وَرَقَة",
+     "lead": "",
+     "tail": "وَرَقَة",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-boy.png"
+    },
+    {
+     "word": "كُرَة",
+     "lead": "",
+     "tail": "كُرَة",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-girl.png"
+    },
+    {
+     "word": "بَاب",
+     "lead": "",
+     "tail": "بَاب",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-students.png"
+    },
+    {
+     "word": "كِتَاب",
+     "lead": "",
+     "tail": "كِتَاب",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-boy.png"
+    },
+    {
+     "word": "حِصَان",
+     "lead": "",
+     "tail": "حِصَان",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-girl.png"
+    },
+    {
+     "word": "كُرَّاسَة",
+     "lead": "",
+     "tail": "كُرَّاسَة",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-students.png"
+    },
+    {
+     "word": "مُعَلِّم",
+     "lead": "",
+     "tail": "مُعَلِّم",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-boy.png"
+    }
+   ]
+  }
+ ]
+}

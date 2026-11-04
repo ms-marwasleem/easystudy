@@ -2,7 +2,7 @@
  "_note": "u3l3 questions: p53 notebook as tick (sentence vs picture), p54 ex3 count flowers (letter type, the number is the gap), ex4 pick the group with that many, p55 ex5 count + tap the number in the sentence. Ex6 (trace numbers) skipped.",
  "sets": [
   {
-   "type": "tick",
+   "type": "yesno",
    "ex": 2,
    "page": 53,
    "task": "Look at the picture and the word. Do they match?",
@@ -91,7 +91,7 @@
     {
      "word": "4 flowers",
      "audio": "../../en-shared/q/1-flower.mp3",
-     "pic": "../../pics/flowers-4.png",
+     "pic": "../../pics/flowers-4.jpg",
      "letters": [
       "4",
       "1",
@@ -124,8 +124,8 @@
      "word": "1",
      "audio": "../../en-shared/q/1.mp3",
      "pics": [
-      "img/sun-1.png",
-      "img/apples-5.png"
+      "../../pics/sun-1.png",
+      "../../pics/apples-5.png"
      ],
      "answer": 0
     },
@@ -143,7 +143,7 @@
      "audio": "../../en-shared/q/3.mp3",
      "pics": [
       "../../pics/pineapples-3.png",
-      "img/sun-1.png"
+      "../../pics/sun-1.png"
      ],
      "answer": 0
     },
@@ -160,7 +160,7 @@
      "word": "5",
      "audio": "../../en-shared/q/5.mp3",
      "pics": [
-      "img/apples-5.png",
+      "../../pics/apples-5.png",
       "../../pics/pineapples-3.png"
      ],
      "answer": 0
@@ -178,7 +178,7 @@
     {
      "word": "There are 2 pencils.",
      "missing": 10,
-     "audio": "../../en-shared/q/there-are-2-pencils.mp3",
+     "audio": "../../en-shared/q/there-are-2-pencils-gap.mp3",
      "pic": "../../pics/pencils-2.png",
      "letters": [
       "2",
@@ -189,7 +189,7 @@
     {
      "word": "There are 4 bags.",
      "missing": 10,
-     "audio": "../../en-shared/q/there-are-4-bags.mp3",
+     "audio": "../../en-shared/q/there-are-4-bags-gap.mp3",
      "pic": "../../pics/bags-4.png",
      "letters": [
       "1",
@@ -200,7 +200,7 @@
     {
      "word": "There are 5 stars.",
      "missing": 10,
-     "audio": "../../en-shared/q/there-are-5-stars.mp3",
+     "audio": "../../en-shared/q/there-are-5-stars-gap.mp3",
      "pic": "../../pics/stars-5.png",
      "letters": [
       "3",
@@ -224,22 +224,22 @@
     {
      "word": "1",
      "audio": "../../en-shared/q/1.mp3",
-     "pic": "img/monkey-1.png"
+     "pic": "../../pics/monkey-1.png"
     },
     {
      "word": "4",
      "audio": "../../en-shared/q/4.mp3",
-     "pic": "img/cats-4.png"
+     "pic": "../../pics/cats-4.png"
     },
     {
      "word": "2",
      "audio": "../../en-shared/q/2.mp3",
-     "pic": "img/palms-2.png"
+     "pic": "../../pics/palms-2.png"
     },
     {
      "word": "5",
      "audio": "../../en-shared/q/5.mp3",
-     "pic": "img/parrots-5.png"
+     "pic": "../../pics/parrots-5.png"
     }
    ]
   },
@@ -275,7 +275,7 @@
       "4"
      ],
      "answer": 1,
-     "pic": "img/apples-4.png",
+     "pic": "../../pics/apples-4.png",
      "tail": "apples.",
      "audio": "../../en-shared/q/there-are-4-apples.mp3",
      "word": "There are 4 apples."
@@ -288,7 +288,7 @@
       "4"
      ],
      "answer": 0,
-     "pic": "img/bees-3.png",
+     "pic": "../../pics/bees-3.png",
      "tail": "bees.",
      "audio": "../../en-shared/q/there-are-3-bees.mp3",
      "word": "There are 3 bees."

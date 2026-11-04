@@ -6,30 +6,31 @@
    "page": 78,
    "task": "سُؤَالٌ وَجَوَابٌ",
    "hint": "اسمع كل سؤال وجوابه",
+   "together": true,
+   "book": "booklet",
    "items": [
     {
-     "ask": "بِمَاذَا نُبْصِرُ؟",
      "word": "أُبْصِرُ بِالْعَيْنَيْنِ.",
+     "ask": "بِمَاذَا نُبْصِرُ؟",
      "audio": "q/qa1-q.mp3",
      "ansAudio": "q/qa1-a.mp3",
      "pic": "scene.jpg"
     },
     {
-     "ask": "بِمَاذَا نَسْمَعُ؟",
      "word": "أَسْمَعُ بِالْأُذُنَيْنِ.",
+     "ask": "بِمَاذَا نَسْمَعُ؟",
      "audio": "q/qa2-q.mp3",
      "ansAudio": "q/qa2-a.mp3",
      "pic": "scene.jpg"
     },
     {
-     "ask": "بِمَاذَا نَسِيرُ؟",
      "word": "أَسِيرُ بِالْقَدَمَيْنِ.",
+     "ask": "بِمَاذَا نَسِيرُ؟",
      "audio": "q/qa3-q.mp3",
      "ansAudio": "q/qa3-a.mp3",
      "pic": "scene.jpg"
     }
-   ],
-   "together": true
+   ]
   },
   {
    "type": "link",
@@ -38,6 +39,7 @@
    "task": "أَصِلُ كُلَّ كَلِمَةٍ بِمَعْنَاهَا أَوْ جَمْعِهَا أَوْ مُفْرَدِهَا",
    "taskAudio": "../q-prompts/match-meaning.mp3",
    "hint": "صل كل كلمة بمعناها أو جمعها أو مفردها",
+   "book": "booklet",
    "items": [
     {
      "word": "أُبْصِرُ",
@@ -134,6 +136,26 @@
      ],
      "rel": "مُفْرَدُهُمَا",
      "audio2": "words/m-aynayn.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": "h1",
+   "page": 45,
+   "words": true,
+   "task": "أُرَتِّبُ الْكَلِمَاتِ لِأُكَوِّنَ جُمْلَةً",
+   "taskAudio": "../u2l10/q/p-arrange-words.mp3",
+   "hint": "رتب الكلمات",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "هَذَا بَيْتٌ جَمِيلٌ",
+     "audio": "q/w-sent1.mp3"
+    },
+    {
+     "word": "أَبِي يُحِبُّ اللَّيْلَ",
+     "audio": "q/w-sent2.mp3"
     }
    ]
   }

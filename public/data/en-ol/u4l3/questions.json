@@ -1,0 +1,348 @@
+{
+ "_note": "u4l3: p77 ex3-4, p78 ex5-6. Performance p38 (draw on the face skipped: written part kept as a cloze).",
+ "sets": [
+  {
+   "type": "choice",
+   "ex": 3,
+   "page": 77,
+   "task": "Listen, look at the picture, then circle.",
+   "taskAudio": "../../en-shared/q/listen-look-at-the-picture-then-circle.mp3",
+   "hint": "Circle the right word!",
+   "items": [
+    {
+     "word": "I can see with my eyes.",
+     "lead": "I can",
+     "options": [
+      "see",
+      "taste"
+     ],
+     "answer": 0,
+     "pic": "../../pics/eyes-u4q.png",
+     "tail": "with my eyes.",
+     "audio": "../../en-shared/q/i-can-see-with-my-eyes.mp3"
+    },
+    {
+     "word": "I can hear with my ears.",
+     "lead": "I can",
+     "options": [
+      "hear",
+      "touch"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ear-u4l1.png",
+     "tail": "with my ears.",
+     "audio": "../../en-shared/q/i-can-hear-with-my-ears.mp3"
+    },
+    {
+     "word": "I can smell with my nose.",
+     "lead": "I can",
+     "options": [
+      "see",
+      "smell"
+     ],
+     "answer": 1,
+     "pic": "../../pics/nose-u4l1.png",
+     "tail": "with my nose.",
+     "audio": "../../en-shared/q/i-can-smell-with-my-nose.mp3"
+    },
+    {
+     "word": "I can taste with my tongue.",
+     "lead": "I can",
+     "options": [
+      "taste",
+      "hear"
+     ],
+     "answer": 0,
+     "pic": "../../pics/tongue-open-u4q.png",
+     "tail": "with my tongue.",
+     "audio": "../../en-shared/q/i-can-taste-with-my-tongue.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 4,
+   "page": 77,
+   "task": "Listen, look at the picture, then match.",
+   "taskAudio": "../../en-shared/q/listen-look-at-the-picture-then-match.mp3",
+   "hint": "Join each sentence to its picture!",
+   "items": [
+    {
+     "word": "I can see with my eyes.",
+     "audio": "../../en-shared/q/i-can-see-with-my-eyes.mp3",
+     "pic": "../../pics/eyes-u4q.png"
+    },
+    {
+     "word": "I can smell with my nose.",
+     "audio": "../../en-shared/q/i-can-smell-with-my-nose.mp3",
+     "pic": "../../pics/nose-u4l1.png"
+    },
+    {
+     "word": "I can taste with my tongue.",
+     "audio": "../../en-shared/q/i-can-taste-with-my-tongue.mp3",
+     "pic": "../../pics/tongue-open-u4q.png"
+    },
+    {
+     "word": "I can hear with my ears.",
+     "audio": "../../en-shared/q/i-can-hear-with-my-ears.mp3",
+     "pic": "../../pics/ear-u4l1.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "ex": 5,
+   "page": 78,
+   "task": "Look at the picture and circle the sense you use.",
+   "taskAudio": "../../en-shared/q/look-at-the-picture-and-circle-the-sense-you-use.mp3",
+   "hint": "Circle the sense you use!",
+   "items": [
+    {
+     "word": "I use my ears.",
+     "lead": "I use my",
+     "options": [
+      "nose",
+      "ears",
+      "hands"
+     ],
+     "answer": 1,
+     "pic": "../../pics/music-u4l3.png",
+     "audio": "../../en-shared/q/i-use-my-ears.mp3"
+    },
+    {
+     "word": "I use my nose.",
+     "lead": "I use my",
+     "options": [
+      "eyes",
+      "nose",
+      "hands"
+     ],
+     "answer": 1,
+     "pic": "../../pics/daisies-u4l3.png",
+     "audio": "../../en-shared/q/i-use-my-nose.mp3"
+    },
+    {
+     "word": "I use my eyes.",
+     "lead": "I use my",
+     "options": [
+      "eyes",
+      "hands",
+      "nose"
+     ],
+     "answer": 0,
+     "pic": "../../pics/sun.png",
+     "audio": "../../en-shared/q/i-use-my-eyes.mp3"
+    },
+    {
+     "word": "I use my tongue.",
+     "lead": "I use my",
+     "options": [
+      "hands",
+      "eyes",
+      "tongue"
+     ],
+     "answer": 2,
+     "pic": "../../pics/icecream-u4l3.png",
+     "audio": "../../en-shared/q/i-use-my-tongue.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 6,
+   "page": 78,
+   "task": "Look at the picture and match it to the sense.",
+   "taskAudio": "../../en-shared/q/look-at-the-picture-and-match-it-to-the-sense.mp3",
+   "hint": "Join each picture to its sense!",
+   "items": [
+    {
+     "word": "ears",
+     "audio": "../u4l1/words/ears.mp3",
+     "pic": "../../pics/phone-u4l3.png",
+     "wpic": "../../pics/ear-u4l1.png"
+    },
+    {
+     "word": "eyes",
+     "audio": "../u4l1/words/eyes.mp3",
+     "pic": "../../pics/moon-u4l3.png",
+     "wpic": "../../pics/eye-u4l1.png"
+    },
+    {
+     "word": "tongue",
+     "audio": "../u4l1/words/tongue.mp3",
+     "pic": "../../pics/strawberry-u4l3.png",
+     "wpic": "../../pics/tongue-u4l1.png"
+    },
+    {
+     "word": "nose",
+     "audio": "../u3l2/words/nose.mp3",
+     "pic": "../../pics/pinkflower-u4l3.png",
+     "wpic": "../../pics/nose-u4l1.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 38,
+   "grp": "classroom-1",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "word": "I can see with my eyes.",
+     "lead": "I can",
+     "options": [
+      "see",
+      "touch"
+     ],
+     "answer": 0,
+     "pic": "../../pics/eyes-u4q.png",
+     "tail": "with my eyes.",
+     "audio": "../../en-shared/q/i-can-see-with-my-eyes.mp3"
+    },
+    {
+     "word": "I can hear with my ears.",
+     "lead": "I can",
+     "options": [
+      "hear",
+      "taste"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ear-u4l1.png",
+     "tail": "with my ears.",
+     "audio": "../../en-shared/q/i-can-hear-with-my-ears.mp3"
+    },
+    {
+     "word": "I can touch with my hands.",
+     "lead": "I can",
+     "options": [
+      "see",
+      "touch"
+     ],
+     "answer": 1,
+     "pic": "../../pics/hand-u4l1.png",
+     "tail": "with my hands.",
+     "audio": "../../en-shared/q/i-can-touch-with-my-hands.mp3"
+    },
+    {
+     "word": "I can taste with my tongue.",
+     "lead": "I can",
+     "options": [
+      "taste",
+      "hear"
+     ],
+     "answer": 0,
+     "pic": "../../pics/tongue-open-u4q.png",
+     "tail": "with my tongue.",
+     "audio": "../../en-shared/q/i-can-taste-with-my-tongue.mp3"
+    }
+   ]
+  },
+  {
+   "type": "cloze",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 38,
+   "grp": "classroom-2",
+   "task": "Draw and write.",
+   "taskAudio": "../../en-shared/q/draw-and-write.mp3",
+   "hint": "Tap the missing word!",
+   "items": [
+    {
+     "text": "I can see with my [[eyes]].",
+     "bank": [
+      "eyes",
+      "ears",
+      "tongue",
+      "nose"
+     ],
+     "audio": "../../en-shared/q/i-can-see-with-my-eyes.mp3"
+    },
+    {
+     "text": "I can hear with my [[ears]].",
+     "bank": [
+      "eyes",
+      "ears",
+      "tongue",
+      "nose"
+     ],
+     "audio": "../../en-shared/q/i-can-hear-with-my-ears.mp3"
+    },
+    {
+     "text": "I can taste with my [[tongue]].",
+     "bank": [
+      "eyes",
+      "ears",
+      "tongue",
+      "nose"
+     ],
+     "audio": "../../en-shared/q/i-can-taste-with-my-tongue.mp3"
+    },
+    {
+     "text": "I can smell with my [[nose]].",
+     "bank": [
+      "eyes",
+      "ears",
+      "tongue",
+      "nose"
+     ],
+     "audio": "../../en-shared/q/i-can-smell-with-my-nose.mp3"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 38,
+   "grp": "homework-1",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "can",
+      "smell",
+      "with",
+      "my",
+      "nose"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-smell-with-my-nose.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "can",
+      "see",
+      "with",
+      "my",
+      "eyes"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-see-with-my-eyes.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "can",
+      "taste",
+      "with",
+      "my",
+      "tongue"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-taste-with-my-tongue.mp3"
+    }
+   ]
+  }
+ ]
+}

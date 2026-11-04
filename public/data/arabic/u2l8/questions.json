@@ -2,6 +2,354 @@
  "sets": [
   {
    "type": "circle",
+   "ex": 2,
+   "page": 68,
+   "task": "أَضَعُ عَلَامَةً أَسْفَلَ حَرْفِ الْكَافِ",
+   "taskAudio": "q/task-2.mp3",
+   "hint": "اضغط على أشكال الكاف",
+   "items": [
+    {
+     "word": "ك",
+     "text": "ك",
+     "answer": 1
+    },
+    {
+     "word": "عـ",
+     "text": "عـ",
+     "answer": 0
+    },
+    {
+     "word": "ـكـ",
+     "text": "ـكـ",
+     "answer": 1
+    },
+    {
+     "word": "كـ",
+     "text": "كـ",
+     "answer": 1
+    },
+    {
+     "word": "ل",
+     "text": "ل",
+     "answer": 0
+    },
+    {
+     "word": "ـك",
+     "text": "ـك",
+     "answer": 1
+    },
+    {
+     "word": "أ",
+     "text": "أ",
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 3,
+   "page": 68,
+   "task": "أَصِلُ حَرْفَ الْكَافِ بِالْكَلِمَاتِ الَّتِي بِهَا",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/643/name.mp3"
+   ],
+   "hint": "اضغط على الكلمات اللي فيها الكاف",
+   "items": [
+    {
+     "word": "كَتْكُوت",
+     "audio": "q/w-katkut.mp3",
+     "answer": true
+    },
+    {
+     "word": "سَمَك",
+     "audio": "q/w-samak.mp3",
+     "answer": true
+    },
+    {
+     "word": "قِرْد",
+     "audio": "../u2l6/words/qird.mp3",
+     "answer": false
+    },
+    {
+     "word": "مَكْتَبَة",
+     "audio": "q/w-maktaba.mp3",
+     "answer": true
+    },
+    {
+     "word": "شُبَّاك",
+     "audio": "q/w-shubbak.mp3",
+     "answer": true
+    },
+    {
+     "word": "عِنَب",
+     "audio": "q/w-inab.mp3",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "sound",
+   "ex": 4,
+   "page": 69,
+   "task": "أَنْطِقُ صَوْتَ حَرْفِ الْكَافِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "اسمع الجملة وردد وراها",
+   "items": [
+    {
+     "word": "كَلْب",
+     "ask": "كَ",
+     "pic": "../../pics/ar-dog.png",
+     "audio": [
+      "../letters/643/name.mp3",
+      "../shared/h-fatha.mp3",
+      "../../syl-ar/643-64e.mp3",
+      "../u2l3/words/kalb.mp3"
+     ]
+    },
+    {
+     "word": "كُرْسِيّ",
+     "ask": "كُ",
+     "pic": "../../pics/ar-chair.png",
+     "audio": [
+      "../letters/643/name.mp3",
+      "../shared/h-damma.mp3",
+      "../../syl-ar/643-64f.mp3",
+      "../u2l4/words/kursi.mp3"
+     ]
+    },
+    {
+     "word": "كِتَاب",
+     "ask": "كِ",
+     "pic": "../../pics/ar-book-red.png",
+     "audio": [
+      "../letters/643/name.mp3",
+      "../shared/h-kasra.mp3",
+      "../../syl-ar/643-650.mp3",
+      "words/kitab.mp3"
+     ]
+    },
+    {
+     "word": "مِكْوَاة",
+     "ask": "كْ",
+     "pic": "../../pics/ar-iron.png",
+     "audio": [
+      "../letters/643/name.mp3",
+      "../shared/h-sukoon.mp3",
+      "../../syl-ar/643-652.mp3",
+      "../u1l5/words/mikwat.mp3"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 5,
+   "page": 69,
+   "task": "أَنْطِقُ، ثُمَّ أَصِلُ حَرْفَ الْكَافِ بِالصُّورَةِ الْمُنَاسِبَةِ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/643/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الكاف",
+   "choices": [
+    "كَ",
+    "كُ",
+    "كِ",
+    "كْ"
+   ],
+   "items": [
+    {
+     "word": "كُرَة",
+     "audio": "words/kura.mp3",
+     "pic": "../../pics/ar-ball.png",
+     "answer": "كُ",
+     "choices": [
+      "كَ",
+      "كُ",
+      "كِ"
+     ]
+    },
+    {
+     "word": "كَتْكُوت",
+     "audio": "q/w-katkut.mp3",
+     "pic": "../../pics/ar-chick.png",
+     "answer": "كَ",
+     "choices": [
+      "كَ",
+      "كُ",
+      "كِ"
+     ]
+    },
+    {
+     "word": "كِتَاب",
+     "audio": "words/kitab.mp3",
+     "pic": "../../pics/ar-book-red.png",
+     "answer": "كِ",
+     "choices": [
+      "كَ",
+      "كُ",
+      "كِ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 6,
+   "page": 69,
+   "task": "أَنْطِقُ اسْمَ الصُّورَةِ، ثُمَّ أَضْبِطُ حَرْفَ الْكَافِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار الكاف بالحركة الصح",
+   "choices": [
+    "كَ",
+    "كُ",
+    "كِ",
+    "كْ"
+   ],
+   "items": [
+    {
+     "word": "كَأْس",
+     "audio": "q/w-kass.mp3",
+     "pic": "../../pics/ar-trophy.png",
+     "answer": "كَ",
+     "choices": [
+      "كَ",
+      "كُ",
+      "كِ"
+     ]
+    },
+    {
+     "word": "كُمَّثْرَى",
+     "audio": "q/w-kummathra.mp3",
+     "pic": "../../pics/ar-pear.jpg",
+     "answer": "كُ",
+     "choices": [
+      "كَ",
+      "كُ",
+      "كِ"
+     ]
+    },
+    {
+     "word": "كُرَة",
+     "audio": "words/kura.mp3",
+     "pic": "../../pics/ar-ball.png",
+     "answer": "كُ",
+     "choices": [
+      "كَ",
+      "كُ",
+      "كِ"
+     ]
+    },
+    {
+     "word": "مِكْوَاة",
+     "audio": "../u1l5/words/mikwat.mp3",
+     "pic": "../../pics/ar-iron.png",
+     "answer": "كْ",
+     "choices": [
+      "كَ",
+      "كُ",
+      "كِ"
+     ],
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 8,
+   "page": 70,
+   "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الْكَافِ مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار الكاف بالحركة الصح",
+   "choices": [
+    "كَ",
+    "كُ",
+    "كِ",
+    "كْ"
+   ],
+   "items": [
+    {
+     "word": "كَلْب",
+     "audio": "../u2l3/words/kalb.mp3",
+     "pic": "../../pics/ar-dog.png",
+     "answer": "كَ",
+     "choices": [
+      "كَ",
+      "كُ",
+      "كِ"
+     ]
+    },
+    {
+     "word": "كِتَاب",
+     "audio": "words/kitab.mp3",
+     "pic": "../../pics/ar-book-red.png",
+     "answer": "كِ",
+     "choices": [
+      "كَ",
+      "كُ",
+      "كِ"
+     ]
+    },
+    {
+     "word": "رُكْبَة",
+     "audio": "words/rukba.mp3",
+     "pic": "../../pics/ar-knee.png",
+     "answer": "كْ",
+     "choices": [
+      "كَ",
+      "كُ",
+      "كِ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "كُتُب",
+     "audio": "words/kutub.mp3",
+     "pic": "../../pics/ar-book-stack.png",
+     "answer": "كُ",
+     "choices": [
+      "كَ",
+      "كُ",
+      "كِ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 71,
+   "task": "أَدْمِجُ الْحُرُوفَ لِأُكَوِّنَ كَلِمَةً",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "items": [
+    {
+     "word": "كُتُب",
+     "audio": "words/kutub.mp3",
+     "pic": "../../pics/ar-book-stack.png",
+     "chips": [
+      "كُ",
+      "تُ",
+      "ب"
+     ]
+    },
+    {
+     "word": "مَكْتَب",
+     "audio": "words/maktab.mp3",
+     "pic": "../../pics/ar-desk.png",
+     "chips": [
+      "مَ",
+      "كْ",
+      "تَ",
+      "ب"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
    "ex": 6,
    "page": 65,
    "task": "اسْتَمِعْ وَارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الْكَافِ",
@@ -10,6 +358,7 @@
     "../letters/643/name.mp3"
    ],
    "hint": "اضغط على الكلمات اللي فيها الكاف",
+   "book": "booklet",
    "items": [
     {
      "word": "كِتَاب",
@@ -54,6 +403,7 @@
    ],
    "hint": "اضغط على الصور التي فيها صوت الكاف",
    "silent": true,
+   "book": "booklet",
    "items": [
     {
      "word": "book-red",
@@ -117,6 +467,7 @@
     "../letters/643/name.mp3"
    ],
    "hint": "اضغط على الدائرة التي فيها الكاف",
+   "book": "booklet",
    "items": [
     {
      "word": "كَلْب",
@@ -157,6 +508,7 @@
    "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/merge-syllables.mp3",
    "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "book": "booklet",
    "items": [
     {
      "word": "كُرَة",
@@ -199,6 +551,7 @@
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/arrange-letters.mp3",
    "hint": "رتب الحروف",
+   "book": "booklet",
    "items": [
     {
      "word": "كِيوِي",
@@ -219,6 +572,57 @@
      "word": "كِتَاب",
      "pic": "../../pics/ar-book-red.png",
      "audio": "words/kitab.mp3"
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 2,
+   "page": 40,
+   "task": "أَنْطِقُ اسْمَ الصُّورَةِ، ثُمَّ أَكْتُبُ صَوْتَ حَرْفِ الْكَافِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار الكاف بالحركة الصح",
+   "choices": [
+    "كَ",
+    "كُ",
+    "كِ",
+    "كْ"
+   ],
+   "book": "workbook",
+   "items": [
+    {
+     "word": "كِتَاب",
+     "audio": "words/kitab.mp3",
+     "pic": "../../pics/ar-book-red.png",
+     "answer": "كِ",
+     "choices": [
+      "كَ",
+      "كُ",
+      "كِ"
+     ]
+    },
+    {
+     "word": "مَكْتَب",
+     "audio": "words/maktab.mp3",
+     "pic": "../../pics/ar-desk.png",
+     "answer": "كْ",
+     "choices": [
+      "كَ",
+      "كُ",
+      "كِ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "كُتُب",
+     "audio": "words/kutub.mp3",
+     "pic": "../../pics/ar-book-stack.png",
+     "answer": "كُ",
+     "choices": [
+      "كَ",
+      "كُ",
+      "كِ"
+     ]
     }
    ]
   }

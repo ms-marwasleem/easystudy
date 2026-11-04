@@ -1,0 +1,279 @@
+{
+ "sets": [
+  {
+   "type": "order",
+   "task": "Revision on Unit 3. Vocabulary. Write the words.",
+   "taskAudio": "../../en-shared/q/revision-on-unit-3-vocabulary-write-the-words.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "chunks": [
+      "b",
+      "a",
+      "l",
+      "l"
+     ],
+     "end": "",
+     "word": "ball",
+     "audio": "../../en-shared/q/ball.mp3",
+     "say": [
+      "b",
+      "a",
+      "l",
+      "l"
+     ],
+     "img": "../../pics/u3-ball.png"
+    },
+    {
+     "chunks": [
+      "c",
+      "a",
+      "r"
+     ],
+     "end": "",
+     "word": "car",
+     "audio": "../../en-shared/q/car.mp3",
+     "say": [
+      "c",
+      "a",
+      "r"
+     ],
+     "img": "../../pics/u3-car.png"
+    },
+    {
+     "chunks": [
+      "m",
+      "o",
+      "n",
+      "s",
+      "t",
+      "e",
+      "r"
+     ],
+     "end": "",
+     "word": "monster",
+     "audio": "../../en-shared/q/monster.mp3",
+     "say": [
+      "m",
+      "o",
+      "n",
+      "s",
+      "t",
+      "e",
+      "r"
+     ],
+     "img": "../../pics/u3-monster.png"
+    },
+    {
+     "chunks": [
+      "t",
+      "r",
+      "a",
+      "i",
+      "n"
+     ],
+     "end": "",
+     "word": "train",
+     "audio": "../../en-shared/q/train.mp3",
+     "say": [
+      "t",
+      "r",
+      "a",
+      "i",
+      "n"
+     ],
+     "img": "../../pics/u3-train.jpg"
+    },
+    {
+     "chunks": [
+      "p",
+      "u",
+      "p",
+      "p",
+      "e",
+      "t"
+     ],
+     "end": "",
+     "word": "puppet",
+     "audio": "../../en-shared/q/puppet.mp3",
+     "say": [
+      "p",
+      "u",
+      "p",
+      "p",
+      "e",
+      "t"
+     ],
+     "img": "../../pics/u3-puppet.png"
+    }
+   ],
+   "page": 75,
+   "ex": 1
+  },
+  {
+   "type": "cloze",
+   "task": "Complete the sentences.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "text": "Let's Play! My friends and I are a great [[team]]. We are having a big [[race]] to see who is the fastest. My turn is to [[throw]] the ball to my friend. He will try to [[catch]] it with his hands. I can also [[hit]] a ball with a stick.",
+     "bank": [
+      "hit",
+      "team",
+      "catch",
+      "race",
+      "throw"
+     ],
+     "audio": "../../en-shared/q/let-s-play-my-friends-and-i-are-a-great-team-we-ar-2faebf9b.mp3"
+    }
+   ],
+   "page": 75,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Grammar. Correct the mistakes.",
+   "taskAudio": "../../en-shared/q/grammar-correct-the-mistakes.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "____ you want to play a game?",
+     "options": [
+      "Do",
+      "Does"
+     ],
+     "answer": 0,
+     "word": "Do you want to play a game?",
+     "audio": "../../en-shared/q/do-you-want-to-play-a-game.mp3",
+     "parts": [
+      "../../en-shared/q/you-want-to-play-a-game.mp3"
+     ],
+     "optSay": [
+      "Do",
+      "Does"
+     ],
+     "ask": "Does you want to play a game?",
+     "askAudio": "../../en-shared/q/askc-7c4fd61ed3.mp3"
+    },
+    {
+     "stem": "Do you ____ a new toy?",
+     "options": [
+      "have",
+      "has"
+     ],
+     "answer": 0,
+     "word": "Do you have a new toy?",
+     "audio": "../../en-shared/q/do-you-have-a-new-toy.mp3",
+     "parts": [
+      "../../en-shared/q/do-you.mp3",
+      "../../en-shared/q/a-new-toy.mp3"
+     ],
+     "optSay": [
+      "have",
+      "has"
+     ],
+     "ask": "Do you has a new toy?",
+     "askAudio": "../../en-shared/q/askc-6d26881219.mp3"
+    },
+    {
+     "stem": "Yes, I ____.",
+     "options": [
+      "do",
+      "does"
+     ],
+     "answer": 0,
+     "word": "Yes, I do.",
+     "audio": "../../en-shared/q/yes-i-do.mp3",
+     "parts": [
+      "../../en-shared/q/yes-i.mp3"
+     ],
+     "optSay": [
+      "do",
+      "does"
+     ],
+     "ask": "Yes, I doesn't.",
+     "askAudio": "../../en-shared/q/askc-dc7e8de130.mp3"
+    },
+    {
+     "stem": "____ she have any blocks?",
+     "options": [
+      "Do",
+      "Does"
+     ],
+     "answer": 1,
+     "word": "Does she have any blocks?",
+     "audio": "../../en-shared/q/does-she-have-any-blocks.mp3",
+     "parts": [
+      "../../en-shared/q/she-have-any-blocks.mp3"
+     ],
+     "optSay": [
+      "Do",
+      "Does"
+     ],
+     "ask": "Do she have any blocks?",
+     "askAudio": "../../en-shared/q/askc-93eed2338f.mp3"
+    },
+    {
+     "stem": "Yes, he ____.",
+     "options": [
+      "do",
+      "does"
+     ],
+     "answer": 1,
+     "word": "Yes, he does.",
+     "audio": "../../en-shared/q/yes-he-does.mp3",
+     "parts": [
+      "../../en-shared/q/yes-he.mp3"
+     ],
+     "optSay": [
+      "do",
+      "does"
+     ],
+     "ask": "Yes, he don't.",
+     "askAudio": "../../en-shared/q/askc-265b2a52d7.mp3"
+    }
+   ],
+   "page": 76,
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "task": "Complete the sentences using can or can't.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences-using-can-or-can-t.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "Can you jump high? Yes, I ____.",
+     "options": [
+      "can",
+      "can't"
+     ],
+     "answer": 0,
+     "word": "Can you jump high? Yes, I can.",
+     "audio": "../../en-shared/q/can-you-jump-high-yes-i-can.mp3",
+     "parts": [
+      "../../en-shared/q/can-you-jump-high-yes-i.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-90e89111ba.mp3"
+    },
+    {
+     "stem": "Can a fish fly? No, it ____.",
+     "options": [
+      "can",
+      "can't"
+     ],
+     "answer": 1,
+     "word": "Can a fish fly? No, it can't.",
+     "audio": "../../en-shared/q/can-a-fish-fly-no-it-can-t.mp3",
+     "parts": [
+      "../../en-shared/q/can-a-fish-fly-no-it.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-b8ed13f3b1.mp3"
+    }
+   ],
+   "page": 76,
+   "ex": 2
+  }
+ ]
+}

@@ -5,10 +5,10 @@
  "type": "letter",
  "title": "حرف ت",
  "task": "أتعرّف على حرف التاء",
- "pages": 2,
+ "pages": 3,
  "pageNums": [
-  34,
-  35
+  38,
+  39
  ],
  "scene": "../../pics/ar-crocodile.png",
  "sceneAlt": "تَاء",
@@ -75,14 +75,29 @@
   "tasks": [
    "أشكال حرف التاء في الكلمة",
    "أصوات حرف التاء بالحركات"
-  ]
+  ],
+  "chant": {
+   "pic": "img/chant.jpg",
+   "task": "نشيد الحرف",
+   "lines": [
+    {
+     "t": "تَاءٌ تُفَّاحٌ … فَوْقَ الشَّجَرَةْ",
+     "audio": "chant-1.mp3"
+    },
+    {
+     "t": "هَيَّا نَقْطِفْ … أَحْلَى ثَمَرَةْ",
+     "audio": "chant-2.mp3"
+    }
+   ]
+  }
  },
  "hints": {
   "read": "اضغط على الحرف واسمعه",
   "word": "اضغط",
   "vocabPick": "اختار كلمة",
   "vocabTeach": "اسمع وردد",
-  "vocabWrite": "اكتب الكلمة حرف حرف"
+  "vocabWrite": "اكتب الكلمة حرف حرف",
+  "chant": "اضغط هنا واسمع النشيد!"
  },
  "vocab": [
   {
@@ -147,7 +162,7 @@
   },
   {
    "word": "تُفَّاحَة",
-   "img": "img/ar-apple.png",
+   "img": "../../pics/ar-apple-u1l10.png",
    "audio": {
     "word": "words/tuffaha.mp3"
    },

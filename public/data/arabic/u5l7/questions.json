@@ -1,0 +1,134 @@
+{
+ "sets": [
+  {
+   "type": "choice",
+   "ex": 2,
+   "page": 151,
+   "book": "booklet",
+   "task": "ضَعْ ضَمِيرَ الْغَائِبِ الْمُنَاسِبَ مَكَانَ النُّقَطِ: هُوَ أَمْ هِيَ",
+   "hint": "اختار الإجابة الصح",
+   "items": [
+    {
+     "word": "بِنْت",
+     "lead": "",
+     "tail": "بِنْت",
+     "options": [
+      "هُوَ",
+      "هِيَ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-girl.png"
+    },
+    {
+     "word": "وَلَد",
+     "lead": "",
+     "tail": "وَلَد",
+     "options": [
+      "هُوَ",
+      "هِيَ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-boy.png"
+    },
+    {
+     "word": "طَبِيب",
+     "lead": "",
+     "tail": "طَبِيب",
+     "options": [
+      "هُوَ",
+      "هِيَ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-doctor-m.png"
+    },
+    {
+     "word": "مُعَلِّمَة",
+     "lead": "",
+     "tail": "مُعَلِّمَة",
+     "options": [
+      "هُوَ",
+      "هِيَ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-teacher-woman.png"
+    },
+    {
+     "word": "فَلَّاحَة",
+     "lead": "",
+     "tail": "فَلَّاحَة",
+     "options": [
+      "هُوَ",
+      "هِيَ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-girl.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "ex": 2,
+   "page": 152,
+   "book": "booklet",
+   "task": "ضَعْ ضَمِيرَ الْغَائِبِ الْمُنَاسِبَ مَكَانَ النُّقَطِ: هُوَ أَمْ هِيَ",
+   "hint": "اختار الإجابة الصح",
+   "items": [
+    {
+     "word": "مُعَلِّم",
+     "lead": "",
+     "tail": "مُعَلِّم",
+     "options": [
+      "هُوَ",
+      "هِيَ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-students.png"
+    },
+    {
+     "word": "نَشِيطَة",
+     "lead": "",
+     "tail": "نَشِيطَة",
+     "options": [
+      "هُوَ",
+      "هِيَ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-boy.png"
+    },
+    {
+     "word": "مُؤَدَّب",
+     "lead": "",
+     "tail": "مُؤَدَّب",
+     "options": [
+      "هُوَ",
+      "هِيَ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-girl.png"
+    },
+    {
+     "word": "مُجْتَهِد",
+     "lead": "",
+     "tail": "مُجْتَهِد",
+     "options": [
+      "هُوَ",
+      "هِيَ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-students.png"
+    },
+    {
+     "word": "تِلْمِيذَة",
+     "lead": "",
+     "tail": "تِلْمِيذَة",
+     "options": [
+      "هُوَ",
+      "هِيَ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-boy.png"
+    }
+   ]
+  }
+ ]
+}

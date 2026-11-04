@@ -1,0 +1,255 @@
+{
+ "title": "Test 2",
+ "ratio": 0.707,
+ "head": {
+  "l": "Department of English<br>1st Term OL Booklet Grade 1<br>2026/2027",
+  "r": "Noor El Elm<br>Modern School"
+ },
+ "pages": [
+  {
+   "title": "Model 2",
+   "chip": "Model 2",
+   "foot": 6,
+   "blocks": [
+    {
+     "t": "q",
+     "n": "1",
+     "text": "Listen and write the missing letters:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/insect.png"
+          },
+          {
+           "t": "text",
+           "text": "[[i:tiny]] nsect",
+           "listen": "insect"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/tree-exrev1.jpg"
+          },
+          {
+           "t": "text",
+           "text": "[[t:tiny]] ree",
+           "listen": "tree"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/inbox.jpg"
+          },
+          {
+           "t": "text",
+           "text": "[[i:tiny]] n",
+           "listen": "in"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "Read and choose the correct answer:",
+     "body": [
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "1- He's"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "happy",
+          "ill"
+         ],
+         "answer": 1,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "."
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "2- "
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "open",
+          "sit"
+         ],
+         "answer": 0,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "your book, please."
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "3- There are books in my"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "book",
+          "bag"
+         ],
+         "answer": 1,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "."
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "4- There are two"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "pencils",
+          "desks"
+         ],
+         "answer": 0,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "in my bag."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Unscramble and write:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ruler.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>u r l r e</span> [[ruler:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/tiger-walk.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>g r i t e</span> [[tiger:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ill-exrev1.jpg"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>l i l</span> [[ill:wide]]"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Reorder to form sentences:",
+     "body": [
+      {
+       "t": "order",
+       "words": [
+        "is",
+        "My",
+        "Ali",
+        "name"
+       ],
+       "answer": "My name is Ali"
+      },
+      {
+       "t": "order",
+       "words": [
+        "friends",
+        "We",
+        "are"
+       ],
+       "answer": "We are friends"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

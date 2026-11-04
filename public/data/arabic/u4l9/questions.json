@@ -1,0 +1,179 @@
+{
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 1,
+   "page": 138,
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْحُرُوفِ الَّتِي تَعَلَّمْتُهَا",
+   "taskAudio": "../u1l11/q/task-1.mp3",
+   "hint": "اضغط على الحروف اللي اتعلمتها",
+   "items": [
+    {
+     "word": "ز",
+     "text": "ز",
+     "answer": true
+    },
+    {
+     "word": "ط",
+     "text": "ط",
+     "answer": true
+    },
+    {
+     "word": "ك",
+     "text": "ك",
+     "answer": false
+    },
+    {
+     "word": "ص",
+     "text": "ص",
+     "answer": true
+    },
+    {
+     "word": "ض",
+     "text": "ض",
+     "answer": true
+    },
+    {
+     "word": "ث",
+     "text": "ث",
+     "answer": true
+    },
+    {
+     "word": "غ",
+     "text": "غ",
+     "answer": true
+    },
+    {
+     "word": "ن",
+     "text": "ن",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 1,
+   "page": 68,
+   "book": "workbook",
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْأَشْيَاءِ الَّتِي أَجِدُهَا فِي الْفَصْلِ",
+   "taskAudio": "q/wb-circle-68.mp3",
+   "hint": "اضغط على الأشياء اللي في الفصل",
+   "items": [
+    {
+     "word": "حَقِيبَة",
+     "text": "حَقِيبَة",
+     "answer": true
+    },
+    {
+     "word": "مَمْحَاة",
+     "text": "مَمْحَاة",
+     "answer": true
+    },
+    {
+     "word": "إِنَاء",
+     "text": "إِنَاء",
+     "answer": false
+    },
+    {
+     "word": "مِقَصّ",
+     "text": "مِقَصّ",
+     "answer": true
+    },
+    {
+     "word": "مِسْطَرَة",
+     "text": "مِسْطَرَة",
+     "answer": true
+    },
+    {
+     "word": "قَلَم",
+     "text": "قَلَم",
+     "answer": true
+    },
+    {
+     "word": "سَرِير",
+     "text": "سَرِير",
+     "answer": false
+    },
+    {
+     "word": "كُرْسِيّ",
+     "text": "كُرْسِيّ",
+     "answer": true
+    },
+    {
+     "word": "مِضْرَب",
+     "text": "مِضْرَب",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 2,
+   "page": 68,
+   "book": "workbook",
+   "words": true,
+   "task": "أُرَتِّبُ الْكَلِمَاتِ لِتَكُونَ جُمْلَةً مُفِيدَةً",
+   "taskAudio": "q/wb-68-order.mp3",
+   "hint": "رتب الكلمات",
+   "items": [
+    {
+     "word": "أَتَمَرَّنُ فِي الْمَلْعَبِ وَأَلْعَبُ",
+     "audio": "q/wb-68-0-s1.mp3"
+    },
+    {
+     "word": "أَنْتَبِهُ إِلَى شَرْحِ الْمُعَلِّمِ",
+     "audio": "q/wb-68-1-s2.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 3,
+   "page": 68,
+   "book": "workbook",
+   "task": "أُحَلِّلُ الْكَلِمَةَ إِلَى حُرُوفِهَا",
+   "taskAudio": "q/wb-split-task.mp3",
+   "hint": "اسحب الحروف واحدا واحدا إلى مكانها",
+   "items": [
+    {
+     "word": "غُرَاب",
+     "audio": "q/wb-68-0-ghurab.mp3",
+     "split": [
+      "غُ",
+      "رَ",
+      "ا",
+      "ب"
+     ]
+    },
+    {
+     "word": "ثِقْل",
+     "audio": "q/wb-68-1-thiql.mp3",
+     "split": [
+      "ثِ",
+      "قْ",
+      "ل"
+     ]
+    },
+    {
+     "word": "غُصْن",
+     "audio": "q/wb-68-2-ghusn.mp3",
+     "split": [
+      "غُ",
+      "صْ",
+      "ن"
+     ]
+    },
+    {
+     "word": "مُثَلَّث",
+     "audio": "q/wb-68-3-muthallath.mp3",
+     "split": [
+      "مُ",
+      "ثَ",
+      "لَّ",
+      "ث"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,415 @@
+{
+ "unit": 2,
+ "lesson": 1,
+ "title": "Our Classroom",
+ "sceneAlt": "A classroom",
+ "tabs": [
+  "words",
+  "booklet",
+  "grammar"
+ ],
+ "type": "al",
+ "scene": "img/scene.jpg",
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "bookcase",
+   "ar": "مكتبة كتب",
+   "img": "../../pics/bookcase.png",
+   "parts": [
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "oo",
+     "ph": "oo-short",
+     "audio": "../../phonics/oo-short.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "ai",
+     "audio": "../../phonics/ai.mp3"
+    },
+    {
+     "t": "se",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/bookcase.mp3"
+   }
+  },
+  {
+   "word": "chair",
+   "ar": "كرسي",
+   "img": "../../pics/chair-u2.png",
+   "parts": [
+    {
+     "t": "ch",
+     "ph": "ch",
+     "audio": "../../phonics/ch.mp3"
+    },
+    {
+     "t": "air",
+     "ph": "air",
+     "audio": "../../phonics/air.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/chair.mp3"
+   }
+  },
+  {
+   "word": "computer",
+   "ar": "حاسوب",
+   "img": "../../pics/computer.png",
+   "parts": [
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "u",
+     "ph": "ue",
+     "audio": "../../phonics/ue.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/computer.mp3"
+   }
+  },
+  {
+   "word": "classroom",
+   "ar": "فصل",
+   "img": "../../pics/classroom-u2.jpg",
+   "parts": [
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "ss",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "oo",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/classroom.mp3"
+   }
+  },
+  {
+   "word": "board",
+   "ar": "سبورة",
+   "img": "../../pics/board-u2.jpg",
+   "parts": [
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/board.mp3"
+   }
+  },
+  {
+   "word": "desk",
+   "ar": "مكتب",
+   "img": "../../pics/desk-u2.png",
+   "parts": [
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/desk.mp3"
+   }
+  },
+  {
+   "word": "door",
+   "ar": "باب",
+   "img": "../../pics/door-u2.png",
+   "parts": [
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "oor",
+     "ph": "or",
+     "audio": "../../phonics/or.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/door.mp3"
+   }
+  },
+  {
+   "word": "mouse",
+   "ar": "فأرة الحاسوب",
+   "img": "../../pics/mouse-u2.jpg",
+   "parts": [
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "ou",
+     "ph": "ow",
+     "audio": "../../phonics/ow.mp3"
+    },
+    {
+     "t": "se",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/mouse.mp3"
+   }
+  },
+  {
+   "word": "wall",
+   "ar": "حائط",
+   "img": "../../pics/wall.png",
+   "parts": [
+    {
+     "t": "w",
+     "ph": "w",
+     "audio": "../../phonics/w.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "aw",
+     "audio": "../../phonics/aw.mp3"
+    },
+    {
+     "t": "ll",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/wall.mp3"
+   }
+  },
+  {
+   "word": "window",
+   "ar": "نافذة",
+   "img": "../../pics/window.png",
+   "parts": [
+    {
+     "t": "w",
+     "ph": "w",
+     "audio": "../../phonics/w.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "ow",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/window.mp3"
+   }
+  }
+ ],
+ "lines": [],
+ "end": 1,
+ "grammar": [
+  {
+   "title": "This, That, These and Those",
+   "note": "We point at things with this, that, these and those.",
+   "rows": [
+    [
+     {
+      "t": "This is a unicorn.",
+      "a": "data/en-shared/q/this-is-a-unicorn.mp3"
+     },
+     {
+      "t": "one, near",
+      "a": "data/en-shared/q/one-near.mp3"
+     }
+    ],
+    [
+     {
+      "t": "That is a unicorn.",
+      "a": "data/en-shared/q/that-is-a-unicorn.mp3"
+     },
+     {
+      "t": "one, far away",
+      "a": "data/en-shared/q/one-far-away.mp3"
+     }
+    ],
+    [
+     {
+      "t": "These are unicorns.",
+      "a": "data/en-shared/q/these-are-unicorns.mp3"
+     },
+     {
+      "t": "many, near",
+      "a": "data/en-shared/q/many-near.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Those are unicorns.",
+      "a": "data/en-shared/q/those-are-unicorns.mp3"
+     },
+     {
+      "t": "many, far away",
+      "a": "data/en-shared/q/many-far-away.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "reveal",
+    "one": true,
+    "items": [
+     {
+      "t": "This is a unicorn.",
+      "a": "data/en-shared/q/this-is-a-unicorn.mp3",
+      "hl": "This",
+      "fig": {
+       "dist": "near",
+       "n": 1
+      }
+     },
+     {
+      "t": "That is a unicorn.",
+      "a": "data/en-shared/q/that-is-a-unicorn.mp3",
+      "hl": "That",
+      "fig": {
+       "dist": "far",
+       "n": 1
+      }
+     },
+     {
+      "t": "These are unicorns.",
+      "a": "data/en-shared/q/these-are-unicorns.mp3",
+      "hl": "These",
+      "fig": {
+       "dist": "near",
+       "n": 3
+      }
+     },
+     {
+      "t": "Those are unicorns.",
+      "a": "data/en-shared/q/those-are-unicorns.mp3",
+      "hl": "Those",
+      "fig": {
+       "dist": "far",
+       "n": 3
+      }
+     }
+    ]
+   }
+  }
+ ]
+}

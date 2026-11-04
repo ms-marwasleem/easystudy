@@ -5,10 +5,10 @@
  "type": "letter",
  "title": "حرف د",
  "task": "أتعرّف على حرف الدال",
- "pages": 2,
+ "pages": 3,
  "pageNums": [
-  26,
-  27
+  32,
+  33
  ],
  "scene": "../../pics/ar-rooster.png",
  "sceneAlt": "دَال",
@@ -22,24 +22,10 @@
   "pic": "../../pics/ar-rooster.png",
   "forms": [
    {
-    "label": "أول الكلمة",
-    "t": "د",
-    "pos": "start"
+    "t": "د"
    },
    {
-    "label": "وسط الكلمة",
-    "t": "ـد",
-    "pos": "mid"
-   },
-   {
-    "label": "آخر الكلمة (متصل)",
-    "t": "ـد",
-    "pos": "end-joined"
-   },
-   {
-    "label": "آخر الكلمة (منفصل)",
-    "t": "د",
-    "pos": "end-alone"
+    "t": "ـد"
    }
   ],
   "sounds": [
@@ -73,16 +59,31 @@
    }
   ],
   "tasks": [
-   "أشكال حرف الدال في الكلمة",
+   "أتعرّف شكل حرف الدال",
    "أصوات حرف الدال بالحركات"
-  ]
+  ],
+  "chant": {
+   "pic": "img/chant.jpg",
+   "task": "نشيد الحرف",
+   "lines": [
+    {
+     "t": "دَالٌ دُبٌّ … ضَخْمُ الْجِسْمِ",
+     "audio": "chant-1.mp3"
+    },
+    {
+     "t": "هُوَ فِي الْغَابَةْ … طُولَ الْيَوْمْ",
+     "audio": "chant-2.mp3"
+    }
+   ]
+  }
  },
  "hints": {
   "read": "اضغط على الحرف واسمعه",
   "word": "اضغط",
   "vocabPick": "اختار كلمة",
   "vocabTeach": "اسمع وردد",
-  "vocabWrite": "اكتب الكلمة حرف حرف"
+  "vocabWrite": "اكتب الكلمة حرف حرف",
+  "chant": "اضغط هنا واسمع النشيد!"
  },
  "vocab": [
   {
@@ -96,13 +97,14 @@
      "t": "دَلْو",
      "audio": "words/dalw.mp3"
     }
-   ]
+   ],
+   "har": "fatha"
   },
   {
-   "word": "دَرَج",
-   "img": "../../pics/ar-stairs.jpg",
+   "word": "دَرَّاجَة",
+   "img": "../../pics/ar-bike.png",
    "audio": {
-    "word": "words/daraj.mp3"
+    "word": "words/darraja.mp3"
    },
    "parts": [
     {
@@ -110,10 +112,15 @@
      "audio": "../../syl-ar/62f-64e.mp3"
     },
     {
-     "t": "رَج",
-     "audio": "../../syl-ar/631-64e-62c.mp3"
+     "t": "رَّا",
+     "audio": "../../syl-ar/631-64e-651-627.mp3"
+    },
+    {
+     "t": "جَة",
+     "audio": "../../syl-ar/62c-64e-629.mp3"
     }
-   ]
+   ],
+   "har": "fatha"
   },
   {
    "word": "دَوَاء",
@@ -130,7 +137,8 @@
      "t": "وَاء",
      "audio": "../../syl-ar/648-64e-627-621.mp3"
     }
-   ]
+   ],
+   "har": "fatha"
   },
   {
    "word": "دُبّ",
@@ -143,7 +151,22 @@
      "t": "دُبّ",
      "audio": "words/dubb.mp3"
     }
-   ]
+   ],
+   "har": "damma"
+  },
+  {
+   "word": "دُرْج",
+   "img": "../../pics/ar-drawer.png",
+   "audio": {
+    "word": "words/durj.mp3"
+   },
+   "parts": [
+    {
+     "t": "دُرْج",
+     "audio": "words/durj.mp3"
+    }
+   ],
+   "har": "damma"
   },
   {
    "word": "دُودَة",
@@ -160,24 +183,8 @@
      "t": "دَة",
      "audio": "../../syl-ar/62f-64e-629.mp3"
     }
-   ]
-  },
-  {
-   "word": "دُولَاب",
-   "img": "../../pics/ar-wardrobe.png",
-   "audio": {
-    "word": "words/dulab.mp3"
-   },
-   "parts": [
-    {
-     "t": "دُو",
-     "audio": "../../syl-ar/62f-64f-648.mp3"
-    },
-    {
-     "t": "لَاب",
-     "audio": "../../syl-ar/644-64e-627-628.mp3"
-    }
-   ]
+   ],
+   "har": "damma"
   },
   {
    "word": "دِيك",
@@ -190,7 +197,8 @@
      "t": "دِيك",
      "audio": "words/dik.mp3"
     }
-   ]
+   ],
+   "har": "kasra"
   },
   {
    "word": "دِرْع",
@@ -203,7 +211,8 @@
      "t": "دِرْع",
      "audio": "words/dir.mp3"
     }
-   ]
+   ],
+   "har": "kasra"
   },
   {
    "word": "دِمَاغ",
@@ -220,7 +229,8 @@
      "t": "مَاغ",
      "audio": "../../syl-ar/645-64e-627-63a.mp3"
     }
-   ]
+   ],
+   "har": "kasra"
   },
   {
    "word": "هُدْهُد",
@@ -237,20 +247,8 @@
      "t": "هُد",
      "audio": "../../syl-ar/647-64f-62f.mp3"
     }
-   ]
-  },
-  {
-   "word": "بَدْر",
-   "img": "../../pics/ar-full-moon.jpg",
-   "audio": {
-    "word": "words/badr.mp3"
-   },
-   "parts": [
-    {
-     "t": "بَدْر",
-     "audio": "words/badr.mp3"
-    }
-   ]
+   ],
+   "har": "sukoon"
   },
   {
    "word": "مَدْرَسَة",
@@ -271,7 +269,22 @@
      "t": "سَة",
      "audio": "../../syl-ar/633-64e-629.mp3"
     }
-   ]
+   ],
+   "har": "sukoon"
+  },
+  {
+   "word": "بَدْر",
+   "img": "../../pics/ar-full-moon.jpg",
+   "audio": {
+    "word": "words/badr.mp3"
+   },
+   "parts": [
+    {
+     "t": "بَدْر",
+     "audio": "words/badr.mp3"
+    }
+   ],
+   "har": "sukoon"
   }
  ],
  "vocabRepeats": 3

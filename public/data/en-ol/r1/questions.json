@@ -1,0 +1,625 @@
+{
+ "_note": "Review 1: school book pp61-64 (ex8 draw, ex9 colour skipped; ex5 4th picture (ladybug, letters t-i-p) skipped, no matching letter); Performance book p32.",
+ "sets": [
+  {
+   "type": "link",
+   "ex": 1,
+   "page": 61,
+   "task": "Match the picture with the correct word.",
+   "taskAudio": "../../en-shared/q/match-the-picture-with-the-correct-word.mp3",
+   "hint": "Join each word to its picture!",
+   "items": [
+    {
+     "word": "book",
+     "audio": "../u1l3/words/book.mp3",
+     "pic": "../../pics/book.png"
+    },
+    {
+     "word": "play",
+     "audio": "../u1l1/words/play.mp3",
+     "pic": "../../pics/5-play.jpg"
+    },
+    {
+     "word": "hello",
+     "audio": "../u1l1/words/hello.mp3",
+     "pic": "../../pics/5-hello.jpg"
+    },
+    {
+     "word": "shake hands",
+     "audio": "../u1l1/words/shake-hands.mp3",
+     "pic": "../../pics/5-shake-hands.jpg"
+    },
+    {
+     "word": "desk",
+     "audio": "../u1l3/words/desk.mp3",
+     "pic": "../../pics/desk.png"
+    },
+    {
+     "word": "pencil",
+     "audio": "../u1l3/words/pencil.mp3",
+     "pic": "../../pics/pencil.png"
+    }
+   ]
+  },
+  {
+   "type": "yesno",
+   "ex": 2,
+   "page": 62,
+   "task": "Put a tick or a cross.",
+   "taskAudio": "q/put-a-tick-or-a-cross.mp3",
+   "hint": "Right? Tap the tick. Wrong? Tap the cross.",
+   "items": [
+    {
+     "word": "The grass is green.",
+     "audio": "../../en-shared/q/the-grass-is-green.mp3",
+     "pic": "../../pics/grass.png",
+     "answer": true
+    },
+    {
+     "word": "The sky is yellow.",
+     "audio": "q/the-sky-is-yellow.mp3",
+     "pic": "../../pics/sun.png",
+     "answer": false
+    },
+    {
+     "word": "The sun is blue.",
+     "audio": "q/the-sun-is-blue.mp3",
+     "pic": "../../pics/clouds.png",
+     "answer": false
+    },
+    {
+     "word": "The flower is red.",
+     "audio": "q/the-flower-is-red.mp3",
+     "pic": "../../pics/flower-red.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 3,
+   "page": 62,
+   "task": "Count and match.",
+   "taskAudio": "q/count-and-match.mp3",
+   "hint": "Join each number to its picture!",
+   "items": [
+    {
+     "word": "1",
+     "audio": "../../en-shared/q/1.mp3",
+     "pic": "../../pics/watermelon-r1.png"
+    },
+    {
+     "word": "3",
+     "audio": "../../en-shared/q/3.mp3",
+     "pic": "../../pics/pineapples-3.png"
+    },
+    {
+     "word": "2",
+     "audio": "../../en-shared/q/2.mp3",
+     "pic": "../../pics/cherries-r1.png"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 4,
+   "page": 62,
+   "task": "Match the picture with the shape.",
+   "taskAudio": "q/match-the-picture-with-the-shape.mp3",
+   "hint": "Join each picture to its shape!",
+   "items": [
+    {
+     "word": "rectangle",
+     "audio": "../u2l3/words/rectangle.mp3",
+     "pic": "../../pics/door-u3l4.png",
+     "wpic": "../../pics/rectangle-blue.png"
+    },
+    {
+     "word": "triangle",
+     "audio": "../u2l3/words/triangle.mp3",
+     "pic": "../../pics/pizza.png",
+     "wpic": "../../pics/triangle-yellow.png"
+    },
+    {
+     "word": "circle",
+     "audio": "../u2l3/words/circle.mp3",
+     "pic": "../../pics/clock-r1.png",
+     "wpic": "../../pics/circle-red.png"
+    },
+    {
+     "word": "square",
+     "audio": "../u2l3/words/square.mp3",
+     "pic": "../../pics/biscuit-r1.png",
+     "wpic": "../../pics/square-green.png"
+    }
+   ]
+  },
+  {
+   "type": "letter",
+   "ex": 5,
+   "page": 63,
+   "task": "Look at the picture, name it, then circle the beginning letter.",
+   "taskAudio": "q/look-at-the-picture-name-it-then-circle-the-beginning-letter.mp3",
+   "hint": "Tap the first letter!",
+   "items": [
+    {
+     "word": "star",
+     "audio": "../u2l2/words/star.mp3",
+     "pic": "../../pics/star.png",
+     "letters": [
+      "a",
+      "s",
+      "t"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "duck",
+     "audio": "../u2l3/words/duck.mp3",
+     "pic": "../../pics/duckling.png",
+     "letters": [
+      "d",
+      "a",
+      "h"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "nurse",
+     "audio": "../u3l2/words/nurse.mp3",
+     "pic": "../../pics/nurse.png",
+     "letters": [
+      "s",
+      "d",
+      "n"
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 6,
+   "page": 63,
+   "task": "Circle the pictures that start with the given letter.",
+   "taskAudio": "q/circle-the-pictures-that-start-with-the-given-letter.mp3",
+   "hint": "Tap the pictures that start with Tt!",
+   "center": "Tt",
+   "centerAudio": "../../phonics/t.mp3",
+   "items": [
+    {
+     "word": "tiger",
+     "audio": "../u1l2/words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "answer": true,
+     "pos": [
+      12,
+      22
+     ]
+    },
+    {
+     "word": "duck",
+     "audio": "../u2l3/words/duck.mp3",
+     "pic": "../../pics/duckling.png",
+     "answer": false,
+     "pos": [
+      88,
+      22
+     ]
+    },
+    {
+     "word": "tomato",
+     "audio": "../u1l2/words/tomato.mp3",
+     "pic": "../../pics/tomato.png",
+     "answer": true,
+     "pos": [
+      12,
+      76
+     ]
+    },
+    {
+     "word": "nose",
+     "audio": "../u3l2/words/nose.mp3",
+     "pic": "../../pics/nose-6.png",
+     "answer": false,
+     "pos": [
+      88,
+      76
+     ]
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 6,
+   "page": 63,
+   "task": "Circle the pictures that start with the given letter.",
+   "taskAudio": "q/circle-the-pictures-that-start-with-the-given-letter.mp3",
+   "hint": "Tap the pictures that start with Pp!",
+   "center": "Pp",
+   "centerAudio": "../../phonics/p.mp3",
+   "items": [
+    {
+     "word": "spider",
+     "audio": "../u2l2/words/spider.mp3",
+     "pic": "../../pics/spider.png",
+     "answer": false,
+     "pos": [
+      12,
+      22
+     ]
+    },
+    {
+     "word": "pizza",
+     "audio": "../u3l2/words/pizza.mp3",
+     "pic": "../../pics/pizza.png",
+     "answer": true,
+     "pos": [
+      88,
+      22
+     ]
+    },
+    {
+     "word": "ink",
+     "audio": "../u1l4/words/ink.mp3",
+     "pic": "../../pics/ink.png",
+     "answer": false,
+     "pos": [
+      12,
+      76
+     ]
+    },
+    {
+     "word": "panda",
+     "audio": "../u3l2/words/panda.mp3",
+     "pic": "../../pics/panda.png",
+     "answer": true,
+     "pos": [
+      88,
+      76
+     ]
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 6,
+   "page": 63,
+   "task": "Circle the pictures that start with the given letter.",
+   "taskAudio": "q/circle-the-pictures-that-start-with-the-given-letter.mp3",
+   "hint": "Tap the pictures that start with Hh!",
+   "center": "Hh",
+   "centerAudio": "../../phonics/h.mp3",
+   "items": [
+    {
+     "word": "house",
+     "audio": "../u1l3/words/house.mp3",
+     "pic": "../../pics/house-u3l4.png",
+     "answer": true,
+     "pos": [
+      12,
+      22
+     ]
+    },
+    {
+     "word": "teddy bear",
+     "audio": "words/teddy-bear.mp3",
+     "pic": "../../pics/teddy-r1.png",
+     "answer": false,
+     "pos": [
+      88,
+      22
+     ]
+    },
+    {
+     "word": "screw",
+     "audio": "words/screw.mp3",
+     "pic": "../../pics/screw-n4.png",
+     "answer": false,
+     "pos": [
+      12,
+      76
+     ]
+    },
+    {
+     "word": "hat",
+     "audio": "../u3l4/words/hat.mp3",
+     "pic": "../../pics/hat.png",
+     "answer": true,
+     "pos": [
+      88,
+      76
+     ]
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 6,
+   "page": 63,
+   "task": "Circle the pictures that start with the given letter.",
+   "taskAudio": "q/circle-the-pictures-that-start-with-the-given-letter.mp3",
+   "hint": "Tap the pictures that start with Aa!",
+   "center": "Aa",
+   "centerAudio": "../../phonics/a.mp3",
+   "items": [
+    {
+     "word": "box",
+     "audio": "words/box.mp3",
+     "pic": "../../pics/box.png",
+     "answer": false,
+     "pos": [
+      12,
+      22
+     ]
+    },
+    {
+     "word": "arrow",
+     "audio": "../u2l4/words/arrow.mp3",
+     "pic": "../../pics/arrow.png",
+     "answer": true,
+     "pos": [
+      88,
+      22
+     ]
+    },
+    {
+     "word": "axe",
+     "audio": "../u2l4/words/axe.mp3",
+     "pic": "../../pics/axe.png",
+     "answer": true,
+     "pos": [
+      12,
+      76
+     ]
+    },
+    {
+     "word": "spoon",
+     "audio": "../u2l2/words/spoon.mp3",
+     "pic": "../../pics/spoon.png",
+     "answer": false,
+     "pos": [
+      88,
+      76
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 64,
+   "task": "Find the odd one out, then circle it.",
+   "taskAudio": "q/find-the-odd-one-out-then-circle-it.mp3",
+   "hint": "Tap the odd one out!",
+   "items": [
+    {
+     "word": "father",
+     "audio": "../u3l1/words/father.mp3",
+     "pic": "../../pics/father.png",
+     "answer": false
+    },
+    {
+     "word": "sisters",
+     "audio": "words/sisters.mp3",
+     "pic": "../../pics/sisters.png",
+     "answer": false
+    },
+    {
+     "word": "bird",
+     "audio": "../u2l1/words/bird.mp3",
+     "pic": "../../pics/bird.png",
+     "answer": true
+    },
+    {
+     "word": "mother",
+     "audio": "../u3l1/words/mother.mp3",
+     "pic": "../../pics/mother.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 7,
+   "page": 64,
+   "task": "Find the odd one out, then circle it.",
+   "taskAudio": "q/find-the-odd-one-out-then-circle-it.mp3",
+   "hint": "Tap the odd one out!",
+   "items": [
+    {
+     "word": "butterfly",
+     "audio": "../u2l1/words/butterfly.mp3",
+     "pic": "../../pics/butterfly.png",
+     "answer": false
+    },
+    {
+     "word": "tree",
+     "audio": "../u1l2/words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "answer": false
+    },
+    {
+     "word": "flower",
+     "audio": "../u2l1/words/flower.mp3",
+     "pic": "../../pics/flower.png",
+     "answer": false
+    },
+    {
+     "word": "grandmother",
+     "audio": "../u3l1/words/grandmother.mp3",
+     "pic": "../../pics/grandmother.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 32,
+   "grp": "classroom-1",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "word": "This is my desk.",
+     "lead": "This is my",
+     "options": [
+      "desk",
+      "door"
+     ],
+     "answer": 0,
+     "pic": "../../pics/desk.png",
+     "audio": "q/this-is-my-desk.mp3"
+    },
+    {
+     "word": "I can see ink.",
+     "lead": "I can see",
+     "options": [
+      "ink",
+      "pen"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ink-u1l4.png",
+     "audio": "q/i-can-see-ink.mp3"
+    },
+    {
+     "word": "There is 1 tiger.",
+     "lead": "There is 1",
+     "options": [
+      "tiger",
+      "tomato"
+     ],
+     "answer": 0,
+     "pic": "../../pics/tiger.png",
+     "audio": "q/there-is-1-tiger.mp3"
+    },
+    {
+     "word": "I can see pizza.",
+     "lead": "I can see",
+     "options": [
+      "panda",
+      "pizza"
+     ],
+     "answer": 1,
+     "pic": "../../pics/pizza.png",
+     "audio": "../../en-shared/q/i-can-see-pizza.mp3"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 32,
+   "grp": "classroom-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "The",
+      "sun",
+      "is",
+      "yellow"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-sun-is-yellow.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "have",
+      "1",
+      "brother"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-have-1-brother.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "grass",
+      "is",
+      "green"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-grass-is-green.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 32,
+   "grp": "homework-1",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "green",
+     "audio": "../u2l3/words/green.mp3",
+     "pic": "../../pics/green-swatch.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "hair",
+     "audio": "../u3l4/words/hair.mp3",
+     "pic": "../../pics/hair-u3l4.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "ink",
+     "audio": "../u1l4/words/ink.mp3",
+     "pic": "../../pics/ink-u1l4.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "dog",
+     "audio": "../u1l4/words/dog.mp3",
+     "pic": "../../pics/dog-u3l4.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "panda",
+     "audio": "../u3l2/words/panda.mp3",
+     "pic": "../../pics/panda.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ]
+  }
+ ]
+}

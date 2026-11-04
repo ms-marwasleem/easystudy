@@ -1,1 +1,332 @@
-{"sets": [{"type": "order", "task": "Revision on Unit 1. Vocabulary. Write the words.", "taskAudio": "../../en-shared/q/revision-on-unit-1-vocabulary-write-the-words.mp3", "book": "booklet", "items": [{"chunks": ["l", "o", "u", "d"], "end": "", "word": "loud", "audio": "../../en-shared/q/loud.mp3", "say": ["l", "o", "u", "d"], "img": "img/loud.jpg"}, {"chunks": ["b", "a", "b", "y"], "end": "", "word": "baby", "audio": "../../en-shared/q/baby.mp3", "say": ["b", "a", "b", "y"], "img": "img/baby.png"}, {"chunks": ["b", "o", "r", "i", "n", "g"], "end": "", "word": "boring", "audio": "../../en-shared/q/boring.mp3", "say": ["b", "o", "r", "i", "n", "g"], "img": "img/boring.jpg"}, {"chunks": ["q", "u", "i", "e", "t"], "end": "", "word": "quiet", "audio": "../../en-shared/q/quiet.mp3", "say": ["q", "u", "i", "e", "t"], "img": "img/quiet.jpg"}, {"chunks": ["g", "r", "a", "n", "d", "m", "a"], "end": "", "word": "grandma", "audio": "../../en-shared/q/grandma.mp3", "say": ["g", "r", "a", "n", "d", "m", "a"], "img": "img/grandma.jpg"}], "page": 24, "ex": 1}, {"type": "cloze", "task": "Complete the sentences.", "taskAudio": "../../en-shared/q/complete-the-sentences.mp3", "book": "booklet", "items": [{"text": "A Fun Saturday! On Saturday morning, I was [[awake]] early. My [[mom]] was already up and very [[busy]] in the kitchen, making pancakes! I ran very [[fast]] to help her. Eating pancakes with my family is so much [[fun]]!", "bank": ["busy", "awake", "fun", "fast", "mom"], "audio": "../../en-shared/q/a-fun-saturday-on-saturday-morning-i-was-awake-ear-c5fe1a58.mp3"}], "page": 24, "ex": 2}, {"type": "mcq", "task": "Grammar. Complete the following questions using Is or Are.", "taskAudio": "../../en-shared/q/grammar-complete-the-following-questions-using-is-or-are.mp3", "book": "booklet", "items": [{"stem": "____ your cousin funny? Yes, he is.", "options": ["Is", "Are"], "answer": 0, "word": "Is your cousin funny? Yes, he is.", "audio": "../../en-shared/q/is-your-cousin-funny-yes-he-is.mp3", "parts": ["../../en-shared/q/your-cousin-funny-yes-he-is.mp3"]}, {"stem": "____ the flowers pretty? Yes, they are.", "options": ["Is", "Are"], "answer": 1, "word": "Are the flowers pretty? Yes, they are.", "audio": "../../en-shared/q/are-the-flowers-pretty-yes-they-are.mp3", "parts": ["../../en-shared/q/the-flowers-pretty-yes-they-are.mp3"]}, {"stem": "____ the sky blue? Yes, it is.", "options": ["Is", "Are"], "answer": 0, "word": "Is the sky blue? Yes, it is.", "audio": "../../en-shared/q/is-the-sky-blue-yes-it-is.mp3", "parts": ["../../en-shared/q/the-sky-blue-yes-it-is.mp3"]}, {"stem": "____ your favorite color red? No, it isn't.", "options": ["Is", "Are"], "answer": 0, "word": "Is your favorite color red? No, it isn't.", "audio": "../../en-shared/q/is-your-favorite-color-red-no-it-isn-t.mp3", "parts": ["../../en-shared/q/your-favorite-color-red-no-it-isn-t.mp3"]}, {"stem": "____ you tired? No, I'm not.", "options": ["Is", "Are"], "answer": 1, "word": "Are you tired? No, I'm not.", "audio": "../../en-shared/q/are-you-tired-no-i-m-not.mp3", "parts": ["../../en-shared/q/you-tired-no-i-m-not.mp3"]}], "page": 25, "ex": 1}, {"type": "mcq", "task": "Complete the sentences using 'm, 's or 're.", "taskAudio": "../../en-shared/q/complete-the-sentences-using-m-s-or-re.mp3", "book": "booklet", "items": [{"stem": "He ____ my big brother.", "options": ["'m", "'s", "'re"], "answer": 1, "word": "He is my big brother.", "audio": "../../en-shared/q/he-is-my-big-brother.mp3", "parts": ["../../en-shared/q/he.mp3", "../../en-shared/q/my-big-brother.mp3"], "optSay": ["am", "is", "are"]}, {"stem": "We ____ ready for school.", "options": ["'m", "'s", "'re"], "answer": 2, "word": "We are ready for school.", "audio": "../../en-shared/q/we-are-ready-for-school.mp3", "parts": ["../../en-shared/q/we.mp3", "../../en-shared/q/ready-for-school.mp3"], "optSay": ["am", "is", "are"]}, {"stem": "It ____ a beautiful day outside.", "options": ["'m", "'s", "'re"], "answer": 1, "word": "It is a beautiful day outside.", "audio": "../../en-shared/q/it-is-a-beautiful-day-outside.mp3", "parts": ["../../en-shared/q/it.mp3", "../../en-shared/q/a-beautiful-day-outside.mp3"], "optSay": ["am", "is", "are"]}, {"stem": "You ____ a great artist!", "options": ["'m", "'s", "'re"], "answer": 2, "word": "You are a great artist!", "audio": "../../en-shared/q/you-are-a-great-artist.mp3", "parts": ["../../en-shared/q/you.mp3", "../../en-shared/q/a-great-artist.mp3"], "optSay": ["am", "is", "are"]}, {"stem": "This ____ my favorite toy.", "options": ["'m", "'s", "'re"], "answer": 1, "word": "This is my favorite toy.", "audio": "../../en-shared/q/this-is-my-favorite-toy.mp3", "parts": ["../../en-shared/q/this.mp3", "../../en-shared/q/my-favorite-toy.mp3"], "optSay": ["am", "is", "are"]}], "page": 25, "ex": 2}]}
+{
+ "sets": [
+  {
+   "type": "order",
+   "task": "Revision on Unit 1. Vocabulary. Write the words.",
+   "taskAudio": "../../en-shared/q/revision-on-unit-1-vocabulary-write-the-words.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "chunks": [
+      "l",
+      "o",
+      "u",
+      "d"
+     ],
+     "end": "",
+     "word": "loud",
+     "audio": "../../en-shared/q/loud.mp3",
+     "say": [
+      "l",
+      "o",
+      "u",
+      "d"
+     ],
+     "img": "../../pics/loud.jpg"
+    },
+    {
+     "chunks": [
+      "b",
+      "a",
+      "b",
+      "y"
+     ],
+     "end": "",
+     "word": "baby",
+     "audio": "../../en-shared/q/baby.mp3",
+     "say": [
+      "b",
+      "a",
+      "b",
+      "y"
+     ],
+     "img": "../../pics/baby.png"
+    },
+    {
+     "chunks": [
+      "b",
+      "o",
+      "r",
+      "i",
+      "n",
+      "g"
+     ],
+     "end": "",
+     "word": "boring",
+     "audio": "../../en-shared/q/boring.mp3",
+     "say": [
+      "b",
+      "o",
+      "r",
+      "i",
+      "n",
+      "g"
+     ],
+     "img": "../../pics/boring.jpg"
+    },
+    {
+     "chunks": [
+      "q",
+      "u",
+      "i",
+      "e",
+      "t"
+     ],
+     "end": "",
+     "word": "quiet",
+     "audio": "../../en-shared/q/quiet.mp3",
+     "say": [
+      "q",
+      "u",
+      "i",
+      "e",
+      "t"
+     ],
+     "img": "../../pics/quiet.jpg"
+    },
+    {
+     "chunks": [
+      "g",
+      "r",
+      "a",
+      "n",
+      "d",
+      "m",
+      "a"
+     ],
+     "end": "",
+     "word": "grandma",
+     "audio": "../../en-shared/q/grandma.mp3",
+     "say": [
+      "g",
+      "r",
+      "a",
+      "n",
+      "d",
+      "m",
+      "a"
+     ],
+     "img": "../../pics/grandma.jpg"
+    }
+   ],
+   "page": 24,
+   "ex": 1
+  },
+  {
+   "type": "cloze",
+   "task": "Complete the sentences.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "text": "On Saturday morning, I was [[awake]] early. My [[mom]] was already up and very [[busy]] in the kitchen, making pancakes! I ran very [[fast]] to help her. Eating pancakes with my family is so much [[fun]]!",
+     "bank": [
+      "busy",
+      "awake",
+      "fun",
+      "fast",
+      "mom"
+     ],
+     "audio": "../../en-shared/q/passage-90c9e0e19d.mp3"
+    }
+   ],
+   "page": 24,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Grammar. Complete the following questions using Is or Are.",
+   "taskAudio": "../../en-shared/q/grammar-complete-the-following-questions-using-is-or-are.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "____ your cousin funny? Yes, he is.",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "Is your cousin funny? Yes, he is.",
+     "audio": "../../en-shared/q/is-your-cousin-funny-yes-he-is.mp3",
+     "parts": [
+      "../../en-shared/q/your-cousin-funny-yes-he-is.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-f031d1ed9c.mp3"
+    },
+    {
+     "stem": "____ the flowers pretty? Yes, they are.",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 1,
+     "word": "Are the flowers pretty? Yes, they are.",
+     "audio": "../../en-shared/q/are-the-flowers-pretty-yes-they-are.mp3",
+     "parts": [
+      "../../en-shared/q/the-flowers-pretty-yes-they-are.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-46533cc4f8.mp3"
+    },
+    {
+     "stem": "____ the sky blue? Yes, it is.",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "Is the sky blue? Yes, it is.",
+     "audio": "../../en-shared/q/is-the-sky-blue-yes-it-is.mp3",
+     "parts": [
+      "../../en-shared/q/the-sky-blue-yes-it-is.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-a482440946.mp3"
+    },
+    {
+     "stem": "____ your favorite color red? No, it isn't.",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "Is your favorite color red? No, it isn't.",
+     "audio": "../../en-shared/q/is-your-favorite-color-red-no-it-isn-t.mp3",
+     "parts": [
+      "../../en-shared/q/your-favorite-color-red-no-it-isn-t.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-1bb06d9f1e.mp3"
+    },
+    {
+     "stem": "____ you tired? No, I'm not.",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 1,
+     "word": "Are you tired? No, I'm not.",
+     "audio": "../../en-shared/q/are-you-tired-no-i-m-not.mp3",
+     "parts": [
+      "../../en-shared/q/you-tired-no-i-m-not.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-2de10fda14.mp3"
+    }
+   ],
+   "page": 25,
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "task": "Complete the sentences using 'm, 's or 're.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences-using-m-s-or-re.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "He ____ my big brother.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 1,
+     "word": "He is my big brother.",
+     "audio": "../../en-shared/q/he-is-my-big-brother.mp3",
+     "parts": [
+      "../../en-shared/q/he.mp3",
+      "../../en-shared/q/my-big-brother.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ],
+     "askAudio": "../../en-shared/q/askc-9324eadc7b.mp3"
+    },
+    {
+     "stem": "We ____ ready for school.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 2,
+     "word": "We are ready for school.",
+     "audio": "../../en-shared/q/we-are-ready-for-school.mp3",
+     "parts": [
+      "../../en-shared/q/we.mp3",
+      "../../en-shared/q/ready-for-school.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ],
+     "askAudio": "../../en-shared/q/askc-90362b7cae.mp3"
+    },
+    {
+     "stem": "It ____ a beautiful day outside.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 1,
+     "word": "It is a beautiful day outside.",
+     "audio": "../../en-shared/q/it-is-a-beautiful-day-outside.mp3",
+     "parts": [
+      "../../en-shared/q/it.mp3",
+      "../../en-shared/q/a-beautiful-day-outside.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ],
+     "askAudio": "../../en-shared/q/askc-e882f6b792.mp3"
+    },
+    {
+     "stem": "You ____ a great artist!",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 2,
+     "word": "You are a great artist!",
+     "audio": "../../en-shared/q/you-are-a-great-artist.mp3",
+     "parts": [
+      "../../en-shared/q/you.mp3",
+      "../../en-shared/q/a-great-artist.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ],
+     "askAudio": "../../en-shared/q/askc-ac27f0827b.mp3"
+    },
+    {
+     "stem": "This ____ my favorite toy.",
+     "options": [
+      "'m",
+      "'s",
+      "'re"
+     ],
+     "answer": 1,
+     "word": "This is my favorite toy.",
+     "audio": "../../en-shared/q/this-is-my-favorite-toy.mp3",
+     "parts": [
+      "../../en-shared/q/this.mp3",
+      "../../en-shared/q/my-favorite-toy.mp3"
+     ],
+     "optSay": [
+      "am",
+      "is",
+      "are"
+     ],
+     "askAudio": "../../en-shared/q/askc-22be0d782e.mp3"
+    }
+   ],
+   "page": 25,
+   "ex": 2
+  }
+ ]
+}

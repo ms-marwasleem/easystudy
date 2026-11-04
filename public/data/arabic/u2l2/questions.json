@@ -6,23 +6,24 @@
    "page": 43,
    "task": "سُؤَالٌ وَجَوَابٌ",
    "hint": "اسمع كل سؤال وجوابه",
+   "together": true,
+   "book": "booklet",
    "items": [
     {
-     "ask": "عَمَّ تُرْسَمُ اللَّوْحَةُ؟",
      "word": "تُرْسَمُ اللَّوْحَةُ عَنْ غَابَةٍ سَعِيدَةٍ.",
+     "ask": "عَمَّ تُرْسَمُ اللَّوْحَةُ؟",
      "audio": "q/qa1-q.mp3",
      "ansAudio": "q/qa1-a.mp3",
      "pic": "scene.jpg"
     },
     {
-     "ask": "مَاذَا سَتَرْسُمُ فِي اللَّوْحَةِ؟",
      "word": "أَرْسُمُ الْأُسُودَ وَالْفِيلَ وَالْقُرُودَ وَأَرْنَبًا وَقِطًّا وَثَعْلَبًا وَبَطًّا وَبُلْبُلًا وَنَسْرًا وَبُومَةً وَصَقْرًا.",
+     "ask": "مَاذَا سَتَرْسُمُ فِي اللَّوْحَةِ؟",
      "audio": "q/qa2-q.mp3",
      "ansAudio": "q/qa2-a.mp3",
      "pic": "scene.jpg"
     }
-   ],
-   "together": true
+   ]
   },
   {
    "type": "link",
@@ -31,6 +32,7 @@
    "task": "أَصِلُ كُلَّ كَلِمَةٍ بِمَعْنَاهَا أَوْ جَمْعِهَا أَوْ مُفْرَدِهَا",
    "taskAudio": "../q-prompts/match-meaning.mp3",
    "hint": "صل كل كلمة بمعناها أو جمعها أو مفردها",
+   "book": "booklet",
    "items": [
     {
      "word": "سَعِيدَةٌ",
@@ -115,6 +117,108 @@
      ],
      "rel": "مُفْرَدُهُ",
      "audio2": "words/m-usud.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 2,
+   "page": 31,
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ الْكَائِنَاتِ الَّتِي وَرَدَتْ فِي النَّشِيدِ",
+   "taskAudio": "q/task-w2.mp3",
+   "hint": "اضغط على الحيوانات اللي في النشيد",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "أَرْنَب",
+     "audio": "../u1l3/words/arnab.mp3",
+     "pic": "../../pics/ar-rabbit.png",
+     "answer": true
+    },
+    {
+     "word": "فِيل",
+     "audio": "q/c-fil.mp3",
+     "pic": "../../pics/ar-elephant.png",
+     "answer": true
+    },
+    {
+     "word": "بَقَرَة",
+     "audio": "q/c-baqara.mp3",
+     "pic": "../../pics/ar-cow.png",
+     "answer": false
+    },
+    {
+     "word": "دِيك",
+     "audio": "q/c-dik.mp3",
+     "pic": "../../pics/ar-rooster.png",
+     "answer": false
+    },
+    {
+     "word": "أَسَد",
+     "audio": "../u1l3/q/c9-3.mp3",
+     "pic": "../../pics/ar-lion.png",
+     "answer": true
+    },
+    {
+     "word": "بَطَّة",
+     "audio": "q/c-batta.mp3",
+     "pic": "../../pics/ar-duck.png",
+     "answer": true
+    },
+    {
+     "word": "قِرْد",
+     "audio": "q/c-qird.mp3",
+     "pic": "../../pics/ar-monkey.jpg",
+     "answer": true
+    },
+    {
+     "word": "نَسْر",
+     "audio": "q/c-nasr.mp3",
+     "pic": "../../pics/ar-eagle.jpg",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": "h1",
+   "page": 31,
+   "words": true,
+   "task": "أُرَتِّبُ الْكَلِمَاتِ لِأُكَوِّنَ جُمْلَةً",
+   "taskAudio": "../u2l10/q/p-arrange-words.mp3",
+   "hint": "رتب الكلمات",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "أُحِبُّ لَوْحَتِي الْجَدِيدَةَ",
+     "pic": "scene.jpg",
+     "audio": "q/s-lawhati.mp3"
+    },
+    {
+     "word": "أَنَا أُحِبُّ أُسْرَتِي",
+     "pic": "../../pics/ar-love-family.jpg",
+     "audio": "../u1l11/q/s-fam.mp3"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": "h2",
+   "page": 31,
+   "task": "أَدْمِجُ وَأُكَوِّنُ كَلِمَةً",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "جَدَّتِي",
+     "audio": "../u1l11/words/jaddati-h.mp3",
+     "pic": "../../pics/ar-grandmother.jpg",
+     "chips": [
+      "جَ",
+      "دَّ",
+      "تِي"
+     ]
     }
    ]
   }

@@ -1,0 +1,458 @@
+{
+ "id": "u4l4",
+ "unit": 4,
+ "lesson": 4,
+ "title": "Phonics Cc Kk",
+ "task": "Listen to your teacher and repeat.",
+ "scene": "../u1l2/scene.jpg",
+ "sceneAlt": "Phonics Cc and Kk pictures",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "speakers": {
+  "Cc": "#D93D78",
+  "Kk": "#D93D78"
+ },
+ "pages": 2,
+ "pageLayouts": [
+  "pictures",
+  "pictures"
+ ],
+ "pageTasks": [
+  "Listen to your teacher and repeat.",
+  "Listen to your teacher and repeat."
+ ],
+ "pagesBook": [
+  79,
+  81
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "carrot",
+   "ar": "جزرة",
+   "img": "../../pics/carrot-u4l4.png",
+   "parts": [
+    {
+     "t": "ca",
+     "ph": "k_a",
+     "audio": "../../phonics/chunks/k_a.mp3"
+    },
+    {
+     "t": "rr",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/carrot.mp3"
+   }
+  },
+  {
+   "word": "cake",
+   "ar": "كعكة",
+   "img": "../../pics/cake-u4l4.png",
+   "parts": [
+    {
+     "t": "ca",
+     "ph": "k_ai",
+     "audio": "../../phonics/chunks/k_ai.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/cake.mp3"
+   }
+  },
+  {
+   "word": "cat",
+   "ar": "قطة",
+   "img": "../../pics/cat-u4l4.png",
+   "parts": [
+    {
+     "t": "ca",
+     "ph": "k_a",
+     "audio": "../../phonics/chunks/k_a.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u1l4/words/cat.mp3"
+   }
+  },
+  {
+   "word": "cup",
+   "ar": "كوب",
+   "img": "../../pics/cup-u4l4.png",
+   "parts": [
+    {
+     "t": "cu",
+     "ph": "k_u",
+     "audio": "../../phonics/chunks/k_u.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/cup.mp3"
+   }
+  },
+  {
+   "word": "car",
+   "ar": "عربية",
+   "img": "../../pics/car-u4l4.png",
+   "parts": [
+    {
+     "t": "ca",
+     "ph": "k_ar",
+     "audio": "../../phonics/chunks/k_ar.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/car.mp3"
+   }
+  },
+  {
+   "word": "key",
+   "ar": "مفتاح",
+   "img": "../../pics/key-u4l4.png",
+   "parts": [
+    {
+     "t": "ke",
+     "ph": "k_ee",
+     "audio": "../../phonics/chunks/k_ee.mp3"
+    },
+    {
+     "t": "y",
+     "spell": true,
+     "ph": "y",
+     "audio": "../../phonics/y.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/key.mp3"
+   }
+  },
+  {
+   "word": "kangaroo",
+   "ar": "كنغر",
+   "img": "../../pics/kangaroo-u4l4.png",
+   "parts": [
+    {
+     "t": "ka",
+     "ph": "k_a",
+     "audio": "../../phonics/chunks/k_a.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "ng",
+     "audio": "../../phonics/ng.mp3"
+    },
+    {
+     "t": "ga",
+     "ph": "g_a",
+     "audio": "../../phonics/chunks/g_a.mp3"
+    },
+    {
+     "t": "roo",
+     "ph": "r_oo",
+     "audio": "../../phonics/chunks/r_oo.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/kangaroo.mp3"
+   }
+  },
+  {
+   "word": "king",
+   "ar": "ملك",
+   "img": "../../pics/king-u4l4.png",
+   "parts": [
+    {
+     "t": "ki",
+     "ph": "k_i",
+     "audio": "../../phonics/chunks/k_i.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "ng",
+     "audio": "../../phonics/ng.mp3"
+    },
+    {
+     "t": "g",
+     "spell": true,
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/king.mp3"
+   }
+  },
+  {
+   "word": "kitchen",
+   "ar": "مطبخ",
+   "img": "../../pics/kitchen-u4l4.jpg",
+   "parts": [
+    {
+     "t": "ki",
+     "ph": "k_i",
+     "audio": "../../phonics/chunks/k_i.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "ch",
+     "audio": "../../phonics/ch.mp3"
+    },
+    {
+     "t": "ch",
+     "ph": "ch",
+     "audio": "../../phonics/ch.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/kitchen.mp3"
+   }
+  },
+  {
+   "word": "kite",
+   "ar": "طيارة ورق",
+   "img": "../../pics/kite-u4l4.png",
+   "parts": [
+    {
+     "t": "ki",
+     "ph": "k_igh",
+     "audio": "../../phonics/chunks/k_igh.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/kite.mp3"
+   }
+  }
+ ],
+ "_note": "Book p79 (Cc: carrot cake cat cup car) and p81 (Kk: key kangaroo king kitchen kite). Tracing/colouring skipped.",
+ "lines": [
+  {
+   "who": "Cc",
+   "page": 1,
+   "words": [
+    [
+     "carrot",
+     0.03,
+     0.61
+    ]
+   ],
+   "pic": "../../pics/carrot-u4l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Cc",
+   "page": 1,
+   "words": [
+    [
+     "cake",
+     1.77,
+     2.28
+    ]
+   ],
+   "pic": "../../pics/cake-u4l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Cc",
+   "page": 1,
+   "words": [
+    [
+     "cat",
+     3.46,
+     3.94
+    ]
+   ],
+   "pic": "../../pics/cat-u4l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Cc",
+   "page": 1,
+   "words": [
+    [
+     "cup",
+     5.09,
+     5.44
+    ]
+   ],
+   "pic": "../../pics/cup-u4l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Cc",
+   "page": 1,
+   "words": [
+    [
+     "car",
+     6.6,
+     7.2
+    ]
+   ],
+   "pic": "../../pics/car-u4l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Kk",
+   "page": 2,
+   "words": [
+    [
+     "key",
+     8.35,
+     8.88
+    ]
+   ],
+   "pic": "../../pics/key-u4l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Kk",
+   "page": 2,
+   "words": [
+    [
+     "kangaroo",
+     10.06,
+     10.88
+    ]
+   ],
+   "pic": "../../pics/kangaroo-u4l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Kk",
+   "page": 2,
+   "words": [
+    [
+     "king",
+     12.03,
+     12.59
+    ]
+   ],
+   "pic": "../../pics/king-u4l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Kk",
+   "page": 2,
+   "words": [
+    [
+     "kitchen",
+     13.75,
+     14.44
+    ]
+   ],
+   "pic": "../../pics/kitchen-u4l4.jpg",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Kk",
+   "page": 2,
+   "words": [
+    [
+     "kite",
+     15.6,
+     16.14
+    ]
+   ],
+   "pic": "../../pics/kite-u4l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  }
+ ],
+ "end": 16.14
+}

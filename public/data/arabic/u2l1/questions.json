@@ -1,12 +1,87 @@
 {
  "sets": [
   {
+   "type": "yesno",
+   "ex": 2,
+   "page": 46,
+   "task": "أَرْسُمُ وَجْهًا ضَاحِكًا أَسْفَلَ الْكَائِنَاتِ الَّتِي شَاهَدَهَا سَامِي فِي الْفِيدْيُو",
+   "taskAudio": "q/task-2.mp3",
+   "hint": "اضغط ✓ إذا شاهدها سامي، وإلا اضغط ✗",
+   "items": [
+    {
+     "word": "نَمْلَة",
+     "audio": "words/namla.mp3",
+     "pic": "../../pics/ant.png",
+     "answer": true
+    },
+    {
+     "word": "أَرْنَب",
+     "audio": "../u1l3/q/c8-0.mp3",
+     "pic": "../../pics/ar-rabbit.png",
+     "answer": true
+    },
+    {
+     "word": "زَرَافَة",
+     "audio": "q/zarafa.mp3",
+     "pic": "../../pics/ar-giraffe.png",
+     "answer": false
+    },
+    {
+     "word": "أَسَد",
+     "audio": "../u1l3/q/c9-3.mp3",
+     "pic": "../../pics/ar-lion.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 3,
+   "page": 46,
+   "task": "أَصِلُ كُلَّ كَائِنٍ بِمَا يُنَاسِبُهُ حَسَبَ مَا فَهِمْتُ مِنَ الْقِصَّةِ",
+   "taskAudio": "q/task-3.mp3",
+   "hint": "صل كل كائن بما يناسبه",
+   "items": [
+    {
+     "word": "أَسَد",
+     "audio": "../u1l3/q/c9-3.mp3",
+     "pic": "../../pics/ar-lion.png"
+    },
+    {
+     "word": "شَجَرَة",
+     "audio": "q/shajara.mp3",
+     "pic": "../../pics/tree.png"
+    },
+    {
+     "word": "نَمْلَة",
+     "audio": "words/namla.mp3",
+     "pic": "../../pics/ant.png"
+    },
+    {
+     "word": "حُبُوب",
+     "audio": "q/hubub.mp3",
+     "pic": "../../pics/ar-grains.png"
+    },
+    {
+     "word": "بُلْبُل",
+     "audio": "words/bulbul.mp3",
+     "pic": "../../pics/bird.png"
+    },
+    {
+     "word": "غِنَاء",
+     "audio": "q/ghina.mp3",
+     "pic": "../../pics/ar-music-notes.png"
+    }
+   ]
+  },
+  {
    "type": "link",
    "ex": 1,
    "page": 42,
    "task": "اِسْتَمِعْ وَرَدِّدْ، ثُمَّ صِلْ بِالْكَلِمَةِ الْمُشَابِهَةِ",
    "taskAudio": "../q-prompts/u2l1-listen-repeat-match.mp3",
    "hint": "صل الكلمة بالكلمة المشابهة",
+   "book": "booklet",
    "items": [
     {
      "word": "أَلْ",
@@ -21,12 +96,13 @@
    ]
   },
   {
-   "type": "tick",
+   "type": "yesno",
    "ex": 2,
    "page": 42,
    "task": "ضَعْ عَلَامَةَ (✓) أَسْفَلَ الْكَائِنَاتِ الَّتِي وَرَدَتْ فِي الْقِصَّةِ",
    "taskAudio": "../q-prompts/tick-story-creatures.mp3",
    "hint": "اضغط ✓ إذا ورد في القصة، وإلا اضغط ✗",
+   "book": "booklet",
    "items": [
     {
      "word": "تِمْسَاح",
@@ -79,6 +155,7 @@
    "task": "اِسْتَمِعْ وَصِلْ بِالْمُنَاسِبِ",
    "taskAudio": "../q-prompts/listen-match-suitable.mp3",
    "hint": "صل الجملة بالصورة المناسبة",
+   "book": "booklet",
    "items": [
     {
      "word": "الْأَسَدُ يَسْتَرِيحُ تَحْتَهَا",
@@ -99,6 +176,51 @@
      "word": "تَجُرُّ حَبَّةً كَبِيرَةً",
      "audio": "q/s4.mp3",
      "pic": "../../pics/ant.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "ex": 1,
+   "page": 30,
+   "task": "أَسْتَمِعُ، ثُمَّ أَخْتَارُ الصَّوَابَ: سَامِي يُشَاهِدُ",
+   "taskAudio": "q/task-w1.mp3",
+   "hint": "اختار الإجابة الصح",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "سَامِي يُشَاهِدُ الْحَيَوَانَاتِ.",
+     "pic": "../../pics/ar-lion.png",
+     "lead": "سَامِي يُشَاهِدُ",
+     "options": [
+      "الْحَيَوَانَاتِ",
+      "الطُّيُورَ",
+      "الْأَسْمَاكَ"
+     ],
+     "answer": 0,
+     "audio": "q/w-sami.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": "h1",
+   "page": 30,
+   "words": true,
+   "task": "أُرَتِّبُ الْكَلِمَاتِ لِأُكَوِّنَ جُمْلَةً",
+   "taskAudio": "../u2l10/q/p-arrange-words.mp3",
+   "hint": "رتب الكلمات",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "أَنَا أُحِبُّ أُسْرَتِي",
+     "pic": "../../pics/ar-love-family.jpg",
+     "audio": "../u1l11/q/s-fam.mp3"
+    },
+    {
+     "word": "أَنَا أُحِبُّ جَدِّي وَجَدَّتِي",
+     "pic": "../../pics/ar-love-grandparents.jpg",
+     "audio": "../u1l11/q/s-grand.mp3"
     }
    ]
   }

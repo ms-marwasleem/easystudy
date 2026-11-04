@@ -1,6 +1,237 @@
 {
  "sets": [
   {
+   "type": "circle",
+   "ex": 2,
+   "page": 105,
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ حَرْفِ الذَّالِ",
+   "taskAudio": "q/task-2.mp3",
+   "hint": "اضغط على أشكال الذال",
+   "items": [
+    {
+     "word": "ذ",
+     "text": "ذ",
+     "answer": 1
+    },
+    {
+     "word": "هـ",
+     "text": "هـ",
+     "answer": 0
+    },
+    {
+     "word": "د",
+     "text": "د",
+     "answer": 0
+    },
+    {
+     "word": "ـذ",
+     "text": "ـذ",
+     "answer": 1
+    },
+    {
+     "word": "و",
+     "text": "و",
+     "answer": 0
+    },
+    {
+     "word": "ذ",
+     "text": "ذ",
+     "answer": 1
+    },
+    {
+     "word": "أ",
+     "text": "أ",
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 4,
+   "page": 106,
+   "task": "أَتَتَبَّعُ الْخَرِيطَةَ؛ لِكَيْ أَصِلَ الصُّوَرَ الَّتِي بِهَا حَرْفُ الذَّالِ",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "اضغط على الصور اللي فيها الذال",
+   "items": [
+    {
+     "word": "زَرَافَة",
+     "audio": "../u4l3/words/zarafa.mp3",
+     "pic": "../../pics/ar-giraffe.png",
+     "answer": false
+    },
+    {
+     "word": "أُذُن",
+     "audio": "../u1l3/words/udhun.mp3",
+     "pic": "../../pics/ar-ear.png",
+     "answer": true
+    },
+    {
+     "word": "ذُرَة",
+     "audio": "words/dhura.mp3",
+     "pic": "../../pics/ar-corn.png",
+     "answer": true
+    },
+    {
+     "word": "ذِئْب",
+     "audio": "words/dhib.mp3",
+     "pic": "../../pics/ar-wolf.png",
+     "answer": true
+    },
+    {
+     "word": "ذَهَب",
+     "audio": "../u3l7/words/dhahab.mp3",
+     "pic": "../../pics/ar-gold.jpg",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "sound",
+   "ex": 5,
+   "page": 106,
+   "task": "أَنْطِقُ صَوْتَ حَرْفِ الذَّالِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
+   "taskAudio": "q/task-5.mp3",
+   "hint": "اسمع الجملة وردد وراها",
+   "items": [
+    {
+     "word": "ذَيْل",
+     "ask": "ذَ",
+     "pic": "../../pics/ar-tail.png",
+     "audio": [
+      "../letters/630/name.mp3",
+      "../shared/h-fatha.mp3",
+      "../../syl-ar/630-64e.mp3",
+      "words/dhayl.mp3"
+     ]
+    },
+    {
+     "word": "ذُرَة",
+     "ask": "ذُ",
+     "pic": "../../pics/ar-corn.png",
+     "audio": [
+      "../letters/630/name.mp3",
+      "../shared/h-damma.mp3",
+      "../../syl-ar/630-64f.mp3",
+      "words/dhura.mp3"
+     ]
+    },
+    {
+     "word": "ذِرَاع",
+     "ask": "ذِ",
+     "pic": "../../pics/ar-arm.png",
+     "audio": [
+      "../letters/630/name.mp3",
+      "../shared/h-kasra.mp3",
+      "../../syl-ar/630-650.mp3",
+      "words/dhira.mp3"
+     ]
+    },
+    {
+     "word": "جِذْع",
+     "ask": "ذْ",
+     "pic": "../../pics/ar-trunk.png",
+     "audio": [
+      "../letters/630/name.mp3",
+      "../shared/h-sukoon.mp3",
+      "../../syl-ar/630-652.mp3",
+      "words/jidha.mp3"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 8,
+   "page": 107,
+   "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الذَّالِ مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار الذال بالحركة الصح",
+   "choices": [
+    "ذَ",
+    "ذُ",
+    "ذِ",
+    "ذْ"
+   ],
+   "items": [
+    {
+     "word": "أُذُن",
+     "audio": "../u1l3/words/udhun.mp3",
+     "pic": "../../pics/ar-ear.png",
+     "answer": "ذُ",
+     "choices": [
+      "ذَ",
+      "ذُ",
+      "ذِ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "ذِئْب",
+     "audio": "words/dhib.mp3",
+     "pic": "../../pics/ar-wolf.png",
+     "answer": "ذِ",
+     "choices": [
+      "ذَ",
+      "ذُ",
+      "ذِ"
+     ]
+    },
+    {
+     "word": "ذَهَب",
+     "audio": "../u3l7/words/dhahab.mp3",
+     "pic": "../../pics/ar-gold.jpg",
+     "answer": "ذَ",
+     "choices": [
+      "ذَ",
+      "ذُ",
+      "ذِ"
+     ]
+    },
+    {
+     "word": "جِذْع",
+     "audio": "words/jidha.mp3",
+     "pic": "../../pics/ar-trunk.png",
+     "answer": "ذْ",
+     "choices": [
+      "ذَ",
+      "ذُ",
+      "ذِ"
+     ],
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 108,
+   "task": "أَدْمِجُ الْحُرُوفَ لِأُكَوِّنَ كَلِمَةً",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "items": [
+    {
+     "word": "ذِرَاع",
+     "audio": "words/dhira.mp3",
+     "pic": "../../pics/ar-arm.png",
+     "chips": [
+      "ذِ",
+      "رَا",
+      "ع"
+     ]
+    },
+    {
+     "word": "ذُرَة",
+     "audio": "words/dhura.mp3",
+     "pic": "../../pics/ar-corn.png",
+     "chips": [
+      "ذُ",
+      "رَ",
+      "ة"
+     ]
+    }
+   ]
+  },
+  {
    "type": "position",
    "ex": 7,
    "page": 101,
@@ -10,6 +241,7 @@
     "../letters/630/name.mp3"
    ],
    "hint": "اضغط على الدائرة التي فيها الذال",
+   "book": "booklet",
    "items": [
     {
      "word": "ذِرَاع",
@@ -66,6 +298,7 @@
     "ذِ",
     "ذْ"
    ],
+   "book": "booklet",
    "items": [
     {
      "word": "ذُبَابَة",
@@ -107,6 +340,7 @@
    "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/merge-syllables.mp3",
    "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "book": "booklet",
    "items": [
     {
      "word": "ذِرَاع",
@@ -151,6 +385,7 @@
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/arrange-letters.mp3",
    "hint": "رتب الحروف",
+   "book": "booklet",
    "items": [
     {
      "word": "جِذْر",
@@ -181,6 +416,7 @@
    "task": "أَقْرَأُ ثُمَّ أَصِلُ",
    "taskAudio": "../q-prompts/match-picture.mp3",
    "hint": "صل الكلمة بالصورة",
+   "book": "booklet",
    "items": [
     {
      "word": "ذَقْن",
@@ -201,6 +437,37 @@
      "word": "أُذُن",
      "pic": "../../pics/ar-ear.png",
      "audio": "../u1l3/words/udhun.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 1,
+   "page": 53,
+   "book": "workbook",
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي فِيهَا حَرْفُ (ذ)",
+   "taskAudio": "q/wb-circle-53.mp3",
+   "hint": "اضغط على الكلمات اللي فيها حرف ذ",
+   "items": [
+    {
+     "word": "ذُرَة",
+     "text": "ذُرَة",
+     "answer": true
+    },
+    {
+     "word": "أُذُن",
+     "text": "أُذُن",
+     "answer": true
+    },
+    {
+     "word": "ذِرَاع",
+     "text": "ذِرَاع",
+     "answer": true
+    },
+    {
+     "word": "جَذْر",
+     "text": "جَذْر",
+     "answer": true
     }
    ]
   }

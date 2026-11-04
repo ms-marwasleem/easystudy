@@ -1,0 +1,890 @@
+{
+ "_note": "u4l4: p80 ex4, p82 ex8, p83 ex10 (tracing/colouring skipped). Performance p39-41. Weekly C: the book scrambles do not match its pictures, so key/cat/kite are used.",
+ "sets": [
+  {
+   "type": "match",
+   "ex": 4,
+   "page": 80,
+   "task": "Circle the objects that start with the letter (Cc).",
+   "taskAudio": "../../en-shared/q/start-circle-the-objects-cc.mp3",
+   "hint": "Tap the pictures that start with Cc!",
+   "center": "Cc",
+   "centerAudio": "../../phonics/k.mp3",
+   "items": [
+    {
+     "word": "cake",
+     "audio": "words/cake.mp3",
+     "pic": "../../pics/cake-u4l4.png",
+     "answer": true,
+     "pos": [
+      10,
+      14
+     ]
+    },
+    {
+     "word": "snail",
+     "audio": "words/snail.mp3",
+     "pic": "../../pics/snail-u4l4.png",
+     "answer": false,
+     "pos": [
+      12,
+      38
+     ]
+    },
+    {
+     "word": "cat",
+     "audio": "../u1l4/words/cat.mp3",
+     "pic": "../../pics/cat-u4l4.png",
+     "answer": true,
+     "pos": [
+      88,
+      22
+     ]
+    },
+    {
+     "word": "apple",
+     "audio": "../u2l3/words/apple.mp3",
+     "pic": "../../pics/apple-u2l3.png",
+     "answer": false,
+     "pos": [
+      88,
+      52
+     ]
+    },
+    {
+     "word": "cup",
+     "audio": "words/cup.mp3",
+     "pic": "../../pics/cup-u4l4.png",
+     "answer": true,
+     "pos": [
+      20,
+      80
+     ]
+    },
+    {
+     "word": "banana",
+     "audio": "../u4l2/words/banana.mp3",
+     "pic": "../../pics/banana-u4l2.png",
+     "answer": false,
+     "pos": [
+      40,
+      82
+     ]
+    },
+    {
+     "word": "duck",
+     "audio": "../u2l3/words/duck.mp3",
+     "pic": "../../pics/duck-u3l4.png",
+     "answer": false,
+     "pos": [
+      60,
+      82
+     ]
+    },
+    {
+     "word": "carrot",
+     "audio": "words/carrot.mp3",
+     "pic": "../../pics/carrot-u4l4.png",
+     "answer": true,
+     "pos": [
+      80,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 8,
+   "page": 82,
+   "task": "Match the objects that start with the letter (Kk).",
+   "taskAudio": "../../en-shared/q/start-match-kk.mp3",
+   "hint": "Tap the pictures that start with Kk!",
+   "center": "Kk",
+   "centerAudio": "../../phonics/k.mp3",
+   "items": [
+    {
+     "word": "key",
+     "audio": "words/key.mp3",
+     "pic": "../../pics/key-u4l4.png",
+     "answer": true,
+     "pos": [
+      10,
+      16
+     ]
+    },
+    {
+     "word": "king",
+     "audio": "words/king.mp3",
+     "pic": "../../pics/king-u4l4.png",
+     "answer": true,
+     "pos": [
+      90,
+      16
+     ]
+    },
+    {
+     "word": "fish",
+     "audio": "../u4l2/words/fish.mp3",
+     "pic": "../../pics/fish-u4l2.png",
+     "answer": false,
+     "pos": [
+      10,
+      50
+     ]
+    },
+    {
+     "word": "cup",
+     "audio": "words/cup.mp3",
+     "pic": "../../pics/cup-u4l4.png",
+     "answer": false,
+     "pos": [
+      90,
+      50
+     ]
+    },
+    {
+     "word": "tiger",
+     "audio": "../u1l2/words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "answer": false,
+     "pos": [
+      28,
+      82
+     ]
+    },
+    {
+     "word": "kangaroo",
+     "audio": "words/kangaroo.mp3",
+     "pic": "../../pics/kangaroo-u4l4.png",
+     "answer": true,
+     "pos": [
+      72,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "ex": 10,
+   "page": 83,
+   "task": "Look, say, then write the beginning letter of the word.",
+   "taskAudio": "../../en-shared/q/look-say-then-write-the-beginning-letter-of-the-word.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "cake",
+     "audio": "words/cake.mp3",
+     "pic": "../../pics/cake-u4l4.png",
+     "missing": 0,
+     "answer": "c"
+    },
+    {
+     "word": "kangaroo",
+     "audio": "words/kangaroo.mp3",
+     "pic": "../../pics/kangaroo-u4l4.png",
+     "missing": 0,
+     "answer": "k"
+    },
+    {
+     "word": "kite",
+     "audio": "words/kite.mp3",
+     "pic": "../../pics/kite-u4l4.png",
+     "missing": 0,
+     "answer": "k"
+    },
+    {
+     "word": "king",
+     "audio": "words/king.mp3",
+     "pic": "../../pics/king-u4l4.png",
+     "missing": 0,
+     "answer": "k"
+    },
+    {
+     "word": "key",
+     "audio": "words/key.mp3",
+     "pic": "../../pics/key-u4l4.png",
+     "missing": 0,
+     "answer": "k"
+    },
+    {
+     "word": "carrot",
+     "audio": "words/carrot.mp3",
+     "pic": "../../pics/carrot-u4l4.png",
+     "missing": 0,
+     "answer": "c"
+    },
+    {
+     "word": "cat",
+     "audio": "../u1l4/words/cat.mp3",
+     "pic": "../../pics/cat-u4l4.png",
+     "missing": 0,
+     "answer": "c"
+    },
+    {
+     "word": "kitchen",
+     "audio": "words/kitchen.mp3",
+     "pic": "../../pics/kitchen-u4l4.jpg",
+     "missing": 0,
+     "answer": "k"
+    },
+    {
+     "word": "car",
+     "audio": "words/car.mp3",
+     "pic": "../../pics/car-u4l4.png",
+     "missing": 0,
+     "answer": "c"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 39,
+   "grp": "classroom-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "cake",
+     "scr": "keac",
+     "audio": "words/cake.mp3",
+     "pic": "../../pics/cake-u4l4.png"
+    },
+    {
+     "word": "king",
+     "scr": "gink",
+     "audio": "words/king.mp3",
+     "pic": "../../pics/king-u4l4.png"
+    },
+    {
+     "word": "carrot",
+     "scr": "artcro",
+     "audio": "words/carrot.mp3",
+     "pic": "../../pics/carrot-u4l4.png"
+    },
+    {
+     "word": "kitchen",
+     "scr": "ectnkih",
+     "audio": "words/kitchen.mp3",
+     "pic": "../../pics/kitchen-u4l4.jpg"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 39,
+   "grp": "classroom-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "word": "I have a cat.",
+     "lead": "I have a",
+     "options": [
+      "cat",
+      "cup"
+     ],
+     "answer": 0,
+     "pic": "../../pics/cat-u4l4.png",
+     "audio": "../../en-shared/q/i-have-a-cat.mp3"
+    },
+    {
+     "word": "I can see a kite.",
+     "lead": "I can see a",
+     "options": [
+      "kite",
+      "key"
+     ],
+     "answer": 0,
+     "pic": "../../pics/kite-u4l4.png",
+     "audio": "../../en-shared/q/i-can-see-a-kite.mp3"
+    },
+    {
+     "word": "This is my car.",
+     "lead": "This is my",
+     "options": [
+      "car",
+      "cake"
+     ],
+     "answer": 0,
+     "pic": "../../pics/car-u4l4.png",
+     "audio": "../../en-shared/q/this-is-my-car.mp3"
+    },
+    {
+     "word": "I can see a kangaroo.",
+     "lead": "I can see a",
+     "options": [
+      "king",
+      "kangaroo"
+     ],
+     "answer": 1,
+     "pic": "../../pics/kangaroo-u4l4.png",
+     "audio": "../../en-shared/q/i-can-see-a-kangaroo.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 39,
+   "grp": "homework-1",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "cup",
+     "audio": "words/cup.mp3",
+     "pic": "../../pics/cup-u4l4.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "kite",
+     "audio": "words/kite.mp3",
+     "pic": "../../pics/kite-u4l4.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "key",
+     "audio": "words/key.mp3",
+     "pic": "../../pics/key-u4l4.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "cat",
+     "audio": "../u1l4/words/cat.mp3",
+     "pic": "../../pics/cat-u4l4.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 1,
+   "page": 40,
+   "grp": "weekly-a-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "car",
+     "scr": "rac",
+     "audio": "words/car.mp3",
+     "pic": "../../pics/car-u4l4.png"
+    },
+    {
+     "word": "hear",
+     "scr": "areh",
+     "audio": "../u4l3/words/hear.mp3",
+     "pic": "../../pics/boy-hear-u4l3.png"
+    },
+    {
+     "word": "king",
+     "scr": "gink",
+     "audio": "words/king.mp3",
+     "pic": "../../pics/king-u4l4.png"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 2,
+   "page": 40,
+   "grp": "weekly-a-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "can",
+      "touch",
+      "with",
+      "my",
+      "hands"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-touch-with-my-hands-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "can",
+      "smell",
+      "with",
+      "my",
+      "nose"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-smell-with-my-nose-mp3.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 1,
+   "page": 40,
+   "grp": "weekly-b-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "carrot",
+     "scr": "artcro",
+     "audio": "words/carrot.mp3",
+     "pic": "../../pics/carrot-u4l4.png"
+    },
+    {
+     "word": "smell",
+     "scr": "elslm",
+     "audio": "../u4l3/words/smell.mp3",
+     "pic": "../../pics/boy-smell-u4l3.png"
+    },
+    {
+     "word": "cake",
+     "scr": "keac",
+     "audio": "words/cake.mp3",
+     "pic": "../../pics/cake-u4l4.png"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 2,
+   "page": 40,
+   "grp": "weekly-b-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "can",
+      "see",
+      "with",
+      "my",
+      "eyes"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-see-with-my-eyes-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "can",
+      "taste",
+      "with",
+      "my",
+      "tongue"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-taste-with-my-tongue-mp3.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 1,
+   "page": 41,
+   "grp": "weekly-c-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "key",
+     "scr": "kye",
+     "audio": "words/key.mp3",
+     "pic": "../../pics/key-u4l4.png"
+    },
+    {
+     "word": "cat",
+     "scr": "tac",
+     "audio": "../u1l4/words/cat.mp3",
+     "pic": "../../pics/cat-u4l4.png"
+    },
+    {
+     "word": "kite",
+     "scr": "iekt",
+     "audio": "words/kite.mp3",
+     "pic": "../../pics/kite-u4l4.png"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 2,
+   "page": 41,
+   "grp": "weekly-c-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "can",
+      "hear",
+      "with",
+      "my",
+      "ears"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-hear-with-my-ears-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "can",
+      "smell",
+      "with",
+      "my",
+      "nose"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-smell-with-my-nose-mp3.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 1,
+   "page": 23,
+   "task": "Listen and write the missing letters:",
+   "taskAudio": "../../en-shared/q/listen-and-write-the-missing-letters.mp3",
+   "hint": "Type the missing letters!",
+   "items": [
+    {
+     "word": "mouth",
+     "audio": "../u4l1/words/mouth.mp3",
+     "pic": "../../pics/mouth-u4l1.png",
+     "gaps": [
+      1,
+      2
+     ]
+    },
+    {
+     "word": "rocket",
+     "audio": "../u2l2/words/rocket.mp3",
+     "pic": "../../pics/rocket.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "kangaroo",
+     "audio": "../u4l4/words/kangaroo.mp3",
+     "pic": "../../pics/kangaroo-u4l4.png",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "cloze",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 2,
+   "page": 23,
+   "task": "Read and complete:",
+   "taskAudio": "../../en-shared/q/read-and-complete.mp3",
+   "hint": "Tap the missing word!",
+   "items": [
+    {
+     "text": "I can [[taste]] with my tongue.",
+     "bank": [
+      "carrots",
+      "apple",
+      "ears",
+      "taste"
+     ],
+     "audio": "../../en-shared/q/i-can-taste-with-my-tongue.mp3"
+    },
+    {
+     "text": "I have an [[apple]].",
+     "bank": [
+      "carrots",
+      "apple",
+      "ears",
+      "taste"
+     ],
+     "audio": "../../en-shared/q/i-have-an-apple.mp3"
+    },
+    {
+     "text": "I have 2 [[ears]].",
+     "bank": [
+      "carrots",
+      "apple",
+      "ears",
+      "taste"
+     ],
+     "audio": "../../en-shared/q/i-have-2-ears.mp3"
+    },
+    {
+     "text": "Rabbits eat [[carrots]].",
+     "bank": [
+      "carrots",
+      "apple",
+      "ears",
+      "taste"
+     ],
+     "audio": "../../en-shared/q/rabbits-eat-carrots.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 3,
+   "page": 23,
+   "task": "Unscramble and write:",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "cake",
+     "scr": "keac",
+     "audio": "../u4l4/words/cake.mp3",
+     "pic": "../../pics/cake-u4l4.png"
+    },
+    {
+     "word": "king",
+     "scr": "gink",
+     "audio": "../u4l4/words/king.mp3",
+     "pic": "../../pics/king-u4l4.png"
+    },
+    {
+     "word": "elbow",
+     "scr": "lebow",
+     "audio": "../u4l2/words/elbow.mp3",
+     "pic": "../../pics/elbow-u4l2.png"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 4,
+   "page": 23,
+   "task": "Reorder to form sentences:",
+   "taskAudio": "../../en-shared/q/reorder-to-form-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "It",
+      "is",
+      "a",
+      "red",
+      "pen"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/it-is-a-red-pen.mp3"
+    },
+    {
+     "chunks": [
+      "What",
+      "can",
+      "you",
+      "see"
+     ],
+     "end": "?",
+     "audio": "../../en-shared/q/what-can-you-see.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 1,
+   "page": 24,
+   "task": "Listen and write the missing letters:",
+   "taskAudio": "../../en-shared/q/listen-and-write-the-missing-letters.mp3",
+   "hint": "Type the missing letters!",
+   "items": [
+    {
+     "word": "touch",
+     "audio": "../u4l3/words/touch.mp3",
+     "pic": "../../pics/en-bk-touch.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "cup",
+     "audio": "../u4l4/words/cup.mp3",
+     "pic": "../../pics/cup-u4l4.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "ring",
+     "audio": "../u4l2/words/ring.mp3",
+     "pic": "../../pics/ring-u4l2.png",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "cloze",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 2,
+   "page": 24,
+   "task": "Read and choose the correct answer:",
+   "taskAudio": "../../en-shared/q/read-and-choose-the-correct-answer.mp3",
+   "hint": "Tap the correct word!",
+   "items": [
+    {
+     "text": "I [[can]] touch the desk.",
+     "bank": [
+      "have",
+      "can"
+     ],
+     "audio": "../../en-shared/q/i-can-touch-the-desk.mp3"
+    },
+    {
+     "text": "I have two [[elbows]].",
+     "bank": [
+      "elbows",
+      "elbow"
+     ],
+     "audio": "../../en-shared/q/i-have-two-elbows.mp3"
+    },
+    {
+     "text": "I [[have]] two hands.",
+     "bank": [
+      "am",
+      "have"
+     ],
+     "audio": "../../en-shared/q/i-have-two-hands.mp3"
+    },
+    {
+     "text": "I have two [[feet]].",
+     "bank": [
+      "foot",
+      "feet"
+     ],
+     "audio": "../../en-shared/q/i-have-two-feet.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 3,
+   "page": 24,
+   "task": "Unscramble and write:",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "hear",
+     "scr": "areh",
+     "audio": "../u4l3/words/hear.mp3",
+     "pic": "../../pics/boy-hear-u4l3.png"
+    },
+    {
+     "word": "key",
+     "scr": "kye",
+     "audio": "../u4l4/words/key.mp3",
+     "pic": "../../pics/key-u4l4.png"
+    },
+    {
+     "word": "toes",
+     "scr": "seto",
+     "audio": "../u4l1/words/toes.mp3",
+     "pic": "../../pics/toes-u4l1.png"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 4,
+   "page": 24,
+   "task": "Reorder to form sentences:",
+   "taskAudio": "../../en-shared/q/reorder-to-form-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "can",
+      "smell",
+      "with",
+      "my",
+      "nose"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-smell-with-my-nose.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "have",
+      "two",
+      "legs"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-have-two-legs.mp3"
+    }
+   ]
+  }
+ ]
+}

@@ -2,6 +2,195 @@
  "sets": [
   {
    "type": "circle",
+   "ex": 2,
+   "page": 129,
+   "task": "أُلَوِّنُ مُكَعَّبَ حَرْفِ الضَّادِ",
+   "taskAudio": "q/task-2.mp3",
+   "hint": "اضغط على أشكال الضاد",
+   "items": [
+    {
+     "word": "ض",
+     "text": "ض",
+     "answer": 1
+    },
+    {
+     "word": "ـض",
+     "text": "ـض",
+     "answer": 1
+    },
+    {
+     "word": "ر",
+     "text": "ر",
+     "answer": 0
+    },
+    {
+     "word": "ضـ",
+     "text": "ضـ",
+     "answer": 1
+    },
+    {
+     "word": "ص",
+     "text": "ص",
+     "answer": 0
+    },
+    {
+     "word": "ـضـ",
+     "text": "ـضـ",
+     "answer": 1
+    },
+    {
+     "word": "ب",
+     "text": "ب",
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "sound",
+   "ex": 3,
+   "page": 129,
+   "task": "أَنْطِقُ صَوْتَ حَرْفِ الضَّادِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
+   "taskAudio": "q/task-3.mp3",
+   "hint": "اسمع الجملة وردد وراها",
+   "items": [
+    {
+     "word": "ضَبُع",
+     "ask": "ضَ",
+     "pic": "../../pics/ar-hyena.png",
+     "audio": [
+      "../letters/636/name.mp3",
+      "../shared/h-fatha.mp3",
+      "../../syl-ar/636-64e.mp3",
+      "q/w-dabu.mp3"
+     ]
+    },
+    {
+     "word": "ضُفْدَع",
+     "ask": "ضُ",
+     "pic": "../../pics/ar-frog.jpg",
+     "audio": [
+      "../letters/636/name.mp3",
+      "../shared/h-damma.mp3",
+      "../../syl-ar/636-64f.mp3",
+      "../u2l7/words/difda.mp3"
+     ]
+    },
+    {
+     "word": "ضِرْس",
+     "ask": "ضِ",
+     "pic": "../../pics/ar-tooth.png",
+     "audio": [
+      "../letters/636/name.mp3",
+      "../shared/h-kasra.mp3",
+      "../../syl-ar/636-650.mp3",
+      "words/dirs.mp3"
+     ]
+    },
+    {
+     "word": "خَضْرَاوَات",
+     "ask": "ضْ",
+     "pic": "../../pics/ar-veg.jpg",
+     "audio": [
+      "../letters/636/name.mp3",
+      "../shared/h-sukoon.mp3",
+      "../../syl-ar/636-652.mp3",
+      "words/khadrawat.mp3"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 8,
+   "page": 132,
+   "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الضَّادِ مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار الضاد بالحركة الصح",
+   "choices": [
+    "ضَ",
+    "ضُ",
+    "ضِ",
+    "ضْ"
+   ],
+   "items": [
+    {
+     "word": "ضَابِط",
+     "audio": "words/dabit.mp3",
+     "pic": "../../pics/ar-police.png",
+     "answer": "ضَ",
+     "choices": [
+      "ضَ",
+      "ضُ",
+      "ضِ"
+     ]
+    },
+    {
+     "word": "ضُفْدَع",
+     "audio": "../u2l7/words/difda.mp3",
+     "pic": "../../pics/ar-frog.jpg",
+     "answer": "ضُ",
+     "choices": [
+      "ضَ",
+      "ضُ",
+      "ضِ"
+     ]
+    },
+    {
+     "word": "ضِرْس",
+     "audio": "words/dirs.mp3",
+     "pic": "../../pics/ar-tooth.png",
+     "answer": "ضِ",
+     "choices": [
+      "ضَ",
+      "ضُ",
+      "ضِ"
+     ]
+    },
+    {
+     "word": "مِضْرَب",
+     "audio": "words/midrab.mp3",
+     "pic": "../../pics/ar-racket.png",
+     "answer": "ضْ",
+     "choices": [
+      "ضَ",
+      "ضُ",
+      "ضِ"
+     ],
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 9,
+   "page": 132,
+   "task": "أَدْمِجُ الْحُرُوفَ لِأُكَوِّنَ كَلِمَةً",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "items": [
+    {
+     "word": "ضِرْس",
+     "audio": "words/dirs.mp3",
+     "pic": "../../pics/ar-tooth.png",
+     "chips": [
+      "ضِرْ",
+      "س"
+     ]
+    },
+    {
+     "word": "ضُفْدَع",
+     "audio": "../u2l7/words/difda.mp3",
+     "pic": "../../pics/ar-frog.jpg",
+     "chips": [
+      "ضُفْ",
+      "دَ",
+      "ع"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
    "ex": 7,
    "page": 126,
    "task": "اسْتَمِعْ وَضَعْ عَلَامَةً تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الضَّادِ",
@@ -11,6 +200,7 @@
    ],
    "hint": "اضغط على الصور التي فيها صوت الضاد",
    "silent": true,
+   "book": "booklet",
    "items": [
     {
      "word": "police",
@@ -49,6 +239,7 @@
     "../letters/636/name.mp3"
    ],
    "hint": "اضغط على الدائرة التي فيها الضاد",
+   "book": "booklet",
    "items": [
     {
      "word": "مِضْرَب",
@@ -89,6 +280,7 @@
    "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/merge-syllables.mp3",
    "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "book": "booklet",
    "items": [
     {
      "word": "مِضْرَب",
@@ -134,6 +326,7 @@
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/arrange-letters.mp3",
    "hint": "رتب الحروف",
+   "book": "booklet",
    "items": [
     {
      "word": "ضَفِيرَة",
@@ -164,6 +357,7 @@
    "task": "أُعَبِّرُ عَنْ كُلِّ صُورَةٍ بِكَلِمَةٍ مُنَاسِبَةٍ",
    "taskAudio": "../q-prompts/match-picture.mp3",
    "hint": "صل الكلمة بالصورة",
+   "book": "booklet",
    "items": [
     {
      "word": "ضُلُوع",
@@ -194,6 +388,7 @@
    "task": "أَقْرَأُ ثُمَّ أَصِلُ",
    "taskAudio": "../q-prompts/match-picture.mp3",
    "hint": "صل الكلمة بالصورة",
+   "book": "booklet",
    "items": [
     {
      "word": "ضَخْم",
@@ -212,6 +407,78 @@
      "word": "ضَوْء",
      "pic": "../../pics/ar-bulb.png",
      "audio": "../u3l6/words/daw.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 1,
+   "page": 64,
+   "book": "workbook",
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي فِيهَا حَرْفُ (ض)",
+   "taskAudio": "q/wb-circle-64.mp3",
+   "hint": "اضغط على الكلمات اللي فيها حرف ض",
+   "items": [
+    {
+     "word": "ضُرُوس",
+     "text": "ضُرُوس",
+     "answer": true
+    },
+    {
+     "word": "غَضْبَان",
+     "text": "غَضْبَان",
+     "answer": true
+    },
+    {
+     "word": "دَرْس",
+     "text": "دَرْس",
+     "answer": false
+    },
+    {
+     "word": "خَضْرَاوَات",
+     "text": "خَضْرَاوَات",
+     "answer": true
+    },
+    {
+     "word": "دَلْو",
+     "text": "دَلْو",
+     "answer": false
+    },
+    {
+     "word": "ضَبُع",
+     "text": "ضَبُع",
+     "answer": true
+    },
+    {
+     "word": "ضِفْدَع",
+     "text": "ضِفْدَع",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 2,
+   "page": 64,
+   "book": "workbook",
+   "task": "أَصِلُ الْكَلِمَةَ بِشَكْلِ حَرْفِ (ض) الْمُنَاسِبِ",
+   "taskAudio": "q/wb-link-64.mp3",
+   "hint": "صل الكلمة بشكل الحرف",
+   "items": [
+    {
+     "word": "ضَوْء",
+     "text2": "ضـ",
+     "audio": "q/wb-64-link-0.mp3"
+    },
+    {
+     "word": "أَخْضَر",
+     "text2": "ـضـ",
+     "audio": "q/wb-64-link-1.mp3"
+    },
+    {
+     "word": "بَيْض",
+     "text2": "ـض",
+     "audio": "q/wb-64-link-2.mp3"
     }
    ]
   }

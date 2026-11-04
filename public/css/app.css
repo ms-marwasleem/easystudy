@@ -86,7 +86,10 @@
   /* progress star (lit / unlit) */
   --star-on:var(--gold2); --star-off:#E5D3B0;
   /* picture frame (frame.css) */
-  --pk-word-color:var(--c-on-bg); --pk-word-size:1.3; /* word-reading lessons: word + pencil white, 1.3x bigger */
+  --pk-word-color:var(--c-on-bg);   /* word-reading lessons: word + pencil white */
+  --card-panel:#eef8f8;   /* the light panel of the book card (segment slide) */
+  --focus-word-size:clamp(1.7rem,min(6.6vw,5.2vh),3.2rem);   /* THE size of a word the child studies (reading page, question head word, Words tab): one size, whole app */
+  --q-sentence-size:clamp(1.7rem,min(7.4vw,5.6vh),3rem);   /* a sentence the child reads in a question (complete / circle): big, centred */
   --pf-border:0.25rem; --pf-radius:0.75rem; --pf-shadow:0 0.1875rem 0.5rem rgba(90,52,24,.25);
   /* behaviour settings read by the components (numbers, milliseconds) — wired in step 4 */
   --help-letter-ms:1500;   /* write: the current letter shows in light colour this long */
@@ -97,8 +100,8 @@
 
 
   /* lesson / unit header (rows: buttons + stars, name, subject) */
-  --thin-weight:400; --head-gap:0.2rem; --head-title-size:clamp(1.1rem,min(5.2vw,3.4vh),1.7rem); --head-title-stroke:0.07rem;
-  --head-sub-size:clamp(.7rem,min(3vw,2.2vh),.95rem); --head-sub-stroke:0; --head-track-h:2.6rem;
+  --thin-weight:400; --head-gap:0.2rem; --head-title-size:clamp(1.25rem,min(5.8vw,3.8vh),1.95rem); --head-title-stroke:0.07rem;
+  --head-sub-size:clamp(.85rem,min(3.4vw,2.5vh),1.1rem); --head-sub-stroke:0; --head-track-h:2.6rem;
   /* pictures: transparent object cut-out (png) = no frame, soft shadow; people / nature photos = framed (frame.css) */
   --cut-shadow:drop-shadow(0 0.25rem 0.35rem rgba(90,52,24,.32)); --cut-ring:drop-shadow(0 0 0.2rem rgba(42,127,216,.95)) drop-shadow(0 0 0.1rem rgba(42,127,216,.95));
   /* transitions: light and quick */
@@ -114,10 +117,18 @@
   --text-ol:0.04rem;        /* the thin outline of light text laid on a picture */
   --icon-on-color:#FFFFFF;  /* RULE: icon on a coloured background = white */
   --icon-on-white:#111111;  /* RULE: icon on a white / paper surface = black */
-  --q-star:1.1rem;          /* RULE: every progress star in every question is this one small size */
+  --pop-dim:rgba(8,20,48,.62); --pop-inset-x:min(5vw,3rem); --pop-inset-y:min(7vh,3rem); --pop-radius:1.5rem; --pop-border:.22rem; --pop-rim:rgba(255,255,255,.85); --pop-shadow:0 .75rem 2.5rem rgba(0,0,0,.55); --pop-x-size:3rem;   /* word popup card + its round X button */
+  --q-star:0.65rem;          /* RULE: every progress star in every question is this one size (one third of the old 1.9rem, 2026-11-02); more stars than fit = next line */
   --q-choice:clamp(3.25rem,9vh,4rem);  /* RULE: every round choice button (letters, numbers) is this one size */
+  --icon-speaker:1.6rem;    /* RULE (Marwa 2026-11-04): EVERY speaker icon in the app is this one size (end of hug.css applies it) */
   --icon-sm:1.35rem;        /* small line icons (speaker, pencil) */
   --road-dash:var(--ol);    /* car road: dark dashes only */
+
+
+  /* ---- 5. BOOK LOOK (2026-11-02): the question strip of the printed book. Default = no strip (today's look); a book look re-points these in [data-look="<subject>-<book>"] below ---- */
+  --bk-strip-bg:transparent; --bk-strip-ink:var(--c-on-bg); --bk-strip-pad:0; --bk-strip-radius:0; --bk-strip-edge:transparent;
+  --bk-badge-bg:var(--c-pink); --bk-badge-ink:var(--c-white); --bk-badge-text:""; --bk-badge-radius:50%; --bk-badge-pad:0;
+  --bk-box-bg:transparent; --bk-box-edge:transparent;   /* choice boxes / letter boxes of the book (next step) */
 
   /* ---- 4. COMPONENT TOKENS (every shared colour of the parts; change here = changes the whole app and the theme page) ---- */
   --c-bad-bg:#FFD9D2;  /* wrong answer background */
@@ -210,6 +221,20 @@
   --c-accent:#0E8F8A; --c-accent-dk:#0A6B67; --c-pink:#E8683E; --blue1:#6FE0D6; --blue2:#0E8F8A;
   --kraft:#CFA97A; --kraft-lt:#E8D2AE; --kraft-dk:#B58D5E;
 }
+
+/* ---- BOOK LOOKS (docs/RULES.md "Book looks"): html[data-look] = <subject>-<book>, set by setLook() in core.js. A new book = one block here. ---- */
+/* Arabic G1 T1 school book (Ministry): teal header, soft-pink strips, green "نشاط" badge, magenta number */
+:root[data-look="arabic-school"]{
+  --bk-strip-bg:#F8E8F2; --bk-strip-ink:#3A1A30; --bk-strip-pad:.15rem .6rem; --bk-strip-radius:.9rem; --bk-strip-edge:#EFC4DE;
+  --bk-badge-bg:#2CA84A; --bk-badge-ink:#FFFFFF; --bk-badge-text:"نشاط"; --bk-badge-radius:.9rem; --bk-badge-pad:0 .55rem;
+  --bk-box-bg:#E0F0F8; --bk-box-edge:#B9DCEE;
+}
+/* Arabic booklet (NEM): yellow strips, dark-blue number tab */
+:root[data-look="arabic-booklet"]{
+  --bk-strip-bg:#FFF3B0; --bk-strip-ink:#1B1B1B; --bk-strip-pad:.15rem .6rem; --bk-strip-radius:.5rem; --bk-strip-edge:#E8CF55;
+  --bk-badge-bg:#1F66C8; --bk-badge-ink:#FFFFFF; --bk-badge-text:""; --bk-badge-radius:.5rem; --bk-badge-pad:0 .4rem;
+  --bk-box-bg:#FFFFFF; --bk-box-edge:#222;
+}
 /* ===== css/base.css ===== */
 /* =====================================================================
    BASE — element resets, text effects, buttons, pills (colours/fonts: css/theme.css).
@@ -220,10 +245,10 @@
 
 *{box-sizing:border-box}
 /* ONE scale for the whole design: every size is in rem, so the page grows / shrinks with the screen (landscape designed at ~1000x640, portrait at ~390x760) */
-html{font-size:clamp(7px,min(1.6vw,2.5vh),28px)}
-@media (max-aspect-ratio:1/1){html{font-size:clamp(7px,min(4vw,2.05vh),28px)}}
+html{font-size:clamp(8px,min(1.75vw,2.5vh),30px)}
+@media (max-aspect-ratio:1/1){html{font-size:clamp(8px,min(4.4vw,2.05vh),30px)}}
 html,body{height:100%;margin:0}
-html{background:linear-gradient(var(--bg-dim),var(--bg-dim)),var(--bg-pat) center/cover no-repeat,radial-gradient(ellipse at 50% 25%,var(--bg-hi) 0%,var(--bg-mid) 58%,var(--bg-lo) 100%);background-attachment:fixed;background-color:var(--bg-mid)}
+html{background:linear-gradient(var(--bg-dim),var(--bg-dim)),var(--bg-pat) center/cover no-repeat,radial-gradient(ellipse at 50% 25%,var(--bg-hi) 0%,var(--bg-mid) 58%,var(--bg-lo) 100%);background-attachment:scroll;background-repeat:no-repeat;background-size:100% 100%,cover,100% 100%;background-color:var(--bg-lo);min-height:100vh;min-height:100lvh}
 body{font-size:0.875rem;color:var(--ol);font-family:var(--f-ui);overflow:hidden;background:none;
   padding-left:max(0.875rem,env(safe-area-inset-left,0px));padding-right:max(0.875rem,env(safe-area-inset-right,0px))}
 @media (max-aspect-ratio:1/1){html{background-image:linear-gradient(var(--bg-dim),var(--bg-dim)),var(--bg-patp),radial-gradient(ellipse at 50% 25%,var(--bg-hi) 0%,var(--bg-mid) 58%,var(--bg-lo) 100%)}}
@@ -362,9 +387,10 @@ svg{overflow:visible}
 /* a unit: a small book with its number on the cover */
 .jend{position:absolute;z-index:2;transform:translateX(-50%)}
 .ubox{position:relative;cursor:pointer;width:4.7em;line-height:0}
-.ubox img{width:100%;display:block;filter:drop-shadow(0 0.2rem 0 rgba(80,35,0,.28));pointer-events:none}
+.ubox img{width:100%;height:auto;display:block;filter:drop-shadow(0 0.2rem 0 rgba(80,35,0,.28));pointer-events:none}
 .ubox b{position:absolute;left:25%;right:5%;top:8%;height:62%;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:.9}
 .ubox b small{font-size:.8em;line-height:1}.ubox b .n{font-size:1.7em;line-height:1}
+.ubox b.lab{font-size:.72em;line-height:1.15;text-align:center;padding:0 .1em}.ubox b.lab span{display:block}
 .ubox.locked b{top:3%;height:44%}.ubox.locked b .n{font-size:1.3em}
 .ubox.soon img{filter:saturate(.3) brightness(1.12) opacity(.6)}.ubox.soon b{opacity:.75}
 .usoon{position:absolute;left:50%;bottom:-.5em;transform:translateX(-50%);font-family:var(--f-title);font-size:.72em;line-height:1;color:#fff;background:var(--c-soon);border-radius:1em;padding:.2em .7em .28em;box-shadow:0 0.15rem 0 var(--c-soon-dk)}
@@ -385,7 +411,8 @@ svg{overflow:visible}
 .jt.gt{font-family:var(--f-title);letter-spacing:.03em}
 .jt.ar{font-family:var(--f-ui);font-weight:800}
 .jl.soon .jcard{filter:saturate(.25) brightness(1.1);opacity:.6}
-.jt.soon{background:var(--c-soon);border-color:var(--c-soon-dk);box-shadow:0 0.2rem 0 var(--c-soon-dk);font-family:var(--f-title);color:#fff;font-size:.8em;padding:.12em .7em .2em}
+.jsoon{font-family:var(--f-title);font-size:.62em;line-height:1;color:#fff;background:var(--c-soon);border-radius:1em;padding:.2em .7em .28em;margin-bottom:-.2em;position:relative;z-index:3;box-shadow:0 0.12rem 0 var(--c-soon-dk)}
+.jt.soon{opacity:.7;white-space:normal;max-width:10em}
 .jl.locked .jcard{overflow:visible}
 .jlockbig{display:block;width:7rem}.jlockbig svg{width:100%}
 .jlock{position:absolute;right:-.6em;bottom:-.7em;width:1.9em}.jlock svg{width:100%;display:block}
@@ -406,9 +433,9 @@ svg{overflow:visible}
 .jpm.pts{--g:var(--sign-pts);--bg:var(--sign-pts-bg)}.jpm.bk{--g:var(--sign-bk);--bg:var(--sign-bk-bg)}.jpm.ex,.jpm.rv{--g:var(--sign-ex);--bg:var(--sign-ex-bg)}
 .jpm .jex{display:block;width:calc(var(--sb)*.62);height:calc(var(--sb)*.62)}.jpm .jex svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 /* a tool: an outline gear with the tool's name inside */
-.jpm.tl{--g:var(--sign-tl);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M87.1 41.7 L97.5 43.3 L97.5 56.7 L87.1 58.3 L82.1 70.4 L88.3 78.9 L78.9 88.3 L70.4 82.1 L58.3 87.1 L56.7 97.5 L43.3 97.5 L41.7 87.1 L29.6 82.1 L21.1 88.3 L11.7 78.9 L17.9 70.4 L12.9 58.3 L2.5 56.7 L2.5 43.3 L12.9 41.7 L17.9 29.6 L11.7 21.1 L21.1 11.7 L29.6 17.9 L41.7 12.9 L43.3 2.5 L56.7 2.5 L58.3 12.9 L70.4 17.9 L78.9 11.7 L88.3 21.1 L82.1 29.6Z' fill='%23FFF6D6' stroke='%23D9A000' stroke-width='5' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% 100% no-repeat;border:0;box-shadow:none;width:3.9em;height:3.9em;min-width:0;max-width:none;max-height:none;padding:0;border-radius:0}
+.jpm.tl{--g:var(--sign-tl);background:var(--gear-img) center/100% 100% no-repeat;border:0;box-shadow:none;width:3.9em;height:3.9em;min-width:0;max-width:none;max-height:none;padding:0;border-radius:0}
 .jpm.tl small{display:none}
-.jpm .jex.jtx{width:auto;height:auto;font-size:.62em;color:var(--c-tool-ink);line-height:1.05;text-align:center;white-space:nowrap}
+.jpm .jex.jtx{width:auto;height:auto;font-size:.82em;font-weight:700;letter-spacing:.04em;color:var(--c-tool-ink);line-height:1.05;text-align:center;white-space:nowrap;-webkit-text-stroke:0;text-shadow:none}
 .jpm.soon{opacity:.6}.jlk{width:calc(var(--sb)*.42);display:block}.jlk svg{width:100%;display:block}
 .jcar{position:absolute;width:var(--cw);transform:translate(-50%,-50%);z-index:4;pointer-events:none}
 .jcar svg{width:100%;display:block}
@@ -422,6 +449,47 @@ svg{overflow:visible}
 .mtab.mt-pts{--c:var(--tab-pts);--c2:var(--tab-pts-dk)}.mtab.mt-bk{--c:var(--tab-bk);--c2:var(--tab-bk-dk)}.mtab.mt-tl{--c:var(--tab-tl);--c2:var(--tab-tl-dk);color:#fff}.mtab.mt-ex{--c:var(--tab-ex);--c2:var(--tab-ex-dk)}
 .mtab.on{transform:translateY(.4rem) scale(1.07);background:#fff}
 .mtabs:has(.on) .mtab:not(.on){filter:saturate(.6) brightness(.92)}
+
+/* ---------- GRID VIEW: the map's second face (js/map.js buildGrid). Top-right toggle (#mapView) switches road <-> grid; the choice is remembered. ---------- */
+.topr{display:flex;align-items:center;gap:.75rem;flex:none}
+#map[data-view="grid"] .journey{height:0!important;overflow:hidden;visibility:hidden;pointer-events:none}
+#map[data-view="grid"] .mtabs{display:none}
+#map:not([data-view="grid"]) .mgrid{display:none}
+.mgrid{--g:1rem;position:relative;width:100%;max-width:44rem;margin:0 auto;padding:2.6rem 0 1rem;font-size:1rem;display:flex;flex-direction:column;gap:1.1rem}
+.gu{display:flex;align-items:flex-start;gap:.7rem}
+.gub{flex:none;width:4.2rem;cursor:pointer;line-height:0;font-size:.9rem}
+.gub img{width:100%;height:auto;display:block}
+.gub .usoon{font-size:.6rem}
+.gcells{flex:1;min-width:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(3.5rem,1fr));gap:.55rem .4rem;align-items:start}
+.gc{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0;border:0;background:none;cursor:pointer;font:inherit;color:inherit;min-height:4.2rem}
+.gc:active{transform:scale(.93)}
+.gst{display:flex;align-items:flex-end;gap:.03rem;margin-bottom:-.2rem;position:relative;z-index:2}
+.gst span{display:block;width:.8rem;height:.8rem}.gst span:nth-child(2){width:1rem;height:1rem;transform:translateY(-.15rem)}
+.gst svg{width:100%;height:100%;filter:drop-shadow(0 1px 0 rgba(90,52,24,.3))}
+.gn{position:relative;width:2.9rem;height:2.9rem;border-radius:50%;display:grid;place-items:center;background:linear-gradient(var(--btn1),var(--btn2));border:var(--btn-edge) solid var(--btn-rim);box-shadow:var(--btn-shadow);font-family:var(--f-logo);font-size:1.35rem;line-height:1;color:var(--c-white);text-shadow:var(--btn-text-shadow)}
+.gn.two{font-size:1rem;white-space:nowrap}
+.gl.cur .gn{box-shadow:var(--btn-shadow),0 0 0 .25rem var(--c-glow)}
+.gl.soon .gn{filter:saturate(.25) brightness(1.1);opacity:.6}
+.gl[data-touched="0"].open .gn{filter:var(--unopened)}
+.glock{position:absolute;right:.15rem;bottom:.1rem;width:1.4rem}.glock svg{width:100%;display:block}
+.gsoon{font-family:var(--f-title);font-size:.6rem;line-height:1;color:#fff;background:var(--c-soon);border-radius:1em;padding:.15em .6em .22em;margin-top:-.45rem;position:relative;z-index:2}
+/* the lesson's name, small, under its circle (Marwa 2026-11-04) */
+.gname{display:block;max-width:100%;margin-top:.2rem;font-family:var(--f-title);font-size:.58rem;line-height:1.12;color:var(--c-brown-dk);text-align:center;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow-wrap:anywhere}
+.gl.soon .gname{opacity:.55}
+/* tests / reviews / tools: the red sign (or the tool's name) with its label, straight after their lesson */
+.gt{gap:.1rem}
+.gc.gt small{font-family:var(--f-title);font-size:.62rem;color:var(--sign-ex);white-space:nowrap}   /* only the grid's test label: the unit book's word 'Unit' (.ubox b.gt small) stays white (Marwa 2026-11-04) */
+.gt .jex{display:block;width:2.2rem;height:2.2rem;padding:.35rem;box-sizing:border-box;border-radius:.7rem;border:2px solid var(--sign-ex);background:linear-gradient(var(--c-paper2),var(--sign-ex-bg));color:var(--sign-ex);box-shadow:0 .15rem 0 rgba(90,52,24,.3)}
+.gt .jex svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.gt.tl small{display:none}.gt.tl .jex{background:var(--gear-img) center/100% 100% no-repeat;border:0;border-radius:0;box-shadow:none;color:var(--c-tool-ink);font-size:.78rem;font-weight:700;letter-spacing:.03em;line-height:1;white-space:nowrap;display:grid;place-items:center;width:3rem;height:3rem;padding:0}
+.gt b{font-weight:400}
+
+/* map view toggle (road / grid): a brown icon at the top-right of the parchment, same brown as the subject title */
+.mview{position:absolute;right:.5rem;top:.1rem;width:2.1rem;height:2.1rem;padding:.2rem;border:0;background:none;cursor:pointer;color:var(--c-brown-soft);pointer-events:auto;filter:drop-shadow(0 0 .3em var(--c-glow))}
+.mview svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.mview:active{transform:scale(.9)}
+
+.jl.to .jbox,.jl.to .jcard,.jl.to .js{visibility:hidden}.jl.to{pointer-events:none}.mview{width:2.6rem;height:2.6rem}
 /* ===== css/lesson.css ===== */
 /* ---------- Lesson ---------- */
 #lesson{grid-template-rows:auto minmax(0,1fr) auto;gap:0.625rem}
@@ -471,8 +539,10 @@ svg{overflow:visible}
    The picture of the word being read pops up a little. */
 .scene.pics{background:var(--noise),var(--cream);justify-content:flex-start;align-items:stretch;padding:0.75rem 1rem 0.625rem}
 .scene.pics .task{flex:none;padding-inline-end:4.375rem;margin:0}
-.pkarea{position:relative;flex:1 1 0;min-height:0;container-type:size}
-.pk{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:2px;font-family:var(--f-read)}
+.pkarea{--pc:var(--pcP,2);--pr:var(--prP,2);position:relative;flex:1 1 0;min-height:0;container-type:size;display:flex;flex-wrap:wrap;justify-content:center;align-content:center}
+@media (min-aspect-ratio:5/4){.pkarea{--pc:var(--pcL,4);--pr:var(--prL,2)}}
+/* every picture + its word sits in an equal cell (columns x rows from lesson.js showPics) */
+.pk{position:relative;flex:0 0 calc(100% / var(--pc));height:calc(100% / var(--pr));min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-family:var(--f-read)}
 .pkpic{display:block;padding:0;background:none;border:0;cursor:pointer}
 .pkpic img{display:block;height:calc(var(--k,1) * min(22cqh,34cqw));max-width:var(--mw,34cqw);object-fit:contain;transition:transform .25s ease-out;filter:drop-shadow(0 0.1875rem 2px rgba(90,52,24,.25))}
 .pk.on .pkpic img{transform:scale(1.15)}
@@ -499,7 +569,7 @@ svg{overflow:visible}
 .garage p{font-size:2.125rem;margin:0.625rem 0 0.375rem}
 .garage span{font-family:var(--f-hand);font-size:1.375rem}
 
-.tabs{display:flex;justify-content:center;gap:0.625rem;min-width:0;padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabs{display:flex;justify-content:center;gap:0.625rem;min-width:0;padding-bottom:max(0px,calc(env(safe-area-inset-bottom,0px) - .9rem))}   /* the phone home bar needs only a little room (Marwa 2026-11-03: empty band under the tabs) */
 .tab{font-size:1.25rem;padding:.3em 1.1em .4em;--t:#FFF8E6;--b:#F1D9A8;color:var(--ol);-webkit-text-stroke:0;text-shadow:none}
 .tab svg{width:1.375rem;height:1.375rem;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
 .tab .st{width:1.5rem;height:1.5rem;display:inline-block}
@@ -538,11 +608,6 @@ svg{overflow:visible}
 .bks{margin:0;padding:0 .15em;border-radius:.4em;cursor:pointer;transition:background .2s}
 .bks.on{background:rgba(255,203,46,.35)}
 .bks .w{padding:0 .08em}
-.pk.two{left:var(--lx);top:var(--ly)}
-.scene.pics .pk.two .pkpic img{height:calc(var(--k,1) * min(20cqh,22cqw))}
-.pk.two{width:46cqw}
-.scene.pics.wrap .pk.two .txt{font-size:clamp(0.8125rem,min(4.6cqh,3.5cqw),1.5rem);max-width:none;line-height:1.2}
-@media (min-aspect-ratio:5/4){.pk.two{width:31cqw}}
 .pk .txt.on{background:rgba(255,203,46,.35);border-radius:.4em}
 /* a lesson page 1 with the whole picture beside a long dialog: give the words the larger share */
 @media (min-aspect-ratio:5/4){.scene.book.long .bpic{flex:.85 1 0}.scene.book.long .note{flex:1.25 1 0;max-width:none;margin:0 0.5rem}.scene.book.long .txt{font-size:clamp(0.8125rem,min(2.4vw,3vh),1.4375rem);line-height:1.25}.scene.book.long .who{font-size:clamp(0.75rem,min(2.1vw,2.6vh),1.25rem)}}
@@ -551,7 +616,6 @@ svg{overflow:visible}
   .bk{--c:var(--arP)}
   .bkpic{left:var(--px);top:var(--py);width:var(--pw)}
   .bkb{left:var(--px);top:var(--py);width:var(--pw);font-size:calc(var(--pf) * 1cqw)}
-  .pk.two{left:var(--px);top:var(--py)}
 }
 /* lesson pages: previous on the left, NEXT on the right, also in Arabic */
 .pager{direction:ltr}
@@ -640,7 +704,7 @@ svg{overflow:visible}
 
 /* the picture: small, in the middle of the space left under the buttons */
 .vimgwrap{position:relative;min-height:0;min-width:0;display:grid;place-items:center}
-.vimg{display:block;height:var(--pich,8.75rem);width:auto;max-width:calc(100% - 0.75rem);max-height:calc(100% - 0.625rem);object-fit:contain;
+.vimg{display:block;height:var(--pich,8.75rem);width:auto;max-height:calc(100% - 0.625rem);max-width:calc(100% - 0.75rem);object-fit:contain;
   border:0.25rem solid var(--c-white);border-radius:0.75rem;box-shadow:0 0.1875rem 0.5rem rgba(90,52,24,.25);transform:rotate(-1deg)}
 /* a cut-out from the picture library (transparent png): no photo frame, just a soft shadow, never cropped */
 .vimg.cut{border:0;border-radius:0;box-shadow:none;transform:none;filter:drop-shadow(0 0.25rem 0.375rem rgba(90,52,24,.3))}
@@ -656,6 +720,9 @@ svg{overflow:visible}
   font-family:var(--f-title);font-weight:400;font-size:0.8125rem;color:var(--c-white)}
 .vthumb .vst{position:absolute;right:-0.4375rem;top:-0.5625rem;width:1.5rem;height:1.5rem}
 .vthumb .vst svg{width:100%;height:100%}
+.vthumb .vhar{position:absolute;left:50%;bottom:-0.5rem;transform:translateX(-50%);font-style:normal;font-family:var(--f-ar,inherit);font-size:1.625rem;line-height:1.1;padding:0 0.5rem;min-width:1.5rem;text-align:center;border-radius:0.75rem;background:var(--blue2);color:var(--c-white)}
+.vpick .vthumb.vgrp{margin-inline-start:clamp(0.5rem,2vw,1.25rem)}
+#lesson.v-land .vpick .vthumb.vgrp{margin-inline-start:0}
 .vthumb.on{opacity:1;outline:0.1875rem solid #FFCB2E;outline-offset:2px}
 
 .spark{position:fixed;width:2.75rem;height:2.75rem;z-index:31;pointer-events:none}
@@ -695,6 +762,11 @@ svg{overflow:visible}
 .wpn{display:inline-block;vertical-align:middle;width:0.875em;height:0.875em;margin-inline-start:0.125em;color:var(--c-accent);cursor:pointer;font-size:0.8em;line-height:1}
 .wpn svg{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 @media (pointer:coarse){ .wpn{width:1.1em;height:1.1em} }
+
+/* letter-words component: the haraka boy beside the word (opposite side of the speaker), smaller than the word but clearly visible */
+.vwrow>.vboy{flex:none;height:clamp(3.5rem,calc(var(--wfs,3.5rem)*1.2),5.5rem);width:auto;object-fit:contain}
+.vwrow>.vboy[hidden]{display:none}
+.vwrow:has(>.vboy)>.vword{max-width:calc(100% - 2.3rem - 4rem)}
 /* ===== css/quiz.css ===== */
 /* ---------- Questions ----------
    One paper sheet, the same places for every question: task line (exercise number + book page) / progress stars / the word / picture(s).
@@ -749,13 +821,13 @@ svg{overflow:visible}
 
 /* progress: one star per question */
 .qdots{display:flex;justify-content:center;gap:clamp(2px,1vw,0.5rem)}
-.qdots i{width:clamp(1.25rem,3.2vh,1.875rem);height:clamp(1.25rem,3.2vh,1.875rem);display:block;transition:transform .2s}
+.qdots i{display:block}   /* size: --q-star only (theme.css, applied in game.css) */
 .qdots i svg{width:100%;height:100%}
 .qdots i.cur{transform:scale(1.3)}
 
 /* the word, big, with its speaker */
 .qword{display:flex;align-items:center;justify-content:center;gap:0.875rem;min-width:0}
-.qword b{font-family:var(--f-read);font-weight:700;font-size:clamp(1.875rem,min(7vw,8vh),4rem);line-height:1.1;color:var(--c-text);white-space:nowrap;transition:color .2s}
+.qword b{font-family:var(--f-read);font-weight:700;font-size:var(--focus-word-size);line-height:1.1;color:var(--c-text);white-space:nowrap;transition:color .2s}
 .qword.lit b{color:var(--c-accent)}
 /* the speaker: the same plain blue line icon as on the vocabulary page */
 .qword .qsay{display:grid;place-items:center;width:3.25rem;height:3.25rem;margin:-0.375rem;color:var(--speaker);border-radius:0.75rem;background:none}
@@ -782,6 +854,7 @@ button.qpic{cursor:pointer}
 /* tick and cross */
 .qans{display:flex;justify-content:center;align-items:center;gap:clamp(1.75rem,10vw,5rem)}
 #lesson.q-land .qans{flex-direction:column;gap:clamp(0.5rem,2.4vh,2rem);padding-inline:clamp(0.25rem,2vw,1.5rem)}
+#lesson.q-land .qans{--q-choice:clamp(2.75rem,7.5vh,4rem)}
 .qplay > .qans{flex:none;align-self:center}
 #lesson.q-short .qans{gap:0.625rem}
 #lesson.q-short .qans .qbtn{width:clamp(3.125rem,15vh,5rem);height:clamp(3.125rem,15vh,5rem)}
@@ -808,7 +881,7 @@ button.qpic{cursor:pointer}
 #lesson.q-port .quiz[data-type="type"]{grid-template-rows:auto auto auto auto auto minmax(0,1fr);grid-template-areas:"head" "dots" "word" "play" "ans" "."}
 #lesson.q-port .quiz[data-type="type"] .qplay{height:min(30vh,64vw)}
 /* match: the board fills the sheet; the letter in the middle (book style: pink, white edge), the pictures around it, lines behind */
-.quiz[data-type="match"] .qword,.quiz[data-type="match"] .qans,.quiz[data-type="circle"] .qword,.quiz[data-type="circle"] .qans,.quiz[data-type="tick"] .qword,.quiz[data-type="tick"] .qans,.quiz[data-type="type"] .qans{display:none}
+.quiz[data-type="match"] .qword,.quiz[data-type="match"] .qans,.quiz[data-type="circle"] .qword,.quiz[data-type="circle"] .qans,.quiz[data-type="type"] .qans{display:none}
 .qboard{position:relative;width:100%;height:100%;container-type:size}
 .qline{position:absolute;height:0.3125rem;margin-top:-0.1562rem;border-radius:0.1875rem;background:var(--c-accent);transform-origin:0 50%;transition:transform .5s ease-out;z-index:1;pointer-events:none}
 .qcenter{--cx:50;--cy:45;position:absolute;left:calc(var(--cx)*1%);top:calc(var(--cy)*1%);transform:translate(-50%,-50%);padding:0;background:none;z-index:2;cursor:pointer}
@@ -881,7 +954,7 @@ button.qpic{cursor:pointer}
 .qrel{font-family:var(--f-ui);font-weight:800;font-size:calc(var(--fs) * .44);line-height:1.2;color:var(--c-muted);white-space:nowrap;pointer-events:none}
 .qlkw.done .qrel{color:var(--c-accent)}
 .qlkp{display:flex;justify-content:center;align-items:flex-start}
-.qlkp img{max-width:76%;max-height:60%;object-fit:contain;filter:drop-shadow(0 0.1875rem 0.1875rem rgba(90,52,24,.3));pointer-events:none}
+.qlkp img{max-width:94%;max-height:88%;object-fit:contain;filter:drop-shadow(0 0.1875rem 0.1875rem rgba(90,52,24,.3));pointer-events:none}
 /* the little dots the lines start and end at, like the book */
 .qlkw::after,.qlkp::before{content:'';position:absolute;width:0.6875rem;height:0.6875rem;border-radius:50%;background:var(--c-edge);z-index:2}
 .qlkw::after{left:50%;bottom:-0.5rem;transform:translateX(-50%)}
@@ -893,17 +966,18 @@ button.qpic{cursor:pointer}
 .qlsvg line{stroke:var(--c-accent);stroke-width:5;stroke-linecap:round}
 .qlsvg .qtmp{stroke:#6AA9E8;stroke-dasharray:2 9}
 .qlsvg .qlj.bad{stroke:var(--c-bad-dk)}
-.qlink.cols{grid-template-rows:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.875rem,22cqw,16.25rem)}
+.qlink.cols{grid-template-rows:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,12cqw,9rem)}
 .qlink.cols :is(.qlw,.qlp){grid-template-columns:none;grid-template-rows:repeat(var(--n),minmax(0,1fr));gap:clamp(0.25rem,1.6cqh,0.875rem)}
 .qlink.cols .qlkw{justify-self:start;align-self:center}
 .qlink.cols .qlkw::after{left:auto;right:-0.5rem;bottom:auto;top:50%;transform:translateY(-50%)}
 .qlink.cols .qlkp::before{left:-0.5rem;top:50%;transform:translateY(-50%)}
 .qlink.cols .qlkp{justify-content:flex-start;align-items:center}
+.qlink.cols .qlkp img{max-height:96%;max-width:100%}
 
 /* choice: the picture, the question beside it and the answer under it with two words to choose from; the right word is circled */
 .quiz[data-type="choice"] .qplay{gap:clamp(0.875rem,4vw,2.75rem)}
 .quiz[data-type="choice"] .qpic.one{flex:0 1 44%}
-.qtxt{flex:1 1 0;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:clamp(0.5rem,2.4vh,1.375rem);font-family:var(--f-read);font-weight:700;font-size:clamp(1.25rem,min(4.6vw,5.4vh),2.75rem);line-height:1.35;color:#2E1B0C}
+.qtxt{flex:1 1 0;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:clamp(0.5rem,2.4vh,1.375rem);font-family:var(--f-read);font-weight:700;font-size:var(--q-sentence-size);line-height:1.35;color:#2E1B0C}
 .qask{color:#C2362B}
 .qsen{display:flex;flex-wrap:wrap;align-items:center;column-gap:.35em}
 .qopts{white-space:normal;max-width:100%;overflow-wrap:anywhere}
@@ -922,8 +996,8 @@ button.qpic{cursor:pointer}
 /* Arabic: a picture to match in the middle (circle "centerPic"), word-only options (circle) and words on both sides of a link */
 .qcenter.pic{cursor:default;width:min(26cqw,34cqh);aspect-ratio:1;display:grid;place-items:center;pointer-events:none}
 .qcenter.pic img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0.1875rem 0.1875rem rgba(90,52,24,.3))}
-.qmp.tx{width:auto;aspect-ratio:auto;min-width:min(24cqw,20cqh);padding:.25em .6em .35em;background:var(--c-white);border-radius:1rem;box-shadow:0 0.1875rem 0 rgba(90,52,24,.3),inset 0 0 0 0.1875rem #E8D3AE}
-.qmp.tx b{font-family:var(--f-read);font-weight:700;font-size:min(10cqw,22cqh);line-height:1.5;color:var(--c-text);white-space:nowrap}
+.qmp.tx{width:auto;aspect-ratio:auto;min-width:min(24cqw,20cqh);padding:.25em .6em .35em;background:none;border-radius:1rem;box-shadow:none}   /* a word to choose = plain white text on the coloured background (Marwa 2026-11-02) */
+.qmp.tx b{font-family:var(--f-read);font-weight:700;font-size:min(9cqw,20cqh);line-height:1.5;color:var(--c-white);text-shadow:0 .1rem 0 rgba(90,52,24,.35);white-space:nowrap}
 .qlkp.tx{justify-self:center;max-width:100%;padding:.22em .5em .3em;border-radius:0.625rem;background:rgba(255,255,255,.7);border:0.1562rem solid var(--c-edge)}
 .qlkp.tx b{font-family:var(--f-read);font-weight:700;font-size:var(--fs);line-height:1.5;color:var(--c-text);white-space:nowrap}
 .qlkp.tx.done{border-color:var(--c-accent)}.qlkp.tx.done b{color:var(--c-accent)}
@@ -975,6 +1049,65 @@ button.qpic{cursor:pointer}
 .qmodel[hidden]{display:none}
 
 .qword .qscr{display:block;color:var(--c-accent);letter-spacing:.1em;margin-bottom:.15em;font-size:.8em}
+/* yesno: a whole sentence may be longer than the screen: it wraps and stays centred */
+.quiz[data-type="yesno"] .qword b{white-space:normal;text-align:center;overflow-wrap:anywhere;flex:0 1 auto;min-width:0;font-size:min(var(--focus-word-size),5.6vw)}
+.quiz[data-type="yesno"] .qword{flex-wrap:nowrap;max-width:100%;padding:0 1rem}
+
+/* story (Questions tab, the ONE story template): the cut book picture big, a small listen/stop button on it, the text in a panel under it; a word with the looked-for letter pops when it is read; the closing question appears at the end */
+.qx-story{justify-content:flex-start;gap:clamp(.4rem,1.6cqh,.9rem)}
+.qxsc{flex:none;width:100%;min-width:0;display:grid;place-items:center}
+.qxsi{position:relative;display:block;line-height:0}
+.qxsc img{max-width:100%;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 .25rem .3rem rgba(40,30,10,.3))}
+.qsbtn{position:absolute;top:.5rem;right:.5rem;width:2.6rem;height:2.6rem;display:grid;place-items:center;border-radius:50%;padding:0}
+.qsbtn svg{width:1.3rem;height:1.3rem}
+.qxstory{direction:rtl;flex:none;overflow:auto;width:min(100%,56rem);background:var(--c-white);color:var(--c-text);border-radius:1rem;padding:.7rem 1rem;box-shadow:0 .2rem 0 rgba(90,52,24,.3),inset 0 0 0 .1875rem #E8D3AE;font-family:var(--f-read);font-size:clamp(1rem,2.6vmin,1.5rem);line-height:1.55;text-align:start}
+.qxstory .w{display:inline-block;transition:color .15s}
+.qxstory .w.reading{color:var(--c-accent-dk)}
+.qxstory .w.pop{animation:qxpop .5s ease-out}
+@keyframes qxpop{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
+.qxstask{color:#C2362B;font-weight:700;text-align:center;font-size:1.1em;margin-top:.3rem}
+/* circle with "text" on a picture (book: a letter inside a fish) */
+.qmp .qpt{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-read);font-weight:700;font-size:min(7cqw,12cqh);line-height:1;color:var(--c-text);pointer-events:none;padding-bottom:.1em}
+/* sound: big pictures in cloud frames with their letter+haraka above, book order (first = right) */
+.qxsd{direction:rtl;display:flex;flex-direction:row;justify-content:center;align-items:flex-end;gap:clamp(.5rem,2.5vw,1.5rem);width:100%;flex:1 1 0;min-height:0}
+.qsd{display:flex;flex-direction:column;align-items:center;gap:.2rem;background:none;border:0;padding:0;cursor:pointer;min-width:0;flex:1 1 0;max-width:15rem}
+.qsd b{font-family:var(--f-read);font-size:clamp(2rem,9vmin,4rem);line-height:1.3;color:var(--c-white);text-shadow:0 .1rem 0 rgba(90,52,24,.35)}
+.qsdp{display:grid;place-items:center;width:min(100%,34vh);aspect-ratio:1;background:#DDF1FA;border-radius:56% 44% 52% 48% / 48% 54% 46% 52%;box-shadow:0 .2rem 0 rgba(90,52,24,.25);padding:8%;transition:transform .2s,box-shadow .2s}
+.qsdp{position:relative}.qsdp img{position:absolute;inset:0;margin:auto;width:calc(82% * min(1,var(--ar,1)));height:auto;aspect-ratio:var(--ar,1);max-height:82%;object-fit:fill}
+.qsd.lit .qsdp{transform:scale(1.06);box-shadow:0 0 0 .3rem rgba(255,200,60,.8)}
+@media (max-aspect-ratio:1/1){.qxsd{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:center;direction:rtl}.qsd{max-width:none}.qsdp{width:min(100%,16dvh)}}
+
+/* puzzle (merge the letters): word frame (faint empty pieces) on top, loose pieces below */
+.quiz[data-type="puzzle"] .qxpic{flex:0 0 26%}
+.qxpb{position:relative;flex:1 1 0;min-height:7rem;width:100%;touch-action:none;direction:ltr}
+.qxpslot{position:absolute;display:grid;place-items:center}   /* NO frame round the word: only the empty piece places, then the word itself */
+.qxpg{position:absolute}.qxpg svg,.qxpp svg{position:absolute;inset:0;width:100%;height:100%}
+.qxpslot.got .qxpg{display:none}
+.qxpword{display:none;direction:rtl;font-family:var(--f-read);font-weight:700;font-size:clamp(3rem,16vmin,6rem);line-height:1.4;color:var(--c-white);white-space:nowrap}
+.qxpslot.got .qxpword{display:block}
+.qxpp{position:absolute;left:0;top:0;width:var(--pw,5rem);height:var(--pw,5rem);cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;transition:opacity .4s}
+.qxpp b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--f-ar);font-size:calc(var(--pw,5rem)*.5);line-height:1;color:#2b2b2b;pointer-events:none}
+.qxpp.drag{z-index:5;filter:drop-shadow(0 .4rem .3rem rgba(0,0,0,.3))}
+.qxpp.in{cursor:default}.qxpp.gone{opacity:0}
+.quiz[data-type="puzzle"] .qx>.qxpb{flex:1 1 0;min-height:7rem}
+.quiz[data-type="puzzle"] .qx{justify-content:flex-start}
+/* link, picture on BOTH rows ("wpic" = the top picture, "pic" = the one it joins): the top picture stands unboxed like the bottom one */
+.qlkw.pw{background:none;border:0;padding:0;display:flex;justify-content:center;align-items:flex-end}
+.qlkw.pw img{max-width:94%;max-height:88%;object-fit:contain;filter:drop-shadow(0 0.1875rem 0.1875rem rgba(90,52,24,.3));pointer-events:none}
+.qlkw.pw.done{border:0}
+
+/* face = drag the missing parts onto the face */
+.qxfb{position:relative;flex:1 1 0;min-height:9rem;width:100%;touch-action:none;direction:ltr}
+.qxff{position:absolute;display:block;border-radius:.6rem;user-select:none;-webkit-user-select:none;pointer-events:none}
+.qxfp{position:absolute;left:0;top:0;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;transition:filter .2s}
+.qxfp.drag{z-index:5;filter:drop-shadow(0 .4rem .3rem rgba(0,0,0,.3))}.qxfp.in{cursor:default}
+.quiz[data-type="face"] .qx>.qxfb{flex:1 1 0;min-height:9rem}
+
+.qxcb{flex:1 1 0;min-height:9rem;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5vh;direction:ltr}
+.qxcn{font:inherit;font-weight:800;font-size:clamp(3rem,14vh,7rem);line-height:1;border:0;background:none;color:#D93D78;cursor:pointer}
+.qxcr{display:flex;flex-wrap:wrap;justify-content:center;align-content:center;gap:2vh 2vw;width:92%;max-width:60rem}
+.qxcs{width:clamp(2.6rem,min(11vw,12vh),7rem);height:clamp(2.6rem,min(11vw,12vh),7rem);object-fit:contain;cursor:pointer;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.qxcs.no{animation:qxcno .3s}@keyframes qxcno{25%{transform:translateX(-.3rem)}75%{transform:translateX(.3rem)}}
 /* ===== css/arabic.css ===== */
 /* ---------- Arabic subject (#lesson.ar, set in lesson.js) ----------
    Text runs right to left in a naskh font (shows the vowel marks well). Letters of a word are plain inline text,
@@ -1010,7 +1143,6 @@ button.qpic{cursor:pointer}
 #lesson.ar.q-short .quiz{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr);grid-template-areas:"head" "dots" "word" "play";gap:2px;padding:0.375rem 0.875rem 0.25rem}
 #lesson.ar.q-short .qhead{padding-right:4rem;min-height:1.875rem}
 #lesson.ar.q-short .qdots{padding-right:0;justify-content:center;gap:1px}
-#lesson.ar.q-short .qdots i{width:clamp(0.75rem,2.6vw,1.25rem);height:clamp(0.75rem,2.6vw,1.25rem)}
 #lesson.ar.q-short .qdots i.cur{transform:scale(1.2)}
 #lesson.ar.q-short .qsrc{gap:0.75rem}
 #lesson.ar.q-short .qarr{width:2.125rem;height:2.125rem}
@@ -1025,7 +1157,7 @@ button.qpic{cursor:pointer}
 .ar :is(.txt,.task,.qtask,.qtxt,.xpage,.note){text-align:right}
 
 /* ARABIC LETTER ROWS (Marwa 2026-11-01): letters of an Arabic word, letter choices and tiles flow right to left; the question number sits at the START (right) of the question line. English stays LTR (rule scoped to .ar). */
-.ar :is(.qxw,.qxwords,.qxline,.qxchoices,.qxtiles,.qxchips,.qans,.qword b){direction:rtl}
+.ar :is(.qxw,.qxwords,.qxcircles,.qxline,.qxchoices,.qxtiles,.qxjoin,.qxslots,.qxchips,.qans,.qword b){direction:rtl}
 #lesson.ar .qhead .qex{order:3}
 /* ===== css/letter.css ===== */
 /* LETTER lesson tab (js/letter.js): cards on the cream sheet, 4 in a row on wide screens, 2 x 2 (or a column) on tall ones */
@@ -1072,7 +1204,7 @@ button.qpic{cursor:pointer}
 }
 
 /* ---------- Questions: letter-lesson types (js/quiz-letters.js) ---------- */
-.quiz:is([data-type="position"],[data-type="vowel"],[data-type="write"],[data-type="arrange"]) :is(.qword,.qans){display:none}
+.quiz:is([data-type="position"],[data-type="vowel"],[data-type="write"],[data-type="arrange"],[data-type="mad"]) :is(.qword,.qans){display:none}
 .qx{width:100%;height:100%;min-height:0;container-type:size;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(0.5rem,2.4cqh,1.25rem);font-family:var(--f-ar)}
 .qxpic{flex:1 1 0;min-height:0;width:100%;display:grid;place-items:center}
 .qxpic img{max-width:80%;max-height:100%;object-fit:contain;filter:drop-shadow(0 0.1875rem 0.1875rem rgba(90,52,24,.3))}
@@ -1158,13 +1290,21 @@ button.qpic{cursor:pointer}
 .lgrid.p2 .lglyph{font-size:min(44cqh,32cqw)}
 .lgrid:is(.p1,.p2) .llab{flex:none;font-size:clamp(0.75rem,min(13cqh,9cqw),1.375rem);line-height:1.2}
 .lgrid.p2 .lcard img{flex:1 1 0;min-height:0}
+/* the boy picture stays clear of the letter + its mark under it (the mark rises above the letter's line box) */
+.lgrid.p2 .lcard img{margin-bottom:.35em;max-height:78%;object-position:center bottom}
+.lgrid.p2 .lglyph{position:relative;z-index:1;padding-top:.15em}
 @media (max-aspect-ratio:5/4){
   .lgrid:is(.p1,.p2) .lglyph{font-size:min(44cqh,40cqw)}
   .lgrid.p2 .lglyph{font-size:min(30cqh,34cqw)}
 }
 
-#lesson.wpop #stage{position:relative}
-.wpclose{position:absolute;top:0.375rem;left:0.5rem;z-index:5;width:2.5rem;height:2.5rem;border:0;background:none;color:var(--c-accent);font-size:1.625rem;line-height:1;cursor:pointer}
+/* Word popup (the pen next to a lesson word): a real popup card over the dimmed lesson page (tokens --pop-* in theme.css). The page behind is a still copy (.wpback) so it shows through the dim. */
+#lesson.wpop #stage:not(.wpback){position:fixed;z-index:60;inset:var(--pop-inset-y) var(--pop-inset-x);display:flex;flex-direction:column;overflow:hidden;border-radius:var(--pop-radius);border:var(--pop-border) solid var(--pop-rim);box-shadow:var(--pop-shadow);background:linear-gradient(165deg,var(--bg-hi),var(--bg-mid) 55%,var(--bg-lo));padding:.75rem}
+#lesson.wpop #stage:not(.wpback)>.vocab{flex:1 1 0;min-height:0}
+.wpdim{position:fixed;inset:0;z-index:50;background:var(--pop-dim)}
+.wpback{pointer-events:none}
+.wpclose{position:absolute;top:.6rem;right:.6rem;z-index:5;width:var(--pop-x-size);height:var(--pop-x-size);padding:0;cursor:pointer}
+.wpclose svg{width:48%;height:48%;stroke-width:4.2}
 
 /* ---------- smaller listen icons, each one beside the thing that is read ---------- */
 .qxsay{position:static;width:2.25rem;height:2.25rem;flex:none;border-radius:0.625rem}
@@ -1186,7 +1326,7 @@ button.qpic{cursor:pointer}
 .qarow{display:flex;align-items:center;justify-content:center;gap:clamp(0.375rem,2cqw,1.125rem);padding:0.25rem 0.5rem;border-radius:0.875rem;min-height:0}
 .qarow.on{background:rgba(255,200,60,.18)}
 .qarpic{flex:none;height:min(14cqh,5.25rem);aspect-ratio:1;display:grid;place-items:center}
-.qarpic img{max-width:100%;max-height:100%;object-fit:contain}
+.qarpic img{max-width:calc(100% - .5rem);max-height:calc(100% - .5rem);object-fit:contain}   /* room for the picture frame (a tall page picture was cut by 4px) */
 .qartxt{display:flex;flex-direction:column;align-items:flex-start;min-width:0;font-family:var(--f-read);font-weight:700;font-size:clamp(1.0625rem,min(4.2vw,3.8cqh),2rem);line-height:1.4}
 .qarsay{flex:none;width:2.25rem;height:2.25rem;display:grid;place-items:center;color:var(--c-accent);background:none;border-radius:0.625rem}
 .qarsay svg{width:1.5rem;height:1.5rem}
@@ -1242,6 +1382,35 @@ button.qpic{cursor:pointer}
 
 .qxtile.wide{width:auto;min-width:clamp(3rem,min(17cqw,15cqh),5.25rem);padding:0 .7rem}.qxtile.wide span{font-size:clamp(1.4rem,5.5vh,2.4rem)}
 .qxwords{display:flex;flex-wrap:wrap;gap:.4em .5em;justify-content:center}.qxwords .lt{margin:0}
+
+/* CHANT page: the book picture + the chant lines (Arabic text rtl comes from arabic.css .txt) */
+.lchant{flex:1 1 0;min-height:0;container-type:size;display:flex;align-items:center;justify-content:center;gap:4cqw;padding:0.25rem 2px 0.5rem;font-family:var(--f-ar)}
+.lchant .cpic{flex:0 1 46%;min-width:0;height:100%;}
+.lchant .cpic img{max-width:100%;max-height:100%;object-fit:contain;border-radius:1rem;box-shadow:0 0.25rem 0.75rem rgba(90,52,24,.3)}
+.lchant .ctx{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:3cqh;justify-content:center}
+.lchant .cl{border:0;background:none;font-family:inherit;font-weight:700;color:var(--c-text);cursor:pointer;line-height:1.5;padding:0.25em 0.4em;border-radius:0.6em;font-size:min(11cqh,6.5cqw)}
+.lchant .cl.now{background:var(--c-now-bg);color:var(--c-text)}
+@media (orientation:portrait){.lchant{flex-direction:column}.lchant .cpic{flex:0 1 38%;width:100%;height:auto;min-height:0}.lchant .ctx{flex:1 1 0;width:100%;min-height:0}.lchant .cl{font-size:min(5.2cqh,8.5cqw)}}
+
+/* mad: the word as big tiles on top, two places under it (the mad letter, the elongated letter) */
+.qxjoin{font-family:var(--f-ar);font-weight:700;white-space:nowrap;line-height:1.7;color:var(--c-on-bg);font-size:min(calc(92cqw / (var(--n,5) * .62)),20cqh,6.5rem);touch-action:none;user-select:none;-webkit-user-select:none}
+.qxl{cursor:grab;touch-action:none}.qxl.used{opacity:.22}.qxl.lift{opacity:.35}
+.qxslots{display:flex;gap:clamp(1rem,6cqw,2.5rem);justify-content:center}
+.qxslot{display:flex;flex-direction:column;align-items:center;gap:.4rem}
+.qxslot .qxsg{display:grid;place-items:center;width:clamp(3.75rem,min(21cqw,19cqh),6.25rem);height:clamp(3.75rem,min(21cqw,19cqh),6.25rem);border-radius:.875rem;border:.25rem dashed var(--c-accent);font-family:var(--f-ar);font-size:clamp(1.75rem,7vh,3rem);font-weight:700;color:var(--c-text);background:var(--c-paper2)}
+.qxslot.got .qxsg{border-style:solid}
+.qxslot small{font-family:var(--f-ar);font-weight:700;font-size:clamp(1rem,3.2vh,1.5rem);color:var(--c-on-bg)}
+
+/* 2026-11-02: "mad" question in landscape (tablet): the picture takes the whole left half (full height), word + places sit on the right, so the picture is never a tiny strip between the word and the places */
+@media (orientation:landscape){
+  .quiz[data-type="mad"] .qx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;align-items:center;justify-items:center;column-gap:clamp(1rem,4cqw,2.5rem)}
+  .quiz[data-type="mad"] .qxpic{grid-column:1;grid-row:1/3;height:100%}
+  .quiz[data-type="mad"] .qxline{grid-column:2;grid-row:1;align-self:end}
+  .quiz[data-type="mad"] .qxslots{grid-column:2;grid-row:2;align-self:start}
+}
+
+/* more than 3 pairs on a tall screen: two columns of pairs so they all fit */
+@media (max-aspect-ratio:1/1){.qaall.many{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:space-evenly;width:100%}.qaall.many .qarow{justify-content:flex-start}.qaall.many .qarpic{height:min(12cqh,5rem)}}
 /* ===== css/math.css ===== */
 /* ---------- Questions: math types (js/quiz-math.js) ---------- */
 .quiz:is([data-type="numline"],[data-type="bond"],[data-type="bigger"],[data-type="count"]) :is(.qword,.qans){display:none}
@@ -1308,7 +1477,7 @@ button.qpic{cursor:pointer}
 .mxstone:nth-child(2n){transform:translateY(22%)}.mxstone:active,.mxstone.on{transform:scale(.94)}.mxstone.on{box-shadow:0 0 0 0.25rem rgba(42,127,216,.45)}
 .mxstone .lst{position:absolute;top:-0.25rem;left:-0.25rem;width:1.25rem;height:1.25rem;opacity:0}.mxstone .lst svg{width:100%;height:100%}.mxstone.heard .lst{opacity:1}
 .mxcap{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:0.625rem;font-weight:700;font-size:min(5.2cqh,4.4cqw);color:var(--c-brown-dk);text-align:center;line-height:1.2;padding:0.375rem 0.75rem}.mxcap .mxsay{flex:none}
-@media (max-aspect-ratio:5/4){.mxline{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto}.mxstones{grid-column:1/-1;grid-row:2;grid-template-columns:repeat(2,minmax(0,1fr));align-self:stretch;align-content:space-evenly}.mxend{grid-row:1;height:auto;max-height:30cqh}.mxend.bg{grid-column:2}.mxend.sm{grid-column:1}.mxstone{font-size:min(7cqh,12cqw);aspect-ratio:2}.mxstone:nth-child(2n){transform:none}.mxcap{grid-row:3}}
+@media (max-aspect-ratio:5/4){.mxline{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto}.mxstones{grid-column:1/-1;grid-row:2;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr));align-self:stretch;align-items:center;min-height:0}.mxend{grid-row:1;height:auto;max-height:30cqh}.mxend.bg{grid-column:2}.mxend.sm{grid-column:1}.mxstone{font-size:min(7cqh,12cqw);aspect-ratio:auto;height:100%;max-height:min(13cqh,6rem)}.mxstone:nth-child(2n){transform:none}.mxcap{grid-row:3}}
 .qmhelp{align-self:center;margin-top:0.5rem}
 .qmcell.peek b,.qmb.peek b{color:rgba(46,27,12,.28)}
 .qxduo{display:flex;align-items:flex-end;justify-content:center;gap:1rem 3rem;flex-wrap:wrap}
@@ -1322,6 +1491,19 @@ button.qpic{cursor:pointer}
   .mxbond .mxdots{position:relative}.mxbond .mxdots img{position:absolute;inset:0;height:100%;width:100%;max-height:none;max-width:none;object-fit:contain;object-position:left center}
   .mxeq b{font-size:min(calc(34cqh/max(var(--n),5)),9cqw)}.mxeq i{font-size:min(calc(26cqh/max(var(--n),5)),6cqw)}.mxmk{font-size:min(calc(26cqh/max(var(--n),5)),6cqw)}
 }
+/* mwrite: write a number sentence / an answer on lines with the app's keypad (0-9 + − =) */
+.mwline{flex:1 0 100%;flex-wrap:wrap;gap:.2rem .6rem;cursor:default}
+.mwline .mwlead{font-family:var(--f-read);font-weight:700;color:var(--c-on-bg);font-size:clamp(1.2rem,min(5cqw,5.5cqh),2.2rem)}
+#lesson:not(.ar) .qx .mwline .qxw:not(.qxwords){font-size:clamp(1.8rem,min(9cqw,9cqh),3.4rem)}
+.mwline .mwcard{font-family:var(--f-read);font-weight:700;font-size:clamp(1.2rem,min(5cqw,5.5cqh),2.2rem);color:var(--c-text);background:var(--c-paper2,#FFF7E8);border-radius:.8rem;padding:.15em .7em;box-shadow:0 .2rem 0 var(--c-paper3,#E8D2A8)}
+.mwkeys{gap:clamp(.35rem,1.4cqw,.7rem);max-width:min(100%,34rem);margin:0 auto}
+.mwkeys .qmn{--q-choice:clamp(2.6rem,min(10.5cqw,9cqh),4.2rem)}
+.almcq.mwrite.haspic{grid-template-rows:minmax(30%,1fr) auto auto;row-gap:min(1.6cqh,.8rem)}
+.mwline{margin-bottom:.5rem}
+.mwrite .alask .alsp{display:inline-grid;vertical-align:middle;width:1.9rem;height:1.9rem}
+.mwrite .alfig,.mwrite .alfig img{height:100%;max-height:100%}
+.mwrite .alfig img{width:100%;object-fit:contain}
+.mwrite .alstem .alask{flex:0 1 auto}
 /* ===== css/frame.css ===== */
 /* ONE picture frame for the whole app: white border, soft shadow, rounded corners (same look on every screen and subject).
    Only pictures; the dots / numbers drawn by the app (data: images) and the lesson's book scene keep their own look. */
@@ -1365,7 +1547,7 @@ button.qpic{cursor:pointer}
 .xq{position:relative;padding-inline-start:2em;margin:.3em 0 .45em;font-size:1.1em;line-height:1.3;clear:inherit}
 .xn{position:absolute;inset-inline-start:0;top:0;font-weight:700;color:var(--ink)}
 .xqt{display:block}
-.xqt .xtools{--t:max(1.3em,1.2rem);display:inline-block;position:relative;width:calc(var(--t)*2.1);height:1em;vertical-align:middle;margin-inline-start:.4em}
+.xqt .xtools{--t:max(1.3em,1.2rem);display:inline-block;position:relative;width:calc(var(--t)*2.1);height:var(--t);margin-block:-.45em;vertical-align:middle;margin-inline-start:.4em}
 .xtool{position:absolute;top:calc(50% - var(--t)/2);width:var(--t);height:var(--t);display:grid;place-items:center;padding:0;border:0;background:none;cursor:pointer;color:var(--c-accent)}
 .xlisten{inset-inline-start:0}.xhelp{inset-inline-start:calc(var(--t)*1.05)}
 .xtool svg{width:78%;height:78%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -1585,11 +1767,21 @@ button.qpic{cursor:pointer}
 .qhead .qtool{padding:0;overflow:hidden;background:var(--c-white);border-color:#8A5CC9;width:3rem;height:3rem}
 .qhead .qtool img{width:100%;height:100%}
 .tlbody::before{content:'';display:none}
+
+/* ONE Tool icon everywhere: the yellow gear with the word Tool inside (road map, grid, question header, lesson rail) */
+:root{--gear-img:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M87.1 41.7 L97.5 43.3 L97.5 56.7 L87.1 58.3 L82.1 70.4 L88.3 78.9 L78.9 88.3 L70.4 82.1 L58.3 87.1 L56.7 97.5 L43.3 97.5 L41.7 87.1 L29.6 82.1 L21.1 88.3 L11.7 78.9 L17.9 70.4 L12.9 58.3 L2.5 56.7 L2.5 43.3 L12.9 41.7 L17.9 29.6 L11.7 21.1 L21.1 11.7 L29.6 17.9 L41.7 12.9 L43.3 2.5 L56.7 2.5 L58.3 12.9 L70.4 17.9 L78.9 11.7 L88.3 21.1 L82.1 29.6Z' fill='%23FFF6D6' stroke='%23D9A000' stroke-width='5' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.tgear,.qhead .qtool.tgear,.dash.tool .rb.tgear{display:grid;place-items:center;width:3.4rem;height:3.4rem;padding:0;border:0;border-radius:0;box-shadow:none;background:var(--gear-img) center/100% 100% no-repeat;color:var(--c-tool-ink);font-family:var(--f-title);font-size:.95rem;font-weight:700;letter-spacing:.04em;line-height:1;white-space:nowrap;-webkit-text-stroke:0;text-shadow:none;paint-order:normal;overflow:visible}
+.dash.tool>span:last-child{display:none}
+.dash.tool .rb{width:4rem;height:4rem;background:none;border:0;box-shadow:none}
+.dash.tool .rb.tgear{width:4rem;height:4rem;font-size:1.1rem;background:var(--gear-img) center/100% 100% no-repeat}
+.tgear::before,.tgear::after{content:none!important}
+.dash.tool .rb.tgear{filter:none}
+.jpm .jex.jtx{font-size:1em}
 /* ===== css/en-al.css ===== */
 /* ---------- English AL: Lesson (book parts) and Booklet tabs, Grammar tab (js/quiz-al.js) ---------- */
-.quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"]) :is(.qword,.qans){display:none}
-.quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"]){grid-template-rows:auto auto minmax(0,1fr);grid-template-areas:"head" "dots" "play"}
-.qx-explain,.qx-mcq,.qx-cloze,.qx-order{font-family:var(--f-read);align-items:stretch;justify-content:stretch;gap:0}
+.quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"],[data-type="mwrite"]) :is(.qword,.qans){display:none}
+.quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"],[data-type="mwrite"]){grid-template-rows:auto auto minmax(0,1fr);grid-template-areas:"head" "dots" "play"}
+.qx-explain,.qx-mcq,.qx-cloze,.qx-order,.qx-mwrite{font-family:var(--f-read);align-items:stretch;justify-content:stretch;gap:0}
 .alw{cursor:pointer;border-radius:.3em;padding:0 .04em;transition:background .15s}
 .alw.lit{background:var(--c-hint)}
 @media (hover:hover){.alw:hover{background:rgba(255,226,120,.55)}}
@@ -1610,8 +1802,8 @@ button.qpic{cursor:pointer}
 .altext>*{flex:none}   /* a long page scrolls: its lines keep their own height (never squeezed onto each other) and the first line can be scrolled to */
 .alline{position:relative;display:flex;gap:.45rem;align-items:flex-start;border-radius:.9rem;padding:.25rem .5rem .3rem .25rem;background:rgba(255,255,255,.55);border:.15rem solid transparent;cursor:pointer;text-align:left}
 .alline.on{background:#FFF3B8;border-color:#F2C230}
-.alline .alsp{flex:none;display:grid;place-items:center;width:2.2rem;height:2.2rem;margin:0;color:var(--c-accent);background:none;border-radius:.6rem}
-.alline .alsp svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.alline .alsp{flex:none;display:grid;place-items:center;width:2.1rem;height:2.1rem;margin:0;color:var(--c-accent);background:none;border-radius:.6rem}
+.alline .alsp svg{width:1.35rem;height:1.35rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .altx{margin:0;font-weight:700;color:var(--c-text);font-size:clamp(1.05rem,min(4.2cqw,4.8cqh),2.1rem);line-height:1.4;text-align:left}
 .alline.al-head .altx{font-size:clamp(1.4rem,min(6cqw,7cqh),3rem);font-family:var(--f-title);font-weight:400;color:#3A2A1C}
 .alline.al-red .altx{color:#C0392B}.alline.al-blue .altx{color:var(--c-accent-dk)}
@@ -1625,22 +1817,16 @@ button.qpic{cursor:pointer}
 .altcell{background:none;color:var(--c-white);text-align:left;border-radius:.5rem;padding:.1rem .3rem;font:700 clamp(.9rem,min(3.4cqw,3.8cqh),1.6rem)/1.35 var(--f-read);border:.12rem solid transparent}
 .altcell.on{background:rgba(255,255,255,.22);border-color:var(--c-hint)}
 .altcell .alw.lit{color:var(--c-text)}
-.alnext{position:absolute;right:.4rem;bottom:.2rem;--t:#E8E2D4;--b:#CFC6B4;color:#8A7E69;opacity:.7}
-.alnext svg{width:60%;height:60%;fill:none;stroke:currentColor;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round}
-.alnext.ready{--t:var(--green1);--b:var(--green2);color:var(--c-white);opacity:1;animation:alpulse 1.4s ease-in-out infinite}
-@keyframes alpulse{50%{transform:scale(1.12)}}
-.alall{position:absolute;left:.4rem;bottom:.3rem;display:flex;align-items:center;gap:.4rem;height:2.9rem;padding:0 1rem 0 .7rem;border-radius:62rem;border:.19rem solid var(--ol);background:linear-gradient(var(--blue1),var(--blue2));color:var(--c-white);font:400 1.2rem var(--f-title);box-shadow:0 .2rem 0 rgba(90,52,24,.4);-webkit-text-stroke:.1rem rgba(20,60,120,.6);paint-order:stroke fill}
-.alall svg{width:1.5rem;height:1.5rem;fill:none;stroke:var(--c-white);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 
 /* mcq / cloze / order */
 .almcq,.alcloze,.alorder{position:relative;width:100%;height:100%;min-height:0;display:flex;flex-direction:column;gap:min(2cqh,1rem);justify-content:center;padding-bottom:1.2rem}
 .almcq.haspic{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,.8fr) auto auto;align-content:center}
 #lesson.q-land .almcq.haspic{grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);grid-template-rows:auto auto;column-gap:1.5rem}
 #lesson.q-land .almcq.haspic .alpics{grid-row:1 / span 2}
-.alstem{display:flex;gap:.5rem;align-items:flex-start;flex-wrap:wrap;justify-content:center}
-.alstem .alsp{flex:none;display:grid;place-items:center;width:2.6rem;height:2.6rem;margin:0;color:var(--c-accent);background:none}
-.alstem .alsp svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.alstem .altx{flex:0 1 auto;max-width:100%;text-align:center;font-size:clamp(1.2rem,min(4.8cqw,5.6cqh),2.5rem)}
+.alstem{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;justify-content:center}
+.alstem .alsp{flex:none;display:grid;place-items:center;width:2.1rem;height:2.1rem;margin:0;color:var(--c-accent);background:none}
+.alstem .alsp svg{width:1.35rem;height:1.35rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.alstem .altx{flex:0 1 auto;max-width:100%;text-align:center;font-size:calc(var(--q-sentence-size) * .75)}
 .alask{margin:0;flex:1 0 100%;color:#C0392B;font-weight:700;font-size:clamp(1rem,min(3.6cqw,4cqh),1.8rem);text-align:center}
 .alblank{display:inline-grid;place-items:center;vertical-align:baseline;min-width:3.4em;height:1.3em;margin:0 .15em;padding:0 .35em;border:0;border-bottom:.2rem solid var(--c-accent);background:rgba(42,127,216,.1);border-radius:.35em .35em 0 0;font:inherit;font-weight:700;color:var(--c-accent-dk);position:relative}
 .alblank small{position:absolute;left:.15em;top:-.45em;font:700 .55em var(--f-ui);color:var(--c-muted)}
@@ -1650,18 +1836,17 @@ button.qpic{cursor:pointer}
 .alopts,.albank,.alpool,.alsent{display:flex;flex-wrap:wrap;gap:min(1.6cqw,.8rem);justify-content:center}
 .alopts{flex-direction:row}
 .alopts.long{flex-direction:column;align-items:center}
-.alopt{display:flex;align-items:center;gap:.45rem;min-height:2.8rem;padding:.25rem 1rem .3rem .5rem;border-radius:62rem;border:.19rem solid var(--ol);background:linear-gradient(var(--c-paper2),var(--c-paper3));box-shadow:0 .22rem 0 rgba(90,52,24,.4);color:var(--c-text);font:700 clamp(1rem,min(3.8cqw,4.4cqh),1.9rem)/1.2 var(--f-read);position:relative}
-.alopt i{display:grid;place-items:center;width:1.7em;height:1.7em;border-radius:50%;background:var(--c-accent);color:var(--c-white);font:700 .7em var(--f-ui);font-style:normal;flex:none}
+.alopt{display:flex;align-items:center;gap:.45rem;min-height:2.8rem;padding:.25rem 1rem .3rem 1rem;border-radius:62rem;border:.19rem solid var(--ol);background:linear-gradient(var(--c-paper2),var(--c-paper3));box-shadow:0 .22rem 0 rgba(90,52,24,.4);color:var(--c-text);font:700 clamp(1rem,min(3.8cqw,4.4cqh),1.9rem)/1.2 var(--f-read);position:relative}
+/* (the a/b/c badges are gone, Marwa 2026-11-04) */
 .alopt:active{transform:scale(.96)}
 .alopt.bad{background:var(--c-bad-bg);border-color:var(--c-bad-dk)}
 .alopt.dim,.alchip.used{opacity:.28;pointer-events:none}
 .alopt.ringed::after{content:"";position:absolute;inset:-.35rem -.5rem;border:.22rem solid #E24B7A;border-radius:62rem;transform:scale(var(--ring,1));pointer-events:none}
 .alchip{padding:.25rem 1rem .3rem 1rem}
 .albank{margin-top:.2rem}
-.alcloze .altx{font-size:clamp(1rem,min(3.4cqw,3.8cqh),1.8rem);line-height:1.75;text-align:left;font-weight:400}
+.alcloze .altx{font-size:calc(var(--q-sentence-size) * .85);line-height:1.7;text-align:center;font-weight:700;margin:0}
 .alcloze .altx .alw{font-weight:700}
-.alcloze{overflow:auto;justify-content:flex-start}
-.alcloze .alall{position:static;align-self:center;flex:none}
+.alcloze{overflow:auto;justify-content:center;align-items:center;gap:min(4cqh,2rem)}
 .alsent{min-height:3.6rem;align-items:center;border-bottom:.2rem dashed #BFA67A;padding:.3rem .2rem;margin:0 .5rem}
 .alsent.bad{animation:alshake .4s}
 @keyframes alshake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
@@ -1706,13 +1891,79 @@ button.qpic{cursor:pointer}
 @media (max-aspect-ratio:1/1){.alpage.notext .alpics{flex-direction:column}.alpage.notext .alfig{flex:1 1 0}}
 @media (max-aspect-ratio:1/1){.alpage.notext .alfig{height:0;flex:1 1 0;min-height:0}}
 @media (max-aspect-ratio:1/1){.alpage.many .alpics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:min(1.5cqw,1.2cqh)}.alpage.many .alfig{height:auto;flex:none}}
-.alspellpic{display:flex;justify-content:center;height:0;min-height:0;flex:1 1 0}.alspellpic img{height:100%;width:auto;max-width:70%;object-fit:contain;border-radius:.9rem;filter:drop-shadow(0 .2rem .25rem rgba(90,52,24,.3))}
+.alspellpic{display:flex;justify-content:center;align-items:center;height:0;min-height:min(38cqh,15rem);flex:1 1 0}.alspellpic img{height:auto;width:auto;max-height:100%;max-width:70%;object-fit:contain;border-radius:.9rem;filter:drop-shadow(0 .2rem .25rem rgba(90,52,24,.3))}
 .alorder:has(.alspellpic){justify-content:flex-start}
 .qlink.cols .qlkw b{white-space:normal}   /* long sentences in a match exercise wrap inside their box (the dot stays on the border) */
 .alpage.hastable .altext{justify-content:flex-start}
 .alpage.hastable .altable{padding:.35rem .6rem .45rem}
 .alpage.hastable .altrows{gap:.1rem}
 .alpage.hastable .altcell{font-size:clamp(.85rem,min(3cqw,3.2cqh),1.45rem);line-height:1.25}
+.chipghost{box-shadow:0 .7rem 1.2rem rgba(60,25,0,.35)!important;opacity:.95}
+/* order question built word by word (many pieces): smaller pieces so the picture keeps its room */
+.alorder.many .alpool,.alorder.many .alsent{gap:.35rem .4rem}
+.alorder.many .alchip{min-height:0;padding:.12rem .65rem .18rem;font-size:clamp(.95rem,min(3.4cqw,3.4cqh),1.6rem);border-width:.14rem}
+.alorder.many .alsent{min-height:2.6rem}
+
+/* ORDER question (Marwa 2026-11-03): FIXED zones = picture (as big as possible, never changes size) / sentence line (fixed height)
+   / pieces (used pieces keep their place). Chosen pieces are WRITTEN on the line as normal story text, no bubbles (tap one to take it back). */
+.alorder:has(.alspellpic){display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto auto;align-content:stretch;padding-bottom:.3rem}
+.alorder .alspellpic{height:auto;min-height:0}
+.alorder .alspellpic img{max-width:100%;max-height:100%}
+.alorder .alsent{--alsz:clamp(1.15rem,min(4.6cqw,4.4cqh),2.1rem);font:700 var(--alsz)/1.4 var(--f-read);height:calc(2 * 1.4em + .7rem);min-height:0;overflow:hidden;
+  display:block;text-align:center;align-content:center;color:var(--c-on-bg)}
+.alorder.many .alsent{height:calc(3 * 1.4em + .7rem)}
+.alorder .alsent .alph,.alorder .alsent .alend{font:inherit;color:inherit}
+.alword{all:unset;display:inline;cursor:pointer;font:inherit;color:inherit;margin:0 .14em;border-radius:.3em;-webkit-tap-highlight-color:transparent}
+.alword.good{color:#D7FFC4}
+/* wide screens: picture on the left (full height), sentence line + pieces on the right */
+#lesson.q-land .alorder:has(.alspellpic){grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto auto minmax(0,1fr);column-gap:1.2rem}
+#lesson.q-land .alorder .alspellpic{grid-column:1;grid-row:1 / -1}
+#lesson.q-land .alorder .alsent{grid-column:2;grid-row:2}
+#lesson.q-land .alorder .alpool{grid-column:2;grid-row:3;align-content:flex-start;padding-top:.5rem}
+
+.alorder .alchip.bad{animation:alshake .4s;background:var(--c-bad-bg);border-color:var(--c-bad-dk)}
+
+/* words outside the picture + leader line ending in a dot (labels in alExplain) */
+.alfig.haslab{box-sizing:border-box;padding:0 27%}
+.allines{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.allines line{stroke:var(--ol);stroke-width:1.6;stroke-linecap:round}
+.allines circle{fill:var(--ol)}
+#lesson.q-land .alpage.multi.notext .alpics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.alcloze .alreplay{display:inline-grid;place-items:center;vertical-align:middle;width:2.1rem;height:2.1rem;margin:0;color:var(--c-accent);background:none}
+.alcloze .alreplay svg{width:1.35rem;height:1.35rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.alcloze .alreplay.on{color:var(--c-hint)}
+.alcloze .altx{font-size:clamp(.9rem,min(4cqw,3.2cqh),1.9rem);line-height:1.6;text-align:left}
+.alcloze{justify-content:safe center}
+@media (max-aspect-ratio:1/1){.alcloze .altx{font-size:clamp(.8rem,3.5cqw,1.2rem);line-height:1.5}}
+
+/* plain reading text (explain lines): no boxes, no speaker per line; the words light up while read */
+.altext.alprose{display:block;overflow:auto;padding:.2rem .5rem}
+.alprose .alline{display:inline;background:none;border:0;padding:0}
+.alprose .alline .altx{display:inline;font-size:clamp(.9rem,min(3.5cqw,3.1cqh),1.7rem);color:var(--c-on-bg);text-shadow:0 .08rem .2rem rgba(60,20,90,.45)}
+.alprose .alline.al-head,.alprose .alline.al-red,.alprose .alline.al-blue,.alprose .alline.al-note{display:block;margin:.2rem 0}
+.alprose .alline.al-head .altx,.alprose .alline.al-red .altx{display:block;color:var(--c-hint)}
+.alprose .alline.al-blue .altx,.alprose .alline.al-note .altx{display:block}
+.alw.rd{background:var(--c-hint);color:var(--c-text);text-shadow:none}
+.alprose .alline.on{background:none}
+.alprose .alline.al-head .altx{font-size:clamp(1.2rem,min(5cqw,5cqh),2.2rem)}
+/* the learn-the-word pencil: white, a small icon on the top-right corner of the word itself (never on a line of its own) */
+.alw{position:relative}
+.alw .wpn{position:absolute;right:-.7em;top:-.75em;margin:0;width:1em;height:1em;color:var(--icon-on-color);filter:drop-shadow(0 0 .12rem rgba(60,20,90,.7))}
+/* passage cloze: the word choices are pinned at the TOP (always visible); the passage scrolls under them and never covers them */
+.alcloze{overflow:hidden;justify-content:flex-start;align-items:stretch;gap:.5rem;padding-bottom:.3rem}
+.alcloze .albank{flex:none;position:relative;z-index:2}
+.alcloze .altx{flex:1 1 0;min-height:0;overflow:auto;padding:.2rem .3rem}
+
+/* check with a lesson picture (book p20 A): picture on top, tick boxes under it */
+.alcheck:has(.alpics){justify-content:flex-start}
+.alcheck .alpics{flex:1 1 0;width:100%;min-height:0}
+
+/* underline: a right word gets a thick underline + green; a wrong tap shakes */
+.alunder .alw{padding:0 .08em;border-bottom:.2rem solid transparent}
+.alunder .alw.right{border-bottom-color:var(--c-good);color:var(--c-hint)}
+.alunder .alw.bad{background:var(--c-bad-bg);color:var(--c-text)}
+.alunder .alpics{flex:none;max-height:34%;width:100%}
+.alunder .alans.help{box-shadow:0 0 0 .25rem rgba(255,226,120,.8);border-radius:.3em}
 /* ===== css/responsive.css ===== */
 /* ---------- Screen fit ----------
    All sizes are rem and the root font-size (base.css) follows the screen, so the whole design scales together.
@@ -1726,6 +1977,23 @@ button.qpic{cursor:pointer}
   .line{grid-template-columns:1fr;gap:0}.who{font-size:1rem;line-height:1.2;margin-top:0.25rem}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* ===== css/layout.css ===== */
+/* ---------- LAYOUT PRIMITIVES (responsive system, 2026-11-02; docs/RULES.md "Responsive layout") ----------
+   Every page, template and question type is built from these zones. They take their size from the PARENT (never from their content),
+   so a picture or a text can never push the page past the screen. Sizes inside are cqw/cqh (of the zone) or rem (the root size follows the screen).
+   .fit        a zone that fills what the parent gives it; its children can measure it with cqw/cqh. Never bigger than the parent.
+   .fit-media  a zone holding ONE picture: the picture is shown WHOLE (object-fit:contain), as big as the zone allows, centred. Never cropped.
+   .fit-text   a zone holding a text: the text stays inside; if it is longer than the room it scrolls INSIDE the zone (the page never grows).
+   .fit-row    zones side by side in landscape; stacked in portrait (picture on top, text below). Gap = --zone-gap.
+   .zone-side  the shared button column (listen / restart / speed): stays on the RIGHT, never moves with the screen shape. */
+:root{--zone-gap:min(3cqw,2.5cqh)}
+.fit{min-width:0;min-height:0;container-type:size}
+.fit-media{min-width:0;min-height:0;display:grid;grid-template:minmax(0,1fr)/minmax(0,1fr);place-items:center}
+.fit-media>img,.fit-media>picture img{max-width:100%;max-height:100%;min-width:0;min-height:0;object-fit:contain}
+.fit-text{min-width:0;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}
+.fit-row{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:var(--zone-gap);min-width:0;min-height:0}
+@media (orientation:portrait){.fit-row{flex-direction:column}}
+.zone-side{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;flex:none}
 /* ===== css/game.css ===== */
 /* LESSON ON THE GAME BACKGROUND (theme part 3b, 2026-10-31). Loaded LAST so it wins over the older screen files.
    Top bar (buttons + stars), info line, car road, content straight on the page colour, dots + page + help above the tabs, tabs as a slider. */
@@ -1763,7 +2031,7 @@ button.qpic{cursor:pointer}
 .foot{gap:.3rem}
 .lmeta{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;direction:ltr;gap:.5rem}
 .lmeta:not(:has(*:not([hidden]):not(:empty))){display:none}
-.lm-l{justify-self:start;display:flex}.lm-r{justify-self:end;display:flex}
+.lm-l{justify-self:start;display:flex;grid-column:1}.lm-r{justify-self:end;display:flex;grid-column:3}.lm-dots{grid-column:2}   /* fixed places: help always right, dots always centre (even when there are no dots) */
 .pgtag{position:static;color:var(--c-on-bg);opacity:1;font-weight:700;font-size:.8rem;-webkit-text-stroke:0;text-shadow:none}
 .pgtag svg{width:1.05rem;height:1.05rem}
 .lm-dots{display:flex;align-items:center;max-width:min(62vw,24rem);overflow-x:auto;scrollbar-width:none;cursor:grab;touch-action:pan-x}
@@ -1886,9 +2154,8 @@ button.qpic{cursor:pointer}
 .scene.pics .pk .txt{color:var(--pk-word-color)}
 .scene.pics .pk .w{color:var(--pk-word-color)!important}
 .scene.pics .pk .w.reading{color:var(--c-now-bg)!important}
-.scene.pics .pk .txt{font-size:calc(var(--pk-word-size) * clamp(1.125rem,min(7cqh,5cqw),2.125rem))}
-.scene.pics.wrap .pk .txt{font-size:calc(var(--pk-word-size) * clamp(0.9375rem,min(6cqh,4.2cqw),1.875rem))}
-.scene.pics.wrap .pk.two .txt{font-size:calc(var(--pk-word-size) * clamp(0.8125rem,min(4.6cqh,3.5cqw),1.5rem))}
+.scene.pics .pk .txt{font-size:var(--focus-word-size);white-space:normal;text-align:center;max-width:calc(94cqw / var(--pc));line-height:1.15}   /* a phrase wraps inside its cell, a single word stays one line */   /* same size as every focus word (theme.css) */
+.scene.pics.wrap .pk .txt{font-size:calc(var(--focus-word-size) * .62);max-width:calc(92cqw / var(--pc))}   /* sentences under the pictures: smaller, may wrap */
 .scene.pics .wpn{color:var(--pk-word-color)}
 
 /* ---- Words tab, ONE look for every subject (Marwa 2026-11-01): word + typed letters plain WHITE, no yellow glow, no outline on any text ---- */
@@ -1900,7 +2167,7 @@ button.qpic{cursor:pointer}
 .lt.peek{color:var(--c-on-bg);opacity:.4}                       /* help: the letter whose turn it is, light see-through white */
 .vtools .dash,.vtools .dash>span{-webkit-text-stroke:0;paint-order:normal;text-shadow:none}
 #lesson.ar:not(.vmode) .vinfo{display:none}                       /* empty meaning line took a gap between the word and the buttons */
-#lesson.ar .vword{line-height:1.5}
+#lesson.ar .vword{line-height:1.5;padding:.15em 0 .2em}   /* tall marks stay inside the word row */
 .vtools{margin-top:-.2rem}
 
 /* ---- story page, portrait: the text panel starts BELOW the whole button column (speed button + its label included) ---- */
@@ -1915,14 +2182,14 @@ button.qpic{cursor:pointer}
 
 
 /* ---- RULES 2026-11-01: ONE size for question stars / choice circles, icon colours, bigger question content (shared components only) ---- */
-.qdots{flex-wrap:nowrap;justify-content:center;--sw:min(var(--q-star),calc((100vw - 5rem)/((var(--n,10) + 1)*1.15)));gap:calc(var(--sw)*.15);max-width:100%;padding:0 0 clamp(.375rem,1.6vh,.875rem)}
-/* RULE: stars = ONE line under the question, centered, portrait and landscape; they shrink to fit (--n = number of stars, set in quiz.js), never wrap */
+.qdots{display:flex;flex-wrap:wrap;justify-content:center;align-content:flex-start;--sw:var(--q-star);gap:calc(var(--sw)*.18) calc(var(--sw)*.22);width:100%;max-width:100%;padding:0 0 clamp(.375rem,1.6vh,.875rem)}
+/* RULE (2026-11-01): stars use the whole line, centered; ONE size everywhere (--q-star, big enough to tap); when they do not fit one line they wrap to the next line (never shrink) */
 .qdots i,#lesson.ar.q-short .qdots i{flex:none;width:var(--sw);height:var(--sw);transition:opacity .2s,transform .2s;opacity:.5}
 .qdots i.grp,.qdots i.cur{opacity:1}
 .qdots i.cur,#lesson.ar.q-short .qdots i.cur{transform:scale(1.25)}
 .qdots i.grp:not(.cur){filter:drop-shadow(0 0 .15rem rgba(255,255,255,.9))}
 #lesson.q-short .quiz,#lesson.ar.q-short .quiz{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr);grid-template-areas:"head" "dots" "word" "play"}
-#lesson.q-short .qdots,#lesson.ar.q-short .qdots{max-width:100%;padding:0;justify-content:center;flex-wrap:nowrap}
+#lesson.q-short .qdots,#lesson.ar.q-short .qdots{max-width:100%;padding:0;justify-content:center;flex-wrap:wrap}
 #lesson.q-short .qhead,#lesson.ar.q-short .qhead{padding:0}
 .quiz{gap:clamp(.5rem,1.8vh,1rem)}
 .qword b{font-size:clamp(2.1rem,min(8vw,9vh),4.5rem)}
@@ -1949,3 +2216,206 @@ button.qpic{cursor:pointer}
 #lesson:not(.ar) .vword>.lt{margin:0 var(--wslot-gap)}
 .qxwords .lt{margin:0!important}
 #lesson:not(.ar) .qx:not(.sent) .qxw:not(.qxwords){font-size:min(14cqh,18cqw,calc(92cqw / (var(--n,6) * 1.12)))}   /* a long word shrinks so all its boxes stay inside the screen */
+
+/* ---- focus words (2026-11-01): the word the child studies has ONE size everywhere (--focus-word-size, theme.css): reading page, question head word, Words tab.
+   A word too long for its room shrinks only as much as it must (Words tab: JS fit --wfs). Arabic keeps its own larger script size. ---- */
+#lesson:not(.ar) .vword{font-size:min(var(--wfs,3.5rem),var(--focus-word-size))}
+/* sentences the child reads in a question: centred and big (--q-sentence-size); the options of "circle the word" stay readable on the blue page */
+.qopt{color:var(--c-on-bg);background:rgba(10,45,110,.28);font-weight:700}
+.qopt.ringed{color:var(--c-on-bg);background:none}
+
+/* ---- POINTING page (RULES.md "Pointing page", 2026-11-01): whole picture on top (never cropped), words below, a circle on what the sentence talks about ---- */
+:root{--point-mark:var(--mark);--point-ring:var(--ol)}
+.scene.point{justify-content:flex-start;gap:.5rem;padding-bottom:.5rem}
+.scene.point .pfig{flex:1 1 0;min-height:0;container-type:size;display:flex;align-items:center;justify-content:center;margin:0 .5rem;position:relative}
+.scene.point .pbox{--ar:1.4;position:relative;width:min(100cqw,100cqh*var(--ar));aspect-ratio:var(--ar);border-radius:1.1rem;box-shadow:0 .25rem .9rem rgba(20,40,40,.28)}
+.scene.point .pbox img{display:block;width:100%;height:100%;border-radius:inherit;pointer-events:none;-webkit-user-drag:none}
+.scene.point .pmg{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .25s}
+.scene.point .pmg.on{opacity:1}
+.scene.point .pmk{position:absolute;transform:translate(-50%,-50%);aspect-ratio:1;box-sizing:border-box;border-radius:50%;border:.28rem solid var(--point-mark);box-shadow:0 0 0 .14rem var(--point-ring),inset 0 0 0 .14rem var(--point-ring)}
+/* the words sit EXACTLY where they do on every story page (the shared .scene.story .note rules); the picture takes all the free area above them, beside the button column */
+.scene.point .pfig{margin:0 6.75rem 0 .75rem}
+@media (max-aspect-ratio:5/4){ .scene.point{padding-top:.5rem} .scene.point .note{flex:0 0 auto;height:calc(100% - var(--rail-h,0px) - .5rem)} }
+
+/* pointing page with a figure built from text (no picture): the formula (parts) and the word; the parts being talked about pop */
+.scene.point .pbox.figbox{width:100%;height:100%;aspect-ratio:auto;display:grid;place-items:center;background:none;box-shadow:none}
+.pfx{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(.5rem,3cqh,1.5rem);font-family:var(--f-ar);font-weight:700;color:var(--c-on-bg);direction:rtl}
+.pfx-f{display:flex;align-items:center;gap:clamp(.6rem,4cqw,1.5rem);font-size:min(40cqh,24cqw,7rem);line-height:1.1}
+.pfx-p{display:grid;place-items:center;min-width:1.2em;padding:0 .1em;transition:transform .25s,color .25s}
+.scene.point .pbox .pfx-i img{display:block;border-radius:0;height:min(44cqh,36cqw,9rem);width:auto;pointer-events:none;-webkit-user-drag:none}
+.pfx-o{opacity:.7}
+.pfx-w{font-size:min(36cqh,26cqw,7rem);line-height:1.3;white-space:nowrap}
+.pfx-g{transition:color .25s}
+.pfx .pfx-p.pop{transform:scale(1.25);color:var(--c-accent)}
+.pfx .pfx-g.pop{color:var(--c-accent);font-size:1.22em}
+
+/* ---- NASHEED page (layout "poem", 2026-11-02): the book page is the background, the poem is live text placed where the book prints it (lesson.js showPoem) ---- */
+.scene.story.poem{background:none;display:grid;place-items:center;padding:0!important;container-type:size;justify-content:center;align-content:center}
+.scene.poem .pg{position:relative;border-radius:1.1rem;overflow:hidden;width:min(100cqw,calc(100cqh * var(--arn)));aspect-ratio:var(--ar);container-type:inline-size;background:center/100% 100% no-repeat}
+.scene.poem .pline{position:absolute;left:0;right:0;height:0;margin:0;padding:0}
+.scene.poem .ph{position:absolute;top:0;transform:translateY(calc(-1 * var(--base)));white-space:nowrap;direction:rtl;text-align:right;line-height:1;font-family:var(--f-ar);font-weight:600;
+  font-size:calc(var(--fs) * 1cqw);color:#1b1b1b;cursor:pointer;text-align-last:justify}
+.scene.poem .ph .w{display:inline-block;color:inherit;padding:0;border-radius:0}
+.scene.poem .ph .w.reading{color:var(--story-now)}
+.scene.story.poem{padding:0 5.6rem 0 .25rem!important}   /* NO panel behind the page (it sits on the app background); the page sits BESIDE the button column (never under a button), centred in the room that is left, whole page visible */
+
+/* ---- SEGMENT SLIDE (RULES.md "Segment slides", 2026-11-02): the BOOK CARD = the picture in its rounded frame with the sentence on a light panel that overlaps its bottom edge ---- */
+.scene.point.slide .scard{--ar:1.6;--over:.17;position:relative;container-type:inline-size;width:min(100cqw,100cqh*var(--ar)/(1 + var(--over)));aspect-ratio:calc(var(--ar) / (1 + var(--over)))}
+.scene.point.slide .scard .pbox{position:absolute;left:0;top:0;width:100%;aspect-ratio:var(--ar);border-radius:9% / 13%}
+.scene.point.slide .scard .note{position:absolute;left:7%;right:7%;bottom:0;width:auto;height:30% !important;margin:0;flex:none;min-height:0;border-radius:6cqw;background:var(--card-panel);box-shadow:0 .15rem .5rem rgba(20,40,40,.18);overflow:hidden}
+.scene.point.slide .scard .note .in{display:flex;align-items:center;justify-content:center;height:100%;padding:0 .5rem;overflow:hidden;font-size:9.5cqw;line-height:1.3;text-align:center}
+.scene.point.slide .scard .note :is(.line,.txt){line-height:1.3}
+.scene.point.slide .note{flex:0 0 auto}
+
+/* ---- BOOK LOOK of the question strip (tokens --bk-* in theme.css; default = no strip). Arabic: text right, badge on the right edge ---- */
+.qhead{background:var(--bk-strip-bg);padding:var(--bk-strip-pad);border-radius:var(--bk-strip-radius);box-shadow:inset 0 0 0 .08rem var(--bk-strip-edge)}
+.qhead .qtask{color:var(--bk-strip-ink);text-shadow:none}
+.quiz .qhead .qtsay,.qhead .qsay{color:var(--bk-strip-ink)}
+.qex{background:var(--bk-badge-bg);color:var(--bk-badge-ink);border-radius:var(--bk-badge-radius);box-shadow:none}
+.qex::before{content:var(--bk-badge-text);margin-inline-end:.3rem;font-size:.8em}
+:root[data-look] .qex{display:inline-flex;align-items:center;justify-content:center;height:1.6rem;width:auto;min-width:1.875rem;padding:var(--bk-badge-pad);white-space:nowrap}
+/* ===== css/clarity.css ===== */
+/* CLARITY (2026-11-03, Marwa): NO outline, stroke or shadow on any text (they blur small letters). Colours are NOT changed here.
+   Loaded last (before explainer, which has its own file). */
+:where(body *):not(.xpl):not(.xpl *){-webkit-text-stroke:0 !important;paint-order:normal !important;text-shadow:none !important}
+.hello b.gamelogo{font-size:clamp(2rem,4.6vw,3rem)}
+/* app logo: white with a silver-metallic gradient (no outline) */
+.gamelogo span::after{background:linear-gradient(#FFFFFF 15%,#EEF0F8 42%,#B7BDD0 58%,#F8F9FD 82%);-webkit-background-clip:text;background-clip:text}
+/* ===== css/explainer.css ===== */
+/* EXPLAINER — the Lesson-tab template for animated explanations (layout "explain", js/explainer.js). It sits in the lesson stage like
+   every lesson page: the app's header, rail buttons, dots and tabs stay; colours, fonts and the picture frame come from theme.css. */
+.scene.xhost{background:none;border:0;box-shadow:none;overflow:visible;justify-content:flex-start;align-items:stretch;padding:0}
+.scene.xhost::before,.scene.xhost::after{display:none}
+.xpl{display:grid;grid-template-columns:minmax(0,60fr) minmax(0,40fr);justify-content:stretch;grid-template-rows:minmax(0,1fr);gap:clamp(.2rem,1cqh,.6rem);height:100%;min-height:0;user-select:none;-webkit-user-select:none}
+/* landscape: picture + number sentence on the left, the writing on the right; portrait: writing under the picture */
+@media (orientation:portrait){.xpl{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,58fr) minmax(0,42fr)}.xpl-cap{--xfs:min(15cqh,6.8cqw,2.5rem)}}
+/* FIXED zones: the picture + number sentence zone and the writing zone never change size, so nothing moves when text is added.
+   No plain background: the app's coloured page shows; the picture has its own white frame (drawn in the SVG). */
+.xpl-stage{position:relative;min-height:0;overflow:visible}
+.xpl-svg{display:block;width:100%;height:100%;overflow:hidden}   /* the drawn scenes' sky/grass reach far past the frame: never over the dots/tabs */
+.xpl .xa.moving .xb-wing{animation:xflap .16s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:20% 90%}
+.xpl .xa.moving .xb-tail{animation:xflap .22s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:100% 50%}
+@keyframes xflap{to{transform:scaleY(-.7)}}
+.xpl .xring{fill:none;stroke-width:7;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.xpl .xbadge text,.xpl .xfly text{font:400 34px var(--f-title);fill:#fff}
+.xpl .xfly text{font-size:48px}
+.xpl .xeq rect{fill:var(--c-paper2);stroke:var(--ol);stroke-width:5}
+.xpl .xeq text{font:400 84px var(--f-title);fill:var(--ol)}
+.xpl .xeq.op text{font-size:96px;fill:#fff;stroke:var(--ol);stroke-width:5;paint-order:stroke}
+.xpl .xeq.dim rect{fill:rgba(255,255,255,.55);stroke:var(--c-muted);stroke-dasharray:14 10}
+.xpl .xeq.dim text{fill:var(--c-muted)}
+.xpl .xeq.op.dim text{opacity:.45}
+.xpl .xeq.lit rect{fill:var(--xc);stroke:#fff;stroke-width:6}
+.xpl .xeq.lit text{fill:#fff;stroke:rgba(0,0,0,.25);stroke-width:4;paint-order:stroke}
+/* the writing zone (.fit = size container): the line being said, then the story written like normal text */
+.xpl-cap{container-type:size;min-height:0;overflow:hidden;display:flex;align-items:center;justify-content:flex-start;flex-direction:column;padding:0 .5rem;
+  --xfs:min(8.5cqh,8cqw,2.7rem)}
+.xpl-capt{margin:auto 0;font:700 var(--xfs)/1.35 var(--f-read);color:var(--c-on-bg);text-align:center;unicode-bidi:plaintext}
+.xpl-capt[dir="rtl"]{font-family:var(--f-ar)}
+.xpl-cap.asking .xpl-capt{display:none}
+.xpl-ask{display:none;gap:clamp(.8rem,4cqw,1.6rem)}
+.xpl-cap.asking .xpl-ask{display:flex}
+/* the child's answer: the app's round number choices */
+.xpl-opt{width:var(--q-choice);height:var(--q-choice);border-radius:50%;border:.22rem solid var(--ol);background:var(--c-paper2);color:var(--ol);
+  font:400 calc(var(--q-choice)*.55) var(--f-title);cursor:pointer;box-shadow:0 .25rem 0 rgba(110,37,9,.45)}
+.xpl-opt.yes{background:var(--c-good);color:#fff;border-color:#fff}
+.xpl-opt.no{animation:xshake .45s;background:var(--c-bad);color:#fff}
+@keyframes xshake{20%,60%{transform:translateX(-.5rem)}40%,80%{transform:translateX(.5rem)}}
+/* the story sentence: written on the page like story text (no boxes); group words in their colour; read-aloud word lights up */
+.xpl-line{display:none;margin:auto 0;text-align:center;font:700 var(--xfs)/1.45 var(--f-read);color:var(--c-on-bg)}
+.xpl-cap.built .xpl-line{display:block}
+.xpl-cap.built .xpl-capt{display:none}
+.xpl-cap.asking.built .xpl-line{margin:0;min-height:2.9em}
+.xpl-line .xtw{display:inline-block;border-radius:.3em;transition:background .15s,color .15s}
+/* a group's words: plain text with a thick underline in the group's ring colour (no outline on letters) */
+.xpl-line .xtw.xcol{text-decoration:underline .14em var(--xc);text-underline-offset:.18em;text-decoration-skip-ink:none}
+.xpl-line .xtw.reading{background:var(--c-now-bg);color:var(--c-text);box-shadow:0 0 0 .12em var(--c-now-bg)}
+/* Try: the scattered pieces = rectangles; a chosen one is written on the line above */
+.xpl-cap.asking.built .xpl-ask{flex-wrap:wrap;justify-content:center;align-content:center;gap:.4rem .5rem;margin:auto 0;padding-top:.4rem;border-top:.12rem dashed var(--c-on-bg-line)}
+.xpl-ask .xpick{cursor:pointer;border-radius:.55rem;min-height:0;font-size:min(7cqh,6cqw,2rem);padding:.2em .7em}
+.xpl-ask .xpick.used{opacity:0;pointer-events:none}
+.xpl-ask .xpick.no{animation:xshake .45s}
+.xpl .xcross{stroke-width:11}
+.xpl .xhit{cursor:pointer;pointer-events:all}
+.xpl .xhold text{font-size:44px}
+
+/* the answer with its word as ONE card (Marwa 2026-11-03: number and word not loose with lines under them) */
+.xtw.xcard{display:inline-block;color:var(--c-text);background:var(--c-paper2,#FFF7E8);border-radius:.7rem;padding:.05em .55em;box-shadow:0 .2rem 0 var(--c-paper3,#E8D2A8);text-decoration:none}
+/* write (Try): the sentence places with a dash under each, the keypad under the writing */
+.xwrite{display:inline-flex;vertical-align:bottom;direction:ltr;white-space:nowrap}
+.xwrite .lt{display:inline-grid;min-width:.62em;justify-items:center;border-bottom:.2rem solid var(--c-on-bg-line);margin:0 .07em}
+.xwrite .lt.hid{color:transparent}.xwrite .lt.cur{border-bottom-color:var(--c-now-bg)}.xwrite .lt.bad{color:var(--c-bad-bg)!important}
+.xwrite .sp{display:inline-block;width:.28em}
+.xpl-ask .xkeys{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(.3rem,1.2cqw,.6rem)}
+.xpl-ask .xkeys .qmn{--q-choice:clamp(2.4rem,min(11cqw,13cqh),3.8rem)}
+.xpl-ask .xkeys .qmn.no,.xpl-ask .xans.no{animation:xshake .45s}
+.xpl-ask .xans.yes{background:var(--c-good);color:#fff}
+.xpl-cap .qxw.xwrite{font-size:inherit;line-height:inherit;font-weight:inherit;color:inherit}
+.xwrite .lt{min-width:.85em}
+/* ===== css/gramanim.css ===== */
+/* GRAMMAR ANIMATION template (js/gramanim.js): one animated page per grammar card. Relative units only; white text on colour. */
+.gan{display:grid;grid-template-rows:auto minmax(0,1fr) auto;height:100%;padding:.5rem 1rem 4.2rem;gap:.4rem;container-type:size;overflow:hidden}
+.gan-title{margin:0;text-align:center;font:400 clamp(1.1rem,4cqw,1.8rem)/1.2 var(--f-title);color:var(--c-hint)}
+.gan-box{position:relative;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;container-type:size;background:#2F6B4A;border-radius:1.2rem;box-shadow:0 .25rem 0 rgba(90,52,24,.3);padding:.6rem;color:var(--c-white);overflow:hidden}
+.gan-dots{display:flex;justify-content:center;gap:.7rem}
+.gan-dot{width:.9rem;height:.9rem;border-radius:50%;border:.14rem solid #fff;background:transparent;padding:0}
+.gan-dot.ok{background:rgba(255,255,255,.55)}.gan-dot.on{background:var(--c-hint);border-color:var(--c-hint);transform:scale(1.3)}
+/* sort: words fly into the bucket of their verb */
+.gs-tray{min-height:14cqh;display:flex;align-items:center;justify-content:center}
+.gs-bins{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2cqw;width:100%;align-items:start}
+.gs-bin{min-height:48cqh;border-radius:1rem;display:flex;flex-direction:column;align-items:center;padding:.4rem;gap:.4rem;min-height:0;background:var(--bc)}
+.gs-h{font:400 min(11cqh,10cqw)/1 var(--f-title);color:#fff;text-shadow:0 .15rem 0 rgba(0,0,0,.25)}
+.gs-stack{display:flex;flex-direction:column;gap:.35rem;align-items:center;width:100%}
+.gs-chip{font:700 min(8cqh,8.2cqw)/1.1 var(--f-read);background:rgba(255,255,255,.22);border:.14rem solid #fff;color:#fff;border-radius:.8rem;padding:.3rem .7rem;white-space:nowrap}
+.gs-tray .gs-chip{background:var(--bc);font-size:min(11cqh,10cqw)}
+.gs-v{color:var(--c-hint)}
+.c0{--bc:#E8782A}.c1{--bc:#2E8FEA}.c2{--bc:#3A9A2C}
+/* morph: the long sentence turns into the short one / the question */
+.gm-stack{display:grid;width:100%;place-items:center}
+.gm-line{grid-area:1/1;display:flex;flex-wrap:wrap;justify-content:center;gap:0 .6em;font:700 min(14cqh,11.5cqw)/1.35 var(--f-read);text-align:center}
+.gm-w{display:inline-block;color:#fff}
+.gm-t.chg{color:var(--c-hint)}
+.gm-ap{font-style:normal;color:#FF6A5C;display:inline-block;transform:scale(1.3)}
+.gm-ans{font:700 min(9cqh,8cqw)/1.3 var(--f-read);color:#E8F4EA}
+/* reveal: a picture and its sentence */
+.gr-list{display:flex;flex-direction:column;gap:.5rem;align-items:center;width:100%}
+.gr-list.one{height:100%;justify-content:center}
+.gr-row{display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.gr-list:not(.one) .gr-row{flex-direction:row;gap:1rem}
+.gr-fig{width:min(85cqw,52cqh)}
+.gr-svg{width:100%;height:auto;display:block;overflow:visible}
+.gr-t{font:700 min(11cqh,9cqw)/1.3 var(--f-read);text-align:center;color:#fff}
+.gr-list:not(.one) .gr-t{font-size:min(8cqh,5.6cqw)}
+.gr-hl{color:var(--c-hint)}
+/* pair: opposites */
+.gp-list{width:100%}
+.gp-row{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:2cqw}
+.gp-w{font:400 min(14cqh,9cqw)/1.1 var(--f-title);text-align:center;color:#fff;background:var(--bc);border-radius:1rem;padding:.8rem .4rem}
+.gp-m{width:min(14cqw,16cqh)}.gp-m svg{width:100%}
+/* ===== css/hug.css ===== */
+/* HUG RULE (Marwa 2026-11-01): a picture frame is exactly as big as its picture, never a white bar round it, in EVERY question / lesson type.
+   How: the picture is sized by its OWN shape (--ar = width / height, set in core.js when it loads) inside the room its place gives; aspect-ratio keeps the box that shape.
+   Loaded after every other css file. tools/check (screens.js "frame-gap") fails a frame that leaves more than 6px of empty space. A new picture place must use this too. */
+.qxpic,.qcp{container-type:size}
+.qxpic img,.qcp img{position:static;inset:auto;width:min(100cqw,calc(100cqh * var(--ar,1)));height:auto;aspect-ratio:var(--ar,1);max-width:none;max-height:none;object-fit:fill}
+.qxpic img:not([src$=".png" i]):not(.pf),.qcp img:not([src$=".png" i]):not(.pf){box-sizing:content-box;width:calc(min(100cqw,calc(100cqh * var(--ar,1))) - 2 * var(--pf-border))}   /* framed photo: its own ratio inside, the border is added round it */
+.qmp img{position:static;inset:auto;width:calc((var(--w,100%) - .375rem) * min(1,var(--ar,1)));height:auto;aspect-ratio:var(--ar,1);object-fit:fill}
+.pkpic img{height:auto;width:min(calc(.8 * 100cqw / var(--pc,2)),calc(.52 * 100cqh / var(--pr,2) * var(--ar,1)));aspect-ratio:var(--ar,1);max-width:none;object-fit:fill}
+.pkpic img:not([src$=".png" i]):not(.pf){box-sizing:content-box;width:calc(min(calc(.8 * 100cqw / var(--pc,2)),calc(.52 * 100cqh / var(--pr,2) * var(--ar,1))) - 2 * var(--pf-border))}   /* a picture is sized by its own cell (word-reading page) */
+.qmcount img{height:auto;max-height:none;width:min(100%,calc(42cqh / var(--r) * var(--ar,1)));aspect-ratio:var(--ar,1);object-fit:fill}
+.qmcount>img:only-child{width:min(70cqw,18.75rem,calc(30cqh * var(--ar,1)));max-height:none}
+.qmcount.grp>img{width:min(86cqw,28.75rem,calc(44cqh * var(--ar,1)));max-height:none}
+.xcol .xartbox img.xart,.xrow.pics .xart{box-sizing:content-box;height:auto;width:calc(min(100%,calc(5.2em * var(--ar,1))) - 2 * var(--pf-border));aspect-ratio:var(--ar,1);object-fit:fill}   /* content-box: the ratio is the picture's own, the border is added round it */
+/* choice ("Look, read, and circle"): the picture is sized by the room its place gives (container units), never by a percent of an auto-height flex item
+   (Safari/iPhone collapsed that to nothing = blank picture, Marwa 2026-11-01). Same pattern as .qxpic above. */
+.quiz[data-type="choice"] .qpic.one{container-type:size}
+.quiz[data-type="choice"] .qpic.one img{width:min(100cqw,calc(100cqh * var(--ar,1)));height:auto;aspect-ratio:var(--ar,1);max-width:none;max-height:none;object-fit:fill}
+#lesson.q-port .quiz[data-type="choice"] .qpic.one{width:100%;align-self:stretch}
+/* Arabic "circle" centre picture: same hug rule as the other frames */
+.qcenter.pic{container-type:size}
+.qcenter.pic img{position:static;inset:auto;max-width:none;max-height:none;object-fit:fill;height:auto;aspect-ratio:var(--ar,1);width:min(100cqw,calc(100cqh * var(--ar,1)))}
+.qcenter.pic img:not([src$=".png" i]):not(.pf-x){box-sizing:content-box;width:calc(min(100cqw,calc(100cqh * var(--ar,1))) - 2 * var(--pf-border))}
+
+/* ONE speaker-icon size everywhere (Marwa 2026-11-04): --icon-speaker in theme.css; the touch box is the icon + a margin */
+:is(#lesson,#exam,#map,.exam) :is(.qsay,.vsay,.vm-say,.alsp,.alreplay) svg{width:var(--icon-speaker);height:var(--icon-speaker)}
+:is(#lesson,#exam,#map,.exam) :is(.qsay,.vsay,.vm-say,.alsp,.alreplay){width:calc(var(--icon-speaker) + .7rem);height:calc(var(--icon-speaker) + .7rem);margin:0}

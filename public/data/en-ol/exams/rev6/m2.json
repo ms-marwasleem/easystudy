@@ -1,0 +1,259 @@
+{
+ "title": "Test 2",
+ "ratio": 0.707,
+ "head": {
+  "l": "Department of English<br>1st Term OL Booklet Grade 1<br>2026/2027",
+  "r": "Noor El Elm<br>Modern School"
+ },
+ "pages": [
+  {
+   "title": "Model 2",
+   "chip": "Model 2",
+   "foot": 36,
+   "blocks": [
+    {
+     "t": "q",
+     "n": "1",
+     "text": "Listen and write the missing letters:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/umbrella-u6l4.png"
+          },
+          {
+           "t": "text",
+           "text": "[[u:tiny]] m b r e l l a",
+           "listen": "umbrella"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/lemon-u6l2.png"
+          },
+          {
+           "t": "text",
+           "text": "[[l:tiny]] e m o n",
+           "listen": "lemon"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/banana-u4l2.png"
+          },
+          {
+           "t": "text",
+           "text": "[[b:tiny]] a n a n a",
+           "listen": "banana"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "Read and choose the correct answer:",
+     "body": [
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "1- Cats and"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "lions",
+          "dogs"
+         ],
+         "answer": 1,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "are pets."
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "2- The bird is"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "in",
+          "of"
+         ],
+         "answer": 0,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "the cage."
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "3- "
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "What",
+          "Where"
+         ],
+         "answer": 1,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "is the ball? - It's under the chair."
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "4- I can see a"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "bike",
+          "tiger"
+         ],
+         "answer": 1,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "in the jungle."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Unscramble and write:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/en-bk-cage.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>c e a g</span> [[cage:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/lunch-u6l2.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>c n h u l</span> [[lunch:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/jam-u6l4.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>m a j</span> [[jam:wide]]"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Reorder to form sentences:",
+     "body": [
+      {
+       "t": "order",
+       "words": [
+        "is",
+        "The",
+        "under",
+        "the",
+        "cat",
+        "chair"
+       ],
+       "answer": "The cat is under the chair"
+      },
+      {
+       "t": "order",
+       "words": [
+        "has",
+        "giraffe",
+        "legs",
+        "The",
+        "four"
+       ],
+       "answer": "The giraffe has four legs"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

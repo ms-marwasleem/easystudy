@@ -1,14 +1,66 @@
 {
  "sets": [
   {
+   "type": "circle",
+   "ex": 1,
+   "page": 76,
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْحُرُوفِ الَّتِي تَعَلَّمْتُهَا فِي هَذِهِ الْوَحْدَةِ",
+   "taskAudio": "q/task-1.mp3",
+   "hint": "اضغط على حروف الوحدة",
+   "items": [
+    {
+     "word": "أ",
+     "text": "أ",
+     "answer": true
+    },
+    {
+     "word": "ل",
+     "text": "ل",
+     "answer": true
+    },
+    {
+     "word": "ز",
+     "text": "ز",
+     "answer": false
+    },
+    {
+     "word": "س",
+     "text": "س",
+     "answer": true
+    },
+    {
+     "word": "ن",
+     "text": "ن",
+     "answer": true
+    },
+    {
+     "word": "غ",
+     "text": "غ",
+     "answer": false
+    },
+    {
+     "word": "ر",
+     "text": "ر",
+     "answer": true
+    },
+    {
+     "word": "ف",
+     "text": "ف",
+     "answer": true
+    }
+   ]
+  },
+  {
    "type": "choice",
    "ex": 1,
    "page": 73,
    "task": "أَخْتَارُ الْكَلِمَةَ الْمُنَاسِبَةَ الْمَوْجُودَةَ فِي الْقِصَّةِ",
    "taskAudio": "../q-prompts/choose-answer.mp3",
    "hint": "اختار الكلمة الصح",
+   "book": "booklet",
    "items": [
     {
+     "word": "يَأْكُلُ الدُّبُّ السَّمَكَ.",
      "pic": "../../pics/ar-bear-book.jpg",
      "lead": "يَأْكُلُ الدُّبُّ",
      "options": [
@@ -17,10 +69,10 @@
       "الْجُبْنَ"
      ],
      "answer": 1,
-     "audio": "q/c-bear.mp3",
-     "word": "يَأْكُلُ الدُّبُّ السَّمَكَ."
+     "audio": "q/c-bear.mp3"
     },
     {
+     "word": "يَأْكُلُ الْجَمَلُ الْخَسَّ.",
      "pic": "../../pics/ar-camel-book.jpg",
      "lead": "يَأْكُلُ الْجَمَلُ",
      "options": [
@@ -29,10 +81,10 @@
       "الْخَسَّ"
      ],
      "answer": 2,
-     "audio": "q/c-camel.mp3",
-     "word": "يَأْكُلُ الْجَمَلُ الْخَسَّ."
+     "audio": "q/c-camel.mp3"
     },
     {
+     "word": "يَأْكُلُ الْفَرَسُ السُّكَّرَ.",
      "pic": "../../pics/ar-horse-book.jpg",
      "lead": "يَأْكُلُ الْفَرَسُ",
      "options": [
@@ -41,10 +93,10 @@
       "الْجُبْنَ"
      ],
      "answer": 1,
-     "audio": "q/c-horse.mp3",
-     "word": "يَأْكُلُ الْفَرَسُ السُّكَّرَ."
+     "audio": "q/c-horse.mp3"
     },
     {
+     "word": "يَأْكُلُ الْفَأْرُ الْجُبْنَ.",
      "pic": "../../pics/ar-mouse.png",
      "lead": "يَأْكُلُ الْفَأْرُ",
      "options": [
@@ -53,10 +105,10 @@
       "السَّمَكَ"
      ],
      "answer": 1,
-     "audio": "q/c-mouse.mp3",
-     "word": "يَأْكُلُ الْفَأْرُ الْجُبْنَ."
+     "audio": "q/c-mouse.mp3"
     },
     {
+     "word": "يَأْكُلُ الْأَسَدُ الْفَأْرَ.",
      "pic": "../../pics/ar-lion.png",
      "lead": "يَأْكُلُ الْأَسَدُ",
      "options": [
@@ -65,8 +117,7 @@
       "الْفَأْرَ"
      ],
      "answer": 2,
-     "audio": "q/c-lion.mp3",
-     "word": "يَأْكُلُ الْأَسَدُ الْفَأْرَ."
+     "audio": "q/c-lion.mp3"
     }
    ]
   },
@@ -78,6 +129,7 @@
    "task": "أُرَتِّبُ الْكَلِمَاتِ لِأَصِفَ الصُّورَةَ",
    "taskAudio": "q/p-arrange-words.mp3",
    "hint": "رتب الكلمات",
+   "book": "booklet",
    "items": [
     {
      "word": "يَأْكُلُ الْجَمَلُ الْخَسَّ",
@@ -98,6 +150,7 @@
    "task": "أَصِلُ كُلَّ حَيَوَانٍ بِطَعَامِهِ الْمُفَضَّلِ",
    "taskAudio": "../q-prompts/match-picture.mp3",
    "hint": "صل كل حيوان بطعامه",
+   "book": "booklet",
    "items": [
     {
      "word": "الْأَسَد",
@@ -123,6 +176,69 @@
      "word": "الْفَرَس",
      "audio": "q/l-horse.mp3",
      "pic": "../../pics/ar-sugar.jpg"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "ex": 3,
+   "page": 78,
+   "task": "أَنْطِقُ، وَأَكْتُبُ الْحَرْفَ الْأَوَّلَ مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار الحرف الأول بالحركة الصح",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "لَبَن",
+     "audio": "../u2l3/words/laban.mp3",
+     "pic": "../../pics/ar-milk.png",
+     "answer": 0,
+     "options": [
+      "لَ",
+      "لُ",
+      "لِ"
+     ],
+     "lead": "الْحَرْفُ الْأَوَّلُ فِي لَبَن",
+     "tail": ""
+    },
+    {
+     "word": "سُلَحْفَاة",
+     "audio": "../u2l4/q/w-sulhufa.mp3",
+     "pic": "../../pics/ar-turtle.png",
+     "answer": 1,
+     "options": [
+      "سَ",
+      "سُ",
+      "سِ"
+     ],
+     "lead": "الْحَرْفُ الْأَوَّلُ فِي سُلَحْفَاة",
+     "tail": ""
+    },
+    {
+     "word": "فَرَاشَة",
+     "audio": "../u2l7/words/farasha.mp3",
+     "pic": "../../pics/ar-butterfly.jpg",
+     "answer": 0,
+     "options": [
+      "فَ",
+      "فُ",
+      "فِ"
+     ],
+     "lead": "الْحَرْفُ الْأَوَّلُ فِي فَرَاشَة",
+     "tail": ""
+    },
+    {
+     "word": "نَمِر",
+     "audio": "../u2l5/words/nimr.mp3",
+     "pic": "../../pics/ar-tiger.png",
+     "answer": 0,
+     "options": [
+      "نَ",
+      "نُ",
+      "نِ"
+     ],
+     "lead": "الْحَرْفُ الْأَوَّلُ فِي نَمِر",
+     "tail": ""
     }
    ]
   }

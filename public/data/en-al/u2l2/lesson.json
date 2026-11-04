@@ -1,0 +1,532 @@
+{
+ "unit": 2,
+ "lesson": 2,
+ "title": "How I Learn",
+ "sceneAlt": "A day in our classroom",
+ "tabs": [
+  "words",
+  "booklet",
+  "grammar"
+ ],
+ "type": "al",
+ "scene": "img/scene.jpg",
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "point",
+   "ar": "يشير",
+   "img": "../../pics/point.png",
+   "parts": [
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "oi",
+     "ph": "oi",
+     "audio": "../../phonics/oi.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/point.mp3"
+   }
+  },
+  {
+   "word": "read",
+   "ar": "يقرأ",
+   "img": "../../pics/read.png",
+   "parts": [
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "ea",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/read.mp3"
+   }
+  },
+  {
+   "word": "say",
+   "ar": "يقول",
+   "img": "../../pics/say.png",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "ay",
+     "ph": "ai",
+     "audio": "../../phonics/ai.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/say.mp3"
+   }
+  },
+  {
+   "word": "answer",
+   "ar": "يجيب",
+   "img": "../../pics/answer.png",
+   "parts": [
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "w",
+     "ph": "w",
+     "audio": "../../phonics/w.mp3",
+     "spell": true
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/answer.mp3"
+   }
+  },
+  {
+   "word": "ask",
+   "ar": "يسأل",
+   "img": "../../pics/ask.png",
+   "parts": [
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/ask.mp3"
+   }
+  },
+  {
+   "word": "write",
+   "ar": "يكتب",
+   "img": "../../pics/write.jpg",
+   "parts": [
+    {
+     "t": "wr",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "igh",
+     "audio": "../../phonics/igh.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3",
+     "spell": true
+    }
+   ],
+   "audio": {
+    "word": "words/write.mp3"
+   }
+  },
+  {
+   "word": "sit down",
+   "ar": "يجلس",
+   "img": "../../pics/sitdown-u2.png",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": " ",
+     "ph": ""
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "ow",
+     "ph": "ow",
+     "audio": "../../phonics/ow.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/sit down.mp3"
+   }
+  },
+  {
+   "word": "stand up",
+   "ar": "يقف",
+   "img": "../../pics/standup-u2.png",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": " ",
+     "ph": ""
+    },
+    {
+     "t": "u",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/stand up.mp3"
+   }
+  },
+  {
+   "word": "open",
+   "ar": "يفتح",
+   "img": "../../pics/open.jpg",
+   "parts": [
+    {
+     "t": "o",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/open.mp3"
+   }
+  },
+  {
+   "word": "close",
+   "ar": "يغلق",
+   "img": "../../pics/close.jpg",
+   "parts": [
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    },
+    {
+     "t": "se",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/close.mp3"
+   }
+  }
+ ],
+ "lines": [],
+ "end": 1,
+ "grammar": [
+  {
+   "title": "Imperative verbs",
+   "note": "We use imperative verbs to give orders and instructions.",
+   "rows": [
+    [
+     {
+      "t": "Stand up.",
+      "a": "data/en-shared/q/stand-up.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Sit down.",
+      "a": "data/en-shared/q/sit-down.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Open the door.",
+      "a": "data/en-shared/q/open-the-door.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Close the door.",
+      "a": "data/en-shared/q/close-the-door.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Don't talk.",
+      "a": "data/en-shared/q/don-t-talk.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Don't open the box.",
+      "a": "data/en-shared/q/don-t-open-the-box.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "reveal",
+    "one": true,
+    "items": [
+     {
+      "t": "Stand up.",
+      "a": "data/en-shared/q/stand-up.mp3",
+      "hl": "Stand"
+     },
+     {
+      "t": "Sit down.",
+      "a": "data/en-shared/q/sit-down.mp3",
+      "hl": "Sit"
+     },
+     {
+      "t": "Open the door.",
+      "a": "data/en-shared/q/open-the-door.mp3",
+      "hl": "Open"
+     },
+     {
+      "t": "Close the door.",
+      "a": "data/en-shared/q/close-the-door.mp3",
+      "hl": "Close"
+     },
+     {
+      "t": "Don't talk.",
+      "a": "data/en-shared/q/don-t-talk.mp3",
+      "hl": "Don't"
+     },
+     {
+      "t": "Don't open the box.",
+      "a": "data/en-shared/q/don-t-open-the-box.mp3",
+      "hl": "Don't"
+     }
+    ]
+   }
+  },
+  {
+   "title": "Opposite instructions",
+   "note": "Put Don't before the verb to say no.",
+   "rows": [
+    [
+     {
+      "t": "Open the box.",
+      "a": "data/en-shared/q/open-the-box.mp3"
+     },
+     {
+      "t": "Don't open the box.",
+      "a": "data/en-shared/q/don-t-open-the-box.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Cut the trees.",
+      "a": "data/en-shared/q/cut-the-trees.mp3"
+     },
+     {
+      "t": "Don't cut the trees.",
+      "a": "data/en-shared/q/don-t-cut-the-trees.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Talk to your friends.",
+      "a": "data/en-shared/q/talk-to-your-friends.mp3"
+     },
+     {
+      "t": "Don't talk to your friends.",
+      "a": "data/en-shared/q/don-t-talk-to-your-friends.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "morph",
+    "steps": [
+     {
+      "from": "Open the box.",
+      "to": "Don't open the box.",
+      "map": [
+       [],
+       [
+        0
+       ],
+       [
+        1
+       ],
+       [
+        2
+       ]
+      ],
+      "hl": [
+       0
+      ],
+      "fa": "data/en-shared/q/open-the-box.mp3",
+      "ta": "data/en-shared/q/don-t-open-the-box.mp3"
+     },
+     {
+      "from": "Cut the trees.",
+      "to": "Don't cut the trees.",
+      "map": [
+       [],
+       [
+        0
+       ],
+       [
+        1
+       ],
+       [
+        2
+       ]
+      ],
+      "hl": [
+       0
+      ],
+      "fa": "data/en-shared/q/cut-the-trees.mp3",
+      "ta": "data/en-shared/q/don-t-cut-the-trees.mp3"
+     },
+     {
+      "from": "Talk to your friends.",
+      "to": "Don't talk to your friends.",
+      "map": [
+       [],
+       [
+        0
+       ],
+       [
+        1
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ]
+      ],
+      "hl": [
+       0
+      ],
+      "fa": "data/en-shared/q/talk-to-your-friends.mp3",
+      "ta": "data/en-shared/q/don-t-talk-to-your-friends.mp3"
+     }
+    ]
+   }
+  }
+ ]
+}

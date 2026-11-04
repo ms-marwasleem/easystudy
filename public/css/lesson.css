@@ -46,8 +46,10 @@
    The picture of the word being read pops up a little. */
 .scene.pics{background:var(--noise),var(--cream);justify-content:flex-start;align-items:stretch;padding:0.75rem 1rem 0.625rem}
 .scene.pics .task{flex:none;padding-inline-end:4.375rem;margin:0}
-.pkarea{position:relative;flex:1 1 0;min-height:0;container-type:size}
-.pk{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:2px;font-family:var(--f-read)}
+.pkarea{--pc:var(--pcP,2);--pr:var(--prP,2);position:relative;flex:1 1 0;min-height:0;container-type:size;display:flex;flex-wrap:wrap;justify-content:center;align-content:center}
+@media (min-aspect-ratio:5/4){.pkarea{--pc:var(--pcL,4);--pr:var(--prL,2)}}
+/* every picture + its word sits in an equal cell (columns x rows from lesson.js showPics) */
+.pk{position:relative;flex:0 0 calc(100% / var(--pc));height:calc(100% / var(--pr));min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-family:var(--f-read)}
 .pkpic{display:block;padding:0;background:none;border:0;cursor:pointer}
 .pkpic img{display:block;height:calc(var(--k,1) * min(22cqh,34cqw));max-width:var(--mw,34cqw);object-fit:contain;transition:transform .25s ease-out;filter:drop-shadow(0 0.1875rem 2px rgba(90,52,24,.25))}
 .pk.on .pkpic img{transform:scale(1.15)}
@@ -74,7 +76,7 @@
 .garage p{font-size:2.125rem;margin:0.625rem 0 0.375rem}
 .garage span{font-family:var(--f-hand);font-size:1.375rem}
 
-.tabs{display:flex;justify-content:center;gap:0.625rem;min-width:0;padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabs{display:flex;justify-content:center;gap:0.625rem;min-width:0;padding-bottom:max(0px,calc(env(safe-area-inset-bottom,0px) - .9rem))}   /* the phone home bar needs only a little room (Marwa 2026-11-03: empty band under the tabs) */
 .tab{font-size:1.25rem;padding:.3em 1.1em .4em;--t:#FFF8E6;--b:#F1D9A8;color:var(--ol);-webkit-text-stroke:0;text-shadow:none}
 .tab svg{width:1.375rem;height:1.375rem;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
 .tab .st{width:1.5rem;height:1.5rem;display:inline-block}
@@ -113,11 +115,6 @@
 .bks{margin:0;padding:0 .15em;border-radius:.4em;cursor:pointer;transition:background .2s}
 .bks.on{background:rgba(255,203,46,.35)}
 .bks .w{padding:0 .08em}
-.pk.two{left:var(--lx);top:var(--ly)}
-.scene.pics .pk.two .pkpic img{height:calc(var(--k,1) * min(20cqh,22cqw))}
-.pk.two{width:46cqw}
-.scene.pics.wrap .pk.two .txt{font-size:clamp(0.8125rem,min(4.6cqh,3.5cqw),1.5rem);max-width:none;line-height:1.2}
-@media (min-aspect-ratio:5/4){.pk.two{width:31cqw}}
 .pk .txt.on{background:rgba(255,203,46,.35);border-radius:.4em}
 /* a lesson page 1 with the whole picture beside a long dialog: give the words the larger share */
 @media (min-aspect-ratio:5/4){.scene.book.long .bpic{flex:.85 1 0}.scene.book.long .note{flex:1.25 1 0;max-width:none;margin:0 0.5rem}.scene.book.long .txt{font-size:clamp(0.8125rem,min(2.4vw,3vh),1.4375rem);line-height:1.25}.scene.book.long .who{font-size:clamp(0.75rem,min(2.1vw,2.6vh),1.25rem)}}
@@ -126,7 +123,6 @@
   .bk{--c:var(--arP)}
   .bkpic{left:var(--px);top:var(--py);width:var(--pw)}
   .bkb{left:var(--px);top:var(--py);width:var(--pw);font-size:calc(var(--pf) * 1cqw)}
-  .pk.two{left:var(--px);top:var(--py)}
 }
 /* lesson pages: previous on the left, NEXT on the right, also in Arabic */
 .pager{direction:ltr}

@@ -1,0 +1,6 @@
+/* CLARITY (2026-11-03, Marwa): NO outline, stroke or shadow on any text (they blur small letters). Colours are NOT changed here.
+   Loaded last (before explainer, which has its own file). */
+:where(body *):not(.xpl):not(.xpl *){-webkit-text-stroke:0 !important;paint-order:normal !important;text-shadow:none !important}
+.hello b.gamelogo{font-size:clamp(2rem,4.6vw,3rem)}
+/* app logo: white with a silver-metallic gradient (no outline) */
+.gamelogo span::after{background:linear-gradient(#FFFFFF 15%,#EEF0F8 42%,#B7BDD0 58%,#F8F9FD 82%);-webkit-background-clip:text;background-clip:text}

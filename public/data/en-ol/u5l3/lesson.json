@@ -1,0 +1,517 @@
+{
+ "id": "u5l3",
+ "unit": 5,
+ "lesson": 3,
+ "title": "Numbers From 6 to 10",
+ "task": "Listen to the following dialog.",
+ "scene": "scene.jpg",
+ "sceneAlt": "Sara and Tamer counting horses and ducks on the farm",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "speakers": {
+  "Sara": "#1E78C8",
+  "Tamer": "#D93D3D",
+  "Numbers": "#D93D78"
+ },
+ "pages": 2,
+ "compact": true,
+ "pageLayouts": [
+  "text",
+  "pictures"
+ ],
+ "pageTasks": [
+  "Listen to the following dialog.",
+  "Listen, count, and repeat."
+ ],
+ "pagesBook": [
+  94,
+  95
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "six",
+   "ar": "ستة",
+   "img": "../../pics/numcard-6-u5l3.jpg",
+   "parts": [
+    {
+     "t": "si",
+     "ph": "s_i",
+     "audio": "../../phonics/chunks/s_i.mp3"
+    },
+    {
+     "t": "x",
+     "ph": "x",
+     "audio": "../../phonics/x.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/six.mp3"
+   }
+  },
+  {
+   "word": "seven",
+   "ar": "سبعة",
+   "img": "../../pics/numcard-7-u5l3.jpg",
+   "parts": [
+    {
+     "t": "se",
+     "ph": "s_e",
+     "audio": "../../phonics/chunks/s_e.mp3"
+    },
+    {
+     "t": "ve",
+     "ph": "v_e",
+     "audio": "../../phonics/chunks/v_e.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/seven.mp3"
+   }
+  },
+  {
+   "word": "eight",
+   "ar": "ثمانية",
+   "img": "../../pics/numcard-8-u5l3.jpg",
+   "parts": [
+    {
+     "t": "ei",
+     "ph": "ai",
+     "audio": "../../phonics/ai.mp3"
+    },
+    {
+     "t": "gh",
+     "spell": true,
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/eight.mp3"
+   }
+  },
+  {
+   "word": "nine",
+   "ar": "تسعة",
+   "img": "../../pics/numcard-9-u5l3.jpg",
+   "parts": [
+    {
+     "t": "ni",
+     "ph": "n_igh",
+     "audio": "../../phonics/chunks/n_igh.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/nine.mp3"
+   }
+  },
+  {
+   "word": "ten",
+   "ar": "عشرة",
+   "img": "../../pics/numcard-10-u5l3.jpg",
+   "parts": [
+    {
+     "t": "te",
+     "ph": "t_e",
+     "audio": "../../phonics/chunks/t_e.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/ten.mp3"
+   }
+  }
+ ],
+ "_note": "Book p94 dialog (Sara and Tamer), p95 numbers 6-10 (cards). Tracing skipped.",
+ "lines": [
+  {
+   "who": "Sara",
+   "page": 1,
+   "words": [
+    [
+     "Hi,",
+     0.03,
+     0.42
+    ],
+    [
+     "Tamer!",
+     0.42,
+     1.02
+    ]
+   ]
+  },
+  {
+   "who": "Tamer",
+   "page": 1,
+   "words": [
+    [
+     "Hi,",
+     1.57,
+     2.04
+    ],
+    [
+     "Sara!",
+     2.04,
+     2.54
+    ]
+   ]
+  },
+  {
+   "who": "Sara",
+   "page": 1,
+   "words": [
+    [
+     "How",
+     3.09,
+     3.36
+    ],
+    [
+     "many",
+     3.36,
+     3.58
+    ],
+    [
+     "horses",
+     3.58,
+     4.1
+    ],
+    [
+     "can",
+     4.1,
+     4.41
+    ],
+    [
+     "you",
+     4.41,
+     4.59
+    ],
+    [
+     "see?",
+     4.59,
+     4.83
+    ]
+   ]
+  },
+  {
+   "who": "Tamer",
+   "page": 1,
+   "words": [
+    [
+     "I",
+     5.46,
+     5.65
+    ],
+    [
+     "can",
+     5.65,
+     5.92
+    ],
+    [
+     "see",
+     5.92,
+     6.23
+    ],
+    [
+     "7",
+     6.23,
+     6.75
+    ],
+    [
+     "horses!",
+     6.75,
+     7.19
+    ]
+   ]
+  },
+  {
+   "who": "Sara",
+   "page": 1,
+   "words": [
+    [
+     "Let's",
+     7.75,
+     8.13
+    ],
+    [
+     "count",
+     8.13,
+     8.41
+    ],
+    [
+     "the",
+     8.41,
+     8.79
+    ],
+    [
+     "ducks.",
+     8.79,
+     9.05
+    ]
+   ]
+  },
+  {
+   "who": "Tamer",
+   "page": 1,
+   "words": [
+    [
+     "Okay!",
+     9.61,
+     10.13
+    ],
+    [
+     "1,",
+     10.13,
+     10.29
+    ],
+    [
+     "2,",
+     10.29,
+     10.76
+    ],
+    [
+     "3,",
+     10.76,
+     11.14
+    ],
+    [
+     "4,",
+     11.14,
+     11.52
+    ],
+    [
+     "5,",
+     11.52,
+     11.82
+    ],
+    [
+     "6,",
+     11.82,
+     12.21
+    ],
+    [
+     "7,",
+     12.21,
+     12.71
+    ],
+    [
+     "8,",
+     12.71,
+     13.04
+    ],
+    [
+     "and",
+     13.04,
+     13.22
+    ],
+    [
+     "9",
+     13.22,
+     13.67
+    ]
+   ]
+  },
+  {
+   "who": "Sara",
+   "page": 1,
+   "words": [
+    [
+     "There",
+     14.22,
+     14.55
+    ],
+    [
+     "are",
+     14.55,
+     14.76
+    ],
+    [
+     "9",
+     14.76,
+     15.28
+    ],
+    [
+     "ducks!",
+     15.28,
+     15.57
+    ]
+   ]
+  },
+  {
+   "who": "Tamer",
+   "page": 1,
+   "words": [
+    [
+     "That's",
+     16.12,
+     16.37
+    ],
+    [
+     "a",
+     16.37,
+     16.6
+    ],
+    [
+     "lot",
+     16.6,
+     17.07
+    ],
+    [
+     "of",
+     17.07,
+     17.33
+    ],
+    [
+     "animals!",
+     17.33,
+     17.76
+    ]
+   ]
+  },
+  {
+   "who": "Sara",
+   "page": 1,
+   "words": [
+    [
+     "Counting",
+     18.32,
+     18.84
+    ],
+    [
+     "farm",
+     18.84,
+     19.22
+    ],
+    [
+     "animals",
+     19.22,
+     19.91
+    ],
+    [
+     "is",
+     19.91,
+     20.01
+    ],
+    [
+     "fun.",
+     20.01,
+     20.38
+    ]
+   ]
+  },
+  {
+   "who": "Numbers",
+   "page": 2,
+   "words": [
+    [
+     "six",
+     20.94,
+     21.49
+    ]
+   ],
+   "pic": "../../pics/numcard-6-u5l3.jpg",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Numbers",
+   "page": 2,
+   "words": [
+    [
+     "seven",
+     22.76,
+     23.43
+    ]
+   ],
+   "pic": "../../pics/numcard-7-u5l3.jpg",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Numbers",
+   "page": 2,
+   "words": [
+    [
+     "eight",
+     24.69,
+     25.2
+    ]
+   ],
+   "pic": "../../pics/numcard-8-u5l3.jpg",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Numbers",
+   "page": 2,
+   "words": [
+    [
+     "nine",
+     26.47,
+     27.1
+    ]
+   ],
+   "pic": "../../pics/numcard-9-u5l3.jpg",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Numbers",
+   "page": 2,
+   "words": [
+    [
+     "ten",
+     28.35,
+     28.94
+    ]
+   ],
+   "pic": "../../pics/numcard-10-u5l3.jpg",
+   "pos": [
+    50,
+    50
+   ]
+  }
+ ],
+ "end": 28.94
+}

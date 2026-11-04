@@ -11,3 +11,4 @@
 :is(.qpic,.qxpic,.qmp,.qcp,.qlkp,.pkpic,.vimgwrap,.lcard,.wlet,.wpic,.lpic,.qarpic,.qcenter.pic,.qmcount,.mxend,.qplay,.bpic) img[src$=".png" i]:not(.pf):not([src^="data:"]),
 .vimg.cut:not(.pf):not([src^="data:"]){background:none;border:0;border-radius:0;box-shadow:none;filter:var(--cut-shadow);transform:none}
 .qmp.done img[src$=".png" i]:not(.pf){box-shadow:none;filter:var(--cut-ring) var(--cut-shadow)}
+

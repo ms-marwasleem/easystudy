@@ -1,63 +1,11 @@
 {
  "templates": [
   {
-   "id": "start-match",
-   "text": "Match the objects that start with the letter ({letter}).",
-   "vars": [
-    "letter"
-   ],
-   "parts": [
-    {
-     "t": "Match the objects that start with the letter",
-     "path": "en-shared/t/start-match-0.mp3"
-    },
-    {
-     "v": "letter"
-    }
-   ]
-  },
-  {
    "id": "start-circle",
    "text": "Circle {which} that start with the letter ({letter}).",
    "vars": [
     "which",
     "letter"
-   ],
-   "parts": [
-    {
-     "t": "Circle",
-     "path": "en-shared/t/start-circle-0.mp3"
-    },
-    {
-     "v": "which"
-    },
-    {
-     "t": "that start with the letter",
-     "path": "en-shared/t/start-circle-1.mp3"
-    },
-    {
-     "v": "letter"
-    }
-   ]
-  },
-  {
-   "id": "circle-colour",
-   "text": "Circle all the {colour} objects.",
-   "vars": [
-    "colour"
-   ],
-   "parts": [
-    {
-     "t": "Circle all the",
-     "path": "en-shared/t/circle-colour-0.mp3"
-    },
-    {
-     "v": "colour"
-    },
-    {
-     "t": "objects",
-     "path": "en-shared/t/circle-colour-1.mp3"
-    }
    ]
   },
   {
@@ -66,22 +14,6 @@
    "vars": [
     "thing",
     "colour"
-   ],
-   "parts": [
-    {
-     "t": "The",
-     "path": "en-shared/t/thing-colour-0.mp3"
-    },
-    {
-     "v": "thing"
-    },
-    {
-     "t": "is",
-     "path": "en-shared/t/thing-colour-1.mp3"
-    },
-    {
-     "v": "colour"
-    }
    ]
   },
   {
@@ -89,31 +21,6 @@
    "text": "This is a {thing}.",
    "vars": [
     "thing"
-   ],
-   "parts": [
-    {
-     "t": "This is a",
-     "path": "en-shared/t/this-is-a-0.mp3"
-    },
-    {
-     "v": "thing"
-    }
-   ]
-  },
-  {
-   "id": "this-is-my",
-   "text": "This is my {person}.",
-   "vars": [
-    "person"
-   ],
-   "parts": [
-    {
-     "t": "This is my",
-     "path": "en-shared/t/this-is-my-0.mp3"
-    },
-    {
-     "v": "person"
-    }
    ]
   },
   {
@@ -121,591 +28,347 @@
    "text": "I can see {thing}.",
    "vars": [
     "thing"
-   ],
-   "parts": [
-    {
-     "t": "I can see",
-     "path": "en-shared/t/i-can-see-0.mp3"
-    },
-    {
-     "v": "thing"
-    }
-   ]
-  },
-  {
-   "id": "i-have",
-   "text": "I have {n} {thing}.",
-   "vars": [
-    "n",
-    "thing"
-   ],
-   "parts": [
-    {
-     "t": "I have",
-     "path": "en-shared/t/i-have-0.mp3"
-    },
-    {
-     "v": "n"
-    },
-    {
-     "v": "thing"
-    }
-   ]
-  },
-  {
-   "id": "there-are",
-   "text": "There are {n} {thing}.",
-   "vars": [
-    "n",
-    "thing"
-   ],
-   "parts": [
-    {
-     "t": "There are",
-     "path": "en-shared/t/there-are-0.mp3"
-    },
-    {
-     "v": "n"
-    },
-    {
-     "v": "thing"
-    }
    ]
   }
  ],
  "entries": [
   {
-   "path": "en-shared/q/listen-point-and-mark-the-matching-picture.mp3",
-   "text": "Listen, point, and mark the matching picture."
-  },
-  {
-   "path": "en-shared/q/look-at-the-picture-and-the-word-do-they-match.mp3",
-   "text": "Look at the picture and the word. Do they match?"
-  },
-  {
-   "path": "en-shared/q/start-match-tt.mp3",
-   "text": "Match the objects that start with the letter (Tt).",
-   "template": "start-match",
-   "params": {
-    "letter": "Tt"
-   },
-   "vals": {
-    "letter": "en-shared/v/tt.mp3"
-   }
-  },
-  {
-   "path": "en-shared/q/look-at-the-picture-then-circle-the-beginning-letter.mp3",
-   "text": "Look at the picture then circle the beginning letter."
-  },
-  {
-   "path": "en-shared/q/write-the-beginning-letter-in-each-word.mp3",
-   "text": "Write the beginning letter in each word."
-  },
-  {
-   "path": "en-shared/q/circle-the-pictures-that-you-can-find-in-your-classroom.mp3",
-   "text": "Circle the pictures that you can find in your classroom."
-  },
-  {
-   "path": "en-shared/q/look-at-the-picture-and-the-word-put-a-tick-if-they-match-an.mp3",
-   "text": "Look at the picture and the word. Put a tick if they match, and a cross if they don't."
-  },
-  {
-   "path": "en-shared/q/listen-point-and-write-a-tick-for-the-matching-picture.mp3",
-   "text": "Listen, point, and write a tick for the matching picture."
-  },
-  {
-   "path": "en-shared/q/start-match-ii.mp3",
-   "text": "Match the objects that start with the letter (Ii).",
-   "template": "start-match",
-   "params": {
-    "letter": "Ii"
-   },
-   "vals": {
-    "letter": "en-shared/v/ii.mp3"
-   }
-  },
-  {
-   "path": "en-shared/q/start-circle-all-the-pictures-ii.mp3",
-   "text": "Circle all the pictures that start with the letter (Ii).",
-   "template": "start-circle",
-   "params": {
-    "which": "all the pictures",
-    "letter": "Ii"
-   },
-   "vals": {
-    "which": "en-shared/v/all-the-pictures.mp3",
-    "letter": "en-shared/v/ii.mp3"
-   }
-  },
-  {
-   "path": "en-shared/q/choose-the-picture-of-the-word-that-starts-with-the-followin.mp3",
-   "text": "Choose the picture of the word that starts with the following letter."
-  },
-  {
-   "path": "en-shared/q/circle-the-pictures-that-you-can-find-in-the-garden.mp3",
-   "text": "Circle the pictures that you can find in the garden."
-  },
-  {
-   "path": "en-shared/q/listen-point-and-circle.mp3",
-   "text": "Listen, point, and circle."
-  },
-  {
-   "path": "en-shared/q/thing-colour-grass-green.mp3",
-   "text": "The grass is green.",
-   "template": "thing-colour",
-   "params": {
-    "thing": "grass",
-    "colour": "green"
-   },
-   "vals": {
-    "thing": "en-shared/v/grass.mp3",
-    "colour": "en-shared/v/green.mp3"
-   }
-  },
-  {
-   "path": "en-shared/q/this-is-a-bird.mp3",
-   "text": "This is a bird.",
-   "template": "this-is-a",
-   "params": {
-    "thing": "bird"
-   },
-   "vals": {
-    "thing": "en-shared/v/bird.mp3"
-   }
-  },
-  {
-   "path": "en-shared/q/i-can-see-the-sky.mp3",
-   "text": "I can see the sky.",
-   "template": "i-can-see",
-   "params": {
-    "thing": "the sky"
-   },
-   "vals": {
-    "thing": "en-shared/v/the-sky.mp3"
-   }
-  },
-  {
-   "path": "en-shared/q/i-can-see-a-tree.mp3",
-   "text": "I can see a tree.",
-   "template": "i-can-see",
-   "params": {
-    "thing": "a tree"
-   },
-   "vals": {
-    "thing": "en-shared/v/a-tree.mp3"
-   }
-  },
-  {
-   "path": "en-shared/q/this-is-a-butterfly.mp3",
-   "text": "This is a butterfly.",
-   "template": "this-is-a",
-   "params": {
-    "thing": "butterfly"
-   },
-   "vals": {
-    "thing": "en-shared/v/butterfly.mp3"
-   }
-  },
-  {
-   "path": "en-shared/q/this-is-a-flower.mp3",
-   "text": "This is a flower.",
-   "template": "this-is-a",
-   "params": {
-    "thing": "flower"
-   },
-   "vals": {
-    "thing": "en-shared/v/flower.mp3"
-   }
-  },
-  {
-   "path": "en-shared/q/match-the-picture-with-the-correct-word.mp3",
-   "text": "Match the picture with the correct word."
-  },
-  {
-   "path": "en-shared/q/start-circle-the-pictures-ss.mp3",
-   "text": "Circle the pictures that start with the letter (Ss).",
+   "path": "en-shared/q/start-circle-the-pictures-oo.mp3",
+   "text": "Circle the pictures that start with the letter (Oo).",
    "template": "start-circle",
    "params": {
     "which": "the pictures",
-    "letter": "Ss"
-   },
-   "vals": {
-    "which": "en-shared/v/the-pictures.mp3",
-    "letter": "en-shared/v/ss.mp3"
+    "letter": "Oo"
    }
   },
   {
-   "path": "en-shared/q/circle-colour-yellow.mp3",
-   "text": "Circle all the yellow objects.",
-   "template": "circle-colour",
+   "path": "en-shared/q/start-circle-the-pictures-ff.mp3",
+   "text": "Circle the pictures that start with the letter (Ff).",
+   "template": "start-circle",
    "params": {
-    "colour": "yellow"
-   },
-   "vals": {
-    "colour": "en-shared/v/yellow.mp3"
+    "which": "the pictures",
+    "letter": "Ff"
    }
   },
   {
-   "path": "en-shared/q/circle-colour-green.mp3",
-   "text": "Circle all the green objects.",
-   "template": "circle-colour",
+   "path": "en-shared/q/look-say-and-write-the-beginning-letter-of-the-word.mp3",
+   "text": "Look, say, and write the beginning letter of the word."
+  },
+  {
+   "path": "en-shared/q/circle-the-odd-sound-word.mp3",
+   "text": "Circle the odd sound word."
+  },
+  {
+   "path": "en-shared/q/i-can-see-an-octopus.mp3",
+   "text": "I can see an octopus.",
+   "template": "i-can-see",
    "params": {
+    "thing": "an octopus"
+   }
+  },
+  {
+   "path": "en-shared/q/this-is-a-fish.mp3",
+   "text": "This is a fish.",
+   "template": "this-is-a",
+   "params": {
+    "thing": "fish"
+   }
+  },
+  {
+   "path": "en-shared/q/i-can-see-a-fan.mp3",
+   "text": "I can see a fan.",
+   "template": "i-can-see",
+   "params": {
+    "thing": "a fan"
+   }
+  },
+  {
+   "path": "en-shared/q/this-is-an-ostrich.mp3",
+   "text": "This is an ostrich."
+  },
+  {
+   "path": "en-shared/q/i-can-see-a-fox.mp3",
+   "text": "I can see a fox.",
+   "template": "i-can-see",
+   "params": {
+    "thing": "a fox"
+   }
+  },
+  {
+   "path": "en-shared/q/this-is-a-fork.mp3",
+   "text": "This is a fork.",
+   "template": "this-is-a",
+   "params": {
+    "thing": "fork"
+   }
+  },
+  {
+   "path": "en-shared/q/circle-the-animals-that-belong-in-the-jungle.mp3",
+   "text": "Circle the animals that belong in the jungle."
+  },
+  {
+   "path": "en-shared/q/do-the-word-and-the-picture-match.mp3",
+   "text": "Do the word and the picture match?"
+  },
+  {
+   "path": "en-shared/q/circle-the-animals-that-have-4-legs.mp3",
+   "text": "Circle the animals that have 4 legs."
+  },
+  {
+   "path": "en-shared/q/match-the-pictures-with-the-correct-word.mp3",
+   "text": "Match the pictures with the correct word."
+  },
+  {
+   "path": "en-shared/q/how-many-lions-can-you-see-mp3.mp3",
+   "text": "how-many-lions-can-you-see.mp3"
+  },
+  {
+   "path": "en-shared/q/the-monkey-is-in-the-tree-mp3.mp3",
+   "text": "the-monkey-is-in-the-tree.mp3"
+  },
+  {
+   "path": "en-shared/q/where-is-the-monkey-mp3.mp3",
+   "text": "where-is-the-monkey.mp3"
+  },
+  {
+   "path": "en-shared/q/there-is-a-snake-on-the-ground-mp3.mp3",
+   "text": "there-is-a-snake-on-the-ground.mp3"
+  },
+  {
+   "path": "en-shared/q/i-can-see-an-elephant.mp3",
+   "text": "I can see an elephant.",
+   "template": "i-can-see",
+   "params": {
+    "thing": "an elephant"
+   }
+  },
+  {
+   "path": "en-shared/q/i-can-see-a-lion.mp3",
+   "text": "I can see a lion.",
+   "template": "i-can-see",
+   "params": {
+    "thing": "a lion"
+   }
+  },
+  {
+   "path": "en-shared/q/start-circle-the-pictures-bb.mp3",
+   "text": "Circle the pictures that start with the letter (Bb).",
+   "template": "start-circle",
+   "params": {
+    "which": "the pictures",
+    "letter": "Bb"
+   }
+  },
+  {
+   "path": "en-shared/q/start-circle-the-pictures-ll.mp3",
+   "text": "Circle the pictures that start with the letter (Ll).",
+   "template": "start-circle",
+   "params": {
+    "which": "the pictures",
+    "letter": "Ll"
+   }
+  },
+  {
+   "path": "en-shared/q/look-say-and-write-the-beginning-letter.mp3",
+   "text": "Look, say, and write the beginning letter."
+  },
+  {
+   "path": "en-shared/q/write-the-missing-letter.mp3",
+   "text": "Write the missing letter."
+  },
+  {
+   "path": "en-shared/q/look-read-and-write.mp3",
+   "text": "Look, read, and write."
+  },
+  {
+   "path": "en-shared/q/i-can-see-a-boy.mp3",
+   "text": "I can see a boy.",
+   "template": "i-can-see",
+   "params": {
+    "thing": "a boy"
+   }
+  },
+  {
+   "path": "en-shared/q/there-is-a-lamp.mp3",
+   "text": "There is a lamp."
+  },
+  {
+   "path": "en-shared/q/this-is-my-lunch.mp3",
+   "text": "This is my lunch."
+  },
+  {
+   "path": "en-shared/q/thing-colour-leaf-green.mp3",
+   "text": "The leaf is green.",
+   "template": "thing-colour",
+   "params": {
+    "thing": "leaf",
     "colour": "green"
-   },
-   "vals": {
-    "colour": "en-shared/v/green.mp3"
    }
   },
   {
-   "path": "en-shared/q/circle-colour-blue.mp3",
-   "text": "Circle all the blue objects.",
-   "template": "circle-colour",
-   "params": {
-    "colour": "blue"
-   },
-   "vals": {
-    "colour": "en-shared/v/blue.mp3"
-   }
-  },
-  {
-   "path": "en-shared/q/circle-colour-red.mp3",
-   "text": "Circle all the red objects.",
-   "template": "circle-colour",
-   "params": {
-    "colour": "red"
-   },
-   "vals": {
-    "colour": "en-shared/v/red.mp3"
-   }
-  },
-  {
-   "path": "en-shared/q/thing-colour-sky-blue.mp3",
-   "text": "The sky is blue.",
+   "path": "en-shared/q/thing-colour-banana-yellow.mp3",
+   "text": "The banana is yellow.",
    "template": "thing-colour",
    "params": {
-    "thing": "sky",
-    "colour": "blue"
-   },
-   "vals": {
-    "thing": "en-shared/v/sky.mp3",
-    "colour": "en-shared/v/blue.mp3"
-   }
-  },
-  {
-   "path": "en-shared/q/thing-colour-sun-yellow.mp3",
-   "text": "The sun is yellow.",
-   "template": "thing-colour",
-   "params": {
-    "thing": "sun",
+    "thing": "banana",
     "colour": "yellow"
-   },
-   "vals": {
-    "thing": "en-shared/v/sun.mp3",
-    "colour": "en-shared/v/yellow.mp3"
    }
   },
   {
-   "path": "en-shared/q/thing-colour-flower-red.mp3",
-   "text": "The flower is red.",
+   "path": "en-shared/q/i-can-see-a-lion-mp3.mp3",
+   "text": "i-can-see-a-lion.mp3"
+  },
+  {
+   "path": "en-shared/q/we-love-the-jungle-mp3.mp3",
+   "text": "we-love-the-jungle.mp3"
+  },
+  {
+   "path": "en-shared/q/i-see-an-elephant-mp3.mp3",
+   "text": "i-see-an-elephant.mp3"
+  },
+  {
+   "path": "en-shared/q/a-tiger-has-4-legs-mp3.mp3",
+   "text": "a-tiger-has-4-legs.mp3"
+  },
+  {
+   "path": "en-shared/q/i-can-see-2-lions-mp3.mp3",
+   "text": "i-can-see-2-lions.mp3"
+  },
+  {
+   "path": "en-shared/q/there-is-a-tiger-mp3.mp3",
+   "text": "there-is-a-tiger.mp3"
+  },
+  {
+   "path": "en-shared/q/listen-point-and-tick.mp3",
+   "text": "Listen, point, and tick."
+  },
+  {
+   "path": "en-shared/q/thing-colour-cat-under-the-chair.mp3",
+   "text": "The cat is under the chair.",
    "template": "thing-colour",
    "params": {
-    "thing": "flower",
-    "colour": "red"
-   },
-   "vals": {
-    "thing": "en-shared/v/flower.mp3",
-    "colour": "en-shared/v/red.mp3"
+    "thing": "cat",
+    "colour": "under the chair"
    }
   },
   {
-   "path": "en-shared/q/listen-point-and-write-a-tick-to-the-matching-picture.mp3",
-   "text": "Listen, point, and write a tick to the matching picture."
-  },
-  {
-   "path": "en-shared/q/write-a-tick-if-the-word-matches-the-picture.mp3",
-   "text": "Write a tick if the word matches the picture."
-  },
-  {
-   "path": "en-shared/q/start-match-aa.mp3",
-   "text": "Match the objects that start with the letter (Aa).",
-   "template": "start-match",
+   "path": "en-shared/q/thing-colour-dog-on-the-couch.mp3",
+   "text": "The dog is on the couch.",
+   "template": "thing-colour",
    "params": {
-    "letter": "Aa"
-   },
-   "vals": {
-    "letter": "en-shared/v/aa.mp3"
+    "thing": "dog",
+    "colour": "on the couch"
    }
   },
   {
-   "path": "en-shared/q/listen-point-and-write-a-tick-next-to-the-matching-picture.mp3",
-   "text": "Listen, point, and write a tick next to the matching picture."
-  },
-  {
-   "path": "en-shared/q/grandfather.mp3",
-   "text": "grandfather"
-  },
-  {
-   "path": "en-shared/q/parents.mp3",
-   "text": "parents"
-  },
-  {
-   "path": "en-shared/q/mother.mp3",
-   "text": "mother"
-  },
-  {
-   "path": "en-shared/q/brother.mp3",
-   "text": "brother"
-  },
-  {
-   "path": "en-shared/q/listen-look-at-the-picture-then-circle-the-correct-word.mp3",
-   "text": "Listen, look at the picture, then circle the correct word."
-  },
-  {
-   "path": "en-shared/q/this-is-my-sister.mp3",
-   "text": "This is my sister.",
-   "template": "this-is-my",
+   "path": "en-shared/q/thing-colour-bird-in-the-cage.mp3",
+   "text": "The bird is in the cage.",
+   "template": "thing-colour",
    "params": {
-    "person": "sister"
-   },
-   "vals": {
-    "person": "en-shared/v/sister.mp3"
+    "thing": "bird",
+    "colour": "in the cage"
    }
   },
   {
-   "path": "en-shared/q/this-is-my-father.mp3",
-   "text": "This is my father.",
-   "template": "this-is-my",
+   "path": "en-shared/q/match-the-pictures-to-the-correct-words.mp3",
+   "text": "Match the pictures to the correct words."
+  },
+  {
+   "path": "en-shared/q/circle-the-pictures-that-belong-to-the-pets.mp3",
+   "text": "Circle the pictures that belong to the pets."
+  },
+  {
+   "path": "en-shared/q/thing-colour-cat-on-the-couch.mp3",
+   "text": "The cat is on the couch.",
+   "template": "thing-colour",
    "params": {
-    "person": "father"
-   },
-   "vals": {
-    "person": "en-shared/v/father.mp3"
+    "thing": "cat",
+    "colour": "on the couch"
    }
   },
   {
-   "path": "en-shared/q/this-is-my-grandmother.mp3",
-   "text": "This is my grandmother.",
-   "template": "this-is-my",
+   "path": "en-shared/q/thing-colour-dog-under-the-chair.mp3",
+   "text": "The dog is under the chair.",
+   "template": "thing-colour",
    "params": {
-    "person": "grandmother"
-   },
-   "vals": {
-    "person": "en-shared/v/grandmother.mp3"
+    "thing": "dog",
+    "colour": "under the chair"
    }
   },
   {
-   "path": "en-shared/q/father.mp3",
-   "text": "father"
+   "path": "en-shared/q/the-cat-is-on-my-leg-mp3.mp3",
+   "text": "the-cat-is-on-my-leg.mp3"
   },
   {
-   "path": "en-shared/q/sister.mp3",
-   "text": "sister"
+   "path": "en-shared/q/where-is-the-dog-mp3.mp3",
+   "text": "where-is-the-dog.mp3"
   },
   {
-   "path": "en-shared/q/grandmother.mp3",
-   "text": "grandmother"
-  },
-  {
-   "path": "en-shared/q/look-at-the-picture-listen-then-choose-the-correct-answer.mp3",
-   "text": "Look at the picture, listen, then choose the correct answer."
-  },
-  {
-   "path": "en-shared/q/i-have-2-brothers.mp3",
-   "text": "I have 2 brothers.",
-   "template": "i-have",
-   "params": {
-    "n": "2",
-    "thing": "brothers"
-   },
-   "vals": {
-    "n": "en-shared/v/2.mp3",
-    "thing": "en-shared/v/brothers.mp3"
-   }
-  },
-  {
-   "path": "en-shared/q/i-have-2-sisters.mp3",
-   "text": "I have 2 sisters.",
-   "template": "i-have",
-   "params": {
-    "n": "2",
-    "thing": "sisters"
-   },
-   "vals": {
-    "n": "en-shared/v/2.mp3",
-    "thing": "en-shared/v/sisters.mp3"
-   }
-  },
-  {
-   "path": "en-shared/q/start-circle-the-objects-nn.mp3",
-   "text": "Circle the objects that start with the letter (Nn).",
+   "path": "en-shared/q/start-circle-the-pictures-uu.mp3",
+   "text": "Circle the pictures that start with the letter (Uu).",
    "template": "start-circle",
    "params": {
-    "which": "the objects",
-    "letter": "Nn"
-   },
-   "vals": {
-    "which": "en-shared/v/the-objects.mp3",
-    "letter": "en-shared/v/nn.mp3"
+    "which": "the pictures",
+    "letter": "Uu"
    }
   },
   {
-   "path": "en-shared/q/screw.mp3",
-   "text": "screw"
-  },
-  {
-   "path": "en-shared/q/nurse.mp3",
-   "text": "nurse"
-  },
-  {
-   "path": "en-shared/q/neck.mp3",
-   "text": "neck"
-  },
-  {
-   "path": "en-shared/q/net.mp3",
-   "text": "net"
-  },
-  {
-   "path": "en-shared/q/start-circle-the-objects-pp.mp3",
-   "text": "Circle the objects that start with the letter (Pp).",
+   "path": "en-shared/q/start-circle-the-pictures-jj.mp3",
+   "text": "Circle the pictures that start with the letter (Jj).",
    "template": "start-circle",
    "params": {
-    "which": "the objects",
-    "letter": "Pp"
-   },
-   "vals": {
-    "which": "en-shared/v/the-objects.mp3",
-    "letter": "en-shared/v/pp.mp3"
+    "which": "the pictures",
+    "letter": "Jj"
    }
   },
   {
-   "path": "en-shared/q/nose.mp3",
-   "text": "nose"
-  },
-  {
-   "path": "en-shared/q/panda.mp3",
-   "text": "panda"
-  },
-  {
-   "path": "en-shared/q/potato.mp3",
-   "text": "potato"
-  },
-  {
-   "path": "en-shared/q/there-are-4-books.mp3",
-   "text": "There are 4 books.",
-   "template": "there-are",
+   "path": "en-shared/q/thing-colour-ball-under-the-box.mp3",
+   "text": "The ball is under the box.",
+   "template": "thing-colour",
    "params": {
-    "n": "4",
-    "thing": "books"
-   },
-   "vals": {
-    "n": "en-shared/v/4.mp3",
-    "thing": "en-shared/v/books.mp3"
+    "thing": "ball",
+    "colour": "under the box"
    }
   },
   {
-   "path": "en-shared/q/i-see-3-birds.mp3",
-   "text": "I see 3 birds."
-  },
-  {
-   "path": "en-shared/q/i-have-1-brother.mp3",
-   "text": "I have 1 brother.",
-   "template": "i-have",
+   "path": "en-shared/q/i-can-see-a-jacket.mp3",
+   "text": "I can see a jacket.",
+   "template": "i-can-see",
    "params": {
-    "n": "1",
-    "thing": "brother"
-   },
-   "vals": {
-    "n": "en-shared/v/1.mp3",
-    "thing": "en-shared/v/brother.mp3"
+    "thing": "a jacket"
    }
   },
   {
-   "path": "en-shared/q/there-are-2-butterflies.mp3",
-   "text": "There are 2 butterflies.",
-   "template": "there-are",
-   "params": {
-    "n": "2",
-    "thing": "butterflies"
-   },
-   "vals": {
-    "n": "en-shared/v/2.mp3",
-    "thing": "en-shared/v/butterflies.mp3"
-   }
+   "path": "en-shared/q/these-are-jeans.mp3",
+   "text": "These are jeans."
   },
   {
-   "path": "en-shared/q/count-and-circle-the-correct-number.mp3",
-   "text": "Count and circle the correct number."
+   "path": "en-shared/q/i-have-an-umbrella.mp3",
+   "text": "I have an umbrella."
   },
   {
-   "path": "en-shared/q/1-flower.mp3",
-   "text": "1 flower"
+   "path": "en-shared/q/where-is-the-bird-mp3.mp3",
+   "text": "where-is-the-bird.mp3"
   },
   {
-   "path": "en-shared/q/count-the-objects-and-match-them-with-the-correct-number.mp3",
-   "text": "Count the objects and match them with the correct number."
+   "path": "en-shared/q/the-turtle-is-under-the-table-mp3.mp3",
+   "text": "the-turtle-is-under-the-table.mp3"
   },
   {
-   "path": "en-shared/q/1.mp3",
-   "text": "1"
+   "path": "en-shared/q/i-love-pets-mp3.mp3",
+   "text": "i-love-pets.mp3"
   },
   {
-   "path": "en-shared/q/2.mp3",
-   "text": "2"
+   "path": "en-shared/q/the-cat-is-under-the-chair-mp3.mp3",
+   "text": "the-cat-is-under-the-chair.mp3"
   },
   {
-   "path": "en-shared/q/3.mp3",
-   "text": "3"
+   "path": "en-shared/q/where-is-the-cat-mp3.mp3",
+   "text": "where-is-the-cat.mp3"
   },
   {
-   "path": "en-shared/q/4.mp3",
-   "text": "4"
-  },
-  {
-   "path": "en-shared/q/5.mp3",
-   "text": "5"
-  },
-  {
-   "path": "en-shared/q/look-at-each-picture-count-the-objects-then-circle.mp3",
-   "text": "Look at each picture, count the objects, then circle."
-  },
-  {
-   "path": "en-shared/q/there-are-2-pencils.mp3",
-   "text": "There are 2 pencils.",
-   "template": "there-are",
-   "params": {
-    "n": "2",
-    "thing": "pencils"
-   },
-   "vals": {
-    "n": "en-shared/v/2.mp3",
-    "thing": "en-shared/v/pencils.mp3"
-   }
-  },
-  {
-   "path": "en-shared/q/there-are-4-bags.mp3",
-   "text": "There are 4 bags.",
-   "template": "there-are",
-   "params": {
-    "n": "4",
-    "thing": "bags"
-   },
-   "vals": {
-    "n": "en-shared/v/4.mp3",
-    "thing": "en-shared/v/bags.mp3"
-   }
-  },
-  {
-   "path": "en-shared/q/there-are-5-stars.mp3",
-   "text": "There are 5 stars.",
-   "template": "there-are",
-   "params": {
-    "n": "5",
-    "thing": "stars"
-   },
-   "vals": {
-    "n": "en-shared/v/5.mp3",
-    "thing": "en-shared/v/stars.mp3"
-   }
+   "path": "en-shared/q/the-bird-is-in-the-cage-mp3.mp3",
+   "text": "the-bird-is-in-the-cage.mp3"
   }
  ]
 }

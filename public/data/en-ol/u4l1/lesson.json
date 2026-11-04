@@ -1,0 +1,596 @@
+{
+ "id": "u4l1",
+ "unit": 4,
+ "lesson": 1,
+ "title": "Head to Toe",
+ "task": "Listen to your teacher and repeat.",
+ "scene": "../u1l2/scene.jpg",
+ "sceneAlt": "Body parts pictures",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "speakers": {
+  "Body": "#D93D78"
+ },
+ "pages": 3,
+ "compact": true,
+ "pageLayouts": [
+  "pictures",
+  "pictures",
+  "pictures"
+ ],
+ "pageTasks": [
+  "Listen to your teacher and repeat.",
+  "Listen to your teacher and repeat.",
+  "Listen to your teacher and repeat."
+ ],
+ "pagesBook": [
+  66
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "head",
+   "ar": "راس",
+   "img": "../../pics/head-u4l1.png",
+   "parts": [
+    {
+     "t": "h",
+     "ph": "h",
+     "audio": "../../phonics/h.mp3"
+    },
+    {
+     "t": "ea",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/head.mp3"
+   }
+  },
+  {
+   "word": "eye",
+   "ar": "عين",
+   "img": "../../pics/eye-u4l1.png",
+   "parts": [
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "y",
+     "ph": "igh",
+     "audio": "../../phonics/igh.mp3"
+    },
+    {
+     "t": "e",
+     "spell": true,
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/eye.mp3"
+   }
+  },
+  {
+   "word": "ear",
+   "ar": "ودن",
+   "img": "../../pics/ear-u4l1.png",
+   "parts": [
+    {
+     "t": "ea",
+     "ph": "ear",
+     "audio": "../../phonics/ear.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/ear.mp3"
+   }
+  },
+  {
+   "word": "nose",
+   "ar": "انف",
+   "img": "../../pics/nose-u4l1.png",
+   "parts": [
+    {
+     "t": "no",
+     "ph": "n_oa",
+     "audio": "../../phonics/chunks/n_oa.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    },
+    {
+     "t": "e",
+     "spell": true,
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u3l2/words/nose.mp3"
+   }
+  },
+  {
+   "word": "mouth",
+   "ar": "فم",
+   "img": "../../pics/mouth-u4l1.png",
+   "parts": [
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "ou",
+     "ph": "ow",
+     "audio": "../../phonics/ow.mp3"
+    },
+    {
+     "t": "th",
+     "ph": "th",
+     "audio": "../../phonics/th.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/mouth.mp3"
+   }
+  },
+  {
+   "word": "tongue",
+   "ar": "لسان",
+   "img": "../../pics/tongue-u4l1.png",
+   "parts": [
+    {
+     "t": "to",
+     "ph": "t_u",
+     "audio": "../../phonics/chunks/t_u.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "ng",
+     "audio": "../../phonics/ng.mp3"
+    },
+    {
+     "t": "g",
+     "spell": true,
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "ue",
+     "ph": "u_e",
+     "audio": "../../phonics/chunks/u_e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/tongue.mp3"
+   }
+  },
+  {
+   "word": "arms",
+   "ar": "دراعين",
+   "img": "../../pics/arms-u4l1.png",
+   "parts": [
+    {
+     "t": "a",
+     "ph": "ar",
+     "audio": "../../phonics/ar.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/arms.mp3"
+   }
+  },
+  {
+   "word": "hand",
+   "ar": "ايد",
+   "img": "../../pics/hand-u4l1.png",
+   "parts": [
+    {
+     "t": "ha",
+     "ph": "h_a",
+     "audio": "../../phonics/chunks/h_a.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/hand.mp3"
+   }
+  },
+  {
+   "word": "legs",
+   "ar": "رجلين",
+   "img": "../../pics/legs-u4l1.png",
+   "parts": [
+    {
+     "t": "le",
+     "ph": "l_e",
+     "audio": "../../phonics/chunks/l_e.mp3"
+    },
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/legs.mp3"
+   }
+  },
+  {
+   "word": "feet",
+   "ar": "قدمين",
+   "img": "../../pics/feet-u4l1.png",
+   "parts": [
+    {
+     "t": "fee",
+     "ph": "f_ee",
+     "audio": "../../phonics/chunks/f_ee.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/feet.mp3"
+   }
+  },
+  {
+   "word": "toes",
+   "ar": "صوابع القدم",
+   "img": "../../pics/toes-u4l1.png",
+   "parts": [
+    {
+     "t": "to",
+     "ph": "t_oa",
+     "audio": "../../phonics/chunks/t_oa.mp3"
+    },
+    {
+     "t": "e",
+     "spell": true,
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/toes.mp3"
+   }
+  }
+ ],
+ "_note": "Book p66 (vocabulary pictures + I have 2 eyes / 2 ears / 1 mouth). Pictures cut from the book as round badges (*-u4l1). Splits from vocab-review.md.",
+ "lines": [
+  {
+   "who": "Body",
+   "page": 1,
+   "words": [
+    [
+     "head",
+     0.03,
+     0.55
+    ]
+   ],
+   "pic": "../../pics/head-u4l1.png",
+   "pos": [
+    18,
+    20
+   ]
+  },
+  {
+   "who": "Body",
+   "page": 1,
+   "words": [
+    [
+     "eye",
+     1.7,
+     2.25
+    ]
+   ],
+   "pic": "../../pics/eye-u4l1.png",
+   "pos": [
+    50,
+    20
+   ]
+  },
+  {
+   "who": "Body",
+   "page": 1,
+   "words": [
+    [
+     "ear",
+     3.4,
+     3.91
+    ]
+   ],
+   "pic": "../../pics/ear-u4l1.png",
+   "pos": [
+    82,
+    20
+   ]
+  },
+  {
+   "who": "Body",
+   "page": 1,
+   "words": [
+    [
+     "nose",
+     5.06,
+     5.74
+    ]
+   ],
+   "pic": "../../pics/nose-u4l1.png",
+   "pos": [
+    14,
+    47
+   ]
+  },
+  {
+   "who": "Body",
+   "page": 1,
+   "words": [
+    [
+     "mouth",
+     6.91,
+     7.51
+    ]
+   ],
+   "pic": "../../pics/mouth-u4l1.png",
+   "pos": [
+    38,
+    47
+   ]
+  },
+  {
+   "who": "Body",
+   "page": 1,
+   "words": [
+    [
+     "tongue",
+     8.66,
+     9.26
+    ]
+   ],
+   "pic": "../../pics/tongue-u4l1.png",
+   "pos": [
+    62,
+    47
+   ]
+  },
+  {
+   "who": "Body",
+   "page": 2,
+   "words": [
+    [
+     "arms",
+     10.41,
+     11.11
+    ]
+   ],
+   "pic": "../../pics/arms-u4l1.png",
+   "pos": [
+    86,
+    47
+   ]
+  },
+  {
+   "who": "Body",
+   "page": 2,
+   "words": [
+    [
+     "hand",
+     12.27,
+     12.86
+    ]
+   ],
+   "pic": "../../pics/hand-u4l1.png",
+   "pos": [
+    14,
+    75
+   ]
+  },
+  {
+   "who": "Body",
+   "page": 2,
+   "words": [
+    [
+     "legs",
+     14.03,
+     14.74
+    ]
+   ],
+   "pic": "../../pics/legs-u4l1.png",
+   "pos": [
+    38,
+    75
+   ]
+  },
+  {
+   "who": "Body",
+   "page": 2,
+   "words": [
+    [
+     "feet",
+     15.89,
+     16.49
+    ]
+   ],
+   "pic": "../../pics/feet-u4l1.png",
+   "pos": [
+    62,
+    75
+   ]
+  },
+  {
+   "who": "Body",
+   "page": 2,
+   "words": [
+    [
+     "toes",
+     17.66,
+     18.3
+    ]
+   ],
+   "pic": "../../pics/toes-u4l1.png",
+   "pos": [
+    86,
+    75
+   ]
+  },
+  {
+   "who": "Body",
+   "page": 3,
+   "words": [
+    [
+     "I",
+     19.46,
+     19.79
+    ],
+    [
+     "have",
+     19.79,
+     20.12
+    ],
+    [
+     "2",
+     20.12,
+     20.45
+    ],
+    [
+     "eyes.",
+     20.45,
+     20.71
+    ]
+   ],
+   "pic": "../../pics/eyes-u4q.png",
+   "pos": [
+    17,
+    50
+   ]
+  },
+  {
+   "who": "Body",
+   "page": 3,
+   "words": [
+    [
+     "I",
+     22.07,
+     22.29
+    ],
+    [
+     "have",
+     22.29,
+     22.6
+    ],
+    [
+     "2",
+     22.6,
+     23.04
+    ],
+    [
+     "ears.",
+     23.04,
+     23.29
+    ]
+   ],
+   "pic": "../../pics/ears-u4q.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Body",
+   "page": 3,
+   "words": [
+    [
+     "I",
+     24.65,
+     24.86
+    ],
+    [
+     "have",
+     24.86,
+     25.12
+    ],
+    [
+     "1",
+     25.12,
+     25.59
+    ],
+    [
+     "mouth.",
+     25.59,
+     25.88
+    ]
+   ],
+   "pic": "../../pics/lips-u4q.png",
+   "pos": [
+    83,
+    50
+   ]
+  }
+ ],
+ "end": 25.88
+}

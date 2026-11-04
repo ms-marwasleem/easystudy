@@ -1,0 +1,692 @@
+{
+ "id": "u6l1",
+ "unit": 6,
+ "lesson": 1,
+ "title": "Welcome to the Jungle",
+ "task": "Listen to the following dialog.",
+ "scene": "scene.jpg",
+ "sceneAlt": "Omar and Leila in the jungle",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "speakers": {
+  "Omar": "#D93D3D",
+  "Leila": "#1E8A4E",
+  "Both": "#1E78C8",
+  "Jungle": "#D93D78"
+ },
+ "pages": 2,
+ "compact": true,
+ "pageLayouts": [
+  "text",
+  "pictures"
+ ],
+ "pageTasks": [
+  "Listen to the following dialog.",
+  "Listen and repeat."
+ ],
+ "pagesBook": [
+  104,
+  105
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "lion",
+   "ar": "أسد",
+   "img": "../../pics/lion-u6l1.png",
+   "parts": [
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "io",
+     "ph": "igh_o",
+     "audio": "../../phonics/chunks/igh_o.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/lion.mp3"
+   }
+  },
+  {
+   "word": "tiger",
+   "ar": "نمر",
+   "img": "../../pics/tiger.png",
+   "parts": [
+    {
+     "t": "ti",
+     "ph": "t_igh",
+     "audio": "../../phonics/chunks/t_igh.mp3"
+    },
+    {
+     "t": "ge",
+     "ph": "g_er",
+     "audio": "../../phonics/chunks/g_er.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u1l2/words/tiger.mp3"
+   }
+  },
+  {
+   "word": "monkey",
+   "ar": "قرد",
+   "img": "../../pics/monkey-u5l2.png",
+   "parts": [
+    {
+     "t": "mo",
+     "ph": "m_u",
+     "audio": "../../phonics/chunks/m_u.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "nk",
+     "audio": "../../phonics/nk.mp3"
+    },
+    {
+     "t": "ke",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    },
+    {
+     "t": "y",
+     "spell": true,
+     "ph": "y",
+     "audio": "../../phonics/y.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u5l2/words/monkey.mp3"
+   }
+  },
+  {
+   "word": "elephant",
+   "ar": "فيل",
+   "img": "../../pics/elephant-u4l2.png",
+   "parts": [
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "le",
+     "ph": "l_i",
+     "audio": "../../phonics/chunks/l_i.mp3"
+    },
+    {
+     "t": "ph",
+     "ph": "f",
+     "audio": "../../phonics/f.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u4l2/words/elephant.mp3"
+   }
+  },
+  {
+   "word": "giraffe",
+   "ar": "زرافة",
+   "img": "../../pics/giraffe-u6l1.png",
+   "parts": [
+    {
+     "t": "gi",
+     "ph": "j_i",
+     "audio": "../../phonics/chunks/j_i.mp3"
+    },
+    {
+     "t": "ra",
+     "ph": "r_a",
+     "audio": "../../phonics/chunks/r_a.mp3"
+    },
+    {
+     "t": "ff",
+     "ph": "f",
+     "audio": "../../phonics/f.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/giraffe.mp3"
+   }
+  },
+  {
+   "word": "snake",
+   "ar": "ثعبان",
+   "img": "../../pics/snake.png",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "na",
+     "ph": "n_ai",
+     "audio": "../../phonics/chunks/n_ai.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u2l2/words/snake.mp3"
+   }
+  }
+ ],
+ "_note": "Book p104 dialog (Omar and Leila), p105 vocabulary (lion tiger monkey elephant giraffe snake).",
+ "lines": [
+  {
+   "who": "Omar",
+   "page": 1,
+   "words": [
+    [
+     "Look!",
+     0.03,
+     0.3
+    ],
+    [
+     "What's",
+     0.3,
+     0.83
+    ],
+    [
+     "this?",
+     0.83,
+     1.08
+    ]
+   ]
+  },
+  {
+   "who": "Leila",
+   "page": 1,
+   "words": [
+    [
+     "It's",
+     1.65,
+     1.93
+    ],
+    [
+     "a",
+     1.93,
+     2.12
+    ],
+    [
+     "lion!",
+     2.12,
+     2.63
+    ]
+   ]
+  },
+  {
+   "who": "Omar",
+   "page": 1,
+   "words": [
+    [
+     "How",
+     3.19,
+     3.46
+    ],
+    [
+     "many",
+     3.46,
+     3.67
+    ],
+    [
+     "lions",
+     3.67,
+     4.18
+    ],
+    [
+     "can",
+     4.18,
+     4.45
+    ],
+    [
+     "you",
+     4.45,
+     4.64
+    ],
+    [
+     "see?",
+     4.64,
+     4.94
+    ]
+   ]
+  },
+  {
+   "who": "Leila",
+   "page": 1,
+   "words": [
+    [
+     "I",
+     5.5,
+     5.69
+    ],
+    [
+     "can",
+     5.69,
+     5.99
+    ],
+    [
+     "see",
+     5.99,
+     6.29
+    ],
+    [
+     "2",
+     6.29,
+     6.57
+    ],
+    [
+     "lions!",
+     6.57,
+     7.13
+    ]
+   ]
+  },
+  {
+   "who": "Omar",
+   "page": 1,
+   "words": [
+    [
+     "How",
+     7.69,
+     8.04
+    ],
+    [
+     "many",
+     8.04,
+     8.22
+    ],
+    [
+     "legs",
+     8.22,
+     8.64
+    ],
+    [
+     "does",
+     8.64,
+     8.9
+    ],
+    [
+     "a",
+     8.9,
+     9.2
+    ],
+    [
+     "tiger",
+     9.2,
+     9.57
+    ],
+    [
+     "have?",
+     9.57,
+     9.78
+    ]
+   ]
+  },
+  {
+   "who": "Leila",
+   "page": 1,
+   "words": [
+    [
+     "A",
+     10.34,
+     10.51
+    ],
+    [
+     "tiger",
+     10.51,
+     10.95
+    ],
+    [
+     "has",
+     10.95,
+     11.26
+    ],
+    [
+     "4",
+     11.26,
+     11.79
+    ],
+    [
+     "legs.",
+     11.79,
+     12.1
+    ]
+   ]
+  },
+  {
+   "who": "Omar",
+   "page": 1,
+   "words": [
+    [
+     "Where",
+     12.65,
+     13.0
+    ],
+    [
+     "is",
+     13.0,
+     13.12
+    ],
+    [
+     "the",
+     13.12,
+     13.52
+    ],
+    [
+     "monkey?",
+     13.52,
+     13.88
+    ]
+   ]
+  },
+  {
+   "who": "Leila",
+   "page": 1,
+   "words": [
+    [
+     "The",
+     14.42,
+     14.63
+    ],
+    [
+     "monkey",
+     14.63,
+     15.12
+    ],
+    [
+     "is",
+     15.12,
+     15.29
+    ],
+    [
+     "in",
+     15.29,
+     15.52
+    ],
+    [
+     "the",
+     15.52,
+     15.68
+    ],
+    [
+     "tree!",
+     15.68,
+     16.08
+    ]
+   ]
+  },
+  {
+   "who": "Omar",
+   "page": 1,
+   "words": [
+    [
+     "I",
+     16.64,
+     16.94
+    ],
+    [
+     "see",
+     16.94,
+     17.2
+    ],
+    [
+     "an",
+     17.2,
+     17.44
+    ],
+    [
+     "elephant",
+     17.44,
+     17.8
+    ],
+    [
+     "and",
+     17.8,
+     18.21
+    ],
+    [
+     "a",
+     18.21,
+     18.3
+    ],
+    [
+     "giraffe",
+     18.3,
+     18.74
+    ],
+    [
+     "too!",
+     18.74,
+     19.08
+    ]
+   ]
+  },
+  {
+   "who": "Leila",
+   "page": 1,
+   "words": [
+    [
+     "And",
+     19.62,
+     19.86
+    ],
+    [
+     "look!",
+     19.86,
+     20.1
+    ],
+    [
+     "There",
+     20.1,
+     20.29
+    ],
+    [
+     "is",
+     20.29,
+     20.55
+    ],
+    [
+     "a",
+     20.55,
+     20.82
+    ],
+    [
+     "snake",
+     20.82,
+     21.08
+    ],
+    [
+     "on",
+     21.08,
+     21.38
+    ],
+    [
+     "the",
+     21.38,
+     21.48
+    ],
+    [
+     "ground!",
+     21.48,
+     21.93
+    ]
+   ]
+  },
+  {
+   "who": "Both",
+   "page": 1,
+   "words": [
+    [
+     "We",
+     22.49,
+     22.7
+    ],
+    [
+     "love",
+     22.7,
+     23.12
+    ],
+    [
+     "the",
+     23.12,
+     23.27
+    ],
+    [
+     "jungle!",
+     23.27,
+     23.84
+    ]
+   ]
+  },
+  {
+   "who": "Jungle",
+   "page": 2,
+   "words": [
+    [
+     "lion",
+     24.4,
+     25.07
+    ]
+   ],
+   "pic": "../../pics/lion-u6l1.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Jungle",
+   "page": 2,
+   "words": [
+    [
+     "tiger",
+     26.33,
+     26.98
+    ]
+   ],
+   "pic": "../../pics/tiger.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Jungle",
+   "page": 2,
+   "words": [
+    [
+     "monkey",
+     28.24,
+     28.97
+    ]
+   ],
+   "pic": "../../pics/monkey-u5l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Jungle",
+   "page": 2,
+   "words": [
+    [
+     "elephant",
+     30.24,
+     30.98
+    ]
+   ],
+   "pic": "../../pics/elephant-u4l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Jungle",
+   "page": 2,
+   "words": [
+    [
+     "giraffe",
+     32.26,
+     33.01
+    ]
+   ],
+   "pic": "../../pics/giraffe-u6l1.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Jungle",
+   "page": 2,
+   "words": [
+    [
+     "snake",
+     34.27,
+     34.91
+    ]
+   ],
+   "pic": "../../pics/snake.png",
+   "pos": [
+    50,
+    50
+   ]
+  }
+ ],
+ "end": 34.91
+}

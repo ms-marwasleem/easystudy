@@ -1,0 +1,929 @@
+{
+ "id": "u4l3",
+ "unit": 4,
+ "lesson": 3,
+ "title": "My 5 Senses",
+ "task": "Listen to the following dialog.",
+ "scene": "scene.jpg",
+ "sceneAlt": "Aly and Omar talking about the senses",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "speakers": {
+  "Aly": "#1E8A7E",
+  "Omar": "#D93D78",
+  "Both": "#D93D78",
+  "Senses": "#D93D78"
+ },
+ "pages": 3,
+ "compact": true,
+ "pageLayouts": [
+  "text",
+  "pictures",
+  "pictures"
+ ],
+ "pageTasks": [
+  "Listen to the following dialog.",
+  "Listen, point, then repeat.",
+  "Listen, point, then repeat."
+ ],
+ "pagesBook": [
+  75,
+  76
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "see",
+   "ar": "يرى",
+   "img": "../../pics/eye-u4l1.png",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "ee",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/see.mp3"
+   }
+  },
+  {
+   "word": "hear",
+   "ar": "يسمع",
+   "img": "../../pics/ear-u4l1.png",
+   "parts": [
+    {
+     "t": "he",
+     "ph": "h_ear",
+     "audio": "../../phonics/chunks/h_ear.mp3"
+    },
+    {
+     "t": "ar",
+     "spell": true,
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/hear.mp3"
+   }
+  },
+  {
+   "word": "smell",
+   "ar": "يشم",
+   "img": "../../pics/nose-u4l1.png",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "me",
+     "ph": "m_e",
+     "audio": "../../phonics/chunks/m_e.mp3"
+    },
+    {
+     "t": "ll",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/smell.mp3"
+   }
+  },
+  {
+   "word": "taste",
+   "ar": "يتذوق",
+   "img": "../../pics/tongue-u4l1.png",
+   "parts": [
+    {
+     "t": "ta",
+     "ph": "t_ai",
+     "audio": "../../phonics/chunks/t_ai.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/taste.mp3"
+   }
+  },
+  {
+   "word": "touch",
+   "ar": "يلمس",
+   "img": "../../pics/hand-u4l1.png",
+   "parts": [
+    {
+     "t": "to",
+     "ph": "t_u",
+     "audio": "../../phonics/chunks/t_u.mp3"
+    },
+    {
+     "t": "u",
+     "spell": true,
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "ch",
+     "ph": "ch",
+     "audio": "../../phonics/ch.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/touch.mp3"
+   }
+  }
+ ],
+ "_note": "Book p75 dialog (Aly and Omar), p76 (I can ... with my ...; the five sense words).",
+ "lines": [
+  {
+   "who": "Aly",
+   "page": 1,
+   "words": [
+    [
+     "Hi,",
+     0.03,
+     0.5
+    ],
+    [
+     "Omar!",
+     0.5,
+     1.11
+    ]
+   ]
+  },
+  {
+   "who": "Omar",
+   "page": 1,
+   "words": [
+    [
+     "Hi,",
+     1.65,
+     2.06
+    ],
+    [
+     "Aly.",
+     2.06,
+     2.35
+    ],
+    [
+     "Let's",
+     2.35,
+     2.79
+    ],
+    [
+     "talk",
+     2.79,
+     3.14
+    ],
+    [
+     "about",
+     3.14,
+     3.61
+    ],
+    [
+     "our",
+     3.61,
+     3.87
+    ],
+    [
+     "senses.",
+     3.87,
+     4.45
+    ]
+   ]
+  },
+  {
+   "who": "Aly",
+   "page": 1,
+   "words": [
+    [
+     "Great",
+     5.01,
+     5.4
+    ],
+    [
+     "idea.",
+     5.4,
+     5.9
+    ],
+    [
+     "Tell",
+     5.9,
+     6.06
+    ],
+    [
+     "me,",
+     6.06,
+     6.33
+    ],
+    [
+     "what",
+     6.33,
+     6.73
+    ],
+    [
+     "can",
+     6.73,
+     6.92
+    ],
+    [
+     "you",
+     6.92,
+     7.31
+    ],
+    [
+     "see?",
+     7.31,
+     7.59
+    ]
+   ]
+  },
+  {
+   "who": "Omar",
+   "page": 1,
+   "words": [
+    [
+     "I",
+     8.15,
+     8.36
+    ],
+    [
+     "can",
+     8.36,
+     8.64
+    ],
+    [
+     "see",
+     8.64,
+     8.89
+    ],
+    [
+     "the",
+     8.89,
+     9.11
+    ],
+    [
+     "teacher",
+     9.11,
+     9.5
+    ],
+    [
+     "and",
+     9.5,
+     9.8
+    ],
+    [
+     "the",
+     9.8,
+     10.07
+    ],
+    [
+     "desk.",
+     10.07,
+     10.31
+    ]
+   ]
+  },
+  {
+   "who": "Aly",
+   "page": 1,
+   "words": [
+    [
+     "Look!",
+     10.87,
+     11.19
+    ],
+    [
+     "A",
+     11.19,
+     11.48
+    ],
+    [
+     "flower!",
+     11.48,
+     12.08
+    ]
+   ]
+  },
+  {
+   "who": "Omar",
+   "page": 1,
+   "words": [
+    [
+     "Wow!",
+     12.64,
+     13.0
+    ],
+    [
+     "I",
+     13.0,
+     13.15
+    ],
+    [
+     "can",
+     13.15,
+     13.44
+    ],
+    [
+     "see",
+     13.44,
+     13.78
+    ],
+    [
+     "it",
+     13.78,
+     13.91
+    ],
+    [
+     "with",
+     13.91,
+     14.18
+    ],
+    [
+     "my",
+     14.18,
+     14.56
+    ],
+    [
+     "eyes.",
+     14.56,
+     14.77
+    ]
+   ]
+  },
+  {
+   "who": "Aly",
+   "page": 1,
+   "words": [
+    [
+     "I",
+     15.33,
+     15.51
+    ],
+    [
+     "can",
+     15.51,
+     15.84
+    ],
+    [
+     "smell",
+     15.84,
+     16.27
+    ],
+    [
+     "it",
+     16.27,
+     16.57
+    ],
+    [
+     "with",
+     16.57,
+     16.99
+    ],
+    [
+     "my",
+     16.99,
+     17.33
+    ],
+    [
+     "nose.",
+     17.33,
+     17.57
+    ],
+    [
+     "It",
+     17.57,
+     17.87
+    ],
+    [
+     "smells",
+     17.87,
+     18.46
+    ],
+    [
+     "nice!",
+     18.46,
+     18.78
+    ]
+   ]
+  },
+  {
+   "who": "Omar",
+   "page": 1,
+   "words": [
+    [
+     "I",
+     19.34,
+     19.55
+    ],
+    [
+     "can",
+     19.55,
+     19.92
+    ],
+    [
+     "hear",
+     19.92,
+     20.07
+    ],
+    [
+     "the",
+     20.07,
+     20.3
+    ],
+    [
+     "teacher",
+     20.3,
+     20.76
+    ],
+    [
+     "with",
+     20.76,
+     21.09
+    ],
+    [
+     "my",
+     21.09,
+     21.41
+    ],
+    [
+     "ears.",
+     21.41,
+     21.64
+    ]
+   ]
+  },
+  {
+   "who": "Aly",
+   "page": 1,
+   "words": [
+    [
+     "I",
+     22.21,
+     22.37
+    ],
+    [
+     "can",
+     22.37,
+     22.76
+    ],
+    [
+     "touch",
+     22.76,
+     22.91
+    ],
+    [
+     "the",
+     22.91,
+     23.25
+    ],
+    [
+     "desk",
+     23.25,
+     23.56
+    ],
+    [
+     "with",
+     23.56,
+     23.82
+    ],
+    [
+     "my",
+     23.82,
+     24.11
+    ],
+    [
+     "hands.",
+     24.11,
+     24.42
+    ]
+   ]
+  },
+  {
+   "who": "Omar",
+   "page": 1,
+   "words": [
+    [
+     "I",
+     24.98,
+     25.19
+    ],
+    [
+     "have",
+     25.19,
+     25.51
+    ],
+    [
+     "an",
+     25.51,
+     25.81
+    ],
+    [
+     "apple.",
+     25.81,
+     26.08
+    ],
+    [
+     "I",
+     26.08,
+     26.39
+    ],
+    [
+     "can",
+     26.39,
+     26.55
+    ],
+    [
+     "taste",
+     26.55,
+     27.09
+    ],
+    [
+     "it",
+     27.09,
+     27.22
+    ],
+    [
+     "with",
+     27.22,
+     27.65
+    ],
+    [
+     "my",
+     27.65,
+     27.95
+    ],
+    [
+     "tongue!",
+     27.95,
+     28.17
+    ]
+   ]
+  },
+  {
+   "who": "Aly",
+   "page": 1,
+   "words": [
+    [
+     "Yummy!",
+     28.73,
+     29.16
+    ],
+    [
+     "We",
+     29.16,
+     29.33
+    ],
+    [
+     "use",
+     29.33,
+     29.8
+    ],
+    [
+     "our",
+     29.8,
+     29.94
+    ],
+    [
+     "five",
+     29.94,
+     30.35
+    ],
+    [
+     "senses",
+     30.35,
+     30.84
+    ],
+    [
+     "every",
+     30.84,
+     31.16
+    ],
+    [
+     "day!",
+     31.16,
+     31.49
+    ]
+   ]
+  },
+  {
+   "who": "Both",
+   "page": 1,
+   "words": [
+    [
+     "Yes!",
+     32.06,
+     32.34
+    ],
+    [
+     "See,",
+     32.34,
+     32.66
+    ],
+    [
+     "hear,",
+     32.66,
+     32.98
+    ],
+    [
+     "smell,",
+     32.98,
+     33.29
+    ],
+    [
+     "taste,",
+     33.29,
+     33.63
+    ],
+    [
+     "and",
+     33.63,
+     33.86
+    ],
+    [
+     "touch!",
+     33.86,
+     34.29
+    ]
+   ]
+  },
+  {
+   "who": "Senses",
+   "page": 2,
+   "words": [
+    [
+     "I",
+     34.85,
+     35.03
+    ],
+    [
+     "can",
+     35.03,
+     35.31
+    ],
+    [
+     "taste",
+     35.31,
+     35.65
+    ],
+    [
+     "with",
+     35.65,
+     36.04
+    ],
+    [
+     "my",
+     36.04,
+     36.32
+    ],
+    [
+     "tongue.",
+     36.32,
+     36.51
+    ]
+   ],
+   "pic": "../../pics/boy-taste-u4l3.png"
+  },
+  {
+   "who": "Senses",
+   "page": 2,
+   "words": [
+    [
+     "I",
+     37.86,
+     38.02
+    ],
+    [
+     "can",
+     38.02,
+     38.44
+    ],
+    [
+     "hear",
+     38.44,
+     38.61
+    ],
+    [
+     "with",
+     38.61,
+     38.94
+    ],
+    [
+     "my",
+     38.94,
+     39.26
+    ],
+    [
+     "ears.",
+     39.26,
+     39.51
+    ]
+   ],
+   "pic": "../../pics/boy-hear-u4l3.png"
+  },
+  {
+   "who": "Senses",
+   "page": 2,
+   "words": [
+    [
+     "I",
+     40.87,
+     41.03
+    ],
+    [
+     "can",
+     41.03,
+     41.35
+    ],
+    [
+     "smell",
+     41.35,
+     41.79
+    ],
+    [
+     "with",
+     41.79,
+     42.06
+    ],
+    [
+     "my",
+     42.06,
+     42.36
+    ],
+    [
+     "nose.",
+     42.36,
+     42.64
+    ]
+   ],
+   "pic": "../../pics/boy-smell-u4l3.png"
+  },
+  {
+   "who": "Senses",
+   "page": 2,
+   "words": [
+    [
+     "I",
+     44.0,
+     44.16
+    ],
+    [
+     "can",
+     44.16,
+     44.55
+    ],
+    [
+     "touch",
+     44.55,
+     44.8
+    ],
+    [
+     "with",
+     44.8,
+     45.11
+    ],
+    [
+     "my",
+     45.11,
+     45.4
+    ],
+    [
+     "hands.",
+     45.4,
+     45.7
+    ]
+   ],
+   "pic": "../../pics/boy-touch-u4l3.png"
+  },
+  {
+   "who": "Senses",
+   "page": 2,
+   "words": [
+    [
+     "I",
+     47.06,
+     47.23
+    ],
+    [
+     "can",
+     47.23,
+     47.53
+    ],
+    [
+     "see",
+     47.53,
+     47.81
+    ],
+    [
+     "with",
+     47.81,
+     48.1
+    ],
+    [
+     "my",
+     48.1,
+     48.49
+    ],
+    [
+     "eyes.",
+     48.49,
+     48.7
+    ]
+   ],
+   "pic": "../../pics/boy-see-u4l3.png"
+  },
+  {
+   "who": "Senses",
+   "page": 3,
+   "words": [
+    [
+     "see",
+     50.06,
+     50.63
+    ]
+   ],
+   "pic": "../../pics/eye-u4l1.png"
+  },
+  {
+   "who": "Senses",
+   "page": 3,
+   "words": [
+    [
+     "hear",
+     51.78,
+     52.32
+    ]
+   ],
+   "pic": "../../pics/ear-u4l1.png"
+  },
+  {
+   "who": "Senses",
+   "page": 3,
+   "words": [
+    [
+     "smell",
+     53.47,
+     54.12
+    ]
+   ],
+   "pic": "../../pics/nose-u4l1.png"
+  },
+  {
+   "who": "Senses",
+   "page": 3,
+   "words": [
+    [
+     "taste",
+     55.26,
+     55.94
+    ]
+   ],
+   "pic": "../../pics/tongue-u4l1.png"
+  },
+  {
+   "who": "Senses",
+   "page": 3,
+   "words": [
+    [
+     "touch",
+     57.1,
+     57.62
+    ]
+   ],
+   "pic": "../../pics/hand-u4l1.png"
+  }
+ ],
+ "end": 57.62
+}

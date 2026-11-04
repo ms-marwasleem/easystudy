@@ -1,0 +1,751 @@
+{
+ "sets": [
+  {
+   "type": "type",
+   "task": "Read and complete the missing letters.",
+   "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "catch",
+     "missing": 3,
+     "answer": "c",
+     "pic": "../../pics/u3-catch.png",
+     "audio": "../../en-shared/q/catch.mp3"
+    },
+    {
+     "word": "kick",
+     "missing": 2,
+     "answer": "c",
+     "pic": "../../pics/u3-kick.png",
+     "audio": "../../en-shared/q/kick.mp3"
+    },
+    {
+     "word": "run",
+     "missing": 1,
+     "answer": "u",
+     "pic": "../../pics/u3-run.png",
+     "audio": "../../en-shared/q/run.mp3"
+    },
+    {
+     "word": "bounce",
+     "missing": 2,
+     "answer": "u",
+     "pic": "../../pics/u3-bounce.png",
+     "audio": "../../en-shared/q/bounce.mp3"
+    },
+    {
+     "word": "team",
+     "missing": 2,
+     "answer": "a",
+     "pic": "../../pics/u3-team.jpg",
+     "audio": "../../en-shared/q/team.mp3"
+    }
+   ],
+   "page": 65,
+   "ex": 1
+  },
+  {
+   "type": "link",
+   "task": "Match the words and the pictures.",
+   "taskAudio": "../../en-shared/q/match-the-words-and-the-pictures.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "race",
+     "pic": "../../pics/u3-race.jpg",
+     "audio": "../../en-shared/q/race.mp3"
+    },
+    {
+     "word": "throw",
+     "pic": "../../pics/u3-throw.jpg",
+     "audio": "../../en-shared/q/throw.mp3"
+    },
+    {
+     "word": "hop",
+     "pic": "../../pics/u3-hop.png",
+     "audio": "../../en-shared/q/hop.mp3"
+    },
+    {
+     "word": "hit",
+     "pic": "../../pics/u3-hit.png",
+     "audio": "../../en-shared/q/hit.mp3"
+    },
+    {
+     "word": "kick",
+     "pic": "../../pics/u3-kick.png",
+     "audio": "../../en-shared/q/kick.mp3"
+    }
+   ],
+   "page": 65,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer from a, b, c or d.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-from-a-b-c-or-d.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "My dog loves to ____ in the park.",
+     "options": [
+      "kick",
+      "sit",
+      "run",
+      "talk"
+     ],
+     "answer": 2,
+     "word": "My dog loves to run in the park.",
+     "audio": "../../en-shared/q/my-dog-loves-to-run-in-the-park.mp3",
+     "parts": [
+      "../../en-shared/q/my-dog-loves-to.mp3",
+      "../../en-shared/q/in-the-park.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-47d0f6890d.mp3"
+    },
+    {
+     "stem": "Can you ____ the ball to me?",
+     "options": [
+      "throw",
+      "keep",
+      "jump",
+      "hide"
+     ],
+     "answer": 0,
+     "word": "Can you throw the ball to me?",
+     "audio": "../../en-shared/q/can-you-throw-the-ball-to-me.mp3",
+     "parts": [
+      "../../en-shared/q/can-you.mp3",
+      "../../en-shared/q/the-ball-to-me.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-ce09e298fb.mp3"
+    },
+    {
+     "stem": "The frog will ____ into the pond.",
+     "options": [
+      "jump",
+      "sing",
+      "run",
+      "eat"
+     ],
+     "answer": 0,
+     "word": "The frog will jump into the pond.",
+     "audio": "../../en-shared/q/the-frog-will-jump-into-the-pond.mp3",
+     "parts": [
+      "../../en-shared/q/the-frog-will.mp3",
+      "../../en-shared/q/into-the-pond.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-ce15942d4a.mp3"
+    },
+    {
+     "stem": "We had a ____ to see who was the fastest.",
+     "options": [
+      "race",
+      "nap",
+      "lunch",
+      "break"
+     ],
+     "answer": 0,
+     "word": "We had a race to see who was the fastest.",
+     "audio": "../../en-shared/q/we-had-a-race-to-see-who-was-the-fastest.mp3",
+     "parts": [
+      "../../en-shared/q/we-had-a.mp3",
+      "../../en-shared/q/to-see-who-was-the-fastest.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-d9470b468b.mp3"
+    },
+    {
+     "stem": "We are a great ____ and we always play together.",
+     "options": [
+      "team",
+      "class",
+      "family",
+      "friend"
+     ],
+     "answer": 0,
+     "word": "We are a great team and we always play together.",
+     "audio": "../../en-shared/q/we-are-a-great-team-and-we-always-play-together.mp3",
+     "parts": [
+      "../../en-shared/q/we-are-a-great.mp3",
+      "../../en-shared/q/and-we-always-play-together.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-8922d714d7.mp3"
+    },
+    {
+     "stem": "I can ____ the ball with my big glove.",
+     "options": [
+      "catch",
+      "miss",
+      "drop",
+      "throw"
+     ],
+     "answer": 0,
+     "word": "I can catch the ball with my big glove.",
+     "audio": "../../en-shared/q/i-can-catch-the-ball-with-my-big-glove.mp3",
+     "parts": [
+      "../../en-shared/q/i-can.mp3",
+      "../../en-shared/q/the-ball-with-my-big-glove.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-b07b5f6a4c.mp3"
+    },
+    {
+     "stem": "He used his foot to ____ the soccer ball.",
+     "options": [
+      "kick",
+      "wave",
+      "push",
+      "pat"
+     ],
+     "answer": 0,
+     "word": "He used his foot to kick the soccer ball.",
+     "audio": "../../en-shared/q/he-used-his-foot-to-kick-the-soccer-ball.mp3",
+     "parts": [
+      "../../en-shared/q/he-used-his-foot-to.mp3",
+      "../../en-shared/q/the-soccer-ball.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-c400259006.mp3"
+    },
+    {
+     "stem": "The ball will ____ when you throw it down.",
+     "options": [
+      "kick",
+      "roll",
+      "bounce",
+      "throw"
+     ],
+     "answer": 2,
+     "word": "The ball will bounce when you throw it down.",
+     "audio": "../../en-shared/q/the-ball-will-bounce-when-you-throw-it-down.mp3",
+     "parts": [
+      "../../en-shared/q/the-ball-will.mp3",
+      "../../en-shared/q/when-you-throw-it-down.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-7ac05e3207.mp3"
+    },
+    {
+     "stem": "I gave the ball a big ____ with the bat.",
+     "options": [
+      "hit",
+      "push",
+      "hop",
+      "walk"
+     ],
+     "answer": 0,
+     "word": "I gave the ball a big hit with the bat.",
+     "audio": "../../en-shared/q/i-gave-the-ball-a-big-hit-with-the-bat.mp3",
+     "parts": [
+      "../../en-shared/q/i-gave-the-ball-a-big.mp3",
+      "../../en-shared/q/with-the-bat.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-44481a4013.mp3"
+    },
+    {
+     "stem": "A bunny can ____ on one foot.",
+     "options": [
+      "fly",
+      "catch",
+      "kick",
+      "hop"
+     ],
+     "answer": 3,
+     "word": "A bunny can hop on one foot.",
+     "audio": "../../en-shared/q/a-bunny-can-hop-on-one-foot.mp3",
+     "parts": [
+      "../../en-shared/q/a-bunny-can.mp3",
+      "../../en-shared/q/on-one-foot.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-aae4c7a390.mp3"
+    }
+   ],
+   "page": 66,
+   "ex": 3
+  },
+  {
+   "type": "cloze",
+   "task": "Choose the correct answer to complete the text.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-to-complete-the-text.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "text": "A Fun Day at the Park. Our [[team]] played a fun game today. We all [[run]] fast to get to the big field. My friend, Tom, had a red ball. He wanted me to [[catch]] it. He gave the ball a big [[hit]] with his hand, and it flew up high. The ball came down and made a big [[bounce]] on the grass. I ran as fast as I could to get it. I almost missed it, but I used my hands to grab it. Our team was so happy! We all love playing games together.",
+     "bank": [
+      "bounce",
+      "catch",
+      "hit",
+      "team",
+      "run"
+     ],
+     "audio": "../../en-shared/q/a-fun-day-at-the-park-our-team-played-a-fun-game-t-2348b55e.mp3"
+    }
+   ],
+   "page": 67,
+   "ex": 4
+  },
+  {
+   "type": "order",
+   "task": "Rearrange the following sentences.",
+   "taskAudio": "../../en-shared/q/rearrange-the-following-sentences.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "can",
+      "jump",
+      "high"
+     ],
+     "end": ".",
+     "word": "I can jump high.",
+     "audio": "../../en-shared/q/i-can-jump-high.mp3"
+    },
+    {
+     "chunks": [
+      "They",
+      "hop",
+      "on",
+      "one",
+      "foot"
+     ],
+     "end": ".",
+     "word": "They hop on one foot.",
+     "audio": "../../en-shared/q/they-hop-on-one-foot.mp3"
+    },
+    {
+     "chunks": [
+      "A",
+      "race",
+      "is",
+      "fun"
+     ],
+     "end": ".",
+     "word": "A race is fun.",
+     "audio": "../../en-shared/q/a-race-is-fun.mp3"
+    },
+    {
+     "chunks": [
+      "They",
+      "kick",
+      "a big",
+      "ball"
+     ],
+     "end": ".",
+     "word": "They kick a big ball.",
+     "audio": "../../en-shared/q/they-kick-a-big-ball.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "can",
+      "kick",
+      "the",
+      "ball"
+     ],
+     "end": ".",
+     "word": "I can kick the ball.",
+     "audio": "../../en-shared/q/i-can-kick-the-ball.mp3"
+    }
+   ],
+   "page": 67,
+   "ex": 5
+  },
+  {
+   "type": "explain",
+   "task": "Reading Comprehension. The Big Game Day.",
+   "taskAudio": "../../en-shared/q/reading-comprehension-the-big-game-day.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "lines": [
+      {
+       "t": "The Big Game Day",
+       "a": "../../en-shared/q/the-big-game-day.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "Our team is ready to run,",
+       "a": "../../en-shared/q/our-team-is-ready-to-run.mp3"
+      },
+      {
+       "t": "Playing a game is so much fun!",
+       "a": "../../en-shared/q/playing-a-game-is-so-much-fun.mp3"
+      },
+      {
+       "t": "I throw the ball up high,",
+       "a": "../../en-shared/q/i-throw-the-ball-up-high.mp3"
+      },
+      {
+       "t": "It looks like it will touch the sky.",
+       "a": "../../en-shared/q/it-looks-like-it-will-touch-the-sky.mp3"
+      },
+      {
+       "t": "I watch it bounce on the ground,",
+       "a": "../../en-shared/q/i-watch-it-bounce-on-the-ground.mp3"
+      },
+      {
+       "t": "Without making a sound.",
+       "a": "../../en-shared/q/without-making-a-sound.mp3"
+      },
+      {
+       "t": "My friend wants to catch it fast,",
+       "a": "../../en-shared/q/my-friend-wants-to-catch-it-fast.mp3"
+      },
+      {
+       "t": "I hope the good times last!",
+       "a": "../../en-shared/q/i-hope-the-good-times-last.mp3"
+      },
+      {
+       "t": "He gives the ball a big kick,",
+       "a": "../../en-shared/q/he-gives-the-ball-a-big-kick.mp3"
+      },
+      {
+       "t": "Such a powerful trick!",
+       "a": "../../en-shared/q/such-a-powerful-trick.mp3"
+      },
+      {
+       "t": "It's a big race to the goal,",
+       "a": "../../en-shared/q/it-s-a-big-race-to-the-goal.mp3"
+      },
+      {
+       "t": "To score and make us whole.",
+       "a": "../../en-shared/q/to-score-and-make-us-whole.mp3"
+      },
+      {
+       "t": "We jump and hop along,",
+       "a": "../../en-shared/q/we-jump-and-hop-along.mp3"
+      },
+      {
+       "t": "Singing our victory song!",
+       "a": "../../en-shared/q/singing-our-victory-song.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 69,
+   "grp": "game"
+  },
+  {
+   "type": "mcq",
+   "task": "Circle True or False.",
+   "taskAudio": "../../en-shared/q/circle-true-or-false.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "The team is not ready to run.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 1,
+     "word": "The team is not ready to run.",
+     "audio": "../../en-shared/q/the-team-is-not-ready-to-run.mp3",
+     "askAudio": "../../en-shared/q/ask-4c25301d3c.mp3"
+    },
+    {
+     "stem": "The poem is about a soccer game.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 0,
+     "word": "The poem is about a soccer game.",
+     "audio": "../../en-shared/q/the-poem-is-about-a-soccer-game.mp3",
+     "askAudio": "../../en-shared/q/ask-5cdeb19505.mp3"
+    },
+    {
+     "stem": "The ball makes a loud sound when it bounces.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 1,
+     "word": "The ball makes a loud sound when it bounces.",
+     "audio": "../../en-shared/q/the-ball-makes-a-loud-sound-when-it-bounces.mp3",
+     "askAudio": "../../en-shared/q/ask-d1e9436457.mp3"
+    },
+    {
+     "stem": "The friends are in a race to the goal.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 0,
+     "word": "The friends are in a race to the goal.",
+     "audio": "../../en-shared/q/the-friends-are-in-a-race-to-the-goal.mp3",
+     "askAudio": "../../en-shared/q/ask-2009ba9688.mp3"
+    },
+    {
+     "stem": "They sing a sad song.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 1,
+     "word": "They sing a sad song.",
+     "audio": "../../en-shared/q/they-sing-a-sad-song.mp3",
+     "askAudio": "../../en-shared/q/ask-d2b9f7b3e9.mp3"
+    }
+   ],
+   "page": 69,
+   "ex": 1,
+   "grp": "game"
+  },
+  {
+   "type": "mcq",
+   "task": "Complete the following sentences and answers.",
+   "taskAudio": "../../en-shared/q/complete-the-following-sentences-and-answers.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "A bird ____ fly with a broken wing.",
+     "options": [
+      "can",
+      "can't"
+     ],
+     "answer": 1,
+     "word": "A bird can't fly with a broken wing.",
+     "audio": "../../en-shared/q/a-bird-can-t-fly-with-a-broken-wing.mp3",
+     "parts": [
+      "../../en-shared/q/a-bird.mp3",
+      "../../en-shared/q/fly-with-a-broken-wing.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-5418e159f5.mp3"
+    },
+    {
+     "stem": "I ____ climb the monkey bars. They aren't high.",
+     "options": [
+      "can",
+      "can't"
+     ],
+     "answer": 0,
+     "word": "I can climb the monkey bars. They aren't high.",
+     "audio": "../../en-shared/q/i-can-climb-the-monkey-bars-they-aren-t-high.mp3",
+     "parts": [
+      "../../en-shared/q/i.mp3",
+      "../../en-shared/q/climb-the-monkey-bars-they-aren-t-high.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-802d69ba4d.mp3"
+    },
+    {
+     "stem": "____ you jump rope with me?",
+     "options": [
+      "Can",
+      "Can't"
+     ],
+     "answer": 0,
+     "word": "Can you jump rope with me?",
+     "audio": "../../en-shared/q/can-you-jump-rope-with-me.mp3",
+     "parts": [
+      "../../en-shared/q/you-jump-rope-with-me.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-3f70f36d3b.mp3"
+    },
+    {
+     "stem": "My little brother ____ throw the ball far. He is weak.",
+     "options": [
+      "can",
+      "can't"
+     ],
+     "answer": 1,
+     "word": "My little brother can't throw the ball far. He is weak.",
+     "audio": "../../en-shared/q/my-little-brother-can-t-throw-the-ball-far-he-is-weak.mp3",
+     "parts": [
+      "../../en-shared/q/my-little-brother.mp3",
+      "../../en-shared/q/throw-the-ball-far-he-is-weak.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-3a537df52d.mp3"
+    },
+    {
+     "stem": "____ you play a song on the piano?",
+     "options": [
+      "Can",
+      "Can't"
+     ],
+     "answer": 0,
+     "word": "Can you play a song on the piano?",
+     "audio": "../../en-shared/q/can-you-play-a-song-on-the-piano.mp3",
+     "parts": [
+      "../../en-shared/q/you-play-a-song-on-the-piano.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-78ebfd0441.mp3"
+    }
+   ],
+   "page": 71,
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "The cat is ____ the box.",
+     "options": [
+      "in",
+      "on",
+      "under",
+      "next to"
+     ],
+     "answer": 0,
+     "word": "The cat is in the box.",
+     "audio": "../../en-shared/q/the-cat-is-in-the-box.mp3",
+     "parts": [
+      "../../en-shared/q/the-cat-is.mp3",
+      "../../en-shared/q/the-box.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-79cc4881c3.mp3"
+    },
+    {
+     "stem": "The book is ____ the table.",
+     "options": [
+      "under",
+      "on",
+      "in",
+      "between"
+     ],
+     "answer": 1,
+     "word": "The book is on the table.",
+     "audio": "../../en-shared/q/the-book-is-on-the-table.mp3",
+     "parts": [
+      "../../en-shared/q/the-book-is.mp3",
+      "../../en-shared/q/the-table.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-b6127547ff.mp3"
+    },
+    {
+     "stem": "The ball is ____ the chair and the lamp.",
+     "options": [
+      "next to",
+      "on",
+      "under",
+      "between"
+     ],
+     "answer": 3,
+     "word": "The ball is between the chair and the lamp.",
+     "audio": "../../en-shared/q/the-ball-is-between-the-chair-and-the-lamp.mp3",
+     "parts": [
+      "../../en-shared/q/the-ball-is.mp3",
+      "../../en-shared/q/the-chair-and-the-lamp.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-efbc914c08.mp3"
+    },
+    {
+     "stem": "The girl is standing ____ to her friend.",
+     "options": [
+      "in",
+      "on",
+      "under",
+      "next"
+     ],
+     "answer": 3,
+     "word": "The girl is standing next to her friend.",
+     "audio": "../../en-shared/q/the-girl-is-standing-next-to-her-friend.mp3",
+     "parts": [
+      "../../en-shared/q/the-girl-is-standing.mp3",
+      "../../en-shared/q/to-her-friend.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-93ed8abc05.mp3"
+    },
+    {
+     "stem": "The apple fell ____ the tree.",
+     "options": [
+      "in",
+      "on",
+      "under",
+      "next to"
+     ],
+     "answer": 2,
+     "word": "The apple fell under the tree.",
+     "audio": "../../en-shared/q/the-apple-fell-under-the-tree.mp3",
+     "parts": [
+      "../../en-shared/q/the-apple-fell.mp3",
+      "../../en-shared/q/the-tree.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-939fd6aa80.mp3"
+    }
+   ],
+   "page": 71,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Complete the following answers with can or can't.",
+   "taskAudio": "../../en-shared/q/complete-the-following-answers-with-can-or-can-t.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "Can you play a song on the piano? Yes, I ____.",
+     "options": [
+      "can",
+      "can't"
+     ],
+     "answer": 0,
+     "word": "Can you play a song on the piano? Yes, I can.",
+     "audio": "../../en-shared/q/can-you-play-a-song-on-the-piano-yes-i-can.mp3",
+     "parts": [
+      "../../en-shared/q/can-you-play-a-song-on-the-piano-yes-i.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-2b7dae80e2.mp3"
+    },
+    {
+     "stem": "Can your friend jump rope? No, she ____.",
+     "options": [
+      "can",
+      "can't"
+     ],
+     "answer": 1,
+     "word": "Can your friend jump rope? No, she can't.",
+     "audio": "../../en-shared/q/can-your-friend-jump-rope-no-she-can-t.mp3",
+     "parts": [
+      "../../en-shared/q/can-your-friend-jump-rope-no-she.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-d87bd0b124.mp3"
+    },
+    {
+     "stem": "Can a frog jump far? No, it ____.",
+     "options": [
+      "can",
+      "can't"
+     ],
+     "answer": 1,
+     "word": "Can a frog jump far? No, it can't.",
+     "audio": "../../en-shared/q/can-a-frog-jump-far-no-it-can-t.mp3",
+     "parts": [
+      "../../en-shared/q/can-a-frog-jump-far-no-it.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-e637950468.mp3"
+    },
+    {
+     "stem": "Can you draw a flower? Yes, I ____.",
+     "options": [
+      "can",
+      "can't"
+     ],
+     "answer": 0,
+     "word": "Can you draw a flower? Yes, I can.",
+     "audio": "../../en-shared/q/can-you-draw-a-flower-yes-i-can.mp3",
+     "parts": [
+      "../../en-shared/q/can-you-draw-a-flower-yes-i.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-1f3bc7ead6.mp3"
+    },
+    {
+     "stem": "Can you walk to school? No, I ____.",
+     "options": [
+      "can",
+      "can't"
+     ],
+     "answer": 1,
+     "word": "Can you walk to school? No, I can't.",
+     "audio": "../../en-shared/q/can-you-walk-to-school-no-i-can-t.mp3",
+     "parts": [
+      "../../en-shared/q/can-you-walk-to-school-no-i.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-1ae13b0148.mp3"
+    }
+   ],
+   "page": 72,
+   "ex": 3
+  }
+ ]
+}

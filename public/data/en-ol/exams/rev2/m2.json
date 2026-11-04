@@ -1,0 +1,259 @@
+{
+ "title": "Test 2",
+ "ratio": 0.707,
+ "head": {
+  "l": "Department of English<br>1st Term OL Booklet Grade 1<br>2026/2027",
+  "r": "Noor El Elm<br>Modern School"
+ },
+ "pages": [
+  {
+   "title": "Model 2",
+   "chip": "Model 2",
+   "foot": 12,
+   "blocks": [
+    {
+     "t": "q",
+     "n": "1",
+     "text": "Listen and write the missing letters:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/axe-exrev2.jpg"
+          },
+          {
+           "t": "text",
+           "text": "[[a:tiny]] xe",
+           "listen": "axe"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/square.jpg"
+          },
+          {
+           "t": "text",
+           "text": "[[s:tiny]] quare",
+           "listen": "square"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/flower-exrev2.png"
+          },
+          {
+           "t": "text",
+           "text": "flo [[w:tiny]] er",
+           "listen": "flower"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "Read and choose the correct answer:",
+     "body": [
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "1- The"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "sun",
+          "sky"
+         ],
+         "answer": 1,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "is blue."
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "2- I can"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "see",
+          "sees"
+         ],
+         "answer": 0,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "a circle."
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "3- The"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "sun",
+          "grass"
+         ],
+         "answer": 1,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "is green."
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "style": "flex",
+       "items": [
+        {
+         "t": "text",
+         "text": "4- "
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "What",
+          "Where"
+         ],
+         "answer": 0,
+         "labels": "none",
+         "style": "inl"
+        },
+        {
+         "t": "text",
+         "text": "shape is this? – This is a rectangle."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Unscramble and write:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/bird-exrev2.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>r b d i</span> [[bird:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/yellow.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>l y w e l o</span> [[yellow:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/flower-exrev2.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>w l f r o e</span> [[flower:wide]]"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Reorder to form sentences:",
+     "body": [
+      {
+       "t": "order",
+       "words": [
+        "three",
+        "I",
+        "triangle",
+        "have"
+       ],
+       "answer": "I have three triangle"
+      },
+      {
+       "t": "order",
+       "words": [
+        "What",
+        "this",
+        "is",
+        "color"
+       ],
+       "answer": [
+        "What color is this",
+        "What is this color"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -5,7 +5,7 @@
  "type": "letter",
  "title": "حرف الباء",
  "task": "أتعرّف على حرف الباء",
- "pages": 2,
+ "pages": 3,
  "pageNums": [
   10,
   11
@@ -22,24 +22,16 @@
   "pic": "../../pics/ar-cow.png",
   "forms": [
    {
-    "label": "أول الكلمة",
-    "t": "بـ",
-    "pos": "start"
+    "t": "ب"
    },
    {
-    "label": "وسط الكلمة",
-    "t": "ـبـ",
-    "pos": "mid"
+    "t": "ـب"
    },
    {
-    "label": "آخر الكلمة (متصل)",
-    "t": "ـب",
-    "pos": "end-joined"
+    "t": "ـبـ"
    },
    {
-    "label": "آخر الكلمة (منفصل)",
-    "t": "ب",
-    "pos": "end-alone"
+    "t": "بـ"
    }
   ],
   "sounds": [
@@ -73,16 +65,31 @@
    }
   ],
   "tasks": [
-   "أشكال حرف الباء في الكلمة",
+   "أتعرّف شكل حرف الباء",
    "أصوات حرف الباء بالحركات"
-  ]
+  ],
+  "chant": {
+   "pic": "img/chant.jpg",
+   "task": "نشيد الحرف",
+   "lines": [
+    {
+     "t": "بَاءٌ بَيْتِي … يَا أَصْحَابِي",
+     "audio": "chant-1.mp3"
+    },
+    {
+     "t": "فِيهِ كُتُبِي … مَعَ أَلْعَابِي",
+     "audio": "chant-2.mp3"
+    }
+   ]
+  }
  },
  "hints": {
   "read": "اضغط على الحرف واسمعه",
   "word": "اضغط",
   "vocabPick": "اختار كلمة",
   "vocabTeach": "اسمع وردد",
-  "vocabWrite": "اكتب الكلمة حرف حرف"
+  "vocabWrite": "اكتب الكلمة حرف حرف",
+  "chant": "اضغط هنا واسمع النشيد!"
  },
  "vocab": [
   {
@@ -104,26 +111,28 @@
      "t": "رَة",
      "audio": "../../syl-ar/631-64e-629.mp3"
     }
-   ]
+   ],
+   "har": "fatha"
   },
   {
    "word": "بَيْض",
    "img": "../../pics/ar-eggs.png",
    "audio": {
-    "word": "words/bayd.mp3"
+    "word": "../u4l6/words/bayd.mp3"
    },
    "parts": [
     {
      "t": "بَيْض",
-     "audio": "words/bayd.mp3"
+     "audio": "../u4l6/words/bayd.mp3"
     }
-   ]
+   ],
+   "har": "fatha"
   },
   {
    "word": "بَطَّة",
    "img": "../../pics/ar-duck.png",
    "audio": {
-    "word": "words/batta.mp3"
+    "word": "../u1l3/q/c5-batta.mp3"
    },
    "parts": [
     {
@@ -134,7 +143,8 @@
      "t": "طَّة",
      "audio": "../../syl-ar/637-64e-651-629.mp3"
     }
-   ]
+   ],
+   "har": "fatha"
   },
   {
    "word": "بُرْج",
@@ -147,7 +157,8 @@
      "t": "بُرْج",
      "audio": "words/burj.mp3"
     }
-   ]
+   ],
+   "har": "damma"
   },
   {
    "word": "بُومَة",
@@ -164,7 +175,8 @@
      "t": "مَة",
      "audio": "../../syl-ar/645-64e-629.mp3"
     }
-   ]
+   ],
+   "har": "damma"
   },
   {
    "word": "بُوق",
@@ -177,7 +189,8 @@
      "t": "بُوق",
      "audio": "words/buq.mp3"
     }
-   ]
+   ],
+   "har": "damma"
   },
   {
    "word": "بِنْت",
@@ -190,13 +203,14 @@
      "t": "بِنْت",
      "audio": "words/bint.mp3"
     }
-   ]
+   ],
+   "har": "kasra"
   },
   {
    "word": "بِطِّيخ",
    "img": "../../pics/ar-watermelon.png",
    "audio": {
-    "word": "words/bittikh.mp3"
+    "word": "../u4l4/words/bittikh.mp3"
    },
    "parts": [
     {
@@ -207,13 +221,14 @@
      "t": "طِّيخ",
      "audio": "../../syl-ar/637-650-651-64a-62e.mp3"
     }
-   ]
+   ],
+   "har": "kasra"
   },
   {
    "word": "بِطْرِيق",
    "img": "../../pics/ar-penguin.png",
    "audio": {
-    "word": "words/bitriq.mp3"
+    "word": "../u4l4/words/batriq.mp3"
    },
    "parts": [
     {
@@ -224,7 +239,8 @@
      "t": "رِيق",
      "audio": "../../syl-ar/631-650-64a-642.mp3"
     }
-   ]
+   ],
+   "har": "kasra"
   },
   {
    "word": "إِبْرَة",
@@ -241,7 +257,8 @@
      "t": "رَة",
      "audio": "../../syl-ar/631-64e-629.mp3"
     }
-   ]
+   ],
+   "har": "sukoon"
   },
   {
    "word": "حَبْل",
@@ -254,20 +271,22 @@
      "t": "حَبْل",
      "audio": "../u1l6/words/habl.mp3"
     }
-   ]
+   ],
+   "har": "sukoon"
   },
   {
    "word": "ضَبْع",
    "img": "../../pics/ar-hyena.png",
    "audio": {
-    "word": "words/dab.mp3"
+    "word": "../u4l6/words/daba3.mp3"
    },
    "parts": [
     {
      "t": "ضَبْع",
-     "audio": "words/dab.mp3"
+     "audio": "../u4l6/words/daba3.mp3"
     }
-   ]
+   ],
+   "har": "sukoon"
   }
  ],
  "vocabRepeats": 3

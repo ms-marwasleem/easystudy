@@ -7,10 +7,10 @@
 
 *{box-sizing:border-box}
 /* ONE scale for the whole design: every size is in rem, so the page grows / shrinks with the screen (landscape designed at ~1000x640, portrait at ~390x760) */
-html{font-size:clamp(7px,min(1.6vw,2.5vh),28px)}
-@media (max-aspect-ratio:1/1){html{font-size:clamp(7px,min(4vw,2.05vh),28px)}}
+html{font-size:clamp(8px,min(1.75vw,2.5vh),30px)}
+@media (max-aspect-ratio:1/1){html{font-size:clamp(8px,min(4.4vw,2.05vh),30px)}}
 html,body{height:100%;margin:0}
-html{background:linear-gradient(var(--bg-dim),var(--bg-dim)),var(--bg-pat) center/cover no-repeat,radial-gradient(ellipse at 50% 25%,var(--bg-hi) 0%,var(--bg-mid) 58%,var(--bg-lo) 100%);background-attachment:fixed;background-color:var(--bg-mid)}
+html{background:linear-gradient(var(--bg-dim),var(--bg-dim)),var(--bg-pat) center/cover no-repeat,radial-gradient(ellipse at 50% 25%,var(--bg-hi) 0%,var(--bg-mid) 58%,var(--bg-lo) 100%);background-attachment:scroll;background-repeat:no-repeat;background-size:100% 100%,cover,100% 100%;background-color:var(--bg-lo);min-height:100vh;min-height:100lvh}
 body{font-size:0.875rem;color:var(--ol);font-family:var(--f-ui);overflow:hidden;background:none;
   padding-left:max(0.875rem,env(safe-area-inset-left,0px));padding-right:max(0.875rem,env(safe-area-inset-right,0px))}
 @media (max-aspect-ratio:1/1){html{background-image:linear-gradient(var(--bg-dim),var(--bg-dim)),var(--bg-patp),radial-gradient(ellipse at 50% 25%,var(--bg-hi) 0%,var(--bg-mid) 58%,var(--bg-lo) 100%)}}

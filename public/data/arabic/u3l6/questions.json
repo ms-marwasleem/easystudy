@@ -2,6 +2,235 @@
  "sets": [
   {
    "type": "circle",
+   "ex": 2,
+   "page": 97,
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ حَرْفِ الْوَاوِ",
+   "taskAudio": "q/task-2.mp3",
+   "hint": "اضغط على أشكال الواو",
+   "items": [
+    {
+     "word": "ر",
+     "text": "ر",
+     "answer": 0
+    },
+    {
+     "word": "و",
+     "text": "و",
+     "answer": 1
+    },
+    {
+     "word": "م",
+     "text": "م",
+     "answer": 0
+    },
+    {
+     "word": "ـو",
+     "text": "ـو",
+     "answer": 1
+    },
+    {
+     "word": "ح",
+     "text": "ح",
+     "answer": 0
+    },
+    {
+     "word": "ز",
+     "text": "ز",
+     "answer": 0
+    },
+    {
+     "word": "و",
+     "text": "و",
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 4,
+   "page": 98,
+   "task": "أَتَتَبَّعُ الْخَرِيطَةَ؛ لِكَيْ أَصِلَ الصُّوَرَ الَّتِي بِهَا حَرْفُ الْوَاوِ",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "اضغط على الصور اللي فيها الواو",
+   "items": [
+    {
+     "word": "حَوْض",
+     "audio": "../u1l6/words/hawd.mp3",
+     "pic": "../../pics/ar-sink.png",
+     "answer": true
+    },
+    {
+     "word": "وُرُود",
+     "audio": "q/w-wurud.mp3",
+     "pic": "../../pics/ar-flowers.png",
+     "answer": true
+    },
+    {
+     "word": "دَلْو",
+     "audio": "../u1l8/words/dalw.mp3",
+     "pic": "../../pics/ar-bucket.png",
+     "answer": true
+    },
+    {
+     "word": "وَلَد",
+     "audio": "words/walad.mp3",
+     "pic": "../../pics/ar-boy.png",
+     "answer": true
+    },
+    {
+     "word": "زُجَاجَة",
+     "audio": "q/w-zujaja.mp3",
+     "pic": "../../pics/ar-bottle.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "sound",
+   "ex": 5,
+   "page": 98,
+   "task": "أَنْطِقُ صَوْتَ حَرْفِ الْوَاوِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
+   "taskAudio": "q/task-5.mp3",
+   "hint": "اسمع الجملة وردد وراها",
+   "items": [
+    {
+     "word": "وَلَد",
+     "ask": "وَ",
+     "pic": "../../pics/ar-boy.png",
+     "audio": [
+      "../letters/648/name.mp3",
+      "../shared/h-fatha.mp3",
+      "../../syl-ar/648-64e.mp3",
+      "words/walad.mp3"
+     ]
+    },
+    {
+     "word": "وُرُود",
+     "ask": "وُ",
+     "pic": "../../pics/ar-flowers.png",
+     "audio": [
+      "../letters/648/name.mp3",
+      "../shared/h-damma.mp3",
+      "../../syl-ar/648-64f.mp3",
+      "q/w-wurud.mp3"
+     ]
+    },
+    {
+     "word": "وِسَادَة",
+     "ask": "وِ",
+     "pic": "../../pics/ar-pillow.jpg",
+     "audio": [
+      "../letters/648/name.mp3",
+      "../shared/h-kasra.mp3",
+      "../../syl-ar/648-650.mp3",
+      "q/w-wisada.mp3"
+     ]
+    },
+    {
+     "word": "مَوْز",
+     "ask": "وْ",
+     "pic": "../../pics/ar-banana.png",
+     "audio": [
+      "../letters/648/name.mp3",
+      "../shared/h-sukoon.mp3",
+      "../../syl-ar/648-652.mp3",
+      "../u1l5/words/mawz.mp3"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 8,
+   "page": 99,
+   "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الْوَاوِ مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار الواو بالحركة الصح",
+   "choices": [
+    "وَ",
+    "وُ",
+    "وِ",
+    "وْ"
+   ],
+   "items": [
+    {
+     "word": "وَلَد",
+     "audio": "words/walad.mp3",
+     "pic": "../../pics/ar-boy.png",
+     "answer": "وَ",
+     "choices": [
+      "وَ",
+      "وُ",
+      "وِ"
+     ]
+    },
+    {
+     "word": "وِسَادَة",
+     "audio": "q/w-wisada.mp3",
+     "pic": "../../pics/ar-pillow.jpg",
+     "answer": "وِ",
+     "choices": [
+      "وَ",
+      "وُ",
+      "وِ"
+     ]
+    },
+    {
+     "word": "مَوْز",
+     "audio": "../u1l5/words/mawz.mp3",
+     "pic": "../../pics/ar-banana.png",
+     "answer": "وْ",
+     "choices": [
+      "وَ",
+      "وُ",
+      "وِ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "وُرُود",
+     "audio": "q/w-wurud.mp3",
+     "pic": "../../pics/ar-flowers.png",
+     "answer": "وُ",
+     "choices": [
+      "وَ",
+      "وُ",
+      "وِ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 100,
+   "task": "أَدْمِجُ الْحُرُوفَ لِأُكَوِّنَ كَلِمَةً",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "items": [
+    {
+     "word": "وَرْدَة",
+     "audio": "words/warda.mp3",
+     "pic": "../../pics/ar-flowers.png",
+     "chips": [
+      "وَرْ",
+      "دَ",
+      "ة"
+     ]
+    },
+    {
+     "word": "دَلْو",
+     "audio": "../u1l8/words/dalw.mp3",
+     "pic": "../../pics/ar-bucket.png",
+     "chips": [
+      "دَلْ",
+      "و"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
    "ex": 7,
    "page": 93,
    "task": "اسْتَمِعْ وَضَعْ عَلَامَةَ (✓) تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الْوَاوِ",
@@ -11,6 +240,7 @@
    ],
    "hint": "اضغط على الصور التي فيها صوت الواو",
    "silent": true,
+   "book": "booklet",
    "items": [
     {
      "word": "scarf",
@@ -76,6 +306,7 @@
     "وِ",
     "وْ"
    ],
+   "book": "booklet",
    "items": [
     {
      "word": "وِعَاء",
@@ -98,7 +329,7 @@
     },
     {
      "word": "وُجُوه",
-     "pic": "../../pics/ar-faces.jpg",
+     "pic": "../../pics/ar-faces.png",
      "audio": "words/wujuh.mp3",
      "answer": "وُ"
     },
@@ -120,6 +351,7 @@
     "../letters/648/name.mp3"
    ],
    "hint": "اضغط على الدائرة التي فيها الواو",
+   "book": "booklet",
    "items": [
     {
      "word": "وَلَد",
@@ -160,6 +392,7 @@
    "task": "أُكَوِّنُ كَلِمَاتٍ مِنَ الْحُرُوفِ التَّالِيَةِ",
    "taskAudio": "../q-prompts/arrange-letters.mp3",
    "hint": "رتب الحروف",
+   "book": "booklet",
    "items": [
     {
      "word": "دَلْو",
@@ -190,6 +423,7 @@
    "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/merge-syllables.mp3",
    "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "book": "booklet",
    "items": [
     {
      "word": "وَطَن",
@@ -234,6 +468,7 @@
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/arrange-letters.mp3",
    "hint": "رتب الحروف",
+   "book": "booklet",
    "items": [
     {
      "word": "دَلْو",

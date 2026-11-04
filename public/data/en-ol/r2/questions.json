@@ -1,0 +1,1030 @@
+{
+ "_note": "Review 2: school book pp122-124 (ex4 colouring squares asked as two circle sets; ex1 sweater read as jacket). Performance General Revision pp50-53 complete: A match, B missing sound, C unscramble, D reorder, E complete, F dialog (cloze), G how many (tap number).",
+ "sets": [
+  {
+   "type": "letter",
+   "ex": 1,
+   "page": 122,
+   "task": "Check the correct beginning letter.",
+   "taskAudio": "q/check-the-correct-beginning-letter.mp3",
+   "hint": "Tap the first letter!",
+   "items": [
+    {
+     "word": "jacket",
+     "audio": "../u6l4/words/jacket.mp3",
+     "pic": "../../pics/jacket-u6l4.png",
+     "letters": [
+      "Ff",
+      "Jj"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "umbrella",
+     "audio": "../u6l4/words/umbrella.mp3",
+     "pic": "../../pics/umbrella-u6l4.png",
+     "letters": [
+      "Uu",
+      "Bb"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "lemon",
+     "audio": "../u6l2/words/lemon.mp3",
+     "pic": "../../pics/lemon-u6l2.png",
+     "letters": [
+      "Ll",
+      "Oo"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "bike",
+     "audio": "../u6l2/words/bike.mp3",
+     "pic": "../../pics/bike-u6l2.png",
+     "letters": [
+      "Ll",
+      "Bb"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "frog",
+     "audio": "../u2l3/words/frog.mp3",
+     "pic": "../../pics/frog.png",
+     "letters": [
+      "Ff",
+      "Uu"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "ostrich",
+     "audio": "../u4l2/words/ostrich.mp3",
+     "pic": "../../pics/ostrich-u4l2.png",
+     "letters": [
+      "Jj",
+      "Oo"
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "ex": 2,
+   "page": 122,
+   "task": "Look at the picture, name it, then write its beginning letter.",
+   "taskAudio": "q/look-at-the-picture-name-it-then-write-its-beginning-letter.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "olive",
+     "audio": "../u5l4/words/olive.mp3",
+     "pic": "../../pics/olive-u5l4.png",
+     "missing": 0,
+     "answer": "o"
+    },
+    {
+     "word": "boy",
+     "audio": "../u6l2/words/boy.mp3",
+     "pic": "../../pics/boy-u6l2.png",
+     "missing": 0,
+     "answer": "b"
+    },
+    {
+     "word": "fish",
+     "audio": "../u4l2/words/fish.mp3",
+     "pic": "../../pics/fish-u4l2.png",
+     "missing": 0,
+     "answer": "f"
+    },
+    {
+     "word": "desk",
+     "audio": "../u1l3/words/desk.mp3",
+     "pic": "../../pics/desk.png",
+     "missing": 0,
+     "answer": "d"
+    },
+    {
+     "word": "lamp",
+     "audio": "../u6l2/words/lamp.mp3",
+     "pic": "../../pics/lamp-u6l2.png",
+     "missing": 0,
+     "answer": "l"
+    },
+    {
+     "word": "jellyfish",
+     "audio": "../u6l4/words/jellyfish.mp3",
+     "pic": "../../pics/jellyfish-u6l4.png",
+     "missing": 0,
+     "answer": "j"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 3,
+   "page": 123,
+   "task": "Match each sense to its body part.",
+   "taskAudio": "q/match-each-sense-to-its-body-part.mp3",
+   "hint": "Join each picture to its body part!",
+   "items": [
+    {
+     "word": "nose",
+     "audio": "../u3l2/words/nose.mp3",
+     "pic": "../../pics/pinkflower-u4l3.png",
+     "wpic": "../../pics/nose-u4l1.png"
+    },
+    {
+     "word": "tongue",
+     "audio": "../u4l1/words/tongue.mp3",
+     "pic": "../../pics/icecream-u4l3.png",
+     "wpic": "../../pics/tongue-u4l1.png"
+    },
+    {
+     "word": "ear",
+     "audio": "../u4l1/words/ear.mp3",
+     "pic": "../../pics/bell-r2.png",
+     "wpic": "../../pics/ear-u4l1.png"
+    },
+    {
+     "word": "eyes",
+     "audio": "../u4l1/words/eyes.mp3",
+     "pic": "../../pics/sun-r2.png",
+     "wpic": "../../pics/eyes-u4q.png"
+    },
+    {
+     "word": "hand",
+     "audio": "../u4l1/words/hand.mp3",
+     "pic": "../../pics/teddy-r1.png",
+     "wpic": "../../pics/hand-u4l1.png"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 4,
+   "page": 123,
+   "task": "Circle the jungle animals.",
+   "taskAudio": "q/circle-the-jungle-animals.mp3",
+   "hint": "Tap the jungle animals!",
+   "items": [
+    {
+     "word": "turtle",
+     "audio": "../u5l1/words/turtle.mp3",
+     "pic": "../../pics/turtle-u5l1.png",
+     "answer": false
+    },
+    {
+     "word": "lion",
+     "audio": "../u6l1/words/lion.mp3",
+     "pic": "../../pics/lion-u6l1.png",
+     "answer": true
+    },
+    {
+     "word": "dog",
+     "audio": "../u1l4/words/dog.mp3",
+     "pic": "../../pics/dog-u3l4.png",
+     "answer": false
+    },
+    {
+     "word": "elephant",
+     "audio": "../u4l2/words/elephant.mp3",
+     "pic": "../../pics/elephant-u4l2.png",
+     "answer": true
+    },
+    {
+     "word": "cat",
+     "audio": "../u1l4/words/cat.mp3",
+     "pic": "../../pics/cat-u4l4.png",
+     "answer": false
+    },
+    {
+     "word": "giraffe",
+     "audio": "../u6l1/words/giraffe.mp3",
+     "pic": "../../pics/giraffe-u6l1.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 4,
+   "page": 123,
+   "task": "Circle the pets.",
+   "taskAudio": "q/circle-the-pets.mp3",
+   "hint": "Tap the pets!",
+   "items": [
+    {
+     "word": "turtle",
+     "audio": "../u5l1/words/turtle.mp3",
+     "pic": "../../pics/turtle-u5l1.png",
+     "answer": true
+    },
+    {
+     "word": "lion",
+     "audio": "../u6l1/words/lion.mp3",
+     "pic": "../../pics/lion-u6l1.png",
+     "answer": false
+    },
+    {
+     "word": "dog",
+     "audio": "../u1l4/words/dog.mp3",
+     "pic": "../../pics/dog-u3l4.png",
+     "answer": true
+    },
+    {
+     "word": "elephant",
+     "audio": "../u4l2/words/elephant.mp3",
+     "pic": "../../pics/elephant-u4l2.png",
+     "answer": false
+    },
+    {
+     "word": "cat",
+     "audio": "../u1l4/words/cat.mp3",
+     "pic": "../../pics/cat-u4l4.png",
+     "answer": true
+    },
+    {
+     "word": "giraffe",
+     "audio": "../u6l1/words/giraffe.mp3",
+     "pic": "../../pics/giraffe-u6l1.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 5,
+   "page": 123,
+   "task": "Circle what we get from the chicken.",
+   "taskAudio": "q/circle-what-we-get-from-the-chicken.mp3",
+   "hint": "Tap what we get from the chicken!",
+   "items": [
+    {
+     "word": "egg",
+     "audio": "../u4l2/words/egg.mp3",
+     "pic": "../../pics/egg-u4l2.png",
+     "answer": true
+    },
+    {
+     "word": "milk",
+     "audio": "../u5l2/words/milk.mp3",
+     "pic": "../../pics/milk-u5l2.png",
+     "answer": false
+    },
+    {
+     "word": "cheese",
+     "audio": "words/cheese.mp3",
+     "pic": "../../pics/cheese-r2.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 5,
+   "page": 123,
+   "task": "Circle what we get from the cow.",
+   "taskAudio": "q/circle-what-we-get-from-the-cow.mp3",
+   "hint": "Tap what we get from the cow!",
+   "items": [
+    {
+     "word": "egg",
+     "audio": "../u4l2/words/egg.mp3",
+     "pic": "../../pics/egg-u4l2.png",
+     "answer": false
+    },
+    {
+     "word": "cheese",
+     "audio": "words/cheese.mp3",
+     "pic": "../../pics/cheese-r2.png",
+     "answer": true
+    },
+    {
+     "word": "meat",
+     "audio": "words/meat.mp3",
+     "pic": "../../pics/meat-r2.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 6,
+   "page": 124,
+   "task": "Count the fruits and match them to the correct number.",
+   "taskAudio": "q/count-the-fruits-and-match-them-to-the-correct-number.mp3",
+   "hint": "Count, then match!",
+   "items": [
+    {
+     "word": "6",
+     "audio": "../u5l3/words/six.mp3",
+     "pic": "../../pics/apples-6-r2.jpg"
+    },
+    {
+     "word": "8",
+     "audio": "../u5l3/words/eight.mp3",
+     "pic": "../../pics/bananas-8-r2.jpg"
+    },
+    {
+     "word": "10",
+     "audio": "../u5l3/words/ten.mp3",
+     "pic": "../../pics/oranges-10-r2.jpg"
+    }
+   ]
+  },
+  {
+   "type": "letter",
+   "ex": 7,
+   "page": 124,
+   "task": "Count and circle the correct number.",
+   "taskAudio": "../../en-shared/q/count-and-circle-the-correct-number.mp3",
+   "hint": "Count, then tap the number!",
+   "items": [
+    {
+     "word": "9 leaves",
+     "audio": "q/9-leaves.mp3",
+     "pic": "../../pics/leaves-9-r2.jpg",
+     "letters": [
+      "4",
+      "9"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "5 rabbits",
+     "audio": "q/5-rabbits.mp3",
+     "pic": "../../pics/rabbits-5-r2.jpg",
+     "letters": [
+      "5",
+      "7"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "3 girls",
+     "audio": "q/3-girls.mp3",
+     "pic": "../../pics/girls-3-r2.jpg",
+     "letters": [
+      "1",
+      "3"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "7 umbrellas",
+     "audio": "q/7-umbrellas.mp3",
+     "pic": "../../pics/umbrellas-7-r2.jpg",
+     "letters": [
+      "7",
+      "6"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "2 frogs",
+     "audio": "q/2-frogs.mp3",
+     "pic": "../../pics/frogs-2.png",
+     "letters": [
+      "8",
+      "2"
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "book": "workbook",
+   "model": "General Revision",
+   "ex": 1,
+   "page": 50,
+   "grp": "revision-1",
+   "task": "Look, read, and match.",
+   "taskAudio": "q/look-read-and-match.mp3",
+   "hint": "Join each word to its picture!",
+   "items": [
+    {
+     "word": "door",
+     "audio": "../u3l4/words/door.mp3",
+     "pic": "../../pics/door-u3l4.png"
+    },
+    {
+     "word": "elephant",
+     "audio": "../u4l2/words/elephant.mp3",
+     "pic": "../../pics/elephant-u4l2.png"
+    },
+    {
+     "word": "toes",
+     "audio": "../u4l1/words/toes.mp3",
+     "pic": "../../pics/toes-u4l1.png"
+    },
+    {
+     "word": "eggplant",
+     "audio": "../u4l2/words/eggplant.mp3",
+     "pic": "../../pics/eggplant-u4l2.png"
+    },
+    {
+     "word": "horse",
+     "audio": "../u2l3/words/horse.mp3",
+     "pic": "../../pics/horse-u3l4.png"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "General Revision",
+   "ex": 2,
+   "page": 50,
+   "grp": "revision-2",
+   "task": "Write the missing sound.",
+   "taskAudio": "../../en-shared/q/write-the-missing-sound.mp3",
+   "hint": "Type the missing first letter!",
+   "items": [
+    {
+     "word": "hat",
+     "audio": "../u3l4/words/hat.mp3",
+     "pic": "../../pics/hat.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "dog",
+     "audio": "../u1l4/words/dog.mp3",
+     "pic": "../../pics/dog.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "hair",
+     "audio": "../u3l4/words/hair.mp3",
+     "pic": "../../pics/hair-u3l4.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "octopus",
+     "audio": "../u5l4/words/octopus.mp3",
+     "pic": "../../pics/octopus.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "ring",
+     "audio": "../u4l2/words/ring.mp3",
+     "pic": "../../pics/ring-u4l2.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "egg",
+     "audio": "../u4l2/words/egg.mp3",
+     "pic": "../../pics/egg-u4l2.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "fan",
+     "audio": "../u5l4/words/fan.mp3",
+     "pic": "../../pics/fan-u5l4.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "fork",
+     "audio": "../u4l2/words/fork.mp3",
+     "pic": "../../pics/fork-u4l2.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "hands",
+     "audio": "../u3l4/words/hands.mp3",
+     "pic": "../../pics/hands-u3l4.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "ostrich",
+     "audio": "../u4l2/words/ostrich.mp3",
+     "pic": "../../pics/ostrich-u4l2.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "fish",
+     "audio": "../u4l2/words/fish.mp3",
+     "pic": "../../pics/fish-u4l2.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "olive",
+     "audio": "../u5l4/words/olive.mp3",
+     "pic": "../../pics/olive-u5l4.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "frog",
+     "audio": "../u2l3/words/frog.mp3",
+     "pic": "../../pics/frog.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "grapes",
+     "audio": "../u5l2/words/grapes.mp3",
+     "pic": "../../pics/grapes-u5l2.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "mouse",
+     "audio": "../u5l1/words/mouse.mp3",
+     "pic": "../../pics/mouse-u5l2.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "key",
+     "audio": "../u4l4/words/key.mp3",
+     "pic": "../../pics/key-u4l4.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "kitchen",
+     "audio": "../u4l4/words/kitchen.mp3",
+     "pic": "../../pics/kitchen-u4l4.jpg",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "General Revision",
+   "ex": 3,
+   "page": 51,
+   "grp": "revision-3",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "cat",
+     "scr": "tac",
+     "audio": "../u1l4/words/cat.mp3",
+     "pic": "../../pics/cat.png"
+    },
+    {
+     "word": "legs",
+     "scr": "gels",
+     "audio": "../u4l1/words/legs.mp3",
+     "pic": "../../pics/legs-u4l1.png"
+    },
+    {
+     "word": "fox",
+     "scr": "xfo",
+     "audio": "../u4l2/words/fox.mp3",
+     "pic": "../../pics/fox-u4l2.png"
+    },
+    {
+     "word": "kite",
+     "scr": "iekt",
+     "audio": "../u4l4/words/kite.mp3",
+     "pic": "../../pics/kite-u4l4.png"
+    },
+    {
+     "word": "chicken",
+     "scr": "kehcicn",
+     "audio": "../u5l1/words/chicken.mp3",
+     "pic": "../../pics/chicken-u5l1.png"
+    },
+    {
+     "word": "cake",
+     "scr": "keac",
+     "audio": "../u4l4/words/cake.mp3",
+     "pic": "../../pics/cake-u4l4.png"
+    },
+    {
+     "word": "guitar",
+     "scr": "tgiaru",
+     "audio": "../u5l2/words/guitar.mp3",
+     "pic": "../../pics/guitar-u5l2.png"
+    },
+    {
+     "word": "elbow",
+     "scr": "lebow",
+     "audio": "../u4l2/words/elbow.mp3",
+     "pic": "../../pics/elbow-u4l2.png"
+    },
+    {
+     "word": "feet",
+     "scr": "eetf",
+     "audio": "../u4l1/words/feet.mp3",
+     "pic": "../../pics/feet-u4l1.png"
+    },
+    {
+     "word": "toes",
+     "scr": "seto",
+     "audio": "../u4l1/words/toes.mp3",
+     "pic": "../../pics/toes-u4l1.png"
+    },
+    {
+     "word": "tongue",
+     "scr": "ongetu",
+     "audio": "../u4l1/words/tongue.mp3",
+     "pic": "../../pics/tongue-u4l1.png"
+    },
+    {
+     "word": "enter",
+     "scr": "terne",
+     "audio": "../u4l2/words/enter.mp3",
+     "pic": "../../pics/enter-u4l2.png"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "General Revision",
+   "ex": 4,
+   "page": 51,
+   "grp": "revision-4",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "can",
+      "see",
+      "10",
+      "stars"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-see-10-stars.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "chicken",
+      "is",
+      "small"
+     ],
+     "end": ".",
+     "audio": "q/the-chicken-is-small.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "have",
+      "an",
+      "apple"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-have-an-apple.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "can",
+      "taste",
+      "with",
+      "my",
+      "tongue"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-taste-with-my-tongue.mp3"
+    },
+    {
+     "chunks": [
+      "Do",
+      "you",
+      "see",
+      "the",
+      "horse"
+     ],
+     "end": "?",
+     "audio": "q/do-you-see-the-horse.mp3"
+    },
+    {
+     "chunks": [
+      "This",
+      "is",
+      "a",
+      "car"
+     ],
+     "end": ".",
+     "audio": "q/this-is-a-car.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "love",
+      "farm",
+      "animals"
+     ],
+     "end": ".",
+     "audio": "q/i-love-farm-animals.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "have",
+      "5",
+      "toes"
+     ],
+     "end": ".",
+     "audio": "q/i-have-5-toes.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "horse",
+      "is",
+      "big"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-horse-is-big.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "can",
+      "touch",
+      "my",
+      "desk",
+      "with",
+      "my",
+      "hands"
+     ],
+     "end": ".",
+     "audio": "q/i-can-touch-my-desk-with-my-hands.mp3"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "General Revision",
+   "ex": 5,
+   "page": 52,
+   "grp": "revision-5",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "word": "There are four books.",
+     "lead": "There are",
+     "options": [
+      "five",
+      "four"
+     ],
+     "answer": 1,
+     "pic": "../../pics/books-4.png",
+     "tail": "books.",
+     "audio": "q/there-are-four-books.mp3"
+    },
+    {
+     "word": "I have 2 eyes.",
+     "lead": "I have 2",
+     "options": [
+      "ears",
+      "eyes"
+     ],
+     "answer": 1,
+     "pic": "../../pics/eyes-u4q.png",
+     "audio": "../../en-shared/q/i-have-2-eyes.mp3"
+    },
+    {
+     "word": "I have 2 arms.",
+     "lead": "I have 2",
+     "options": [
+      "legs",
+      "arms"
+     ],
+     "answer": 1,
+     "pic": "../../pics/arms-u4l1.png",
+     "audio": "../../en-shared/q/i-have-2-arms.mp3"
+    },
+    {
+     "word": "I can smell with my nose.",
+     "lead": "I can",
+     "options": [
+      "taste",
+      "smell"
+     ],
+     "answer": 1,
+     "pic": "../../pics/boy-smell-u4l3.png",
+     "tail": "with my nose.",
+     "audio": "../../en-shared/q/i-can-smell-with-my-nose.mp3"
+    },
+    {
+     "word": "The cow is big.",
+     "lead": "The",
+     "options": [
+      "duck",
+      "cow"
+     ],
+     "answer": 1,
+     "pic": "../../pics/cow-u5l1.png",
+     "tail": "is big.",
+     "audio": "../../en-shared/q/the-cow-is-big.mp3"
+    },
+    {
+     "word": "The duck is small.",
+     "lead": "The",
+     "options": [
+      "cow",
+      "duck"
+     ],
+     "answer": 1,
+     "pic": "../../pics/duckling.png",
+     "tail": "is small.",
+     "audio": "../../en-shared/q/the-duck-is-small.mp3"
+    },
+    {
+     "word": "There are six apples.",
+     "lead": "There are",
+     "options": [
+      "seven",
+      "six"
+     ],
+     "answer": 1,
+     "pic": "../../pics/apples-6-u5l3.jpg",
+     "tail": "apples.",
+     "audio": "q/there-are-six-apples.mp3"
+    },
+    {
+     "word": "I can see a drum.",
+     "lead": "I can see a",
+     "options": [
+      "drum",
+      "bell"
+     ],
+     "answer": 0,
+     "pic": "../../pics/drum-u3l4.png",
+     "audio": "q/i-can-see-a-drum.mp3"
+    },
+    {
+     "word": "This is a rabbit.",
+     "lead": "This is a",
+     "options": [
+      "horse",
+      "rabbit"
+     ],
+     "answer": 1,
+     "pic": "../../pics/rabbit-u4l2.png",
+     "audio": "../../en-shared/q/this-is-a-rabbit.mp3"
+    },
+    {
+     "word": "This is a farm.",
+     "lead": "This is a",
+     "options": [
+      "kitchen",
+      "farm"
+     ],
+     "answer": 1,
+     "pic": "../../pics/barn-pb.png",
+     "audio": "q/this-is-a-farm.mp3"
+    }
+   ]
+  },
+  {
+   "type": "cloze",
+   "book": "workbook",
+   "model": "General Revision",
+   "ex": 6,
+   "page": 52,
+   "grp": "revision-6a",
+   "task": "Listen and complete the dialog.",
+   "taskAudio": "q/listen-and-complete-the-dialog.mp3",
+   "hint": "Tap the missing word!",
+   "items": [
+    {
+     "text": "Noor: Look at the cow! Ziad: Wow! The cow is [[big]]! Noor: And look at the duck! Ziad: The duck is [[small]]. Noor: Do you see the [[horse]]? Ziad: The horse is big too. Noor: I love [[farm]] animals!",
+     "bank": [
+      "horse",
+      "small",
+      "farm",
+      "big"
+     ],
+     "audio": "q/noor-look-at-the-cow-ziad-wow-the-cow-is-big-noor-and-look-a.mp3"
+    }
+   ]
+  },
+  {
+   "type": "cloze",
+   "book": "workbook",
+   "model": "General Revision",
+   "ex": 6,
+   "page": 53,
+   "grp": "revision-6b",
+   "task": "Listen and complete the dialog.",
+   "taskAudio": "q/listen-and-complete-the-dialog.mp3",
+   "hint": "Tap the missing word!",
+   "items": [
+    {
+     "text": "Celin: What can you see? Omar: I can see the teacher and the [[desk]]. Celin: Look! A flower! Omar: Wow! I can see it with my [[eyes]]. Celin: I can [[smell]] it with my nose. Omar: I can hear the teacher with my [[ears]].",
+     "bank": [
+      "ears",
+      "desk",
+      "eyes",
+      "smell"
+     ],
+     "audio": "q/celin-what-can-you-see-omar-i-can-see-the-teacher-and-the-de.mp3"
+    }
+   ]
+  },
+  {
+   "type": "letter",
+   "book": "workbook",
+   "model": "General Revision",
+   "ex": 7,
+   "page": 53,
+   "grp": "revision-7",
+   "task": "Look, read, and answer.",
+   "taskAudio": "../../en-shared/q/look-read-and-answer.mp3",
+   "hint": "Count, then tap the number!",
+   "items": [
+    {
+     "word": "5 birds",
+     "audio": "../../en-shared/q/there-are-5-birds.mp3",
+     "pic": "../../pics/birds-5.png",
+     "letters": [
+      "5",
+      "4"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "3 pencils",
+     "audio": "q/there-are-3-pencils.mp3",
+     "pic": "../../pics/pencils-3-pb.png",
+     "letters": [
+      "2",
+      "3"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "7 horses",
+     "audio": "q/there-are-7-horses.mp3",
+     "pic": "../../pics/horses-7-pb.png",
+     "letters": [
+      "7",
+      "6"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "4 stars",
+     "audio": "q/there-are-4-stars.mp3",
+     "pic": "../../pics/stars-4-pb.png",
+     "letters": [
+      "5",
+      "4"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "8 flowers",
+     "audio": "q/there-are-8-flowers.mp3",
+     "pic": "../../pics/flowers-8-u5l3.jpg",
+     "letters": [
+      "8",
+      "9"
+     ],
+     "answer": 0
+    }
+   ]
+  }
+ ]
+}

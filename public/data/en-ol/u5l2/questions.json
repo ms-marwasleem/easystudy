@@ -1,0 +1,697 @@
+{
+ "_note": "u5l2: p90 ex4, p92 ex8, p93 ex9-11 (tracing skipped). Performance p43-45. Weekly B: sentences completed with big/small as taught in u5l1.",
+ "sets": [
+  {
+   "type": "match",
+   "ex": 4,
+   "page": 90,
+   "task": "Circle the pictures that start with the letter (Mm).",
+   "taskAudio": "../../en-shared/q/start-circle-the-pictures-mm.mp3",
+   "hint": "Tap the pictures that start with Mm!",
+   "center": "Mm",
+   "centerAudio": "../../phonics/m.mp3",
+   "items": [
+    {
+     "word": "monkey",
+     "audio": "words/monkey.mp3",
+     "pic": "../../pics/monkey-u5l2.png",
+     "answer": true,
+     "pos": [
+      10,
+      16
+     ]
+    },
+    {
+     "word": "cafe",
+     "audio": "words/cafe.mp3",
+     "pic": "../../pics/cafe-u5l2.png",
+     "answer": false,
+     "pos": [
+      90,
+      16
+     ]
+    },
+    {
+     "word": "mouse",
+     "audio": "../u5l1/words/mouse.mp3",
+     "pic": "../../pics/mouse-u5l2.png",
+     "answer": true,
+     "pos": [
+      10,
+      50
+     ]
+    },
+    {
+     "word": "bus",
+     "audio": "../u5l1/words/bus.mp3",
+     "pic": "../../pics/bus-u5l1.png",
+     "answer": false,
+     "pos": [
+      90,
+      50
+     ]
+    },
+    {
+     "word": "milk",
+     "audio": "words/milk.mp3",
+     "pic": "../../pics/milk-u5l2.png",
+     "answer": true,
+     "pos": [
+      28,
+      82
+     ]
+    },
+    {
+     "word": "mango",
+     "audio": "words/mango.mp3",
+     "pic": "../../pics/mango-u5l2.png",
+     "answer": true,
+     "pos": [
+      72,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 8,
+   "page": 92,
+   "task": "Circle the pictures that start with the letter (Gg).",
+   "taskAudio": "../../en-shared/q/start-circle-the-pictures-gg.mp3",
+   "hint": "Tap the pictures that start with Gg!",
+   "center": "Gg",
+   "centerAudio": "../../phonics/g.mp3",
+   "items": [
+    {
+     "word": "girl",
+     "audio": "words/girl.mp3",
+     "pic": "../../pics/girl-u5l2.png",
+     "answer": true,
+     "pos": [
+      10,
+      16
+     ]
+    },
+    {
+     "word": "door",
+     "audio": "../u3l4/words/door.mp3",
+     "pic": "../../pics/door-u3l4.png",
+     "answer": false,
+     "pos": [
+      90,
+      16
+     ]
+    },
+    {
+     "word": "carrot",
+     "audio": "../u4l4/words/carrot.mp3",
+     "pic": "../../pics/carrot-u4l4.png",
+     "answer": false,
+     "pos": [
+      10,
+      50
+     ]
+    },
+    {
+     "word": "mouse",
+     "audio": "../u5l1/words/mouse.mp3",
+     "pic": "../../pics/mouse-u5l2.png",
+     "answer": false,
+     "pos": [
+      90,
+      50
+     ]
+    },
+    {
+     "word": "guitar",
+     "audio": "words/guitar.mp3",
+     "pic": "../../pics/guitar-u5l2.png",
+     "answer": true,
+     "pos": [
+      28,
+      82
+     ]
+    },
+    {
+     "word": "grapes",
+     "audio": "words/grapes.mp3",
+     "pic": "../../pics/grapes-u5l2.png",
+     "answer": true,
+     "pos": [
+      72,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "type": "letter",
+   "ex": 9,
+   "page": 93,
+   "task": "Look at the picture, name it, then circle the beginning letter.",
+   "taskAudio": "../../en-shared/q/look-at-the-picture-name-it-then-circle-the-beginning-letter.mp3",
+   "hint": "Tap the first letter!",
+   "items": [
+    {
+     "word": "girl",
+     "audio": "words/girl.mp3",
+     "pic": "../../pics/girl-u5l2.png",
+     "letters": [
+      "a",
+      "g",
+      "c"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "milk",
+     "audio": "words/milk.mp3",
+     "pic": "../../pics/milk-u5l2.png",
+     "letters": [
+      "h",
+      "b",
+      "m"
+     ],
+     "answer": 2
+    },
+    {
+     "word": "gloves",
+     "audio": "words/gloves.mp3",
+     "pic": "../../pics/gloves-u5l2.png",
+     "letters": [
+      "e",
+      "l",
+      "g"
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "ex": 10,
+   "page": 93,
+   "task": "Look, say, then write the missing letter.",
+   "taskAudio": "../../en-shared/q/look-say-then-write-the-missing-letter.mp3",
+   "hint": "Type the missing letter!",
+   "items": [
+    {
+     "word": "mango",
+     "audio": "words/mango.mp3",
+     "pic": "../../pics/mango-u5l2.png",
+     "missing": 0,
+     "answer": "m"
+    },
+    {
+     "word": "grapes",
+     "audio": "words/grapes.mp3",
+     "pic": "../../pics/grapes-u5l2.png",
+     "missing": 0,
+     "answer": "g"
+    },
+    {
+     "word": "mouse",
+     "audio": "../u5l1/words/mouse.mp3",
+     "pic": "../../pics/mouse-u5l2.png",
+     "missing": 0,
+     "answer": "m"
+    },
+    {
+     "word": "guitar",
+     "audio": "words/guitar.mp3",
+     "pic": "../../pics/guitar-u5l2.png",
+     "missing": 0,
+     "answer": "g"
+    }
+   ]
+  },
+  {
+   "type": "letter",
+   "ex": 11,
+   "page": 93,
+   "task": "Look at the pictures, name them, then circle the beginning letter.",
+   "taskAudio": "../../en-shared/q/look-at-the-pictures-name-them-then-circle-the-beginning-let.mp3",
+   "hint": "Tap the first letter!",
+   "items": [
+    {
+     "word": "girl",
+     "audio": "words/girl.mp3",
+     "pic": "../../pics/girl-u5l2.png",
+     "letters": [
+      "a",
+      "g"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "grapes",
+     "audio": "words/grapes.mp3",
+     "pic": "../../pics/grapes-u5l2.png",
+     "letters": [
+      "g",
+      "c"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "monkey",
+     "audio": "words/monkey.mp3",
+     "pic": "../../pics/monkey-u5l2.png",
+     "letters": [
+      "a",
+      "m"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "moon",
+     "audio": "words/moon.mp3",
+     "pic": "../../pics/moon-u5l2.png",
+     "letters": [
+      "m",
+      "g"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 43,
+   "grp": "classroom-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "milk",
+     "scr": "kmli",
+     "audio": "words/milk.mp3",
+     "pic": "../../pics/milk-u5l2.png"
+    },
+    {
+     "word": "guitar",
+     "scr": "tgiaru",
+     "audio": "words/guitar.mp3",
+     "pic": "../../pics/guitar-u5l2.png"
+    },
+    {
+     "word": "grapes",
+     "scr": "presga",
+     "audio": "words/grapes.mp3",
+     "pic": "../../pics/grapes-u5l2.png"
+    },
+    {
+     "word": "mouse",
+     "scr": "uoesm",
+     "audio": "../u5l1/words/mouse.mp3",
+     "pic": "../../pics/mouse-u5l2.png"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 43,
+   "grp": "classroom-2",
+   "task": "Circle the odd sound word.",
+   "taskAudio": "../../en-shared/q/circle-the-odd-sound-word.mp3",
+   "hint": "Tap the word that starts with a different sound!",
+   "items": [
+    {
+     "word": "moon",
+     "audio": "words/moon.mp3",
+     "pic": "../../pics/moon-u5l2.png",
+     "answer": false
+    },
+    {
+     "word": "monkey",
+     "audio": "words/monkey.mp3",
+     "pic": "../../pics/monkey-u5l2.png",
+     "answer": false
+    },
+    {
+     "word": "grapes",
+     "audio": "words/grapes.mp3",
+     "pic": "../../pics/grapes-u5l2.png",
+     "answer": true
+    },
+    {
+     "word": "milk",
+     "audio": "words/milk.mp3",
+     "pic": "../../pics/milk-u5l2.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 3,
+   "page": 43,
+   "grp": "classroom-3",
+   "task": "Circle the odd sound word.",
+   "taskAudio": "../../en-shared/q/circle-the-odd-sound-word.mp3",
+   "hint": "Tap the word that starts with a different sound!",
+   "items": [
+    {
+     "word": "goat",
+     "audio": "words/goat.mp3",
+     "pic": "../../pics/goat-u5l2.png",
+     "answer": false
+    },
+    {
+     "word": "mouse",
+     "audio": "../u5l1/words/mouse.mp3",
+     "pic": "../../pics/mouse-u5l2.png",
+     "answer": true
+    },
+    {
+     "word": "girl",
+     "audio": "words/girl.mp3",
+     "pic": "../../pics/girl-u5l2.png",
+     "answer": false
+    },
+    {
+     "word": "guitar",
+     "audio": "words/guitar.mp3",
+     "pic": "../../pics/guitar-u5l2.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 4,
+   "page": 43,
+   "grp": "classroom-4",
+   "task": "Circle the odd sound word.",
+   "taskAudio": "../../en-shared/q/circle-the-odd-sound-word.mp3",
+   "hint": "Tap the word that starts with a different sound!",
+   "items": [
+    {
+     "word": "gloves",
+     "audio": "words/gloves.mp3",
+     "pic": "../../pics/gloves-u5l2.png",
+     "answer": false
+    },
+    {
+     "word": "grapes",
+     "audio": "words/grapes.mp3",
+     "pic": "../../pics/grapes-u5l2.png",
+     "answer": false
+    },
+    {
+     "word": "girl",
+     "audio": "words/girl.mp3",
+     "pic": "../../pics/girl-u5l2.png",
+     "answer": false
+    },
+    {
+     "word": "mango",
+     "audio": "words/mango.mp3",
+     "pic": "../../pics/mango-u5l2.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 43,
+   "grp": "homework-1",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "goat",
+     "audio": "words/goat.mp3",
+     "pic": "../../pics/goat-u5l2.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "monkey",
+     "audio": "words/monkey.mp3",
+     "pic": "../../pics/monkey-u5l2.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "word": "gloves",
+     "audio": "words/gloves.mp3",
+     "pic": "../../pics/gloves-u5l2.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "word": "mango",
+     "audio": "words/mango.mp3",
+     "pic": "../../pics/mango-u5l2.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 1,
+   "page": 44,
+   "grp": "weekly-a-1",
+   "task": "Write the missing sound.",
+   "taskAudio": "../../en-shared/q/write-the-missing-sound.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "goat",
+     "audio": "words/goat.mp3",
+     "pic": "../../pics/goat-u5l2.png",
+     "missing": 0,
+     "answer": "g"
+    },
+    {
+     "word": "mouse",
+     "audio": "../u5l1/words/mouse.mp3",
+     "pic": "../../pics/mouse-u5l2.png",
+     "missing": 0,
+     "answer": "m"
+    },
+    {
+     "word": "moon",
+     "audio": "words/moon.mp3",
+     "pic": "../../pics/moon-u5l2.png",
+     "missing": 0,
+     "answer": "m"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 2,
+   "page": 44,
+   "grp": "weekly-a-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "word": "The duck is small.",
+     "lead": "The duck is",
+     "options": [
+      "big",
+      "small"
+     ],
+     "answer": 1,
+     "pic": "../../pics/duck-u3l4.png",
+     "audio": "../../en-shared/q/thing-colour-duck-small.mp3"
+    },
+    {
+     "word": "The horse is big.",
+     "lead": "The horse is",
+     "options": [
+      "small",
+      "big"
+     ],
+     "answer": 1,
+     "pic": "../../pics/horse-u3l4.png",
+     "audio": "../../en-shared/q/thing-colour-horse-big.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 1,
+   "page": 44,
+   "grp": "weekly-b-1",
+   "task": "Write the missing sound.",
+   "taskAudio": "../../en-shared/q/write-the-missing-sound.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "guitar",
+     "audio": "words/guitar.mp3",
+     "pic": "../../pics/guitar-u5l2.png",
+     "missing": 0,
+     "answer": "g"
+    },
+    {
+     "word": "mango",
+     "audio": "words/mango.mp3",
+     "pic": "../../pics/mango-u5l2.png",
+     "missing": 0,
+     "answer": "m"
+    },
+    {
+     "word": "girl",
+     "audio": "words/girl.mp3",
+     "pic": "../../pics/girl-u5l2.png",
+     "missing": 0,
+     "answer": "g"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 2,
+   "page": 44,
+   "grp": "weekly-b-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "word": "The chicken is small.",
+     "lead": "The chicken is",
+     "options": [
+      "small",
+      "big"
+     ],
+     "answer": 0,
+     "pic": "../../pics/chicken-u5l1.png",
+     "audio": "../../en-shared/q/thing-colour-chicken-small.mp3"
+    },
+    {
+     "word": "The cow is big.",
+     "lead": "The cow is",
+     "options": [
+      "small",
+      "big"
+     ],
+     "answer": 1,
+     "pic": "../../pics/cow-u5l1.png",
+     "audio": "../../en-shared/q/thing-colour-cow-big.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 1,
+   "page": 45,
+   "grp": "weekly-c-1",
+   "task": "Write the missing sound.",
+   "taskAudio": "../../en-shared/q/write-the-missing-sound.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "monkey",
+     "audio": "words/monkey.mp3",
+     "pic": "../../pics/monkey-u5l2.png",
+     "missing": 0,
+     "answer": "m"
+    },
+    {
+     "word": "gloves",
+     "audio": "words/gloves.mp3",
+     "pic": "../../pics/gloves-u5l2.png",
+     "missing": 0,
+     "answer": "g"
+    },
+    {
+     "word": "grapes",
+     "audio": "words/grapes.mp3",
+     "pic": "../../pics/grapes-u5l2.png",
+     "missing": 0,
+     "answer": "g"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 2,
+   "page": 45,
+   "grp": "weekly-c-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "word": "The horse is big.",
+     "lead": "The horse is",
+     "options": [
+      "small",
+      "big"
+     ],
+     "answer": 1,
+     "pic": "../../pics/horse-u3l4.png",
+     "audio": "../../en-shared/q/thing-colour-horse-big.mp3"
+    },
+    {
+     "word": "The bird is small.",
+     "lead": "The bird is",
+     "options": [
+      "small",
+      "big"
+     ],
+     "answer": 0,
+     "pic": "../../pics/bird.png",
+     "audio": "../../en-shared/q/thing-colour-bird-small.mp3"
+    }
+   ]
+  }
+ ]
+}

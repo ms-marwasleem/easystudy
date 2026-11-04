@@ -1,0 +1,156 @@
+{
+ "sets": [
+  {
+   "type": "choice",
+   "ex": 2,
+   "page": 147,
+   "book": "booklet",
+   "task": "ضَعِ اسْمَ ضَمِيرِ الْمُتَكَلِّمِ الْمُنَاسِبَ مَكَانَ النُّقَطِ: أَنَا أَمْ نَحْنُ",
+   "hint": "اختار الإجابة الصح",
+   "items": [
+    {
+     "word": "بِنْت",
+     "lead": "",
+     "tail": "بِنْت",
+     "options": [
+      "أَنَا",
+      "نَحْنُ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-boy.png"
+    },
+    {
+     "word": "وَلَد",
+     "lead": "",
+     "tail": "وَلَد",
+     "options": [
+      "أَنَا",
+      "نَحْنُ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-girl.png"
+    },
+    {
+     "word": "أَوْلَاد",
+     "lead": "",
+     "tail": "أَوْلَاد",
+     "options": [
+      "أَنَا",
+      "نَحْنُ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-students.png"
+    },
+    {
+     "word": "بَنَات",
+     "lead": "",
+     "tail": "بَنَات",
+     "options": [
+      "أَنَا",
+      "نَحْنُ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-boy.png"
+    },
+    {
+     "word": "طَبِيب",
+     "lead": "",
+     "tail": "طَبِيب",
+     "options": [
+      "أَنَا",
+      "نَحْنُ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-girl.png"
+    },
+    {
+     "word": "أَطِبَّاء",
+     "lead": "",
+     "tail": "أَطِبَّاء",
+     "options": [
+      "أَنَا",
+      "نَحْنُ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-students.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "ex": 2,
+   "page": 148,
+   "book": "booklet",
+   "task": "ضَعِ اسْمَ ضَمِيرِ الْمُتَكَلِّمِ الْمُنَاسِبَ مَكَانَ النُّقَطِ: أَنَا أَمْ نَحْنُ",
+   "hint": "اختار الإجابة الصح",
+   "items": [
+    {
+     "word": "أَصْحَاب",
+     "lead": "",
+     "tail": "أَصْحَاب",
+     "options": [
+      "أَنَا",
+      "نَحْنُ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-boy.png"
+    },
+    {
+     "word": "أَطْفَال",
+     "lead": "",
+     "tail": "أَطْفَال",
+     "options": [
+      "أَنَا",
+      "نَحْنُ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-girl.png"
+    },
+    {
+     "word": "مُعَلِّم",
+     "lead": "",
+     "tail": "مُعَلِّم",
+     "options": [
+      "أَنَا",
+      "نَحْنُ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-students.png"
+    },
+    {
+     "word": "لَاعِبُون",
+     "lead": "",
+     "tail": "لَاعِبُون",
+     "options": [
+      "أَنَا",
+      "نَحْنُ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-boy.png"
+    },
+    {
+     "word": "كِبَار",
+     "lead": "",
+     "tail": "كِبَار",
+     "options": [
+      "أَنَا",
+      "نَحْنُ"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ar-girl.png"
+    },
+    {
+     "word": "تِلْمِيذ",
+     "lead": "",
+     "tail": "تِلْمِيذ",
+     "options": [
+      "أَنَا",
+      "نَحْنُ"
+     ],
+     "answer": 0,
+     "pic": "../../pics/ar-students.png"
+    }
+   ]
+  }
+ ]
+}

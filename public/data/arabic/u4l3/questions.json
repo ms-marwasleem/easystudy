@@ -2,6 +2,178 @@
  "sets": [
   {
    "type": "circle",
+   "ex": 2,
+   "page": 120,
+   "task": "أُلَوِّنُ مُكَعَّبَ حَرْفِ الزَّايِ",
+   "taskAudio": "q/task-2.mp3",
+   "hint": "اضغط على أشكال الزاي",
+   "items": [
+    {
+     "word": "ك",
+     "text": "ك",
+     "answer": 0
+    },
+    {
+     "word": "ـز",
+     "text": "ـز",
+     "answer": 1
+    },
+    {
+     "word": "ز",
+     "text": "ز",
+     "answer": 1
+    },
+    {
+     "word": "ر",
+     "text": "ر",
+     "answer": 0
+    },
+    {
+     "word": "ن",
+     "text": "ن",
+     "answer": 0
+    },
+    {
+     "word": "ـز",
+     "text": "ـز",
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "type": "sound",
+   "ex": 3,
+   "page": 120,
+   "task": "أَنْطِقُ صَوْتَ حَرْفِ الزَّايِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
+   "taskAudio": "q/task-3.mp3",
+   "hint": "اسمع الجملة وردد وراها",
+   "items": [
+    {
+     "word": "زَرَافَة",
+     "ask": "زَ",
+     "pic": "../../pics/ar-giraffe.png",
+     "audio": [
+      "../letters/632/name.mp3",
+      "../shared/h-fatha.mp3",
+      "../../syl-ar/632-64e.mp3",
+      "words/zarafa.mp3"
+     ]
+    },
+    {
+     "word": "زُجَاجَة",
+     "ask": "زُ",
+     "pic": "../../pics/ar-bottle.png",
+     "audio": [
+      "../letters/632/name.mp3",
+      "../shared/h-damma.mp3",
+      "../../syl-ar/632-64f.mp3",
+      "words/zujaja.mp3"
+     ]
+    },
+    {
+     "word": "زِرّ",
+     "ask": "زِ",
+     "pic": "../../pics/ar-button.png",
+     "audio": [
+      "../letters/632/name.mp3",
+      "../shared/h-kasra.mp3",
+      "../../syl-ar/632-650.mp3",
+      "words/zirr.mp3"
+     ]
+    },
+    {
+     "word": "أَزْرَق",
+     "ask": "زْ",
+     "pic": "../../pics/ar-blue.png",
+     "audio": [
+      "../letters/632/name.mp3",
+      "../shared/h-sukoon.mp3",
+      "../../syl-ar/632-652.mp3",
+      "words/azraq.mp3"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 4,
+   "page": 121,
+   "task": "أَنْطِقُ، وَأَكْتُبُ الْحَرَكَةَ الْمُنَاسِبَةَ عَلَى حَرْفِ الزَّايِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار الزاي بالحركة الصح",
+   "choices": [
+    "زَ",
+    "زُ",
+    "زِ",
+    "زْ"
+   ],
+   "items": [
+    {
+     "word": "زَبَادِي",
+     "audio": "words/zabadi.mp3",
+     "pic": "../../pics/ar-yogurt.png",
+     "answer": "زَ",
+     "choices": [
+      "زَ",
+      "زُ",
+      "زِ"
+     ]
+    },
+    {
+     "word": "زِرّ",
+     "audio": "words/zirr.mp3",
+     "pic": "../../pics/ar-button.png",
+     "answer": "زِ",
+     "choices": [
+      "زَ",
+      "زُ",
+      "زِ"
+     ]
+    },
+    {
+     "word": "زُجَاجَة",
+     "audio": "words/zujaja.mp3",
+     "pic": "../../pics/ar-bottle.png",
+     "answer": "زُ",
+     "choices": [
+      "زَ",
+      "زُ",
+      "زِ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 9,
+   "page": 123,
+   "task": "أَدْمِجُ الْحُرُوفَ لِأُكَوِّنَ كَلِمَةً",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "items": [
+    {
+     "word": "زِرّ",
+     "audio": "words/zirr.mp3",
+     "pic": "../../pics/ar-button.png",
+     "chips": [
+      "زِ",
+      "رّ"
+     ]
+    },
+    {
+     "word": "زَبَادِي",
+     "audio": "words/zabadi.mp3",
+     "pic": "../../pics/ar-yogurt.png",
+     "chips": [
+      "زَ",
+      "بَا",
+      "دِي"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
    "ex": 7,
    "page": 114,
    "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الزَّايِ",
@@ -11,6 +183,7 @@
    ],
    "hint": "اضغط على الصور التي فيها صوت الزاي",
    "silent": true,
+   "book": "booklet",
    "items": [
     {
      "word": "bread",
@@ -74,6 +247,7 @@
     "../letters/632/name.mp3"
    ],
    "hint": "اضغط على الدائرة التي فيها الزاي",
+   "book": "booklet",
    "items": [
     {
      "word": "زُجَاجَة",
@@ -130,6 +304,7 @@
     "زِ",
     "زْ"
    ],
+   "book": "booklet",
    "items": [
     {
      "word": "زَرَافَة",
@@ -171,6 +346,7 @@
    "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/merge-syllables.mp3",
    "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "book": "booklet",
    "items": [
     {
      "word": "غَزَال",
@@ -216,6 +392,7 @@
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/arrange-letters.mp3",
    "hint": "رتب الحروف",
+   "book": "booklet",
    "items": [
     {
      "word": "زِرّ",
@@ -246,6 +423,7 @@
    "task": "أَقْرَأُ كُلَّ جُمْلَةٍ ثُمَّ أَصِلُهَا بِالصُّورَةِ الْمُنَاسِبَةِ لَهَا",
    "taskAudio": "../q-prompts/match-picture.mp3",
    "hint": "صل الجملة بالصورة",
+   "book": "booklet",
    "items": [
     {
      "word": "رَتَّبَتْ أُمِّي الْمَنْزِلَ",
@@ -258,6 +436,62 @@
     {
      "word": "حَمَلَ أَبِي الْجَزَرَ",
      "pic": "../../pics/ar-farmer.png"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 1,
+   "page": 59,
+   "book": "workbook",
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي فِيهَا حَرْفُ (ز)",
+   "taskAudio": "q/wb-circle-59.mp3",
+   "hint": "اضغط على الكلمات اللي فيها حرف ز",
+   "items": [
+    {
+     "word": "زَيْتُون",
+     "text": "زَيْتُون",
+     "answer": true
+    },
+    {
+     "word": "أَزْرَق",
+     "text": "أَزْرَق",
+     "answer": true
+    },
+    {
+     "word": "مَزْرَعَة",
+     "text": "مَزْرَعَة",
+     "answer": true
+    },
+    {
+     "word": "ذُرَة",
+     "text": "ذُرَة",
+     "answer": false
+    },
+    {
+     "word": "عَزِيز",
+     "text": "عَزِيز",
+     "answer": true
+    },
+    {
+     "word": "زَيْت",
+     "text": "زَيْت",
+     "answer": true
+    },
+    {
+     "word": "ذَهَب",
+     "text": "ذَهَب",
+     "answer": false
+    },
+    {
+     "word": "جَذْر",
+     "text": "جَذْر",
+     "answer": false
+    },
+    {
+     "word": "ظُفْر",
+     "text": "ظُفْر",
+     "answer": false
     }
    ]
   }

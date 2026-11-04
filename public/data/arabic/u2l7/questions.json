@@ -2,6 +2,337 @@
  "sets": [
   {
    "type": "circle",
+   "ex": 2,
+   "page": 64,
+   "task": "أَضَعُ عَلَامَةً أَسْفَلَ حَرْفِ الْفَاءِ",
+   "taskAudio": "q/task-2.mp3",
+   "hint": "اضغط على أشكال الفاء",
+   "items": [
+    {
+     "word": "ف",
+     "text": "ف",
+     "answer": 1
+    },
+    {
+     "word": "ب",
+     "text": "ب",
+     "answer": 0
+    },
+    {
+     "word": "ـفـ",
+     "text": "ـفـ",
+     "answer": 1
+    },
+    {
+     "word": "فـ",
+     "text": "فـ",
+     "answer": 1
+    },
+    {
+     "word": "ت",
+     "text": "ت",
+     "answer": 0
+    },
+    {
+     "word": "ـف",
+     "text": "ـف",
+     "answer": 1
+    },
+    {
+     "word": "غـ",
+     "text": "غـ",
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 3,
+   "page": 64,
+   "task": "أَصِلُ حَرْفَ الْفَاءِ بِالْكَلِمَاتِ الَّتِي بِهَا",
+   "taskAudio": [
+    "../q-prompts/circle-word-letter.mp3",
+    "../letters/641/name.mp3"
+   ],
+   "hint": "اضغط على الكلمات اللي فيها الفاء",
+   "items": [
+    {
+     "word": "رَفّ",
+     "audio": "../u2l6/q/w-raff.mp3",
+     "answer": true
+    },
+    {
+     "word": "فِنْجَان",
+     "audio": "q/w-finjan.mp3",
+     "answer": true
+    },
+    {
+     "word": "طِفْل",
+     "audio": "words/tifl.mp3",
+     "answer": true
+    },
+    {
+     "word": "مَكْتَب",
+     "audio": "q/w-maktab.mp3",
+     "answer": false
+    },
+    {
+     "word": "أَنْف",
+     "audio": "../u1l3/q/c6-0.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "sound",
+   "ex": 4,
+   "page": 65,
+   "task": "أَنْطِقُ صَوْتَ حَرْفِ الْفَاءِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "اسمع الجملة وردد وراها",
+   "items": [
+    {
+     "word": "فَرَاشَة",
+     "ask": "فَ",
+     "pic": "../../pics/ar-butterfly.jpg",
+     "audio": [
+      "../letters/641/name.mp3",
+      "../shared/h-fatha.mp3",
+      "../../syl-ar/641-64e.mp3",
+      "words/farasha.mp3"
+     ]
+    },
+    {
+     "word": "فُرْشَاة",
+     "ask": "فُ",
+     "pic": "../../pics/ar-toothbrush.png",
+     "audio": [
+      "../letters/641/name.mp3",
+      "../shared/h-damma.mp3",
+      "../../syl-ar/641-64f.mp3",
+      "words/furshah.mp3"
+     ]
+    },
+    {
+     "word": "فِنْجَان",
+     "ask": "فِ",
+     "pic": "../../pics/ar-cup.png",
+     "audio": [
+      "../letters/641/name.mp3",
+      "../shared/h-kasra.mp3",
+      "../../syl-ar/641-650.mp3",
+      "q/w-finjan.mp3"
+     ]
+    },
+    {
+     "word": "قُفْل",
+     "ask": "فْ",
+     "pic": "../../pics/ar-lock.png",
+     "audio": [
+      "../letters/641/name.mp3",
+      "../shared/h-sukoon.mp3",
+      "../../syl-ar/641-652.mp3",
+      "q/w-qufl.mp3"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 5,
+   "page": 65,
+   "task": "أَنْطِقُ، ثُمَّ أَصِلُ حَرْفَ الْفَاءِ بِالصُّورَةِ الْمُنَاسِبَةِ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/641/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
+   "hint": "اختار صوت الفاء",
+   "choices": [
+    "فَ",
+    "فُ",
+    "فِ",
+    "فْ"
+   ],
+   "items": [
+    {
+     "word": "فِئْرَان",
+     "audio": "q/w-firan.mp3",
+     "pic": "../../pics/ar-mice.jpg",
+     "answer": "فِ",
+     "choices": [
+      "فَ",
+      "فُ",
+      "فِ"
+     ]
+    },
+    {
+     "word": "فُسْتَان",
+     "audio": "q/w-fustan.mp3",
+     "pic": "../../pics/ar-dress.png",
+     "answer": "فُ",
+     "choices": [
+      "فَ",
+      "فُ",
+      "فِ"
+     ]
+    },
+    {
+     "word": "ضُفْدَع",
+     "audio": "words/difda.mp3",
+     "pic": "../../pics/ar-frog.jpg",
+     "answer": "فْ",
+     "choices": [
+      "فَ",
+      "فُ",
+      "فِ"
+     ],
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 6,
+   "page": 65,
+   "task": "أَنْطِقُ اسْمَ الصُّورَةِ، ثُمَّ أَضْبِطُ حَرْفَ الْفَاءِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار الفاء بالحركة الصح",
+   "choices": [
+    "فَ",
+    "فُ",
+    "فِ",
+    "فْ"
+   ],
+   "items": [
+    {
+     "word": "فُلّ",
+     "audio": "words/full.mp3",
+     "pic": "../../pics/ar-jasmine.jpg",
+     "answer": "فُ",
+     "choices": [
+      "فَ",
+      "فُ",
+      "فِ"
+     ]
+    },
+    {
+     "word": "فَرَاوِلَة",
+     "audio": "q/w-farawla.mp3",
+     "pic": "../../pics/ar-strawberry.png",
+     "answer": "فَ",
+     "choices": [
+      "فَ",
+      "فُ",
+      "فِ"
+     ]
+    },
+    {
+     "word": "فِيل",
+     "audio": "../u1l3/q/c5-fil.mp3",
+     "pic": "../../pics/ar-elephant.png",
+     "answer": "فِ",
+     "choices": [
+      "فَ",
+      "فُ",
+      "فِ"
+     ]
+    },
+    {
+     "word": "طِفْل",
+     "audio": "words/tifl.mp3",
+     "pic": "../../pics/ar-baby.png",
+     "answer": "فْ",
+     "choices": [
+      "فَ",
+      "فُ",
+      "فِ"
+     ],
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 8,
+   "page": 66,
+   "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الْفَاءِ مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار الفاء بالحركة الصح",
+   "choices": [
+    "فَ",
+    "فُ",
+    "فِ",
+    "فْ"
+   ],
+   "items": [
+    {
+     "word": "فِنْجَان",
+     "audio": "q/w-finjan.mp3",
+     "pic": "../../pics/ar-cup.png",
+     "answer": "فِ",
+     "choices": [
+      "فَ",
+      "فُ",
+      "فِ"
+     ]
+    },
+    {
+     "word": "طِفْل",
+     "audio": "words/tifl.mp3",
+     "pic": "../../pics/ar-baby.png",
+     "answer": "فْ",
+     "choices": [
+      "فَ",
+      "فُ",
+      "فِ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "فُسْتَان",
+     "audio": "q/w-fustan.mp3",
+     "pic": "../../pics/ar-dress.png",
+     "answer": "فُ",
+     "choices": [
+      "فَ",
+      "فُ",
+      "فِ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 10,
+   "page": 67,
+   "task": "أَدْمِجُ الْحُرُوفَ لِأُكَوِّنَ كَلِمَةً",
+   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "items": [
+    {
+     "word": "فَرَاشَة",
+     "audio": "words/farasha.mp3",
+     "pic": "../../pics/ar-butterfly.jpg",
+     "chips": [
+      "فَ",
+      "رَا",
+      "شَة"
+     ]
+    },
+    {
+     "word": "فُلّ",
+     "audio": "words/full.mp3",
+     "pic": "../../pics/ar-jasmine.jpg",
+     "chips": [
+      "فُ",
+      "لّ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
    "ex": 5,
    "page": 61,
    "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الْفَاءِ",
@@ -11,6 +342,7 @@
    ],
    "hint": "اضغط على الصور التي فيها صوت الفاء",
    "silent": true,
+   "book": "booklet",
    "items": [
     {
      "word": "dates",
@@ -61,6 +393,7 @@
    "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/merge-syllables.mp3",
    "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+   "book": "booklet",
    "items": [
     {
      "word": "حَفْل",
@@ -106,6 +439,7 @@
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/arrange-letters.mp3",
    "hint": "رتب الحروف",
+   "book": "booklet",
    "items": [
     {
      "word": "فَرَاشَة",
@@ -146,6 +480,7 @@
     "فِ",
     "فْ"
    ],
+   "book": "booklet",
    "items": [
     {
      "word": "فَرَاشَة",
@@ -171,6 +506,57 @@
      "pic": "../../pics/ar-jasmine.jpg",
      "audio": "words/full.mp3",
      "answer": "فُ"
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 2,
+   "page": 39,
+   "task": "أَنْطِقُ، ثُمَّ أَضْبِطُ حَرْفَ الْفَاءِ بِالشَّكْلِ",
+   "taskAudio": "../q-prompts/write-example.mp3",
+   "hint": "اختار الفاء بالحركة الصح",
+   "choices": [
+    "فَ",
+    "فُ",
+    "فِ",
+    "فْ"
+   ],
+   "book": "workbook",
+   "items": [
+    {
+     "word": "فَرَاشَة",
+     "audio": "words/farasha.mp3",
+     "pic": "../../pics/ar-butterfly.jpg",
+     "answer": "فَ",
+     "choices": [
+      "فَ",
+      "فُ",
+      "فِ"
+     ]
+    },
+    {
+     "word": "فِنْجَان",
+     "audio": "q/w-finjan.mp3",
+     "pic": "../../pics/ar-cup.png",
+     "answer": "فِ",
+     "choices": [
+      "فَ",
+      "فُ",
+      "فِ"
+     ]
+    },
+    {
+     "word": "ضُفْدَع",
+     "audio": "words/difda.mp3",
+     "pic": "../../pics/ar-frog.jpg",
+     "answer": "فْ",
+     "choices": [
+      "فَ",
+      "فُ",
+      "فِ"
+     ],
+     "at": 1
     }
    ]
   }

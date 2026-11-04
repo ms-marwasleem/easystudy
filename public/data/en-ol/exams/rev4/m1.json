@@ -1,0 +1,182 @@
+{
+ "title": "Test 1",
+ "ratio": 0.707,
+ "head": {
+  "l": "Department of English<br>1st Term OL Booklet Grade 1<br>2026/2027",
+  "r": "Noor El Elm<br>Modern School"
+ },
+ "pages": [
+  {
+   "title": "Model 1",
+   "chip": "Model 1",
+   "foot": 23,
+   "blocks": [
+    {
+     "t": "q",
+     "n": "1",
+     "text": "Listen and write the missing letters:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/mouth-u4l1.png"
+          },
+          {
+           "t": "text",
+           "text": "m [[o:tiny]] [[u:tiny]] t h",
+           "listen": "mouth"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/rocket.png"
+          },
+          {
+           "t": "text",
+           "text": "[[r:tiny]] o c k e t",
+           "listen": "rocket"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/kangaroo-u4l4.png"
+          },
+          {
+           "t": "text",
+           "text": "[[k:tiny]] a n g a r o o",
+           "listen": "kangaroo"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "Read and complete:",
+     "body": [
+      {
+       "t": "text",
+       "style": "bank",
+       "text": "carrots – apple – ears – taste"
+      },
+      {
+       "t": "text",
+       "text": "1- I can [[taste]] with my tongue."
+      },
+      {
+       "t": "text",
+       "text": "2- I have an [[apple]]."
+      },
+      {
+       "t": "text",
+       "text": "3- I have 2 [[ears]]."
+      },
+      {
+       "t": "text",
+       "text": "4- Rabbits eat [[carrots]]."
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Unscramble and write:",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "pics",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/cake-u4l4.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>k e a c</span> [[cake:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/king-u4l4.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>g i n k</span> [[king:wide]]"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/elbow-u4l2.png"
+          },
+          {
+           "t": "text",
+           "text": "<span class='xsc'>l e b o w</span> [[elbow:wide]]"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Reorder to form sentences:",
+     "body": [
+      {
+       "t": "order",
+       "words": [
+        "pen",
+        "red",
+        "a",
+        "It",
+        "is"
+       ],
+       "answer": "It is a red pen"
+      },
+      {
+       "t": "order",
+       "words": [
+        "What",
+        "see",
+        "can",
+        "you"
+       ],
+       "answer": "What can you see"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

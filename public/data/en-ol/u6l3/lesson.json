@@ -1,0 +1,600 @@
+{
+ "id": "u6l3",
+ "unit": 6,
+ "lesson": 3,
+ "title": "My Pets",
+ "task": "Listen to the following dialog.",
+ "scene": "scene.jpg",
+ "sceneAlt": "Ali and Hana with their pets",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "speakers": {
+  "Ali": "#1E78C8",
+  "Hana": "#D9157E",
+  "Pets": "#D93D78",
+  "Where": "#D93D78"
+ },
+ "pages": 3,
+ "compact": true,
+ "pageLayouts": [
+  "text",
+  "pictures",
+  "pictures"
+ ],
+ "pageTasks": [
+  "Listen to the following dialog.",
+  "Listen, point, and repeat.",
+  "Listen, point, and repeat."
+ ],
+ "pagesBook": [
+  113,
+  114,
+  114
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "cat",
+   "ar": "قطة",
+   "img": "../../pics/cat-u4l4.png",
+   "parts": [
+    {
+     "t": "ca",
+     "ph": "k_a",
+     "audio": "../../phonics/chunks/k_a.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u1l4/words/cat.mp3"
+   }
+  },
+  {
+   "word": "dog",
+   "ar": "كلب",
+   "img": "../../pics/dog-u3l4.png",
+   "parts": [
+    {
+     "t": "do",
+     "ph": "d_o",
+     "audio": "../../phonics/chunks/d_o.mp3"
+    },
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u1l4/words/dog.mp3"
+   }
+  },
+  {
+   "word": "turtle",
+   "ar": "سلحفاة",
+   "img": "../../pics/turtle-u5l1.png",
+   "parts": [
+    {
+     "t": "tu",
+     "ph": "t_er",
+     "audio": "../../phonics/chunks/t_er.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u5l1/words/turtle.mp3"
+   }
+  },
+  {
+   "word": "bird",
+   "ar": "طائر",
+   "img": "../../pics/bird.png",
+   "parts": [
+    {
+     "t": "bi",
+     "ph": "b_er",
+     "audio": "../../phonics/chunks/b_er.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u2l1/words/bird.mp3"
+   }
+  },
+  {
+   "word": "in",
+   "ar": "في",
+   "img": "../../pics/box-in-u6l3.png",
+   "parts": [
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u1l4/words/in.mp3"
+   }
+  },
+  {
+   "word": "on",
+   "ar": "على",
+   "img": "../../pics/box-on-u6l3.png",
+   "parts": [
+    {
+     "t": "o",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u5l4/words/on.mp3"
+   }
+  },
+  {
+   "word": "under",
+   "ar": "تحت",
+   "img": "../../pics/box-under-u6l3.png",
+   "parts": [
+    {
+     "t": "u",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "de",
+     "ph": "d_er",
+     "audio": "../../phonics/chunks/d_er.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/under.mp3"
+   }
+  }
+ ],
+ "_note": "Book p113 dialog (Ali and Hana), p114 pets cat dog turtle bird and in / on / under.",
+ "lines": [
+  {
+   "who": "Ali",
+   "page": 1,
+   "words": [
+    [
+     "Look!",
+     0.03,
+     0.37
+    ],
+    [
+     "The",
+     0.37,
+     0.49
+    ],
+    [
+     "cat",
+     0.49,
+     0.73
+    ],
+    [
+     "is",
+     0.73,
+     1.0
+    ],
+    [
+     "on",
+     1.0,
+     1.3
+    ],
+    [
+     "my",
+     1.3,
+     1.46
+    ],
+    [
+     "leg!",
+     1.46,
+     1.82
+    ]
+   ]
+  },
+  {
+   "who": "Hana",
+   "page": 1,
+   "words": [
+    [
+     "Where",
+     2.45,
+     2.82
+    ],
+    [
+     "is",
+     2.82,
+     3.11
+    ],
+    [
+     "the",
+     3.11,
+     3.37
+    ],
+    [
+     "dog?",
+     3.37,
+     3.68
+    ]
+   ]
+  },
+  {
+   "who": "Ali",
+   "page": 1,
+   "words": [
+    [
+     "The",
+     4.23,
+     4.43
+    ],
+    [
+     "dog",
+     4.43,
+     4.88
+    ],
+    [
+     "is",
+     4.88,
+     4.97
+    ],
+    [
+     "on",
+     4.97,
+     5.32
+    ],
+    [
+     "the",
+     5.32,
+     5.58
+    ],
+    [
+     "couch.",
+     5.58,
+     5.91
+    ]
+   ]
+  },
+  {
+   "who": "Hana",
+   "page": 1,
+   "words": [
+    [
+     "What",
+     6.47,
+     6.77
+    ],
+    [
+     "about",
+     6.77,
+     7.22
+    ],
+    [
+     "the",
+     7.22,
+     7.49
+    ],
+    [
+     "bird?",
+     7.49,
+     7.77
+    ]
+   ]
+  },
+  {
+   "who": "Ali",
+   "page": 1,
+   "words": [
+    [
+     "The",
+     8.33,
+     8.56
+    ],
+    [
+     "bird",
+     8.56,
+     8.91
+    ],
+    [
+     "is",
+     8.91,
+     9.09
+    ],
+    [
+     "in",
+     9.09,
+     9.34
+    ],
+    [
+     "the",
+     9.34,
+     9.69
+    ],
+    [
+     "cage.",
+     9.69,
+     10.02
+    ]
+   ]
+  },
+  {
+   "who": "Hana",
+   "page": 1,
+   "words": [
+    [
+     "And",
+     10.57,
+     10.91
+    ],
+    [
+     "the",
+     10.91,
+     11.04
+    ],
+    [
+     "turtle?",
+     11.04,
+     11.56
+    ]
+   ]
+  },
+  {
+   "who": "Ali",
+   "page": 1,
+   "words": [
+    [
+     "Hmm...",
+     12.12,
+     12.48
+    ],
+    [
+     "The",
+     12.48,
+     12.58
+    ],
+    [
+     "turtle",
+     12.58,
+     13.09
+    ],
+    [
+     "is",
+     13.09,
+     13.26
+    ],
+    [
+     "under",
+     13.26,
+     13.71
+    ],
+    [
+     "the",
+     13.71,
+     13.83
+    ],
+    [
+     "table!",
+     13.83,
+     14.31
+    ]
+   ]
+  },
+  {
+   "who": "Hana",
+   "page": 1,
+   "words": [
+    [
+     "I",
+     14.86,
+     15.09
+    ],
+    [
+     "love",
+     15.09,
+     15.44
+    ],
+    [
+     "pets!",
+     15.44,
+     15.96
+    ]
+   ]
+  },
+  {
+   "who": "Ali",
+   "page": 1,
+   "words": [
+    [
+     "Me",
+     16.51,
+     16.94
+    ],
+    [
+     "too!",
+     16.94,
+     17.38
+    ]
+   ]
+  },
+  {
+   "who": "Pets",
+   "page": 2,
+   "words": [
+    [
+     "cat",
+     17.92,
+     18.4
+    ]
+   ],
+   "pic": "../../pics/cat-u4l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Pets",
+   "page": 2,
+   "words": [
+    [
+     "dog",
+     19.66,
+     20.23
+    ]
+   ],
+   "pic": "../../pics/dog-u3l4.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Pets",
+   "page": 2,
+   "words": [
+    [
+     "turtle",
+     21.48,
+     22.09
+    ]
+   ],
+   "pic": "../../pics/turtle-u5l1.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Pets",
+   "page": 2,
+   "words": [
+    [
+     "bird",
+     23.35,
+     23.94
+    ]
+   ],
+   "pic": "../../pics/bird.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Where",
+   "page": 3,
+   "words": [
+    [
+     "in",
+     25.2,
+     25.7
+    ]
+   ],
+   "pic": "../../pics/box-in-u6l3.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Where",
+   "page": 3,
+   "words": [
+    [
+     "on",
+     26.96,
+     27.49
+    ]
+   ],
+   "pic": "../../pics/box-on-u6l3.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Where",
+   "page": 3,
+   "words": [
+    [
+     "under",
+     28.74,
+     29.39
+    ]
+   ],
+   "pic": "../../pics/box-under-u6l3.png",
+   "pos": [
+    50,
+    50
+   ]
+  }
+ ],
+ "end": 29.39
+}

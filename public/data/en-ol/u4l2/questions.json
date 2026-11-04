@@ -1,0 +1,727 @@
+{
+ "_note": "u4l2: p71 ex4, p73 ex8, p74 ex9-11 (tracing skipped). Performance p35-37 (weekly A/B/C of the first half of the unit sit here).",
+ "sets": [
+  {
+   "type": "match",
+   "ex": 4,
+   "page": 71,
+   "task": "Look, say, then circle the pictures that start with the letter (Rr).",
+   "taskAudio": "../../en-shared/q/look-say-then-circle-the-pictures-that-start-with-the-letter.mp3",
+   "hint": "Tap the pictures that start with Rr!",
+   "center": "Rr",
+   "centerAudio": "../../phonics/r.mp3",
+   "items": [
+    {
+     "word": "rocket",
+     "audio": "../u2l2/words/rocket.mp3",
+     "pic": "../../pics/rocket.png",
+     "answer": true,
+     "pos": [
+      10,
+      16
+     ]
+    },
+    {
+     "word": "robot",
+     "audio": "words/robot.mp3",
+     "pic": "../../pics/robot-u4l2.png",
+     "answer": true,
+     "pos": [
+      90,
+      16
+     ]
+    },
+    {
+     "word": "fish",
+     "audio": "words/fish.mp3",
+     "pic": "../../pics/fish-u4l2.png",
+     "answer": false,
+     "pos": [
+      10,
+      50
+     ]
+    },
+    {
+     "word": "red",
+     "audio": "../u2l3/words/red.mp3",
+     "pic": "../../pics/red-u4l2.png",
+     "answer": true,
+     "pos": [
+      90,
+      50
+     ]
+    },
+    {
+     "word": "tiger",
+     "audio": "../u1l2/words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "answer": false,
+     "pos": [
+      28,
+      82
+     ]
+    },
+    {
+     "word": "ring",
+     "audio": "words/ring.mp3",
+     "pic": "../../pics/ring-u4l2.png",
+     "answer": true,
+     "pos": [
+      72,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 8,
+   "page": 73,
+   "task": "Look, say, then circle the pictures that start with the letter (Ee).",
+   "taskAudio": "../../en-shared/q/look-say-then-circle-the-pictures-that-start-with-the-letter.mp3",
+   "hint": "Tap the pictures that start with Ee!",
+   "center": "Ee",
+   "centerAudio": "../../phonics/e.mp3",
+   "items": [
+    {
+     "word": "tree",
+     "audio": "../u1l2/words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "answer": false,
+     "pos": [
+      10,
+      16
+     ]
+    },
+    {
+     "word": "egg",
+     "audio": "words/egg.mp3",
+     "pic": "../../pics/egg-u4l2.png",
+     "answer": true,
+     "pos": [
+      90,
+      16
+     ]
+    },
+    {
+     "word": "enter",
+     "audio": "words/enter.mp3",
+     "pic": "../../pics/enter-u4l2.png",
+     "answer": true,
+     "pos": [
+      10,
+      50
+     ]
+    },
+    {
+     "word": "elbow",
+     "audio": "words/elbow.mp3",
+     "pic": "../../pics/elbow-u4l2.png",
+     "answer": true,
+     "pos": [
+      90,
+      50
+     ]
+    },
+    {
+     "word": "fox",
+     "audio": "words/fox.mp3",
+     "pic": "../../pics/fox-u4l2.png",
+     "answer": false,
+     "pos": [
+      28,
+      82
+     ]
+    },
+    {
+     "word": "eggplant",
+     "audio": "words/eggplant.mp3",
+     "pic": "../../pics/eggplant-u4l2.png",
+     "answer": true,
+     "pos": [
+      72,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 9,
+   "page": 74,
+   "task": "Look, say, then circle the pictures that start with the letter (Rr).",
+   "taskAudio": "../../en-shared/q/look-say-then-circle-the-pictures-that-start-with-the-letter.mp3",
+   "hint": "Tap the pictures that start with Rr!",
+   "center": "Rr",
+   "centerAudio": "../../phonics/r.mp3",
+   "items": [
+    {
+     "word": "tiger",
+     "audio": "../u1l2/words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "answer": false,
+     "pos": [
+      10,
+      14
+     ]
+    },
+    {
+     "word": "ring",
+     "audio": "words/ring.mp3",
+     "pic": "../../pics/ring-u4l2.png",
+     "answer": true,
+     "pos": [
+      12,
+      38
+     ]
+    },
+    {
+     "word": "robot",
+     "audio": "words/robot.mp3",
+     "pic": "../../pics/robot-u4l2.png",
+     "answer": true,
+     "pos": [
+      88,
+      22
+     ]
+    },
+    {
+     "word": "ink",
+     "audio": "../u1l4/words/ink.mp3",
+     "pic": "../../pics/ink-u1l4.png",
+     "answer": false,
+     "pos": [
+      88,
+      52
+     ]
+    },
+    {
+     "word": "rocket",
+     "audio": "../u2l2/words/rocket.mp3",
+     "pic": "../../pics/rocket.png",
+     "answer": true,
+     "pos": [
+      20,
+      80
+     ]
+    },
+    {
+     "word": "ostrich",
+     "audio": "words/ostrich.mp3",
+     "pic": "../../pics/ostrich-u4l2.png",
+     "answer": false,
+     "pos": [
+      40,
+      82
+     ]
+    },
+    {
+     "word": "banana",
+     "audio": "words/banana.mp3",
+     "pic": "../../pics/banana-u4l2.png",
+     "answer": false,
+     "pos": [
+      60,
+      82
+     ]
+    },
+    {
+     "word": "rabbit",
+     "audio": "words/rabbit.mp3",
+     "pic": "../../pics/rabbit-u4l2.png",
+     "answer": true,
+     "pos": [
+      80,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 10,
+   "page": 74,
+   "task": "Look, say, then circle the pictures that start with the letter (Ee).",
+   "taskAudio": "../../en-shared/q/look-say-then-circle-the-pictures-that-start-with-the-letter.mp3",
+   "hint": "Tap the pictures that start with Ee!",
+   "center": "Ee",
+   "centerAudio": "../../phonics/e.mp3",
+   "items": [
+    {
+     "word": "egg",
+     "audio": "words/egg.mp3",
+     "pic": "../../pics/friedegg-u4l2.png",
+     "answer": true,
+     "pos": [
+      10,
+      14
+     ]
+    },
+    {
+     "word": "elephant",
+     "audio": "words/elephant.mp3",
+     "pic": "../../pics/elephant-u4l2.png",
+     "answer": true,
+     "pos": [
+      12,
+      38
+     ]
+    },
+    {
+     "word": "elbow",
+     "audio": "words/elbow.mp3",
+     "pic": "../../pics/elbow-u4l2.png",
+     "answer": true,
+     "pos": [
+      88,
+      22
+     ]
+    },
+    {
+     "word": "eggplant",
+     "audio": "words/eggplant.mp3",
+     "pic": "../../pics/eggplant-u4l2.png",
+     "answer": true,
+     "pos": [
+      88,
+      52
+     ]
+    },
+    {
+     "word": "tree",
+     "audio": "../u1l2/words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "answer": false,
+     "pos": [
+      20,
+      80
+     ]
+    },
+    {
+     "word": "apple",
+     "audio": "../u2l3/words/apple.mp3",
+     "pic": "../../pics/apple-u2l3.png",
+     "answer": false,
+     "pos": [
+      40,
+      82
+     ]
+    },
+    {
+     "word": "fork",
+     "audio": "words/fork.mp3",
+     "pic": "../../pics/fork-u4l2.png",
+     "answer": false,
+     "pos": [
+      60,
+      82
+     ]
+    },
+    {
+     "word": "parrot",
+     "audio": "../u1l2/words/parrot.mp3",
+     "pic": "../../pics/parrot.png",
+     "answer": false,
+     "pos": [
+      80,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "ex": 11,
+   "page": 74,
+   "task": "Look, say, then write the beginning letter of the word.",
+   "taskAudio": "../../en-shared/q/look-say-then-write-the-beginning-letter-of-the-word.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "enter",
+     "audio": "words/enter.mp3",
+     "pic": "../../pics/enter-u4l2.png",
+     "missing": 0,
+     "answer": "e"
+    },
+    {
+     "word": "rabbit",
+     "audio": "words/rabbit.mp3",
+     "pic": "../../pics/rabbit-u4l2.png",
+     "missing": 0,
+     "answer": "r"
+    },
+    {
+     "word": "egg",
+     "audio": "words/egg.mp3",
+     "pic": "../../pics/egg-u4l2.png",
+     "missing": 0,
+     "answer": "e"
+    },
+    {
+     "word": "ring",
+     "audio": "words/ring.mp3",
+     "pic": "../../pics/ring-u4l2.png",
+     "missing": 0,
+     "answer": "r"
+    },
+    {
+     "word": "elbow",
+     "audio": "words/elbow.mp3",
+     "pic": "../../pics/elbow-u4l2.png",
+     "missing": 0,
+     "answer": "e"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 35,
+   "grp": "classroom-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "egg",
+     "scr": "gge",
+     "audio": "words/egg.mp3",
+     "pic": "../../pics/egg-u4l2.png"
+    },
+    {
+     "word": "rocket",
+     "scr": "rtckoe",
+     "audio": "../u2l2/words/rocket.mp3",
+     "pic": "../../pics/rocket.png"
+    },
+    {
+     "word": "red",
+     "scr": "erd",
+     "audio": "../u2l3/words/red.mp3",
+     "pic": "../../pics/red-u4l2.png"
+    },
+    {
+     "word": "enter",
+     "scr": "terne",
+     "audio": "words/enter.mp3",
+     "pic": "../../pics/enter-u4l2.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 35,
+   "grp": "classroom-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "word": "This is a rabbit.",
+     "lead": "This is a",
+     "options": [
+      "robot",
+      "rabbit"
+     ],
+     "answer": 1,
+     "pic": "../../pics/rabbit-u4l2.png",
+     "audio": "../../en-shared/q/this-is-a-rabbit.mp3"
+    },
+    {
+     "word": "I can see an elephant.",
+     "lead": "I can see an",
+     "options": [
+      "elephant",
+      "elbow"
+     ],
+     "answer": 0,
+     "pic": "../../pics/elephant-u4l2.png",
+     "audio": "../../en-shared/q/i-can-see-an-elephant.mp3"
+    },
+    {
+     "word": "There is 1 eggplant.",
+     "lead": "There is 1",
+     "options": [
+      "rocket",
+      "eggplant"
+     ],
+     "answer": 1,
+     "pic": "../../pics/eggplant-u4l2.png",
+     "audio": "../../en-shared/q/there-is-1-eggplant.mp3"
+    },
+    {
+     "word": "This is a ring.",
+     "lead": "This is a",
+     "options": [
+      "robot",
+      "ring"
+     ],
+     "answer": 1,
+     "pic": "../../pics/ring-u4l2.png",
+     "audio": "../../en-shared/q/this-is-a-ring.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 35,
+   "grp": "homework-1",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "elephant",
+     "audio": "words/elephant.mp3",
+     "pic": "../../pics/elephant-u4l2.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ]
+    },
+    {
+     "word": "robot",
+     "audio": "words/robot.mp3",
+     "pic": "../../pics/robot-u4l2.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "elbow",
+     "audio": "words/elbow.mp3",
+     "pic": "../../pics/elbow-u4l2.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "ring",
+     "audio": "words/ring.mp3",
+     "pic": "../../pics/ring-u4l2.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 1,
+   "page": 36,
+   "grp": "weekly-a-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "mouth",
+     "scr": "otmhu",
+     "audio": "../u4l1/words/mouth.mp3",
+     "pic": "../../pics/mouth-u4l1.png"
+    },
+    {
+     "word": "egg",
+     "scr": "gge",
+     "audio": "words/egg.mp3",
+     "pic": "../../pics/egg-u4l2.png"
+    },
+    {
+     "word": "rocket",
+     "scr": "rtckoe",
+     "audio": "../u2l2/words/rocket.mp3",
+     "pic": "../../pics/rocket.png"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 2,
+   "page": 36,
+   "grp": "weekly-a-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "have",
+      "2",
+      "feet"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-have-2-feet-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "have",
+      "1",
+      "nose"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-have-1-nose.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 1,
+   "page": 36,
+   "grp": "weekly-b-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "ring",
+     "scr": "grni",
+     "audio": "words/ring.mp3",
+     "pic": "../../pics/ring-u4l2.png"
+    },
+    {
+     "word": "ear",
+     "scr": "era",
+     "audio": "../u4l1/words/ear.mp3",
+     "pic": "../../pics/ear-u4l1.png"
+    },
+    {
+     "word": "eggplant",
+     "scr": "apngletg",
+     "audio": "words/eggplant.mp3",
+     "pic": "../../pics/eggplant-u4l2.png"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 2,
+   "page": 36,
+   "grp": "weekly-b-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "have",
+      "1",
+      "mouth"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-have-1-mouth-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "have",
+      "2",
+      "arms"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-have-2-arms-mp3.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 1,
+   "page": 37,
+   "grp": "weekly-c-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "legs",
+     "scr": "gels",
+     "audio": "../u4l1/words/legs.mp3",
+     "pic": "../../pics/legs-u4l1.png"
+    },
+    {
+     "word": "robot",
+     "scr": "trobo",
+     "audio": "words/robot.mp3",
+     "pic": "../../pics/robot-u4l2.png"
+    },
+    {
+     "word": "elephant",
+     "scr": "atlephne",
+     "audio": "words/elephant.mp3",
+     "pic": "../../pics/elephant-u4l2.png"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 2,
+   "page": 37,
+   "grp": "weekly-c-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "have",
+      "2",
+      "eyes"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-have-2-eyes-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "have",
+      "1",
+      "head"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-have-1-head-mp3.mp3"
+    }
+   ]
+  }
+ ]
+}

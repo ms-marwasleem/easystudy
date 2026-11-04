@@ -1,0 +1,39 @@
+/* GRAMMAR ANIMATION template (js/gramanim.js): one animated page per grammar card. Relative units only; white text on colour. */
+.gan{display:grid;grid-template-rows:auto minmax(0,1fr) auto;height:100%;padding:.5rem 1rem 4.2rem;gap:.4rem;container-type:size;overflow:hidden}
+.gan-title{margin:0;text-align:center;font:400 clamp(1.1rem,4cqw,1.8rem)/1.2 var(--f-title);color:var(--c-hint)}
+.gan-box{position:relative;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;container-type:size;background:#2F6B4A;border-radius:1.2rem;box-shadow:0 .25rem 0 rgba(90,52,24,.3);padding:.6rem;color:var(--c-white);overflow:hidden}
+.gan-dots{display:flex;justify-content:center;gap:.7rem}
+.gan-dot{width:.9rem;height:.9rem;border-radius:50%;border:.14rem solid #fff;background:transparent;padding:0}
+.gan-dot.ok{background:rgba(255,255,255,.55)}.gan-dot.on{background:var(--c-hint);border-color:var(--c-hint);transform:scale(1.3)}
+/* sort: words fly into the bucket of their verb */
+.gs-tray{min-height:14cqh;display:flex;align-items:center;justify-content:center}
+.gs-bins{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2cqw;width:100%;align-items:start}
+.gs-bin{min-height:48cqh;border-radius:1rem;display:flex;flex-direction:column;align-items:center;padding:.4rem;gap:.4rem;min-height:0;background:var(--bc)}
+.gs-h{font:400 min(11cqh,10cqw)/1 var(--f-title);color:#fff;text-shadow:0 .15rem 0 rgba(0,0,0,.25)}
+.gs-stack{display:flex;flex-direction:column;gap:.35rem;align-items:center;width:100%}
+.gs-chip{font:700 min(8cqh,8.2cqw)/1.1 var(--f-read);background:rgba(255,255,255,.22);border:.14rem solid #fff;color:#fff;border-radius:.8rem;padding:.3rem .7rem;white-space:nowrap}
+.gs-tray .gs-chip{background:var(--bc);font-size:min(11cqh,10cqw)}
+.gs-v{color:var(--c-hint)}
+.c0{--bc:#E8782A}.c1{--bc:#2E8FEA}.c2{--bc:#3A9A2C}
+/* morph: the long sentence turns into the short one / the question */
+.gm-stack{display:grid;width:100%;place-items:center}
+.gm-line{grid-area:1/1;display:flex;flex-wrap:wrap;justify-content:center;gap:0 .6em;font:700 min(14cqh,11.5cqw)/1.35 var(--f-read);text-align:center}
+.gm-w{display:inline-block;color:#fff}
+.gm-t.chg{color:var(--c-hint)}
+.gm-ap{font-style:normal;color:#FF6A5C;display:inline-block;transform:scale(1.3)}
+.gm-ans{font:700 min(9cqh,8cqw)/1.3 var(--f-read);color:#E8F4EA}
+/* reveal: a picture and its sentence */
+.gr-list{display:flex;flex-direction:column;gap:.5rem;align-items:center;width:100%}
+.gr-list.one{height:100%;justify-content:center}
+.gr-row{display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.gr-list:not(.one) .gr-row{flex-direction:row;gap:1rem}
+.gr-fig{width:min(85cqw,52cqh)}
+.gr-svg{width:100%;height:auto;display:block;overflow:visible}
+.gr-t{font:700 min(11cqh,9cqw)/1.3 var(--f-read);text-align:center;color:#fff}
+.gr-list:not(.one) .gr-t{font-size:min(8cqh,5.6cqw)}
+.gr-hl{color:var(--c-hint)}
+/* pair: opposites */
+.gp-list{width:100%}
+.gp-row{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:2cqw}
+.gp-w{font:400 min(14cqh,9cqw)/1.1 var(--f-title);text-align:center;color:#fff;background:var(--bc);border-radius:1rem;padding:.8rem .4rem}
+.gp-m{width:min(14cqw,16cqh)}.gp-m svg{width:100%}

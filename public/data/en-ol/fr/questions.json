@@ -1,0 +1,882 @@
+{
+ "_note": "Final Revision (booklet pp37-41) as single questions",
+ "sets": [
+  {
+   "type": "choice",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 1,
+   "page": 37,
+   "task": "Listen and circle:",
+   "taskAudio": "../../en-shared/q/listen-and-circle.mp3",
+   "hint": "Listen, then tap the right word!",
+   "items": [
+    {
+     "word": "father",
+     "lead": "",
+     "options": [
+      "mother",
+      "father"
+     ],
+     "answer": 1,
+     "pic": "../../pics/father.png",
+     "audio": "../u3l1/words/father.mp3"
+    },
+    {
+     "word": "table",
+     "lead": "",
+     "options": [
+      "chair",
+      "table"
+     ],
+     "answer": 1,
+     "pic": "../../pics/table.png",
+     "audio": "../u1l2/words/table.mp3"
+    },
+    {
+     "word": "book",
+     "lead": "",
+     "options": [
+      "pencil",
+      "book"
+     ],
+     "answer": 1,
+     "pic": "../../pics/book.png",
+     "audio": "../u1l3/words/book.mp3"
+    },
+    {
+     "word": "tree",
+     "lead": "",
+     "options": [
+      "tiger",
+      "tree"
+     ],
+     "answer": 1,
+     "pic": "../../pics/tree.png",
+     "audio": "../u1l2/words/tree.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 2,
+   "page": 37,
+   "task": "Read and match:",
+   "taskAudio": "../../en-shared/q/read-and-match.mp3",
+   "hint": "Join each word to its picture!",
+   "items": [
+    {
+     "word": "cup",
+     "audio": "../u4l4/words/cup.mp3",
+     "pic": "../../pics/cup-u4l4.png"
+    },
+    {
+     "word": "flower",
+     "audio": "../u2l1/words/flower.mp3",
+     "pic": "../../pics/flower.png"
+    },
+    {
+     "word": "ant",
+     "audio": "../u2l4/words/ant.mp3",
+     "pic": "../../pics/ant.png"
+    },
+    {
+     "word": "butterfly",
+     "audio": "../u2l1/words/butterfly.mp3",
+     "pic": "../../pics/butterfly.png"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 3,
+   "page": 37,
+   "task": "Look and write the missing letters:",
+   "taskAudio": "../../en-shared/q/look-and-write-the-missing-letters.mp3",
+   "hint": "Type the missing letter!",
+   "items": [
+    {
+     "word": "cake",
+     "audio": "../u4l4/words/cake.mp3",
+     "pic": "../../pics/cake-u4l4.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "ear",
+     "audio": "../u4l1/words/ear.mp3",
+     "pic": "../../pics/ear-u4l1.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "nose",
+     "audio": "../u3l2/words/nose.mp3",
+     "pic": "../../pics/nose-u4l1.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "carrot",
+     "audio": "../u4l4/words/carrot.mp3",
+     "pic": "../../pics/carrot-u4l4.png",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "booklet",
+   "model": "Model 1",
+   "ex": 4,
+   "page": 37,
+   "task": "Reorder the words to form a sentence:",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-form-a-sentence.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "have",
+      "1",
+      "mouth"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-have-1-mouth.mp3"
+    },
+    {
+     "chunks": [
+      "What",
+      "color",
+      "is",
+      "the",
+      "square"
+     ],
+     "end": "?",
+     "audio": "../../en-shared/q/what-color-is-the-square.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "dog",
+      "is",
+      "on",
+      "the",
+      "couch"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-dog-is-on-the-couch.mp3"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 1,
+   "page": 38,
+   "task": "Listen and circle:",
+   "taskAudio": "../../en-shared/q/listen-and-circle.mp3",
+   "hint": "Listen, then tap the right word!",
+   "items": [
+    {
+     "word": "lion",
+     "lead": "",
+     "options": [
+      "lion",
+      "elephant"
+     ],
+     "answer": 0,
+     "pic": "../../pics/lion-u6l1.png",
+     "audio": "../u6l1/words/lion.mp3"
+    },
+    {
+     "word": "fork",
+     "lead": "",
+     "options": [
+      "frog",
+      "fork"
+     ],
+     "answer": 1,
+     "pic": "../../pics/fork-u4l2.png",
+     "audio": "../u4l2/words/fork.mp3"
+    },
+    {
+     "word": "grapes",
+     "lead": "",
+     "options": [
+      "guitar",
+      "grapes"
+     ],
+     "answer": 1,
+     "pic": "../../pics/grapes-u5l2.png",
+     "audio": "../u5l2/words/grapes.mp3"
+    },
+    {
+     "word": "cat",
+     "lead": "",
+     "options": [
+      "cat",
+      "carrot"
+     ],
+     "answer": 0,
+     "pic": "../../pics/cat-u4l4.png",
+     "audio": "../u1l4/words/cat.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 2,
+   "page": 38,
+   "task": "Read and match:",
+   "taskAudio": "../../en-shared/q/read-and-match.mp3",
+   "hint": "Join each word to its picture!",
+   "items": [
+    {
+     "word": "girl",
+     "audio": "../u5l2/words/girl.mp3",
+     "pic": "../../pics/girl-u5l2.png"
+    },
+    {
+     "word": "eye",
+     "audio": "../u4l1/words/eye.mp3",
+     "pic": "../../pics/eye-u4l1.png"
+    },
+    {
+     "word": "ring",
+     "audio": "../u4l2/words/ring.mp3",
+     "pic": "../../pics/ring-u4l2.png"
+    },
+    {
+     "word": "hat",
+     "audio": "../u3l4/words/hat.mp3",
+     "pic": "../../pics/hat-u6l3.png"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 3,
+   "page": 38,
+   "task": "Look and write the missing letters:",
+   "taskAudio": "../../en-shared/q/look-and-write-the-missing-letters.mp3",
+   "hint": "Type the missing letter!",
+   "items": [
+    {
+     "word": "parrot",
+     "audio": "../u1l2/words/parrot.mp3",
+     "pic": "../../pics/parrot.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "ink",
+     "audio": "../u1l4/words/ink.mp3",
+     "pic": "../../pics/ink.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "duck",
+     "audio": "../u2l3/words/duck.mp3",
+     "pic": "../../pics/duck-u3l4.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "mouth",
+     "audio": "../u4l1/words/mouth.mp3",
+     "pic": "../../pics/mouth-u4l1.png",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "booklet",
+   "model": "Model 2",
+   "ex": 4,
+   "page": 38,
+   "task": "Reorder the words to form a sentence:",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-form-a-sentence.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "The",
+      "cow",
+      "is",
+      "big"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-cow-is-big.mp3"
+    },
+    {
+     "chunks": [
+      "Who",
+      "is",
+      "this"
+     ],
+     "end": "?",
+     "audio": "../../en-shared/q/who-is-this.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "can",
+      "see",
+      "with",
+      "my",
+      "eyes"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-see-with-my-eyes.mp3"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "booklet",
+   "model": "Model 3",
+   "ex": 1,
+   "page": 39,
+   "task": "Listen and circle:",
+   "taskAudio": "../../en-shared/q/listen-and-circle.mp3",
+   "hint": "Listen, then tap the right word!",
+   "items": [
+    {
+     "word": "teacher",
+     "lead": "",
+     "options": [
+      "tomato",
+      "teacher"
+     ],
+     "answer": 1,
+     "pic": "../../pics/teacher.png",
+     "audio": "../u1l2/words/teacher.mp3"
+    },
+    {
+     "word": "hair",
+     "lead": "",
+     "options": [
+      "hand",
+      "hair"
+     ],
+     "answer": 1,
+     "pic": "../../pics/hair-u3l4.png",
+     "audio": "../u3l4/words/hair.mp3"
+    },
+    {
+     "word": "nose",
+     "lead": "",
+     "options": [
+      "eye",
+      "nose"
+     ],
+     "answer": 1,
+     "pic": "../../pics/nose-u4l1.png",
+     "audio": "../u3l2/words/nose.mp3"
+    },
+    {
+     "word": "play",
+     "lead": "",
+     "options": [
+      "play",
+      "hello"
+     ],
+     "answer": 0,
+     "pic": "../../pics/play.jpg",
+     "audio": "../u1l1/words/play.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "book": "booklet",
+   "model": "Model 3",
+   "ex": 2,
+   "page": 39,
+   "task": "Read and match:",
+   "taskAudio": "../../en-shared/q/read-and-match.mp3",
+   "hint": "Join each word to its picture!",
+   "items": [
+    {
+     "word": "goat",
+     "audio": "../u5l2/words/goat.mp3",
+     "pic": "../../pics/goat-u5l2.png"
+    },
+    {
+     "word": "square",
+     "audio": "../u2l3/words/square.mp3",
+     "pic": "../../pics/square-red.png"
+    },
+    {
+     "word": "snake",
+     "audio": "../u2l2/words/snake.mp3",
+     "pic": "../../pics/snake.png"
+    },
+    {
+     "word": "blue",
+     "audio": "../u2l3/words/blue.mp3",
+     "pic": "../../pics/blue-splash.png"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 3",
+   "ex": 3,
+   "page": 39,
+   "task": "Look and write the missing letters:",
+   "taskAudio": "../../en-shared/q/look-and-write-the-missing-letters.mp3",
+   "hint": "Type the missing letter!",
+   "items": [
+    {
+     "word": "leaf",
+     "audio": "../u2l3/words/leaf.mp3",
+     "pic": "../../pics/leaf.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "robot",
+     "audio": "../u4l2/words/robot.mp3",
+     "pic": "../../pics/robot-u4l2.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "horse",
+     "audio": "../u2l3/words/horse.mp3",
+     "pic": "../../pics/horse.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "ill",
+     "audio": "../u1l4/words/ill.mp3",
+     "pic": "../../pics/ill.jpg",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "booklet",
+   "model": "Model 3",
+   "ex": 4,
+   "page": 39,
+   "task": "Reorder the words to form a sentence:",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-form-a-sentence.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "The",
+      "butterfly",
+      "is",
+      "flying"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-butterfly-is-flying.mp3"
+    },
+    {
+     "chunks": [
+      "This",
+      "is",
+      "my",
+      "father"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/this-is-my-father.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "grass",
+      "is",
+      "green"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-grass-is-green.mp3"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "booklet",
+   "model": "Model 4",
+   "ex": 1,
+   "page": 40,
+   "task": "Listen and circle:",
+   "taskAudio": "../../en-shared/q/listen-and-circle.mp3",
+   "hint": "Listen, then tap the right word!",
+   "items": [
+    {
+     "word": "rabbit",
+     "lead": "",
+     "options": [
+      "ring",
+      "rabbit"
+     ],
+     "answer": 1,
+     "pic": "../../pics/rabbit-u4l2.png",
+     "audio": "../u4l2/words/rabbit.mp3"
+    },
+    {
+     "word": "grandmother",
+     "lead": "",
+     "options": [
+      "grandfather",
+      "grandmother"
+     ],
+     "answer": 1,
+     "pic": "../../pics/grandmother.png",
+     "audio": "../u3l1/words/grandmother.mp3"
+    },
+    {
+     "word": "gloves",
+     "lead": "",
+     "options": [
+      "girl",
+      "gloves"
+     ],
+     "answer": 1,
+     "pic": "../../pics/gloves-u5l2.png",
+     "audio": "../u5l2/words/gloves.mp3"
+    },
+    {
+     "word": "nest",
+     "lead": "",
+     "options": [
+      "cake",
+      "nest"
+     ],
+     "answer": 1,
+     "pic": "../../pics/en-bk-nest.png",
+     "audio": "../../en-shared/q/nest.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "book": "booklet",
+   "model": "Model 4",
+   "ex": 2,
+   "page": 40,
+   "task": "Read and match:",
+   "taskAudio": "../../en-shared/q/read-and-match.mp3",
+   "hint": "Join each word to its picture!",
+   "items": [
+    {
+     "word": "red",
+     "audio": "../u2l3/words/red.mp3",
+     "pic": "../../pics/red-u4l2.png"
+    },
+    {
+     "word": "kangaroo",
+     "audio": "../u4l4/words/kangaroo.mp3",
+     "pic": "../../pics/kangaroo-u4l4.png"
+    },
+    {
+     "word": "cake",
+     "audio": "../u4l4/words/cake.mp3",
+     "pic": "../../pics/cake-u4l4.png"
+    },
+    {
+     "word": "carrot",
+     "audio": "../u4l4/words/carrot.mp3",
+     "pic": "../../pics/carrot-u4l4.png"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 4",
+   "ex": 3,
+   "page": 40,
+   "task": "Look and write the missing letters:",
+   "taskAudio": "../../en-shared/q/look-and-write-the-missing-letters.mp3",
+   "hint": "Type the missing letter!",
+   "items": [
+    {
+     "word": "monkey",
+     "audio": "../u5l2/words/monkey.mp3",
+     "pic": "../../pics/monkey-u5l2.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "insect",
+     "audio": "../u1l4/words/insect.mp3",
+     "pic": "../../pics/ladybug.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "tomato",
+     "audio": "../u1l2/words/tomato.mp3",
+     "pic": "../../pics/tomato.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "moon",
+     "audio": "../u5l2/words/moon.mp3",
+     "pic": "../../pics/moon-u5l2.png",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "booklet",
+   "model": "Model 4",
+   "ex": 4,
+   "page": 40,
+   "task": "Reorder the words to form a sentence:",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-form-a-sentence.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "can",
+      "see",
+      "7",
+      "horses"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-see-7-horses.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "duck",
+      "is",
+      "small"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-duck-is-small.mp3"
+    },
+    {
+     "chunks": [
+      "How",
+      "many",
+      "books",
+      "are",
+      "there"
+     ],
+     "end": "?",
+     "audio": "../../en-shared/q/how-many-books-are-there.mp3"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "booklet",
+   "model": "Model 5",
+   "ex": 1,
+   "page": 41,
+   "task": "Listen and circle:",
+   "taskAudio": "../../en-shared/q/listen-and-circle.mp3",
+   "hint": "Listen, then tap the right word!",
+   "items": [
+    {
+     "word": "square",
+     "lead": "",
+     "options": [
+      "triangle",
+      "square"
+     ],
+     "answer": 1,
+     "pic": "../../pics/square-red.png",
+     "audio": "../u2l3/words/square.mp3"
+    },
+    {
+     "word": "rocket",
+     "lead": "",
+     "options": [
+      "robot",
+      "rocket"
+     ],
+     "answer": 1,
+     "pic": "../../pics/rocket.png",
+     "audio": "../u2l2/words/rocket.mp3"
+    },
+    {
+     "word": "axe",
+     "lead": "",
+     "options": [
+      "ink",
+      "axe"
+     ],
+     "answer": 1,
+     "pic": "../../pics/axe.png",
+     "audio": "../u2l4/words/axe.mp3"
+    },
+    {
+     "word": "panda",
+     "lead": "",
+     "options": [
+      "parrot",
+      "panda"
+     ],
+     "answer": 1,
+     "pic": "../../pics/panda.png",
+     "audio": "../u3l2/words/panda.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "book": "booklet",
+   "model": "Model 5",
+   "ex": 2,
+   "page": 41,
+   "task": "Read and match:",
+   "taskAudio": "../../en-shared/q/read-and-match.mp3",
+   "hint": "Join each word to its picture!",
+   "items": [
+    {
+     "word": "potato",
+     "audio": "../u3l2/words/potato.mp3",
+     "pic": "../../pics/potato.png"
+    },
+    {
+     "word": "head",
+     "audio": "../u4l1/words/head.mp3",
+     "pic": "../../pics/head-u4l1.png"
+    },
+    {
+     "word": "five",
+     "audio": "../u3l3/words/five.mp3",
+     "pic": "../../pics/en-bk-balls5.png"
+    },
+    {
+     "word": "ear",
+     "audio": "../u4l1/words/ear.mp3",
+     "pic": "../../pics/ear-u4l1.png"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "booklet",
+   "model": "Model 5",
+   "ex": 3,
+   "page": 41,
+   "task": "Look and write the missing letters:",
+   "taskAudio": "../../en-shared/q/look-and-write-the-missing-letters.mp3",
+   "hint": "Type the missing letter!",
+   "items": [
+    {
+     "word": "eggplant",
+     "audio": "../u4l2/words/eggplant.mp3",
+     "pic": "../../pics/eggplant-u4l2.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "door",
+     "audio": "../u3l4/words/door.mp3",
+     "pic": "../../pics/door-u3l4.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "fish",
+     "audio": "../u4l2/words/fish.mp3",
+     "pic": "../../pics/fish-u4l2.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "doll",
+     "audio": "../u3l4/words/doll.mp3",
+     "pic": "../../pics/doll.jpg",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "booklet",
+   "model": "Model 5",
+   "ex": 4,
+   "page": 41,
+   "task": "Reorder the words to form a sentence:",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-form-a-sentence.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "This",
+      "is",
+      "my",
+      "sister"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/this-is-my-sister.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "can",
+      "see",
+      "the",
+      "teacher"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-see-the-teacher.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "have",
+      "1",
+      "brother"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-have-1-brother.mp3"
+    }
+   ]
+  }
+ ]
+}

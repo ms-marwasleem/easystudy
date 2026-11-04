@@ -1,0 +1,486 @@
+{
+ "_note": "u4l1: p67 ex1-2, p68 ex3-4 (row 3 skipped: all four are 2-of-them), p69 ex5 = face-parts drag and drop (new type \"face\"). Performance p33-34.",
+ "sets": [
+  {
+   "type": "pick",
+   "ex": 1,
+   "page": 67,
+   "mark": "circle",
+   "task": "Listen, point, then circle.",
+   "taskAudio": "../../en-shared/q/listen-point-then-circle.mp3",
+   "hint": "Listen, then tap the right picture!",
+   "items": [
+    {
+     "word": "I have 2 eyes.",
+     "audio": "../../en-shared/q/i-have-2-eyes.mp3",
+     "pics": [
+      "../../pics/ears-u4q.png",
+      "../../pics/eyes-u4q.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "I have 1 nose.",
+     "audio": "../../en-shared/q/i-have-1-nose.mp3",
+     "pics": [
+      "../../pics/nose-u4q.png",
+      "../../pics/eyes-u4q.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "I have 2 legs.",
+     "audio": "../../en-shared/q/i-have-2-legs.mp3",
+     "pics": [
+      "../../pics/lips-u4q.png",
+      "../../pics/legs-u4q.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "I have 1 mouth.",
+     "audio": "../../en-shared/q/i-have-1-mouth.mp3",
+     "pics": [
+      "../../pics/eyes-u4q.png",
+      "../../pics/lips-u4q.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "I have 2 feet.",
+     "audio": "../../en-shared/q/i-have-2-feet.mp3",
+     "pics": [
+      "../../pics/soles-u4q.png",
+      "../../pics/foot-u4q.png"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "ex": 2,
+   "page": 67,
+   "task": "Listen, count, and choose the number.",
+   "taskAudio": "../../en-shared/q/listen-count-and-choose-the-number.mp3",
+   "hint": "Tap the right number!",
+   "items": [
+    {
+     "word": "I have 2 arms.",
+     "lead": "I have",
+     "options": [
+      "1",
+      "2"
+     ],
+     "answer": 1,
+     "pic": "../../pics/girl-arms-u4q.png",
+     "tail": "arms.",
+     "audio": "../../en-shared/q/i-have-2-arms.mp3"
+    },
+    {
+     "word": "I have 2 eyes.",
+     "lead": "I have",
+     "options": [
+      "1",
+      "2"
+     ],
+     "answer": 1,
+     "pic": "../../pics/girl-eyes-u4q.png",
+     "tail": "eyes.",
+     "audio": "../../en-shared/q/i-have-2-eyes.mp3"
+    },
+    {
+     "word": "I have 1 head.",
+     "lead": "I have",
+     "options": [
+      "1",
+      "2"
+     ],
+     "answer": 0,
+     "pic": "../../pics/head-kid-u4q.png",
+     "tail": "head.",
+     "audio": "../../en-shared/q/i-have-1-head.mp3"
+    },
+    {
+     "word": "I have 2 hands.",
+     "lead": "I have",
+     "options": [
+      "1",
+      "2"
+     ],
+     "answer": 1,
+     "pic": "../../pics/hands-u4q.png",
+     "tail": "hands.",
+     "audio": "../../en-shared/q/i-have-2-hands.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 3,
+   "page": 68,
+   "task": "Listen, look, then match.",
+   "taskAudio": "../../en-shared/q/listen-look-then-match.mp3",
+   "hint": "Join each word to its picture!",
+   "items": [
+    {
+     "word": "eyes",
+     "audio": "words/eyes.mp3",
+     "pic": "../../pics/eyes-green-u4q.png"
+    },
+    {
+     "word": "ears",
+     "audio": "words/ears.mp3",
+     "pic": "../../pics/ears-pink-u4q.png"
+    },
+    {
+     "word": "tongue",
+     "audio": "words/tongue.mp3",
+     "pic": "../../pics/tongue-open-u4q.png"
+    },
+    {
+     "word": "hand",
+     "audio": "words/hand.mp3",
+     "pic": "../../pics/hand-big-u4q.png"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 4,
+   "page": 68,
+   "task": "Circle the parts that you have 2 of.",
+   "taskAudio": "../../en-shared/q/circle-the-parts-that-you-have-2-of.mp3",
+   "hint": "Tap the parts you have 2 of!",
+   "items": [
+    {
+     "word": "foot",
+     "audio": "words/foot.mp3",
+     "pic": "../../pics/foot-u4q.png",
+     "answer": true
+    },
+    {
+     "word": "feet",
+     "audio": "words/feet.mp3",
+     "pic": "../../pics/soles-u4q.png",
+     "answer": true
+    },
+    {
+     "word": "mouth",
+     "audio": "words/mouth.mp3",
+     "pic": "../../pics/lips-u4q.png",
+     "answer": false
+    },
+    {
+     "word": "eyes",
+     "audio": "words/eyes.mp3",
+     "pic": "../../pics/eyes-u4q.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 4,
+   "page": 68,
+   "task": "Circle the parts that you have 1 of.",
+   "taskAudio": "../../en-shared/q/circle-the-parts-that-you-have-1-of.mp3",
+   "hint": "Tap the parts you have 1 of!",
+   "items": [
+    {
+     "word": "mouth",
+     "audio": "words/mouth.mp3",
+     "pic": "../../pics/lips-u4q.png",
+     "answer": true
+    },
+    {
+     "word": "head",
+     "audio": "words/head.mp3",
+     "pic": "../../pics/boy-head-u4q.png",
+     "answer": true
+    },
+    {
+     "word": "hand",
+     "audio": "words/hand.mp3",
+     "pic": "../../pics/hand-point-u4q.png",
+     "answer": false
+    },
+    {
+     "word": "nose",
+     "audio": "../u3l2/words/nose.mp3",
+     "pic": "../../pics/nose-u4q.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "face",
+   "ex": 5,
+   "page": 69,
+   "task": "Draw the missing parts of the face.",
+   "taskAudio": "../../en-shared/q/draw-the-missing-parts-of-the-face.mp3",
+   "hint": "Drag each part to its place!",
+   "items": [
+    {
+     "word": "face 1",
+     "face": "../../pics/face1-u4q.jpg",
+     "parts": [
+      {
+       "pic": "../../pics/brow1-u4q.png",
+       "x": 31.9,
+       "y": 37.3,
+       "w": 13
+      },
+      {
+       "pic": "../../pics/brow2-u4q.png",
+       "x": 66.4,
+       "y": 36.9,
+       "w": 13
+      },
+      {
+       "pic": "../../pics/eye1-u4q.png",
+       "x": 36.7,
+       "y": 52,
+       "w": 18,
+       "word": "eye",
+       "audio": "words/eye.mp3"
+      },
+      {
+       "pic": "../../pics/eye2-u4q.png",
+       "x": 61.4,
+       "y": 52,
+       "w": 18,
+       "word": "eye",
+       "audio": "words/eye.mp3"
+      },
+      {
+       "pic": "../../pics/nose1-u4q.png",
+       "x": 50.2,
+       "y": 61.5,
+       "w": 9,
+       "word": "nose",
+       "audio": "../u3l2/words/nose.mp3"
+      },
+      {
+       "pic": "../../pics/mouth1-u4q.png",
+       "x": 49.6,
+       "y": 76.6,
+       "w": 19,
+       "word": "mouth",
+       "audio": "words/mouth.mp3"
+      }
+     ]
+    },
+    {
+     "word": "face 2",
+     "face": "../../pics/face2-u4q.jpg",
+     "parts": [
+      {
+       "pic": "../../pics/eyeL-u4q.png",
+       "x": 34.1,
+       "y": 49.2,
+       "w": 22,
+       "word": "eye",
+       "audio": "words/eye.mp3"
+      },
+      {
+       "pic": "../../pics/eyeR-u4q.png",
+       "x": 65.5,
+       "y": 49.2,
+       "w": 22,
+       "word": "eye",
+       "audio": "words/eye.mp3"
+      },
+      {
+       "pic": "../../pics/nose2-u4q.png",
+       "x": 51.1,
+       "y": 66.7,
+       "w": 10,
+       "word": "nose",
+       "audio": "../u3l2/words/nose.mp3"
+      },
+      {
+       "pic": "../../pics/mouth2-u4q.png",
+       "x": 50.5,
+       "y": 72.6,
+       "w": 5,
+       "word": "mouth",
+       "audio": "words/mouth.mp3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 33,
+   "grp": "classroom-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "eye",
+     "scr": "eey",
+     "audio": "words/eye.mp3",
+     "pic": "../../pics/eye-u4l1.png"
+    },
+    {
+     "word": "mouth",
+     "scr": "otmhu",
+     "audio": "words/mouth.mp3",
+     "pic": "../../pics/mouth-u4l1.png"
+    },
+    {
+     "word": "ear",
+     "scr": "era",
+     "audio": "words/ear.mp3",
+     "pic": "../../pics/ear-u4l1.png"
+    },
+    {
+     "word": "legs",
+     "scr": "gels",
+     "audio": "words/legs.mp3",
+     "pic": "../../pics/legs-u4l1.png"
+    },
+    {
+     "word": "hand",
+     "scr": "nadh",
+     "audio": "words/hand.mp3",
+     "pic": "../../pics/hand-u4l1.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 33,
+   "grp": "classroom-2",
+   "task": "Look, count, and complete.",
+   "taskAudio": "../../en-shared/q/look-count-and-complete.mp3",
+   "hint": "Tap the right number!",
+   "items": [
+    {
+     "word": "I have 2 eyes.",
+     "lead": "I have",
+     "options": [
+      "1",
+      "2"
+     ],
+     "answer": 1,
+     "pic": "../../pics/eyes-u4q.png",
+     "tail": "eyes.",
+     "audio": "../../en-shared/q/i-have-2-eyes.mp3"
+    },
+    {
+     "word": "I have 1 mouth.",
+     "lead": "I have",
+     "options": [
+      "1",
+      "2"
+     ],
+     "answer": 0,
+     "pic": "../../pics/lips-u4q.png",
+     "tail": "mouth.",
+     "audio": "../../en-shared/q/i-have-1-mouth.mp3"
+    },
+    {
+     "word": "I have 1 nose.",
+     "lead": "I have",
+     "options": [
+      "2",
+      "1"
+     ],
+     "answer": 1,
+     "pic": "../../pics/nose-u4q.png",
+     "tail": "nose.",
+     "audio": "../../en-shared/q/i-have-1-nose.mp3"
+    },
+    {
+     "word": "I have 2 arms.",
+     "lead": "I have",
+     "options": [
+      "1",
+      "2"
+     ],
+     "answer": 1,
+     "pic": "../../pics/arms-u4l1.png",
+     "tail": "arms.",
+     "audio": "../../en-shared/q/i-have-2-arms.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 34,
+   "grp": "homework-1",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "eye",
+     "audio": "words/eye.mp3",
+     "pic": "../../pics/eye-u4l1.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "nose",
+     "audio": "../u3l2/words/nose.mp3",
+     "pic": "../../pics/nose-u4l1.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "mouth",
+     "audio": "words/mouth.mp3",
+     "pic": "../../pics/mouth-u4l1.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "ear",
+     "audio": "words/ear.mp3",
+     "pic": "../../pics/ear-u4l1.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "arms",
+     "audio": "words/arms.mp3",
+     "pic": "../../pics/arms-u4l1.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    }
+   ]
+  }
+ ]
+}

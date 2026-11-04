@@ -1,0 +1,785 @@
+{
+ "sets": [
+  {
+   "type": "type",
+   "task": "Read and complete the missing letters.",
+   "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "park",
+     "missing": 2,
+     "answer": "r",
+     "pic": "../../pics/u5-park.jpg",
+     "audio": "../../en-shared/q/park.mp3"
+    },
+    {
+     "word": "city",
+     "missing": 1,
+     "answer": "i",
+     "pic": "../../pics/u5-city.jpg",
+     "audio": "../../en-shared/q/city.mp3"
+    },
+    {
+     "word": "market",
+     "missing": 3,
+     "answer": "k",
+     "pic": "../../pics/u5-market.jpg",
+     "audio": "../../en-shared/q/market.mp3"
+    },
+    {
+     "word": "monument",
+     "missing": 4,
+     "answer": "u",
+     "pic": "../../pics/u5-monument.jpg",
+     "audio": "../../en-shared/q/monument.mp3"
+    },
+    {
+     "word": "square",
+     "missing": 1,
+     "answer": "q",
+     "pic": "../../pics/u5-square.jpg",
+     "audio": "../../en-shared/q/square.mp3"
+    }
+   ],
+   "page": 119,
+   "ex": 1
+  },
+  {
+   "type": "link",
+   "task": "Match the words and the pictures.",
+   "taskAudio": "../../en-shared/q/match-the-words-and-the-pictures.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "park",
+     "pic": "../../pics/u5-park.jpg",
+     "audio": "../../en-shared/q/park.mp3"
+    },
+    {
+     "word": "station",
+     "pic": "../../pics/u5-station.jpg",
+     "audio": "../../en-shared/q/station.mp3"
+    },
+    {
+     "word": "city",
+     "pic": "../../pics/u5-city.jpg",
+     "audio": "../../en-shared/q/city.mp3"
+    },
+    {
+     "word": "country",
+     "pic": "../../pics/u5-country.jpg",
+     "audio": "../../en-shared/q/country.mp3"
+    },
+    {
+     "word": "world",
+     "pic": "../../pics/u5-world.jpg",
+     "audio": "../../en-shared/q/world.mp3"
+    }
+   ],
+   "page": 120,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer from a, b, c or d.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-from-a-b-c-or-d.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "We rode the roller coaster at the ____.",
+     "options": [
+      "coffee shop",
+      "amusement park",
+      "station",
+      "market"
+     ],
+     "answer": 1,
+     "word": "We rode the roller coaster at the amusement park.",
+     "audio": "../../en-shared/q/we-rode-the-roller-coaster-at-the-amusement-park.mp3",
+     "parts": [
+      "../../en-shared/q/we-rode-the-roller-coaster-at-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-04dbcd85a6.mp3"
+    },
+    {
+     "stem": "My mom buys coffee at the ____.",
+     "options": [
+      "coffee shop",
+      "monument",
+      "park",
+      "world"
+     ],
+     "answer": 0,
+     "word": "My mom buys coffee at the coffee shop.",
+     "audio": "../../en-shared/q/my-mom-buys-coffee-at-the-coffee-shop.mp3",
+     "parts": [
+      "../../en-shared/q/my-mom-buys-coffee-at-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-a53bdae019.mp3"
+    },
+    {
+     "stem": "The big train stops at the ____.",
+     "options": [
+      "square",
+      "station",
+      "market",
+      "city"
+     ],
+     "answer": 1,
+     "word": "The big train stops at the station.",
+     "audio": "../../en-shared/q/the-big-train-stops-at-the-station.mp3",
+     "parts": [
+      "../../en-shared/q/the-big-train-stops-at-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-047769e0be.mp3"
+    },
+    {
+     "stem": "We went to the ____ to buy apples and bread.",
+     "options": [
+      "amusement park",
+      "square",
+      "market",
+      "park"
+     ],
+     "answer": 2,
+     "word": "We went to the market to buy apples and bread.",
+     "audio": "../../en-shared/q/we-went-to-the-market-to-buy-apples-and-bread.mp3",
+     "parts": [
+      "../../en-shared/q/we-went-to-the.mp3",
+      "../../en-shared/q/to-buy-apples-and-bread.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-57be203621.mp3"
+    },
+    {
+     "stem": "There is a big statue called a ____ in the city.",
+     "options": [
+      "station",
+      "monument",
+      "coffee shop",
+      "world"
+     ],
+     "answer": 1,
+     "word": "There is a big statue called a monument in the city.",
+     "audio": "../../en-shared/q/there-is-a-big-statue-called-a-monument-in-the-city.mp3",
+     "parts": [
+      "../../en-shared/q/there-is-a-big-statue-called-a.mp3",
+      "../../en-shared/q/in-the-city.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-bd1f4f533e.mp3"
+    },
+    {
+     "stem": "We play tag and slide down the slide at the ____.",
+     "options": [
+      "park",
+      "market",
+      "country",
+      "amusement park"
+     ],
+     "answer": 0,
+     "word": "We play tag and slide down the slide at the park.",
+     "audio": "../../en-shared/q/we-play-tag-and-slide-down-the-slide-at-the-park.mp3",
+     "parts": [
+      "../../en-shared/q/we-play-tag-and-slide-down-the-slide-at-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-ce11993551.mp3"
+    },
+    {
+     "stem": "The big buildings and busy streets are in the ____.",
+     "options": [
+      "country",
+      "world",
+      "city",
+      "monument"
+     ],
+     "answer": 2,
+     "word": "The big buildings and busy streets are in the city.",
+     "audio": "../../en-shared/q/the-big-buildings-and-busy-streets-are-in-the-city.mp3",
+     "parts": [
+      "../../en-shared/q/the-big-buildings-and-busy-streets-are-in-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-261eff5d85.mp3"
+    },
+    {
+     "stem": "There is a fountain in the middle of the ____.",
+     "options": [
+      "square",
+      "station",
+      "park",
+      "coffee shop"
+     ],
+     "answer": 0,
+     "word": "There is a fountain in the middle of the square.",
+     "audio": "../../en-shared/q/there-is-a-fountain-in-the-middle-of-the-square.mp3",
+     "parts": [
+      "../../en-shared/q/there-is-a-fountain-in-the-middle-of-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-889c7412a1.mp3"
+    },
+    {
+     "stem": "I live in a beautiful ____ with my family.",
+     "options": [
+      "amusement park",
+      "station",
+      "city",
+      "country"
+     ],
+     "answer": 3,
+     "word": "I live in a beautiful country with my family.",
+     "audio": "../../en-shared/q/i-live-in-a-beautiful-country-with-my-family.mp3",
+     "parts": [
+      "../../en-shared/q/i-live-in-a-beautiful.mp3",
+      "../../en-shared/q/with-my-family.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-c84b23a747.mp3"
+    },
+    {
+     "stem": "The whole ____ has so many different places to see.",
+     "options": [
+      "monument",
+      "world",
+      "market",
+      "park"
+     ],
+     "answer": 1,
+     "word": "The whole world has so many different places to see.",
+     "audio": "../../en-shared/q/the-whole-world-has-so-many-different-places-to-see.mp3",
+     "parts": [
+      "../../en-shared/q/the-whole.mp3",
+      "../../en-shared/q/has-so-many-different-places-to-see.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-727a5cf912.mp3"
+    }
+   ],
+   "page": 120,
+   "ex": 3
+  },
+  {
+   "type": "cloze",
+   "task": "Choose the correct answer to complete the text.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-to-complete-the-text.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "text": "On the weekend, my family and I went to the [[city]]. The tall buildings were amazing to see! We went to a big [[square]], where people were dancing. After that, we took a long drive to the [[country]] to see the farms. It was a beautiful day. I love seeing all the different places in the [[world]]. My favorite place is the [[park]], where I play with my friends.",
+     "bank": [
+      "country",
+      "park",
+      "square",
+      "city",
+      "world"
+     ],
+     "audio": "../../en-shared/q/passage-a3a5d38c84.mp3"
+    }
+   ],
+   "page": 122,
+   "ex": 4
+  },
+  {
+   "type": "order",
+   "task": "Rearrange the following sentences.",
+   "taskAudio": "../../en-shared/q/rearrange-the-following-sentences.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "go",
+      "to",
+      "the",
+      "park"
+     ],
+     "end": ".",
+     "word": "I go to the park.",
+     "audio": "../../en-shared/q/i-go-to-the-park.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "love",
+      "my",
+      "country"
+     ],
+     "end": ".",
+     "word": "I love my country.",
+     "audio": "../../en-shared/q/i-love-my-country.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "world",
+      "is",
+      "big"
+     ],
+     "end": ".",
+     "word": "The world is big.",
+     "audio": "../../en-shared/q/the-world-is-big.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "train",
+      "stops",
+      "at the",
+      "station"
+     ],
+     "end": ".",
+     "word": "The train stops at the station.",
+     "audio": "../../en-shared/q/the-train-stops-at-the-station.mp3"
+    },
+    {
+     "chunks": [
+      "My",
+      "dad",
+      "is",
+      "at the",
+      "coffee shop"
+     ],
+     "end": ".",
+     "word": "My dad is at the coffee shop.",
+     "audio": "../../en-shared/q/my-dad-is-at-the-coffee-shop.mp3"
+    }
+   ],
+   "page": 122,
+   "ex": 5
+  },
+  {
+   "type": "circle",
+   "task": "Read and say. Circle the words with the different sound.",
+   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-different-sound.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "fork",
+     "audio": "../../en-shared/q/fork.mp3",
+     "answer": true
+    },
+    {
+     "word": "clerk",
+     "audio": "../../en-shared/q/clerk.mp3",
+     "answer": false
+    },
+    {
+     "word": "queen",
+     "audio": "../../en-shared/q/queen.mp3",
+     "answer": true
+    }
+   ],
+   "page": 123,
+   "ex": 2,
+   "grp": "ar2"
+  },
+  {
+   "type": "circle",
+   "task": "Read and say. Circle the words with the different sound.",
+   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-different-sound.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "bark",
+     "audio": "../../en-shared/q/bark.mp3",
+     "answer": false
+    },
+    {
+     "word": "kite",
+     "audio": "../../en-shared/q/kite.mp3",
+     "answer": true
+    },
+    {
+     "word": "spark",
+     "audio": "../../en-shared/q/spark.mp3",
+     "answer": false
+    }
+   ],
+   "page": 123,
+   "ex": 2,
+   "grp": "ar2"
+  },
+  {
+   "type": "circle",
+   "task": "Read and say. Circle the words with the different sound.",
+   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-different-sound.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "work",
+     "audio": "../../en-shared/q/work.mp3",
+     "answer": true
+    },
+    {
+     "word": "mark",
+     "audio": "../../en-shared/q/mark.mp3",
+     "answer": false
+    },
+    {
+     "word": "thank",
+     "audio": "../../en-shared/q/thank.mp3",
+     "answer": true
+    }
+   ],
+   "page": 123,
+   "ex": 2,
+   "grp": "ar2"
+  },
+  {
+   "type": "circle",
+   "task": "Read and say. Circle the words with the different sound.",
+   "taskAudio": "../../en-shared/q/read-and-say-circle-the-words-with-the-different-sound.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "lake",
+     "audio": "../../en-shared/q/lake.mp3",
+     "answer": true
+    },
+    {
+     "word": "dark",
+     "audio": "../../en-shared/q/dark.mp3",
+     "answer": false
+    },
+    {
+     "word": "lark",
+     "audio": "../../en-shared/q/lark.mp3",
+     "answer": false
+    }
+   ],
+   "page": 123,
+   "ex": 2,
+   "grp": "ar2"
+  },
+  {
+   "type": "explain",
+   "task": "Reading Comprehension. Our Big Day.",
+   "taskAudio": "../../en-shared/q/reading-comprehension-our-big-day.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "lines": [
+      {
+       "t": "Our Big Day",
+       "a": "../../en-shared/q/our-big-day.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "We live in a big city in our country. We go to the station to see the trains and the monument. Mom gets a drink at the coffee shop, and we buy fruit at the market. Then, we play on the swings at the park.",
+       "a": "../../en-shared/q/we-live-in-a-big-city-in-our-country-we-go-to-the-bf1a6a3b.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 123,
+   "grp": "bd"
+  },
+  {
+   "type": "mcq",
+   "task": "Circle the correct answer.",
+   "taskAudio": "../../en-shared/q/circle-the-correct-answer.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "Do they live in a city or a park?",
+     "options": [
+      "a city",
+      "a park"
+     ],
+     "answer": 0,
+     "word": "Do they live in a city or a park?",
+     "audio": "../../en-shared/q/do-they-live-in-a-city-or-a-park.mp3",
+     "askAudio": "../../en-shared/q/ask-9374e0b800.mp3"
+    },
+    {
+     "stem": "Is the city big or small?",
+     "options": [
+      "small",
+      "big"
+     ],
+     "answer": 1,
+     "word": "Is the city big or small?",
+     "audio": "../../en-shared/q/is-the-city-big-or-small.mp3",
+     "askAudio": "../../en-shared/q/ask-aef55899f0.mp3"
+    },
+    {
+     "stem": "Where do they see the trains?",
+     "options": [
+      "at the station",
+      "at the market"
+     ],
+     "answer": 0,
+     "word": "Where do they see the trains?",
+     "audio": "../../en-shared/q/where-do-they-see-the-trains.mp3",
+     "askAudio": "../../en-shared/q/ask-8e2f110a1a.mp3"
+    },
+    {
+     "stem": "What do they see at the station?",
+     "options": [
+      "trains",
+      "planes"
+     ],
+     "answer": 0,
+     "word": "What do they see at the station?",
+     "audio": "../../en-shared/q/what-do-they-see-at-the-station.mp3",
+     "askAudio": "../../en-shared/q/ask-3ea830349b.mp3"
+    },
+    {
+     "stem": "Where does Mom get a drink?",
+     "options": [
+      "at the coffee shop",
+      "at the monument"
+     ],
+     "answer": 0,
+     "word": "Where does Mom get a drink?",
+     "audio": "../../en-shared/q/where-does-mom-get-a-drink.mp3",
+     "askAudio": "../../en-shared/q/ask-0f59e2f3f7.mp3"
+    },
+    {
+     "stem": "What do they buy at the market?",
+     "options": [
+      "fruit",
+      "toys"
+     ],
+     "answer": 0,
+     "word": "What do they buy at the market?",
+     "audio": "../../en-shared/q/what-do-they-buy-at-the-market.mp3",
+     "askAudio": "../../en-shared/q/ask-921bbf6a85.mp3"
+    },
+    {
+     "stem": "Where are the swings?",
+     "options": [
+      "in the coffee shop",
+      "in the park"
+     ],
+     "answer": 1,
+     "word": "Where are the swings?",
+     "audio": "../../en-shared/q/where-are-the-swings.mp3",
+     "askAudio": "../../en-shared/q/ask-2c81b83a83.mp3"
+    },
+    {
+     "stem": "Where do they play?",
+     "options": [
+      "at the park",
+      "at the station"
+     ],
+     "answer": 0,
+     "word": "Where do they play?",
+     "audio": "../../en-shared/q/where-do-they-play.mp3",
+     "askAudio": "../../en-shared/q/ask-28bf011248.mp3"
+    }
+   ],
+   "page": 124,
+   "ex": 1,
+   "grp": "bd"
+  },
+  {
+   "type": "mcq",
+   "task": "Look at the picture to complete the sentences using in front of, behind, or opposite.",
+   "taskAudio": "../../en-shared/q/look-at-the-picture-to-complete-the-sentences-usin-4c6550b6.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "The yellow car is ____ the red car.",
+     "options": [
+      "behind",
+      "in front of",
+      "opposite"
+     ],
+     "answer": 2,
+     "word": "The yellow car is opposite the red car.",
+     "audio": "../../en-shared/q/the-yellow-car-is-opposite-the-red-car.mp3",
+     "parts": [
+      "../../en-shared/q/the-yellow-car-is.mp3",
+      "../../en-shared/q/the-red-car.mp3"
+     ],
+     "pics": [
+      "../../pics/u5-cars.jpg"
+     ],
+     "askAudio": "../../en-shared/q/askc-254415845b.mp3"
+    },
+    {
+     "stem": "The blue car is ____ the red car.",
+     "options": [
+      "behind",
+      "in front of",
+      "opposite"
+     ],
+     "answer": 0,
+     "word": "The blue car is behind the red car.",
+     "audio": "../../en-shared/q/the-blue-car-is-behind-the-red-car.mp3",
+     "parts": [
+      "../../en-shared/q/the-blue-car-is.mp3",
+      "../../en-shared/q/the-red-car.mp3"
+     ],
+     "pics": [
+      "../../pics/u5-cars.jpg"
+     ],
+     "askAudio": "../../en-shared/q/askc-c9e8a63f8c.mp3"
+    },
+    {
+     "stem": "The red car is ____ the yellow car.",
+     "options": [
+      "behind",
+      "in front of",
+      "opposite"
+     ],
+     "answer": 2,
+     "word": "The red car is opposite the yellow car.",
+     "audio": "../../en-shared/q/the-red-car-is-opposite-the-yellow-car.mp3",
+     "parts": [
+      "../../en-shared/q/the-red-car-is.mp3",
+      "../../en-shared/q/the-yellow-car.mp3"
+     ],
+     "pics": [
+      "../../pics/u5-cars.jpg"
+     ],
+     "askAudio": "../../en-shared/q/askc-b1d9f3d45c.mp3"
+    },
+    {
+     "stem": "The yellow car is ____ the blue car.",
+     "options": [
+      "behind",
+      "in front of",
+      "opposite"
+     ],
+     "answer": 1,
+     "word": "The yellow car is in front of the blue car.",
+     "audio": "../../en-shared/q/the-yellow-car-is-in-front-of-the-blue-car.mp3",
+     "parts": [
+      "../../en-shared/q/the-yellow-car-is.mp3",
+      "../../en-shared/q/the-blue-car.mp3"
+     ],
+     "pics": [
+      "../../pics/u5-cars.jpg"
+     ],
+     "askAudio": "../../en-shared/q/askc-1726f0bd6a.mp3"
+    },
+    {
+     "stem": "The red car is ____ the blue car.",
+     "options": [
+      "behind",
+      "in front of",
+      "opposite"
+     ],
+     "answer": 1,
+     "word": "The red car is in front of the blue car.",
+     "audio": "../../en-shared/q/the-red-car-is-in-front-of-the-blue-car.mp3",
+     "parts": [
+      "../../en-shared/q/the-red-car-is.mp3",
+      "../../en-shared/q/the-blue-car.mp3"
+     ],
+     "pics": [
+      "../../pics/u5-cars.jpg"
+     ],
+     "askAudio": "../../en-shared/q/askc-8bb2424a01.mp3"
+    }
+   ],
+   "page": 125,
+   "ex": 1,
+   "grp": "pp"
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "The cat is ____ the bird cage.",
+     "options": [
+      "behind",
+      "in front of",
+      "opposite"
+     ],
+     "answer": 2,
+     "word": "The cat is opposite the bird cage.",
+     "audio": "../../en-shared/q/the-cat-is-opposite-the-bird-cage.mp3",
+     "parts": [
+      "../../en-shared/q/the-cat-is.mp3",
+      "../../en-shared/q/the-bird-cage.mp3"
+     ],
+     "pics": [
+      "../../pics/u5-catdog.jpg"
+     ],
+     "askAudio": "../../en-shared/q/askc-afd144f260.mp3"
+    },
+    {
+     "stem": "The dog is ____ the cat.",
+     "options": [
+      "behind",
+      "in front of",
+      "opposite"
+     ],
+     "answer": 0,
+     "word": "The dog is behind the cat.",
+     "audio": "../../en-shared/q/the-dog-is-behind-the-cat.mp3",
+     "parts": [
+      "../../en-shared/q/the-dog-is.mp3",
+      "../../en-shared/q/the-cat.mp3"
+     ],
+     "pics": [
+      "../../pics/u5-catdog.jpg"
+     ],
+     "askAudio": "../../en-shared/q/askc-f806d384de.mp3"
+    },
+    {
+     "stem": "The cat and dog are ____ the bird cage.",
+     "options": [
+      "behind",
+      "in front of",
+      "opposite"
+     ],
+     "answer": 2,
+     "word": "The cat and dog are opposite the bird cage.",
+     "audio": "../../en-shared/q/the-cat-and-dog-are-opposite-the-bird-cage.mp3",
+     "parts": [
+      "../../en-shared/q/the-cat-and-dog-are.mp3",
+      "../../en-shared/q/the-bird-cage.mp3"
+     ],
+     "pics": [
+      "../../pics/u5-catdog.jpg"
+     ],
+     "askAudio": "../../en-shared/q/askc-452d272d06.mp3"
+    },
+    {
+     "stem": "The bird cage is ____ the cat.",
+     "options": [
+      "behind",
+      "in front of",
+      "opposite"
+     ],
+     "answer": 2,
+     "word": "The bird cage is opposite the cat.",
+     "audio": "../../en-shared/q/the-bird-cage-is-opposite-the-cat.mp3",
+     "parts": [
+      "../../en-shared/q/the-bird-cage-is.mp3",
+      "../../en-shared/q/the-cat.mp3"
+     ],
+     "pics": [
+      "../../pics/u5-catdog.jpg"
+     ],
+     "askAudio": "../../en-shared/q/askc-18f28c5fc1.mp3"
+    },
+    {
+     "stem": "The cat is ____ the dog.",
+     "options": [
+      "behind",
+      "in front of",
+      "opposite"
+     ],
+     "answer": 1,
+     "word": "The cat is in front of the dog.",
+     "audio": "../../en-shared/q/the-cat-is-in-front-of-the-dog.mp3",
+     "parts": [
+      "../../en-shared/q/the-cat-is.mp3",
+      "../../en-shared/q/the-dog.mp3"
+     ],
+     "pics": [
+      "../../pics/u5-catdog.jpg"
+     ],
+     "askAudio": "../../en-shared/q/askc-6035e36e5a.mp3"
+    }
+   ],
+   "page": 126,
+   "ex": 2,
+   "grp": "pp"
+  }
+ ]
+}

@@ -1,0 +1,428 @@
+{
+ "unit": 3,
+ "lesson": 1,
+ "title": "Toys",
+ "sceneAlt": "Toys",
+ "tabs": [
+  "words",
+  "booklet",
+  "grammar"
+ ],
+ "type": "al",
+ "scene": "img/scene.jpg",
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "ball",
+   "ar": "كرة",
+   "img": "../../pics/u3-ball.png",
+   "parts": [
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "aw",
+     "audio": "../../phonics/aw.mp3"
+    },
+    {
+     "t": "ll",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/ball.mp3"
+   }
+  },
+  {
+   "word": "monster",
+   "ar": "وحش",
+   "img": "../../pics/u3-monster.png",
+   "parts": [
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/monster.mp3"
+   }
+  },
+  {
+   "word": "puppet",
+   "ar": "دمية متحركة",
+   "img": "../../pics/u3-puppet.png",
+   "parts": [
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "u",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "pp",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/puppet.mp3"
+   }
+  },
+  {
+   "word": "car",
+   "ar": "سيارة",
+   "img": "../../pics/u3-car.png",
+   "parts": [
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "ar",
+     "ph": "ar",
+     "audio": "../../phonics/ar.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/car.mp3"
+   }
+  },
+  {
+   "word": "train",
+   "ar": "قطار",
+   "img": "../../pics/u3-train.jpg",
+   "parts": [
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "ai",
+     "ph": "ai",
+     "audio": "../../phonics/ai.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/train.mp3"
+   }
+  },
+  {
+   "word": "puzzle",
+   "ar": "أحجية",
+   "img": "../../pics/u3-puzzle.jpg",
+   "parts": [
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "u",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "zz",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3",
+     "spell": true
+    }
+   ],
+   "audio": {
+    "word": "words/puzzle.mp3"
+   }
+  },
+  {
+   "word": "new",
+   "ar": "جديد",
+   "img": "../../pics/u3-newtoy.jpg",
+   "parts": [
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "ew",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/new.mp3"
+   }
+  },
+  {
+   "word": "old",
+   "ar": "قديم",
+   "img": "../../pics/u3-oldcar.jpg",
+   "parts": [
+    {
+     "t": "o",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/old.mp3"
+   }
+  },
+  {
+   "word": "pretty",
+   "ar": "جميل",
+   "img": "../../pics/u3-pretty.png",
+   "parts": [
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "tt",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "y",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/pretty.mp3"
+   }
+  },
+  {
+   "word": "ugly",
+   "ar": "قبيح",
+   "img": "../../pics/u3-ugly.png",
+   "parts": [
+    {
+     "t": "u",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "y",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/ugly.mp3"
+   }
+  }
+ ],
+ "lines": [],
+ "end": 1,
+ "grammar": [
+  {
+   "title": "Questions with Have and Want",
+   "note": "With I, you, we, they we ask with Do. With he, she, it we ask with Does.",
+   "rows": [
+    [
+     {
+      "t": "Do you have a monster?",
+      "a": "data/en-shared/q/do-you-have-a-monster.mp3"
+     },
+     {
+      "t": "Yes, I do. / No, I don't.",
+      "a": "data/en-shared/q/yes-i-do-no-i-don-t.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Do you want a monster?",
+      "a": "data/en-shared/q/do-you-want-a-monster.mp3"
+     },
+     {
+      "t": "Yes, I do. / No, I don't.",
+      "a": "data/en-shared/q/yes-i-do-no-i-don-t.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Does she have a monster?",
+      "a": "data/en-shared/q/does-she-have-a-monster.mp3"
+     },
+     {
+      "t": "Yes, she does. / No, she doesn't.",
+      "a": "data/en-shared/q/yes-she-does-no-she-doesn-t.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Does she want a monster?",
+      "a": "data/en-shared/q/does-she-want-a-monster.mp3"
+     },
+     {
+      "t": "Yes, she does. / No, she doesn't.",
+      "a": "data/en-shared/q/yes-she-does-no-she-doesn-t.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "morph",
+    "steps": [
+     {
+      "from": "You have a monster.",
+      "to": "Do you have a monster?",
+      "map": [
+       [],
+       [
+        0
+       ],
+       [
+        1
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ]
+      ],
+      "hl": [
+       0
+      ],
+      "ta": "data/en-shared/q/do-you-have-a-monster.mp3",
+      "ans": {
+       "t": "Yes, I do. / No, I don't.",
+       "a": "data/en-shared/q/yes-i-do-no-i-don-t.mp3"
+      }
+     },
+     {
+      "from": "She has a monster.",
+      "to": "Does she have a monster?",
+      "map": [
+       [],
+       [
+        0
+       ],
+       [
+        1
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ]
+      ],
+      "hl": [
+       0
+      ],
+      "ta": "data/en-shared/q/does-she-have-a-monster.mp3",
+      "ans": {
+       "t": "Yes, she does. / No, she doesn't.",
+       "a": "data/en-shared/q/yes-she-does-no-she-doesn-t.mp3"
+      }
+     }
+    ]
+   }
+  }
+ ]
+}

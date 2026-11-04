@@ -1,0 +1,853 @@
+{
+ "sets": [
+  {
+   "type": "type",
+   "task": "Read and complete the missing letters.",
+   "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "puppet",
+     "missing": 4,
+     "answer": "e",
+     "pic": "../../pics/u3-puppet.png",
+     "audio": "../../en-shared/q/puppet.mp3"
+    },
+    {
+     "word": "car",
+     "missing": 1,
+     "answer": "a",
+     "pic": "../../pics/u3-car.png",
+     "audio": "../../en-shared/q/car.mp3"
+    },
+    {
+     "word": "old",
+     "missing": 1,
+     "answer": "l",
+     "pic": "../../pics/u3-oldcar.jpg",
+     "audio": "../../en-shared/q/old.mp3"
+    },
+    {
+     "word": "monster",
+     "missing": 1,
+     "answer": "o",
+     "pic": "../../pics/u3-monster.png",
+     "audio": "../../en-shared/q/monster.mp3"
+    },
+    {
+     "word": "train",
+     "missing": 3,
+     "answer": "i",
+     "pic": "../../pics/u3-train.jpg",
+     "audio": "../../en-shared/q/train.mp3"
+    }
+   ],
+   "page": 55,
+   "ex": 1
+  },
+  {
+   "type": "link",
+   "task": "Match the words and the pictures.",
+   "taskAudio": "../../en-shared/q/match-the-words-and-the-pictures.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "ball",
+     "pic": "../../pics/u3-ball.png",
+     "audio": "../../en-shared/q/ball.mp3"
+    },
+    {
+     "word": "new",
+     "pic": "../../pics/u3-newtoy.jpg",
+     "audio": "../../en-shared/q/new.mp3"
+    },
+    {
+     "word": "puzzle",
+     "pic": "../../pics/u3-puzzle.jpg",
+     "audio": "../../en-shared/q/puzzle.mp3"
+    },
+    {
+     "word": "pretty",
+     "pic": "../../pics/u3-pretty.png",
+     "audio": "../../en-shared/q/pretty.mp3"
+    },
+    {
+     "word": "ugly",
+     "pic": "../../pics/u3-ugly.png",
+     "audio": "../../en-shared/q/ugly.mp3"
+    }
+   ],
+   "page": 55,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer from a, b, c or d.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-from-a-b-c-or-d.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "I like to bounce the red ____.",
+     "options": [
+      "doll",
+      "ball",
+      "garden",
+      "car"
+     ],
+     "answer": 1,
+     "word": "I like to bounce the red ball.",
+     "audio": "../../en-shared/q/i-like-to-bounce-the-red-ball.mp3",
+     "parts": [
+      "../../en-shared/q/i-like-to-bounce-the-red.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-a14fe1ef52.mp3"
+    },
+    {
+     "stem": "The friendly green ____ waved his hands.",
+     "options": [
+      "monster",
+      "blocks",
+      "flowers",
+      "puzzle"
+     ],
+     "answer": 0,
+     "word": "The friendly green monster waved his hands.",
+     "audio": "../../en-shared/q/the-friendly-green-monster-waved-his-hands.mp3",
+     "parts": [
+      "../../en-shared/q/the-friendly-green.mp3",
+      "../../en-shared/q/waved-his-hands.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-5955b7ba04.mp3"
+    },
+    {
+     "stem": "My mom made a funny ____.",
+     "options": [
+      "car",
+      "rose",
+      "puppet",
+      "guitar"
+     ],
+     "answer": 2,
+     "word": "My mom made a funny puppet.",
+     "audio": "../../en-shared/q/my-mom-made-a-funny-puppet.mp3",
+     "parts": [
+      "../../en-shared/q/my-mom-made-a-funny.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-25ee41c233.mp3"
+    },
+    {
+     "stem": "We drove to the store in our blue ____.",
+     "options": [
+      "umbrella",
+      "car",
+      "monster",
+      "teddy bear"
+     ],
+     "answer": 1,
+     "word": "We drove to the store in our blue car.",
+     "audio": "../../en-shared/q/we-drove-to-the-store-in-our-blue-car.mp3",
+     "parts": [
+      "../../en-shared/q/we-drove-to-the-store-in-our-blue.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-1cb9aee13d.mp3"
+    },
+    {
+     "stem": "The long ____ went \"choo-choo\" down the track.",
+     "options": [
+      "train",
+      "ball",
+      "game",
+      "bike"
+     ],
+     "answer": 0,
+     "word": "The long train went \"choo-choo\" down the track.",
+     "audio": "../../en-shared/q/the-long-train-went-choo-choo-down-the-track.mp3",
+     "parts": [
+      "../../en-shared/q/the-long.mp3",
+      "../../en-shared/q/went-choo-choo-down-the-track.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-29034b1dd8.mp3"
+    },
+    {
+     "stem": "I put all the pieces of the ____ together.",
+     "options": [
+      "motor",
+      "puzzle",
+      "toy",
+      "friends"
+     ],
+     "answer": 1,
+     "word": "I put all the pieces of the puzzle together.",
+     "audio": "../../en-shared/q/i-put-all-the-pieces-of-the-puzzle-together.mp3",
+     "parts": [
+      "../../en-shared/q/i-put-all-the-pieces-of-the.mp3",
+      "../../en-shared/q/together.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-357916db36.mp3"
+    },
+    {
+     "stem": "My shoes are clean and ____.",
+     "options": [
+      "bad",
+      "new",
+      "slow",
+      "hard"
+     ],
+     "answer": 1,
+     "word": "My shoes are clean and new.",
+     "audio": "../../en-shared/q/my-shoes-are-clean-and-new.mp3",
+     "parts": [
+      "../../en-shared/q/my-shoes-are-clean-and.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-9e7a17c4d0.mp3"
+    },
+    {
+     "stem": "My teddy bear is very ____, because I have had it for a long time.",
+     "options": [
+      "old",
+      "small",
+      "big",
+      "new"
+     ],
+     "answer": 0,
+     "word": "My teddy bear is very old, because I have had it for a long time.",
+     "audio": "../../en-shared/q/my-teddy-bear-is-very-old-because-i-have-had-it-fo-fd9be2d0.mp3",
+     "parts": [
+      "../../en-shared/q/my-teddy-bear-is-very.mp3",
+      "../../en-shared/q/because-i-have-had-it-for-a-long-time.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-bd2b452228.mp3"
+    },
+    {
+     "stem": "The flower in the garden is so ____.",
+     "options": [
+      "sweet",
+      "low",
+      "pretty",
+      "poor"
+     ],
+     "answer": 2,
+     "word": "The flower in the garden is so pretty.",
+     "audio": "../../en-shared/q/the-flower-in-the-garden-is-so-pretty.mp3",
+     "parts": [
+      "../../en-shared/q/the-flower-in-the-garden-is-so.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-de000b1ec1.mp3"
+    },
+    {
+     "stem": "The scary witch had an ____ face.",
+     "options": [
+      "ugly",
+      "new",
+      "fat",
+      "rich"
+     ],
+     "answer": 0,
+     "word": "The scary witch had an ugly face.",
+     "audio": "../../en-shared/q/the-scary-witch-had-an-ugly-face.mp3",
+     "parts": [
+      "../../en-shared/q/the-scary-witch-had-an.mp3",
+      "../../en-shared/q/face.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-3bfa24e088.mp3"
+    }
+   ],
+   "page": 56,
+   "ex": 3
+  },
+  {
+   "type": "cloze",
+   "task": "Choose the correct answer to complete the text.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-to-complete-the-text.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "text": "Our toys. I have a [[new]] toy! It is a big, bouncy [[ball]]. I love to play with my ball outside. My friend has a scary toy [[monster]]. It is green and has three eyes. We play with our toys together. We also have a fun [[puppet]] show. My puppet can talk and sing. It's [[pretty]] just like Barbie.",
+     "bank": [
+      "ball",
+      "puppet",
+      "new",
+      "monster",
+      "pretty"
+     ],
+     "audio": "../../en-shared/q/our-toys-i-have-a-new-toy-it-is-a-big-bouncy-ball-51fa8816.mp3"
+    }
+   ],
+   "page": 57,
+   "ex": 4
+  },
+  {
+   "type": "order",
+   "task": "Rearrange the following sentences.",
+   "taskAudio": "../../en-shared/q/rearrange-the-following-sentences.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "chunks": [
+      "My",
+      "bike",
+      "is",
+      "new"
+     ],
+     "end": ".",
+     "word": "My bike is new.",
+     "audio": "../../en-shared/q/my-bike-is-new.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "toys",
+      "are",
+      "old"
+     ],
+     "end": ".",
+     "word": "The toys are old.",
+     "audio": "../../en-shared/q/the-toys-are-old.mp3"
+    },
+    {
+     "chunks": [
+      "His",
+      "sister",
+      "is",
+      "pretty"
+     ],
+     "end": ".",
+     "word": "His sister is pretty.",
+     "audio": "../../en-shared/q/his-sister-is-pretty.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "monster",
+      "is",
+      "ugly"
+     ],
+     "end": ".",
+     "word": "The monster is ugly.",
+     "audio": "../../en-shared/q/the-monster-is-ugly.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "have",
+      "a train"
+     ],
+     "end": ".",
+     "word": "I have a train.",
+     "audio": "../../en-shared/q/i-have-a-train.mp3"
+    }
+   ],
+   "page": 57,
+   "ex": 5
+  },
+  {
+   "type": "explain",
+   "task": "Reading Comprehension. A Day at the Park.",
+   "taskAudio": "../../en-shared/q/reading-comprehension-a-day-at-the-park.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "lines": [
+      {
+       "t": "A Day at the Park",
+       "a": "../../en-shared/q/a-day-at-the-park.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "Tim and Lily love to play outside. They run to the park every day.",
+       "a": "../../en-shared/q/tim-and-lily-love-to-play-outside-they-run-to-the-f94e9dfe.mp3"
+      },
+      {
+       "t": "Today, they want to play a game. They will throw a big red ball.",
+       "a": "../../en-shared/q/today-they-want-to-play-a-game-they-will-throw-a-b-eb677e65.mp3"
+      },
+      {
+       "t": "Tim can hit the ball far. Lily will run to catch it. She can jump high!",
+       "a": "../../en-shared/q/tim-can-hit-the-ball-far-lily-will-run-to-catch-it-bf03123e.mp3"
+      },
+      {
+       "t": "The ball will bounce on the grass. Sometimes, they kick the ball too. They are a great team.",
+       "a": "../../en-shared/q/the-ball-will-bounce-on-the-grass-sometimes-they-k-1f7d45f9.mp3"
+      },
+      {
+       "t": "After they play, they have a race to the swings. Lily can hop on one foot all the way there!",
+       "a": "../../en-shared/q/after-they-play-they-have-a-race-to-the-swings-lil-da08c40d.mp3"
+      },
+      {
+       "t": "They giggle and laugh as they go. They love to play together and be active.",
+       "a": "../../en-shared/q/they-giggle-and-laugh-as-they-go-they-love-to-play-61338433.mp3"
+      },
+      {
+       "t": "They are always happy when they spend time outside. They are the best of friends!",
+       "a": "../../en-shared/q/they-are-always-happy-when-they-spend-time-outside-8304be8d.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 59,
+   "grp": "park"
+  },
+  {
+   "type": "mcq",
+   "task": "Scanning for information.",
+   "taskAudio": "../../en-shared/q/scanning-for-information.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "What color is the ball? ____",
+     "options": [
+      "red",
+      "blue",
+      "green"
+     ],
+     "answer": 0,
+     "word": "The ball is red.",
+     "audio": "../../en-shared/q/the-ball-is-red.mp3",
+     "parts": [
+      "../../en-shared/q/what-color-is-the-ball.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-d9e8f06f48.mp3"
+    },
+    {
+     "stem": "What do Tim and Lily do every day? ____",
+     "options": [
+      "They run to the park.",
+      "They go to school.",
+      "They sleep."
+     ],
+     "answer": 0,
+     "word": "They run to the park every day.",
+     "audio": "../../en-shared/q/they-run-to-the-park-every-day.mp3",
+     "parts": [
+      "../../en-shared/q/what-do-tim-and-lily-do-every-day.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-bbd93af2da.mp3"
+    },
+    {
+     "stem": "What do they have a race to? ____",
+     "options": [
+      "the swings",
+      "the park",
+      "the door"
+     ],
+     "answer": 0,
+     "word": "They have a race to the swings.",
+     "audio": "../../en-shared/q/they-have-a-race-to-the-swings.mp3",
+     "parts": [
+      "../../en-shared/q/what-do-they-have-a-race-to.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-fda5ae2018.mp3"
+    }
+   ],
+   "page": 59,
+   "ex": 1,
+   "grp": "park"
+  },
+  {
+   "type": "mcq",
+   "task": "Circle True or False.",
+   "taskAudio": "../../en-shared/q/circle-true-or-false.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "Tim and Lily are on a soccer team.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 1,
+     "word": "Tim and Lily are on a soccer team.",
+     "audio": "../../en-shared/q/tim-and-lily-are-on-a-soccer-team.mp3",
+     "askAudio": "../../en-shared/q/ask-5a74768520.mp3"
+    },
+    {
+     "stem": "Lily can jump high.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 0,
+     "word": "Lily can jump high.",
+     "audio": "../../en-shared/q/lily-can-jump-high.mp3",
+     "askAudio": "../../en-shared/q/ask-6eb91e7fc1.mp3"
+    },
+    {
+     "stem": "They throw a blue ball.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 1,
+     "word": "They throw a blue ball.",
+     "audio": "../../en-shared/q/they-throw-a-blue-ball.mp3",
+     "askAudio": "../../en-shared/q/ask-86e637e32a.mp3"
+    }
+   ],
+   "page": 59,
+   "ex": 2,
+   "grp": "park"
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "Do you ____ a toy?",
+     "options": [
+      "has",
+      "have",
+      "had"
+     ],
+     "answer": 1,
+     "word": "Do you have a toy?",
+     "audio": "../../en-shared/q/do-you-have-a-toy.mp3",
+     "parts": [
+      "../../en-shared/q/do-you.mp3",
+      "../../en-shared/q/a-toy.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-5b89c0d60a.mp3"
+    },
+    {
+     "stem": "____ she have a game?",
+     "options": [
+      "Do",
+      "Does",
+      "Did"
+     ],
+     "answer": 1,
+     "word": "Does she have a game?",
+     "audio": "../../en-shared/q/does-she-have-a-game.mp3",
+     "parts": [
+      "../../en-shared/q/she-have-a-game.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-950d5e0de0.mp3"
+    },
+    {
+     "stem": "Do they ____ a box?",
+     "options": [
+      "want",
+      "wants",
+      "wanted"
+     ],
+     "answer": 0,
+     "word": "Do they want a box?",
+     "audio": "../../en-shared/q/do-they-want-a-box.mp3",
+     "parts": [
+      "../../en-shared/q/do-they.mp3",
+      "../../en-shared/q/a-box.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-a81b72f42f.mp3"
+    },
+    {
+     "stem": "____ he want a bag?",
+     "options": [
+      "Does",
+      "Do",
+      "Did"
+     ],
+     "answer": 0,
+     "word": "Does he want a bag?",
+     "audio": "../../en-shared/q/does-he-want-a-bag.mp3",
+     "parts": [
+      "../../en-shared/q/he-want-a-bag.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-360ea98b7e.mp3"
+    },
+    {
+     "stem": "____ we have a teddy bear?",
+     "options": [
+      "Do",
+      "Does",
+      "Did"
+     ],
+     "answer": 0,
+     "word": "Do we have a teddy bear?",
+     "audio": "../../en-shared/q/do-we-have-a-teddy-bear.mp3",
+     "parts": [
+      "../../en-shared/q/we-have-a-teddy-bear.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-bb3e2464cc.mp3"
+    }
+   ],
+   "page": 60,
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "task": "Complete the sentences using Do, Does, have or want.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences-using-do-does-have-or-want.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "Do you ____ a new ball?",
+     "options": [
+      "have",
+      "has"
+     ],
+     "answer": 0,
+     "word": "Do you have a new ball?",
+     "audio": "../../en-shared/q/do-you-have-a-new-ball.mp3",
+     "parts": [
+      "../../en-shared/q/do-you.mp3",
+      "../../en-shared/q/a-new-ball.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-6087342eb8.mp3"
+    },
+    {
+     "stem": "Does she ____ a big dollhouse?",
+     "options": [
+      "have",
+      "has"
+     ],
+     "answer": 0,
+     "word": "Does she have a big dollhouse?",
+     "audio": "../../en-shared/q/does-she-have-a-big-dollhouse.mp3",
+     "parts": [
+      "../../en-shared/q/does-she.mp3",
+      "../../en-shared/q/a-big-dollhouse.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-a3869dd143.mp3"
+    },
+    {
+     "stem": "Do you ____ to share your blocks?",
+     "options": [
+      "want",
+      "wants"
+     ],
+     "answer": 0,
+     "word": "Do you want to share your blocks?",
+     "audio": "../../en-shared/q/do-you-want-to-share-your-blocks.mp3",
+     "parts": [
+      "../../en-shared/q/do-you.mp3",
+      "../../en-shared/q/to-share-your-blocks.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-596aa74f4c.mp3"
+    },
+    {
+     "stem": "Do they ____ a toy train?",
+     "options": [
+      "have",
+      "has"
+     ],
+     "answer": 0,
+     "word": "Do they have a toy train?",
+     "audio": "../../en-shared/q/do-they-have-a-toy-train.mp3",
+     "parts": [
+      "../../en-shared/q/do-they.mp3",
+      "../../en-shared/q/a-toy-train.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-775e897932.mp3"
+    },
+    {
+     "stem": "____ he want to build a tall tower?",
+     "options": [
+      "Do",
+      "Does"
+     ],
+     "answer": 1,
+     "word": "Does he want to build a tall tower?",
+     "audio": "../../en-shared/q/does-he-want-to-build-a-tall-tower.mp3",
+     "parts": [
+      "../../en-shared/q/he-want-to-build-a-tall-tower.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-1d2e139483.mp3"
+    },
+    {
+     "stem": "My friend and I ____ a new jump rope.",
+     "options": [
+      "have",
+      "has"
+     ],
+     "answer": 0,
+     "word": "My friend and I have a new jump rope.",
+     "audio": "../../en-shared/q/my-friend-and-i-have-a-new-jump-rope.mp3",
+     "parts": [
+      "../../en-shared/q/my-friend-and-i.mp3",
+      "../../en-shared/q/a-new-jump-rope.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-b7085da6e2.mp3"
+    },
+    {
+     "stem": "____ Nelly have a teddy bear?",
+     "options": [
+      "Do",
+      "Does"
+     ],
+     "answer": 1,
+     "word": "Does Nelly have a teddy bear?",
+     "audio": "../../en-shared/q/does-nelly-have-a-teddy-bear.mp3",
+     "parts": [
+      "../../en-shared/q/nelly-have-a-teddy-bear.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-4e324193d6.mp3"
+    },
+    {
+     "stem": "Do you ____ to go outside and play?",
+     "options": [
+      "want",
+      "wants"
+     ],
+     "answer": 0,
+     "word": "Do you want to go outside and play?",
+     "audio": "../../en-shared/q/do-you-want-to-go-outside-and-play.mp3",
+     "parts": [
+      "../../en-shared/q/do-you.mp3",
+      "../../en-shared/q/to-go-outside-and-play.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-67100f70a0.mp3"
+    }
+   ],
+   "page": 61,
+   "ex": 2
+  },
+  {
+   "type": "link",
+   "task": "Read and match the questions with the answers.",
+   "taskAudio": "../../en-shared/q/read-and-match-the-questions-with-the-answers.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "Do you have a jump rope?",
+     "text2": "Yes, I do.",
+     "audio": "../../en-shared/q/do-you-have-a-jump-rope.mp3",
+     "audio2": "../../en-shared/q/yes-i-do.mp3"
+    },
+    {
+     "word": "Does he have toys?",
+     "text2": "No, he doesn't.",
+     "audio": "../../en-shared/q/does-he-have-toys.mp3",
+     "audio2": "../../en-shared/q/no-he-doesn-t.mp3"
+    },
+    {
+     "word": "Do we have cards?",
+     "text2": "No, we don't.",
+     "audio": "../../en-shared/q/do-we-have-cards.mp3",
+     "audio2": "../../en-shared/q/no-we-don-t.mp3"
+    },
+    {
+     "word": "Do they want a board game?",
+     "text2": "No, they don't.",
+     "audio": "../../en-shared/q/do-they-want-a-board-game.mp3",
+     "audio2": "../../en-shared/q/no-they-don-t.mp3"
+    },
+    {
+     "word": "Does she want a drink?",
+     "text2": "Yes, she does.",
+     "audio": "../../en-shared/q/does-she-want-a-drink.mp3",
+     "audio2": "../../en-shared/q/yes-she-does.mp3"
+    }
+   ],
+   "page": 61,
+   "ex": 3
+  },
+  {
+   "type": "mcq",
+   "task": "Correct the mistake in each sentence.",
+   "taskAudio": "../../en-shared/q/correct-the-mistake-in-each-sentence.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "____ you have a blue crayon?",
+     "options": [
+      "Do",
+      "Does"
+     ],
+     "answer": 0,
+     "word": "Do you have a blue crayon?",
+     "audio": "../../en-shared/q/do-you-have-a-blue-crayon.mp3",
+     "parts": [
+      "../../en-shared/q/you-have-a-blue-crayon.mp3"
+     ],
+     "optSay": [
+      "Do",
+      "Does"
+     ],
+     "ask": "Does you have a blue crayon?",
+     "askAudio": "../../en-shared/q/askc-e1923c4744.mp3"
+    },
+    {
+     "stem": "Yes, I ____ a new toy.",
+     "options": [
+      "have",
+      "has"
+     ],
+     "answer": 0,
+     "word": "Yes, I have a new toy.",
+     "audio": "../../en-shared/q/yes-i-have-a-new-toy.mp3",
+     "parts": [
+      "../../en-shared/q/yes-i.mp3",
+      "../../en-shared/q/a-new-toy.mp3"
+     ],
+     "optSay": [
+      "have",
+      "has"
+     ],
+     "ask": "Yes, I has a new toy.",
+     "askAudio": "../../en-shared/q/askc-36915162b2.mp3"
+    },
+    {
+     "stem": "____ he have a red car?",
+     "options": [
+      "Do",
+      "Does"
+     ],
+     "answer": 1,
+     "word": "Does he have a red car?",
+     "audio": "../../en-shared/q/does-he-have-a-red-car.mp3",
+     "parts": [
+      "../../en-shared/q/he-have-a-red-car.mp3"
+     ],
+     "optSay": [
+      "Do",
+      "Does"
+     ],
+     "ask": "Do he have a red car?",
+     "askAudio": "../../en-shared/q/askc-ce66365386.mp3"
+    },
+    {
+     "stem": "No, he ____ have a teddy bear.",
+     "options": [
+      "don't",
+      "doesn't"
+     ],
+     "answer": 1,
+     "word": "No, he doesn't have a teddy bear.",
+     "audio": "../../en-shared/q/no-he-doesn-t-have-a-teddy-bear.mp3",
+     "parts": [
+      "../../en-shared/q/no-he.mp3",
+      "../../en-shared/q/have-a-teddy-bear.mp3"
+     ],
+     "optSay": [
+      "don't",
+      "doesn't"
+     ],
+     "ask": "No, he don't have a teddy bear.",
+     "askAudio": "../../en-shared/q/askc-b57c1080ec.mp3"
+    },
+    {
+     "stem": "____ you have a pet?",
+     "options": [
+      "Do",
+      "Does"
+     ],
+     "answer": 0,
+     "word": "Do you have a pet?",
+     "audio": "../../en-shared/q/do-you-have-a-pet.mp3",
+     "parts": [
+      "../../en-shared/q/you-have-a-pet.mp3"
+     ],
+     "optSay": [
+      "Do",
+      "Does"
+     ],
+     "ask": "Does you have a pet?",
+     "askAudio": "../../en-shared/q/askc-c57a0c1818.mp3"
+    }
+   ],
+   "page": 62,
+   "ex": 4
+  }
+ ]
+}

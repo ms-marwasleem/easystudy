@@ -1,0 +1,921 @@
+{
+ "sets": [
+  {
+   "type": "type",
+   "task": "Read and complete the missing letters.",
+   "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "chair",
+     "missing": 3,
+     "answer": "a",
+     "pic": "../../pics/chair-u2.png",
+     "audio": "../../en-shared/q/chair.mp3"
+    },
+    {
+     "word": "bookcase",
+     "missing": 2,
+     "answer": "o",
+     "pic": "../../pics/bookcase.png",
+     "audio": "../../en-shared/q/bookcase.mp3"
+    },
+    {
+     "word": "computer",
+     "missing": 3,
+     "answer": "p",
+     "pic": "../../pics/computer.png",
+     "audio": "../../en-shared/q/computer.mp3"
+    },
+    {
+     "word": "door",
+     "missing": 2,
+     "answer": "o",
+     "pic": "../../pics/door-u2.png",
+     "audio": "../../en-shared/q/door.mp3"
+    },
+    {
+     "word": "wall",
+     "missing": 2,
+     "answer": "l",
+     "pic": "../../pics/wall.png",
+     "audio": "../../en-shared/q/wall.mp3"
+    }
+   ],
+   "page": 29,
+   "ex": 1
+  },
+  {
+   "type": "link",
+   "task": "Match the words and the pictures.",
+   "taskAudio": "../../en-shared/q/match-the-words-and-the-pictures.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "mouse",
+     "pic": "../../pics/mouse-u2.jpg",
+     "audio": "../../en-shared/q/mouse.mp3"
+    },
+    {
+     "word": "window",
+     "pic": "../../pics/window.png",
+     "audio": "../../en-shared/q/window.mp3"
+    },
+    {
+     "word": "board",
+     "pic": "../../pics/board-u2.jpg",
+     "audio": "../../en-shared/q/board.mp3"
+    },
+    {
+     "word": "desk",
+     "pic": "../../pics/desk-u2.png",
+     "audio": "../../en-shared/q/desk.mp3"
+    },
+    {
+     "word": "classroom",
+     "pic": "../../pics/classroom-u2.jpg",
+     "audio": "../../en-shared/q/classroom.mp3"
+    }
+   ],
+   "page": 30,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer from a, b, c or d.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-from-a-b-c-or-d.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "You sit on a ____ when you work at a table.",
+     "options": [
+      "computer",
+      "desk",
+      "chair",
+      "bookcase"
+     ],
+     "answer": 2,
+     "word": "You sit on a chair when you work at a table.",
+     "audio": "../../en-shared/q/you-sit-on-a-chair-when-you-work-at-a-table.mp3",
+     "parts": [
+      "../../en-shared/q/you-sit-on-a.mp3",
+      "../../en-shared/q/when-you-work-at-a-table.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-c49af0bd1f.mp3"
+    },
+    {
+     "stem": "I learn and play with my friends in the ____.",
+     "options": [
+      "wall",
+      "classroom",
+      "door",
+      "board"
+     ],
+     "answer": 1,
+     "word": "I learn and play with my friends in the classroom.",
+     "audio": "../../en-shared/q/i-learn-and-play-with-my-friends-in-the-classroom.mp3",
+     "parts": [
+      "../../en-shared/q/i-learn-and-play-with-my-friends-in-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-9decd65938.mp3"
+    },
+    {
+     "stem": "We use a ____ to type words and draw pictures.",
+     "options": [
+      "table",
+      "blanket",
+      "bag",
+      "computer"
+     ],
+     "answer": 3,
+     "word": "We use a computer to type words and draw pictures.",
+     "audio": "../../en-shared/q/we-use-a-computer-to-type-words-and-draw-pictures.mp3",
+     "parts": [
+      "../../en-shared/q/we-use-a.mp3",
+      "../../en-shared/q/to-type-words-and-draw-pictures.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-5ad28379cb.mp3"
+    },
+    {
+     "stem": "My books are neatly kept on the ____.",
+     "options": [
+      "chair",
+      "pen",
+      "bookcase",
+      "pencil case"
+     ],
+     "answer": 2,
+     "word": "My books are neatly kept on the bookcase.",
+     "audio": "../../en-shared/q/my-books-are-neatly-kept-on-the-bookcase.mp3",
+     "parts": [
+      "../../en-shared/q/my-books-are-neatly-kept-on-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-fec8942327.mp3"
+    },
+    {
+     "stem": "I put my paper and crayons on my ____.",
+     "options": [
+      "desk",
+      "door",
+      "sheets",
+      "mouse"
+     ],
+     "answer": 0,
+     "word": "I put my paper and crayons on my desk.",
+     "audio": "../../en-shared/q/i-put-my-paper-and-crayons-on-my-desk.mp3",
+     "parts": [
+      "../../en-shared/q/i-put-my-paper-and-crayons-on-my.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-14fa0b5e30.mp3"
+    },
+    {
+     "stem": "You use a ____ to click on things on the computer.",
+     "options": [
+      "paper",
+      "mouse",
+      "pencils",
+      "colors"
+     ],
+     "answer": 1,
+     "word": "You use a mouse to click on things on the computer.",
+     "audio": "../../en-shared/q/you-use-a-mouse-to-click-on-things-on-the-computer.mp3",
+     "parts": [
+      "../../en-shared/q/you-use-a.mp3",
+      "../../en-shared/q/to-click-on-things-on-the-computer.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-b517c8fd65.mp3"
+    },
+    {
+     "stem": "The teacher writes on the ____.",
+     "options": [
+      "board",
+      "computer",
+      "chair",
+      "desk"
+     ],
+     "answer": 0,
+     "word": "The teacher writes on the board.",
+     "audio": "../../en-shared/q/the-teacher-writes-on-the-board.mp3",
+     "parts": [
+      "../../en-shared/q/the-teacher-writes-on-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-bf03b9b4cc.mp3"
+    },
+    {
+     "stem": "You look out the ____ to see outside.",
+     "options": [
+      "keyboard",
+      "crayons",
+      "window",
+      "door"
+     ],
+     "answer": 2,
+     "word": "You look out the window to see outside.",
+     "audio": "../../en-shared/q/you-look-out-the-window-to-see-outside.mp3",
+     "parts": [
+      "../../en-shared/q/you-look-out-the.mp3",
+      "../../en-shared/q/to-see-outside.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-dda9ca8912.mp3"
+    },
+    {
+     "stem": "The pictures are hanging on the ____.",
+     "options": [
+      "wall",
+      "charts",
+      "mouse",
+      "pins"
+     ],
+     "answer": 0,
+     "word": "The pictures are hanging on the wall.",
+     "audio": "../../en-shared/q/the-pictures-are-hanging-on-the-wall.mp3",
+     "parts": [
+      "../../en-shared/q/the-pictures-are-hanging-on-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-9e503c65ff.mp3"
+    },
+    {
+     "stem": "Please close the ____.",
+     "options": [
+      "backpack",
+      "curtains",
+      "door",
+      "eraser"
+     ],
+     "answer": 2,
+     "word": "Please close the door.",
+     "audio": "../../en-shared/q/please-close-the-door.mp3",
+     "parts": [
+      "../../en-shared/q/please-close-the.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-c06ef6badc.mp3"
+    }
+   ],
+   "page": 30,
+   "ex": 3
+  },
+  {
+   "type": "cloze",
+   "task": "Choose the correct answer to complete the text.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-to-complete-the-text.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "text": "Our Happy Classroom. Welcome to our new [[classroom]]. It's a bright and friendly place to learn! When you walk in, you open the [[door]]. Look around! You will see many fun things. Each of us has our own [[desk]]. This is where we sit to do our work. Our teacher writes and draws on the big white [[board]]. We learn so many new things from it. When you look outside, you can see the playground through the [[window]]. It's fun to watch the clouds go by!",
+     "bank": [
+      "desk",
+      "door",
+      "board",
+      "classroom",
+      "window"
+     ],
+     "audio": "../../en-shared/q/our-happy-classroom-welcome-to-our-new-classroom-i-4ccbfccf.mp3"
+    }
+   ],
+   "page": 31,
+   "ex": 4
+  },
+  {
+   "type": "order",
+   "task": "Rearrange the following sentences.",
+   "taskAudio": "../../en-shared/q/rearrange-the-following-sentences.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "sit",
+      "on",
+      "a",
+      "chair"
+     ],
+     "end": ".",
+     "word": "I sit on a chair.",
+     "audio": "../../en-shared/q/i-sit-on-a-chair.mp3"
+    },
+    {
+     "chunks": [
+      "My",
+      "computer",
+      "is",
+      "new"
+     ],
+     "end": ".",
+     "word": "My computer is new.",
+     "audio": "../../en-shared/q/my-computer-is-new.mp3"
+    },
+    {
+     "chunks": [
+      "You",
+      "use",
+      "a mouse",
+      "to",
+      "click",
+      "icons"
+     ],
+     "end": ".",
+     "word": "You use a mouse to click icons.",
+     "audio": "../../en-shared/q/you-use-a-mouse-to-click-icons.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "pictures",
+      "are",
+      "on",
+      "the wall"
+     ],
+     "end": ".",
+     "word": "The pictures are on the wall.",
+     "audio": "../../en-shared/q/the-pictures-are-on-the-wall.mp3"
+    },
+    {
+     "chunks": [
+      "My",
+      "bookcase",
+      "is",
+      "big"
+     ],
+     "end": ".",
+     "word": "My bookcase is big.",
+     "audio": "../../en-shared/q/my-bookcase-is-big.mp3"
+    }
+   ],
+   "page": 32,
+   "ex": 5
+  },
+  {
+   "type": "explain",
+   "task": "Reading Comprehension. My School Day.",
+   "taskAudio": "../../en-shared/q/reading-comprehension-my-school-day.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "lines": [
+      {
+       "t": "My School Day",
+       "a": "../../en-shared/q/my-school-day.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "Welcome to our happy classroom! There are many things to help us learn.",
+       "a": "../../en-shared/q/welcome-to-our-happy-classroom-there-are-many-thin-b234efe7.mp3"
+      },
+      {
+       "t": "There is a big board on the wall. Our teacher writes stories and numbers on it.",
+       "a": "../../en-shared/q/there-is-a-big-board-on-the-wall-our-teacher-write-7b9facf0.mp3"
+      },
+      {
+       "t": "There are colorful pictures hanging on the wall too!",
+       "a": "../../en-shared/q/there-are-colorful-pictures-hanging-on-the-wall-too.mp3"
+      },
+      {
+       "t": "Each student has a desk and a chair. We sit on our chairs at our desks to do our work.",
+       "a": "../../en-shared/q/each-student-has-a-desk-and-a-chair-we-sit-on-our-d99833c0.mp3"
+      },
+      {
+       "t": "There are pens in our pencil cases to write with.",
+       "a": "../../en-shared/q/there-are-pens-in-our-pencil-cases-to-write-with.mp3"
+      },
+      {
+       "t": "Look! There is a computer in the corner of the room.",
+       "a": "../../en-shared/q/look-there-is-a-computer-in-the-corner-of-the-room.mp3"
+      },
+      {
+       "t": "We use a mouse to click on things on the screen.",
+       "a": "../../en-shared/q/we-use-a-mouse-to-click-on-things-on-the-screen.mp3"
+      },
+      {
+       "t": "It's fun to learn with the computer!",
+       "a": "../../en-shared/q/it-s-fun-to-learn-with-the-computer.mp3"
+      },
+      {
+       "t": "Near the computer, there is a bookcase full of wonderful books.",
+       "a": "../../en-shared/q/near-the-computer-there-is-a-bookcase-full-of-wond-b000d805.mp3"
+      },
+      {
+       "t": "We can choose a book to read during quiet time.",
+       "a": "../../en-shared/q/we-can-choose-a-book-to-read-during-quiet-time.mp3"
+      },
+      {
+       "t": "When it's time to go outside, we walk through the door.",
+       "a": "../../en-shared/q/when-it-s-time-to-go-outside-we-walk-through-the-door.mp3"
+      },
+      {
+       "t": "We can also look out the window to see our friends playing in the yard.",
+       "a": "../../en-shared/q/we-can-also-look-out-the-window-to-see-our-friends-be30879a.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 34,
+   "grp": "day"
+  },
+  {
+   "type": "link",
+   "task": "Read the text. Match the questions and answers.",
+   "taskAudio": "../../en-shared/q/read-the-text-match-the-questions-and-answers.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "What is on the wall?",
+     "text2": "pictures and a board",
+     "audio": "../../en-shared/q/what-is-on-the-wall.mp3",
+     "audio2": "../../en-shared/q/pictures-and-a-board.mp3"
+    },
+    {
+     "word": "What do we sit on?",
+     "text2": "a chair",
+     "audio": "../../en-shared/q/what-do-we-sit-on.mp3",
+     "audio2": "../../en-shared/q/a-chair.mp3"
+    },
+    {
+     "word": "What do we use for the computer?",
+     "text2": "a mouse",
+     "audio": "../../en-shared/q/what-do-we-use-for-the-computer.mp3",
+     "audio2": "../../en-shared/q/a-mouse.mp3"
+    },
+    {
+     "word": "Where are the books?",
+     "text2": "a bookcase",
+     "audio": "../../en-shared/q/where-are-the-books.mp3",
+     "audio2": "../../en-shared/q/a-bookcase.mp3"
+    },
+    {
+     "word": "What do we write with?",
+     "text2": "pens",
+     "audio": "../../en-shared/q/what-do-we-write-with.mp3",
+     "audio2": "../../en-shared/q/pens.mp3"
+    }
+   ],
+   "page": 34,
+   "ex": 1,
+   "grp": "day"
+  },
+  {
+   "type": "mcq",
+   "task": "Circle True or False.",
+   "taskAudio": "../../en-shared/q/circle-true-or-false.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "There is a computer in the classroom.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 0,
+     "word": "There is a computer in the classroom.",
+     "audio": "../../en-shared/q/there-is-a-computer-in-the-classroom.mp3",
+     "askAudio": "../../en-shared/q/ask-87a160ab03.mp3"
+    },
+    {
+     "stem": "We sit on the desk.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 1,
+     "word": "We sit on the desk.",
+     "audio": "../../en-shared/q/we-sit-on-the-desk.mp3",
+     "askAudio": "../../en-shared/q/ask-e3e19923b7.mp3"
+    },
+    {
+     "stem": "The teacher writes on the door.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 1,
+     "word": "The teacher writes on the door.",
+     "audio": "../../en-shared/q/the-teacher-writes-on-the-door.mp3",
+     "askAudio": "../../en-shared/q/ask-3b8ab222e9.mp3"
+    },
+    {
+     "stem": "Books are kept in the bookcase.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 0,
+     "word": "Books are kept in the bookcase.",
+     "audio": "../../en-shared/q/books-are-kept-in-the-bookcase.mp3",
+     "askAudio": "../../en-shared/q/ask-24471ad2d5.mp3"
+    },
+    {
+     "stem": "We look out the window to see inside.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 1,
+     "word": "We look out the window to see inside.",
+     "audio": "../../en-shared/q/we-look-out-the-window-to-see-inside.mp3",
+     "askAudio": "../../en-shared/q/ask-9ac02e5a05.mp3"
+    }
+   ],
+   "page": 35,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Give one word. Choose the best answer.",
+   "taskAudio": "../../en-shared/q/give-one-word-choose-the-best-answer.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "A piece of furniture with shelves for holding books. ____",
+     "options": [
+      "board",
+      "bookcase",
+      "classroom",
+      "wall"
+     ],
+     "answer": 1,
+     "word": "A piece of furniture with shelves for holding books. bookcase.",
+     "audio": "../../en-shared/q/a-piece-of-furniture-with-shelves-for-holding-books-bookcase.mp3",
+     "parts": [
+      "../../en-shared/q/a-piece-of-furniture-with-shelves-for-holding-books.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-9005446f8d.mp3"
+    },
+    {
+     "stem": "A room in a school where students have lessons. ____",
+     "options": [
+      "board",
+      "bookcase",
+      "classroom",
+      "wall"
+     ],
+     "answer": 2,
+     "word": "A room in a school where students have lessons. classroom.",
+     "audio": "../../en-shared/q/a-room-in-a-school-where-students-have-lessons-classroom.mp3",
+     "parts": [
+      "../../en-shared/q/a-room-in-a-school-where-students-have-lessons.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-81adbc7d2f.mp3"
+    },
+    {
+     "stem": "A surface on the wall of a classroom that a teacher writes on. ____",
+     "options": [
+      "board",
+      "bookcase",
+      "classroom",
+      "wall"
+     ],
+     "answer": 0,
+     "word": "A surface on the wall of a classroom that a teacher writes on. board.",
+     "audio": "../../en-shared/q/a-surface-on-the-wall-of-a-classroom-that-a-teache-5ec78b76.mp3",
+     "parts": [
+      "../../en-shared/q/a-surface-on-the-wall-of-a-classroom-that-a-teache-709ec239.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-68d4ca7829.mp3"
+    },
+    {
+     "stem": "One of the sides of a room or building. ____",
+     "options": [
+      "board",
+      "bookcase",
+      "classroom",
+      "wall"
+     ],
+     "answer": 3,
+     "word": "One of the sides of a room or building. wall.",
+     "audio": "../../en-shared/q/one-of-the-sides-of-a-room-or-building-wall.mp3",
+     "parts": [
+      "../../en-shared/q/one-of-the-sides-of-a-room-or-building.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-5ae03b60f0.mp3"
+    },
+    {
+     "stem": "A separate seat for one person. ____",
+     "options": [
+      "board",
+      "bookcase",
+      "chair",
+      "classroom"
+     ],
+     "answer": 2,
+     "word": "A separate seat for one person. chair.",
+     "audio": "../../en-shared/q/a-separate-seat-for-one-person-chair.mp3",
+     "parts": [
+      "../../en-shared/q/a-separate-seat-for-one-person.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-abb013c9b1.mp3"
+    }
+   ],
+   "page": 35,
+   "ex": 3
+  },
+  {
+   "type": "mcq",
+   "task": "Use words to identify the place.",
+   "taskAudio": "../../en-shared/q/use-words-to-identify-the-place.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "big, bright: ____",
+     "options": [
+      "classroom",
+      "bookcase",
+      "door"
+     ],
+     "answer": 0,
+     "word": "Big, bright: classroom.",
+     "audio": "../../en-shared/q/big-bright-classroom.mp3",
+     "parts": [
+      "../../en-shared/q/big-bright.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-eb75af37df.mp3"
+    },
+    {
+     "stem": "tall, filled with storybooks: ____",
+     "options": [
+      "classroom",
+      "bookcase",
+      "window"
+     ],
+     "answer": 1,
+     "word": "Tall, filled with storybooks: bookcase.",
+     "audio": "../../en-shared/q/tall-filled-with-storybooks-bookcase.mp3",
+     "parts": [
+      "../../en-shared/q/tall-filled-with-storybooks.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-c33ee640af.mp3"
+    }
+   ],
+   "page": 35,
+   "ex": 4
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "____ is my classroom.",
+     "options": [
+      "These",
+      "This",
+      "Those"
+     ],
+     "answer": 1,
+     "word": "This is my classroom.",
+     "audio": "../../en-shared/q/this-is-my-classroom.mp3",
+     "parts": [
+      "../../en-shared/q/is-my-classroom.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-1bb50f6aa6.mp3"
+    },
+    {
+     "stem": "____ are our pencil cases.",
+     "options": [
+      "Those",
+      "This",
+      "That"
+     ],
+     "answer": 0,
+     "word": "Those are our pencil cases.",
+     "audio": "../../en-shared/q/those-are-our-pencil-cases.mp3",
+     "parts": [
+      "../../en-shared/q/are-our-pencil-cases.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-51bffa6f3e.mp3"
+    },
+    {
+     "stem": "____ is my friend.",
+     "options": [
+      "These",
+      "Those",
+      "That"
+     ],
+     "answer": 2,
+     "word": "That is my friend.",
+     "audio": "../../en-shared/q/that-is-my-friend.mp3",
+     "parts": [
+      "../../en-shared/q/is-my-friend.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-bb04ad8dd8.mp3"
+    },
+    {
+     "stem": "____ are the books.",
+     "options": [
+      "These",
+      "That",
+      "This"
+     ],
+     "answer": 0,
+     "word": "These are the books.",
+     "audio": "../../en-shared/q/these-are-the-books.mp3",
+     "parts": [
+      "../../en-shared/q/are-the-books.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-2736672910.mp3"
+    },
+    {
+     "stem": "____ is my new school.",
+     "options": [
+      "Those",
+      "This",
+      "These"
+     ],
+     "answer": 1,
+     "word": "This is my new school.",
+     "audio": "../../en-shared/q/this-is-my-new-school.mp3",
+     "parts": [
+      "../../en-shared/q/is-my-new-school.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-69c74f670a.mp3"
+    }
+   ],
+   "page": 36,
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "task": "Complete the sentences using This or These.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences-using-this-or-these.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "____ wall is full of pictures.",
+     "options": [
+      "This",
+      "These"
+     ],
+     "answer": 0,
+     "word": "This wall is full of pictures.",
+     "audio": "../../en-shared/q/this-wall-is-full-of-pictures.mp3",
+     "parts": [
+      "../../en-shared/q/wall-is-full-of-pictures.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-5e0630934b.mp3"
+    },
+    {
+     "stem": "____ computers are new.",
+     "options": [
+      "This",
+      "These"
+     ],
+     "answer": 1,
+     "word": "These computers are new.",
+     "audio": "../../en-shared/q/these-computers-are-new.mp3",
+     "parts": [
+      "../../en-shared/q/computers-are-new.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-800b559c38.mp3"
+    },
+    {
+     "stem": "____ mouse is black.",
+     "options": [
+      "This",
+      "These"
+     ],
+     "answer": 0,
+     "word": "This mouse is black.",
+     "audio": "../../en-shared/q/this-mouse-is-black.mp3",
+     "parts": [
+      "../../en-shared/q/mouse-is-black.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-b49001d27b.mp3"
+    },
+    {
+     "stem": "____ are friendly teachers.",
+     "options": [
+      "This",
+      "These"
+     ],
+     "answer": 1,
+     "word": "These are friendly teachers.",
+     "audio": "../../en-shared/q/these-are-friendly-teachers.mp3",
+     "parts": [
+      "../../en-shared/q/are-friendly-teachers.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-ce2778ab1c.mp3"
+    },
+    {
+     "stem": "____ are my colorful crayons.",
+     "options": [
+      "This",
+      "These"
+     ],
+     "answer": 1,
+     "word": "These are my colorful crayons.",
+     "audio": "../../en-shared/q/these-are-my-colorful-crayons.mp3",
+     "parts": [
+      "../../en-shared/q/are-my-colorful-crayons.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-91f2e96a2f.mp3"
+    }
+   ],
+   "page": 37,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Correct the mistake in each sentence.",
+   "taskAudio": "../../en-shared/q/correct-the-mistake-in-each-sentence.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "____ classrooms are big.",
+     "options": [
+      "This",
+      "These"
+     ],
+     "answer": 1,
+     "word": "These classrooms are big.",
+     "audio": "../../en-shared/q/these-classrooms-are-big.mp3",
+     "parts": [
+      "../../en-shared/q/classrooms-are-big.mp3"
+     ],
+     "optSay": [
+      "This",
+      "These"
+     ],
+     "ask": "This classrooms are big.",
+     "askAudio": "../../en-shared/q/askc-dfa8fb92b4.mp3"
+    },
+    {
+     "stem": "____ is a friendly friend.",
+     "options": [
+      "This",
+      "These"
+     ],
+     "answer": 0,
+     "word": "This is a friendly friend.",
+     "audio": "../../en-shared/q/this-is-a-friendly-friend.mp3",
+     "parts": [
+      "../../en-shared/q/is-a-friendly-friend.mp3"
+     ],
+     "optSay": [
+      "This",
+      "These"
+     ],
+     "ask": "These is a friendly friend.",
+     "askAudio": "../../en-shared/q/askc-095e70cf8d.mp3"
+    },
+    {
+     "stem": "____ are blue pencils.",
+     "options": [
+      "That",
+      "Those"
+     ],
+     "answer": 1,
+     "word": "Those are blue pencils.",
+     "audio": "../../en-shared/q/those-are-blue-pencils.mp3",
+     "parts": [
+      "../../en-shared/q/are-blue-pencils.mp3"
+     ],
+     "optSay": [
+      "That",
+      "Those"
+     ],
+     "ask": "That are blue pencils.",
+     "askAudio": "../../en-shared/q/askc-83a21c569a.mp3"
+    },
+    {
+     "stem": "____ bag is mine.",
+     "options": [
+      "That",
+      "Those"
+     ],
+     "answer": 0,
+     "word": "That bag is mine.",
+     "audio": "../../en-shared/q/that-bag-is-mine.mp3",
+     "parts": [
+      "../../en-shared/q/bag-is-mine.mp3"
+     ],
+     "optSay": [
+      "That",
+      "Those"
+     ],
+     "ask": "Those bag is mine.",
+     "askAudio": "../../en-shared/q/askc-a081230c6d.mp3"
+    },
+    {
+     "stem": "____ drawings are beautiful.",
+     "options": [
+      "This",
+      "These"
+     ],
+     "answer": 1,
+     "word": "These drawings are beautiful.",
+     "audio": "../../en-shared/q/these-drawings-are-beautiful.mp3",
+     "parts": [
+      "../../en-shared/q/drawings-are-beautiful.mp3"
+     ],
+     "optSay": [
+      "This",
+      "These"
+     ],
+     "ask": "This drawings are beautiful.",
+     "askAudio": "../../en-shared/q/askc-f4832b57e7.mp3"
+    }
+   ],
+   "page": 38,
+   "ex": 3
+  }
+ ]
+}

@@ -1,0 +1,490 @@
+{
+ "id": "u5l2",
+ "unit": 5,
+ "lesson": 2,
+ "title": "Phonics Mm Gg",
+ "task": "Listen to your teacher and repeat.",
+ "scene": "../u1l2/scene.jpg",
+ "sceneAlt": "Phonics Mm and Gg pictures",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "speakers": {
+  "Mm": "#D93D78",
+  "Gg": "#D93D78"
+ },
+ "pages": 2,
+ "pageLayouts": [
+  "pictures",
+  "pictures"
+ ],
+ "pageTasks": [
+  "Listen to your teacher and repeat.",
+  "Listen to your teacher and repeat."
+ ],
+ "pagesBook": [
+  89,
+  91
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "moon",
+   "ar": "قمر",
+   "img": "../../pics/moon-u5l2.png",
+   "parts": [
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "oo",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/moon.mp3"
+   }
+  },
+  {
+   "word": "milk",
+   "ar": "لبن",
+   "img": "../../pics/milk-u5l2.png",
+   "parts": [
+    {
+     "t": "mi",
+     "ph": "m_i",
+     "audio": "../../phonics/chunks/m_i.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/milk.mp3"
+   }
+  },
+  {
+   "word": "monkey",
+   "ar": "قرد",
+   "img": "../../pics/monkey-u5l2.png",
+   "parts": [
+    {
+     "t": "mo",
+     "ph": "m_u",
+     "audio": "../../phonics/chunks/m_u.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "nk",
+     "audio": "../../phonics/nk.mp3"
+    },
+    {
+     "t": "ke",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    },
+    {
+     "t": "y",
+     "spell": true,
+     "ph": "y",
+     "audio": "../../phonics/y.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/monkey.mp3"
+   }
+  },
+  {
+   "word": "mango",
+   "ar": "مانجو",
+   "img": "../../pics/mango-u5l2.png",
+   "parts": [
+    {
+     "t": "man",
+     "ph": "m_a_ng",
+     "audio": "../../phonics/chunks/m_a_ng.mp3"
+    },
+    {
+     "t": "go",
+     "ph": "g_oa",
+     "audio": "../../phonics/chunks/g_oa.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/mango.mp3"
+   }
+  },
+  {
+   "word": "mouse",
+   "ar": "فأر",
+   "img": "../../pics/mouse-u5l2.png",
+   "parts": [
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "ou",
+     "ph": "ow",
+     "audio": "../../phonics/ow.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "e",
+     "spell": true,
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u5l1/words/mouse.mp3"
+   }
+  },
+  {
+   "word": "goat",
+   "ar": "ماعز",
+   "img": "../../pics/goat-u5l2.png",
+   "parts": [
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "oa",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/goat.mp3"
+   }
+  },
+  {
+   "word": "girl",
+   "ar": "بنت",
+   "img": "../../pics/girl-u5l2.png",
+   "parts": [
+    {
+     "t": "gi",
+     "ph": "g_er",
+     "audio": "../../phonics/chunks/g_er.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/girl.mp3"
+   }
+  },
+  {
+   "word": "grapes",
+   "ar": "عنب",
+   "img": "../../pics/grapes-u5l2.png",
+   "parts": [
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "ra",
+     "ph": "r_ai",
+     "audio": "../../phonics/chunks/r_ai.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/grapes.mp3"
+   }
+  },
+  {
+   "word": "guitar",
+   "ar": "جيتار",
+   "img": "../../pics/guitar-u5l2.png",
+   "parts": [
+    {
+     "t": "gu",
+     "ph": "g_u",
+     "audio": "../../phonics/chunks/g_u.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "ta",
+     "ph": "t_ar",
+     "audio": "../../phonics/chunks/t_ar.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/guitar.mp3"
+   }
+  },
+  {
+   "word": "gloves",
+   "ar": "قفازات",
+   "img": "../../pics/gloves-u5l2.png",
+   "parts": [
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "lo",
+     "ph": "l_u",
+     "audio": "../../phonics/chunks/l_u.mp3"
+    },
+    {
+     "t": "v",
+     "ph": "v",
+     "audio": "../../phonics/v.mp3"
+    },
+    {
+     "t": "e",
+     "spell": true,
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/gloves.mp3"
+   }
+  }
+ ],
+ "_note": "Book p89 (Mm: moon milk monkey mango mouse) and p91 (Gg: grapes goat guitar girl gloves). Tracing skipped. Pictures = round badges (*-u5l2).",
+ "lines": [
+  {
+   "who": "Mm",
+   "page": 1,
+   "words": [
+    [
+     "moon",
+     0.03,
+     0.69
+    ]
+   ],
+   "pic": "../../pics/moon-u5l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Mm",
+   "page": 1,
+   "words": [
+    [
+     "milk",
+     1.84,
+     2.41
+    ]
+   ],
+   "pic": "../../pics/milk-u5l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Mm",
+   "page": 1,
+   "words": [
+    [
+     "monkey",
+     3.58,
+     4.31
+    ]
+   ],
+   "pic": "../../pics/monkey-u5l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Mm",
+   "page": 1,
+   "words": [
+    [
+     "mango",
+     5.51,
+     6.2
+    ]
+   ],
+   "pic": "../../pics/mango-u5l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Mm",
+   "page": 1,
+   "words": [
+    [
+     "mouse",
+     7.36,
+     7.99
+    ]
+   ],
+   "pic": "../../pics/mouse-u5l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Gg",
+   "page": 2,
+   "words": [
+    [
+     "goat",
+     9.14,
+     9.69
+    ]
+   ],
+   "pic": "../../pics/goat-u5l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Gg",
+   "page": 2,
+   "words": [
+    [
+     "girl",
+     10.85,
+     11.23
+    ]
+   ],
+   "pic": "../../pics/girl-u5l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Gg",
+   "page": 2,
+   "words": [
+    [
+     "grapes",
+     12.39,
+     13.07
+    ]
+   ],
+   "pic": "../../pics/grapes-u5l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Gg",
+   "page": 2,
+   "words": [
+    [
+     "guitar",
+     14.24,
+     15.02
+    ]
+   ],
+   "pic": "../../pics/guitar-u5l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  },
+  {
+   "who": "Gg",
+   "page": 2,
+   "words": [
+    [
+     "gloves",
+     16.17,
+     16.85
+    ]
+   ],
+   "pic": "../../pics/gloves-u5l2.png",
+   "pos": [
+    50,
+    50
+   ]
+  }
+ ],
+ "end": 16.85
+}

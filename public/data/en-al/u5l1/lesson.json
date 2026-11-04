@@ -1,0 +1,524 @@
+{
+ "unit": 5,
+ "lesson": 1,
+ "title": "In My Town",
+ "sceneAlt": "A town",
+ "tabs": [
+  "words",
+  "booklet",
+  "grammar"
+ ],
+ "type": "al",
+ "scene": "img/scene.jpg",
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "department store",
+   "ar": "متجر متعدد الأقسام",
+   "img": "../../pics/u5-dept-store.jpg",
+   "parts": [
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "ar",
+     "ph": "ar",
+     "audio": "../../phonics/ar.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": " ",
+     "ph": ""
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "ore",
+     "ph": "or",
+     "audio": "../../phonics/or.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/department store.mp3"
+   }
+  },
+  {
+   "word": "movie theater",
+   "ar": "سينما",
+   "img": "../../pics/u5-movie-theater.jpg",
+   "parts": [
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
+    },
+    {
+     "t": "v",
+     "ph": "v",
+     "audio": "../../phonics/v.mp3"
+    },
+    {
+     "t": "ie",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    },
+    {
+     "t": " ",
+     "ph": ""
+    },
+    {
+     "t": "th",
+     "ph": "th",
+     "audio": "../../phonics/th.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/movie theater.mp3"
+   }
+  },
+  {
+   "word": "neighborhood",
+   "ar": "حي",
+   "img": "../../pics/u5-neighborhood.jpg",
+   "parts": [
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "eigh",
+     "ph": "ai",
+     "audio": "../../phonics/ai.mp3"
+    },
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/neighborhood.mp3"
+   }
+  },
+  {
+   "word": "bus",
+   "ar": "حافلة",
+   "img": "../../pics/u5-bus.jpg",
+   "parts": [
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "u",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/bus.mp3"
+   }
+  },
+  {
+   "word": "taxi",
+   "ar": "سيارة أجرة",
+   "img": "../../pics/u5-taxi.jpg",
+   "parts": [
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "x",
+     "ph": "x",
+     "audio": "../../phonics/x.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/taxi.mp3"
+   }
+  },
+  {
+   "word": "recreation center",
+   "ar": "مركز ترفيهي",
+   "img": "../../pics/u5-recreation-center.jpg",
+   "parts": [
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3",
+     "spell": true
+    },
+    {
+     "t": " ",
+     "ph": ""
+    },
+    {
+     "t": "c",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/recreation center.mp3"
+   }
+  },
+  {
+   "word": "street",
+   "ar": "شارع",
+   "img": "../../pics/u5-street.jpg",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "ee",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/street.mp3"
+   }
+  },
+  {
+   "word": "supermarket",
+   "ar": "سوبر ماركت",
+   "img": "../../pics/u5-supermarket.jpg",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "u",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "ar",
+     "ph": "ar",
+     "audio": "../../phonics/ar.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/supermarket.mp3"
+   }
+  },
+  {
+   "word": "swimming pool",
+   "ar": "حمام سباحة",
+   "img": "../../pics/u5-swimming-pool.jpg",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "w",
+     "ph": "w",
+     "audio": "../../phonics/w.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "mm",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "ng",
+     "ph": "ng",
+     "audio": "../../phonics/ng.mp3"
+    },
+    {
+     "t": " ",
+     "ph": ""
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "oo",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/swimming pool.mp3"
+   }
+  },
+  {
+   "word": "toy store",
+   "ar": "متجر ألعاب",
+   "img": "../../pics/u5-toy-store.jpg",
+   "parts": [
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "oy",
+     "ph": "oi",
+     "audio": "../../phonics/oi.mp3"
+    },
+    {
+     "t": " ",
+     "ph": ""
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "ore",
+     "ph": "or",
+     "audio": "../../phonics/or.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/toy store.mp3"
+   }
+  }
+ ],
+ "lines": [],
+ "end": 1,
+ "grammar": [
+  {
+   "title": "Directions",
+   "note": "We use these words to say where to go.",
+   "rows": [
+    [
+     {
+      "t": "turn left",
+      "a": "data/en-shared/q/turn-left.mp3"
+     },
+     {
+      "t": "Turn left at the corner.",
+      "a": "data/en-shared/q/turn-left-at-the-corner.mp3"
+     }
+    ],
+    [
+     {
+      "t": "turn right",
+      "a": "data/en-shared/q/turn-right.mp3"
+     },
+     {
+      "t": "Turn right at the corner.",
+      "a": "data/en-shared/q/turn-right-at-the-corner.mp3"
+     }
+    ],
+    [
+     {
+      "t": "go straight ahead",
+      "a": "data/en-shared/q/go-straight-ahead.mp3"
+     },
+     {
+      "t": "Go straight ahead.",
+      "a": "data/en-shared/q/go-straight-ahead.mp3"
+     }
+    ],
+    [
+     {
+      "t": "stop",
+      "a": "data/en-shared/q/stop.mp3"
+     },
+     {
+      "t": "Stop at the red sign.",
+      "a": "data/en-shared/q/stop-at-the-red-sign.mp3"
+     }
+    ]
+   ]
+  }
+ ]
+}

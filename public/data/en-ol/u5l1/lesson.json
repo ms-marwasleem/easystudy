@@ -1,0 +1,521 @@
+{
+ "id": "u5l1",
+ "unit": 5,
+ "lesson": 1,
+ "title": "Welcome to the Farm",
+ "task": "Listen to the following dialog.",
+ "scene": "scene.jpg",
+ "sceneAlt": "Noor and Ziad on the farm",
+ "audio": {
+  "normal": "normal.mp3",
+  "slow": "slow.mp3",
+  "slowRate": 0.75
+ },
+ "speakers": {
+  "Noor": "#D93D78",
+  "Ziad": "#1E8A7E",
+  "Farm": "#D93D78"
+ },
+ "pages": 2,
+ "compact": true,
+ "pageLayouts": [
+  "text",
+  "pictures"
+ ],
+ "pageTasks": [
+  "Listen to the following dialog.",
+  "Listen and repeat."
+ ],
+ "pagesBook": [
+  85,
+  86
+ ],
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "cow",
+   "ar": "بقرة",
+   "img": "../../pics/cow-u5l1.png",
+   "parts": [
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "ow",
+     "ph": "ow",
+     "audio": "../../phonics/ow.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/cow.mp3"
+   }
+  },
+  {
+   "word": "duck",
+   "ar": "بطة",
+   "img": "../../pics/duck-u3l4.png",
+   "parts": [
+    {
+     "t": "du",
+     "ph": "d_u",
+     "audio": "../../phonics/chunks/d_u.mp3"
+    },
+    {
+     "t": "ck",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u2l3/words/duck.mp3"
+   }
+  },
+  {
+   "word": "horse",
+   "ar": "حصان",
+   "img": "../../pics/horse-u3l4.png",
+   "parts": [
+    {
+     "t": "ho",
+     "ph": "h_or",
+     "audio": "../../phonics/chunks/h_or.mp3"
+    },
+    {
+     "t": "r",
+     "spell": true,
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "e",
+     "spell": true,
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u2l3/words/horse.mp3"
+   }
+  },
+  {
+   "word": "chicken",
+   "ar": "فراخ",
+   "img": "../../pics/chicken-u5l1.png",
+   "parts": [
+    {
+     "t": "ch",
+     "ph": "ch",
+     "audio": "../../phonics/ch.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "ck",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/chicken.mp3"
+   }
+  }
+ ],
+ "_note": "Book p85 dialog (Noor and Ziad), p86 (cow duck horse chicken: big / small).",
+ "lines": [
+  {
+   "who": "Noor",
+   "page": 1,
+   "words": [
+    [
+     "Look",
+     0.03,
+     0.29
+    ],
+    [
+     "at",
+     0.29,
+     0.57
+    ],
+    [
+     "the",
+     0.57,
+     0.94
+    ],
+    [
+     "cow!",
+     0.94,
+     1.19
+    ]
+   ]
+  },
+  {
+   "who": "Ziad",
+   "page": 1,
+   "words": [
+    [
+     "Wow!",
+     1.74,
+     2.12
+    ],
+    [
+     "The",
+     2.12,
+     2.24
+    ],
+    [
+     "cow",
+     2.24,
+     2.67
+    ],
+    [
+     "is",
+     2.67,
+     2.76
+    ],
+    [
+     "big!",
+     2.76,
+     3.14
+    ]
+   ]
+  },
+  {
+   "who": "Noor",
+   "page": 1,
+   "words": [
+    [
+     "And",
+     3.7,
+     4.04
+    ],
+    [
+     "look",
+     4.04,
+     4.26
+    ],
+    [
+     "at",
+     4.26,
+     4.47
+    ],
+    [
+     "the",
+     4.47,
+     4.71
+    ],
+    [
+     "duck!",
+     4.71,
+     4.9
+    ]
+   ]
+  },
+  {
+   "who": "Ziad",
+   "page": 1,
+   "words": [
+    [
+     "The",
+     5.46,
+     5.68
+    ],
+    [
+     "duck",
+     5.68,
+     5.92
+    ],
+    [
+     "is",
+     5.92,
+     6.2
+    ],
+    [
+     "small.",
+     6.2,
+     6.67
+    ]
+   ]
+  },
+  {
+   "who": "Noor",
+   "page": 1,
+   "words": [
+    [
+     "Do",
+     7.22,
+     7.49
+    ],
+    [
+     "you",
+     7.49,
+     7.77
+    ],
+    [
+     "see",
+     7.77,
+     7.97
+    ],
+    [
+     "the",
+     7.97,
+     8.24
+    ],
+    [
+     "horse?",
+     8.24,
+     8.53
+    ]
+   ]
+  },
+  {
+   "who": "Ziad",
+   "page": 1,
+   "words": [
+    [
+     "Yes!",
+     9.11,
+     9.41
+    ],
+    [
+     "The",
+     9.41,
+     9.69
+    ],
+    [
+     "horse",
+     9.69,
+     10.06
+    ],
+    [
+     "is",
+     10.06,
+     10.29
+    ],
+    [
+     "big,",
+     10.29,
+     10.68
+    ],
+    [
+     "too.",
+     10.68,
+     11.01
+    ]
+   ]
+  },
+  {
+   "who": "Noor",
+   "page": 1,
+   "words": [
+    [
+     "What",
+     11.57,
+     11.86
+    ],
+    [
+     "about",
+     11.86,
+     12.24
+    ],
+    [
+     "the",
+     12.24,
+     12.56
+    ],
+    [
+     "chicken?",
+     12.56,
+     12.94
+    ]
+   ]
+  },
+  {
+   "who": "Ziad",
+   "page": 1,
+   "words": [
+    [
+     "The",
+     13.49,
+     13.66
+    ],
+    [
+     "chicken",
+     13.66,
+     14.28
+    ],
+    [
+     "is",
+     14.28,
+     14.42
+    ],
+    [
+     "small.",
+     14.42,
+     14.9
+    ]
+   ]
+  },
+  {
+   "who": "Noor",
+   "page": 1,
+   "words": [
+    [
+     "I",
+     15.46,
+     15.65
+    ],
+    [
+     "love",
+     15.65,
+     16.04
+    ],
+    [
+     "farm",
+     16.04,
+     16.42
+    ],
+    [
+     "animals!",
+     16.42,
+     17.05
+    ]
+   ]
+  },
+  {
+   "who": "Farm",
+   "page": 2,
+   "words": [
+    [
+     "The",
+     17.61,
+     17.79
+    ],
+    [
+     "cow",
+     17.79,
+     18.29
+    ],
+    [
+     "is",
+     18.29,
+     18.4
+    ],
+    [
+     "big.",
+     18.4,
+     18.82
+    ]
+   ],
+   "pic": "../../pics/cow-u5l1.png"
+  },
+  {
+   "who": "Farm",
+   "page": 2,
+   "words": [
+    [
+     "The",
+     20.18,
+     20.4
+    ],
+    [
+     "duck",
+     20.4,
+     20.64
+    ],
+    [
+     "is",
+     20.64,
+     20.92
+    ],
+    [
+     "small.",
+     20.92,
+     21.39
+    ]
+   ],
+   "pic": "../../pics/duck-u3l4.png"
+  },
+  {
+   "who": "Farm",
+   "page": 2,
+   "words": [
+    [
+     "The",
+     22.74,
+     23.0
+    ],
+    [
+     "horse",
+     23.0,
+     23.54
+    ],
+    [
+     "is",
+     23.54,
+     23.64
+    ],
+    [
+     "big.",
+     23.64,
+     24.05
+    ]
+   ],
+   "pic": "../../pics/horse-u3l4.png"
+  },
+  {
+   "who": "Farm",
+   "page": 2,
+   "words": [
+    [
+     "The",
+     25.41,
+     25.58
+    ],
+    [
+     "chicken",
+     25.58,
+     26.2
+    ],
+    [
+     "is",
+     26.2,
+     26.34
+    ],
+    [
+     "small.",
+     26.34,
+     26.82
+    ]
+   ],
+   "pic": "../../pics/chicken-u5l1.png"
+  }
+ ],
+ "end": 26.82
+}

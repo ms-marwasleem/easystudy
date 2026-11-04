@@ -1,0 +1,400 @@
+{
+ "_note": "u5l1: p87 ex3-4, p88 ex5-7. Performance p42. Vocabulary list in vocab-review.md also has farm, milk, cheese, meat, eggs, big, small (no book pictures on these pages).",
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 3,
+   "page": 87,
+   "task": "Circle the animals that belong on the farm.",
+   "taskAudio": "../../en-shared/q/circle-the-animals-that-belong-on-the-farm.mp3",
+   "hint": "Tap the farm animals!",
+   "items": [
+    {
+     "word": "duck",
+     "audio": "../u2l3/words/duck.mp3",
+     "pic": "../../pics/duck-u3l4.png",
+     "answer": true
+    },
+    {
+     "word": "horse",
+     "audio": "../u2l3/words/horse.mp3",
+     "pic": "../../pics/horse-u3l4.png",
+     "answer": true
+    },
+    {
+     "word": "bird",
+     "audio": "../u2l1/words/bird.mp3",
+     "pic": "../../pics/bird.png",
+     "answer": false
+    },
+    {
+     "word": "cat",
+     "audio": "../u1l4/words/cat.mp3",
+     "pic": "../../pics/cat.png",
+     "answer": false
+    },
+    {
+     "word": "chicken",
+     "audio": "words/chicken.mp3",
+     "pic": "../../pics/chicken-u5l1.png",
+     "answer": true
+    },
+    {
+     "word": "cow",
+     "audio": "words/cow.mp3",
+     "pic": "../../pics/cow-u5l1.png",
+     "answer": true
+    },
+    {
+     "word": "dog",
+     "audio": "../u1l4/words/dog.mp3",
+     "pic": "../../pics/dog-u3l4.png",
+     "answer": false
+    },
+    {
+     "word": "turtle",
+     "audio": "words/turtle.mp3",
+     "pic": "../../pics/turtle-u5l1.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 4,
+   "page": 87,
+   "mark": "circle",
+   "task": "Mark the picture that matches each sentence.",
+   "taskAudio": "../../en-shared/q/mark-the-picture-that-matches-each-sentence.mp3",
+   "hint": "Listen, then tap the right picture!",
+   "items": [
+    {
+     "word": "The cow is big.",
+     "audio": "../../en-shared/q/thing-colour-cow-big.mp3",
+     "pics": [
+      "../../pics/cow-u5l1.png",
+      "../../pics/bird.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "The duck is small.",
+     "audio": "../../en-shared/q/thing-colour-duck-small.mp3",
+     "pics": [
+      "../../pics/horse-u3l4.png",
+      "../../pics/duck-u3l4.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "The horse is big.",
+     "audio": "../../en-shared/q/thing-colour-horse-big.mp3",
+     "pics": [
+      "../../pics/horse-u3l4.png",
+      "../../pics/chicken-u5l1.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "The chicken is small.",
+     "audio": "../../en-shared/q/thing-colour-chicken-small.mp3",
+     "pics": [
+      "../../pics/chicken-u5l1.png",
+      "../../pics/cow-u5l1.png"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "yesno",
+   "ex": 5,
+   "page": 88,
+   "task": "Do the word and the picture match?",
+   "taskAudio": "../../en-shared/q/do-the-word-and-the-picture-match.mp3",
+   "hint": "Match? Tap the tick. No? Tap the cross.",
+   "items": [
+    {
+     "word": "cow",
+     "audio": "words/cow.mp3",
+     "pic": "../../pics/cow-u5l1.png",
+     "answer": true
+    },
+    {
+     "word": "horse",
+     "audio": "../u2l3/words/horse.mp3",
+     "pic": "../../pics/duck-u3l4.png",
+     "answer": false
+    },
+    {
+     "word": "duck",
+     "audio": "../u2l3/words/duck.mp3",
+     "pic": "../../pics/horse-u3l4.png",
+     "answer": false
+    },
+    {
+     "word": "chicken",
+     "audio": "words/chicken.mp3",
+     "pic": "../../pics/chicken-u5l1.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 6,
+   "page": 88,
+   "task": "Circle the pictures that show something big.",
+   "taskAudio": "../../en-shared/q/circle-the-pictures-that-show-something-big.mp3",
+   "hint": "Tap the big things!",
+   "items": [
+    {
+     "word": "bus",
+     "audio": "words/bus.mp3",
+     "pic": "../../pics/bus-u5l1.png",
+     "answer": true
+    },
+    {
+     "word": "cup",
+     "audio": "../u4l4/words/cup.mp3",
+     "pic": "../../pics/cup-u4l4.png",
+     "answer": false
+    },
+    {
+     "word": "house",
+     "audio": "../u1l3/words/house.mp3",
+     "pic": "../../pics/house.png",
+     "answer": true
+    },
+    {
+     "word": "keys",
+     "audio": "words/keys.mp3",
+     "pic": "../../pics/keys-u5l1.png",
+     "answer": false
+    },
+    {
+     "word": "ant",
+     "audio": "../u2l4/words/ant.mp3",
+     "pic": "../../pics/ant.png",
+     "answer": false
+    },
+    {
+     "word": "elephant",
+     "audio": "../u4l2/words/elephant.mp3",
+     "pic": "../../pics/elephant-u4l2.png",
+     "answer": true
+    },
+    {
+     "word": "whale",
+     "audio": "words/whale.mp3",
+     "pic": "../../pics/whale-u5l1.png",
+     "answer": true
+    },
+    {
+     "word": "mouse",
+     "audio": "words/mouse.mp3",
+     "pic": "../../pics/mouse-u5l1.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 7,
+   "page": 88,
+   "mark": "circle",
+   "task": "Listen, point, and circle.",
+   "taskAudio": "../../en-shared/q/listen-point-and-circle.mp3",
+   "hint": "Listen, then tap the right picture!",
+   "items": [
+    {
+     "word": "The chicken is small.",
+     "audio": "../../en-shared/q/thing-colour-chicken-small.mp3",
+     "pics": [
+      "../../pics/cow-u5l1.png",
+      "../../pics/chicken-u5l1.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "The cow is big.",
+     "audio": "../../en-shared/q/thing-colour-cow-big.mp3",
+     "pics": [
+      "../../pics/chicken-u5l1.png",
+      "../../pics/cow-u5l1.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "The horse is big.",
+     "audio": "../../en-shared/q/thing-colour-horse-big.mp3",
+     "pics": [
+      "../../pics/horse-u3l4.png",
+      "../../pics/duck-u3l4.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "The duck is small.",
+     "audio": "../../en-shared/q/thing-colour-duck-small.mp3",
+     "pics": [
+      "../../pics/duck-u3l4.png",
+      "../../pics/horse-u3l4.png"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 42,
+   "grp": "classroom-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "chicken",
+     "scr": "kehcicn",
+     "audio": "words/chicken.mp3",
+     "pic": "../../pics/chicken-u5l1.png"
+    },
+    {
+     "word": "horse",
+     "scr": "ehsor",
+     "audio": "../u2l3/words/horse.mp3",
+     "pic": "../../pics/horse-u3l4.png"
+    },
+    {
+     "word": "duck",
+     "scr": "ukdc",
+     "audio": "../u2l3/words/duck.mp3",
+     "pic": "../../pics/duck-u3l4.png"
+    },
+    {
+     "word": "cow",
+     "scr": "woc",
+     "audio": "words/cow.mp3",
+     "pic": "../../pics/cow-u5l1.png"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 42,
+   "grp": "classroom-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "The",
+      "duck",
+      "is",
+      "small"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/thing-colour-duck-small.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "cow",
+      "is",
+      "big"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/thing-colour-cow-big.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "love",
+      "farm",
+      "animals"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-love-farm-animals-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "Do",
+      "you",
+      "see",
+      "a",
+      "horse"
+     ],
+     "end": "?",
+     "audio": "../../en-shared/q/do-you-see-a-horse-mp3.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 42,
+   "grp": "homework-1",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "cow",
+     "audio": "words/cow.mp3",
+     "pic": "../../pics/cow-u5l1.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "duck",
+     "audio": "../u2l3/words/duck.mp3",
+     "pic": "../../pics/duck-u3l4.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "horse",
+     "audio": "../u2l3/words/horse.mp3",
+     "pic": "../../pics/horse-u3l4.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "chicken",
+     "audio": "words/chicken.mp3",
+     "pic": "../../pics/chicken-u5l1.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ]
+    }
+   ]
+  }
+ ]
+}

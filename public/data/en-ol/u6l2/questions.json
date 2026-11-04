@@ -1,0 +1,758 @@
+{
+ "_note": "u6l2: p109 ex4, p111 ex8, p112 ex9-11 (tracing skipped; ex9 uses 8 of the 11 pictures). Performance p55-57.",
+ "sets": [
+  {
+   "type": "match",
+   "ex": 4,
+   "page": 109,
+   "task": "Circle the pictures that start with the letter (Bb).",
+   "taskAudio": "../../en-shared/q/start-circle-the-pictures-bb.mp3",
+   "hint": "Tap the pictures that start with Bb!",
+   "center": "Bb",
+   "centerAudio": "../../phonics/b.mp3",
+   "items": [
+    {
+     "word": "doll",
+     "audio": "../u3l4/words/doll.mp3",
+     "pic": "../../pics/doll-u3l4.png",
+     "answer": false,
+     "pos": [
+      10,
+      14
+     ]
+    },
+    {
+     "word": "bird",
+     "audio": "../u2l1/words/bird.mp3",
+     "pic": "../../pics/bird.png",
+     "answer": true,
+     "pos": [
+      12,
+      38
+     ]
+    },
+    {
+     "word": "bike",
+     "audio": "words/bike.mp3",
+     "pic": "../../pics/bike-u6l2.png",
+     "answer": true,
+     "pos": [
+      88,
+      22
+     ]
+    },
+    {
+     "word": "ball",
+     "audio": "../u2l1/words/ball.mp3",
+     "pic": "../../pics/ball.png",
+     "answer": true,
+     "pos": [
+      88,
+      52
+     ]
+    },
+    {
+     "word": "apple",
+     "audio": "../u2l3/words/apple.mp3",
+     "pic": "../../pics/apple-u2l3.png",
+     "answer": false,
+     "pos": [
+      20,
+      80
+     ]
+    },
+    {
+     "word": "banana",
+     "audio": "../u4l2/words/banana.mp3",
+     "pic": "../../pics/banana-u4l2.png",
+     "answer": true,
+     "pos": [
+      40,
+      82
+     ]
+    },
+    {
+     "word": "duck",
+     "audio": "../u2l3/words/duck.mp3",
+     "pic": "../../pics/duck-u3l4.png",
+     "answer": false,
+     "pos": [
+      60,
+      82
+     ]
+    },
+    {
+     "word": "snail",
+     "audio": "../u4l4/words/snail.mp3",
+     "pic": "../../pics/snail-u4l4.png",
+     "answer": false,
+     "pos": [
+      80,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 8,
+   "page": 111,
+   "task": "Circle the pictures that start with the letter (Ll).",
+   "taskAudio": "../../en-shared/q/start-circle-the-pictures-ll.mp3",
+   "hint": "Tap the pictures that start with Ll!",
+   "center": "Ll",
+   "centerAudio": "../../phonics/l.mp3",
+   "items": [
+    {
+     "word": "leaf",
+     "audio": "../u2l3/words/leaf.mp3",
+     "pic": "../../pics/leaf.png",
+     "answer": true,
+     "pos": [
+      10,
+      16
+     ]
+    },
+    {
+     "word": "lamp",
+     "audio": "words/lamp.mp3",
+     "pic": "../../pics/lamp-u6l2.png",
+     "answer": true,
+     "pos": [
+      90,
+      16
+     ]
+    },
+    {
+     "word": "fish",
+     "audio": "../u4l2/words/fish.mp3",
+     "pic": "../../pics/fish-u4l2.png",
+     "answer": false,
+     "pos": [
+      10,
+      50
+     ]
+    },
+    {
+     "word": "tiger",
+     "audio": "../u1l2/words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "answer": false,
+     "pos": [
+      90,
+      50
+     ]
+    },
+    {
+     "word": "lemon",
+     "audio": "words/lemon.mp3",
+     "pic": "../../pics/lemon-u6l2.png",
+     "answer": true,
+     "pos": [
+      28,
+      82
+     ]
+    },
+    {
+     "word": "lion",
+     "audio": "../u6l1/words/lion.mp3",
+     "pic": "../../pics/lion-u6l1.png",
+     "answer": true,
+     "pos": [
+      72,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 9,
+   "page": 112,
+   "task": "Circle the pictures that start with the letter (Bb).",
+   "taskAudio": "../../en-shared/q/start-circle-the-pictures-bb.mp3",
+   "hint": "Tap the pictures that start with Bb!",
+   "center": "Bb",
+   "centerAudio": "../../phonics/b.mp3",
+   "items": [
+    {
+     "word": "pizza",
+     "audio": "../u3l2/words/pizza.mp3",
+     "pic": "../../pics/pizza.png",
+     "answer": false,
+     "pos": [
+      10,
+      14
+     ]
+    },
+    {
+     "word": "ball",
+     "audio": "../u2l1/words/ball.mp3",
+     "pic": "../../pics/volleyball-u6l2.png",
+     "answer": true,
+     "pos": [
+      12,
+      38
+     ]
+    },
+    {
+     "word": "pencil",
+     "audio": "../u1l3/words/pencil.mp3",
+     "pic": "../../pics/pencil-u3l2.png",
+     "answer": false,
+     "pos": [
+      88,
+      22
+     ]
+    },
+    {
+     "word": "boy",
+     "audio": "words/boy.mp3",
+     "pic": "../../pics/boy-u6l2.png",
+     "answer": true,
+     "pos": [
+      88,
+      52
+     ]
+    },
+    {
+     "word": "banana",
+     "audio": "../u4l2/words/banana.mp3",
+     "pic": "../../pics/banana-u4l2.png",
+     "answer": true,
+     "pos": [
+      20,
+      80
+     ]
+    },
+    {
+     "word": "bike",
+     "audio": "words/bike.mp3",
+     "pic": "../../pics/bike-u6l2.png",
+     "answer": true,
+     "pos": [
+      40,
+      82
+     ]
+    },
+    {
+     "word": "duck",
+     "audio": "../u2l3/words/duck.mp3",
+     "pic": "../../pics/duck-u3l4.png",
+     "answer": false,
+     "pos": [
+      60,
+      82
+     ]
+    },
+    {
+     "word": "fork",
+     "audio": "../u4l2/words/fork.mp3",
+     "pic": "../../pics/fork-u4l2.png",
+     "answer": false,
+     "pos": [
+      80,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "ex": 10,
+   "page": 112,
+   "task": "Look, say, and write the beginning letter.",
+   "taskAudio": "../../en-shared/q/look-say-and-write-the-beginning-letter.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "bike",
+     "audio": "words/bike.mp3",
+     "pic": "../../pics/bike-u6l2.png",
+     "missing": 0,
+     "answer": "b"
+    },
+    {
+     "word": "boy",
+     "audio": "words/boy.mp3",
+     "pic": "../../pics/boy-u6l2.png",
+     "missing": 0,
+     "answer": "b"
+    },
+    {
+     "word": "banana",
+     "audio": "../u4l2/words/banana.mp3",
+     "pic": "../../pics/banana-u4l2.png",
+     "missing": 0,
+     "answer": "b"
+    },
+    {
+     "word": "ball",
+     "audio": "../u2l1/words/ball.mp3",
+     "pic": "../../pics/ball.png",
+     "missing": 0,
+     "answer": "b"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "ex": 11,
+   "page": 112,
+   "task": "Write the missing letter.",
+   "taskAudio": "../../en-shared/q/write-the-missing-letter.mp3",
+   "hint": "Type the missing letter!",
+   "items": [
+    {
+     "word": "lion",
+     "audio": "../u6l1/words/lion.mp3",
+     "pic": "../../pics/lion-u6l1.png",
+     "missing": 0,
+     "answer": "l"
+    },
+    {
+     "word": "leaf",
+     "audio": "../u2l3/words/leaf.mp3",
+     "pic": "../../pics/leaf.png",
+     "missing": 0,
+     "answer": "l"
+    },
+    {
+     "word": "lamp",
+     "audio": "words/lamp.mp3",
+     "pic": "../../pics/lamp-u6l2.png",
+     "missing": 0,
+     "answer": "l"
+    },
+    {
+     "word": "lemon",
+     "audio": "words/lemon.mp3",
+     "pic": "../../pics/lemon-u6l2.png",
+     "missing": 0,
+     "answer": "l"
+    },
+    {
+     "word": "lunch",
+     "audio": "words/lunch.mp3",
+     "pic": "../../pics/lunch-u6l2.png",
+     "missing": 0,
+     "answer": "l"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "ex": 1,
+   "page": 55,
+   "task": "Write the missing sound.",
+   "taskAudio": "../../en-shared/q/write-the-missing-sound.mp3",
+   "hint": "Type the first letter!",
+   "book": "workbook",
+   "model": "Classroom",
+   "grp": "classroom-1",
+   "items": [
+    {
+     "word": "bike",
+     "audio": "words/bike.mp3",
+     "pic": "../../pics/bike-u6l2.png",
+     "missing": 0,
+     "answer": "b"
+    },
+    {
+     "word": "leaf",
+     "audio": "../u2l3/words/leaf.mp3",
+     "pic": "../../pics/leaf.png",
+     "missing": 0,
+     "answer": "l"
+    },
+    {
+     "word": "ball",
+     "audio": "../u2l1/words/ball.mp3",
+     "pic": "../../pics/ball.png",
+     "missing": 0,
+     "answer": "b"
+    },
+    {
+     "word": "lamp",
+     "audio": "words/lamp.mp3",
+     "pic": "../../pics/lamp-u6l2.png",
+     "missing": 0,
+     "answer": "l"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 55,
+   "grp": "classroom-2",
+   "task": "Look, read, and write.",
+   "taskAudio": "../../en-shared/q/look-read-and-write.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "word": "I can see a boy.",
+     "lead": "I can see a",
+     "options": [
+      "boy",
+      "bike"
+     ],
+     "answer": 0,
+     "pic": "../../pics/boy-u6l2.png",
+     "audio": "../../en-shared/q/i-can-see-a-boy.mp3"
+    },
+    {
+     "word": "There is a lamp.",
+     "lead": "There is a",
+     "options": [
+      "lamp",
+      "lion"
+     ],
+     "answer": 0,
+     "pic": "../../pics/lamp-u6l2.png",
+     "audio": "../../en-shared/q/there-is-a-lamp.mp3"
+    },
+    {
+     "word": "This is my lunch.",
+     "lead": "This is my",
+     "options": [
+      "lemon",
+      "lunch"
+     ],
+     "answer": 1,
+     "pic": "../../pics/lunch-u6l2.png",
+     "audio": "../../en-shared/q/this-is-my-lunch.mp3"
+    },
+    {
+     "word": "The leaf is green.",
+     "lead": "The",
+     "options": [
+      "lamp",
+      "leaf"
+     ],
+     "answer": 1,
+     "pic": "../../pics/leaf.png",
+     "tail": "is green.",
+     "audio": "../../en-shared/q/thing-colour-leaf-green.mp3"
+    },
+    {
+     "word": "The banana is yellow.",
+     "lead": "The",
+     "options": [
+      "ball",
+      "banana"
+     ],
+     "answer": 1,
+     "pic": "../../pics/banana-u4l2.png",
+     "tail": "is yellow.",
+     "audio": "../../en-shared/q/thing-colour-banana-yellow.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 55,
+   "grp": "homework-1",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "boy",
+     "audio": "words/boy.mp3",
+     "pic": "../../pics/boy-u6l2.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "lemon",
+     "audio": "words/lemon.mp3",
+     "pic": "../../pics/lemon-u6l2.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "ball",
+     "audio": "../u2l1/words/ball.mp3",
+     "pic": "../../pics/ball.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "banana",
+     "audio": "../u4l2/words/banana.mp3",
+     "pic": "../../pics/banana-u4l2.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 1,
+   "page": 56,
+   "grp": "weekly-a-1",
+   "task": "Look, read, and write.",
+   "taskAudio": "../../en-shared/q/look-read-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "snake",
+     "audio": "../u2l2/words/snake.mp3",
+     "pic": "../../pics/snake.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "bike",
+     "audio": "words/bike.mp3",
+     "pic": "../../pics/bike-u6l2.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "lamp",
+     "audio": "words/lamp.mp3",
+     "pic": "../../pics/lamp-u6l2.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 2,
+   "page": 56,
+   "grp": "weekly-a-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "can",
+      "see",
+      "a",
+      "lion"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-can-see-a-lion-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "We",
+      "love",
+      "the",
+      "jungle"
+     ],
+     "end": "!",
+     "audio": "../../en-shared/q/we-love-the-jungle-mp3.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 1,
+   "page": 56,
+   "grp": "weekly-b-1",
+   "task": "Look, read, and write.",
+   "taskAudio": "../../en-shared/q/look-read-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "lion",
+     "audio": "../u6l1/words/lion.mp3",
+     "pic": "../../pics/lion-u6l1.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "lemon",
+     "audio": "words/lemon.mp3",
+     "pic": "../../pics/lemon-u6l2.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "lunch",
+     "audio": "words/lunch.mp3",
+     "pic": "../../pics/lunch-u6l2.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 2,
+   "page": 56,
+   "grp": "weekly-b-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "see",
+      "an",
+      "elephant"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-see-an-elephant-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "A",
+      "tiger",
+      "has",
+      "4",
+      "legs"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/a-tiger-has-4-legs-mp3.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 1,
+   "page": 57,
+   "grp": "weekly-c-1",
+   "task": "Look, read, and write.",
+   "taskAudio": "../../en-shared/q/look-read-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "leaf",
+     "audio": "../u2l3/words/leaf.mp3",
+     "pic": "../../pics/leaf.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "tiger",
+     "audio": "../u1l2/words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "ball",
+     "audio": "../u2l1/words/ball.mp3",
+     "pic": "../../pics/ball.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 2,
+   "page": 57,
+   "grp": "weekly-c-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "can",
+      "see",
+      "2",
+      "lions"
+     ],
+     "end": "!",
+     "audio": "../../en-shared/q/i-can-see-2-lions-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "There",
+      "is",
+      "a",
+      "tiger"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/there-is-a-tiger-mp3.mp3"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,447 @@
+{
+ "unit": 4,
+ "lesson": 2,
+ "title": "Things I Have at Home",
+ "sceneAlt": "A bedroom",
+ "tabs": [
+  "words",
+  "booklet",
+  "grammar"
+ ],
+ "type": "al",
+ "scene": "img/scene.jpg",
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "alarm clock",
+   "ar": "منبه",
+   "img": "../../pics/u4-alarmclock.png",
+   "parts": [
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "ar",
+     "ph": "ar",
+     "audio": "../../phonics/ar.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    },
+    {
+     "t": "ck",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/alarm clock.mp3"
+   }
+  },
+  {
+   "word": "blanket",
+   "ar": "بطانية",
+   "img": "../../pics/u4-blanket.png",
+   "parts": [
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "nk",
+     "ph": "nk",
+     "audio": "../../phonics/nk.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/blanket.mp3"
+   }
+  },
+  {
+   "word": "ceiling",
+   "ar": "سقف",
+   "img": "../../pics/u4-ceiling.png",
+   "parts": [
+    {
+     "t": "ce",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "ng",
+     "ph": "ng",
+     "audio": "../../phonics/ng.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/ceiling.mp3"
+   }
+  },
+  {
+   "word": "nightstand",
+   "ar": "كومودينو",
+   "img": "../../pics/u4-nightstand.png",
+   "parts": [
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "igh",
+     "ph": "igh",
+     "audio": "../../phonics/igh.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/nightstand.mp3"
+   }
+  },
+  {
+   "word": "lamp",
+   "ar": "مصباح",
+   "img": "../../pics/u4-lamp.png",
+   "parts": [
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/lamp.mp3"
+   }
+  },
+  {
+   "word": "cushion",
+   "ar": "وسادة",
+   "img": "../../pics/u4-cushion.png",
+   "parts": [
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "u",
+     "ph": "oo-short",
+     "audio": "../../phonics/oo-short.mp3"
+    },
+    {
+     "t": "sh",
+     "ph": "sh",
+     "audio": "../../phonics/sh.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/cushion.mp3"
+   }
+  },
+  {
+   "word": "drawers",
+   "ar": "أدراج",
+   "img": "../../pics/u4-drawers.png",
+   "parts": [
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/drawers.mp3"
+   }
+  },
+  {
+   "word": "mirror",
+   "ar": "مرآة",
+   "img": "../../pics/u4-mirror.png",
+   "parts": [
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/mirror.mp3"
+   }
+  },
+  {
+   "word": "shampoo",
+   "ar": "شامبو",
+   "img": "../../pics/u4-shampoo.png",
+   "parts": [
+    {
+     "t": "sh",
+     "ph": "sh",
+     "audio": "../../phonics/sh.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "oo",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/shampoo.mp3"
+   }
+  },
+  {
+   "word": "towel",
+   "ar": "منشفة",
+   "img": "../../pics/u4-towel.png",
+   "parts": [
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "ow",
+     "ph": "ow",
+     "audio": "../../phonics/ow.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/towel.mp3"
+   }
+  }
+ ],
+ "lines": [],
+ "end": 1,
+ "grammar": [
+  {
+   "title": "Prepositions of place",
+   "note": "These small words tell us where something is.",
+   "rows": [
+    [
+     {
+      "t": "The dog is in the box.",
+      "a": "data/en-shared/q/the-dog-is-in-the-box.mp3"
+     }
+    ],
+    [
+     {
+      "t": "The man is on the chair.",
+      "a": "data/en-shared/q/the-man-is-on-the-chair.mp3"
+     }
+    ],
+    [
+     {
+      "t": "The boy is next to the tree.",
+      "a": "data/en-shared/q/the-boy-is-next-to-the-tree.mp3"
+     }
+    ],
+    [
+     {
+      "t": "The cat is under the table.",
+      "a": "data/en-shared/q/the-cat-is-under-the-table.mp3"
+     }
+    ],
+    [
+     {
+      "t": "The dog is between the chairs.",
+      "a": "data/en-shared/q/the-dog-is-between-the-chairs.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "reveal",
+    "one": true,
+    "items": [
+     {
+      "t": "The dog is in the box.",
+      "a": "data/en-shared/q/the-dog-is-in-the-box.mp3",
+      "hl": "in",
+      "fig": {
+       "place": "in"
+      }
+     },
+     {
+      "t": "The man is on the chair.",
+      "a": "data/en-shared/q/the-man-is-on-the-chair.mp3",
+      "hl": "on",
+      "fig": {
+       "place": "on"
+      }
+     },
+     {
+      "t": "The boy is next to the tree.",
+      "a": "data/en-shared/q/the-boy-is-next-to-the-tree.mp3",
+      "hl": "next to",
+      "fig": {
+       "place": "next to"
+      }
+     },
+     {
+      "t": "The cat is under the table.",
+      "a": "data/en-shared/q/the-cat-is-under-the-table.mp3",
+      "hl": "under",
+      "fig": {
+       "place": "under"
+      }
+     },
+     {
+      "t": "The dog is between the chairs.",
+      "a": "data/en-shared/q/the-dog-is-between-the-chairs.mp3",
+      "hl": "between",
+      "fig": {
+       "place": "between"
+      }
+     }
+    ]
+   }
+  }
+ ]
+}

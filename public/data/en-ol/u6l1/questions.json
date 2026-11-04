@@ -1,0 +1,393 @@
+{
+ "_note": "u6l1: p106 ex2-4, p107 ex5-6. Performance p54. ex3 uses horse as the second picture (book donkey too hard to cut cleanly); ex5 black monkey skipped.",
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 2,
+   "page": 106,
+   "task": "Circle the animals that belong in the jungle.",
+   "taskAudio": "../../en-shared/q/circle-the-animals-that-belong-in-the-jungle.mp3",
+   "hint": "Tap the jungle animals!",
+   "items": [
+    {
+     "word": "elephant",
+     "audio": "../u4l2/words/elephant.mp3",
+     "pic": "../../pics/elephant-u4l2.png",
+     "answer": true
+    },
+    {
+     "word": "giraffe",
+     "audio": "words/giraffe.mp3",
+     "pic": "../../pics/giraffe-u6l1.png",
+     "answer": true
+    },
+    {
+     "word": "cow",
+     "audio": "../u5l1/words/cow.mp3",
+     "pic": "../../pics/cow-u5l1.png",
+     "answer": false
+    },
+    {
+     "word": "duck",
+     "audio": "../u2l3/words/duck.mp3",
+     "pic": "../../pics/duck-u3l4.png",
+     "answer": false
+    },
+    {
+     "word": "lion",
+     "audio": "words/lion.mp3",
+     "pic": "../../pics/lion-u6l1.png",
+     "answer": true
+    },
+    {
+     "word": "monkey",
+     "audio": "../u5l2/words/monkey.mp3",
+     "pic": "../../pics/monkey-u5l2.png",
+     "answer": true
+    },
+    {
+     "word": "chicken",
+     "audio": "../u5l1/words/chicken.mp3",
+     "pic": "../../pics/chicken-u5l1.png",
+     "answer": false
+    },
+    {
+     "word": "tiger",
+     "audio": "../u1l2/words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 3,
+   "page": 106,
+   "mark": "circle",
+   "task": "Listen, point, and circle.",
+   "taskAudio": "../../en-shared/q/listen-point-and-circle.mp3",
+   "hint": "Listen, then tap the right picture!",
+   "items": [
+    {
+     "word": "lion",
+     "audio": "words/lion.mp3",
+     "pics": [
+      "../../pics/lion-u6l1.png",
+      "../../pics/horse-u3l4.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "elephant",
+     "audio": "../u4l2/words/elephant.mp3",
+     "pics": [
+      "../../pics/duck-u3l4.png",
+      "../../pics/elephant-u4l2.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "monkey",
+     "audio": "../u5l2/words/monkey.mp3",
+     "pics": [
+      "../../pics/monkey-u5l2.png",
+      "../../pics/chicken-u5l1.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "giraffe",
+     "audio": "words/giraffe.mp3",
+     "pics": [
+      "../../pics/cow-u5l1.png",
+      "../../pics/giraffe-u6l1.png"
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "type": "yesno",
+   "ex": 4,
+   "page": 106,
+   "task": "Do the word and the picture match?",
+   "taskAudio": "../../en-shared/q/do-the-word-and-the-picture-match.mp3",
+   "hint": "Match? Tap the tick. No? Tap the cross.",
+   "items": [
+    {
+     "word": "snake",
+     "audio": "../u2l2/words/snake.mp3",
+     "pic": "../../pics/goat-u5l2.png",
+     "answer": false
+    },
+    {
+     "word": "tiger",
+     "audio": "../u1l2/words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "answer": true
+    },
+    {
+     "word": "giraffe",
+     "audio": "words/giraffe.mp3",
+     "pic": "../../pics/giraffe-u6l1.png",
+     "answer": true
+    },
+    {
+     "word": "elephant",
+     "audio": "../u4l2/words/elephant.mp3",
+     "pic": "../../pics/cow-u5l1.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 5,
+   "page": 107,
+   "task": "Circle the animals that have 4 legs.",
+   "taskAudio": "../../en-shared/q/circle-the-animals-that-have-4-legs.mp3",
+   "hint": "Tap the animals with 4 legs!",
+   "items": [
+    {
+     "word": "cow",
+     "audio": "../u5l1/words/cow.mp3",
+     "pic": "../../pics/cow-u5l1.png",
+     "answer": true
+    },
+    {
+     "word": "lion",
+     "audio": "words/lion.mp3",
+     "pic": "../../pics/lion-u6l1.png",
+     "answer": true
+    },
+    {
+     "word": "tiger",
+     "audio": "../u1l2/words/tiger.mp3",
+     "pic": "../../pics/tiger.png",
+     "answer": true
+    },
+    {
+     "word": "elephant",
+     "audio": "../u4l2/words/elephant.mp3",
+     "pic": "../../pics/elephant-u4l2.png",
+     "answer": true
+    },
+    {
+     "word": "snake",
+     "audio": "../u2l2/words/snake.mp3",
+     "pic": "../../pics/snake.png",
+     "answer": false
+    },
+    {
+     "word": "duck",
+     "audio": "../u2l3/words/duck.mp3",
+     "pic": "../../pics/duck-u3l4.png",
+     "answer": false
+    },
+    {
+     "word": "horse",
+     "audio": "../u2l3/words/horse.mp3",
+     "pic": "../../pics/horse-u3l4.png",
+     "answer": true
+    },
+    {
+     "word": "chicken",
+     "audio": "../u5l1/words/chicken.mp3",
+     "pic": "../../pics/chicken-u5l1.png",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 6,
+   "page": 107,
+   "task": "Match the pictures with the correct word.",
+   "taskAudio": "../../en-shared/q/match-the-pictures-with-the-correct-word.mp3",
+   "hint": "Match the picture and the word!",
+   "items": [
+    {
+     "word": "lion",
+     "audio": "words/lion.mp3",
+     "pic": "../../pics/lion-u6l1.png"
+    },
+    {
+     "word": "tiger",
+     "audio": "../u1l2/words/tiger.mp3",
+     "pic": "../../pics/tiger.png"
+    },
+    {
+     "word": "elephant",
+     "audio": "../u4l2/words/elephant.mp3",
+     "pic": "../../pics/elephant-u4l2.png"
+    },
+    {
+     "word": "giraffe",
+     "audio": "words/giraffe.mp3",
+     "pic": "../../pics/giraffe-u6l1.png"
+    },
+    {
+     "word": "monkey",
+     "audio": "../u5l2/words/monkey.mp3",
+     "pic": "../../pics/monkey-u5l2.png"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 54,
+   "grp": "classroom-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "tiger",
+     "scr": "trgei",
+     "audio": "../u1l2/words/tiger.mp3",
+     "pic": "../../pics/tiger.png"
+    },
+    {
+     "word": "lion",
+     "scr": "oinl",
+     "audio": "words/lion.mp3",
+     "pic": "../../pics/lion-u6l1.png"
+    },
+    {
+     "word": "giraffe",
+     "scr": "fgiafre",
+     "audio": "words/giraffe.mp3",
+     "pic": "../../pics/giraffe-u6l1.png"
+    },
+    {
+     "word": "snake",
+     "scr": "kesan",
+     "audio": "../u2l2/words/snake.mp3",
+     "pic": "../../pics/snake.png"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 54,
+   "grp": "classroom-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "How",
+      "many",
+      "lions",
+      "can",
+      "you",
+      "see"
+     ],
+     "end": "?",
+     "audio": "../../en-shared/q/how-many-lions-can-you-see-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "The",
+      "monkey",
+      "is",
+      "in",
+      "the",
+      "tree"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/the-monkey-is-in-the-tree-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "Where",
+      "is",
+      "the",
+      "monkey"
+     ],
+     "end": "?",
+     "audio": "../../en-shared/q/where-is-the-monkey-mp3.mp3"
+    },
+    {
+     "chunks": [
+      "There",
+      "is",
+      "a",
+      "snake",
+      "on",
+      "the",
+      "ground"
+     ],
+     "end": "!",
+     "audio": "../../en-shared/q/there-is-a-snake-on-the-ground-mp3.mp3"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 54,
+   "grp": "homework-1",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "word": "There is a snake on the ground!",
+     "lead": "There is a",
+     "options": [
+      "snake",
+      "lion"
+     ],
+     "answer": 0,
+     "pic": "../../pics/snake.png",
+     "tail": "on the ground!",
+     "audio": "../../en-shared/q/there-is-a-snake-on-the-ground-mp3.mp3"
+    },
+    {
+     "word": "I can see an elephant.",
+     "lead": "I can see an",
+     "options": [
+      "elephant",
+      "giraffe"
+     ],
+     "answer": 0,
+     "pic": "../../pics/elephant-u4l2.png",
+     "audio": "../../en-shared/q/i-can-see-an-elephant.mp3"
+    },
+    {
+     "word": "The monkey is in the tree.",
+     "lead": "The",
+     "options": [
+      "monkey",
+      "tiger"
+     ],
+     "answer": 0,
+     "pic": "../../pics/monkey-u5l2.png",
+     "tail": "is in the tree.",
+     "audio": "../../en-shared/q/the-monkey-is-in-the-tree-mp3.mp3"
+    },
+    {
+     "word": "I can see a lion.",
+     "lead": "I can see a",
+     "options": [
+      "lion",
+      "tiger"
+     ],
+     "answer": 0,
+     "pic": "../../pics/lion-u6l1.png",
+     "audio": "../../en-shared/q/i-can-see-a-lion.mp3"
+    }
+   ]
+  }
+ ]
+}

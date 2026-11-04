@@ -1,0 +1,573 @@
+{
+ "sets": [
+  {
+   "type": "type",
+   "task": "Read and complete the missing letters.",
+   "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "say",
+     "missing": 2,
+     "answer": "y",
+     "pic": "../../pics/say.png",
+     "audio": "../../en-shared/q/say.mp3"
+    },
+    {
+     "word": "read",
+     "missing": 2,
+     "answer": "a",
+     "pic": "../../pics/read.png",
+     "audio": "../../en-shared/q/read.mp3"
+    },
+    {
+     "word": "write",
+     "missing": 2,
+     "answer": "i",
+     "pic": "../../pics/write.jpg",
+     "audio": "../../en-shared/q/write.mp3"
+    },
+    {
+     "word": "answer",
+     "missing": 2,
+     "answer": "s",
+     "pic": "../../pics/answer.png",
+     "audio": "../../en-shared/q/answer.mp3"
+    }
+   ],
+   "page": 41,
+   "ex": 1
+  },
+  {
+   "type": "link",
+   "task": "Match the opposites.",
+   "taskAudio": "../../en-shared/q/match-the-opposites.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "answer",
+     "text2": "ask",
+     "audio": "../../en-shared/q/answer.mp3",
+     "audio2": "../../en-shared/q/ask.mp3"
+    },
+    {
+     "word": "write",
+     "text2": "read",
+     "audio": "../../en-shared/q/write.mp3",
+     "audio2": "../../en-shared/q/read.mp3"
+    },
+    {
+     "word": "open",
+     "text2": "close",
+     "audio": "../../en-shared/q/open.mp3",
+     "audio2": "../../en-shared/q/close.mp3"
+    },
+    {
+     "word": "sit down",
+     "text2": "stand up",
+     "audio": "../../en-shared/q/sit-down.mp3",
+     "audio2": "../../en-shared/q/stand-up.mp3"
+    },
+    {
+     "word": "go",
+     "text2": "come",
+     "audio": "../../en-shared/q/go.mp3",
+     "audio2": "../../en-shared/q/come.mp3"
+    }
+   ],
+   "page": 41,
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "task": "Choose the correct answer from a, b, c or d.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-from-a-b-c-or-d.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "We use our finger to ____ at the picture we like.",
+     "options": [
+      "go",
+      "point",
+      "open",
+      "come"
+     ],
+     "answer": 1,
+     "word": "We use our finger to point at the picture we like.",
+     "audio": "../../en-shared/q/we-use-our-finger-to-point-at-the-picture-we-like.mp3",
+     "parts": [
+      "../../en-shared/q/we-use-our-finger-to.mp3",
+      "../../en-shared/q/at-the-picture-we-like.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-41feed28d3.mp3"
+    },
+    {
+     "stem": "I can ____ the words in my new book.",
+     "options": [
+      "point",
+      "sit",
+      "read",
+      "eat"
+     ],
+     "answer": 2,
+     "word": "I can read the words in my new book.",
+     "audio": "../../en-shared/q/i-can-read-the-words-in-my-new-book.mp3",
+     "parts": [
+      "../../en-shared/q/i-can.mp3",
+      "../../en-shared/q/the-words-in-my-new-book.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-1c60a16d5d.mp3"
+    },
+    {
+     "stem": "I can ____ this question.",
+     "options": [
+      "answer",
+      "open",
+      "close",
+      "want"
+     ],
+     "answer": 0,
+     "word": "I can answer this question.",
+     "audio": "../../en-shared/q/i-can-answer-this-question.mp3",
+     "parts": [
+      "../../en-shared/q/i-can.mp3",
+      "../../en-shared/q/this-question.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-0e59be1187.mp3"
+    },
+    {
+     "stem": "I use my pencil to ____ the number 5 on my paper.",
+     "options": [
+      "write",
+      "read",
+      "let",
+      "pay"
+     ],
+     "answer": 0,
+     "word": "I use my pencil to write the number 5 on my paper.",
+     "audio": "../../en-shared/q/i-use-my-pencil-to-write-the-number-5-on-my-paper.mp3",
+     "parts": [
+      "../../en-shared/q/i-use-my-pencil-to.mp3",
+      "../../en-shared/q/the-number-5-on-my-paper.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-f4df4017f0.mp3"
+    },
+    {
+     "stem": "When the song is over, we will ____ and play a game.",
+     "options": [
+      "sit down",
+      "take",
+      "stand up",
+      "close"
+     ],
+     "answer": 2,
+     "word": "When the song is over, we will stand up and play a game.",
+     "audio": "../../en-shared/q/when-the-song-is-over-we-will-stand-up-and-play-a-game.mp3",
+     "parts": [
+      "../../en-shared/q/when-the-song-is-over-we-will.mp3",
+      "../../en-shared/q/and-play-a-game.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-6a1bc5699f.mp3"
+    },
+    {
+     "stem": "We ____ the door to go outside for recess.",
+     "options": [
+      "close",
+      "open",
+      "write",
+      "learn"
+     ],
+     "answer": 1,
+     "word": "We open the door to go outside for recess.",
+     "audio": "../../en-shared/q/we-open-the-door-to-go-outside-for-recess.mp3",
+     "parts": [
+      "../../en-shared/q/we.mp3",
+      "../../en-shared/q/the-door-to-go-outside-for-recess.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-23c1308418.mp3"
+    },
+    {
+     "stem": "The teacher will ____ 'hello' to the class.",
+     "options": [
+      "ask",
+      "open",
+      "win",
+      "say"
+     ],
+     "answer": 3,
+     "word": "The teacher will say 'hello' to the class.",
+     "audio": "../../en-shared/q/the-teacher-will-say-hello-to-the-class.mp3",
+     "parts": [
+      "../../en-shared/q/the-teacher-will.mp3",
+      "../../en-shared/q/hello-to-the-class.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-a9cc3b1997.mp3"
+    },
+    {
+     "stem": "The boy will ____ his mom, 'Can I have a snack?'",
+     "options": [
+      "answer",
+      "play",
+      "ask",
+      "sell"
+     ],
+     "answer": 2,
+     "word": "The boy will ask his mom, 'Can I have a snack?'",
+     "audio": "../../en-shared/q/the-boy-will-ask-his-mom-can-i-have-a-snack.mp3",
+     "parts": [
+      "../../en-shared/q/the-boy-will.mp3",
+      "../../en-shared/q/his-mom-can-i-have-a-snack.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-7835f1fa9e.mp3"
+    },
+    {
+     "stem": "After we play, we ____ the toy box to put the toys away.",
+     "options": [
+      "like",
+      "open",
+      "close",
+      "stand up"
+     ],
+     "answer": 1,
+     "word": "After we play, we open the toy box to put the toys away.",
+     "audio": "../../en-shared/q/after-we-play-we-open-the-toy-box-to-put-the-toys-away.mp3",
+     "parts": [
+      "../../en-shared/q/after-we-play-we.mp3",
+      "../../en-shared/q/the-toy-box-to-put-the-toys-away.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-88a008a9f3.mp3"
+    },
+    {
+     "stem": "It is time for a story, so everyone should ____ on the carpet.",
+     "options": [
+      "buy",
+      "sit down",
+      "write",
+      "read"
+     ],
+     "answer": 1,
+     "word": "It is time for a story, so everyone should sit down on the carpet.",
+     "audio": "../../en-shared/q/it-is-time-for-a-story-so-everyone-should-sit-down-a7878109.mp3",
+     "parts": [
+      "../../en-shared/q/it-is-time-for-a-story-so-everyone-should.mp3",
+      "../../en-shared/q/on-the-carpet.mp3"
+     ],
+     "askAudio": "../../en-shared/q/askc-c52c327525.mp3"
+    }
+   ],
+   "page": 41,
+   "ex": 3
+  },
+  {
+   "type": "cloze",
+   "task": "Choose the correct answer to complete the text.",
+   "taskAudio": "../../en-shared/q/choose-the-correct-answer-to-complete-the-text.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "text": "My school day. Every morning, I walk into my school. I [[close]] the classroom door and sit at my desk. My teacher tells us to [[stand up]] to stretch our bodies. Then we all [[say]] hello to each other. In reading time, we [[read]] a story together. If I don't understand something, I [[ask]] the teacher to explain.",
+     "bank": [
+      "ask",
+      "stand up",
+      "say",
+      "close",
+      "read"
+     ],
+     "audio": "../../en-shared/q/my-school-day-every-morning-i-walk-into-my-school-6ad21055.mp3"
+    }
+   ],
+   "page": 43,
+   "ex": 4
+  },
+  {
+   "type": "order",
+   "task": "Rearrange the following sentences.",
+   "taskAudio": "../../en-shared/q/rearrange-the-following-sentences.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "write",
+      "my",
+      "name"
+     ],
+     "end": ".",
+     "word": "I write my name.",
+     "audio": "../../en-shared/q/i-write-my-name.mp3"
+    },
+    {
+     "chunks": [
+      "They",
+      "open",
+      "the",
+      "door"
+     ],
+     "end": ".",
+     "word": "They open the door.",
+     "audio": "../../en-shared/q/they-open-the-door.mp3"
+    },
+    {
+     "chunks": [
+      "Sit",
+      "down",
+      ", please"
+     ],
+     "end": ".",
+     "word": "Sit down, please.",
+     "audio": "../../en-shared/q/sit-down-please.mp3"
+    },
+    {
+     "chunks": [
+      "Say",
+      "the",
+      "truth"
+     ],
+     "end": ".",
+     "word": "Say the truth.",
+     "audio": "../../en-shared/q/say-the-truth.mp3"
+    },
+    {
+     "chunks": [
+      "Answer",
+      "the",
+      "question"
+     ],
+     "end": ".",
+     "word": "Answer the question.",
+     "audio": "../../en-shared/q/answer-the-question.mp3"
+    }
+   ],
+   "page": 43,
+   "ex": 5
+  },
+  {
+   "type": "explain",
+   "task": "Reading Comprehension. A Day in Our Classroom.",
+   "taskAudio": "../../en-shared/q/reading-comprehension-a-day-in-our-classroom.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "pics": [
+      "../../pics/scene-u2l2.jpg"
+     ],
+     "lines": [
+      {
+       "t": "A Day in Our Classroom",
+       "a": "../../en-shared/q/a-day-in-our-classroom.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "Welcome to our school! My name is Mrs. Lily, and I am the teacher.",
+       "a": "../../en-shared/q/welcome-to-our-school-my-name-is-mrs-lily-and-i-am-ff6ad335.mp3"
+      },
+      {
+       "t": "When the children come into our classroom, I tell them, \"Good morning!\"",
+       "a": "../../en-shared/q/when-the-children-come-into-our-classroom-i-tell-t-f60b15a8.mp3"
+      },
+      {
+       "t": "First, the children stand up and sing a song.",
+       "a": "../../en-shared/q/first-the-children-stand-up-and-sing-a-song.mp3"
+      },
+      {
+       "t": "Then, they sit down at their desks.",
+       "a": "../../en-shared/q/then-they-sit-down-at-their-desks.mp3"
+      },
+      {
+       "t": "I ask them to open their books.",
+       "a": "../../en-shared/q/i-ask-them-to-open-their-books.mp3"
+      },
+      {
+       "t": "We read a story about a little bear.",
+       "a": "../../en-shared/q/we-read-a-story-about-a-little-bear.mp3"
+      },
+      {
+       "t": "After the story, they close their books and get out their pencils.",
+       "a": "../../en-shared/q/after-the-story-they-close-their-books-and-get-out-31ec93cd.mp3"
+      },
+      {
+       "t": "It is time to write our letters.",
+       "a": "../../en-shared/q/it-is-time-to-write-our-letters.mp3"
+      },
+      {
+       "t": "I walk around the room to help everyone.",
+       "a": "../../en-shared/q/i-walk-around-the-room-to-help-everyone.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 45,
+   "grp": "cls"
+  },
+  {
+   "type": "explain",
+   "task": "Look at the picture to help you.",
+   "taskAudio": "../../en-shared/q/look-at-the-picture-to-help-you.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "pics": [
+      "../../pics/scene-u2l2.jpg"
+     ],
+     "lines": [
+      {
+       "t": "When it is time for art, the children stand up and move to the big table.",
+       "a": "../../en-shared/q/when-it-is-time-for-art-the-children-stand-up-and-7438f5b7.mp3"
+      },
+      {
+       "t": "We use paint and paper to make pictures.",
+       "a": "../../en-shared/q/we-use-paint-and-paper-to-make-pictures.mp3"
+      },
+      {
+       "t": "My students love to write their names on their beautiful art.",
+       "a": "../../en-shared/q/my-students-love-to-write-their-names-on-their-beautiful-art.mp3"
+      },
+      {
+       "t": "When we are all done, they close their paint bottles and put them in a special box.",
+       "a": "../../en-shared/q/when-we-are-all-done-they-close-their-paint-bottle-b2a7a3dd.mp3"
+      },
+      {
+       "t": "They read the instructions on the board to clean up their desks before we go home.",
+       "a": "../../en-shared/q/they-read-the-instructions-on-the-board-to-clean-u-2b13990b.mp3"
+      },
+      {
+       "t": "It is a wonderful day in our school!",
+       "a": "../../en-shared/q/it-is-a-wonderful-day-in-our-school.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 45,
+   "grp": "cls"
+  },
+  {
+   "type": "mcq",
+   "task": "Read the story again. Circle True or False.",
+   "taskAudio": "../../en-shared/q/read-the-story-again-circle-true-or-false.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "stem": "Mrs. Lily is the teacher.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 0,
+     "word": "Mrs. Lily is the teacher.",
+     "audio": "../../en-shared/q/mrs-lily-is-the-teacher.mp3",
+     "askAudio": "../../en-shared/q/ask-6abe92f2b8.mp3"
+    },
+    {
+     "stem": "The children sing a song when they sit down.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 1,
+     "word": "The children sing a song when they sit down.",
+     "audio": "../../en-shared/q/the-children-sing-a-song-when-they-sit-down.mp3",
+     "askAudio": "../../en-shared/q/ask-2a71b774c2.mp3"
+    },
+    {
+     "stem": "The class does not read a story.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 1,
+     "word": "The class does not read a story.",
+     "audio": "../../en-shared/q/the-class-does-not-read-a-story.mp3",
+     "askAudio": "../../en-shared/q/ask-22e22229f0.mp3"
+    },
+    {
+     "stem": "The children close their books after the story.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 0,
+     "word": "The children close their books after the story.",
+     "audio": "../../en-shared/q/the-children-close-their-books-after-the-story.mp3",
+     "askAudio": "../../en-shared/q/ask-407b5e5b4d.mp3"
+    },
+    {
+     "stem": "The students use paint for art class.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 0,
+     "word": "The students use paint for art class.",
+     "audio": "../../en-shared/q/the-students-use-paint-for-art-class.mp3",
+     "askAudio": "../../en-shared/q/ask-271a968b1a.mp3"
+    }
+   ],
+   "page": 46,
+   "ex": 1,
+   "grp": "cls"
+  },
+  {
+   "type": "link",
+   "task": "Read and match the opposite instructions.",
+   "taskAudio": "../../en-shared/q/read-and-match-the-opposite-instructions.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "Open the box.",
+     "text2": "Don't open the box.",
+     "audio": "../../en-shared/q/open-the-box.mp3",
+     "audio2": "../../en-shared/q/don-t-open-the-box.mp3"
+    },
+    {
+     "word": "Cut the trees.",
+     "text2": "Don't cut the trees.",
+     "audio": "../../en-shared/q/cut-the-trees.mp3",
+     "audio2": "../../en-shared/q/don-t-cut-the-trees.mp3"
+    },
+    {
+     "word": "Drink soda.",
+     "text2": "Don't drink soda.",
+     "audio": "../../en-shared/q/drink-soda.mp3",
+     "audio2": "../../en-shared/q/don-t-drink-soda.mp3"
+    },
+    {
+     "word": "Walk on the grass.",
+     "text2": "Don't walk on the grass.",
+     "audio": "../../en-shared/q/walk-on-the-grass.mp3",
+     "audio2": "../../en-shared/q/don-t-walk-on-the-grass.mp3"
+    },
+    {
+     "word": "Talk to your friends.",
+     "text2": "Don't talk to your friends.",
+     "audio": "../../en-shared/q/talk-to-your-friends.mp3",
+     "audio2": "../../en-shared/q/don-t-talk-to-your-friends.mp3"
+    }
+   ],
+   "page": 47,
+   "ex": 1,
+   "grp": "imp"
+  },
+  {
+   "type": "cloze",
+   "task": "Complete the sentences.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences.mp3",
+   "book": "booklet",
+   "items": [
+    {
+     "text": "[[Don't add]] sugar to the juice. [[Close]] the door. [[Listen]] to your teacher. [[Don't eat]] fast food. [[Wash]] your hands.",
+     "bank": [
+      "Don't eat",
+      "Listen",
+      "Don't add",
+      "Wash",
+      "Close"
+     ],
+     "audio": "../../en-shared/q/don-t-add-sugar-to-the-juice-close-the-door-listen-2d2d0487.mp3"
+    }
+   ],
+   "page": 47,
+   "ex": 2,
+   "grp": "imp"
+  }
+ ]
+}
