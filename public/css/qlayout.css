@@ -1,0 +1,93 @@
+/* ===== THE QUESTION LAYOUT + THE CHOICE BUTTON (Marwa 2026-11-04, every subject, every screen) =====
+   This file is loaded LAST: it is the one place that decides WHERE the parts of a question sit and HOW BIG the choices are.
+   Never size or place choices in another file; never per lesson. docs/RULES.md "RULE — ONE question layout".
+   1. The question itself (word / sentence / stem) is big, centred, on TOP (under the task line + stars).
+   2. Then the picture (if any) takes the free room.
+   3. The choices are UNDER it, centred, in one row (wraps when they do not fit) — in portrait AND landscape.
+      Exception: a passage with blanks and a word bank (cloze passage): the words are pinned on top, the passage slides under them.
+   4. Every choice is THE choice button (.qch, made by qChBtn in js/quiz.js): a cream circle of --q-choice for a letter / number,
+      a pill of the same height for a word. Tick / cross are the same size family. Text always in the exact middle.
+   5. Text on the coloured page is white; speaker icons on the page are white (black only on a white/paper surface). */
+
+/* ---------- 3. choices under the question in every orientation ---------- */
+#lesson.q-land .quiz:is([data-type="yesno"],[data-type="letter"],[data-type="type"],[data-type="choice"]),
+#lesson.q-land .quiz{grid-template-rows:auto auto auto minmax(0,1fr) auto;grid-template-areas:"head" "dots" "word" "play" "ans"}
+#lesson.q-short .quiz,#lesson.ar.q-short .quiz{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr) auto;grid-template-areas:"head" "dots" "word" "play" "ans"}
+.quiz[data-type="pick"]{grid-template-rows:auto auto auto minmax(0,1fr) 0}
+.quiz .qans,#lesson.q-land .quiz .qans{flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(.75rem,4vw,2.25rem);padding:.2rem 0 .35rem}
+
+
+/* ---------- 4. THE choice button ---------- */
+.qch,.qans .qch,.qxchoices .qch,.alopts .qch,.albank .qch{--bs:var(--q-choice);position:relative;box-sizing:border-box;width:var(--q-choice)!important;height:var(--q-choice)!important;min-width:0;min-height:0;
+  padding:0!important;margin:0;border-radius:50%!important;display:grid!important;place-items:center!important;
+  background:var(--c-paper2)!important;border:.19rem solid var(--ol)!important;box-shadow:0 .22rem 0 rgba(90,52,24,.4)!important;
+  color:var(--c-text)!important;font:700 calc(var(--q-choice)*.5)/1 var(--f-read);text-align:center;overflow:visible;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.qch::before{display:none!important}
+.qch>span{display:block!important;margin:0!important;padding:0!important;transform:none!important;font:inherit!important;line-height:1!important;color:inherit!important;text-align:center;white-space:nowrap}
+.qch.two{font-size:calc(var(--q-choice)*.42)}
+.qch.wd,.qans .qch.wd,.alopts .qch.wd,.albank .qch.wd{width:auto!important;min-width:calc(var(--q-choice)*1.4)!important;max-width:100%;height:auto!important;min-height:calc(var(--q-choice)*.86)!important;
+  padding:.15em .85em!important;border-radius:62rem!important;font-size:calc(var(--q-choice)*.4)}
+.qch.wd>span{white-space:normal;line-height:1.15!important}
+.alopts.long .qch.wd{font-size:calc(var(--q-choice)*.32);border-radius:1.4rem!important}
+#lesson.ar .qch{font-family:var(--f-ar)}
+#lesson.ar .qch>span,#lesson.ar .qch{line-height:1.5!important}
+#lesson.ar .qch:not(.wd){font-size:calc(var(--q-choice)*.48)}
+.qch:active{transform:scale(.94)}
+.qch.on{background:#E4F5D2!important;border-color:var(--c-good)!important;box-shadow:0 .22rem 0 var(--c-good)!important}
+.qch.on>span,.qch.on{color:var(--c-text)!important}
+.qch.dim{opacity:.35}
+.qch.bad{background:var(--c-bad-bg)!important;border-color:var(--c-bad-dk)!important}
+.qch.used{opacity:.28;pointer-events:none}
+.qch.ringed::after{content:"";position:absolute;inset:-.32rem;border:.22rem solid var(--c-pink);border-radius:50%;transform:rotate(-4deg) scale(var(--ring,1));pointer-events:none}
+.qch.wd.ringed::after{inset:-.3rem -.45rem;border-radius:62rem}
+/* tick and cross: the same family and size as the other choices (they were twice as big) */
+.quiz .qans .qbtn.yes,.quiz .qans .qbtn.no,#lesson.q-short .quiz .qans .qbtn{width:calc(var(--q-choice)*1.1)!important;height:calc(var(--q-choice)*1.1)!important}
+.quiz .qans .qbtn.yes svg,.quiz .qans .qbtn.no svg{width:52%;height:52%}
+/* every choices row: centred, wraps */
+.qxchoices,.alopts,.albank{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(.6rem,3cqw,1.6rem)}
+.alopts.long{flex-direction:row}   /* long options wrap in rows too (a column was cut on phones) */
+
+/* ---------- 1. the question on top, big and centred ---------- */
+.qword b.qsent{display:block;white-space:normal;text-align:center;font-family:var(--f-read);font-weight:700;font-size:var(--q-sentence-size);line-height:1.3;color:var(--c-on-bg);max-width:100%}
+.qword b.qsent .qask{display:block;font-size:.8em}
+.qword b.qsent .alw{cursor:pointer}
+.qblank{display:inline-block;min-width:2.6em;height:1.05em;vertical-align:baseline;border-bottom:.12em solid var(--c-on-bg);margin:0 .1em;text-align:center;line-height:1}
+.qblank.got{min-width:0;height:auto;border-bottom-color:var(--c-good);padding:0 .1em}
+.quiz[data-type="choice"] .qword{flex-wrap:wrap}
+.quiz[data-type="choice"] .qplay{justify-content:center}
+/* box questions with choices (vowel): the word line first, the picture, the choices last */
+.quiz[data-type="vowel"] .qx>.qxrow,.quiz[data-type="vowel"] .qx>.qxw{order:-1}
+.quiz[data-type="vowel"] .qx>.qxchoices{order:9}
+/* English AL / math choose (mcq): the stem on top, then the picture(s), then the choices; the same in landscape */
+.almcq.haspic:not(.mwrite),#lesson.q-land .almcq.haspic:not(.mwrite){display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto;row-gap:min(2cqh,1rem);align-content:stretch}
+.almcq.haspic:not(.mwrite) .alstem{grid-row:1}
+.almcq.haspic:not(.mwrite) .alpics,#lesson.q-land .almcq.haspic:not(.mwrite) .alpics{grid-row:2;grid-column:1;min-height:0}
+.almcq.haspic:not(.mwrite) .alopts{grid-row:3}
+.almcq .alstem .altx{color:var(--c-on-bg)}
+/* a single short sentence with one blank (cloze "one") = the same layout: sentence big on top, the word choices under it */
+.alcloze.one{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:min(5cqh,2.2rem);overflow:visible;padding-bottom:1rem}
+.alcloze.one .altx{flex:none;overflow:visible;text-align:center;font-size:var(--q-sentence-size);line-height:1.35;color:var(--c-on-bg)}
+.alcloze.one .albank{flex:none}
+
+/* ---------- match / circle boards: the book says "circle" -> a ring, never a line ---------- */
+.qboard.ring .qmp{--ring:1}
+.qboard.ring .qmp.done::after{content:'';position:absolute;inset:-10%;border:max(0.25rem,.9cqh) solid var(--c-pink);border-radius:48% 52% 46% 54%/56% 44% 56% 44%;transform:rotate(-5deg) scale(var(--ring));pointer-events:none}
+.qboard.ring .qline{display:none}
+
+/* ---------- math: numbers and words always in the exact middle of their circle / box ---------- */
+.qmb,.qmcell{display:flex!important;align-items:center;justify-content:center}
+.qmb b,.qmcell b{display:block;width:auto;text-align:center;line-height:1;font-family:var(--f-read);font-variant-numeric:tabular-nums;transform:translateY(.04em)}
+.qmbond.box .qmb{border-radius:18%}   /* the book's "write the number in the BOX": square boxes */
+.qmbig{gap:clamp(1.25rem,8cqw,3.5rem)}
+.qmbcol{display:grid;justify-items:center;gap:.5rem}.qmbdots img{height:min(10cqh,10cqw)}
+
+/* ---------- 5. white on the coloured page ---------- */
+:is(#lesson,#map) :is(.qsay,.vsay,.vm-say,.alsp,.alreplay,.qxsay,.mxsay){color:var(--icon-on-color)}
+.mxsay svg{stroke:currentColor!important}
+:is(#lesson,#map) :is(.qlkw,.qlkp,.qmp.tx,.qopt,.qlet,.qch,.qxc,.qxtile,.qmcell,.qmb,.qcb .qbtn,.mxrow) :is(.qsay,.vsay,.alsp,.mxsay),
+:is(#exam,.exam) :is(.qsay,.vsay,.alsp,.alreplay){color:var(--icon-on-white)}
+.alcloze .alreplay.on{color:var(--c-hint)}
+.mxend b,.mxcap{color:var(--c-on-bg)}
+.quiz[data-type="choice"] .qpic.one,#lesson.q-port .quiz[data-type="choice"] .qpic.one{flex:1 1 auto;width:100%;height:100%;max-width:100%;align-self:stretch}
+.qmbond{container-type:inline-size}.qmbond .qmb b{font-size:18cqw}   /* the number is half its circle / box, whatever the screen */
+.quiz[data-type="choice"] .qpic.one img:is(:not([src$=".png" i]),.pf):not([src^="data:"]){box-sizing:content-box;width:calc(min(100cqw,calc(100cqh * var(--ar,1))) - 2 * var(--pf-border))}   /* framed photo hugs its picture */

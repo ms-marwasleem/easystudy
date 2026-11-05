@@ -1,1 +1,639 @@
-{"_note":"u3l2 questions: p48 ex4 (Nn), p50 ex4 (Pp), p51 ex6 (beginning letter). Tracing exercises 2,3,5 skipped.","sets":[{"type":"match","ex":4,"page":48,"task":"Circle the objects that start with the letter (Nn).","taskAudio":"../../en-shared/q/start-circle-the-objects-nn.mp3","hint":"Tap the pictures that start with Nn!","center":"Nn","centerAudio":"../../phonics/n.mp3","items":[{"word":"screw","audio":"../../en-shared/q/screw.mp3","pic":"../../pics/screw-n4.png","answer":false,"pos":[10,30]},{"word":"nurse","audio":"../../en-shared/q/nurse.mp3","pic":"../../pics/nurse-n4.png","answer":true,"pos":[32,14]},{"word":"neck","audio":"../../en-shared/q/neck.mp3","pic":"../../pics/neck-n4.jpg","answer":true,"pos":[62,14]},{"word":"ant","audio":"../u2l4/words/ant.mp3","pic":"../../pics/ant.png","answer":false,"pos":[90,32]},{"word":"tree","audio":"../u1l2/words/tree.mp3","pic":"../../pics/tree.png","answer":false,"pos":[14,78]},{"word":"net","audio":"../../en-shared/q/net.mp3","pic":"../../pics/net-n4.png","answer":true,"pos":[88,78]}]},{"type":"match","ex":4,"page":50,"task":"Circle the objects that start with the letter (Pp).","taskAudio":"../../en-shared/q/start-circle-the-objects-pp.mp3","hint":"Tap the pictures that start with Pp!","center":"Pp","centerAudio":"../../phonics/p.mp3","items":[{"word":"sun","audio":"../u2l1/words/sun.mp3","pic":"../../pics/sun.png","answer":false,"pos":[10,16]},{"word":"pencil","audio":"../u1l3/words/pencil.mp3","pic":"../../pics/pencil.png","answer":true,"pos":[90,16]},{"word":"nose","audio":"../../en-shared/q/nose.mp3","pic":"../../pics/nose-p4.png","answer":false,"pos":[10,72]},{"word":"panda","audio":"../../en-shared/q/panda.mp3","pic":"../../pics/panda-p4.png","answer":true,"pos":[36,80]},{"word":"potato","audio":"../../en-shared/q/potato.mp3","pic":"../../pics/potato-p4.png","answer":true,"pos":[62,78]},{"word":"spider","audio":"../u2l2/words/spider.mp3","pic":"../../pics/spider.png","answer":false,"pos":[90,72]}]},{"type":"letter","ex":6,"page":51,"task":"Look at the picture then circle the beginning letter.","taskAudio":"../../en-shared/q/look-at-the-picture-then-circle-the-beginning-letter.mp3","hint":"Tap the first letter!","items":[{"word":"tree","audio":"../u1l2/words/tree.mp3","pic":"../../pics/tree.png","letters":["Tt","Nn"],"answer":0},{"word":"nose","audio":"../../en-shared/q/nose.mp3","pic":"../../pics/nose-6.png","letters":["Ss","Nn"],"answer":1},{"word":"nurse","audio":"../../en-shared/q/nurse.mp3","pic":"../../pics/nurse-6.png","letters":["Aa","Nn"],"answer":1},{"word":"table","audio":"../u1l2/words/table.mp3","pic":"../../pics/table.png","letters":["Tt","Nn"],"answer":0},{"word":"panda","audio":"../../en-shared/q/panda.mp3","pic":"../../pics/panda-6.png","letters":["Ss","Pp"],"answer":1},{"word":"net","audio":"../../en-shared/q/net.mp3","pic":"../../pics/net-6.png","letters":["Aa","Nn"],"answer":1}]},{"type":"arrange","book":"workbook","model":"Classroom","ex":1,"page":21,"grp":"classroom-1","task":"Unscramble and write.","taskAudio":"../../en-shared/q/unscramble-and-write.mp3","hint":"Drag the letters!","items":[{"word":"nurse","scr":"usner","audio":"words/nurse.mp3","pic":"../../pics/nurse-6.png"},{"word":"net","scr":"etn","audio":"words/net.mp3","pic":"../../pics/net-n4.png"},{"word":"panda","scr":"adpan","audio":"words/panda.mp3","pic":"../../pics/panda-6.png"},{"word":"parrot","scr":"artpro","audio":"../u1l2/words/parrot.mp3","pic":"../../pics/parrot.png"},{"word":"pencil","scr":"eclnpi","audio":"../u1l3/words/pencil.mp3","pic":"../../pics/pencil.png"}]},{"type":"choice","book":"workbook","model":"Classroom","ex":2,"page":21,"grp":"classroom-2","task":"Look, read, and complete.","taskAudio":"../../en-shared/q/look-read-and-complete.mp3","hint":"Tap the right word!","items":[{"lead":"This is","options":["pizza","panda"],"answer":0,"pic":"../../pics/pizza.png","audio":"../../en-shared/q/this-is-pizza.mp3","word":"This is pizza."},{"lead":"I have 1","options":["neck","nose"],"answer":1,"pic":"../../pics/nose-6.png","audio":"../../en-shared/q/i-have-1-nose.mp3","word":"I have 1 nose."},{"lead":"This is a","options":["nail","net"],"answer":0,"pic":"../../pics/nail-photo.png","audio":"../../en-shared/q/this-is-a-nail.mp3","word":"This is a nail."},{"lead":"I can see a","options":["potato","pizza"],"answer":0,"pic":"../../pics/potato-p4.png","audio":"../../en-shared/q/i-can-see-a-potato.mp3","word":"I can see a potato."},{"lead":"I have 1","options":["neck","nose"],"answer":0,"pic":"../../pics/neck-photo.jpg","audio":"../../en-shared/q/i-have-1-neck.mp3","word":"I have 1 neck."}]},{"type":"type","book":"workbook","model":"Homework","ex":1,"page":21,"grp":"homework-1","task":"Look and write.","taskAudio":"../../en-shared/q/look-and-write.mp3","hint":"Type the word!","items":[{"word":"potato","audio":"words/potato.mp3","pic":"../../pics/potato-p4.png","gaps":[0,1,2,3,4,5]},{"word":"neck","audio":"words/neck.mp3","pic":"../../pics/neck-photo.jpg","gaps":[0,1,2,3]},{"word":"nose","audio":"words/nose.mp3","pic":"../../pics/nose-6.png","gaps":[0,1,2,3]},{"word":"pizza","audio":"words/pizza.mp3","pic":"../../pics/pizza.png","gaps":[0,1,2,3,4]}]},{"type":"choice","book":"workbook","model":"Weekly A","ex":1,"page":22,"grp":"weekly-a-1","task":"Look, read, and complete.","taskAudio":"../../en-shared/q/look-read-and-complete.mp3","hint":"Tap the right word!","items":[{"lead":"This is my","options":["grandfather","father"],"answer":1,"pic":"../../pics/father.png","audio":"../../en-shared/q/this-is-my-father.mp3","word":"This is my father."},{"lead":"I can see","options":["potato","pizza"],"answer":1,"pic":"../../pics/pizza.png","audio":"../../en-shared/q/i-can-see-pizza.mp3","word":"I can see pizza."},{"lead":"This is a","options":["nurse","panda"],"answer":0,"pic":"../../pics/nurse-6.png","audio":"../../en-shared/q/this-is-a-nurse.mp3","word":"This is a nurse."}]},{"type":"order","book":"workbook","model":"Weekly A","ex":2,"page":22,"grp":"weekly-a-2","task":"Reorder the words to make sentences.","taskAudio":"../../en-shared/q/reorder-the-words-to-make-sentences.mp3","hint":"Tap the words in order!","items":[{"chunks":["Who","is","this"],"end":"?","audio":"../../en-shared/q/who-is-this.mp3"},{"chunks":["They","are","parents"],"end":".","audio":"../../en-shared/q/they-are-parents.mp3"}]},{"type":"choice","book":"workbook","model":"Weekly B","ex":1,"page":22,"grp":"weekly-b-1","task":"Look, read, and complete.","taskAudio":"../../en-shared/q/look-read-and-complete.mp3","hint":"Tap the right word!","items":[{"lead":"I can see a","options":["pencil","net"],"answer":0,"pic":"../../pics/pencil.png","audio":"../../en-shared/q/i-can-see-a-pencil.mp3","word":"I can see a pencil."},{"lead":"This is my","options":["grandfather","father"],"answer":0,"pic":"../../pics/grandfather.png","audio":"../../en-shared/q/this-is-my-grandfather.mp3","word":"This is my grandfather."},{"lead":"I have 1","options":["neck","nose"],"answer":1,"pic":"../../pics/nose-6.png","audio":"../../en-shared/q/i-have-1-nose.mp3","word":"I have 1 nose."}]},{"type":"order","book":"workbook","model":"Weekly B","ex":2,"page":22,"grp":"weekly-b-2","task":"Reorder the words to make sentences.","taskAudio":"../../en-shared/q/reorder-the-words-to-make-sentences.mp3","hint":"Tap the words in order!","items":[{"chunks":["I","have","1","brother"],"end":".","audio":"../../en-shared/q/i-have-1-brother.mp3"},{"chunks":["This","is","my","father"],"end":".","audio":"../../en-shared/q/this-is-my-father.mp3"}]},{"type":"choice","book":"workbook","model":"Weekly C","ex":1,"page":23,"grp":"weekly-c-1","task":"Look, read, and complete.","taskAudio":"../../en-shared/q/look-read-and-complete.mp3","hint":"Tap the right word!","items":[{"lead":"I have 2","options":["brothers","sisters"],"answer":1,"pic":"../../pics/sisters.png","audio":"../../en-shared/q/i-have-2-sisters.mp3","word":"I have 2 sisters."},{"lead":"I can see a","options":["panda","parrot"],"answer":1,"pic":"../../pics/parrot.png","audio":"../../en-shared/q/i-can-see-a-parrot.mp3","word":"I can see a parrot."},{"lead":"This is a","options":["nose","neck"],"answer":1,"pic":"../../pics/neck-photo.jpg","audio":"../../en-shared/q/this-is-a-neck.mp3","word":"This is a neck."}]},{"type":"order","book":"workbook","model":"Weekly C","ex":2,"page":23,"grp":"weekly-c-2","task":"Reorder the words to make sentences.","taskAudio":"../../en-shared/q/reorder-the-words-to-make-sentences.mp3","hint":"Tap the words in order!","items":[{"chunks":["I","have","2","sisters"],"end":".","audio":"../../en-shared/q/i-have-2-sisters.mp3"},{"chunks":["This","is","my","grandfather"],"end":".","audio":"../../en-shared/q/this-is-my-grandfather.mp3"}]}]}
+{
+ "_note": "u3l2 questions: p48 ex4 (Nn), p50 ex4 (Pp), p51 ex6 (beginning letter). Tracing exercises 2,3,5 skipped.",
+ "sets": [
+  {
+   "type": "match",
+   "ex": 4,
+   "page": 48,
+   "task": "Circle the objects that start with the letter (Nn).",
+   "taskAudio": "../../en-shared/q/start-circle-the-objects-nn.mp3",
+   "hint": "Tap the pictures that start with Nn!",
+   "center": "Nn",
+   "centerAudio": "../../phonics/n.mp3",
+   "items": [
+    {
+     "word": "screw",
+     "audio": "../../en-shared/q/screw.mp3",
+     "pic": "../../pics/screw-n4.png",
+     "answer": false,
+     "pos": [
+      10,
+      30
+     ]
+    },
+    {
+     "word": "nurse",
+     "audio": "../../en-shared/q/nurse.mp3",
+     "pic": "../../pics/nurse-n4.png",
+     "answer": true,
+     "pos": [
+      32,
+      14
+     ]
+    },
+    {
+     "word": "neck",
+     "audio": "../../en-shared/q/neck.mp3",
+     "pic": "../../pics/neck-n4.jpg",
+     "answer": true,
+     "pos": [
+      62,
+      14
+     ]
+    },
+    {
+     "word": "ant",
+     "audio": "../u2l4/words/ant.mp3",
+     "pic": "../../pics/ant.png",
+     "answer": false,
+     "pos": [
+      90,
+      32
+     ]
+    },
+    {
+     "word": "tree",
+     "audio": "../u1l2/words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "answer": false,
+     "pos": [
+      14,
+      78
+     ]
+    },
+    {
+     "word": "net",
+     "audio": "../../en-shared/q/net.mp3",
+     "pic": "../../pics/net-n4.png",
+     "answer": true,
+     "pos": [
+      88,
+      78
+     ]
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 4,
+   "page": 50,
+   "task": "Circle the objects that start with the letter (Pp).",
+   "taskAudio": "../../en-shared/q/start-circle-the-objects-pp.mp3",
+   "hint": "Tap the pictures that start with Pp!",
+   "center": "Pp",
+   "centerAudio": "../../phonics/p.mp3",
+   "items": [
+    {
+     "word": "sun",
+     "audio": "../u2l1/words/sun.mp3",
+     "pic": "../../pics/sun.png",
+     "answer": false,
+     "pos": [
+      10,
+      16
+     ]
+    },
+    {
+     "word": "pencil",
+     "audio": "../u1l3/words/pencil.mp3",
+     "pic": "../../pics/pencil.png",
+     "answer": true,
+     "pos": [
+      90,
+      16
+     ]
+    },
+    {
+     "word": "nose",
+     "audio": "../../en-shared/q/nose.mp3",
+     "pic": "../../pics/nose-p4.png",
+     "answer": false,
+     "pos": [
+      10,
+      72
+     ]
+    },
+    {
+     "word": "panda",
+     "audio": "../../en-shared/q/panda.mp3",
+     "pic": "../../pics/panda-p4.png",
+     "answer": true,
+     "pos": [
+      36,
+      80
+     ]
+    },
+    {
+     "word": "potato",
+     "audio": "../../en-shared/q/potato.mp3",
+     "pic": "../../pics/potato-p4.png",
+     "answer": true,
+     "pos": [
+      62,
+      78
+     ]
+    },
+    {
+     "word": "spider",
+     "audio": "../u2l2/words/spider.mp3",
+     "pic": "../../pics/spider.png",
+     "answer": false,
+     "pos": [
+      90,
+      72
+     ]
+    }
+   ]
+  },
+  {
+   "type": "letter",
+   "ex": 6,
+   "page": 51,
+   "task": "Look at the picture then circle the beginning letter.",
+   "taskAudio": "../../en-shared/q/look-at-the-picture-then-circle-the-beginning-letter.mp3",
+   "hint": "Tap the first letter!",
+   "items": [
+    {
+     "word": "tree",
+     "audio": "../u1l2/words/tree.mp3",
+     "pic": "../../pics/tree.png",
+     "letters": [
+      "Tt",
+      "Nn"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "nose",
+     "audio": "../../en-shared/q/nose.mp3",
+     "pic": "../../pics/nose-6.png",
+     "letters": [
+      "Ss",
+      "Nn"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "nurse",
+     "audio": "../../en-shared/q/nurse.mp3",
+     "pic": "../../pics/nurse-6.png",
+     "letters": [
+      "Aa",
+      "Nn"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "table",
+     "audio": "../u1l2/words/table.mp3",
+     "pic": "../../pics/table.png",
+     "letters": [
+      "Tt",
+      "Nn"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "panda",
+     "audio": "../../en-shared/q/panda.mp3",
+     "pic": "../../pics/panda-6.png",
+     "letters": [
+      "Ss",
+      "Pp"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "net",
+     "audio": "../../en-shared/q/net.mp3",
+     "pic": "../../pics/net-6.png",
+     "letters": [
+      "Aa",
+      "Nn"
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 21,
+   "grp": "classroom-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "nurse",
+     "scr": "usner",
+     "audio": "words/nurse.mp3",
+     "pic": "../../pics/nurse-6.png"
+    },
+    {
+     "word": "net",
+     "scr": "etn",
+     "audio": "words/net.mp3",
+     "pic": "../../pics/net-n4.png"
+    },
+    {
+     "word": "panda",
+     "scr": "adpan",
+     "audio": "words/panda.mp3",
+     "pic": "../../pics/panda-6.png"
+    },
+    {
+     "word": "parrot",
+     "scr": "artpro",
+     "audio": "../u1l2/words/parrot.mp3",
+     "pic": "../../pics/parrot.png"
+    },
+    {
+     "word": "pencil",
+     "scr": "eclnpi",
+     "audio": "../u1l3/words/pencil.mp3",
+     "pic": "../../pics/pencil.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 21,
+   "grp": "classroom-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "lead": "This is",
+     "options": [
+      "pizza",
+      "panda"
+     ],
+     "answer": 0,
+     "pic": "../../pics/pizza.png",
+     "audio": "../../en-shared/q/this-is-pizza.mp3",
+     "word": "This is pizza.",
+     "askAudio": "../../en-shared/q/askc-737d8082a8.mp3"
+    },
+    {
+     "lead": "I have 1",
+     "options": [
+      "neck",
+      "nose"
+     ],
+     "answer": 1,
+     "pic": "../../pics/nose-6.png",
+     "audio": "../../en-shared/q/i-have-1-nose.mp3",
+     "word": "I have 1 nose.",
+     "askAudio": "../../en-shared/q/askc-32619c891c.mp3"
+    },
+    {
+     "lead": "This is a",
+     "options": [
+      "nail",
+      "net"
+     ],
+     "answer": 0,
+     "pic": "../../pics/nail-photo.png",
+     "audio": "../../en-shared/q/this-is-a-nail.mp3",
+     "word": "This is a nail.",
+     "askAudio": "../../en-shared/q/askc-6a14ccc5f6.mp3"
+    },
+    {
+     "lead": "I can see a",
+     "options": [
+      "potato",
+      "pizza"
+     ],
+     "answer": 0,
+     "pic": "../../pics/potato-p4.png",
+     "audio": "../../en-shared/q/i-can-see-a-potato.mp3",
+     "word": "I can see a potato.",
+     "askAudio": "../../en-shared/q/askc-8a9a089e43.mp3"
+    },
+    {
+     "lead": "I have 1",
+     "options": [
+      "neck",
+      "nose"
+     ],
+     "answer": 0,
+     "pic": "../../pics/neck-photo.jpg",
+     "audio": "../../en-shared/q/i-have-1-neck.mp3",
+     "word": "I have 1 neck.",
+     "askAudio": "../../en-shared/q/askc-32619c891c.mp3"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 21,
+   "grp": "homework-1",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "potato",
+     "audio": "words/potato.mp3",
+     "pic": "../../pics/potato-p4.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "word": "neck",
+     "audio": "words/neck.mp3",
+     "pic": "../../pics/neck-photo.jpg",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "nose",
+     "audio": "words/nose.mp3",
+     "pic": "../../pics/nose-6.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "word": "pizza",
+     "audio": "words/pizza.mp3",
+     "pic": "../../pics/pizza.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 1,
+   "page": 22,
+   "grp": "weekly-a-1",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "lead": "This is my",
+     "options": [
+      "grandfather",
+      "father"
+     ],
+     "answer": 1,
+     "pic": "../../pics/father.png",
+     "audio": "../../en-shared/q/this-is-my-father.mp3",
+     "word": "This is my father.",
+     "askAudio": "../../en-shared/q/askc-8af1ac4040.mp3"
+    },
+    {
+     "lead": "I can see",
+     "options": [
+      "potato",
+      "pizza"
+     ],
+     "answer": 1,
+     "pic": "../../pics/pizza.png",
+     "audio": "../../en-shared/q/i-can-see-pizza.mp3",
+     "word": "I can see pizza.",
+     "askAudio": "../../en-shared/q/askc-70c64eb905.mp3"
+    },
+    {
+     "lead": "This is a",
+     "options": [
+      "nurse",
+      "panda"
+     ],
+     "answer": 0,
+     "pic": "../../pics/nurse-6.png",
+     "audio": "../../en-shared/q/this-is-a-nurse.mp3",
+     "word": "This is a nurse.",
+     "askAudio": "../../en-shared/q/askc-46c5fced50.mp3"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 2,
+   "page": 22,
+   "grp": "weekly-a-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "Who",
+      "is",
+      "this"
+     ],
+     "end": "?",
+     "audio": "../../en-shared/q/who-is-this.mp3"
+    },
+    {
+     "chunks": [
+      "They",
+      "are",
+      "parents"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/they-are-parents.mp3"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 1,
+   "page": 22,
+   "grp": "weekly-b-1",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "lead": "I can see a",
+     "options": [
+      "pencil",
+      "net"
+     ],
+     "answer": 0,
+     "pic": "../../pics/pencil.png",
+     "audio": "../../en-shared/q/i-can-see-a-pencil.mp3",
+     "word": "I can see a pencil.",
+     "askAudio": "../../en-shared/q/askc-d3d1bcdb67.mp3"
+    },
+    {
+     "lead": "This is my",
+     "options": [
+      "grandfather",
+      "father"
+     ],
+     "answer": 0,
+     "pic": "../../pics/grandfather.png",
+     "audio": "../../en-shared/q/this-is-my-grandfather.mp3",
+     "word": "This is my grandfather.",
+     "askAudio": "../../en-shared/q/askc-8af1ac4040.mp3"
+    },
+    {
+     "lead": "I have 1",
+     "options": [
+      "neck",
+      "nose"
+     ],
+     "answer": 1,
+     "pic": "../../pics/nose-6.png",
+     "audio": "../../en-shared/q/i-have-1-nose.mp3",
+     "word": "I have 1 nose.",
+     "askAudio": "../../en-shared/q/askc-32619c891c.mp3"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 2,
+   "page": 22,
+   "grp": "weekly-b-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "have",
+      "1",
+      "brother"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-have-1-brother.mp3"
+    },
+    {
+     "chunks": [
+      "This",
+      "is",
+      "my",
+      "father"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/this-is-my-father.mp3"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 1,
+   "page": 23,
+   "grp": "weekly-c-1",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "lead": "I have 2",
+     "options": [
+      "brothers",
+      "sisters"
+     ],
+     "answer": 1,
+     "pic": "../../pics/sisters.png",
+     "audio": "../../en-shared/q/i-have-2-sisters.mp3",
+     "word": "I have 2 sisters.",
+     "askAudio": "../../en-shared/q/askc-97fb33fd7f.mp3"
+    },
+    {
+     "lead": "I can see a",
+     "options": [
+      "panda",
+      "parrot"
+     ],
+     "answer": 1,
+     "pic": "../../pics/parrot.png",
+     "audio": "../../en-shared/q/i-can-see-a-parrot.mp3",
+     "word": "I can see a parrot.",
+     "askAudio": "../../en-shared/q/askc-f54befc779.mp3"
+    },
+    {
+     "lead": "This is a",
+     "options": [
+      "nose",
+      "neck"
+     ],
+     "answer": 1,
+     "pic": "../../pics/neck-photo.jpg",
+     "audio": "../../en-shared/q/this-is-a-neck.mp3",
+     "word": "This is a neck.",
+     "askAudio": "../../en-shared/q/askc-0f0aa2f90a.mp3"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 2,
+   "page": 23,
+   "grp": "weekly-c-2",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "I",
+      "have",
+      "2",
+      "sisters"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-have-2-sisters.mp3"
+    },
+    {
+     "chunks": [
+      "This",
+      "is",
+      "my",
+      "grandfather"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/this-is-my-grandfather.mp3"
+    }
+   ]
+  }
+ ]
+}

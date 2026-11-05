@@ -119,8 +119,7 @@ function vRender(fill){
   const pk=$('.vpick'), on=$('.vthumb.on'); if(pk&&on&&pk.scrollWidth>pk.clientWidth) pk.scrollTo({left:on.offsetLeft-pk.clientWidth/2+on.offsetWidth/2,behavior:'smooth'});   // keep the current word in view in the strip
   const w=$('.vword'); w.innerHTML=''; w.classList.remove('lit','writing','focus');
   w.style.fontSize='';
-  v.parts.forEach((p,pi)=>{ if(p.t===' '){ w.append(el('span','vgap')); return; }
-    const s=el('span','vseg'); s.dataset.p=pi; glyphs(p.t).forEach(ch=>s.append(el('span','lt'+(fill?'':' hid'),ch))); w.append(s); });   // hidden letters keep their place
+  wsFill(w,v.word,{hide:!fill,parts:v.parts.map(p=>p.t)});   // THE word component (js/wordslots.js): hidden letters keep their place
   fitWord();
 }
 const vStatus=t=>{ const s=$('.vstatus'); if(s){ s.textContent=t; if(anim) G.fromTo(s,{opacity:0},{opacity:1,duration:.3}); } };
@@ -171,13 +170,13 @@ async function vTeach(){
       vRender(false); await vSleep(350,run);
       for(let pi=0;pi<v.parts.length;pi++){
         const p=v.parts[pi]; if(p.t===' '){ await vSleep(350,run); continue; }
-        const seg=$(`.vseg[data-p="${pi}"]`), lts=$$('.lt',seg); seg.classList.add('on');
+        const seg=$(`.vword .wsg[data-p="${pi}"]`), lts=$$('.lt',seg); seg.classList.add('on');
         const snd=sayPart(p);
         for(let k=0;k<lts.length;k++){ lts[k].classList.remove('hid'); if(anim) G.fromTo(lts[k],{scale:1.4},{scale:1,duration:.3,ease:'back.out(3)'}); await vSleep(260,run); }
         await snd; if(run!==vs.run) return;
         seg.classList.remove('on'); await vSleep(750,run);   // longer pause between parts than between letters
         if(p.blend){   // the sounds so far, joined: sh-a-k-e -> "shake"
-          let k=pi; const grp=[]; while(k>=0 && v.parts[k].t!==' '){ const g=$(`.vseg[data-p="${k}"]`); if(g) grp.push(g); k--; }
+          let k=pi; const grp=[]; while(k>=0 && v.parts[k].t!==' '){ const g=$(`.vword .wsg[data-p="${k}"]`); if(g) grp.push(g); k--; }
           grp.forEach(g=>g.classList.add('on')); await playFile(p.blend); if(run!==vs.run) return; grp.forEach(g=>g.classList.remove('on')); await vSleep(650,run);
         }
       }
@@ -191,7 +190,7 @@ function vWrite(){
   const v=LESSON.vocab[vs.i]; vRender(false); $('.vword').classList.add('writing'); vStatus(tr(TOUCH()?'Tap and write!':'Your turn! Write it.'));
   const boxes=$$('.vword .lt'); vs.letters=glyphs(v.word).filter(c=>c!==' '); vs.pos=0; let typed='';
   const inp=el('input','vin'); Object.assign(inp,{type:'text',autocomplete:'off',spellcheck:false,id:'vin'});
-  inp.setAttribute('autocorrect','off'); inp.setAttribute('autocapitalize','off'); inp.setAttribute('enterkeyhint','done'); inp.setAttribute('aria-label','Type the word');
+  wsInput(inp,v.word,isAr()?'ar':'en'); inp.setAttribute('enterkeyhint','done'); inp.setAttribute('aria-label','Type the word');
   $('.vword').append(inp); $('.vword').addEventListener('click',()=>inp.focus({preventScroll:true}));
   inp.addEventListener('focus',()=>{ $('.vword').classList.add('focus'); if(vs.mode==='write') $('.vstatus').textContent=tr('Your turn! Write it.'); });
   inp.addEventListener('blur',()=>{ const w=$('.vword'); if(w) w.classList.remove('focus'); });
@@ -205,9 +204,9 @@ function vWrite(){
         if(vs.pos>=vs.letters.length) break;
         const want=vs.letters[vs.pos];
         if(isAr()&&new RegExp('['+AR_MARKS+']').test(ch)){ typed+=ch; continue; }   // a vowel mark typed on its own is ignored
-        if(isAr()?sameLetter(ch,want):ch.toLowerCase()===want.toLowerCase()){ const b=boxes[vs.pos]; b.classList.remove('hid','peek'); b.classList.add('good'); typed+=ch; blip(560+vs.pos*40,.05);
+        if(isAr()?sameLetter(ch,want):ch.toLowerCase()===want.toLowerCase()){ const b=boxes[vs.pos]; b.classList.remove('hid','peek'); b.classList.add('got'); typed+=ch; blip(560+vs.pos*40,.05);
           if(anim) G.fromTo(b,{scale:1.3},{scale:1,duration:.35,ease:'back.out(3)'}); vs.pos++; }
-        else { tone(170,'square',.06,.18); const b=boxes[vs.pos]; b.classList.add('bad'); if(anim) G.fromTo(b,{x:-7},{x:0,duration:.45,ease:'elastic.out(1.5,.25)'}); setTimeout(()=>b.classList.remove('bad'),400); break; }
+        else { tone(170,'square',.06,.18); wsBad(boxes[vs.pos]); break; }   // never written, the place shakes
       }
     }
     inp.value=typed; cur();
@@ -218,7 +217,7 @@ function vWrite(){
 function vHelp(){
   if(vs.mode!=='write') return; const v=LESSON.vocab[vs.i], boxes=$$('.vword .lt'), i=vs.pos; if(i>=boxes.length) return;
   const b=boxes[i]; b.classList.remove('hid'); b.classList.add('peek'); if(anim) G.fromTo(b,{scale:1.3},{scale:1,duration:.4,ease:'back.out(3)'});
-  const seg=b.closest('.vseg'); const p=v.parts[+seg.dataset.p]; seg.classList.add('on'); sayPart(p).then(()=>seg.classList.remove('on'));
+  const seg=b.closest('.wsg'); const p=v.parts[+seg.dataset.p]; seg.classList.add('on'); sayPart(p).then(()=>seg.classList.remove('on'));
   setTimeout(()=>{ if(b.classList.contains('peek')){ b.classList.add('hid'); b.classList.remove('peek'); } },tokMs('--help-letter-ms',1500));
   const inp=$('#vin'); if(inp) inp.focus({preventScroll:true});
 }
@@ -241,8 +240,8 @@ function vTools(){
   const tools=$('.vtools'); tools.innerHTML='';
   const items=[
     {k:'help',kind:'help',icon:'hint',label:isAr()?'ساعدني':tr('Help'),click:vHelp},
-    {k:'teach',kind:'go',icon:'restart',label:isAr()?(vMode()?'علّمني':'علّمني الكلمة'):tr('Teach'),click:vTeach},
-    {k:'write',kind:'speed',icon:'pencil',label:isAr()?'اكتب الكلمة':tr('Write'),click:()=>{ if(vs.mode!=='write') vWrite(); else { const i=$('#vin'); i&&i.focus({preventScroll:true}); } }}
+    {k:'teach',kind:'go',icon:'restart',label:isAr()?'علّمني':tr('Teach'),click:vTeach},
+    {k:'write',kind:'speed',icon:'pencil',label:isAr()?'اكتب':tr('Write'),click:()=>{ if(vs.mode!=='write') vWrite(); else { const i=$('#vin'); i&&i.focus({preventScroll:true}); } }}
   ];
   (vMode()?items.filter(it=>!['help','write'].includes(it.k)):items).forEach(it=>{ const b=el('button','dash '+it.kind+(it.icon==='restart'?' ln':''),`<span class="rb">${ICON[it.icon]}</span><span>${it.label}</span>`); b.dataset.k=it.k;
     b.addEventListener('pointerdown',e=>{ if($('#vin')&&$('#vin')===document.activeElement) e.preventDefault(); });   // keep the keyboard open
@@ -277,6 +276,7 @@ function vLayout(){
   L.style.setProperty('--wfs',c(34,land?Math.min(w*.07,h*.13):Math.min(w*.13,h*.08),96)+'px');
   L.style.setProperty('--wbtn',c(38,land?Math.min(h*.08,w*.042):Math.min(w*.11,h*.06),60)+'px');
   L.style.setProperty('--pich',c(70,land?Math.min(sh*.78,w*.3):Math.min(w*.45,h*.2),520)+'px');
+  if(vs.popup){ L.style.setProperty('--pich',c(90,Math.min(h*.3,w*.55),260)+'px'); L.style.setProperty('--wfs',c(40,Math.min(w*.12,h*.1),84)+'px'); }   // word popup: one compact card (picture and word sized to the card, not to the page)
   L.style.setProperty('--vgap',c(6,h*.014,16)+'px');
   if(land){   // the word pictures: as many columns as give the biggest pictures, filling the right-hand column
     const pw=w*.26, pad=30, gap=c(5,sh*.02,12); let best=[0,1];
@@ -317,16 +317,24 @@ function wpOpen(v){
   const dim=el('div','wpdim'); stage.after(back,dim); WP.back=[back,dim]; dim.addEventListener('click',wpClose);
   LESSON.vocab=[v]; vs.i=0; vs.popup=1; tab='words'; L.classList.add('wpop');
   showWords();
-  const x=el('button','rb wpclose',ICON.close); x.setAttribute('aria-label','Close'); stage.append(x); x.addEventListener('click',wpClose);
+  const x=el('button','rb popx wpclose',ICON.close); x.setAttribute('aria-label','Close'); stage.append(x); x.addEventListener('click',wpClose);
 }
-const wpKey=t=>String(t||'').toLowerCase().replace(/[^a-z']/g,'');
+const wpKey=t=>String(t||'').toLowerCase().replace(/[\u064B-\u065F\u0670\u0640]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/[^a-z'\u0621-\u064A]/g,'');
 function penify(){
-  if(isAr()||!LESSON||!LESSON.vocab||!LESSON.vocab.length||tab==='words'||WP.saved) return;
-  const by={}; LESSON.vocab.forEach(v=>{ if(/^[A-Za-z']+$/.test(v.word)) by[wpKey(v.word)]=v; });
-  $$('#stage .w, #stage .alw').forEach(sp=>{
-    if(sp._pen!==undefined) return; const v=by[wpKey(sp.firstChild&&sp.firstChild.nodeType===3?sp.firstChild.data:sp.textContent)]; sp._pen=v?1:0; if(!v) return;
-    const b=el('span','wpn',ICON.pencil); b.setAttribute('role','button'); b.setAttribute('aria-label','Learn the word '+v.word);
-    b.addEventListener('click',e=>{ e.stopPropagation(); e.preventDefault(); wpOpen(v); }); sp.append(b);
+  if(!LESSON||!LESSON.vocab||!LESSON.vocab.length||tab==='words'||WP.saved) return;
+  // one word -> its vocab entry; a phrase ("shake hands", "alarm clock") -> its words in order (the pen goes on its LAST word)
+  const by={}, multi=[]; LESSON.vocab.forEach(v=>{ const ws=String(v.word).trim().split(/\s+/).map(wpKey).filter(Boolean); if(!ws.length) return;
+    if(ws.length>1) multi.push({ws,v}); else { by[ws[0]]=v; if(/^\u0627\u0644/.test(ws[0])) by[ws[0].slice(2)]=by[ws[0].slice(2)]||v; } });
+  const txt=sp=>sp.firstChild&&sp.firstChild.nodeType===3?sp.firstChild.data:sp.textContent;
+  const find=k=>by[k]||(/^\u0627\u0644/.test(k)&&by[k.slice(2)])||null;   // Arabic: "\u0627\u0644\u0652\u0623\u064E\u0631\u0652\u0646\u064E\u0628\u064F" in a text is the vocab word "\u0623\u064E\u0631\u0652\u0646\u064E\u0628" (harakat already ignored)
+  const pen=(sp,v)=>{ sp._pen=1; const b=el('span','wpn',ICON.pencil); b.setAttribute('role','button'); b.setAttribute('aria-label','Learn the word '+v.word);
+    b.addEventListener('click',e=>{ e.stopPropagation(); e.preventDefault(); wpOpen(v); }); sp.classList.add('haspen'); sp.append(b); };
+  const all=$$('#stage .w, #stage .alw').filter(sp=>!sp.closest('.wpback'));
+  all.forEach((sp,i)=>{
+    if(sp._pen!==undefined||sp.classList.contains('alans')) return; const k=wpKey(txt(sp));
+    for(const m of multi){ const n=m.ws.length; if(i+1<n||m.ws[n-1]!==k) continue;   // this span ends the phrase: the n-1 spans before it (same line) must be its first words
+      const prev=all.slice(i-n+1,i); if(prev.every((p,j)=>p.parentElement===sp.parentElement&&wpKey(txt(p))===m.ws[j])) return pen(sp,m.v); }
+    const v=find(k); sp._pen=v?1:0; if(v) pen(sp,v);
   });
 }
 { let pt=0; new MutationObserver(()=>{ clearTimeout(pt); pt=setTimeout(penify,60); }).observe(stage,{childList:true,subtree:true}); }

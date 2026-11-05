@@ -17,7 +17,7 @@ function showMathLine(){
   const L=LESSON.math.line, h=mxHeard(); stage.innerHTML=''; mx.run++;
   const scene=el('div','scene pics mx'), box=el('div','mxline'); const bind=(b,r,mark)=>{ b.addEventListener('click',e=>{ if(e.isTrusted) mx.all++; if(mark!=null) mxMark(mark,b); mxSay(r,b); }); return b; };
   const end=(c,o)=>bind(el('button','mxend '+c,`<img src="${o.img}" alt=""><b>${o.word}</b>`),o);
-  const stones=el('div','mxstones'); L.rows.forEach((r,i)=>{ const b=bind(el('button','mxstone'+(h[i]?' heard':''),`<b>${r.n}</b>`),r,i); b.style.background=MX_STONE[i]; b.setAttribute('aria-label',r.word); stones.append(b); });
+  const stones=el('div','mxstones'); L.rows.forEach((r,i)=>{ const b=bind(el('button','mxstone'+(h[i]?' heard':''),`<b>${r.n}</b>`),r,i); b.style.background=MX_STONE[i]; b.style.setProperty('--k',i+1);   /* the stones grow from 1 to 10 (small -> big) */ b.setAttribute('aria-label',r.word); stones.append(b); });
   const cap=bind(el('button','mxcap',`<span>${L.text}</span><i class="mxsay">${SAY_LN}</i>`),{audio:L.textAudio});
   box.append(end('sm',L.small),stones,end('bg',L.big),cap); scene.append(box); stage.append(scene); carFrac(Object.keys(h).length/L.rows.length);
   setRail([{kind:'go',icon:'play',label:tr('Listen'),click:()=>mxSeq($$('.mxstone'))},...mxTool()]);
@@ -40,4 +40,4 @@ function showMathExplain(){
 async function mxSeq(els){ vStop(); const tok=++mx.all; for(const r of els){ if(tok!==mx.all) return; r.click(); await new Promise(x=>setTimeout(x,120)); while(tok===mx.all&&r.classList.contains('on')) await new Promise(x=>setTimeout(x,80)); await new Promise(x=>setTimeout(x,200)); } }
 const mxAll=()=>mxSeq($$('.mxgrid .mxrow'));
 
-const mxTool=()=>LESSON.tool?[{kind:'tool',icon:'arcs',label:'Tool',click:()=>toolOpen(LESSON.toolN)}]:[];
+const mxTool=()=>LESSON.tool?[{kind:'tool',icon:'arcs',label:toolName(LESSON.tool),click:()=>toolOpen(LESSON.toolN)}]:[];

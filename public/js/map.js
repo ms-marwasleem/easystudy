@@ -11,7 +11,7 @@ function unitBox(u,st){
   const b=(SUBJECT&&SUBJECT.book)||'blue';
   return `<div class="ubox ${st}"><img src="data/books/${b}.png" width="352" height="364" alt="" draggable="false">${u.label?`<b class="gt${/[\u0600-\u06FF]/.test(u.label)?' ar':''} lab"><span>${u.label}</span></b>`:`<b class="gt${isAr()?' ar':''}"><small>${GT(tr('Unit'))}</small><span class="n">${num(u.unit)}</span></b>`}${st==='locked'?CHAINLOCK:st==='soon'?`<span class="usoon">${tr('Soon')}</span>`:''}</div>`;
 }
-function mkLesson(m,nextL,isCur,isLast,st,coins){
+function mkLesson(m,nextL,isCur,isLast,st,coins,lockUnit){
   st=st||(m.file?'open':'soon'); const open=st==='open', n=lessonStars(m.id);
   const s=el('div','jl '+st+(isCur?' cur':'')+(m.testsOnly?' to':'')); s.dataset.stars=n; s.dataset.touched=lessonTouched(m)?1:0; s.dataset.name=m.title||m.planned||'';
   // the lesson sits on the road: a round badge with its number, the stars above it, the name in a pill across its bottom edge.
@@ -22,7 +22,7 @@ function mkLesson(m,nextL,isCur,isLast,st,coins){
     (open&&typeof bookSides==='function'?bookSides(m,nextL):'');
   if(isLast) s.classList.add('last');
   $('.jbox',s).addEventListener('click',()=>{   // the whole box (number, stars, name) opens the lesson
-    hideHint(); if(open){ blip(600); openLesson(m); } else if(st==='locked') message(isAr()?'مقفول':'Locked',coins?(isAr()?`تفتحيه بـ ${COINTXT(coins)}`:`Open it with ${COINTXT(coins)}!`):(isAr()?'ده هيتفتح قريبًا':'This opens later!'),`<span class="jlockbig">${LOCK}</span>`); else message(tr('Soon!'),isAr()?'الدرس ده قريبًا!':COURSE.hints.soonLesson,`<span class="car">${CAR('sad')}</span>`); });
+    hideHint(); if(open){ blip(600); openLesson(m); } else if(st==='locked') lockTap(lockUnit?'unit':'lesson',lockUnit||m,coins,`<span class="jlockbig">${LOCK}</span>`,()=>openMap()); /* js/coins.js: open with coins / a free pick */ else message(tr('Soon!'),isAr()?'الدرس ده قريبًا!':COURSE.hints.soonLesson,`<span class="car">${CAR('sad')}</span>`); });
   const go=(t,p)=>{ hideHint(); blip(600); bookOpen(m,t,p); };
   $$('.jpm:not(.ex):not(.tl):not(.rv)',s).forEach(b=>b.addEventListener('click',()=>go(b.dataset.tab,+b.dataset.p)));
   $$('.jpm.ex:not(.rv)',s).forEach(b=>b.addEventListener('click',()=>{ hideHint(); blip(600); openExam(m,m.exams.find(x=>x.id===b.dataset.ex)); }));   // red signs: exam papers
@@ -47,17 +47,21 @@ function drawMapAll(j,redraw){
   j.innerHTML=`<svg class="jroad" aria-hidden="true"></svg><div class="jcar"></div>`;
   units.forEach(u=>{
     const ua=accessOf(u,openOf(u),'u:'+SUBJECT.id+':'+u.unit,units.indexOf(u),'unit'), ust=ua.st, box=el('div','jend'); box.innerHTML=unitBox(u,ust);
-    $('.ubox',box).addEventListener('click',()=>{ hideHint(); if(ust==='open') blip(600); else if(ust==='locked') message(isAr()?'مقفول':'Locked',ua.coins?(isAr()?`تفتحيه بـ ${COINTXT(ua.coins)}`:`Open it with ${COINTXT(ua.coins)}!`):(isAr()?'ده هيتفتح قريبًا':'This opens later!'),unitBox(u,'locked')); else message(tr('Soon!'),isAr()?`${tr('Unit')} ${num(u.unit)} قريبًا!`:`Unit ${u.unit} is coming soon!`,unitBox(u,'soon')); });
+    $('.ubox',box).addEventListener('click',()=>{ hideHint(); if(ust==='open') blip(600); else if(ust==='locked') lockTap('unit',u,ua.coins,unitBox(u,'locked'),()=>openMap()); /* js/coins.js */ else message(tr('Soon!'),isAr()?`${tr('Unit')} ${num(u.unit)} قريبًا!`:`Unit ${u.unit} is coming soon!`,unitBox(u,'soon')); });
     j.append(box); items.push({k:'u',el:box});
     const list=lessons.filter(l=>l.unit===u.unit); let tests=null;
     if(u.exams) list.push({unit:u.unit,lesson:'',folder:'t'+u.unit,id:SUBJECT.id+':t'+u.unit,title:'',exams:u.exams,tabs:[],testsOnly:true});   // a unit made only of tests (final assessments): one separate map item each, no lesson circle   // a unit's Tests always come after its LAST lesson
-    list.forEach((m,i)=>{ const L=mkLesson(m,list[i+1],m===curM,i===list.length-1,(()=>{ if(m.testsOnly) return 'open'; const la=accessOf(m,!!m.file,'l:'+m.id); return la.st==='open'&&ust==='locked'?'locked':la.st; })(),ua.coins), signs=$$('.jpg',L); let nm=$('.jt',L);
+    list.forEach((m,i)=>{ const la=m.testsOnly?{st:'open'}:accessOf(m,!!m.file,'l:'+m.id), byUnit=la.st==='open'&&ust==='locked'&&!(ESET.items['l:'+m.id]||{}).st&&!coinUnlocked('l:'+m.id);   // a lesson of a locked unit is locked too (a tap offers the whole unit)
+      const L=mkLesson(m,list[i+1],m===curM,i===list.length-1,byUnit?'locked':la.st,byUnit?ua.coins:la.coins,byUnit?u:null), signs=$$('.jpg',L); let nm=$('.jt',L);
       if(i<list.length-1) { const ex=signs.filter(g=>$('.jpm.ex',g)); if(ex.length){ ex.forEach(g=>{ signs.splice(signs.indexOf(g),1); g.remove(); }); (tests=tests||[]).push(...ex); } }
       if(i===list.length-1&&tests){ signs.push(...tests); tests=null; }
       [nm,...signs].forEach(e=>{ if(e) e.dataset.touched=L.dataset.touched; }); $$('.jside',L).forEach(s=>s.remove()); if(nm&&m.testsOnly){ nm.remove(); nm=null; } if(nm){ j.append(nm); nm.addEventListener('click',()=>$('.jbox',L).click()); } j.append(L); signs.forEach(s=>j.append(s)); items.push({k:'l',el:L,signs,name:nm}); });
   });
-  j._items=items; wrap.innerHTML=`<div class="mtitle"><div><b${isAr()?' class="ar"':''}>${SUBJECT.name}</b><small>${tr(COURSE.grade)} · ${tr(COURSE.term)}</small></div><button class="mview" id="mapView" aria-pressed="false"></button></div>`; wrap.append(j);
-  $('#mapView',wrap).addEventListener('click',()=>{ hideHint(); blip(300); setMapView(mapView()==='grid'?'road':'grid',true); });
+  // the subject title + road/grid toggle sit on the map screen itself (over the top of the map, not inside it), so their edges line up with the
+  // helper bar above: title under the home button, toggle under the star counter (Marwa 2026-11-05)
+  j._items=items; wrap.innerHTML=''; const mt=$('#map>.mtitle'); if(mt) mt.remove();
+  wrap.insertAdjacentHTML('beforebegin',`<div class="mtitle"><div><b${isAr()?' class="ar"':''}>${SUBJECT.name}</b><small>${tr(COURSE.grade)} · ${tr(COURSE.term)}</small></div><button class="mview" id="mapView" aria-pressed="false"></button></div>`); wrap.append(j);
+  $('#mapView').addEventListener('click',()=>{ hideHint(); blip(300); setMapView(mapView()==='grid'?'road':'grid',true); });
   j.dataset.f=MAPF[subjKey()]||'';
   mapTabs(j); applyMapFilter(j,false);
   placeCar(Math.max(0,$$('.jl',j).findIndex(e=>e.classList.contains('cur'))), !redraw);
@@ -75,8 +79,10 @@ function buildGrid(j,wrap){
     if(it.k==='u'){ const row=newRow(), ub=$('.ubox',it.el), c=ub.cloneNode(true); c.classList.add('gub'); c.addEventListener('click',()=>ub.click()); row.prepend(c); return; }
     if(!cells) newRow();
     if(it.el.classList.contains('to')){ it.signs.filter(s=>$('.jpm.ex',s)).forEach(s=>{ const jp=$('.jpm',s); cells.append(cell('gt ex',jp.innerHTML,jp,jp.getAttribute('aria-label'))); }); return; }
-    const L=it.el, st=['soon','locked'].find(x=>L.classList.contains(x))||'open', n=+L.dataset.stars||0, parts=$$('.js span',L).length, jn=$('.jn',L);
-    const b=cell('gl '+st+(L.classList.contains('cur')?' cur':''),`${parts?`<span class="gst">${Array.from({length:parts},(_,k)=>`<span>${STAR(k<n)}</span>`).join('')}</span>`:''}<span class="gn${jn.classList.contains('two')?' two':''}">${jn.innerHTML}</span>${st==='locked'?`<span class="glock">${LOCK}</span>`:st==='soon'?`<span class="gsoon">${tr('Soon')}</span>`:''}${L.dataset.name?`<span class="gname${isAr()?' ar':''}">${L.dataset.name}</span>`:''}`,$('.jbox',L),$('.jcard',L).getAttribute('aria-label'));
+    const L=it.el, st=['soon','locked'].find(x=>L.classList.contains(x))||'open';
+    // the circle + stars (or Soon pill) are the road's own parts copied as they are, so the grid looks exactly like the road (Marwa 2026-11-05)
+    const top=$('.js,.jsoon',L), jc=$('.jcard',L);
+    const b=cell('gl '+st+(L.classList.contains('cur')?' cur':''),`${top?top.outerHTML:''}<span class="jcard">${jc.innerHTML}</span>${L.dataset.name?`<span class="gname${isAr()?' ar':''}">${L.dataset.name}</span>`:''}`,$('.jbox',L),$('.jcard',L).getAttribute('aria-label'));
     b.dataset.touched=L.dataset.touched; cells.append(b);
     it.signs.filter(s=>$('.jpm.ex,.jpm.tl',s)).forEach(s=>{ const jp=$('.jpm',s); cells.append(cell('gt '+(jp.classList.contains('tl')?'tl':'ex'),jp.innerHTML,jp,jp.getAttribute('aria-label'))); });
   });
@@ -113,13 +119,14 @@ function mapLayout(j){
   // page layout for every sign (about a second on a tablet, on every open of the map)
   j._items.forEach(it=>{ if(it.k==='u') it.el.style.left=cx+'px'; });
   const sz=new Map(), size=e=>{ if(e&&!sz.has(e)) sz.set(e,{w:e.offsetWidth,h:e.offsetHeight}); return e?sz.get(e):null; };
-  j._items.forEach(it=>{ if(it.k==='u') size(it.el); else { size(it.name); it.signs.forEach(s=>{ if(s.style.display!=='none') size($('.jpm',s)); }); } });
+  j._items.forEach(it=>{ if(it.k==='u') size(it.el); else { const c=$('.jcard',it.el); it.cTop=c?c.offsetTop:1.8*fs; it.cH=c?c.offsetHeight:2.9*fs; size(it.name); it.signs.forEach(s=>{ if(s.style.display!=='none') size($('.jpm',s)); }); } });
   j._items.forEach(it=>{
     if(it.k==='u'){ const e=it.el; e.style.top=y+'px'; const h=size(e).h; pts.push([cx,y+h*.55]); y+=h+fs*1.2; return; }
     const L=it.el, x=cx+side*sway; side=-side; if(L.classList.contains('cur')) y+=4.2*fs; L.style.left=x+'px'; L.style.top=y+'px';
-    const cy=y+3.4*fs; pts.push([x,cy]); lastY=cy;
-    let belowName=cy+1.7*fs;
-    const nm=it.name; if(nm){ const ns=size(nm), nw=ns.w, nx=Math.max(nw/2+fs*.4,Math.min(W-nw/2-fs*.4,x)); nm.style.left=nx+'px'; nm.style.top=(cy+1.5*fs)+'px'; belowName=cy+1.5*fs+ns.h; }
+    // the road runs through the circle's centre; the name pill sits ON the circle's bottom edge (overlaps it a little, no gap; Marwa 2026-11-04)
+    const cy=y+it.cTop+it.cH/2, cb=y+it.cTop+it.cH; pts.push([x,cy]); lastY=cy;
+    let belowName=cb;
+    const nm=it.name; if(nm){ const ns=size(nm), nw=ns.w, nx=Math.max(nw/2+fs*.4,Math.min(W-nw/2-fs*.4,x)), nt=cb-.35*fs; nm.style.left=nx+'px'; nm.style.top=nt+'px'; belowName=nt+ns.h; }
     const vis=it.signs.filter(s=>s.style.display!=='none'); let ry=belowName+fs*.9;
     for(let r=0;r*2<vis.length;r++){ const pair=vis.slice(r*2,r*2+2), h=Math.max(...pair.map(s=>size($('.jpm',s)).h)); pair.forEach((s,k)=>place.push({s,yc:ry+h/2,left:k===0})); lastY=ry+h/2; ry+=h+fs*.9; }
     y=vis.length?ry+fs*.3:belowName+fs*1.4;
@@ -134,7 +141,7 @@ function mapLayout(j){
     const c1=[b[0]+(c[0]-a[0])/6,b[1]+(c[1]-a[1])/6], c2=[c[0]-(e[0]-b[0])/6,c[1]-(e[1]-b[1])/6]; segs.push([b,c1,c2,c]);
     d+=` C${c1[0].toFixed(1)},${c1[1].toFixed(1)} ${c2[0].toFixed(1)},${c2[1].toFixed(1)} ${c[0].toFixed(1)},${c[1].toFixed(1)}`; }
   const rb=1.5*fs; svg.setAttribute('viewBox',`0 0 ${W} ${H}`); svg.setAttribute('width',W); svg.setAttribute('height',H);
-  svg.innerHTML=`<path class="rbase" d="${d}" fill="none" stroke-width="${rb}" stroke-linecap="round"/><path class="rdone" d="${d}" fill="none" stroke-width="${rb}" stroke-linecap="round" stroke-dasharray="0 99999"/>`;
+  svg.innerHTML=`<path class="rbase" d="${d}" fill="none" stroke-width="${rb}" stroke-linecap="round"/><path class="rdone" d="${d}" fill="none" stroke-width="${rb}" stroke-linecap="round" stroke-dasharray="0 99999"/><path class="rdash" d="${d}" fill="none" stroke-width="${(.14*fs).toFixed(2)}" stroke-linecap="round" stroke-dasharray="${(.55*fs).toFixed(1)} ${(.6*fs).toFixed(1)}"/>`;
   j._road=$('.rbase',svg); j._done=$('.rdone',svg);
   const bz=(s,t)=>{ const u=1-t, w=[u*u*u,3*u*u*t,3*u*t*t,t*t*t]; return [w[0]*s[0][0]+w[1]*s[1][0]+w[2]*s[2][0]+w[3]*s[3][0], w[0]*s[0][1]+w[1]*s[1][1]+w[2]*s[2][1]+w[3]*s[3][1]]; };
   const xAt=yy=>{ let a=0,b=segs.length-1; while(a<b){ const mid=(a+b)>>1; if(segs[mid][3][1]<yy) a=mid+1; else b=mid; }   // the segment that holds this height, then bisect inside it (no slow svg path measuring)
@@ -166,7 +173,7 @@ function placeCar(i, drive){
 function openMap(){
   if(!SUBJECT) SUBJECT=COURSE.subjects.find(s=>s.open);
   stopAll(); vStop(); clearMarks(); show('map');
-  drawMap(); showHint($(mapView()==='grid'?'.gl.cur .gn':'.jl.cur .jcard'),isAr()?'اضغط هنا لتبدأ!':COURSE.hints.map,1500,'map');
+  drawMap(); showHint($(mapView()==='grid'?'.gl.cur .jcard':'.jl.cur .jcard'),isAr()?'اضغط هنا لتبدأ!':COURSE.hints.map,1500,'map');
 }
 let rsT=0; addEventListener('resize',()=>{ clearTimeout(rsT); rsT=setTimeout(()=>{ if($('#map').hidden) return;
   const j=$('.journey'), cur=Math.max(0,$$('.jl').findIndex(e=>e.classList.contains('cur')));

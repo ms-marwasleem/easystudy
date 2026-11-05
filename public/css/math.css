@@ -55,15 +55,32 @@
 .mxmk{font-weight:700;font-size:min(calc(52cqh/max(var(--n),7)),9cqw);line-height:1;color:var(--c-brown-dk);white-space:nowrap}.mxmk b{color:var(--c-accent);font-size:1.35em}
 @media (max-aspect-ratio:5/4){.mxrow.mxbond{grid-template-columns:minmax(0,1.7fr) minmax(0,2.4fr) auto auto;gap:0.25rem 0.5rem;padding:0.25rem 0.625rem}.mxeq b{font-size:min(calc(60cqh/max(var(--n),7)),12cqw)}.mxeq i{font-size:min(calc(38cqh/max(var(--n),7)),7cqw)}.mxmk{font-size:min(calc(35cqh/max(var(--n),7)),6.5cqw)}.mxbond .mxsay{margin-left:2px}}
 
-/* number line explain (u1l9) */
-.mxline{flex:1 1 0;min-height:0;container-type:size;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,8fr) minmax(0,1.3fr);grid-template-rows:minmax(0,1fr) auto;align-items:center;gap:clamp(0.5rem,2cqh,1.125rem) clamp(0.375rem,1.6cqw,0.875rem);max-width:56.25rem;width:100%;margin:0 auto;padding:0.375rem}
-.mxend{display:grid;grid-template-rows:minmax(0,1fr) auto;justify-items:center;align-items:center;height:70%;min-height:0;gap:0.25rem;padding:0.25rem}.mxend img{max-width:100%;max-height:100%;object-fit:contain;min-height:0}.mxend b{font-size:min(5cqh,3.6cqw);color:var(--c-brown-dk);line-height:1}
-.mxstones{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:min(2cqh,2cqw);align-content:center}
-.mxstone{position:relative;aspect-ratio:1.25;border-radius:50%;border:0.1875rem solid var(--c-brown-dk);box-shadow:0 0.25rem 0 rgba(90,52,24,.4);color:var(--c-white);font-weight:700;font-size:min(9cqh,4cqw);display:grid;place-items:center;text-shadow:0 2px 0 rgba(0,0,0,.25)}
-.mxstone:nth-child(2n){transform:translateY(22%)}.mxstone:active,.mxstone.on{transform:scale(.94)}.mxstone.on{box-shadow:0 0 0 0.25rem rgba(42,127,216,.45)}
-.mxstone .lst{position:absolute;top:-0.25rem;left:-0.25rem;width:1.25rem;height:1.25rem;opacity:0}.mxstone .lst svg{width:100%;height:100%}.mxstone.heard .lst{opacity:1}
-.mxcap{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:0.625rem;font-weight:700;font-size:min(5.2cqh,4.4cqw);color:var(--c-brown-dk);text-align:center;line-height:1.2;padding:0.375rem 0.75rem}.mxcap .mxsay{flex:none}
-@media (max-aspect-ratio:5/4){.mxline{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto}.mxstones{grid-column:1/-1;grid-row:2;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr));align-self:stretch;align-items:center;min-height:0}.mxend{grid-row:1;height:auto;max-height:30cqh}.mxend.bg{grid-column:2}.mxend.sm{grid-column:1}.mxstone{font-size:min(7cqh,12cqw);aspect-ratio:auto;height:100%;max-height:min(13cqh,6rem)}.mxstone:nth-child(2n){transform:none}.mxcap{grid-row:3}}
+/* number line explain (u1l9, Marwa 2026-11-04): small -> big, mouse -> elephant. The stones GROW from 1 to 10 (--k), read left to right.
+   Wide screens: one row  [mouse] 1 2 3 ... 10 [elephant].  Tall screens: [mouse] on top, 1-5, 6-10, [elephant] at the bottom right.
+   Text and speaker white on the page colour. */
+.mxline{flex:1 1 0;min-height:0;container-type:size;display:grid;grid-template-columns:minmax(0,1.6fr) repeat(10,minmax(0,1fr)) minmax(0,2.4fr);grid-template-rows:minmax(0,1fr) auto;
+  align-items:end;align-content:center;column-gap:min(1.2cqw,.7rem);row-gap:min(4cqh,1.5rem);max-width:80rem;width:100%;margin:0 auto;padding:0 .25rem}
+.mxstones{display:contents}
+.mxend{grid-row:1;display:grid;grid-template-rows:minmax(0,1fr) auto;justify-items:center;align-items:end;height:100%;max-height:44cqh;min-height:0;gap:.25rem;padding:0;align-self:end}
+.mxend.sm{grid-column:1;max-height:26cqh}.mxend.bg{grid-column:12;max-height:56cqh}
+.mxend img{max-width:100%;max-height:100%;object-fit:contain;min-height:0}
+.mxend b{font-size:clamp(.85rem,min(4.4cqh,2.4cqw),1.4rem);color:var(--c-on-bg);line-height:1;font-weight:700}
+.mxstone{grid-row:1;align-self:end;justify-self:center;position:relative;width:calc(100% * (.5 + .05 * var(--k)));aspect-ratio:1;max-height:calc(44cqh * (.5 + .05 * var(--k)));border-radius:50%;
+  border:.1875rem solid var(--c-brown-dk);box-shadow:0 .25rem 0 rgba(90,52,24,.4);color:var(--c-white);font-weight:700;font-size:calc(min(5cqw,10cqh) * (.6 + .04 * var(--k)));line-height:1;
+  display:flex;align-items:center;justify-content:center;text-shadow:0 2px 0 rgba(0,0,0,.25);transform:none}
+.mxstone b{display:block;line-height:1}
+.mxstone:active,.mxstone.on{transform:scale(.94)}.mxstone.on{box-shadow:0 0 0 .25rem rgba(255,255,255,.6)}
+.mxstone .lst{position:absolute;top:-.25rem;left:-.25rem;width:1.25rem;height:1.25rem;opacity:0}.mxstone .lst svg{width:100%;height:100%}.mxstone.heard .lst{opacity:1}
+.mxcap{grid-column:1/-1;grid-row:2;display:flex;align-items:center;justify-content:center;gap:.625rem;font-weight:700;font-size:clamp(1rem,min(5.2cqh,3.4cqw),1.8rem);color:var(--c-on-bg);text-align:center;line-height:1.2;padding:.375rem .75rem}.mxcap .mxsay{flex:none}
+@media (max-aspect-ratio:5/4){
+  .mxline{grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:minmax(0,.8fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.3fr) auto;align-items:center;row-gap:min(2.5cqh,1rem)}
+  .mxend{max-height:none;height:100%}
+  .mxend.sm{grid-column:1 / span 2;grid-row:1;justify-self:start;align-self:end}
+  .mxend.bg{grid-column:3 / span 3;grid-row:4;justify-self:end;align-self:start}
+  .mxstone{grid-row:2;align-self:center;width:calc(100% * (.55 + .045 * var(--k)));max-height:calc(16cqh * (.55 + .045 * var(--k)));font-size:calc(min(9cqw,6cqh) * (.6 + .04 * var(--k)))}
+  .mxstone:nth-child(n+6){grid-row:3}
+  .mxcap{grid-row:5}
+}
 .qmhelp{align-self:center;margin-top:0.5rem}
 .qmcell.peek b,.qmb.peek b{color:rgba(46,27,12,.28)}
 .qxduo{display:flex;align-items:flex-end;justify-content:center;gap:1rem 3rem;flex-wrap:wrap}
@@ -80,7 +97,6 @@
 /* mwrite: write a number sentence / an answer on lines with the app's keypad (0-9 + − =) */
 .mwline{flex:1 0 100%;flex-wrap:wrap;gap:.2rem .6rem;cursor:default}
 .mwline .mwlead{font-family:var(--f-read);font-weight:700;color:var(--c-on-bg);font-size:clamp(1.2rem,min(5cqw,5.5cqh),2.2rem)}
-#lesson:not(.ar) .qx .mwline .qxw:not(.qxwords){font-size:clamp(1.8rem,min(9cqw,9cqh),3.4rem)}
 .mwline .mwcard{font-family:var(--f-read);font-weight:700;font-size:clamp(1.2rem,min(5cqw,5.5cqh),2.2rem);color:var(--c-text);background:var(--c-paper2,#FFF7E8);border-radius:.8rem;padding:.15em .7em;box-shadow:0 .2rem 0 var(--c-paper3,#E8D2A8)}
 .mwkeys{gap:clamp(.35rem,1.4cqw,.7rem);max-width:min(100%,34rem);margin:0 auto}
 .mwkeys .qmn{--q-choice:clamp(2.6rem,min(10.5cqw,9cqh),4.2rem)}

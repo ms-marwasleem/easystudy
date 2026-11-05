@@ -149,3 +149,14 @@
 .pgtag svg{width:1rem;height:1rem;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linejoin:round}
 @media (max-aspect-ratio:1/1){.tabs{padding-inline-end:3.4rem}.tabs.many{padding-inline-end:3.2rem}.tabs.many .tab{padding:.3em .55em .4em}}
 @media (max-aspect-ratio:1/1){.tabs.many.many5{gap:.12rem;padding-inline-end:2.7rem}.tabs.many.many5 .tab{font-size:min(.8rem,3.3vw);padding:.3em .3em .4em;gap:.1rem}.tabs.many.many5 .tab .kd{transform:scale(.8)}}   /* five tabs (Lesson Vocab Q Booklet Assessments) on a phone */
+/* a cell with sentences under its picture ("more" lines, e.g. What shape is this? / This is a circle.): smaller picture, the sentences under it, all inside the cell (fitPk shrinks the text) */
+.scene.pics .pk.sent{justify-content:center;gap:.15rem;padding:0 .2rem}
+.scene.pics .pk.sent .pkpic img{width:min(calc(.5 * 100cqw / var(--pc,2)),calc(.28 * 100cqh / var(--pr,2) * var(--ar,1)));height:auto}
+.scene.pics .pk.sent .txt{font-size:calc(var(--focus-word-size) * .55);white-space:normal;text-align:center;line-height:1.15;max-width:100%}
+@media (max-aspect-ratio:5/4){
+  .scene.pics .pkarea.sents .pk{display:grid;grid-template-columns:auto minmax(0,1fr);align-content:center;align-items:center;column-gap:.5rem;row-gap:0;padding:0 .2rem;justify-items:start}
+  .scene.pics .pkarea.sents .pkpic{grid-row:1 / span 6;align-self:center}
+  .scene.pics .pkarea.sents .pk .pkpic img,.scene.pics .pkarea.sents .pk.sent .pkpic img{width:min(17cqw,calc(.8 * 100cqh / var(--pr,2) * var(--ar,1)));height:auto}
+  .scene.pics .pkarea.sents .pk .txt{grid-column:2;text-align:left;max-width:100%;font-size:calc(var(--focus-word-size) * .6);line-height:1.12;padding-top:.3rem}
+  .scene.pics .pkarea.sents .pk .w{padding:0 .08em}
+}

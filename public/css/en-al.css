@@ -168,7 +168,6 @@
 .alprose .alline.al-head .altx{font-size:clamp(1.2rem,min(5cqw,5cqh),2.2rem)}
 /* the learn-the-word pencil: white, a small icon on the top-right corner of the word itself (never on a line of its own) */
 .alw{position:relative}
-.alw .wpn{position:absolute;right:-.7em;top:-.75em;margin:0;width:1em;height:1em;color:var(--icon-on-color);filter:drop-shadow(0 0 .12rem rgba(60,20,90,.7))}
 /* passage cloze: the word choices are pinned at the TOP (always visible); the passage scrolls under them and never covers them */
 .alcloze{overflow:hidden;justify-content:flex-start;align-items:stretch;gap:.5rem;padding-bottom:.3rem}
 .alcloze .albank{flex:none;position:relative;z-index:2}
@@ -184,3 +183,4 @@
 .alunder .alw.bad{background:var(--c-bad-bg);color:var(--c-text)}
 .alunder .alpics{flex:none;max-height:34%;width:100%}
 .alunder .alans.help{box-shadow:0 0 0 .25rem rgba(255,226,120,.8);border-radius:.3em}
+.alstem .altx .alsp{display:inline-grid;vertical-align:middle}   /* the speaker straight after the question text (Marwa 2026-11-04) */

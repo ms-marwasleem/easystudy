@@ -1,0 +1,57 @@
+/* ===== THE WORD COMPONENT: ONE look for every word the child reads or writes, in every subject and every place (Marwa 2026-11-04, RULES.md "Word slots") =====
+   Built only by js/wordslots.js (wsFill / wsWord): <b class="ws [ws-ar]"> [<span class="wsg">] <span class="lt [hid cur peek got bad fnt]">letter</span> ...
+   Places: Words tab (.vword), missing letter "type"/"letter" (.qword), write / arrange / vowel / math words / explainer (.qxw).
+   The Words-tab look is the standard: the word is ONE white, ONE weight, ONE size (--ws-size); a thin light-white line under every letter,
+   plain white under the letter whose turn it is; a letter not written yet is see-through (keeps its place); a wrong letter is never written (the place shakes).
+   No other file styles .ws / .lt. A place changes only its data, never this look. Language (not subject) picks the line: English = a line per letter,
+   Arabic = one joined underline (the letters must stay joined). Size: one size; a long word shrinks only as much as it must. */
+:root{--ws-size:clamp(2.5rem,min(12vw,8.5vh),5rem);--ws-line:var(--c-on-bg-line);--ws-now:var(--c-on-bg);--ws-ink:var(--c-on-bg)}
+
+/* one colour, weight, no glow / outline; reading along (lit) never changes the colour */
+#lesson .ws,#lesson .ws .lt,#lesson :is(.vword.lit,.qword.lit) .ws .lt,#lesson .wsg.on .lt,#lesson .qword.lit b,#lesson .qword .qscr{color:var(--ws-ink);font-weight:700;text-shadow:none;-webkit-text-stroke:0;background:none;transition:none}
+#lesson .ws{font-family:var(--f-read);line-height:1;white-space:nowrap;text-align:center}
+#lesson .ws.ws-ar{font-family:var(--f-ar);line-height:1.5}
+
+/* English: a place per letter, a thin line under each */
+#lesson .ws:not(.ws-ar){display:inline-block;direction:ltr;font-size:min(var(--ws-size),calc((90vw - 3.5rem) / (var(--n,5) * .8 + .4)))   /* room for the speaker beside it */;padding:.04em 0 .1em}
+#lesson .ws:not(.ws-ar) .wsg{display:inline}
+#lesson .ws:not(.ws-ar) .lt{display:inline-grid;place-items:center;vertical-align:bottom;min-width:.62em;height:1.2em;margin:0 .06em;padding:0;
+  border:0;border-bottom:.055em solid var(--ws-line);border-radius:0;text-decoration:none}
+#lesson .ws:not(.ws-ar) .sp{display:inline-block;width:.4em}
+#lesson .ws:not(.ws-ar) .lt.cur{border-bottom-color:var(--ws-now)}
+
+/* Arabic: the letters stay joined, one thin underline under the word, plain white under the letter whose turn it is */
+#lesson .ws.ws-ar .wsg{display:inline}
+#lesson .ws.ws-ar .lt{display:inline;min-width:0;height:auto;margin:0;padding:0;border:0;
+  text-decoration:underline;text-decoration-color:var(--ws-line);text-decoration-thickness:.05em;text-underline-offset:.14em;text-decoration-skip-ink:none}
+#lesson .ws.ws-ar .sp{display:inline-block;width:.5em}
+#lesson .ws.ws-ar .lt.cur{text-decoration-color:var(--ws-now)}
+
+/* the states */
+#lesson .ws .lt.hid{color:transparent}
+#lesson .ws .lt.hid.peek{color:var(--ws-ink);opacity:.45}               /* Help: the letter shows see-through for a moment */
+#lesson .ws .lt.hid.fnt:not(.peek){color:var(--ws-ink);opacity:.35}     /* "copy the example": the letters show faintly */
+#lesson .ws .lt.bad{animation:wsno .4s ease-out}                         /* wrong: never written, the place shakes */
+@keyframes wsno{20%{transform:translateX(-.1em)}60%{transform:translateX(.1em)}}
+
+/* where the word stands: the Words tab sizes it to its room (JS fit), the question sheets to their box, a word inside a sentence takes the sentence's size */
+#lesson .vword.ws:not(.ws-ar){display:block;font-size:min(var(--ws-size),var(--wfs,5rem) * 1.25)}
+#lesson .qx .ws:not(.ws-ar){font-size:min(var(--ws-size),16cqh,calc(92cqw / (var(--n,6) * .78 + .4)))}
+#lesson .qx.sent .ws:not(.ws-ar){white-space:normal;font-size:min(10cqh,8.5cqw);line-height:1.6}
+#lesson .xpl-cap .ws{font-size:inherit;vertical-align:bottom}
+#lesson .qx .mwline .ws:not(.ws-ar){font-size:clamp(1.8rem,min(9cqw,9cqh),3.4rem)}
+
+
+/* Words tab: the word stands in the middle, right above the middle of the Help / Teach / Write buttons (an empty place the size of the speaker balances it) */
+#lesson .vwrow:not(:has(>.vboy:not([hidden])))::before{content:"";flex:none;width:calc(var(--icon-speaker) + .7rem)}
+
+/* while the phone keyboard is open (js/wordslots.js): the word is lifted above it; the progress stars make room; the Help bulb stands right under the word;
+   with little room (phone on its side) the title, lesson name and road step aside */
+body.ws-typing .quiz .qdots{visibility:hidden}
+body.ws-tight #lesson .l-head{display:none}
+body.ws-typing .ws-side{position:fixed!important;right:auto!important;bottom:auto!important;margin:0!important;z-index:60}
+.ws-mv{transition:translate .2s ease-out}
+
+/* the question word line with a plain word or a sentence (not spelled): a sentence wraps inside the screen and takes the sentence size */
+#lesson .qword b:not(:has(.ws)){white-space:normal;text-align:center;max-width:100%;overflow-wrap:break-word}
+#lesson .qword b:has(.alw ~ .alw){font-size:min(var(--ws-size),var(--q-sentence-size))}

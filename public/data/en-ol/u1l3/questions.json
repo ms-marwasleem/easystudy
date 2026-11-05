@@ -215,7 +215,8 @@
      "answer": 0,
      "pic": "../../pics/book.png",
      "audio": "words/book.mp3",
-     "word": "book"
+     "word": "book",
+     "askAudio": "../../en-shared/q/askc-384f666ed6.mp3"
     },
     {
      "options": [
@@ -225,7 +226,8 @@
      "answer": 1,
      "pic": "../../pics/bag.png",
      "audio": "words/bag.mp3",
-     "word": "bag"
+     "word": "bag",
+     "askAudio": "../../en-shared/q/askc-3c91b0d508.mp3"
     },
     {
      "options": [
@@ -235,7 +237,8 @@
      "answer": 1,
      "pic": "../../pics/pencil.png",
      "audio": "words/pencil.mp3",
-     "word": "pencil"
+     "word": "pencil",
+     "askAudio": "../../en-shared/q/askc-facbb0d597.mp3"
     },
     {
      "options": [
@@ -245,7 +248,8 @@
      "answer": 0,
      "pic": "../../pics/board.png",
      "audio": "words/board.mp3",
-     "word": "board"
+     "word": "board",
+     "askAudio": "../../en-shared/q/askc-27901f72ac.mp3"
     }
    ]
   },
@@ -267,7 +271,8 @@
       "up",
       "down"
      ],
-     "audio": "../../en-shared/q/sit-down.mp3"
+     "audio": "../../en-shared/q/sit-down.mp3",
+     "askAudio": "../../en-shared/q/askz-7392815ecf.mp3"
     },
     {
      "text": "Stand [[up]].",
@@ -276,7 +281,8 @@
       "up",
       "down"
      ],
-     "audio": "../../en-shared/q/stand-up.mp3"
+     "audio": "../../en-shared/q/stand-up.mp3",
+     "askAudio": "../../en-shared/q/askz-524fc5b34d.mp3"
     },
     {
      "text": "Open your [[books]].",
@@ -285,7 +291,8 @@
       "up",
       "down"
      ],
-     "audio": "../../en-shared/q/open-your-books.mp3"
+     "audio": "../../en-shared/q/open-your-books.mp3",
+     "askAudio": "../../en-shared/q/askz-b089266820.mp3"
     }
    ]
   },

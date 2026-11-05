@@ -110,6 +110,7 @@ window.gramAnim=function(cards){
       if(done.size>=cards.length&&!showGrammar.done){ showGrammar.done=1; award(LESSON.id,'grammar'); }
       live(g); playing=false; rail(false); if(auto&&i<cards.length-1){ await wait(900,g); run(i+1,true); }
     }catch(e){ if(e!==STOP) console.error(e); } }
+  window.gramStop=()=>{ ++gen; playing=false; };   // core.js stopVoice: leaving the tab / lesson stops the animation and its voice
   showGrammar.done=!!(STARS[LESSON.id]&&STARS[LESSON.id].grammar);
   setTimeout(()=>run(0,true),60);
 };

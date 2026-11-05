@@ -10,3 +10,7 @@
   -webkit-text-stroke:0.07rem var(--ol);paint-order:stroke fill;background:var(--hud);border-radius:62.4375rem;padding:.1em .8em;display:flex;align-items:center;gap:.3em}
 .box .tag svg{width:1.1em;height:1.1em}
 .box.soon .bkimg{filter:brightness(1.22) saturate(.9)}   /* soon: the book itself is lighter, the Soon label (drawn on the book) stays clear */
+/* 3 books (عام / تجريبي, Marwa 2026-11-05): side by side in landscape, one above the other in portrait */
+.boxes.n3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-aspect-ratio:1/1){.boxes.n3{grid-template-columns:minmax(0,1fr)}}
+.boxes.n3 .box .tag{right:calc(50% - min(37cqh,39cqw))}   /* the star count stays on the book corner in a wide cell */

@@ -2,7 +2,7 @@
 /* ---------- Subjects ---------- */
 let wig=null;
 function drawSubjects(){
-  const g=$('#boxes'); g.innerHTML='';
+  const g=$('#boxes'); g.innerHTML=''; g.classList.toggle('n3',COURSE.subjects.length<=3);   // 3 books (عام / تجريبي): one column in portrait, one row in landscape
   COURSE.subjects.forEach(s0=>{
     const ac=accessOf(s0,!!s0.open,'s:'+s0.id), st=ac.st, s=Object.assign({},s0,{_st:st});
     const b=el('button','box '+st);
@@ -19,4 +19,4 @@ function drawSubjects(){
     wig=G.timeline({repeat:-1,repeatDelay:1.2,delay:1.4}); cubes.forEach(o=>wig.to(o,{rotation:-4,y:-6,duration:.12}).to(o,{rotation:4,duration:.1,repeat:3,yoyo:true}).to(o,{rotation:0,y:0,duration:.15}).to({},{duration:.5}));
     $$('.peek',g).forEach(p=>G.to(p,{x:4,duration:.9,yoyo:true,repeat:-1,ease:'sine.inOut'})); }
 }
-function openSubjects(){ if(restOk){ stopAll(); vStop(); clearMarks(); } show('subjects'); drawSubjects(); pop('.box'); showHint($('.box.open'),COURSE.hints.subjects,1300,'subjects'); }
+function openSubjects(){ if(restOk){ stopAll(); vStop(); clearMarks(); } show('subjects'); kidPaint(); drawSubjects(); pop('.box'); showHint($('.box.open'),COURSE.hints.subjects,1300,'subjects'); }

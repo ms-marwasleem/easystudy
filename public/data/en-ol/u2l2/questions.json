@@ -1,1 +1,491 @@
-{"_note":"u2l2 questions: p32 ex5 (circle board with Ss in the middle), p33 ex10 (write the beginning letter, typed). Tracing and colouring exercises skipped.","sets":[{"type":"circle","ex":5,"page":32,"task":"Circle the pictures that start with the letter (Ss).","taskAudio":"../../en-shared/q/start-circle-the-pictures-ss.mp3","hint":"Tap the pictures that start with Ss!","center":"Ss","centerAudio":"../../phonics/s.mp3","items":[{"word":"spoon","audio":"words/spoon.mp3","pic":"../../pics/spoon.png","answer":true,"pos":[14,16]},{"word":"star","audio":"words/star.mp3","pic":"../../pics/star.png","answer":true,"pos":[88,14]},{"word":"dog","audio":"../u1l4/words/dog.mp3","pic":"../../pics/dog.png","answer":false,"pos":[8,66]},{"word":"sun","audio":"../u2l1/words/sun.mp3","pic":"../../pics/sun.png","answer":true,"pos":[34,72]},{"word":"spider","audio":"words/spider.mp3","pic":"../../pics/spider.png","answer":true,"pos":[52,86]},{"word":"snake","audio":"words/snake.mp3","pic":"../../pics/snake.png","answer":true,"pos":[76,76]},{"word":"rocket","audio":"words/rocket.mp3","pic":"../../pics/rocket.png","answer":false,"pos":[93,48]}]},{"type":"type","ex":10,"page":33,"task":"Write the beginning letter in each word.","taskAudio":"../../en-shared/q/write-the-beginning-letter-in-each-word.mp3","hint":"Type the first letter!","items":[{"word":"star","audio":"words/star.mp3","pic":"../../pics/star.png","missing":0,"answer":"s"},{"word":"snake","audio":"words/snake.mp3","pic":"../../pics/snake.png","missing":0,"answer":"s"},{"word":"spoon","audio":"words/spoon.mp3","pic":"../../pics/spoon.png","missing":0,"answer":"s"},{"word":"spider","audio":"words/spider.mp3","pic":"../../pics/spider.png","missing":0,"answer":"s"}]},{"type":"type","book":"workbook","model":"Classroom","ex":1,"page":12,"grp":"classroom-1","task":"Write the missing sound.","taskAudio":"../../en-shared/q/write-the-missing-sound.mp3","hint":"Type the missing letter!","items":[{"word":"snake","audio":"words/snake.mp3","pic":"../../pics/snake.png","gaps":[0]},{"word":"sun","audio":"../u2l1/words/sun.mp3","pic":"../../pics/sun.png","gaps":[0]},{"word":"spoon","audio":"words/spoon.mp3","pic":"../../pics/spoon.png","gaps":[0]},{"word":"star","audio":"words/star.mp3","pic":"../../pics/star.png","gaps":[0]},{"word":"spider","audio":"words/spider.mp3","pic":"../../pics/spider.png","gaps":[0]}]},{"type":"arrange","book":"workbook","model":"Classroom","ex":2,"page":12,"grp":"classroom-2","task":"Unscramble and write.","taskAudio":"../../en-shared/q/unscramble-and-write.mp3","hint":"Drag the letters!","items":[{"word":"spider","scr":"sedrip","audio":"words/spider.mp3","pic":"../../pics/spider.png"},{"word":"snake","scr":"aknes","audio":"words/snake.mp3","pic":"../../pics/snake.png"},{"word":"spoon","scr":"ponos","audio":"words/spoon.mp3","pic":"../../pics/spoon.png"},{"word":"sun","scr":"nus","audio":"../u2l1/words/sun.mp3","pic":"../../pics/sun.png"}]},{"type":"type","book":"workbook","model":"Homework","ex":1,"page":12,"grp":"homework-1","task":"Look and write.","taskAudio":"../../en-shared/q/look-and-write.mp3","hint":"Type the word!","items":[{"word":"sun","audio":"../u2l1/words/sun.mp3","pic":"../../pics/sun.png","gaps":[0,1,2]},{"word":"spider","audio":"words/spider.mp3","pic":"../../pics/spider.png","gaps":[0,1,2,3,4,5]},{"word":"spoon","audio":"words/spoon.mp3","pic":"../../pics/spoon.png","gaps":[0,1,2,3,4]},{"word":"snake","audio":"words/snake.mp3","pic":"../../pics/snake.png","gaps":[0,1,2,3,4]},{"word":"star","audio":"words/star.mp3","pic":"../../pics/star.png","gaps":[0,1,2,3]}]},{"type":"arrange","book":"workbook","model":"Weekly A","ex":1,"page":13,"grp":"weekly-a-1","task":"Unscramble and write.","taskAudio":"../../en-shared/q/unscramble-and-write.mp3","hint":"Drag the letters!","items":[{"word":"sun","scr":"usn","audio":"../u2l1/words/sun.mp3","pic":"../../pics/sun.png"},{"word":"spoon","scr":"poson","audio":"words/spoon.mp3","pic":"../../pics/spoon.png"},{"word":"spider","scr":"pdisre","audio":"words/spider.mp3","pic":"../../pics/spider.png"}]},{"type":"choice","book":"workbook","model":"Weekly A","ex":2,"page":13,"grp":"weekly-a-2","task":"Look, read, and complete.","taskAudio":"../../en-shared/q/look-read-and-complete.mp3","hint":"Tap the right word!","items":[{"lead":"The","options":["grass","sky"],"answer":0,"pic":"../../pics/grass.png","tail":"is green.","audio":"../../en-shared/q/the-grass-is-green.mp3","word":"The grass is green."},{"lead":"This is a","options":["flower","butterfly"],"answer":0,"pic":"../../pics/flower-pink.png","audio":"../../en-shared/q/this-is-a-flower.mp3","word":"This is a flower."}]},{"type":"arrange","book":"workbook","model":"Weekly B","ex":1,"page":13,"grp":"weekly-b-1","task":"Unscramble and write.","taskAudio":"../../en-shared/q/unscramble-and-write.mp3","hint":"Drag the letters!","items":[{"word":"star","scr":"tsra","audio":"words/star.mp3","pic":"../../pics/star.png"},{"word":"snake","scr":"nksae","audio":"words/snake.mp3","pic":"../../pics/snake.png"},{"word":"sky","scr":"kys","audio":"../u2l1/words/sky.mp3","pic":"../../pics/sky-toon.png"}]},{"type":"choice","book":"workbook","model":"Weekly B","ex":2,"page":13,"grp":"weekly-b-2","task":"Look, read, and complete.","taskAudio":"../../en-shared/q/look-read-and-complete.mp3","hint":"Tap the right word!","items":[{"lead":"I can see a","options":["butterfly","flower"],"answer":0,"pic":"../../pics/butterfly-pink.png","audio":"../../en-shared/q/i-can-see-a-butterfly.mp3","word":"I can see a butterfly."},{"lead":"This is a","options":["tree","bird"],"answer":0,"pic":"../../pics/tree.png","audio":"../../en-shared/q/this-is-a-tree.mp3","word":"This is a tree."}]},{"type":"arrange","book":"workbook","model":"Weekly C","ex":1,"page":14,"grp":"weekly-c-1","task":"Unscramble and write.","taskAudio":"../../en-shared/q/unscramble-and-write.mp3","hint":"Drag the letters!","items":[{"word":"flower","scr":"oefwlr","audio":"../u2l1/words/flower.mp3","pic":"../../pics/flower.png"},{"word":"bird","scr":"drbi","audio":"../u2l1/words/bird.mp3","pic":"../../pics/bird.png"},{"word":"tree","scr":"rete","audio":"../u1l2/words/tree.mp3","pic":"../../pics/tree.png"}]},{"type":"choice","book":"workbook","model":"Weekly C","ex":2,"page":14,"grp":"weekly-c-2","task":"Look, read, and complete.","taskAudio":"../../en-shared/q/look-read-and-complete.mp3","hint":"Tap the right word!","items":[{"lead":"This is a","options":["spider","spoon"],"answer":1,"pic":"../../pics/spoon.png","audio":"../../en-shared/q/this-is-a-spoon.mp3","word":"This is a spoon."},{"lead":"I can see the","options":["sky","sun"],"answer":0,"pic":"../../pics/sky-toon.png","audio":"../../en-shared/q/i-can-see-the-sky.mp3","word":"I can see the sky."}]}]}
+{
+ "_note": "u2l2 questions: p32 ex5 (circle board with Ss in the middle), p33 ex10 (write the beginning letter, typed). Tracing and colouring exercises skipped.",
+ "sets": [
+  {
+   "type": "circle",
+   "ex": 5,
+   "page": 32,
+   "task": "Circle the pictures that start with the letter (Ss).",
+   "taskAudio": "../../en-shared/q/start-circle-the-pictures-ss.mp3",
+   "hint": "Tap the pictures that start with Ss!",
+   "center": "Ss",
+   "centerAudio": "../../phonics/s.mp3",
+   "items": [
+    {
+     "word": "spoon",
+     "audio": "words/spoon.mp3",
+     "pic": "../../pics/spoon.png",
+     "answer": true,
+     "pos": [
+      14,
+      16
+     ]
+    },
+    {
+     "word": "star",
+     "audio": "words/star.mp3",
+     "pic": "../../pics/star.png",
+     "answer": true,
+     "pos": [
+      88,
+      14
+     ]
+    },
+    {
+     "word": "dog",
+     "audio": "../u1l4/words/dog.mp3",
+     "pic": "../../pics/dog.png",
+     "answer": false,
+     "pos": [
+      8,
+      66
+     ]
+    },
+    {
+     "word": "sun",
+     "audio": "../u2l1/words/sun.mp3",
+     "pic": "../../pics/sun.png",
+     "answer": true,
+     "pos": [
+      34,
+      72
+     ]
+    },
+    {
+     "word": "spider",
+     "audio": "words/spider.mp3",
+     "pic": "../../pics/spider.png",
+     "answer": true,
+     "pos": [
+      52,
+      86
+     ]
+    },
+    {
+     "word": "snake",
+     "audio": "words/snake.mp3",
+     "pic": "../../pics/snake.png",
+     "answer": true,
+     "pos": [
+      76,
+      76
+     ]
+    },
+    {
+     "word": "rocket",
+     "audio": "words/rocket.mp3",
+     "pic": "../../pics/rocket.png",
+     "answer": false,
+     "pos": [
+      93,
+      48
+     ]
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "ex": 10,
+   "page": 33,
+   "task": "Write the beginning letter in each word.",
+   "taskAudio": "../../en-shared/q/write-the-beginning-letter-in-each-word.mp3",
+   "hint": "Type the first letter!",
+   "items": [
+    {
+     "word": "star",
+     "audio": "words/star.mp3",
+     "pic": "../../pics/star.png",
+     "missing": 0,
+     "answer": "s"
+    },
+    {
+     "word": "snake",
+     "audio": "words/snake.mp3",
+     "pic": "../../pics/snake.png",
+     "missing": 0,
+     "answer": "s"
+    },
+    {
+     "word": "spoon",
+     "audio": "words/spoon.mp3",
+     "pic": "../../pics/spoon.png",
+     "missing": 0,
+     "answer": "s"
+    },
+    {
+     "word": "spider",
+     "audio": "words/spider.mp3",
+     "pic": "../../pics/spider.png",
+     "missing": 0,
+     "answer": "s"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 12,
+   "grp": "classroom-1",
+   "task": "Write the missing sound.",
+   "taskAudio": "../../en-shared/q/write-the-missing-sound.mp3",
+   "hint": "Type the missing letter!",
+   "items": [
+    {
+     "word": "snake",
+     "audio": "words/snake.mp3",
+     "pic": "../../pics/snake.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "sun",
+     "audio": "../u2l1/words/sun.mp3",
+     "pic": "../../pics/sun.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "spoon",
+     "audio": "words/spoon.mp3",
+     "pic": "../../pics/spoon.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "star",
+     "audio": "words/star.mp3",
+     "pic": "../../pics/star.png",
+     "gaps": [
+      0
+     ]
+    },
+    {
+     "word": "spider",
+     "audio": "words/spider.mp3",
+     "pic": "../../pics/spider.png",
+     "gaps": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 12,
+   "grp": "classroom-2",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "spider",
+     "scr": "sedrip",
+     "audio": "words/spider.mp3",
+     "pic": "../../pics/spider.png"
+    },
+    {
+     "word": "snake",
+     "scr": "aknes",
+     "audio": "words/snake.mp3",
+     "pic": "../../pics/snake.png"
+    },
+    {
+     "word": "spoon",
+     "scr": "ponos",
+     "audio": "words/spoon.mp3",
+     "pic": "../../pics/spoon.png"
+    },
+    {
+     "word": "sun",
+     "scr": "nus",
+     "audio": "../u2l1/words/sun.mp3",
+     "pic": "../../pics/sun.png"
+    }
+   ]
+  },
+  {
+   "type": "type",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 12,
+   "grp": "homework-1",
+   "task": "Look and write.",
+   "taskAudio": "../../en-shared/q/look-and-write.mp3",
+   "hint": "Type the word!",
+   "items": [
+    {
+     "word": "sun",
+     "audio": "../u2l1/words/sun.mp3",
+     "pic": "../../pics/sun.png",
+     "gaps": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "word": "spider",
+     "audio": "words/spider.mp3",
+     "pic": "../../pics/spider.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "word": "spoon",
+     "audio": "words/spoon.mp3",
+     "pic": "../../pics/spoon.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "snake",
+     "audio": "words/snake.mp3",
+     "pic": "../../pics/snake.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "word": "star",
+     "audio": "words/star.mp3",
+     "pic": "../../pics/star.png",
+     "gaps": [
+      0,
+      1,
+      2,
+      3
+     ]
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 1,
+   "page": 13,
+   "grp": "weekly-a-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "sun",
+     "scr": "usn",
+     "audio": "../u2l1/words/sun.mp3",
+     "pic": "../../pics/sun.png"
+    },
+    {
+     "word": "spoon",
+     "scr": "poson",
+     "audio": "words/spoon.mp3",
+     "pic": "../../pics/spoon.png"
+    },
+    {
+     "word": "spider",
+     "scr": "pdisre",
+     "audio": "words/spider.mp3",
+     "pic": "../../pics/spider.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly A",
+   "ex": 2,
+   "page": 13,
+   "grp": "weekly-a-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "lead": "The",
+     "options": [
+      "grass",
+      "sky"
+     ],
+     "answer": 0,
+     "pic": "../../pics/grass.png",
+     "tail": "is green.",
+     "audio": "../../en-shared/q/the-grass-is-green.mp3",
+     "word": "The grass is green.",
+     "askAudio": "../../en-shared/q/askc-aea8fad07c.mp3"
+    },
+    {
+     "lead": "This is a",
+     "options": [
+      "flower",
+      "butterfly"
+     ],
+     "answer": 0,
+     "pic": "../../pics/flower-pink.png",
+     "audio": "../../en-shared/q/this-is-a-flower.mp3",
+     "word": "This is a flower.",
+     "askAudio": "../../en-shared/q/askc-9cbd285be9.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 1,
+   "page": 13,
+   "grp": "weekly-b-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "star",
+     "scr": "tsra",
+     "audio": "words/star.mp3",
+     "pic": "../../pics/star.png"
+    },
+    {
+     "word": "snake",
+     "scr": "nksae",
+     "audio": "words/snake.mp3",
+     "pic": "../../pics/snake.png"
+    },
+    {
+     "word": "sky",
+     "scr": "kys",
+     "audio": "../u2l1/words/sky.mp3",
+     "pic": "../../pics/sky-toon.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly B",
+   "ex": 2,
+   "page": 13,
+   "grp": "weekly-b-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "lead": "I can see a",
+     "options": [
+      "butterfly",
+      "flower"
+     ],
+     "answer": 0,
+     "pic": "../../pics/butterfly-pink.png",
+     "audio": "../../en-shared/q/i-can-see-a-butterfly.mp3",
+     "word": "I can see a butterfly.",
+     "askAudio": "../../en-shared/q/askc-55e188d895.mp3"
+    },
+    {
+     "lead": "This is a",
+     "options": [
+      "tree",
+      "bird"
+     ],
+     "answer": 0,
+     "pic": "../../pics/tree.png",
+     "audio": "../../en-shared/q/this-is-a-tree.mp3",
+     "word": "This is a tree.",
+     "askAudio": "../../en-shared/q/askc-3120807375.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 1,
+   "page": 14,
+   "grp": "weekly-c-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "flower",
+     "scr": "oefwlr",
+     "audio": "../u2l1/words/flower.mp3",
+     "pic": "../../pics/flower.png"
+    },
+    {
+     "word": "bird",
+     "scr": "drbi",
+     "audio": "../u2l1/words/bird.mp3",
+     "pic": "../../pics/bird.png"
+    },
+    {
+     "word": "tree",
+     "scr": "rete",
+     "audio": "../u1l2/words/tree.mp3",
+     "pic": "../../pics/tree.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Weekly C",
+   "ex": 2,
+   "page": 14,
+   "grp": "weekly-c-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "lead": "This is a",
+     "options": [
+      "spider",
+      "spoon"
+     ],
+     "answer": 1,
+     "pic": "../../pics/spoon.png",
+     "audio": "../../en-shared/q/this-is-a-spoon.mp3",
+     "word": "This is a spoon.",
+     "askAudio": "../../en-shared/q/askc-350fbf72d2.mp3"
+    },
+    {
+     "lead": "I can see the",
+     "options": [
+      "sky",
+      "sun"
+     ],
+     "answer": 0,
+     "pic": "../../pics/sky-toon.png",
+     "audio": "../../en-shared/q/i-can-see-the-sky.mp3",
+     "word": "I can see the sky.",
+     "askAudio": "../../en-shared/q/askc-01c2419c20.mp3"
+    }
+   ]
+  }
+ ]
+}

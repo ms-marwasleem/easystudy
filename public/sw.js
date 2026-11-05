@@ -91,7 +91,7 @@ self.addEventListener('message', e => {
 });
 // what the first screens need, kept the moment this file is installed (first visit, or a new version of this file): before, these were
 // downloaded on the first visit (before this file worked) and then a second time on the next open
-const FIRST = ['./', 'css/app.css', 'js/app-first.js', 'js/app-rest.js', 'data/course.json', 'data/pic-frame.json', 'manifest.webmanifest', 'icon-192.png', 'apple-touch-icon.png'];
+const FIRST = ['./', 'css/app.css', 'js/app-first.js', 'js/app-rest.js', 'data/course.json', 'data/curriculum.json', 'data/pic-frame.json', 'manifest.webmanifest', 'icon-192.png', 'apple-touch-icon.png'];
 async function keepFirst() {
   await loadVer(); if (!ver) return;   // a local copy is never served from the device first, nothing to keep ahead
   const one = p => (p === './' ? keep(APP, new Request(at_('./')), at_('index.html')) : keep(/\.(png|webp)$/.test(p) ? MEDIA : APP, new Request(at_(p)))).catch(() => {});

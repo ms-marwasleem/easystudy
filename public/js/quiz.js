@@ -12,7 +12,7 @@
    choice = book "circle the correct word": the picture, beside it the text (optional "ask" line, "lead", and "options":[a,b] with "answer": index); tap the right word, it gets a ring.
    Options on a set: "mark":"ring" (pick: the right picture gets a ring, not a tick), "silent":true (circle: do not say the word when it is circled).
    type   = one picture + the word with a letter missing ("missing": its index), the child types it on the keyboard: "answer": "t"
-   On wide screens the choices (tick/cross, letters, the keyboard button) sit right beside the picture, not at the sheet's edge.
+   The choices (tick/cross, letters, words, numbers) are ALWAYS under the question and its picture, in portrait and landscape (css/qlayout.css, Marwa 2026-11-04).
    A right answer: stamp + celebrate (no spoken praise), then on to the next question by itself. A wrong one: a shake, try again.
    Two books: each set says "book": "book" (the student's book, default) or "workbook"; two buttons on top switch between them. */
 const qz={sets:null,all:[],list:[],src:'book',i:0,run:0,busy:false,file:null,show:0};
@@ -20,7 +20,7 @@ const qz={sets:null,all:[],list:[],src:'book',i:0,run:0,busy:false,file:null,sho
    QM[type] = { sheet: 'word' (the word line + the play area) | 'board' (one board for the whole set) | 'box' (one part in the play area),
                 draw(...)   how it is shown and solved,  help(q,w)  what the Help bulb lights (nothing = no bulb),
                 bulb:0 = the model has its own help,  own:1 = reads itself (no speaker added, no auto-read),
-                side:1 = the answers sit beside the picture on wide screens,  fit:0 = no picture stacking }
+                (choices are ALWAYS under the question, css/qlayout.css; no "side" any more),  fit:0 = no picture stacking }
    Every type registers here (quiz.js, quiz-letters.js, quiz-al.js, quiz-math.js) and qGo draws it through this one path.
    A design change is made in the model, so every question of that type changes together. */
 const QM={};
@@ -40,7 +40,7 @@ async function qLoad(){
   const file=m.file.replace(/lesson\.json$/,'questions.json');
   if(qz.file===file&&qz.sets) return true;
   const base=file.slice(0,file.lastIndexOf('/')+1), R=p=>p&&!/^(https?:|\/|data:)/.test(p)?base+p:p;
-  try{ const d=await get(file); qz.sets=d.sets; qz.file=file; }catch(e){ qz.sets=null; qz.file=null; return false; }
+  try{ const d=await get(file); qz.sets=currSets(d.sets); qz.file=file; }catch(e){ qz.sets=null; qz.file=null; return false; }
   qz.all=[]; qz.sets.forEach((s,si)=>{ s.taskSrc=Array.isArray(s.taskAudio)?s.taskAudio.map(R):R(s.taskAudio);   // taskAudio: one file, or a list played in order (prompt + letter name)
    
     if(s.type==='link') s.items.forEach(it=>{ it.answer=true; it.fullSrc=[].concat(it.full||[]).map(R); });
@@ -65,14 +65,14 @@ async function showQuiz(start){
   qPick(isAL()?alSrc():tabSrc());
   if(!qz.list.length){ $('#lesson').classList.remove('qtab'); showGarage(); return; }
   const wrap=el('div','quiz');
-  wrap.innerHTML=`<div class="qhead"><span class="qex"></span><span class="qtask"></span><button class="qsay qtsay" aria-label="Hear the question">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button>${LESSON.tool?`<button class="qtool tgear" aria-label="Tool">Tool</button>`:''}</div>
+  wrap.innerHTML=`<div class="qhead"><span class="qex"></span><span class="qtask"></span><button class="qsay qtsay" aria-label="Hear the question">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button>${LESSON.tool?`<button class="qtool tgear" aria-label="${toolName(LESSON.tool)}">${toolLabel(LESSON.tool)}</button>`:''}</div>
     <div class="qdots"></div>
     <div class="qword" dir="ltr"><b></b><button class="qsay" aria-label="Listen again">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button></div>
     <div class="qplay"></div><div class="qans"></div>`;
   stage.append(wrap);
   { const hb=el('button','qhelpb',ICON.hint); hb.hidden=true; hb.setAttribute('aria-label',isAr()?'ساعدني':tr('Help')); $('#lmeta .lm-r').replaceChildren(hb); hb.onclick=()=>qHelp(); }   // the Help bulb stands at the right of the row above the tabs
   $('.qword .qsay',wrap).addEventListener('click',()=>qSay());
-  $('.qtsay',wrap).addEventListener('click',()=>qTask());
+  $('.qtsay',wrap).addEventListener('click',()=>qTask()); $('.qtask',wrap).addEventListener('click',()=>qTask());   // the header is read once by itself; no speaker icon (CSS hides .qtsay), a tap on the line reads it again
   $('.qword',wrap).addEventListener('click',e=>{ if(wrap.dataset.type==='type'&&!e.target.closest('.qsay')) qFocus(); });
   qStart(start!=null?start:0);
 }
@@ -97,9 +97,10 @@ function qFirstOnPage(p,src){ const f=qz.all.find(q=>q.set.page===p&&(!src||qSrc
 function qGo(i){
   stopVoice(); $$('#lmeta .qxhelp').forEach(x=>x.remove()); hideHint(); setTimeout(qHelpShow,60); const run=++qz.run; qz.i=i; qz.busy=false;
   const q=qz.list[i], s=q.set, w=$('.quiz'); if(!w) return;
+  q.solved=false;   // every visit draws the question unsolved, so its speaker reads the question again (never the answer)
   w.dataset.type=s.type;
   { const old=$('.qmodel',w); if(old) old.remove(); }   // the paper's heading (Classroom / Homework / Weekly C) is no longer shown on any question
-  $('.qex',w).textContent=s.ex!=null?num(s.ex):''; $('.qex',w).hidden=!s.ex; $('.qtask',w).textContent=s.task; qFitTask();
+  $('.qex',w).textContent=s.ex?num(s.ex):'?'; $('.qex',w).hidden=false; $('.qtask',w).textContent=s.task; qFitTask();   // RULE (Marwa 2026-11-05): every question header shows its number, or '?' when the book has none
   footPage(s.page); lnavPaint();
   qCur(i);
   if($('#lesson').classList.contains('qrail')){ $('#lesson').classList.remove('qrail'); setRail([]); }   // the side Listen / Stop button belongs to the 'together' page only
@@ -107,40 +108,61 @@ function qGo(i){
   const qi=$('#qin'); if(qi&&s.type!=='type'){ qi.blur(); qi.remove(); }
   const qxi=$('#qxin'); if(qxi&&s.type!=='write'){ qxi.blur(); qxi.remove(); }
   const m=QM[s.type]; if(!m) return;
+  if(m.sheet!=='box'){ const qw=$('.qword',w); if(qw) qw.hidden=false; const ts=$('.qtsay',w); if(ts) ts.hidden=false; }   // a box question (colour / face / story...) hides the word line; the next word question shows it again
   if(m.sheet==='board') return qBoard(w,q,i,run);
   w._board=null;
   if(m.sheet==='box') return qxGo(w,q,i,run);
   // the word line: the word (letter / type: with its gaps), the play area, the answers
-  $('.qword b',w).innerHTML=m.word?m.word(q):q.word;
+  { const b=$('.qword b',w); b.className=''; b.removeAttribute('dir'); if(m.word) b.innerHTML=m.word(q); else { b.textContent=''; qToks(b,q.word); if(/\s/.test(String(q.word||'').trim())){ b.classList.add('qsent'); if(isAr()) b.dir='rtl'; } } }   // a sentence wraps, big and centred (css/qlayout.css)   // a plain word / sentence: every word tappable (shared qToks)
   const play=$('.qplay',w), ans=$('.qans',w); play.innerHTML=''; ans.innerHTML='';
   m.draw(play,ans,q,s);
   qLayout(); carFrac(i/qz.list.length);
   // the first question of each exercise: the instruction is read first, then the word
-  setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(qNewEx()) await qTask(); if(run===qz.run&&inQ()){ if(s.type==='type') qFocus(); qSay(); } },350);
+  setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(qNewEx()) await qTask(); if(run===qz.run&&inQ()){ if(s.type==='type') qFocus(); if(q.autoSay) qSay(); } },350);   // Marwa 2026-11-04: the question itself is NOT read by itself (the child reads; the speaker beside it helps)
 }
 // letter / type: the word with its gaps ("missing" = one letter, "gaps" = several, typed left to right), filled in when the child finds them
-const qGapWord=q=>{ const gps=q.gaps||[q.missing||0]; return (q.scr?`<span class="qscr">${q.scr.split('').join(' ')}</span>`:'')+[...q.word].map((c,k)=>gps.includes(k)?`<span class="qgap" data-i="${k}">_</span>`:c).join(''); };
+const qGapWord=q=>{ const gps=q.gaps||[q.missing||0], w=wsWord(q.word,{hide:gps,ltr:!isAr()}); $$('.lt.hid',w).forEach(x=>x.classList.add('qgap')); wsCur(w);   // THE word component (js/wordslots.js); the gaps are its hidden letters
+  return (q.scr?`<span class="qscr">${q.scr.split('').join(' ')}</span>`:'')+w.outerHTML; };
 const qOnePic=q=>el('div','qpic one',`<img src="${q.pic}" alt="${q.word||''}"><span class="qmark"></span>`);
 const qHalf=a=>{ const o=a.map((x,k)=>k); if(Math.random()<.5) o.reverse(); return o; };   // the right one is not always on the same side
+/* ---------- SHARED tappable words (every subject, every question model): a tap on one word reads that word alone (Marwa 2026-11-04).
+   English: data/en-shared/q/<slug>.mp3 (falls back to the word pack / device voice). Arabic: NO machine voice, so an Arabic word is a span
+   (it can carry the vocab pen) but says nothing unless the model gives it its own recording (onTap). qToks = alToks. ---------- */
+const alSlug=t=>String(t).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,60).replace(/-+$/,'');
+const alClean=w=>String(w).replace(/^[^A-Za-z0-9']+|[^A-Za-z0-9']+$/g,'');
+const alWordSrc=w=>`data/en-shared/q/${alSlug(alClean(w))}.mp3`;
+// text -> tappable words (a tap reads that word alone: the child is learning to read)
+function alToks(host,text,onTap){
+  String(text).split(/\s+/).filter(Boolean).forEach((w,k)=>{ const sp=el('span','alw',w); if(/[\u0600-\u06FF]/.test(w)&&!onTap){ host.append(k?' ':'',sp); return; } sp.addEventListener('click',e=>{ e.stopPropagation(); if(qz.busy&&!onTap) return; hideHint(); vStop(); sp.classList.add('lit'); qSound(alWordSrc(w),alClean(w)).then(()=>sp.classList.remove('lit')); if(onTap) onTap(w); });
+    host.append(k?' ':'',sp); });
+}
+const qToks=alToks;
 QM.pick={sheet:'word', draw(play,ans,q){ qHalf(q.pics).forEach(k=>{ const b=el('button','qpic',`<img src="${q.pics[k]}" alt=""><span class="qmark"></span>`); b.setAttribute('aria-label','Picture '+(k+1)); b.dataset.k=k;
     b.addEventListener('click',()=>qAnswer(b,k===q.answer)); play.append(b); }); },
   help:(q,w)=>$$('.qpic',w).filter(b=>+b.dataset.k===q.answer)};
-QM.letter={sheet:'word', side:1, word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q));
-    qHalf(q.letters).forEach(k=>{ const b=el('button','rb qbtn qlet'+(q.letters[k].length>1?' two':''),`<span>${q.letters[k]}</span>`); b.setAttribute('aria-label','Letter '+q.letters[k]); b.dataset.k=k;
+/* THE choice button (Marwa 2026-11-04, every subject): one look, one size (--q-choice, css/qlayout.css), always UNDER the question (.qans / a choices row).
+   A letter or a number = a round button; a word = a pill of the same height (words:true = the row has words, so even "up" is a pill). Models make their choices ONLY with qChBtn. */
+const qWords=a=>a.some(o=>[...String(o)].length>2);
+const qChBtn=(t,words)=>{ const s=String(t), n=[...s].length, b=el('button','rb qbtn qlet qch'+(n>2||words?' wd':n>1?' two':''),'<span></span>'); $('span',b).textContent=s; b.setAttribute('aria-label',s); return b; };
+// the answer is marked the way the book asks: "circle" -> a ring round it; "match" / "join" / "صل" -> a line (Marwa 2026-11-04)
+const qCircleTask=s=>/\bcircle\b|دائر|حوّ?ط/i.test((s&&s.task)||'');
+QM.letter={sheet:'word', word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q));
+    qHalf(q.letters).forEach(k=>{ const b=qChBtn(q.letters[k]); b.setAttribute('aria-label','Letter '+q.letters[k]); b.dataset.k=k;
       b.addEventListener('click',()=>qAnswer(b,k===q.answer)); ans.append(b); }); },
   help:(q,w)=>$$('.qans .qlet',w).filter(b=>+b.dataset.k===q.answer)};
-QM.choice={sheet:'word', fit:0, draw(play,ans,q){ play.append(el('div','qpic one',`<img src="${q.pic}" alt="">`));
-    const t=el('div','qtxt',`${q.ask?`<div class="qask">${q.ask}</div>`:''}<div class="qsen">${q.lead?`<span>${q.lead}</span> `:''}<span class="qopts">(${q.options.map(o=>`<button class="qopt">${o}</button>`).join(' - ')})</span>${q.tail?` <span>${q.tail}</span>`:''}<button class="qsay" aria-label="Listen again">${SAY_LN}</button></div>`);
-    $$('.qopt',t).forEach((b,k)=>b.addEventListener('click',()=>qChoose(b,k,q))); $('.qsay',t).addEventListener('click',()=>qSay());
-    play.append(t); },
-  help:(q,w)=>[$$('.qopt',w)[q.answer]].filter(Boolean)};
-QM.type={sheet:'word', side:1, word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q));
+/* choice ("Look, read, and circle"): the sentence big on top with a blank where the answer goes, the picture, the word choices under it (THE choice buttons) */
+QM.choice={sheet:'word', fit:0, word:()=>'', draw(play,ans,q){ const b=$('.qword b'); b.classList.add('qsent'); b.textContent=''; b.dir=isAr()?'rtl':'ltr';   // an Arabic sentence reads right to left (the word line itself is ltr for letter gaps)
+    if(q.ask){ const a=el('span','qask'); qToks(a,q.ask); b.append(a); }
+    const sen=el('span','qsen'); if(q.lead){ qToks(sen,q.lead); sen.append(' '); } sen.append(el('span','qblank','')); if(q.tail){ sen.append(' '); const t=el('span'); qToks(t,q.tail); sen.append(t); } b.append(sen);
+    play.append(el('div','qpic one',`<img src="${q.pic}" alt="">`));
+    q.options.forEach((o,k)=>{ const c=qChBtn(o,qWords(q.options)); c.dataset.k=k; c.addEventListener('click',()=>qChoose(c,k,q)); ans.append(c); }); },
+  help:(q,w)=>$$('.qans .qch',w).filter(b=>+b.dataset.k===q.answer)};
+QM.type={sheet:'word', word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q));
     qFocus(); },   // the keyboard stays open from one word to the next; it first opens when the instruction has been read (or when the child taps the letter)
   help:(q,w)=>[$('.qword .qgap:not(.got)',w)].filter(Boolean),
   peek(q,w){ const g=$('.qword .qgap:not(.got)',w); if(!g) return; const gi=g.dataset.i!=null&&q.gaps?+g.dataset.i:null, ch=gi!=null?q.word[gi]:q.answer; if(!ch) return;
-    clearTimeout(g._t); g.classList.remove('bad'); g.textContent=ch; g.classList.add('peek'); clearTimeout(g._p);
-    g._p=setTimeout(()=>{ g.classList.remove('peek'); if(!g.classList.contains('got')&&!g.classList.contains('bad')) g.textContent='_'; },tokMs('--help-letter-ms',1500)); qFocus(); }};
-QM.yesno={sheet:'word', side:1, draw(play,ans,q){ play.append(qOnePic(q));
+    wsPeek(g); qFocus(); }};
+QM.yesno={sheet:'word', draw(play,ans,q){ play.append(qOnePic(q));
     [[true,'yes',Q_TICK,'It matches'],[false,'no',Q_CROSS,'It does not match']].forEach(([v,c,ic,l])=>{
       const b=el('button','rb qbtn '+c,ic); b.setAttribute('aria-label',l); b.addEventListener('click',()=>qAnswer(b,v===q.answer,v)); ans.append(b); }); },
   help:(q,w)=>[$(q.answer?'.qans .qbtn.yes':'.qans .qbtn.no',w)].filter(Boolean)};
@@ -153,7 +175,7 @@ function qBoard(w,q,i,run){
 }
 // match / circle: the pictures (or words) on one board like the book, the letter / picture in the middle when the set has one
 function qPicBoard(w,s,play,run){
-  const b=el('div','qboard'); if(s.bigP) b.classList.add('bigP');   // "bigP": bigger pictures on tall screens (with "posP" per item)
+  const b=el('div','qboard'); if(s.bigP) b.classList.add('bigP'); if(s.type==='circle'||qCircleTask(s)) b.classList.add('ring');   // the book says "circle": a ring round the picture, never a line (Marwa 2026-11-04)   // "bigP": bigger pictures on tall screens (with "posP" per item)
   if(s.centerPic){ const c=el('div','qcenter pic',`<img src="${R_Q(s.centerPic)}" alt="">`); { const ca=(s.centerAtP&&!$('#lesson').classList.contains('q-land'))?s.centerAtP:s.centerAt; if(ca){ c.style.setProperty('--cx',ca[0]); c.style.setProperty('--cy',ca[1]); } } b.append(c); }   // "centerPic": a picture to match (book: circle the SIMILAR picture)
   if(s.center){ const c=el('button','qcenter',`<span>${s.center}</span>`); c.setAttribute('aria-label','Letter '+s.center); c.addEventListener('click',()=>qSound(s.centerSrc,s.center[0]));
     b.append(c); }
@@ -164,7 +186,7 @@ function qPicBoard(w,s,play,run){
   const first=qNewEx(); setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(first) await qTask(); if(s.center&&qz.list[qz.i]&&qz.list[qz.i].set===s&&inQ()) qSound(s.centerSrc,s.center[0]); },350);
 }
 // the lines of the joined pictures, worked out again when the screen changes size
-function qLines(fresh){ const bd=$('.qboard'); if(!bd||$('.quiz').dataset.type!=='match') return; const c=$('.qcenter span',bd); if(!c) return; const B=bd.getBoundingClientRect();
+function qLines(fresh){ const bd=$('.qboard'); if(!bd||$('.quiz').dataset.type!=='match'||bd.classList.contains('ring')) return; const c=$('.qcenter span',bd); if(!c) return; const B=bd.getBoundingClientRect();
   const mid=e=>{ const r=e.getBoundingClientRect(); return [r.left+r.width/2-B.left,r.top+r.height/2-B.top]; }, [x2,y2]=mid(c);
   $$('.qmp.done',bd).forEach(p=>{ let ln=p._line; if(!ln){ ln=p._line=el('i','qline'); bd.prepend(ln); }
     const [x1,y1]=mid(p), len=Math.hypot(x2-x1,y2-y1);
@@ -184,8 +206,8 @@ async function qMatch(btn,it,s){
   }
   const run=qz.run, more=qSetMoreAfter(s); btn.classList.add('done'); if(!more) qz.busy=true;
   // a line from the picture to the letter in the middle, drawn out like a pencil line
-  if(s.type==='match') qLines(btn);
-  if(s.type==='circle'&&anim) G.fromTo(btn,{'--ring':1.5},{'--ring':1,duration:.4,ease:'back.out(2)'});
+  const ring=btn.closest('.qboard.ring'); if(!ring) qLines(btn);
+  if(ring&&anim) G.fromTo(btn,{'--ring':1.5},{'--ring':1,duration:.4,ease:'back.out(2)'});
   celebrate(btn); if(!s.silent) qSound(it.src,it.word);
   if(qMore(s)) return; return qDone(s,run,1100);
 }
@@ -213,11 +235,12 @@ function qFocus(){ const wd=$('.qword'); if(!wd) return; let inp=$('#qin');
     inp.addEventListener('input',()=>{ const ch=inp.value.replace(/\s/g,'').slice(-1); inp.value=''; qTyped(ch); });
     inp.addEventListener('focus',()=>wd.classList.add('focus')); inp.addEventListener('blur',()=>wd.classList.remove('focus'));
     wd.append(inp); }
+  { const q=qz.list[qz.i]; wsInput(inp,q&&q.word); }   // English word: English keyboard (js/wordslots.js)
   inp.focus({preventScroll:true}); }
 function qTyped(ch){ const q=qz.list[qz.i]; if(!ch||qz.busy||!q||q.set.type!=='type') return;
-  const gap=$('.qword .qgap:not(.got)'), gi=gap&&gap.dataset.i!=null&&q.gaps?+gap.dataset.i:null, right=ch.toLowerCase()===String(gi!=null?q.word[gi]:q.answer).toLowerCase();
-  if(right&&q.gaps&&$$('.qword .qgap:not(.got)').length>1){ gap.classList.remove('bad'); gap.textContent=q.word[gi]; gap.classList.add('got'); tone(660,'sine',.05,.12); if(anim) G.fromTo(gap,{scale:1.8},{scale:1,duration:.4,ease:'back.out(3)'}); return; }   // one gap filled, more to go
-  if(!right&&gap){ gap.textContent=ch; gap.classList.add('bad'); clearTimeout(gap._t); gap._t=setTimeout(()=>{ if(!gap.classList.contains('got')){ gap.textContent='_'; gap.classList.remove('bad'); } },tokMs('--wrong-show-ms',600)); }
+  const gap=$('.qword .qgap:not(.got)'), gi=gap&&gap.dataset.i!=null&&q.gaps?+gap.dataset.i:null, want=gap&&gap.textContent?gap.textContent:(gi!=null?q.word[gi]:q.answer), right=sameLetter(normDigits(ch),String(want));   // the truth is the letter the child SEES missing (the gap's own letter); q.answer is only a fallback (Marwa 2026-11-05: ch_ir showed the i missing but wanted a)
+  if(right&&q.gaps&&$$('.qword .qgap:not(.got)').length>1){ gap.classList.remove('bad','hid','cur'); gap.classList.add('got'); wsCur($('.qword .ws')); tone(660,'sine',.05,.12); if(anim) G.fromTo(gap,{scale:1.4},{scale:1,duration:.35,ease:'back.out(3)'}); return; }   // one gap filled, more to go
+  if(!right&&gap) wsBad(gap);   // a wrong letter is never written: the place only shakes
   qAnswer(gap||$('.qword'),right); }
 // a computer keyboard works even when the text box lost focus (e.g. after tapping the speaker)
 addEventListener('keydown',e=>{ if(!inQ()||e.ctrlKey||e.metaKey||e.altKey||e.key.length!==1) return; const q=qz.list[qz.i];
@@ -225,14 +248,17 @@ addEventListener('keydown',e=>{ if(!inQ()||e.ctrlKey||e.metaKey||e.altKey||e.key
 function qSay(){ const q=qz.list[qz.i]; if(!q) return; vStop(); const w=$('.qword'); w.classList.add('lit');
   if(q.sayFn&&!q.solved) return q.sayFn();   // English AL: the question read with a pause where the blank is
   const done=()=>{ const x=$('.qword'); if(x) x.classList.remove('lit'); };
+  if((q.askTask||(q.set.type==='choice'&&!q.askAudio&&!q.ask))&&!q.solved) return qTask().then(done,done);   // a choice with no question text of its own ("choose the title of the nasheed"): the speaker reads the exercise header only, never the item's sound (the answer / the whole nasheed) (Marwa 2026-11-05)
+  if(q.askAudio&&!q.solved) return qSound(R_Q(q.askAudio),'').then(done,done);   // the QUESTION (with all its choices), never the answer: tools/lessons/choice_ask_audio.py; Arabic = a library slot, silent until recorded
   if(q.ask&&!q.solved) return tts(q.ask,'en',.75).then(done,done);   // "q.ask": the question read without its answer (the full sentence is said once it is solved)
   return (q.audio?playFile(q.audio).catch(()=>tts(q.word,isAr()?'ar':'en',.75)):tts(q.word,isAr()?'ar':'en',.75)).then(done,done); }
 // read the exercise instruction aloud (its line lights up while it plays)
 function qTask(){ const q=qz.list[qz.i]; if(!q) return Promise.resolve(); vStop(); const t=$('.qtask'); if(t) t.classList.add('lit');
   const done=()=>{ const x=$('.qtask'); if(x) x.classList.remove('lit'); };
   const ts=q.set.taskSrc, fb=()=>tts(q.set.task,isAr()?'ar':'en',.85);
+  if(!ts) return fb().then(done,done);   // no task recording: never ask for a file called "undefined"
   const play=Array.isArray(ts)?ts.reduce((p,u,k)=>p.then(()=>{ if(qz.list[qz.i]!==q) return; return (k?new Promise(r=>setTimeout(r,120)):Promise.resolve()).then(()=>playFile(u)); }),Promise.resolve()):playFile(ts);
-  return (ts?play.catch(fb):fb()).then(done,done); }
+  return play.catch(fb).then(done,done); }
 function qStamp(pic,cross){
   const m=$('.qmark',pic); m.className='qmark good'; m.innerHTML=cross?Q_CROSS:Q_TICK;
   if(anim){ const p=$('path',m), len=p.getTotalLength(); G.fromTo(m,{scale:1.6},{scale:1,duration:.35,ease:'back.out(3)'}); G.fromTo(p,{strokeDasharray:len,strokeDashoffset:len},{strokeDashoffset:0,duration:.35,ease:'power2.out'}); }
@@ -244,8 +270,8 @@ async function qAnswer(btn,right,said){
     return qBad(btn);
   }
   qz.busy=true; vStop();
-  if(q.set.type==='pick'){ if(q.set.mark==='ring') qRing(btn); else qStamp(btn,false); } else { btn.classList.add('on'); qStamp($('.qpic.one'),said===false); }
-  $$('.qword .qgap').forEach(gap=>{ gap.classList.remove('bad'); gap.textContent=q.word[gap.dataset.i!=null?+gap.dataset.i:q.missing||0]; gap.classList.add('got'); if(anim) G.fromTo(gap,{scale:1.8},{scale:1,duration:.5,ease:'back.out(3)'}); });
+  if(q.set.type==='pick'){ if(q.set.mark==='ring') qRing(btn); else qStamp(btn,false); } else { btn.classList.add('on'); if(btn.classList.contains('qch')&&qCircleTask(q.set)) qRing(btn); qStamp($('.qpic.one'),said===false); }
+  $$('.qword .qgap:not(.got)').forEach(gap=>{ gap.classList.remove('bad','hid','cur','peek'); gap.classList.add('got'); if(anim) G.fromTo(gap,{scale:1.4},{scale:1,duration:.4,ease:'back.out(3)'}); });
   $$('.qpic').forEach(p=>p!==btn&&q.set.type==='pick'&&p.classList.add('dim'));
   celebrate(q.set.type==='pick'?btn:$('.qpic.one'));
   qStar();
@@ -338,7 +364,7 @@ async function qLinkTry(bd,s,a,b){
 async function qChoose(btn,k,q){
   if(qz.busy) return; hideHint();
   if(k!==q.answer) return qBad(btn);
-  qz.busy=true; const run=qz.run; qRing(btn); $$('.qopt').forEach(o=>o!==btn&&o.classList.add('dim')); celebrate(btn); qSay();
+  qz.busy=true; q.solved=true; const run=qz.run; qRing(btn); btn.classList.add('on'); $$('.qans .qch').forEach(o=>o!==btn&&o.classList.add('dim')); { const bl=$('.qword .qblank'); if(bl){ bl.textContent=q.options[k]; bl.classList.add('got'); } } celebrate(btn); qSay();   // solved: now the whole answer sentence is said
   return qAdvance(run,1900);
 }
 async function qAdvance(run,ms){

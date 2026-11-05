@@ -7,18 +7,20 @@
    "book": "booklet",
    "items": [
     {
-     "word": "park",
-     "missing": 2,
-     "answer": "r",
-     "pic": "../../pics/u5-park.jpg",
-     "audio": "../../en-shared/q/park.mp3"
+     "word": "amusement park",
+     "gaps": [
+      2,
+      11
+     ],
+     "pic": "../../pics/u5-amusement-park.jpg",
+     "audio": "../../en-shared/q/amusement-park.mp3"
     },
     {
-     "word": "city",
-     "missing": 1,
-     "answer": "i",
-     "pic": "../../pics/u5-city.jpg",
-     "audio": "../../en-shared/q/city.mp3"
+     "word": "coffee shop",
+     "missing": 9,
+     "answer": "o",
+     "pic": "../../pics/u5-coffee-shop.jpg",
+     "audio": "../../en-shared/q/coffee-shop.mp3"
     },
     {
      "word": "market",
@@ -30,7 +32,7 @@
     {
      "word": "monument",
      "missing": 4,
-     "answer": "u",
+     "answer": "m",
      "pic": "../../pics/u5-monument.jpg",
      "audio": "../../en-shared/q/monument.mp3"
     },
@@ -269,7 +271,8 @@
       "city",
       "world"
      ],
-     "audio": "../../en-shared/q/passage-a3a5d38c84.mp3"
+     "audio": "../../en-shared/q/passage-a3a5d38c84.mp3",
+     "askAudio": "../../en-shared/q/askz-047b66b85e.mp3"
     }
    ],
    "page": 122,

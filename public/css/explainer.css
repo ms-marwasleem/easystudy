@@ -58,13 +58,7 @@
 /* the answer with its word as ONE card (Marwa 2026-11-03: number and word not loose with lines under them) */
 .xtw.xcard{display:inline-block;color:var(--c-text);background:var(--c-paper2,#FFF7E8);border-radius:.7rem;padding:.05em .55em;box-shadow:0 .2rem 0 var(--c-paper3,#E8D2A8);text-decoration:none}
 /* write (Try): the sentence places with a dash under each, the keypad under the writing */
-.xwrite{display:inline-flex;vertical-align:bottom;direction:ltr;white-space:nowrap}
-.xwrite .lt{display:inline-grid;min-width:.62em;justify-items:center;border-bottom:.2rem solid var(--c-on-bg-line);margin:0 .07em}
-.xwrite .lt.hid{color:transparent}.xwrite .lt.cur{border-bottom-color:var(--c-now-bg)}.xwrite .lt.bad{color:var(--c-bad-bg)!important}
-.xwrite .sp{display:inline-block;width:.28em}
 .xpl-ask .xkeys{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(.3rem,1.2cqw,.6rem)}
 .xpl-ask .xkeys .qmn{--q-choice:clamp(2.4rem,min(11cqw,13cqh),3.8rem)}
 .xpl-ask .xkeys .qmn.no,.xpl-ask .xans.no{animation:xshake .45s}
 .xpl-ask .xans.yes{background:var(--c-good);color:#fff}
-.xpl-cap .qxw.xwrite{font-size:inherit;line-height:inherit;font-weight:inherit;color:inherit}
-.xwrite .lt{min-width:.85em}

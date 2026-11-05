@@ -1,1 +1,353 @@
-{"_note":"Questions of u3l1 (book p45 ex3,4; p46 ex5,6). Ex4/6 = choice (picture, text, two words, circle the right one, like the book). Ex5 = link (join word to picture).","sets":[{"type":"pick","ex":3,"page":45,"task":"Listen, point, and write a tick next to the matching picture.","taskAudio":"../../en-shared/q/listen-point-and-write-a-tick-next-to-the-matching-picture.mp3","hint":"Pick the matching picture!","items":[{"word":"grandfather","audio":"../../en-shared/q/grandfather.mp3","pics":["../../pics/grandfather-3.png","../../pics/grandmother-3.png"],"answer":0},{"word":"parents","audio":"../../en-shared/q/parents.mp3","pics":["../../pics/parents-3.png","../../pics/boy-3.png"],"answer":0},{"word":"mother","audio":"../../en-shared/q/mother.mp3","pics":["../../pics/mother-3.png","../../pics/girl-3.png"],"answer":0},{"word":"brother","audio":"../../en-shared/q/brother.mp3","pics":["../../pics/boys-3.png","../../pics/girls-3.png"],"answer":0}]},{"type":"choice","ex":4,"page":45,"task":"Listen, look at the picture, then circle the correct word.","taskAudio":"../../en-shared/q/listen-look-at-the-picture-then-circle-the-correct-word.mp3","hint":"Circle the right word!","items":[{"ask":"Who's this?","lead":"This is my...","options":["sister","brother"],"answer":0,"pic":"../../pics/sisters-4.png","audio":"../../en-shared/q/this-is-my-sister.mp3","word":"This is my sister."},{"ask":"Who's this?","lead":"This is my...","options":["mother","father"],"answer":1,"pic":"../../pics/father-4.png","audio":"../../en-shared/q/this-is-my-father.mp3","word":"This is my father."},{"ask":"Who's this?","lead":"This is my...","options":["brother","grandmother"],"answer":1,"pic":"../../pics/grandmother-4.png","audio":"../../en-shared/q/this-is-my-grandmother.mp3","word":"This is my grandmother."}]},{"type":"link","ex":5,"page":46,"task":"Match the picture with the correct word.","taskAudio":"../../en-shared/q/match-the-picture-with-the-correct-word.mp3","hint":"Join each word to its picture!","items":[{"word":"father","audio":"../../en-shared/q/father.mp3","pic":"../../pics/father.png"},{"word":"mother","audio":"../../en-shared/q/mother.mp3","pic":"../../pics/mother.png"},{"word":"brother","audio":"../../en-shared/q/brother.mp3","pic":"../../pics/brothers.png"},{"word":"sister","audio":"../../en-shared/q/sister.mp3","pic":"../../pics/sisters.png"},{"word":"grandmother","audio":"../../en-shared/q/grandmother.mp3","pic":"../../pics/grandmother.png"},{"word":"grandfather","audio":"../../en-shared/q/grandfather.mp3","pic":"../../pics/grandfather.png"}]},{"type":"choice","ex":6,"page":46,"task":"Look at the picture, listen, then choose the correct answer.","taskAudio":"../../en-shared/q/look-at-the-picture-listen-then-choose-the-correct-answer.mp3","hint":"Circle the right word!","items":[{"lead":"This is my","options":["brother","grandmother"],"answer":1,"pic":"../../pics/grandmother-6.png","audio":"../../en-shared/q/this-is-my-grandmother.mp3","word":"This is my grandmother."},{"lead":"This is my","options":["father","mother"],"answer":0,"pic":"../../pics/father-4.png","audio":"../../en-shared/q/this-is-my-father.mp3","word":"This is my father."},{"lead":"I have 2","options":["brothers","sisters"],"answer":0,"pic":"../../pics/brothers-6.png","audio":"../../en-shared/q/i-have-2-brothers.mp3","word":"I have 2 brothers."},{"lead":"I have 2","options":["brothers","sisters"],"answer":1,"pic":"../../pics/sisters-6.png","audio":"../../en-shared/q/i-have-2-sisters.mp3","word":"I have 2 sisters."}]},{"type":"arrange","book":"workbook","model":"Classroom","ex":1,"page":19,"grp":"classroom-1","task":"Unscramble and write.","taskAudio":"../../en-shared/q/unscramble-and-write.mp3","hint":"Drag the letters!","items":[{"word":"brothers","scr":"ohrbster","audio":"../../en-shared/q/brothers.mp3","pic":"../../pics/brothers.png"},{"word":"grandfather","scr":"raathrfdgne","audio":"words/grandfather.mp3","pic":"../../pics/grandfather.png"},{"word":"sisters","scr":"sesrist","audio":"../../en-shared/q/sisters.mp3","pic":"../../pics/sisters.png"},{"word":"father","scr":"hetraf","audio":"words/father.mp3","pic":"../../pics/father.png"},{"word":"mother","scr":"ohemrt","audio":"words/mother.mp3","pic":"../../pics/mother.png"}]},{"type":"choice","book":"workbook","model":"Classroom","ex":2,"page":19,"grp":"classroom-2","task":"Look, read, and complete.","taskAudio":"../../en-shared/q/look-read-and-complete.mp3","hint":"Tap the right word!","items":[{"lead":"This is my","options":["sisters","grandmother","brothers","father"],"answer":3,"pic":"../../pics/father.png","audio":"../../en-shared/q/this-is-my-father.mp3","word":"This is my father."},{"lead":"I have 2","options":["sisters","grandmother","brothers","father"],"answer":2,"pic":"../../pics/brothers.png","audio":"../../en-shared/q/i-have-2-brothers.mp3","word":"I have 2 brothers."},{"lead":"This is my","options":["sisters","grandmother","brothers","father"],"answer":1,"pic":"../../pics/grandmother.png","audio":"../../en-shared/q/this-is-my-grandmother.mp3","word":"This is my grandmother."},{"lead":"I have 2","options":["sisters","grandmother","brothers","father"],"answer":0,"pic":"../../pics/sisters.png","audio":"../../en-shared/q/i-have-2-sisters.mp3","word":"I have 2 sisters."}]},{"type":"order","book":"workbook","model":"Homework","ex":1,"page":20,"grp":"homework-1","task":"Reorder the words to make sentences.","taskAudio":"../../en-shared/q/reorder-the-words-to-make-sentences.mp3","hint":"Tap the words in order!","items":[{"chunks":["This","is","my","father"],"end":".","audio":"../../en-shared/q/this-is-my-father.mp3"},{"chunks":["This","is","my","grandmother"],"end":".","audio":"../../en-shared/q/this-is-my-grandmother.mp3"},{"chunks":["I","have","2","sisters"],"end":".","audio":"../../en-shared/q/i-have-2-sisters.mp3"}]}]}
+{
+ "_note": "Questions of u3l1 (book p45 ex3,4; p46 ex5,6). Ex4/6 = choice (picture, text, two words, circle the right one, like the book). Ex5 = link (join word to picture).",
+ "sets": [
+  {
+   "type": "pick",
+   "ex": 3,
+   "page": 45,
+   "task": "Listen, point, and write a tick next to the matching picture.",
+   "taskAudio": "../../en-shared/q/listen-point-and-write-a-tick-next-to-the-matching-picture.mp3",
+   "hint": "Pick the matching picture!",
+   "items": [
+    {
+     "word": "grandfather",
+     "audio": "../../en-shared/q/grandfather.mp3",
+     "pics": [
+      "../../pics/grandfather-3.png",
+      "../../pics/grandmother-3.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "parents",
+     "audio": "../../en-shared/q/parents.mp3",
+     "pics": [
+      "../../pics/parents-3.png",
+      "../../pics/boy-3.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "mother",
+     "audio": "../../en-shared/q/mother.mp3",
+     "pics": [
+      "../../pics/mother-3.png",
+      "../../pics/girl-3.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "brother",
+     "audio": "../../en-shared/q/brother.mp3",
+     "pics": [
+      "../../pics/boys-3.png",
+      "../../pics/girls-3.png"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "ex": 4,
+   "page": 45,
+   "task": "Listen, look at the picture, then circle the correct word.",
+   "taskAudio": "../../en-shared/q/listen-look-at-the-picture-then-circle-the-correct-word.mp3",
+   "hint": "Circle the right word!",
+   "items": [
+    {
+     "ask": "Who's this?",
+     "lead": "This is my...",
+     "options": [
+      "sister",
+      "brother"
+     ],
+     "answer": 0,
+     "pic": "../../pics/sisters-4.png",
+     "audio": "../../en-shared/q/this-is-my-sister.mp3",
+     "word": "This is my sister.",
+     "askAudio": "../../en-shared/q/askc-9b5eb10115.mp3"
+    },
+    {
+     "ask": "Who's this?",
+     "lead": "This is my...",
+     "options": [
+      "mother",
+      "father"
+     ],
+     "answer": 1,
+     "pic": "../../pics/father-4.png",
+     "audio": "../../en-shared/q/this-is-my-father.mp3",
+     "word": "This is my father.",
+     "askAudio": "../../en-shared/q/askc-699626dd63.mp3"
+    },
+    {
+     "ask": "Who's this?",
+     "lead": "This is my...",
+     "options": [
+      "brother",
+      "grandmother"
+     ],
+     "answer": 1,
+     "pic": "../../pics/grandmother-4.png",
+     "audio": "../../en-shared/q/this-is-my-grandmother.mp3",
+     "word": "This is my grandmother.",
+     "askAudio": "../../en-shared/q/askc-fc7c42718a.mp3"
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 5,
+   "page": 46,
+   "task": "Match the picture with the correct word.",
+   "taskAudio": "../../en-shared/q/match-the-picture-with-the-correct-word.mp3",
+   "hint": "Join each word to its picture!",
+   "items": [
+    {
+     "word": "father",
+     "audio": "../../en-shared/q/father.mp3",
+     "pic": "../../pics/father.png"
+    },
+    {
+     "word": "mother",
+     "audio": "../../en-shared/q/mother.mp3",
+     "pic": "../../pics/mother.png"
+    },
+    {
+     "word": "brother",
+     "audio": "../../en-shared/q/brother.mp3",
+     "pic": "../../pics/brothers.png"
+    },
+    {
+     "word": "sister",
+     "audio": "../../en-shared/q/sister.mp3",
+     "pic": "../../pics/sisters.png"
+    },
+    {
+     "word": "grandmother",
+     "audio": "../../en-shared/q/grandmother.mp3",
+     "pic": "../../pics/grandmother.png"
+    },
+    {
+     "word": "grandfather",
+     "audio": "../../en-shared/q/grandfather.mp3",
+     "pic": "../../pics/grandfather.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "ex": 6,
+   "page": 46,
+   "task": "Look at the picture, listen, then choose the correct answer.",
+   "taskAudio": "../../en-shared/q/look-at-the-picture-listen-then-choose-the-correct-answer.mp3",
+   "hint": "Circle the right word!",
+   "items": [
+    {
+     "lead": "This is my",
+     "options": [
+      "brother",
+      "grandmother"
+     ],
+     "answer": 1,
+     "pic": "../../pics/grandmother-6.png",
+     "audio": "../../en-shared/q/this-is-my-grandmother.mp3",
+     "word": "This is my grandmother.",
+     "askAudio": "../../en-shared/q/askc-93e8965924.mp3"
+    },
+    {
+     "lead": "This is my",
+     "options": [
+      "father",
+      "mother"
+     ],
+     "answer": 0,
+     "pic": "../../pics/father-4.png",
+     "audio": "../../en-shared/q/this-is-my-father.mp3",
+     "word": "This is my father.",
+     "askAudio": "../../en-shared/q/askc-99c0ae1e17.mp3"
+    },
+    {
+     "lead": "I have 2",
+     "options": [
+      "brothers",
+      "sisters"
+     ],
+     "answer": 0,
+     "pic": "../../pics/brothers-6.png",
+     "audio": "../../en-shared/q/i-have-2-brothers.mp3",
+     "word": "I have 2 brothers.",
+     "askAudio": "../../en-shared/q/askc-97fb33fd7f.mp3"
+    },
+    {
+     "lead": "I have 2",
+     "options": [
+      "brothers",
+      "sisters"
+     ],
+     "answer": 1,
+     "pic": "../../pics/sisters-6.png",
+     "audio": "../../en-shared/q/i-have-2-sisters.mp3",
+     "word": "I have 2 sisters.",
+     "askAudio": "../../en-shared/q/askc-97fb33fd7f.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 1,
+   "page": 19,
+   "grp": "classroom-1",
+   "task": "Unscramble and write.",
+   "taskAudio": "../../en-shared/q/unscramble-and-write.mp3",
+   "hint": "Drag the letters!",
+   "items": [
+    {
+     "word": "brothers",
+     "scr": "ohrbster",
+     "audio": "../../en-shared/q/brothers.mp3",
+     "pic": "../../pics/brothers.png"
+    },
+    {
+     "word": "grandfather",
+     "scr": "raathrfdgne",
+     "audio": "words/grandfather.mp3",
+     "pic": "../../pics/grandfather.png"
+    },
+    {
+     "word": "sisters",
+     "scr": "sesrist",
+     "audio": "../../en-shared/q/sisters.mp3",
+     "pic": "../../pics/sisters.png"
+    },
+    {
+     "word": "father",
+     "scr": "hetraf",
+     "audio": "words/father.mp3",
+     "pic": "../../pics/father.png"
+    },
+    {
+     "word": "mother",
+     "scr": "ohemrt",
+     "audio": "words/mother.mp3",
+     "pic": "../../pics/mother.png"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "book": "workbook",
+   "model": "Classroom",
+   "ex": 2,
+   "page": 19,
+   "grp": "classroom-2",
+   "task": "Look, read, and complete.",
+   "taskAudio": "../../en-shared/q/look-read-and-complete.mp3",
+   "hint": "Tap the right word!",
+   "items": [
+    {
+     "lead": "This is my",
+     "options": [
+      "sisters",
+      "grandmother",
+      "brothers",
+      "father"
+     ],
+     "answer": 3,
+     "pic": "../../pics/father.png",
+     "audio": "../../en-shared/q/this-is-my-father.mp3",
+     "word": "This is my father.",
+     "askAudio": "../../en-shared/q/askc-18fa72b3af.mp3"
+    },
+    {
+     "lead": "I have 2",
+     "options": [
+      "sisters",
+      "grandmother",
+      "brothers",
+      "father"
+     ],
+     "answer": 2,
+     "pic": "../../pics/brothers.png",
+     "audio": "../../en-shared/q/i-have-2-brothers.mp3",
+     "word": "I have 2 brothers.",
+     "askAudio": "../../en-shared/q/askc-97d3dfdb8d.mp3"
+    },
+    {
+     "lead": "This is my",
+     "options": [
+      "sisters",
+      "grandmother",
+      "brothers",
+      "father"
+     ],
+     "answer": 1,
+     "pic": "../../pics/grandmother.png",
+     "audio": "../../en-shared/q/this-is-my-grandmother.mp3",
+     "word": "This is my grandmother.",
+     "askAudio": "../../en-shared/q/askc-18fa72b3af.mp3"
+    },
+    {
+     "lead": "I have 2",
+     "options": [
+      "sisters",
+      "grandmother",
+      "brothers",
+      "father"
+     ],
+     "answer": 0,
+     "pic": "../../pics/sisters.png",
+     "audio": "../../en-shared/q/i-have-2-sisters.mp3",
+     "word": "I have 2 sisters.",
+     "askAudio": "../../en-shared/q/askc-97d3dfdb8d.mp3"
+    }
+   ]
+  },
+  {
+   "type": "order",
+   "book": "workbook",
+   "model": "Homework",
+   "ex": 1,
+   "page": 20,
+   "grp": "homework-1",
+   "task": "Reorder the words to make sentences.",
+   "taskAudio": "../../en-shared/q/reorder-the-words-to-make-sentences.mp3",
+   "hint": "Tap the words in order!",
+   "items": [
+    {
+     "chunks": [
+      "This",
+      "is",
+      "my",
+      "father"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/this-is-my-father.mp3"
+    },
+    {
+     "chunks": [
+      "This",
+      "is",
+      "my",
+      "grandmother"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/this-is-my-grandmother.mp3"
+    },
+    {
+     "chunks": [
+      "I",
+      "have",
+      "2",
+      "sisters"
+     ],
+     "end": ".",
+     "audio": "../../en-shared/q/i-have-2-sisters.mp3"
+    }
+   ]
+  }
+ ]
+}

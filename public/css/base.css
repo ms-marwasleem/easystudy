@@ -111,3 +111,9 @@ svg{overflow:visible}
 .bigstar{position:fixed;left:50%;top:50%;width:min(50vw,50vh);height:min(50vw,50vh);margin:calc(min(50vw,50vh)/-2) 0 0 calc(min(50vw,50vh)/-2);z-index:26;pointer-events:none}
 .bigstar svg{width:100%;height:100%}
 .flash{position:fixed;inset:0;z-index:25;pointer-events:none}
+
+/* ONE close button for every popup card (word popup, tool popup, any new popup): the round orange theme button (.rb) with a white X (ICON.close),
+   on the card's top-right corner, half outside, so it never covers anything in the card. Markup: <button class="rb popx" aria-label="Close">${ICON.close}</button>
+   inside the card (the card must be position:relative and overflow:visible). Never a red / different X. */
+.popx{position:absolute;top:calc(var(--pop-x-size) * -.38);right:calc(var(--pop-x-size) * -.38);z-index:5;width:var(--pop-x-size);height:var(--pop-x-size);padding:0;cursor:pointer}
+.popx svg{width:48%;height:48%;stroke-width:4.2}

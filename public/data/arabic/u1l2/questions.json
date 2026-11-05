@@ -85,7 +85,7 @@
    "page": 16,
    "task": "أَسْتَمِعُ ثُمَّ أَخْتَارُ الْعُنْوَانَ الصَّحِيحَ لِلنَّشِيدِ",
    "taskAudio": "q/task-title.mp3",
-   "hint": "اسمع النشيد واختار عنوانه",
+   "hint": "اختار عنوان النشيد",
    "book": "workbook",
    "items": [
     {
@@ -95,9 +95,10 @@
       "أَصْحَابِي"
      ],
      "answer": 1,
-     "audio": "normal.mp3",
+     "audio": "../u1l1/words/usrati-h.mp3",
      "word": "أُسْرَتِي",
-     "pic": "../../pics/ar-family-song.png"
+     "pic": "../../pics/ar-family-song.png",
+     "askTask": true
     }
    ]
   }

@@ -1,0 +1,66 @@
+{
+ "_note": "THE curriculum config (Marwa 2026-11-05). The parent's choice (a type, or a private school) decides which subjects show on the home page and which books (tabs, map signs, tests) show inside them. js/curriculum.js applies it to the loaded data; nothing else in the app knows about schools. Books: school = the ministry school book (Lesson, Vocabulary, Questions, Grammar tabs), workbook = the ministry performance / assessments book, booklet = a private school's own booklet. A private school = a base type (its ministry books) + its own subjects and books. New school = one entry in schools. A subject in a list but missing from course.json, or without lessons, shows as Soon.",
+ "types": [
+  {
+   "id": "aam",
+   "ar": "عام",
+   "en": "General",
+   "subjects": [
+    "arabic",
+    "math-ar",
+    "en-ol"
+   ],
+   "books": [
+    "school",
+    "workbook"
+   ]
+  },
+  {
+   "id": "tajribi",
+   "ar": "تجريبي",
+   "en": "Experimental",
+   "subjects": [
+    "arabic",
+    "math",
+    "en-ol"
+   ],
+   "books": [
+    "school",
+    "workbook"
+   ]
+  },
+  {
+   "id": "private",
+   "ar": "مدارس خاصة / لغات",
+   "en": "Private schools",
+   "schools": true
+  }
+ ],
+ "schools": [
+  {
+   "id": "nour-el-ilm",
+   "ar": "مدرسة نور العلم مودرن",
+   "en": "Nour El Ilm Modern School",
+   "base": "tajribi",
+   "subjects": [
+    "en-al",
+    "german",
+    "science"
+   ],
+   "books": [
+    "booklet"
+   ]
+  }
+ ],
+ "grades": [
+  {
+   "id": "p1",
+   "ar": "الصف الأول الابتدائي",
+   "en": "Primary 1",
+   "open": true
+  }
+ ],
+ "examBooks": {
+  "_note": "Tests stay on the map for EVERY curriculum (Marwa 2026-11-05). Only an exam entry with its own \"book\" set to a book this curriculum hides would hide."
+ }
+}

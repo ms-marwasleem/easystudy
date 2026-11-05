@@ -41,7 +41,7 @@ function mBond(box,q,s,run){
   const parts=q.parts, miss=q.whole==null?-1:parts.findIndex(v=>v==null), ans=miss<0?parts[0]+parts[1]:q.whole-parts[1-miss];
   q.word=q.word||`${mW(miss===0?ans:parts[0])} and ${mW(miss===1?ans:parts[1])} make ${mW(q.whole==null?ans:q.whole)}`;
   q.ask=`${miss===0?'what':mW(parts[0])} and ${miss===1?'what':mW(parts[1])} make ${q.whole==null?'what':mW(q.whole)}`;   // the question never says its own answer
-  const t=el('div','qmbond'); t.innerHTML=`<svg viewBox="0 0 100 60" preserveAspectRatio="none"><path d="M50 20 L22 44 M50 20 L78 44"/></svg>`;
+  const t=el('div','qmbond'+(/\bbox/i.test(s.task||'')?' box':'')); t.innerHTML=`<svg viewBox="0 0 100 60" preserveAspectRatio="none"><path d="M50 20 L22 44 M50 20 L78 44"/></svg>`;
   const mk=(cls,v)=>{ const c=el('div','qmb '+cls+(v==null?' gap cur':''),`<b>${v==null?'':v}</b>`); t.append(c); return c; };
   const top=mk('top',q.whole), a=mk('l',parts[0]), b=mk('r',parts[1]), target=q.whole==null?top:miss===0?a:b;
   box.append(t);
@@ -50,9 +50,10 @@ function mBond(box,q,s,run){
   mPad(box,(q.options?mShuffle(q.options):mKeys(q.max||10)),(v)=>{ if(v!==ans) return false; $('b',target).textContent=v; target.classList.remove('cur','gap'); target.classList.add('got'); qxWin(t,q,1600); return true; });
 }
 function mBigger(box,q,s,run){
-  const want=q.find==='smaller'?Math.min(...q.nums):Math.max(...q.nums); q.word=q.word||q.find||'bigger';
-  const row=el('div','qmbig'); q.nums.forEach(n=>{ const b=el('button','qmbn',`<b>${n}</b>${q.dots?`<img src="${mDots(n)}" alt="">`:''}`); b.setAttribute('aria-label',String(n));
-    b.addEventListener('click',()=>{ if(qz.busy) return; if(n!==want) return qxBad(b); b.classList.add('got'); $$('.qmbn',row).forEach(x=>x!==b&&x.classList.add('dim')); qRing(b); qxWin(b,q,1600); }); row.append(b); });
+  // THE choice buttons (quiz.js qChBtn) in the usual choices row; no speaker before the answer (it would say the answer), the Help bulb lights the right one (Marwa 2026-11-04)
+  const want=q.find==='smaller'?Math.min(...q.nums):Math.max(...q.nums); q.word=q.word||q.find||'bigger'; q.hush=1;
+  const row=el('div','qxchoices qmbig'); q.nums.forEach(n=>{ const b=qChBtn(n); b.dataset.v=n; if(q.dots){ const d=el('span','qmbdots',`<img src="${mDots(n)}" alt="">`); const c=el('div','qmbcol'); c.append(b,d); row.append(c); } else row.append(b);
+    b.addEventListener('click',()=>{ if(qz.busy) return; if(n!==want) return qxBad(b); b.classList.add('on'); $$('.qch',row).forEach(x=>x!==b&&x.classList.add('dim')); if(qCircleTask(s)) qRing(b); qxWin(b,q,1600); }); });
   box.append(row);
 }
 function mCount(box,q,s,run){
@@ -64,6 +65,8 @@ function mCount(box,q,s,run){
     qxWrite(box,q,s,run,String(n),s.both?(()=>{ q.word=mW(n); $$('.qxpre',box).forEach(x=>x.remove()); qxWrite(box,q,s,run,mW(n)); }):null); return; }
   mPad(box,(q.options?mShuffle(q.options):mKeys(q.max||Math.max(10,n))),(v)=>{ if(v!==n) return false; qxWin(grid,q,1600); return true; });
 }
+// an addition sentence written the other way round is right too: "3 + 4 = 7" -> "4 + 3 = 7" when the child starts with the second number (subtraction keeps its order)
+const mSwapSum=(w,k)=>{ const m=String(w).match(/^(\d+) \+ (\d+) = (\d+)$/); return m&&m[1]!==m[2]&&k===m[2][0]&&k!==m[1][0]?`${m[2]} + ${m[1]} = ${m[3]}`:null; };
 function mWrite(box,q,s,run){
   const w=el('div','almcq mwrite'+(q.pics?' haspic':'')); box.append(w);
   if(q.pics){ const pc=el('div','alpics'); q.pics.forEach((p,k)=>{ const f=el('div','alfig'); const im=el('img','',''); im.src=p; im.alt=''; qPicFit(im,(q.picsTall||[])[k]); f.append(im); pc.append(f); }); w.append(pc); }
@@ -71,18 +74,19 @@ function mWrite(box,q,s,run){
   const sp=el('button','qsay alsp',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>{ if(!qz.busy) q.sayFn(); };
   if(q.ask){ const a=el('p','alask',''); alToks(a,q.ask); a.append(' ',sp); st.append(a); } else st.append(sp);   // the listen icon at the end of the story (no line of its own)
   const line=el('div','qxline mwline'); if(q.lead) line.append(el('span','mwlead',q.lead));
-  const wd=qxWordEl(q.word,null,false,true); line.append(wd); if(q.tail) line.append(el('span','mwcard',q.tail)); st.append(line);
+  let wd=qxWordEl(q.word,null,false,true); line.append(wd); if(q.tail) line.append(el('span','mwcard',q.tail)); st.append(line);
   const cur=()=>{ $$('.lt',wd).forEach(x=>x.classList.remove('cur')); const n=qxNext(wd); if(n) n.classList.add('cur'); }; cur();
   const pad=el('div','qmpad mwkeys'); w.append(pad);
   [...(q.keys||s.keys||'1234567890')].forEach(k=>{ const b=el('button','rb qbtn qlet qmn',`<span>${k}</span>`); b.dataset.v=k; b.setAttribute('aria-label',k==='−'?'minus':k==='+'?'plus':k==='='?'equals':k);
-    b.addEventListener('click',()=>{ if(qz.busy||q.solved||qz.list[qz.i]!==q) return; hideHint(); const n=qxNext(wd); if(!n) return;
+    b.addEventListener('click',()=>{ if(qz.busy||q.solved||qz.list[qz.i]!==q) return; hideHint(); let n=qxNext(wd); if(!n) return;
+      if(k!==n.textContent&&!$$('.lt.got',wd).length){ const sw=mSwapSum(q.word,k); if(sw){ q.word=sw; const nw=qxWordEl(sw,null,false,true); wd.replaceWith(nw); wd=nw; n=qxNext(wd); } }   // addition in either order is right: 4 + 3 = 7 as well as 3 + 4 = 7 (Marwa 2026-11-05)
       if(k===n.textContent){ qxReveal(wd); blip(560+$$('.lt.got',wd).length*40,.05); cur(); if(qxDone(wd)) qxWin(wd,q,1700); }
-      else { n.classList.add('bad'); setTimeout(()=>n.classList.remove('bad'),500); qxBad(line); } }); pad.append(b); });
+      else { wsBad(n); qxBad(line); } }); pad.append(b); });
   q.sayFn=async()=>{ vStop(); if(q.askAudio&&!q.solved) return qSound(R_Q(q.askAudio),q.ask||''); return qSound(q.audio,q.word); };
-  box._after=()=>q.sayFn();
+  box._after=()=>{ if(q.autoSay) return q.sayFn(); };
 }
 QM.numline={sheet:'box', bulb:0, draw:mNumline};
 QM.bond={sheet:'box', bulb:0, draw:mBond};
-QM.bigger={sheet:'box', bulb:0, draw:mBigger};
+QM.bigger={sheet:'box', draw:mBigger, help:(q,w)=>{ const v=q.find==='smaller'?Math.min(...q.nums):Math.max(...q.nums); return $$('.qmbig .qch',w).filter(b=>+b.dataset.v===v); }};
 QM.count={sheet:'box', bulb:0, draw:mCount};
 QM.mwrite={sheet:'box', own:1, draw:mWrite, help:(q,w)=>{ const n=qxNext($('.mwline .qxw',w)); return n?$$('.mwkeys .qmn',w).filter(b=>b.dataset.v===n.textContent):[]; }};

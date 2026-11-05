@@ -62,10 +62,7 @@
 .qxchoices .qlet.on{--t:var(--green1);--b:var(--green2)}.qxchoices .qlet.on span{color:var(--c-white)}
 /* write / arrange: the word's places underlined, letters appear as they are found */
 .qxline{position:relative;display:flex;align-items:center;justify-content:center;cursor:text;max-width:100%}
-.qx .lt.hid{color:transparent}.qx .lt.bad{color:var(--c-bad-dk)!important}
-.qx .lt.got{animation:qxpop .25s ease-out}
 @keyframes qxpop{from{transform:scale(1.4)}to{transform:none}}
-.qxline.focus .lt.cur{text-decoration-color:var(--c-accent)}
 .qxchips{display:flex;gap:0.375rem;align-items:center;justify-content:center;flex-wrap:wrap}
 .qxchips i{font-style:normal;font-weight:700;font-size:min(10cqh,13cqw);line-height:1.5;color:var(--c-accent-dk);background:rgba(42,127,216,.12);padding:0 .35em;border-radius:.4em}
 .qxchips u{text-decoration:none;color:var(--c-muted);font-family:var(--f-ui);font-weight:800}
@@ -97,9 +94,6 @@
 .lspk svg{width:2.25rem;height:2.25rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .lspk:active{transform:scale(.9)}
 /* write question: a box (underline) per syllable; Help shows the next syllable faintly for a moment */
-.qxseg{display:inline-flex;margin:0 .18em;padding:0 .12em;border-bottom:.07em solid rgba(46,27,12,.3)}
-.qx .lt.hid.peek{color:rgba(46,27,12,.28)!important}
-.qxseg:has(.lt.cur){border-bottom-color:var(--c-accent)}
 
 /* phone on its side (short and wide): bigger letters, the page title and arrows take less room */
 @media (min-aspect-ratio:5/4) and (max-height:480px){
@@ -141,8 +135,12 @@
 #lesson.wpop #stage:not(.wpback)>.vocab{flex:1 1 0;min-height:0}
 .wpdim{position:fixed;inset:0;z-index:50;background:var(--pop-dim)}
 .wpback{pointer-events:none}
-.wpclose{position:absolute;top:.6rem;right:.6rem;z-index:5;width:var(--pop-x-size);height:var(--pop-x-size);padding:0;cursor:pointer}
-.wpclose svg{width:48%;height:48%;stroke-width:4.2}
+/* the word popup is ONE compact card (Marwa 2026-11-04, like a game popup): as tall as what is in it, centred; word on top, meaning, Help/Teach/Write, picture;
+   no picture strip (one word); the close button sits on the card's corner, half outside, so it never covers the speaker */
+#lesson.wpop #stage:not(.wpback){inset:0;margin:auto;width:min(92vw,32rem);height:fit-content;max-height:calc(100vh - 2 * var(--pop-inset-y));overflow:visible;padding:clamp(1rem,3vh,1.75rem) clamp(.75rem,3vw,1.5rem)}
+#lesson.wpop #stage:not(.wpback)>.vocab{flex:none;height:auto;overflow:visible;padding:0;grid-template-columns:minmax(0,1fr);grid-template-rows:auto;grid-template-areas:"word" "info" "tools" "img";gap:clamp(.5rem,2vh,1rem)}
+#lesson.wpop .vpick{display:none}
+#lesson.wpop .vimgwrap{grid-row:auto}
 
 /* ---------- smaller listen icons, each one beside the thing that is read ---------- */
 .qxsay{position:static;width:2.25rem;height:2.25rem;flex:none;border-radius:0.625rem}
@@ -177,12 +175,7 @@
 .scene.letter>.task{font-size:clamp(0.8125rem,1.8vw,1.0625rem)}.scene.letter>.task svg{width:1.375rem;height:1.375rem}
 /* the letters with their marks stay inside the circles */
 .qxchoices .qlet span{font-size:clamp(1.625rem,min(8.5cqh,8cqw),2.625rem)!important;line-height:1.2!important;transform:translateY(.02em)}
-.qxseg .lt{border-bottom:0}
-.qx .lt.hid.fnt{color:rgba(46,27,12,.28)!important}
 .qxchoices .qlet span{font-size:clamp(1.75rem,min(9.5cqh,9cqw),2.875rem)!important}
-.qxseg .lt{text-decoration:none}
-.qxseg:has(.lt.cur){border-bottom-color:var(--c-accent)}
-#lesson.ar .qxseg .lt{text-decoration:none}
 
 .qaline{display:flex;align-items:center;gap:0.375rem}
 .qaline .qarsay{order:-1}
@@ -192,10 +185,7 @@
 /* portrait: beside the side button there is no room for picture + text side by side: the picture stands above its question and answer */
 @media (max-aspect-ratio:1/1){.qaall .qarow{flex-direction:column;gap:0.25rem;padding:0.25rem}.qaall .qarpic{height:min(15cqh,6rem)}.qaall .qartxt{font-size:clamp(1rem,min(4.4vw,3.6cqh),1.5rem);line-height:1.35}}
 /* English words in the write type: the letters sit in a row like the vocab writing (the Arabic rule above makes them inline) */
-#lesson:not(.ar) .qxw .lt{display:inline-grid;vertical-align:bottom}
 /* RULE (every subject): whatever the child must write shows a dash under each place, empty or faint; the place being typed is blue */
-#lesson:not(.ar) .qx .qxw>.lt{border-bottom:0.1875rem solid rgba(46,27,12,.45);border-radius:.05em;margin:0 .1em}
-#lesson:not(.ar) .qx .qxw>.lt.cur{border-bottom-color:var(--c-accent)}
 
 /* ---------- Arabic letters with their marks stay fully inside circles / buttons / tiles (comments 2026-10-18) ----------
    one flat look: cream face, brown rim; a right choice only turns its rim and face light green, the letter stays dark and visible.
@@ -215,8 +205,6 @@
 .qxtile span{font-size:calc(var(--th)*.42)}
 
 /* the places to write in are always plainly visible (a thick line under each), the current one in blue */
-#lesson:not(.ar) .qx .qxw>.lt{border-bottom-width:0.25rem;border-bottom-color:rgba(46,27,12,.7);min-width:.7em}
-#lesson:not(.ar) .qx .qxw>.lt.cur{border-bottom-color:var(--c-accent)}
 
 .qxtile.wide{width:auto;min-width:clamp(3rem,min(17cqw,15cqh),5.25rem);padding:0 .7rem}.qxtile.wide span{font-size:clamp(1.4rem,5.5vh,2.4rem)}
 .qxwords{display:flex;flex-wrap:wrap;gap:.4em .5em;justify-content:center}.qxwords .lt{margin:0}
@@ -228,7 +216,7 @@
 .lchant .ctx{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:3cqh;justify-content:center}
 .lchant .cl{border:0;background:none;font-family:inherit;font-weight:700;color:var(--c-text);cursor:pointer;line-height:1.5;padding:0.25em 0.4em;border-radius:0.6em;font-size:min(11cqh,6.5cqw)}
 .lchant .cl.now{background:var(--c-now-bg);color:var(--c-text)}
-@media (orientation:portrait){.lchant{flex-direction:column}.lchant .cpic{flex:0 1 38%;width:100%;height:auto;min-height:0}.lchant .ctx{flex:1 1 0;width:100%;min-height:0}.lchant .cl{font-size:min(5.2cqh,8.5cqw)}}
+@media (orientation:portrait){.lchant{flex-direction:column}.lchant .cpic{flex:0 1 56%;width:100%;height:auto;min-height:0}.lchant .ctx{flex:1 1 0;width:100%;min-height:0}.lchant .cl{font-size:min(5.2cqh,8.5cqw)}}
 
 /* mad: the word as big tiles on top, two places under it (the mad letter, the elongated letter) */
 .qxjoin{font-family:var(--f-ar);font-weight:700;white-space:nowrap;line-height:1.7;color:var(--c-on-bg);font-size:min(calc(92cqw / (var(--n,5) * .62)),20cqh,6.5rem);touch-action:none;user-select:none;-webkit-user-select:none}
@@ -249,3 +237,20 @@
 
 /* more than 3 pairs on a tall screen: two columns of pairs so they all fit */
 @media (max-aspect-ratio:1/1){.qaall.many{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:space-evenly;width:100%}.qaall.many .qarow{justify-content:flex-start}.qaall.many .qarpic{height:min(12cqh,5rem)}}
+
+/* ---- Q&A SLIDES (qa "together", 2026-11-05): the segment-slide book card of the listening lesson (game.css .scene.point.slide) inside the question area;
+   only the place and the panel's room for two lines (question + answer) are set here ---- */
+.qx.qa-slides{position:relative;flex:1 1 0;min-height:0;width:100%;align-self:stretch}
+.qx.qa-slides .scene.qasl{position:absolute;inset:0;background:none}
+.qx.qa-slides .scene.qasl.slide .scard .note{height:36% !important}
+.qx.qa-slides .scene.qasl.slide .scard .note .in{font-size:8.5cqw}
+#lesson.ar .qx.qa-slides .scene.qasl .note :is(.in,.txt,.w){font-family:var(--f-story-ar);font-weight:600}
+.qx.qa-slides .scene.qasl .note .line{display:block;cursor:pointer}
+.qx.qa-slides .scene.qasl .note .qa-a .w{color:var(--c-accent-dk,var(--c-accent))}
+.qx.qa-slides .scene.qasl .note .w.reading{color:var(--story-now)}
+.qx.qa-slides .scene.qasl.slide .scard{--ar:.95}
+@media (min-aspect-ratio:5/4){.qx.qa-slides .scene.qasl.slide .scard{--ar:1.7}}
+/* the library pictures are small and of any shape: they sit whole above the caption on a soft sky (the frame hugs nothing white round them) */
+.qx.qa-slides .scene.qasl .pbox{display:flex;justify-content:center;align-items:flex-start;padding:3% 3% 40%;background:linear-gradient(#DFF3FB,#FFF6E3)}
+.qx.qa-slides .scene.qasl .pbox img{width:auto;height:100%;max-width:100%;object-fit:contain;background:none;border-radius:1rem}
+.qx.qa-slides .scene.qasl .pfig{margin:0}   /* the question area already keeps clear of the side buttons */

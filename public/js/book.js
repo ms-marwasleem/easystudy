@@ -44,7 +44,8 @@ function lnavModel(){
     const pi=pg.findIndex(x=>x.n===cp), jump=i=>{ hideHint(); blip(600); qz.busy=false; qGo(i); };
     return {pages:pg.map(x=>({l:num(x.n),on:x.n===cp,go:()=>jump(x.i)})), secs:sec.length>1||(sec[0]&&pg.length>0)?sec.map(x=>({l:x.l,on:x.g===cg,go:()=>jump(x.i)})):[],
       pPrev:pi>0&&(()=>jump(pg[pi-1].i)), pNext:pi>=0&&pi<pg.length-1&&(()=>jump(pg[pi+1].i)),
-      sPrev:qSetStart(-1)>=0&&(()=>qSet(-1)), sNext:qSetStart(1)>=0&&(()=>qSet(1))};
+      sPrev:cur.sl&&cur.sl.live()&&cur.sl.i()>0?()=>cur.sl.go(-1):qSetStart(-1)>=0&&(()=>qSet(-1)),   // Q&A slides (quiz-letters.js qxQAAll): a swipe moves the slides first
+      sNext:cur.sl&&cur.sl.live()&&cur.sl.i()<cur.sl.n-1?()=>cur.sl.go(1):qSetStart(1)>=0&&(()=>qSet(1))};
   }
   if(tab==='read'&&nPages()>1){
     const m=SUBJECT.lessons.find(l=>l.id===LESSON.id), ps=LESSON.pageNums||(m&&m.pages&&[].concat(m.pages.read||[]))||[];
@@ -161,7 +162,7 @@ function bookSides(l,next){
   // exam papers (Tests): red signs on the Workbook side, after its pages (lesson "exams" in subject.json)
   const exs=(l.exams||[]).map(e=>tile(tr(e.label||'Test'),`<b class="jex">${ICON.exam}</b>`,`class="ex" data-ex="${e.id}" aria-label="${e.title||'Exam'}"`).replace('<button class="jpm" class="ex"','<button class="jpm ex"'));
   const rvs=(l.revs||[]).map(e=>tile(tr(e.label||'Test'),`<b class="jex">${ICON.exam}</b>`,`data-rev="${e.folder}" data-p="${e.page}" aria-label="${e.label||'Test'}"`).replace('class="jpm"','class="jpm ex rv"'));
-  const tls=(l.tools||[]).map(e=>tile(tr(e.label||'Tool'),`<b class="jex jtx">Tool</b>`,`data-tool="${e.id}" aria-label="${e.title||'Tool'}"`).replace('class="jpm"','class="jpm tl"'));
+  const tls=(l.tools||[]).map(e=>tile(tr(e.label||'Tool'),`<b class="jex jtx">${toolLabel(e.id)}</b>`,`data-tool="${e.id}" aria-label="${toolName(e.id)}"`).replace('class="jpm"','class="jpm tl"'));
   // the same in every subject: a side with nothing on it is left out (no "soon" sign)
   const bk=bookPages(l,next), more=[...rvs,...exs,...tls];
   return (bk.length?side('bkp',bk):'')+(wb.length||more.length?side('wb',wb,more):'');

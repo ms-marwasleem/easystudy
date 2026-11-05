@@ -3,7 +3,7 @@
 // every path inside a lesson.json is relative to that lesson's own folder
 function fixPaths(L,file){
   const base=file.slice(0,file.lastIndexOf('/')+1), R=p=>p&&!/^(https?:|\/|data:)/.test(p)?base+p:p;
-  L.base=base; L.scene=R(L.scene); L.picture=R(L.picture); L.pagePictures=(L.pagePictures||[]).map(R); (L.pageAudio||[]).forEach(a=>{ a.normal=R(a.normal); a.slow=R(a.slow); }); if(L.audio){ L.audio.normal=R(L.audio.normal); L.audio.slow=R(L.audio.slow); }
+  L.base=base; L.scene=R(L.scene); L.picture=R(L.picture); L.pictureTall=R(L.pictureTall); L.pagePictures=(L.pagePictures||[]).map(R); L.pagePicturesTall=(L.pagePicturesTall||[]).map(R); (L.pageAudio||[]).forEach(a=>{ a.normal=R(a.normal); a.slow=R(a.slow); }); if(L.audio){ L.audio.normal=R(L.audio.normal); L.audio.slow=R(L.audio.slow); }
   (L.vocab||[]).forEach(v=>{ v.img=R(v.img); if(v.audio){ v.audio.word=R(v.audio.word); v.audio.again=R(v.audio.again); v.audio.ar=R(v.audio.ar); } if(v.rel){ v.rel.labelAudio=R(v.rel.labelAudio); v.rel.audio=R(v.rel.audio); } (v.parts||[]).forEach(p=>{ p.audio=R(p.audio); p.blend=R(p.blend); }); });
   (L.lines||[]).forEach(l=>{ l.pic=R(l.pic); });
   Object.values(L.bk||{}).forEach(b=>{ b.img=R(b.img); });
@@ -18,7 +18,7 @@ async function openLesson(m){
   stopVoice(); markOpened(m.id);
   if(!LESSON || LESSON.id!==m.id){
     busy(true);
-    try{ LESSON=fixPaths(await get(m.file), m.file); LESSON.id=m.id; }catch(e){ busy(false); message('Oops!','This lesson did not load. Check the internet and try again.'); return; }
+    try{ LESSON=fixPaths(await get(m.file), m.file); LESSON.id=m.id; if(LESSON.tabs) LESSON.tabs=currTabs(LESSON.tabs); }catch(e){ busy(false); message('Oops!','This lesson did not load. Check the internet and try again.'); return; }
     preloadImgs([LESSON.scene,LESSON.picture,...(LESSON.pagePictures||[]),...(LESSON.vocab||[]).map(v=>v.img),...(LESSON.lines||[]).map(l=>l.pic),...Object.values(LESSON.bk||{}).map(b=>b.img)]);
     player.bufs={}; player.ready=null; vs.i=0; rd.page=1; rd.done={}; ensureAudio().catch(()=>{}); busy(false);   // an Arabic story not recorded yet (requested slot) stays silent: no error
   }
@@ -128,7 +128,7 @@ function paintTabs(){ $$('.tab').forEach(b=>{ const [l0,ic]=TABS[b.dataset.tab],
   b.dataset.book=KEYTAB[b.dataset.tab]||''; b.innerHTML=ICON[ic]+`<span>${isAr()&&TABAR[l]||tr(l)}</span>`+(b.dataset.book?'<i class="kd"></i>':'')+(got?`<span class="st">${STAR(true)}</span>`:''); b.hidden=LESSON&&LESSON.tabs?!LESSON.tabs.includes(b.dataset.tab):['booklet','workbook'].includes(b.dataset.tab)?!hasBook(b.dataset.tab):b.dataset.tab==='grammar'||(b.dataset.tab==='quiz'&&SUBJECT&&SUBJECT.id==='arabic'&&!hasBook('quiz')); b.setAttribute('aria-selected',b.dataset.tab===tab); }); const tb=$('.tabs'); if(tb){ const nt=$$('.tab:not([hidden])').length; tb.classList.toggle('many',nt>3); tb.classList.toggle('many5',nt>4); const on=$('.tab[aria-selected="true"]',tb); if(on) tb.scrollTo({left:on.offsetLeft-tb.clientWidth/2+on.offsetWidth/2,behavior:'auto'}); } }   // optional "tabs": ["read","quiz"] in lesson.json shows only those tabs (Math: explanation + questions, or questions only)
 // a default lesson shows Booklet / PTS only when it has that book (its pages in subject.json, or questions of that book)
 function hasBook(k){ const m=SUBJECT&&LESSON&&SUBJECT.lessons.find(l=>l.id===LESSON.id); return !!(m&&m.pages&&[].concat(m.pages[k]||[]).length)||!!(qz.sets&&qz.file&&LESSON&&qz.file.includes('/'+(m&&m.folder)+'/')&&qz.all.some(q=>qSrcOf(q.set)===k)); }
-function setRail(items){ rail.innerHTML=''; items.forEach(it=>{ const b=el('button','dash '+it.kind+(it.on?' on':'')+(it.icon==='restart'?' ln':''),`<span class="rb${it.kind==='tool'?' tgear':''}">${it.kind==='tool'?'Tool':ICON[it.icon]}</span><span>${it.label}</span>`); b.addEventListener('click',it.click); rail.append(b); }); }
+function setRail(items){ rail.innerHTML=''; items.forEach(it=>{ const b=el('button','dash '+it.kind+(it.on?' on':'')+(it.icon==='restart'?' ln':''),`<span class="rb${it.kind==='tool'?' tgear':''}">${it.kind==='tool'?toolLabel(LESSON.tool):ICON[it.icon]}</span><span>${it.label}</span>`); b.addEventListener('click',it.click); rail.append(b); }); }
 function switchTab(t,at){ setLook(t); if(typeof WP!=='undefined'&&WP.saved) wpClose(); stopVoice(); { const r=$('#lmeta .lm-r'); if(r) r.innerHTML=''; } hideHint(); $('#lesson').classList.remove('vtab','qtab','story','poem'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); lnavPaint(); carAt(0); (t==='booklet'||t==='workbook'||t==='read'&&isAL())?showQuiz(at):t==='grammar'?showGrammar():t==='read'?showRead():t==='words'&&LESSON.vocab?showWords():t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); }
 $$('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
 
@@ -160,7 +160,11 @@ function readPager(){}   // swipe itself = the shared pager in book.js
    One picture for all pages = only the text slides; a picture per page = the text slides and the picture fades out / in.
    Opening the lesson starts the reading by itself and, when a page ends, goes to the next page and reads it (rd.auto). ANY touch of the sound
    (pause, restart, speed, a word or line, another page, another tab) stops the sound and the automatic run (stopAll clears rd.auto). */
-const storyBg=p=>(LESSON.pagePictures&&LESSON.pagePictures[p-1])||LESSON.picture||LESSON.scene;
+// a lesson may give a second drawing of the same picture for TALL (portrait) screens: lesson.json "pictureTall" / "pagePicturesTall"
+const tallScreen=()=>innerHeight>innerWidth;
+// where the picture sits behind the story card (the text panel covers its bottom): lesson.json "picturePos" / "picturePosTall" = CSS background-position, e.g. "50% 100%" keeps the faces above the text
+const storyPos=bg=>{ bg.style.backgroundPosition=(tallScreen()&&LESSON.picturePosTall)||LESSON.picturePos||''; };
+const storyBg=p=>(tallScreen()&&((LESSON.pagePicturesTall&&LESSON.pagePicturesTall[p-1])||LESSON.pictureTall))||(LESSON.pagePictures&&LESSON.pagePictures[p-1])||LESSON.picture||LESSON.scene;
 const cssUrl=u=>`url("${new URL(u,location.href).href}")`;
 function storyText(){
   const np=nPages(), inn=el('div','in'), ul=el('ul','lines');
@@ -175,16 +179,22 @@ function storyText(){
   });
   inn.append(ul); return inn;
 }
-// the words are as big as the panel allows: shrink only when a page would not fit
-function fitStory(){ const inn=$('.scene.story .in:last-child'); if(!inn) return; inn.style.fontSize=''; let fs=parseFloat(getComputedStyle(inn).fontSize);
-  for(let i=0;i<40&&inn.scrollHeight>inn.clientHeight+1&&fs>11;i++){ fs-=.5; inn.style.fontSize=fs+'px'; } }
+// ONE text size for the whole lesson (Marwa 2026-11-05): the biggest size (CSS token) at which EVERY page of the lesson fits its panel; every page uses it
+function fitStory(){ const note=$('.scene.story:not(.poem) .note'), inn=note&&$('.in:last-child',note); if(!inn||!note.clientHeight) return;
+  const key=LESSON.id+':'+note.clientWidth+'x'+note.clientHeight;
+  if(fitStory.key!==key){ inn.style.fontSize=''; let fs=parseFloat(getComputedStyle(inn).fontSize); const sv=[rd.page,rd.words,rd.lineEls], np=nPages();
+    for(let p=1;p<=np;p++){ if(np>1&&!LESSON.lines.some(l=>l.page===p)) continue; rd.page=p; rd.words=[]; rd.lineEls=[];
+      const t=storyText(); t.style.visibility='hidden'; t.style.fontSize=fs+'px'; note.append(t);
+      for(let i=0;i<60&&t.scrollHeight>t.clientHeight+1&&fs>12;i++){ fs-=.5; t.style.fontSize=fs+'px'; } t.remove(); }
+    [rd.page,rd.words,rd.lineEls]=sv; fitStory.key=key; fitStory.fs=fs; }
+  $$('.in',note).forEach(x=>x.style.fontSize=fitStory.fs+'px'); }
 function showStory(){
   $('#lesson').classList.add('story');
   const scene=el('div','scene story'), bg=el('div','sbg'), note=el('div','note');
   scene.setAttribute('role','img'); scene.setAttribute('aria-label',LESSON.sceneAlt||'');
-  bg.style.backgroundImage=cssUrl(storyBg(rd.page)); bg.dataset.u=storyBg(rd.page);
-  note.append(storyText()); scene.append(bg,note); stage.append(scene);
-  const pre=new Set(); for(let p=1;p<=nPages();p++) pre.add(storyBg(p)); preloadImgs([...pre]);
+  bg.style.backgroundImage=cssUrl(storyBg(rd.page)); bg.dataset.u=storyBg(rd.page); storyPos(bg);
+  note.append(storyText()); scene.append(bg,note); if(nPages()>1) scene.append(el('span','sbadge',num(rd.page))); stage.append(scene);   // the page number badge of the story card
+  const pre=new Set([LESSON.pictureTall,...(LESSON.pagePicturesTall||[])].filter(Boolean)); for(let p=1;p<=nPages();p++) pre.add(storyBg(p)); preloadImgs([...pre]);
   fitStory(); fitTitle();
   readRail(); if(typeof bookTag==='function') bookTag(); showHint($('#rail .dash.go .rb'),LESSON.hints&&LESSON.hints.read,1400,'read');
 }
@@ -202,7 +212,7 @@ function showPoint(){
   img.alt=''; img.draggable=false; img.src=new URL(u,location.href).href;
   const ar=()=>{ if(img.naturalWidth) box.style.setProperty('--ar',img.naturalWidth+'/'+img.naturalHeight); }; img.addEventListener('load',ar); ar();
   if(LESSON.figure){ box.classList.add('figbox'); box.style.removeProperty('--ar'); box.append(pointFigure(LESSON.figure)); } else box.append(img);   // figure = built from text (no picture): {formula:[{t,id?}], word}; its letters have ids g0,g1.. and pop while read
-  if(scene.classList.contains('slide')){ const card=el('div','scard'); card.style.setProperty('--ar',box.style.getPropertyValue('--ar')||'1.4'); img.addEventListener('load',()=>card.style.setProperty('--ar',img.naturalWidth+'/'+img.naturalHeight)); card.append(box,note); fig.append(card); note.append(storyText()); scene.append(fig); stage.append(scene); }   // slide = the book's card: picture in its frame, the sentence on a light panel over its bottom edge
+  if(scene.classList.contains('slide')){ const card=el('div','scard'); card.style.setProperty('--ar',box.style.getPropertyValue('--ar')||'1.4'); img.addEventListener('load',()=>card.style.setProperty('--ar',img.naturalWidth+'/'+img.naturalHeight)); card.append(box,note,el('span','sbadge',num(rd.page))); fig.append(card); note.append(storyText()); scene.append(fig); stage.append(scene); }   // slide = the book's card: picture in its frame, the sentence on a light panel over its bottom edge
   else { fig.append(box);
   note.append(storyText()); scene.append(fig,note); stage.append(scene); }
   LESSON.lines.forEach((l,li)=>{ if(!l.mark||(LESSON.pages>1&&l.page!==rd.page)) return;
@@ -255,6 +265,7 @@ function storyGo(d,auto){
   clearMarks(); rd.page=to; rd.words=[]; rd.lineEls=[]; rd.spotEls=[]; rd.cur=-1; rd.curLine=-1;
   { const k=LESSON.id+':'+rd.page; rd.slow=k in rd.pick?rd.pick[k]:pageDefaultSlow(); }
   lnavPaint(); carAt(pageSpan()[0]); if(typeof bookTag==='function') bookTag();
+  { const bd=$('.sbadge',scene); if(bd) bd.textContent=num(rd.page); }
   const note=$('.note',scene), old=$('.in',note), nin=storyText(), bg=$('.sbg',scene), u=storyBg(rd.page);
   note.append(nin); fitStory();
   if(anim){
@@ -274,7 +285,7 @@ function storyGo(d,auto){
 // the unit / lesson / name line is ONE line always: the letters shrink until it fits
 function fitTitle(){ const h=$('#lessonTitle'), box=h&&h.parentElement; if(!h||!box||!box.offsetWidth) return; h.style.fontSize=''; let fs=parseFloat(getComputedStyle(h).fontSize);
   for(let i=0;i<40&&h.scrollWidth>box.clientWidth+1&&fs>7;i++){ fs-=.5; h.style.fontSize=fs+'px'; } }
-addEventListener('resize',()=>{ clearTimeout(fitTitle.t); fitTitle.t=setTimeout(()=>{ fitTitle(); if($('.scene.story')) fitStory(); },150); });
+addEventListener('resize',()=>{ clearTimeout(fitTitle.t); fitTitle.t=setTimeout(()=>{ fitTitle(); if($('.scene.story')) fitStory(); const bg=$('.scene.story .sbg'); if(bg&&LESSON&&bg.dataset.u!==storyBg(rd.page)){ bg.dataset.u=storyBg(rd.page); bg.style.backgroundImage=cssUrl(bg.dataset.u); } if(bg&&LESSON) storyPos(bg); },150); });   // turned the tablet: the tall / wide drawing
 if(document.fonts&&document.fonts.ready) document.fonts.ready.then(()=>{ fitTitle(); fitStory(); if(typeof fitPoem==='function') fitPoem(); });
 // "layout": "pictures" (Lesson 2): no text card; each line is a picture ("pic") spread over the stage at "pos" [x, y] % (its centre),
 // its word written under it. The word being read is marked as usual and its picture pops up a little; tapping the word (or the picture) reads it.
@@ -283,13 +294,15 @@ function showPics(){
   scene.append(el('p','task',STAR(true)+((LESSON.pageTasks&&LESSON.pageTasks[rd.page-1])||LESSON.task)), area);
   // ONE even layout for every word-reading page (Marwa 2026-11-01): the pictures are spread in equal cells (columns x rows chosen from how many there are),
   // never placed by hand per lesson, so no big empty parts next to crowded ones. P = tall screen, L = wide screen.
-  const cnt=LESSON.lines.filter(l=>!l.more&&(np<=1||l.page===rd.page)).length||1, cP=cnt<=2?1:2, cL=cnt<=3?cnt:4;
+  // a page with sentences under the pictures ("more" lines): on a tall screen ONE column, each row = picture | its sentences (cells were too narrow, text fell on the next picture)
+  const sents=LESSON.lines.some(l=>l.more&&(np<=1||l.page===rd.page)); if(sents) area.classList.add('sents');
+  const cnt=LESSON.lines.filter(l=>!l.more&&(np<=1||l.page===rd.page)).length||1, cP=cnt<=2||sents?1:2, cL=cnt<=3?cnt:4;
   area.style.cssText=`--pcP:${cP};--prP:${Math.ceil(cnt/cP)};--pcL:${cL};--prL:${Math.ceil(cnt/cL)}`;
   LESSON.lines.forEach((l,li)=>{
     if(np>1&&l.page!==rd.page) return;
     // tall pictures (the teacher) are made a bit taller, so all look about the same size
     if(l.more){ const prev=area.lastElementChild, row=el('span','txt'); l.words.forEach(([w,s,e],k)=>{ const sp=el('span','w',w); rd.words.push({el:sp,s,e}); sp.addEventListener('click',()=>playFrom(Math.max(0,s-.04),e+.06)); row.append(sp); if(k<l.words.length-1) row.append(' '); });
-      row.addEventListener('click',ev=>{ if(ev.target===row) playLine(li); }); prev.append(row); rd.lineEls[li]=row; return; }   // "more": true = another sentence under the previous picture
+      row.addEventListener('click',ev=>{ if(ev.target===row) playLine(li); }); prev.append(row); prev.classList.add('sent'); rd.lineEls[li]=row; return; }   // "more": true = another sentence under the previous picture
     const it=el('div','pk'), pic=el('button','pkpic',`<img src="${l.pic}" alt="">`), txt=el('span','txt');
     // (no hand-placed position any more: lesson.json "pos"/"posP" are ignored, the cells decide)
     if(l.mw) it.style.setProperty('--mw',l.mw+'cqw');   // optional per line: "k" = size factor, "mw" = widest it may be (% of the stage)
@@ -298,9 +311,17 @@ function showPics(){
     it.append(pic,txt); area.append(it); rd.lineEls[li]=it;
   });
   readPager(scene);
-  stage.append(scene);
+  stage.append(scene); fitPk(); $$('img',area).forEach(im=>{ if(!im.complete) im.addEventListener('load',()=>setTimeout(fitPk,30),{once:true}); }); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fitPk); setTimeout(fitPk,700);   // again once the word pens are on the words (they make words a bit wider)
   readRail(); if(typeof bookTag==='function') bookTag(); showHint($('#rail .dash.go .rb'),LESSON.hints&&LESSON.hints.read,1400,'read');
 }
+/* every cell keeps its picture AND its sentences inside it (Marwa 2026-11-04, Shapes and Colors page 3 was all on top of each other): the text of the page
+   shrinks together (one size for the whole page) until no cell spills over. Any screen, any lesson; no per-lesson sizes. */
+function fitPk(){ requestAnimationFrame(()=>{ const ar=$('.scene.pics .pkarea'); if(!ar) return; const ts=$$('.pk .txt',ar), pks=$$('.pk',ar); if(!ts.length) return;
+  ts.forEach(t=>t.style.fontSize=''); let fs=parseFloat(getComputedStyle(ts[0]).fontSize);
+  const over=()=>pks.some(p=>p.scrollHeight>p.clientHeight+1||[...p.children].some(c=>c.scrollWidth>p.clientWidth+1));
+  if(!over()) return; let lo=8, hi=fs; const set=v=>ts.forEach(t=>t.style.fontSize=v+'px');
+  for(let k=0;k<12;k++){ const m=(lo+hi)/2; set(m); if(over()) hi=m; else lo=m; } set(Math.floor(lo)); }); }   // the biggest size that fits
+addEventListener('resize',()=>{ clearTimeout(fitPk.t); fitPk.t=setTimeout(fitPk,160); });
 // "bubbles" page (a book page with speech bubbles over a picture): LESSON.bk[page] = { img, ar:[wide screen, tall screen],
 //   pic:{l:[x,y,w],p:[x,y,w]}, bubs:[{ l:[x,y,w,font], p:[x,y,w,font], tail:[% along the bottom, length in em], round }] } (l = wide screen, p = tall one;
 //   x, w in % of the canvas width, y in % of its height, font in % of its width). A line says which bubble it is in ("bub"); tapping a sentence or a word reads it.

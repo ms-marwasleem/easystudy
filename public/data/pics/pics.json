@@ -515,17 +515,28 @@
    "cut": false
   },
   "ar-amira": {
-   "file": "ar-amira.jpg",
-   "w": 480,
+   "file": "ar-amira.png",
+   "tags": [],
+   "w": 451,
+   "h": 558,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-amira-dad": {
+   "file": "ar-amira-dad.png",
+   "tags": [],
+   "w": 427,
    "h": 600,
-   "cut": false,
-   "tags": [
-    "arabic",
-    "u1l1",
-    "book"
-   ],
-   "from": "book page u1l1 (photo, lower quality; deleted)",
-   "kind": "photo"
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-amira-grandma": {
+   "file": "ar-amira-grandma.png",
+   "tags": [],
+   "w": 337,
+   "h": 541,
+   "kind": "cut",
+   "cut": true
   },
   "ar-amira-grandma-book": {
    "file": "ar-amira-grandma-book.jpg",
@@ -543,13 +554,21 @@
    "kind": "photo",
    "cut": false
   },
-  "ar-amira-sofa": {
-   "file": "ar-amira-sofa.jpg",
+  "ar-amira-mum": {
+   "file": "ar-amira-mum.png",
    "tags": [],
-   "w": 600,
-   "h": 409,
-   "kind": "photo",
-   "cut": false
+   "w": 466,
+   "h": 579,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-amira-sis": {
+   "file": "ar-amira-sis.png",
+   "tags": [],
+   "w": 349,
+   "h": 453,
+   "kind": "cut",
+   "cut": true
   },
   "ar-amira-with-parents": {
    "file": "ar-amira-with-parents.jpg",
@@ -900,22 +919,6 @@
    ],
    "from": "../../../tmp/claude-0/u3l4/pg-09.png",
    "kind": "cut"
-  },
-  "ar-bk-mum": {
-   "file": "ar-bk-mum.jpg",
-   "tags": [],
-   "w": 368,
-   "h": 408,
-   "kind": "photo",
-   "cut": false
-  },
-  "ar-bk-sis": {
-   "file": "ar-bk-sis.jpg",
-   "tags": [],
-   "w": 345,
-   "h": 396,
-   "kind": "photo",
-   "cut": false
   },
   "ar-blue": {
    "file": "ar-blue.png",
@@ -2380,8 +2383,8 @@
   "ar-fam-both-head": {
    "file": "ar-fam-both-head.png",
    "tags": [],
-   "w": 204,
-   "h": 167,
+   "w": 600,
+   "h": 370,
    "kind": "cut",
    "cut": true
   },
@@ -2396,8 +2399,8 @@
   "ar-fam-grandma-head": {
    "file": "ar-fam-grandma-head.png",
    "tags": [],
-   "w": 134,
-   "h": 164,
+   "w": 308,
+   "h": 302,
    "kind": "cut",
    "cut": true
   },
@@ -2420,8 +2423,8 @@
   "ar-fam-mother-head": {
    "file": "ar-fam-mother-head.png",
    "tags": [],
-   "w": 123,
-   "h": 153,
+   "w": 344,
+   "h": 313,
    "kind": "cut",
    "cut": true
   },
@@ -2435,8 +2438,8 @@
   },
   "ar-family": {
    "file": "ar-family.jpg",
-   "w": 570,
-   "h": 361,
+   "w": 600,
+   "h": 400,
    "cut": false,
    "tags": [
     "arabic",
@@ -5049,6 +5052,166 @@
    "kind": "photo",
    "cut": false
   },
+  "ar-story-u2l3-cut": {
+   "file": "ar-story-u2l3-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 433,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u2l4-cut": {
+   "file": "ar-story-u2l4-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 387,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u2l5-cut": {
+   "file": "ar-story-u2l5-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 427,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u2l6-cut": {
+   "file": "ar-story-u2l6-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 425,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u2l7-cut": {
+   "file": "ar-story-u2l7-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 413,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u2l8-cut": {
+   "file": "ar-story-u2l8-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 421,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u2l9-cut": {
+   "file": "ar-story-u2l9-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 434,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u3l3-cut": {
+   "file": "ar-story-u3l3-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 406,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u3l4-cut": {
+   "file": "ar-story-u3l4-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 417,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u3l5-cut": {
+   "file": "ar-story-u3l5-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 382,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u3l6-cut": {
+   "file": "ar-story-u3l6-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 405,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u3l7-cut": {
+   "file": "ar-story-u3l7-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 476,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u3l8-cut": {
+   "file": "ar-story-u3l8-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 417,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u3l9-cut": {
+   "file": "ar-story-u3l9-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 469,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u4l3-cut": {
+   "file": "ar-story-u4l3-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 362,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u4l4-cut": {
+   "file": "ar-story-u4l4-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 393,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u4l5-cut": {
+   "file": "ar-story-u4l5-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 347,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u4l6-cut": {
+   "file": "ar-story-u4l6-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 370,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u4l7-cut": {
+   "file": "ar-story-u4l7-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 334,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-story-u4l8-cut": {
+   "file": "ar-story-u4l8-cut.png",
+   "tags": [],
+   "w": 600,
+   "h": 387,
+   "kind": "cut",
+   "cut": true
+  },
   "ar-strawberry": {
    "file": "ar-strawberry.png",
    "w": 446,
@@ -7647,8 +7810,8 @@
   },
   "door-u3l4": {
    "file": "door-u3l4.png",
-   "w": 283,
-   "h": 283,
+   "w": 194,
+   "h": 246,
    "cut": true,
    "tags": [
     "u3l4",

@@ -14,18 +14,22 @@
      "audio": "../../en-shared/q/taxi.mp3"
     },
     {
-     "word": "street",
-     "missing": 4,
-     "answer": "e",
-     "pic": "../../pics/u5-street.jpg",
-     "audio": "../../en-shared/q/street.mp3"
+     "word": "department store",
+     "gaps": [
+      2,
+      12
+     ],
+     "pic": "../../pics/u5-dept-store.jpg",
+     "audio": "../../en-shared/q/department-store.mp3"
     },
     {
-     "word": "supermarket",
-     "missing": 5,
-     "answer": "m",
-     "pic": "../../pics/u5-supermarket.jpg",
-     "audio": "../../en-shared/q/supermarket.mp3"
+     "word": "movie theater",
+     "gaps": [
+      2,
+      11
+     ],
+     "pic": "../../pics/u5-movie-theater.jpg",
+     "audio": "../../en-shared/q/movie-theater.mp3"
     },
     {
      "word": "bus",
@@ -271,7 +275,8 @@
       "neighborhood",
       "toy store"
      ],
-     "audio": "../../en-shared/q/passage-7c9a430cb5.mp3"
+     "audio": "../../en-shared/q/passage-7c9a430cb5.mp3",
+     "askAudio": "../../en-shared/q/askz-6dba1e9b8b.mp3"
     }
    ],
    "page": 111,

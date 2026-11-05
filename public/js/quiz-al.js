@@ -5,14 +5,7 @@
    mcq     = a sentence (or a picture) with a blank "____" and 2-4 options: item {stem, options:[..], answer:index, word: the solved sentence, audio: solved sentence, parts:[before,after] (audio of the stem read as a question), pic?}
    cloze   = a text with blanks [[answer]] and a word bank: item {text, bank:[..], audio: whole text read once solved}
    order   = words / chunks as tiles, tap them in the right order: item {chunks:[..in order..], end:".", audio} */
-const alSlug=t=>String(t).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,60).replace(/-+$/,'');
-const alClean=w=>String(w).replace(/^[^A-Za-z0-9']+|[^A-Za-z0-9']+$/g,'');
-const alWordSrc=w=>`data/en-shared/q/${alSlug(alClean(w))}.mp3`;
-// text -> tappable words (a tap reads that word alone: the child is learning to read)
-function alToks(host,text,onTap){
-  String(text).split(/\s+/).filter(Boolean).forEach((w,k)=>{ const sp=el('span','alw',w); sp.addEventListener('click',e=>{ e.stopPropagation(); if(qz.busy&&!onTap) return; hideHint(); vStop(); sp.classList.add('lit'); qSound(alWordSrc(w),alClean(w)).then(()=>sp.classList.remove('lit')); if(onTap) onTap(w); });
-    host.append(k?' ':'',sp); });
-}
+// alSlug / alClean / alWordSrc / alToks (tappable words) are SHARED: js/quiz.js (qToks)
 const alStar=()=>{ const d=$(`.qdots i[data-i="${qz.i}"]`); if(d&&d.classList.contains('got')) return carFrac((qz.i+1)/qz.list.length); qStar(); };
 const alNextGo=()=>{ if(qz.i+1<qz.list.length) qGo(qz.i+1); else award(LESSON.id,qKey()); };
 
@@ -75,15 +68,15 @@ function alMcq(box,q,s,run){
   const st=el('div','alstem'); w.append(st); let blank=null;
   const sp=el('button','qsay alsp',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>{ if(!qz.busy) q.sayFn(); };
   if(q.ask){ const a=el('p','alask',''); alToks(a,q.ask); st.append(a); }
-  st.append(sp);
   const p=el('p','altx'); st.append(p);
   const word=(t,k)=>{ const sp=el('span','alw',t); sp.addEventListener('click',()=>{ hideHint(); vStop(); sp.classList.add('lit'); qSound(alWordSrc(t),alClean(t)).then(()=>sp.classList.remove('lit')); }); p.append(k?' ':'',sp); };
   String(q.stem).split(/\s+/).filter(Boolean).forEach((t,k)=>{ const m=/^([^_]*)_{2,}([^_]*)$/.exec(t);
     if(m&&!blank){ blank=el('button','alblank','<i></i>'); if(k) p.append(' '); if(m[1]) p.append(m[1]); p.append(blank); if(m[2]) p.append(m[2]); blank.addEventListener('click',()=>q.sayFn&&q.sayFn()); }
     else word(t,k); });
+  p.append(' ',sp);   // the small speaker straight AFTER the question text (reads the question only, never the answer)
   const say=q.optSay||q.options;
   const ops=el('div','alopts'+(q.options.some(o=>o.length>14)?' long':'')); w.append(ops);
-  q.options.forEach((o,k)=>{ const b=el('button','alopt','<span></span>'); $('span',b).textContent=o; b.dataset.k=k;
+  q.options.forEach((o,k)=>{ const b=el('button','alopt qch'+(qWords(q.options)?' wd':''),'<span></span>'); $('span',b).textContent=o; b.dataset.k=k;   // THE choice look (css/qlayout.css)
     b.addEventListener('click',async()=>{ if(qz.busy||q.solved) return; hideHint();
       if(k!==q.answer){ qxBad(b); b.classList.add('bad'); setTimeout(()=>b.classList.remove('bad'),700); qSound(alWordSrc(say[k]),say[k]); return; }
       if(blank){ blank.classList.add('got'); blank.innerHTML=''; blank.textContent=o; }
@@ -91,18 +84,18 @@ function alMcq(box,q,s,run){
     ops.append(b); });
   q.sayFn=async()=>{ vStop(); const ps=(q.parts||[]).map(R_Q); if(q.askAudio&&!q.solved) return qSound(R_Q(q.askAudio),q.stem);   // the question; once solved, audio = the sentence WITH its answer
     if(!ps.length) return qSound(q.audio,q.word); for(let i=0;i<ps.length;i++){ if(qz.list[qz.i]!==q||q.solved) return; await qSound(ps[i],''); if(i<ps.length-1) await new Promise(z=>setTimeout(z,350)); } };
-  box._after=()=>q.sayFn();
+  box._after=()=>{ if(q.autoSay) return q.sayFn(); };   // the question is read only when the child taps the speaker
 }
 
-/* the passage reads itself when the question opens (whole text, no title, no gap); the small speaker AFTER the text reads it again (tap while playing = stop).
+/* the passage is NOT read by itself (the child reads it, Marwa 2026-11-04); the small speaker AFTER the text reads it (tap while playing = stop).
    Any tap elsewhere, a slide change or a question change stops it, so two sounds never overlap. Used by cloze and underline. */
 function alReplay(box,txt,q){
   const rp=el('button','qsay alsp alreplay',SAY_LN); rp.setAttribute('aria-label','Listen'); txt.append(' ',rp); let pt=0;
   const stopP=()=>{ pt++; vStop(); rp.classList.remove('on'); };
-  const playP=async()=>{ stopP(); const my=pt; rp.classList.add('on'); await qSound(q.audio,''); if(my===pt) rp.classList.remove('on'); };
+  const playP=async()=>{ stopP(); const my=pt; rp.classList.add('on'); await qSound(!q.solved&&q.askAudio?R_Q(q.askAudio):q.audio,''); if(my===pt) rp.classList.remove('on'); };   // unsolved cloze: askAudio = the passage with a pause at each blank (never the answers; tools/lessons/cloze_ask_audio.py)
   rp.addEventListener('click',e=>{ e.stopPropagation(); hideHint(); rp.classList.contains('on')?stopP():playP(); });
   box.addEventListener('pointerdown',e=>{ if(rp.classList.contains('on')&&!e.target.closest('.alreplay')) stopP(); },true);
-  box._after=()=>playP();
+  box._after=()=>{ if(q.autoSay) playP(); };   // the passage is the question: the child reads it; the small speaker after it helps
 }
 
 /* ---------- cloze ---------- */
@@ -113,9 +106,10 @@ function alCloze(box,q,s,run){
   let n=0; sentences.forEach(seg=>{ const m=/^\[\[(.+?)\]\]$/.exec(seg);
     if(m){ ans.push(m[1]); const b=el('button','alblank',`<small>(${++n})</small><i></i>`); b.dataset.n=n-1; txt.append(b); }
     else seg.split(/(\s+)/).forEach(t=>{ if(!t) return; if(/^\s+$/.test(t)) return txt.append(' '); const sp=el('span','alw',t); sp.addEventListener('click',()=>{ hideHint(); vStop(); sp.classList.add('lit'); qSound(alWordSrc(t),alClean(t)).then(()=>sp.classList.remove('lit')); }); txt.append(sp); }); });
-  const bank=el('div','albank'); w.prepend(bank); let cur=0; const blanks=$$('.alblank',txt);
+  const bank=el('div','albank'); const one=ans.length===1&&String(q.text).replace(/\[\[|\]\]/g,'').length<=90;   // Marwa 2026-11-04: ONLY a passage keeps the word choices pinned on top (text slides under them)
+  if(one){ w.classList.add('one'); $$('.alblank small',txt).forEach(x=>x.remove()); w.append(bank); } else w.prepend(bank); let cur=0; const blanks=$$('.alblank',txt);
   const mark=()=>{ blanks.forEach((b,k)=>b.classList.toggle('cur',k===cur)); };
-  q.bank.forEach((o,bk)=>{ const sy=(q.bankSay||q.bank)[bk]; const b=el('button','alopt alchip',''); b.textContent=o; bank.append(b);
+  q.bank.forEach((o,bk)=>{ const sy=(q.bankSay||q.bank)[bk]; const b=el('button','alopt alchip qch'+(qWords(q.bank)?' wd':''),''); b.textContent=o; bank.append(b);
     b.addEventListener('click',async()=>{ if(qz.busy||q.solved||b.classList.contains('used')) return; hideHint();
       if(o.toLowerCase()!==String(ans[cur]).toLowerCase()){ qxBad(b); b.classList.add('bad'); setTimeout(()=>b.classList.remove('bad'),700); qSound(alWordSrc(sy),sy); return; }
       const bl=blanks[cur]; bl.classList.add('got'); bl.innerHTML=''; bl.textContent=ans[cur]; if(!q.reuse) b.classList.add('used'); celebrate(bl); qSound(alWordSrc(sy),sy); cur++; mark();

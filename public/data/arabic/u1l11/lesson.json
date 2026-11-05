@@ -5,14 +5,13 @@
  "type": "listening",
  "title": "أحب أسرتي",
  "task": "هَيَّا نَقْرَأُ قِصَّةَ الْقَارِئِ الصَّغِيرِ",
- "scene": "scene.jpg",
+ "scene": "../../pics/ar-love-family.jpg",
  "sceneAlt": "طفل مع أبيه وأمه وإخوته وجديه وأسرته",
- "picture": "scene.jpg",
- "pages": 1,
+ "picture": "../../pics/ar-love-family.jpg",
+ "pages": 5,
  "compact": true,
  "audio": {
-  "normal": "normal.mp3",
-  "slow": "slow.mp3",
+  "normal": "q/s-dad.mp3",
   "slowRate": 0.75
  },
  "end": 11.3,
@@ -36,13 +35,7 @@
      1.8
     ]
    ],
-   "page": 1,
-   "spot": [
-    0.0,
-    0.0,
-    100.0,
-    20.2
-   ]
+   "page": 1
   },
   {
    "words": [
@@ -62,13 +55,7 @@
      3.8
     ]
    ],
-   "page": 1,
-   "spot": [
-    0.0,
-    20.9,
-    100.0,
-    19.4
-   ]
+   "page": 2
   },
   {
    "words": [
@@ -93,13 +80,7 @@
      6.3
     ]
    ],
-   "page": 1,
-   "spot": [
-    0.0,
-    40.9,
-    100.0,
-    19.7
-   ]
+   "page": 3
   },
   {
    "words": [
@@ -124,13 +105,7 @@
      8.8
     ]
    ],
-   "page": 1,
-   "spot": [
-    0.0,
-    61.3,
-    100.0,
-    18.8
-   ]
+   "page": 4
   },
   {
    "words": [
@@ -150,13 +125,7 @@
      10.8
     ]
    ],
-   "page": 1,
-   "spot": [
-    0.0,
-    80.8,
-    100.0,
-    19.2
-   ]
+   "page": 5
   }
  ],
  "hints": {
@@ -259,5 +228,41 @@
    ]
   }
  ],
- "vocabRepeats": 3
+ "vocabRepeats": 3,
+ "pageLayouts": [
+  "slide",
+  "slide",
+  "slide",
+  "slide",
+  "slide"
+ ],
+ "pagePictures": [
+  "../../pics/ar-love-dad.jpg",
+  "../../pics/ar-love-mom.jpg",
+  "../../pics/ar-love-siblings.jpg",
+  "../../pics/ar-love-grandparents.jpg",
+  "../../pics/ar-love-family.jpg"
+ ],
+ "pageAudio": [
+  {
+   "normal": "q/s-dad.mp3",
+   "start": 0
+  },
+  {
+   "normal": "q/s-mom.mp3",
+   "start": 2
+  },
+  {
+   "normal": "q/s-sib.mp3",
+   "start": 4
+  },
+  {
+   "normal": "q/s-grand.mp3",
+   "start": 6.5
+  },
+  {
+   "normal": "q/s-fam.mp3",
+   "start": 9
+  }
+ ]
 }

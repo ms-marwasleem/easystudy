@@ -14,11 +14,12 @@ async function start(){
   migrateStars();
   busy(true);
   try{
-    COURSE=await get('data/course.json');
+    [COURSE,CURR]=await Promise.all([get('data/course.json'),get('data/curriculum.json').catch(()=>null)]);
     await Promise.all(COURSE.subjects.filter(s=>s.file).map(async s=>{
       const d=await get(s.file), base=s.file.slice(0,s.file.lastIndexOf('/')+1);
       s.units=d.units; s.labels=d.labels; s.lessons=d.lessons.map(l=>({...l, id:`${s.id}-${l.folder}`, file:l.title?base+l.folder+'/lesson.json':null}));
     }));
+    currApply((typeof kidNow==='function'&&kidNow()||{}).curr||currPick());   // the parent's curriculum / school decides the subjects, tabs and map signs (js/curriculum.js)
   }catch(e){ busy(false); message('Oops!','The lessons did not load. Check the internet and try again.'); $('#msgOk').onclick=()=>location.reload(); return; }
   // theme: only an ACTIVE theme in course.json "themes" can be used; an inactive one (cardboard...) is never applied, whatever is saved. Flip "active" to offer it.
   try{ const T=COURSE.themes||{list:[]}, want=localStorage.getItem('es.theme')||T.default||'', ok=(T.list.find(t=>t.id===want)||{}).active;
@@ -26,7 +27,7 @@ async function start(){
   // design file and fonts: wait for them behind the splash screen (fonts at most 2.5 s, then the page shows with the fallback font)
   await cssReady;
   if(document.fonts&&document.fonts.ready) await Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,2500))]);
-  $('#helloSub').textContent=`${COURSE.grade} · ${COURSE.term}`; paintHud(); busy(false); openSubjects(); pop('#subjects .top > *',{y:-20});
+  $('#helloSub').textContent=`${COURSE.grade} · ${COURSE.term}`; paintHud(); busy(false); kidPaint(); if(!kidNow()) openWelcome(); else { openSubjects(); pop('#subjects .top > *',{y:-20}); }   // first launch: curriculum + accounts (js/welcome.js)
   setTimeout(()=>{ const n=$('#splashName'); if(n) n.remove(); $('#loadingText').hidden=false; },400);   // the app name shows on the first screen only; later loads say Loading...
 }
 // sw.js keeps the app, lessons, sounds and pictures on the device (later opens are instant) and shows library pictures that replaced shipped ones

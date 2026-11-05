@@ -13,7 +13,7 @@ function unitBox(u,st){
   const b=(SUBJECT&&SUBJECT.book)||'blue';
   return `<div class="ubox ${st}"><img src="data/books/${b}.png" width="352" height="364" alt="" draggable="false">${u.label?`<b class="gt${/[\u0600-\u06FF]/.test(u.label)?' ar':''} lab"><span>${u.label}</span></b>`:`<b class="gt${isAr()?' ar':''}"><small>${GT(tr('Unit'))}</small><span class="n">${num(u.unit)}</span></b>`}${st==='locked'?CHAINLOCK:st==='soon'?`<span class="usoon">${tr('Soon')}</span>`:''}</div>`;
 }
-function mkLesson(m,nextL,isCur,isLast,st,coins){
+function mkLesson(m,nextL,isCur,isLast,st,coins,lockUnit){
   st=st||(m.file?'open':'soon'); const open=st==='open', n=lessonStars(m.id);
   const s=el('div','jl '+st+(isCur?' cur':'')+(m.testsOnly?' to':'')); s.dataset.stars=n; s.dataset.touched=lessonTouched(m)?1:0; s.dataset.name=m.title||m.planned||'';
   // the lesson sits on the road: a round badge with its number, the stars above it, the name in a pill across its bottom edge.
@@ -24,7 +24,7 @@ function mkLesson(m,nextL,isCur,isLast,st,coins){
     (open&&typeof bookSides==='function'?bookSides(m,nextL):'');
   if(isLast) s.classList.add('last');
   $('.jbox',s).addEventListener('click',()=>{   // the whole box (number, stars, name) opens the lesson
-    hideHint(); if(open){ blip(600); openLesson(m); } else if(st==='locked') message(isAr()?'مقفول':'Locked',coins?(isAr()?`تفتحيه بـ ${COINTXT(coins)}`:`Open it with ${COINTXT(coins)}!`):(isAr()?'ده هيتفتح قريبًا':'This opens later!'),`<span class="jlockbig">${LOCK}</span>`); else message(tr('Soon!'),isAr()?'الدرس ده قريبًا!':COURSE.hints.soonLesson,`<span class="car">${CAR('sad')}</span>`); });
+    hideHint(); if(open){ blip(600); openLesson(m); } else if(st==='locked') lockTap(lockUnit?'unit':'lesson',lockUnit||m,coins,`<span class="jlockbig">${LOCK}</span>`,()=>openMap()); /* js/coins.js: open with coins / a free pick */ else message(tr('Soon!'),isAr()?'الدرس ده قريبًا!':COURSE.hints.soonLesson,`<span class="car">${CAR('sad')}</span>`); });
   const go=(t,p)=>{ hideHint(); blip(600); bookOpen(m,t,p); };
   $$('.jpm:not(.ex):not(.tl):not(.rv)',s).forEach(b=>b.addEventListener('click',()=>go(b.dataset.tab,+b.dataset.p)));
   $$('.jpm.ex:not(.rv)',s).forEach(b=>b.addEventListener('click',()=>{ hideHint(); blip(600); openExam(m,m.exams.find(x=>x.id===b.dataset.ex)); }));   // red signs: exam papers
@@ -49,17 +49,21 @@ function drawMapAll(j,redraw){
   j.innerHTML=`<svg class="jroad" aria-hidden="true"></svg><div class="jcar"></div>`;
   units.forEach(u=>{
     const ua=accessOf(u,openOf(u),'u:'+SUBJECT.id+':'+u.unit,units.indexOf(u),'unit'), ust=ua.st, box=el('div','jend'); box.innerHTML=unitBox(u,ust);
-    $('.ubox',box).addEventListener('click',()=>{ hideHint(); if(ust==='open') blip(600); else if(ust==='locked') message(isAr()?'مقفول':'Locked',ua.coins?(isAr()?`تفتحيه بـ ${COINTXT(ua.coins)}`:`Open it with ${COINTXT(ua.coins)}!`):(isAr()?'ده هيتفتح قريبًا':'This opens later!'),unitBox(u,'locked')); else message(tr('Soon!'),isAr()?`${tr('Unit')} ${num(u.unit)} قريبًا!`:`Unit ${u.unit} is coming soon!`,unitBox(u,'soon')); });
+    $('.ubox',box).addEventListener('click',()=>{ hideHint(); if(ust==='open') blip(600); else if(ust==='locked') lockTap('unit',u,ua.coins,unitBox(u,'locked'),()=>openMap()); /* js/coins.js */ else message(tr('Soon!'),isAr()?`${tr('Unit')} ${num(u.unit)} قريبًا!`:`Unit ${u.unit} is coming soon!`,unitBox(u,'soon')); });
     j.append(box); items.push({k:'u',el:box});
     const list=lessons.filter(l=>l.unit===u.unit); let tests=null;
     if(u.exams) list.push({unit:u.unit,lesson:'',folder:'t'+u.unit,id:SUBJECT.id+':t'+u.unit,title:'',exams:u.exams,tabs:[],testsOnly:true});   // a unit made only of tests (final assessments): one separate map item each, no lesson circle   // a unit's Tests always come after its LAST lesson
-    list.forEach((m,i)=>{ const L=mkLesson(m,list[i+1],m===curM,i===list.length-1,(()=>{ if(m.testsOnly) return 'open'; const la=accessOf(m,!!m.file,'l:'+m.id); return la.st==='open'&&ust==='locked'?'locked':la.st; })(),ua.coins), signs=$$('.jpg',L); let nm=$('.jt',L);
+    list.forEach((m,i)=>{ const la=m.testsOnly?{st:'open'}:accessOf(m,!!m.file,'l:'+m.id), byUnit=la.st==='open'&&ust==='locked'&&!(ESET.items['l:'+m.id]||{}).st&&!coinUnlocked('l:'+m.id);   // a lesson of a locked unit is locked too (a tap offers the whole unit)
+      const L=mkLesson(m,list[i+1],m===curM,i===list.length-1,byUnit?'locked':la.st,byUnit?ua.coins:la.coins,byUnit?u:null), signs=$$('.jpg',L); let nm=$('.jt',L);
       if(i<list.length-1) { const ex=signs.filter(g=>$('.jpm.ex',g)); if(ex.length){ ex.forEach(g=>{ signs.splice(signs.indexOf(g),1); g.remove(); }); (tests=tests||[]).push(...ex); } }
       if(i===list.length-1&&tests){ signs.push(...tests); tests=null; }
       [nm,...signs].forEach(e=>{ if(e) e.dataset.touched=L.dataset.touched; }); $$('.jside',L).forEach(s=>s.remove()); if(nm&&m.testsOnly){ nm.remove(); nm=null; } if(nm){ j.append(nm); nm.addEventListener('click',()=>$('.jbox',L).click()); } j.append(L); signs.forEach(s=>j.append(s)); items.push({k:'l',el:L,signs,name:nm}); });
   });
-  j._items=items; wrap.innerHTML=`<div class="mtitle"><div><b${isAr()?' class="ar"':''}>${SUBJECT.name}</b><small>${tr(COURSE.grade)} · ${tr(COURSE.term)}</small></div><button class="mview" id="mapView" aria-pressed="false"></button></div>`; wrap.append(j);
-  $('#mapView',wrap).addEventListener('click',()=>{ hideHint(); blip(300); setMapView(mapView()==='grid'?'road':'grid',true); });
+  // the subject title + road/grid toggle sit on the map screen itself (over the top of the map, not inside it), so their edges line up with the
+  // helper bar above: title under the home button, toggle under the star counter (Marwa 2026-11-05)
+  j._items=items; wrap.innerHTML=''; const mt=$('#map>.mtitle'); if(mt) mt.remove();
+  wrap.insertAdjacentHTML('beforebegin',`<div class="mtitle"><div><b${isAr()?' class="ar"':''}>${SUBJECT.name}</b><small>${tr(COURSE.grade)} · ${tr(COURSE.term)}</small></div><button class="mview" id="mapView" aria-pressed="false"></button></div>`); wrap.append(j);
+  $('#mapView').addEventListener('click',()=>{ hideHint(); blip(300); setMapView(mapView()==='grid'?'road':'grid',true); });
   j.dataset.f=MAPF[subjKey()]||'';
   mapTabs(j); applyMapFilter(j,false);
   placeCar(Math.max(0,$$('.jl',j).findIndex(e=>e.classList.contains('cur'))), !redraw);
@@ -77,8 +81,10 @@ function buildGrid(j,wrap){
     if(it.k==='u'){ const row=newRow(), ub=$('.ubox',it.el), c=ub.cloneNode(true); c.classList.add('gub'); c.addEventListener('click',()=>ub.click()); row.prepend(c); return; }
     if(!cells) newRow();
     if(it.el.classList.contains('to')){ it.signs.filter(s=>$('.jpm.ex',s)).forEach(s=>{ const jp=$('.jpm',s); cells.append(cell('gt ex',jp.innerHTML,jp,jp.getAttribute('aria-label'))); }); return; }
-    const L=it.el, st=['soon','locked'].find(x=>L.classList.contains(x))||'open', n=+L.dataset.stars||0, parts=$$('.js span',L).length, jn=$('.jn',L);
-    const b=cell('gl '+st+(L.classList.contains('cur')?' cur':''),`${parts?`<span class="gst">${Array.from({length:parts},(_,k)=>`<span>${STAR(k<n)}</span>`).join('')}</span>`:''}<span class="gn${jn.classList.contains('two')?' two':''}">${jn.innerHTML}</span>${st==='locked'?`<span class="glock">${LOCK}</span>`:st==='soon'?`<span class="gsoon">${tr('Soon')}</span>`:''}${L.dataset.name?`<span class="gname${isAr()?' ar':''}">${L.dataset.name}</span>`:''}`,$('.jbox',L),$('.jcard',L).getAttribute('aria-label'));
+    const L=it.el, st=['soon','locked'].find(x=>L.classList.contains(x))||'open';
+    // the circle + stars (or Soon pill) are the road's own parts copied as they are, so the grid looks exactly like the road (Marwa 2026-11-05)
+    const top=$('.js,.jsoon',L), jc=$('.jcard',L);
+    const b=cell('gl '+st+(L.classList.contains('cur')?' cur':''),`${top?top.outerHTML:''}<span class="jcard">${jc.innerHTML}</span>${L.dataset.name?`<span class="gname${isAr()?' ar':''}">${L.dataset.name}</span>`:''}`,$('.jbox',L),$('.jcard',L).getAttribute('aria-label'));
     b.dataset.touched=L.dataset.touched; cells.append(b);
     it.signs.filter(s=>$('.jpm.ex,.jpm.tl',s)).forEach(s=>{ const jp=$('.jpm',s); cells.append(cell('gt '+(jp.classList.contains('tl')?'tl':'ex'),jp.innerHTML,jp,jp.getAttribute('aria-label'))); });
   });
@@ -115,13 +121,14 @@ function mapLayout(j){
   // page layout for every sign (about a second on a tablet, on every open of the map)
   j._items.forEach(it=>{ if(it.k==='u') it.el.style.left=cx+'px'; });
   const sz=new Map(), size=e=>{ if(e&&!sz.has(e)) sz.set(e,{w:e.offsetWidth,h:e.offsetHeight}); return e?sz.get(e):null; };
-  j._items.forEach(it=>{ if(it.k==='u') size(it.el); else { size(it.name); it.signs.forEach(s=>{ if(s.style.display!=='none') size($('.jpm',s)); }); } });
+  j._items.forEach(it=>{ if(it.k==='u') size(it.el); else { const c=$('.jcard',it.el); it.cTop=c?c.offsetTop:1.8*fs; it.cH=c?c.offsetHeight:2.9*fs; size(it.name); it.signs.forEach(s=>{ if(s.style.display!=='none') size($('.jpm',s)); }); } });
   j._items.forEach(it=>{
     if(it.k==='u'){ const e=it.el; e.style.top=y+'px'; const h=size(e).h; pts.push([cx,y+h*.55]); y+=h+fs*1.2; return; }
     const L=it.el, x=cx+side*sway; side=-side; if(L.classList.contains('cur')) y+=4.2*fs; L.style.left=x+'px'; L.style.top=y+'px';
-    const cy=y+3.4*fs; pts.push([x,cy]); lastY=cy;
-    let belowName=cy+1.7*fs;
-    const nm=it.name; if(nm){ const ns=size(nm), nw=ns.w, nx=Math.max(nw/2+fs*.4,Math.min(W-nw/2-fs*.4,x)); nm.style.left=nx+'px'; nm.style.top=(cy+1.5*fs)+'px'; belowName=cy+1.5*fs+ns.h; }
+    // the road runs through the circle's centre; the name pill sits ON the circle's bottom edge (overlaps it a little, no gap; Marwa 2026-11-04)
+    const cy=y+it.cTop+it.cH/2, cb=y+it.cTop+it.cH; pts.push([x,cy]); lastY=cy;
+    let belowName=cb;
+    const nm=it.name; if(nm){ const ns=size(nm), nw=ns.w, nx=Math.max(nw/2+fs*.4,Math.min(W-nw/2-fs*.4,x)), nt=cb-.35*fs; nm.style.left=nx+'px'; nm.style.top=nt+'px'; belowName=nt+ns.h; }
     const vis=it.signs.filter(s=>s.style.display!=='none'); let ry=belowName+fs*.9;
     for(let r=0;r*2<vis.length;r++){ const pair=vis.slice(r*2,r*2+2), h=Math.max(...pair.map(s=>size($('.jpm',s)).h)); pair.forEach((s,k)=>place.push({s,yc:ry+h/2,left:k===0})); lastY=ry+h/2; ry+=h+fs*.9; }
     y=vis.length?ry+fs*.3:belowName+fs*1.4;
@@ -136,7 +143,7 @@ function mapLayout(j){
     const c1=[b[0]+(c[0]-a[0])/6,b[1]+(c[1]-a[1])/6], c2=[c[0]-(e[0]-b[0])/6,c[1]-(e[1]-b[1])/6]; segs.push([b,c1,c2,c]);
     d+=` C${c1[0].toFixed(1)},${c1[1].toFixed(1)} ${c2[0].toFixed(1)},${c2[1].toFixed(1)} ${c[0].toFixed(1)},${c[1].toFixed(1)}`; }
   const rb=1.5*fs; svg.setAttribute('viewBox',`0 0 ${W} ${H}`); svg.setAttribute('width',W); svg.setAttribute('height',H);
-  svg.innerHTML=`<path class="rbase" d="${d}" fill="none" stroke-width="${rb}" stroke-linecap="round"/><path class="rdone" d="${d}" fill="none" stroke-width="${rb}" stroke-linecap="round" stroke-dasharray="0 99999"/>`;
+  svg.innerHTML=`<path class="rbase" d="${d}" fill="none" stroke-width="${rb}" stroke-linecap="round"/><path class="rdone" d="${d}" fill="none" stroke-width="${rb}" stroke-linecap="round" stroke-dasharray="0 99999"/><path class="rdash" d="${d}" fill="none" stroke-width="${(.14*fs).toFixed(2)}" stroke-linecap="round" stroke-dasharray="${(.55*fs).toFixed(1)} ${(.6*fs).toFixed(1)}"/>`;
   j._road=$('.rbase',svg); j._done=$('.rdone',svg);
   const bz=(s,t)=>{ const u=1-t, w=[u*u*u,3*u*u*t,3*u*t*t,t*t*t]; return [w[0]*s[0][0]+w[1]*s[1][0]+w[2]*s[2][0]+w[3]*s[3][0], w[0]*s[0][1]+w[1]*s[1][1]+w[2]*s[2][1]+w[3]*s[3][1]]; };
   const xAt=yy=>{ let a=0,b=segs.length-1; while(a<b){ const mid=(a+b)>>1; if(segs[mid][3][1]<yy) a=mid+1; else b=mid; }   // the segment that holds this height, then bisect inside it (no slow svg path measuring)
@@ -168,7 +175,7 @@ function placeCar(i, drive){
 function openMap(){
   if(!SUBJECT) SUBJECT=COURSE.subjects.find(s=>s.open);
   stopAll(); vStop(); clearMarks(); show('map');
-  drawMap(); showHint($(mapView()==='grid'?'.gl.cur .gn':'.jl.cur .jcard'),isAr()?'اضغط هنا لتبدأ!':COURSE.hints.map,1500,'map');
+  drawMap(); showHint($(mapView()==='grid'?'.gl.cur .jcard':'.jl.cur .jcard'),isAr()?'اضغط هنا لتبدأ!':COURSE.hints.map,1500,'map');
 }
 let rsT=0; addEventListener('resize',()=>{ clearTimeout(rsT); rsT=setTimeout(()=>{ if($('#map').hidden) return;
   const j=$('.journey'), cur=Math.max(0,$$('.jl').findIndex(e=>e.classList.contains('cur')));
@@ -194,7 +201,7 @@ let rsT=0; addEventListener('resize',()=>{ clearTimeout(rsT); rsT=setTimeout(()=
 // every path inside a lesson.json is relative to that lesson's own folder
 function fixPaths(L,file){
   const base=file.slice(0,file.lastIndexOf('/')+1), R=p=>p&&!/^(https?:|\/|data:)/.test(p)?base+p:p;
-  L.base=base; L.scene=R(L.scene); L.picture=R(L.picture); L.pagePictures=(L.pagePictures||[]).map(R); (L.pageAudio||[]).forEach(a=>{ a.normal=R(a.normal); a.slow=R(a.slow); }); if(L.audio){ L.audio.normal=R(L.audio.normal); L.audio.slow=R(L.audio.slow); }
+  L.base=base; L.scene=R(L.scene); L.picture=R(L.picture); L.pictureTall=R(L.pictureTall); L.pagePictures=(L.pagePictures||[]).map(R); L.pagePicturesTall=(L.pagePicturesTall||[]).map(R); (L.pageAudio||[]).forEach(a=>{ a.normal=R(a.normal); a.slow=R(a.slow); }); if(L.audio){ L.audio.normal=R(L.audio.normal); L.audio.slow=R(L.audio.slow); }
   (L.vocab||[]).forEach(v=>{ v.img=R(v.img); if(v.audio){ v.audio.word=R(v.audio.word); v.audio.again=R(v.audio.again); v.audio.ar=R(v.audio.ar); } if(v.rel){ v.rel.labelAudio=R(v.rel.labelAudio); v.rel.audio=R(v.rel.audio); } (v.parts||[]).forEach(p=>{ p.audio=R(p.audio); p.blend=R(p.blend); }); });
   (L.lines||[]).forEach(l=>{ l.pic=R(l.pic); });
   Object.values(L.bk||{}).forEach(b=>{ b.img=R(b.img); });
@@ -209,7 +216,7 @@ async function openLesson(m){
   stopVoice(); markOpened(m.id);
   if(!LESSON || LESSON.id!==m.id){
     busy(true);
-    try{ LESSON=fixPaths(await get(m.file), m.file); LESSON.id=m.id; }catch(e){ busy(false); message('Oops!','This lesson did not load. Check the internet and try again.'); return; }
+    try{ LESSON=fixPaths(await get(m.file), m.file); LESSON.id=m.id; if(LESSON.tabs) LESSON.tabs=currTabs(LESSON.tabs); }catch(e){ busy(false); message('Oops!','This lesson did not load. Check the internet and try again.'); return; }
     preloadImgs([LESSON.scene,LESSON.picture,...(LESSON.pagePictures||[]),...(LESSON.vocab||[]).map(v=>v.img),...(LESSON.lines||[]).map(l=>l.pic),...Object.values(LESSON.bk||{}).map(b=>b.img)]);
     player.bufs={}; player.ready=null; vs.i=0; rd.page=1; rd.done={}; ensureAudio().catch(()=>{}); busy(false);   // an Arabic story not recorded yet (requested slot) stays silent: no error
   }
@@ -319,7 +326,7 @@ function paintTabs(){ $$('.tab').forEach(b=>{ const [l0,ic]=TABS[b.dataset.tab],
   b.dataset.book=KEYTAB[b.dataset.tab]||''; b.innerHTML=ICON[ic]+`<span>${isAr()&&TABAR[l]||tr(l)}</span>`+(b.dataset.book?'<i class="kd"></i>':'')+(got?`<span class="st">${STAR(true)}</span>`:''); b.hidden=LESSON&&LESSON.tabs?!LESSON.tabs.includes(b.dataset.tab):['booklet','workbook'].includes(b.dataset.tab)?!hasBook(b.dataset.tab):b.dataset.tab==='grammar'||(b.dataset.tab==='quiz'&&SUBJECT&&SUBJECT.id==='arabic'&&!hasBook('quiz')); b.setAttribute('aria-selected',b.dataset.tab===tab); }); const tb=$('.tabs'); if(tb){ const nt=$$('.tab:not([hidden])').length; tb.classList.toggle('many',nt>3); tb.classList.toggle('many5',nt>4); const on=$('.tab[aria-selected="true"]',tb); if(on) tb.scrollTo({left:on.offsetLeft-tb.clientWidth/2+on.offsetWidth/2,behavior:'auto'}); } }   // optional "tabs": ["read","quiz"] in lesson.json shows only those tabs (Math: explanation + questions, or questions only)
 // a default lesson shows Booklet / PTS only when it has that book (its pages in subject.json, or questions of that book)
 function hasBook(k){ const m=SUBJECT&&LESSON&&SUBJECT.lessons.find(l=>l.id===LESSON.id); return !!(m&&m.pages&&[].concat(m.pages[k]||[]).length)||!!(qz.sets&&qz.file&&LESSON&&qz.file.includes('/'+(m&&m.folder)+'/')&&qz.all.some(q=>qSrcOf(q.set)===k)); }
-function setRail(items){ rail.innerHTML=''; items.forEach(it=>{ const b=el('button','dash '+it.kind+(it.on?' on':'')+(it.icon==='restart'?' ln':''),`<span class="rb${it.kind==='tool'?' tgear':''}">${it.kind==='tool'?'Tool':ICON[it.icon]}</span><span>${it.label}</span>`); b.addEventListener('click',it.click); rail.append(b); }); }
+function setRail(items){ rail.innerHTML=''; items.forEach(it=>{ const b=el('button','dash '+it.kind+(it.on?' on':'')+(it.icon==='restart'?' ln':''),`<span class="rb${it.kind==='tool'?' tgear':''}">${it.kind==='tool'?toolLabel(LESSON.tool):ICON[it.icon]}</span><span>${it.label}</span>`); b.addEventListener('click',it.click); rail.append(b); }); }
 function switchTab(t,at){ setLook(t); if(typeof WP!=='undefined'&&WP.saved) wpClose(); stopVoice(); { const r=$('#lmeta .lm-r'); if(r) r.innerHTML=''; } hideHint(); $('#lesson').classList.remove('vtab','qtab','story','poem'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); lnavPaint(); carAt(0); (t==='booklet'||t==='workbook'||t==='read'&&isAL())?showQuiz(at):t==='grammar'?showGrammar():t==='read'?showRead():t==='words'&&LESSON.vocab?showWords():t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); }
 $$('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
 
@@ -351,7 +358,11 @@ function readPager(){}   // swipe itself = the shared pager in book.js
    One picture for all pages = only the text slides; a picture per page = the text slides and the picture fades out / in.
    Opening the lesson starts the reading by itself and, when a page ends, goes to the next page and reads it (rd.auto). ANY touch of the sound
    (pause, restart, speed, a word or line, another page, another tab) stops the sound and the automatic run (stopAll clears rd.auto). */
-const storyBg=p=>(LESSON.pagePictures&&LESSON.pagePictures[p-1])||LESSON.picture||LESSON.scene;
+// a lesson may give a second drawing of the same picture for TALL (portrait) screens: lesson.json "pictureTall" / "pagePicturesTall"
+const tallScreen=()=>innerHeight>innerWidth;
+// where the picture sits behind the story card (the text panel covers its bottom): lesson.json "picturePos" / "picturePosTall" = CSS background-position, e.g. "50% 100%" keeps the faces above the text
+const storyPos=bg=>{ bg.style.backgroundPosition=(tallScreen()&&LESSON.picturePosTall)||LESSON.picturePos||''; };
+const storyBg=p=>(tallScreen()&&((LESSON.pagePicturesTall&&LESSON.pagePicturesTall[p-1])||LESSON.pictureTall))||(LESSON.pagePictures&&LESSON.pagePictures[p-1])||LESSON.picture||LESSON.scene;
 const cssUrl=u=>`url("${new URL(u,location.href).href}")`;
 function storyText(){
   const np=nPages(), inn=el('div','in'), ul=el('ul','lines');
@@ -366,16 +377,22 @@ function storyText(){
   });
   inn.append(ul); return inn;
 }
-// the words are as big as the panel allows: shrink only when a page would not fit
-function fitStory(){ const inn=$('.scene.story .in:last-child'); if(!inn) return; inn.style.fontSize=''; let fs=parseFloat(getComputedStyle(inn).fontSize);
-  for(let i=0;i<40&&inn.scrollHeight>inn.clientHeight+1&&fs>11;i++){ fs-=.5; inn.style.fontSize=fs+'px'; } }
+// ONE text size for the whole lesson (Marwa 2026-11-05): the biggest size (CSS token) at which EVERY page of the lesson fits its panel; every page uses it
+function fitStory(){ const note=$('.scene.story:not(.poem) .note'), inn=note&&$('.in:last-child',note); if(!inn||!note.clientHeight) return;
+  const key=LESSON.id+':'+note.clientWidth+'x'+note.clientHeight;
+  if(fitStory.key!==key){ inn.style.fontSize=''; let fs=parseFloat(getComputedStyle(inn).fontSize); const sv=[rd.page,rd.words,rd.lineEls], np=nPages();
+    for(let p=1;p<=np;p++){ if(np>1&&!LESSON.lines.some(l=>l.page===p)) continue; rd.page=p; rd.words=[]; rd.lineEls=[];
+      const t=storyText(); t.style.visibility='hidden'; t.style.fontSize=fs+'px'; note.append(t);
+      for(let i=0;i<60&&t.scrollHeight>t.clientHeight+1&&fs>12;i++){ fs-=.5; t.style.fontSize=fs+'px'; } t.remove(); }
+    [rd.page,rd.words,rd.lineEls]=sv; fitStory.key=key; fitStory.fs=fs; }
+  $$('.in',note).forEach(x=>x.style.fontSize=fitStory.fs+'px'); }
 function showStory(){
   $('#lesson').classList.add('story');
   const scene=el('div','scene story'), bg=el('div','sbg'), note=el('div','note');
   scene.setAttribute('role','img'); scene.setAttribute('aria-label',LESSON.sceneAlt||'');
-  bg.style.backgroundImage=cssUrl(storyBg(rd.page)); bg.dataset.u=storyBg(rd.page);
-  note.append(storyText()); scene.append(bg,note); stage.append(scene);
-  const pre=new Set(); for(let p=1;p<=nPages();p++) pre.add(storyBg(p)); preloadImgs([...pre]);
+  bg.style.backgroundImage=cssUrl(storyBg(rd.page)); bg.dataset.u=storyBg(rd.page); storyPos(bg);
+  note.append(storyText()); scene.append(bg,note); if(nPages()>1) scene.append(el('span','sbadge',num(rd.page))); stage.append(scene);   // the page number badge of the story card
+  const pre=new Set([LESSON.pictureTall,...(LESSON.pagePicturesTall||[])].filter(Boolean)); for(let p=1;p<=nPages();p++) pre.add(storyBg(p)); preloadImgs([...pre]);
   fitStory(); fitTitle();
   readRail(); if(typeof bookTag==='function') bookTag(); showHint($('#rail .dash.go .rb'),LESSON.hints&&LESSON.hints.read,1400,'read');
 }
@@ -393,7 +410,7 @@ function showPoint(){
   img.alt=''; img.draggable=false; img.src=new URL(u,location.href).href;
   const ar=()=>{ if(img.naturalWidth) box.style.setProperty('--ar',img.naturalWidth+'/'+img.naturalHeight); }; img.addEventListener('load',ar); ar();
   if(LESSON.figure){ box.classList.add('figbox'); box.style.removeProperty('--ar'); box.append(pointFigure(LESSON.figure)); } else box.append(img);   // figure = built from text (no picture): {formula:[{t,id?}], word}; its letters have ids g0,g1.. and pop while read
-  if(scene.classList.contains('slide')){ const card=el('div','scard'); card.style.setProperty('--ar',box.style.getPropertyValue('--ar')||'1.4'); img.addEventListener('load',()=>card.style.setProperty('--ar',img.naturalWidth+'/'+img.naturalHeight)); card.append(box,note); fig.append(card); note.append(storyText()); scene.append(fig); stage.append(scene); }   // slide = the book's card: picture in its frame, the sentence on a light panel over its bottom edge
+  if(scene.classList.contains('slide')){ const card=el('div','scard'); card.style.setProperty('--ar',box.style.getPropertyValue('--ar')||'1.4'); img.addEventListener('load',()=>card.style.setProperty('--ar',img.naturalWidth+'/'+img.naturalHeight)); card.append(box,note,el('span','sbadge',num(rd.page))); fig.append(card); note.append(storyText()); scene.append(fig); stage.append(scene); }   // slide = the book's card: picture in its frame, the sentence on a light panel over its bottom edge
   else { fig.append(box);
   note.append(storyText()); scene.append(fig,note); stage.append(scene); }
   LESSON.lines.forEach((l,li)=>{ if(!l.mark||(LESSON.pages>1&&l.page!==rd.page)) return;
@@ -446,6 +463,7 @@ function storyGo(d,auto){
   clearMarks(); rd.page=to; rd.words=[]; rd.lineEls=[]; rd.spotEls=[]; rd.cur=-1; rd.curLine=-1;
   { const k=LESSON.id+':'+rd.page; rd.slow=k in rd.pick?rd.pick[k]:pageDefaultSlow(); }
   lnavPaint(); carAt(pageSpan()[0]); if(typeof bookTag==='function') bookTag();
+  { const bd=$('.sbadge',scene); if(bd) bd.textContent=num(rd.page); }
   const note=$('.note',scene), old=$('.in',note), nin=storyText(), bg=$('.sbg',scene), u=storyBg(rd.page);
   note.append(nin); fitStory();
   if(anim){
@@ -465,7 +483,7 @@ function storyGo(d,auto){
 // the unit / lesson / name line is ONE line always: the letters shrink until it fits
 function fitTitle(){ const h=$('#lessonTitle'), box=h&&h.parentElement; if(!h||!box||!box.offsetWidth) return; h.style.fontSize=''; let fs=parseFloat(getComputedStyle(h).fontSize);
   for(let i=0;i<40&&h.scrollWidth>box.clientWidth+1&&fs>7;i++){ fs-=.5; h.style.fontSize=fs+'px'; } }
-addEventListener('resize',()=>{ clearTimeout(fitTitle.t); fitTitle.t=setTimeout(()=>{ fitTitle(); if($('.scene.story')) fitStory(); },150); });
+addEventListener('resize',()=>{ clearTimeout(fitTitle.t); fitTitle.t=setTimeout(()=>{ fitTitle(); if($('.scene.story')) fitStory(); const bg=$('.scene.story .sbg'); if(bg&&LESSON&&bg.dataset.u!==storyBg(rd.page)){ bg.dataset.u=storyBg(rd.page); bg.style.backgroundImage=cssUrl(bg.dataset.u); } if(bg&&LESSON) storyPos(bg); },150); });   // turned the tablet: the tall / wide drawing
 if(document.fonts&&document.fonts.ready) document.fonts.ready.then(()=>{ fitTitle(); fitStory(); if(typeof fitPoem==='function') fitPoem(); });
 // "layout": "pictures" (Lesson 2): no text card; each line is a picture ("pic") spread over the stage at "pos" [x, y] % (its centre),
 // its word written under it. The word being read is marked as usual and its picture pops up a little; tapping the word (or the picture) reads it.
@@ -474,13 +492,15 @@ function showPics(){
   scene.append(el('p','task',STAR(true)+((LESSON.pageTasks&&LESSON.pageTasks[rd.page-1])||LESSON.task)), area);
   // ONE even layout for every word-reading page (Marwa 2026-11-01): the pictures are spread in equal cells (columns x rows chosen from how many there are),
   // never placed by hand per lesson, so no big empty parts next to crowded ones. P = tall screen, L = wide screen.
-  const cnt=LESSON.lines.filter(l=>!l.more&&(np<=1||l.page===rd.page)).length||1, cP=cnt<=2?1:2, cL=cnt<=3?cnt:4;
+  // a page with sentences under the pictures ("more" lines): on a tall screen ONE column, each row = picture | its sentences (cells were too narrow, text fell on the next picture)
+  const sents=LESSON.lines.some(l=>l.more&&(np<=1||l.page===rd.page)); if(sents) area.classList.add('sents');
+  const cnt=LESSON.lines.filter(l=>!l.more&&(np<=1||l.page===rd.page)).length||1, cP=cnt<=2||sents?1:2, cL=cnt<=3?cnt:4;
   area.style.cssText=`--pcP:${cP};--prP:${Math.ceil(cnt/cP)};--pcL:${cL};--prL:${Math.ceil(cnt/cL)}`;
   LESSON.lines.forEach((l,li)=>{
     if(np>1&&l.page!==rd.page) return;
     // tall pictures (the teacher) are made a bit taller, so all look about the same size
     if(l.more){ const prev=area.lastElementChild, row=el('span','txt'); l.words.forEach(([w,s,e],k)=>{ const sp=el('span','w',w); rd.words.push({el:sp,s,e}); sp.addEventListener('click',()=>playFrom(Math.max(0,s-.04),e+.06)); row.append(sp); if(k<l.words.length-1) row.append(' '); });
-      row.addEventListener('click',ev=>{ if(ev.target===row) playLine(li); }); prev.append(row); rd.lineEls[li]=row; return; }   // "more": true = another sentence under the previous picture
+      row.addEventListener('click',ev=>{ if(ev.target===row) playLine(li); }); prev.append(row); prev.classList.add('sent'); rd.lineEls[li]=row; return; }   // "more": true = another sentence under the previous picture
     const it=el('div','pk'), pic=el('button','pkpic',`<img src="${l.pic}" alt="">`), txt=el('span','txt');
     // (no hand-placed position any more: lesson.json "pos"/"posP" are ignored, the cells decide)
     if(l.mw) it.style.setProperty('--mw',l.mw+'cqw');   // optional per line: "k" = size factor, "mw" = widest it may be (% of the stage)
@@ -489,9 +509,17 @@ function showPics(){
     it.append(pic,txt); area.append(it); rd.lineEls[li]=it;
   });
   readPager(scene);
-  stage.append(scene);
+  stage.append(scene); fitPk(); $$('img',area).forEach(im=>{ if(!im.complete) im.addEventListener('load',()=>setTimeout(fitPk,30),{once:true}); }); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fitPk); setTimeout(fitPk,700);   // again once the word pens are on the words (they make words a bit wider)
   readRail(); if(typeof bookTag==='function') bookTag(); showHint($('#rail .dash.go .rb'),LESSON.hints&&LESSON.hints.read,1400,'read');
 }
+/* every cell keeps its picture AND its sentences inside it (Marwa 2026-11-04, Shapes and Colors page 3 was all on top of each other): the text of the page
+   shrinks together (one size for the whole page) until no cell spills over. Any screen, any lesson; no per-lesson sizes. */
+function fitPk(){ requestAnimationFrame(()=>{ const ar=$('.scene.pics .pkarea'); if(!ar) return; const ts=$$('.pk .txt',ar), pks=$$('.pk',ar); if(!ts.length) return;
+  ts.forEach(t=>t.style.fontSize=''); let fs=parseFloat(getComputedStyle(ts[0]).fontSize);
+  const over=()=>pks.some(p=>p.scrollHeight>p.clientHeight+1||[...p.children].some(c=>c.scrollWidth>p.clientWidth+1));
+  if(!over()) return; let lo=8, hi=fs; const set=v=>ts.forEach(t=>t.style.fontSize=v+'px');
+  for(let k=0;k<12;k++){ const m=(lo+hi)/2; set(m); if(over()) hi=m; else lo=m; } set(Math.floor(lo)); }); }   // the biggest size that fits
+addEventListener('resize',()=>{ clearTimeout(fitPk.t); fitPk.t=setTimeout(fitPk,160); });
 // "bubbles" page (a book page with speech bubbles over a picture): LESSON.bk[page] = { img, ar:[wide screen, tall screen],
 //   pic:{l:[x,y,w],p:[x,y,w]}, bubs:[{ l:[x,y,w,font], p:[x,y,w,font], tail:[% along the bottom, length in em], round }] } (l = wide screen, p = tall one;
 //   x, w in % of the canvas width, y in % of its height, font in % of its width). A line says which bubble it is in ("bub"); tapping a sentence or a word reads it.
@@ -553,6 +581,83 @@ function markNewWords(){
   $$('#stage .w').forEach(w=>{ const t=w.textContent.toLowerCase().replace(/[^\p{L}\p{N}']/gu,''); w.classList.toggle('nw',!!t&&set.has(t)); });
 }
 { const _sr=showRead; showRead=function(){ const r=_sr.apply(this,arguments); try{ markNewWords(); }catch(e){} return r; }; }
+;
+/* ===== js/wordslots.js ===== */
+/* ===== WORD SLOTS: ONE way to show and write a word, in every subject and every place (Marwa 2026-11-04, RULES.md "Word slots") =====
+   Every place builds the word with wsFill / wsWord below and only gives the word (data): Words tab (.vword), missing letter "type" / "letter" (.qword),
+   word / sentence writing "write", "arrange", vowel, math words, explainer (qxWordEl -> .qxw).
+   Look: css/wordslots.css (same white, same size, a thin light-white line only under letters to type, a wrong letter is never written).
+   Here: the keyboard language follows the word, the word (and its lines) stays above the phone keyboard,
+   and while typing the Help bulb stands right under the word; with little room (phone on its side) the header steps aside. */
+const WS_IN=['vin','qin','qxin'];
+/* THE word component. wsFill(box,text,o) fills box (any element) with the word, one <span class="lt"> per letter; wsWord(text,o) = a new <b class="ws">.
+   o.hide: true (every letter) or [letter numbers] = still to write (see-through, keeps its place);  o.faint: hidden letters show faintly (copy the example);
+   o.parts: [part texts] = the letters shown in groups in <span class="wsg" data-p> (syllables / chips; ' ' = a space);  o.ltr: left to right inside any subject.
+   States the places switch on a letter: hid (to write) · cur (its turn: brighter line) · peek (Help) · got (written) · bad (wrong: shakes, never written).
+   The look is ONLY in css/wordslots.css; a place never styles .lt itself. */
+function wsFill(box,text,o){ o=o||{}; text=String(text==null?'':text); box.classList.add('ws'); box.replaceChildren();
+  const ar=/[\u0600-\u06FF]/.test(text); box.classList.toggle('ws-ar',ar); if(o.ltr) box.dir='ltr';
+  const gs=glyphs(text); box.style.setProperty('--n',gs.length); let k=0;
+  const hid=i=>o.hide===true||(Array.isArray(o.hide)&&o.hide.includes(i));
+  const lt=g=>{ const i=k++; if(g===' ') return el('span','sp',' '); const s=el('span','lt'+(hid(i)?' hid':'')+(o.faint?' fnt':''),g); s.dataset.i=i; return s; };
+  const parts=o.parts&&o.parts.length?o.parts:null;   // the parts are shown as given (Arabic syllables may spell a shadda out)
+  if(parts) parts.forEach((p,pi)=>{ if(p===' '){ box.append(lt(' ')); return; } const g=el('span','wsg'); g.dataset.p=pi; glyphs(p).forEach(c=>g.append(lt(c))); box.append(g); });
+  else gs.forEach(g=>box.append(lt(g)));
+  return box; }
+const wsWord=(text,o)=>wsFill(el('b',''),text,o);
+// the letter whose turn it is gets the brighter line (the first one still to write)
+function wsCur(box){ if(!box) return null; $$('.lt.cur',box).forEach(x=>x.classList.remove('cur')); const n=$('.lt.hid',box); if(n) n.classList.add('cur'); return n; }
+// a wrong letter: never written, the place shakes
+function wsBad(n){ if(!n) return; n.classList.remove('bad'); void n.offsetWidth; n.classList.add('bad'); clearTimeout(n._wb); n._wb=setTimeout(()=>n.classList.remove('bad'),450); }
+// Help: the letter shows see-through for a moment
+function wsPeek(L,ms){ L=[].concat(L).filter(Boolean); L.forEach(x=>x.classList.add('peek')); setTimeout(()=>L.forEach(x=>x.classList.remove('peek')),ms||tokMs('--help-letter-ms',1500)); }
+const wsLang=t=>/[؀-ۿ]/.test(String(t||''))?'ar':'en';
+// the hidden typing box: English word -> English (Latin) keyboard, Arabic word -> Arabic, a number -> number pad
+function wsInput(inp,text,lang){ lang=lang||wsLang(text); inp.lang=lang; inp.setAttribute('lang',lang); inp.dir=lang==='ar'?'rtl':'ltr';
+  inp.setAttribute('inputmode',/^\d+$/.test(String(text||''))?'numeric':'text');
+  ['autocorrect','autocapitalize','autocomplete'].forEach(a=>inp.setAttribute(a,'off')); inp.spellcheck=false; return inp; }
+function wsParts(){ const a=document.activeElement, id=a&&a.id; if(!WS_IN.includes(id)) return null;
+  const st=$('#stage'), stTop=st?st.getBoundingClientRect().top:0;
+  if(id==='vin'){ const w=$('.vword'); if(!w) return null; const tools=$('.vtools'); return {word:w,movers:[$('.vwrow'),$('.vinfo'),tools].filter(Boolean),bottom:tools||w,top:stTop+6,help:0}; }
+  if(id==='qin'){ const qw=$('.qword'); if(!qw) return null; const hd=$('.quiz .qhead'); return {word:$('b',qw)||qw,movers:[qw],bottom:qw,top:hd?hd.getBoundingClientRect().bottom+4:stTop,help:1,say:$('.qsay',qw)}; }
+  const bx=a.closest('.qx'), line=a.closest('.qxline'); if(!bx||!line) return null; const hd=$('.quiz .qhead');
+  return {word:$('.qxw',line)||line,movers:[bx],bottom:line,top:hd?hd.getBoundingClientRect().bottom+4:stTop,help:1,say:$('.qxsay',bx)}; }
+// how much of the screen the phone keyboard leaves: the visible top and bottom (page px). Inside a frame (preview) the phone does not tell the frame, so a touch screen guesses the keyboard.
+function wsRoom(){ const vv=window.visualViewport, H=innerHeight; if(!vv) return null;
+  if(H-vv.height>120) return {top:vv.offsetTop,bottom:vv.offsetTop+vv.height};
+  let framed=false; try{ framed=window.top!==window; }catch(e){ framed=true; }
+  if(framed&&matchMedia('(pointer:coarse)').matches) return {top:0,bottom:H*(innerWidth>H?.42:.55)};
+  return null; }
+function wsKeep(){
+  $$('.ws-mv').forEach(e=>{ e.style.translate=''; e.classList.remove('ws-mv'); });
+  const P0=wsParts(), R=P0&&wsRoom(), open=!!R, B=document.body;
+  B.classList.toggle('ws-typing',open);
+  B.classList.toggle('ws-tight',open&&R.bottom-R.top<parseFloat(getComputedStyle(document.documentElement).fontSize)*22);   // little room (phone on its side): the title, lesson name and road step aside while typing
+  wsHelp(null);
+  if(!open) return;
+  const P=wsParts()||P0, w=P.word.getBoundingClientRect(), pad=Math.max(10,w.height*.15);
+  const hs=P.help?wsHelpEls():[], hh=hs.length?(hs[0].offsetWidth||40)+Math.max(6,w.height*.12):0;   // the Help bulb stands under the word
+  const top=Math.max(P.top,R.top+6);
+  const over=Math.max(P.bottom.getBoundingClientRect().bottom,w.bottom+hh)+pad-R.bottom;
+  let sh=over>0?Math.min(Math.max(0,w.top-top),over):0;
+  if(over<=0&&w.top<top) sh=w.top-top;   // the phone scrolled the page: bring the word back down into sight
+  if(sh) P.movers.forEach(m=>{ m.style.translate='0 '+(-Math.round(sh))+'px'; m.classList.add('ws-mv'); });
+  if(P.help) wsHelp(P);
+}
+const wsHelpEls=()=>$$('#lmeta .qxhelp, #lmeta .qhelpb, .quiz>.qhelpb').filter(h=>!h.hidden&&getComputedStyle(h).display!=='none');
+// while typing, the Help bulb stands right under the word, in the middle (the keyboard covers its corner)
+function wsHelp(P){
+  $$('.ws-side').forEach(h=>{ h.classList.remove('ws-side'); h.style.left=''; h.style.top=''; });
+  if(!P) return;
+  const r=P.word.getBoundingClientRect();
+  wsHelpEls().forEach(h=>{ h.classList.add('ws-side'); const s=h.offsetWidth||40, g=Math.max(6,r.height*.12);
+    const x=Math.max(6,Math.min(innerWidth-s-6,r.left+r.width/2-s/2));
+    h.style.left=Math.round(x)+'px'; h.style.top=Math.round(r.bottom+g)+'px'; });
+}
+if(window.visualViewport) ['resize','scroll'].forEach(e=>visualViewport.addEventListener(e,()=>wsKeep()));
+document.addEventListener('focusin',e=>{ if(e.target&&WS_IN.includes(e.target.id)) [50,300,650,1000].forEach(t=>setTimeout(wsKeep,t)); });
+document.addEventListener('focusout',e=>{ if(e.target&&WS_IN.includes(e.target.id)) setTimeout(wsKeep,60); });
+addEventListener('resize',()=>setTimeout(wsKeep,80)); addEventListener('orientationchange',()=>setTimeout(wsKeep,400));
 ;
 /* ===== js/vocab.js ===== */
 /* VOCABULARY tab + the shared celebration. */
@@ -676,8 +781,7 @@ function vRender(fill){
   const pk=$('.vpick'), on=$('.vthumb.on'); if(pk&&on&&pk.scrollWidth>pk.clientWidth) pk.scrollTo({left:on.offsetLeft-pk.clientWidth/2+on.offsetWidth/2,behavior:'smooth'});   // keep the current word in view in the strip
   const w=$('.vword'); w.innerHTML=''; w.classList.remove('lit','writing','focus');
   w.style.fontSize='';
-  v.parts.forEach((p,pi)=>{ if(p.t===' '){ w.append(el('span','vgap')); return; }
-    const s=el('span','vseg'); s.dataset.p=pi; glyphs(p.t).forEach(ch=>s.append(el('span','lt'+(fill?'':' hid'),ch))); w.append(s); });   // hidden letters keep their place
+  wsFill(w,v.word,{hide:!fill,parts:v.parts.map(p=>p.t)});   // THE word component (js/wordslots.js): hidden letters keep their place
   fitWord();
 }
 const vStatus=t=>{ const s=$('.vstatus'); if(s){ s.textContent=t; if(anim) G.fromTo(s,{opacity:0},{opacity:1,duration:.3}); } };
@@ -728,13 +832,13 @@ async function vTeach(){
       vRender(false); await vSleep(350,run);
       for(let pi=0;pi<v.parts.length;pi++){
         const p=v.parts[pi]; if(p.t===' '){ await vSleep(350,run); continue; }
-        const seg=$(`.vseg[data-p="${pi}"]`), lts=$$('.lt',seg); seg.classList.add('on');
+        const seg=$(`.vword .wsg[data-p="${pi}"]`), lts=$$('.lt',seg); seg.classList.add('on');
         const snd=sayPart(p);
         for(let k=0;k<lts.length;k++){ lts[k].classList.remove('hid'); if(anim) G.fromTo(lts[k],{scale:1.4},{scale:1,duration:.3,ease:'back.out(3)'}); await vSleep(260,run); }
         await snd; if(run!==vs.run) return;
         seg.classList.remove('on'); await vSleep(750,run);   // longer pause between parts than between letters
         if(p.blend){   // the sounds so far, joined: sh-a-k-e -> "shake"
-          let k=pi; const grp=[]; while(k>=0 && v.parts[k].t!==' '){ const g=$(`.vseg[data-p="${k}"]`); if(g) grp.push(g); k--; }
+          let k=pi; const grp=[]; while(k>=0 && v.parts[k].t!==' '){ const g=$(`.vword .wsg[data-p="${k}"]`); if(g) grp.push(g); k--; }
           grp.forEach(g=>g.classList.add('on')); await playFile(p.blend); if(run!==vs.run) return; grp.forEach(g=>g.classList.remove('on')); await vSleep(650,run);
         }
       }
@@ -748,7 +852,7 @@ function vWrite(){
   const v=LESSON.vocab[vs.i]; vRender(false); $('.vword').classList.add('writing'); vStatus(tr(TOUCH()?'Tap and write!':'Your turn! Write it.'));
   const boxes=$$('.vword .lt'); vs.letters=glyphs(v.word).filter(c=>c!==' '); vs.pos=0; let typed='';
   const inp=el('input','vin'); Object.assign(inp,{type:'text',autocomplete:'off',spellcheck:false,id:'vin'});
-  inp.setAttribute('autocorrect','off'); inp.setAttribute('autocapitalize','off'); inp.setAttribute('enterkeyhint','done'); inp.setAttribute('aria-label','Type the word');
+  wsInput(inp,v.word,isAr()?'ar':'en'); inp.setAttribute('enterkeyhint','done'); inp.setAttribute('aria-label','Type the word');
   $('.vword').append(inp); $('.vword').addEventListener('click',()=>inp.focus({preventScroll:true}));
   inp.addEventListener('focus',()=>{ $('.vword').classList.add('focus'); if(vs.mode==='write') $('.vstatus').textContent=tr('Your turn! Write it.'); });
   inp.addEventListener('blur',()=>{ const w=$('.vword'); if(w) w.classList.remove('focus'); });
@@ -762,9 +866,9 @@ function vWrite(){
         if(vs.pos>=vs.letters.length) break;
         const want=vs.letters[vs.pos];
         if(isAr()&&new RegExp('['+AR_MARKS+']').test(ch)){ typed+=ch; continue; }   // a vowel mark typed on its own is ignored
-        if(isAr()?sameLetter(ch,want):ch.toLowerCase()===want.toLowerCase()){ const b=boxes[vs.pos]; b.classList.remove('hid','peek'); b.classList.add('good'); typed+=ch; blip(560+vs.pos*40,.05);
+        if(isAr()?sameLetter(ch,want):ch.toLowerCase()===want.toLowerCase()){ const b=boxes[vs.pos]; b.classList.remove('hid','peek'); b.classList.add('got'); typed+=ch; blip(560+vs.pos*40,.05);
           if(anim) G.fromTo(b,{scale:1.3},{scale:1,duration:.35,ease:'back.out(3)'}); vs.pos++; }
-        else { tone(170,'square',.06,.18); const b=boxes[vs.pos]; b.classList.add('bad'); if(anim) G.fromTo(b,{x:-7},{x:0,duration:.45,ease:'elastic.out(1.5,.25)'}); setTimeout(()=>b.classList.remove('bad'),400); break; }
+        else { tone(170,'square',.06,.18); wsBad(boxes[vs.pos]); break; }   // never written, the place shakes
       }
     }
     inp.value=typed; cur();
@@ -775,7 +879,7 @@ function vWrite(){
 function vHelp(){
   if(vs.mode!=='write') return; const v=LESSON.vocab[vs.i], boxes=$$('.vword .lt'), i=vs.pos; if(i>=boxes.length) return;
   const b=boxes[i]; b.classList.remove('hid'); b.classList.add('peek'); if(anim) G.fromTo(b,{scale:1.3},{scale:1,duration:.4,ease:'back.out(3)'});
-  const seg=b.closest('.vseg'); const p=v.parts[+seg.dataset.p]; seg.classList.add('on'); sayPart(p).then(()=>seg.classList.remove('on'));
+  const seg=b.closest('.wsg'); const p=v.parts[+seg.dataset.p]; seg.classList.add('on'); sayPart(p).then(()=>seg.classList.remove('on'));
   setTimeout(()=>{ if(b.classList.contains('peek')){ b.classList.add('hid'); b.classList.remove('peek'); } },tokMs('--help-letter-ms',1500));
   const inp=$('#vin'); if(inp) inp.focus({preventScroll:true});
 }
@@ -798,8 +902,8 @@ function vTools(){
   const tools=$('.vtools'); tools.innerHTML='';
   const items=[
     {k:'help',kind:'help',icon:'hint',label:isAr()?'ساعدني':tr('Help'),click:vHelp},
-    {k:'teach',kind:'go',icon:'restart',label:isAr()?(vMode()?'علّمني':'علّمني الكلمة'):tr('Teach'),click:vTeach},
-    {k:'write',kind:'speed',icon:'pencil',label:isAr()?'اكتب الكلمة':tr('Write'),click:()=>{ if(vs.mode!=='write') vWrite(); else { const i=$('#vin'); i&&i.focus({preventScroll:true}); } }}
+    {k:'teach',kind:'go',icon:'restart',label:isAr()?'علّمني':tr('Teach'),click:vTeach},
+    {k:'write',kind:'speed',icon:'pencil',label:isAr()?'اكتب':tr('Write'),click:()=>{ if(vs.mode!=='write') vWrite(); else { const i=$('#vin'); i&&i.focus({preventScroll:true}); } }}
   ];
   (vMode()?items.filter(it=>!['help','write'].includes(it.k)):items).forEach(it=>{ const b=el('button','dash '+it.kind+(it.icon==='restart'?' ln':''),`<span class="rb">${ICON[it.icon]}</span><span>${it.label}</span>`); b.dataset.k=it.k;
     b.addEventListener('pointerdown',e=>{ if($('#vin')&&$('#vin')===document.activeElement) e.preventDefault(); });   // keep the keyboard open
@@ -834,6 +938,7 @@ function vLayout(){
   L.style.setProperty('--wfs',c(34,land?Math.min(w*.07,h*.13):Math.min(w*.13,h*.08),96)+'px');
   L.style.setProperty('--wbtn',c(38,land?Math.min(h*.08,w*.042):Math.min(w*.11,h*.06),60)+'px');
   L.style.setProperty('--pich',c(70,land?Math.min(sh*.78,w*.3):Math.min(w*.45,h*.2),520)+'px');
+  if(vs.popup){ L.style.setProperty('--pich',c(90,Math.min(h*.3,w*.55),260)+'px'); L.style.setProperty('--wfs',c(40,Math.min(w*.12,h*.1),84)+'px'); }   // word popup: one compact card (picture and word sized to the card, not to the page)
   L.style.setProperty('--vgap',c(6,h*.014,16)+'px');
   if(land){   // the word pictures: as many columns as give the biggest pictures, filling the right-hand column
     const pw=w*.26, pad=30, gap=c(5,sh*.02,12); let best=[0,1];
@@ -874,16 +979,24 @@ function wpOpen(v){
   const dim=el('div','wpdim'); stage.after(back,dim); WP.back=[back,dim]; dim.addEventListener('click',wpClose);
   LESSON.vocab=[v]; vs.i=0; vs.popup=1; tab='words'; L.classList.add('wpop');
   showWords();
-  const x=el('button','rb wpclose',ICON.close); x.setAttribute('aria-label','Close'); stage.append(x); x.addEventListener('click',wpClose);
+  const x=el('button','rb popx wpclose',ICON.close); x.setAttribute('aria-label','Close'); stage.append(x); x.addEventListener('click',wpClose);
 }
-const wpKey=t=>String(t||'').toLowerCase().replace(/[^a-z']/g,'');
+const wpKey=t=>String(t||'').toLowerCase().replace(/[\u064B-\u065F\u0670\u0640]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/[^a-z'\u0621-\u064A]/g,'');
 function penify(){
-  if(isAr()||!LESSON||!LESSON.vocab||!LESSON.vocab.length||tab==='words'||WP.saved) return;
-  const by={}; LESSON.vocab.forEach(v=>{ if(/^[A-Za-z']+$/.test(v.word)) by[wpKey(v.word)]=v; });
-  $$('#stage .w, #stage .alw').forEach(sp=>{
-    if(sp._pen!==undefined) return; const v=by[wpKey(sp.firstChild&&sp.firstChild.nodeType===3?sp.firstChild.data:sp.textContent)]; sp._pen=v?1:0; if(!v) return;
-    const b=el('span','wpn',ICON.pencil); b.setAttribute('role','button'); b.setAttribute('aria-label','Learn the word '+v.word);
-    b.addEventListener('click',e=>{ e.stopPropagation(); e.preventDefault(); wpOpen(v); }); sp.append(b);
+  if(!LESSON||!LESSON.vocab||!LESSON.vocab.length||tab==='words'||WP.saved) return;
+  // one word -> its vocab entry; a phrase ("shake hands", "alarm clock") -> its words in order (the pen goes on its LAST word)
+  const by={}, multi=[]; LESSON.vocab.forEach(v=>{ const ws=String(v.word).trim().split(/\s+/).map(wpKey).filter(Boolean); if(!ws.length) return;
+    if(ws.length>1) multi.push({ws,v}); else { by[ws[0]]=v; if(/^\u0627\u0644/.test(ws[0])) by[ws[0].slice(2)]=by[ws[0].slice(2)]||v; } });
+  const txt=sp=>sp.firstChild&&sp.firstChild.nodeType===3?sp.firstChild.data:sp.textContent;
+  const find=k=>by[k]||(/^\u0627\u0644/.test(k)&&by[k.slice(2)])||null;   // Arabic: "\u0627\u0644\u0652\u0623\u064E\u0631\u0652\u0646\u064E\u0628\u064F" in a text is the vocab word "\u0623\u064E\u0631\u0652\u0646\u064E\u0628" (harakat already ignored)
+  const pen=(sp,v)=>{ sp._pen=1; const b=el('span','wpn',ICON.pencil); b.setAttribute('role','button'); b.setAttribute('aria-label','Learn the word '+v.word);
+    b.addEventListener('click',e=>{ e.stopPropagation(); e.preventDefault(); wpOpen(v); }); sp.classList.add('haspen'); sp.append(b); };
+  const all=$$('#stage .w, #stage .alw').filter(sp=>!sp.closest('.wpback'));
+  all.forEach((sp,i)=>{
+    if(sp._pen!==undefined||sp.classList.contains('alans')) return; const k=wpKey(txt(sp));
+    for(const m of multi){ const n=m.ws.length; if(i+1<n||m.ws[n-1]!==k) continue;   // this span ends the phrase: the n-1 spans before it (same line) must be its first words
+      const prev=all.slice(i-n+1,i); if(prev.every((p,j)=>p.parentElement===sp.parentElement&&wpKey(txt(p))===m.ws[j])) return pen(sp,m.v); }
+    const v=find(k); sp._pen=v?1:0; if(v) pen(sp,v);
   });
 }
 { let pt=0; new MutationObserver(()=>{ clearTimeout(pt); pt=setTimeout(penify,60); }).observe(stage,{childList:true,subtree:true}); }
@@ -903,7 +1016,7 @@ function penify(){
    choice = book "circle the correct word": the picture, beside it the text (optional "ask" line, "lead", and "options":[a,b] with "answer": index); tap the right word, it gets a ring.
    Options on a set: "mark":"ring" (pick: the right picture gets a ring, not a tick), "silent":true (circle: do not say the word when it is circled).
    type   = one picture + the word with a letter missing ("missing": its index), the child types it on the keyboard: "answer": "t"
-   On wide screens the choices (tick/cross, letters, the keyboard button) sit right beside the picture, not at the sheet's edge.
+   The choices (tick/cross, letters, words, numbers) are ALWAYS under the question and its picture, in portrait and landscape (css/qlayout.css, Marwa 2026-11-04).
    A right answer: stamp + celebrate (no spoken praise), then on to the next question by itself. A wrong one: a shake, try again.
    Two books: each set says "book": "book" (the student's book, default) or "workbook"; two buttons on top switch between them. */
 const qz={sets:null,all:[],list:[],src:'book',i:0,run:0,busy:false,file:null,show:0};
@@ -911,7 +1024,7 @@ const qz={sets:null,all:[],list:[],src:'book',i:0,run:0,busy:false,file:null,sho
    QM[type] = { sheet: 'word' (the word line + the play area) | 'board' (one board for the whole set) | 'box' (one part in the play area),
                 draw(...)   how it is shown and solved,  help(q,w)  what the Help bulb lights (nothing = no bulb),
                 bulb:0 = the model has its own help,  own:1 = reads itself (no speaker added, no auto-read),
-                side:1 = the answers sit beside the picture on wide screens,  fit:0 = no picture stacking }
+                (choices are ALWAYS under the question, css/qlayout.css; no "side" any more),  fit:0 = no picture stacking }
    Every type registers here (quiz.js, quiz-letters.js, quiz-al.js, quiz-math.js) and qGo draws it through this one path.
    A design change is made in the model, so every question of that type changes together. */
 const QM={};
@@ -931,7 +1044,7 @@ async function qLoad(){
   const file=m.file.replace(/lesson\.json$/,'questions.json');
   if(qz.file===file&&qz.sets) return true;
   const base=file.slice(0,file.lastIndexOf('/')+1), R=p=>p&&!/^(https?:|\/|data:)/.test(p)?base+p:p;
-  try{ const d=await get(file); qz.sets=d.sets; qz.file=file; }catch(e){ qz.sets=null; qz.file=null; return false; }
+  try{ const d=await get(file); qz.sets=currSets(d.sets); qz.file=file; }catch(e){ qz.sets=null; qz.file=null; return false; }
   qz.all=[]; qz.sets.forEach((s,si)=>{ s.taskSrc=Array.isArray(s.taskAudio)?s.taskAudio.map(R):R(s.taskAudio);   // taskAudio: one file, or a list played in order (prompt + letter name)
    
     if(s.type==='link') s.items.forEach(it=>{ it.answer=true; it.fullSrc=[].concat(it.full||[]).map(R); });
@@ -956,14 +1069,14 @@ async function showQuiz(start){
   qPick(isAL()?alSrc():tabSrc());
   if(!qz.list.length){ $('#lesson').classList.remove('qtab'); showGarage(); return; }
   const wrap=el('div','quiz');
-  wrap.innerHTML=`<div class="qhead"><span class="qex"></span><span class="qtask"></span><button class="qsay qtsay" aria-label="Hear the question">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button>${LESSON.tool?`<button class="qtool tgear" aria-label="Tool">Tool</button>`:''}</div>
+  wrap.innerHTML=`<div class="qhead"><span class="qex"></span><span class="qtask"></span><button class="qsay qtsay" aria-label="Hear the question">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button>${LESSON.tool?`<button class="qtool tgear" aria-label="${toolName(LESSON.tool)}">${toolLabel(LESSON.tool)}</button>`:''}</div>
     <div class="qdots"></div>
     <div class="qword" dir="ltr"><b></b><button class="qsay" aria-label="Listen again">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button></div>
     <div class="qplay"></div><div class="qans"></div>`;
   stage.append(wrap);
   { const hb=el('button','qhelpb',ICON.hint); hb.hidden=true; hb.setAttribute('aria-label',isAr()?'ساعدني':tr('Help')); $('#lmeta .lm-r').replaceChildren(hb); hb.onclick=()=>qHelp(); }   // the Help bulb stands at the right of the row above the tabs
   $('.qword .qsay',wrap).addEventListener('click',()=>qSay());
-  $('.qtsay',wrap).addEventListener('click',()=>qTask());
+  $('.qtsay',wrap).addEventListener('click',()=>qTask()); $('.qtask',wrap).addEventListener('click',()=>qTask());   // the header is read once by itself; no speaker icon (CSS hides .qtsay), a tap on the line reads it again
   $('.qword',wrap).addEventListener('click',e=>{ if(wrap.dataset.type==='type'&&!e.target.closest('.qsay')) qFocus(); });
   qStart(start!=null?start:0);
 }
@@ -988,9 +1101,10 @@ function qFirstOnPage(p,src){ const f=qz.all.find(q=>q.set.page===p&&(!src||qSrc
 function qGo(i){
   stopVoice(); $$('#lmeta .qxhelp').forEach(x=>x.remove()); hideHint(); setTimeout(qHelpShow,60); const run=++qz.run; qz.i=i; qz.busy=false;
   const q=qz.list[i], s=q.set, w=$('.quiz'); if(!w) return;
+  q.solved=false;   // every visit draws the question unsolved, so its speaker reads the question again (never the answer)
   w.dataset.type=s.type;
   { const old=$('.qmodel',w); if(old) old.remove(); }   // the paper's heading (Classroom / Homework / Weekly C) is no longer shown on any question
-  $('.qex',w).textContent=s.ex!=null?num(s.ex):''; $('.qex',w).hidden=!s.ex; $('.qtask',w).textContent=s.task; qFitTask();
+  $('.qex',w).textContent=s.ex?num(s.ex):'?'; $('.qex',w).hidden=false; $('.qtask',w).textContent=s.task; qFitTask();   // RULE (Marwa 2026-11-05): every question header shows its number, or '?' when the book has none
   footPage(s.page); lnavPaint();
   qCur(i);
   if($('#lesson').classList.contains('qrail')){ $('#lesson').classList.remove('qrail'); setRail([]); }   // the side Listen / Stop button belongs to the 'together' page only
@@ -998,40 +1112,61 @@ function qGo(i){
   const qi=$('#qin'); if(qi&&s.type!=='type'){ qi.blur(); qi.remove(); }
   const qxi=$('#qxin'); if(qxi&&s.type!=='write'){ qxi.blur(); qxi.remove(); }
   const m=QM[s.type]; if(!m) return;
+  if(m.sheet!=='box'){ const qw=$('.qword',w); if(qw) qw.hidden=false; const ts=$('.qtsay',w); if(ts) ts.hidden=false; }   // a box question (colour / face / story...) hides the word line; the next word question shows it again
   if(m.sheet==='board') return qBoard(w,q,i,run);
   w._board=null;
   if(m.sheet==='box') return qxGo(w,q,i,run);
   // the word line: the word (letter / type: with its gaps), the play area, the answers
-  $('.qword b',w).innerHTML=m.word?m.word(q):q.word;
+  { const b=$('.qword b',w); b.className=''; b.removeAttribute('dir'); if(m.word) b.innerHTML=m.word(q); else { b.textContent=''; qToks(b,q.word); if(/\s/.test(String(q.word||'').trim())){ b.classList.add('qsent'); if(isAr()) b.dir='rtl'; } } }   // a sentence wraps, big and centred (css/qlayout.css)   // a plain word / sentence: every word tappable (shared qToks)
   const play=$('.qplay',w), ans=$('.qans',w); play.innerHTML=''; ans.innerHTML='';
   m.draw(play,ans,q,s);
   qLayout(); carFrac(i/qz.list.length);
   // the first question of each exercise: the instruction is read first, then the word
-  setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(qNewEx()) await qTask(); if(run===qz.run&&inQ()){ if(s.type==='type') qFocus(); qSay(); } },350);
+  setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(qNewEx()) await qTask(); if(run===qz.run&&inQ()){ if(s.type==='type') qFocus(); if(q.autoSay) qSay(); } },350);   // Marwa 2026-11-04: the question itself is NOT read by itself (the child reads; the speaker beside it helps)
 }
 // letter / type: the word with its gaps ("missing" = one letter, "gaps" = several, typed left to right), filled in when the child finds them
-const qGapWord=q=>{ const gps=q.gaps||[q.missing||0]; return (q.scr?`<span class="qscr">${q.scr.split('').join(' ')}</span>`:'')+[...q.word].map((c,k)=>gps.includes(k)?`<span class="qgap" data-i="${k}">_</span>`:c).join(''); };
+const qGapWord=q=>{ const gps=q.gaps||[q.missing||0], w=wsWord(q.word,{hide:gps,ltr:!isAr()}); $$('.lt.hid',w).forEach(x=>x.classList.add('qgap')); wsCur(w);   // THE word component (js/wordslots.js); the gaps are its hidden letters
+  return (q.scr?`<span class="qscr">${q.scr.split('').join(' ')}</span>`:'')+w.outerHTML; };
 const qOnePic=q=>el('div','qpic one',`<img src="${q.pic}" alt="${q.word||''}"><span class="qmark"></span>`);
 const qHalf=a=>{ const o=a.map((x,k)=>k); if(Math.random()<.5) o.reverse(); return o; };   // the right one is not always on the same side
+/* ---------- SHARED tappable words (every subject, every question model): a tap on one word reads that word alone (Marwa 2026-11-04).
+   English: data/en-shared/q/<slug>.mp3 (falls back to the word pack / device voice). Arabic: NO machine voice, so an Arabic word is a span
+   (it can carry the vocab pen) but says nothing unless the model gives it its own recording (onTap). qToks = alToks. ---------- */
+const alSlug=t=>String(t).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,60).replace(/-+$/,'');
+const alClean=w=>String(w).replace(/^[^A-Za-z0-9']+|[^A-Za-z0-9']+$/g,'');
+const alWordSrc=w=>`data/en-shared/q/${alSlug(alClean(w))}.mp3`;
+// text -> tappable words (a tap reads that word alone: the child is learning to read)
+function alToks(host,text,onTap){
+  String(text).split(/\s+/).filter(Boolean).forEach((w,k)=>{ const sp=el('span','alw',w); if(/[\u0600-\u06FF]/.test(w)&&!onTap){ host.append(k?' ':'',sp); return; } sp.addEventListener('click',e=>{ e.stopPropagation(); if(qz.busy&&!onTap) return; hideHint(); vStop(); sp.classList.add('lit'); qSound(alWordSrc(w),alClean(w)).then(()=>sp.classList.remove('lit')); if(onTap) onTap(w); });
+    host.append(k?' ':'',sp); });
+}
+const qToks=alToks;
 QM.pick={sheet:'word', draw(play,ans,q){ qHalf(q.pics).forEach(k=>{ const b=el('button','qpic',`<img src="${q.pics[k]}" alt=""><span class="qmark"></span>`); b.setAttribute('aria-label','Picture '+(k+1)); b.dataset.k=k;
     b.addEventListener('click',()=>qAnswer(b,k===q.answer)); play.append(b); }); },
   help:(q,w)=>$$('.qpic',w).filter(b=>+b.dataset.k===q.answer)};
-QM.letter={sheet:'word', side:1, word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q));
-    qHalf(q.letters).forEach(k=>{ const b=el('button','rb qbtn qlet'+(q.letters[k].length>1?' two':''),`<span>${q.letters[k]}</span>`); b.setAttribute('aria-label','Letter '+q.letters[k]); b.dataset.k=k;
+/* THE choice button (Marwa 2026-11-04, every subject): one look, one size (--q-choice, css/qlayout.css), always UNDER the question (.qans / a choices row).
+   A letter or a number = a round button; a word = a pill of the same height (words:true = the row has words, so even "up" is a pill). Models make their choices ONLY with qChBtn. */
+const qWords=a=>a.some(o=>[...String(o)].length>2);
+const qChBtn=(t,words)=>{ const s=String(t), n=[...s].length, b=el('button','rb qbtn qlet qch'+(n>2||words?' wd':n>1?' two':''),'<span></span>'); $('span',b).textContent=s; b.setAttribute('aria-label',s); return b; };
+// the answer is marked the way the book asks: "circle" -> a ring round it; "match" / "join" / "صل" -> a line (Marwa 2026-11-04)
+const qCircleTask=s=>/\bcircle\b|دائر|حوّ?ط/i.test((s&&s.task)||'');
+QM.letter={sheet:'word', word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q));
+    qHalf(q.letters).forEach(k=>{ const b=qChBtn(q.letters[k]); b.setAttribute('aria-label','Letter '+q.letters[k]); b.dataset.k=k;
       b.addEventListener('click',()=>qAnswer(b,k===q.answer)); ans.append(b); }); },
   help:(q,w)=>$$('.qans .qlet',w).filter(b=>+b.dataset.k===q.answer)};
-QM.choice={sheet:'word', fit:0, draw(play,ans,q){ play.append(el('div','qpic one',`<img src="${q.pic}" alt="">`));
-    const t=el('div','qtxt',`${q.ask?`<div class="qask">${q.ask}</div>`:''}<div class="qsen">${q.lead?`<span>${q.lead}</span> `:''}<span class="qopts">(${q.options.map(o=>`<button class="qopt">${o}</button>`).join(' - ')})</span>${q.tail?` <span>${q.tail}</span>`:''}<button class="qsay" aria-label="Listen again">${SAY_LN}</button></div>`);
-    $$('.qopt',t).forEach((b,k)=>b.addEventListener('click',()=>qChoose(b,k,q))); $('.qsay',t).addEventListener('click',()=>qSay());
-    play.append(t); },
-  help:(q,w)=>[$$('.qopt',w)[q.answer]].filter(Boolean)};
-QM.type={sheet:'word', side:1, word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q));
+/* choice ("Look, read, and circle"): the sentence big on top with a blank where the answer goes, the picture, the word choices under it (THE choice buttons) */
+QM.choice={sheet:'word', fit:0, word:()=>'', draw(play,ans,q){ const b=$('.qword b'); b.classList.add('qsent'); b.textContent=''; b.dir=isAr()?'rtl':'ltr';   // an Arabic sentence reads right to left (the word line itself is ltr for letter gaps)
+    if(q.ask){ const a=el('span','qask'); qToks(a,q.ask); b.append(a); }
+    const sen=el('span','qsen'); if(q.lead){ qToks(sen,q.lead); sen.append(' '); } sen.append(el('span','qblank','')); if(q.tail){ sen.append(' '); const t=el('span'); qToks(t,q.tail); sen.append(t); } b.append(sen);
+    play.append(el('div','qpic one',`<img src="${q.pic}" alt="">`));
+    q.options.forEach((o,k)=>{ const c=qChBtn(o,qWords(q.options)); c.dataset.k=k; c.addEventListener('click',()=>qChoose(c,k,q)); ans.append(c); }); },
+  help:(q,w)=>$$('.qans .qch',w).filter(b=>+b.dataset.k===q.answer)};
+QM.type={sheet:'word', word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q));
     qFocus(); },   // the keyboard stays open from one word to the next; it first opens when the instruction has been read (or when the child taps the letter)
   help:(q,w)=>[$('.qword .qgap:not(.got)',w)].filter(Boolean),
   peek(q,w){ const g=$('.qword .qgap:not(.got)',w); if(!g) return; const gi=g.dataset.i!=null&&q.gaps?+g.dataset.i:null, ch=gi!=null?q.word[gi]:q.answer; if(!ch) return;
-    clearTimeout(g._t); g.classList.remove('bad'); g.textContent=ch; g.classList.add('peek'); clearTimeout(g._p);
-    g._p=setTimeout(()=>{ g.classList.remove('peek'); if(!g.classList.contains('got')&&!g.classList.contains('bad')) g.textContent='_'; },tokMs('--help-letter-ms',1500)); qFocus(); }};
-QM.yesno={sheet:'word', side:1, draw(play,ans,q){ play.append(qOnePic(q));
+    wsPeek(g); qFocus(); }};
+QM.yesno={sheet:'word', draw(play,ans,q){ play.append(qOnePic(q));
     [[true,'yes',Q_TICK,'It matches'],[false,'no',Q_CROSS,'It does not match']].forEach(([v,c,ic,l])=>{
       const b=el('button','rb qbtn '+c,ic); b.setAttribute('aria-label',l); b.addEventListener('click',()=>qAnswer(b,v===q.answer,v)); ans.append(b); }); },
   help:(q,w)=>[$(q.answer?'.qans .qbtn.yes':'.qans .qbtn.no',w)].filter(Boolean)};
@@ -1044,7 +1179,7 @@ function qBoard(w,q,i,run){
 }
 // match / circle: the pictures (or words) on one board like the book, the letter / picture in the middle when the set has one
 function qPicBoard(w,s,play,run){
-  const b=el('div','qboard'); if(s.bigP) b.classList.add('bigP');   // "bigP": bigger pictures on tall screens (with "posP" per item)
+  const b=el('div','qboard'); if(s.bigP) b.classList.add('bigP'); if(s.type==='circle'||qCircleTask(s)) b.classList.add('ring');   // the book says "circle": a ring round the picture, never a line (Marwa 2026-11-04)   // "bigP": bigger pictures on tall screens (with "posP" per item)
   if(s.centerPic){ const c=el('div','qcenter pic',`<img src="${R_Q(s.centerPic)}" alt="">`); { const ca=(s.centerAtP&&!$('#lesson').classList.contains('q-land'))?s.centerAtP:s.centerAt; if(ca){ c.style.setProperty('--cx',ca[0]); c.style.setProperty('--cy',ca[1]); } } b.append(c); }   // "centerPic": a picture to match (book: circle the SIMILAR picture)
   if(s.center){ const c=el('button','qcenter',`<span>${s.center}</span>`); c.setAttribute('aria-label','Letter '+s.center); c.addEventListener('click',()=>qSound(s.centerSrc,s.center[0]));
     b.append(c); }
@@ -1055,7 +1190,7 @@ function qPicBoard(w,s,play,run){
   const first=qNewEx(); setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(first) await qTask(); if(s.center&&qz.list[qz.i]&&qz.list[qz.i].set===s&&inQ()) qSound(s.centerSrc,s.center[0]); },350);
 }
 // the lines of the joined pictures, worked out again when the screen changes size
-function qLines(fresh){ const bd=$('.qboard'); if(!bd||$('.quiz').dataset.type!=='match') return; const c=$('.qcenter span',bd); if(!c) return; const B=bd.getBoundingClientRect();
+function qLines(fresh){ const bd=$('.qboard'); if(!bd||$('.quiz').dataset.type!=='match'||bd.classList.contains('ring')) return; const c=$('.qcenter span',bd); if(!c) return; const B=bd.getBoundingClientRect();
   const mid=e=>{ const r=e.getBoundingClientRect(); return [r.left+r.width/2-B.left,r.top+r.height/2-B.top]; }, [x2,y2]=mid(c);
   $$('.qmp.done',bd).forEach(p=>{ let ln=p._line; if(!ln){ ln=p._line=el('i','qline'); bd.prepend(ln); }
     const [x1,y1]=mid(p), len=Math.hypot(x2-x1,y2-y1);
@@ -1075,8 +1210,8 @@ async function qMatch(btn,it,s){
   }
   const run=qz.run, more=qSetMoreAfter(s); btn.classList.add('done'); if(!more) qz.busy=true;
   // a line from the picture to the letter in the middle, drawn out like a pencil line
-  if(s.type==='match') qLines(btn);
-  if(s.type==='circle'&&anim) G.fromTo(btn,{'--ring':1.5},{'--ring':1,duration:.4,ease:'back.out(2)'});
+  const ring=btn.closest('.qboard.ring'); if(!ring) qLines(btn);
+  if(ring&&anim) G.fromTo(btn,{'--ring':1.5},{'--ring':1,duration:.4,ease:'back.out(2)'});
   celebrate(btn); if(!s.silent) qSound(it.src,it.word);
   if(qMore(s)) return; return qDone(s,run,1100);
 }
@@ -1104,11 +1239,12 @@ function qFocus(){ const wd=$('.qword'); if(!wd) return; let inp=$('#qin');
     inp.addEventListener('input',()=>{ const ch=inp.value.replace(/\s/g,'').slice(-1); inp.value=''; qTyped(ch); });
     inp.addEventListener('focus',()=>wd.classList.add('focus')); inp.addEventListener('blur',()=>wd.classList.remove('focus'));
     wd.append(inp); }
+  { const q=qz.list[qz.i]; wsInput(inp,q&&q.word); }   // English word: English keyboard (js/wordslots.js)
   inp.focus({preventScroll:true}); }
 function qTyped(ch){ const q=qz.list[qz.i]; if(!ch||qz.busy||!q||q.set.type!=='type') return;
-  const gap=$('.qword .qgap:not(.got)'), gi=gap&&gap.dataset.i!=null&&q.gaps?+gap.dataset.i:null, right=ch.toLowerCase()===String(gi!=null?q.word[gi]:q.answer).toLowerCase();
-  if(right&&q.gaps&&$$('.qword .qgap:not(.got)').length>1){ gap.classList.remove('bad'); gap.textContent=q.word[gi]; gap.classList.add('got'); tone(660,'sine',.05,.12); if(anim) G.fromTo(gap,{scale:1.8},{scale:1,duration:.4,ease:'back.out(3)'}); return; }   // one gap filled, more to go
-  if(!right&&gap){ gap.textContent=ch; gap.classList.add('bad'); clearTimeout(gap._t); gap._t=setTimeout(()=>{ if(!gap.classList.contains('got')){ gap.textContent='_'; gap.classList.remove('bad'); } },tokMs('--wrong-show-ms',600)); }
+  const gap=$('.qword .qgap:not(.got)'), gi=gap&&gap.dataset.i!=null&&q.gaps?+gap.dataset.i:null, want=gap&&gap.textContent?gap.textContent:(gi!=null?q.word[gi]:q.answer), right=sameLetter(normDigits(ch),String(want));   // the truth is the letter the child SEES missing (the gap's own letter); q.answer is only a fallback (Marwa 2026-11-05: ch_ir showed the i missing but wanted a)
+  if(right&&q.gaps&&$$('.qword .qgap:not(.got)').length>1){ gap.classList.remove('bad','hid','cur'); gap.classList.add('got'); wsCur($('.qword .ws')); tone(660,'sine',.05,.12); if(anim) G.fromTo(gap,{scale:1.4},{scale:1,duration:.35,ease:'back.out(3)'}); return; }   // one gap filled, more to go
+  if(!right&&gap) wsBad(gap);   // a wrong letter is never written: the place only shakes
   qAnswer(gap||$('.qword'),right); }
 // a computer keyboard works even when the text box lost focus (e.g. after tapping the speaker)
 addEventListener('keydown',e=>{ if(!inQ()||e.ctrlKey||e.metaKey||e.altKey||e.key.length!==1) return; const q=qz.list[qz.i];
@@ -1116,14 +1252,17 @@ addEventListener('keydown',e=>{ if(!inQ()||e.ctrlKey||e.metaKey||e.altKey||e.key
 function qSay(){ const q=qz.list[qz.i]; if(!q) return; vStop(); const w=$('.qword'); w.classList.add('lit');
   if(q.sayFn&&!q.solved) return q.sayFn();   // English AL: the question read with a pause where the blank is
   const done=()=>{ const x=$('.qword'); if(x) x.classList.remove('lit'); };
+  if((q.askTask||(q.set.type==='choice'&&!q.askAudio&&!q.ask))&&!q.solved) return qTask().then(done,done);   // a choice with no question text of its own ("choose the title of the nasheed"): the speaker reads the exercise header only, never the item's sound (the answer / the whole nasheed) (Marwa 2026-11-05)
+  if(q.askAudio&&!q.solved) return qSound(R_Q(q.askAudio),'').then(done,done);   // the QUESTION (with all its choices), never the answer: tools/lessons/choice_ask_audio.py; Arabic = a library slot, silent until recorded
   if(q.ask&&!q.solved) return tts(q.ask,'en',.75).then(done,done);   // "q.ask": the question read without its answer (the full sentence is said once it is solved)
   return (q.audio?playFile(q.audio).catch(()=>tts(q.word,isAr()?'ar':'en',.75)):tts(q.word,isAr()?'ar':'en',.75)).then(done,done); }
 // read the exercise instruction aloud (its line lights up while it plays)
 function qTask(){ const q=qz.list[qz.i]; if(!q) return Promise.resolve(); vStop(); const t=$('.qtask'); if(t) t.classList.add('lit');
   const done=()=>{ const x=$('.qtask'); if(x) x.classList.remove('lit'); };
   const ts=q.set.taskSrc, fb=()=>tts(q.set.task,isAr()?'ar':'en',.85);
+  if(!ts) return fb().then(done,done);   // no task recording: never ask for a file called "undefined"
   const play=Array.isArray(ts)?ts.reduce((p,u,k)=>p.then(()=>{ if(qz.list[qz.i]!==q) return; return (k?new Promise(r=>setTimeout(r,120)):Promise.resolve()).then(()=>playFile(u)); }),Promise.resolve()):playFile(ts);
-  return (ts?play.catch(fb):fb()).then(done,done); }
+  return play.catch(fb).then(done,done); }
 function qStamp(pic,cross){
   const m=$('.qmark',pic); m.className='qmark good'; m.innerHTML=cross?Q_CROSS:Q_TICK;
   if(anim){ const p=$('path',m), len=p.getTotalLength(); G.fromTo(m,{scale:1.6},{scale:1,duration:.35,ease:'back.out(3)'}); G.fromTo(p,{strokeDasharray:len,strokeDashoffset:len},{strokeDashoffset:0,duration:.35,ease:'power2.out'}); }
@@ -1135,8 +1274,8 @@ async function qAnswer(btn,right,said){
     return qBad(btn);
   }
   qz.busy=true; vStop();
-  if(q.set.type==='pick'){ if(q.set.mark==='ring') qRing(btn); else qStamp(btn,false); } else { btn.classList.add('on'); qStamp($('.qpic.one'),said===false); }
-  $$('.qword .qgap').forEach(gap=>{ gap.classList.remove('bad'); gap.textContent=q.word[gap.dataset.i!=null?+gap.dataset.i:q.missing||0]; gap.classList.add('got'); if(anim) G.fromTo(gap,{scale:1.8},{scale:1,duration:.5,ease:'back.out(3)'}); });
+  if(q.set.type==='pick'){ if(q.set.mark==='ring') qRing(btn); else qStamp(btn,false); } else { btn.classList.add('on'); if(btn.classList.contains('qch')&&qCircleTask(q.set)) qRing(btn); qStamp($('.qpic.one'),said===false); }
+  $$('.qword .qgap:not(.got)').forEach(gap=>{ gap.classList.remove('bad','hid','cur','peek'); gap.classList.add('got'); if(anim) G.fromTo(gap,{scale:1.4},{scale:1,duration:.4,ease:'back.out(3)'}); });
   $$('.qpic').forEach(p=>p!==btn&&q.set.type==='pick'&&p.classList.add('dim'));
   celebrate(q.set.type==='pick'?btn:$('.qpic.one'));
   qStar();
@@ -1229,7 +1368,7 @@ async function qLinkTry(bd,s,a,b){
 async function qChoose(btn,k,q){
   if(qz.busy) return; hideHint();
   if(k!==q.answer) return qBad(btn);
-  qz.busy=true; const run=qz.run; qRing(btn); $$('.qopt').forEach(o=>o!==btn&&o.classList.add('dim')); celebrate(btn); qSay();
+  qz.busy=true; q.solved=true; const run=qz.run; qRing(btn); btn.classList.add('on'); $$('.qans .qch').forEach(o=>o!==btn&&o.classList.add('dim')); { const bl=$('.qword .qblank'); if(bl){ bl.textContent=q.options[k]; bl.classList.add('got'); } } celebrate(btn); qSay();   // solved: now the whole answer sentence is said
   return qAdvance(run,1900);
 }
 async function qAdvance(run,ms){
@@ -1370,7 +1509,7 @@ function qxGo(w,q,i,run){
   { const wi=$('#qxin'); if(wi&&s.type==='write') wi.focus({preventScroll:true}); }   // moving the line into the speaker row dropped the focus: the keyboard opens with the question
   if(!m.own){ requestAnimationFrame(()=>qxFit(box)); $$('img',box).forEach(im=>{ if(!im.complete) im.addEventListener('load',()=>qxFit(box),{once:true}); }); }
   qLayout(); carFrac(i/qz.list.length);
-  setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(qNewEx()) await qTask(); if(run===qz.run&&inQ()&&box._after) await box._after(); if(run===qz.run&&inQ()&&!quiet()) s.type==='qa'?qxQAPlay(q,run):qSay(); },350);
+  setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(qNewEx()) await qTask(); if(run===qz.run&&inQ()&&box._after) await box._after(); if(run===qz.run&&inQ()&&!quiet()&&q.autoSay) s.type==='qa'?qxQAPlay(q,run):qSay(); },350);
 }
 const qxBad=b=>qBad(b);
 // a right answer: celebrate, say the word, on to the next
@@ -1383,26 +1522,25 @@ function qxLetters(word){ return glyphs(word); }
 function qxPosition(box,q,s,run){
   const gs=qxLetters(q.word), row=el('div','qxcircles'); row.style.setProperty('--n',gs.length);   // the circles share the width, so a long word stays inside the screen
   gs.forEach((g,k)=>{ const b=el('button','qxc',`<span>${g}</span>`); b.setAttribute('aria-label','Letter '+(k+1)); b.addEventListener('click',()=>{ if(qz.busy) return;
-    if(k!==q.at) return qxBad(b);
+    if(k!==q.at&&!(q.also||[]).includes(k)) return qxBad(b);   // "also": other places of the same letter that are right too (مُثَلَّث: the ث in the middle and at the end, Marwa 2026-11-05)
     $$('.qxc',row).forEach(x=>x.classList.add('show')); b.classList.add('right'); qxWin(b,q); }); row.append(b); });
   box.append(row);
 }
 function qxVowel(box,q,s,run){
-  const gs=qxLetters(q.word), at=q.at||0, wd=el('b','qxw'); const gap=el('span','qgap','_'); wd.append(gs.slice(0,at).join(''),gap,gs.slice(at+1).join('')); box.append(wd);
+  const at=q.at||0, wd=wsFill(el('b','qxw'),q.word,{hide:[at]}), gap=$('.lt.hid',wd); gap.classList.add('cur'); box.append(wd);   // THE word component (js/wordslots.js)
   const row=el('div','qxchoices');
-  (q.choices||s.choices).forEach(c=>{ const b=el('button','rb qbtn qlet',`<span>${c}</span>`); b.setAttribute('aria-label',c);
-    b.addEventListener('click',()=>{ if(qz.busy) return; if(c!==q.answer){ gap.textContent=c; gap.classList.add('bad'); clearTimeout(gap._t); gap._t=setTimeout(()=>{ gap.textContent='_'; gap.classList.remove('bad'); },650); return qxBad(b); }
-      b.classList.add('on'); gap.classList.remove('bad'); gap.textContent=gs[at]; gap.classList.add('got'); qxWin(b,q); }); row.append(b); });
+  (q.choices||s.choices).forEach(c=>{ const b=qChBtn(c);   // THE choice button (quiz.js qChBtn)
+    b.addEventListener('click',()=>{ if(qz.busy) return; if(c!==q.answer){ wsBad(gap); return qxBad(b); }
+      b.classList.add('on'); gap.classList.remove('bad','hid','cur'); gap.classList.add('got'); qxWin(b,q); }); row.append(b); });
   box.append(row);
 }
 // the word (or sentence) as hidden letters with their places underlined; spaces are not letters
-function qxWordEl(word,chips,faint,ltr){ const b=el('b','qxw'); if(ltr) b.dir='ltr';   /* an English word: left to right inside any subject */ const gs=glyphs(word); b.style.setProperty('--n',gs.length);
-  const cnt=(chips||[]).map(c=>glyphs(c).length), ok=cnt.length>1&&cnt.reduce((a,c)=>a+c,0)===gs.length;   // a box per syllable when the chips match the word
-  if(ok){ let k=0; cnt.forEach(n=>{ const sg=el('span','qxseg'); gs.slice(k,k+n).forEach(g=>sg.append(el('span','lt hid'+(faint?' fnt':''),g))); k+=n; b.append(sg); }); }
-  else gs.forEach(g=>b.append(el('span',g===' '?'sp':'lt hid'+(faint?' fnt':''),g===' '?' ':g)));
-  return b; }
+function qxWordEl(word,chips,faint,ltr){ const gs=glyphs(word);   // THE word component (js/wordslots.js); ltr: an English word inside any subject
+  const cnt=(chips||[]).map(c=>glyphs(c).length), ok=cnt.length>1&&cnt.reduce((a,c)=>a+c,0)===gs.length;   // grouped per syllable when the chips match the word
+  let k=0; const parts=ok?cnt.map(n=>gs.slice(k,k+=n).join('')):null;
+  return wsFill(el('b','qxw'),word,{hide:true,faint,parts,ltr}); }
 // Help: the next syllable (or letter) shows faintly for a moment, then is hidden again: the child writes it
-function qxPeek(wd){ const n=qxNext(wd); if(!n) return; const sg=n.closest('.qxseg'), L=sg?$$('.lt.hid',sg):[n]; L.forEach(x=>x.classList.add('peek')); setTimeout(()=>L.forEach(x=>x.classList.remove('peek')),tokMs('--help-letter-ms',1500)); }
+function qxPeek(wd){ const n=qxNext(wd); if(!n) return; const sg=n.closest('.wsg'); wsPeek(sg?$$('.lt.hid',sg):[n]); }
 function qxNext(wd){ return $('.lt.hid',wd); }
 function qxReveal(wd){ const n=qxNext(wd); if(!n) return false; n.classList.remove('hid'); n.classList.add('got'); return true; }
 const qxDone=wd=>!qxNext(wd);
@@ -1413,11 +1551,11 @@ function qxWrite(box,q,s,run,text,onDone){   // text: what to type (default the 
   const line=el('div','qxline'); line.append(wd); const duo=$('.qxduo',box); (duo||box).append(line); qHelpHost(help);   // duo: number and its word side by side
   let inp=$('#qxin');
   if(!inp){ inp=el('input','qin'); Object.assign(inp,{type:'text',id:'qxin',autocomplete:'off',spellcheck:false,lang:s.lang||'ar'}); ['autocorrect','autocapitalize'].forEach(a=>inp.setAttribute(a,'off')); inp.setAttribute('enterkeyhint','done'); inp.setAttribute('aria-label','Type the word'); }
-  line.append(inp); if(/^\d+$/.test(text)){ inp.setAttribute('inputmode','numeric'); inp.lang='en'; } else inp.removeAttribute('inputmode');
+  line.append(inp); wsInput(inp,text,/^\d+$/.test(text)?'en':(s.lang||null));   // keyboard language from the word (js/wordslots.js)
   const cur=()=>{ $$('.lt',wd).forEach(x=>x.classList.remove('cur')); const n=qxNext(wd); if(n) n.classList.add('cur'); }; cur();
   const type=ch=>{ if(qz.busy||qz.list[qz.i]!==q||!ch||/\s/.test(ch)) return; const n=qxNext(wd); if(!n) return;
     if(sameLetter(ch,n.textContent)){ qxReveal(wd); blip(560+$$('.lt.got',wd).length*40,.05); cur(); if(qxDone(wd)){ if(onDone) onDone(wd); else qxWin(wd,q,1700); } }
-    else { n.classList.add('bad'); setTimeout(()=>n.classList.remove('bad'),500); qxBad(line); } };
+    else { wsBad(n); qxBad(line); } };
   qxWrite.type=type;   // a key pressed anywhere on the page types too (no click into the box first)
   inp.oninput=()=>{ const ch=inp.value.replace(/\s/g,'').slice(-1); inp.value=''; type(ch); };
   inp.onfocus=()=>line.classList.add('focus'); inp.onblur=()=>line.classList.remove('focus');
@@ -1496,25 +1634,48 @@ async function qxQAPlay(q,run){
   return qAdvance(run,900);
 }
 
-// qa "together": every question (red) and its answer (blue) of the exercise on ONE page, a small listen icon beside each pair,
-// and two buttons: listen to all in turn / stop. Done when every pair was heard.
+// qa "together" (Marwa 2026-11-05, RULES.md "Q&A slides"): the pairs are SLIDES like the listening lesson's segment slides (the same book card:
+// picture in its frame, the question and its answer on the light panel over its bottom edge). One slide per pair, the same slide-in / picture fade,
+// the text reads by itself (question then answer) and goes on to the next slide; no speaker beside a line. Any tap or a slide change by the child
+// stops the sound (a tap on a line reads that line). The side button = Listen (from this slide on) / Stop. Swipe = the shared pager (book.js, q.sl).
 function qxQAAll(box,q,s,run){
-  const wrap=el('div','qaall'+(q.items.length>3?' many':'')); box.classList.add('qa-together'); const heard={}; let tok=0;
-  const rows=q.items.map((it,i)=>{ const r=el('div','qarow');
-    const mk=(cls,txt,src)=>{ const ln=el('div','qaline'), b=el('button',cls,txt), sp=el('button','qsay qarsay',SAY_LN); sp.setAttribute('aria-label','Listen'); ln.append(b,sp); return {ln,b,sp,src,txt}; };
-    const a=mk('qxqq',it.ask,it.audio), b=mk('qxqa-a',it.word,R_Q(it.ansAudio)), t=el('div','qartxt'); t.append(a.ln,b.ln);
-    if(it.pic) r.append(el('div','qarpic',`<img src="${it.pic}" alt="">`));
-    r.append(t); wrap.append(r); return {r,a,b}; });
-  const mark=(i,k)=>{ heard[i+k]=1; if(Object.keys(heard).length===rows.length*2&&!qz.busy&&qz.list[qz.i]===q){ qz.busy=true; qAdvance(run,1200); } };
-  const clear=()=>rows.forEach(y=>y.r.classList.remove('on'));
-  const one=async(i,k,t)=>{ const x=rows[i], l=k==='a'?x.a:x.b; x.r.classList.add('on'); await qxQALine(l.b,l.src,l.txt); x.r.classList.remove('on'); if(t===tok) mark(i,k); return t===tok; };
-  rows.forEach((x,i)=>{ [['a',x.a],['b',x.b]].forEach(([k,l])=>{ const go=()=>{ if(qz.list[qz.i]!==q) return; clear(); one(i,k,++tok); }; l.sp.onclick=go; l.b.onclick=go; }); });
-  const stopAll=()=>{ ++tok; vStop(); clear(); $$('.qxqq,.qxqa-a',wrap).forEach(y=>y.classList.remove('lit')); };
-  const sideBtn=()=>{ if(!wrap.isConnected) return; const on=!!$('.qxqq.lit,.qxqa-a.lit',wrap);   // ONE button on the side: Listen while quiet, Stop while it reads (like the lesson reading)
-    setRail([on?{kind:'stop',icon:'stop',label:tr('Stop'),click:()=>{ stopAll(); sideBtn(); }}:{kind:'go',icon:'play',label:tr('Listen'),click:async()=>{ const t=++tok; clear(); sideBtn(); for(let i=0;i<rows.length;i++){ for(const k of ['a','b']){ if(t!==tok||qz.list[qz.i]!==q) return; if(!(await one(i,k,t))) return; await new Promise(r=>setTimeout(r,k==='a'?300:500)); } } sideBtn(); }}]); };
-  $('#lesson').classList.add('qrail');
-  new MutationObserver(sideBtn).observe(wrap,{subtree:true,attributes:true,attributeFilter:['class']});
-  box.append(wrap); sideBtn();
+  box.classList.add('qa-slides'); let tok=0, i=0, playing=false, lines=[];
+  const scene=el('div','scene story point slide qasl'), fig=el('div','pfig'), card=el('div','scard'), pbox=el('div','pbox'), img=el('img'), note=el('div','note');
+  const badge=el('span','sbadge');
+  img.alt=''; img.draggable=false; pbox.append(img); card.append(pbox,note,badge); fig.append(card); scene.append(fig); box.append(scene);
+  // one card size for every slide (the pictures differ in shape): the picture sits whole inside the frame
+  preloadImgs(q.items.map(it=>it.pic).filter(Boolean));
+  const live=()=>scene.isConnected&&qz.list[qz.i]===q&&run===qz.run&&inQ();
+  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+  const paint=()=>{ if(!scene.isConnected) return; setRail([playing?{kind:'stop',icon:'stop',label:tr('Stop'),click:stop}:{kind:'go',icon:'play',label:tr('Listen'),click:()=>play()}]); };
+  const one=async(w,src,t,k)=>{ w.classList.add('reading'); playing=true; paint(); await qSound(src,t); w.classList.remove('reading'); return k===tok&&live(); };
+  function stop(){ ++tok; vStop(); playing=false; $$('.w.reading',note).forEach(x=>x.classList.remove('reading')); paint(); }
+  const text=k=>{ const it=q.items[k], inn=el('div','in'), ul=el('ul','lines');
+    lines=[[it.ask,it.audio,'qa-q'],[it.word,R_Q(it.ansAudio),'qa-a']].map(([t,src,c])=>{ const li=el('li','line '+c), tx=el('span','txt'), w=el('span','w',t); tx.append(w); li.append(tx); ul.append(li);
+      li.addEventListener('click',ev=>{ ev.stopPropagation(); stop(); const k=tok; one(w,src,t,k).then(()=>{ if(k===tok){ playing=false; paint(); } }); }); return {w,src,t}; });
+    inn.append(ul); return inn; };
+  // the words are as big as the panel allows: shrink only when a slide would not fit (as fitStory)
+  let fsK='', fsV=0;   // ONE size for every slide: the biggest at which all of them fit
+  const fit=()=>{ const inn=$('.in:last-child',note); if(!inn||!note.clientHeight) return; const k=note.clientWidth+'x'+note.clientHeight;
+    if(k!==fsK){ inn.style.fontSize=''; let fs=parseFloat(getComputedStyle(inn).fontSize); const keep=lines;
+      q.items.forEach((_,j)=>{ const t=text(j); t.style.visibility='hidden'; t.style.fontSize=fs+'px'; note.append(t); for(let n=0;n<60&&t.scrollHeight>t.clientHeight+1&&fs>11;n++){ fs-=.5; t.style.fontSize=fs+'px'; } t.remove(); });
+      lines=keep; fsK=k; fsV=fs; }
+    $$('.in',note).forEach(x=>x.style.fontSize=fsV+'px'); };
+  new ResizeObserver(fit).observe(card);
+  function show(k,d){ i=k; badge.textContent=num(k+1); const old=$('.in',note), nin=text(k), u=q.items[k].pic; note.append(nin); fit();
+    if(anim&&d){ G.killTweensOf([old,nin]); G.fromTo(nin,{x:d*60,opacity:0},{x:0,opacity:1,duration:.32,ease:'power2.out',clearProps:'transform,opacity'});
+      if(old) G.to(old,{x:-d*60,opacity:0,duration:.28,ease:'power2.in',onComplete:()=>old.remove()}); } else if(old) old.remove();
+    if(u&&img.dataset.u!==u){ img.dataset.u=u; if(anim&&d){ G.killTweensOf(pbox); G.timeline().to(pbox,{opacity:0,duration:.22,ease:'power1.in'}).call(()=>{ img.src=u; }).to(pbox,{opacity:1,duration:.3,ease:'power1.out',clearProps:'opacity'}); } else img.src=u; }
+    lnavPaint(); }
+  // from this slide on to the end: question, short pause, answer, then the next slide; after the last one the exercise is done
+  async function play(){ const k0=++tok; vStop();
+    for(;;){ const [a,b]=lines; if(!(await one(a.w,a.src,a.t,k0))) return; await sleep(350); if(k0!==tok||!live()) return;
+      if(!(await one(b.w,b.src,b.t,k0))) return; await sleep(700); if(k0!==tok||!live()) return;
+      if(i+1<q.items.length) show(i+1,1); else break; await sleep(450); if(k0!==tok||!live()) return; }
+    playing=false; paint(); if(qz.busy) return; qz.busy=true; q.solved=true; return qAdvance(run,900); }
+  q.sl={live,i:()=>i,n:q.items.length,go:d=>{ stop(); show(i+d,d); }};   // the shared pager's model (book.js lnavModel): the child's swipe moves the slides first
+  scene.addEventListener('click',()=>{ if(playing) stop(); });
+  $('#lesson').classList.add('qrail'); show(0,0); paint(); box._after=()=>play();
 }
 
 // a computer keyboard writes at once: a key pressed while no box has focus goes into the writing box on screen (letters questions and the vocabulary Write), no click needed
@@ -1605,7 +1766,8 @@ function qxFace(box,q,s,run){
   let done=false, fx=0,fy=0,fw=0,fh=0; const put=p=>{ p.e.style.transform=`translate(${p.x}px,${p.y}px)`; };
   const say=p=>p.t.audio?qSound(R_Q(p.t.audio),p.t.word||''):null;
   const layout=()=>{ const W=bd.clientWidth,H=bd.clientHeight; if(!W||!H||!fi.naturalWidth||done) return;
-    const ar=fi.naturalWidth/fi.naturalHeight; fh=H*.96; fw=fh*ar; if(fw>W*.62){ fw=W*.62; fh=fw/ar; } fx=W*.01; fy=(H-fh)/2;
+    const ar=fi.naturalWidth/fi.naturalHeight; const sy=$('.qxsay',box), sw=sy&&!sy.hidden&&sy.offsetParent?sy.offsetWidth+6:0;   // the face starts right of the Listen speaker, never under it
+    fh=H*.96; fw=fh*ar; if(fw>W*.62-sw){ fw=W*.62-sw; fh=fw/ar; } fx=Math.max(W*.01,sw); fy=(H-fh)/2;
     Object.assign(fi.style,{left:fx+'px',top:fy+'px',width:fw+'px',height:fh+'px'});
     const trX=fx+fw+W*.03, trW=Math.max(20,W-trX), n=P.length;
     P.forEach((p,k)=>{ const nw=p.e.naturalWidth||1, nh=p.e.naturalHeight||1; p.w=p.t.w/100*fw; p.h=p.w*nh/nw; p.e.style.width=p.w+'px'; p.e.style.height=p.h+'px';
@@ -1642,16 +1804,7 @@ QM.mad={sheet:'box', draw:qxMad, help:(q,w)=>{ const k=$$('.qxslot',w).findIndex
 QM.arrange={sheet:'box', draw:qxArrange, help:(q,w)=>{ const n=$('.qxw .lt.hid',w); return n?$$('.qxtile:not(.used)',w).filter(b=>sameLetter(b.dataset.g,n.textContent)).slice(0,1):[]; }};
 QM.qa={sheet:'box', bulb:0, draw:qxQA};
 
-/* RULE: while the phone keyboard is open, the word being written (the line with its chips) is lifted above the keyboard, into the empty space above it */
-function qxKeep(){ const bx=$('.qx-write'), line=bx&&$('.qxline',bx), vv=window.visualViewport; if(!bx||!line||!vv) return;
-  bx.style.translate=''; const open=document.activeElement&&document.activeElement.id==='qxin'&&innerHeight-vv.height>120;
-  if(!open) return;
-  const r=line.getBoundingClientRect(), b=bx.getBoundingClientRect(), pad=Math.max(110,vv.height*.14), over=r.bottom+pad-(vv.offsetTop+vv.height);
-  const room=Math.max(0,b.top-(vv.offsetTop+Math.min(150,vv.height*.2)));   // never up into the title
-  if(over>0) bx.style.translate='0 '+(-Math.min(over,room))+'px'; }
-if(window.visualViewport){ ['resize','scroll'].forEach(e=>visualViewport.addEventListener(e,()=>{ if(inQ()) qxKeep(); })); }
-document.addEventListener('focusin',e=>{ if(e.target&&e.target.id==='qxin') [50,300,600].forEach(t=>setTimeout(qxKeep,t)); });
-document.addEventListener('focusout',e=>{ if(e.target&&e.target.id==='qxin'){ const bx=$('.qx-write'); if(bx) bx.style.translate=''; } });
+/* RULE: while the phone keyboard is open the word stays above it, and the Help bulb moves beside the word: shared, js/wordslots.js (wsKeep) */
 ;
 /* ===== js/quiz-al.js ===== */
 /* ENGLISH AL — box models for the Lesson tab (the book's pages, one after another) and the Booklet tab (QM in quiz.js, drawn through qxGo; same sheet, stars and arrows). They read themselves (own:1).
@@ -1661,14 +1814,7 @@ document.addEventListener('focusout',e=>{ if(e.target&&e.target.id==='qxin'){ co
    mcq     = a sentence (or a picture) with a blank "____" and 2-4 options: item {stem, options:[..], answer:index, word: the solved sentence, audio: solved sentence, parts:[before,after] (audio of the stem read as a question), pic?}
    cloze   = a text with blanks [[answer]] and a word bank: item {text, bank:[..], audio: whole text read once solved}
    order   = words / chunks as tiles, tap them in the right order: item {chunks:[..in order..], end:".", audio} */
-const alSlug=t=>String(t).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,60).replace(/-+$/,'');
-const alClean=w=>String(w).replace(/^[^A-Za-z0-9']+|[^A-Za-z0-9']+$/g,'');
-const alWordSrc=w=>`data/en-shared/q/${alSlug(alClean(w))}.mp3`;
-// text -> tappable words (a tap reads that word alone: the child is learning to read)
-function alToks(host,text,onTap){
-  String(text).split(/\s+/).filter(Boolean).forEach((w,k)=>{ const sp=el('span','alw',w); sp.addEventListener('click',e=>{ e.stopPropagation(); if(qz.busy&&!onTap) return; hideHint(); vStop(); sp.classList.add('lit'); qSound(alWordSrc(w),alClean(w)).then(()=>sp.classList.remove('lit')); if(onTap) onTap(w); });
-    host.append(k?' ':'',sp); });
-}
+// alSlug / alClean / alWordSrc / alToks (tappable words) are SHARED: js/quiz.js (qToks)
 const alStar=()=>{ const d=$(`.qdots i[data-i="${qz.i}"]`); if(d&&d.classList.contains('got')) return carFrac((qz.i+1)/qz.list.length); qStar(); };
 const alNextGo=()=>{ if(qz.i+1<qz.list.length) qGo(qz.i+1); else award(LESSON.id,qKey()); };
 
@@ -1731,15 +1877,15 @@ function alMcq(box,q,s,run){
   const st=el('div','alstem'); w.append(st); let blank=null;
   const sp=el('button','qsay alsp',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>{ if(!qz.busy) q.sayFn(); };
   if(q.ask){ const a=el('p','alask',''); alToks(a,q.ask); st.append(a); }
-  st.append(sp);
   const p=el('p','altx'); st.append(p);
   const word=(t,k)=>{ const sp=el('span','alw',t); sp.addEventListener('click',()=>{ hideHint(); vStop(); sp.classList.add('lit'); qSound(alWordSrc(t),alClean(t)).then(()=>sp.classList.remove('lit')); }); p.append(k?' ':'',sp); };
   String(q.stem).split(/\s+/).filter(Boolean).forEach((t,k)=>{ const m=/^([^_]*)_{2,}([^_]*)$/.exec(t);
     if(m&&!blank){ blank=el('button','alblank','<i></i>'); if(k) p.append(' '); if(m[1]) p.append(m[1]); p.append(blank); if(m[2]) p.append(m[2]); blank.addEventListener('click',()=>q.sayFn&&q.sayFn()); }
     else word(t,k); });
+  p.append(' ',sp);   // the small speaker straight AFTER the question text (reads the question only, never the answer)
   const say=q.optSay||q.options;
   const ops=el('div','alopts'+(q.options.some(o=>o.length>14)?' long':'')); w.append(ops);
-  q.options.forEach((o,k)=>{ const b=el('button','alopt','<span></span>'); $('span',b).textContent=o; b.dataset.k=k;
+  q.options.forEach((o,k)=>{ const b=el('button','alopt qch'+(qWords(q.options)?' wd':''),'<span></span>'); $('span',b).textContent=o; b.dataset.k=k;   // THE choice look (css/qlayout.css)
     b.addEventListener('click',async()=>{ if(qz.busy||q.solved) return; hideHint();
       if(k!==q.answer){ qxBad(b); b.classList.add('bad'); setTimeout(()=>b.classList.remove('bad'),700); qSound(alWordSrc(say[k]),say[k]); return; }
       if(blank){ blank.classList.add('got'); blank.innerHTML=''; blank.textContent=o; }
@@ -1747,18 +1893,18 @@ function alMcq(box,q,s,run){
     ops.append(b); });
   q.sayFn=async()=>{ vStop(); const ps=(q.parts||[]).map(R_Q); if(q.askAudio&&!q.solved) return qSound(R_Q(q.askAudio),q.stem);   // the question; once solved, audio = the sentence WITH its answer
     if(!ps.length) return qSound(q.audio,q.word); for(let i=0;i<ps.length;i++){ if(qz.list[qz.i]!==q||q.solved) return; await qSound(ps[i],''); if(i<ps.length-1) await new Promise(z=>setTimeout(z,350)); } };
-  box._after=()=>q.sayFn();
+  box._after=()=>{ if(q.autoSay) return q.sayFn(); };   // the question is read only when the child taps the speaker
 }
 
-/* the passage reads itself when the question opens (whole text, no title, no gap); the small speaker AFTER the text reads it again (tap while playing = stop).
+/* the passage is NOT read by itself (the child reads it, Marwa 2026-11-04); the small speaker AFTER the text reads it (tap while playing = stop).
    Any tap elsewhere, a slide change or a question change stops it, so two sounds never overlap. Used by cloze and underline. */
 function alReplay(box,txt,q){
   const rp=el('button','qsay alsp alreplay',SAY_LN); rp.setAttribute('aria-label','Listen'); txt.append(' ',rp); let pt=0;
   const stopP=()=>{ pt++; vStop(); rp.classList.remove('on'); };
-  const playP=async()=>{ stopP(); const my=pt; rp.classList.add('on'); await qSound(q.audio,''); if(my===pt) rp.classList.remove('on'); };
+  const playP=async()=>{ stopP(); const my=pt; rp.classList.add('on'); await qSound(!q.solved&&q.askAudio?R_Q(q.askAudio):q.audio,''); if(my===pt) rp.classList.remove('on'); };   // unsolved cloze: askAudio = the passage with a pause at each blank (never the answers; tools/lessons/cloze_ask_audio.py)
   rp.addEventListener('click',e=>{ e.stopPropagation(); hideHint(); rp.classList.contains('on')?stopP():playP(); });
   box.addEventListener('pointerdown',e=>{ if(rp.classList.contains('on')&&!e.target.closest('.alreplay')) stopP(); },true);
-  box._after=()=>playP();
+  box._after=()=>{ if(q.autoSay) playP(); };   // the passage is the question: the child reads it; the small speaker after it helps
 }
 
 /* ---------- cloze ---------- */
@@ -1769,9 +1915,10 @@ function alCloze(box,q,s,run){
   let n=0; sentences.forEach(seg=>{ const m=/^\[\[(.+?)\]\]$/.exec(seg);
     if(m){ ans.push(m[1]); const b=el('button','alblank',`<small>(${++n})</small><i></i>`); b.dataset.n=n-1; txt.append(b); }
     else seg.split(/(\s+)/).forEach(t=>{ if(!t) return; if(/^\s+$/.test(t)) return txt.append(' '); const sp=el('span','alw',t); sp.addEventListener('click',()=>{ hideHint(); vStop(); sp.classList.add('lit'); qSound(alWordSrc(t),alClean(t)).then(()=>sp.classList.remove('lit')); }); txt.append(sp); }); });
-  const bank=el('div','albank'); w.prepend(bank); let cur=0; const blanks=$$('.alblank',txt);
+  const bank=el('div','albank'); const one=ans.length===1&&String(q.text).replace(/\[\[|\]\]/g,'').length<=90;   // Marwa 2026-11-04: ONLY a passage keeps the word choices pinned on top (text slides under them)
+  if(one){ w.classList.add('one'); $$('.alblank small',txt).forEach(x=>x.remove()); w.append(bank); } else w.prepend(bank); let cur=0; const blanks=$$('.alblank',txt);
   const mark=()=>{ blanks.forEach((b,k)=>b.classList.toggle('cur',k===cur)); };
-  q.bank.forEach((o,bk)=>{ const sy=(q.bankSay||q.bank)[bk]; const b=el('button','alopt alchip',''); b.textContent=o; bank.append(b);
+  q.bank.forEach((o,bk)=>{ const sy=(q.bankSay||q.bank)[bk]; const b=el('button','alopt alchip qch'+(qWords(q.bank)?' wd':''),''); b.textContent=o; bank.append(b);
     b.addEventListener('click',async()=>{ if(qz.busy||q.solved||b.classList.contains('used')) return; hideHint();
       if(o.toLowerCase()!==String(ans[cur]).toLowerCase()){ qxBad(b); b.classList.add('bad'); setTimeout(()=>b.classList.remove('bad'),700); qSound(alWordSrc(sy),sy); return; }
       const bl=blanks[cur]; bl.classList.add('got'); bl.innerHTML=''; bl.textContent=ans[cur]; if(!q.reuse) b.classList.add('used'); celebrate(bl); qSound(alWordSrc(sy),sy); cur++; mark();
@@ -1899,7 +2046,7 @@ function mBond(box,q,s,run){
   const parts=q.parts, miss=q.whole==null?-1:parts.findIndex(v=>v==null), ans=miss<0?parts[0]+parts[1]:q.whole-parts[1-miss];
   q.word=q.word||`${mW(miss===0?ans:parts[0])} and ${mW(miss===1?ans:parts[1])} make ${mW(q.whole==null?ans:q.whole)}`;
   q.ask=`${miss===0?'what':mW(parts[0])} and ${miss===1?'what':mW(parts[1])} make ${q.whole==null?'what':mW(q.whole)}`;   // the question never says its own answer
-  const t=el('div','qmbond'); t.innerHTML=`<svg viewBox="0 0 100 60" preserveAspectRatio="none"><path d="M50 20 L22 44 M50 20 L78 44"/></svg>`;
+  const t=el('div','qmbond'+(/\bbox/i.test(s.task||'')?' box':'')); t.innerHTML=`<svg viewBox="0 0 100 60" preserveAspectRatio="none"><path d="M50 20 L22 44 M50 20 L78 44"/></svg>`;
   const mk=(cls,v)=>{ const c=el('div','qmb '+cls+(v==null?' gap cur':''),`<b>${v==null?'':v}</b>`); t.append(c); return c; };
   const top=mk('top',q.whole), a=mk('l',parts[0]), b=mk('r',parts[1]), target=q.whole==null?top:miss===0?a:b;
   box.append(t);
@@ -1908,9 +2055,10 @@ function mBond(box,q,s,run){
   mPad(box,(q.options?mShuffle(q.options):mKeys(q.max||10)),(v)=>{ if(v!==ans) return false; $('b',target).textContent=v; target.classList.remove('cur','gap'); target.classList.add('got'); qxWin(t,q,1600); return true; });
 }
 function mBigger(box,q,s,run){
-  const want=q.find==='smaller'?Math.min(...q.nums):Math.max(...q.nums); q.word=q.word||q.find||'bigger';
-  const row=el('div','qmbig'); q.nums.forEach(n=>{ const b=el('button','qmbn',`<b>${n}</b>${q.dots?`<img src="${mDots(n)}" alt="">`:''}`); b.setAttribute('aria-label',String(n));
-    b.addEventListener('click',()=>{ if(qz.busy) return; if(n!==want) return qxBad(b); b.classList.add('got'); $$('.qmbn',row).forEach(x=>x!==b&&x.classList.add('dim')); qRing(b); qxWin(b,q,1600); }); row.append(b); });
+  // THE choice buttons (quiz.js qChBtn) in the usual choices row; no speaker before the answer (it would say the answer), the Help bulb lights the right one (Marwa 2026-11-04)
+  const want=q.find==='smaller'?Math.min(...q.nums):Math.max(...q.nums); q.word=q.word||q.find||'bigger'; q.hush=1;
+  const row=el('div','qxchoices qmbig'); q.nums.forEach(n=>{ const b=qChBtn(n); b.dataset.v=n; if(q.dots){ const d=el('span','qmbdots',`<img src="${mDots(n)}" alt="">`); const c=el('div','qmbcol'); c.append(b,d); row.append(c); } else row.append(b);
+    b.addEventListener('click',()=>{ if(qz.busy) return; if(n!==want) return qxBad(b); b.classList.add('on'); $$('.qch',row).forEach(x=>x!==b&&x.classList.add('dim')); if(qCircleTask(s)) qRing(b); qxWin(b,q,1600); }); });
   box.append(row);
 }
 function mCount(box,q,s,run){
@@ -1922,6 +2070,8 @@ function mCount(box,q,s,run){
     qxWrite(box,q,s,run,String(n),s.both?(()=>{ q.word=mW(n); $$('.qxpre',box).forEach(x=>x.remove()); qxWrite(box,q,s,run,mW(n)); }):null); return; }
   mPad(box,(q.options?mShuffle(q.options):mKeys(q.max||Math.max(10,n))),(v)=>{ if(v!==n) return false; qxWin(grid,q,1600); return true; });
 }
+// an addition sentence written the other way round is right too: "3 + 4 = 7" -> "4 + 3 = 7" when the child starts with the second number (subtraction keeps its order)
+const mSwapSum=(w,k)=>{ const m=String(w).match(/^(\d+) \+ (\d+) = (\d+)$/); return m&&m[1]!==m[2]&&k===m[2][0]&&k!==m[1][0]?`${m[2]} + ${m[1]} = ${m[3]}`:null; };
 function mWrite(box,q,s,run){
   const w=el('div','almcq mwrite'+(q.pics?' haspic':'')); box.append(w);
   if(q.pics){ const pc=el('div','alpics'); q.pics.forEach((p,k)=>{ const f=el('div','alfig'); const im=el('img','',''); im.src=p; im.alt=''; qPicFit(im,(q.picsTall||[])[k]); f.append(im); pc.append(f); }); w.append(pc); }
@@ -1929,19 +2079,20 @@ function mWrite(box,q,s,run){
   const sp=el('button','qsay alsp',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>{ if(!qz.busy) q.sayFn(); };
   if(q.ask){ const a=el('p','alask',''); alToks(a,q.ask); a.append(' ',sp); st.append(a); } else st.append(sp);   // the listen icon at the end of the story (no line of its own)
   const line=el('div','qxline mwline'); if(q.lead) line.append(el('span','mwlead',q.lead));
-  const wd=qxWordEl(q.word,null,false,true); line.append(wd); if(q.tail) line.append(el('span','mwcard',q.tail)); st.append(line);
+  let wd=qxWordEl(q.word,null,false,true); line.append(wd); if(q.tail) line.append(el('span','mwcard',q.tail)); st.append(line);
   const cur=()=>{ $$('.lt',wd).forEach(x=>x.classList.remove('cur')); const n=qxNext(wd); if(n) n.classList.add('cur'); }; cur();
   const pad=el('div','qmpad mwkeys'); w.append(pad);
   [...(q.keys||s.keys||'1234567890')].forEach(k=>{ const b=el('button','rb qbtn qlet qmn',`<span>${k}</span>`); b.dataset.v=k; b.setAttribute('aria-label',k==='−'?'minus':k==='+'?'plus':k==='='?'equals':k);
-    b.addEventListener('click',()=>{ if(qz.busy||q.solved||qz.list[qz.i]!==q) return; hideHint(); const n=qxNext(wd); if(!n) return;
+    b.addEventListener('click',()=>{ if(qz.busy||q.solved||qz.list[qz.i]!==q) return; hideHint(); let n=qxNext(wd); if(!n) return;
+      if(k!==n.textContent&&!$$('.lt.got',wd).length){ const sw=mSwapSum(q.word,k); if(sw){ q.word=sw; const nw=qxWordEl(sw,null,false,true); wd.replaceWith(nw); wd=nw; n=qxNext(wd); } }   // addition in either order is right: 4 + 3 = 7 as well as 3 + 4 = 7 (Marwa 2026-11-05)
       if(k===n.textContent){ qxReveal(wd); blip(560+$$('.lt.got',wd).length*40,.05); cur(); if(qxDone(wd)) qxWin(wd,q,1700); }
-      else { n.classList.add('bad'); setTimeout(()=>n.classList.remove('bad'),500); qxBad(line); } }); pad.append(b); });
+      else { wsBad(n); qxBad(line); } }); pad.append(b); });
   q.sayFn=async()=>{ vStop(); if(q.askAudio&&!q.solved) return qSound(R_Q(q.askAudio),q.ask||''); return qSound(q.audio,q.word); };
-  box._after=()=>q.sayFn();
+  box._after=()=>{ if(q.autoSay) return q.sayFn(); };
 }
 QM.numline={sheet:'box', bulb:0, draw:mNumline};
 QM.bond={sheet:'box', bulb:0, draw:mBond};
-QM.bigger={sheet:'box', bulb:0, draw:mBigger};
+QM.bigger={sheet:'box', draw:mBigger, help:(q,w)=>{ const v=q.find==='smaller'?Math.min(...q.nums):Math.max(...q.nums); return $$('.qmbig .qch',w).filter(b=>+b.dataset.v===v); }};
 QM.count={sheet:'box', bulb:0, draw:mCount};
 QM.mwrite={sheet:'box', own:1, draw:mWrite, help:(q,w)=>{ const n=qxNext($('.mwline .qxw',w)); return n?$$('.mwkeys .qmn',w).filter(b=>b.dataset.v===n.textContent):[]; }};
 ;
@@ -1965,7 +2116,7 @@ function showMathLine(){
   const L=LESSON.math.line, h=mxHeard(); stage.innerHTML=''; mx.run++;
   const scene=el('div','scene pics mx'), box=el('div','mxline'); const bind=(b,r,mark)=>{ b.addEventListener('click',e=>{ if(e.isTrusted) mx.all++; if(mark!=null) mxMark(mark,b); mxSay(r,b); }); return b; };
   const end=(c,o)=>bind(el('button','mxend '+c,`<img src="${o.img}" alt=""><b>${o.word}</b>`),o);
-  const stones=el('div','mxstones'); L.rows.forEach((r,i)=>{ const b=bind(el('button','mxstone'+(h[i]?' heard':''),`<b>${r.n}</b>`),r,i); b.style.background=MX_STONE[i]; b.setAttribute('aria-label',r.word); stones.append(b); });
+  const stones=el('div','mxstones'); L.rows.forEach((r,i)=>{ const b=bind(el('button','mxstone'+(h[i]?' heard':''),`<b>${r.n}</b>`),r,i); b.style.background=MX_STONE[i]; b.style.setProperty('--k',i+1);   /* the stones grow from 1 to 10 (small -> big) */ b.setAttribute('aria-label',r.word); stones.append(b); });
   const cap=bind(el('button','mxcap',`<span>${L.text}</span><i class="mxsay">${SAY_LN}</i>`),{audio:L.textAudio});
   box.append(end('sm',L.small),stones,end('bg',L.big),cap); scene.append(box); stage.append(scene); carFrac(Object.keys(h).length/L.rows.length);
   setRail([{kind:'go',icon:'play',label:tr('Listen'),click:()=>mxSeq($$('.mxstone'))},...mxTool()]);
@@ -1988,7 +2139,7 @@ function showMathExplain(){
 async function mxSeq(els){ vStop(); const tok=++mx.all; for(const r of els){ if(tok!==mx.all) return; r.click(); await new Promise(x=>setTimeout(x,120)); while(tok===mx.all&&r.classList.contains('on')) await new Promise(x=>setTimeout(x,80)); await new Promise(x=>setTimeout(x,200)); } }
 const mxAll=()=>mxSeq($$('.mxgrid .mxrow'));
 
-const mxTool=()=>LESSON.tool?[{kind:'tool',icon:'arcs',label:'Tool',click:()=>toolOpen(LESSON.toolN)}]:[];
+const mxTool=()=>LESSON.tool?[{kind:'tool',icon:'arcs',label:toolName(LESSON.tool),click:()=>toolOpen(LESSON.toolN)}]:[];
 ;
 /* ===== js/book.js ===== */
 /* BOOK PAGES — jump to the part of the app that matches a page of the school book.
@@ -2037,7 +2188,8 @@ function lnavModel(){
     const pi=pg.findIndex(x=>x.n===cp), jump=i=>{ hideHint(); blip(600); qz.busy=false; qGo(i); };
     return {pages:pg.map(x=>({l:num(x.n),on:x.n===cp,go:()=>jump(x.i)})), secs:sec.length>1||(sec[0]&&pg.length>0)?sec.map(x=>({l:x.l,on:x.g===cg,go:()=>jump(x.i)})):[],
       pPrev:pi>0&&(()=>jump(pg[pi-1].i)), pNext:pi>=0&&pi<pg.length-1&&(()=>jump(pg[pi+1].i)),
-      sPrev:qSetStart(-1)>=0&&(()=>qSet(-1)), sNext:qSetStart(1)>=0&&(()=>qSet(1))};
+      sPrev:cur.sl&&cur.sl.live()&&cur.sl.i()>0?()=>cur.sl.go(-1):qSetStart(-1)>=0&&(()=>qSet(-1)),   // Q&A slides (quiz-letters.js qxQAAll): a swipe moves the slides first
+      sNext:cur.sl&&cur.sl.live()&&cur.sl.i()<cur.sl.n-1?()=>cur.sl.go(1):qSetStart(1)>=0&&(()=>qSet(1))};
   }
   if(tab==='read'&&nPages()>1){
     const m=SUBJECT.lessons.find(l=>l.id===LESSON.id), ps=LESSON.pageNums||(m&&m.pages&&[].concat(m.pages.read||[]))||[];
@@ -2154,7 +2306,7 @@ function bookSides(l,next){
   // exam papers (Tests): red signs on the Workbook side, after its pages (lesson "exams" in subject.json)
   const exs=(l.exams||[]).map(e=>tile(tr(e.label||'Test'),`<b class="jex">${ICON.exam}</b>`,`class="ex" data-ex="${e.id}" aria-label="${e.title||'Exam'}"`).replace('<button class="jpm" class="ex"','<button class="jpm ex"'));
   const rvs=(l.revs||[]).map(e=>tile(tr(e.label||'Test'),`<b class="jex">${ICON.exam}</b>`,`data-rev="${e.folder}" data-p="${e.page}" aria-label="${e.label||'Test'}"`).replace('class="jpm"','class="jpm ex rv"'));
-  const tls=(l.tools||[]).map(e=>tile(tr(e.label||'Tool'),`<b class="jex jtx">Tool</b>`,`data-tool="${e.id}" aria-label="${e.title||'Tool'}"`).replace('class="jpm"','class="jpm tl"'));
+  const tls=(l.tools||[]).map(e=>tile(tr(e.label||'Tool'),`<b class="jex jtx">${toolLabel(e.id)}</b>`,`data-tool="${e.id}" aria-label="${toolName(e.id)}"`).replace('class="jpm"','class="jpm tl"'));
   // the same in every subject: a side with nothing on it is left out (no "soon" sign)
   const bk=bookPages(l,next), more=[...rvs,...exs,...tls];
   return (bk.length?side('bkp',bk):'')+(wb.length||more.length?side('wb',wb,more):'');
@@ -2272,8 +2424,7 @@ async function openExam(lesson,ex){
 }
 function xPage(pg,pi,d){
   const p=el('article','xpage'); p.dataset.i=pi; X.pages.push(p); if(pg.fs) p.style.setProperty('--fs',pg.fs); if(pg.style) p.classList.add(...pg.style.split(' '));
-  const head=pg.head||d.head;
-  if(head) p.append(el('header','xtop',`<div class="xtl">${head.l||''}</div><i class="xwave"></i><div class="xtr">${head.r||''}</div>`));
+  // no school header on any paper (Marwa 2026-11-05): the paper starts at the test / model name; "head" in the data is not shown
   if(pg.title) p.append(el('h2','xmodel',`<span class="xs">${xArt('smilestars:1,1')}</span><b>${pg.title}</b><span class="xs b">${xArt('smilestars:1,1')}</span>`));
   const flow=el('div','xflow'); p.append(flow);
   let sec=null;
@@ -2367,7 +2518,7 @@ function xBlank(spec,Q){
   const show=rm?(rm[1]==='>'?+rm[2]+1:Math.max(0,+rm[2]-1)):ans.split('|')[0], max=Math.max(...alts.map(s=>s.length));
   const w=el('span','xbl '+flags.map(x=>'f-'+x).join(' ')), inp=el('input','xin'), gh=el('i','xgh',show);
   w.style.setProperty('--n',Math.max(2,String(show).length)); inp.type='text'; inp.autocomplete='off'; inp.autocapitalize='none'; inp.spellcheck=false; inp.setAttribute('aria-label','Answer');
-  if(/^\d+$|^[<>]\d+$/.test(ans)) inp.inputMode='numeric'; inp.dir=/[\u0600-\u06FF]/.test(ans)?'rtl':'ltr';
+  if(/^\d+$|^[<>]\d+$/.test(ans)) inp.inputMode='numeric'; inp.dir=/[\u0600-\u06FF]/.test(ans)?'rtl':'ltr'; inp.lang=wsLang(ans);
   w.append(inp,gh);
   const a={solved:false,el:w,help(){ if(a.solved) return null; w.classList.add('help'); return ()=>w.classList.remove('help'); }}; Q.atoms.push(a);
   let idle=0;
@@ -2472,6 +2623,11 @@ addEventListener('resize',()=>{ clearTimeout(xFit.t); xFit.t=setTimeout(xFit,120
    Today: "make-numbers" (Math). Subject.json: a lesson gets "tools":[{"id":"make-numbers","label":"Tool","title":"Make numbers"}] for the map marker,
    and a lesson gets "tool":"make-numbers","toolN":5 for the small arcs button beside Home/Map (opens the same slide over the lesson, X closes it).
    Sounds: data/tools/make-numbers/<one>-and-<four>-make-<five>.mp3 (both orders). */
+/* ONE tool gear everywhere (map road, map grid, lesson rail, question header): the gear picture with the tool's OWN name inside, never the word "Tool".
+   TOOLS is the one list of tools: a new tool = one line here (+ its popup). toolLabel(id) gives the name inside the gear (css/tool.css .tgn). */
+const TOOLS={'make-numbers':{name:'Make numbers'}};
+const toolName=id=>(TOOLS[id]||{}).name||'Tool';
+function toolLabel(id){ return `<span class="tgn">${toolName(id).split(' ').join('<br>')}</span>`; }
 const TW='zero one two three four five six seven eight nine ten'.split(), TCOL=['#E0412C','#2A7FD8','#2FA8A0','#D8396B','#F08A2C','#2A7FD8','#3FA34D','#8A5CC9','#E0412C','#2FA8A0','#2A7FD8'];
 document.addEventListener('click',e=>{ if(e.target.closest('.qtool')) toolOpen(LESSON&&LESSON.toolN); });
 const ARC=['#E0412C','#2A7FD8','#3FA34D','#F2B01E','#8A5CC9','#D8396B'];
@@ -2482,7 +2638,7 @@ function arcAdd(svg,a,b,T,cls){ const p=document.createElementNS('http://www.w3.
 const tlSound=(a,b)=>`data/tools/make-numbers/${TW[a]}-and-${TW[b]}-make-${TW[a+b]}.mp3`;
 function toolOpen(n){
   tl.n=null; tl.on={}; let o=$('#toolPop');
-  if(!o){ o=el('div','overlay toolpop'); o.id='toolPop'; o.innerHTML=`<div class="tlcard" role="dialog" aria-label="Make numbers"><button class="rb tlx" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div class="tlbody"></div></div>`;
+  if(!o){ o=el('div','overlay toolpop'); o.id='toolPop'; o.innerHTML=`<div class="tlcard" role="dialog" aria-label="Make numbers"><button class="rb popx tlx" aria-label="Close">${ICON.close}</button><div class="tlbody"></div></div>`;
     document.body.append(o); o.addEventListener('click',e=>{ if(e.target===o) toolClose(); }); $('.tlx',o).addEventListener('click',toolClose);
     document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!o.hidden) toolClose(); }); }
   o.hidden=false; toolDraw(); if(anim) G.from($('.tlcard',o),{scale:.92,opacity:0,duration:TM('--t-pop',.22),ease:'power2.out',clearProps:'transform,opacity'});
@@ -2491,10 +2647,10 @@ function toolClose(){ const o=$('#toolPop'); if(o) o.hidden=true; tl.run++; vSto
 function toolDraw(){
   const T=tl.n, body=$('#toolPop .tlbody'), N=T==null?0:T; tl.on={};
   const rows=[]; for(let a=0;a<=N-a;a++) rows.push(a);
-  body.innerHTML=`<h2 class="tlh outline">Make</h2><svg class="tlarr" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 3v34M7 26l13 15 13-15"/></svg><div class="tltgt">${[5,6,7,8,9,10].map(k=>`<button class="tlt${k===T?' on':''}" data-n="${k}" style="--c:${TCOL[k]}"><b>${k}</b></button>`).join('')}</div>
+  body.innerHTML=`<h2 class="tlh">Make</h2><p class="tlhint"${T==null?'':' hidden'}>Choose the number</p><svg class="tlarr" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 3v34M7 26l13 15 13-15"/></svg><div class="tltgt">${[5,6,7,8,9,10].map(k=>`<button class="tlt${k===T?' on':''}" data-n="${k}" style="--c:${TCOL[k]}"><b>${k}</b></button>`).join('')}</div>
     <div class="tlrow" style="--n:${T==null?6:T+1}">${T==null?'':Array.from({length:T+1},(_,i)=>`<button class="tld" data-i="${i}" style="--c:${TCOL[i]}"><b>${i}</b></button>`).join('')}</div>
     <svg class="tlarcs" viewBox="0 0 ${(N+1)*100} 300" preserveAspectRatio="none" aria-hidden="true"></svg>
-    <div class="tllist">${rows.map(a=>`<button class="tls" data-a="${a}"><b style="color:${TCOL[a]}">${a}</b> <i>and</i> <b style="color:${TCOL[T-a]}">${T-a}</b> <i>make</i> <b class="m">${T}</b></button>`).join('')}</div>`;
+    <div class="tllist">${T==null?'':rows.map(a=>`<button class="tls" data-a="${a}"><b style="color:${TCOL[a]}">${a}</b> <i>and</i> <b style="color:${TCOL[T-a]}">${T-a}</b> <i>make</i> <b class="m">${T}</b></button>`).join('')}</div>`;
   if(T!=null){ const sv=$('.tlarcs',body); for(let a=0;a<=T-a;a++) arcAdd(sv,a,T-a,T,'ghost'); }
   $$('.tlt',body).forEach(b=>b.addEventListener('click',()=>{ tl.n=+b.dataset.n; vStop(); tl.run++; toolDraw(); if(anim) G.from($('.tlrow',body),{opacity:0,y:-10,duration:.25,clearProps:'all'}); }));
   $$('.tld',body).forEach(b=>b.addEventListener('click',()=>toolPick(+b.dataset.i)));
@@ -2964,6 +3120,7 @@ window.gramAnim=function(cards){
       if(done.size>=cards.length&&!showGrammar.done){ showGrammar.done=1; award(LESSON.id,'grammar'); }
       live(g); playing=false; rail(false); if(auto&&i<cards.length-1){ await wait(900,g); run(i+1,true); }
     }catch(e){ if(e!==STOP) console.error(e); } }
+  window.gramStop=()=>{ ++gen; playing=false; };   // core.js stopVoice: leaving the tab / lesson stops the animation and its voice
   showGrammar.done=!!(STARS[LESSON.id]&&STARS[LESSON.id].grammar);
   setTimeout(()=>run(0,true),60);
 };

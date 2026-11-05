@@ -1,0 +1,102 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EasyStudy Admin</title>
+<!-- THE ADMIN DASHBOARD (Marwa 2026-11-05, docs/coins-and-admin.md). Not part of the app bundle (own files in admin/).
+     LOCAL VERSION: "Save" keeps the settings on this device (localStorage es.settings, the app uses them at once);
+     "Download settings.json" gives the file to put in data/. Accounts and stats show this device only until the server exists. -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&display=swap">
+<link rel="stylesheet" href="admin/admin.css">
+</head><body>
+<header class="top">
+  <b class="logo">EasyStudy <small>لوحة الإدارة</small></b>
+  <nav id="tabs">
+    <button data-p="settings" class="on">الإعدادات</button>
+    <button data-p="lessons">الدروس</button>
+    <button data-p="promos">البرومو كود</button>
+    <button data-p="accounts">الحسابات الجديدة</button>
+    <button data-p="stats">الإحصائيات</button>
+  </nav>
+  <div class="acts"><button id="save" class="pri">حفظ</button><button id="dl">تنزيل settings.json</button><button id="reset" class="ghost">رجوع لملف الإعدادات</button></div>
+</header>
+<main>
+  <p class="note" id="where"></p>
+
+  <section id="p-settings" class="page">
+    <div class="card">
+      <h2>الكريدتس</h2>
+      <label class="sw"><input type="checkbox" id="c-enabled"><span></span> تشغيل نظام الكريدتس</label>
+      <div class="grid">
+        <label>سعر فتح درس <input type="number" min="0" id="c-lessonCost"></label>
+        <label>سعر فتح وحدة كاملة <small>(0 = مش متاح)</small><input type="number" min="0" id="c-unitCost"></label>
+        <label>هدية الحساب الجديد <input type="number" min="0" id="c-startCoins"></label>
+        <label>أقصى كريدتس من المشاركة في اليوم <input type="number" min="0" id="c-dailyCap"></label>
+      </div>
+      <label class="sw"><input type="checkbox" id="c-parentGate"><span></span> سؤال لولي الأمر قبل المشاركة والفتح (عشان الطفل ميضغطش لوحده)</label>
+    </div>
+
+    <div class="card">
+      <h2>أنواع المشاركة</h2>
+      <p class="hint">كل نوع: تشغيل، الاسم، الكريدتس اللي ياخدها ولي الأمر، وكل كام ساعة يقدر ياخدها تاني.</p>
+      <div class="tbl" id="shares"></div>
+      <button id="addShare" class="ghost">+ نوع مشاركة جديد</button>
+      <div class="grid">
+        <label class="wide">نص المشاركة <textarea id="c-shareText" rows="2"></textarea></label>
+        <label class="wide">رابط التطبيق <input type="url" id="c-shareUrl" dir="ltr"></label>
+      </div>
+      <label class="sw"><input type="checkbox" id="r-on"><span></span> كريدتس لما حد يسجل من رابط ولي الأمر <input type="number" min="0" id="r-coins" class="mini"> كريدت <small>(تشتغل مع السيرفر بس)</small></label>
+    </div>
+
+    <div class="card">
+      <h2>المفتوح مجانًا للمستخدم الجديد</h2>
+      <div class="grid">
+        <label class="wide">الطريقة
+          <select id="f-mode">
+            <option value="first">أول دروس في كل مادة</option>
+            <option value="firstUnit">أول وحدات في كل مادة</option>
+            <option value="pick">الطفل يختار أي دروس من أي مادة أو وحدة</option>
+            <option value="pickUnit">الطفل يختار وحدات كاملة</option>
+            <option value="list">أنا أحدد الدروس والوحدات (من صفحة الدروس)</option>
+          </select></label>
+        <label>العدد <input type="number" min="0" id="f-count"></label>
+      </div>
+      <label class="sw" id="f-per-row"><input type="checkbox" id="f-per"><span></span> العدد ده لكل مادة (مش للتطبيق كله)</label>
+      <p class="hint" id="f-hint"></p>
+    </div>
+  </section>
+
+  <section id="p-lessons" class="page" hidden>
+    <div class="card">
+      <h2>حالة كل مادة ووحدة ودرس</h2>
+      <p class="hint">تلقائي = حسب المحتوى والكريدتس. مفتوح = مفتوح للكل. قريبًا = يظهر "قريبًا" حتى لو الدرس جاهز. مقفول = عليه قفل ويتفتح بالكريدتس. ممكن تحددي سعر خاص لأي واحد.</p>
+      <div class="filters"><select id="l-subj"></select><span class="legend"><i class="b"></i> جاهز <i class="n"></i> لسه</span></div>
+      <div id="tree"></div>
+    </div>
+  </section>
+
+  <section id="p-promos" class="page" hidden>
+    <div class="card">
+      <h2>البرومو كود</h2>
+      <p class="hint">كل كود: بيفتح إيه (درس، وحدة كاملة، مادة كاملة، أو كل المواد)، يستخدم مرة واحدة بس ولا أكتر من مرة (كل طفل مرة، وممكن تحددي أقصى عدد)، وآخر يوم يشتغل فيه. الكود بيفتح من غير كريدتس، وبيظهر في التطبيق تحت زرار "اجمع كريدتس".</p>
+      <div id="promos"></div>
+      <button id="addPromo" class="ghost">+ كود جديد</button>
+      <p class="hint" id="promoWhere"></p>
+    </div>
+  </section>
+
+  <section id="p-accounts" class="page" hidden>
+    <div class="card">
+      <h2>الحسابات الجديدة</h2>
+      <p class="hint">دلوقتي بيظهر الحساب اللي على الجهاز ده بس. لما السيرفر يشتغل هتظهر كل الحسابات هنا بنفس الشكل.</p>
+      <div class="tbl" id="accts"></div>
+    </div>
+  </section>
+
+  <section id="p-stats" class="page" hidden>
+    <div class="kpis" id="kpis"></div>
+    <div class="card"><h2>المشاركات حسب النوع</h2><div id="byShare"></div></div>
+    <div class="card"><h2>آخر الحركات</h2><div class="tbl" id="hist"></div></div>
+  </section>
+</main>
+<div id="toast" hidden></div>
+<script src="admin/admin.js"></script>
+</body></html>

@@ -29,8 +29,7 @@ async function openExam(lesson,ex){
 }
 function xPage(pg,pi,d){
   const p=el('article','xpage'); p.dataset.i=pi; X.pages.push(p); if(pg.fs) p.style.setProperty('--fs',pg.fs); if(pg.style) p.classList.add(...pg.style.split(' '));
-  const head=pg.head||d.head;
-  if(head) p.append(el('header','xtop',`<div class="xtl">${head.l||''}</div><i class="xwave"></i><div class="xtr">${head.r||''}</div>`));
+  // no school header on any paper (Marwa 2026-11-05): the paper starts at the test / model name; "head" in the data is not shown
   if(pg.title) p.append(el('h2','xmodel',`<span class="xs">${xArt('smilestars:1,1')}</span><b>${pg.title}</b><span class="xs b">${xArt('smilestars:1,1')}</span>`));
   const flow=el('div','xflow'); p.append(flow);
   let sec=null;
@@ -124,7 +123,7 @@ function xBlank(spec,Q){
   const show=rm?(rm[1]==='>'?+rm[2]+1:Math.max(0,+rm[2]-1)):ans.split('|')[0], max=Math.max(...alts.map(s=>s.length));
   const w=el('span','xbl '+flags.map(x=>'f-'+x).join(' ')), inp=el('input','xin'), gh=el('i','xgh',show);
   w.style.setProperty('--n',Math.max(2,String(show).length)); inp.type='text'; inp.autocomplete='off'; inp.autocapitalize='none'; inp.spellcheck=false; inp.setAttribute('aria-label','Answer');
-  if(/^\d+$|^[<>]\d+$/.test(ans)) inp.inputMode='numeric'; inp.dir=/[\u0600-\u06FF]/.test(ans)?'rtl':'ltr';
+  if(/^\d+$|^[<>]\d+$/.test(ans)) inp.inputMode='numeric'; inp.dir=/[\u0600-\u06FF]/.test(ans)?'rtl':'ltr'; inp.lang=wsLang(ans);
   w.append(inp,gh);
   const a={solved:false,el:w,help(){ if(a.solved) return null; w.classList.add('help'); return ()=>w.classList.remove('help'); }}; Q.atoms.push(a);
   let idle=0;
