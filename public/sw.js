@@ -100,6 +100,16 @@ async function keepFirst() {
   const media = Object.keys(ver.files || {}).filter(p => /^data\/(books\/[^/]+|map-page\.webp)$/.test(p));   // unit books + map paper
   await Promise.all([...FIRST, ...subj, ...media].map(one));
 }
+// opening the app: first a quick look at version.json (at most 3 s); a newer published version = the kept copy is renewed BEFORE the page
+// is served (at most 8 s more, otherwise the kept copy opens). Before (2026-11-07) only the running page could ask for the update, so a kept
+// copy that got stuck on the loading screen could never renew itself.
+const wait = (p, ms) => Promise.race([p, new Promise((_, no) => setTimeout(() => no(new Error('slow')), ms))]);
+async function openApp() {
+  await loadVer();
+  if (ver) { try { const r = await wait(fetch(at_('version.json'), { cache: 'no-store' }), 3000); const v = r.ok ? await r.json() : null;
+    if (v && v.v && v.v !== ver.v) await wait(update(), 8000); } catch (e) {} }
+  return keep(APP, new Request(at_('./')), at_('index.html'));
+}
 self.addEventListener('install', e => { self.skipWaiting(); e.waitUntil(Promise.race([keepFirst().catch(() => {}), new Promise(r => setTimeout(r, 20000))])); });
 self.addEventListener('activate', e => e.waitUntil(self.clients.claim()));
 self.addEventListener('fetch', e => {
@@ -114,7 +124,7 @@ self.addEventListener('fetch', e => {
   if (/^(version\.json|media\.json|sw\.js)$/.test(rel)) return;   // always asked fresh
   const m = /^data\/(.+\.(?:png|jpe?g|webp))$/i.exec(rel);
   if (m) e.respondWith(answer(r, m[1]).catch(() => fetch(r)));
-  else if (r.mode === 'navigate') e.respondWith((rel === '' || rel === 'index.html' ? keep(APP, new Request(at_('./')), at_('index.html')) : keep(APP, r)).catch(() => fetch(r)));
+  else if (r.mode === 'navigate') e.respondWith((rel === '' || rel === 'index.html' ? openApp() : keep(APP, r)).catch(() => fetch(r)));
   else if (/\.(mp3|wav|ogg|m4a|png|jpe?g|webp|gif|svg|woff2?|ttf)$/i.test(rel)) e.respondWith(keep(MEDIA, r).catch(() => fetch(r)));
   else e.respondWith(keep(APP, r).catch(() => fetch(r)));
 });

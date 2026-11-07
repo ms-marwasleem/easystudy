@@ -1,4 +1,4 @@
-<!doctype html><html><head><script>window.APP_V='28de1e629f95'</script><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-visual">
+<!doctype html><html><head><script>window.APP_V='90b9bf5188bd'</script><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-visual">
 <title>EasyStudy</title>
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px);background:#FFA825}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
 @keyframes ldb{to{transform:translateY(-6px)}}@keyframes ldw{to{transform:rotate(360deg)}}@keyframes ldr{0%{transform:translateX(-110%)}100%{transform:translateX(260%)}}
@@ -53,6 +53,19 @@
     <div style="width:180px;height:16px;border-radius:999px;background:rgba(92,52,22,.4);border:3px solid #6B2E0C;overflow:hidden"><div style="height:100%;width:40%;border-radius:999px;background:#FFCB2E;animation:ldr 1.1s ease-in-out infinite"></div></div>
   </div>
 </div>
+<script>/* LOADING WATCHDOG (2026-11-07): if the first screen has not opened 12 s after the page started (an old copy of the app stuck on the device,
+   a script error), a button appears on the loading screen: it drops the copy of the app kept on the device and loads it fresh. The last script
+   errors are written small under it, so a screenshot tells what went wrong. */
+(function(){var errs=[];addEventListener('error',function(e){errs.push((e.message||'error')+' @'+String(e.filename||'').split('/').pop()+':'+(e.lineno||''))},true);
+addEventListener('unhandledrejection',function(e){var r=e.reason;errs.push('promise: '+(r&&(r.message||r)))});
+function check(){var l=document.getElementById('loading');if(!l||l.hidden||l.style.display==='none'||document.documentElement.dataset.view||document.getElementById('ldHelp'))return;   /* only while no screen has ever opened */
+var d=document.createElement('div');d.id='ldHelp';d.style.cssText='position:fixed;left:50%;bottom:7%;transform:translateX(-50%);z-index:61;text-align:center;max-width:90vw';
+d.innerHTML='<button type="button" style="font:800 20px system-ui,sans-serif;padding:.55em 1.4em;border-radius:2em;border:3px solid #6B2E0C;background:#fff;color:#6B2E0C;cursor:pointer">تحميل من جديد</button><p dir="ltr" style="margin:.6em 0 0;font:12px system-ui,sans-serif;color:#6B2E0C;word-break:break-all"></p>';
+d.querySelector('p').textContent=errs.slice(-3).join(' | ');
+d.querySelector('button').onclick=function(){var w=[];try{if(navigator.serviceWorker)w.push(navigator.serviceWorker.getRegistrations().then(function(r){return Promise.all(r.map(function(x){return x.unregister()}))}));
+if(window.caches)w.push(caches.keys().then(function(k){return Promise.all(k.map(function(n){return caches.delete(n)}))}))}catch(e){}
+Promise.all(w).catch(function(){}).then(function(){location.reload()})};document.body.appendChild(d)}
+setTimeout(check,12000)})();</script>
 <div class="patches" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 <canvas id="fx"></canvas>
 

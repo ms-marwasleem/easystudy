@@ -498,8 +498,12 @@ async function appNav(screen){
   libNav(); try{ navigator.serviceWorker&&navigator.serviceWorker.controller&&navigator.serviceWorker.controller.postMessage('nav'); }catch(e){}
   if(!window.APP_V||!/^https?:/.test(location.protocol)) return;
   if(!APPV.newer&&Date.now()-APPV.at>LIB_EVERY){ APPV.at=Date.now();
-    try{ const v=await (await fetch('version.json',{cache:'no-cache'})).json(); if(v&&v.v&&v.v!==window.APP_V) APPV.newer=true; }catch(e){} }
-  if(APPV.newer&&screen==='subjects'&&!document.getElementById('subjects').hidden&&!(typeof player!=='undefined'&&player.run)){ await swFresh(); location.reload(); }
+    try{ const v=await (await fetch('version.json',{cache:'no-cache'})).json(); if(v&&v.v&&v.v!==window.APP_V) APPV.newer=true; else if(v&&v.v) sessionStorage.removeItem('es.vtry'); }catch(e){} }
+  if(APPV.newer&&screen==='subjects'&&!document.getElementById('subjects').hidden&&!(typeof player!=='undefined'&&player.run)){
+    // at most 2 reloads in a row for an update: if the new page still is not there (a server still giving the old page for a moment),
+    // the app simply goes on with this one instead of reloading again and again (2026-11-07)
+    let n=0; try{ n=+sessionStorage.getItem('es.vtry')||0; sessionStorage.setItem('es.vtry',n+1); }catch(e){ n=9; } if(n>=2) return;
+    await swFresh(); location.reload(); }
 }
 // the app is kept on the device (sw.js): before reloading for a new version, it drops the old files there (at most 5 s wait)
 function swFresh(){ const c=navigator.serviceWorker&&navigator.serviceWorker.controller; if(!c) return Promise.resolve();
