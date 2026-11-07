@@ -432,14 +432,17 @@ body.kb-open .screen:not(#lesson){height:calc(100% - var(--kb,0px))}
   background:linear-gradient(var(--btn1),var(--btn2));border:var(--btn-edge) solid var(--btn-rim);border-radius:1em;padding:.18em .8em .26em;box-shadow:var(--btn-shadow);cursor:pointer}
 .jt.gt{font-family:var(--f-title);letter-spacing:.03em}
 .jt.ar{font-family:var(--f-ui);font-weight:800}
-:is(.jl,.gl).soon .jcard{filter:saturate(.25) brightness(1.1);opacity:.6}
+:is(.jl,.gl).soon .jcard{opacity:.6;background:linear-gradient(color-mix(in srgb,var(--btn1) 30%,#c4b4a6),color-mix(in srgb,var(--btn2) 30%,#a99686));border-color:color-mix(in srgb,var(--btn-rim) 30%,#7d6a5c)}   /* greyed by colour, not by a filter (see below) */
 .jsoon{font-family:var(--f-title);font-size:.62em;line-height:1;color:#fff;background:var(--c-soon);border-radius:1em;padding:.2em .7em .28em;margin-bottom:-.2em;position:relative;z-index:3;box-shadow:0 0.12rem 0 var(--c-soon-dk)}
 .jt.soon{opacity:.7;white-space:normal;max-width:10em}
 :is(.jl,.gl).locked .jcard{overflow:visible}
 .jlockbig{display:block;width:7rem}.jlockbig svg{width:100%}
 .jlock{position:absolute;right:-.6em;bottom:-.7em;width:1.9em}.jlock svg{width:100%;display:block}
 :is(.jl,.gl).open[data-touched="0"] .js{opacity:.75}
-:is(.jl,.gl).open[data-touched="0"] .jcard,.jt[data-touched="0"],.jpg[data-touched="0"]{filter:var(--unopened)}
+/* not opened yet = a bit paler. NEVER a CSS filter on the map's many circles / names / page signs: Safari (iPad) then used gigabytes of memory,
+   the map never showed (blurry piece) and the page reloaded again and again (2026-11-07). A white veil + opacity gives the same look. */
+:is(.jl,.gl).open[data-touched="0"] .jcard,.jt[data-touched="0"]{background:linear-gradient(rgba(255,255,255,.16),rgba(255,255,255,.16)),linear-gradient(var(--btn1),var(--btn2))}
+:is(.jl,.gl).open[data-touched="0"] .jcard,.jt[data-touched="0"]:not(.soon),.jpg[data-touched="0"]{opacity:.85}.jt.soon[data-touched="0"]{opacity:.6}
 /* page signs: the old speech-bubble cards (white, coloured edge + number), standing ON the road left / right in turn, tied to it by a small dotted line */
 .jpg{position:absolute;z-index:2;--sb:2.3em;display:flex;align-items:center;font-size:var(--fs)}
 .jpg.rt{flex-direction:row-reverse}
