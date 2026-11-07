@@ -87,7 +87,7 @@ const nPages=()=>LESSON&&LESSON.pages>1?LESSON.pages:1;
 function pageSpan(){ if(nPages()<2) return [0,LESSON.end]; const ls=LESSON.lines.filter(l=>l.page===rd.page); if(!ls.length) return [0,LESSON.end];
   return [rd.page===1?0:Math.max(0,ls[0].words[0][1]-.15), rd.page===nPages()?LESSON.end:ls[ls.length-1].words.slice(-1)[0][2]+.35]; }
 function carAt(t){ if(!LESSON) return; if(LESSON.layout==='explain'&&tab==='read') return carFrac((rd.page-1)/nPages());   // explain pages: the car moves page by page (explainer onBeat), never back to 0
-  const [a,b]=pageSpan(); carFrac((t-a)/(b-a)); }
+  const [a,b]=pageSpan(), n=nPages(); carFrac(((rd.page-1)+Math.max(0,Math.min(1,(t-a)/(b-a))))/n); }   // progress runs over ALL pages of the lesson, not per page
 // p = 0..1 along the header road (reading time in the Lesson tab, words learned in Vocabulary)
 function carFrac(p){ p=Math.max(0,Math.min(1,p||0)); const tw=Math.max(0,trackCar.parentElement.clientWidth-trackCar.offsetWidth-52);
   trackCar.style.transform=`translate(${(p*tw).toFixed(1)}px,0)`; }
@@ -101,11 +101,11 @@ function mark(t){
   let wi=-1; for(let i=0;i<rd.words.length;i++){ const w=rd.words[i]; if(t>=w.s-.03&&t<w.e+.12) wi=i; }   // last match wins: the next word takes over as soon as it starts
   if(wi!==rd.cur){ if(rd.cur>=0&&rd.words[rd.cur]) rd.words[rd.cur].el.classList.remove('reading'); $$('.pfig .pop').forEach(x=>x.classList.remove('pop'));
     if(wi>=0&&rd.words[wi]&&rd.words[wi].pop) rd.words[wi].pop.forEach(id=>$$(`.pfig [data-id="${id}"]`).forEach(x=>x.classList.add('pop')));   // a pointing page with a built figure: the letters being talked about pop
-    if(wi>=0&&rd.words[wi]){ const e=rd.words[wi].el; e.classList.add('reading'); if(anim) G.fromTo(e,{scale:1.2},{scale:1,duration:.35,ease:'back.out(3)'}); }
+    if(wi>=0&&rd.words[wi]){ const e=rd.words[wi].el; e.classList.add('reading'); storyScroll(e); if(anim) G.fromTo(e,{scale:1.2},{scale:1,duration:.35,ease:'back.out(3)'}); }
     rd.cur=wi; }
   let li=-1; if(LESSON) LESSON.lines.forEach((l,i)=>{ const a=l.words[0][1], b=l.words[l.words.length-1][2]; if(t>=a-.05&&t<b+.25) li=i; });
   if(li!==rd.curLine){ rd.lineEls.forEach((e,i)=>e.classList.toggle('on',i===li)); rd.spotEls.forEach(e=>e&&e.classList.remove('on')); if(rd.spotEls[li]) rd.spotEls[li].classList.add('on'); rd.curLine=li;
-    const ln=li>=0&&rd.lineEls[li]; if(ln&&$('.acticon',ln)){ ln.classList.add('acting'); clearTimeout(ln._act); ln._act=setTimeout(()=>ln.classList.remove('acting'),2200); } if(li>=0&&rd.lineEls[li]) rd.lineEls[li].scrollIntoView({block:'nearest',behavior:'smooth'}); }
+    const ln=li>=0&&rd.lineEls[li]; if(ln&&$('.acticon',ln)){ ln.classList.add('acting'); clearTimeout(ln._act); ln._act=setTimeout(()=>ln.classList.remove('acting'),2200); } if(li>=0&&rd.lineEls[li]&&!rd.lineEls[li].closest('.scene.story:not(.poem):not(.point)')) rd.lineEls[li].scrollIntoView({block:'nearest',behavior:'smooth'}); }
   if(rd.full&&t>=0) carAt(t);
 }
 function loop(){ if(!player.run) return; mark(now()); rd.raf=requestAnimationFrame(loop); }
@@ -180,7 +180,19 @@ function storyText(){
   inn.append(ul); return inn;
 }
 // ONE text size for the whole lesson (Marwa 2026-11-05): the biggest size (CSS token) at which EVERY page of the lesson fits its panel; every page uses it
-function fitStory(){ const note=$('.scene.story:not(.poem) .note'), inn=note&&$('.in:last-child',note); if(!inn||!note.clientHeight) return;
+// plain story card (Marwa 2026-11-06): the text panel shows ONLY 3 lines (more room for the picture); the text slides up when the reading reaches the hidden lines (mark -> storyScroll)
+function fitStory3(note,inn){ note.style.height=''; inn.style.fontSize=''; const full=note.clientHeight, cs=getComputedStyle(inn); if(!full) return;
+  const pad=parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom); let fs=parseFloat(cs.fontSize), h, pitch=()=>{ const tops=[...new Set($$('.w',inn).map(w=>Math.round(w.getBoundingClientRect().top)))].sort((a,b)=>a-b); const nx=tops.find(t=>t-tops[0]>.8*fs); return nx!=null?nx-tops[0]:1.65*fs; };
+  const calc=()=>{ inn.style.fontSize=fs+'px'; h=3*pitch()+parseFloat(getComputedStyle(inn).paddingTop)-.1*fs; };   // the REAL distance between two lines (Arabic marks make a line taller than 1.65em)
+  calc(); for(let i=0;i<60&&h>full&&fs>12;i++){ fs-=.5; calc(); }
+  $$('.in',note).forEach(x=>x.style.fontSize=fs+'px'); note.style.height=Math.min(h,full)+'px';
+  const cw=rd.cur>=0&&rd.words[rd.cur]; if(cw) storyScroll(cw.el,true); else $$('.in',note).forEach(x=>{ x.scrollTop=0; }); }   // after a re-fit the text sits on a whole line again
+function storyScroll(e,force){ const inn=e&&e.closest&&e.closest('.scene.story:not(.poem):not(.point) .in'); if(!inn) return false;
+  const r=e.getBoundingClientRect(), b=inn.getBoundingClientRect(), cs=getComputedStyle(inn), pt=parseFloat(cs.paddingTop), pb=parseFloat(cs.paddingBottom);
+  if(force||r.bottom>b.bottom-pb+1||r.top<b.top+pt-1) inn.scrollTo({top:inn.scrollTop+(r.top-b.top)-pt,behavior:force||!anim?'auto':'smooth'}); return true; }
+function fitStory(){ const note=$('.scene.story:not(.poem) .note'), inn=note&&$('.in:last-child',note); if(!inn||!note.clientHeight&&!note.style.height) return;
+  if(note.closest('.scene.story:not(.poem):not(.point)')&&!matchMedia('(min-aspect-ratio:5/4)').matches) return fitStory3(note,inn);   // portrait: 3 lines; landscape: the text column fits the whole page
+  if(note.style.height) note.style.height='';
   const key=LESSON.id+':'+note.clientWidth+'x'+note.clientHeight;
   if(fitStory.key!==key){ inn.style.fontSize=''; let fs=parseFloat(getComputedStyle(inn).fontSize); const sv=[rd.page,rd.words,rd.lineEls], np=nPages();
     for(let p=1;p<=np;p++){ if(np>1&&!LESSON.lines.some(l=>l.page===p)) continue; rd.page=p; rd.words=[]; rd.lineEls=[];

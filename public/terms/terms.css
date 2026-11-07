@@ -1,0 +1,29 @@
+/* TERMS OF USE page (terms.html). Colours and fonts come from css/theme.css names only. Relative units, phone first. */
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+html{background:linear-gradient(var(--bg-hi),var(--bg-mid) 45%,var(--bg-lo)) var(--bg-lo)}
+body{color:var(--ol);
+  font:500 1.05rem/1.7 var(--f-ui);padding:0 1rem 2.5rem}
+html[lang="en"] body{font-family:var(--f-read)}
+.tm-top{max-width:44rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0}
+.tm-logo{font-family:var(--f-logo);font-weight:400;font-size:clamp(1.8rem,7vw,2.6rem);color:var(--c-white);
+  -webkit-text-stroke:0.12em var(--logo-ol);paint-order:stroke fill;text-shadow:0 0.08em 0 var(--logo-ol);direction:ltr}
+.tm-lang{display:flex;gap:.4rem}
+.tm-lang button{font:800 1rem/1 var(--f-ui);border:0.1rem solid var(--btn-rim);border-radius:999rem;padding:.45em 1em;cursor:pointer;
+  background:rgba(255,255,255,.35);color:var(--ol)}
+.tm-lang button.on{background:linear-gradient(var(--btn1),var(--btn2));color:var(--c-white);box-shadow:var(--btn-shadow);text-shadow:var(--btn-text-shadow)}
+.tm-paper{max-width:44rem;margin:0 auto;background:var(--paper);border:0.35rem solid var(--c-white);border-radius:1.4rem;
+  box-shadow:0 0.4rem 1.2rem rgba(110,37,9,.25);padding:clamp(1.2rem,5vw,2.4rem)}
+.tm-paper h1{margin:0;font:800 clamp(1.7rem,6vw,2.3rem)/1.2 var(--f-ui);color:var(--kraft-deep)}
+.tm-date{margin:.2rem 0 1.4rem;font-size:.9rem;opacity:.75}
+.tm-paper h2{margin:1.6rem 0 .4rem;font:800 1.3rem/1.3 var(--f-ui);color:var(--kraft-deep)}
+.tm-paper p{margin:.3rem 0}
+.tm-paper a{color:var(--btn2);font-weight:700}
+.tm-src{list-style:none;margin:.8rem 0 0;padding:0;display:flex;flex-direction:column;gap:.8rem}
+.tm-src li{background:var(--cream);border-radius:1rem;padding:.8rem 1rem}
+.tm-src b{font-size:1.15rem}
+.tm-kinds{display:inline-flex;flex-wrap:wrap;gap:.3rem;margin-inline-start:.5rem;vertical-align:middle}
+.tm-kinds span{font-size:.8rem;font-weight:700;background:var(--c-white);border-radius:999rem;padding:0 .6em}
+.tm-src small{display:block;font-size:.9rem;opacity:.85}
+.tm-credit{direction:ltr;unicode-bidi:isolate}
+.tm-items{margin:.4rem 0 0;padding-inline-start:1.2rem;font-size:.9rem}

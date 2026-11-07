@@ -9,23 +9,8 @@
    "hint": "اضغط على أشكال الثاء",
    "items": [
     {
-     "word": "ث",
-     "text": "ث",
-     "answer": 1
-    },
-    {
-     "word": "ب",
-     "text": "ب",
-     "answer": 0
-    },
-    {
-     "word": "ثـ",
-     "text": "ثـ",
-     "answer": 1
-    },
-    {
-     "word": "ت",
-     "text": "ت",
+     "word": "ه",
+     "text": "ه",
      "answer": 0
     },
     {
@@ -34,63 +19,91 @@
      "answer": 1
     },
     {
+     "word": "ثـ",
+     "text": "ثـ",
+     "answer": 1
+    },
+    {
      "word": "ـث",
      "text": "ـث",
      "answer": 1
+    },
+    {
+     "word": "ث",
+     "text": "ث",
+     "answer": 1
+    },
+    {
+     "word": "ت",
+     "text": "ت",
+     "answer": 0
+    },
+    {
+     "word": "ب",
+     "text": "ب",
+     "answer": 0
     }
    ]
   },
   {
-   "type": "sound",
-   "ex": 3,
-   "page": 132,
-   "task": "أَنْطِقُ صَوْتَ حَرْفِ الثَّاءِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
-   "taskAudio": "q/task-3.mp3",
-   "hint": "اسمع الجملة وردد وراها",
+   "type": "vowel",
+   "ex": 4,
+   "page": 133,
+   "task": "أَنْطِقُ، وَأَكْتُبُ الْحَرَكَةَ الْمُنَاسِبَةَ عَلَى حَرْفِ (ث)",
+   "taskAudio": "q/task-4.mp3",
+   "hint": "اختار الثاء بالحركة الصح",
+   "choices": [
+    "ثَ",
+    "ثُ",
+    "ثِ",
+    "ثْ"
+   ],
    "items": [
     {
-     "word": "ثَعْلَب",
-     "ask": "ثَ",
-     "pic": "../../pics/ar-fox.png",
-     "audio": [
-      "../letters/62b/name.mp3",
-      "../shared/h-fatha.mp3",
-      "../../syl-ar/62b-64e.mp3",
-      "words/tha3lab.mp3"
-     ]
-    },
-    {
-     "word": "ثُعْبَان",
-     "ask": "ثُ",
-     "pic": "../../pics/ar-snake.png",
-     "audio": [
-      "../letters/62b/name.mp3",
-      "../shared/h-damma.mp3",
-      "../../syl-ar/62b-64f.mp3",
-      "../u3l4/words/thuban.mp3"
+     "word": "ثَلْج",
+     "audio": "words/thalj.mp3",
+     "pic": "../../pics/ar-ice.png",
+     "answer": "ثَ",
+     "choices": [
+      "ثَ",
+      "ثُ",
+      "ثِ"
      ]
     },
     {
      "word": "ثِيَاب",
-     "ask": "ثِ",
+     "audio": "q/w-thiyab.mp3",
      "pic": "../../pics/ar-clothes.jpg",
-     "audio": [
-      "../letters/62b/name.mp3",
-      "../shared/h-kasra.mp3",
-      "../../syl-ar/62b-650.mp3",
-      "q/w-thiyab.mp3"
+     "answer": "ثِ",
+     "choices": [
+      "ثَ",
+      "ثُ",
+      "ثِ"
      ]
     },
     {
-     "word": "ثَلْج",
-     "ask": "ثْ",
-     "pic": "../../pics/ar-ice.png",
-     "audio": [
-      "../letters/62b/name.mp3",
-      "../shared/h-sukoon.mp3",
-      "../../syl-ar/62b-652.mp3",
-      "words/thalj.mp3"
+     "word": "ثُعْبَان",
+     "audio": "../u3l4/words/thuban.mp3",
+     "pic": "../../pics/ar-snake.png",
+     "answer": "ثُ",
+     "choices": [
+      "ثَ",
+      "ثُ",
+      "ثِ"
      ]
+    },
+    {
+     "word": "اثْنَان",
+     "audio": "words/ithnan.mp3",
+     "pic": "../../pics/ar-two.png",
+     "answer": "ثْ",
+     "choices": [
+      "ثَ",
+      "ثُ",
+      "ثِ",
+      "ثْ"
+     ],
+     "at": 1
     }
    ]
   },
@@ -99,7 +112,7 @@
    "ex": 8,
    "page": 134,
    "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الثَّاءِ مَضْبُوطًا بِالشَّكْلِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "taskAudio": "../q-heads/h-df80d64d.mp3",
    "hint": "اختار الثاء بالحركة الصح",
    "choices": [
     "ثَ",
@@ -160,7 +173,7 @@
    "ex": 9,
    "page": 134,
    "task": "أَسْتَخْدِمُ الْحُرُوفَ لِأُكَوِّنَ اسْمَ كُلِّ صُورَةٍ",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "taskAudio": "../q-heads/h-068ae82a.mp3",
    "hint": "اكتب الكلمة بعد ما تدمج الحروف",
    "items": [
     {
@@ -168,7 +181,8 @@
      "audio": "words/thalj.mp3",
      "pic": "../../pics/ar-ice.png",
      "chips": [
-      "ثَلْ",
+      "ث",
+      "ل",
       "ج"
      ]
     },
@@ -177,11 +191,30 @@
      "audio": "words/muthallath.mp3",
      "pic": "../../pics/ar-triangle.png",
      "chips": [
-      "مُ",
-      "ثَ",
-      "لَّ",
+      "م",
+      "ث",
+      "ل",
       "ث"
      ]
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 10,
+   "page": 134,
+   "task": "أَقْرَأُ الْجُمْلَةَ، وَأَصِلُهَا بِالصُّورَةِ الْمُنَاسِبَةِ",
+   "taskAudio": "q/task-10.mp3",
+   "hint": "اقرأ الجملة واختار الصورة",
+   "items": [
+    {
+     "word": "رَسَمَتِ الْبِنْتُ الْمُثَلَّثَ.",
+     "audio": "q/s10.mp3",
+     "pics": [
+      "../../pics/ar-girl-draw.png",
+      "../../pics/ar-girl-mirror.png"
+     ],
+     "answer": 0
     }
    ]
   },
@@ -204,13 +237,56 @@
   },
   {
    "type": "circle",
+   "ex": 6,
+   "page": 129,
+   "book": "booklet",
+   "task": "أَضَعُ خَطًّا تَحْتَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ (ث)",
+   "taskAudio": "q/task-b6.mp3",
+   "hint": "اضغط على الكلمات اللي فيها الثاء",
+   "items": [
+    {
+     "word": "عَبَث",
+     "audio": "words/abath.mp3",
+     "answer": true
+    },
+    {
+     "word": "ثَلْج",
+     "audio": "words/thalj.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَب",
+     "audio": "../u1l4/q/ab.mp3",
+     "answer": false
+    },
+    {
+     "word": "مِثْل",
+     "audio": "words/mithl.mp3",
+     "answer": true
+    },
+    {
+     "word": "وَثَب",
+     "audio": "words/wathab.mp3",
+     "answer": true
+    },
+    {
+     "word": "وَرَث",
+     "audio": "words/warath.mp3",
+     "answer": true
+    },
+    {
+     "word": "اثْنَان",
+     "audio": "words/ithnan.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "circle",
    "ex": 7,
    "page": 130,
    "task": "اسْتَمِعْ وَضَعْ عَلَامَةً تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الثَّاءِ",
-   "taskAudio": [
-    "../q-prompts/circle-letter-sound.mp3",
-    "../letters/62b/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-62e561a3.mp3",
    "hint": "اضغط على الصور التي فيها صوت الثاء",
    "silent": true,
    "book": "booklet",
@@ -233,7 +309,7 @@
     {
      "word": "fridge",
      "pic": "../../pics/ar-fridge.png",
-     "answer": false
+     "answer": true
     },
     {
      "word": "mouse",
@@ -256,6 +332,11 @@
      "answer": true
     },
     {
+     "word": "two",
+     "pic": "../../pics/ar-two.png",
+     "answer": true
+    },
+    {
      "word": "fish",
      "pic": "../../pics/ar-fish.png",
      "answer": false
@@ -267,10 +348,7 @@
    "ex": 8,
    "page": 130,
    "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الثَّاءِ",
-   "taskAudio": [
-    "../q-prompts/mark-letter-position.mp3",
-    "../letters/62b/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-13d2c6ac.mp3",
    "hint": "اضغط على الدائرة التي فيها الثاء",
    "book": "booklet",
    "items": [
@@ -281,7 +359,7 @@
      "at": 0
     },
     {
-     "word": "ثَوْم",
+     "word": "ثُوم",
      "pic": "../../pics/ar-garlic.jpg",
      "audio": "words/thawm.mp3",
      "at": 0
@@ -298,11 +376,46 @@
    ]
   },
   {
+   "type": "split",
+   "ex": 10,
+   "page": 130,
+   "book": "booklet",
+   "task": "انْطِقْ، ثُمَّ حَلِّلِ الْكَلِمَاتِ الْآتِيَةَ إِلَى أَصْوَاتٍ",
+   "taskAudio": "q/task-b10.mp3",
+   "hint": "اسحب الحروف وركّبها في أماكن الأصوات",
+   "items": [
+    {
+     "word": "ثُقْب",
+     "parts": [
+      "ثُ",
+      "قْ",
+      "ب"
+     ]
+    },
+    {
+     "word": "ثُلْث",
+     "parts": [
+      "ثُ",
+      "لْ",
+      "ث"
+     ]
+    },
+    {
+     "word": "ثَلْج",
+     "parts": [
+      "ثَ",
+      "لْ",
+      "ج"
+     ]
+    }
+   ]
+  },
+  {
    "type": "arrange",
    "ex": 11,
    "page": 130,
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "taskAudio": "../q-heads/h-c412ebef.mp3",
    "hint": "رتب الحروف",
    "book": "booklet",
    "items": [
@@ -368,7 +481,7 @@
    "ex": 13,
    "page": 131,
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "taskAudio": "../q-heads/h-c412ebef.mp3",
    "hint": "رتب الحروف",
    "book": "booklet",
    "items": [
@@ -386,6 +499,11 @@
      "word": "مُثَلَّث",
      "pic": "../../pics/ar-triangle.png",
      "audio": "words/muthallath.mp3"
+    },
+    {
+     "word": "مِحْرَاث",
+     "pic": "../../pics/ar-tractor.png",
+     "audio": "words/mihrath.mp3"
     }
    ]
   },
@@ -394,21 +512,48 @@
    "ex": 15,
    "page": 131,
    "task": "انْطِقْ وَصِلْ كُلَّ كَلِمَةٍ بِالصُّورَةِ الْمُنَاسِبَةِ",
-   "taskAudio": "../q-prompts/match-picture.mp3",
+   "taskAudio": "../q-heads/h-a1791e5c.mp3",
    "hint": "صل الكلمة بالصورة",
    "book": "booklet",
    "items": [
     {
      "word": "حَرَث",
-     "pic": "../../pics/ar-tractor.png"
+     "pic": "../../pics/ar-tractor.png",
+     "audio": "words/harath.mp3"
     },
     {
      "word": "وَثَب",
-     "pic": "../../pics/ar-jumper.png"
+     "pic": "../../pics/ar-jumper.png",
+     "audio": "words/wathab.mp3"
     },
     {
      "word": "بَحَث",
-     "pic": "../../pics/ar-hidechild.jpg"
+     "pic": "../../pics/ar-hidechild.jpg",
+     "audio": "words/bahath.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 16,
+   "page": 131,
+   "book": "booklet",
+   "words": true,
+   "task": "أُرَتِّبُ الْكَلِمَاتِ لِتَكُونَ جُمَلًا",
+   "taskAudio": "q/task-b16.mp3",
+   "hint": "رتب الكلمات",
+   "items": [
+    {
+     "word": "حَرَثَ الرَّجُلُ الْحَقْلَ",
+     "audio": "q/wb-66-0-s1.mp3"
+    },
+    {
+     "word": "رَسَمَ الْوَلَدُ الْمُثَلَّثَ",
+     "audio": "q/b16-1.mp3"
+    },
+    {
+     "word": "بَحَثَتِ الْبِنْتُ عَنِ الثَّوْبِ",
+     "audio": "q/b16-2.mp3"
     }
    ]
   },
@@ -484,18 +629,17 @@
    ]
   },
   {
-   "type": "arrange",
+   "type": "split",
    "ex": 3,
    "page": 66,
    "book": "workbook",
    "task": "أُحَلِّلُ الْكَلِمَةَ إِلَى حُرُوفِهَا",
    "taskAudio": "q/wb-split-task.mp3",
-   "hint": "اسحب الحروف واحدا واحدا إلى مكانها",
+   "hint": "اسحب الحروف وركّبها في أماكنها",
    "items": [
     {
      "word": "ثَعْلَب",
-     "audio": "q/wb-66-0-thalab.mp3",
-     "split": [
+     "parts": [
       "ثَ",
       "عْ",
       "لَ",
@@ -504,8 +648,7 @@
     },
     {
      "word": "مُثَلَّث",
-     "audio": "q/wb-66-1-muthallath.mp3",
-     "split": [
+     "parts": [
       "مُ",
       "ثَ",
       "لَّ",
@@ -526,17 +669,22 @@
     {
      "word": "ثُعْبَان",
      "text2": "ثـ",
-     "audio": "q/wb-66-link-0.mp3"
+     "audio": "words/thu3ban.mp3"
     },
     {
      "word": "كُمَّثْرَى",
      "text2": "ـثـ",
-     "audio": "q/wb-66-link-1.mp3"
+     "audio": "../u2l8/q/w-kummathra.mp3"
+    },
+    {
+     "word": "مُثَلَّث",
+     "text2": "ـث",
+     "audio": "words/muthallath.mp3"
     },
     {
      "word": "أُخْت",
-     "text2": "ـث",
-     "audio": "q/wb-66-link-2.mp3"
+     "text2": "ـت",
+     "audio": "../u1l10/words/ukht.mp3"
     }
    ]
   }

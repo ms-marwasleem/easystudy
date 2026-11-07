@@ -1,646 +1,949 @@
 {
- "sets": [
-  {
-   "type": "circle",
-   "ex": 2,
-   "page": 126,
-   "task": "أُلَوِّنُ مُكَعَّبَ حَرْفِ الصَّادِ",
-   "taskAudio": "q/task-2.mp3",
-   "hint": "اضغط على أشكال الصاد",
-   "items": [
+  "sets": [
     {
-     "word": "ص",
-     "text": "ص",
-     "answer": 1
+      "type": "circle",
+      "ex": 2,
+      "page": 126,
+      "task": "أُلَوِّنُ مُكَعَّبَ حَرْفِ الصَّادِ",
+      "taskAudio": "q/task-2.mp3",
+      "hint": "اضغط على أشكال الصاد",
+      "items": [
+        {
+          "word": "ص",
+          "text": "ص",
+          "answer": 1
+        },
+        {
+          "word": "ب",
+          "text": "ب",
+          "answer": 0
+        },
+        {
+          "word": "ـص",
+          "text": "ـص",
+          "answer": 1
+        },
+        {
+          "word": "س",
+          "text": "س",
+          "answer": 0
+        },
+        {
+          "word": "ـصـ",
+          "text": "ـصـ",
+          "answer": 1
+        },
+        {
+          "word": "ص",
+          "text": "ص",
+          "answer": 1
+        },
+        {
+          "word": "ت",
+          "text": "ت",
+          "answer": 0
+        },
+        {
+          "word": "صـ",
+          "text": "صـ",
+          "answer": 1
+        },
+        {
+          "word": "أ",
+          "text": "أ",
+          "answer": 0
+        }
+      ]
     },
     {
-     "word": "ب",
-     "text": "ب",
-     "answer": 0
+      "type": "choice",
+      "ex": 3,
+      "page": 126,
+      "task": "أُلَاحِظُ شَكْلَ حَرْفِ (ص) فِي الْكَلِمَةِ، ثُمَّ أَخْتَارُ الشَّكْلَ الْمُنَاسِبَ",
+      "taskAudio": "q/task-3.mp3",
+      "hint": "اختار شكل الصاد في الكلمة",
+      "items": [
+        {
+          "word": "صَقْر",
+          "options": [
+            "ص",
+            "صـ"
+          ],
+          "answer": 1,
+          "audio": "words/saqr.mp3"
+        },
+        {
+          "word": "مِقَصّ",
+          "options": [
+            "ـصـ",
+            "ـص"
+          ],
+          "answer": 1,
+          "audio": "words/miqass.mp3"
+        },
+        {
+          "word": "حِصَان",
+          "options": [
+            "ـصـ",
+            "صـ"
+          ],
+          "answer": 0,
+          "audio": "words/hisan.mp3"
+        },
+        {
+          "word": "قُرْص",
+          "options": [
+            "ص",
+            "صـ"
+          ],
+          "answer": 0,
+          "audio": "words/qurs.mp3"
+        }
+      ]
     },
     {
-     "word": "ـص",
-     "text": "ـص",
-     "answer": 1
+      "type": "vowel",
+      "ex": 5,
+      "page": 127,
+      "task": "أَنْطِقُ، وَأَكْتُبُ الْحَرَكَةَ الْمُنَاسِبَةَ عَلَى حَرْفِ الصَّادِ",
+      "taskAudio": "../q-heads/h-07db94d6.mp3",
+      "hint": "اختار الصاد بالحركة الصح",
+      "choices": [
+        "صَ",
+        "صُ",
+        "صِ",
+        "صْ"
+      ],
+      "items": [
+        {
+          "word": "صُقُور",
+          "audio": "words/suqur.mp3",
+          "pic": "../../pics/ar-eagles3.png",
+          "answer": "صُ",
+          "choices": [
+            "صَ",
+            "صُ",
+            "صِ"
+          ]
+        },
+        {
+          "word": "صَيَّاد",
+          "audio": "words/sayyad.mp3",
+          "pic": "../../pics/ar-fisherman.jpg",
+          "answer": "صَ",
+          "choices": [
+            "صَ",
+            "صُ",
+            "صِ"
+          ]
+        },
+        {
+          "word": "صِفْر",
+          "audio": "words/sifr.mp3",
+          "pic": "../../pics/ar-zero.png",
+          "answer": "صِ",
+          "choices": [
+            "صَ",
+            "صُ",
+            "صِ"
+          ]
+        },
+        {
+          "word": "عُصْفُور",
+          "audio": "words/usfur.mp3",
+          "pic": "../../pics/ar-bird.png",
+          "answer": "صْ",
+          "choices": [
+            "صَ",
+            "صُ",
+            "صِ",
+            "صْ"
+          ],
+          "at": 1
+        }
+      ]
     },
     {
-     "word": "س",
-     "text": "س",
-     "answer": 0
+      "type": "vowel",
+      "ex": 8,
+      "page": 128,
+      "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الصَّادِ مَضْبُوطًا بِالشَّكْلِ",
+      "taskAudio": "../q-heads/h-b981673b.mp3",
+      "hint": "اختار الصاد بالحركة الصح",
+      "choices": [
+        "صَ",
+        "صُ",
+        "صِ",
+        "صْ"
+      ],
+      "items": [
+        {
+          "word": "صَبَّار",
+          "audio": "q/w-sabbar.mp3",
+          "pic": "../../pics/ar-cactus.png",
+          "answer": "صَ",
+          "choices": [
+            "صَ",
+            "صُ",
+            "صِ"
+          ]
+        },
+        {
+          "word": "أَصْفَر",
+          "audio": "words/asfar.mp3",
+          "pic": "../../pics/yellow.png",
+          "answer": "صْ",
+          "choices": [
+            "صَ",
+            "صُ",
+            "صِ",
+            "صْ"
+          ],
+          "at": 1
+        },
+        {
+          "word": "صُنْدُوق",
+          "audio": "words/sunduq.mp3",
+          "pic": "../../pics/ar-box.png",
+          "answer": "صُ",
+          "choices": [
+            "صَ",
+            "صُ",
+            "صِ"
+          ]
+        },
+        {
+          "word": "صِفْر",
+          "audio": "words/sifr.mp3",
+          "pic": "../../pics/ar-zero.png",
+          "answer": "صِ",
+          "choices": [
+            "صَ",
+            "صُ",
+            "صِ"
+          ]
+        }
+      ]
     },
     {
-     "word": "صـ",
-     "text": "صـ",
-     "answer": 1
+      "type": "build",
+      "ex": 9,
+      "page": 128,
+      "task": "أَسْتَخْدِمُ الْحُرُوفَ التَّالِيَةَ؛ لِأُكَوِّنَ اسْمَ كُلِّ صُورَةٍ",
+      "taskAudio": "../q-heads/h-068ae82a.mp3",
+      "hint": "اسحب الحروف وكوّن كلمة لكل صورة",
+      "items": [
+        {
+          "letters": [
+            "ص",
+            "ف",
+            "ل",
+            "م",
+            "ق"
+          ],
+          "words": [
+            "مِقَصّ",
+            "فَصْل"
+          ],
+          "slots": 2,
+          "need": 2,
+          "cells": 3,
+          "pics": [
+            "../../pics/ar-scissors.png",
+            "../../pics/ar-classroom-desks.jpg"
+          ]
+        }
+      ]
     },
     {
-     "word": "أ",
-     "text": "أ",
-     "answer": 0
+      "type": "pick",
+      "ex": 10,
+      "page": 128,
+      "task": "أَقْرَأُ الْجُمْلَةَ، وَأَصِلُهَا بِالصُّورَةِ الْمُنَاسِبَةِ",
+      "taskAudio": "q/task-10.mp3",
+      "hint": "اقرأ الجملة واختار الصورة",
+      "items": [
+        {
+          "word": "وَقَفَ الْمُعَلِّمُ فِي الْفَصْلِ.",
+          "audio": "q/s10.mp3",
+          "pics": [
+            "../../pics/ar-teacher-class-kids.jpg",
+            "../../pics/ar-boys-football.jpg"
+          ],
+          "answer": 0
+        }
+      ]
     },
     {
-     "word": "ت",
-     "text": "ت",
-     "answer": 0
+      "type": "story",
+      "ex": 11,
+      "page": 128,
+      "task": "أَسْتَمِعُ إِلَى الْقِصَّةِ، وَأَقْفِزُ عِنْدَمَا أَسْمَعُ كَلِمَةً بِهَا حَرْفُ الصَّادِ",
+      "taskAudio": "q/task-11.mp3",
+      "hint": "اسمع القصة، واقفز لما تسمع كلمة فيها صاد",
+      "items": [
+        {
+          "scene": "../../pics/ar-story-u4l5-cut.png",
+          "text": "جَلَسَ الصَّيَّادُ صَالِحٌ عَلَى شَاطِئِ الْبَحْرِ يَصِيدُ بِالصِّنَّارَةِ، وَاصْطَادَ سَمَكًا كَثِيرًا وَوَضَعَهُ فِي صُنْدُوقِهِ. جَاءَتْ قِطَّةٌ، وَوَقَفَتْ تَنْظُرُ إِلَى صُنْدُوقِ السَّمَكِ. أَخْرَجَ صَالِحٌ مِقَصَّهُ الصَّغِيرَ، وَقَطَعَ جُزْءًا مِنَ السَّمَكَةِ، وَقَدَّمَهُ لِلْقِطَّةِ. فَرِحَتِ الْقِطَّةُ، وَابْتَسَمَ صَالِحٌ لَهَا.",
+          "audio": "q/story.mp3",
+          "ask": "مَاذَا فَعَلَ الصَّيَّادُ مَعَ الْقِطَّةِ؟",
+          "askAudio": "q/story-ask.mp3"
+        }
+      ]
     },
     {
-     "word": "ـصـ",
-     "text": "ـصـ",
-     "answer": 1
+      "type": "circle",
+      "ex": 6,
+      "page": 121,
+      "book": "booklet",
+      "task": "ضَعْ خَطًّا تَحْتَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ (ص)",
+      "taskAudio": "q/task-b6.mp3",
+      "hint": "اضغط على الكلمات اللي فيها صاد",
+      "items": [
+        {
+          "word": "صَقْر",
+          "text": "صَقْر",
+          "answer": true,
+          "audio": "words/saqr.mp3"
+        },
+        {
+          "word": "فَضْل",
+          "text": "فَضْل",
+          "answer": false,
+          "audio": "words/fadl.mp3"
+        },
+        {
+          "word": "قَفَص",
+          "text": "قَفَص",
+          "answer": true,
+          "audio": "words/qafas.mp3"
+        },
+        {
+          "word": "صَائِم",
+          "text": "صَائِم",
+          "answer": true,
+          "audio": "words/saim.mp3"
+        },
+        {
+          "word": "عَاصِمَة",
+          "text": "عَاصِمَة",
+          "answer": true,
+          "audio": "words/asima.mp3"
+        },
+        {
+          "word": "عَصِير",
+          "text": "عَصِير",
+          "answer": true,
+          "audio": "words/aseer.mp3"
+        },
+        {
+          "word": "غُصْن",
+          "text": "غُصْن",
+          "answer": true,
+          "audio": "words/ghusn.mp3"
+        }
+      ]
+    },
+    {
+      "type": "circle",
+      "ex": 7,
+      "page": 122,
+      "task": "اسْتَمِعْ وَضَعْ عَلَامَةَ (✓) تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ (ص)",
+      "taskAudio": "../q-heads/h-f574796f.mp3",
+      "hint": "اضغط على الصور التي فيها صوت الصاد",
+      "silent": true,
+      "book": "booklet",
+      "items": [
+        {
+          "word": "juice",
+          "pic": "../../pics/ar-juice.png",
+          "answer": true
+        },
+        {
+          "word": "pomegranate",
+          "pic": "../../pics/ar-pomegranate.png",
+          "answer": false
+        },
+        {
+          "word": "rod",
+          "pic": "../../pics/ar-rod.png",
+          "answer": true
+        },
+        {
+          "word": "balloons",
+          "pic": "../../pics/ar-balloons.png",
+          "answer": false
+        },
+        {
+          "word": "eagle",
+          "pic": "../../pics/ar-eagle.jpg",
+          "answer": true
+        },
+        {
+          "word": "chair",
+          "pic": "../../pics/ar-chair.png",
+          "answer": false
+        },
+        {
+          "word": "scissors",
+          "pic": "../../pics/ar-scissors.png",
+          "answer": true
+        },
+        {
+          "word": "rocket",
+          "pic": "../../pics/ar-rocket.png",
+          "answer": true
+        },
+        {
+          "word": "fish",
+          "pic": "../../pics/ar-fish.png",
+          "answer": false
+        },
+        {
+          "word": "cactus",
+          "pic": "../../pics/ar-cactus.png",
+          "answer": true
+        }
+      ],
+      "mark": "tick"
+    },
+    {
+      "type": "position",
+      "ex": 8,
+      "page": 122,
+      "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الصَّادِ",
+      "taskAudio": "../q-heads/h-13115efc.mp3",
+      "hint": "اضغط على الدائرة التي فيها الصاد",
+      "book": "booklet",
+      "items": [
+        {
+          "word": "مِقَصّ",
+          "audio": "words/miqass.mp3",
+          "pic": "../../pics/ar-scissors.png",
+          "at": 2
+        },
+        {
+          "word": "بَصَل",
+          "audio": "words/basal.mp3",
+          "pic": "../../pics/ar-onion.png",
+          "at": 1
+        },
+        {
+          "word": "صَقْر",
+          "audio": "words/saqr.mp3",
+          "pic": "../../pics/ar-eagle.jpg",
+          "at": 0
+        },
+        {
+          "word": "حِصَان",
+          "audio": "words/hisan.mp3",
+          "pic": "../../pics/ar-horse-book.jpg",
+          "at": 1
+        },
+        {
+          "word": "عَصِير",
+          "audio": "words/aseer.mp3",
+          "pic": "../../pics/ar-juice.png",
+          "at": 1
+        },
+        {
+          "word": "لِصّ",
+          "audio": "words/liss.mp3",
+          "pic": "../../pics/ar-thief.png",
+          "at": 1
+        }
+      ]
+    },
+    {
+      "type": "vowel",
+      "ex": 9,
+      "page": 122,
+      "book": "booklet",
+      "task": "انْطِقْ، وَاكْتُبْ حَرْفَ (ص) مَضْبُوطًا بِالشَّكْلِ",
+      "taskAudio": "q/task-b9.mp3",
+      "hint": "اختار الصاد بالحركة الصح",
+      "choices": [
+        "صَ",
+        "صُ",
+        "صِ",
+        "صْ"
+      ],
+      "items": [
+        {
+          "word": "أَصْفَر",
+          "audio": "words/asfar.mp3",
+          "pic": "../../pics/yellow.png",
+          "answer": "صْ",
+          "choices": [
+            "صَ",
+            "صُ",
+            "صِ",
+            "صْ"
+          ],
+          "at": 1
+        },
+        {
+          "word": "صُنْدُوق",
+          "audio": "words/sunduq.mp3",
+          "pic": "../../pics/ar-box.png",
+          "answer": "صُ",
+          "choices": [
+            "صَ",
+            "صُ",
+            "صِ"
+          ]
+        },
+        {
+          "word": "صَارُوخ",
+          "audio": "words/sarukh.mp3",
+          "pic": "../../pics/ar-rocket.png",
+          "answer": "صَ",
+          "choices": [
+            "صَ",
+            "صُ",
+            "صِ"
+          ]
+        },
+        {
+          "word": "صِنَّارَة",
+          "audio": "words/sinnara.mp3",
+          "pic": "../../pics/ar-rod.png",
+          "answer": "صِ",
+          "choices": [
+            "صَ",
+            "صُ",
+            "صِ"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vowel",
+      "ex": 10,
+      "page": 122,
+      "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الصَّادِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
+      "taskAudio": "../q-heads/h-034d16e9.mp3",
+      "hint": "اختار صوت الصاد",
+      "choices": [
+        "صَ",
+        "صُ",
+        "صِ",
+        "صْ"
+      ],
+      "book": "booklet",
+      "items": [
+        {
+          "word": "صِغَار",
+          "audio": "words/sighar.mp3",
+          "pic": "../../pics/ar-babies.jpg",
+          "answer": "صِ"
+        },
+        {
+          "word": "صُنْدُوق",
+          "audio": "words/sunduq.mp3",
+          "pic": "../../pics/ar-box.png",
+          "answer": "صُ"
+        },
+        {
+          "word": "عُصْفُور",
+          "audio": "words/usfur.mp3",
+          "pic": "../../pics/ar-bird.png",
+          "at": 1,
+          "answer": "صْ"
+        },
+        {
+          "word": "صَيَّاد",
+          "audio": "words/sayyad.mp3",
+          "pic": "../../pics/ar-fisherman.jpg",
+          "answer": "صَ"
+        }
+      ]
+    },
+    {
+      "type": "arrange",
+      "ex": 11,
+      "page": 122,
+      "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+      "taskAudio": "../q-heads/h-c412ebef.mp3",
+      "hint": "رتب الحروف",
+      "book": "booklet",
+      "items": [
+        {
+          "word": "مِصْر",
+          "audio": "words/misr.mp3",
+          "pic": "../../pics/ar-flag.png"
+        },
+        {
+          "word": "صَخْر",
+          "audio": "words/sakhr.mp3",
+          "pic": "../../pics/ar-rock.png"
+        },
+        {
+          "word": "صَقْر",
+          "audio": "words/saqr.mp3",
+          "pic": "../../pics/ar-eagle.jpg"
+        }
+      ]
+    },
+    {
+      "type": "write",
+      "ex": 12,
+      "page": 123,
+      "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
+      "taskAudio": "../q-prompts/merge-syllables.mp3",
+      "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
+      "book": "booklet",
+      "items": [
+        {
+          "word": "مِصْبَاح",
+          "chips": [
+            "مِصْ",
+            "بَا",
+            "ح"
+          ],
+          "audio": "words/misbah.mp3"
+        },
+        {
+          "word": "قَصْر",
+          "chips": [
+            "قَصْ",
+            "ر"
+          ],
+          "audio": "words/qasr.mp3"
+        },
+        {
+          "word": "أَصْفَر",
+          "chips": [
+            "أَصْ",
+            "فَ",
+            "ر"
+          ],
+          "audio": "words/asfar.mp3"
+        },
+        {
+          "word": "إِصْبَع",
+          "chips": [
+            "إِصْ",
+            "بَ",
+            "ع"
+          ],
+          "audio": "words/isba.mp3"
+        }
+      ]
+    },
+    {
+      "type": "arrange",
+      "ex": 13,
+      "page": 123,
+      "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
+      "taskAudio": "../q-heads/h-c412ebef.mp3",
+      "hint": "رتب الحروف",
+      "book": "booklet",
+      "items": [
+        {
+          "word": "عَصِير",
+          "audio": "words/aseer.mp3",
+          "pic": "../../pics/ar-juice.png"
+        },
+        {
+          "word": "غُصْن",
+          "audio": "words/ghusn.mp3",
+          "pic": "../../pics/ar-branch.png"
+        },
+        {
+          "word": "قَفَص",
+          "audio": "words/qafas.mp3",
+          "pic": "../../pics/ar-cage.png"
+        },
+        {
+          "word": "مِقَصّ",
+          "audio": "words/miqass.mp3",
+          "pic": "../../pics/ar-scissors.png"
+        }
+      ]
+    },
+    {
+      "type": "write",
+      "ex": 14,
+      "page": 123,
+      "book": "booklet",
+      "task": "عَبِّرْ عَنْ كُلِّ صُورَةٍ مِمَّا يَأْتِي بِكَلِمَةٍ مُنَاسِبَةٍ",
+      "taskAudio": "q/task-b14.mp3",
+      "hint": "اكتب اسم الصورة",
+      "items": [
+        {
+          "word": "قَفَص",
+          "audio": "words/qafas.mp3",
+          "pic": "../../pics/ar-cage.png"
+        },
+        {
+          "word": "صَارُوخ",
+          "audio": "words/sarukh.mp3",
+          "pic": "../../pics/ar-rocket.png"
+        },
+        {
+          "word": "حِصَان",
+          "audio": "words/hisan.mp3",
+          "pic": "../../pics/ar-horse-book.jpg"
+        },
+        {
+          "word": "مِقَصّ",
+          "audio": "words/miqass.mp3",
+          "pic": "../../pics/ar-scissors.png"
+        }
+      ]
+    },
+    {
+      "type": "link",
+      "ex": 15,
+      "page": 123,
+      "task": "أَقْرَأُ ثُمَّ أَصِلُ",
+      "taskAudio": "../q-heads/h-9efb3c2b.mp3",
+      "hint": "صل الكلمة بالصورة",
+      "book": "booklet",
+      "items": [
+        {
+          "word": "عُصْفُور",
+          "audio": "words/usfur.mp3",
+          "pic": "../../pics/ar-bird.png"
+        },
+        {
+          "word": "صِغَار",
+          "audio": "words/sighar.mp3",
+          "pic": "../../pics/ar-babies.jpg"
+        },
+        {
+          "word": "صَيَّاد",
+          "audio": "words/sayyad.mp3",
+          "pic": "../../pics/ar-fisherman.jpg"
+        },
+        {
+          "word": "مِصْبَاح",
+          "audio": "words/misbah.mp3",
+          "pic": "../../pics/ar-bulb.png"
+        }
+      ]
+    },
+    {
+      "type": "order",
+      "ex": 16,
+      "page": 123,
+      "book": "booklet",
+      "task": "رَتِّبِ الْكَلِمَاتِ؛ لِتُكَوِّنَ جُمَلًا",
+      "taskAudio": "q/task-b16.mp3",
+      "hint": "رتب الكلمات",
+      "items": [
+        {
+          "chunks": [
+            "لَوْنُ",
+            "الْبَصَلِ",
+            "أَصْفَرُ"
+          ],
+          "end": ".",
+          "word": "لَوْنُ الْبَصَلِ أَصْفَرُ.",
+          "audio": "q/b16-1.mp3"
+        },
+        {
+          "chunks": [
+            "صَعِدَ",
+            "أَبِي",
+            "فِي",
+            "الْمِصْعَدِ"
+          ],
+          "end": ".",
+          "word": "صَعِدَ أَبِي فِي الْمِصْعَدِ.",
+          "audio": "q/b16-2.mp3"
+        },
+        {
+          "chunks": [
+            "وَقَفَ",
+            "الصَّقْرُ",
+            "فَوْقَ",
+            "الْجَبَلِ"
+          ],
+          "end": ".",
+          "word": "وَقَفَ الصَّقْرُ فَوْقَ الْجَبَلِ.",
+          "audio": "q/b16-3.mp3"
+        }
+      ]
+    },
+    {
+      "type": "circle",
+      "ex": 1,
+      "page": 63,
+      "book": "workbook",
+      "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي فِيهَا حَرْفُ (ص)",
+      "taskAudio": "q/wb-circle-63.mp3",
+      "hint": "اضغط على الكلمات اللي فيها حرف ص",
+      "items": [
+        {
+          "word": "صِينِيَّة",
+          "text": "صِينِيَّة",
+          "answer": true
+        },
+        {
+          "word": "سَمَك",
+          "text": "سَمَك",
+          "answer": false
+        },
+        {
+          "word": "صِنَّارَة",
+          "text": "صِنَّارَة",
+          "answer": true
+        },
+        {
+          "word": "سُور",
+          "text": "سُور",
+          "answer": false
+        },
+        {
+          "word": "غُصْن",
+          "text": "غُصْن",
+          "answer": true
+        },
+        {
+          "word": "عَصِير",
+          "text": "عَصِير",
+          "answer": true
+        },
+        {
+          "word": "سَطْر",
+          "text": "سَطْر",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "type": "vowel",
+      "ex": 2,
+      "page": 63,
+      "book": "workbook",
+      "task": "أَكْتُبُ حَرْفَ (ص) فَوْقَ النُّقَطِ ثُمَّ أَضْبِطُهُ بِالشَّكْلِ",
+      "taskAudio": "q/wb-vowel-task.mp3",
+      "hint": "اختار الصاد بالحركة الصح",
+      "choices": [
+        "صَ",
+        "صُ",
+        "صِ",
+        "صْ"
+      ],
+      "items": [
+        {
+          "word": "بَصَل",
+          "audio": "words/basal.mp3",
+          "pic": "../../pics/ar-onion.png",
+          "answer": "صَ",
+          "choices": [
+            "صَ",
+            "صُ",
+            "صِ"
+          ],
+          "at": 1
+        },
+        {
+          "word": "صُنْدُوق",
+          "audio": "words/sunduq.mp3",
+          "pic": "../../pics/ar-box.png",
+          "answer": "صُ",
+          "choices": [
+            "صَ",
+            "صُ",
+            "صِ"
+          ]
+        },
+        {
+          "word": "مِصْبَاح",
+          "audio": "words/misbah.mp3",
+          "pic": "../../pics/ar-bulb.png",
+          "answer": "صْ",
+          "choices": [
+            "صَ",
+            "صُ",
+            "صِ",
+            "صْ"
+          ],
+          "at": 1
+        },
+        {
+          "word": "صِنَّارَة",
+          "audio": "words/sinnara.mp3",
+          "pic": "../../pics/ar-rod.png",
+          "answer": "صِ",
+          "choices": [
+            "صَ",
+            "صُ",
+            "صِ"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "split",
+      "ex": "h1",
+      "page": 63,
+      "book": "workbook",
+      "task": "أُحَلِّلُ الْكَلِمَةَ إِلَى حُرُوفِهَا",
+      "taskAudio": "q/wb-split-task.mp3",
+      "hint": "اسحب الحروف وركّبها في أماكنها",
+      "items": [
+        {
+          "word": "مَصْنَع",
+          "parts": [
+            "مَ",
+            "صْ",
+            "نَ",
+            "ع"
+          ]
+        },
+        {
+          "word": "مَصْعَد",
+          "parts": [
+            "مَ",
+            "صْ",
+            "عَ",
+            "د"
+          ]
+        },
+        {
+          "word": "صَقْر",
+          "parts": [
+            "صَ",
+            "قْ",
+            "ر"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "build",
+      "ex": "h2",
+      "page": 63,
+      "book": "workbook",
+      "task": "أُكَوِّنُ كَلِمَاتٍ مِنَ الْحُرُوفِ الْآتِيَةِ",
+      "taskAudio": "q/wb-build-task.mp3",
+      "hint": "اسحب الحروف وكوّن كلمات",
+      "items": [
+        {
+          "letters": [
+            "ق",
+            "ل",
+            "ص",
+            "م",
+            "ف",
+            "ع",
+            "ر"
+          ],
+          "words": [
+            "صَقْر",
+            "قَصْر",
+            "فَصْل",
+            "عَصْر"
+          ],
+          "slots": 4,
+          "need": 3,
+          "cells": 3
+        }
+      ]
     }
-   ]
-  },
-  {
-   "type": "sound",
-   "ex": 4,
-   "page": 127,
-   "task": "أَنْطِقُ صَوْتَ حَرْفِ الصَّادِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
-   "taskAudio": "q/task-4.mp3",
-   "hint": "اسمع الجملة وردد وراها",
-   "items": [
-    {
-     "word": "صَيَّاد",
-     "ask": "صَ",
-     "pic": "../../pics/ar-fisherman.jpg",
-     "audio": [
-      "../letters/635/name.mp3",
-      "../shared/h-fatha.mp3",
-      "../../syl-ar/635-64e.mp3",
-      "words/sayyad.mp3"
-     ]
-    },
-    {
-     "word": "صُنْدُوق",
-     "ask": "صُ",
-     "pic": "../../pics/ar-box.png",
-     "audio": [
-      "../letters/635/name.mp3",
-      "../shared/h-damma.mp3",
-      "../../syl-ar/635-64f.mp3",
-      "words/sunduq.mp3"
-     ]
-    },
-    {
-     "word": "صِغَار",
-     "ask": "صِ",
-     "pic": "../../pics/ar-babies.jpg",
-     "audio": [
-      "../letters/635/name.mp3",
-      "../shared/h-kasra.mp3",
-      "../../syl-ar/635-650.mp3",
-      "words/sighar.mp3"
-     ]
-    },
-    {
-     "word": "قَصْر",
-     "ask": "صْ",
-     "pic": "../../pics/ar-castle.png",
-     "audio": [
-      "../letters/635/name.mp3",
-      "../shared/h-sukoon.mp3",
-      "../../syl-ar/635-652.mp3",
-      "words/qasr.mp3"
-     ]
-    }
-   ]
-  },
-  {
-   "type": "vowel",
-   "ex": 5,
-   "page": 127,
-   "task": "أَنْطِقُ، وَأَكْتُبُ الْحَرَكَةَ الْمُنَاسِبَةَ عَلَى حَرْفِ الصَّادِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
-   "hint": "اختار الصاد بالحركة الصح",
-   "choices": [
-    "صَ",
-    "صُ",
-    "صِ",
-    "صْ"
-   ],
-   "items": [
-    {
-     "word": "عُصْفُور",
-     "audio": "words/usfur.mp3",
-     "pic": "../../pics/ar-bird.png",
-     "answer": "صْ",
-     "choices": [
-      "صَ",
-      "صُ",
-      "صِ"
-     ],
-     "at": 1
-    },
-    {
-     "word": "صَيَّاد",
-     "audio": "words/sayyad.mp3",
-     "pic": "../../pics/ar-fisherman.jpg",
-     "answer": "صَ",
-     "choices": [
-      "صَ",
-      "صُ",
-      "صِ"
-     ]
-    },
-    {
-     "word": "صَقْر",
-     "audio": "words/saqr.mp3",
-     "pic": "../../pics/ar-eagle.jpg",
-     "answer": "صَ",
-     "choices": [
-      "صَ",
-      "صُ",
-      "صِ"
-     ]
-    }
-   ]
-  },
-  {
-   "type": "vowel",
-   "ex": 8,
-   "page": 128,
-   "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الصَّادِ مَضْبُوطًا بِالشَّكْلِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
-   "hint": "اختار الصاد بالحركة الصح",
-   "choices": [
-    "صَ",
-    "صُ",
-    "صِ",
-    "صْ"
-   ],
-   "items": [
-    {
-     "word": "صَبَّار",
-     "audio": "q/w-sabbar.mp3",
-     "pic": "../../pics/ar-cactus.png",
-     "answer": "صَ",
-     "choices": [
-      "صَ",
-      "صُ",
-      "صِ"
-     ]
-    },
-    {
-     "word": "صُنْدُوق",
-     "audio": "words/sunduq.mp3",
-     "pic": "../../pics/ar-box.png",
-     "answer": "صُ",
-     "choices": [
-      "صَ",
-      "صُ",
-      "صِ"
-     ]
-    },
-    {
-     "word": "صِغَار",
-     "audio": "words/sighar.mp3",
-     "pic": "../../pics/ar-babies.jpg",
-     "answer": "صِ",
-     "choices": [
-      "صَ",
-      "صُ",
-      "صِ"
-     ]
-    },
-    {
-     "word": "قَصْر",
-     "audio": "words/qasr.mp3",
-     "pic": "../../pics/ar-castle.png",
-     "answer": "صْ",
-     "choices": [
-      "صَ",
-      "صُ",
-      "صِ"
-     ],
-     "at": 1
-    }
-   ]
-  },
-  {
-   "type": "write",
-   "ex": 9,
-   "page": 128,
-   "task": "أَسْتَخْدِمُ الْحُرُوفَ لِأُكَوِّنَ اسْمَ كُلِّ صُورَةٍ",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
-   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
-   "items": [
-    {
-     "word": "مِقَصّ",
-     "audio": "words/miqass.mp3",
-     "pic": "../../pics/ar-scissors.png",
-     "chips": [
-      "مِ",
-      "قَ",
-      "صّ"
-     ]
-    },
-    {
-     "word": "مِصْبَاح",
-     "audio": "words/misbah.mp3",
-     "pic": "../../pics/ar-bulb.png",
-     "chips": [
-      "مِصْ",
-      "بَا",
-      "ح"
-     ]
-    }
-   ]
-  },
-  {
-   "type": "story",
-   "ex": 11,
-   "page": 128,
-   "task": "أَسْتَمِعُ إِلَى الْقِصَّةِ، وَأَقْفِزُ عِنْدَمَا أَسْمَعُ كَلِمَةً بِهَا حَرْفُ الصَّادِ",
-   "taskAudio": "q/task-11.mp3",
-   "hint": "اسمع القصة، واقفز لما تسمع كلمة فيها صاد",
-   "items": [
-    {
-     "scene": "../../pics/ar-story-u4l5-cut.png",
-     "text": "جَلَسَ الصَّيَّادُ صَالِحٌ عَلَى شَاطِئِ الْبَحْرِ يَصِيدُ بِالصِّنَّارَةِ، وَاصْطَادَ سَمَكًا كَثِيرًا وَوَضَعَهُ فِي صُنْدُوقِهِ. جَاءَتْ قِطَّةٌ، وَوَقَفَتْ تَنْظُرُ إِلَى صُنْدُوقِ السَّمَكِ. أَخْرَجَ صَالِحٌ مِقَصَّهُ الصَّغِيرَ، وَقَطَعَ جُزْءًا مِنَ السَّمَكَةِ، وَقَدَّمَهُ لِلْقِطَّةِ. فَرِحَتِ الْقِطَّةُ، وَابْتَسَمَ صَالِحٌ لَهَا.",
-     "audio": "q/story.mp3",
-     "ask": "مَاذَا فَعَلَ الصَّيَّادُ مَعَ الْقِطَّةِ؟",
-     "askAudio": "q/story-ask.mp3"
-    }
-   ]
-  },
-  {
-   "type": "circle",
-   "ex": 7,
-   "page": 122,
-   "task": "اسْتَمِعْ وَضَعْ عَلَامَةً تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الصَّادِ",
-   "taskAudio": [
-    "../q-prompts/circle-letter-sound.mp3",
-    "../letters/635/name.mp3"
-   ],
-   "hint": "اضغط على الصور التي فيها صوت الصاد",
-   "silent": true,
-   "book": "booklet",
-   "items": [
-    {
-     "word": "cactus",
-     "pic": "../../pics/ar-cactus.png",
-     "answer": true
-    },
-    {
-     "word": "fish",
-     "pic": "../../pics/ar-fish.png",
-     "answer": false
-    },
-    {
-     "word": "rocket",
-     "pic": "../../pics/ar-rocket.png",
-     "answer": true
-    },
-    {
-     "word": "scissors",
-     "pic": "../../pics/ar-scissors.png",
-     "answer": true
-    },
-    {
-     "word": "chair",
-     "pic": "../../pics/ar-chair.png",
-     "answer": false
-    },
-    {
-     "word": "eagle",
-     "pic": "../../pics/ar-eagle.jpg",
-     "answer": true
-    },
-    {
-     "word": "balloons",
-     "pic": "../../pics/ar-balloons.png",
-     "answer": false
-    },
-    {
-     "word": "rod",
-     "pic": "../../pics/ar-rod.png",
-     "answer": true
-    },
-    {
-     "word": "pomegranate",
-     "pic": "../../pics/ar-pomegranate.png",
-     "answer": false
-    },
-    {
-     "word": "juice",
-     "pic": "../../pics/ar-juice.png",
-     "answer": true
-    }
-   ]
-  },
-  {
-   "type": "position",
-   "ex": 8,
-   "page": 122,
-   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الصَّادِ",
-   "taskAudio": [
-    "../q-prompts/mark-letter-position.mp3",
-    "../letters/635/name.mp3"
-   ],
-   "hint": "اضغط على الدائرة التي فيها الصاد",
-   "book": "booklet",
-   "items": [
-    {
-     "word": "صَقْر",
-     "audio": "words/saqr.mp3",
-     "pic": "../../pics/ar-eagle.jpg",
-     "at": 0
-    },
-    {
-     "word": "بَصَل",
-     "audio": "words/basal.mp3",
-     "pic": "../../pics/ar-onion.png",
-     "at": 1
-    },
-    {
-     "word": "مِقَصّ",
-     "audio": "words/miqass.mp3",
-     "pic": "../../pics/ar-scissors.png",
-     "at": 2
-    },
-    {
-     "word": "لِصّ",
-     "audio": "words/liss.mp3",
-     "pic": "../../pics/ar-thief.png",
-     "at": 1
-    },
-    {
-     "word": "عَصِير",
-     "audio": "words/aseer.mp3",
-     "pic": "../../pics/ar-juice.png",
-     "at": 1
-    },
-    {
-     "word": "حِصَان",
-     "audio": "words/hisan.mp3",
-     "pic": "../../pics/ar-horse-book.jpg",
-     "at": 1
-    }
-   ]
-  },
-  {
-   "type": "vowel",
-   "ex": 10,
-   "page": 122,
-   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الصَّادِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
-   "taskAudio": [
-    "../q-prompts/choose-letter-sound-a.mp3",
-    "../letters/635/name.mp3",
-    "../q-prompts/choose-letter-sound-b.mp3"
-   ],
-   "hint": "اختار صوت الصاد",
-   "choices": [
-    "صَ",
-    "صُ",
-    "صِ",
-    "صْ"
-   ],
-   "book": "booklet",
-   "items": [
-    {
-     "word": "صَيَّاد",
-     "audio": "words/sayyad.mp3",
-     "pic": "../../pics/ar-fisherman.jpg",
-     "answer": "صَ"
-    },
-    {
-     "word": "عُصْفُور",
-     "audio": "words/usfur.mp3",
-     "pic": "../../pics/ar-bird.png",
-     "at": 1,
-     "answer": "صْ"
-    },
-    {
-     "word": "صُنْدُوق",
-     "audio": "words/sunduq.mp3",
-     "pic": "../../pics/ar-box.png",
-     "answer": "صُ"
-    },
-    {
-     "word": "صِغَار",
-     "audio": "words/sighar.mp3",
-     "pic": "../../pics/ar-babies.jpg",
-     "answer": "صِ"
-    }
-   ]
-  },
-  {
-   "type": "arrange",
-   "ex": 11,
-   "page": 122,
-   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/arrange-letters.mp3",
-   "hint": "رتب الحروف",
-   "book": "booklet",
-   "items": [
-    {
-     "word": "مِصْر",
-     "audio": "words/misr.mp3",
-     "pic": "../../pics/ar-flag.png"
-    },
-    {
-     "word": "صَخْر",
-     "audio": "words/sakhr.mp3",
-     "pic": "../../pics/ar-rock.png"
-    },
-    {
-     "word": "صَقْر",
-     "audio": "words/saqr.mp3",
-     "pic": "../../pics/ar-eagle.jpg"
-    }
-   ]
-  },
-  {
-   "type": "write",
-   "ex": 12,
-   "page": 123,
-   "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
-   "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
-   "book": "booklet",
-   "items": [
-    {
-     "word": "مِصْبَاح",
-     "chips": [
-      "مِصْ",
-      "بَاح"
-     ],
-     "audio": "words/misbah.mp3"
-    },
-    {
-     "word": "قَصْر",
-     "chips": [
-      "قَصْ",
-      "ر"
-     ],
-     "audio": "words/qasr.mp3"
-    },
-    {
-     "word": "إِصْبَع",
-     "chips": [
-      "إِصْ",
-      "بَ",
-      "ع"
-     ],
-     "audio": "words/isba.mp3"
-    },
-    {
-     "word": "أَصْفَر",
-     "chips": [
-      "أَصْ",
-      "فَ",
-      "ر"
-     ],
-     "audio": "words/asfar.mp3"
-    }
-   ]
-  },
-  {
-   "type": "arrange",
-   "ex": 13,
-   "page": 123,
-   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/arrange-letters.mp3",
-   "hint": "رتب الحروف",
-   "book": "booklet",
-   "items": [
-    {
-     "word": "غُصْن",
-     "audio": "words/ghusn.mp3",
-     "pic": "../../pics/ar-branch.png"
-    },
-    {
-     "word": "عَصِير",
-     "audio": "words/aseer.mp3",
-     "pic": "../../pics/ar-juice.png"
-    },
-    {
-     "word": "مِقَصّ",
-     "audio": "words/miqass.mp3",
-     "pic": "../../pics/ar-scissors.png"
-    },
-    {
-     "word": "قَفَص",
-     "audio": "words/qafas.mp3",
-     "pic": "../../pics/ar-cage.png"
-    }
-   ]
-  },
-  {
-   "type": "link",
-   "ex": 15,
-   "page": 123,
-   "task": "أَقْرَأُ ثُمَّ أَصِلُ",
-   "taskAudio": "../q-prompts/match-picture.mp3",
-   "hint": "صل الكلمة بالصورة",
-   "book": "booklet",
-   "items": [
-    {
-     "word": "عُصْفُور",
-     "audio": "words/usfur.mp3",
-     "pic": "../../pics/ar-bird.png"
-    },
-    {
-     "word": "صِغَار",
-     "audio": "words/sighar.mp3",
-     "pic": "../../pics/ar-babies.jpg"
-    },
-    {
-     "word": "صَيَّاد",
-     "audio": "words/sayyad.mp3",
-     "pic": "../../pics/ar-fisherman.jpg"
-    },
-    {
-     "word": "مِصْبَاح",
-     "audio": "words/misbah.mp3",
-     "pic": "../../pics/ar-bulb.png"
-    }
-   ]
-  },
-  {
-   "type": "circle",
-   "ex": 1,
-   "page": 63,
-   "book": "workbook",
-   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي فِيهَا حَرْفُ (ص)",
-   "taskAudio": "q/wb-circle-63.mp3",
-   "hint": "اضغط على الكلمات اللي فيها حرف ص",
-   "items": [
-    {
-     "word": "صِينِيَّة",
-     "text": "صِينِيَّة",
-     "answer": true
-    },
-    {
-     "word": "سَمَك",
-     "text": "سَمَك",
-     "answer": false
-    },
-    {
-     "word": "صِنَّارَة",
-     "text": "صِنَّارَة",
-     "answer": true
-    },
-    {
-     "word": "سُور",
-     "text": "سُور",
-     "answer": false
-    },
-    {
-     "word": "غُصْن",
-     "text": "غُصْن",
-     "answer": true
-    },
-    {
-     "word": "عَصِير",
-     "text": "عَصِير",
-     "answer": true
-    },
-    {
-     "word": "سَطْر",
-     "text": "سَطْر",
-     "answer": false
-    }
-   ]
-  },
-  {
-   "type": "arrange",
-   "ex": 2,
-   "page": 63,
-   "book": "workbook",
-   "task": "أُحَلِّلُ الْكَلِمَةَ إِلَى حُرُوفِهَا",
-   "taskAudio": "q/wb-split-task.mp3",
-   "hint": "اسحب الحروف واحدا واحدا إلى مكانها",
-   "items": [
-    {
-     "word": "مَصْنَع",
-     "audio": "q/wb-63-0-masna.mp3",
-     "split": [
-      "مَ",
-      "صْ",
-      "نَ",
-      "ع"
-     ]
-    },
-    {
-     "word": "مَصْعَد",
-     "audio": "q/wb-63-1-masad.mp3",
-     "split": [
-      "مَ",
-      "صْ",
-      "عَ",
-      "د"
-     ]
-    },
-    {
-     "word": "صَقْر",
-     "audio": "q/wb-63-2-saqr.mp3",
-     "split": [
-      "صَ",
-      "قْ",
-      "ر"
-     ]
-    }
-   ]
-  }
- ]
+  ]
 }

@@ -32,6 +32,8 @@ const shade=(hex,k)=>{ const n=parseInt(hex.slice(1),16); const f=v=>Math.max(0,
 const ease={out:p=>1-Math.pow(1-p,3), inout:p=>p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2, back:p=>{ const c=1.7; return 1+(c+1)*Math.pow(p-1,3)+c*Math.pow(p-1,2); }};
 const mk=(tag,attrs,html)=>{ const e=document.createElementNS(NS,tag); for(const k in attrs||{}) e.setAttribute(k,attrs[k]); if(html!=null) e.innerHTML=html; return e; };
 const hel=(tag,cls,html)=>{ const e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e; };
+// a word the child picks = THE choice button (quiz.js qChBtn, look only in css/qlayout.css; Marwa 2026-11-06)
+const xChip=(t,more)=>{ const b=qChBtn(String(t),true); b.classList.add('alopt','alchip','xpick'); if(more) b.classList.add(more); return b; };
 const STOP={stop:1};
 
 /* ---------- drawings (our own vector art; colours from data) ---------- */
@@ -217,7 +219,7 @@ function mount(root, data, opt){
     const g=X.gen; askRow.innerHTML=''; cap.classList.add('asking');
     if(X.fast){ cap.classList.remove('asking'); return lit(o.to,o.color,o.answer); }
     return new Promise((res,rej)=>{
-      o.options.forEach(v=>{ const b=hel('button',/\D/.test(String(v))?'alopt alchip xpick xans':'xpl-opt',String(v)); b.addEventListener('click',async()=>{
+      o.options.forEach(v=>{ const b=/\D/.test(String(v))?xChip(v,'xans'):hel('button','xpl-opt',String(v)); b.addEventListener('click',async()=>{
         if(g!==X.gen) return; if(v!==o.answer){ b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); if(opt.wrong) opt.wrong(); return; }
         b.classList.add('yes'); askRow.querySelectorAll('button').forEach(x=>x.disabled=true);
         try{ await lit(o.to,o.color,o.answer); cap.classList.remove('asking'); askRow.innerHTML=''; res(); }catch(e){ rej(e); } }); askRow.append(b); });
@@ -254,7 +256,7 @@ function mount(root, data, opt){
     askRow.innerHTML=''; cap.classList.add('asking','built');
     let mix=ch.map((_,k)=>k); for(let t=0;t<30;t++){ mix.sort(()=>Math.random()-.5); if(mix.some((v,k)=>v!==k)) break; }
     return new Promise((res,rej)=>{ let next=0; X.rejAsk=rej;
-      mix.forEach(k=>{ const b=hel('button','alopt alchip xpick'); b.textContent=ch[k]; askRow.append(b);
+      mix.forEach(k=>{ const b=xChip(ch[k]); askRow.append(b);
         b.addEventListener('click',()=>{ if(g!==X.gen||b.classList.contains('used')) return;
           if(ch[k]!==ch[next]){ b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); if(opt.wrong) opt.wrong(); return; }   // same text (e.g. "are" twice) = either piece is right
           const n=next; b.classList.add('used'); const ws=put(n); next++; if(opt.stop) opt.stop(); if(snd[n]) Promise.resolve(opt.play&&opt.play(base+snd[n])).catch(()=>{});

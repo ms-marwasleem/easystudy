@@ -51,10 +51,10 @@ function qxVowel(box,q,s,run){
   box.append(row);
 }
 // the word (or sentence) as hidden letters with their places underlined; spaces are not letters
-function qxWordEl(word,chips,faint,ltr){ const gs=glyphs(word);   // THE word component (js/wordslots.js); ltr: an English word inside any subject
+function qxWordEl(word,chips,faint,ltr,gaps){ const gs=glyphs(word);   // THE word component (js/wordslots.js); ltr: an English word inside any subject
   const cnt=(chips||[]).map(c=>glyphs(c).length), ok=cnt.length>1&&cnt.reduce((a,c)=>a+c,0)===gs.length;   // grouped per syllable when the chips match the word
   let k=0; const parts=ok?cnt.map(n=>gs.slice(k,k+=n).join('')):null;
-  return wsFill(el('b','qxw'),word,{hide:true,faint,parts,ltr}); }
+  return wsFill(el('b','qxw'),word,{hide:gaps||true,faint,parts,ltr}); }
 // Help: the next syllable (or letter) shows faintly for a moment, then is hidden again: the child writes it
 function qxPeek(wd){ const n=qxNext(wd); if(!n) return; const sg=n.closest('.wsg'); wsPeek(sg?$$('.lt.hid',sg):[n]); }
 function qxNext(wd){ return $('.lt.hid',wd); }
@@ -63,7 +63,7 @@ const qxDone=wd=>!qxNext(wd);
 function qxWrite(box,q,s,run,text,onDone){   // text: what to type (default the question's word); onDone: called instead of the win (math: number, then its word)
   text=text||q.word; $$('.qxhelp',box).forEach(x=>x.remove());
   if(q.chips&&text===q.word){ const c=el('div','qxchips'); c.innerHTML=q.chips.map(t=>`<i>${t}</i>`).join('<u>/</u>'); box.append(c); }
-  const wd=qxWordEl(text,text===q.word?q.chips:null,s.faint,s.lang==='en'||/^[\x00-\x7f]+$/.test(text)), help=el('button','qxhelp',ICON.hint); help.setAttribute('aria-label','Help');
+  const wd=qxWordEl(text,text===q.word?q.chips:null,s.faint,s.lang==='en'||/^[\x00-\x7f]+$/.test(text),text===q.word&&q.gaps&&q.gaps.length?q.gaps:null), help=el('button','qxhelp',ICON.hint); help.setAttribute('aria-label','Help');
   const line=el('div','qxline'); line.append(wd); const duo=$('.qxduo',box); (duo||box).append(line); qHelpHost(help);   // duo: number and its word side by side
   let inp=$('#qxin');
   if(!inp){ inp=el('input','qin'); Object.assign(inp,{type:'text',id:'qxin',autocomplete:'off',spellcheck:false,lang:s.lang||'ar'}); ['autocorrect','autocapitalize'].forEach(a=>inp.setAttribute(a,'off')); inp.setAttribute('enterkeyhint','done'); inp.setAttribute('aria-label','Type the word'); }
@@ -321,3 +321,106 @@ QM.arrange={sheet:'box', draw:qxArrange, help:(q,w)=>{ const n=$('.qxw .lt.hid',
 QM.qa={sheet:'box', bulb:0, draw:qxQA};
 
 /* RULE: while the phone keyboard is open the word stays above it, and the Help bulb moves beside the word: shared, js/wordslots.js (wsKeep) */
+
+/* first    = "write the FIRST letter of each picture's word, then merge the letters into the new word" (book booklet ex12): a row of pictures, a place under each for its first letter (typed), then the merged word is typed. The result picture (q.pic) is on top.
+   item: {word: the merged word, result: its picture, parts:[{pic, first: the letter}, ...], hush: true (the word is the answer, so no speaker)} */
+function qxFirst(box,q,s,run){
+  const row=el('div','qxfirsts'), cells=q.parts.map(p=>{ const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${R_Q(p.pic)}" alt="">`)); const h=el('div','qxfh'); f.append(h); row.append(f); return h; });
+  let rc=null; if(q.result){ row.append(el('span','qxeq','=')); const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${R_Q(q.result)}" alt="">`)); rc=el('div','qxfh'); f.append(rc); row.append(f); }   // the merged word's own picture and its place, after "="
+  box.append(row);
+  const stage=k=>{ const last=k>=q.parts.length;
+    qxWrite(box,q,s,run,last?q.word:q.parts[k].first,last?null:()=>{ stage(k+1); });
+    const ln=$$('.qxline',box).pop(); if(ln) (last&&rc?rc:cells[k]).append(ln); };
+  stage(0);
+}
+QM.first={sheet:'box', noword:1, bulb:0, draw:qxFirst};
+
+/* build    = "make words from these letters" (book workbook): ALL the letters sit on top once, each can be dragged (or tapped) as many times as the child wants into the places below, one place per word to build (3-4 places). A place that spells one of the words locks in green; the question is done when `need` words are built.
+   item: {letters:["أ","ب",...], words:["أَب","أُمّ",...] (the words that count, marks ignored), slots:4, need:3} */
+function qxBuild(box,q,s,run){
+  const key=t=>(t||'').replace(/[ً-ْٰـ]/g,'').replace(/[أإآٱ]/g,'ا'), ok=(q.words||[]).map(w=>({k:key(w),w}));
+  const fits=l=>{ const c={}; (q.letters||[]).forEach(g=>{ const t=key(g); c[t]=(c[t]||0)+1; }); return l.every(g=>{ const t=key(g); return c[t]>0&&c[t]--; }); };   // a dictionary word may use each given letter only as many times as it is given
+  let DICT=null; fetch('data/arabic/dict.json').then(r=>r.ok?r.json():[]).then(j=>{ DICT=new Set(j); }).catch(()=>{});
+  const bank=el('div','qxtiles qxbank'); (q.letters||[]).forEach(g=>{ const t=el('button','qxtile',`<span>${g}</span>`); t.dataset.g=g; bank.append(t); });
+  const places=el('div','qxbplaces'), P=[]; for(let i=0;i<(q.slots||4);i++){ const d=el('div','qxbp'+(q.cells?' cells':'')), w=el('b','qxbw'), c=el('button','qxbx','×'); c.setAttribute('aria-label','Clear'); d.append(w,c); places.append(d); P.push({d,w,c,l:[],done:false}); }
+  if(q.pics&&q.pics.length){ const pr=el('div','qxfirsts qxbpics'); q.pics.forEach(u=>{ const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${u}" alt="">`)); pr.append(f); }); box.append(pr); }   // "pics": the book's pictures of the words to make (shown above the letters; the answer is still ANY word the letters make)
+  box.append(bank,places);
+  const MAXL=6, need=q.need||Math.min(3,P.length), act=()=>P.find(p=>!p.done&&p.l.length<MAXL), show=p=>{ if(!q.cells){ p.w.textContent=p.l.join(''); return; }
+    // q.cells = N: the place is split into N letter boxes so the child sees where each letter goes (one box per letter; a built word shows its marks)
+    // boxes do NOT tell how long the word is: as many boxes as letters placed plus one empty (at least 2, at most MAXL); a built word shows its letters with marks
+    const parts=p.done?(p.wk||'').match(/[^ً-ْٰـ][ً-ْٰـ]*/g)||[]:p.l, n=p.done?parts.length:Math.min(MAXL,Math.max(2,p.l.length+1)); p.w.innerHTML=''; for(let i=0;i<n;i++){ const c=el('span','qxbc'+(parts[i]?' on':'')); c.textContent=parts[i]||''; p.w.append(c); } };
+  const put=(g,p)=>{ if(!p||p.done||p.l.length>=MAXL||qz.busy) return false; p.l.push(g); show(p); blip(520+p.l.length*60,.05);
+    const lock=m=>{ p.done=true; p.k=m.k; p.wk=m.w; if(q.cells) show(p); else p.w.textContent=m.w; p.d.classList.add('got'); celebrate(p.d); if(P.filter(x=>x.done).length>=need) qxWin(places,q,1700); };
+    const k=key(p.l.join('')), m=ok.find(o=>o.k===k&&!P.some(x=>x.done&&x.k===o.k));
+    if(m) lock(m);
+    else if(p.l.length>=2&&!P.some(x=>x.done&&x.k===k)&&DICT&&DICT.has(k)&&fits(p.l)){   // ANY real word the letters can make counts (every word of the Arabic data); wait a moment so a longer word can still be finished
+      const was=p.l.join(''); setTimeout(()=>{ if(!p.done&&p.l.join('')===was&&!P.some(x=>x.done&&x.k===k)) lock({k,w:was}); },p.l.length>=MAXL?0:900); }
+    else if(p.l.length>=MAXL){ qxBad(p.d); setTimeout(()=>{ p.l=[]; show(p); },420); }
+    return true; };
+  if(q.cells) P.forEach(show);
+  P.forEach(p=>{ p.c.onclick=e=>{ e.stopPropagation(); if(p.done||qz.busy) return; p.l=[]; show(p); }; });
+  let drag=null;
+  bank.addEventListener('pointerdown',e=>{ const t=e.target.closest('.qxtile'); if(!t||qz.busy) return; e.preventDefault(); hideHint();
+    drag={t,x:e.clientX,y:e.clientY,moved:false,g:null}; try{ bank.setPointerCapture(e.pointerId); }catch(_){} });
+  bank.addEventListener('pointermove',e=>{ if(!drag) return; if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)<10) return;
+    if(!drag.moved){ drag.moved=true; const g=el('div','qxtile ghost',`<span>${drag.t.dataset.g}</span>`); g.style.cssText='position:fixed;z-index:50;pointer-events:none;margin:0'; document.body.append(g); drag.g=g; }
+    const r=drag.g.getBoundingClientRect(); drag.g.style.left=(e.clientX-r.width/2)+'px'; drag.g.style.top=(e.clientY-r.height*.8)+'px'; });
+  const end=e=>{ if(!drag) return; const d=drag; drag=null; if(d.g) d.g.remove(); if(e.type==='pointercancel') return;
+    let p=null; if(d.moved){ const pad=14; p=P.find(x=>{ const r=x.d.getBoundingClientRect(); return e.clientX>r.left-pad&&e.clientX<r.right+pad&&e.clientY>r.top-pad&&e.clientY<r.bottom+pad; }); if(!p) return; }   // dropped elsewhere: it just goes back
+    else p=act();   // a tap goes to the first place that is not full / built
+    if(!put(d.t.dataset.g,p)) qxBad(d.t); };
+  bank.addEventListener('pointerup',end); bank.addEventListener('pointercancel',end);
+}
+QM.build={sheet:'box', noword:1, bulb:0, draw:qxBuild};
+/* ring     = "listen and CIRCLE THE LETTER inside the word" (booklet ex 11): the word stands whole (joined letters, THE word component); the child taps a letter of it, and a right one gets a circle drawn round it. Every place of the letter must be circled (a word with the letter twice needs both). A wrong letter shakes.
+   (Circle the WHOLE word that has the letter = type `circle`; circle the LETTER inside one word = this one.)
+   item: {word:"تُوت", letter:"ت" (marks ignored), audio} */
+function qxRing(box,q,s,run){
+  const wd=wsFill(el('b','qxw'),q.word,{}), L=$$('.lt',wd), want=l=>sameLetter(arBase(l.textContent),q.letter); wd.classList.add('ring'); box.append(wd);
+  L.forEach(l=>l.addEventListener('click',()=>{ if(qz.busy||l.classList.contains('rung')) return; if(!want(l)) return qxBad(l);
+    l.classList.add('rung'); blip(560+$$('.rung',wd).length*60,.05); if(L.every(x=>!want(x)||x.classList.contains('rung'))) qxWin(wd,q,1500); }));
+}
+QM.ring={sheet:'box', noword:1, draw:qxRing, help:(q,w)=>$$('.qxw.ring .lt',w).filter(l=>sameLetter(arBase(l.textContent),q.letter)&&!l.classList.contains('rung')).slice(0,1)};
+
+/* ringword = "listen, then CIRCLE THE WORD in the sentence that fits the question" (assessments book u2l1 p30 ex 1: "هات من العبارة: كلمة بها حرف (د)"): the question line (`ask`) stands on top, the WHOLE sentence below with every word its own tap target (each word is THE word component); a right word gets a circle round it; a wrong word shakes. Any word that fits is accepted (the book leaves the blank free). One item = one question about the sentence; the next item asks again about the same sentence.
+   (Circle a LETTER inside one word = `ring`; circle a whole picture/word on a board = `circle`.)
+   item: {word:"the sentence", ask:"كَلِمَةٌ بِهَا حَرْفُ (د)", letter:"د" (a word containing it, marks ignored) | prefix:"ال" (a word starting with it), audio:"the sentence read aloud"} */
+const qxRwBase=w=>arBase(String(w).replace(/[«»،.؟!:]/g,''));
+const qxRwFits=(q,w)=>{ const b=qxRwBase(w); return q.prefix?b.startsWith(arBase(q.prefix)):glyphs(b).some(g=>sameLetter(g,q.letter)); };
+function qxRingWord(box,q,s,run){
+  if(q.ask) box.append(el('div','qxask',q.ask));
+  const sen=el('div','qxsent');
+  String(q.word).split(/\s+/).filter(Boolean).forEach(w=>{ const wd=wsWord(w,{}); wd.classList.add('qxcw'); sen.append(wd);
+    wd.addEventListener('click',()=>{ if(qz.busy||wd.classList.contains('rung')) return; if(!qxRwFits(q,w)) return qxBad(wd);
+      wd.classList.add('rung'); blip(620,.05); qxWin(wd,q,1500); }); });
+  box.append(sen);
+}
+QM.ringword={sheet:'box', noword:1, draw:qxRingWord, help:(q,w)=>$$('.qxcw',w).filter(x=>qxRwFits(q,x.textContent)).slice(0,1)};
+
+/* split    = "analyse the word into syllables (or letters)" (book booklet ex "حلل"): the WHOLE word sits on top as separate letter tiles; below, ONE place per part with a "/" between the parts, each place has one box per letter. The child drags the letters (or taps them) one by one into the boxes and builds the parts himself; a wrong letter goes back (shake). Done when every box is filled.
+   item: {word:"كِتَاب", parts:["كِ","تَا","ب"]}  (the parts joined = the word; one letter = a letter + its marks) */
+function qxSplit(box,q,s,run){
+  const GL=/[^ً-ْٰـ][ً-ْٰـ]*/g, letters=q.word.match(GL)||[];
+  const bank=el('div','qxtiles qxbank qxsbank'); letters.forEach(g=>{ const t=el('button','qxtile',`<span>${g}</span>`); t.dataset.g=g; bank.append(t); });
+  const row=el('div','qxsplit'), P=[];
+  q.parts.forEach((pt,k)=>{ if(k) row.append(el('span','qxsl','/')); const g=pt.match(GL)||[], d=el('div','qxsy'), cells=g.map(()=>{ const c=el('span','qxbc'); d.append(c); return c; }); row.append(d); P.push({d,g,cells,n:0}); });
+  box.append(bank,row);
+  const total=P.reduce((a,p)=>a+p.g.length,0); let filled=0;
+  const put=(t,p)=>{ if(!p||qz.busy||t.classList.contains('used')) return false; if(p.n>=p.g.length||p.g[p.n]!==t.dataset.g) return false;
+    const c=p.cells[p.n++]; c.textContent=t.dataset.g; c.classList.add('on'); t.classList.add('used'); blip(520+filled*50,.05); filled++;
+    if(p.n===p.g.length) p.d.classList.add('got');
+    if(filled>=total) qxWin(row,q,1700); return true; };
+  let drag=null;
+  bank.addEventListener('pointerdown',e=>{ const t=e.target.closest('.qxtile'); if(!t||qz.busy||t.classList.contains('used')) return; e.preventDefault(); hideHint();
+    drag={t,x:e.clientX,y:e.clientY,moved:false,g:null}; try{ bank.setPointerCapture(e.pointerId); }catch(_){} });
+  bank.addEventListener('pointermove',e=>{ if(!drag) return; if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)<10) return;
+    if(!drag.moved){ drag.moved=true; const g=el('div','qxtile ghost',`<span>${drag.t.dataset.g}</span>`); g.style.cssText='position:fixed;z-index:50;pointer-events:none;margin:0'; document.body.append(g); drag.g=g; }
+    const r=drag.g.getBoundingClientRect(); drag.g.style.left=(e.clientX-r.width/2)+'px'; drag.g.style.top=(e.clientY-r.height*.8)+'px'; });
+  const end=e=>{ if(!drag) return; const d=drag; drag=null; if(d.g) d.g.remove(); if(e.type==='pointercancel') return;
+    let p=null; if(d.moved){ const pad=14; p=P.find(x=>{ const r=x.d.getBoundingClientRect(); return e.clientX>r.left-pad&&e.clientX<r.right+pad&&e.clientY>r.top-pad&&e.clientY<r.bottom+pad; }); if(!p) return; }   // dropped elsewhere: it just goes back
+    else p=P.find(x=>x.n<x.g.length&&x.g[x.n]===d.t.dataset.g);   // a tap goes to the first part that is waiting for this letter
+    if(!put(d.t,p)) qxBad(d.t); };
+  bank.addEventListener('pointerup',end); bank.addEventListener('pointercancel',end);
+}
+QM.split={sheet:'box', noword:1, bulb:0, draw:qxSplit};
+

@@ -1,3 +1,4 @@
+const APP_BUILD='284359d9a3';
 /* MADE BY tools/build-app.py from the files named below. Do not edit here: edit those files, then run the script again. */
 /* ===== js/core.js ===== */
 // Arabic-Indic (٠-٩) and Eastern Persian (۰-۹) digits typed anywhere count as Western digits: one helper, applied to every text box before any answer check
@@ -20,7 +21,21 @@ const _pre=[], PRE_MAX=80; function preloadImgs(list){ [...new Set((list||[]).fi
   const k=_pre.findIndex(x=>x._u===u); if(k>=0){ _pre.push(_pre.splice(k,1)[0]); return; }
   const i=new Image(); i.decoding='async'; i._u=u; i.src=u; _pre.push(i); if(i.decode) i.decode().catch(()=>{}); });
   if(_pre.length>PRE_MAX) _pre.splice(0,_pre.length-PRE_MAX); }
-const get = url => fetch(url).then(r=>{ if(!r.ok) throw new Error(url); return r.json(); });
+/* COUNT PICTURE — ONE component for every subject (Marwa 2026-11-06): the library keeps ONE unit picture (one banana, one bee) and
+   never one picture per count. Data writes the unit + the count after "#": "../../pics/banana-hat.png#5". Every json goes through
+   get(), so cpicFill draws the unit n times (rows of up to 5, the last row centred) into ONE transparent picture and puts it in the
+   string's place (marked data:image/png;cpic=1 so css/frame.css shows it as a cut-out, no frame): every screen (count, choose, link, pick, yes/no, lesson pages, exams) shows it like any other picture. */
+const CPIC_RE=/\.(png|jpe?g|webp)#(\d+)$/i, _cpic={};
+const cpicCols=n=>n<=4?n:Math.min(5,Math.ceil(n/2));
+function cpicMake(src,n){ const k=src+'#'+n; if(_cpic[k]) return _cpic[k];
+  return _cpic[k]=new Promise(ok=>{ const im=new Image(); im.onload=()=>{ const s=Math.min(1,260/Math.max(im.naturalWidth,im.naturalHeight)), w=Math.round(im.naturalWidth*s), h=Math.round(im.naturalHeight*s), g=Math.round(Math.max(w,h)*.12), cols=cpicCols(n), rows=Math.ceil(n/cols), c=document.createElement('canvas');
+    c.width=cols*w+(cols-1)*g; c.height=rows*h+(rows-1)*g; const x=c.getContext('2d');
+    for(let i=0;i<n;i++){ const r=Math.floor(i/cols), inRow=Math.min(cols,n-r*cols), off=(cols-inRow)*(w+g)/2; x.drawImage(im,off+(i%cols)*(w+g),r*(h+g),w,h); }
+    ok(c.toDataURL('image/png').replace('data:image/png;','data:image/png;cpic=1;')); }; im.onerror=()=>ok(src); im.src=src; }); }
+function cpicFill(d,url){ const todo=[], base=new URL(url,location.href);
+  const walk=o=>{ if(o&&typeof o==='object') for(const k in o){ const v=o[k]; if(typeof v==='string'){ const m=v.match(CPIC_RE); if(m) todo.push(cpicMake(new URL(v.slice(0,v.lastIndexOf('#')),base).href,+m[2]).then(u=>{ o[k]=u; })); } else walk(v); } };
+  walk(d); return Promise.all(todo).then(()=>d); }
+const get = url => fetch(url).then(r=>{ if(!r.ok) throw new Error(url); return r.json(); }).then(d=>cpicFill(d,url));
 
 /* ---------- Drawings ---------- */
 let gid=0;
@@ -248,7 +263,7 @@ const lessonParts=m=>(m&&m.tabs&&m.tabs.length)||3;   // a lesson with fewer tab
 function curLessonOf(list){ const L=list.filter(l=>l.file); if(!L.length) return null; const lt=LAST[subjKey()], lm=lt&&L.find(l=>l.id===lt.id); if(lm) return lm; let f=-1; L.forEach((l,i)=>{ if(lessonTouched(l)) f=i; });
   if(f<0) return L[0]; return lessonStars(L[f].id)>=lessonParts(L[f])&&L[f+1]?L[f+1]:L[f]; }
 function paintHud(){ $$('[data-hud]').forEach(h=>h.innerHTML=`<span class="ic">${STAR(true)}</span><span>${total()}</span>`); if(typeof coinPaint==='function') coinPaint(); }
-const PARTS=[['read','Lesson'],['words','Vocabulary'],['quiz','Questions'],['booklet','Booklet'],['grammar','Grammar']];   // names go through tr() when shown
+const PARTS=[['read','Lesson'],['words','Vocabulary'],['quiz','Questions'],['booklet','Booklet'],['workbook','PTS'],['grammar','Grammar']];   // names go through tr() when shown
 
 // the star waits until the last sound of the lesson / question has finished (no overlap), at most 6 s
 function award(id,part){ const t0=Date.now(), busyNow=()=>{ try{ return !!(vs.src||(player&&player.run)||speechSynthesis.speaking); }catch(e){ return false; } };
@@ -273,7 +288,7 @@ function awardNow(id,part){
 }
 function levelUp(id,isNew){
   const o=$('#levelUp'), t=$('#lvlTitle'); const word=tr(isNew?'Great!':'Super!'); t.textContent=word; t.dataset.t=word; $('#lvlAgain').textContent=tr('Again'); $('#lvlMap').textContent=tr('Map');
-  $('#slots').innerHTML=PARTS.filter(([p])=>LESSON&&LESSON.tabs?LESSON.tabs.includes(p):['read','words','quiz'].includes(p)).map(([p,l0])=>{ const l=tr(l0); return `<button class="slot" data-p="${p}" aria-label="Go to ${l}">${STAR(false)}${STARS[id]&&STARS[id][p]?`<span class="on" style="position:absolute;inset:0">${STAR(true)}</span>`:''}<span class="lbl">${l}</span></button>`; }).join('');
+  $('#slots').innerHTML=PARTS.filter(([p])=>{ const t=$('.tab[data-tab="'+p+'"]'); return t?!t.hidden:(LESSON&&LESSON.tabs?LESSON.tabs.includes(p):['read','words','quiz'].includes(p)); }).map(([p,l0])=>{ const l=(typeof TABAR!=='undefined'&&isAr()&&TABAR[p==='workbook'?'Assignments':l0])||tr(l0); return `<button class="slot" data-p="${p}" aria-label="Go to ${l}">${STAR(false)}${STARS[id]&&STARS[id][p]?`<span class="on" style="position:absolute;inset:0">${STAR(true)}</span>`:''}<span class="lbl">${l}</span></button>`; }).join('');
   putCar($('#lvlCar'),'wow'); o.hidden=false; spinRays(o);
   if(!anim) return;
   G.from('#lvlTitle',{scale:0,rotation:-8,duration:.55,ease:'back.out(2.4)'});
@@ -342,6 +357,33 @@ function sleepSound(){ SND.stale=true;
 document.addEventListener('visibilitychange',()=>{ if(document.hidden) return sleepSound(); if(SND.ctx&&SND.ctx.state!=='closed') wakeCtx(SND.ctx); });
 addEventListener('pagehide',sleepSound);
 addEventListener('pageshow',e=>{ if(e.persisted) SND.stale=true; });
+
+/* ===== THE PHONE KEYBOARD: ONE place for every screen (Marwa 2026-11-06: the account form shook while scrolling and the keyboard hid the field / the word / the Help bulb).
+   While the keyboard is open: --kb = its height and body.kb-open; the screens (except the lesson, which lifts the word itself in js/wordslots.js) end right above it
+   (css/base.css), so their own scroll reaches every field; the page itself never slides under the keyboard (pinned at the top, but never during the child's finger drag,
+   which was the shaking); a text box the child / parent taps scrolls smoothly into the room above the keyboard. */
+const KB={h:0,touch:false};
+function kbRoom(){ const vv=window.visualViewport, H=document.documentElement.clientHeight||innerHeight; if(!vv) return null;   // the page height without the keyboard (iPhone keeps it; innerHeight may follow the keyboard)
+  return {top:vv.offsetTop,bottom:vv.offsetTop+vv.height,kb:Math.max(0,Math.round(H-vv.height-vv.offsetTop)),H}; }
+function kbPin(){ if(!KB.touch&&(scrollY||document.documentElement.scrollTop)) scrollTo(0,0); }
+function kbSync(){ const R=kbRoom(); if(!R) return; const h=R.kb>120?R.kb:0;
+  if(h!==KB.h){ KB.h=h; document.documentElement.style.setProperty('--kb',h+'px'); document.body.classList.toggle('kb-open',!!h); if(h) setTimeout(kbShow,60); }
+  kbPin(); }
+// the text box being written in stands in the room above the keyboard (its label too), scrolled smoothly inside its own screen
+function kbField(t){ return t&&t.matches&&t.matches('input:not([type=hidden]):not([type=checkbox]):not([type=radio]),textarea,select')&&!['vin','qin','qxin'].includes(t.id); }
+function kbShow(){ const t=document.activeElement; if(!kbField(t)) return; const R=kbRoom(); if(!R) return;
+  let sc=t.parentElement; while(sc&&sc!==document.body){ const o=getComputedStyle(sc).overflowY; if((o==='auto'||o==='scroll')&&sc.scrollHeight>sc.clientHeight+1) break; sc=sc.parentElement; }
+  if(!sc||sc===document.body) return;
+  const box=(t.closest('label,.wl-field')||t).getBoundingClientRect(), r=t.getBoundingClientRect(), cr=sc.getBoundingClientRect();
+  const top=Math.max(R.top,cr.top)+12, bottom=Math.min(R.bottom,cr.bottom)-16;
+  let d=0; if(r.bottom>bottom) d=r.bottom-bottom; else if(box.top<top) d=box.top-top;
+  if(Math.abs(d)>2) sc.scrollTo({top:sc.scrollTop+d,behavior:calm?'auto':'smooth'}); }   // an exact place (called again while it slides, it never overshoots)
+if(window.visualViewport){ visualViewport.addEventListener('resize',kbSync); visualViewport.addEventListener('scroll',kbSync); }
+addEventListener('scroll',()=>{ if(KB.h) kbPin(); },{passive:true});
+document.addEventListener('touchstart',()=>{ KB.touch=true; },{passive:true,capture:true});
+document.addEventListener('touchend',()=>{ KB.touch=false; setTimeout(kbPin,30); },{passive:true,capture:true});
+document.addEventListener('touchcancel',()=>{ KB.touch=false; },{passive:true,capture:true});
+document.addEventListener('focusin',e=>{ if(kbField(e.target)) [80,350,700].forEach(t=>setTimeout(()=>{ kbSync(); kbShow(); },t)); });
 ;
 /* ===== js/lib.js ===== */
 /* LIBRARY — plays the sounds Ahmed records/uploads in the audio library (Cloudflare Worker "easystudy-recorder") straight away.
@@ -886,15 +928,15 @@ const wlEsc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;
 function wlBad(f,name,msg){ const er=$('.wl-err',f); $$('.bad',f).forEach(x=>x.classList.remove('bad')); if(er){ er.textContent=msg; er.hidden=false; }
   const i=name&&f[name]; if(!i) return; i.classList.add('bad'); i.focus(); if(anim) G.fromTo(i,{x:0},{x:8,duration:.06,repeat:5,yoyo:true,clearProps:'transform'});
   i.addEventListener('input',()=>{ i.classList.remove('bad'); if(er) er.hidden=true; },{once:true}); }
-// the short app description (Marwa 2026-11-05): on the loading screen (index.html #splashName .ldab, first load only) and small on the parent account step
-function wlAbout(){ return `<div class="wl-about sm" dir="rtl"><p class="wl-tag">مذاكرة أولى ابتدائي بلعبة مسلية للأطفال</p><ul class="wl-pts"><li>شرح الدرس</li><li>تحفيظ الكلمات</li><li>تدريب الأسئلة</li></ul></div>`; }
+// the short app description (Marwa 2026-11-05/06): on the loading screen (index.html #splashName .ldab, first load only), big on the first curriculum step and small on the parent account step
+function wlAbout(sz='sm'){ return `<div class="wl-about ${sz}" dir="rtl"><p class="wl-tag">مذاكرة أولى ابتدائي بلعبة مسلية للأطفال</p><ul class="wl-pts"><li>شرح الدرس</li><li>تحفيظ الكلمات</li><li>تدريب الأسئلة</li></ul></div>`; }
 function wlHead(ar,en){ return `<h2 class="wl-h"><span>${ar}</span><small>${en}</small></h2>`; }
 function wlGo(step,back){ if(!back&&WL.step!==step) WL.hist.push(WL.step); WL.step=step; wlDraw(); }
 function wlDraw(){
-  const b=$('#wlBody'); $('#wlBack').hidden=!WL.hist.length&&!WL.adding;
+  const b=$('#wlBody'); $('#wlBack').hidden=!WL.hist.length&&!WL.adding; $('#welcome').dataset.step=WL.step;   // big logo on the first step, smaller on the forms (css/welcome.css)
   if(WL.step==='curr'){
     const C=CURR||{types:[],schools:[]}, open=WL.pick&&WL.pick.type==='private';
-    b.innerHTML=wlHead('اختيار المنهج','Choose the curriculum')+`<div class="wl-list">`+C.types.map(t=>
+    b.innerHTML=(WL.adding?'':wlAbout(''))+wlHead('اختيار المنهج','Choose the curriculum')+`<div class="wl-list">`+C.types.map(t=>
       `<button class="pill wl-big${t.schools?' wl-more':''}${open&&t.schools?' open':''}" data-type="${t.id}"><span class="wl-ar">${t.ar}</span><small>${t.en}</small></button>`+
       (t.schools?`<div class="wl-schools"${open?'':' hidden'}>`+C.schools.map(s=>`<button class="pill yellow wl-school" data-school="${s.id}"><span class="wl-ar">${s.ar}</span><small>${s.en}</small></button>`).join('')+`</div>`:'')).join('')+`</div>`;
     $$('[data-type]',b).forEach(x=>x.addEventListener('click',()=>{ const t=C.types.find(y=>y.id===x.dataset.type);
@@ -1088,6 +1130,17 @@ putCar($('#helloCar')); if(anim) G.to('#helloCar',{y:-5,duration:.9,yoyo:true,re
 function migrateStars(){ try{ ['zoom-stars','zoom-vocab'].forEach(k=>{ const o=JSON.parse(localStorage.getItem(k)||'{}'); let ch=false;
   Object.keys(o).forEach(id=>{ if(/^u\d+l\d+$/.test(id)&&!o['en-ol-'+id]){ o['en-ol-'+id]=o[id]; delete o[id]; ch=true; } });
   if(ch){ localStorage.setItem(k,JSON.stringify(o)); if(k==='zoom-stars') STARS=o; } }); }catch(e){} }
+// design file of another build (an old copy kept on the device or in the browser) = screens without their look: fresh files, reload once
+async function buildMixed(){
+  let b=''; try{ b=getComputedStyle(document.documentElement).getPropertyValue('--app-build').trim().replace(/["']/g,''); }catch(e){}
+  if(typeof APP_BUILD==='undefined'||b===APP_BUILD) { try{ sessionStorage.removeItem('es.rebuilt'); }catch(e){} return false; }
+  try{ if(sessionStorage.getItem('es.rebuilt')) return false; sessionStorage.setItem('es.rebuilt','1'); }catch(e){ return false; }
+  try{ const c=navigator.serviceWorker&&navigator.serviceWorker.controller;
+    if(c) await new Promise(ok=>{ const ch=new MessageChannel(); ch.port1.onmessage=()=>ok(); c.postMessage('update',[ch.port2]); setTimeout(ok,5000); });
+    await Promise.all(['index.html','css/app.css','js/app-first.js','js/app-rest.js'].map(f=>fetch(f,{cache:'reload'}).catch(()=>{})));
+  }catch(e){}
+  location.reload(); return true;
+}
 async function start(){
   migrateStars();
   busy(true);
@@ -1104,6 +1157,7 @@ async function start(){
     const r=document.documentElement; if(ok&&want) r.dataset.theme=want; else delete r.dataset.theme; }catch(e){}
   // design file and fonts: wait for them behind the splash screen (fonts at most 2.5 s, then the page shows with the fallback font)
   await cssReady;
+  if(await buildMixed()) return;
   if(document.fonts&&document.fonts.ready) await Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,2500))]);
   $('#helloSub').textContent=`${COURSE.grade} · ${COURSE.term}`; paintHud(); busy(false); kidPaint(); if(!kidNow()) openWelcome(); else { openSubjects(); pop('#subjects .top > *',{y:-20}); }   // first launch: curriculum + accounts (js/welcome.js)
   setTimeout(()=>{ const n=$('#splashName'); if(n) n.remove(); $('#loadingText').hidden=false; },400);   // the app name shows on the first screen only; later loads say Loading...

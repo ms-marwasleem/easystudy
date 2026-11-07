@@ -4,6 +4,7 @@
 .qx-explain,.qx-mcq,.qx-cloze,.qx-order,.qx-mwrite{font-family:var(--f-read);align-items:stretch;justify-content:stretch;gap:0}
 .alw{cursor:pointer;border-radius:.3em;padding:0 .04em;transition:background .15s}
 .alw.lit{background:var(--c-hint)}
+.alw.haspen{white-space:nowrap}   /* the word and its pen never split over two lines (a pen alone at the start of a line looked lost, and the word's box then covered two lines) */
 @media (hover:hover){.alw:hover{background:rgba(255,226,120,.55)}}
 
 /* explain: a book page */
@@ -55,14 +56,6 @@
 .alblank.got{background:var(--c-good-bg);border-bottom-color:var(--c-good);color:#1D6B12;animation:qxpop .25s ease-out}
 .alopts,.albank,.alpool,.alsent{display:flex;flex-wrap:wrap;gap:min(1.6cqw,.8rem);justify-content:center}
 .alopts{flex-direction:row}
-.alopts.long{flex-direction:column;align-items:center}
-.alopt{display:flex;align-items:center;gap:.45rem;min-height:2.8rem;padding:.25rem 1rem .3rem 1rem;border-radius:62rem;border:.19rem solid var(--ol);background:linear-gradient(var(--c-paper2),var(--c-paper3));box-shadow:0 .22rem 0 rgba(90,52,24,.4);color:var(--c-text);font:700 clamp(1rem,min(3.8cqw,4.4cqh),1.9rem)/1.2 var(--f-read);position:relative}
-/* (the a/b/c badges are gone, Marwa 2026-11-04) */
-.alopt:active{transform:scale(.96)}
-.alopt.bad{background:var(--c-bad-bg);border-color:var(--c-bad-dk)}
-.alopt.dim,.alchip.used{opacity:.28;pointer-events:none}
-.alopt.ringed::after{content:"";position:absolute;inset:-.35rem -.5rem;border:.22rem solid #E24B7A;border-radius:62rem;transform:scale(var(--ring,1));pointer-events:none}
-.alchip{padding:.25rem 1rem .3rem 1rem}
 .albank{margin-top:.2rem}
 .alcloze .altx{font-size:calc(var(--q-sentence-size) * .85);line-height:1.7;text-align:center;font-weight:700;margin:0}
 .alcloze .altx .alw{font-weight:700}
@@ -71,8 +64,6 @@
 .alsent.bad{animation:alshake .4s}
 @keyframes alshake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 .alph{color:#BFA67A;font-size:1.6rem}.alend{font:700 clamp(1.2rem,4cqw,2rem) var(--f-read);color:var(--c-text)}
-.alchip.placed{background:linear-gradient(#EAF4FF,#CDE3F8)}
-.alchip.placed.good{background:linear-gradient(#DDF6C6,#B8E88F)}
 
 /* Grammar tab */
 .algram{display:block;overflow:hidden;padding:0}
@@ -121,7 +112,6 @@
 .chipghost{box-shadow:0 .7rem 1.2rem rgba(60,25,0,.35)!important;opacity:.95}
 /* order question built word by word (many pieces): smaller pieces so the picture keeps its room */
 .alorder.many .alpool,.alorder.many .alsent{gap:.35rem .4rem}
-.alorder.many .alchip{min-height:0;padding:.12rem .65rem .18rem;font-size:clamp(.95rem,min(3.4cqw,3.4cqh),1.6rem);border-width:.14rem}
 .alorder.many .alsent{min-height:2.6rem}
 
 /* ORDER question (Marwa 2026-11-03): FIXED zones = picture (as big as possible, never changes size) / sentence line (fixed height)
@@ -141,7 +131,7 @@
 #lesson.q-land .alorder .alsent{grid-column:2;grid-row:2}
 #lesson.q-land .alorder .alpool{grid-column:2;grid-row:3;align-content:flex-start;padding-top:.5rem}
 
-.alorder .alchip.bad{animation:alshake .4s;background:var(--c-bad-bg);border-color:var(--c-bad-dk)}
+.alorder .alchip.bad{animation:alshake .4s}
 
 /* words outside the picture + leader line ending in a dot (labels in alExplain) */
 .alfig.haslab{box-sizing:border-box;padding:0 27%}

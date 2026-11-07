@@ -1,65 +1,91 @@
 {
  "sets": [
   {
-   "type": "sound",
-   "ex": 3,
+   "type": "circle",
+   "ex": 2,
    "page": 135,
-   "task": "أَنْطِقُ صَوْتَ حَرْفِ الْغَيْنِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
-   "taskAudio": "q/task-3.mp3",
-   "hint": "اسمع الجملة وردد وراها",
+   "task": "أُلَوِّنُ مُكَعَّبَ حَرْفِ الْغَيْنِ",
+   "taskAudio": "q/task-ex2.mp3",
+   "hint": "اضغط على أشكال الغين",
    "items": [
     {
-     "word": "غَزَالَة",
-     "ask": "غَ",
-     "pic": "../../pics/ar-gazelle.png",
-     "audio": [
-      "../letters/63a/name.mp3",
-      "../shared/h-fatha.mp3",
-      "../../syl-ar/63a-64e.mp3",
-      "words/ghazala.mp3"
-     ]
+     "word": "ـعـ",
+     "text": "ـعـ",
+     "answer": 0
     },
     {
-     "word": "غُرَاب",
-     "ask": "غُ",
-     "pic": "../../pics/ar-crow.jpg",
-     "audio": [
-      "../letters/63a/name.mp3",
-      "../shared/h-damma.mp3",
-      "../../syl-ar/63a-64f.mp3",
-      "words/ghurab.mp3"
-     ]
+     "word": "غ",
+     "text": "غ",
+     "answer": 1
     },
     {
-     "word": "غِرَاء",
-     "ask": "غِ",
-     "pic": "../../pics/ar-glue.jpg",
-     "audio": [
-      "../letters/63a/name.mp3",
-      "../shared/h-kasra.mp3",
-      "../../syl-ar/63a-650.mp3",
-      "words/ghira.mp3"
-     ]
+     "word": "ـغ",
+     "text": "ـغ",
+     "answer": 1
+    },
+    {
+     "word": "ـغـ",
+     "text": "ـغـ",
+     "answer": 1
+    },
+    {
+     "word": "ص",
+     "text": "ص",
+     "answer": 0
+    },
+    {
+     "word": "غـ",
+     "text": "غـ",
+     "answer": 1
+    },
+    {
+     "word": "ع",
+     "text": "ع",
+     "answer": 0
+    },
+    {
+     "word": "غ",
+     "text": "غ",
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 3,
+   "page": 135,
+   "task": "أُلَاحِظُ شَكْلَ حَرْفِ (غ) فِي الْكَلِمَةِ، ثُمَّ أَخْتَارُ الشَّكْلَ الْمُنَاسِبَ",
+   "taskAudio": "q/task-ex3.mp3",
+   "hint": "صل الكلمة بشكل الغين",
+   "items": [
+    {
+     "word": "غُصْن",
+     "text2": "غـ",
+     "audio": "words/ghusn.mp3"
+    },
+    {
+     "word": "فَرَاغ",
+     "text2": "غ",
+     "audio": "words/faragh.mp3"
+    },
+    {
+     "word": "صَمْغ",
+     "text2": "ـغ",
+     "audio": "words/samgh.mp3"
     },
     {
      "word": "مِغْرَفَة",
-     "ask": "غْ",
-     "pic": "../../pics/ar-ladle.jpg",
-     "audio": [
-      "../letters/63a/name.mp3",
-      "../shared/h-sukoon.mp3",
-      "../../syl-ar/63a-652.mp3",
-      "words/mighrafa.mp3"
-     ]
+     "text2": "ـغـ",
+     "audio": "words/mighrafa.mp3"
     }
    ]
   },
   {
    "type": "vowel",
-   "ex": 8,
-   "page": 137,
-   "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الْغَيْنِ مَضْبُوطًا بِالشَّكْلِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "ex": 5,
+   "page": 136,
+   "task": "أَنْطِقُ، وَأَكْتُبُ الْحَرَكَةَ الْمُنَاسِبَةَ عَلَى حَرْفِ (غ)",
+   "taskAudio": "q/task-ex5.mp3",
    "hint": "اختار الغين بالحركة الصح",
    "choices": [
     "غَ",
@@ -69,31 +95,9 @@
    ],
    "items": [
     {
-     "word": "غَزَالَة",
-     "audio": "words/ghazala.mp3",
-     "pic": "../../pics/ar-gazelle.png",
-     "answer": "غَ",
-     "choices": [
-      "غَ",
-      "غُ",
-      "غِ"
-     ]
-    },
-    {
-     "word": "غُرَاب",
-     "audio": "words/ghurab.mp3",
-     "pic": "../../pics/ar-crow.jpg",
-     "answer": "غُ",
-     "choices": [
-      "غَ",
-      "غُ",
-      "غِ"
-     ]
-    },
-    {
-     "word": "غِرَاء",
-     "audio": "words/ghira.mp3",
-     "pic": "../../pics/ar-glue.jpg",
+     "word": "غِطَاء",
+     "audio": "words/ghita.mp3",
+     "pic": "../../pics/ar-pot.png",
      "answer": "غِ",
      "choices": [
       "غَ",
@@ -109,38 +113,142 @@
      "choices": [
       "غَ",
       "غُ",
-      "غِ"
+      "غِ",
+      "غْ"
      ],
      "at": 1
-    }
-   ]
-  },
-  {
-   "type": "write",
-   "ex": 9,
-   "page": 137,
-   "task": "أَسْتَخْدِمُ الْحُرُوفَ لِأُكَوِّنَ اسْمَ كُلِّ صُورَةٍ",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
-   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
-   "items": [
+    },
     {
      "word": "غُصْن",
      "audio": "words/ghusn.mp3",
      "pic": "../../pics/ar-branch.png",
-     "chips": [
-      "غُصْ",
-      "ن"
+     "answer": "غُ",
+     "choices": [
+      "غَ",
+      "غُ",
+      "غِ"
      ]
     },
     {
-     "word": "غِرَاء",
-     "audio": "words/ghira.mp3",
-     "pic": "../../pics/ar-glue.jpg",
-     "chips": [
-      "غِ",
-      "رَا",
-      "ء"
+     "word": "غَسَّالَة",
+     "audio": "words/ghassala.mp3",
+     "pic": "../../pics/ar-washer.png",
+     "answer": "غَ",
+     "choices": [
+      "غَ",
+      "غُ",
+      "غِ"
      ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 8,
+   "page": 137,
+   "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ (غ) مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "../q-heads/h-bdb56e8a.mp3",
+   "hint": "اختار الغين بالحركة الصح",
+   "choices": [
+    "غَ",
+    "غُ",
+    "غِ",
+    "غْ"
+   ],
+   "items": [
+    {
+     "word": "غِطَاء",
+     "audio": "words/ghita.mp3",
+     "pic": "../../pics/ar-pot.png",
+     "answer": "غِ",
+     "choices": [
+      "غَ",
+      "غُ",
+      "غِ"
+     ]
+    },
+    {
+     "word": "مِغْرَفَة",
+     "audio": "words/mighrafa.mp3",
+     "pic": "../../pics/ar-ladle.jpg",
+     "answer": "غْ",
+     "choices": [
+      "غَ",
+      "غُ",
+      "غِ",
+      "غْ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "غُرَاب",
+     "audio": "words/ghurab.mp3",
+     "pic": "../../pics/ar-crow.jpg",
+     "answer": "غُ",
+     "choices": [
+      "غَ",
+      "غُ",
+      "غِ"
+     ]
+    },
+    {
+     "word": "غَزَالَة",
+     "audio": "words/ghazala.mp3",
+     "pic": "../../pics/ar-gazelle.png",
+     "answer": "غَ",
+     "choices": [
+      "غَ",
+      "غُ",
+      "غِ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "build",
+   "ex": 9,
+   "page": 137,
+   "task": "أَسْتَخْدِمُ الْحُرُوفَ التَّالِيَةَ؛ لِأُكَوِّنَ اسْمَ كُلِّ صُورَةٍ",
+   "taskAudio": "../q-heads/h-068ae82a.mp3",
+   "hint": "اسحب الحروف وكوّن كلمة لكل صورة",
+   "items": [
+    {
+     "letters": [
+      "ن",
+      "غ",
+      "م",
+      "ص"
+     ],
+     "words": [
+      "صَمْغ",
+      "غُصْن"
+     ],
+     "slots": 2,
+     "need": 2,
+     "cells": 3,
+     "pics": [
+      "../../pics/ar-glue.jpg",
+      "../../pics/ar-branch.png"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 10,
+   "page": 137,
+   "task": "أَقْرَأُ الْجُمْلَةَ، وَأَصِلُهَا بِالصُّورَةِ الْمُنَاسِبَةِ",
+   "taskAudio": "q/task-ex10.mp3",
+   "hint": "اقرأ الجملة واختار الصورة",
+   "items": [
+    {
+     "word": "لَصَقَتِ الْبِنْتُ الْوَرَقَ بِالصَّمْغِ.",
+     "audio": "q/s-ex10.mp3",
+     "pics": [
+      "../../pics/ar-girl-glue.jpg",
+      "../../pics/ar-girl-paint.jpg"
+     ],
+     "answer": 0
     }
    ]
   },
@@ -163,13 +271,56 @@
   },
   {
    "type": "circle",
+   "ex": 6,
+   "page": 133,
+   "task": "ضَعْ خَطًّا تَحْتَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ (غ)",
+   "taskAudio": "q/task-b6.mp3",
+   "hint": "اضغط على الكلمات اللي فيها حرف غ",
+   "items": [
+    {
+     "word": "غَابَة",
+     "text": "غَابَة",
+     "answer": 1
+    },
+    {
+     "word": "يغيب",
+     "text": "يغيب",
+     "answer": 1
+    },
+    {
+     "word": "لَدَغ",
+     "text": "لَدَغ",
+     "answer": 1
+    },
+    {
+     "word": "وعد",
+     "text": "وعد",
+     "answer": 0
+    },
+    {
+     "word": "راوغ",
+     "text": "راوغ",
+     "answer": 1
+    },
+    {
+     "word": "غرب",
+     "text": "غرب",
+     "answer": 1
+    },
+    {
+     "word": "فرع",
+     "text": "فرع",
+     "answer": 0
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "circle",
    "ex": 7,
    "page": 134,
    "task": "اسْتَمِعْ وَضَعْ عَلَامَةً تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الْغَيْنِ",
-   "taskAudio": [
-    "../q-prompts/circle-letter-sound.mp3",
-    "../letters/63a/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-b12fa8cd.mp3",
    "hint": "اضغط على الصور التي فيها صوت الغين",
    "silent": true,
    "book": "booklet",
@@ -231,18 +382,15 @@
    "ex": 8,
    "page": 134,
    "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الْغَيْنِ",
-   "taskAudio": [
-    "../q-prompts/mark-letter-position.mp3",
-    "../letters/63a/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-dcbb0e6a.mp3",
    "hint": "اضغط على الدائرة التي فيها الغين",
    "book": "booklet",
    "items": [
     {
-     "word": "مِغْرَفَة",
-     "pic": "../../pics/ar-ladle.jpg",
-     "audio": "words/mighrafa.mp3",
-     "at": 1
+     "word": "غِرَاء",
+     "pic": "../../pics/ar-glue.jpg",
+     "audio": "words/ghira.mp3",
+     "at": 0
     },
     {
      "word": "غَزَالَة",
@@ -251,10 +399,10 @@
      "at": 0
     },
     {
-     "word": "غِرَاء",
-     "pic": "../../pics/ar-glue.jpg",
-     "audio": "words/ghira.mp3",
-     "at": 0
+     "word": "مِغْرَفَة",
+     "pic": "../../pics/ar-ladle.jpg",
+     "audio": "words/mighrafa.mp3",
+     "at": 1
     },
     {
      "word": "بَبَّغَاء",
@@ -269,6 +417,71 @@
      "at": 0
     }
    ]
+  },
+  {
+   "type": "vowel",
+   "ex": 9,
+   "page": 134,
+   "task": "انْطِقْ، وَاكْتُبْ حَرْفَ (غ) مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "q/task-b9.mp3",
+   "hint": "اختار الغين بالحركة الصح",
+   "choices": [
+    "غَ",
+    "غُ",
+    "غِ",
+    "غْ"
+   ],
+   "items": [
+    {
+     "word": "مِغْرَفَة",
+     "audio": "words/mighrafa.mp3",
+     "pic": "../../pics/ar-ladle.jpg",
+     "answer": "غْ",
+     "choices": [
+      "غَ",
+      "غُ",
+      "غِ",
+      "غْ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "بَبَّغَاء",
+     "audio": "words/babagha.mp3",
+     "pic": "../../pics/ar-parrot.png",
+     "answer": "غَ",
+     "choices": [
+      "غَ",
+      "غُ",
+      "غِ",
+      "غْ"
+     ],
+     "at": 2
+    },
+    {
+     "word": "غُورِيلَّا",
+     "audio": "words/ghurilla.mp3",
+     "pic": "../../pics/ar-gorilla.png",
+     "answer": "غُ",
+     "choices": [
+      "غَ",
+      "غُ",
+      "غِ"
+     ]
+    },
+    {
+     "word": "غِرْبَان",
+     "audio": "words/ghirban.mp3",
+     "pic": "../../pics/ar-crows.jpg",
+     "answer": "غِ",
+     "choices": [
+      "غَ",
+      "غُ",
+      "غِ"
+     ]
+    }
+   ],
+   "book": "booklet"
   },
   {
    "type": "write",
@@ -287,6 +500,15 @@
       "ن"
      ],
      "audio": "words/ghirban.mp3"
+    },
+    {
+     "word": "غُصُون",
+     "chips": [
+      "غُ",
+      "صُو",
+      "ن"
+     ],
+     "audio": "words/ghusun.mp3"
     },
     {
      "word": "غِزْلَان",
@@ -314,19 +536,19 @@
    "ex": 11,
    "page": 135,
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "taskAudio": "../q-heads/h-c412ebef.mp3",
    "hint": "رتب الحروف",
    "book": "booklet",
    "items": [
     {
+     "word": "صَمْغ",
+     "pic": "../../pics/ar-glue.jpg",
+     "audio": "words/samgh.mp3"
+    },
+    {
      "word": "غُصْن",
      "pic": "../../pics/ar-branch.png",
      "audio": "words/ghusn.mp3"
-    },
-    {
-     "word": "بَبَّغَاء",
-     "pic": "../../pics/ar-parrot.png",
-     "audio": "words/babagha.mp3"
     },
     {
      "word": "غِذَاء",
@@ -334,30 +556,86 @@
      "audio": "words/ghidha.mp3"
     },
     {
-     "word": "غِرَاء",
-     "pic": "../../pics/ar-glue.jpg",
-     "audio": "words/ghira.mp3"
+     "word": "بَبَّغَاء",
+     "pic": "../../pics/ar-parrot.png",
+     "audio": "words/babagha.mp3"
     }
    ]
   },
   {
-   "type": "link",
-   "ex": 13,
+   "type": "write",
+   "ex": 12,
    "page": 135,
-   "task": "أَقْرَأُ ثُمَّ أَصِلُ",
-   "taskAudio": "../q-prompts/match-picture.mp3",
-   "hint": "صل الكلمة بالصورة",
-   "book": "booklet",
+   "task": "اقْرَأْ ثُمَّ اكْتُبْ",
+   "taskAudio": "q/task-b12.mp3",
+   "hint": "اكتب الجملة",
    "items": [
     {
+     "word": "هَذِهِ غَزَالَةٌ سَرِيعَةٌ",
+     "pic": "../../pics/ar-gazelle.png",
+     "audio": "q/s-b12-1.mp3"
+    },
+    {
+     "word": "أَنَا أُحِبُّ الْأَغْنَامَ",
+     "pic": "../../pics/ar-sheep.png",
+     "audio": "q/s-b12-2.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "ring",
+   "ex": 13,
+   "page": 135,
+   "task": "اسْتَمِعْ وَارْسُمْ دَائِرَةً حَوْلَ حَرْفِ الْغَيْنِ (غ)",
+   "taskAudio": "q/task-b13.mp3",
+   "hint": "اضغط على الغين داخل الكلمة",
+   "items": [
+    {
+     "word": "غَزَال",
+     "letter": "غ",
+     "audio": "../u4l3/words/ghazal.mp3"
+    },
+    {
+     "word": "غُرَاب",
+     "letter": "غ",
+     "audio": "words/ghurab.mp3"
+    },
+    {
+     "word": "فَارِغ",
+     "letter": "غ",
+     "audio": "words/farigh.mp3"
+    },
+    {
+     "word": "أَغْنَام",
+     "letter": "غ",
+     "audio": "words/aghnam.mp3"
+    },
+    {
      "word": "مِغْزَل",
-     "pic": "../../pics/ar-spinning.png",
+     "letter": "غ",
      "audio": "words/mighzal.mp3"
     },
     {
-     "word": "غَزَالَة",
-     "pic": "../../pics/ar-gazelle.png",
-     "audio": "words/ghazala.mp3"
+     "word": "مِغْرَفَة",
+     "letter": "غ",
+     "audio": "words/mighrafa.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "write",
+   "ex": 13,
+   "page": 135,
+   "task": "عَبِّرْ عَنْ كُلِّ صُورَةٍ مِمَّا يَأْتِي بِكَلِمَةٍ مُنَاسِبَةٍ",
+   "taskAudio": "q/task-b13b.mp3",
+   "hint": "اكتب اسم الصورة",
+   "items": [
+    {
+     "word": "غَوَّاصَة",
+     "pic": "../../pics/ar-submarine.png",
+     "audio": "words/ghawwasa.mp3"
     },
     {
      "word": "غُرَاب",
@@ -365,22 +643,24 @@
      "audio": "words/ghurab.mp3"
     },
     {
-     "word": "غَوَّاصَة",
-     "pic": "../../pics/ar-submarine.png",
-     "audio": "words/ghawwasa.mp3"
+     "word": "غَزَالَة",
+     "pic": "../../pics/ar-gazelle.png",
+     "audio": "words/ghazala.mp3"
+    },
+    {
+     "word": "مِغْزَل",
+     "pic": "../../pics/ar-spinning.png",
+     "audio": "words/mighzal.mp3"
     }
-   ]
+   ],
+   "book": "booklet"
   },
   {
    "type": "vowel",
    "ex": 14,
    "page": 135,
    "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الْغَيْنِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
-   "taskAudio": [
-    "../q-prompts/choose-letter-sound-a.mp3",
-    "../letters/63a/name.mp3",
-    "../q-prompts/choose-letter-sound-b.mp3"
-   ],
+   "taskAudio": "../q-heads/h-eb8388d2.mp3",
    "hint": "اختار صوت الغين",
    "choices": [
     "غَ",
@@ -391,17 +671,10 @@
    "book": "booklet",
    "items": [
     {
-     "word": "أَغْنَام",
-     "pic": "../../pics/ar-sheep.png",
-     "audio": "words/aghnam.mp3",
-     "answer": "غْ",
-     "at": 1
-    },
-    {
-     "word": "غُصْن",
-     "pic": "../../pics/ar-branch.png",
-     "audio": "words/ghusn.mp3",
-     "answer": "غُ"
+     "word": "غِذَاء",
+     "pic": "../../pics/ar-food.jpg",
+     "audio": "words/ghidha.mp3",
+     "answer": "غِ"
     },
     {
      "word": "غَسَّالَة",
@@ -410,48 +683,121 @@
      "answer": "غَ"
     },
     {
-     "word": "غِذَاء",
-     "pic": "../../pics/ar-food.jpg",
-     "audio": "words/ghidha.mp3",
-     "answer": "غِ"
+     "word": "غُصْن",
+     "pic": "../../pics/ar-branch.png",
+     "audio": "words/ghusn.mp3",
+     "answer": "غُ"
+    },
+    {
+     "word": "أَغْنَام",
+     "pic": "../../pics/ar-sheep.png",
+     "audio": "words/aghnam.mp3",
+     "answer": "غْ",
+     "at": 1
     }
    ]
   },
   {
-   "type": "circle",
+   "type": "ring",
    "ex": 1,
-   "page": 67,
-   "book": "workbook",
-   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي فِيهَا حَرْفُ (غ)",
-   "taskAudio": "q/wb-circle-67.mp3",
-   "hint": "اضغط على الكلمات اللي فيها حرف غ",
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ حَرْفِ (غ)",
+   "taskAudio": "q/wb-ring-67.mp3",
+   "hint": "اضغط على الغين داخل الكلمة",
    "items": [
     {
      "word": "صَغِير",
-     "text": "صَغِير",
-     "answer": true
+     "letter": "غ",
+     "audio": "words/saghir.mp3"
     },
     {
      "word": "غَزَال",
-     "text": "غَزَال",
-     "answer": true
+     "letter": "غ",
+     "audio": "../u4l3/words/ghazal.mp3"
     },
     {
      "word": "غِطَاء",
-     "text": "غِطَاء",
-     "answer": true
+     "letter": "غ",
+     "audio": "words/ghita.mp3"
     },
     {
      "word": "غَوَّاصَة",
-     "text": "غَوَّاصَة",
-     "answer": true
+     "letter": "غ",
+     "audio": "words/ghawwasa.mp3"
     },
     {
      "word": "صَمْغ",
-     "text": "صَمْغ",
-     "answer": true
+     "letter": "غ",
+     "audio": "words/samgh.mp3"
     }
-   ]
+   ],
+   "book": "workbook",
+   "page": 67
+  },
+  {
+   "type": "build",
+   "ex": 2,
+   "task": "أُكَوِّنُ كَلِمَاتٍ مِنَ الْحُرُوفِ الْآتِيَةِ",
+   "taskAudio": "q/wb-build-67.mp3",
+   "hint": "اسحب الحروف وكوّن كلمات",
+   "items": [
+    {
+     "letters": [
+      "غ",
+      "ج",
+      "ر",
+      "م",
+      "و",
+      "ب",
+      "ا",
+      "ل"
+     ],
+     "words": [
+      "غُرَاب",
+      "جَمَل",
+      "جَار",
+      "بَاب",
+      "غَار",
+      "رَجُل"
+     ],
+     "slots": 4,
+     "need": 3,
+     "cells": 3
+    }
+   ],
+   "book": "workbook",
+   "page": 67
+  },
+  {
+   "type": "build",
+   "ex": "h2",
+   "task": "أُكَوِّنُ كَلِمَاتٍ مِنَ الْحُرُوفِ الْآتِيَةِ",
+   "taskAudio": "q/wb-build-67.mp3",
+   "hint": "اسحب الحروف وكوّن كلمات",
+   "items": [
+    {
+     "letters": [
+      "غ",
+      "ن",
+      "ص",
+      "ر",
+      "غ",
+      "ا",
+      "ب"
+     ],
+     "words": [
+      "غُرَاب",
+      "غُصْن",
+      "صَبْر",
+      "نَصْر",
+      "غَار"
+     ],
+     "slots": 4,
+     "need": 3,
+     "cells": 3
+    }
+   ],
+   "book": "workbook",
+   "page": 67
   }
  ]
 }

@@ -21,9 +21,10 @@ async function boot(){
     s.units=d.units||[]; s.lessons=(d.lessons||[]).map(l=>({...l,id:`${s.id}-${l.folder}`,built:!!l.title})); }));
   $('#where').textContent=lsGet('es.settings',null)?'الإعدادات المعروضة: المحفوظة على الجهاز ده (لسه مش في الملف). اضغطي "تنزيل" عشان تبقى للكل.':'الإعدادات المعروضة: من ملف data/settings.json.';
   S.promos=S.promos||[];
-  drawSettings(); drawTree(); drawPromos(); drawAccounts(); drawStats();
+  drawSettings(); drawTree(); drawPromos(); drawAccounts(); drawStats(); drawReports();
   if(S.api){ const [ac,st]=await Promise.all([api('/admin/accounts'),api('/admin/stats')]); if(ac&&ac.accounts){ SRV.accounts=ac.accounts; drawAccounts(); } if(st&&st.hist){ SRV.stats=st; drawStats(); }
     if(st&&st.promoUses){ SRV.promoUses=st.promoUses; drawPromos(); }
+    loadReports();
     $('#where').textContent+=ac?' الحسابات والإحصائيات من السيرفر.':' السيرفر مش متاح دلوقتي، المعروض من الجهاز ده بس.'; }
 }
 
@@ -135,7 +136,7 @@ $('#addPromo').addEventListener('click',()=>{ S.promos.unshift({code:newCode(),w
 const fmt=t=>{ try{ return new Date(t).toLocaleString('ar-EG',{dateStyle:'medium',timeStyle:'short'}); }catch(e){ return t; } };
 // with a server (settings "api"): the real lists come from GET api/admin/accounts and api/admin/stats (same shapes as the local ones below)
 const api=(path,body)=>S.api?fetch(S.api+path,{method:body?'PUT':'GET',credentials:'include',headers:{'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined}).then(r=>r.ok?r.json():null).catch(()=>null):Promise.resolve(null);
-let SRV={accounts:null,stats:null,promoUses:null};
+let SRV={accounts:null,stats:null,promoUses:null,reports:null};
 function accounts(){ if(SRV.accounts) return SRV.accounts; const a=lsGet('es.account',null); if(!a) return []; return [{...a,kids:lsGet('es.kids',[])}]; }
 function drawAccounts(){ const A=accounts(), box=$('#accts');
   if(!A.length){ box.innerHTML='<p class="empty">مفيش حسابات مسجلة على الجهاز ده لسه.</p>'; return; }
@@ -155,6 +156,37 @@ function drawStats(){
   const name=id=>{ const t=(S.coins.shares||[]).find(x=>x.id===id); return t?t.ar:id||''; };
   $('#hist').innerHTML=H.length?`<div class="row hr h"><span>الوقت</span><span>النوع</span><span>التفاصيل</span><span>كريدتس</span></div>`+H.slice(0,40).map(h=>`<div class="row hr"><span>${fmt(h.at)}</span><span>${KIND[h.k]||h.k}</span><span>${esc(h.k==='share'?name(h.t):h.k==='promo'?(h.code?h.code+' · ':'')+(h.id||''):h.id||'')}</span><b dir="ltr">${h.n>0?'+':''}${h.n}</b></div>`).join(''):'<p class="empty">مفيش حركات كريدتس على الجهاز ده لسه.</p>';
 }
+
+/* ---------- reports (2026-11-06): "report a problem" flags from the app (js/report.js). Server: GET api/admin/reports, POST api/admin/report/<id>; no server: this device's es.reports ---------- */
+const RPTAB={read:'الدرس',words:'الكلمات',quiz:'أسئلة الكتاب',booklet:'الكُتيب',workbook:'كتاب التقييمات',grammar:'القواعد',exam:'ورقة تقييم'};
+const RPKIND={answer:'الإجابة غلط',picture:'الصورة غلط',sound:'الصوت غلط',text:'كلمة مكتوبة غلط',other:'حاجة تانية'};
+const apiPost=(path,body)=>fetch(S.api+path,{method:'POST',credentials:'include',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(r=>r.ok?r.json():null).catch(()=>null);
+async function loadReports(){ const r=await api('/admin/reports?status=all'); if(r&&r.reports){ SRV.reports=r.reports; drawReports(); } }
+function reportList(){ if(SRV.reports) return SRV.reports;
+  return lsGet('es.reports',[]).map(r=>({id:r.id,at:r.at,status:r.done?'done':'open',subject:r.ctx.subject,unit:r.ctx.unit,lesson:r.ctx.lesson,tab:r.ctx.tab,page:r.ctx.page,ex:r.ctx.ex,kind:r.kind,comment:r.comment,ctx:r.ctx})).reverse(); }
+function rpPlace(r){ const c=r.ctx||{}, o=[]; o.push(c.subjectName||r.subject||'');
+  if(r.unit!==''&&r.unit!=null) o.push('الوحدة '+ar(r.unit)); if(c.lessonNo!=null&&c.lessonNo!=='') o.push('الدرس '+ar(c.lessonNo)); else if(r.lesson) o.push(r.lesson);
+  if(c.lessonTitle) o.push('«'+c.lessonTitle+'»'); if(r.tab) o.push(RPTAB[r.tab]||r.tab); if(c.title) o.push(c.title); if(c.part&&r.tab==='exam') o.push(c.part);
+  if(r.page!==''&&r.page!=null) o.push('صفحة '+ar(r.page)); if(r.ex!==''&&r.ex!=null) o.push('سؤال '+ar(r.ex)); else if(c.qi) o.push('السؤال رقم '+ar(c.qi)+(c.qn?' من '+ar(c.qn):''));
+  if(c.word) o.push('الكلمة: '+c.word); if(c.readPage) o.push('صفحة الشاشة '+ar(c.readPage)); return o.filter(Boolean).join(' — '); }
+function drawReports(){
+  const all=reportList(), st=$('#rp-status').value, sj=$('#rp-subj'), cur=sj.value, q=$('#rp-q').value.trim().toLowerCase();
+  const subs=[...new Set(all.map(r=>r.subject).filter(Boolean))];
+  sj.innerHTML='<option value="">كل المواد</option>'+subs.map(x=>`<option value="${esc(x)}">${esc(((COURSE&&COURSE.subjects.find(s=>s.id===x))||{}).name||x)}</option>`).join(''); sj.value=subs.includes(cur)?cur:'';
+  const open=all.filter(r=>r.status!=='done').length, b=$('#repBadge'); b.hidden=!open; b.textContent=ar(open);
+  const L=all.filter(r=>(st==='all'||(st==='done')===(r.status==='done'))&&(!sj.value||r.subject===sj.value)&&(!q||(r.comment+' '+rpPlace(r)).toLowerCase().includes(q)));
+  $('#rp-count').textContent=ar(L.length)+' بلاغ'+(SRV.reports?'':' (من الجهاز ده)');
+  $('#reports').innerHTML=L.length?L.map(r=>`<div class="rep${r.status==='done'?' done':''}" data-id="${esc(r.id)}">
+    <div class="rep-top"><b>${esc(rpPlace(r))}</b><span class="rep-at">${fmt(r.at)}</span></div>
+    ${r.kind?`<span class="rep-kind">${esc(RPKIND[r.kind]||r.kind)}</span>`:''}${r.comment?`<p class="rep-c">${esc(r.comment)}</p>`:'<p class="rep-c none">من غير تعليق</p>'}
+    ${r.ctx&&r.ctx.task?`<p class="rep-t">${esc(r.ctx.task)}</p>`:''}
+    <div class="rep-act"><button data-s="${r.status==='done'?'open':'done'}">${r.status==='done'?'رجّعيه مفتوح':'اتحل ✓'}</button></div></div>`).join(''):'<p class="empty">مفيش بلاغات.</p>';
+  $$('#reports .rep').forEach(d=>$('button',d).addEventListener('click',async e=>{ const id=d.dataset.id, s=e.target.dataset.s;
+    if(SRV.reports){ const ok=await apiPost('/admin/report/'+id,{status:s}); if(!ok) return toast('السيرفر مش متاح'); const r=SRV.reports.find(x=>x.id===id); if(r) r.status=s; }
+    else { const q2=lsGet('es.reports',[]), r=q2.find(x=>x.id===id); if(r){ r.done=s==='done'?1:0; localStorage.setItem('es.reports',JSON.stringify(q2)); } }
+    drawReports(); }));
+}
+['rp-status','rp-subj'].forEach(i=>$('#'+i).addEventListener('change',drawReports)); $('#rp-q').addEventListener('input',drawReports);
 
 /* ---------- tabs + save / download / reset ---------- */
 $$('#tabs button').forEach(b=>b.addEventListener('click',()=>{ $$('#tabs button').forEach(x=>x.classList.toggle('on',x===b)); $$('.page').forEach(p=>p.hidden=p.id!=='p-'+b.dataset.p); if(b.dataset.p==='stats') drawStats(); }));

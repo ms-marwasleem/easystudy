@@ -1,12 +1,54 @@
 {
  "sets": [
   {
+   "type": "circle",
+   "ex": 2,
+   "page": 118,
+   "silent": true,
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ الْأَدَوَاتِ الَّتِي اسْتَخْدَمَهَا كَرِيمٌ فِي حِصَّةِ الرَّسْمِ",
+   "taskAudio": "q/task-2.mp3",
+   "hint": "اضغط على الأدوات اللي كريم استخدمها في حصة الرسم",
+   "items": [
+    {
+     "word": "مِبْرَاةٌ",
+     "pic": "../../pics/ar-sharpener.png",
+     "answer": false
+    },
+    {
+     "word": "أَلْوَانٌ",
+     "pic": "../../pics/ar-crayons.png",
+     "answer": true
+    },
+    {
+     "word": "قَلَمٌ رَصَاصٌ",
+     "pic": "../../pics/pencil.png",
+     "answer": true
+    },
+    {
+     "word": "قَلَمُ حِبْرٍ",
+     "pic": "../../pics/ar-fa-pen.png",
+     "answer": false
+    },
+    {
+     "word": "مِمْحَاةٌ",
+     "pic": "../../pics/ar-eraser.png",
+     "answer": true
+    },
+    {
+     "word": "مِسْطَرَةٌ",
+     "pic": "../../pics/ruler.png",
+     "answer": false
+    }
+   ]
+  },
+  {
    "type": "link",
    "ex": 1,
    "page": 110,
    "task": "اِسْتَمِعْ وَرَدِّدْ، ثُمَّ صِلْ بِالْكَلِمَةِ الْمُشَابِهَةِ",
    "taskAudio": "q/p-ex1.mp3",
    "hint": "صل الكلمة بالكلمة المشابهة",
+   "book": "booklet",
    "items": [
     {
      "word": "هُوَ",
@@ -28,8 +70,7 @@
      "text2": "إِلَى",
      "audio": "q/w-ila.mp3"
     }
-   ],
-   "book": "booklet"
+   ]
   },
   {
    "type": "choice",
@@ -38,29 +79,29 @@
    "task": "اُرْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الْمُنَاسِبَةِ لِلصُّورَةِ",
    "taskAudio": "q/p-ex2.mp3",
    "hint": "اختار الكلمة الصح",
+   "book": "booklet",
    "items": [
     {
+     "word": "هُوَ وَلَدٌ.",
      "pic": "../../pics/ar-boy-orange.jpg",
      "options": [
       "هُوَ",
       "هِيَ"
      ],
      "answer": 0,
-     "audio": "q/c-boy.mp3",
-     "word": "هُوَ وَلَدٌ."
+     "audio": "q/c-boy.mp3"
     },
     {
+     "word": "هِيَ بِنْتٌ.",
      "pic": "../../pics/ar-girl-orange.jpg",
      "options": [
       "هُوَ",
       "هِيَ"
      ],
      "answer": 1,
-     "audio": "q/c-girl.mp3",
-     "word": "هِيَ بِنْتٌ."
+     "audio": "q/c-girl.mp3"
     }
-   ],
-   "book": "booklet"
+   ]
   },
   {
    "type": "circle",
@@ -69,6 +110,8 @@
    "task": "ضَعْ عَلَامَةَ (✓) أَسْفَلَ الْكَلِمَاتِ الَّتِي سَمِعْتَهَا فِي الْقِصَّةِ",
    "taskAudio": "q/p-ex3.mp3",
    "hint": "اضغط على الكلمات اللي سمعتها في القصة",
+   "book": "booklet",
+   "mark": "tick",
    "items": [
     {
      "word": "الْمَدْرَسَةُ",
@@ -95,8 +138,7 @@
      "audio": "q/h-muallima.mp3",
      "answer": true
     }
-   ],
-   "book": "booklet"
+   ]
   },
   {
    "type": "choice",
@@ -105,9 +147,11 @@
    "task": "اِخْتَرِ الْكَلِمَةَ الصَّحِيحَةَ مِمَّا بَيْنَ الْقَوْسَيْنِ",
    "taskAudio": "q/p-ex4.mp3",
    "hint": "اختار الكلمة الصح",
+   "book": "booklet",
    "items": [
     {
-     "pic": "../../pics/ar-bag.jpg",
+     "word": "وَضَعَ كَرِيمٌ الْقَلَمَ فِي الْحَقِيبَةِ.",
+     "pic": "../../pics/bag.png",
      "lead": "وَضَعَ كَرِيمٌ الْقَلَمَ",
      "tail": "الْحَقِيبَةِ.",
      "options": [
@@ -116,11 +160,11 @@
      ],
      "answer": 0,
      "audio": "q/s-bag.mp3",
-     "word": "وَضَعَ كَرِيمٌ الْقَلَمَ فِي الْحَقِيبَةِ.",
      "askAudio": "q/ask-9e137ba9db.mp3"
     },
     {
-     "pic": "../../pics/ar-school.jpg",
+     "word": "وَصَلَ كَرِيمٌ إِلَى الْمَدْرَسَةِ.",
+     "pic": "../../pics/ar-school-cut.png",
      "lead": "وَصَلَ كَرِيمٌ",
      "tail": "الْمَدْرَسَةِ.",
      "options": [
@@ -129,11 +173,201 @@
      ],
      "answer": 1,
      "audio": "q/s-school.mp3",
-     "word": "وَصَلَ كَرِيمٌ إِلَى الْمَدْرَسَةِ.",
      "askAudio": "q/ask-9173e4845c.mp3"
     }
-   ],
-   "book": "booklet"
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 1,
+   "page": 57,
+   "sentence": true,
+   "book": "workbook",
+   "task": "أُكْمِلُ مَكَانَ النُّقَطِ بِكَلِمَةٍ مُنَاسِبَةٍ مِنَ الْقِصَّةِ",
+   "taskAudio": "q/task-w1.mp3",
+   "hint": "اكتب الكلمة الناقصة من القصة",
+   "items": [
+    {
+     "word": "اسْتَيْقَظَ كَرِيمٌ مِنْ نَوْمِهِ سَعِيدًا",
+     "gaps": [
+      20,
+      21,
+      22,
+      23,
+      24
+     ],
+     "audio": "q/s-w1.mp3"
+    },
+    {
+     "word": "اسْتَقْبَلَتْهُ الْمُعَلِّمَةُ بِابْتِسَامَةٍ",
+     "gaps": [
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+     ],
+     "audio": "q/s-w2.mp3"
+    },
+    {
+     "word": "أَعْطِنِي الْمِمْحَاةَ مِنْ فَضْلِكَ",
+     "gaps": [
+      17,
+      18,
+      19,
+      20
+     ],
+     "audio": "q/s-w3.mp3"
+    },
+    {
+     "word": "هَذِهِ هِيَ تَفَضَّلْ",
+     "gaps": [
+      7,
+      8,
+      9,
+      10
+     ],
+     "audio": "q/s-w4.mp3"
+    }
+   ]
+  },
+  {
+   "type": "split",
+   "ex": 2,
+   "page": 57,
+   "book": "workbook",
+   "task": "أَقْرَأُ ثُمَّ أُحَلِّلُ إِلَى حُرُوفٍ",
+   "taskAudio": "q/task-w2.mp3",
+   "hint": "اسحب الحروف وركّبها في أماكنها",
+   "items": [
+    {
+     "word": "الْمِمْحَاة",
+     "parts": [
+      "ا",
+      "لْ",
+      "مِ",
+      "مْ",
+      "حَ",
+      "ا",
+      "ة"
+     ]
+    },
+    {
+     "word": "حِصَّة",
+     "parts": [
+      "حِ",
+      "صَّ",
+      "ة"
+     ]
+    },
+    {
+     "word": "رَسَمْتُ",
+     "parts": [
+      "رَ",
+      "سَ",
+      "مْ",
+      "تُ"
+     ]
+    },
+    {
+     "word": "مَدْرَسَة",
+     "parts": [
+      "مَ",
+      "دْ",
+      "رَ",
+      "سَ",
+      "ة"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": "h1",
+   "page": 57,
+   "book": "workbook",
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي وَرَدَتْ فِي الدَّرْسِ مِنْ بَيْنِ الْأَقْوَاسِ",
+   "taskAudio": "q/task-wh1.mp3",
+   "hint": "اضغط على الكلمات اللي في القصة",
+   "items": [
+    {
+     "word": "هَذِهِ",
+     "audio": "../u3l1/q/w-hadhihi.mp3",
+     "answer": true
+    },
+    {
+     "word": "هِيَ",
+     "audio": "q/w-hiya.mp3",
+     "answer": true
+    },
+    {
+     "word": "هُوَ",
+     "audio": "q/w-huwa.mp3",
+     "answer": true
+    },
+    {
+     "word": "قَالَ",
+     "audio": "../u3l1/q/w-qala.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَنَا",
+     "audio": "../u1l1/words/ana-h.mp3",
+     "answer": false
+    },
+    {
+     "word": "قَالَتْ",
+     "audio": "../u3l1/q/w-qalat.mp3",
+     "answer": true
+    },
+    {
+     "word": "أَنْتَ",
+     "audio": "q/w-anta.mp3",
+     "answer": false
+    },
+    {
+     "word": "فِي",
+     "audio": "q/w-fi.mp3",
+     "answer": true
+    },
+    {
+     "word": "إِلَى",
+     "audio": "q/w-ila.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": "h2",
+   "page": 57,
+   "book": "workbook",
+   "task": "أَدْمِجُ الْحُرُوفَ الْآتِيَةَ",
+   "taskAudio": "q/task-wh2.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "items": [
+    {
+     "word": "سَعِيدًا",
+     "chips": [
+      "سـ",
+      "عيـ",
+      "دًا"
+     ],
+     "audio": "q/w-saidan.mp3"
+    },
+    {
+     "word": "أَخْرَجَ",
+     "chips": [
+      "أخـ",
+      "ر",
+      "ج"
+     ],
+     "audio": "q/w-akhraja.mp3"
+    }
+   ]
   }
  ]
 }

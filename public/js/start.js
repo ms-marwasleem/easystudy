@@ -10,6 +10,17 @@ putCar($('#helloCar')); if(anim) G.to('#helloCar',{y:-5,duration:.9,yoyo:true,re
 function migrateStars(){ try{ ['zoom-stars','zoom-vocab'].forEach(k=>{ const o=JSON.parse(localStorage.getItem(k)||'{}'); let ch=false;
   Object.keys(o).forEach(id=>{ if(/^u\d+l\d+$/.test(id)&&!o['en-ol-'+id]){ o['en-ol-'+id]=o[id]; delete o[id]; ch=true; } });
   if(ch){ localStorage.setItem(k,JSON.stringify(o)); if(k==='zoom-stars') STARS=o; } }); }catch(e){} }
+// design file of another build (an old copy kept on the device or in the browser) = screens without their look: fresh files, reload once
+async function buildMixed(){
+  let b=''; try{ b=getComputedStyle(document.documentElement).getPropertyValue('--app-build').trim().replace(/["']/g,''); }catch(e){}
+  if(typeof APP_BUILD==='undefined'||b===APP_BUILD) { try{ sessionStorage.removeItem('es.rebuilt'); }catch(e){} return false; }
+  try{ if(sessionStorage.getItem('es.rebuilt')) return false; sessionStorage.setItem('es.rebuilt','1'); }catch(e){ return false; }
+  try{ const c=navigator.serviceWorker&&navigator.serviceWorker.controller;
+    if(c) await new Promise(ok=>{ const ch=new MessageChannel(); ch.port1.onmessage=()=>ok(); c.postMessage('update',[ch.port2]); setTimeout(ok,5000); });
+    await Promise.all(['index.html','css/app.css','js/app-first.js','js/app-rest.js'].map(f=>fetch(f,{cache:'reload'}).catch(()=>{})));
+  }catch(e){}
+  location.reload(); return true;
+}
 async function start(){
   migrateStars();
   busy(true);
@@ -26,6 +37,7 @@ async function start(){
     const r=document.documentElement; if(ok&&want) r.dataset.theme=want; else delete r.dataset.theme; }catch(e){}
   // design file and fonts: wait for them behind the splash screen (fonts at most 2.5 s, then the page shows with the fallback font)
   await cssReady;
+  if(await buildMixed()) return;
   if(document.fonts&&document.fonts.ready) await Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,2500))]);
   $('#helloSub').textContent=`${COURSE.grade} · ${COURSE.term}`; paintHud(); busy(false); kidPaint(); if(!kidNow()) openWelcome(); else { openSubjects(); pop('#subjects .top > *',{y:-20}); }   // first launch: curriculum + accounts (js/welcome.js)
   setTimeout(()=>{ const n=$('#splashName'); if(n) n.remove(); $('#loadingText').hidden=false; },400);   // the app name shows on the first screen only; later loads say Loading...

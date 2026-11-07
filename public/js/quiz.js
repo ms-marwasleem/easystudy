@@ -108,6 +108,7 @@ function qGo(i){
   const qi=$('#qin'); if(qi&&s.type!=='type'){ qi.blur(); qi.remove(); }
   const qxi=$('#qxin'); if(qxi&&s.type!=='write'){ qxi.blur(); qxi.remove(); }
   const m=QM[s.type]; if(!m) return;
+  $$('.qask',w).forEach(e=>e.parentNode&&e.parentNode.removeChild(e));   // a question line left over from the previous question must not hide this question's speaker (css :has(.qask))
   if(m.sheet!=='box'){ const qw=$('.qword',w); if(qw) qw.hidden=false; const ts=$('.qtsay',w); if(ts) ts.hidden=false; }   // a box question (colour / face / story...) hides the word line; the next word question shows it again
   if(m.sheet==='board') return qBoard(w,q,i,run);
   w._board=null;
@@ -154,7 +155,7 @@ QM.letter={sheet:'word', word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q)
 QM.choice={sheet:'word', fit:0, word:()=>'', draw(play,ans,q){ const b=$('.qword b'); b.classList.add('qsent'); b.textContent=''; b.dir=isAr()?'rtl':'ltr';   // an Arabic sentence reads right to left (the word line itself is ltr for letter gaps)
     if(q.ask){ const a=el('span','qask'); qToks(a,q.ask); b.append(a); }
     const sen=el('span','qsen'); if(q.lead){ qToks(sen,q.lead); sen.append(' '); } sen.append(el('span','qblank','')); if(q.tail){ sen.append(' '); const t=el('span'); qToks(t,q.tail); sen.append(t); } b.append(sen);
-    play.append(el('div','qpic one',`<img src="${q.pic}" alt="">`));
+    if(q.pic) play.append(el('div','qpic one',`<img src="${q.pic}" alt="">`));   // a choice without a picture (Arabic appendix pronoun sentences, no picture in the book)
     q.options.forEach((o,k)=>{ const c=qChBtn(o,qWords(q.options)); c.dataset.k=k; c.addEventListener('click',()=>qChoose(c,k,q)); ans.append(c); }); },
   help:(q,w)=>$$('.qans .qch',w).filter(b=>+b.dataset.k===q.answer)};
 QM.type={sheet:'word', word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q));
@@ -163,8 +164,9 @@ QM.type={sheet:'word', word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q));
   peek(q,w){ const g=$('.qword .qgap:not(.got)',w); if(!g) return; const gi=g.dataset.i!=null&&q.gaps?+g.dataset.i:null, ch=gi!=null?q.word[gi]:q.answer; if(!ch) return;
     wsPeek(g); qFocus(); }};
 QM.yesno={sheet:'word', draw(play,ans,q){ play.append(qOnePic(q));
-    [[true,'yes',Q_TICK,'It matches'],[false,'no',Q_CROSS,'It does not match']].forEach(([v,c,ic,l])=>{
-      const b=el('button','rb qbtn '+c,ic); b.setAttribute('aria-label',l); b.addEventListener('click',()=>qAnswer(b,v===q.answer,v)); ans.append(b); }); },
+    const fc=q.faces?'<img src="data/pics/ar-smiley.png" alt="">':'', sd=q.faces?'<img src="data/pics/ar-sad-face.png" alt="">':'';   // faces:true = a happy and a sad face in place of the tick and the cross (Arabic u2l1 ex 2, Marwa 2026-11-06)
+    [[true,'yes',q.faces?fc:Q_TICK,'It matches'],[false,'no',q.faces?sd:Q_CROSS,'It does not match']].forEach(([v,c,ic,l])=>{
+      const b=el('button','rb qbtn '+c+(q.faces?' qface':''),ic); b.setAttribute('aria-label',l); b.addEventListener('click',()=>qAnswer(b,v===q.answer,v)); ans.append(b); }); },
   help:(q,w)=>[$(q.answer?'.qans .qbtn.yes':'.qans .qbtn.no',w)].filter(Boolean)};
 // the match board: built once per set; each right picture joined moves on to the next star without rebuilding it
 function qBoard(w,q,i,run){
@@ -175,7 +177,7 @@ function qBoard(w,q,i,run){
 }
 // match / circle: the pictures (or words) on one board like the book, the letter / picture in the middle when the set has one
 function qPicBoard(w,s,play,run){
-  const b=el('div','qboard'); if(s.bigP) b.classList.add('bigP'); if(s.type==='circle'||qCircleTask(s)) b.classList.add('ring');   // the book says "circle": a ring round the picture, never a line (Marwa 2026-11-04)   // "bigP": bigger pictures on tall screens (with "posP" per item)
+  const b=el('div','qboard'); if(s.bigP) b.classList.add('bigP'); if(s.dense) b.classList.add('dense');   /* "dense": many small options (the book's 28-letter board, Arabic u3l10 p113): smaller buttons so rows of 6 never overlap */ if(s.type==='circle'||qCircleTask(s)) b.classList.add('ring'); if(s.mark==='tick') b.classList.add('tickmk');   // "mark":"tick" (circle): a small green check under the tapped item, not a ring (book: put a ✓ under the letter, Ahmed 2026-11-06)   // the book says "circle": a ring round the picture, never a line (Marwa 2026-11-04)   // "bigP": bigger pictures on tall screens (with "posP" per item)
   if(s.centerPic){ const c=el('div','qcenter pic',`<img src="${R_Q(s.centerPic)}" alt="">`); { const ca=(s.centerAtP&&!$('#lesson').classList.contains('q-land'))?s.centerAtP:s.centerAt; if(ca){ c.style.setProperty('--cx',ca[0]); c.style.setProperty('--cy',ca[1]); } } b.append(c); }   // "centerPic": a picture to match (book: circle the SIMILAR picture)
   if(s.center){ const c=el('button','qcenter',`<span>${s.center}</span>`); c.setAttribute('aria-label','Letter '+s.center); c.addEventListener('click',()=>qSound(s.centerSrc,s.center[0]));
     b.append(c); }
@@ -354,7 +356,7 @@ function qLinkRefresh(land){ const bd=$('.qlink'); if(!bd) return; const s=bd._s
 async function qLinkTry(bd,s,a,b){
   const run=qz.run;   // the board is kept from pair to pair, so it must use the question running NOW, not the one it was built in
   const wb=a.classList.contains('qlkw')?a:b, pb=wb===a?b:a, it=s.items[+wb.dataset.k];
-  if(wb.dataset.k!==pb.dataset.k){ const l=qLinkLine(bd,wb,pb,'qlj bad'); setTimeout(()=>l.remove(),500); return qBad([wb,pb]); }
+  if(wb.dataset.k!==pb.dataset.k&&!(s.group&&(it.text2?s.items[+pb.dataset.k].text2===it.text2:it.pic&&s.items[+pb.dataset.k].word===it.word))){ const l=qLinkLine(bd,wb,pb,'qlj bad'); setTimeout(()=>l.remove(),500); return qBad([wb,pb]); }
   if(!qSetMoreAfter(s)) qz.busy=true; wb.classList.add('done'); pb.classList.add('done'); bd._pairs.push([wb,pb]);
   const l=qLinkLine(bd,wb,pb); if(anim){ const len=l.getTotalLength?l.getTotalLength():300; G.fromTo(l,{strokeDasharray:len,strokeDashoffset:len},{strokeDashoffset:0,duration:.35,ease:'power2.out'}); }
   celebrate(pb); if(it.full) (async()=>{ vStop(); for(const f of it.fullSrc){ try{ await playFile(f); }catch(_){} } })(); else qSound(it.src,it.word);   // "full": the joined phrase of the pair (word + its partner), said on a right join

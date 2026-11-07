@@ -46,9 +46,9 @@
 /* a group's words: plain text with a thick underline in the group's ring colour (no outline on letters) */
 .xpl-line .xtw.xcol{text-decoration:underline .14em var(--xc);text-underline-offset:.18em;text-decoration-skip-ink:none}
 .xpl-line .xtw.reading{background:var(--c-now-bg);color:var(--c-text);box-shadow:0 0 0 .12em var(--c-now-bg)}
-/* Try: the scattered pieces = rectangles; a chosen one is written on the line above */
+/* Try: the scattered pieces = THE choice pills; a chosen one is written on the line above */
 .xpl-cap.asking.built .xpl-ask{flex-wrap:wrap;justify-content:center;align-content:center;gap:.4rem .5rem;margin:auto 0;padding-top:.4rem;border-top:.12rem dashed var(--c-on-bg-line)}
-.xpl-ask .xpick{cursor:pointer;border-radius:.55rem;min-height:0;font-size:min(7cqh,6cqw,2rem);padding:.2em .7em}
+.xpl-ask .xpick{cursor:pointer}   /* look + size = THE choice button (css/qlayout.css), Marwa 2026-11-06 */
 .xpl-ask .xpick.used{opacity:0;pointer-events:none}
 .xpl-ask .xpick.no{animation:xshake .45s}
 .xpl .xcross{stroke-width:11}

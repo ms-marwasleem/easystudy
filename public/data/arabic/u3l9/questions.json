@@ -3,7 +3,7 @@
   {
    "type": "circle",
    "ex": 2,
-   "page": 103,
+   "page": 109,
    "task": "أَرْسُمُ دَائِرَةً حَوْلَ حَرْفِ الظَّاءِ",
    "taskAudio": "q/task-2.mp3",
    "hint": "اضغط على أشكال الظاء",
@@ -14,13 +14,13 @@
      "answer": 1
     },
     {
-     "word": "خ",
-     "text": "خ",
-     "answer": 0
+     "word": "ـظـ",
+     "text": "ـظـ",
+     "answer": 1
     },
     {
-     "word": "ص",
-     "text": "ص",
+     "word": "ـض",
+     "text": "ـض",
      "answer": 0
     },
     {
@@ -29,26 +29,36 @@
      "answer": 1
     },
     {
+     "word": "أ",
+     "text": "أ",
+     "answer": 0
+    },
+    {
+     "word": "خ",
+     "text": "خ",
+     "answer": 0
+    },
+    {
+     "word": "ـظـ",
+     "text": "ـظـ",
+     "answer": 1
+    },
+    {
      "word": "ض",
      "text": "ض",
      "answer": 0
     },
     {
-     "word": "ظـ",
-     "text": "ظـ",
+     "word": "ـظ",
+     "text": "ـظ",
      "answer": 1
-    },
-    {
-     "word": "أ",
-     "text": "أ",
-     "answer": 0
     }
    ]
   },
   {
    "type": "circle",
    "ex": 4,
-   "page": 104,
+   "page": 110,
    "task": "أَتَتَبَّعُ الْخَرِيطَةَ؛ لِكَيْ أَصِلَ الصُّوَرَ الَّتِي بِهَا حَرْفُ الظَّاءِ",
    "taskAudio": "q/task-4.mp3",
    "hint": "اضغط على الصور اللي فيها الظاء",
@@ -86,65 +96,81 @@
    ]
   },
   {
-   "type": "sound",
+   "type": "link",
    "ex": 5,
-   "page": 104,
-   "task": "أَنْطِقُ صَوْتَ حَرْفِ الظَّاءِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
-   "taskAudio": "q/task-5.mp3",
-   "hint": "اسمع الجملة وردد وراها",
+   "page": 110,
+   "task": "أَنْطِقُ، ثُمَّ أَصِلُ صَوْتَ حَرْفِ الظَّاءِ بِالصُّورَةِ الْمُنَاسِبَةِ",
+   "hint": "صل صوت الظاء بالصورة المناسبة",
    "items": [
     {
-     "word": "ظَرْف",
-     "ask": "ظَ",
-     "pic": "../../pics/ar-envelope.jpg",
-     "audio": [
-      "../letters/638/name.mp3",
-      "../shared/h-fatha.mp3",
-      "../../syl-ar/638-64e.mp3",
-      "words/dharf.mp3"
-     ]
+     "word": "ظَ",
+     "audio": "words/dharf.mp3",
+     "pic": "../../pics/ar-envelope.jpg"
     },
     {
-     "word": "ظُفْر",
-     "ask": "ظُ",
-     "pic": "../../pics/ar-nail.jpg",
-     "audio": [
-      "../letters/638/name.mp3",
-      "../shared/h-damma.mp3",
-      "../../syl-ar/638-64f.mp3",
-      "words/dhufr.mp3"
-     ]
+     "word": "ظُ",
+     "audio": "words/dhufr.mp3",
+     "pic": "../../pics/ar-nail.jpg"
     },
     {
-     "word": "ظِلّ",
-     "ask": "ظِ",
-     "pic": "../../pics/ar-shadow.png",
-     "audio": [
-      "../letters/638/name.mp3",
-      "../shared/h-kasra.mp3",
-      "../../syl-ar/638-650.mp3",
-      "words/dhill.mp3"
-     ]
+     "word": "ظِ",
+     "audio": "words/dhill.mp3",
+     "pic": "../../pics/ar-shadow.png"
     },
     {
-     "word": "عَظْمَة",
-     "ask": "ظْ",
-     "pic": "../../pics/ar-bone.png",
-     "audio": [
-      "../letters/638/name.mp3",
-      "../shared/h-sukoon.mp3",
-      "../../syl-ar/638-652.mp3",
-      "words/adhma.mp3"
-     ]
+     "word": "ظْ",
+     "audio": "words/adhm.mp3",
+     "pic": "../../pics/ar-bones.png"
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 6,
+   "page": 110,
+   "task": "أَضَعُ عَلَامَةَ (✓) عِنْدَ الصُّورَةِ الَّتِي بِهَا صَوْتُ الْحَرْفِ",
+   "hint": "اختار الصورة اللي فيها الصوت ده",
+   "items": [
+    {
+     "word": "ظُ",
+     "pics": [
+      "../../pics/umbrella.png",
+      "../../pics/ar-nail.jpg"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "ظِ",
+     "pics": [
+      "../../pics/ar-bone.png",
+      "../../pics/ar-shadow.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "ظَ",
+     "pics": [
+      "../../pics/ar-envelope.jpg",
+      "../../pics/ar-nail.jpg"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "ظْ",
+     "pics": [
+      "../../pics/umbrella.png",
+      "../../pics/ar-bone.png"
+     ],
+     "answer": 1
     }
    ]
   },
   {
    "type": "vowel",
    "ex": 8,
-   "page": 105,
+   "page": 111,
    "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الظَّاءِ مَضْبُوطًا بِالشَّكْلِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "taskAudio": "../q-heads/h-e2ac5ff0.mp3",
    "hint": "اختار الظاء بالحركة الصح",
    "choices": [
     "ظَ",
@@ -165,8 +191,20 @@
      ]
     },
     {
-     "word": "عَظْمَة",
-     "audio": "words/adhma.mp3",
+     "word": "مِظَلَّة",
+     "audio": "words/midhalla.mp3",
+     "pic": "../../pics/umbrella.png",
+     "answer": "ظَ",
+     "choices": [
+      "ظَ",
+      "ظُ",
+      "ظِ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "عَظْم",
+     "audio": "words/adhm.mp3",
      "pic": "../../pics/ar-bone.png",
      "answer": "ظْ",
      "choices": [
@@ -179,19 +217,8 @@
     {
      "word": "ظِلّ",
      "audio": "words/dhill.mp3",
-     "pic": "../../pics/ar-shadow.png",
+     "pic": "../../pics/ar-trees.png",
      "answer": "ظِ",
-     "choices": [
-      "ظَ",
-      "ظُ",
-      "ظِ"
-     ]
-    },
-    {
-     "word": "ظَرْف",
-     "audio": "words/dharf.mp3",
-     "pic": "../../pics/ar-envelope.jpg",
-     "answer": "ظَ",
      "choices": [
       "ظَ",
       "ظُ",
@@ -201,30 +228,71 @@
    ]
   },
   {
-   "type": "write",
+   "type": "split",
    "ex": 9,
-   "page": 105,
+   "page": 111,
    "task": "أَقْرَأُ كُلَّ كَلِمَةٍ، وَأُحَلِّلُهَا إِلَى حُرُوفٍ",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
-   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "hint": "اسحب الحروف وركّبها في أماكنها",
    "items": [
     {
      "word": "ظَرْف",
-     "audio": "words/dharf.mp3",
-     "pic": "../../pics/ar-envelope.jpg",
-     "chips": [
-      "ظَرْ",
+     "parts": [
+      "ظَ",
+      "رْ",
       "ف"
      ]
     },
     {
      "word": "عَظْم",
-     "audio": "words/adhm.mp3",
-     "pic": "../../pics/ar-bones.png",
-     "chips": [
-      "عَظْ",
+     "parts": [
+      "عَ",
+      "ظْ",
       "م"
      ]
+    }
+   ]
+  },
+  {
+   "type": "build",
+   "ex": 10,
+   "page": 112,
+   "task": "أَسْتَخْدِمُ الْحُرُوفَ التَّالِيَةَ؛ لِكِتَابَةِ كَلِمَةٍ مُنَاسِبَةٍ لِكُلِّ صُورَةٍ",
+   "hint": "اسحب الحروف وكوّن كلمة لكل صورة",
+   "items": [
+    {
+     "letters": [
+      "ر",
+      "ظ",
+      "ف"
+     ],
+     "words": [
+      "ظُفْر",
+      "ظَرْف"
+     ],
+     "slots": 2,
+     "need": 2,
+     "cells": 3,
+     "pics": [
+      "../../pics/ar-nail.jpg",
+      "../../pics/ar-envelope.jpg"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 11,
+   "page": 112,
+   "task": "أَقْرَأُ الْجُمْلَةَ، وَأَصِلُهَا بِالصُّورَةِ الْمُنَاسِبَةِ",
+   "hint": "اقرأ الجملة واختار الصورة",
+   "items": [
+    {
+     "word": "هَذَا ظِلُّ الْوَلَدِ.",
+     "pics": [
+      "../../pics/ar-shadow-girl.jpg",
+      "../../pics/ar-shadow-boy.jpg"
+     ],
+     "answer": 1
     }
    ]
   },
@@ -247,13 +315,55 @@
   },
   {
    "type": "circle",
+   "ex": 6,
+   "page": 104,
+   "task": "أَضَعُ خَطًّا تَحْتَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ (ظ)",
+   "hint": "اضغط على الكلمات اللي فيها الظاء",
+   "items": [
+    {
+     "word": "ظَلَم",
+     "text": "ظَلَم",
+     "answer": 1
+    },
+    {
+     "word": "وَاظَب",
+     "text": "وَاظَب",
+     "answer": 1
+    },
+    {
+     "word": "لَحَظ",
+     "text": "لَحَظ",
+     "answer": 1
+    },
+    {
+     "word": "وَظَف",
+     "text": "وَظَف",
+     "answer": 1
+    },
+    {
+     "word": "قَال",
+     "text": "قَال",
+     "answer": 0
+    },
+    {
+     "word": "قَلَم",
+     "text": "قَلَم",
+     "answer": 0
+    },
+    {
+     "word": "حَظ",
+     "text": "حَظ",
+     "answer": 1
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "circle",
    "ex": 7,
    "page": 105,
    "task": "اسْتَمِعْ وَضَعْ عَلَامَةَ (✓) تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الظَّاءِ",
-   "taskAudio": [
-    "../q-prompts/circle-letter-sound.mp3",
-    "../letters/638/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-4e3f9881.mp3",
    "hint": "اضغط على الصور التي فيها صوت الظاء",
    "silent": true,
    "book": "booklet",
@@ -277,6 +387,11 @@
      "word": "nail",
      "pic": "../../pics/ar-nail.jpg",
      "answer": true
+    },
+    {
+     "word": "wallet",
+     "pic": "../../pics/ar-wallet.png",
+     "answer": false
     },
     {
      "word": "crown",
@@ -310,10 +425,7 @@
    "ex": 8,
    "page": 105,
    "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الظَّاءِ",
-   "taskAudio": [
-    "../q-prompts/mark-letter-position.mp3",
-    "../letters/638/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-70b16a1b.mp3",
    "hint": "اضغط على الدائرة التي فيها الظاء",
    "book": "booklet",
    "items": [
@@ -330,22 +442,28 @@
      "at": 0
     },
     {
+     "word": "ظِلّ",
+     "pic": "../../pics/ar-hen-shadow.jpg",
+     "audio": "words/dhill.mp3",
+     "at": 0
+    },
+    {
+     "word": "مَحْفَظَة",
+     "pic": "../../pics/ar-wallet.png",
+     "audio": "../u1l6/words/mahfaza.mp3",
+     "at": 3
+    },
+    {
      "word": "عَظْم",
-     "pic": "../../pics/ar-bones.png",
+     "pic": "../../pics/ar-bone.png",
      "audio": "words/adhm.mp3",
      "at": 1
     },
     {
-     "word": "حَظِيرَة",
-     "pic": "../../pics/ar-barn.png",
-     "audio": "words/hazira.mp3",
+     "word": "مِظَلَّة",
+     "pic": "../../pics/umbrella.png",
+     "audio": "words/midhalla.mp3",
      "at": 1
-    },
-    {
-     "word": "ظِبَاء",
-     "pic": "../../pics/ar-gazelles.png",
-     "audio": "words/dhiba.mp3",
-     "at": 0
     }
    ]
   },
@@ -354,11 +472,7 @@
    "ex": 9,
    "page": 105,
    "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الظَّاءِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
-   "taskAudio": [
-    "../q-prompts/choose-letter-sound-a.mp3",
-    "../letters/638/name.mp3",
-    "../q-prompts/choose-letter-sound-b.mp3"
-   ],
+   "taskAudio": "../q-heads/h-b23118c6.mp3",
    "hint": "اختار صوت الظاء",
    "choices": [
     "ظَ",
@@ -369,16 +483,29 @@
    "book": "booklet",
    "items": [
     {
-     "word": "ظِلّ",
-     "pic": "../../pics/ar-shadow.png",
-     "audio": "words/dhill.mp3",
-     "answer": "ظِ"
-    },
-    {
      "word": "ظِبَاء",
      "pic": "../../pics/ar-gazelles.png",
      "audio": "words/dhiba.mp3",
      "answer": "ظِ"
+    },
+    {
+     "word": "مَحْفَظَة",
+     "pic": "../../pics/ar-wallet.png",
+     "audio": "../u1l6/words/mahfaza.mp3",
+     "answer": "ظَ",
+     "at": 3
+    },
+    {
+     "word": "ظُهْر",
+     "pic": "../../pics/ar-clock.png",
+     "answer": "ظُ"
+    },
+    {
+     "word": "يَنْظُر",
+     "pic": "../../pics/ar-looker.png",
+     "audio": "words/yandhur.mp3",
+     "answer": "ظُ",
+     "at": 2
     },
     {
      "word": "ظُرُوف",
@@ -392,13 +519,6 @@
      "audio": "words/hazira.mp3",
      "answer": "ظِ",
      "at": 1
-    },
-    {
-     "word": "يَنْظُر",
-     "pic": "../../pics/ar-looker.png",
-     "audio": "words/yandhur.mp3",
-     "answer": "ظُ",
-     "at": 2
     }
    ]
   },
@@ -429,21 +549,22 @@
      "audio": "words/dhabi.mp3"
     },
     {
-     "word": "ظُفْر",
+     "word": "ظَرْف",
      "chips": [
-      "ظُفْ",
-      "ر"
+      "ظَرْ",
+      "ف"
      ],
-     "audio": "words/dhufr.mp3"
+     "audio": "words/dharf.mp3"
     },
     {
-     "word": "مُظْلِم",
+     "word": "مَحْفَظَة",
      "chips": [
-      "مُظْ",
-      "لِ",
-      "م"
+      "مَحْ",
+      "فَ",
+      "ظَ",
+      "ة"
      ],
-     "audio": "words/mudhlim.mp3"
+     "audio": "../u1l6/words/mahfaza.mp3"
     }
    ]
   },
@@ -452,7 +573,7 @@
    "ex": 11,
    "page": 106,
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "taskAudio": "../q-heads/h-c412ebef.mp3",
    "hint": "رتب الحروف",
    "book": "booklet",
    "items": [
@@ -462,28 +583,58 @@
      "audio": "words/dhahr.mp3"
     },
     {
-     "word": "يَنْظُر",
-     "pic": "../../pics/ar-looker.png",
-     "audio": "words/yandhur.mp3"
+     "word": "مِنْظَار",
+     "pic": "../../pics/ar-binoculars.jpg",
+     "audio": "words/mindhar.mp3"
+    },
+    {
+     "word": "ظُرُوف",
+     "pic": "../../pics/ar-envelopes.png",
+     "audio": "words/dhuruf.mp3"
     },
     {
      "word": "ظِلّ",
      "pic": "../../pics/ar-shadow.png",
      "audio": "words/dhill.mp3"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 12,
+   "page": 106,
+   "task": "أُعَبِّرُ عَنْ كُلِّ صُورَةٍ مِمَّا يَأْتِي بِكَلِمَةٍ مُنَاسِبَةٍ",
+   "hint": "اكتب الكلمة المناسبة للصورة",
+   "items": [
+    {
+     "word": "حَظِيرَة",
+     "pic": "../../pics/ar-barn.png",
+     "audio": "words/hazira.mp3"
     },
     {
      "word": "ظَرْف",
      "pic": "../../pics/ar-envelope.jpg",
      "audio": "words/dharf.mp3"
+    },
+    {
+     "word": "مَحْفَظَة",
+     "pic": "../../pics/ar-wallet.png",
+     "audio": "../u1l6/words/mahfaza.mp3"
+    },
+    {
+     "word": "مِنْظَار",
+     "pic": "../../pics/ar-binoculars.jpg",
+     "audio": "words/mindhar.mp3"
     }
-   ]
+   ],
+   "book": "booklet"
   },
   {
    "type": "link",
    "ex": 13,
    "page": 106,
    "task": "أَقْرَأُ ثُمَّ أَصِلُ",
-   "taskAudio": "../q-prompts/match-picture.mp3",
+   "taskAudio": "../q-heads/h-9efb3c2b.mp3",
    "hint": "صل الكلمة بالصورة",
    "book": "booklet",
    "items": [
@@ -510,33 +661,107 @@
    ]
   },
   {
-   "type": "circle",
+   "type": "ring",
    "ex": 1,
    "page": 54,
    "book": "workbook",
-   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي فِيهَا حَرْفُ (ظ)",
-   "taskAudio": "q/wb-circle-54.mp3",
-   "hint": "اضغط على الكلمات اللي فيها حرف ظ",
+   "task": "أَضَعُ دَائِرَةً حَوْلَ حَرْفِ (ظ) فِي الْكَلِمَاتِ التَّالِيَةِ",
+   "hint": "اضغط على حرف الظاء في الكلمة",
    "items": [
     {
      "word": "ظُفْر",
-     "text": "ظُفْر",
-     "answer": true
+     "letter": "ظ",
+     "audio": "words/dhufr.mp3"
     },
     {
      "word": "مِظَلَّة",
-     "text": "مِظَلَّة",
-     "answer": true
+     "letter": "ظ",
+     "audio": "words/midhalla.mp3"
     },
     {
      "word": "حَافِظ",
-     "text": "حَافِظ",
-     "answer": true
+     "letter": "ظ",
+     "audio": "words/hafidh.mp3"
     },
     {
      "word": "مَحْفَظَة",
-     "text": "مَحْفَظَة",
-     "answer": true
+     "letter": "ظ",
+     "audio": "../u1l6/words/mahfaza.mp3"
+    }
+   ]
+  },
+  {
+   "type": "position",
+   "ex": 2,
+   "page": 54,
+   "book": "workbook",
+   "task": "أَنْطِقُ وَأُظَلِّلُ مَكَانَ صَوْتِ حَرْفِ (ظ)",
+   "hint": "اضغط على المربع الذي فيه الظاء",
+   "items": [
+    {
+     "word": "عَظْم",
+     "audio": "words/adhm.mp3",
+     "at": 1,
+     "pic": "../../pics/ar-bone.png"
+    },
+    {
+     "word": "ظَرْف",
+     "audio": "words/dharf.mp3",
+     "at": 0,
+     "pic": "../../pics/ar-envelope.jpg"
+    },
+    {
+     "word": "ظَبْي",
+     "audio": "words/dhabi.mp3",
+     "at": 0,
+     "pic": "../../pics/ar-gazelle.png"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": "h1",
+   "page": 54,
+   "book": "workbook",
+   "words": true,
+   "task": "أُرَتِّبُ الْكَلِمَاتِ الْآتِيَةَ لِتُكَوِّنَ جُمْلَةً",
+   "hint": "رتب الكلمات",
+   "items": [
+    {
+     "word": "هَذِهِ مَحْفَظَةُ أَبِي"
+    },
+    {
+     "word": "رَسَمَ الْوَلَدُ وَجْهَ الْفَهْدِ"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "ex": "h2",
+   "page": 54,
+   "book": "workbook",
+   "task": "أَخْتَارُ الْكَلِمَةَ الْمُنَاسِبَةَ مِنْ بَيْنِ الْأَقْوَاسِ ( ظِلّ - الْعَظْم )",
+   "hint": "اختار الكلمة المناسبة",
+   "items": [
+    {
+     "word": "",
+     "answer": 1,
+     "options": [
+      "ظِلّ",
+      "الْعَظْم"
+     ],
+     "lead": "وَجَدَ الْكَلْبُ",
+     "tail": "."
+    },
+    {
+     "word": "",
+     "answer": 0,
+     "options": [
+      "ظِلّ",
+      "الْعَظْم"
+     ],
+     "lead": "رَأَتْ أُخْتِي",
+     "tail": "الظَّبْيِ."
     }
    ]
   }

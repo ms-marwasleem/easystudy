@@ -48,7 +48,7 @@
 /* while the phone keyboard is open (js/wordslots.js): the word is lifted above it; the progress stars make room; the Help bulb stands right under the word;
    with little room (phone on its side) the title, lesson name and road step aside */
 body.ws-typing .quiz .qdots{visibility:hidden}
-body.ws-tight #lesson .l-head{display:none}
+body.ws-tight #lesson .l-head{visibility:hidden;height:0;min-height:0;padding:0;margin:0;border:0;overflow:hidden}   /* stays in its grid row (display:none moved the stage into the header row and squeezed it to nothing) */
 body.ws-typing .ws-side{position:fixed!important;right:auto!important;bottom:auto!important;margin:0!important;z-index:60}
 .ws-mv{transition:translate .2s ease-out}
 

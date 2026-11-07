@@ -82,3 +82,15 @@ input:focus,select:focus,textarea:focus{outline:.15rem solid var(--acc);outline-
 .pr-grid{grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));margin:.5rem 0 0}
 .pr-grid label[hidden]{display:none}
 input[type=date]{border:.08rem solid var(--line);border-radius:.6rem;padding:.3rem .6rem;background:#FFFCF7;min-width:0}
+
+/* reports */
+#repBadge{display:inline-block;min-width:1.2rem;padding:0 .35rem;border-radius:999rem;background:var(--lock);color:#fff;font-size:.78rem;text-align:center;margin-inline-start:.2rem}
+#rp-q{flex:1;min-width:10rem}
+.rep{border:.06rem solid var(--line);border-radius:.8rem;padding:.55rem .8rem;margin-bottom:.5rem;background:#FFFCF7}
+.rep.done{opacity:.6;background:#F4F8F2}
+.rep-top{display:flex;justify-content:space-between;gap:.8rem;flex-wrap:wrap;align-items:baseline}
+.rep-at{color:var(--mut);font-size:.82rem}
+.rep-kind{display:inline-block;margin-top:.2rem;padding:0 .6rem;border-radius:999rem;background:#FFE7C2;color:var(--acc-dk);font-size:.82rem;font-weight:700}
+.rep-c{margin:.3rem 0;white-space:pre-wrap}.rep-c.none{color:var(--mut)}
+.rep-t{margin:.1rem 0;color:var(--mut);font-size:.82rem}
+.rep-act{display:flex;justify-content:flex-end}.rep-act button{border:.1rem solid var(--ok);background:#fff;color:var(--ok);padding:.15rem .9rem;border-radius:.7rem;cursor:pointer;font-weight:700}

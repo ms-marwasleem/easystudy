@@ -14,7 +14,7 @@ async function openExam(lesson,ex){
   stopAll(); vStop(); busy(true);
   let d; try{ X.base=new URL(ex.file,location.href).href; d=await get(ex.file); if(ex.only) d={...d,pages:(d.pages||[]).filter((_,i)=>ex.only.includes(i))}; }catch(e){ busy(false); message('Oops!','This paper did not load. Check the internet and try again.'); return; }
   await vpLoad(isAr()?null:new URL('.',X.base).href);
-  X.d=d; X.title=ex.title||d.title||'Exam'; X.qs=[]; X.pages=[]; X.links=[]; X.run++;
+  X.d=d; X.lesson=lesson; X.title=ex.title||d.title||'Exam'; X.qs=[]; X.pages=[]; X.links=[]; X.run++;
   const root=$('#xPages'); root.innerHTML='';
   (d.pages||[]).forEach((pg,i)=>root.append(xPage(pg,i,d)));
   $('#xTitle').textContent=X.title; $('#xSub').textContent=SUBJECT.name;
@@ -87,7 +87,7 @@ function xHelp(Q){
 // ---------- atoms ----------
 function xAtom(a,Q){
   if(typeof a==='string') a={t:'text',text:a};
-  const f={text:xTextAtom,mcq:xMcq,link:xLink,fill:xFill,bond:xBond,art:xArtAtom,row:xRow,col:xRow,say:xSayAtom,order:xOrder}[a.t]; const e=f?f(a,Q):el('div');
+  const f={text:xTextAtom,mcq:xMcq,link:xLink,fill:xFill,bond:xBond,art:xArtAtom,pins:xPins,row:xRow,col:xRow,say:xSayAtom,order:xOrder}[a.t]; const e=f?f(a,Q):el('div');
   if(a.cls) e.classList.add(...a.cls.split(' ')); if(a.float) e.classList.add('xfl-'+a.float); return e;
 }
 function xTextAtom(a,Q){ const d=el('div','xtext '+(a.style||'')); xInline(a.text,Q,d);
@@ -112,6 +112,10 @@ function xSayAtom(a){ const b=el('button','xsay '+(a.style||''),`<span class="xs
   b.onclick=async()=>{ vStop(); stopAll(); if(a.audio){ try{ await playFile(new URL(a.audio,X.base).href); return; }catch(e){} } if(!isAr()) await tts(a.text,'en',.8); }; return b; }
 
 function xArtAtom(a){ const d=el('div','xartbox '+(a.frame?'frame':'')); if(a.w) d.style.width=a.w+'em'; d.innerHTML=xArt(a.art,X.base); return d; }
+// a picture with writing places around it (book "read the word and write it in the right place"): {t:"pins",art,w,pins:[{x,y,text:"[[أب:box,wide]]"}]} (x,y = % of the frame, the place's centre)
+function xPins(a,Q){ const d=el('div','xpins'); if(a.w) d.style.width=a.w+'em';
+  const im=el('div','xpimg'); im.innerHTML=xArt(a.art,X.base); d.append(im);
+  (a.pins||[]).forEach(p=>{ const s=el('div','xpin'); s.style.left=p.x+'%'; s.style.top=p.y+'%'; xInline(p.text,Q,s); d.append(s); }); return d; }
 function xRow(a,Q){ const d=el('div',(a.t==='col'?'xcol ':'xrow ')+(a.style||'')); d.style.setProperty('--cols',a.cols||a.items.length); if(a.gap!=null) d.style.gap=a.gap+'em'; a.items.forEach(i=>d.append(xAtom(i,Q))); return d; }
 function xInline(str,Q,host){
   String(str).split(/(\[\[.*?\]\]|\{\{.*?\}\})/).forEach(part=>{ const m=part.match(/^\[\[(.*)\]\]$/), g=part.match(/^\{\{(.*)\}\}$/); if(m) host.append(xBlank(m[1],Q)); else if(g) host.append(el('span','xia',xArt(g[1],X.base))); else if(part){ const s=el('span'); s.innerHTML=part; host.append(...s.childNodes); } });
@@ -147,6 +151,7 @@ function xMcq(a,Q){
     if(o&&o.art){ v.innerHTML=xArt(o.art,X.base); if(o.h) v.style.setProperty('--ah',o.h+'em'); } else v.innerHTML=o; d.append(b);
     b.addEventListener('click',()=>{ if(at.solved||b.classList.contains('ok')) return;
       if(ans.includes(i)){ b.classList.add('ok'); xYay(b); if(++got>=need) xAtomDone(Q,at); } else xWarn(b); }); });
+  (a.preIdx||[]).forEach(i=>{ bs[i].classList.add('ok','pre'); got++; });   // a worked example INSIDE a multi-answer row (the book's circled example word): shown done, the rest still to solve
   if(a.pre){ Q.atoms.pop(); bs[ans[0]].classList.add('ok'); d.classList.add('pre'); }   // the worked example: already done
   return d;
 }

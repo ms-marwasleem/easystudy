@@ -1,0 +1,101 @@
+{
+  "_about": "Text of the terms of use page (terms.html), Arabic + English, for parents. DRAFT: Marwa reviews the wording. The credits section is filled from data/credits.json. contactEmail: shown under Contact when filled.",
+  "updated": "2026-11-06",
+  "ar": {
+    "title": "سياسة الاستخدام",
+    "updatedLabel": "آخر تحديث",
+    "sections": [
+      {
+        "h": "عن التطبيق",
+        "p": [
+          "EasyStudy تطبيق تعليمي للأطفال يساعدهم يذاكروا مناهج المدرسة بطريقة ممتعة، تحت إشراف ولي الأمر."
+        ]
+      },
+      {
+        "h": "حساب ولي الأمر والأطفال",
+        "p": [
+          "ولي الأمر هو اللي يعمل الحساب ويضيف ملفات الأطفال.",
+          "بنحفظ الاسم والبريد الإلكتروني (ورقم التليفون لو اتكتب) وتقدّم الطفل في الدروس، علشان التطبيق يشتغل ويعرض التقارير لولي الأمر بس.",
+          "مش بنبيع البيانات ولا بنديها لأي حد."
+        ]
+      },
+      {
+        "h": "المحتوى",
+        "p": [
+          "الدروس مبنية على كتب المنهج الدراسي، وحقوق الكتب لأصحابها.",
+          "ممنوع نسخ محتوى التطبيق أو إعادة نشره من غير إذن."
+        ]
+      },
+      {
+        "h": "مصادر الصور والأيقونات والأصوات",
+        "credits": true,
+        "p": [
+          "بعض الصور والأيقونات والأصوات في التطبيق من مواقع مجانية، ودي المصادر مع شكرنا ليهم:"
+        ]
+      },
+      {
+        "h": "التواصل",
+        "p": [
+          "لأي سؤال أو ملاحظة تواصل معانا."
+        ]
+      }
+    ],
+    "kinds": {
+      "pictures": "صور",
+      "icons": "أيقونات",
+      "sounds": "أصوات",
+      "fonts": "خطوط"
+    },
+    "licenceLabel": "الرخصة",
+    "visit": "زيارة الموقع"
+  },
+  "en": {
+    "title": "Terms of Use",
+    "updatedLabel": "Last updated",
+    "sections": [
+      {
+        "h": "About the app",
+        "p": [
+          "EasyStudy is a learning app that helps children study their school curriculum in a fun way, under a parent's supervision."
+        ]
+      },
+      {
+        "h": "Parent and child accounts",
+        "p": [
+          "A parent creates the account and adds the children's profiles.",
+          "We keep the name, email (and phone number if given) and the child's progress in the lessons, only so the app works and can show reports to the parent.",
+          "We do not sell or share this data with anyone."
+        ]
+      },
+      {
+        "h": "Content",
+        "p": [
+          "The lessons follow the school curriculum books; the rights to the books belong to their owners.",
+          "Copying or republishing the app's content without permission is not allowed."
+        ]
+      },
+      {
+        "h": "Credits / Attribution",
+        "credits": true,
+        "p": [
+          "Some pictures, icons and sounds in the app come from free sites. With thanks, these are the sources:"
+        ]
+      },
+      {
+        "h": "Contact",
+        "p": [
+          "For any question or note, please contact us."
+        ]
+      }
+    ],
+    "kinds": {
+      "pictures": "Pictures",
+      "icons": "Icons",
+      "sounds": "Sounds",
+      "fonts": "Fonts"
+    },
+    "licenceLabel": "Licence",
+    "visit": "Visit site"
+  },
+  "contactEmail": ""
+}

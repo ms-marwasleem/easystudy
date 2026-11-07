@@ -79,6 +79,8 @@
 .xrow.plates .xtext{display:flex;align-items:center;justify-content:space-between;gap:.5em;border:.14em dashed var(--blue);border-radius:.9em;padding:.3em .5em;background:#fff;margin:0}
 .xartbox.frame,.xfloat.frame{border:.16em solid #8DBFE0;border-radius:.8em;padding:.4em;background:#FFFDF4}
 .xrow .xartbox svg{max-width:100%}
+.xpins{position:relative;margin:.4em auto;padding:3.2em 0}.xpins .xpimg{width:58%;margin:0 auto}.xpins .xpimg img{display:block;width:100%;height:auto}
+.xpin{position:absolute;transform:translate(-50%,-50%);z-index:2;white-space:nowrap}.xpin .xbl{margin:0}
 .xfloat{float:right;margin:.2em 0 .5em 1em;z-index:1}.xfloat.left{float:left}
 .xfl-right{float:right;margin-inline-start:1em}
 
@@ -144,7 +146,7 @@
 .xmcq.dots .xo::after{display:none}
 .xmcq.dots .xo.ok{background:#2F7F5A;border-color:#1F5A3E}.xmcq.dots .xo.help{background:#BFD6C8}
 .xmcq.dots .xo.bad{border-color:var(--c-bad);background:#FBD9D2}
-.xmcq.pre .xo.ok::after{border-color:var(--c-grey)}
+.xmcq.pre .xo.ok::after,.xmcq .xo.ok.pre::after{border-color:var(--c-grey)}
 .xmcq.cells.letters{display:inline-flex}
 .xmcq.paint .xo{font-size:1.5em;font-weight:700}
 .xmcq.paint .xo::after{display:none}
@@ -194,3 +196,7 @@
 .xrow.pics.plain .xmcq{justify-content:center;gap:.3em 1.4em}
 .xpage[hidden]{display:none}
 .xqt{padding-bottom:.2em}
+
+.xmcq.xgrp,.xgrp{border:.16em solid #F1B4D4;border-radius:1.3em;padding:.5em .7em;background:#FFF6FB}
+.xlink.xbigit .xit{font-size:1.7em;line-height:1.2}
+.xex{color:#D6218B;font-weight:700}

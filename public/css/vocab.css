@@ -103,9 +103,9 @@
 #lesson.wpop .rail{display:none!important}
 
 /* the small pen after a lesson word that is also in the Words tab */
-.haspen{position:relative;margin-right:calc(clamp(.8rem,1.5vw,1.05rem) * .6)}   /* room on the right for the pen (same size as .wpn): it never touches the next word or gets cut at a card edge (LTR and RTL) */
-/* ONE pen app-wide (Marwa 2026-11-04): white, small, on the TOP-RIGHT corner of the word, touching it so it never lands on a neighbouring word */
-.wpn{--pen:clamp(.8rem,1.5vw,1.05rem);position:absolute;right:calc(var(--pen) * -.6);top:calc(var(--pen) * -.7);z-index:2;display:block;width:var(--pen);height:var(--pen);font-size:1rem;margin:0;color:#fff;cursor:pointer;line-height:1;filter:drop-shadow(0 0 .05rem #2a0f46) drop-shadow(0 0 .05rem #2a0f46) drop-shadow(0 0 .1rem rgba(40,15,70,.6))}   /* dark outline: the white pen shows on dark AND light pages (book pages, nasheed) */
+.haspen{position:relative}
+/* ONE pen app-wide (Marwa 2026-11-06, replaces the top-right corner pen): white, SMALL, in the line right AFTER its word (never over a neighbour), with a gap on both sides so it never touches the next word */
+.wpn{--pen:clamp(.7rem,1.15vw,.85rem);position:relative;display:inline-block;vertical-align:middle;width:var(--pen);height:var(--pen);font-size:1rem;margin-block:0;margin-inline:.22em .5em;color:#fff;cursor:pointer;line-height:1;z-index:2;filter:drop-shadow(0 0 .05rem #2a0f46) drop-shadow(0 0 .05rem #2a0f46) drop-shadow(0 0 .1rem rgba(40,15,70,.6))}   /* dark outline: the white pen shows on dark AND light pages (book pages, nasheed) */
 .wpn::after{content:"";position:absolute;inset:-.3rem -.25rem -.15rem -.25rem}
 .wpn svg{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 

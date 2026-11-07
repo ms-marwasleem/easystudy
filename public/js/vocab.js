@@ -91,6 +91,7 @@ const sayPart=p=>p.silent?new Promise(r=>setTimeout(r,350)):p.audio?playFile(p.a
 const SAY_LN='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>';
 const VHAR={fatha:'\u0640\u064E',damma:'\u0640\u064F',kasra:'\u0640\u0650',sukoon:'\u0640\u0652'};
 function showWords(){
+  vs.seen=new Set();   // the words taught in THIS visit: the stars screen comes only when the child has been through the WHOLE tab (earlier visits never make the first word the last)
   stage.innerHTML='';
   vs.i=Math.min(vs.i,LESSON.vocab.length-1);
   $('#lesson').classList.add('vtab'); $('#lesson').classList.toggle('vmode',vMode()); setRail([]); vLayout();
@@ -135,19 +136,20 @@ async function vMeanSay(what){
 }
 async function vMean(){
   vStop(); hideHint(); const run=++vs.run; vs.mode='learn'; vRail();
-  const v=LESSON.vocab[vs.i]; vRender(true); vStatus(tr('Listen!')); $('.vmeaning').classList.add('hid');
+  const v=LESSON.vocab[vs.i]; vRender(true); vStatus(tr('Listen!'));   // the plural / meaning / opposite word stays WRITTEN under the word the whole time (Marwa 2026-11-06); it lights up while it is spoken
   try{
     await vSleep(500,run);
     for(let rep=0;rep<2;rep++){
       $('.vword').classList.add('lit'); await sayWord(v); if(run!==vs.run) return; $('.vword').classList.remove('lit'); await vSleep(700,run);
-      const m=$('.vmeaning'); m.classList.remove('hid'); m.classList.add('lit'); if(anim) G.from(m,{opacity:0,y:10,duration:.35});
+      const m=$('.vmeaning'); m.classList.remove('hid'); m.classList.add('lit');
       await sayRel(v); if(run!==vs.run) return; m.classList.remove('lit'); await vSleep(900,run);
     }
     vStatus(''); vs.mode='done'; vRail(); celebrate($('.vword'));
-    const d=vDone(); if(!d.includes(v.word)){ d.push(v.word); try{ localStorage.setItem('zoom-vocab',JSON.stringify(VDONE)); }catch(e){} }
+    if(vs.popup){ await vSleep(1200,run); if(tab!=='words') return; vs.mode='idle'; vRail(); const x=$('.wpclose'); if(x) x.click(); return; }   // the pen popup (one word seen from the lesson page): NO star, NO progress, NO stars screen - back to the lesson (Marwa 2026-11-06)
+    const d=vDone(); if(!d.includes(v.word)){ d.push(v.word); try{ localStorage.setItem('zoom-vocab',JSON.stringify(VDONE)); }catch(e){} } (vs.seen||(vs.seen=new Set())).add(v.word);
     vCar(true); const th=$$('.vthumb')[vs.i]; if(th&&!$('.vst',th)) th.append(el('span','vst',STAR(true)));
     await vSleep(1200,run); if(tab!=='words') return;
-    const left=LESSON.vocab.map((x,i)=>i).filter(i=>!vDone().includes(LESSON.vocab[i].word));
+    const left=LESSON.vocab.map((x,i)=>i).filter(i=>!vs.seen.has(LESSON.vocab[i].word));
     if(!left.length){ vs.mode='idle'; vRail(); award(LESSON.id,'words'); return; }
     vs.i=left.find(i=>i>vs.i) ?? left[0]; vMean();
   }catch(e){}
@@ -225,13 +227,14 @@ function vHelp(){
 async function vWin(v){
   vs.mode='done'; vRail(); const run=vs.run;
   vStatus(''); celebrate($('.vword'));   // the celebration is the praise: no "Good job" said or written
-  const d=vDone(); if(!d.includes(v.word)){ d.push(v.word); try{ localStorage.setItem('zoom-vocab',JSON.stringify(VDONE)); }catch(e){} }
+  if(vs.popup){ await sayWord(v); await new Promise(r=>setTimeout(r,700)); if(run!==vs.run||tab!=='words') return; vs.mode='idle'; vRail(); const x=$('.wpclose'); if(x) x.click(); return; }   // the pen popup: no star / progress, only the word, then back to the lesson
+  const d=vDone(); if(!d.includes(v.word)){ d.push(v.word); try{ localStorage.setItem('zoom-vocab',JSON.stringify(VDONE)); }catch(e){} } (vs.seen||(vs.seen=new Set())).add(v.word);
   vCar(true);
   const th=$$('.vthumb')[vs.i]; if(th&&!$('.vst',th)) th.append(el('span','vst',STAR(true)));
   await new Promise(r=>setTimeout(r,500)); if(run!==vs.run) return;
   await sayWord(v); await new Promise(r=>setTimeout(r,700)); if(run!==vs.run||tab!=='words') return;
   if(vs.popup){ vs.mode='idle'; vRail(); const x=$('.wpclose'); if(x) x.click(); return; }   // popup: one word only, then back to the words page
-  const left=LESSON.vocab.map((x,i)=>i).filter(i=>!vDone().includes(LESSON.vocab[i].word));
+  const left=LESSON.vocab.map((x,i)=>i).filter(i=>!vs.seen.has(LESSON.vocab[i].word));
   if(!left.length){ const ip=$('#vin'); if(ip) ip.blur(); vs.mode='idle'; vRail(); award(LESSON.id,'words'); return; }
   vs.i=left.find(i=>i>vs.i) ?? left[0]; vTeach();
 }
@@ -294,8 +297,7 @@ function vFitImg(){ const im=$('.vimg'), wrap=im&&im.parentElement; if(!im||!im.
 function vPickFit(){ const pk=$('.vpick'); if(!pk) return; pk.style.gridTemplateColumns=''; if(!$('#lesson').classList.contains('vmode')||!$('#lesson').classList.contains('v-land')) return;
   for(let c=2;c<=4&&pk.scrollHeight>pk.clientHeight+1;c++) pk.style.gridTemplateColumns=`repeat(${c},auto)`; }
 addEventListener('resize',()=>{ if(tab==='words'){ vLayout(); fitWord(); vPickFit(); setTimeout(vFitImg,60); } });
-// iPhone may slide the page under the keyboard: slide it back so everything stays exactly where it was
-if(window.visualViewport) visualViewport.addEventListener('scroll',()=>{ if(scrollY) scrollTo(0,0); });
+// iPhone may slide the page under the keyboard: js/core.js (kbSync / kbPin) slides it back, for every screen
 
 // the car in the header moves one step for every word learned
 function vCar(drive){ const n=LESSON.vocab.length||1; if(drive){ carDrive(true); setTimeout(()=>carDrive(false),900); } carFrac(vDone().length/n); }

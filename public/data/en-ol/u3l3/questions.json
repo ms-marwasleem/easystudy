@@ -12,13 +12,13 @@
     {
      "word": "There are 4 books.",
      "audio": "../../en-shared/q/there-are-4-books.mp3",
-     "pic": "../../pics/books-4.png",
+     "pic": "../../pics/book-blue.png#4",
      "answer": true
     },
     {
      "word": "I see 3 birds.",
      "audio": "../../en-shared/q/i-see-3-birds.mp3",
-     "pic": "../../pics/birds-5.png",
+     "pic": "../../pics/bird.png#5",
      "answer": false
     },
     {
@@ -58,7 +58,7 @@
     {
      "word": "1 flower",
      "audio": "../../en-shared/q/1-flower.mp3",
-     "pic": "../../pics/flowers-1.png",
+     "pic": "../../pics/flower.png#1",
      "letters": [
       "3",
       "1",
@@ -69,7 +69,7 @@
     {
      "word": "3 flowers",
      "audio": "../../en-shared/q/1-flower.mp3",
-     "pic": "../../pics/flowers-3.png",
+     "pic": "../../pics/flower.png#3",
      "letters": [
       "4",
       "3",
@@ -80,7 +80,7 @@
     {
      "word": "2 flowers",
      "audio": "../../en-shared/q/1-flower.mp3",
-     "pic": "../../pics/flowers-2.png",
+     "pic": "../../pics/flower.png#2",
      "letters": [
       "4",
       "5",
@@ -91,7 +91,7 @@
     {
      "word": "4 flowers",
      "audio": "../../en-shared/q/1-flower.mp3",
-     "pic": "../../pics/flowers-4.jpg",
+     "pic": "../../pics/flower.png#4",
      "letters": [
       "4",
       "1",
@@ -102,7 +102,7 @@
     {
      "word": "5 flowers",
      "audio": "../../en-shared/q/1-flower.mp3",
-     "pic": "../../pics/flowers-5.png",
+     "pic": "../../pics/flower.png#5",
      "letters": [
       "3",
       "5",
@@ -125,7 +125,7 @@
      "audio": "../../en-shared/q/1.mp3",
      "pics": [
       "../../pics/sun-1.png",
-      "../../pics/apples-5.png"
+      "../../pics/apple-toon.png#5"
      ],
      "answer": 0
     },
@@ -133,8 +133,8 @@
      "word": "2",
      "audio": "../../en-shared/q/2.mp3",
      "pics": [
-      "../../pics/tulips-2.png",
-      "../../pics/leaves-4.png"
+      "../../pics/tulip.png#2",
+      "../../pics/leaf.png#4"
      ],
      "answer": 0
     },
@@ -142,7 +142,7 @@
      "word": "3",
      "audio": "../../en-shared/q/3.mp3",
      "pics": [
-      "../../pics/pineapples-3.png",
+      "../../pics/pineapple.png#3",
       "../../pics/sun-1.png"
      ],
      "answer": 0
@@ -151,8 +151,8 @@
      "word": "4",
      "audio": "../../en-shared/q/4.mp3",
      "pics": [
-      "../../pics/leaves-4.png",
-      "../../pics/tulips-2.png"
+      "../../pics/leaf.png#4",
+      "../../pics/tulip.png#2"
      ],
      "answer": 0
     },
@@ -160,8 +160,8 @@
      "word": "5",
      "audio": "../../en-shared/q/5.mp3",
      "pics": [
-      "../../pics/apples-5.png",
-      "../../pics/pineapples-3.png"
+      "../../pics/apple-toon.png#5",
+      "../../pics/pineapple.png#3"
      ],
      "answer": 0
     }
@@ -179,7 +179,7 @@
      "word": "There are 2 pencils.",
      "missing": 10,
      "audio": "../../en-shared/q/there-are-2-pencils-gap.mp3",
-     "pic": "../../pics/pencils-2.png",
+     "pic": "../../pics/pencil.png#2",
      "letters": [
       "2",
       "3"
@@ -190,7 +190,7 @@
      "word": "There are 4 bags.",
      "missing": 10,
      "audio": "../../en-shared/q/there-are-4-bags-gap.mp3",
-     "pic": "../../pics/bags-4.png",
+     "pic": "../../pics/bag.png#4",
      "letters": [
       "1",
       "4"
@@ -201,7 +201,7 @@
      "word": "There are 5 stars.",
      "missing": 10,
      "audio": "../../en-shared/q/there-are-5-stars-gap.mp3",
-     "pic": "../../pics/stars-5.png",
+     "pic": "../../pics/star.png#5",
      "letters": [
       "3",
       "5"
@@ -224,22 +224,22 @@
     {
      "word": "1",
      "audio": "../../en-shared/q/1.mp3",
-     "pic": "../../pics/monkey-1.png"
+     "pic": "../../pics/monkey-u5l2.png"
     },
     {
      "word": "4",
      "audio": "../../en-shared/q/4.mp3",
-     "pic": "../../pics/cats-4.png"
+     "pic": "../../pics/cat.png#4"
     },
     {
      "word": "2",
      "audio": "../../en-shared/q/2.mp3",
-     "pic": "../../pics/palms-2.png"
+     "pic": "../../pics/palm.png#2"
     },
     {
      "word": "5",
      "audio": "../../en-shared/q/5.mp3",
-     "pic": "../../pics/parrots-5.png"
+     "pic": "../../pics/parrot.png#5"
     }
    ]
   },
@@ -262,7 +262,7 @@
       "3"
      ],
      "answer": 0,
-     "pic": "../../pics/flowers-2.png",
+     "pic": "../../pics/flower.png#2",
      "tail": "flowers.",
      "audio": "../../en-shared/q/there-are-2-flowers.mp3",
      "word": "There are 2 flowers.",
@@ -276,7 +276,7 @@
       "4"
      ],
      "answer": 1,
-     "pic": "../../pics/apples-4.png",
+     "pic": "../../pics/apple-toon.png#4",
      "tail": "apples.",
      "audio": "../../en-shared/q/there-are-4-apples.mp3",
      "word": "There are 4 apples.",
@@ -290,7 +290,7 @@
       "4"
      ],
      "answer": 0,
-     "pic": "../../pics/bees-3.png",
+     "pic": "../../pics/bee.png#3",
      "tail": "bees.",
      "audio": "../../en-shared/q/there-are-3-bees.mp3",
      "word": "There are 3 bees.",
@@ -316,7 +316,7 @@
       "5"
      ],
      "answer": 0,
-     "pic": "../../pics/books-4.png",
+     "pic": "../../pics/book-blue.png#4",
      "tail": "books.",
      "audio": "../../en-shared/q/there-are-4-books.mp3",
      "word": "There are 4 books.",
@@ -329,7 +329,7 @@
       "5"
      ],
      "answer": 1,
-     "pic": "../../pics/birds-5.png",
+     "pic": "../../pics/bird.png#5",
      "tail": "birds.",
      "audio": "../../en-shared/q/there-are-5-birds.mp3",
      "word": "There are 5 birds.",
@@ -342,7 +342,7 @@
       "3"
      ],
      "answer": 0,
-     "pic": "../../pics/count-2-trees.png",
+     "pic": "../../pics/tree.png#2",
      "tail": "trees.",
      "audio": "../../en-shared/q/there-are-2-trees.mp3",
      "word": "There are 2 trees.",

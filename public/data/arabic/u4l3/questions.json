@@ -46,11 +46,11 @@
    "page": 120,
    "task": "أَنْطِقُ صَوْتَ حَرْفِ الزَّايِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
    "taskAudio": "q/task-3.mp3",
-   "hint": "اسمع الجملة وردد وراها",
+   "hint": "اسمع صوت الزاي مع كل حركة",
    "items": [
     {
-     "word": "زَرَافَة",
      "ask": "زَ",
+     "word": "زَرَافَة",
      "pic": "../../pics/ar-giraffe.png",
      "audio": [
       "../letters/632/name.mp3",
@@ -60,8 +60,8 @@
      ]
     },
     {
-     "word": "زُجَاجَة",
      "ask": "زُ",
+     "word": "زُجَاجَة",
      "pic": "../../pics/ar-bottle.png",
      "audio": [
       "../letters/632/name.mp3",
@@ -71,8 +71,8 @@
      ]
     },
     {
-     "word": "زِرّ",
      "ask": "زِ",
+     "word": "زِرّ",
      "pic": "../../pics/ar-button.png",
      "audio": [
       "../letters/632/name.mp3",
@@ -82,14 +82,14 @@
      ]
     },
     {
-     "word": "أَزْرَق",
      "ask": "زْ",
-     "pic": "../../pics/ar-blue.png",
+     "word": "مِزْمَار",
+     "pic": "../../pics/ar-flute.png",
      "audio": [
       "../letters/632/name.mp3",
       "../shared/h-sukoon.mp3",
       "../../syl-ar/632-652.mp3",
-      "words/azraq.mp3"
+      "words/mizmar.mp3"
      ]
     }
    ]
@@ -98,8 +98,8 @@
    "type": "vowel",
    "ex": 4,
    "page": 121,
-   "task": "أَنْطِقُ، وَأَكْتُبُ الْحَرَكَةَ الْمُنَاسِبَةَ عَلَى حَرْفِ الزَّايِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "task": "أَنْطِقُ، وَأَكْتُبُ الْحَرَكَةَ الْمُنَاسِبَةَ عَلَى حَرْفِ (ز)",
+   "taskAudio": "q/task-4.mp3",
    "hint": "اختار الزاي بالحركة الصح",
    "choices": [
     "زَ",
@@ -116,7 +116,8 @@
      "choices": [
       "زَ",
       "زُ",
-      "زِ"
+      "زِ",
+      "زْ"
      ]
     },
     {
@@ -127,7 +128,104 @@
      "choices": [
       "زَ",
       "زُ",
-      "زِ"
+      "زِ",
+      "زْ"
+     ]
+    },
+    {
+     "word": "أَزْرَق",
+     "audio": "words/azraq.mp3",
+     "pic": "../../pics/ar-blue.png",
+     "answer": "زْ",
+     "choices": [
+      "زَ",
+      "زُ",
+      "زِ",
+      "زْ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "زُجَاجَة",
+     "audio": "words/zujaja.mp3",
+     "pic": "../../pics/ar-bottle.png",
+     "answer": "زُ",
+     "choices": [
+      "زَ",
+      "زُ",
+      "زِ",
+      "زْ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "sound",
+   "ex": 5,
+   "page": 121,
+   "task": "أَنْطِقُ اسْمَ كُلِّ صُورَةٍ، وَأُلَاحِظُ الْفَرْقَ بَيْنَ (ز) وَ(ذ)",
+   "taskAudio": "q/task-5.mp3",
+   "hint": "اسمع الفرق بين الزاي والذال",
+   "items": [
+    {
+     "ask": "زَ",
+     "word": "زَرَافَة",
+     "pic": "../../pics/ar-giraffe.png",
+     "audio": [
+      "../letters/632/name.mp3",
+      "../shared/h-fatha.mp3",
+      "../../syl-ar/632-64e.mp3",
+      "words/zarafa.mp3"
+     ]
+    },
+    {
+     "ask": "ذَ",
+     "word": "ذَ",
+     "pic": "../../pics/ar-cat.png",
+     "audio": [
+      "../letters/630/name.mp3",
+      "../shared/h-fatha.mp3",
+      "../../syl-ar/630-64e.mp3"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 8,
+   "page": 122,
+   "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ (ز) مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "q/task-8.mp3",
+   "hint": "اختار الزاي بالحركة الصح",
+   "choices": [
+    "زَ",
+    "زُ",
+    "زِ",
+    "زْ"
+   ],
+   "items": [
+    {
+     "word": "زَيْتُون",
+     "audio": "words/zaytun.mp3",
+     "pic": "../../pics/ar-olives.png",
+     "answer": "زَ",
+     "choices": [
+      "زَ",
+      "زُ",
+      "زِ",
+      "زْ"
+     ]
+    },
+    {
+     "word": "زِرّ",
+     "audio": "words/zirr.mp3",
+     "pic": "../../pics/ar-button.png",
+     "answer": "زِ",
+     "choices": [
+      "زَ",
+      "زُ",
+      "زِ",
+      "زْ"
      ]
     },
     {
@@ -138,37 +236,71 @@
      "choices": [
       "زَ",
       "زُ",
-      "زِ"
+      "زِ",
+      "زْ"
+     ]
+    },
+    {
+     "word": "مِزْمَار",
+     "audio": "words/mizmar.mp3",
+     "pic": "../../pics/ar-flute.png",
+     "answer": "زْ",
+     "choices": [
+      "زَ",
+      "زُ",
+      "زِ",
+      "زْ"
+     ],
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "build",
+   "ex": 9,
+   "page": 122,
+   "task": "أَسْتَخْدِمُ الْحُرُوفَ التَّالِيَةَ؛ لِأُكَوِّنَ اسْمَ كُلِّ صُورَةٍ",
+   "taskAudio": "q/task-9.mp3",
+   "hint": "اسحب الحروف وكوّن اسم كل صورة",
+   "items": [
+    {
+     "letters": [
+      "ز",
+      "ج",
+      "أ",
+      "ر"
+     ],
+     "words": [
+      "أُرْز",
+      "أَرُزّ",
+      "جَزَر"
+     ],
+     "slots": 2,
+     "need": 2,
+     "cells": 3,
+     "pics": [
+      "../../pics/ar-rice.png",
+      "../../pics/ar-carrot.png"
      ]
     }
    ]
   },
   {
-   "type": "write",
-   "ex": 9,
-   "page": 123,
-   "task": "أَدْمِجُ الْحُرُوفَ لِأُكَوِّنَ كَلِمَةً",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
-   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "type": "pick",
+   "ex": 10,
+   "page": 122,
+   "task": "أَقْرَأُ الْجُمْلَةَ، وَأَصِلُهَا بِالصُّورَةِ الْمُنَاسِبَةِ",
+   "taskAudio": "q/task-10.mp3",
+   "hint": "اقرأ الجملة واختار الصورة",
    "items": [
     {
-     "word": "زِرّ",
-     "audio": "words/zirr.mp3",
-     "pic": "../../pics/ar-button.png",
-     "chips": [
-      "زِ",
-      "رّ"
-     ]
-    },
-    {
-     "word": "زَبَادِي",
-     "audio": "words/zabadi.mp3",
-     "pic": "../../pics/ar-yogurt.png",
-     "chips": [
-      "زَ",
-      "بَا",
-      "دِي"
-     ]
+     "word": "نَزَلَ زَيْدٌ إِلَى الْمَلْعَبِ.",
+     "audio": "q/s10.mp3",
+     "pics": [
+      "../../pics/ar-boy-eating-rice.jpg",
+      "../../pics/ar-boy-running.jpg"
+     ],
+     "answer": 1
     }
    ]
   },
@@ -191,21 +323,64 @@
   },
   {
    "type": "circle",
+   "ex": 6,
+   "page": 113,
+   "book": "booklet",
+   "task": "أَضَعُ خَطًّا تَحْتَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ (ز)",
+   "taskAudio": "q/b-task-6.mp3",
+   "hint": "اضغط على الكلمات اللي فيها حرف ز",
+   "items": [
+    {
+     "word": "عَسَل",
+     "text": "عَسَل",
+     "answer": false
+    },
+    {
+     "word": "زَحَفَ",
+     "text": "زَحَفَ",
+     "answer": true
+    },
+    {
+     "word": "عَزَلَ",
+     "text": "عَزَلَ",
+     "answer": true
+    },
+    {
+     "word": "جَابِر",
+     "text": "جَابِر",
+     "answer": false
+    },
+    {
+     "word": "جَزَر",
+     "text": "جَزَر",
+     "answer": true
+    },
+    {
+     "word": "زَمِيل",
+     "text": "زَمِيل",
+     "answer": true
+    },
+    {
+     "word": "زَبُون",
+     "text": "زَبُون",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "circle",
    "ex": 7,
    "page": 114,
    "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الزَّايِ",
-   "taskAudio": [
-    "../q-prompts/circle-letter-sound.mp3",
-    "../letters/632/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-3e87571e.mp3",
    "hint": "اضغط على الصور التي فيها صوت الزاي",
    "silent": true,
    "book": "booklet",
    "items": [
     {
-     "word": "bread",
-     "pic": "../../pics/ar-bread.png",
-     "answer": false
+     "word": "olives",
+     "pic": "../../pics/ar-olives.png",
+     "answer": true
     },
     {
      "word": "elephant",
@@ -218,18 +393,23 @@
      "answer": true
     },
     {
-     "word": "olives",
-     "pic": "../../pics/ar-olives.png",
+     "word": "ink",
+     "pic": "../../pics/ar-blue.png",
      "answer": true
     },
     {
-     "word": "camel",
-     "pic": "../../pics/ar-camel.png",
+     "word": "bread",
+     "pic": "../../pics/ar-bread.png",
      "answer": false
     },
     {
-     "word": "yogurt",
-     "pic": "../../pics/ar-yogurt.png",
+     "word": "lion",
+     "pic": "../../pics/ar-lion.png",
+     "answer": false
+    },
+    {
+     "word": "flower",
+     "pic": "../../pics/ar-flower.png",
      "answer": true
     },
     {
@@ -238,18 +418,13 @@
      "answer": true
     },
     {
-     "word": "flower",
-     "pic": "../../pics/ar-flower.png",
+     "word": "yogurt",
+     "pic": "../../pics/ar-yogurt.png",
      "answer": true
     },
     {
-     "word": "lion",
-     "pic": "../../pics/ar-lion.png",
-     "answer": false
-    },
-    {
-     "word": "strawberry",
-     "pic": "../../pics/ar-strawberry.png",
+     "word": "camel",
+     "pic": "../../pics/ar-camel.png",
      "answer": false
     }
    ]
@@ -259,17 +434,14 @@
    "ex": 8,
    "page": 114,
    "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الزَّايِ",
-   "taskAudio": [
-    "../q-prompts/mark-letter-position.mp3",
-    "../letters/632/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-2cf84e19.mp3",
    "hint": "اضغط على الدائرة التي فيها الزاي",
    "book": "booklet",
    "items": [
     {
-     "word": "زُجَاجَة",
-     "pic": "../../pics/ar-bottle.png",
-     "audio": "words/zujaja.mp3",
+     "word": "زُهُور",
+     "pic": "../../pics/ar-flower.png",
+     "audio": "../u3l7/words/zuhur.mp3",
      "at": 0
     },
     {
@@ -279,16 +451,28 @@
      "at": 0
     },
     {
-     "word": "زُهُور",
-     "pic": "../../pics/ar-flower.png",
-     "audio": "../u3l7/words/zuhur.mp3",
+     "word": "أَزْرَق",
+     "pic": "../../pics/ar-blue.png",
+     "audio": "words/azraq.mp3",
+     "at": 1
+    },
+    {
+     "word": "زُجَاجَة",
+     "pic": "../../pics/ar-bottle.png",
+     "audio": "words/zujaja.mp3",
      "at": 0
     },
     {
-     "word": "زِرّ",
-     "pic": "../../pics/ar-button.png",
-     "audio": "words/zirr.mp3",
-     "at": 0
+     "word": "جَزَر",
+     "pic": "../../pics/ar-carrot.png",
+     "audio": "words/jazar.mp3",
+     "at": 1
+    },
+    {
+     "word": "لَوْز",
+     "pic": "../../pics/almond.png",
+     "audio": "../u2l3/words/lawz.mp3",
+     "at": 2
     },
     {
      "word": "مَوْز",
@@ -297,10 +481,10 @@
      "at": 2
     },
     {
-     "word": "جَزَر",
-     "pic": "../../pics/ar-carrot.png",
-     "audio": "words/jazar.mp3",
-     "at": 1
+     "word": "زِرّ",
+     "pic": "../../pics/ar-button.png",
+     "audio": "words/zirr.mp3",
+     "at": 0
     }
    ]
   },
@@ -309,11 +493,7 @@
    "ex": 9,
    "page": 114,
    "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الزَّايِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
-   "taskAudio": [
-    "../q-prompts/choose-letter-sound-a.mp3",
-    "../letters/632/name.mp3",
-    "../q-prompts/choose-letter-sound-b.mp3"
-   ],
+   "taskAudio": "../q-heads/h-9095d577.mp3",
    "hint": "اختار صوت الزاي",
    "choices": [
     "زَ",
@@ -324,35 +504,52 @@
    "book": "booklet",
    "items": [
     {
-     "word": "زَرَافَة",
-     "pic": "../../pics/ar-giraffe.png",
-     "audio": "words/zarafa.mp3",
-     "answer": "زَ"
+     "word": "زُجَاج",
+     "audio": "words/zujaj.mp3",
+     "pic": "../../pics/ar-window.jpg",
+     "answer": "زُ",
+     "choices": [
+      "زَ",
+      "زُ",
+      "زِ",
+      "زْ"
+     ]
+    },
+    {
+     "word": "زَبَادِي",
+     "audio": "words/zabadi.mp3",
+     "pic": "../../pics/ar-yogurt.png",
+     "answer": "زَ",
+     "choices": [
+      "زَ",
+      "زُ",
+      "زِ",
+      "زْ"
+     ]
     },
     {
      "word": "زُبْد",
-     "pic": "../../pics/ar-butter.png",
      "audio": "words/zubd.mp3",
-     "answer": "زُ"
-    },
-    {
-     "word": "زِرّ",
-     "pic": "../../pics/ar-button.png",
-     "audio": "words/zirr.mp3",
-     "answer": "زِ"
-    },
-    {
-     "word": "أَزْرَق",
-     "pic": "../../pics/ar-blue.png",
-     "audio": "words/azraq.mp3",
-     "answer": "زْ",
-     "at": 1
+     "pic": "../../pics/ar-butter.png",
+     "answer": "زُ",
+     "choices": [
+      "زَ",
+      "زُ",
+      "زِ",
+      "زْ"
+     ]
     },
     {
      "word": "زَيْتُون",
-     "pic": "../../pics/ar-olives.png",
      "audio": "words/zaytun.mp3",
-     "answer": "زَ"
+     "pic": "../../pics/ar-olives.png",
+     "answer": "زَ",
+     "choices": [
+      "زَ",
+      "زُ",
+      "زِ",
+      "زْ"
+     ]
     }
    ]
   },
@@ -375,14 +572,6 @@
      "audio": "words/ghazal.mp3"
     },
     {
-     "word": "مَوْز",
-     "chips": [
-      "مَوْ",
-      "ز"
-     ],
-     "audio": "words/mawz.mp3"
-    },
-    {
      "word": "زَبَادِي",
      "chips": [
       "زَ",
@@ -390,6 +579,14 @@
       "دِي"
      ],
      "audio": "words/zabadi.mp3"
+    },
+    {
+     "word": "مَوْز",
+     "chips": [
+      "مَوْ",
+      "ز"
+     ],
+     "audio": "words/mawz.mp3"
     },
     {
      "word": "عُكَّاز",
@@ -407,7 +604,7 @@
    "ex": 11,
    "page": 115,
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "taskAudio": "../q-heads/h-c412ebef.mp3",
    "hint": "رتب الحروف",
    "book": "booklet",
    "items": [
@@ -422,14 +619,92 @@
      "audio": "words/azraq.mp3"
     },
     {
-     "word": "زَيْتُون",
-     "pic": "../../pics/ar-olives.png",
-     "audio": "words/zaytun.mp3"
-    },
-    {
      "word": "زَرَافَة",
      "pic": "../../pics/ar-giraffe.png",
      "audio": "words/zarafa.mp3"
+    },
+    {
+     "word": "زَيْتُون",
+     "pic": "../../pics/ar-olives.png",
+     "audio": "words/zaytun.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 13,
+   "page": 115,
+   "book": "booklet",
+   "task": "أَسْتَمِعُ وَأَرْسُمُ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الزَّايِ (ز)",
+   "taskAudio": "q/b-task-13.mp3",
+   "hint": "اسمع واضغط على الكلمات اللي فيها حرف الزاي",
+   "items": [
+    {
+     "word": "زَبَادِي",
+     "text": "زَبَادِي",
+     "audio": "words/zabadi.mp3",
+     "answer": true
+    },
+    {
+     "word": "مَنْزِل",
+     "text": "مَنْزِل",
+     "audio": "words/manzil.mp3",
+     "answer": true
+    },
+    {
+     "word": "مَاعِز",
+     "text": "مَاعِز",
+     "audio": "words/maez.mp3",
+     "answer": true
+    },
+    {
+     "word": "زُجَاجَة",
+     "text": "زُجَاجَة",
+     "audio": "words/zujaja.mp3",
+     "answer": true
+    },
+    {
+     "word": "زَهْرَة",
+     "text": "زَهْرَة",
+     "audio": "../u3l7/words/zahra.mp3",
+     "answer": true
+    },
+    {
+     "word": "زُبْد",
+     "text": "زُبْد",
+     "audio": "words/zubd.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 14,
+   "page": 115,
+   "book": "booklet",
+   "task": "أُعَبِّرُ عَنْ كُلِّ صُورَةٍ مِمَّا يَأْتِي بِكَلِمَةٍ مُنَاسِبَةٍ",
+   "taskAudio": "q/b-task-14.mp3",
+   "hint": "اكتب اسم الصورة",
+   "items": [
+    {
+     "word": "مَاعِز",
+     "audio": "words/maez.mp3",
+     "pic": "../../pics/goat-u5l2.png"
+    },
+    {
+     "word": "مِزْمَار",
+     "audio": "words/mizmar.mp3",
+     "pic": "../../pics/ar-flute.png"
+    },
+    {
+     "word": "غَزَال",
+     "audio": "words/ghazal.mp3",
+     "pic": "../../pics/ar-gazelle.png"
+    },
+    {
+     "word": "زَهْرَة",
+     "audio": "../u3l7/words/zahra.mp3",
+     "pic": "../../pics/ar-flower.png"
     }
    ]
   },
@@ -438,7 +713,7 @@
    "ex": 15,
    "page": 115,
    "task": "أَقْرَأُ كُلَّ جُمْلَةٍ ثُمَّ أَصِلُهَا بِالصُّورَةِ الْمُنَاسِبَةِ لَهَا",
-   "taskAudio": "../q-prompts/match-picture.mp3",
+   "taskAudio": "../q-heads/h-74e93d8f.mp3",
    "hint": "صل الجملة بالصورة",
    "book": "booklet",
    "items": [
@@ -457,58 +732,157 @@
    ]
   },
   {
-   "type": "circle",
+   "type": "ring",
    "ex": 1,
    "page": 59,
    "book": "workbook",
-   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي فِيهَا حَرْفُ (ز)",
-   "taskAudio": "q/wb-circle-59.mp3",
-   "hint": "اضغط على الكلمات اللي فيها حرف ز",
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ حَرْفِ الزَّايِ فِيمَا يَلِي",
+   "taskAudio": "q/wb-1.mp3",
+   "hint": "اضغط على حرف الزاي في الكلمة",
    "items": [
     {
      "word": "زَيْتُون",
-     "text": "زَيْتُون",
-     "answer": true
+     "letter": "ز",
+     "audio": "words/zaytun.mp3"
     },
     {
      "word": "أَزْرَق",
-     "text": "أَزْرَق",
-     "answer": true
+     "letter": "ز",
+     "audio": "words/azraq.mp3"
     },
     {
      "word": "مَزْرَعَة",
-     "text": "مَزْرَعَة",
-     "answer": true
-    },
-    {
-     "word": "ذُرَة",
-     "text": "ذُرَة",
-     "answer": false
+     "letter": "ز",
+     "audio": "words/mazraa.mp3"
     },
     {
      "word": "عَزِيز",
-     "text": "عَزِيز",
-     "answer": true
+     "letter": "ز",
+     "audio": "words/aziz.mp3"
     },
     {
      "word": "زَيْت",
-     "text": "زَيْت",
-     "answer": true
+     "letter": "ز",
+     "audio": "../u3l3/words/zayt.mp3"
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "ex": 2,
+   "page": 59,
+   "book": "workbook",
+   "task": "أَخْتَارُ الْحَرْفَ الصَّحِيحَ فِيمَا يَلِي",
+   "taskAudio": "q/wb-2.mp3",
+   "hint": "اختار الحرف الصح",
+   "items": [
+    {
+     "word": "زُجَاجَة",
+     "lead": "",
+     "tail": "ُجَاجَة",
+     "options": [
+      "ز",
+      "ر"
+     ],
+     "answer": 0,
+     "askAudio": "q/ask-475fae26d9.mp3"
     },
     {
-     "word": "ذَهَب",
-     "text": "ذَهَب",
-     "answer": false
+     "word": "بئر",
+     "lead": "بئ",
+     "tail": "",
+     "options": [
+      "ز",
+      "ر"
+     ],
+     "answer": 1,
+     "askAudio": "q/ask-fe48d403da.mp3"
     },
     {
-     "word": "جَذْر",
-     "text": "جَذْر",
-     "answer": false
+     "word": "جزر",
+     "lead": "ج",
+     "tail": "ر",
+     "options": [
+      "ز",
+      "ر"
+     ],
+     "answer": 0,
+     "askAudio": "q/ask-78140bf96a.mp3"
     },
     {
-     "word": "ظُفْر",
-     "text": "ظُفْر",
-     "answer": false
+     "word": "رمح",
+     "lead": "",
+     "tail": "مح",
+     "options": [
+      "ر",
+      "ز"
+     ],
+     "answer": 0,
+     "askAudio": "q/ask-bf3e091304.mp3"
+    }
+   ]
+  },
+  {
+   "type": "ring",
+   "ex": "h1",
+   "page": 59,
+   "book": "workbook",
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ حَرْفِ (ز) فِي الْكَلِمَاتِ التَّالِيَةِ",
+   "taskAudio": "q/wb-h1.mp3",
+   "hint": "اضغط على حرف الزاي في الكلمة",
+   "items": [
+    {
+     "word": "جَزَر",
+     "letter": "ز",
+     "audio": "words/jazar.mp3"
+    },
+    {
+     "word": "زَرَافَة",
+     "letter": "ز",
+     "audio": "words/zarafa.mp3"
+    },
+    {
+     "word": "زَبَادِي",
+     "letter": "ز",
+     "audio": "words/zabadi.mp3"
+    }
+   ]
+  },
+  {
+   "type": "split",
+   "ex": "h2",
+   "page": 59,
+   "book": "workbook",
+   "task": "أُحَلِّلُ الْكَلِمَاتِ الْآتِيَةَ إِلَى حُرُوفٍ",
+   "taskAudio": "q/wb-h2.mp3",
+   "hint": "اسحب الحروف وركّبها في أماكنها",
+   "items": [
+    {
+     "word": "مَنْزِل",
+     "parts": [
+      "مَ",
+      "نْ",
+      "زِ",
+      "ل"
+     ]
+    },
+    {
+     "word": "أَزْهَار",
+     "parts": [
+      "أَ",
+      "زْ",
+      "هَا",
+      "ر"
+     ]
+    },
+    {
+     "word": "زَبَادِي",
+     "parts": [
+      "زَ",
+      "بَا",
+      "دِ",
+      "ي"
+     ]
     }
    ]
   }

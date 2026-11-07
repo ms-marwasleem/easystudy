@@ -19,8 +19,8 @@
      "answer": 1
     },
     {
-     "word": "ـهـ",
-     "text": "ـهـ",
+     "word": "ـه",
+     "text": "ـه",
      "answer": 1
     },
     {
@@ -29,8 +29,8 @@
      "answer": 1
     },
     {
-     "word": "ـه",
-     "text": "ـه",
+     "word": "ـهـ",
+     "text": "ـهـ",
      "answer": 1
     },
     {
@@ -44,103 +44,137 @@
      "answer": 0
     },
     {
-     "word": "هـ",
-     "text": "هـ",
+     "word": "ـهـ",
+     "text": "ـهـ",
      "answer": 1
     }
    ]
   },
   {
-   "type": "circle",
+   "type": "match",
    "ex": 4,
    "page": 102,
    "task": "أَتَتَبَّعُ الْخَرِيطَةَ؛ لِكَيْ أَصِلَ الصُّوَرَ الَّتِي بِهَا حَرْفُ الْهَاءِ",
    "taskAudio": "q/task-4.mp3",
-   "hint": "اضغط على الصور اللي فيها الهاء",
+   "hint": "اضغط على الصور التي فيها الهاء",
    "items": [
     {
      "word": "حِمَار",
-     "audio": "q/w-himar.mp3",
+     "audio": "../u1l6/words/himar.mp3",
      "pic": "../../pics/ar-donkey.png",
-     "answer": false
+     "answer": false,
+     "pos": [
+      12,
+      24
+     ],
+     "posP": [
+      20,
+      16
+     ]
     },
     {
      "word": "سَهْم",
-     "audio": "q/w-sahm.mp3",
+     "audio": "words/sahm.mp3",
      "pic": "../../pics/ar-arrow.png",
-     "answer": true
+     "answer": true,
+     "pos": [
+      32,
+      10
+     ],
+     "posP": [
+      80,
+      16
+     ]
     },
     {
      "word": "هُدْهُد",
      "audio": "../u1l8/words/hudhud.mp3",
      "pic": "../../pics/ar-hoopoe.png",
-     "answer": true
+     "answer": true,
+     "pos": [
+      68,
+      10
+     ],
+     "posP": [
+      20,
+      84
+     ]
     },
     {
      "word": "هَرَم",
      "audio": "words/haram.mp3",
      "pic": "../../pics/ar-pyramid.png",
-     "answer": true
+     "answer": true,
+     "pos": [
+      88,
+      24
+     ],
+     "posP": [
+      80,
+      84
+     ]
     },
     {
      "word": "هَدِيَّة",
      "audio": "words/hadiya.mp3",
      "pic": "../../pics/ar-gift.jpg",
-     "answer": true
+     "answer": true,
+     "pos": [
+      50,
+      88
+     ],
+     "posP": [
+      50,
+      92
+     ]
     }
-   ]
+   ],
+   "center": "ه",
+   "centerAudio": "../letters/647/name.mp3"
   },
   {
-   "type": "sound",
-   "ex": 5,
+   "type": "pick",
+   "ex": 6,
    "page": 102,
-   "task": "أَنْطِقُ صَوْتَ حَرْفِ الْهَاءِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
-   "taskAudio": "q/task-5.mp3",
-   "hint": "اسمع الجملة وردد وراها",
+   "task": "أَضَعُ عَلَامَةَ (✓) عِنْدَ الصُّورَةِ الَّتِي بِهَا صَوْتُ الْحَرْفِ",
+   "taskAudio": "q/task-6.mp3",
+   "hint": "اختار الصورة اللي فيها صوت الهاء",
    "items": [
     {
-     "word": "هَرَم",
-     "ask": "هَ",
-     "pic": "../../pics/ar-pyramid.png",
-     "audio": [
-      "../letters/647/name.mp3",
-      "../shared/h-fatha.mp3",
-      "../../syl-ar/647-64e.mp3",
-      "words/haram.mp3"
-     ]
+     "word": "هُ",
+     "audio": "../../syl-ar/647-64f.mp3",
+     "pics": [
+      "../../pics/ar-hoopoe.png",
+      "../../pics/ar-cheetah.png"
+     ],
+     "answer": 0
     },
     {
-     "word": "هُدْهُد",
-     "ask": "هُ",
-     "pic": "../../pics/ar-hoopoe.png",
-     "audio": [
-      "../letters/647/name.mp3",
-      "../shared/h-damma.mp3",
-      "../../syl-ar/647-64f.mp3",
-      "../u1l8/words/hudhud.mp3"
-     ]
+     "word": "هِ",
+     "audio": "../../syl-ar/647-650.mp3",
+     "pics": [
+      "../../pics/ar-crescent.jpg",
+      "../../pics/ar-pyramid.png"
+     ],
+     "answer": 0
     },
     {
-     "word": "هِلَال",
-     "ask": "هِ",
-     "pic": "../../pics/ar-crescent.jpg",
-     "audio": [
-      "../letters/647/name.mp3",
-      "../shared/h-kasra.mp3",
-      "../../syl-ar/647-650.mp3",
-      "words/hilal.mp3"
-     ]
+     "word": "هَ",
+     "audio": "../../syl-ar/647-64e.mp3",
+     "pics": [
+      "../../pics/ar-gift.jpg",
+      "../../pics/ar-hoopoe.png"
+     ],
+     "answer": 0
     },
     {
-     "word": "نَهْر",
-     "ask": "هْ",
-     "pic": "../../pics/ar-nile.png",
-     "audio": [
-      "../letters/647/name.mp3",
-      "../shared/h-sukoon.mp3",
-      "../../syl-ar/647-652.mp3",
-      "words/nahr.mp3"
-     ]
+     "word": "هْ",
+     "audio": "../../syl-ar/647-652.mp3",
+     "pics": [
+      "../../pics/ar-leopards.jpg",
+      "../../pics/ar-pyramids.png"
+     ],
+     "answer": 1
     }
    ]
   },
@@ -148,8 +182,8 @@
    "type": "vowel",
    "ex": 8,
    "page": 103,
-   "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الْهَاءِ مَضْبُوطًا بِالشَّكْلِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ (ه) مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "q/task-8.mp3",
    "hint": "اختار الهاء بالحركة الصح",
    "choices": [
     "هَ",
@@ -159,14 +193,40 @@
    ],
    "items": [
     {
-     "word": "هَرَم",
-     "audio": "words/haram.mp3",
-     "pic": "../../pics/ar-pyramid.png",
+     "word": "هَدِيَّة",
+     "audio": "words/hadiya.mp3",
+     "pic": "../../pics/ar-gift.jpg",
      "answer": "هَ",
      "choices": [
       "هَ",
       "هُ",
-      "هِ"
+      "هِ",
+      "هْ"
+     ]
+    },
+    {
+     "word": "فَهْد",
+     "audio": "words/fahd.mp3",
+     "pic": "../../pics/ar-cheetah.png",
+     "answer": "هْ",
+     "choices": [
+      "هَ",
+      "هُ",
+      "هِ",
+      "هْ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "هِلَال",
+     "audio": "words/hilal.mp3",
+     "pic": "../../pics/ar-crescent.jpg",
+     "answer": "هِ",
+     "choices": [
+      "هَ",
+      "هُ",
+      "هِ",
+      "هْ"
      ]
     },
     {
@@ -177,60 +237,87 @@
      "choices": [
       "هَ",
       "هُ",
-      "هِ"
+      "هِ",
+      "هْ"
      ]
-    },
-    {
-     "word": "هِلَال",
-     "audio": "words/hilal.mp3",
-     "pic": "../../pics/ar-crescent.jpg",
-     "answer": "هِ",
-     "choices": [
-      "هَ",
-      "هُ",
-      "هِ"
-     ]
-    },
-    {
-     "word": "نَهْر",
-     "audio": "words/nahr.mp3",
-     "pic": "../../pics/ar-nile.png",
-     "answer": "هْ",
-     "choices": [
-      "هَ",
-      "هُ",
-      "هِ"
-     ],
-     "at": 1
     }
    ]
   },
   {
-   "type": "write",
-   "ex": 10,
-   "page": 104,
-   "task": "أَدْمِجُ الْحُرُوفَ لِأُكَوِّنَ كَلِمَةً",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
-   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "type": "split",
+   "ex": 9,
+   "page": 103,
+   "task": "أَقْرَأُ كُلَّ كَلِمَةٍ، وَأُحَلِّلُهَا إِلَى حُرُوفٍ",
+   "taskAudio": "q/task-9.mp3",
+   "hint": "رتب حروف الكلمة في الخانات",
    "items": [
     {
      "word": "هَرَم",
-     "audio": "words/haram.mp3",
-     "pic": "../../pics/ar-pyramid.png",
-     "chips": [
+     "parts": [
       "هَ",
       "رَ",
       "م"
-     ]
+     ],
+     "audio": "words/haram.mp3"
     },
     {
-     "word": "نَهْر",
-     "audio": "words/nahr.mp3",
-     "pic": "../../pics/ar-nile.png",
-     "chips": [
-      "نَهْ",
-      "ر"
+     "word": "جُنَيْه",
+     "parts": [
+      "جُ",
+      "نَ",
+      "يْ",
+      "ه"
+     ],
+     "audio": "../u1l7/words/juneih.mp3"
+    }
+   ]
+  },
+  {
+   "type": "build",
+   "ex": 10,
+   "page": 104,
+   "task": "أُكَوِّنُ كَلِمَةً مُنَاسِبَةً لِكُلِّ صُورَةٍ مِنَ الْحُرُوفِ التَّالِيَةِ",
+   "taskAudio": "q/task-10.mp3",
+   "hint": "كوّن كلمة من الحروف",
+   "items": [
+    {
+     "letters": [
+      "ه",
+      "ف",
+      "ج",
+      "د",
+      "و"
+     ],
+     "words": [
+      "فَهْد",
+      "وَجْه"
+     ],
+     "slots": 2,
+     "need": 2,
+     "cells": 3,
+     "pics": [
+      "../../pics/ar-face.png",
+      "../../pics/ar-cheetah.png"
      ]
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 11,
+   "page": 104,
+   "task": "أَقْرَأُ، وَأَصِلُ الْجُمْلَةَ بِالصُّورَةِ الْمُعَبِّرَةِ عَنْهَا",
+   "taskAudio": "q/task-11.mp3",
+   "hint": "اقرأ الجملة واختار الصورة",
+   "items": [
+    {
+     "word": "رَسَمَ الْوَلَدُ وَجْهَ الْفَهْدِ.",
+     "audio": "q/s11.mp3",
+     "pics": [
+      "../../pics/ar-draw-rabbit.jpg",
+      "../../pics/ar-draw-cheetah.jpg"
+     ],
+     "answer": 1
     }
    ]
   },
@@ -253,6 +340,59 @@
   },
   {
    "type": "circle",
+   "ex": 6,
+   "page": 96,
+   "task": "أَضَعُ خَطًّا تَحْتَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ (ه)",
+   "taskAudio": "q/task-b6.mp3",
+   "hint": "اضغط على الكلمات اللي فيها الهاء",
+   "book": "booklet",
+   "items": [
+    {
+     "word": "هَرَم",
+     "text": "هَرَم",
+     "audio": "words/haram.mp3",
+     "answer": true
+    },
+    {
+     "word": "عَهْد",
+     "text": "عَهْد",
+     "audio": "words/ahd.mp3",
+     "answer": true
+    },
+    {
+     "word": "شَهْد",
+     "text": "شَهْد",
+     "audio": "words/shahd.mp3",
+     "answer": true
+    },
+    {
+     "word": "مُهْر",
+     "text": "مُهْر",
+     "audio": "words/muhr.mp3",
+     "answer": true
+    },
+    {
+     "word": "هَجَر",
+     "text": "هَجَر",
+     "audio": "words/hajar.mp3",
+     "answer": true
+    },
+    {
+     "word": "بَيْت",
+     "text": "بَيْت",
+     "audio": "../u2l3/words/bayt.mp3",
+     "answer": false
+    },
+    {
+     "word": "وَجْه",
+     "text": "وَجْه",
+     "audio": "../u1l7/words/wajh.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "circle",
    "ex": 7,
    "page": 97,
    "task": "اسْتَمِعْ وَضَعْ عَلَامَةَ (✓) تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الْهَاءِ",
@@ -265,13 +405,8 @@
    "book": "booklet",
    "items": [
     {
-     "word": "camel",
-     "pic": "../../pics/ar-camel.png",
-     "answer": false
-    },
-    {
-     "word": "hoopoe",
-     "pic": "../../pics/ar-hoopoe.png",
+     "word": "gold",
+     "pic": "../../pics/ar-gold.jpg",
      "answer": true
     },
     {
@@ -280,23 +415,23 @@
      "answer": false
     },
     {
-     "word": "gold",
-     "pic": "../../pics/ar-gold.jpg",
+     "word": "hoopoe",
+     "pic": "../../pics/ar-hoopoe.png",
      "answer": true
     },
     {
-     "word": "phone",
-     "pic": "../../pics/ar-phone.png",
-     "answer": true
-    },
-    {
-     "word": "star",
-     "pic": "../../pics/ar-star.png",
+     "word": "camel",
+     "pic": "../../pics/ar-camel.png",
      "answer": false
     },
     {
-     "word": "gift",
-     "pic": "../../pics/ar-gift.jpg",
+     "word": "monkey",
+     "pic": "../../pics/ar-monkey.jpg",
+     "answer": false
+    },
+    {
+     "word": "crescent",
+     "pic": "../../pics/ar-crescent.jpg",
      "answer": true
     },
     {
@@ -305,8 +440,18 @@
      "answer": true
     },
     {
-     "word": "crescent",
-     "pic": "../../pics/ar-crescent.jpg",
+     "word": "gift",
+     "pic": "../../pics/ar-gift.jpg",
+     "answer": true
+    },
+    {
+     "word": "star",
+     "pic": "../../pics/ar-star.png",
+     "answer": false
+    },
+    {
+     "word": "phone",
+     "pic": "../../pics/ar-phone.png",
      "answer": true
     }
    ]
@@ -315,11 +460,8 @@
    "type": "position",
    "ex": 8,
    "page": 97,
-   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الْهَاءِ",
-   "taskAudio": [
-    "../q-prompts/mark-letter-position.mp3",
-    "../letters/647/name.mp3"
-   ],
+   "task": "انْطِقْ، وَارْسُمْ ● فِي مَكَانِ صَوْتِ حَرْفِ (ه)",
+   "taskAudio": "q/task-b8.mp3",
    "hint": "اضغط على الدائرة التي فيها الهاء",
    "book": "booklet",
    "items": [
@@ -352,6 +494,12 @@
      "pic": "../../pics/ar-flowers.png",
      "audio": "words/zuhur.mp3",
      "at": 1
+    },
+    {
+     "word": "جُنَيْه",
+     "pic": "../../pics/ar-coin.png",
+     "audio": "../u1l7/words/juneih.mp3",
+     "at": 3
     }
    ]
   },
@@ -360,11 +508,7 @@
    "ex": 9,
    "page": 97,
    "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الْهَاءِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
-   "taskAudio": [
-    "../q-prompts/choose-letter-sound-a.mp3",
-    "../letters/647/name.mp3",
-    "../q-prompts/choose-letter-sound-b.mp3"
-   ],
+   "taskAudio": "../q-heads/h-4dd1dc02.mp3",
    "hint": "اختار صوت الهاء",
    "choices": [
     "هَ",
@@ -412,6 +556,50 @@
      "word": "فُهُود",
      "pic": "../../pics/ar-leopards.jpg",
      "audio": "words/fuhud.mp3",
+     "answer": "هُ",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 10,
+   "page": 98,
+   "book": "booklet",
+   "task": "انْطِقْ، وَاكْتُبْ حَرْفَ (ه) مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "q/task-b10.mp3",
+   "hint": "اختار الهاء بالحركة الصح",
+   "choices": [
+    "هَ",
+    "هُ",
+    "هِ",
+    "هْ"
+   ],
+   "items": [
+    {
+     "word": "لَهِيب",
+     "audio": "words/lahib.mp3",
+     "pic": "../../pics/ar-fire.png",
+     "answer": "هِ",
+     "at": 1
+    },
+    {
+     "word": "سَهْم",
+     "audio": "words/sahm.mp3",
+     "pic": "../../pics/ar-arrow.png",
+     "answer": "هْ",
+     "at": 1
+    },
+    {
+     "word": "هَاتِف",
+     "audio": "words/hatif.mp3",
+     "pic": "../../pics/ar-phone.png",
+     "answer": "هَ"
+    },
+    {
+     "word": "زُهُور",
+     "audio": "words/zuhur.mp3",
+     "pic": "../../pics/ar-flowers.png",
      "answer": "هُ",
      "at": 1
     }
@@ -468,7 +656,7 @@
    "ex": 12,
    "page": 98,
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "taskAudio": "../q-heads/h-c412ebef.mp3",
    "hint": "رتب الحروف",
    "book": "booklet",
    "items": [
@@ -499,7 +687,7 @@
    "ex": 13,
    "page": 98,
    "task": "أَقْرَأُ ثُمَّ أَصِلُ",
-   "taskAudio": "../q-prompts/match-picture.mp3",
+   "taskAudio": "../q-heads/h-9efb3c2b.mp3",
    "hint": "صل الكلمة بالصورة",
    "book": "booklet",
    "items": [
@@ -514,55 +702,220 @@
      "audio": "words/muharrij.mp3"
     },
     {
+     "word": "نَهْر",
+     "pic": "../../pics/ar-nile.png",
+     "audio": "words/nahr.mp3"
+    },
+    {
      "word": "ذَهَب",
      "pic": "../../pics/ar-gold.jpg",
      "audio": "words/dhahab.mp3"
-    },
-    {
-     "word": "هَرَم",
-     "pic": "../../pics/ar-pyramid.png",
-     "audio": "words/haram.mp3"
     }
    ]
   },
   {
-   "type": "circle",
+   "type": "choice",
+   "ex": 14,
+   "page": 98,
+   "book": "booklet",
+   "task": "أَضَعُ عَلَامَةَ (✓) أَمَامَ الْجُمْلَةِ الْمُعَبِّرَةِ عَنِ الصُّورَةِ",
+   "taskAudio": "q/task-b14.mp3",
+   "hint": "اختار الجملة اللي بتعبّر عن الصورة",
+   "items": [
+    {
+     "word": "هَرَبَ الْهِرُّ مِنَ الْفَهْدِ.",
+     "pic": "../../pics/ar-cheetah-chase.jpg",
+     "lead": "",
+     "options": [
+      "يَشْرَبُ الْفَهْدُ مِنَ النَّهْرِ.",
+      "هَرَبَ الْهِرُّ مِنَ الْفَهْدِ."
+     ],
+     "answer": 1,
+     "audio": "q/s14-1.mp3"
+    },
+    {
+     "word": "ذَهَبَتْ هِنْدُ إِلَى الْهَرَمِ.",
+     "pic": "../../pics/ar-girl-pyramid.jpg",
+     "lead": "",
+     "options": [
+      "ذَهَبَتْ هِنْدُ إِلَى الْهَرَمِ.",
+      "تُحِبُّ هِنْدُ لَوْنَ الذَّهَبِ."
+     ],
+     "answer": 0,
+     "audio": "q/s14-2.mp3"
+    }
+   ]
+  },
+  {
+   "type": "ring",
    "ex": 1,
    "page": 52,
    "book": "workbook",
-   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي فِيهَا حَرْفُ (ه)",
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ حَرْفِ (ه) فِي الْكَلِمَاتِ التَّالِيَةِ",
    "taskAudio": "q/wb-circle-52.mp3",
-   "hint": "اضغط على الكلمات اللي فيها حرف ه",
+   "hint": "اضغط على حرف الهاء في الكلمة",
    "items": [
     {
      "word": "هَاتِف",
-     "text": "هَاتِف",
-     "answer": true
+     "letter": "ه",
+     "audio": "words/hatif.mp3"
     },
     {
      "word": "كَهْف",
-     "text": "كَهْف",
-     "answer": true
+     "letter": "ه",
+     "audio": "words/kahf.mp3"
     },
     {
      "word": "مُهَنْدِس",
-     "text": "مُهَنْدِس",
-     "answer": true
+     "letter": "ه",
+     "audio": "../u1l5/words/muhandis.mp3"
     },
     {
      "word": "هُدْهُد",
-     "text": "هُدْهُد",
-     "answer": true
+     "letter": "ه",
+     "audio": "../u1l8/words/hudhud.mp3"
     },
     {
      "word": "وَجْه",
-     "text": "وَجْه",
-     "answer": true
+     "letter": "ه",
+     "audio": "../u1l7/words/wajh.mp3"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 2,
+   "page": 52,
+   "book": "workbook",
+   "task": "أُكْمِلُ الْحَرْفَ النَّاقِصَ",
+   "taskAudio": "q/task-w2.mp3",
+   "hint": "اكتب الحرف الناقص",
+   "items": [
+    {
+     "word": "سَهْم",
+     "gaps": [
+      1
+     ],
+     "audio": "words/sahm.mp3"
     },
     {
-     "word": "سَمَك",
-     "text": "سَمَك",
-     "answer": false
+     "word": "هُدْهُد",
+     "gaps": [
+      0,
+      2
+     ],
+     "audio": "../u1l8/words/hudhud.mp3"
+    },
+    {
+     "word": "وَجْه",
+     "gaps": [
+      2
+     ],
+     "audio": "../u1l7/words/wajh.mp3"
+    },
+    {
+     "word": "مِيَاه",
+     "gaps": [
+      3
+     ],
+     "audio": "words/miyah.mp3"
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": "h1",
+   "page": 52,
+   "book": "workbook",
+   "task": "أُكْمِلُ كُلَّ كَلِمَةٍ بِمَا يُنَاسِبُهَا مِنْ بَيْنِ الْأَقْوَاسِ (هَـ - هْ - هِـ)",
+   "taskAudio": "q/task-wh1.mp3",
+   "hint": "اختار الهاء بالحركة الصح",
+   "choices": [
+    "هَ",
+    "هْ",
+    "هِ"
+   ],
+   "items": [
+    {
+     "word": "هَاتِف",
+     "audio": "words/hatif.mp3",
+     "answer": "هَ",
+     "choices": [
+      "هَ",
+      "هْ",
+      "هِ"
+     ]
+    },
+    {
+     "word": "كَهْف",
+     "audio": "words/kahf.mp3",
+     "answer": "هْ",
+     "choices": [
+      "هَ",
+      "هْ",
+      "هِ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "رَهِيب",
+     "audio": "words/rahib.mp3",
+     "answer": "هِ",
+     "choices": [
+      "هَ",
+      "هْ",
+      "هِ"
+     ],
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": "h2",
+   "page": 52,
+   "book": "workbook",
+   "task": "أَدْمِجُ الْحُرُوفَ الْآتِيَةَ",
+   "taskAudio": "q/task-wh2.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "items": [
+    {
+     "word": "هِلَال",
+     "chips": [
+      "ه",
+      "ل",
+      "ا",
+      "ل"
+     ],
+     "audio": "words/hilal.mp3"
+    },
+    {
+     "word": "فَهْد",
+     "chips": [
+      "ف",
+      "ه",
+      "د"
+     ],
+     "audio": "words/fahd.mp3"
+    },
+    {
+     "word": "نَهْر",
+     "chips": [
+      "ن",
+      "ه",
+      "ر"
+     ],
+     "audio": "words/nahr.mp3"
+    },
+    {
+     "word": "مِيَاه",
+     "chips": [
+      "م",
+      "ي",
+      "ا",
+      "ه"
+     ],
+     "audio": "words/miyah.mp3"
     }
    ]
   }

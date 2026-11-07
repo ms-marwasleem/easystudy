@@ -138,10 +138,7 @@
    "ex": 3,
    "page": 20,
    "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الْبَاءِ",
-   "taskAudio": [
-    "../q-prompts/circle-word-letter.mp3",
-    "../letters/628/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-0bbae8f6.mp3",
    "hint": "اضغط على الكلمة اللي فيها الباء",
    "items": [
     {
@@ -177,69 +174,11 @@
    ]
   },
   {
-   "type": "sound",
-   "ex": 4,
-   "page": 21,
-   "task": "أَنْطِقُ صَوْتَ حَرْفِ الْبَاءِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
-   "taskAudio": "q/task-4.mp3",
-   "hint": "اسمع الجملة وردد وراها",
-   "items": [
-    {
-     "ask": "بَ",
-     "word": "بَيْت",
-     "pic": "../../pics/ar-house-baa.png",
-     "audio": [
-      "../letters/628/name.mp3",
-      "../shared/h-fatha.mp3",
-      "../../syl-ar/628-64e.mp3",
-      "../u2l3/words/bayt.mp3"
-     ]
-    },
-    {
-     "ask": "بُ",
-     "word": "بُرْج",
-     "pic": "../../pics/ar-tower.png",
-     "audio": [
-      "../letters/628/name.mp3",
-      "../shared/h-damma.mp3",
-      "../../syl-ar/628-64f.mp3",
-      "words/burj.mp3"
-     ]
-    },
-    {
-     "ask": "بِ",
-     "word": "بِطِّيخ",
-     "pic": "../../pics/ar-watermelon.png",
-     "audio": [
-      "../letters/628/name.mp3",
-      "../shared/h-kasra.mp3",
-      "../../syl-ar/628-650.mp3",
-      "../u4l4/words/bittikh.mp3"
-     ]
-    },
-    {
-     "ask": "بْ",
-     "word": "خُبْز",
-     "pic": "../../pics/ar-bread.png",
-     "audio": [
-      "../letters/628/name.mp3",
-      "../shared/h-sukoon.mp3",
-      "../../syl-ar/628-652.mp3",
-      "../u1l9/words/khubz.mp3"
-     ]
-    }
-   ]
-  },
-  {
    "type": "vowel",
    "ex": 5,
    "page": 21,
    "task": "أَنْطِقُ، وَأَضَعُ دَائِرَةً حَوْلَ صَوْتِ الْبَاءِ الْمُنَاسِبِ لِكُلِّ صُورَةٍ",
-   "taskAudio": [
-    "../q-prompts/choose-letter-sound-a.mp3",
-    "../letters/628/name.mp3",
-    "../q-prompts/choose-letter-sound-b.mp3"
-   ],
+   "taskAudio": "../q-heads/h-ddf4063d.mp3",
    "hint": "اختار صوت الباء",
    "choices": [
     "بَ",
@@ -688,23 +627,31 @@
    "ex": 7,
    "page": 12,
    "task": "أَنْطِقُ، وَأَرْسُمُ دَائِرَةً حَوْلَ صَوْتِ حَرْفِ الْبَاءِ الْمُنَاسِبِ لِكُلِّ صُورَةٍ",
-   "taskAudio": [
-    "../q-prompts/choose-letter-sound-a.mp3",
-    "../letters/628/name.mp3",
-    "../q-prompts/choose-letter-sound-b.mp3"
-   ],
+   "taskAudio": "../q-heads/h-324d9603.mp3",
    "hint": "اختار صوت الباء",
    "book": "booklet",
    "items": [
     {
-     "word": "بُرْتُقَال",
-     "pic": "../../pics/ar-orange.png",
-     "audio": "../u2l6/words/burtuqal.mp3",
-     "answer": "بُ",
+     "word": "بَطَّة",
+     "pic": "../../pics/ar-duck.png",
+     "audio": "../u1l3/q/c5-batta.mp3",
+     "answer": "بَ",
      "choices": [
       "بَ",
-      "بُ",
-      "بِ"
+      "بِ",
+      "بُ"
+     ]
+    },
+    {
+     "word": "إِبْرِيق",
+     "pic": "../../pics/ar-teapot.png",
+     "audio": "../u1l3/words/ibriq.mp3",
+     "answer": "بْ",
+     "at": 1,
+     "choices": [
+      "بِ",
+      "بَ",
+      "بْ"
      ]
     },
     {
@@ -713,38 +660,28 @@
      "audio": "../u4l4/words/bittikh.mp3",
      "answer": "بِ",
      "choices": [
-      "بَ",
       "بُ",
+      "بْ",
       "بِ"
      ]
     },
     {
-     "word": "بَرَّاد",
-     "pic": "../../pics/ar-teapot.png",
-     "audio": "q/barrad.mp3",
-     "answer": "بَ",
+     "word": "بُرْتُقَال",
+     "pic": "../../pics/ar-orange.png",
+     "audio": "../u2l6/words/burtuqal.mp3",
+     "answer": "بُ",
      "choices": [
       "بَ",
       "بُ",
-      "بِ"
-     ]
-    },
-    {
-     "word": "بَطَّة",
-     "pic": "../../pics/ar-duck.png",
-     "audio": "../u1l3/q/c5-batta.mp3",
-     "answer": "بَ",
-     "choices": [
-      "بَ",
-      "بُ",
-      "بِ"
+      "بْ"
      ]
     }
    ],
    "choices": [
     "بَ",
     "بُ",
-    "بِ"
+    "بِ",
+    "بْ"
    ]
   },
   {
@@ -752,18 +689,15 @@
    "ex": 8,
    "page": 12,
    "task": "أَنْطِقُ وَأُحَدِّدُ مَوْضِعَ حَرْفِ الْبَاءِ",
-   "taskAudio": [
-    "../q-prompts/mark-letter-position.mp3",
-    "../letters/628/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-b3aaab72.mp3",
    "hint": "اضغط على الدائرة التي فيها الباء",
    "book": "booklet",
    "items": [
     {
-     "word": "دُبّ",
-     "pic": "../../pics/ar-bear.png",
-     "audio": "../u1l8/words/dubb.mp3",
-     "at": 1
+     "word": "بُرْج",
+     "pic": "../../pics/ar-tower.png",
+     "audio": "../u1l4/words/burj.mp3",
+     "at": 0
     },
     {
      "word": "بَقَرَة",
@@ -772,16 +706,16 @@
      "at": 0
     },
     {
-     "word": "بُرْج",
-     "pic": "../../pics/ar-tower.png",
-     "audio": "../u1l4/words/burj.mp3",
-     "at": 0
+     "word": "دُبّ",
+     "pic": "../../pics/ar-bear.png",
+     "audio": "../u1l8/words/dubb.mp3",
+     "at": 1
     },
     {
-     "word": "عِنَب",
-     "pic": "../../pics/ar-grapes.png",
-     "audio": "../u3l4/words/inab.mp3",
-     "at": 2
+     "word": "لَبَن",
+     "pic": "../../pics/ar-milk-glass.png",
+     "audio": "../u2l3/words/laban.mp3",
+     "at": 1
     },
     {
      "word": "حَبْل",
@@ -790,10 +724,10 @@
      "at": 1
     },
     {
-     "word": "حَلِيب",
-     "pic": "../../pics/ar-milk.png",
-     "audio": "q/halib.mp3",
-     "at": 3
+     "word": "عِنَب",
+     "pic": "../../pics/ar-grapes.png",
+     "audio": "../u3l4/words/inab.mp3",
+     "at": 2
     }
    ]
   },
@@ -807,36 +741,38 @@
    "book": "booklet",
    "items": [
     {
-     "word": "حَبْل",
+     "word": "حَبْلٌ",
      "chips": [
       "حَبْ",
-      "ل"
+      "لٌ"
      ],
      "audio": "../u1l6/words/habl.mp3"
     },
     {
-     "word": "بُرْج",
+     "word": "بُرْجٌ",
      "chips": [
       "بُرْ",
-      "ج"
+      "جٌ"
      ],
      "audio": "../u1l4/words/burj.mp3"
     },
     {
-     "word": "بِطْرِيق",
+     "word": "بِطْرِيقٌ",
      "chips": [
       "بِطْ",
-      "رِيق"
+      "رِي",
+      "قٌ"
      ],
      "audio": "../u1l4/words/bitriq.mp3"
     },
     {
-     "word": "بُوق",
+     "word": "بُنْدُقٌ",
      "chips": [
-      "بُو",
-      "ق"
+      "بُنْ",
+      "دُ",
+      "قٌ"
      ],
-     "audio": "../u1l4/words/buq.mp3"
+     "audio": "words/bunduq.mp3"
     }
    ]
   },
@@ -845,7 +781,7 @@
    "ex": 10,
    "page": 13,
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "taskAudio": "../q-heads/h-c412ebef.mp3",
    "hint": "رتب الحروف",
    "book": "booklet",
    "items": [
@@ -911,7 +847,7 @@
    "ex": 13,
    "page": 13,
    "task": "أَدْمِجُ الْحُرُوفَ، وَأَكْتُبُ الْكَلِمَةَ",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "taskAudio": "../q-heads/h-d4c54f58.mp3",
    "hint": "اكتب الكلمة بعد ما تدمج الحروف",
    "book": "booklet",
    "items": [
@@ -1098,10 +1034,7 @@
    "ex": 2,
    "page": 18,
    "task": "أَنْطِقُ وَأُحَدِّدُ مَوْضِعَ حَرْفِ الْبَاءِ",
-   "taskAudio": [
-    "../q-prompts/mark-letter-position.mp3",
-    "../letters/628/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-b3aaab72.mp3",
    "hint": "اضغط على الدائرة التي فيها الباء",
    "book": "workbook",
    "items": [
@@ -1167,7 +1100,7 @@
    "ex": 4,
    "page": 18,
    "task": "أَنْطِقُ ثُمَّ أَجْمَعُ الْحَرْفَيْنِ وَأُكَوِّنُ كَلِمَةً",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "taskAudio": "../q-heads/h-cd7d7fd5.mp3",
    "hint": "اكتب الكلمة بعد ما تدمج الحرفين",
    "book": "workbook",
    "items": [

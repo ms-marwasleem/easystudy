@@ -25,15 +25,15 @@ const wlEsc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;
 function wlBad(f,name,msg){ const er=$('.wl-err',f); $$('.bad',f).forEach(x=>x.classList.remove('bad')); if(er){ er.textContent=msg; er.hidden=false; }
   const i=name&&f[name]; if(!i) return; i.classList.add('bad'); i.focus(); if(anim) G.fromTo(i,{x:0},{x:8,duration:.06,repeat:5,yoyo:true,clearProps:'transform'});
   i.addEventListener('input',()=>{ i.classList.remove('bad'); if(er) er.hidden=true; },{once:true}); }
-// the short app description (Marwa 2026-11-05): on the loading screen (index.html #splashName .ldab, first load only) and small on the parent account step
-function wlAbout(){ return `<div class="wl-about sm" dir="rtl"><p class="wl-tag">مذاكرة أولى ابتدائي بلعبة مسلية للأطفال</p><ul class="wl-pts"><li>شرح الدرس</li><li>تحفيظ الكلمات</li><li>تدريب الأسئلة</li></ul></div>`; }
+// the short app description (Marwa 2026-11-05/06): on the loading screen (index.html #splashName .ldab, first load only), big on the first curriculum step and small on the parent account step
+function wlAbout(sz='sm'){ return `<div class="wl-about ${sz}" dir="rtl"><p class="wl-tag">مذاكرة أولى ابتدائي بلعبة مسلية للأطفال</p><ul class="wl-pts"><li>شرح الدرس</li><li>تحفيظ الكلمات</li><li>تدريب الأسئلة</li></ul></div>`; }
 function wlHead(ar,en){ return `<h2 class="wl-h"><span>${ar}</span><small>${en}</small></h2>`; }
 function wlGo(step,back){ if(!back&&WL.step!==step) WL.hist.push(WL.step); WL.step=step; wlDraw(); }
 function wlDraw(){
-  const b=$('#wlBody'); $('#wlBack').hidden=!WL.hist.length&&!WL.adding;
+  const b=$('#wlBody'); $('#wlBack').hidden=!WL.hist.length&&!WL.adding; $('#welcome').dataset.step=WL.step;   // big logo on the first step, smaller on the forms (css/welcome.css)
   if(WL.step==='curr'){
     const C=CURR||{types:[],schools:[]}, open=WL.pick&&WL.pick.type==='private';
-    b.innerHTML=wlHead('اختيار المنهج','Choose the curriculum')+`<div class="wl-list">`+C.types.map(t=>
+    b.innerHTML=(WL.adding?'':wlAbout(''))+wlHead('اختيار المنهج','Choose the curriculum')+`<div class="wl-list">`+C.types.map(t=>
       `<button class="pill wl-big${t.schools?' wl-more':''}${open&&t.schools?' open':''}" data-type="${t.id}"><span class="wl-ar">${t.ar}</span><small>${t.en}</small></button>`+
       (t.schools?`<div class="wl-schools"${open?'':' hidden'}>`+C.schools.map(s=>`<button class="pill yellow wl-school" data-school="${s.id}"><span class="wl-ar">${s.ar}</span><small>${s.en}</small></button>`).join('')+`</div>`:'')).join('')+`</div>`;
     $$('[data-type]',b).forEach(x=>x.addEventListener('click',()=>{ const t=C.types.find(y=>y.id===x.dataset.type);

@@ -25,10 +25,14 @@
 .qch::before{display:none!important}
 .qch>span{display:block!important;margin:0!important;padding:0!important;transform:none!important;font:inherit!important;line-height:1!important;color:inherit!important;text-align:center;white-space:nowrap}
 .qch.two{font-size:calc(var(--q-choice)*.42)}
-.qch.wd,.qans .qch.wd,.alopts .qch.wd,.albank .qch.wd{width:auto!important;min-width:calc(var(--q-choice)*1.4)!important;max-width:100%;height:auto!important;min-height:calc(var(--q-choice)*.86)!important;
-  padding:.15em .85em!important;border-radius:62rem!important;font-size:calc(var(--q-choice)*.4)}
+/* THE word pill (Marwa 2026-11-06: the look of the "This is my ___ / father" choices, the same everywhere: cloze, choose, reorder pieces, explainer pieces).
+   Its size is its OWN --q-word (set on the pill itself), so no row / screen that changes --q-choice can make words bigger or smaller in one question. */
+.qch.wd,.qans .qch.wd,.alopts .qch.wd,.albank .qch.wd,.alpool .qch.wd,.xpl-ask .qch.wd{--q-word:clamp(3rem,min(7.5vh,13vw),4rem);width:auto!important;min-width:calc(var(--q-word)*1.4)!important;max-width:100%;height:auto!important;min-height:calc(var(--q-word)*.86)!important;
+  padding:.12em .68em!important;border-radius:62rem!important;font-size:calc(var(--q-word)*.5)!important}
+:is(.qans,.qxchoices,.qmpad,.alopts,.albank,.alpool,.xpl-ask) .qch.wd>span,.qch.wd>span{font-size:inherit!important}
+.alorder.many .alpool .qch.wd{--q-word:clamp(2.5rem,min(5.6vh,11vw),3.2rem)}   /* a sentence built from many pieces (>7): the same pill, a little smaller, so the picture keeps its room */   /* the word = half the pill's height (old row rules set their own span sizes) */
 .qch.wd>span{white-space:normal;line-height:1.15!important}
-.alopts.long .qch.wd{font-size:calc(var(--q-choice)*.32);border-radius:1.4rem!important}
+.alopts.long .qch.wd{font-size:calc(var(--q-word)*.4)!important;border-radius:1.4rem!important}
 #lesson.ar .qch{font-family:var(--f-ar)}
 #lesson.ar .qch>span,#lesson.ar .qch{line-height:1.5!important}
 #lesson.ar .qch:not(.wd){font-size:calc(var(--q-choice)*.48)}
@@ -44,7 +48,7 @@
 .quiz .qans .qbtn.yes,.quiz .qans .qbtn.no,#lesson.q-short .quiz .qans .qbtn{width:calc(var(--q-choice)*1.1)!important;height:calc(var(--q-choice)*1.1)!important}
 .quiz .qans .qbtn.yes svg,.quiz .qans .qbtn.no svg{width:52%;height:52%}
 /* every choices row: centred, wraps */
-.qxchoices,.alopts,.albank{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(.6rem,3cqw,1.6rem)}
+.qxchoices,.alopts,.albank,.alpool{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(.6rem,3cqw,1.6rem)}
 .alopts.long{flex-direction:row}   /* long options wrap in rows too (a column was cut on phones) */
 
 /* ---------- 1. the question on top, big and centred ---------- */

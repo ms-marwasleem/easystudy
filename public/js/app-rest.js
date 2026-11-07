@@ -51,11 +51,12 @@ function drawMapAll(j,redraw){
     const ua=accessOf(u,openOf(u),'u:'+SUBJECT.id+':'+u.unit,units.indexOf(u),'unit'), ust=ua.st, box=el('div','jend'); box.innerHTML=unitBox(u,ust);
     $('.ubox',box).addEventListener('click',()=>{ hideHint(); if(ust==='open') blip(600); else if(ust==='locked') lockTap('unit',u,ua.coins,unitBox(u,'locked'),()=>openMap()); /* js/coins.js */ else message(tr('Soon!'),isAr()?`${tr('Unit')} ${num(u.unit)} قريبًا!`:`Unit ${u.unit} is coming soon!`,unitBox(u,'soon')); });
     j.append(box); items.push({k:'u',el:box});
-    const list=lessons.filter(l=>l.unit===u.unit); let tests=null;
-    if(u.exams) list.push({unit:u.unit,lesson:'',folder:'t'+u.unit,id:SUBJECT.id+':t'+u.unit,title:'',exams:u.exams,tabs:[],testsOnly:true});   // a unit made only of tests (final assessments): one separate map item each, no lesson circle   // a unit's Tests always come after its LAST lesson
+    const list=[]; let tests=null; lessons.filter(l=>l.unit===u.unit).forEach(l=>{ list.push(l); (l.weekly||[]).forEach((w,k)=>list.push({unit:l.unit,lesson:'',folder:'w'+l.folder+k,id:SUBJECT.id+':w'+l.folder+k,title:'',exams:[w],tabs:[],testsOnly:true,weekly:true})); });   // a weekly assessment (lesson "weekly" in subject.json): its own map item right AFTER that lesson (Marwa 2026-11-06)
+    if(u.exams) (u.exams.every(e=>e.only)?u.exams.map((e,k)=>[e,k]):[[null,0]]).forEach(([e,k])=>list.push({unit:u.unit,lesson:'',folder:'t'+u.unit+(e?'-'+k:''),id:SUBJECT.id+':t'+u.unit+(e?'-'+k:''),title:'',exams:e?[e]:u.exams,tabs:[],testsOnly:true}));   // exams that show ONE page each ("only") = each its own map item, never several signs/buttons together (Marwa 2026-11-06)
+      // a unit made only of tests (final assessments): one separate map item each, no lesson circle   // a unit's Tests always come after its LAST lesson
     list.forEach((m,i)=>{ const la=m.testsOnly?{st:'open'}:accessOf(m,!!m.file,'l:'+m.id), byUnit=la.st==='open'&&ust==='locked'&&!(ESET.items['l:'+m.id]||{}).st&&!coinUnlocked('l:'+m.id);   // a lesson of a locked unit is locked too (a tap offers the whole unit)
       const L=mkLesson(m,list[i+1],m===curM,i===list.length-1,byUnit?'locked':la.st,byUnit?ua.coins:la.coins,byUnit?u:null), signs=$$('.jpg',L); let nm=$('.jt',L);
-      if(i<list.length-1) { const ex=signs.filter(g=>$('.jpm.ex',g)); if(ex.length){ ex.forEach(g=>{ signs.splice(signs.indexOf(g),1); g.remove(); }); (tests=tests||[]).push(...ex); } }
+      if(i<list.length-1&&!m.weekly) { const ex=signs.filter(g=>$('.jpm.ex',g)); if(ex.length){ ex.forEach(g=>{ signs.splice(signs.indexOf(g),1); g.remove(); }); (tests=tests||[]).push(...ex); } }
       if(i===list.length-1&&tests){ signs.push(...tests); tests=null; }
       [nm,...signs].forEach(e=>{ if(e) e.dataset.touched=L.dataset.touched; }); $$('.jside',L).forEach(s=>s.remove()); if(nm&&m.testsOnly){ nm.remove(); nm=null; } if(nm){ j.append(nm); nm.addEventListener('click',()=>$('.jbox',L).click()); } j.append(L); signs.forEach(s=>j.append(s)); items.push({k:'l',el:L,signs,name:nm}); });
   });
@@ -285,7 +286,7 @@ const nPages=()=>LESSON&&LESSON.pages>1?LESSON.pages:1;
 function pageSpan(){ if(nPages()<2) return [0,LESSON.end]; const ls=LESSON.lines.filter(l=>l.page===rd.page); if(!ls.length) return [0,LESSON.end];
   return [rd.page===1?0:Math.max(0,ls[0].words[0][1]-.15), rd.page===nPages()?LESSON.end:ls[ls.length-1].words.slice(-1)[0][2]+.35]; }
 function carAt(t){ if(!LESSON) return; if(LESSON.layout==='explain'&&tab==='read') return carFrac((rd.page-1)/nPages());   // explain pages: the car moves page by page (explainer onBeat), never back to 0
-  const [a,b]=pageSpan(); carFrac((t-a)/(b-a)); }
+  const [a,b]=pageSpan(), n=nPages(); carFrac(((rd.page-1)+Math.max(0,Math.min(1,(t-a)/(b-a))))/n); }   // progress runs over ALL pages of the lesson, not per page
 // p = 0..1 along the header road (reading time in the Lesson tab, words learned in Vocabulary)
 function carFrac(p){ p=Math.max(0,Math.min(1,p||0)); const tw=Math.max(0,trackCar.parentElement.clientWidth-trackCar.offsetWidth-52);
   trackCar.style.transform=`translate(${(p*tw).toFixed(1)}px,0)`; }
@@ -299,11 +300,11 @@ function mark(t){
   let wi=-1; for(let i=0;i<rd.words.length;i++){ const w=rd.words[i]; if(t>=w.s-.03&&t<w.e+.12) wi=i; }   // last match wins: the next word takes over as soon as it starts
   if(wi!==rd.cur){ if(rd.cur>=0&&rd.words[rd.cur]) rd.words[rd.cur].el.classList.remove('reading'); $$('.pfig .pop').forEach(x=>x.classList.remove('pop'));
     if(wi>=0&&rd.words[wi]&&rd.words[wi].pop) rd.words[wi].pop.forEach(id=>$$(`.pfig [data-id="${id}"]`).forEach(x=>x.classList.add('pop')));   // a pointing page with a built figure: the letters being talked about pop
-    if(wi>=0&&rd.words[wi]){ const e=rd.words[wi].el; e.classList.add('reading'); if(anim) G.fromTo(e,{scale:1.2},{scale:1,duration:.35,ease:'back.out(3)'}); }
+    if(wi>=0&&rd.words[wi]){ const e=rd.words[wi].el; e.classList.add('reading'); storyScroll(e); if(anim) G.fromTo(e,{scale:1.2},{scale:1,duration:.35,ease:'back.out(3)'}); }
     rd.cur=wi; }
   let li=-1; if(LESSON) LESSON.lines.forEach((l,i)=>{ const a=l.words[0][1], b=l.words[l.words.length-1][2]; if(t>=a-.05&&t<b+.25) li=i; });
   if(li!==rd.curLine){ rd.lineEls.forEach((e,i)=>e.classList.toggle('on',i===li)); rd.spotEls.forEach(e=>e&&e.classList.remove('on')); if(rd.spotEls[li]) rd.spotEls[li].classList.add('on'); rd.curLine=li;
-    const ln=li>=0&&rd.lineEls[li]; if(ln&&$('.acticon',ln)){ ln.classList.add('acting'); clearTimeout(ln._act); ln._act=setTimeout(()=>ln.classList.remove('acting'),2200); } if(li>=0&&rd.lineEls[li]) rd.lineEls[li].scrollIntoView({block:'nearest',behavior:'smooth'}); }
+    const ln=li>=0&&rd.lineEls[li]; if(ln&&$('.acticon',ln)){ ln.classList.add('acting'); clearTimeout(ln._act); ln._act=setTimeout(()=>ln.classList.remove('acting'),2200); } if(li>=0&&rd.lineEls[li]&&!rd.lineEls[li].closest('.scene.story:not(.poem):not(.point)')) rd.lineEls[li].scrollIntoView({block:'nearest',behavior:'smooth'}); }
   if(rd.full&&t>=0) carAt(t);
 }
 function loop(){ if(!player.run) return; mark(now()); rd.raf=requestAnimationFrame(loop); }
@@ -378,7 +379,19 @@ function storyText(){
   inn.append(ul); return inn;
 }
 // ONE text size for the whole lesson (Marwa 2026-11-05): the biggest size (CSS token) at which EVERY page of the lesson fits its panel; every page uses it
-function fitStory(){ const note=$('.scene.story:not(.poem) .note'), inn=note&&$('.in:last-child',note); if(!inn||!note.clientHeight) return;
+// plain story card (Marwa 2026-11-06): the text panel shows ONLY 3 lines (more room for the picture); the text slides up when the reading reaches the hidden lines (mark -> storyScroll)
+function fitStory3(note,inn){ note.style.height=''; inn.style.fontSize=''; const full=note.clientHeight, cs=getComputedStyle(inn); if(!full) return;
+  const pad=parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom); let fs=parseFloat(cs.fontSize), h, pitch=()=>{ const tops=[...new Set($$('.w',inn).map(w=>Math.round(w.getBoundingClientRect().top)))].sort((a,b)=>a-b); const nx=tops.find(t=>t-tops[0]>.8*fs); return nx!=null?nx-tops[0]:1.65*fs; };
+  const calc=()=>{ inn.style.fontSize=fs+'px'; h=3*pitch()+parseFloat(getComputedStyle(inn).paddingTop)-.1*fs; };   // the REAL distance between two lines (Arabic marks make a line taller than 1.65em)
+  calc(); for(let i=0;i<60&&h>full&&fs>12;i++){ fs-=.5; calc(); }
+  $$('.in',note).forEach(x=>x.style.fontSize=fs+'px'); note.style.height=Math.min(h,full)+'px';
+  const cw=rd.cur>=0&&rd.words[rd.cur]; if(cw) storyScroll(cw.el,true); else $$('.in',note).forEach(x=>{ x.scrollTop=0; }); }   // after a re-fit the text sits on a whole line again
+function storyScroll(e,force){ const inn=e&&e.closest&&e.closest('.scene.story:not(.poem):not(.point) .in'); if(!inn) return false;
+  const r=e.getBoundingClientRect(), b=inn.getBoundingClientRect(), cs=getComputedStyle(inn), pt=parseFloat(cs.paddingTop), pb=parseFloat(cs.paddingBottom);
+  if(force||r.bottom>b.bottom-pb+1||r.top<b.top+pt-1) inn.scrollTo({top:inn.scrollTop+(r.top-b.top)-pt,behavior:force||!anim?'auto':'smooth'}); return true; }
+function fitStory(){ const note=$('.scene.story:not(.poem) .note'), inn=note&&$('.in:last-child',note); if(!inn||!note.clientHeight&&!note.style.height) return;
+  if(note.closest('.scene.story:not(.poem):not(.point)')&&!matchMedia('(min-aspect-ratio:5/4)').matches) return fitStory3(note,inn);   // portrait: 3 lines; landscape: the text column fits the whole page
+  if(note.style.height) note.style.height='';
   const key=LESSON.id+':'+note.clientWidth+'x'+note.clientHeight;
   if(fitStory.key!==key){ inn.style.fontSize=''; let fs=parseFloat(getComputedStyle(inn).fontSize); const sv=[rd.page,rd.words,rd.lineEls], np=nPages();
     for(let p=1;p<=np;p++){ if(np>1&&!LESSON.lines.some(l=>l.page===p)) continue; rd.page=p; rd.words=[]; rd.lineEls=[];
@@ -623,41 +636,53 @@ function wsParts(){ const a=document.activeElement, id=a&&a.id; if(!WS_IN.includ
   const bx=a.closest('.qx'), line=a.closest('.qxline'); if(!bx||!line) return null; const hd=$('.quiz .qhead');
   return {word:$('.qxw',line)||line,movers:[bx],bottom:line,top:hd?hd.getBoundingClientRect().bottom+4:stTop,help:1,say:$('.qxsay',bx)}; }
 // how much of the screen the phone keyboard leaves: the visible top and bottom (page px). Inside a frame (preview) the phone does not tell the frame, so a touch screen guesses the keyboard.
-function wsRoom(){ const vv=window.visualViewport, H=innerHeight; if(!vv) return null;
+function framedTouch(){ try{ return window.top!==window&&matchMedia('(pointer:coarse)').matches; }catch(e){ return matchMedia('(pointer:coarse)').matches; } }
+let WS_GUESS=false;   // true while the room is only a guess (framed preview): then the keyboard never reports back, so nothing may react to scroll/resize events (that made the word jump up and down)
+function wsRoom(){ WS_GUESS=false; const vv=window.visualViewport, H=document.documentElement.clientHeight||innerHeight; if(!vv) return null;   // the page height without the keyboard (js/core.js kbRoom)
   if(H-vv.height>120) return {top:vv.offsetTop,bottom:vv.offsetTop+vv.height};
   let framed=false; try{ framed=window.top!==window; }catch(e){ framed=true; }
-  if(framed&&matchMedia('(pointer:coarse)').matches) return {top:0,bottom:H*(innerWidth>H?.42:.55)};
+  if(framed&&matchMedia('(pointer:coarse)').matches){ WS_GUESS=true; return {top:0,bottom:Math.round(H*(innerWidth>H?.42:.55))}; }
   return null; }
 function wsKeep(){
   $$('.ws-mv').forEach(e=>{ e.style.translate=''; e.classList.remove('ws-mv'); });
   const P0=wsParts(), R=P0&&wsRoom(), open=!!R, B=document.body;
+  if(open&&!WS_GUESS&&typeof kbPin==='function') kbPin();   // the page never stays slid under the keyboard (js/core.js)
   B.classList.toggle('ws-typing',open);
-  B.classList.toggle('ws-tight',open&&R.bottom-R.top<parseFloat(getComputedStyle(document.documentElement).fontSize)*22);   // little room (phone on its side): the title, lesson name and road step aside while typing
+  const rem=parseFloat(getComputedStyle(document.documentElement).fontSize)||16;
+  B.classList.toggle('ws-tight',open&&R.bottom-R.top<rem*22);   // little room (phone on its side): the title, lesson name and road step aside while typing
   wsHelp(null);
   if(!open) return;
-  const P=wsParts()||P0, w=P.word.getBoundingClientRect(), pad=Math.max(10,w.height*.15);
+  let lift=wsLift(wsParts()||P0,R);
+  if(lift.short&&!B.classList.contains('ws-tight')){ B.classList.add('ws-tight'); lift.undo(); lift=wsLift(wsParts()||P0,R); }   // still not enough room above the keyboard: the header steps aside too
+  if(lift.P.help) wsHelp(lift.P,R);
+}
+// lift the word (and its lines) so all of it, and the Help bulb under it, stand above the keyboard; short = it still does not fit
+function wsLift(P,R){
+  const w=P.word.getBoundingClientRect(), pad=Math.max(10,w.height*.15);
   const hs=P.help?wsHelpEls():[], hh=hs.length?(hs[0].offsetWidth||40)+Math.max(6,w.height*.12):0;   // the Help bulb stands under the word
   const top=Math.max(P.top,R.top+6);
   const over=Math.max(P.bottom.getBoundingClientRect().bottom,w.bottom+hh)+pad-R.bottom;
   let sh=over>0?Math.min(Math.max(0,w.top-top),over):0;
   if(over<=0&&w.top<top) sh=w.top-top;   // the phone scrolled the page: bring the word back down into sight
   if(sh) P.movers.forEach(m=>{ m.style.translate='0 '+(-Math.round(sh))+'px'; m.classList.add('ws-mv'); });
-  if(P.help) wsHelp(P);
+  return {P,short:over-sh>1,undo:()=>P.movers.forEach(m=>{ m.style.translate=''; m.classList.remove('ws-mv'); })};
 }
 const wsHelpEls=()=>$$('#lmeta .qxhelp, #lmeta .qhelpb, .quiz>.qhelpb').filter(h=>!h.hidden&&getComputedStyle(h).display!=='none');
 // while typing, the Help bulb stands right under the word, in the middle (the keyboard covers its corner)
-function wsHelp(P){
+function wsHelp(P,R){
   $$('.ws-side').forEach(h=>{ h.classList.remove('ws-side'); h.style.left=''; h.style.top=''; });
   if(!P) return;
-  const r=P.word.getBoundingClientRect();
+  const r=P.word.getBoundingClientRect(), bot=R?R.bottom:innerHeight, topL=R?R.top:0;
   wsHelpEls().forEach(h=>{ h.classList.add('ws-side'); const s=h.offsetWidth||40, g=Math.max(6,r.height*.12);
-    const x=Math.max(6,Math.min(innerWidth-s-6,r.left+r.width/2-s/2));
-    h.style.left=Math.round(x)+'px'; h.style.top=Math.round(r.bottom+g)+'px'; });
+    let x=r.left+r.width/2-s/2, y=r.bottom+g;
+    if(y+s+6>bot){ y=r.top+r.height/2-s/2; x=r.left-s-g; if(x<6) x=r.right+g; }   // no room under the word above the keyboard: beside it instead
+    x=Math.max(6,Math.min(innerWidth-s-6,x)); y=Math.max(topL+6,Math.min(bot-s-6,y));   // never under the keyboard
+    h.style.left=Math.round(x)+'px'; h.style.top=Math.round(y)+'px'; });
 }
-if(window.visualViewport) ['resize','scroll'].forEach(e=>visualViewport.addEventListener(e,()=>wsKeep()));
-document.addEventListener('focusin',e=>{ if(e.target&&WS_IN.includes(e.target.id)) [50,300,650,1000].forEach(t=>setTimeout(wsKeep,t)); });
+if(window.visualViewport) ['resize','scroll'].forEach(e=>visualViewport.addEventListener(e,()=>{ if(!WS_GUESS) wsKeep(); }));
+document.addEventListener('focusin',e=>{ if(e.target&&WS_IN.includes(e.target.id)) (framedTouch()?[60,400]:[50,300,650,1000]).forEach(t=>setTimeout(wsKeep,t)); });
 document.addEventListener('focusout',e=>{ if(e.target&&WS_IN.includes(e.target.id)) setTimeout(wsKeep,60); });
-addEventListener('resize',()=>setTimeout(wsKeep,80)); addEventListener('orientationchange',()=>setTimeout(wsKeep,400));
+addEventListener('resize',()=>{ if(!WS_GUESS) setTimeout(wsKeep,80); }); addEventListener('orientationchange',()=>setTimeout(wsKeep,400));
 ;
 /* ===== js/vocab.js ===== */
 /* VOCABULARY tab + the shared celebration. */
@@ -753,6 +778,7 @@ const sayPart=p=>p.silent?new Promise(r=>setTimeout(r,350)):p.audio?playFile(p.a
 const SAY_LN='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>';
 const VHAR={fatha:'\u0640\u064E',damma:'\u0640\u064F',kasra:'\u0640\u0650',sukoon:'\u0640\u0652'};
 function showWords(){
+  vs.seen=new Set();   // the words taught in THIS visit: the stars screen comes only when the child has been through the WHOLE tab (earlier visits never make the first word the last)
   stage.innerHTML='';
   vs.i=Math.min(vs.i,LESSON.vocab.length-1);
   $('#lesson').classList.add('vtab'); $('#lesson').classList.toggle('vmode',vMode()); setRail([]); vLayout();
@@ -797,19 +823,20 @@ async function vMeanSay(what){
 }
 async function vMean(){
   vStop(); hideHint(); const run=++vs.run; vs.mode='learn'; vRail();
-  const v=LESSON.vocab[vs.i]; vRender(true); vStatus(tr('Listen!')); $('.vmeaning').classList.add('hid');
+  const v=LESSON.vocab[vs.i]; vRender(true); vStatus(tr('Listen!'));   // the plural / meaning / opposite word stays WRITTEN under the word the whole time (Marwa 2026-11-06); it lights up while it is spoken
   try{
     await vSleep(500,run);
     for(let rep=0;rep<2;rep++){
       $('.vword').classList.add('lit'); await sayWord(v); if(run!==vs.run) return; $('.vword').classList.remove('lit'); await vSleep(700,run);
-      const m=$('.vmeaning'); m.classList.remove('hid'); m.classList.add('lit'); if(anim) G.from(m,{opacity:0,y:10,duration:.35});
+      const m=$('.vmeaning'); m.classList.remove('hid'); m.classList.add('lit');
       await sayRel(v); if(run!==vs.run) return; m.classList.remove('lit'); await vSleep(900,run);
     }
     vStatus(''); vs.mode='done'; vRail(); celebrate($('.vword'));
-    const d=vDone(); if(!d.includes(v.word)){ d.push(v.word); try{ localStorage.setItem('zoom-vocab',JSON.stringify(VDONE)); }catch(e){} }
+    if(vs.popup){ await vSleep(1200,run); if(tab!=='words') return; vs.mode='idle'; vRail(); const x=$('.wpclose'); if(x) x.click(); return; }   // the pen popup (one word seen from the lesson page): NO star, NO progress, NO stars screen - back to the lesson (Marwa 2026-11-06)
+    const d=vDone(); if(!d.includes(v.word)){ d.push(v.word); try{ localStorage.setItem('zoom-vocab',JSON.stringify(VDONE)); }catch(e){} } (vs.seen||(vs.seen=new Set())).add(v.word);
     vCar(true); const th=$$('.vthumb')[vs.i]; if(th&&!$('.vst',th)) th.append(el('span','vst',STAR(true)));
     await vSleep(1200,run); if(tab!=='words') return;
-    const left=LESSON.vocab.map((x,i)=>i).filter(i=>!vDone().includes(LESSON.vocab[i].word));
+    const left=LESSON.vocab.map((x,i)=>i).filter(i=>!vs.seen.has(LESSON.vocab[i].word));
     if(!left.length){ vs.mode='idle'; vRail(); award(LESSON.id,'words'); return; }
     vs.i=left.find(i=>i>vs.i) ?? left[0]; vMean();
   }catch(e){}
@@ -887,13 +914,14 @@ function vHelp(){
 async function vWin(v){
   vs.mode='done'; vRail(); const run=vs.run;
   vStatus(''); celebrate($('.vword'));   // the celebration is the praise: no "Good job" said or written
-  const d=vDone(); if(!d.includes(v.word)){ d.push(v.word); try{ localStorage.setItem('zoom-vocab',JSON.stringify(VDONE)); }catch(e){} }
+  if(vs.popup){ await sayWord(v); await new Promise(r=>setTimeout(r,700)); if(run!==vs.run||tab!=='words') return; vs.mode='idle'; vRail(); const x=$('.wpclose'); if(x) x.click(); return; }   // the pen popup: no star / progress, only the word, then back to the lesson
+  const d=vDone(); if(!d.includes(v.word)){ d.push(v.word); try{ localStorage.setItem('zoom-vocab',JSON.stringify(VDONE)); }catch(e){} } (vs.seen||(vs.seen=new Set())).add(v.word);
   vCar(true);
   const th=$$('.vthumb')[vs.i]; if(th&&!$('.vst',th)) th.append(el('span','vst',STAR(true)));
   await new Promise(r=>setTimeout(r,500)); if(run!==vs.run) return;
   await sayWord(v); await new Promise(r=>setTimeout(r,700)); if(run!==vs.run||tab!=='words') return;
   if(vs.popup){ vs.mode='idle'; vRail(); const x=$('.wpclose'); if(x) x.click(); return; }   // popup: one word only, then back to the words page
-  const left=LESSON.vocab.map((x,i)=>i).filter(i=>!vDone().includes(LESSON.vocab[i].word));
+  const left=LESSON.vocab.map((x,i)=>i).filter(i=>!vs.seen.has(LESSON.vocab[i].word));
   if(!left.length){ const ip=$('#vin'); if(ip) ip.blur(); vs.mode='idle'; vRail(); award(LESSON.id,'words'); return; }
   vs.i=left.find(i=>i>vs.i) ?? left[0]; vTeach();
 }
@@ -956,8 +984,7 @@ function vFitImg(){ const im=$('.vimg'), wrap=im&&im.parentElement; if(!im||!im.
 function vPickFit(){ const pk=$('.vpick'); if(!pk) return; pk.style.gridTemplateColumns=''; if(!$('#lesson').classList.contains('vmode')||!$('#lesson').classList.contains('v-land')) return;
   for(let c=2;c<=4&&pk.scrollHeight>pk.clientHeight+1;c++) pk.style.gridTemplateColumns=`repeat(${c},auto)`; }
 addEventListener('resize',()=>{ if(tab==='words'){ vLayout(); fitWord(); vPickFit(); setTimeout(vFitImg,60); } });
-// iPhone may slide the page under the keyboard: slide it back so everything stays exactly where it was
-if(window.visualViewport) visualViewport.addEventListener('scroll',()=>{ if(scrollY) scrollTo(0,0); });
+// iPhone may slide the page under the keyboard: js/core.js (kbSync / kbPin) slides it back, for every screen
 
 // the car in the header moves one step for every word learned
 function vCar(drive){ const n=LESSON.vocab.length||1; if(drive){ carDrive(true); setTimeout(()=>carDrive(false),900); } carFrac(vDone().length/n); }
@@ -1112,6 +1139,7 @@ function qGo(i){
   const qi=$('#qin'); if(qi&&s.type!=='type'){ qi.blur(); qi.remove(); }
   const qxi=$('#qxin'); if(qxi&&s.type!=='write'){ qxi.blur(); qxi.remove(); }
   const m=QM[s.type]; if(!m) return;
+  $$('.qask',w).forEach(e=>e.parentNode&&e.parentNode.removeChild(e));   // a question line left over from the previous question must not hide this question's speaker (css :has(.qask))
   if(m.sheet!=='box'){ const qw=$('.qword',w); if(qw) qw.hidden=false; const ts=$('.qtsay',w); if(ts) ts.hidden=false; }   // a box question (colour / face / story...) hides the word line; the next word question shows it again
   if(m.sheet==='board') return qBoard(w,q,i,run);
   w._board=null;
@@ -1158,7 +1186,7 @@ QM.letter={sheet:'word', word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q)
 QM.choice={sheet:'word', fit:0, word:()=>'', draw(play,ans,q){ const b=$('.qword b'); b.classList.add('qsent'); b.textContent=''; b.dir=isAr()?'rtl':'ltr';   // an Arabic sentence reads right to left (the word line itself is ltr for letter gaps)
     if(q.ask){ const a=el('span','qask'); qToks(a,q.ask); b.append(a); }
     const sen=el('span','qsen'); if(q.lead){ qToks(sen,q.lead); sen.append(' '); } sen.append(el('span','qblank','')); if(q.tail){ sen.append(' '); const t=el('span'); qToks(t,q.tail); sen.append(t); } b.append(sen);
-    play.append(el('div','qpic one',`<img src="${q.pic}" alt="">`));
+    if(q.pic) play.append(el('div','qpic one',`<img src="${q.pic}" alt="">`));   // a choice without a picture (Arabic appendix pronoun sentences, no picture in the book)
     q.options.forEach((o,k)=>{ const c=qChBtn(o,qWords(q.options)); c.dataset.k=k; c.addEventListener('click',()=>qChoose(c,k,q)); ans.append(c); }); },
   help:(q,w)=>$$('.qans .qch',w).filter(b=>+b.dataset.k===q.answer)};
 QM.type={sheet:'word', word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q));
@@ -1167,8 +1195,9 @@ QM.type={sheet:'word', word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q));
   peek(q,w){ const g=$('.qword .qgap:not(.got)',w); if(!g) return; const gi=g.dataset.i!=null&&q.gaps?+g.dataset.i:null, ch=gi!=null?q.word[gi]:q.answer; if(!ch) return;
     wsPeek(g); qFocus(); }};
 QM.yesno={sheet:'word', draw(play,ans,q){ play.append(qOnePic(q));
-    [[true,'yes',Q_TICK,'It matches'],[false,'no',Q_CROSS,'It does not match']].forEach(([v,c,ic,l])=>{
-      const b=el('button','rb qbtn '+c,ic); b.setAttribute('aria-label',l); b.addEventListener('click',()=>qAnswer(b,v===q.answer,v)); ans.append(b); }); },
+    const fc=q.faces?'<img src="data/pics/ar-smiley.png" alt="">':'', sd=q.faces?'<img src="data/pics/ar-sad-face.png" alt="">':'';   // faces:true = a happy and a sad face in place of the tick and the cross (Arabic u2l1 ex 2, Marwa 2026-11-06)
+    [[true,'yes',q.faces?fc:Q_TICK,'It matches'],[false,'no',q.faces?sd:Q_CROSS,'It does not match']].forEach(([v,c,ic,l])=>{
+      const b=el('button','rb qbtn '+c+(q.faces?' qface':''),ic); b.setAttribute('aria-label',l); b.addEventListener('click',()=>qAnswer(b,v===q.answer,v)); ans.append(b); }); },
   help:(q,w)=>[$(q.answer?'.qans .qbtn.yes':'.qans .qbtn.no',w)].filter(Boolean)};
 // the match board: built once per set; each right picture joined moves on to the next star without rebuilding it
 function qBoard(w,q,i,run){
@@ -1179,7 +1208,7 @@ function qBoard(w,q,i,run){
 }
 // match / circle: the pictures (or words) on one board like the book, the letter / picture in the middle when the set has one
 function qPicBoard(w,s,play,run){
-  const b=el('div','qboard'); if(s.bigP) b.classList.add('bigP'); if(s.type==='circle'||qCircleTask(s)) b.classList.add('ring');   // the book says "circle": a ring round the picture, never a line (Marwa 2026-11-04)   // "bigP": bigger pictures on tall screens (with "posP" per item)
+  const b=el('div','qboard'); if(s.bigP) b.classList.add('bigP'); if(s.dense) b.classList.add('dense');   /* "dense": many small options (the book's 28-letter board, Arabic u3l10 p113): smaller buttons so rows of 6 never overlap */ if(s.type==='circle'||qCircleTask(s)) b.classList.add('ring'); if(s.mark==='tick') b.classList.add('tickmk');   // "mark":"tick" (circle): a small green check under the tapped item, not a ring (book: put a ✓ under the letter, Ahmed 2026-11-06)   // the book says "circle": a ring round the picture, never a line (Marwa 2026-11-04)   // "bigP": bigger pictures on tall screens (with "posP" per item)
   if(s.centerPic){ const c=el('div','qcenter pic',`<img src="${R_Q(s.centerPic)}" alt="">`); { const ca=(s.centerAtP&&!$('#lesson').classList.contains('q-land'))?s.centerAtP:s.centerAt; if(ca){ c.style.setProperty('--cx',ca[0]); c.style.setProperty('--cy',ca[1]); } } b.append(c); }   // "centerPic": a picture to match (book: circle the SIMILAR picture)
   if(s.center){ const c=el('button','qcenter',`<span>${s.center}</span>`); c.setAttribute('aria-label','Letter '+s.center); c.addEventListener('click',()=>qSound(s.centerSrc,s.center[0]));
     b.append(c); }
@@ -1358,7 +1387,7 @@ function qLinkRefresh(land){ const bd=$('.qlink'); if(!bd) return; const s=bd._s
 async function qLinkTry(bd,s,a,b){
   const run=qz.run;   // the board is kept from pair to pair, so it must use the question running NOW, not the one it was built in
   const wb=a.classList.contains('qlkw')?a:b, pb=wb===a?b:a, it=s.items[+wb.dataset.k];
-  if(wb.dataset.k!==pb.dataset.k){ const l=qLinkLine(bd,wb,pb,'qlj bad'); setTimeout(()=>l.remove(),500); return qBad([wb,pb]); }
+  if(wb.dataset.k!==pb.dataset.k&&!(s.group&&(it.text2?s.items[+pb.dataset.k].text2===it.text2:it.pic&&s.items[+pb.dataset.k].word===it.word))){ const l=qLinkLine(bd,wb,pb,'qlj bad'); setTimeout(()=>l.remove(),500); return qBad([wb,pb]); }
   if(!qSetMoreAfter(s)) qz.busy=true; wb.classList.add('done'); pb.classList.add('done'); bd._pairs.push([wb,pb]);
   const l=qLinkLine(bd,wb,pb); if(anim){ const len=l.getTotalLength?l.getTotalLength():300; G.fromTo(l,{strokeDasharray:len,strokeDashoffset:len},{strokeDashoffset:0,duration:.35,ease:'power2.out'}); }
   celebrate(pb); if(it.full) (async()=>{ vStop(); for(const f of it.fullSrc){ try{ await playFile(f); }catch(_){} } })(); else qSound(it.src,it.word);   // "full": the joined phrase of the pair (word + its partner), said on a right join
@@ -1459,14 +1488,19 @@ const ch={i:0,slow:false,on:false};
 const chBuf=async url=>{ await ensureCtx(); let b=await libBuffer(url,player.ctx).catch(()=>null);
   if(!b){ if(!vs.files[url]) vs.files[url]=fetch(url).then(r=>{ if(!r.ok) throw new Error('missing'); return r.arrayBuffer(); }).then(x=>decodeSnd(player.ctx,x)).catch(()=>{ delete vs.files[url]; return null; }); b=await vs.files[url]; }
   return b; };
-const chSay=async url=>{ const b=await chBuf(url); if(!b){ await nap(2600); return; }
-  return new Promise(res=>{ const s=player.ctx.createBufferSource(); s.buffer=b; s.playbackRate.value=ch.slow?.75:1; s.connect(player.ctx.destination); vs.src=s; s.onended=()=>{ if(vs.src===s) vs.src=null; res(); }; s.start(0); }); };
-function chLit(i){ $$('.lchant .cl').forEach((e,k)=>e.classList.toggle('now',k===i)); }
+// the words of a chant line light one by one (the recording has no word times: spread over its length by letters) - the WORD itself, transparent background, never a box round the line (Marwa 2026-11-06, all reading in the app)
+ch.T=[];
+function chWordsStop(){ ch.T.forEach(clearTimeout); ch.T=[]; $$('.lchant .w.reading').forEach(x=>x.classList.remove('reading')); }
+function chWords(i,dur){ const ws=$$('.lchant .cl')[i]; if(!ws) return; const w=$$('.w',ws), tot=w.reduce((a,x)=>a+x.textContent.length,0)||1; let acc=0;
+  w.forEach(x=>{ const at=acc/tot*dur*1000; acc+=x.textContent.length; ch.T.push(setTimeout(()=>{ $$('.lchant .w.reading').forEach(y=>y.classList.remove('reading')); x.classList.add('reading'); },at)); }); }
+const chSay=async(url,i)=>{ const b=await chBuf(url); if(!b){ chWords(i,2.6); await nap(2600); return; }
+  return new Promise(res=>{ const s=player.ctx.createBufferSource(); s.buffer=b; s.playbackRate.value=ch.slow?.75:1; s.connect(player.ctx.destination); vs.src=s; s.onended=()=>{ if(vs.src===s) vs.src=null; res(); }; chWords(i,b.duration/(ch.slow?.75:1)); s.start(0); }); };
+function chLit(i){ chWordsStop(); $$('.lchant .cl').forEach((e,k)=>e.classList.toggle('now',k===i)); }
 async function chRun(from){ const Lt=LESSON.letter.chant; vStop(); lt.run++; const run=lt.run, vr=vs.run; ch.on=true; chRail();
   const dead=()=>run!==lt.run||vr!==vs.run||tab!=='read';
-  for(let i=from;i<Lt.lines.length;i++){ ch.i=i; chLit(i); try{ await chSay(Lt.lines[i].audio); }catch(e){} if(dead()) return; if(i<Lt.lines.length-1) await nap(350); if(dead()) return; }
+  for(let i=from;i<Lt.lines.length;i++){ ch.i=i; chLit(i); try{ await chSay(Lt.lines[i].audio,i); }catch(e){} if(dead()) return; if(i<Lt.lines.length-1) await nap(350); if(dead()) return; }
   ch.on=false; ch.i=0; chLit(-1); chRail(); rd.done[1]=1; if(Object.keys(rd.done).length>=nPages()) award(LESSON.id,'read'); carFrac(1); }
-function chPause(){ vStop(); lt.run++; ch.on=false; chRail(); }
+function chPause(){ vStop(); lt.run++; ch.on=false; chWordsStop(); chRail(); }
 function chRail(){ if(tab!=='read'||!$('.lchant')) return; const res=!ch.on&&ch.i>0;
   setRail([ ch.on?{kind:'stop',icon:'stop',label:tr('Stop'),click:chPause}:{kind:'go',icon:'play',label:tr(res?'Continue':'Read'),click:()=>chRun(ch.i)},
     {kind:'again',icon:'restart',label:tr('Restart'),click:()=>chRun(0)},
@@ -1476,7 +1510,7 @@ function showChant(){
   const scene=el('div','scene pics letter chantp'), body=el('div','lchant');
   scene.append(el('p','task',STAR(true)+(C.task||'نشيد الحرف')),body);
   body.append(el('div','cpic fit-media',`<img src="${C.pic}" alt="">`)); const tx=el('div','ctx'); body.append(tx);
-  C.lines.forEach((l,i)=>{ const b=el('button','cl txt',l.t); b.addEventListener('click',()=>{ chRun(i); }); tx.append(b); });
+  C.lines.forEach((l,i)=>{ const b=el('button','cl txt'); String(l.t).split(/\s+/).filter(Boolean).forEach((w,k,a)=>{ b.append(el('span','w',w)); if(k<a.length-1) b.append(' '); }); b.addEventListener('click',()=>{ chRun(i); }); tx.append(b); });
   readPager(scene); stage.append(scene); carFrac(0); chRail();
   if(typeof bookTag==='function') bookTag(); showHint($('#rail .dash.go .rb'),LESSON.hints&&LESSON.hints.chant||LESSON.hints&&LESSON.hints.read,1400,'read');
 }
@@ -1535,10 +1569,10 @@ function qxVowel(box,q,s,run){
   box.append(row);
 }
 // the word (or sentence) as hidden letters with their places underlined; spaces are not letters
-function qxWordEl(word,chips,faint,ltr){ const gs=glyphs(word);   // THE word component (js/wordslots.js); ltr: an English word inside any subject
+function qxWordEl(word,chips,faint,ltr,gaps){ const gs=glyphs(word);   // THE word component (js/wordslots.js); ltr: an English word inside any subject
   const cnt=(chips||[]).map(c=>glyphs(c).length), ok=cnt.length>1&&cnt.reduce((a,c)=>a+c,0)===gs.length;   // grouped per syllable when the chips match the word
   let k=0; const parts=ok?cnt.map(n=>gs.slice(k,k+=n).join('')):null;
-  return wsFill(el('b','qxw'),word,{hide:true,faint,parts,ltr}); }
+  return wsFill(el('b','qxw'),word,{hide:gaps||true,faint,parts,ltr}); }
 // Help: the next syllable (or letter) shows faintly for a moment, then is hidden again: the child writes it
 function qxPeek(wd){ const n=qxNext(wd); if(!n) return; const sg=n.closest('.wsg'); wsPeek(sg?$$('.lt.hid',sg):[n]); }
 function qxNext(wd){ return $('.lt.hid',wd); }
@@ -1547,7 +1581,7 @@ const qxDone=wd=>!qxNext(wd);
 function qxWrite(box,q,s,run,text,onDone){   // text: what to type (default the question's word); onDone: called instead of the win (math: number, then its word)
   text=text||q.word; $$('.qxhelp',box).forEach(x=>x.remove());
   if(q.chips&&text===q.word){ const c=el('div','qxchips'); c.innerHTML=q.chips.map(t=>`<i>${t}</i>`).join('<u>/</u>'); box.append(c); }
-  const wd=qxWordEl(text,text===q.word?q.chips:null,s.faint,s.lang==='en'||/^[\x00-\x7f]+$/.test(text)), help=el('button','qxhelp',ICON.hint); help.setAttribute('aria-label','Help');
+  const wd=qxWordEl(text,text===q.word?q.chips:null,s.faint,s.lang==='en'||/^[\x00-\x7f]+$/.test(text),text===q.word&&q.gaps&&q.gaps.length?q.gaps:null), help=el('button','qxhelp',ICON.hint); help.setAttribute('aria-label','Help');
   const line=el('div','qxline'); line.append(wd); const duo=$('.qxduo',box); (duo||box).append(line); qHelpHost(help);   // duo: number and its word side by side
   let inp=$('#qxin');
   if(!inp){ inp=el('input','qin'); Object.assign(inp,{type:'text',id:'qxin',autocomplete:'off',spellcheck:false,lang:s.lang||'ar'}); ['autocorrect','autocapitalize'].forEach(a=>inp.setAttribute(a,'off')); inp.setAttribute('enterkeyhint','done'); inp.setAttribute('aria-label','Type the word'); }
@@ -1805,6 +1839,108 @@ QM.arrange={sheet:'box', draw:qxArrange, help:(q,w)=>{ const n=$('.qxw .lt.hid',
 QM.qa={sheet:'box', bulb:0, draw:qxQA};
 
 /* RULE: while the phone keyboard is open the word stays above it, and the Help bulb moves beside the word: shared, js/wordslots.js (wsKeep) */
+
+/* first    = "write the FIRST letter of each picture's word, then merge the letters into the new word" (book booklet ex12): a row of pictures, a place under each for its first letter (typed), then the merged word is typed. The result picture (q.pic) is on top.
+   item: {word: the merged word, result: its picture, parts:[{pic, first: the letter}, ...], hush: true (the word is the answer, so no speaker)} */
+function qxFirst(box,q,s,run){
+  const row=el('div','qxfirsts'), cells=q.parts.map(p=>{ const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${R_Q(p.pic)}" alt="">`)); const h=el('div','qxfh'); f.append(h); row.append(f); return h; });
+  let rc=null; if(q.result){ row.append(el('span','qxeq','=')); const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${R_Q(q.result)}" alt="">`)); rc=el('div','qxfh'); f.append(rc); row.append(f); }   // the merged word's own picture and its place, after "="
+  box.append(row);
+  const stage=k=>{ const last=k>=q.parts.length;
+    qxWrite(box,q,s,run,last?q.word:q.parts[k].first,last?null:()=>{ stage(k+1); });
+    const ln=$$('.qxline',box).pop(); if(ln) (last&&rc?rc:cells[k]).append(ln); };
+  stage(0);
+}
+QM.first={sheet:'box', noword:1, bulb:0, draw:qxFirst};
+
+/* build    = "make words from these letters" (book workbook): ALL the letters sit on top once, each can be dragged (or tapped) as many times as the child wants into the places below, one place per word to build (3-4 places). A place that spells one of the words locks in green; the question is done when `need` words are built.
+   item: {letters:["أ","ب",...], words:["أَب","أُمّ",...] (the words that count, marks ignored), slots:4, need:3} */
+function qxBuild(box,q,s,run){
+  const key=t=>(t||'').replace(/[ً-ْٰـ]/g,'').replace(/[أإآٱ]/g,'ا'), ok=(q.words||[]).map(w=>({k:key(w),w}));
+  const fits=l=>{ const c={}; (q.letters||[]).forEach(g=>{ const t=key(g); c[t]=(c[t]||0)+1; }); return l.every(g=>{ const t=key(g); return c[t]>0&&c[t]--; }); };   // a dictionary word may use each given letter only as many times as it is given
+  let DICT=null; fetch('data/arabic/dict.json').then(r=>r.ok?r.json():[]).then(j=>{ DICT=new Set(j); }).catch(()=>{});
+  const bank=el('div','qxtiles qxbank'); (q.letters||[]).forEach(g=>{ const t=el('button','qxtile',`<span>${g}</span>`); t.dataset.g=g; bank.append(t); });
+  const places=el('div','qxbplaces'), P=[]; for(let i=0;i<(q.slots||4);i++){ const d=el('div','qxbp'+(q.cells?' cells':'')), w=el('b','qxbw'), c=el('button','qxbx','×'); c.setAttribute('aria-label','Clear'); d.append(w,c); places.append(d); P.push({d,w,c,l:[],done:false}); }
+  if(q.pics&&q.pics.length){ const pr=el('div','qxfirsts qxbpics'); q.pics.forEach(u=>{ const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${u}" alt="">`)); pr.append(f); }); box.append(pr); }   // "pics": the book's pictures of the words to make (shown above the letters; the answer is still ANY word the letters make)
+  box.append(bank,places);
+  const MAXL=6, need=q.need||Math.min(3,P.length), act=()=>P.find(p=>!p.done&&p.l.length<MAXL), show=p=>{ if(!q.cells){ p.w.textContent=p.l.join(''); return; }
+    // q.cells = N: the place is split into N letter boxes so the child sees where each letter goes (one box per letter; a built word shows its marks)
+    // boxes do NOT tell how long the word is: as many boxes as letters placed plus one empty (at least 2, at most MAXL); a built word shows its letters with marks
+    const parts=p.done?(p.wk||'').match(/[^ً-ْٰـ][ً-ْٰـ]*/g)||[]:p.l, n=p.done?parts.length:Math.min(MAXL,Math.max(2,p.l.length+1)); p.w.innerHTML=''; for(let i=0;i<n;i++){ const c=el('span','qxbc'+(parts[i]?' on':'')); c.textContent=parts[i]||''; p.w.append(c); } };
+  const put=(g,p)=>{ if(!p||p.done||p.l.length>=MAXL||qz.busy) return false; p.l.push(g); show(p); blip(520+p.l.length*60,.05);
+    const lock=m=>{ p.done=true; p.k=m.k; p.wk=m.w; if(q.cells) show(p); else p.w.textContent=m.w; p.d.classList.add('got'); celebrate(p.d); if(P.filter(x=>x.done).length>=need) qxWin(places,q,1700); };
+    const k=key(p.l.join('')), m=ok.find(o=>o.k===k&&!P.some(x=>x.done&&x.k===o.k));
+    if(m) lock(m);
+    else if(p.l.length>=2&&!P.some(x=>x.done&&x.k===k)&&DICT&&DICT.has(k)&&fits(p.l)){   // ANY real word the letters can make counts (every word of the Arabic data); wait a moment so a longer word can still be finished
+      const was=p.l.join(''); setTimeout(()=>{ if(!p.done&&p.l.join('')===was&&!P.some(x=>x.done&&x.k===k)) lock({k,w:was}); },p.l.length>=MAXL?0:900); }
+    else if(p.l.length>=MAXL){ qxBad(p.d); setTimeout(()=>{ p.l=[]; show(p); },420); }
+    return true; };
+  if(q.cells) P.forEach(show);
+  P.forEach(p=>{ p.c.onclick=e=>{ e.stopPropagation(); if(p.done||qz.busy) return; p.l=[]; show(p); }; });
+  let drag=null;
+  bank.addEventListener('pointerdown',e=>{ const t=e.target.closest('.qxtile'); if(!t||qz.busy) return; e.preventDefault(); hideHint();
+    drag={t,x:e.clientX,y:e.clientY,moved:false,g:null}; try{ bank.setPointerCapture(e.pointerId); }catch(_){} });
+  bank.addEventListener('pointermove',e=>{ if(!drag) return; if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)<10) return;
+    if(!drag.moved){ drag.moved=true; const g=el('div','qxtile ghost',`<span>${drag.t.dataset.g}</span>`); g.style.cssText='position:fixed;z-index:50;pointer-events:none;margin:0'; document.body.append(g); drag.g=g; }
+    const r=drag.g.getBoundingClientRect(); drag.g.style.left=(e.clientX-r.width/2)+'px'; drag.g.style.top=(e.clientY-r.height*.8)+'px'; });
+  const end=e=>{ if(!drag) return; const d=drag; drag=null; if(d.g) d.g.remove(); if(e.type==='pointercancel') return;
+    let p=null; if(d.moved){ const pad=14; p=P.find(x=>{ const r=x.d.getBoundingClientRect(); return e.clientX>r.left-pad&&e.clientX<r.right+pad&&e.clientY>r.top-pad&&e.clientY<r.bottom+pad; }); if(!p) return; }   // dropped elsewhere: it just goes back
+    else p=act();   // a tap goes to the first place that is not full / built
+    if(!put(d.t.dataset.g,p)) qxBad(d.t); };
+  bank.addEventListener('pointerup',end); bank.addEventListener('pointercancel',end);
+}
+QM.build={sheet:'box', noword:1, bulb:0, draw:qxBuild};
+/* ring     = "listen and CIRCLE THE LETTER inside the word" (booklet ex 11): the word stands whole (joined letters, THE word component); the child taps a letter of it, and a right one gets a circle drawn round it. Every place of the letter must be circled (a word with the letter twice needs both). A wrong letter shakes.
+   (Circle the WHOLE word that has the letter = type `circle`; circle the LETTER inside one word = this one.)
+   item: {word:"تُوت", letter:"ت" (marks ignored), audio} */
+function qxRing(box,q,s,run){
+  const wd=wsFill(el('b','qxw'),q.word,{}), L=$$('.lt',wd), want=l=>sameLetter(arBase(l.textContent),q.letter); wd.classList.add('ring'); box.append(wd);
+  L.forEach(l=>l.addEventListener('click',()=>{ if(qz.busy||l.classList.contains('rung')) return; if(!want(l)) return qxBad(l);
+    l.classList.add('rung'); blip(560+$$('.rung',wd).length*60,.05); if(L.every(x=>!want(x)||x.classList.contains('rung'))) qxWin(wd,q,1500); }));
+}
+QM.ring={sheet:'box', noword:1, draw:qxRing, help:(q,w)=>$$('.qxw.ring .lt',w).filter(l=>sameLetter(arBase(l.textContent),q.letter)&&!l.classList.contains('rung')).slice(0,1)};
+
+/* ringword = "listen, then CIRCLE THE WORD in the sentence that fits the question" (assessments book u2l1 p30 ex 1: "هات من العبارة: كلمة بها حرف (د)"): the question line (`ask`) stands on top, the WHOLE sentence below with every word its own tap target (each word is THE word component); a right word gets a circle round it; a wrong word shakes. Any word that fits is accepted (the book leaves the blank free). One item = one question about the sentence; the next item asks again about the same sentence.
+   (Circle a LETTER inside one word = `ring`; circle a whole picture/word on a board = `circle`.)
+   item: {word:"the sentence", ask:"كَلِمَةٌ بِهَا حَرْفُ (د)", letter:"د" (a word containing it, marks ignored) | prefix:"ال" (a word starting with it), audio:"the sentence read aloud"} */
+const qxRwBase=w=>arBase(String(w).replace(/[«»،.؟!:]/g,''));
+const qxRwFits=(q,w)=>{ const b=qxRwBase(w); return q.prefix?b.startsWith(arBase(q.prefix)):glyphs(b).some(g=>sameLetter(g,q.letter)); };
+function qxRingWord(box,q,s,run){
+  if(q.ask) box.append(el('div','qxask',q.ask));
+  const sen=el('div','qxsent');
+  String(q.word).split(/\s+/).filter(Boolean).forEach(w=>{ const wd=wsWord(w,{}); wd.classList.add('qxcw'); sen.append(wd);
+    wd.addEventListener('click',()=>{ if(qz.busy||wd.classList.contains('rung')) return; if(!qxRwFits(q,w)) return qxBad(wd);
+      wd.classList.add('rung'); blip(620,.05); qxWin(wd,q,1500); }); });
+  box.append(sen);
+}
+QM.ringword={sheet:'box', noword:1, draw:qxRingWord, help:(q,w)=>$$('.qxcw',w).filter(x=>qxRwFits(q,x.textContent)).slice(0,1)};
+
+/* split    = "analyse the word into syllables (or letters)" (book booklet ex "حلل"): the WHOLE word sits on top as separate letter tiles; below, ONE place per part with a "/" between the parts, each place has one box per letter. The child drags the letters (or taps them) one by one into the boxes and builds the parts himself; a wrong letter goes back (shake). Done when every box is filled.
+   item: {word:"كِتَاب", parts:["كِ","تَا","ب"]}  (the parts joined = the word; one letter = a letter + its marks) */
+function qxSplit(box,q,s,run){
+  const GL=/[^ً-ْٰـ][ً-ْٰـ]*/g, letters=q.word.match(GL)||[];
+  const bank=el('div','qxtiles qxbank qxsbank'); letters.forEach(g=>{ const t=el('button','qxtile',`<span>${g}</span>`); t.dataset.g=g; bank.append(t); });
+  const row=el('div','qxsplit'), P=[];
+  q.parts.forEach((pt,k)=>{ if(k) row.append(el('span','qxsl','/')); const g=pt.match(GL)||[], d=el('div','qxsy'), cells=g.map(()=>{ const c=el('span','qxbc'); d.append(c); return c; }); row.append(d); P.push({d,g,cells,n:0}); });
+  box.append(bank,row);
+  const total=P.reduce((a,p)=>a+p.g.length,0); let filled=0;
+  const put=(t,p)=>{ if(!p||qz.busy||t.classList.contains('used')) return false; if(p.n>=p.g.length||p.g[p.n]!==t.dataset.g) return false;
+    const c=p.cells[p.n++]; c.textContent=t.dataset.g; c.classList.add('on'); t.classList.add('used'); blip(520+filled*50,.05); filled++;
+    if(p.n===p.g.length) p.d.classList.add('got');
+    if(filled>=total) qxWin(row,q,1700); return true; };
+  let drag=null;
+  bank.addEventListener('pointerdown',e=>{ const t=e.target.closest('.qxtile'); if(!t||qz.busy||t.classList.contains('used')) return; e.preventDefault(); hideHint();
+    drag={t,x:e.clientX,y:e.clientY,moved:false,g:null}; try{ bank.setPointerCapture(e.pointerId); }catch(_){} });
+  bank.addEventListener('pointermove',e=>{ if(!drag) return; if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)<10) return;
+    if(!drag.moved){ drag.moved=true; const g=el('div','qxtile ghost',`<span>${drag.t.dataset.g}</span>`); g.style.cssText='position:fixed;z-index:50;pointer-events:none;margin:0'; document.body.append(g); drag.g=g; }
+    const r=drag.g.getBoundingClientRect(); drag.g.style.left=(e.clientX-r.width/2)+'px'; drag.g.style.top=(e.clientY-r.height*.8)+'px'; });
+  const end=e=>{ if(!drag) return; const d=drag; drag=null; if(d.g) d.g.remove(); if(e.type==='pointercancel') return;
+    let p=null; if(d.moved){ const pad=14; p=P.find(x=>{ const r=x.d.getBoundingClientRect(); return e.clientX>r.left-pad&&e.clientX<r.right+pad&&e.clientY>r.top-pad&&e.clientY<r.bottom+pad; }); if(!p) return; }   // dropped elsewhere: it just goes back
+    else p=P.find(x=>x.n<x.g.length&&x.g[x.n]===d.t.dataset.g);   // a tap goes to the first part that is waiting for this letter
+    if(!put(d.t,p)) qxBad(d.t); };
+  bank.addEventListener('pointerup',end); bank.addEventListener('pointercancel',end);
+}
+QM.split={sheet:'box', noword:1, bulb:0, draw:qxSplit};
 ;
 /* ===== js/quiz-al.js ===== */
 /* ENGLISH AL — box models for the Lesson tab (the book's pages, one after another) and the Booklet tab (QM in quiz.js, drawn through qxGo; same sheet, stars and arrows). They read themselves (own:1).
@@ -1885,7 +2021,7 @@ function alMcq(box,q,s,run){
   p.append(' ',sp);   // the small speaker straight AFTER the question text (reads the question only, never the answer)
   const say=q.optSay||q.options;
   const ops=el('div','alopts'+(q.options.some(o=>o.length>14)?' long':'')); w.append(ops);
-  q.options.forEach((o,k)=>{ const b=el('button','alopt qch'+(qWords(q.options)?' wd':''),'<span></span>'); $('span',b).textContent=o; b.dataset.k=k;   // THE choice look (css/qlayout.css)
+  q.options.forEach((o,k)=>{ const b=qChBtn(o,qWords(q.options)); b.classList.add('alopt'); b.dataset.k=k;   // THE choice button (quiz.js qChBtn, look in css/qlayout.css)
     b.addEventListener('click',async()=>{ if(qz.busy||q.solved) return; hideHint();
       if(k!==q.answer){ qxBad(b); b.classList.add('bad'); setTimeout(()=>b.classList.remove('bad'),700); qSound(alWordSrc(say[k]),say[k]); return; }
       if(blank){ blank.classList.add('got'); blank.innerHTML=''; blank.textContent=o; }
@@ -1918,7 +2054,7 @@ function alCloze(box,q,s,run){
   const bank=el('div','albank'); const one=ans.length===1&&String(q.text).replace(/\[\[|\]\]/g,'').length<=90;   // Marwa 2026-11-04: ONLY a passage keeps the word choices pinned on top (text slides under them)
   if(one){ w.classList.add('one'); $$('.alblank small',txt).forEach(x=>x.remove()); w.append(bank); } else w.prepend(bank); let cur=0; const blanks=$$('.alblank',txt);
   const mark=()=>{ blanks.forEach((b,k)=>b.classList.toggle('cur',k===cur)); };
-  q.bank.forEach((o,bk)=>{ const sy=(q.bankSay||q.bank)[bk]; const b=el('button','alopt alchip qch'+(qWords(q.bank)?' wd':''),''); b.textContent=o; bank.append(b);
+  q.bank.forEach((o,bk)=>{ const sy=(q.bankSay||q.bank)[bk]; const b=qChBtn(o,qWords(q.bank)); b.classList.add('alopt','alchip'); bank.append(b);   // THE choice button
     b.addEventListener('click',async()=>{ if(qz.busy||q.solved||b.classList.contains('used')) return; hideHint();
       if(o.toLowerCase()!==String(ans[cur]).toLowerCase()){ qxBad(b); b.classList.add('bad'); setTimeout(()=>b.classList.remove('bad'),700); qSound(alWordSrc(sy),sy); return; }
       const bl=blanks[cur]; bl.classList.add('got'); bl.innerHTML=''; bl.textContent=ans[cur]; if(!q.reuse) b.classList.add('used'); celebrate(bl); qSound(alWordSrc(sy),sy); cur++; mark();
@@ -1954,7 +2090,7 @@ function alOrder(box,q,s,run){
   let order=chunks.map((c,k)=>k); for(let t=0;t<30;t++){ order.sort(()=>Math.random()-.5); if(chunks.length<2||order.some((v,k)=>v!==k)) break; }
   const draw=()=>{ line.innerHTML=''; seq.forEach(k=>{ const b=el('span','alword placed',''); b.textContent=chunks[k]; line.append(b); });   // only the right next piece is ever placed, so nothing to take back
     if(!seq.length) line.append(el('span','alph','…')); else if(end&&seq.length===chunks.length) line.append(el('span','alend',end)); };
-  order.forEach(k=>{ const b=el('button','alopt alchip',''); b.textContent=chunks[k]; tiles[k]=b; pool.append(b);
+  order.forEach(k=>{ const b=qChBtn(chunks[k],true); b.classList.add('alopt','alchip'); tiles[k]=b; pool.append(b);   // THE choice button (Marwa 2026-11-06: the same pill as every word choice)
     // Marwa 2026-11-03: only the piece whose turn it is goes on the line (same text = same piece); any other one shakes with a soft buzz and stays
     b.addEventListener('click',()=>{ if(qz.busy||b.classList.contains('used')) return; hideHint();
       if(chunks[k]!==chunks[seq.length]){ qxBad(b); b.classList.remove('bad'); void b.offsetWidth; b.classList.add('bad'); setTimeout(()=>b.classList.remove('bad'),700); return; }
@@ -2009,7 +2145,7 @@ function showGrammar(){
              optional "options":[3,6,2,9] (else a keypad 0-10, "max" on the item changes the top number).
    bond    = number tree (book: 5 -> 3 and ?). item: {whole:5, parts:[3,null]} or {whole:null, parts:[3,2]}: tap the missing number. optional "options".
    bigger  = pick the bigger / smaller number. item: {nums:[3,7], find:"bigger"|"smaller", dots:true}; "dots":true shows red dots under each number.
-   count   = count the pictures and tap the number. item: {img:"apple.png", n:4, options:[3,4,5]} (no options = keypad 0-10); no "img" = red dots; "group":true = the picture already shows all n (book picture), shown once. "cols" sets the pictures per row.
+   count   = count the pictures and tap the number. item: {img:"apple.png", n:4, options:[3,4,5]} (no options = keypad 0-10); no "img" = red dots; "group":true = the picture already shows all n, shown once. Count pictures are ONE unit repeated: write "img":"../../pics/bee.png#4" (core.js cpicFill) — never a library picture per count. "cols" sets the pictures per row.
    mwrite  = the child WRITES a number sentence or an answer on lines (like the word writing), with the app's own keypad: 0-9 and + − = (no phone keyboard).
              item: {pics, ask, lead:"Addition sentence:", word:"3 + 4 = 7", tail:"bicycles" (a card after the lines), keys:"0123456789+−=" (default digits), askAudio, audio}
              a wrong key: the line shakes with a soft buzz; done: the full sentence is said (audio), then on.
@@ -2062,8 +2198,8 @@ function mBigger(box,q,s,run){
   box.append(row);
 }
 function mCount(box,q,s,run){
-  const n=q.n; q.word=q.word||mW(n);  q.hush=1; const grid=el('div','qmcount'+(q.group?' grp':'')); grid.style.setProperty('--c',q.cols||Math.min(n,5)); grid.style.setProperty('--r',Math.ceil(n/(q.cols||Math.min(n,5))));
-  if(q.img&&q.group){ const im=new Image(); im.src=R_Q(q.img); im.alt=''; grid.append(im); } else if(q.img){ const src=R_Q(q.img); for(let k=0;k<n;k++){ const im=new Image(); im.src=src; im.alt=''; grid.append(im); } } else { const im=new Image(); im.src=mDots(n); im.alt=''; grid.append(im); }
+  const n=q.n; q.word=q.word||mW(n);  q.hush=1; const grid=el('div','qmcount'+(q.group||q.img?' grp':'')); grid.style.setProperty('--c',q.cols||Math.min(n,5)); grid.style.setProperty('--r',Math.ceil(n/(q.cols||Math.min(n,5))));
+  if(q.img&&q.group){ const im=new Image(); im.src=R_Q(q.img); im.alt=''; grid.append(im); } else if(q.img){ const im=new Image(); im.alt=''; cpicMake(new URL(R_Q(q.img),location.href).href,n).then(u=>{ im.src=u; }); grid.append(im); }   // a unit without "#n": the ONE count-picture helper (core.js) repeats it n times else { const im=new Image(); im.src=mDots(n); im.alt=''; grid.append(im); }
   box.append(grid);
   if(/^write the number/i.test(s.task||'')||s.typed){
     if(s.both){ const duo=el('div','qxduo'); box.append(duo); const pre=el('div','qxline qxpre'); pre.append(qxWordEl(mW(n),null,false,true)); pre.style.order=2; duo.append(pre); }   // both places (number, word) show from the start   // the book's "write the number": the child types it (Help shows it faintly for a moment); "both":true = then types its word too
@@ -2152,6 +2288,7 @@ function bookIndex(){
   const out=[]; (COURSE&&COURSE.subjects||[]).filter(s=>s.lessons).forEach(s=>s.lessons.forEach(l=>{
     if(!l.file||!l.pages) return;
     Object.entries(l.pages).forEach(([t,ps])=>[].concat(ps).forEach(p=>out.push({page:+p,tab:t,lesson:l,subject:s})));
+    (l.weekly||[]).filter(w=>w.page).forEach(w=>[].concat(w.page).forEach(p=>out.push({page:+p,tab:w.tab||'workbook',lesson:l,subject:s,exam:w})));   // "page" may list several pages; "tab":"quiz" = pages of the school Book (default: the Workbook)   // a weekly assessment is a book page too: the picker opens its exam paper
   }));
   return out;
 }
@@ -2259,13 +2396,14 @@ function bookList(k){
   const o=$('#pagePad'), ks=booksOf();
   $('.pp-books',o).innerHTML=ks.map(b=>`<button class="mtab mt-${({book:'bk0',workbook:'pts',booklet:'bk'})[b]||'ex'} pp-book${b===k?' on':''}" data-b="${b}"><span>${tr(BOOKNAME(b))}</span></button>`).join('');
   $('.pp-books',o).hidden=ks.length<2;
+  { const d=SUBJECT&&SUBJECT.rtl?'rtl':'ltr'; $('.pp-books',o).dir=d; $('.pp-pages',o).dir=d; }   // Arabic: the pages run from the RIGHT to the left (Marwa 2026-11-06)
   $('.pp-pages',o).innerHTML=bookPages_(k).map(e=>`<button class="rb pp-pg" data-p="${e.page}" data-b="${k}" aria-label="Page ${e.page}: ${e.lesson.title}"><span>${num(e.page)}</span></button>`).join('');
   $$('.pp-book',o).forEach(b=>b.addEventListener('click',()=>bookList(b.dataset.b)));
   $$('.pp-pg',o).forEach(b=>b.addEventListener('click',()=>bookGo(+b.dataset.p,b.dataset.b)));
 }
 async function bookGo(n,k){
   const e=bookPages_(k).find(x=>x.page===n); if(!e) return;
-  $('#pagePad').hidden=true; SUBJECT=e.subject; bookOpen(e.lesson,e.tab,n);
+  $('#pagePad').hidden=true; SUBJECT=e.subject; if(e.exam) return openExam(e.lesson,e.exam); bookOpen(e.lesson,e.tab,n);
 }
 // open a lesson at the part that matches a book page (Questions: at the first question from that page)
 async function bookOpen(lesson,t,page){
@@ -2409,7 +2547,7 @@ async function openExam(lesson,ex){
   stopAll(); vStop(); busy(true);
   let d; try{ X.base=new URL(ex.file,location.href).href; d=await get(ex.file); if(ex.only) d={...d,pages:(d.pages||[]).filter((_,i)=>ex.only.includes(i))}; }catch(e){ busy(false); message('Oops!','This paper did not load. Check the internet and try again.'); return; }
   await vpLoad(isAr()?null:new URL('.',X.base).href);
-  X.d=d; X.title=ex.title||d.title||'Exam'; X.qs=[]; X.pages=[]; X.links=[]; X.run++;
+  X.d=d; X.lesson=lesson; X.title=ex.title||d.title||'Exam'; X.qs=[]; X.pages=[]; X.links=[]; X.run++;
   const root=$('#xPages'); root.innerHTML='';
   (d.pages||[]).forEach((pg,i)=>root.append(xPage(pg,i,d)));
   $('#xTitle').textContent=X.title; $('#xSub').textContent=SUBJECT.name;
@@ -2482,7 +2620,7 @@ function xHelp(Q){
 // ---------- atoms ----------
 function xAtom(a,Q){
   if(typeof a==='string') a={t:'text',text:a};
-  const f={text:xTextAtom,mcq:xMcq,link:xLink,fill:xFill,bond:xBond,art:xArtAtom,row:xRow,col:xRow,say:xSayAtom,order:xOrder}[a.t]; const e=f?f(a,Q):el('div');
+  const f={text:xTextAtom,mcq:xMcq,link:xLink,fill:xFill,bond:xBond,art:xArtAtom,pins:xPins,row:xRow,col:xRow,say:xSayAtom,order:xOrder}[a.t]; const e=f?f(a,Q):el('div');
   if(a.cls) e.classList.add(...a.cls.split(' ')); if(a.float) e.classList.add('xfl-'+a.float); return e;
 }
 function xTextAtom(a,Q){ const d=el('div','xtext '+(a.style||'')); xInline(a.text,Q,d);
@@ -2507,6 +2645,10 @@ function xSayAtom(a){ const b=el('button','xsay '+(a.style||''),`<span class="xs
   b.onclick=async()=>{ vStop(); stopAll(); if(a.audio){ try{ await playFile(new URL(a.audio,X.base).href); return; }catch(e){} } if(!isAr()) await tts(a.text,'en',.8); }; return b; }
 
 function xArtAtom(a){ const d=el('div','xartbox '+(a.frame?'frame':'')); if(a.w) d.style.width=a.w+'em'; d.innerHTML=xArt(a.art,X.base); return d; }
+// a picture with writing places around it (book "read the word and write it in the right place"): {t:"pins",art,w,pins:[{x,y,text:"[[أب:box,wide]]"}]} (x,y = % of the frame, the place's centre)
+function xPins(a,Q){ const d=el('div','xpins'); if(a.w) d.style.width=a.w+'em';
+  const im=el('div','xpimg'); im.innerHTML=xArt(a.art,X.base); d.append(im);
+  (a.pins||[]).forEach(p=>{ const s=el('div','xpin'); s.style.left=p.x+'%'; s.style.top=p.y+'%'; xInline(p.text,Q,s); d.append(s); }); return d; }
 function xRow(a,Q){ const d=el('div',(a.t==='col'?'xcol ':'xrow ')+(a.style||'')); d.style.setProperty('--cols',a.cols||a.items.length); if(a.gap!=null) d.style.gap=a.gap+'em'; a.items.forEach(i=>d.append(xAtom(i,Q))); return d; }
 function xInline(str,Q,host){
   String(str).split(/(\[\[.*?\]\]|\{\{.*?\}\})/).forEach(part=>{ const m=part.match(/^\[\[(.*)\]\]$/), g=part.match(/^\{\{(.*)\}\}$/); if(m) host.append(xBlank(m[1],Q)); else if(g) host.append(el('span','xia',xArt(g[1],X.base))); else if(part){ const s=el('span'); s.innerHTML=part; host.append(...s.childNodes); } });
@@ -2542,6 +2684,7 @@ function xMcq(a,Q){
     if(o&&o.art){ v.innerHTML=xArt(o.art,X.base); if(o.h) v.style.setProperty('--ah',o.h+'em'); } else v.innerHTML=o; d.append(b);
     b.addEventListener('click',()=>{ if(at.solved||b.classList.contains('ok')) return;
       if(ans.includes(i)){ b.classList.add('ok'); xYay(b); if(++got>=need) xAtomDone(Q,at); } else xWarn(b); }); });
+  (a.preIdx||[]).forEach(i=>{ bs[i].classList.add('ok','pre'); got++; });   // a worked example INSIDE a multi-answer row (the book's circled example word): shown done, the rest still to solve
   if(a.pre){ Q.atoms.pop(); bs[ans[0]].classList.add('ok'); d.classList.add('pre'); }   // the worked example: already done
   return d;
 }
@@ -2700,6 +2843,8 @@ const shade=(hex,k)=>{ const n=parseInt(hex.slice(1),16); const f=v=>Math.max(0,
 const ease={out:p=>1-Math.pow(1-p,3), inout:p=>p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2, back:p=>{ const c=1.7; return 1+(c+1)*Math.pow(p-1,3)+c*Math.pow(p-1,2); }};
 const mk=(tag,attrs,html)=>{ const e=document.createElementNS(NS,tag); for(const k in attrs||{}) e.setAttribute(k,attrs[k]); if(html!=null) e.innerHTML=html; return e; };
 const hel=(tag,cls,html)=>{ const e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e; };
+// a word the child picks = THE choice button (quiz.js qChBtn, look only in css/qlayout.css; Marwa 2026-11-06)
+const xChip=(t,more)=>{ const b=qChBtn(String(t),true); b.classList.add('alopt','alchip','xpick'); if(more) b.classList.add(more); return b; };
 const STOP={stop:1};
 
 /* ---------- drawings (our own vector art; colours from data) ---------- */
@@ -2885,7 +3030,7 @@ function mount(root, data, opt){
     const g=X.gen; askRow.innerHTML=''; cap.classList.add('asking');
     if(X.fast){ cap.classList.remove('asking'); return lit(o.to,o.color,o.answer); }
     return new Promise((res,rej)=>{
-      o.options.forEach(v=>{ const b=hel('button',/\D/.test(String(v))?'alopt alchip xpick xans':'xpl-opt',String(v)); b.addEventListener('click',async()=>{
+      o.options.forEach(v=>{ const b=/\D/.test(String(v))?xChip(v,'xans'):hel('button','xpl-opt',String(v)); b.addEventListener('click',async()=>{
         if(g!==X.gen) return; if(v!==o.answer){ b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); if(opt.wrong) opt.wrong(); return; }
         b.classList.add('yes'); askRow.querySelectorAll('button').forEach(x=>x.disabled=true);
         try{ await lit(o.to,o.color,o.answer); cap.classList.remove('asking'); askRow.innerHTML=''; res(); }catch(e){ rej(e); } }); askRow.append(b); });
@@ -2922,7 +3067,7 @@ function mount(root, data, opt){
     askRow.innerHTML=''; cap.classList.add('asking','built');
     let mix=ch.map((_,k)=>k); for(let t=0;t<30;t++){ mix.sort(()=>Math.random()-.5); if(mix.some((v,k)=>v!==k)) break; }
     return new Promise((res,rej)=>{ let next=0; X.rejAsk=rej;
-      mix.forEach(k=>{ const b=hel('button','alopt alchip xpick'); b.textContent=ch[k]; askRow.append(b);
+      mix.forEach(k=>{ const b=xChip(ch[k]); askRow.append(b);
         b.addEventListener('click',()=>{ if(g!==X.gen||b.classList.contains('used')) return;
           if(ch[k]!==ch[next]){ b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); if(opt.wrong) opt.wrong(); return; }   // same text (e.g. "are" twice) = either piece is right
           const n=next; b.classList.add('used'); const ws=put(n); next++; if(opt.stop) opt.stop(); if(snd[n]) Promise.resolve(opt.play&&opt.play(base+snd[n])).catch(()=>{});
@@ -3124,5 +3269,90 @@ window.gramAnim=function(cards){
   showGrammar.done=!!(STARS[LESSON.id]&&STARS[LESSON.id].grammar);
   setTimeout(()=>run(0,true),60);
 };
+})();
+;
+/* ===== js/report.js ===== */
+/* REPORT A PROBLEM (2026-11-06, Ahmed). One small flag button, the same in every subject, so a parent / teacher who finds a mistake can tell the admin.
+   WHERE: lesson screens = in the row above the tabs, right next to the book-page tag (#lmeta .lm-l, so it always sits beside the page number it belongs to);
+   exam papers = the end of the exam header. Lessons supply nothing: the place is read from the app's own state (SUBJECT, LESSON, tab, qz, rd, vs, X).
+   WHAT is sent: subject, unit, lesson, tab, book, book page, question number (and its position), the word / reading page, the comment and a quick reason.
+   WHERE it goes: POST {api}/report (server/README.md). No server / no internet = kept on this device (es.reports) and sent later; admin.html shows both.
+   Looks: css/report.css. Never add a per-screen report button: this file puts it in both places. */
+const RP={open:false};
+const RPT={
+  ar:{title:'بلّغ عن مشكلة',kinds:[['answer','الإجابة غلط'],['picture','الصورة غلط'],['sound','الصوت غلط'],['text','كلمة مكتوبة غلط'],['other','حاجة تانية']],
+    ph:'اكتب المشكلة (اختياري)',send:'ابعت',cancel:'إلغاء',thanks:'شكرًا! وصل البلاغ',kept:'اتحفظ وهيتبعت لما النت يرجع',unit:'الوحدة',lesson:'الدرس',page:'صفحة',q:'سؤال',word:'كلمة',
+    tab:{read:'الدرس',words:'الكلمات',quiz:'أسئلة الكتاب',booklet:'الكُتيب',workbook:'كتاب التقييمات',grammar:'القواعد',exam:'ورقة تقييم'}},
+  en:{title:'Report a problem',kinds:[['answer','Wrong answer'],['picture','Wrong picture'],['sound','Wrong sound'],['text','Spelling mistake'],['other','Something else']],
+    ph:'Tell us what is wrong (optional)',send:'Send',cancel:'Cancel',thanks:'Thank you! Report sent',kept:'Saved. It will be sent when the internet is back',unit:'Unit',lesson:'Lesson',page:'Page',q:'Question',word:'Word',
+    tab:{read:'Lesson',words:'Vocabulary',quiz:'Book questions',booklet:'Booklet',workbook:'Assessments',grammar:'Grammar',exam:'Exam paper'}}};
+const rpT=()=>RPT[isAr()?'ar':'en'];
+const RPFLAG='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 21V4M6 5h11l-2.5 4L17 13H6"/></svg>';
+
+// the place the child / parent is looking at, read from the app's state
+function rpCtx(){
+  const c={subject:SUBJECT?SUBJECT.id:'',subjectName:SUBJECT?SUBJECT.name:'',build:typeof APP_BUILD==='string'?APP_BUILD:'',view:innerWidth+'x'+innerHeight};
+  if(!$('#exam').hidden){ c.tab='exam'; c.title=X.title||''; const g=X.groups&&X.groups[X.cur]; if(g) c.part=g.label;
+    const m=X.lesson; if(m){ c.lesson=m.folder||m.id; c.unit=m.unit; } return c; }
+  if(!LESSON) return c;
+  const m=SUBJECT&&SUBJECT.lessons.find(l=>l.id===LESSON.id)||{};
+  c.lesson=m.folder||LESSON.id; c.unit=m.unit; c.lessonNo=m.lesson; c.lessonTitle=m.title||LESSON.title||''; c.tab=tab;
+  if(inQ()&&typeof qz!=='undefined'&&qz.list[qz.i]){ const s=qz.list[qz.i].set; c.book=qz.src; c.page=s.page; c.ex=s.ex; c.part=s.part||s.model||''; c.qi=qz.i+1; c.qn=qz.list.length; c.qtype=s.type; c.task=String(s.task||'').slice(0,120); }
+  else if(tab==='words'&&LESSON.vocab&&LESSON.vocab[vs.i]){ c.wordNo=vs.i+1; c.word=LESSON.vocab[vs.i].word; const ps=m.pages&&[].concat(m.pages.words||[]); if(ps&&ps.length) c.page=ps[0]; }
+  else if(tab==='read'){ const ps=m.pages&&[].concat(m.pages.read||[]); if(ps&&ps.length){ const pn=LESSON.pageNums||ps; c.page=nPages()>1?pn[Math.min(rd.page-1,pn.length-1)]:ps[0]; } if(nPages()>1) c.readPage=rd.page; }
+  return c;
+}
+// a short human line for the popup, e.g. "الوحدة ١ · الدرس ٣ · أسئلة الكتاب · صفحة ١٤ · سؤال ٢"
+function rpLine(c){ const t=rpT(), n=v=>isAr()?num(v):v, out=[];
+  if(c.subjectName) out.push(c.subjectName);
+  if(c.unit!=null&&c.unit!=='') out.push(t.unit+' '+n(c.unit)); if(c.lessonNo!=null&&c.lessonNo!=='') out.push(t.lesson+' '+n(c.lessonNo));
+  if(c.tab) out.push(t.tab[c.tab]||c.tab);
+  if(c.title) out.push(c.title);
+  if(c.page!=null&&c.page!=='') out.push(t.page+' '+n(c.page));
+  if(c.ex!=null&&c.ex!=='') out.push(t.q+' '+n(c.ex)); else if(c.qi) out.push(t.q+' #'+n(c.qi));
+  if(c.word) out.push(t.word+' '+c.word);
+  if(c.part&&c.tab==='exam') out.push(c.part);
+  return out.join(' — '); }
+
+// ---------- sending: server when there is one, else (or when it can't be reached) kept on this device ----------
+const rpQueue=()=>wlGet('es.reports',[]);
+const rpSave=q=>{ try{ localStorage.setItem('es.reports',JSON.stringify(q.slice(-100))); }catch(e){} };
+async function rpPost(r){
+  try{ await ESET_P; }catch(e){}
+  const base=API(); if(!base) return false;
+  const h={'Content-Type':'application/json'}, s=typeof sySession==='function'?sySession():null; if(s&&s.token) h.Authorization='Bearer '+s.token;
+  try{ const x=await fetch(base+'/report',{method:'POST',headers:h,body:JSON.stringify({id:r.id,at:r.at,ctx:r.ctx,kind:r.kind,comment:r.comment,device:typeof syDevice==='function'?syDevice():''})});
+    return x.ok||x.status===400; }catch(e){ return false; }   // 400 = the server will never accept it: don't keep trying
+}
+async function rpSend(r){ const q=rpQueue(); q.push(r); rpSave(q); if(await rpPost(r)){ r.sent=1; rpSave(q); return true; } return false; }
+async function rpRetry(){ const q=rpQueue(), todo=q.filter(r=>!r.sent); for(const r of todo){ if(!(await rpPost(r))) break; r.sent=1; } if(todo.length) rpSave(q); }
+
+// ---------- the popup ----------
+function rpOpen(){
+  if(RP.open) return; RP.open=true; hideHint(); if(typeof stopVoice==='function') stopVoice();
+  const t=rpT(), c=rpCtx(), o=el('div','overlay rp-ov','<div class="rays"></div>'); o.dir=isAr()?'rtl':'ltr';
+  let kind='';
+  o.insertAdjacentHTML('beforeend',`<div class="popup rp-pop" role="dialog" aria-label="${t.title}"><h2 class="outline">${t.title}</h2>
+    <p class="rp-where">${rpLine(c)}</p>
+    <div class="rp-kinds">${t.kinds.map(([k,l])=>`<button type="button" class="pill cream rp-k" data-k="${k}">${l}</button>`).join('')}</div>
+    <textarea class="rp-txt" rows="3" maxlength="600" placeholder="${t.ph}"></textarea>
+    <div class="btns"><button type="button" class="pill green rp-go">${t.send}</button><button type="button" class="pill cream rp-no">${t.cancel}</button></div></div>`);
+  document.body.append(o);
+  const close=()=>{ RP.open=false; o.remove(); };
+  o.addEventListener('click',e=>{ if(e.target===o) close(); });
+  $('.rp-no',o).onclick=close;
+  $$('.rp-k',o).forEach(b=>b.onclick=()=>{ kind=kind===b.dataset.k?'':b.dataset.k; $$('.rp-k',o).forEach(x=>x.classList.toggle('on',x.dataset.k===kind)); });
+  $('.rp-go',o).onclick=async()=>{ const go=$('.rp-go',o); go.disabled=true;
+    const r={id:'r_'+Date.now().toString(36)+Math.random().toString(36).slice(2,8),at:Date.now(),ctx:c,kind,comment:$('.rp-txt',o).value.trim()};
+    const sent=await rpSend(r); $('.rp-pop',o).innerHTML=`<span class="car rp-car">${CAR('happy')}</span><p class="rp-where">${sent?t.thanks:t.kept}</p>`; setTimeout(close,1600); };   // a thank-you in the same popup, then it closes by itself
+  if(typeof anim!=='undefined'&&anim) G.from($('.rp-pop',o),{scale:.9,opacity:0,duration:.2,ease:'power2.out',clearProps:'transform,opacity'});
+}
+
+// ---------- the button: lesson row (beside the page tag) and the exam header ----------
+function rpButton(){ const b=el('button','rpbtn',RPFLAG); b.type='button'; b.setAttribute('aria-label','Report a problem'); b.addEventListener('click',e=>{ e.stopPropagation(); rpOpen(); }); return b; }
+(function(){
+  const lm=$('#lmeta .lm-l'); if(lm) lm.append(rpButton());
+  const xh=$('#exam > header'); if(xh) xh.append(rpButton());
+  rpRetry(); addEventListener('online',rpRetry); document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible') rpRetry(); });
 })();
 ;

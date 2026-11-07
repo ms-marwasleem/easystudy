@@ -49,11 +49,12 @@ function drawMapAll(j,redraw){
     const ua=accessOf(u,openOf(u),'u:'+SUBJECT.id+':'+u.unit,units.indexOf(u),'unit'), ust=ua.st, box=el('div','jend'); box.innerHTML=unitBox(u,ust);
     $('.ubox',box).addEventListener('click',()=>{ hideHint(); if(ust==='open') blip(600); else if(ust==='locked') lockTap('unit',u,ua.coins,unitBox(u,'locked'),()=>openMap()); /* js/coins.js */ else message(tr('Soon!'),isAr()?`${tr('Unit')} ${num(u.unit)} قريبًا!`:`Unit ${u.unit} is coming soon!`,unitBox(u,'soon')); });
     j.append(box); items.push({k:'u',el:box});
-    const list=lessons.filter(l=>l.unit===u.unit); let tests=null;
-    if(u.exams) list.push({unit:u.unit,lesson:'',folder:'t'+u.unit,id:SUBJECT.id+':t'+u.unit,title:'',exams:u.exams,tabs:[],testsOnly:true});   // a unit made only of tests (final assessments): one separate map item each, no lesson circle   // a unit's Tests always come after its LAST lesson
+    const list=[]; let tests=null; lessons.filter(l=>l.unit===u.unit).forEach(l=>{ list.push(l); (l.weekly||[]).forEach((w,k)=>list.push({unit:l.unit,lesson:'',folder:'w'+l.folder+k,id:SUBJECT.id+':w'+l.folder+k,title:'',exams:[w],tabs:[],testsOnly:true,weekly:true})); });   // a weekly assessment (lesson "weekly" in subject.json): its own map item right AFTER that lesson (Marwa 2026-11-06)
+    if(u.exams) (u.exams.every(e=>e.only)?u.exams.map((e,k)=>[e,k]):[[null,0]]).forEach(([e,k])=>list.push({unit:u.unit,lesson:'',folder:'t'+u.unit+(e?'-'+k:''),id:SUBJECT.id+':t'+u.unit+(e?'-'+k:''),title:'',exams:e?[e]:u.exams,tabs:[],testsOnly:true}));   // exams that show ONE page each ("only") = each its own map item, never several signs/buttons together (Marwa 2026-11-06)
+      // a unit made only of tests (final assessments): one separate map item each, no lesson circle   // a unit's Tests always come after its LAST lesson
     list.forEach((m,i)=>{ const la=m.testsOnly?{st:'open'}:accessOf(m,!!m.file,'l:'+m.id), byUnit=la.st==='open'&&ust==='locked'&&!(ESET.items['l:'+m.id]||{}).st&&!coinUnlocked('l:'+m.id);   // a lesson of a locked unit is locked too (a tap offers the whole unit)
       const L=mkLesson(m,list[i+1],m===curM,i===list.length-1,byUnit?'locked':la.st,byUnit?ua.coins:la.coins,byUnit?u:null), signs=$$('.jpg',L); let nm=$('.jt',L);
-      if(i<list.length-1) { const ex=signs.filter(g=>$('.jpm.ex',g)); if(ex.length){ ex.forEach(g=>{ signs.splice(signs.indexOf(g),1); g.remove(); }); (tests=tests||[]).push(...ex); } }
+      if(i<list.length-1&&!m.weekly) { const ex=signs.filter(g=>$('.jpm.ex',g)); if(ex.length){ ex.forEach(g=>{ signs.splice(signs.indexOf(g),1); g.remove(); }); (tests=tests||[]).push(...ex); } }
       if(i===list.length-1&&tests){ signs.push(...tests); tests=null; }
       [nm,...signs].forEach(e=>{ if(e) e.dataset.touched=L.dataset.touched; }); $$('.jside',L).forEach(s=>s.remove()); if(nm&&m.testsOnly){ nm.remove(); nm=null; } if(nm){ j.append(nm); nm.addEventListener('click',()=>$('.jbox',L).click()); } j.append(L); signs.forEach(s=>j.append(s)); items.push({k:'l',el:L,signs,name:nm}); });
   });

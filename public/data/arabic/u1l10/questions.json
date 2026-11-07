@@ -138,10 +138,7 @@
    "ex": 3,
    "page": 38,
    "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ التَّاءِ",
-   "taskAudio": [
-    "../q-prompts/circle-word-letter.mp3",
-    "../letters/62a/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-d2d5c364.mp3",
    "hint": "اضغط على الكلمات اللي فيها التاء",
    "items": [
     {
@@ -177,65 +174,11 @@
    ]
   },
   {
-   "type": "sound",
-   "ex": 4,
-   "page": 39,
-   "task": "أَنْطِقُ صَوْتَ حَرْفِ التَّاءِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
-   "taskAudio": "q/task-4.mp3",
-   "hint": "اسمع الجملة وردد وراها",
-   "items": [
-    {
-     "word": "تَمْر",
-     "ask": "تَ",
-     "pic": "../../pics/ar-dates.png",
-     "audio": [
-      "../letters/62a/name.mp3",
-      "../shared/h-fatha.mp3",
-      "../../syl-ar/62a-64e.mp3",
-      "../u1l5/words/tamr.mp3"
-     ]
-    },
-    {
-     "word": "تُفَّاحَة",
-     "ask": "تُ",
-     "pic": "../../pics/ar-apple-u1l10.png",
-     "audio": [
-      "../letters/62a/name.mp3",
-      "../shared/h-damma.mp3",
-      "../../syl-ar/62a-64f.mp3",
-      "words/tuffaha.mp3"
-     ]
-    },
-    {
-     "word": "تِمْسَاح",
-     "ask": "تِ",
-     "pic": "../../pics/ar-crocodile.png",
-     "audio": [
-      "../letters/62a/name.mp3",
-      "../shared/h-kasra.mp3",
-      "../../syl-ar/62a-650.mp3",
-      "words/timsah.mp3"
-     ]
-    },
-    {
-     "word": "كَتْكُوت",
-     "ask": "تْ",
-     "pic": "../../pics/ar-chick.png",
-     "audio": [
-      "../letters/62a/name.mp3",
-      "../shared/h-sukoon.mp3",
-      "../../syl-ar/62a-652.mp3",
-      "words/katkut.mp3"
-     ]
-    }
-   ]
-  },
-  {
    "type": "vowel",
    "ex": 5,
    "page": 39,
    "task": "أَضَعُ دَائِرَةً حَوْلَ صَوْتِ حَرْفِ التَّاءِ الْمُنَاسِبِ لِكُلِّ صُورَةٍ",
-   "taskAudio": "../q-prompts/choose-letter-sound-a.mp3",
+   "taskAudio": "../q-heads/h-d37f2cd5.mp3",
    "hint": "اختار صوت التاء المناسب",
    "choices": [
     "تَ",
@@ -296,7 +239,7 @@
    "ex": 7,
    "page": 40,
    "task": "أَنْطِقُ، وَأَخْتَارُ حَرْفَ التَّاءِ مَضْبُوطًا بِالشَّكْلِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "taskAudio": "../q-heads/h-731c98d5.mp3",
    "hint": "اختار التاء بالحركة الصح",
    "choices": [
     "تَ",
@@ -353,22 +296,25 @@
    ]
   },
   {
-   "type": "write",
+   "type": "puzzle",
    "ex": 8,
    "page": 40,
    "task": "أَنْطِقُ، ثُمَّ أَدْمِجُ الْحَرْفَيْنِ لِأُكَوِّنَ كَلِمَةً",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
-   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "taskAudio": "../q-heads/h-9daf7d73.mp3",
+   "hint": "اسحب القطع وركّبها جنب بعض",
    "items": [
     {
      "word": "أُخْت",
-     "audio": "words/ukht.mp3",
-     "pic": "../../pics/ar-sister.jpg",
-     "chips": [
-      "أُ",
-      "خْ",
+     "pieces": [
+      "أُخْ",
       "ت"
-     ]
+     ],
+     "pieceAudio": [
+      "../../syl-ar/623-64f-62e-652.mp3",
+      "../../syl-ar/62a.mp3"
+     ],
+     "audio": "words/ukht.mp3",
+     "pic": "../../pics/ar-sister.jpg"
     }
    ]
   },
@@ -544,10 +490,7 @@
    "ex": 5,
    "page": 35,
    "task": "أَنْطِقُ، وَأَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ التَّاءِ",
-   "taskAudio": [
-    "../q-prompts/circle-letter-sound.mp3",
-    "../letters/62a/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-7aa19929.mp3",
    "hint": "اضغط على الصور التي فيها صوت التاء",
    "book": "booklet",
    "items": [
@@ -602,14 +545,42 @@
    ]
   },
   {
+   "type": "link",
+   "ex": 6,
+   "page": 36,
+   "book": "booklet",
+   "task": "أَنْطِقُ، وَصِلْ كُلَّ صُورَةٍ بِصَوْتِ حَرْفِ (ت) الْمُنَاسِبِ",
+   "taskAudio": "q/task-b6.mp3",
+   "hint": "صل الصوت بالصورة",
+   "items": [
+    {
+     "word": "تُ",
+     "pic": "../../pics/ar-apple-u1l10.png",
+     "audio": "../../syl-ar/62a-64f.mp3"
+    },
+    {
+     "word": "تِ",
+     "pic": "../../pics/ar-fig.png",
+     "audio": "../../syl-ar/62a-650.mp3"
+    },
+    {
+     "word": "تَ",
+     "pic": "../../pics/ar-crown.png",
+     "audio": "../../syl-ar/62a-64e.mp3"
+    },
+    {
+     "word": "تْ",
+     "pic": "../../pics/ar-chick.png",
+     "audio": "../../syl-ar/62a-652.mp3"
+    }
+   ]
+  },
+  {
    "type": "position",
    "ex": 7,
    "page": 36,
    "task": "أَنْطِقُ، وَأَرْسُمُ دَائِرَةً فِي مَكَانِ صَوْتِ حَرْفِ التَّاءِ",
-   "taskAudio": [
-    "../q-prompts/mark-letter-position.mp3",
-    "../letters/62a/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-0d1c2924.mp3",
    "hint": "اضغط على الدائرة التي فيها التاء",
    "book": "booklet",
    "items": [
@@ -632,16 +603,72 @@
      "at": 2
     },
     {
-     "word": "مَكْتَب",
-     "audio": "../u2l8/words/maktab.mp3",
-     "pic": "../../pics/ar-desk.png",
-     "at": 2
-    },
-    {
      "word": "حُوت",
      "audio": "../u1l6/words/hut.mp3",
      "pic": "../../pics/ar-whale.png",
      "at": 2
+    },
+    {
+     "word": "تُفَّاح",
+     "audio": "words/tuffaha.mp3",
+     "pic": "../../pics/ar-apple-u1l10.png",
+     "at": 0
+    },
+    {
+     "word": "مَكْتَب",
+     "audio": "../u2l8/words/maktab.mp3",
+     "pic": "../../pics/ar-desk.png",
+     "at": 2
+    }
+   ]
+  },
+  {
+   "type": "split",
+   "ex": 8,
+   "page": 36,
+   "book": "booklet",
+   "task": "حَلِّلْ إِلَى حُرُوفٍ",
+   "taskAudio": "q/task-b8.mp3",
+   "hint": "اسحب الحروف وركّبها في أماكن المقاطع",
+   "items": [
+    {
+     "word": "بُرْتُقَال",
+     "parts": [
+      "بُرْ",
+      "تُ",
+      "قَا",
+      "ل"
+     ]
+    },
+    {
+     "word": "تَمْر",
+     "parts": [
+      "تَمْ",
+      "ر"
+     ]
+    },
+    {
+     "word": "كِتَاب",
+     "parts": [
+      "كِ",
+      "تَا",
+      "ب"
+     ]
+    },
+    {
+     "word": "تِين",
+     "parts": [
+      "تِي",
+      "ن"
+     ]
+    },
+    {
+     "word": "تِلْفَاز",
+     "parts": [
+      "تِلْ",
+      "فَا",
+      "ز"
+     ]
     }
    ]
   },
@@ -693,53 +720,206 @@
    ]
   },
   {
-   "type": "write",
+   "type": "arrange",
    "ex": 10,
    "page": 36,
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/arrange-letters.mp3",
-   "hint": "اكتب الكلمة بعد ما ترتب الحروف",
+   "taskAudio": "../q-heads/h-c412ebef.mp3",
+   "hint": "رتب الحروف",
    "book": "booklet",
    "items": [
     {
      "word": "تُفَّاح",
      "audio": "words/tuffaha.mp3",
      "pic": "../../pics/ar-apple-u1l10.png",
-     "chips": [
-      "تُ",
-      "فَّا",
-      "ح"
-     ]
+     "scr": "فَّاتُح"
     },
     {
      "word": "مِتْر",
      "audio": "words/mitr.mp3",
      "pic": "../../pics/ar-tape.png",
-     "chips": [
-      "مِ",
-      "تْ",
-      "ر"
-     ]
+     "scr": "تْمِر"
     },
     {
      "word": "خَتْم",
      "audio": "words/khatm.mp3",
      "pic": "../../pics/ar-stamp.png",
-     "chips": [
-      "خَ",
-      "تْ",
-      "م"
-     ]
+     "scr": "تْخَم"
     },
     {
      "word": "تِين",
      "audio": "words/tin.mp3",
      "pic": "../../pics/ar-fig.png",
-     "chips": [
-      "تِ",
-      "ي",
-      "ن"
-     ]
+     "scr": "نيتِ"
+    }
+   ]
+  },
+  {
+   "type": "ring",
+   "ex": 11,
+   "page": 37,
+   "book": "booklet",
+   "task": "اِسْتَمِعْ وَأَرْسُمْ دَائِرَةً حَوْلَ حَرْفِ التَّاءِ (ت)",
+   "taskAudio": "q/task-b11.mp3",
+   "hint": "اضغط على التاء داخل الكلمة",
+   "items": [
+    {
+     "word": "مُتْحَف",
+     "letter": "ت",
+     "audio": "words/mathaf.mp3"
+    },
+    {
+     "word": "تُوت",
+     "letter": "ت",
+     "audio": "words/tut.mp3"
+    },
+    {
+     "word": "تُفَّاح",
+     "letter": "ت",
+     "audio": "words/tuffaha.mp3"
+    },
+    {
+     "word": "بُرْتُقَال",
+     "letter": "ت",
+     "audio": "../u2l6/words/burtuqal.mp3"
+    },
+    {
+     "word": "تَاج",
+     "letter": "ت",
+     "audio": "words/taj.mp3"
+    },
+    {
+     "word": "كِتَاب",
+     "letter": "ت",
+     "audio": "../u2l8/words/kitab.mp3"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 12,
+   "page": 37,
+   "book": "booklet",
+   "task": "عَبِّرْ عَنْ كُلِّ صُورَةٍ مِمَّا يَأْتِي بِكَلِمَةٍ مُنَاسِبَةٍ",
+   "taskAudio": "q/task-b12.mp3",
+   "hint": "اكتب الكلمة تحت الصورة",
+   "items": [
+    {
+     "word": "تُوت",
+     "audio": "words/tut.mp3",
+     "pic": "../../pics/ar-mulberry.png"
+    },
+    {
+     "word": "مِتْر",
+     "audio": "words/mitr.mp3",
+     "pic": "../../pics/ar-tape.png"
+    },
+    {
+     "word": "تِمْسَاح",
+     "audio": "words/timsah.mp3",
+     "pic": "../../pics/ar-crocodile.png"
+    },
+    {
+     "word": "مَكْتَب",
+     "audio": "../u2l8/words/maktab.mp3",
+     "pic": "../../pics/ar-desk.png"
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 13,
+   "page": 37,
+   "book": "booklet",
+   "task": "أُكْمِلُ بِصَوْتِ الْحَرْفِ الْمُنَاسِبِ بِحَرَكَتِهِ",
+   "taskAudio": "q/task-b13.mp3",
+   "hint": "اختار الحرف بالحركة الصح",
+   "choices": [
+    "تَ",
+    "تُ",
+    "تِ",
+    "ت",
+    "ا",
+    "و",
+    "ي"
+   ],
+   "items": [
+    {
+     "word": "كِتَاب",
+     "audio": "../u2l8/words/kitab.mp3",
+     "pic": "../../pics/ar-book-red.png",
+     "answer": "تَ",
+     "choices": [
+      "تَ",
+      "تُ",
+      "تِ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "حُوت",
+     "audio": "../u1l6/words/hut.mp3",
+     "pic": "../../pics/ar-whale.png",
+     "answer": "ت",
+     "choices": [
+      "ت",
+      "تَ",
+      "تُ"
+     ],
+     "at": 2
+    },
+    {
+     "word": "تَاج",
+     "audio": "words/taj.mp3",
+     "pic": "../../pics/ar-crown.png",
+     "answer": "ا",
+     "choices": [
+      "ا",
+      "و",
+      "ي"
+     ],
+     "at": 1
+    },
+    {
+     "word": "بِنْت",
+     "audio": "../u1l4/words/bint.mp3",
+     "pic": "../../pics/ar-girl.png",
+     "answer": "ت",
+     "choices": [
+      "ت",
+      "تَ",
+      "تِ"
+     ],
+     "at": 2
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 14,
+   "page": 37,
+   "book": "booklet",
+   "task": "اِقْرَأْ كُلَّ جُمْلَةٍ، وَضَعْ عَلَامَةَ (✓) عِنْدَ الصُّورَةِ الْمُنَاسِبَةِ لَهَا",
+   "taskAudio": "q/task-b14.mp3",
+   "hint": "اقرأ الجملة واختار الصورة",
+   "items": [
+    {
+     "word": "رَتَّبْتُ الرَّفَّ الْأَحْمَرَ.",
+     "audio": "q/s14-1.mp3",
+     "pics": [
+      "../../pics/ar-p37-toys-red-shelf.png",
+      "../../pics/ar-p37-toys-blue-shelf.png"
+     ],
+     "answer": 0
+    },
+    {
+     "word": "أُحِبُّ التَّمْرَ وَاللِّفْتَ.",
+     "audio": "q/s14-2.mp3",
+     "pics": [
+      "../../pics/ar-p37-carrot-tomato.png",
+      "../../pics/ar-p37-turnip-dates.png"
+     ],
+     "answer": 1
     }
    ]
   },
@@ -795,64 +975,33 @@
    ]
   },
   {
-   "type": "vowel",
+   "type": "link",
    "ex": 2,
    "task": "أَنْطِقُ، ثُمَّ أَصِلُ الصُّورَةَ بِصَوْتِ حَرْفِ التَّاءِ الْمُنَاسِبِ",
-   "taskAudio": "../q-prompts/choose-letter-sound-a.mp3",
-   "hint": "اختار صوت التاء المناسب",
-   "choices": [
-    "تَ",
-    "تُ",
-    "تِ",
-    "تْ"
-   ],
+   "taskAudio": "../q-heads/h-10774bca.mp3",
+   "hint": "صل الصوت بالصورة",
    "book": "workbook",
    "page": 27,
    "items": [
     {
-     "word": "تَمْر",
-     "audio": "../u1l5/words/tamr.mp3",
+     "word": "تَ",
      "pic": "../../pics/ar-dates.png",
-     "answer": "تَ",
-     "choices": [
-      "تَ",
-      "تُ",
-      "تِ"
-     ]
+     "audio": "../../syl-ar/62a-64e.mp3"
     },
     {
-     "word": "تُفَّاحَة",
-     "audio": "words/tuffaha.mp3",
+     "word": "تُ",
      "pic": "../../pics/ar-apple-u1l10.png",
-     "answer": "تُ",
-     "choices": [
-      "تَ",
-      "تُ",
-      "تِ"
-     ]
+     "audio": "../../syl-ar/62a-64f.mp3"
     },
     {
-     "word": "تِمْسَاح",
-     "audio": "words/timsah.mp3",
+     "word": "تِ",
      "pic": "../../pics/ar-crocodile.png",
-     "answer": "تِ",
-     "choices": [
-      "تَ",
-      "تُ",
-      "تِ"
-     ]
+     "audio": "../../syl-ar/62a-650.mp3"
     },
     {
-     "word": "مِتْر",
-     "audio": "words/mitr.mp3",
+     "word": "تْ",
      "pic": "../../pics/ar-tape.png",
-     "answer": "تْ",
-     "choices": [
-      "تَ",
-      "تُ",
-      "تْ"
-     ],
-     "at": 1
+     "audio": "../../syl-ar/62a-652.mp3"
     }
    ]
   },
@@ -860,7 +1009,7 @@
    "type": "vowel",
    "ex": "h1",
    "task": "أَكْتُبُ صَوْتَ حَرْفِ التَّاءِ تَحْتَ الصُّورَةِ الْمُنَاسِبَةِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "taskAudio": "../q-heads/h-c9d656e6.mp3",
    "hint": "اختار التاء بالحركة الصح",
    "choices": [
     "تَ",
@@ -922,7 +1071,7 @@
    "type": "write",
    "ex": "h2",
    "task": "أَدْمِجُ وَأُكَوِّنُ كَلِمَةً صَحِيحَةً",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "taskAudio": "../q-heads/h-d7fe094d.mp3",
    "hint": "اكتب الكلمة بعد ما تدمج الحروف",
    "book": "workbook",
    "page": 27,
@@ -954,6 +1103,52 @@
       "بِ",
       "ي"
      ]
+    }
+   ]
+  },
+  {
+   "type": "build",
+   "ex": "h3",
+   "page": 27,
+   "book": "workbook",
+   "task": "أُكَوِّنُ كَلِمَاتٍ مِنَ الْحُرُوفِ الْآتِيَةِ",
+   "taskAudio": "q/task-wb-h3.mp3",
+   "hint": "اسحب الحروف وكوّن كلمات",
+   "items": [
+    {
+     "letters": [
+      "ب",
+      "ج",
+      "م",
+      "ت",
+      "ح",
+      "أ",
+      "خ",
+      "د"
+     ],
+     "words": [
+      "أَب",
+      "أُمّ",
+      "أَخ",
+      "أُخْت",
+      "جَد",
+      "جَدّ",
+      "دُب",
+      "دُبّ",
+      "حُبّ",
+      "حَبّ",
+      "حَجّ",
+      "جَمّ",
+      "مَدّ",
+      "حَدّ",
+      "دَمّ",
+      "بَحّ",
+      "خَدّ",
+      "خَد"
+     ],
+     "slots": 4,
+     "need": 3,
+     "cells": 3
     }
    ]
   }

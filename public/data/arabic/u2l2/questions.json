@@ -30,7 +30,7 @@
    "ex": 2,
    "page": 43,
    "task": "أَصِلُ كُلَّ كَلِمَةٍ بِمَعْنَاهَا أَوْ جَمْعِهَا أَوْ مُفْرَدِهَا",
-   "taskAudio": "../q-prompts/match-meaning.mp3",
+   "taskAudio": "../q-heads/h-e9a89a89.mp3",
    "hint": "صل كل كلمة بمعناها أو جمعها أو مفردها",
    "book": "booklet",
    "items": [
@@ -122,6 +122,58 @@
   },
   {
    "type": "circle",
+   "ex": 1,
+   "page": 31,
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي لَهَا نَفْسُ النِّهَايَاتِ كَمَا بِالْمِثَالِ",
+   "taskAudio": "q/task-w1.mp3",
+   "hint": "اضغط على الكلمات اللي ليها نفس النهاية",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "الْأُسُود",
+     "audio": "words/usud.mp3",
+     "answer": true
+    },
+    {
+     "word": "الْفِيل",
+     "audio": "words/fil-al.mp3",
+     "answer": false
+    },
+    {
+     "word": "الْقُرُود",
+     "audio": "words/qurud.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 1,
+   "page": 31,
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي لَهَا نَفْسُ النِّهَايَاتِ كَمَا بِالْمِثَالِ",
+   "taskAudio": "q/task-w1.mp3",
+   "hint": "اضغط على الكلمات اللي ليها نفس النهاية",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "لَوْحَتِي",
+     "audio": "words/lawhati.mp3",
+     "answer": false
+    },
+    {
+     "word": "جَدِيدَة",
+     "audio": "words/jadida.mp3",
+     "answer": true
+    },
+    {
+     "word": "سَعِيدَة",
+     "audio": "words/saida.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "circle",
    "ex": 2,
    "page": 31,
    "task": "أَرْسُمُ دَائِرَةً حَوْلَ الْكَائِنَاتِ الَّتِي وَرَدَتْ فِي النَّشِيدِ",
@@ -137,19 +189,19 @@
     },
     {
      "word": "فِيل",
-     "audio": "q/c-fil.mp3",
+     "audio": "../u1l3/q/c5-fil.mp3",
      "pic": "../../pics/ar-elephant.png",
      "answer": true
     },
     {
      "word": "بَقَرَة",
-     "audio": "q/c-baqara.mp3",
+     "audio": "../u1l4/words/baqara.mp3",
      "pic": "../../pics/ar-cow.png",
      "answer": false
     },
     {
      "word": "دِيك",
-     "audio": "q/c-dik.mp3",
+     "audio": "../u1l8/words/dik.mp3",
      "pic": "../../pics/ar-rooster.png",
      "answer": false
     },
@@ -161,19 +213,19 @@
     },
     {
      "word": "بَطَّة",
-     "audio": "q/c-batta.mp3",
+     "audio": "../u1l3/q/c5-batta.mp3",
      "pic": "../../pics/ar-duck.png",
      "answer": true
     },
     {
      "word": "قِرْد",
-     "audio": "q/c-qird.mp3",
+     "audio": "../u2l6/words/qird.mp3",
      "pic": "../../pics/ar-monkey.jpg",
      "answer": true
     },
     {
      "word": "نَسْر",
-     "audio": "q/c-nasr.mp3",
+     "audio": "words/nasr.mp3",
      "pic": "../../pics/ar-eagle.jpg",
      "answer": true
     }
@@ -206,7 +258,7 @@
    "ex": "h2",
    "page": 31,
    "task": "أَدْمِجُ وَأُكَوِّنُ كَلِمَةً",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
+   "taskAudio": "../q-heads/h-2f0c8cfd.mp3",
    "hint": "اكتب الكلمة بعد ما تدمج الحروف",
    "book": "workbook",
    "items": [

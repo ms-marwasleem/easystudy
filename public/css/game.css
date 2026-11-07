@@ -287,3 +287,25 @@
   .scene.story{padding-top:0}
   .scene.story .note{flex:none;height:40%;min-height:0}
 }
+/* plain story card shows 3 lines only (Marwa 2026-11-06): no room under the 3rd line, so no sliver of the 4th */
+   /* room above the 1st line for the marks over the letters */
+@media (max-aspect-ratio:5/4){#lesson.ar .scene.story:not(.poem):not(.point) .note .in{justify-content:flex-start;padding-top:.7em;padding-bottom:0}}   /* centred text could never scroll to its first line */
+.scene.story:not(.poem):not(.point) .note .in>*{flex:none}
+
+/* ONE way to mark what is read (Marwa 2026-11-06, every subject): the WORD lights up on its own transparent background; no box round a line or a sentence */
+.bks.on,.pk .txt.on{background:none}
+/* LANDSCAPE story lessons (Marwa 2026-11-06): the picture alone on the LEFT, the text on the RIGHT (the picture shows better); portrait keeps picture with the text card at the bottom */
+@media (min-aspect-ratio:5/4){
+  .scene.story:not(.poem):not(.point){display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr);gap:.6rem;direction:ltr;padding:0 .6rem .6rem}
+  .scene.story:not(.poem):not(.point) .sbg{position:relative;inset:auto;grid-area:1/1;min-height:0}
+  .scene.story:not(.poem):not(.point) .note{grid-area:1/2;height:auto!important;margin:0;align-self:stretch;width:auto}
+  #lesson.ar .scene.story:not(.poem):not(.point) .note{direction:rtl}
+}
+/* English AL too (Marwa 2026-11-06): the read sentence gets NO coloured box; only the WORD lights, colour only, transparent background */
+.alline.on{background:rgba(255,255,255,.55);border-color:transparent}
+.alline .alw.lit,.alline .alw.rd,.alcloze .alw.lit{background:none;color:var(--story-now,#D9560B);text-shadow:none}
+.alprose .alw.lit,.alprose .alw.rd{background:none;color:var(--c-hint);text-shadow:0 0 .4em var(--c-hint)}
+/* no star on a single word (Marwa 2026-11-06): the star and the stars screen come only when the whole tab is done */
+.vthumb .vst{display:none}
+/* a question whose only question text is its header (e.g. "I say the sound of the letter...") gets the small speaker at the END of the header (Marwa 2026-11-06); questions with their own question line keep the speaker after that line */
+.quiz:not(:has(.qask)) .qhead .qtsay{display:grid!important;width:1.5rem;height:1.5rem}.quiz:not(:has(.qask)) .qhead .qtsay svg{width:1rem;height:1rem}

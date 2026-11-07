@@ -53,14 +53,19 @@ const ch={i:0,slow:false,on:false};
 const chBuf=async url=>{ await ensureCtx(); let b=await libBuffer(url,player.ctx).catch(()=>null);
   if(!b){ if(!vs.files[url]) vs.files[url]=fetch(url).then(r=>{ if(!r.ok) throw new Error('missing'); return r.arrayBuffer(); }).then(x=>decodeSnd(player.ctx,x)).catch(()=>{ delete vs.files[url]; return null; }); b=await vs.files[url]; }
   return b; };
-const chSay=async url=>{ const b=await chBuf(url); if(!b){ await nap(2600); return; }
-  return new Promise(res=>{ const s=player.ctx.createBufferSource(); s.buffer=b; s.playbackRate.value=ch.slow?.75:1; s.connect(player.ctx.destination); vs.src=s; s.onended=()=>{ if(vs.src===s) vs.src=null; res(); }; s.start(0); }); };
-function chLit(i){ $$('.lchant .cl').forEach((e,k)=>e.classList.toggle('now',k===i)); }
+// the words of a chant line light one by one (the recording has no word times: spread over its length by letters) - the WORD itself, transparent background, never a box round the line (Marwa 2026-11-06, all reading in the app)
+ch.T=[];
+function chWordsStop(){ ch.T.forEach(clearTimeout); ch.T=[]; $$('.lchant .w.reading').forEach(x=>x.classList.remove('reading')); }
+function chWords(i,dur){ const ws=$$('.lchant .cl')[i]; if(!ws) return; const w=$$('.w',ws), tot=w.reduce((a,x)=>a+x.textContent.length,0)||1; let acc=0;
+  w.forEach(x=>{ const at=acc/tot*dur*1000; acc+=x.textContent.length; ch.T.push(setTimeout(()=>{ $$('.lchant .w.reading').forEach(y=>y.classList.remove('reading')); x.classList.add('reading'); },at)); }); }
+const chSay=async(url,i)=>{ const b=await chBuf(url); if(!b){ chWords(i,2.6); await nap(2600); return; }
+  return new Promise(res=>{ const s=player.ctx.createBufferSource(); s.buffer=b; s.playbackRate.value=ch.slow?.75:1; s.connect(player.ctx.destination); vs.src=s; s.onended=()=>{ if(vs.src===s) vs.src=null; res(); }; chWords(i,b.duration/(ch.slow?.75:1)); s.start(0); }); };
+function chLit(i){ chWordsStop(); $$('.lchant .cl').forEach((e,k)=>e.classList.toggle('now',k===i)); }
 async function chRun(from){ const Lt=LESSON.letter.chant; vStop(); lt.run++; const run=lt.run, vr=vs.run; ch.on=true; chRail();
   const dead=()=>run!==lt.run||vr!==vs.run||tab!=='read';
-  for(let i=from;i<Lt.lines.length;i++){ ch.i=i; chLit(i); try{ await chSay(Lt.lines[i].audio); }catch(e){} if(dead()) return; if(i<Lt.lines.length-1) await nap(350); if(dead()) return; }
+  for(let i=from;i<Lt.lines.length;i++){ ch.i=i; chLit(i); try{ await chSay(Lt.lines[i].audio,i); }catch(e){} if(dead()) return; if(i<Lt.lines.length-1) await nap(350); if(dead()) return; }
   ch.on=false; ch.i=0; chLit(-1); chRail(); rd.done[1]=1; if(Object.keys(rd.done).length>=nPages()) award(LESSON.id,'read'); carFrac(1); }
-function chPause(){ vStop(); lt.run++; ch.on=false; chRail(); }
+function chPause(){ vStop(); lt.run++; ch.on=false; chWordsStop(); chRail(); }
 function chRail(){ if(tab!=='read'||!$('.lchant')) return; const res=!ch.on&&ch.i>0;
   setRail([ ch.on?{kind:'stop',icon:'stop',label:tr('Stop'),click:chPause}:{kind:'go',icon:'play',label:tr(res?'Continue':'Read'),click:()=>chRun(ch.i)},
     {kind:'again',icon:'restart',label:tr('Restart'),click:()=>chRun(0)},
@@ -70,7 +75,7 @@ function showChant(){
   const scene=el('div','scene pics letter chantp'), body=el('div','lchant');
   scene.append(el('p','task',STAR(true)+(C.task||'نشيد الحرف')),body);
   body.append(el('div','cpic fit-media',`<img src="${C.pic}" alt="">`)); const tx=el('div','ctx'); body.append(tx);
-  C.lines.forEach((l,i)=>{ const b=el('button','cl txt',l.t); b.addEventListener('click',()=>{ chRun(i); }); tx.append(b); });
+  C.lines.forEach((l,i)=>{ const b=el('button','cl txt'); String(l.t).split(/\s+/).filter(Boolean).forEach((w,k,a)=>{ b.append(el('span','w',w)); if(k<a.length-1) b.append(' '); }); b.addEventListener('click',()=>{ chRun(i); }); tx.append(b); });
   readPager(scene); stage.append(scene); carFrac(0); chRail();
   if(typeof bookTag==='function') bookTag(); showHint($('#rail .dash.go .rb'),LESSON.hints&&LESSON.hints.chant||LESSON.hints&&LESSON.hints.read,1400,'read');
 }

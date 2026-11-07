@@ -138,10 +138,7 @@
    "ex": 3,
    "page": 29,
    "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الْجِيمِ",
-   "taskAudio": [
-    "../q-prompts/circle-word-letter.mp3",
-    "../letters/62c/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-5683ffb8.mp3",
    "hint": "اضغط على الكلمة اللي فيها الجيم",
    "items": [
     {
@@ -182,69 +179,11 @@
    ]
   },
   {
-   "type": "sound",
-   "ex": 4,
-   "page": 30,
-   "task": "أَنْطِقُ صَوْتَ حَرْفِ الْجِيمِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
-   "taskAudio": "q/task-4.mp3",
-   "hint": "اسمع الجملة وردد وراها",
-   "items": [
-    {
-     "word": "جَمَل",
-     "ask": "جَ",
-     "pic": "../../pics/ar-camel.png",
-     "audio": [
-      "../letters/62c/name.mp3",
-      "../shared/h-fatha.mp3",
-      "../../syl-ar/62c-64e.mp3",
-      "words/jamal.mp3"
-     ]
-    },
-    {
-     "word": "جُنْدِيّ",
-     "ask": "جُ",
-     "pic": "../../pics/ar-soldier.png",
-     "audio": [
-      "../letters/62c/name.mp3",
-      "../shared/h-damma.mp3",
-      "../../syl-ar/62c-64f.mp3",
-      "words/jundi.mp3"
-     ]
-    },
-    {
-     "word": "جِسْر",
-     "ask": "جِ",
-     "pic": "../../pics/ar-bridge.png",
-     "audio": [
-      "../letters/62c/name.mp3",
-      "../shared/h-kasra.mp3",
-      "../../syl-ar/62c-650.mp3",
-      "words/jisr.mp3"
-     ]
-    },
-    {
-     "word": "نَجْم",
-     "ask": "جْ",
-     "pic": "../../pics/ar-star-u1l7.png",
-     "audio": [
-      "../letters/62c/name.mp3",
-      "../shared/h-sukoon.mp3",
-      "../../syl-ar/62c-652.mp3",
-      "words/najm.mp3"
-     ]
-    }
-   ]
-  },
-  {
    "type": "vowel",
    "ex": 5,
    "page": 30,
    "task": "أَنْطِقُ، وَأَضَعُ دَائِرَةً حَوْلَ حَرْفِ الْجِيمِ الْمُنَاسِبِ لِكُلِّ صُورَةٍ",
-   "taskAudio": [
-    "../q-prompts/choose-letter-sound-a.mp3",
-    "../letters/62c/name.mp3",
-    "../q-prompts/choose-letter-sound-b.mp3"
-   ],
+   "taskAudio": "../q-heads/h-ccc475ec.mp3",
    "hint": "اختار صوت الجيم",
    "choices": [
     "جَ",
@@ -266,7 +205,7 @@
     },
     {
      "word": "جَبَل",
-     "audio": "../u1l4/q/jabal.mp3",
+     "audio": "words/jabal.mp3",
      "pic": "../../pics/ar-mountain.png",
      "answer": "جَ",
      "choices": [
@@ -346,7 +285,7 @@
    "ex": 8,
    "page": 31,
    "task": "أَقْرَأُ الْكَلِمَاتِ الْآتِيَةَ، ثُمَّ أَصِلُ كُلَّ كَلِمَةٍ بِالصُّورَةِ الْمُنَاسِبَةِ",
-   "taskAudio": "../q-prompts/match-picture.mp3",
+   "taskAudio": "../q-heads/h-cfb509cb.mp3",
    "hint": "صل الكلمة بالصورة",
    "items": [
     {
@@ -721,10 +660,7 @@
    "ex": 7,
    "page": 24,
    "task": "أَنْطِقُ، وَأَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الْجِيمِ",
-   "taskAudio": [
-    "../q-prompts/circle-letter-sound.mp3",
-    "../letters/62c/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-10b7dbf0.mp3",
    "hint": "اضغط على الصور التي فيها صوت الجيم",
    "book": "booklet",
    "items": [
@@ -789,11 +725,7 @@
    "ex": 8,
    "page": 24,
    "task": "أَنْطِقُ، وَأَرْسُمُ دَائِرَةً حَوْلَ صَوْتِ حَرْفِ الْجِيمِ الْمُنَاسِبِ لِكُلِّ صُورَةٍ",
-   "taskAudio": [
-    "../q-prompts/choose-letter-sound-a.mp3",
-    "../letters/62c/name.mp3",
-    "../q-prompts/choose-letter-sound-b.mp3"
-   ],
+   "taskAudio": "../q-heads/h-735e5cd1.mp3",
    "hint": "اختار صوت الجيم",
    "choices": [
     "جَ",
@@ -828,6 +760,12 @@
      "pic": "../../pics/ar-fa-radish.png",
      "answer": "جْ",
      "at": 1
+    },
+    {
+     "word": "جَوْرَب",
+     "audio": "words/jawrab.mp3",
+     "pic": "../../pics/ar-socks.png",
+     "answer": "جَ"
     }
    ]
   },
@@ -836,10 +774,7 @@
    "ex": 9,
    "page": 24,
    "task": "أَنْطِقُ وَأُحَدِّدُ مَوْضِعَ حَرْفِ الْجِيمِ",
-   "taskAudio": [
-    "../q-prompts/mark-letter-position.mp3",
-    "../letters/62c/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-a4816d9c.mp3",
    "hint": "اضغط على الدائرة التي فيها الجيم",
    "book": "booklet",
    "items": [
@@ -862,9 +797,9 @@
      "at": 0
     },
     {
-     "word": "شَجَرَة",
-     "pic": "../../pics/ar-tree.jpg",
-     "audio": "../u2l6/words/shajara.mp3",
+     "word": "شَجَر",
+     "pic": "../../pics/ar-trees.png",
+     "audio": "words/shajar.mp3",
      "at": 1
     },
     {
@@ -925,7 +860,7 @@
    "ex": 11,
    "page": 25,
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "taskAudio": "../q-heads/h-c412ebef.mp3",
    "hint": "رتب الحروف",
    "book": "booklet",
    "items": [
@@ -952,29 +887,32 @@
    ]
   },
   {
-   "type": "write",
+   "type": "first",
    "ex": 12,
    "page": 25,
-   "task": "أَنْطِقُ، وَأَكْتُبُ اسْمَ كُلِّ صُورَةٍ",
-   "taskAudio": "q/task-12.mp3",
-   "hint": "اكتب اسم الصورة",
+   "task": "أَنْطِقُ، وَأَكْتُبُ الْحَرْفَ الْأَوَّلَ، ثُمَّ أَدْمِجُ الْحُرُوفَ لِتَكُونَ كَلِمَةً",
+   "taskAudio": "q/task-12b.mp3",
+   "hint": "اكتب أول حرف من كل صورة، وبعدين ادمجهم",
    "book": "booklet",
    "items": [
     {
      "word": "جَرَس",
-     "chips": [
-      "جَرَس"
-     ],
-     "pic": "../../pics/ar-bell.png",
-     "audio": "words/jaras.mp3"
-    },
-    {
-     "word": "جَزَر",
-     "chips": [
-      "جَزَر"
-     ],
-     "pic": "../../pics/ar-carrot.png",
-     "audio": "../u4l3/words/jazar.mp3"
+     "result": "../../pics/ar-bell.png",
+     "hush": true,
+     "parts": [
+      {
+       "pic": "../../pics/ar-carrot.png",
+       "first": "ج"
+      },
+      {
+       "pic": "../../pics/ar-sand.png",
+       "first": "ر"
+      },
+      {
+       "pic": "../../pics/ar-clock.png",
+       "first": "س"
+      }
+     ]
     }
    ]
   },
@@ -983,7 +921,7 @@
    "ex": 13,
    "page": 25,
    "task": "أَقْرَأُ الْكَلِمَاتِ الْآتِيَةَ، ثُمَّ أَصِلُ كُلَّ كَلِمَةٍ بِالصُّورَةِ الْمُنَاسِبَةِ",
-   "taskAudio": "../q-prompts/match-picture.mp3",
+   "taskAudio": "../q-heads/h-cfb509cb.mp3",
    "hint": "صل الكلمة بالصورة",
    "book": "booklet",
    "items": [
@@ -1013,10 +951,7 @@
    "type": "circle",
    "ex": 1,
    "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي بِهَا حَرْفُ الْجِيمِ",
-   "taskAudio": [
-    "../q-prompts/circle-word-letter.mp3",
-    "../letters/62c/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-a6f9c000.mp3",
    "hint": "اضغط على الكلمة اللي فيها الجيم",
    "book": "workbook",
    "page": 23,
@@ -1127,29 +1062,32 @@
    ]
   },
   {
-   "type": "write",
+   "type": "build",
    "ex": 4,
    "task": "أَدْمِجُ الْحُرُوفَ وَأُكَوِّنُ كَلِمَةً",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
-   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "taskAudio": "../q-heads/h-e8ff995e.mp3",
+   "hint": "اسحب الحروف وكوّن كلمات",
    "book": "workbook",
    "page": 23,
    "items": [
     {
-     "word": "أَب",
-     "chips": [
-      "أَ",
-      "ب"
+     "letters": [
+      "أ",
+      "ب",
+      "م",
+      "ح",
+      "ج"
      ],
-     "audio": "../u1l4/q/ab.mp3"
-    },
-    {
-     "word": "أُمّ",
-     "chips": [
-      "أُ",
-      "مّ"
+     "words": [
+      "أَب",
+      "أُمّ",
+      "حُبّ",
+      "حَجّ",
+      "جُبّ",
+      "جَمّ"
      ],
-     "audio": "../u1l3/words/umm.mp3"
+     "slots": 4,
+     "need": 3
     }
    ]
   }

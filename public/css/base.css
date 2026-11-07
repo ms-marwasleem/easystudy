@@ -65,6 +65,11 @@ svg{overflow:visible}
 
 .screen{position:relative;z-index:1;height:100%;display:grid;grid-template-columns:minmax(0,1fr);padding-block:0.75rem}
 .screen[hidden]{display:none}
+/* the phone keyboard (js/core.js kbSync): the page never rubber-bands; while the keyboard is open every screen but the lesson ends right above it,
+   so its own scroll reaches every field (the lesson lifts the word itself: js/wordslots.js) */
+html,body{overscroll-behavior:none}
+.screen{overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+body.kb-open .screen:not(#lesson){height:calc(100% - var(--kb,0px))}
 #subjects{grid-template-rows:auto 1fr;gap:0.625rem}
 #map{grid-template-rows:auto 1fr auto;gap:0.25rem}
 .top{display:flex;justify-content:space-between;align-items:center;gap:0.75rem}

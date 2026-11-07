@@ -76,7 +76,7 @@ function alMcq(box,q,s,run){
   p.append(' ',sp);   // the small speaker straight AFTER the question text (reads the question only, never the answer)
   const say=q.optSay||q.options;
   const ops=el('div','alopts'+(q.options.some(o=>o.length>14)?' long':'')); w.append(ops);
-  q.options.forEach((o,k)=>{ const b=el('button','alopt qch'+(qWords(q.options)?' wd':''),'<span></span>'); $('span',b).textContent=o; b.dataset.k=k;   // THE choice look (css/qlayout.css)
+  q.options.forEach((o,k)=>{ const b=qChBtn(o,qWords(q.options)); b.classList.add('alopt'); b.dataset.k=k;   // THE choice button (quiz.js qChBtn, look in css/qlayout.css)
     b.addEventListener('click',async()=>{ if(qz.busy||q.solved) return; hideHint();
       if(k!==q.answer){ qxBad(b); b.classList.add('bad'); setTimeout(()=>b.classList.remove('bad'),700); qSound(alWordSrc(say[k]),say[k]); return; }
       if(blank){ blank.classList.add('got'); blank.innerHTML=''; blank.textContent=o; }
@@ -109,7 +109,7 @@ function alCloze(box,q,s,run){
   const bank=el('div','albank'); const one=ans.length===1&&String(q.text).replace(/\[\[|\]\]/g,'').length<=90;   // Marwa 2026-11-04: ONLY a passage keeps the word choices pinned on top (text slides under them)
   if(one){ w.classList.add('one'); $$('.alblank small',txt).forEach(x=>x.remove()); w.append(bank); } else w.prepend(bank); let cur=0; const blanks=$$('.alblank',txt);
   const mark=()=>{ blanks.forEach((b,k)=>b.classList.toggle('cur',k===cur)); };
-  q.bank.forEach((o,bk)=>{ const sy=(q.bankSay||q.bank)[bk]; const b=el('button','alopt alchip qch'+(qWords(q.bank)?' wd':''),''); b.textContent=o; bank.append(b);
+  q.bank.forEach((o,bk)=>{ const sy=(q.bankSay||q.bank)[bk]; const b=qChBtn(o,qWords(q.bank)); b.classList.add('alopt','alchip'); bank.append(b);   // THE choice button
     b.addEventListener('click',async()=>{ if(qz.busy||q.solved||b.classList.contains('used')) return; hideHint();
       if(o.toLowerCase()!==String(ans[cur]).toLowerCase()){ qxBad(b); b.classList.add('bad'); setTimeout(()=>b.classList.remove('bad'),700); qSound(alWordSrc(sy),sy); return; }
       const bl=blanks[cur]; bl.classList.add('got'); bl.innerHTML=''; bl.textContent=ans[cur]; if(!q.reuse) b.classList.add('used'); celebrate(bl); qSound(alWordSrc(sy),sy); cur++; mark();
@@ -145,7 +145,7 @@ function alOrder(box,q,s,run){
   let order=chunks.map((c,k)=>k); for(let t=0;t<30;t++){ order.sort(()=>Math.random()-.5); if(chunks.length<2||order.some((v,k)=>v!==k)) break; }
   const draw=()=>{ line.innerHTML=''; seq.forEach(k=>{ const b=el('span','alword placed',''); b.textContent=chunks[k]; line.append(b); });   // only the right next piece is ever placed, so nothing to take back
     if(!seq.length) line.append(el('span','alph','…')); else if(end&&seq.length===chunks.length) line.append(el('span','alend',end)); };
-  order.forEach(k=>{ const b=el('button','alopt alchip',''); b.textContent=chunks[k]; tiles[k]=b; pool.append(b);
+  order.forEach(k=>{ const b=qChBtn(chunks[k],true); b.classList.add('alopt','alchip'); tiles[k]=b; pool.append(b);   // THE choice button (Marwa 2026-11-06: the same pill as every word choice)
     // Marwa 2026-11-03: only the piece whose turn it is goes on the line (same text = same piece); any other one shakes with a soft buzz and stays
     b.addEventListener('click',()=>{ if(qz.busy||b.classList.contains('used')) return; hideHint();
       if(chunks[k]!==chunks[seq.length]){ qxBad(b); b.classList.remove('bad'); void b.offsetWidth; b.classList.add('bad'); setTimeout(()=>b.classList.remove('bad'),700); return; }

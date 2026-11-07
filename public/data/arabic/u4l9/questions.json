@@ -6,47 +6,371 @@
    "page": 138,
    "task": "أَضَعُ دَائِرَةً حَوْلَ الْحُرُوفِ الَّتِي تَعَلَّمْتُهَا",
    "taskAudio": "../u1l11/q/task-1.mp3",
-   "hint": "اضغط على الحروف اللي اتعلمتها",
+   "hint": "اضغط على كل الحروف اللي اتعلمتها",
    "items": [
     {
-     "word": "ز",
-     "text": "ز",
-     "answer": true
+     "word": "أ",
+     "text": "أ",
+     "answer": true,
+     "pos": [
+      95.0,
+      16.7
+     ],
+     "posP": [
+      90.0,
+      8.3
+     ]
     },
     {
-     "word": "ط",
-     "text": "ط",
-     "answer": true
+     "word": "ب",
+     "text": "ب",
+     "answer": true,
+     "pos": [
+      85.0,
+      16.7
+     ],
+     "posP": [
+      70.0,
+      8.3
+     ]
     },
     {
-     "word": "ك",
-     "text": "ك",
-     "answer": false
-    },
-    {
-     "word": "ص",
-     "text": "ص",
-     "answer": true
-    },
-    {
-     "word": "ض",
-     "text": "ض",
-     "answer": true
+     "word": "ت",
+     "text": "ت",
+     "answer": true,
+     "pos": [
+      75.0,
+      16.7
+     ],
+     "posP": [
+      50.0,
+      8.3
+     ]
     },
     {
      "word": "ث",
      "text": "ث",
-     "answer": true
+     "answer": true,
+     "pos": [
+      65.0,
+      16.7
+     ],
+     "posP": [
+      30.0,
+      8.3
+     ]
+    },
+    {
+     "word": "ج",
+     "text": "ج",
+     "answer": true,
+     "pos": [
+      55.0,
+      16.7
+     ],
+     "posP": [
+      10.0,
+      8.3
+     ]
+    },
+    {
+     "word": "ح",
+     "text": "ح",
+     "answer": true,
+     "pos": [
+      45.0,
+      16.7
+     ],
+     "posP": [
+      90.0,
+      25.0
+     ]
+    },
+    {
+     "word": "خ",
+     "text": "خ",
+     "answer": true,
+     "pos": [
+      35.0,
+      16.7
+     ],
+     "posP": [
+      70.0,
+      25.0
+     ]
+    },
+    {
+     "word": "د",
+     "text": "د",
+     "answer": true,
+     "pos": [
+      25.0,
+      16.7
+     ],
+     "posP": [
+      50.0,
+      25.0
+     ]
+    },
+    {
+     "word": "ذ",
+     "text": "ذ",
+     "answer": true,
+     "pos": [
+      15.0,
+      16.7
+     ],
+     "posP": [
+      30.0,
+      25.0
+     ]
+    },
+    {
+     "word": "ر",
+     "text": "ر",
+     "answer": true,
+     "pos": [
+      5.0,
+      16.7
+     ],
+     "posP": [
+      10.0,
+      25.0
+     ]
+    },
+    {
+     "word": "ز",
+     "text": "ز",
+     "answer": true,
+     "pos": [
+      95.0,
+      50.0
+     ],
+     "posP": [
+      90.0,
+      41.7
+     ]
+    },
+    {
+     "word": "س",
+     "text": "س",
+     "answer": true,
+     "pos": [
+      85.0,
+      50.0
+     ],
+     "posP": [
+      70.0,
+      41.7
+     ]
+    },
+    {
+     "word": "ش",
+     "text": "ش",
+     "answer": true,
+     "pos": [
+      75.0,
+      50.0
+     ],
+     "posP": [
+      50.0,
+      41.7
+     ]
+    },
+    {
+     "word": "ص",
+     "text": "ص",
+     "answer": true,
+     "pos": [
+      65.0,
+      50.0
+     ],
+     "posP": [
+      30.0,
+      41.7
+     ]
+    },
+    {
+     "word": "ض",
+     "text": "ض",
+     "answer": true,
+     "pos": [
+      55.0,
+      50.0
+     ],
+     "posP": [
+      10.0,
+      41.7
+     ]
+    },
+    {
+     "word": "ط",
+     "text": "ط",
+     "answer": true,
+     "pos": [
+      45.0,
+      50.0
+     ],
+     "posP": [
+      90.0,
+      58.3
+     ]
+    },
+    {
+     "word": "ظ",
+     "text": "ظ",
+     "answer": true,
+     "pos": [
+      35.0,
+      50.0
+     ],
+     "posP": [
+      70.0,
+      58.3
+     ]
+    },
+    {
+     "word": "ع",
+     "text": "ع",
+     "answer": true,
+     "pos": [
+      25.0,
+      50.0
+     ],
+     "posP": [
+      50.0,
+      58.3
+     ]
     },
     {
      "word": "غ",
      "text": "غ",
-     "answer": true
+     "answer": true,
+     "pos": [
+      15.0,
+      50.0
+     ],
+     "posP": [
+      30.0,
+      58.3
+     ]
+    },
+    {
+     "word": "ف",
+     "text": "ف",
+     "answer": true,
+     "pos": [
+      5.0,
+      50.0
+     ],
+     "posP": [
+      10.0,
+      58.3
+     ]
+    },
+    {
+     "word": "ق",
+     "text": "ق",
+     "answer": true,
+     "pos": [
+      85.0,
+      83.3
+     ],
+     "posP": [
+      90.0,
+      75.0
+     ]
+    },
+    {
+     "word": "ك",
+     "text": "ك",
+     "answer": true,
+     "pos": [
+      75.0,
+      83.3
+     ],
+     "posP": [
+      70.0,
+      75.0
+     ]
+    },
+    {
+     "word": "ل",
+     "text": "ل",
+     "answer": true,
+     "pos": [
+      65.0,
+      83.3
+     ],
+     "posP": [
+      50.0,
+      75.0
+     ]
+    },
+    {
+     "word": "م",
+     "text": "م",
+     "answer": true,
+     "pos": [
+      55.0,
+      83.3
+     ],
+     "posP": [
+      30.0,
+      75.0
+     ]
     },
     {
      "word": "ن",
      "text": "ن",
-     "answer": false
+     "answer": true,
+     "pos": [
+      45.0,
+      83.3
+     ],
+     "posP": [
+      10.0,
+      75.0
+     ]
+    },
+    {
+     "word": "ه",
+     "text": "ه",
+     "answer": true,
+     "pos": [
+      35.0,
+      83.3
+     ],
+     "posP": [
+      70.0,
+      91.7
+     ]
+    },
+    {
+     "word": "و",
+     "text": "و",
+     "answer": true,
+     "pos": [
+      25.0,
+      83.3
+     ],
+     "posP": [
+      50.0,
+      91.7
+     ]
+    },
+    {
+     "word": "ي",
+     "text": "ي",
+     "answer": true,
+     "pos": [
+      15.0,
+      83.3
+     ],
+     "posP": [
+      30.0,
+      91.7
+     ]
     }
    ]
   },
@@ -127,8 +451,41 @@
    ]
   },
   {
-   "type": "arrange",
+   "type": "choice",
    "ex": 3,
+   "page": 68,
+   "book": "workbook",
+   "task": "أُكْمِلُ الْجُمْلَةَ بِالْكَلِمَةِ الْمُنَاسِبَةِ ( هو - هي )",
+   "taskAudio": "q/wb-68-choice.mp3",
+   "hint": "اختار الكلمة الصح",
+   "items": [
+    {
+     "tail": "يرسم شمس.",
+     "options": [
+      "هو",
+      "هي"
+     ],
+     "answer": 0,
+     "audio": "q/wb-68-c-0.mp3",
+     "word": "هو يرسم شمس.",
+     "askAudio": "q/wb-68-ask-0.mp3"
+    },
+    {
+     "tail": "ترسم وردة.",
+     "options": [
+      "هو",
+      "هي"
+     ],
+     "answer": 1,
+     "audio": "q/wb-68-c-1.mp3",
+     "word": "هي ترسم وردة.",
+     "askAudio": "q/wb-68-ask-1.mp3"
+    }
+   ]
+  },
+  {
+   "type": "arrange",
+   "ex": 4,
    "page": 68,
    "book": "workbook",
    "task": "أُحَلِّلُ الْكَلِمَةَ إِلَى حُرُوفِهَا",
@@ -137,7 +494,7 @@
    "items": [
     {
      "word": "غُرَاب",
-     "audio": "q/wb-68-0-ghurab.mp3",
+     "audio": "../u4l8/words/ghurab.mp3",
      "split": [
       "غُ",
       "رَ",
@@ -156,7 +513,7 @@
     },
     {
      "word": "غُصْن",
-     "audio": "q/wb-68-2-ghusn.mp3",
+     "audio": "../u4l5/words/ghusn.mp3",
      "split": [
       "غُ",
       "صْ",
@@ -165,7 +522,7 @@
     },
     {
      "word": "مُثَلَّث",
-     "audio": "q/wb-68-3-muthallath.mp3",
+     "audio": "../u4l7/words/muthallath.mp3",
      "split": [
       "مُ",
       "ثَ",

@@ -1,0 +1,181 @@
+{
+ "title": "مراجعة على الوحدة الأولى",
+ "ratio": 0.707,
+ "pages": [
+  {
+   "title": "مراجعة على الوحدة الأولى",
+   "foot": 29,
+   "style": "bar",
+   "blocks": [
+    {
+     "t": "q",
+     "n": "١",
+     "text": "ضع دائرة حول الكلمة التي تبدأ بحرف مختلف في كل مجموعة:",
+     "audio": "q1.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 3,
+       "style": "",
+       "items": [
+        {
+         "t": "mcq",
+         "opts": [
+          "حُوت",
+          "حِصَان",
+          "حَبل",
+          "جَبل"
+         ],
+         "answer": 3,
+         "labels": "none",
+         "style": "words",
+         "cols": 2,
+         "pre": true,
+         "cls": "xgrp"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "دِيك",
+          "دَلو",
+          "تَمر",
+          "دُبّ"
+         ],
+         "answer": 2,
+         "labels": "none",
+         "style": "words",
+         "cols": 2,
+         "cls": "xgrp"
+        },
+        {
+         "t": "mcq",
+         "opts": [
+          "تَاج",
+          "تَمر",
+          "تِمْسَاح",
+          "خُبْز"
+         ],
+         "answer": 3,
+         "labels": "none",
+         "style": "words",
+         "cols": 2,
+         "cls": "xgrp"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٢",
+     "text": "أكمل الحرف الناقص مكان النقط ( م - د - ت - ج - ح - أ - ب ):",
+     "audio": "q2.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-bell.png",
+           "w": 4
+          },
+          "<b class=\"xex\">ج</b>ـرس"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-dolphin.png",
+           "w": 6
+          },
+          "[[ح:box,tiny]]ـوت"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-hoopoe.png",
+           "w": 3.6
+          },
+          "هـ[[د:box,tiny]]هد"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-bread.png",
+           "w": 5
+          },
+          "خـ[[ب:box,tiny]]ـز"
+         ]
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-dates.png",
+           "w": 4
+          },
+          "[[ت:box,tiny]]ـمـر"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-pencil.png",
+           "w": 5
+          },
+          "قلـ[[م:box,tiny]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-candle.png",
+           "w": 3
+          },
+          "شـ[[م:box,tiny]]ـعة"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-trophy.png",
+           "w": 4
+          },
+          "كـ[[أ:box,tiny]]ـس"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

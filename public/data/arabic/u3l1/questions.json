@@ -41,44 +41,36 @@
    "book": "booklet",
    "items": [
     {
-     "word": "هَذَا كُرْسِيٌّ.",
-     "pic": "../../pics/ar-chair.png",
-     "options": [
-      "هَذَا",
-      "هَذِهِ"
-     ],
-     "answer": 0,
-     "audio": "q/c-chair.mp3"
-    },
-    {
-     "word": "هَذِهِ شَجَرَةٌ.",
-     "pic": "../../pics/tree.png",
-     "options": [
-      "هَذَا",
-      "هَذِهِ"
-     ],
-     "answer": 1,
-     "audio": "q/c-tree.mp3"
-    },
-    {
-     "word": "هَذَا وَلَدٌ.",
-     "pic": "../../pics/ar-boy.png",
-     "options": [
-      "هَذَا",
-      "هَذِهِ"
-     ],
-     "answer": 0,
-     "audio": "q/c-boy.mp3"
-    },
-    {
-     "word": "هَذِهِ بِنْتٌ.",
      "pic": "../../pics/ar-girl.png",
      "options": [
       "هَذَا",
       "هَذِهِ"
      ],
-     "answer": 1,
-     "audio": "q/c-girl.mp3"
+     "answer": 1
+    },
+    {
+     "pic": "../../pics/ar-boy.png",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 0
+    },
+    {
+     "pic": "../../pics/ar-chair.png",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 0
+    },
+    {
+     "pic": "../../pics/tree.png",
+     "options": [
+      "هَذَا",
+      "هَذِهِ"
+     ],
+     "answer": 1
     }
    ]
   },
@@ -130,52 +122,197 @@
    ]
   },
   {
-   "type": "choice",
+   "type": "match",
    "ex": 1,
    "page": 44,
-   "task": "أَخْتَارُ الْكَلِمَةَ الْمُمَاثِلَةَ",
-   "taskAudio": "../q-prompts/choose-answer.mp3",
-   "hint": "اختار الكلمة الشبه",
+   "task": "أَقْرَأُ الْكَلِمَاتِ وَأَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الْمُمَاثِلَةِ كَمَا بِالْمِثَالِ",
+   "taskAudio": "q/t-wb1.mp3",
+   "hint": "اضغط على الكلمة المشابهة",
    "book": "workbook",
+   "center": "هَذَا",
+   "centerAudio": "q/w-hadha.mp3",
    "items": [
     {
      "word": "هَذَا",
-     "lead": "هَذَا",
-     "options": [
-      "هَذِهِ",
-      "قَالَ",
-      "هَذَا",
-      "قَالَتْ"
-     ],
-     "answer": 2,
      "audio": "q/w-hadha.mp3",
-     "pic": "../../pics/ar-boy.png"
+     "answer": true,
+     "pos": [
+      50,
+      14
+     ],
+     "posP": [
+      50,
+      14
+     ]
     },
     {
      "word": "قَالَ",
-     "lead": "قَالَ",
-     "options": [
-      "هَذَا",
-      "قَالَ",
-      "هَذِهِ",
-      "قَالَتْ"
-     ],
-     "answer": 1,
      "audio": "q/w-qala.mp3",
-     "pic": "../../pics/ar-girl.png"
+     "answer": false,
+     "pos": [
+      84,
+      50
+     ],
+     "posP": [
+      84,
+      50
+     ]
     },
     {
      "word": "هَذِهِ",
-     "lead": "هَذِهِ",
-     "options": [
-      "هَذَا",
-      "قَالَ",
-      "هَذِهِ",
-      "قَالَتْ"
-     ],
-     "answer": 2,
      "audio": "q/w-hadhihi.mp3",
-     "pic": "../../pics/ar-students.png"
+     "answer": false,
+     "pos": [
+      50,
+      86
+     ],
+     "posP": [
+      50,
+      86
+     ]
+    },
+    {
+     "word": "قَالَتْ",
+     "audio": "q/w-qalat.mp3",
+     "answer": false,
+     "pos": [
+      16,
+      50
+     ],
+     "posP": [
+      16,
+      50
+     ]
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 1,
+   "page": 44,
+   "task": "أَقْرَأُ الْكَلِمَاتِ وَأَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الْمُمَاثِلَةِ كَمَا بِالْمِثَالِ",
+   "taskAudio": "q/t-wb1.mp3",
+   "hint": "اضغط على الكلمة المشابهة",
+   "book": "workbook",
+   "center": "قَالَ",
+   "centerAudio": "q/w-qala.mp3",
+   "items": [
+    {
+     "word": "هَذَا",
+     "audio": "q/w-hadha.mp3",
+     "answer": false,
+     "pos": [
+      50,
+      14
+     ],
+     "posP": [
+      50,
+      14
+     ]
+    },
+    {
+     "word": "قَالَ",
+     "audio": "q/w-qala.mp3",
+     "answer": true,
+     "pos": [
+      84,
+      50
+     ],
+     "posP": [
+      84,
+      50
+     ]
+    },
+    {
+     "word": "هَذِهِ",
+     "audio": "q/w-hadhihi.mp3",
+     "answer": false,
+     "pos": [
+      50,
+      86
+     ],
+     "posP": [
+      50,
+      86
+     ]
+    },
+    {
+     "word": "قَالَتْ",
+     "audio": "q/w-qalat.mp3",
+     "answer": false,
+     "pos": [
+      16,
+      50
+     ],
+     "posP": [
+      16,
+      50
+     ]
+    }
+   ]
+  },
+  {
+   "type": "match",
+   "ex": 1,
+   "page": 44,
+   "task": "أَقْرَأُ الْكَلِمَاتِ وَأَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الْمُمَاثِلَةِ كَمَا بِالْمِثَالِ",
+   "taskAudio": "q/t-wb1.mp3",
+   "hint": "اضغط على الكلمة المشابهة",
+   "book": "workbook",
+   "center": "هَذِهِ",
+   "centerAudio": "q/w-hadhihi.mp3",
+   "items": [
+    {
+     "word": "هَذَا",
+     "audio": "q/w-hadha.mp3",
+     "answer": false,
+     "pos": [
+      50,
+      14
+     ],
+     "posP": [
+      50,
+      14
+     ]
+    },
+    {
+     "word": "قَالَ",
+     "audio": "q/w-qala.mp3",
+     "answer": false,
+     "pos": [
+      84,
+      50
+     ],
+     "posP": [
+      84,
+      50
+     ]
+    },
+    {
+     "word": "هَذِهِ",
+     "audio": "q/w-hadhihi.mp3",
+     "answer": true,
+     "pos": [
+      50,
+      86
+     ],
+     "posP": [
+      50,
+      86
+     ]
+    },
+    {
+     "word": "قَالَتْ",
+     "audio": "q/w-qalat.mp3",
+     "answer": false,
+     "pos": [
+      16,
+      50
+     ],
+     "posP": [
+      16,
+      50
+     ]
     }
    ]
   },
@@ -183,8 +320,8 @@
    "type": "choice",
    "ex": 2,
    "page": 44,
-   "task": "أَخْتَارُ الْكَلِمَةَ الْمُنَاسِبَةَ",
-   "taskAudio": "../q-prompts/choose-answer.mp3",
+   "task": "أَخْتَارُ الْكَلِمَةَ الْمُنَاسِبَةَ ثُمَّ أَكْتُبُهَا فَوْقَ النِّقَاطِ",
+   "taskAudio": "q/t-wb2.mp3",
    "hint": "اختار الكلمة الصح",
    "book": "workbook",
    "items": [
@@ -198,7 +335,6 @@
      ],
      "answer": 0,
      "audio": "q/w-s1.mp3",
-     "pic": "../../pics/ar-boy.png",
      "askAudio": "q/ask-1214ebf88a.mp3"
     },
     {
@@ -211,7 +347,6 @@
      ],
      "answer": 1,
      "audio": "q/w-s2.mp3",
-     "pic": "../../pics/ar-girl.png",
      "askAudio": "q/ask-4145c8a4a1.mp3"
     },
     {
@@ -224,8 +359,53 @@
      ],
      "answer": 0,
      "audio": "q/w-s3.mp3",
-     "pic": "../../pics/ar-students.png",
      "askAudio": "q/ask-3b3612ffe2.mp3"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": "h1",
+   "page": 44,
+   "sentence": true,
+   "task": "أَذْكُرُ فَائِدَةَ أَجْزَاءِ الْجِسْمِ",
+   "taskAudio": "q/t-wbh.mp3",
+   "hint": "اكتب فائدة الجزء",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "هَذَا أَنْفٌ نَشُمُّ بِهِ",
+     "gaps": [
+      8,
+      9,
+      10,
+      12,
+      13
+     ],
+     "audio": "q/s-anf.mp3"
+    },
+    {
+     "word": "هَذِهِ الْعَيْنُ نَرَى بِهَا",
+     "gaps": [
+      10,
+      11,
+      12,
+      14,
+      15
+     ],
+     "audio": "q/s-ayn.mp3"
+    },
+    {
+     "word": "هَذِهِ الْقَدَمُ نَمْشِي بِهَا",
+     "gaps": [
+      10,
+      11,
+      12,
+      13,
+      15,
+      16
+     ],
+     "audio": "q/s-qadam.mp3"
     }
    ]
   }

@@ -37,7 +37,7 @@
    "ex": 2,
    "page": 111,
    "task": "أَصِلُ كُلَّ كَلِمَةٍ بِمَعْنَاهَا أَوْ جَمْعِهَا",
-   "taskAudio": "../q-prompts/match-meaning.mp3",
+   "taskAudio": "../q-heads/h-d8d063dc.mp3",
    "hint": "صل كل كلمة بمعناها أو جمعها",
    "items": [
     {
@@ -67,9 +67,9 @@
     {
      "word": "شَمْس",
      "text2": "شُمُوسٌ",
-     "audio": "words/shams.mp3",
+     "audio": "../u1l5/words/shams.mp3",
      "full": [
-      "words/shams.mp3",
+      "../u1l5/words/shams.mp3",
       "../u1l2/words/lbl-plural.mp3",
       "words/m-shams.mp3"
      ],
@@ -91,9 +91,9 @@
     {
      "word": "مُعَلِّمَة",
      "text2": "مُعَلِّمَاتٌ",
-     "audio": "words/muallima.mp3",
+     "audio": "../u1l5/words/muallima.mp3",
      "full": [
-      "words/muallima.mp3",
+      "../u1l5/words/muallima.mp3",
       "../u1l2/words/lbl-plural.mp3",
       "words/m-muallima.mp3"
      ],
@@ -102,6 +102,212 @@
     }
    ],
    "book": "booklet"
+  },
+  {
+   "type": "write",
+   "ex": 1,
+   "page": 58,
+   "sentence": true,
+   "task": "أُكْمِلُ بِكَلِمَةٍ مِنَ النَّشِيدِ",
+   "taskAudio": "q/task-w1.mp3",
+   "hint": "اكتب الكلمة الناقصة من النشيد",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "أَنَا تِلْمِيذٌ فِي مَدْرَسَتِي",
+     "gaps": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+     ],
+     "audio": "q/qa1-a.mp3"
+    },
+    {
+     "word": "أَرْسُمُ شَمْسًا",
+     "gaps": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "audio": "q/w-sams.mp3"
+    },
+    {
+     "word": "أُرَدِّدُ خَلْفَ مُعَلِّمَتِي",
+     "gaps": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+     ],
+     "audio": "q/qa3-a.mp3"
+    },
+    {
+     "word": "قَلَمِي فِي مِقْلَمَتِي",
+     "gaps": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+     ],
+     "audio": "q/w-qalami.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 2,
+   "page": 58,
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي وَرَدَتْ فِي الدَّرْسِ مِنْ بَيْنِ الْأَقْوَاسِ",
+   "taskAudio": "q/task-w2.mp3",
+   "hint": "اضغط على الكلمات اللي في النشيد",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "قَلَمِي",
+     "audio": "words/qalami.mp3",
+     "answer": true
+    },
+    {
+     "word": "لُعْبَتِي",
+     "audio": "words/lubati.mp3",
+     "answer": false
+    },
+    {
+     "word": "مُعَلِّمَتِي",
+     "audio": "words/muallimati.mp3",
+     "answer": true
+    },
+    {
+     "word": "هَذِهِ",
+     "audio": "../u3l1/q/w-hadhihi.mp3",
+     "answer": false
+    },
+    {
+     "word": "حَرْف",
+     "audio": "words/harf.mp3",
+     "answer": true
+    },
+    {
+     "word": "قَمَرًا",
+     "audio": "words/qamaran.mp3",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "ex": "h1",
+   "page": 58,
+   "task": "أَخْتَارُ الْكَلِمَةَ الْمُنَاسِبَةَ مِنْ بَيْنِ الْأَقْوَاسِ (هُوَ - هِيَ - إِلَى - فِي)",
+   "taskAudio": "q/task-wh1.mp3",
+   "hint": "اختار الكلمة المناسبة",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "أَلْعَبُ الْكُرَةَ فِي النَّادِي.",
+     "lead": "أَلْعَبُ الْكُرَةَ",
+     "tail": "النَّادِي.",
+     "options": [
+      "هُوَ",
+      "هِيَ",
+      "إِلَى",
+      "فِي"
+     ],
+     "answer": 3,
+     "audio": "q/wh1-1.mp3",
+     "askAudio": "q/ask-45fef2e58e.mp3"
+    },
+    {
+     "word": "أَذْهَبُ إِلَى الْمَدْرَسَةِ صَبَاحًا.",
+     "lead": "أَذْهَبُ",
+     "tail": "الْمَدْرَسَةِ صَبَاحًا.",
+     "options": [
+      "هُوَ",
+      "هِيَ",
+      "إِلَى",
+      "فِي"
+     ],
+     "answer": 2,
+     "audio": "q/wh1-2.mp3",
+     "askAudio": "q/ask-bfc85204f2.mp3"
+    },
+    {
+     "word": "هُوَ يَرْسُمُ فَرَاشَةً بِالْقَلَمِ.",
+     "lead": "",
+     "tail": "يَرْسُمُ فَرَاشَةً بِالْقَلَمِ.",
+     "options": [
+      "هُوَ",
+      "هِيَ",
+      "إِلَى",
+      "فِي"
+     ],
+     "answer": 0,
+     "audio": "q/wh1-3.mp3",
+     "askAudio": "q/ask-9bc876c70f.mp3"
+    },
+    {
+     "word": "هِيَ تُرَتِّبُ الْبَيْتَ.",
+     "lead": "",
+     "tail": "تُرَتِّبُ الْبَيْتَ.",
+     "options": [
+      "هُوَ",
+      "هِيَ",
+      "إِلَى",
+      "فِي"
+     ],
+     "answer": 1,
+     "audio": "q/wh1-4.mp3",
+     "askAudio": "q/ask-86d70006ce.mp3"
+    }
+   ]
+  },
+  {
+   "type": "build",
+   "ex": "h2",
+   "page": 58,
+   "book": "workbook",
+   "task": "أُكَوِّنُ كَلِمَاتٍ مِنَ الْحُرُوفِ الْآتِيَةِ",
+   "taskAudio": "../u1l10/q/task-wb-h3.mp3",
+   "hint": "اسحب الحروف وكوّن كلمات",
+   "items": [
+    {
+     "letters": [
+      "ف",
+      "ج",
+      "ل",
+      "ن",
+      "س",
+      "ر"
+     ],
+     "words": [
+      "فَجْل",
+      "نَسْر",
+      "رَجُل",
+      "جَرَس",
+      "سَرْج",
+      "فَرَس",
+      "سَفَر",
+      "سَجَن",
+      "جَلَس",
+      "فَجَر",
+      "نَفْس",
+      "سَجْن",
+      "جَرْف",
+      "فَرْن"
+     ],
+     "slots": 4,
+     "need": 3,
+     "cells": 3
+    }
+   ]
   }
  ]
 }

@@ -99,7 +99,7 @@
      15
     ],
     "workbook": [
-     15
+     14
     ]
    }
   },
@@ -119,7 +119,7 @@
      6
     ],
     "workbook": [
-     16
+     15
     ]
    }
   },
@@ -146,10 +146,18 @@
      19
     ],
     "workbook": [
-     16,
-     17
+     16
     ]
-   }
+   },
+   "weekly": [
+    {
+     "id": "wk3",
+     "title": "التقييم الأسبوعي",
+     "label": "تقييم أسبوعي",
+     "file": "data/arabic/exams/wk3/exam.json",
+     "page": 17
+    }
+   ]
   },
   {
    "unit": 1,
@@ -233,7 +241,16 @@
     "workbook": [
      20
     ]
-   }
+   },
+   "weekly": [
+    {
+     "id": "wk6",
+     "title": "التقييم الأسبوعي",
+     "label": "تقييم أسبوعي",
+     "file": "data/arabic/exams/wk6/exam.json",
+     "page": 21
+    }
+   ]
   },
   {
    "unit": 1,
@@ -377,7 +394,27 @@
     "workbook": [
      28
     ]
-   }
+   },
+   "weekly": [
+    {
+     "id": "u1t",
+     "title": "تقييم الوحدة الأولى",
+     "label": "تقييم الوحدة",
+     "file": "data/arabic/exams/u1t/exam.json",
+     "page": [
+      43,
+      44
+     ],
+     "tab": "quiz"
+    },
+    {
+     "id": "u1r",
+     "title": "مراجعة على الوحدة الأولى",
+     "label": "مراجعة",
+     "file": "data/arabic/exams/u1r/exam.json",
+     "page": 29
+    }
+   ]
   },
   {
    "unit": 2,
@@ -386,11 +423,10 @@
    "title": "عالم الحيوان",
    "pages": {
     "read": [
-     41,
-     42
+     46
     ],
     "words": [
-     41
+     46
     ],
     "quiz": [
      46
@@ -410,7 +446,7 @@
    "title": "نشيد: لوحتي الجديدة",
    "pages": {
     "read": [
-     43
+     47
     ],
     "words": [
      43
@@ -639,10 +675,9 @@
      73
     ],
     "quiz": [
-     76
-    ],
-    "workbook": [
-     78
+     76,
+     78,
+     79
     ]
    }
   },
@@ -806,6 +841,9 @@
      98,
      99,
      100
+    ],
+    "workbook": [
+     50
     ]
    }
   },
@@ -851,6 +889,7 @@
      99
     ],
     "booklet": [
+     100,
      101,
      102
     ],
@@ -883,10 +922,10 @@
      106
     ],
     "quiz": [
-     103,
-     104,
-     105,
-     106
+     109,
+     110,
+     111,
+     112
     ],
     "workbook": [
      54
@@ -906,9 +945,36 @@
      107
     ],
     "quiz": [
-     113
+     113,
+     115
     ]
-   }
+   },
+   "weekly": [
+    {
+     "id": "u3t",
+     "title": "تقييم الوحدة الثالثة",
+     "label": "تقييم الوحدة",
+     "file": "data/arabic/exams/u3t/exam.json",
+     "page": [
+      115
+     ],
+     "tab": "quiz"
+    },
+    {
+     "id": "wk12",
+     "title": "التقييم الأسبوعي",
+     "label": "تقييم أسبوعي",
+     "file": "data/arabic/exams/wk12/exam.json",
+     "page": 55
+    },
+    {
+     "id": "u3r",
+     "title": "مراجعة على الوحدة الثالثة",
+     "label": "مراجعة",
+     "file": "data/arabic/exams/u3r/exam.json",
+     "page": 56
+    }
+   ]
   },
   {
    "unit": 4,
@@ -917,13 +983,19 @@
    "title": "يوم في المدرسة",
    "pages": {
     "read": [
-     109
+     147
     ],
     "words": [
-     109
+     147
+    ],
+    "quiz": [
+     118
     ],
     "booklet": [
      110
+    ],
+    "workbook": [
+     57
     ]
    }
   },
@@ -941,6 +1013,9 @@
     ],
     "booklet": [
      111
+    ],
+    "workbook": [
+     58
     ]
    }
   },

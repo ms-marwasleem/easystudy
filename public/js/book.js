@@ -8,6 +8,7 @@ function bookIndex(){
   const out=[]; (COURSE&&COURSE.subjects||[]).filter(s=>s.lessons).forEach(s=>s.lessons.forEach(l=>{
     if(!l.file||!l.pages) return;
     Object.entries(l.pages).forEach(([t,ps])=>[].concat(ps).forEach(p=>out.push({page:+p,tab:t,lesson:l,subject:s})));
+    (l.weekly||[]).filter(w=>w.page).forEach(w=>[].concat(w.page).forEach(p=>out.push({page:+p,tab:w.tab||'workbook',lesson:l,subject:s,exam:w})));   // "page" may list several pages; "tab":"quiz" = pages of the school Book (default: the Workbook)   // a weekly assessment is a book page too: the picker opens its exam paper
   }));
   return out;
 }
@@ -115,13 +116,14 @@ function bookList(k){
   const o=$('#pagePad'), ks=booksOf();
   $('.pp-books',o).innerHTML=ks.map(b=>`<button class="mtab mt-${({book:'bk0',workbook:'pts',booklet:'bk'})[b]||'ex'} pp-book${b===k?' on':''}" data-b="${b}"><span>${tr(BOOKNAME(b))}</span></button>`).join('');
   $('.pp-books',o).hidden=ks.length<2;
+  { const d=SUBJECT&&SUBJECT.rtl?'rtl':'ltr'; $('.pp-books',o).dir=d; $('.pp-pages',o).dir=d; }   // Arabic: the pages run from the RIGHT to the left (Marwa 2026-11-06)
   $('.pp-pages',o).innerHTML=bookPages_(k).map(e=>`<button class="rb pp-pg" data-p="${e.page}" data-b="${k}" aria-label="Page ${e.page}: ${e.lesson.title}"><span>${num(e.page)}</span></button>`).join('');
   $$('.pp-book',o).forEach(b=>b.addEventListener('click',()=>bookList(b.dataset.b)));
   $$('.pp-pg',o).forEach(b=>b.addEventListener('click',()=>bookGo(+b.dataset.p,b.dataset.b)));
 }
 async function bookGo(n,k){
   const e=bookPages_(k).find(x=>x.page===n); if(!e) return;
-  $('#pagePad').hidden=true; SUBJECT=e.subject; bookOpen(e.lesson,e.tab,n);
+  $('#pagePad').hidden=true; SUBJECT=e.subject; if(e.exam) return openExam(e.lesson,e.exam); bookOpen(e.lesson,e.tab,n);
 }
 // open a lesson at the part that matches a book page (Questions: at the first question from that page)
 async function bookOpen(lesson,t,page){

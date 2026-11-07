@@ -1,0 +1,315 @@
+{
+  "_about": "Credits / attribution: every free site whose pictures, icons or sounds we use and that asks for attribution (docs/RULES.md 'Credits'). Shown by terms.html (not linked in the app yet). Add a source = add one entry here, data only. kinds: pictures | icons | sounds | fonts. items (optional): single files that need their own link: {what, file, link}.",
+  "sources": [
+    {
+      "id": "pngtree",
+      "name": "Pngtree",
+      "url": "https://pngtree.com",
+      "kinds": [
+        "pictures",
+        "icons"
+      ],
+      "usedFor": {
+        "ar": "بعض الصور والأيقونات في التطبيق ومكتبة الصور.",
+        "en": "Some pictures and icons in the app and its picture library."
+      },
+      "licence": {
+        "ar": "رخصة مجانية تشترط ذكر المصدر مع رابط لموقع pngtree.com.",
+        "en": "Free licence that requires attribution with a link to pngtree.com."
+      },
+      "credit": "Graphics from pngtree.com",
+      "since": "2026-11-06",
+      "items": []
+    },
+    {
+      "id": "rawpixel",
+      "name": "rawpixel (public domain / CC0 collection, found through Openverse)",
+      "url": "https://www.rawpixel.com/public-domain",
+      "kinds": [
+        "pictures"
+      ],
+      "usedFor": {
+        "ar": "صور مكتبة التطبيق التي حلّت محل صور ضعيفة الدقة (حيوانات وفواكه وأدوات).",
+        "en": "Library pictures that replaced low-resolution ones (animals, fruit, objects)."
+      },
+      "licence": {
+        "ar": "CC0 / ملكية عامة: الاستخدام حر ولا يشترط ذكر المصدر، ونذكره للشفافية.",
+        "en": "CC0 / public domain: free to use, attribution not required; listed for transparency."
+      },
+      "credit": "Pictures from rawpixel.com public domain collection (CC0)",
+      "since": "2026-11-06",
+      "items": [
+        {
+          "what": "duck-u3l4",
+          "file": "data/pics/duck-u3l4.png",
+          "link": "https://www.rawpixel.com/image/7581299/png-people-cartoon"
+        },
+        {
+          "what": "apple-toon",
+          "file": "data/pics/apple-toon.png",
+          "link": "https://www.rawpixel.com/image/10096216/png-plant-moon"
+        },
+        {
+          "what": "pencil",
+          "file": "data/pics/pencil.png",
+          "link": "https://www.rawpixel.com/image/6483483/png-sticker-public-domain"
+        },
+        {
+          "what": "horse-u3l4",
+          "file": "data/pics/horse-u3l4.png",
+          "link": "https://www.rawpixel.com/image/10773980/png-horse-cartoon"
+        },
+        {
+          "what": "flower",
+          "file": "data/pics/flower.png",
+          "link": "https://www.rawpixel.com/image/6791693/png-flower-sticker"
+        },
+        {
+          "what": "lion-u6l1",
+          "file": "data/pics/lion-u6l1.png",
+          "link": "https://www.rawpixel.com/image/6763363/png-sticker-public-domain"
+        },
+        {
+          "what": "monkey-u5l2",
+          "file": "data/pics/monkey-u5l2.png",
+          "link": "https://www.rawpixel.com/image/6870736/png-sticker-public-domain"
+        },
+        {
+          "what": "frog",
+          "file": "data/pics/frog.png",
+          "link": "https://www.rawpixel.com/image/6870723/png-sticker-public-domain"
+        },
+        {
+          "what": "tomato",
+          "file": "data/pics/tomato.png",
+          "link": "https://www.rawpixel.com/image/6338372/png-sticker-public-domain"
+        },
+        {
+          "what": "cow-u5l1",
+          "file": "data/pics/cow-u5l1.png",
+          "link": "https://www.rawpixel.com/image/10094107/png-white-background-cow"
+        },
+        {
+          "what": "fish-u4l2",
+          "file": "data/pics/fish-u4l2.png",
+          "link": "https://www.rawpixel.com/image/6483616/png-sticker-public-domain"
+        },
+        {
+          "what": "chicken-u5l1",
+          "file": "data/pics/chicken-u5l1.png",
+          "link": "https://www.rawpixel.com/image/6870630/png-sticker-public-domain"
+        },
+        {
+          "what": "grapes-u5l2",
+          "file": "data/pics/grapes-u5l2.png",
+          "link": "https://www.rawpixel.com/image/10164845/png-white-background-plant"
+        },
+        {
+          "what": "leaf",
+          "file": "data/pics/leaf.png",
+          "link": "https://www.rawpixel.com/image/6252326/png-plant-sticker"
+        },
+        {
+          "what": "fox-u4l2",
+          "file": "data/pics/fox-u4l2.png",
+          "link": "https://www.rawpixel.com/image/10104249/png-people-cartoon"
+        },
+        {
+          "what": "lamp-u6l2",
+          "file": "data/pics/lamp-u6l2.png",
+          "link": "https://www.rawpixel.com/image/7729748/png-white-background-people"
+        },
+        {
+          "what": "lemon-u6l2",
+          "file": "data/pics/lemon-u6l2.png",
+          "link": "https://www.rawpixel.com/image/10164826/png-white-background-plant"
+        },
+        {
+          "what": "mango-u5l2",
+          "file": "data/pics/mango-u5l2.png",
+          "link": "https://www.rawpixel.com/image/10165075/png-white-background-plant"
+        },
+        {
+          "what": "mouse-u5l2",
+          "file": "data/pics/mouse-u5l2.png",
+          "link": "https://www.rawpixel.com/image/10097079/png-cartoon-illustrations"
+        },
+        {
+          "what": "drum-u3l4",
+          "file": "data/pics/drum-u3l4.png",
+          "link": "https://www.rawpixel.com/image/10094005/png-people-cartoon"
+        },
+        {
+          "what": "turtle-u5l1",
+          "file": "data/pics/turtle-u5l1.png",
+          "link": "https://www.rawpixel.com/image/6431302/png-face-sticker"
+        },
+        {
+          "what": "rocket",
+          "file": "data/pics/rocket.png",
+          "link": "https://www.rawpixel.com/image/7729511/png-people-cartoon"
+        },
+        {
+          "what": "giraffe-u6l1",
+          "file": "data/pics/giraffe-u6l1.png",
+          "link": "https://www.rawpixel.com/image/6870600/png-sticker-public-domain"
+        },
+        {
+          "what": "panda",
+          "file": "data/pics/panda.png",
+          "link": "https://www.rawpixel.com/image/6501412/png-sticker-public-domain"
+        },
+        {
+          "what": "parrot",
+          "file": "data/pics/parrot.png",
+          "link": "https://www.rawpixel.com/image/6291650/png-sticker-public-domain"
+        },
+        {
+          "what": "pizza",
+          "file": "data/pics/pizza.png",
+          "link": "https://www.rawpixel.com/image/6755549/png-sticker-public-domain"
+        },
+        {
+          "what": "guitar-u5l2",
+          "file": "data/pics/guitar-u5l2.png",
+          "link": "https://www.rawpixel.com/image/6538607/png-sticker-public-domain"
+        },
+        {
+          "what": "hat",
+          "file": "data/pics/hat.png",
+          "link": "https://www.rawpixel.com/image/6779807/png-sticker-public-domain"
+        },
+        {
+          "what": "olive-u5l4",
+          "file": "data/pics/olive-u5l4.png",
+          "link": "https://www.rawpixel.com/image/9190273/png-plant-people"
+        },
+        {
+          "what": "house-u3l4",
+          "file": "data/pics/house-u3l4.png",
+          "link": "https://www.rawpixel.com/image/6525546/png-sticker-public-domain"
+        },
+        {
+          "what": "potato",
+          "file": "data/pics/potato.png",
+          "link": "https://www.rawpixel.com/image/6763261/png-sticker-public-domain"
+        },
+        {
+          "what": "pineapple",
+          "file": "data/pics/pineapple.png",
+          "link": "https://www.rawpixel.com/image/10165063/png-white-background-plant"
+        },
+        {
+          "what": "chair",
+          "file": "data/pics/chair.png",
+          "link": "https://www.rawpixel.com/image/9033844/png-people-cartoon"
+        },
+        {
+          "what": "balloon",
+          "file": "data/pics/balloon.png",
+          "link": "https://www.rawpixel.com/image/9189413/png-white-background-heart"
+        },
+        {
+          "what": "bee",
+          "file": "data/pics/bee.png",
+          "link": "https://www.rawpixel.com/image/7619822/png-cartoon-bee"
+        },
+        {
+          "what": "broccoli",
+          "file": "data/pics/broccoli.png",
+          "link": "https://www.rawpixel.com/image/6482455/png-face-sticker"
+        },
+        {
+          "what": "bus-u5l1",
+          "file": "data/pics/bus-u5l1.png",
+          "link": "https://www.rawpixel.com/image/6780526/png-sticker-public-domain"
+        },
+        {
+          "what": "candle",
+          "file": "data/pics/candle.png",
+          "link": "https://www.rawpixel.com/image/7619694/png-fire-cartoon"
+        },
+        {
+          "what": "carrot",
+          "file": "data/pics/carrot.png",
+          "link": "https://www.rawpixel.com/image/6479670/png-face-sticker"
+        },
+        {
+          "what": "cheese-r2",
+          "file": "data/pics/cheese-r2.png",
+          "link": "https://www.rawpixel.com/image/6772854/png-sticker-public-domain"
+        },
+        {
+          "what": "computer",
+          "file": "data/pics/computer.png",
+          "link": "https://www.rawpixel.com/image/7662092/png-people-cartoon"
+        },
+        {
+          "what": "ice-cream",
+          "file": "data/pics/ice-cream.png",
+          "link": "https://www.rawpixel.com/image/9746787/png-white-background-people"
+        },
+        {
+          "what": "ruler",
+          "file": "data/pics/ruler.png",
+          "link": "https://www.rawpixel.com/image/6538004/png-sticker-public-domain"
+        },
+        {
+          "what": "snail-u4l4",
+          "file": "data/pics/snail-u4l4.png",
+          "link": "https://www.rawpixel.com/image/7729526/png-people-cartoon"
+        },
+        {
+          "what": "starfish",
+          "file": "data/pics/starfish.png",
+          "link": "https://www.rawpixel.com/image/6870598/png-sticker-public-domain"
+        },
+        {
+          "what": "tulip",
+          "file": "data/pics/tulip.png",
+          "link": "https://www.rawpixel.com/image/11728574/png-flower-plant"
+        },
+        {
+          "what": "goldfish",
+          "file": "data/pics/goldfish.png",
+          "link": "https://www.rawpixel.com/image/6742765/png-sticker-public-domain"
+        },
+        {
+          "what": "clouds",
+          "file": "data/pics/clouds.png",
+          "link": "https://www.rawpixel.com/image/7595900/png-cloud-hand"
+        }
+      ]
+    },
+    {
+      "id": "openclipart",
+      "name": "Openclipart",
+      "url": "https://openclipart.org",
+      "kinds": [
+        "pictures"
+      ],
+      "usedFor": {
+        "ar": "صور مكتبة التطبيق (موزة، علبة لبن) بشفافية حقيقية.",
+        "en": "Library pictures (banana, milk carton) with a real transparent background."
+      },
+      "licence": {
+        "ar": "CC0 / ملكية عامة: الاستخدام حر ولا يشترط ذكر المصدر، ونذكره للشفافية.",
+        "en": "CC0 / public domain: free to use, attribution not required; listed for transparency."
+      },
+      "credit": "Pictures from openclipart.org (CC0)",
+      "since": "2026-11-06",
+      "items": [
+        {
+          "what": "banana-u4l2",
+          "file": "data/pics/banana-u4l2.png",
+          "link": "https://openclipart.org/detail/189457/banana"
+        },
+        {
+          "what": "milk-u5l2",
+          "file": "data/pics/milk-u5l2.png",
+          "link": "https://openclipart.org/detail/338748/remixmilkcartonversion2"
+        }
+      ]
+    }
+  ]
+}

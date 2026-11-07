@@ -6,49 +6,262 @@
    "page": 113,
    "task": "أَضَعُ دَائِرَةً حَوْلَ الْحُرُوفِ الَّتِي تَعَلَّمْتُهَا",
    "taskAudio": "../u1l11/q/task-1.mp3",
-   "hint": "اضغط على الحروف اللي اتعلمتها",
+   "hint": "اضغط على الحروف اللي اتعلمتها في الوحدة",
    "items": [
     {
-     "word": "ي",
-     "text": "ي",
-     "answer": true
+     "word": "أ",
+     "text": "أ",
+     "answer": false,
+     "pos": [
+      91.7,
+      10.0
+     ]
     },
     {
-     "word": "ع",
-     "text": "ع",
-     "answer": true
+     "word": "ب",
+     "text": "ب",
+     "answer": false,
+     "pos": [
+      75.0,
+      10.0
+     ]
     },
     {
-     "word": "ز",
-     "text": "ز",
-     "answer": false
+     "word": "ت",
+     "text": "ت",
+     "answer": false,
+     "pos": [
+      58.3,
+      10.0
+     ]
     },
     {
-     "word": "ش",
-     "text": "ش",
-     "answer": true
+     "word": "ث",
+     "text": "ث",
+     "answer": false,
+     "pos": [
+      41.7,
+      10.0
+     ]
     },
     {
-     "word": "و",
-     "text": "و",
-     "answer": true
+     "word": "ج",
+     "text": "ج",
+     "answer": false,
+     "pos": [
+      25.0,
+      10.0
+     ]
     },
     {
-     "word": "ك",
-     "text": "ك",
-     "answer": false
+     "word": "ح",
+     "text": "ح",
+     "answer": false,
+     "pos": [
+      8.3,
+      10.0
+     ]
     },
     {
-     "word": "ه",
-     "text": "ه",
-     "answer": true
+     "word": "خ",
+     "text": "خ",
+     "answer": false,
+     "pos": [
+      91.7,
+      30.0
+     ]
+    },
+    {
+     "word": "د",
+     "text": "د",
+     "answer": false,
+     "pos": [
+      75.0,
+      30.0
+     ]
     },
     {
      "word": "ذ",
      "text": "ذ",
-     "answer": true
+     "answer": true,
+     "pos": [
+      58.3,
+      30.0
+     ]
+    },
+    {
+     "word": "ر",
+     "text": "ر",
+     "answer": false,
+     "pos": [
+      41.7,
+      30.0
+     ]
+    },
+    {
+     "word": "ز",
+     "text": "ز",
+     "answer": false,
+     "pos": [
+      25.0,
+      30.0
+     ]
+    },
+    {
+     "word": "س",
+     "text": "س",
+     "answer": false,
+     "pos": [
+      8.3,
+      30.0
+     ]
+    },
+    {
+     "word": "ش",
+     "text": "ش",
+     "answer": true,
+     "pos": [
+      91.7,
+      50.0
+     ]
+    },
+    {
+     "word": "ص",
+     "text": "ص",
+     "answer": false,
+     "pos": [
+      75.0,
+      50.0
+     ]
+    },
+    {
+     "word": "ض",
+     "text": "ض",
+     "answer": false,
+     "pos": [
+      58.3,
+      50.0
+     ]
+    },
+    {
+     "word": "ط",
+     "text": "ط",
+     "answer": false,
+     "pos": [
+      41.7,
+      50.0
+     ]
+    },
+    {
+     "word": "ظ",
+     "text": "ظ",
+     "answer": true,
+     "pos": [
+      25.0,
+      50.0
+     ]
+    },
+    {
+     "word": "ع",
+     "text": "ع",
+     "answer": true,
+     "pos": [
+      8.3,
+      50.0
+     ]
+    },
+    {
+     "word": "غ",
+     "text": "غ",
+     "answer": false,
+     "pos": [
+      91.7,
+      70.0
+     ]
+    },
+    {
+     "word": "ف",
+     "text": "ف",
+     "answer": false,
+     "pos": [
+      75.0,
+      70.0
+     ]
+    },
+    {
+     "word": "ق",
+     "text": "ق",
+     "answer": false,
+     "pos": [
+      58.3,
+      70.0
+     ]
+    },
+    {
+     "word": "ك",
+     "text": "ك",
+     "answer": false,
+     "pos": [
+      41.7,
+      70.0
+     ]
+    },
+    {
+     "word": "ل",
+     "text": "ل",
+     "answer": false,
+     "pos": [
+      25.0,
+      70.0
+     ]
+    },
+    {
+     "word": "م",
+     "text": "م",
+     "answer": false,
+     "pos": [
+      8.3,
+      70.0
+     ]
+    },
+    {
+     "word": "ن",
+     "text": "ن",
+     "answer": false,
+     "pos": [
+      75.0,
+      90.0
+     ]
+    },
+    {
+     "word": "ه",
+     "text": "ه",
+     "answer": true,
+     "pos": [
+      58.3,
+      90.0
+     ]
+    },
+    {
+     "word": "و",
+     "text": "و",
+     "answer": true,
+     "pos": [
+      41.7,
+      90.0
+     ]
+    },
+    {
+     "word": "ي",
+     "text": "ي",
+     "answer": true,
+     "pos": [
+      25.0,
+      90.0
+     ]
     }
-   ]
+   ],
+   "dense": true
   }
  ]
 }

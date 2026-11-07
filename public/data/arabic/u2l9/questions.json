@@ -19,8 +19,8 @@
      "answer": 1
     },
     {
-     "word": "ق",
-     "text": "ق",
+     "word": "قـ",
+     "text": "قـ",
      "answer": 1
     },
     {
@@ -29,8 +29,8 @@
      "answer": 0
     },
     {
-     "word": "قـ",
-     "text": "قـ",
+     "word": "ق",
+     "text": "ق",
      "answer": 1
     },
     {
@@ -43,111 +43,153 @@
      "text": "ـقـ",
      "answer": 1
     }
-   ]
+   ],
+   "mark": "tick"
   },
   {
-   "type": "circle",
+   "type": "match",
    "ex": 3,
    "page": 72,
    "task": "أَصِلُ حَرْفَ الْقَافِ بِالْكَلِمَاتِ الَّتِي بِهَا",
-   "taskAudio": [
-    "../q-prompts/circle-word-letter.mp3",
-    "../letters/642/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-df7a43c8.mp3",
    "hint": "اضغط على الكلمات اللي فيها القاف",
+   "center": "ق",
+   "centerAudio": "../letters/642/name.mp3",
    "items": [
     {
      "word": "بِنْت",
      "audio": "../u1l4/words/bint.mp3",
-     "answer": false
+     "answer": false,
+     "pos": [
+      50,
+      14
+     ],
+     "posP": [
+      50,
+      14
+     ]
     },
     {
      "word": "حَلْق",
      "audio": "q/w-halq.mp3",
-     "answer": true
+     "answer": true,
+     "pos": [
+      84,
+      32
+     ],
+     "posP": [
+      84,
+      32
+     ]
     },
     {
      "word": "قِطَّة",
-     "audio": "q/w-qitta.mp3",
-     "answer": true
+     "audio": "words/qitta.mp3",
+     "answer": true,
+     "pos": [
+      84,
+      70
+     ],
+     "posP": [
+      84,
+      70
+     ]
     },
     {
-     "word": "مِقَصّ",
+     "word": "مِقَص",
      "audio": "../u1l5/words/miqass.mp3",
-     "answer": true
+     "answer": true,
+     "pos": [
+      16,
+      70
+     ],
+     "posP": [
+      16,
+      70
+     ]
     },
     {
      "word": "صُنْدُوق",
-     "audio": "q/w-sunduq.mp3",
-     "answer": true
+     "audio": "../u4l5/words/sunduq.mp3",
+     "answer": true,
+     "pos": [
+      16,
+      32
+     ],
+     "posP": [
+      16,
+      32
+     ]
     }
    ]
   },
   {
-   "type": "sound",
-   "ex": 4,
+   "type": "link",
+   "ex": 5,
    "page": 73,
-   "task": "أَنْطِقُ صَوْتَ حَرْفِ الْقَافِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
-   "taskAudio": "q/task-4.mp3",
-   "hint": "اسمع الجملة وردد وراها",
+   "task": "أَنْطِقُ، ثُمَّ أَصِلُ حَرْفَ الْقَافِ بِالصُّورَةِ الْمُنَاسِبَةِ",
+   "taskAudio": "../q-heads/h-00ceabf9.mp3",
+   "hint": "صل حرف القاف بالصورة المناسبة",
+   "items": [
+    {
+     "word": "قَ",
+     "audio": "../../syl-ar/642-64e.mp3",
+     "pic": "../../pics/ar-cage.png",
+     "audio2": "words/qafas.mp3"
+    },
+    {
+     "word": "قُ",
+     "audio": "../../syl-ar/642-64f.mp3",
+     "pic": "../../pics/hat.png",
+     "audio2": "words/qubbaa.mp3"
+    },
+    {
+     "word": "قِ",
+     "audio": "../../syl-ar/642-650.mp3",
+     "pic": "../../pics/ar-monkey.jpg",
+     "audio2": "../u2l6/words/qird.mp3"
+    },
+    {
+     "word": "قْ",
+     "audio": "../../syl-ar/642-652.mp3",
+     "pic": "../../pics/ar-necklace.jpg",
+     "audio2": "words/iqd.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 6,
+   "page": 73,
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ (ق) مُخْتَلِفٌ، ثُمَّ أَضْبِطُهُ كَالْمِثَالِ",
+   "taskAudio": "q/task-6.mp3",
+   "hint": "اضغط على الصورة اللي صوت القاف فيها مختلف",
    "items": [
     {
      "word": "قَلَم",
-     "ask": "قَ",
      "pic": "../../pics/ar-pencil.png",
-     "audio": [
-      "../letters/642/name.mp3",
-      "../shared/h-fatha.mp3",
-      "../../syl-ar/642-64e.mp3",
-      "words/qalam.mp3"
-     ]
+     "audio": "words/qalam.mp3"
+    },
+    {
+     "word": "قَمِيص",
+     "pic": "../../pics/ar-shirt.png",
+     "audio": "words/qamis.mp3"
     },
     {
      "word": "قِطَّة",
-     "ask": "قِ",
      "pic": "../../pics/ar-cat.png",
-     "audio": [
-      "../letters/642/name.mp3",
-      "../shared/h-kasra.mp3",
-      "../../syl-ar/642-650.mp3",
-      "q/w-qitta.mp3"
-     ]
-    },
-    {
-     "word": "قُطْن",
-     "ask": "قُ",
-     "pic": "../../pics/ar-cotton.jpg",
-     "audio": [
-      "../letters/642/name.mp3",
-      "../shared/h-damma.mp3",
-      "../../syl-ar/642-64f.mp3",
-      "q/w-qutn.mp3"
-     ]
-    },
-    {
-     "word": "أَقْلَام",
-     "ask": "قْ",
-     "pic": "../../pics/ar-pencils.jpg",
-     "audio": [
-      "../letters/642/name.mp3",
-      "../shared/h-sukoon.mp3",
-      "../../syl-ar/642-652.mp3",
-      "q/w-aqlam.mp3"
-     ]
+     "audio": "words/qitta.mp3",
+     "answer": true
     }
    ]
   },
   {
    "type": "vowel",
-   "ex": 5,
+   "ex": 6,
    "page": 73,
-   "task": "أَنْطِقُ، ثُمَّ أَصِلُ حَرْفَ الْقَافِ بِالصُّورَةِ الْمُنَاسِبَةِ",
-   "taskAudio": [
-    "../q-prompts/choose-letter-sound-a.mp3",
-    "../letters/642/name.mp3",
-    "../q-prompts/choose-letter-sound-b.mp3"
-   ],
-   "hint": "اختار صوت القاف",
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ (ق) مُخْتَلِفٌ، ثُمَّ أَضْبِطُهُ كَالْمِثَالِ",
+   "taskAudio": "q/task-6.mp3",
+   "hint": "اختار القاف بالحركة الصح",
    "choices": [
     "قَ",
     "قُ",
@@ -156,46 +198,134 @@
    ],
    "items": [
     {
-     "word": "قِرْد",
-     "audio": "../u2l6/words/qird.mp3",
-     "pic": "../../pics/ar-monkey.jpg",
-     "answer": "قِ",
-     "choices": [
-      "قَ",
-      "قُ",
-      "قِ"
-     ]
+     "word": "قِطَّة",
+     "audio": "words/qitta.mp3",
+     "pic": "../../pics/ar-cat.png",
+     "answer": "قِ"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 6,
+   "page": 73,
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ (ق) مُخْتَلِفٌ، ثُمَّ أَضْبِطُهُ كَالْمِثَالِ",
+   "taskAudio": "q/task-6.mp3",
+   "hint": "اضغط على الصورة اللي صوت القاف فيها مختلف",
+   "items": [
+    {
+     "word": "قَمِيص",
+     "pic": "../../pics/ar-shirt.png",
+     "audio": "words/qamis.mp3",
+     "answer": true
     },
     {
-     "word": "قُطْن",
-     "audio": "q/w-qutn.mp3",
-     "pic": "../../pics/ar-cotton.jpg",
-     "answer": "قُ",
-     "choices": [
-      "قَ",
-      "قُ",
-      "قِ"
-     ]
+     "word": "قِطَّة",
+     "pic": "../../pics/ar-cat.png",
+     "audio": "words/qitta.mp3"
     },
     {
-     "word": "قَفَص",
-     "audio": "q/w-qafas.mp3",
-     "pic": "../../pics/ar-cage.png",
-     "answer": "قَ",
-     "choices": [
-      "قَ",
-      "قُ",
-      "قِ"
-     ]
+     "word": "قِطَار",
+     "pic": "../../pics/ar-train.png",
+     "audio": "words/qitar.mp3"
     }
    ]
   },
   {
    "type": "vowel",
-   "ex": 8,
+   "ex": 6,
+   "page": 73,
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ (ق) مُخْتَلِفٌ، ثُمَّ أَضْبِطُهُ كَالْمِثَالِ",
+   "taskAudio": "q/task-6.mp3",
+   "hint": "اختار القاف بالحركة الصح",
+   "choices": [
+    "قَ",
+    "قُ",
+    "قِ",
+    "قْ"
+   ],
+   "items": [
+    {
+     "word": "قَمِيص",
+     "audio": "words/qamis.mp3",
+     "pic": "../../pics/ar-shirt.png",
+     "answer": "قَ"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": 6,
+   "page": 73,
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ (ق) مُخْتَلِفٌ، ثُمَّ أَضْبِطُهُ كَالْمِثَالِ",
+   "taskAudio": "q/task-6.mp3",
+   "hint": "اضغط على الصورة اللي صوت القاف فيها مختلف",
+   "items": [
+    {
+     "word": "قَلْب",
+     "pic": "../../pics/ar-heart.png",
+     "audio": "../u2l3/words/qalb.mp3"
+    },
+    {
+     "word": "قَدَم",
+     "pic": "../../pics/ar-foot.png",
+     "audio": "../u3l2/words/qadam.mp3"
+    },
+    {
+     "word": "صَقْر",
+     "pic": "../../pics/ar-eagle.jpg",
+     "audio": "words/saqr.mp3",
+     "answer": true
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 6,
+   "page": 73,
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ (ق) مُخْتَلِفٌ، ثُمَّ أَضْبِطُهُ كَالْمِثَالِ",
+   "taskAudio": "q/task-6.mp3",
+   "hint": "اختار القاف بالحركة الصح",
+   "choices": [
+    "قَ",
+    "قُ",
+    "قِ",
+    "قْ"
+   ],
+   "items": [
+    {
+     "word": "صَقْر",
+     "audio": "words/saqr.mp3",
+     "pic": "../../pics/ar-eagle.jpg",
+     "answer": "قْ",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 9,
+   "page": 74,
+   "task": "أُلَاحِظُ الْفَرْقَ بَيْنَ (ق) وَ(ف)، ثُمَّ أَكْتُبُ",
+   "taskAudio": "q/task-9.mp3",
+   "hint": "اكتب الحرف",
+   "items": [
+    {
+     "word": "ق",
+     "audio": "../letters/642/name.mp3"
+    },
+    {
+     "word": "ف",
+     "audio": "../letters/641/name.mp3"
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 10,
    "page": 74,
    "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الْقَافِ مَضْبُوطًا بِالشَّكْلِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "taskAudio": "../q-heads/h-e6885950.mp3",
    "hint": "اختار القاف بالحركة الصح",
    "choices": [
     "قَ",
@@ -206,78 +336,103 @@
    "items": [
     {
      "word": "قِطَار",
-     "audio": "q/w-qitar.mp3",
+     "audio": "words/qitar.mp3",
      "pic": "../../pics/ar-train.png",
-     "answer": "قِ",
-     "choices": [
-      "قَ",
-      "قُ",
-      "قِ"
-     ]
+     "answer": "قِ"
     },
     {
      "word": "قُطْن",
-     "audio": "q/w-qutn.mp3",
+     "audio": "../u4l4/words/qutn.mp3",
      "pic": "../../pics/ar-cotton.jpg",
-     "answer": "قُ",
-     "choices": [
-      "قَ",
-      "قُ",
-      "قِ"
-     ]
+     "answer": "قُ"
     },
     {
      "word": "قَمَر",
-     "audio": "q/w-qamar.mp3",
+     "audio": "../u4l4/words/qamar.mp3",
      "pic": "../../pics/ar-moon.jpg",
-     "answer": "قَ",
-     "choices": [
-      "قَ",
-      "قُ",
-      "قِ"
-     ]
+     "answer": "قَ"
     },
     {
      "word": "أَقْلَام",
      "audio": "q/w-aqlam.mp3",
      "pic": "../../pics/ar-pencils.jpg",
      "answer": "قْ",
-     "choices": [
-      "قَ",
-      "قُ",
-      "قِ"
-     ],
      "at": 1
     }
    ]
   },
   {
-   "type": "write",
-   "ex": 12,
-   "page": 75,
-   "task": "أَدْمِجُ الْحُرُوفَ لِأُكَوِّنَ كَلِمَةً",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
-   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "type": "split",
+   "ex": 11,
+   "page": 74,
+   "task": "أَقْرَأُ الْكَلِمَاتِ الْآتِيَةَ، وَأُحَلِّلُهَا إِلَى حُرُوفٍ كَالْمِثَالِ",
+   "taskAudio": "q/task-11.mp3",
+   "hint": "اسحب الحروف وركّبها في أماكنها",
    "items": [
     {
-     "word": "قَلْب",
-     "audio": "../u1l2/words/qalb.mp3",
-     "pic": "../../pics/ar-heart.png",
-     "chips": [
+     "word": "قَدَم",
+     "parts": [
       "قَ",
-      "لْ",
-      "ب"
+      "دَ",
+      "م"
      ]
     },
     {
-     "word": "قَلَم",
-     "audio": "words/qalam.mp3",
-     "pic": "../../pics/ar-pencil.png",
-     "chips": [
-      "قَ",
-      "لَ",
-      "م"
+     "word": "بُنْدُق",
+     "parts": [
+      "بُ",
+      "نْ",
+      "دُ",
+      "ق"
      ]
+    }
+   ]
+  },
+  {
+   "type": "build",
+   "ex": 12,
+   "page": 75,
+   "task": "أُكَوِّنُ كَلِمَةً مِنَ الْحُرُوفِ التَّالِيَةِ حَسَبَ الصُّورَةِ",
+   "taskAudio": "q/task-12.mp3",
+   "hint": "اسحب الحروف وكوّن كلمة لكل صورة",
+   "items": [
+    {
+     "letters": [
+      "ق",
+      "ب",
+      "ل",
+      "م"
+     ],
+     "words": [
+      "قَلْب",
+      "قَلَم"
+     ],
+     "slots": 2,
+     "need": 2,
+     "cells": 3,
+     "pics": [
+      "../../pics/ar-heart.png",
+      "../../pics/ar-pencil.png"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 13,
+   "page": 75,
+   "task": "أَقْرَأُ، ثُمَّ أَخْتَارُ الصُّورَةَ الَّتِي تُعَبِّرُ عَنْهَا الْجُمْلَةُ",
+   "taskAudio": "q/task-13.mp3",
+   "hint": "اقرأ الجملة واختار الصورة",
+   "items": [
+    {
+     "word": "جَلَسَ الْقِرْدُ تَحْتَ الْجِسْرِ.",
+     "audio": "q/s13.mp3",
+     "pics": [
+      "../../pics/ar-monkey-under-bridge.png",
+      "../../pics/ar-monkey-on-bridge.png"
+     ],
+     "answer": 0
     }
    ]
   },
@@ -302,13 +457,9 @@
    "type": "circle",
    "ex": 6,
    "page": 69,
-   "task": "اسْتَمِعْ وَارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ الْقَافِ",
-   "taskAudio": [
-    "../q-prompts/circle-word-letter.mp3",
-    "../letters/642/name.mp3"
-   ],
+   "task": "ضَعْ خَطًّا تَحْتَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ (ق)",
+   "taskAudio": "q/task-b6.mp3",
    "hint": "اضغط على الكلمات اللي فيها القاف",
-   "book": "booklet",
    "items": [
     {
      "word": "قَلَم",
@@ -345,30 +496,22 @@
      "audio": "words/batal.mp3",
      "answer": false
     }
-   ]
+   ],
+   "book": "booklet"
   },
   {
    "type": "circle",
    "ex": 7,
    "page": 70,
-   "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ الْقَافِ",
-   "taskAudio": [
-    "../q-prompts/circle-letter-sound.mp3",
-    "../letters/642/name.mp3"
-   ],
+   "task": "انْطِقْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا صَوْتُ حَرْفِ (ق) كَالْمِثَالِ",
+   "taskAudio": "q/task-b7.mp3",
    "hint": "اضغط على الصور التي فيها صوت القاف",
    "silent": true,
-   "book": "booklet",
    "items": [
     {
-     "word": "shirt",
-     "pic": "../../pics/ar-shirt.png",
+     "word": "moon",
+     "pic": "../../pics/ar-moon.jpg",
      "answer": true
-    },
-    {
-     "word": "rooster",
-     "pic": "../../pics/ar-rooster.png",
-     "answer": false
     },
     {
      "word": "strawberry",
@@ -376,18 +519,18 @@
      "answer": false
     },
     {
-     "word": "moon",
-     "pic": "../../pics/ar-moon.jpg",
+     "word": "rooster",
+     "pic": "../../pics/ar-rooster.png",
+     "answer": false
+    },
+    {
+     "word": "shirt",
+     "pic": "../../pics/ar-shirt.png",
      "answer": true
     },
     {
-     "word": "monkey",
-     "pic": "../../pics/ar-monkey.jpg",
-     "answer": true
-    },
-    {
-     "word": "heart",
-     "pic": "../../pics/ar-heart.png",
+     "word": "lock",
+     "pic": "../../pics/ar-lock.png",
      "answer": true
     },
     {
@@ -396,23 +539,25 @@
      "answer": true
     },
     {
-     "word": "lock",
-     "pic": "../../pics/ar-lock.png",
+     "word": "heart",
+     "pic": "../../pics/ar-heart.png",
+     "answer": true
+    },
+    {
+     "word": "monkey",
+     "pic": "../../pics/ar-monkey.jpg",
      "answer": true
     }
-   ]
+   ],
+   "book": "booklet"
   },
   {
    "type": "position",
    "ex": 8,
    "page": 70,
-   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الْقَافِ",
-   "taskAudio": [
-    "../q-prompts/mark-letter-position.mp3",
-    "../letters/642/name.mp3"
-   ],
+   "task": "انْطِقْ، وَارْسُمْ ● فِي مَكَانِ صَوْتِ حَرْفِ (ق)",
+   "taskAudio": "q/task-b8.mp3",
    "hint": "اضغط على الدائرة التي فيها القاف",
-   "book": "booklet",
    "items": [
     {
      "word": "قَلَم",
@@ -421,55 +566,325 @@
      "at": 0
     },
     {
-     "word": "قَارِب",
-     "pic": "../../pics/ar-rowboat.jpg",
-     "audio": "words/qarib.mp3",
-     "at": 0
+     "word": "ذَقْن",
+     "pic": "../../pics/ar-chin.png",
+     "audio": "../u3l8/words/dhaqn.mp3",
+     "at": 1
     },
     {
-     "word": "مِقَصّ",
-     "pic": "../../pics/ar-scissors.png",
-     "audio": "../u1l5/words/miqass.mp3",
-     "at": 1
+     "word": "قَمَر",
+     "pic": "../../pics/ar-moon.jpg",
+     "audio": "../u4l4/words/qamar.mp3",
+     "at": 0
     },
     {
      "word": "قَمْح",
      "pic": "../../pics/ar-wheat.jpg",
      "audio": "words/qamh.mp3",
      "at": 0
+    },
+    {
+     "word": "مِقَص",
+     "pic": "../../pics/ar-scissors.png",
+     "audio": "../u1l5/words/miqass.mp3",
+     "at": 1
+    },
+    {
+     "word": "قَارِب",
+     "pic": "../../pics/ar-rowboat.jpg",
+     "audio": "words/qarib.mp3",
+     "at": 0
     }
-   ]
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "link",
+   "ex": 9,
+   "page": 70,
+   "task": "تَتَبَّعِ النُّقَطَ، ثُمَّ صِلْ كُلَّ شَكْلٍ مِنْ أَشْكَالِ حَرْفِ (ق) بِالْكَلِمَةِ الْمُنَاسِبَةِ",
+   "taskAudio": "q/task-b9.mp3",
+   "hint": "صل شكل القاف بالكلمة المناسبة",
+   "items": [
+    {
+     "word": "ق",
+     "text2": "صَادِق",
+     "audio": "../letters/642/name.mp3",
+     "audio2": "words/sadiq.mp3"
+    },
+    {
+     "word": "قـ",
+     "text2": "قِرْد",
+     "audio": "../letters/642/name.mp3",
+     "audio2": "../u2l6/words/qird.mp3"
+    },
+    {
+     "word": "ـقـ",
+     "text2": "عَقْرَب",
+     "audio": "../letters/642/name.mp3",
+     "audio2": "words/aqrab.mp3"
+    },
+    {
+     "word": "ـق",
+     "text2": "طَبَق",
+     "audio": "../letters/642/name.mp3",
+     "audio2": "../u4l4/words/tabaq.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "vowel",
+   "ex": 10,
+   "page": 70,
+   "task": "انْطِقْ، وَاكْتُبْ حَرْفَ (ق) مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "q/task-b10.mp3",
+   "hint": "اختار القاف بالحركة الصح",
+   "choices": [
+    "قَ",
+    "قُ",
+    "قِ",
+    "قْ"
+   ],
+   "items": [
+    {
+     "word": "قِطَّة",
+     "audio": "words/qitta.mp3",
+     "pic": "../../pics/ar-cat.png",
+     "answer": "قِ"
+    },
+    {
+     "word": "قَصْر",
+     "audio": "words/qasr.mp3",
+     "pic": "../../pics/ar-castle.png",
+     "answer": "قَ"
+    },
+    {
+     "word": "مِقْلَمَة",
+     "audio": "words/miqlama.mp3",
+     "pic": "../../pics/ar-pencil-case.jpg",
+     "answer": "قْ",
+     "at": 1
+    },
+    {
+     "word": "قُنْفُذ",
+     "audio": "words/qunfudh.mp3",
+     "pic": "../../pics/ar-hedgehog.jpg",
+     "answer": "قُ"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "vowel",
+   "ex": 11,
+   "page": 71,
+   "task": "انْطِقْ، وَأَكْمِلِ الْكَلِمَاتِ الْآتِيَةَ بِحَرْفِ (ق) مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "q/task-b11.mp3",
+   "hint": "اختار القاف بالحركة الصح",
+   "choices": [
+    "قَ",
+    "قُ",
+    "قِ",
+    "قْ"
+   ],
+   "items": [
+    {
+     "word": "قَلَم",
+     "audio": "words/qalam.mp3",
+     "pic": "../../pics/ar-pencil.png",
+     "answer": "قَ"
+    },
+    {
+     "word": "قُفْل",
+     "audio": "../u2l7/q/w-qufl.mp3",
+     "pic": "../../pics/ar-lock.png",
+     "answer": "قُ"
+    },
+    {
+     "word": "حَقْل",
+     "audio": "q/h-4.mp3",
+     "pic": "../../pics/ar-fields.jpg",
+     "answer": "قْ",
+     "at": 1
+    },
+    {
+     "word": "قِرْد",
+     "audio": "../u2l6/words/qird.mp3",
+     "pic": "../../pics/ar-monkey.jpg",
+     "answer": "قِ"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "split",
+   "ex": 12,
+   "page": 71,
+   "task": "انْطِقْ، ثُمَّ حَلِّلِ الْكَلِمَاتِ الْآتِيَةَ إِلَى أَصْوَاتٍ",
+   "taskAudio": "q/task-b12.mp3",
+   "hint": "اسحب الحروف وركّبها في أماكنها",
+   "items": [
+    {
+     "word": "قَرَأ",
+     "parts": [
+      "قَ",
+      "رَ",
+      "أ"
+     ],
+     "audio": "../u1l3/q/w-qaraa.mp3"
+    },
+    {
+     "word": "قَفَز",
+     "parts": [
+      "قَ",
+      "فَ",
+      "ز"
+     ],
+     "audio": "words/qafaz.mp3"
+    },
+    {
+     "word": "بَقَر",
+     "parts": [
+      "بَ",
+      "قَ",
+      "ر"
+     ],
+     "audio": "words/baqar.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "type",
+   "ex": 13,
+   "page": 71,
+   "task": "انْطِقْ، ثُمَّ أَكْمِلِ اسْمَ الصُّوَرِ الَّتِي تَبْدَأُ بِحَرْفِ (ق)",
+   "taskAudio": "q/task-b13.mp3",
+   "hint": "اكتب باقي الكلمة",
+   "items": [
+    {
+     "word": "قَمَر",
+     "gaps": [
+      1,
+      2
+     ],
+     "pic": "../../pics/ar-moon.jpg",
+     "audio": "../u4l4/words/qamar.mp3"
+    },
+    {
+     "word": "قَدَم",
+     "gaps": [
+      1,
+      2
+     ],
+     "pic": "../../pics/ar-foot.png",
+     "audio": "../u3l2/words/qadam.mp3"
+    },
+    {
+     "word": "قَمْح",
+     "gaps": [
+      1,
+      2
+     ],
+     "pic": "../../pics/ar-wheat.jpg",
+     "audio": "words/qamh.mp3"
+    },
+    {
+     "word": "قَلْب",
+     "gaps": [
+      1,
+      2
+     ],
+     "pic": "../../pics/ar-heart.png",
+     "audio": "../u2l3/words/qalb.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "link",
+   "ex": 14,
+   "page": 71,
+   "task": "اِقْرَأْ كُلَّ جُمْلَةٍ، ثُمَّ صِلْهَا بِالصُّورَةِ الْمُنَاسِبَةِ لَهَا",
+   "taskAudio": "../u3l8/q/task-b14.mp3",
+   "hint": "صل الجملة بالصورة",
+   "items": [
+    {
+     "word": "الْقَمْحُ فِي الْحَقْلِ.",
+     "pic": "../../pics/ar-wheat.jpg",
+     "audio": "q/s14-1.mp3"
+    },
+    {
+     "word": "هَذَا قُفْلٌ أَزْرَقُ.",
+     "pic": "../../pics/ar-lock.png",
+     "audio": "q/s14-2.mp3"
+    },
+    {
+     "word": "دَقَّ الرَّجُلُ الْجَرَسَ.",
+     "pic": "../../pics/ar-man.png",
+     "audio": "q/s14-3.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "write",
+   "ex": 15,
+   "page": 71,
+   "task": "اِقْرَأْ، وَتَتَبَّعِ النُّقَطَ، ثُمَّ اكْتُبِ الْكَلِمَاتِ بِخَطٍّ جَمِيلٍ",
+   "taskAudio": "q/task-b15.mp3",
+   "hint": "اكتب الكلمة حرف حرف",
+   "items": [
+    {
+     "word": "بُنْدُق",
+     "audio": "../u1l4/words/bunduq.mp3"
+    },
+    {
+     "word": "قِرْد",
+     "audio": "../u2l6/words/qird.mp3"
+    },
+    {
+     "word": "قَلَم",
+     "audio": "words/qalam.mp3"
+    },
+    {
+     "word": "حَقْل",
+     "audio": "q/h-4.mp3"
+    },
+    {
+     "word": "أَزْرَق",
+     "audio": "../u4l3/words/azraq.mp3"
+    }
+   ],
+   "book": "booklet"
   },
   {
    "type": "circle",
    "ex": 1,
    "page": 41,
-   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي بِهَا حَرْفُ الْقَافِ",
-   "taskAudio": [
-    "../q-prompts/circle-word-letter.mp3",
-    "../letters/642/name.mp3"
-   ],
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي بِهَا حَرْفُ (ق)، ثُمَّ أَكْتُبُهَا",
+   "taskAudio": "q/task-w1.mp3",
    "hint": "اضغط على الكلمات اللي فيها القاف",
-   "book": "workbook",
    "items": [
     {
      "word": "قَدَم",
-     "audio": "q/h-0.mp3",
+     "audio": "../u3l2/words/qadam.mp3",
      "answer": true
     },
     {
      "word": "مِفَكّ",
-     "audio": "q/h-1.mp3",
+     "audio": "../u1l5/words/mifakk.mp3",
      "answer": false
     },
     {
-     "word": "مِقَصّ",
-     "audio": "q/h-2.mp3",
+     "word": "مِقَص",
+     "audio": "../u1l5/words/miqass.mp3",
      "answer": true
     },
     {
      "word": "كُتُب",
-     "audio": "q/h-3.mp3",
+     "audio": "../u2l8/words/kutub.mp3",
      "answer": false
     },
     {
@@ -479,17 +894,45 @@
     },
     {
      "word": "طَبَق",
-     "audio": "q/h-5.mp3",
+     "audio": "../u4l4/words/tabaq.mp3",
      "answer": true
     }
-   ]
+   ],
+   "book": "workbook"
+  },
+  {
+   "type": "write",
+   "ex": 1,
+   "page": 41,
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي بِهَا حَرْفُ (ق)، ثُمَّ أَكْتُبُهَا",
+   "taskAudio": "q/task-w1.mp3",
+   "hint": "اكتب الكلمة حرف حرف",
+   "items": [
+    {
+     "word": "قَدَم",
+     "audio": "../u3l2/words/qadam.mp3"
+    },
+    {
+     "word": "مِقَص",
+     "audio": "../u1l5/words/miqass.mp3"
+    },
+    {
+     "word": "حَقْل",
+     "audio": "q/h-4.mp3"
+    },
+    {
+     "word": "طَبَق",
+     "audio": "../u4l4/words/tabaq.mp3"
+    }
+   ],
+   "book": "workbook"
   },
   {
    "type": "vowel",
    "ex": 2,
    "page": 41,
-   "task": "أَنْطِقُ، ثُمَّ أَكْتُبُ صَوْتَ حَرْفِ الْقَافِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "task": "أَنْطِقُ، وَأَكْتُبُ صَوْتَ حَرْفِ ( قَ - قِ - قُ - قْ ) كَمَا بِالْمِثَالِ",
+   "taskAudio": "q/task-w2.mp3",
    "hint": "اختار القاف بالحركة الصح",
    "choices": [
     "قَ",
@@ -497,42 +940,90 @@
     "قِ",
     "قْ"
    ],
-   "book": "workbook",
    "items": [
     {
      "word": "قِرْد",
      "audio": "../u2l6/words/qird.mp3",
      "pic": "../../pics/ar-monkey.jpg",
-     "answer": "قِ",
-     "choices": [
-      "قَ",
-      "قُ",
-      "قِ"
-     ]
+     "answer": "قِ"
+    },
+    {
+     "word": "صَقْر",
+     "audio": "words/saqr.mp3",
+     "pic": "../../pics/ar-eagle.jpg",
+     "answer": "قْ",
+     "at": 1
     },
     {
      "word": "قَفَص",
-     "audio": "q/w-qafas.mp3",
+     "audio": "words/qafas.mp3",
      "pic": "../../pics/ar-cage.png",
-     "answer": "قَ",
-     "choices": [
-      "قَ",
-      "قُ",
-      "قِ"
+     "answer": "قَ"
+    }
+   ],
+   "book": "workbook"
+  },
+  {
+   "type": "type",
+   "ex": "h1",
+   "page": 41,
+   "task": "أُكْمِلُ الْحَرْفَ النَّاقِصَ مَكَانَ النُّقَطِ كَمَا بِالْمِثَالِ",
+   "taskAudio": "q/task-wh1.mp3",
+   "hint": "اكتب الحرف الناقص",
+   "items": [
+    {
+     "word": "مِقَص",
+     "gaps": [
+      1
+     ],
+     "pic": "../../pics/ar-scissors.png",
+     "audio": "../u1l5/words/miqass.mp3"
+    },
+    {
+     "word": "بَقَرَة",
+     "gaps": [
+      1
+     ],
+     "pic": "../../pics/ar-cow.png",
+     "audio": "../u1l4/words/baqara.mp3"
+    },
+    {
+     "word": "طَبَق",
+     "gaps": [
+      2
+     ],
+     "pic": "../../pics/ar-bowl.jpg",
+     "audio": "../u4l4/words/tabaq.mp3"
+    }
+   ],
+   "book": "workbook"
+  },
+  {
+   "type": "split",
+   "ex": "h2",
+   "page": 41,
+   "task": "أَقْرَأُ ثُمَّ أُحَلِّلُ الْكَلِمَاتِ الْآتِيَةَ",
+   "taskAudio": "q/task-wh2.mp3",
+   "hint": "اسحب الحروف وركّبها في أماكنها",
+   "items": [
+    {
+     "word": "قِرْدٌ",
+     "parts": [
+      "قِ",
+      "رْ",
+      "دٌ"
      ]
     },
     {
-     "word": "قُفْل",
-     "audio": "../u2l7/q/w-qufl.mp3",
-     "pic": "../../pics/ar-lock.png",
-     "answer": "قُ",
-     "choices": [
+     "word": "قَدَمٌ",
+     "parts": [
       "قَ",
-      "قُ",
-      "قِ"
+      "دَ",
+      "مٌ"
      ]
     }
-   ]
+   ],
+   "book": "workbook"
   }
  ]
 }

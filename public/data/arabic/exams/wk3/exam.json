@@ -1,0 +1,512 @@
+{
+ "title": "التقييم الأسبوعي",
+ "ratio": 0.707,
+ "pages": [
+  {
+   "title": "التقييم الأسبوعي",
+   "foot": 17,
+   "style": "bar",
+   
+   "blocks": [
+    {
+     "t": "section",
+     "text": "المجموعة (أ)"
+    },
+    {
+     "t": "q",
+     "n": "١",
+     "text": "ضع دائرة حول الكلمة التي بها حرف ( أ ) كما بالمثال:",
+     "audio": "q1.mp3",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "علم",
+        "أذن",
+        "كأس",
+        "بطة",
+        "إشارة"
+       ],
+       "answer": [
+        1,
+        2,
+        4
+       ],
+       "preIdx": [
+        1
+       ],
+       "labels": "none",
+       "style": "words",
+       "cols": 5
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٢",
+     "text": "اضبط حرف ( أ ) في الكلمات الآتية كما بالمثال:",
+     "audio": "q2.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 5,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "فأْر",
+           "audio": "../../u1l3/words/fa_r.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أَ",
+            "أُ",
+            "إِ",
+            "أْ"
+           ],
+           "answer": 3,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2,
+           "pre": true
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "أسد",
+           "audio": "../../u1l3/words/asad.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أَ",
+            "أُ",
+            "إِ",
+            "أْ"
+           ],
+           "answer": 0,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "أذن",
+           "audio": "../../u1l3/words/udhun.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أَ",
+            "أُ",
+            "إِ",
+            "أْ"
+           ],
+           "answer": 1,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "أم",
+           "audio": "../../u1l3/words/umm.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أَ",
+            "أُ",
+            "إِ",
+            "أْ"
+           ],
+           "answer": 1,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "أرنب",
+           "audio": "../../u1l3/words/arnab.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أَ",
+            "أُ",
+            "إِ",
+            "أْ"
+           ],
+           "answer": 0,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "المجموعة (ب)"
+    },
+    {
+     "t": "q",
+     "n": "١",
+     "text": "ضع دائرة حول الكلمة التي بها حرف ( أ ) كما بالمثال:",
+     "audio": "q1.mp3",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "كأس",
+        "دب",
+        "إبرة",
+        "أسرة",
+        "نبأ"
+       ],
+       "answer": [
+        0,
+        2,
+        3,
+        4
+       ],
+       "preIdx": [
+        0
+       ],
+       "labels": "none",
+       "style": "words",
+       "cols": 5
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٢",
+     "text": "اضبط حرف ( أ ) في الكلمات الآتية كما بالمثال:",
+     "audio": "q2.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 5,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "فأْس",
+           "audio": "../../u1l3/q/c6-1.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أَ",
+            "أُ",
+            "إِ",
+            "أْ"
+           ],
+           "answer": 3,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2,
+           "pre": true
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "إشارة",
+           "audio": "../../u1l3/q/c5-ishara.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أَ",
+            "أُ",
+            "إِ",
+            "أْ"
+           ],
+           "answer": 2,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "أذن",
+           "audio": "../../u1l3/words/udhun.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أَ",
+            "أُ",
+            "إِ",
+            "أْ"
+           ],
+           "answer": 1,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "كأس",
+           "audio": "../../u1l3/words/kas.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أَ",
+            "أُ",
+            "إِ",
+            "أْ"
+           ],
+           "answer": 3,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "أرنب",
+           "audio": "../../u1l3/words/arnab.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أَ",
+            "أُ",
+            "إِ",
+            "أْ"
+           ],
+           "answer": 0,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "المجموعة (ج)"
+    },
+    {
+     "t": "q",
+     "n": "١",
+     "text": "ضع دائرة حول الكلمة التي بها حرف ( أ ) كما بالمثال:",
+     "audio": "q1.mp3",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "فصل",
+        "أسد",
+        "أم",
+        "فأر",
+        "إشارة"
+       ],
+       "answer": [
+        1,
+        2,
+        3,
+        4
+       ],
+       "preIdx": [
+        1
+       ],
+       "labels": "none",
+       "style": "words",
+       "cols": 5
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٢",
+     "text": "اضبط حرف ( أ ) في الكلمات الآتية كما بالمثال:",
+     "audio": "q2.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 5,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "إِبرة",
+           "audio": "../../u1l3/words/ibra.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أَ",
+            "أُ",
+            "إِ",
+            "أْ"
+           ],
+           "answer": 2,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2,
+           "pre": true
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "نبأ",
+           "audio": "../../u1l3/q/w-naba.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أَ",
+            "أُ",
+            "إِ",
+            "أْ"
+           ],
+           "answer": [
+            0,
+            3
+           ],
+           "labels": "none",
+           "style": "letters",
+           "cols": 2,
+           "any": true
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "أذن",
+           "audio": "../../u1l3/words/udhun.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أَ",
+            "أُ",
+            "إِ",
+            "أْ"
+           ],
+           "answer": 1,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "كأس",
+           "audio": "../../u1l3/words/kas.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أَ",
+            "أُ",
+            "إِ",
+            "أْ"
+           ],
+           "answer": 3,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "say",
+           "text": "أم",
+           "audio": "../../u1l3/words/umm.mp3"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أَ",
+            "أُ",
+            "إِ",
+            "أْ"
+           ],
+           "answer": 1,
+           "labels": "none",
+           "style": "letters",
+           "cols": 2
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

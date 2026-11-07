@@ -38,5 +38,5 @@
 .ar :is(.txt,.task,.qtask,.qtxt,.xpage,.note){text-align:right}
 
 /* ARABIC LETTER ROWS (Marwa 2026-11-01): letters of an Arabic word, letter choices and tiles flow right to left; the question number sits at the START (right) of the question line. English stays LTR (rule scoped to .ar). */
-.ar :is(.qxw,.qxwords,.qxcircles,.qxline,.qxchoices,.qxtiles,.qxjoin,.qxslots,.qxchips,.qans,.qword b){direction:rtl}
+.ar :is(.qxw,.qxwords,.qxcircles,.qxline,.qxchoices,.qxtiles,.qxjoin,.qxslots,.qxchips,.qans,.qword b,.qxbank,.qxbplaces,.qxsplit,.qxsy){direction:rtl}
 #lesson.ar .qhead .qex{order:3}

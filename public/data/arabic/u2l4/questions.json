@@ -43,167 +43,126 @@
      "text": "ـس",
      "answer": 1
     }
-   ]
+   ],
+   "mark": "tick"
   },
   {
-   "type": "circle",
+   "type": "match",
    "ex": 3,
    "page": 52,
    "task": "أَصِلُ حَرْفَ السِّينِ بِالْكَلِمَاتِ الَّتِي بِهَا",
-   "taskAudio": [
-    "../q-prompts/circle-word-letter.mp3",
-    "../letters/633/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-819abca5.mp3",
    "hint": "اضغط على الكلمات اللي فيها السين",
    "items": [
     {
      "word": "لِسَان",
      "audio": "../u2l3/words/lisan.mp3",
-     "answer": true
+     "answer": true,
+     "pos": [
+      50,
+      14
+     ],
+     "posP": [
+      50,
+      14
+     ]
     },
     {
      "word": "أُخْتِي",
      "audio": "../u1l1/words/ukhti-h.mp3",
-     "answer": false
+     "answer": false,
+     "pos": [
+      84,
+      32
+     ],
+     "posP": [
+      84,
+      32
+     ]
     },
     {
      "word": "كُرْسِيّ",
      "audio": "words/kursi.mp3",
-     "answer": true
+     "answer": true,
+     "pos": [
+      84,
+      70
+     ],
+     "posP": [
+      84,
+      70
+     ]
     },
     {
      "word": "سَمَكَة",
      "audio": "words/samaka.mp3",
-     "answer": true
+     "answer": true,
+     "pos": [
+      50,
+      88
+     ],
+     "posP": [
+      50,
+      88
+     ]
     },
     {
      "word": "جَلَسَ",
      "audio": "q/w-jalasa.mp3",
-     "answer": true
+     "answer": true,
+     "pos": [
+      16,
+      70
+     ],
+     "posP": [
+      16,
+      70
+     ]
     },
     {
      "word": "رَأْس",
      "audio": "q/w-ras.mp3",
-     "answer": true
-    }
-   ]
-  },
-  {
-   "type": "sound",
-   "ex": 4,
-   "page": 53,
-   "task": "أَنْطِقُ صَوْتَ حَرْفِ السِّينِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
-   "taskAudio": "q/task-4.mp3",
-   "hint": "اسمع الجملة وردد وراها",
-   "items": [
-    {
-     "word": "سَمَكَة",
-     "ask": "سَ",
-     "pic": "../../pics/ar-fish.png",
-     "audio": [
-      "../letters/633/name.mp3",
-      "../shared/h-fatha.mp3",
-      "../../syl-ar/633-64e.mp3",
-      "words/samaka.mp3"
-     ]
-    },
-    {
-     "word": "سُلَحْفَاة",
-     "ask": "سُ",
-     "pic": "../../pics/ar-turtle.png",
-     "audio": [
-      "../letters/633/name.mp3",
-      "../shared/h-damma.mp3",
-      "../../syl-ar/633-64f.mp3",
-      "q/w-sulhufa.mp3"
-     ]
-    },
-    {
-     "word": "سِتَارَة",
-     "ask": "سِ",
-     "pic": "../../pics/ar-curtain.png",
-     "audio": [
-      "../letters/633/name.mp3",
-      "../shared/h-kasra.mp3",
-      "../../syl-ar/633-650.mp3",
-      "q/w-sitara.mp3"
-     ]
-    },
-    {
-     "word": "نَسْر",
-     "ask": "سْ",
-     "pic": "../../pics/ar-eagles3.png",
-     "audio": [
-      "../letters/633/name.mp3",
-      "../shared/h-sukoon.mp3",
-      "../../syl-ar/633-652.mp3",
-      "q/w-nasr.mp3"
+     "answer": true,
+     "pos": [
+      16,
+      32
+     ],
+     "posP": [
+      16,
+      32
      ]
     }
-   ]
+   ],
+   "center": "س",
+   "centerAudio": "../letters/633/name.mp3"
   },
   {
-   "type": "vowel",
+   "type": "link",
    "ex": 5,
    "page": 53,
    "task": "أَنْطِقُ، ثُمَّ أَصِلُ حَرْفَ السِّينِ بِالصُّورَةِ الْمُنَاسِبَةِ",
-   "taskAudio": [
-    "../q-prompts/choose-letter-sound-a.mp3",
-    "../letters/633/name.mp3",
-    "../q-prompts/choose-letter-sound-b.mp3"
-   ],
-   "hint": "اختار صوت السين",
-   "choices": [
-    "سَ",
-    "سُ",
-    "سِ",
-    "سْ"
-   ],
+   "taskAudio": "../q-heads/h-1a8b9860.mp3",
+   "hint": "صل حرف السين بالصورة المناسبة",
    "items": [
     {
-     "word": "سَيَّارَة",
+     "word": "سَ",
      "audio": "words/sayyara.mp3",
-     "pic": "../../pics/ar-car.png",
-     "answer": "سَ",
-     "choices": [
-      "سَ",
-      "سُ",
-      "سِ"
-     ]
+     "pic": "../../pics/ar-car.png"
     },
     {
-     "word": "نَسْر",
-     "audio": "q/w-nasr.mp3",
-     "pic": "../../pics/ar-eagle.jpg",
-     "answer": "سْ",
-     "choices": [
-      "سَ",
-      "سُ",
-      "سِ"
-     ],
-     "at": 1
+     "word": "سُ",
+     "audio": "words/sullam.mp3",
+     "pic": "../../pics/ar-ladder.png"
     },
     {
-     "word": "سِلْسِلَة",
+     "word": "سْ",
+     "audio": "../u2l2/words/nasr.mp3",
+     "pic": "../../pics/ar-eagle.jpg"
+    },
+    {
+     "word": "سِ",
      "audio": "words/silsila.mp3",
-     "pic": "../../pics/ar-necklace.jpg",
-     "answer": "سِ",
-     "choices": [
-      "سَ",
-      "سُ",
-      "سِ"
-     ]
-    },
-    {
-     "word": "سُلَحْفَاة",
-     "audio": "q/w-sulhufa.mp3",
-     "pic": "../../pics/ar-turtle.png",
-     "answer": "سُ",
-     "choices": [
-      "سَ",
-      "سُ",
-      "سِ"
-     ]
+     "pic": "../../pics/ar-necklace.jpg"
     }
    ]
   },
@@ -212,7 +171,7 @@
    "ex": 6,
    "page": 53,
    "task": "أَنْطِقُ اسْمَ الصُّورَةِ، ثُمَّ أَضْبِطُ حَرْفَ السِّينِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "taskAudio": "../q-heads/h-b129225c.mp3",
    "hint": "اختار السين بالحركة الصح",
    "choices": [
     "سَ",
@@ -223,7 +182,7 @@
    "items": [
     {
      "word": "سُلَحْفَاة",
-     "audio": "q/w-sulhufa.mp3",
+     "audio": "../u1l6/words/sulahfa.mp3",
      "pic": "../../pics/ar-turtle.png",
      "answer": "سُ",
      "choices": [
@@ -234,7 +193,7 @@
     },
     {
      "word": "سِتَارَة",
-     "audio": "q/w-sitara.mp3",
+     "audio": "words/sitara.mp3",
      "pic": "../../pics/ar-curtain.png",
      "answer": "سِ",
      "choices": [
@@ -242,6 +201,19 @@
       "سُ",
       "سِ"
      ]
+    },
+    {
+     "word": "مِسْطَرَة",
+     "audio": "words/mistara.mp3",
+     "pic": "../../pics/ruler.png",
+     "answer": "سْ",
+     "choices": [
+      "سَ",
+      "سُ",
+      "سِ",
+      "سْ"
+     ],
+     "at": 1
     },
     {
      "word": "سَيَّارَة",
@@ -261,7 +233,7 @@
    "ex": 8,
    "page": 54,
    "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ السِّينِ مَضْبُوطًا بِالشَّكْلِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "taskAudio": "../q-heads/h-add3b8e4.mp3",
    "hint": "اختار السين بالحركة الصح",
    "choices": [
     "سَ",
@@ -272,25 +244,27 @@
    "items": [
     {
      "word": "نَسْر",
-     "audio": "q/w-nasr.mp3",
+     "audio": "../u2l2/words/nasr.mp3",
      "pic": "../../pics/ar-eagle.jpg",
      "answer": "سْ",
      "choices": [
       "سَ",
       "سُ",
-      "سِ"
+      "سِ",
+      "سْ"
      ],
      "at": 1
     },
     {
      "word": "سَرِير",
-     "audio": "q/w-sarir.mp3",
+     "audio": "words/sarir.mp3",
      "pic": "../../pics/ar-bed.jpg",
      "answer": "سَ",
      "choices": [
       "سَ",
       "سُ",
-      "سِ"
+      "سِ",
+      "سْ"
      ]
     },
     {
@@ -301,37 +275,79 @@
      "choices": [
       "سَ",
       "سُ",
-      "سِ"
+      "سِ",
+      "سْ"
+     ]
+    },
+    {
+     "word": "سُلَّم",
+     "audio": "words/sullam.mp3",
+     "pic": "../../pics/ar-ladder.png",
+     "answer": "سُ",
+     "choices": [
+      "سَ",
+      "سُ",
+      "سِ",
+      "سْ"
      ]
     }
    ]
   },
   {
-   "type": "write",
-   "ex": 10,
-   "page": 55,
-   "task": "أَدْمِجُ الْحُرُوفَ لِأُكَوِّنَ كَلِمَةً",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
-   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "type": "split",
+   "ex": 9,
+   "page": 54,
+   "task": "أَقْرَأُ الْكَلِمَتَيْنِ الْآتِيَتَيْنِ، وَأُحَلِّلُهُمَا إِلَى حُرُوفِهِمَا",
+   "taskAudio": "q/task-9.mp3",
+   "hint": "اسحب الحروف وركّبها في أماكنها",
    "items": [
     {
-     "word": "أَسَد",
-     "audio": "../u1l3/words/asad.mp3",
-     "pic": "../../pics/ar-lion.png",
-     "chips": [
-      "أَ",
-      "سَ",
+     "word": "مَسْجِد",
+     "parts": [
+      "مَ",
+      "سْ",
+      "جِ",
       "د"
      ]
     },
     {
-     "word": "سَحَاب",
-     "audio": "words/sahab.mp3",
-     "pic": "../../pics/ar-cloud.jpg",
-     "chips": [
-      "سَ",
-      "حَا",
-      "ب"
+     "word": "سِمْسِم",
+     "parts": [
+      "سِ",
+      "مْ",
+      "سِ",
+      "م"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "build",
+   "ex": 10,
+   "page": 55,
+   "task": "أُكَوِّنُ كَلِمَةً مِنَ الْحُرُوفِ التَّالِيَةِ حَسَبَ الصُّورَةِ",
+   "taskAudio": "q/task-10.mp3",
+   "hint": "اسحب الحروف وكوّن كلمة لكل صورة",
+   "items": [
+    {
+     "letters": [
+      "ب",
+      "أ",
+      "ح",
+      "س",
+      "د"
+     ],
+     "words": [
+      "أَسَد",
+      "سَحَب",
+      "سُحُب"
+     ],
+     "slots": 2,
+     "need": 2,
+     "cells": 3,
+     "pics": [
+      "../../pics/ar-lion.png",
+      "../../pics/ar-cloud.jpg"
      ]
     }
    ]
@@ -354,14 +370,72 @@
    ]
   },
   {
+   "type": "vowel",
+   "ex": 6,
+   "page": 49,
+   "book": "booklet",
+   "task": "انْطِقْ، وَاكْتُبِ الْحَرْفَ الْأَوَّلَ مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "q/task-b6.mp3",
+   "hint": "اختار أول حرف بالحركة الصح",
+   "choices": [
+    "سَ",
+    "مِ",
+    "نُ",
+    "بَ"
+   ],
+   "items": [
+    {
+     "word": "سَرِير",
+     "audio": "words/sarir.mp3",
+     "pic": "../../pics/ar-bed.jpg",
+     "answer": "سَ",
+     "choices": [
+      "سَ",
+      "سُ",
+      "سِ"
+     ]
+    },
+    {
+     "word": "مِقَصّ",
+     "audio": "../u1l5/words/miqass.mp3",
+     "pic": "../../pics/ar-scissors.png",
+     "answer": "مِ",
+     "choices": [
+      "مَ",
+      "مُ",
+      "مِ"
+     ]
+    },
+    {
+     "word": "نُجُوم",
+     "audio": "../u2l5/words/nujum.mp3",
+     "pic": "../../pics/ar-stars.jpg",
+     "answer": "نُ",
+     "choices": [
+      "نَ",
+      "نُ",
+      "نِ"
+     ]
+    },
+    {
+     "word": "بَقَرَة",
+     "audio": "words/baqara.mp3",
+     "pic": "../../pics/ar-cow.png",
+     "answer": "بَ",
+     "choices": [
+      "بَ",
+      "بُ",
+      "بِ"
+     ]
+    }
+   ]
+  },
+  {
    "type": "circle",
    "ex": 7,
    "page": 50,
    "task": "اسْتَمِعْ وَضَعْ عَلَامَةَ (✓) تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ السِّينِ",
-   "taskAudio": [
-    "../q-prompts/circle-letter-sound.mp3",
-    "../letters/633/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-e35577af.mp3",
    "hint": "اضغط على الصور التي فيها صوت السين",
    "silent": true,
    "book": "booklet",
@@ -403,11 +477,7 @@
    "ex": 8,
    "page": 50,
    "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ السِّينِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
-   "taskAudio": [
-    "../q-prompts/choose-letter-sound-a.mp3",
-    "../letters/633/name.mp3",
-    "../q-prompts/choose-letter-sound-b.mp3"
-   ],
+   "taskAudio": "../q-heads/h-521b1a05.mp3",
    "hint": "اختار صوت السين",
    "choices": [
     "سَ",
@@ -449,10 +519,7 @@
    "ex": 9,
    "page": 50,
    "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ السِّينِ",
-   "taskAudio": [
-    "../q-prompts/mark-letter-position.mp3",
-    "../letters/633/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-2fa1f080.mp3",
    "hint": "اضغط على الدائرة التي فيها السين",
    "book": "booklet",
    "items": [
@@ -491,6 +558,48 @@
      "pic": "../../pics/ar-cloud.jpg",
      "audio": "words/sahab.mp3",
      "at": 0
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 10,
+   "page": 50,
+   "book": "booklet",
+   "task": "انْطِقْ، وَاكْتُبْ حَرْفَ (س) مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "q/task-b10.mp3",
+   "hint": "اختار السين بالحركة الصح",
+   "choices": [
+    "سَ",
+    "سُ",
+    "سِ",
+    "سْ"
+   ],
+   "items": [
+    {
+     "word": "سُلَحْفَاة",
+     "audio": "../u1l6/words/sulahfa.mp3",
+     "pic": "../../pics/ar-turtle.png",
+     "answer": "سُ"
+    },
+    {
+     "word": "مِسْمَار",
+     "audio": "words/mismar.mp3",
+     "pic": "../../pics/ar-nail.jpg",
+     "answer": "سْ",
+     "at": 1
+    },
+    {
+     "word": "سِتَارَة",
+     "audio": "words/sitara.mp3",
+     "pic": "../../pics/ar-curtain.png",
+     "answer": "سِ"
+    },
+    {
+     "word": "سَرْج",
+     "audio": "words/saraj.mp3",
+     "pic": "../../pics/ar-saddle.png",
+     "answer": "سَ"
     }
    ]
   },
@@ -548,7 +657,7 @@
    "ex": 12,
    "page": 51,
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "taskAudio": "../q-heads/h-c412ebef.mp3",
    "hint": "رتب الحروف",
    "book": "booklet",
    "items": [
@@ -576,10 +685,82 @@
   },
   {
    "type": "vowel",
+   "ex": 13,
+   "page": 51,
+   "book": "booklet",
+   "task": "أَكْمِلْ بِصَوْتِ الْحَرْفِ الْمُنَاسِبِ بِحَرَكَتِهِ",
+   "taskAudio": "q/task-b13.mp3",
+   "hint": "اختار السين بالحركة الصح",
+   "choices": [
+    "سَ",
+    "سُ",
+    "سِ",
+    "سْ"
+   ],
+   "items": [
+    {
+     "word": "أَسْنَان",
+     "audio": "words/asnan.mp3",
+     "pic": "../../pics/ar-mouth.png",
+     "answer": "سْ",
+     "at": 1
+    },
+    {
+     "word": "سِكِّين",
+     "audio": "words/sikkin.mp3",
+     "pic": "../../pics/ar-knife.png",
+     "answer": "سِ"
+    },
+    {
+     "word": "سُحُب",
+     "audio": "words/suhub.mp3",
+     "pic": "../../pics/ar-cloud.jpg",
+     "answer": "سُ"
+    },
+    {
+     "word": "مَسْجِد",
+     "audio": "words/masjid.mp3",
+     "pic": "../../pics/ar-mosque.png",
+     "answer": "سْ",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 14,
+   "page": 51,
+   "book": "booklet",
+   "task": "اِقْرَأْ كُلَّ جُمْلَةٍ، وَضَعْ عَلَامَةَ (✓) عِنْدَ الصُّورَةِ الْمُنَاسِبَةِ لَهَا",
+   "taskAudio": "../u1l10/q/task-b14.mp3",
+   "hint": "اقرأ الجملة واختار الصورة",
+   "items": [
+    {
+     "word": "تَسْبَحُ الْبِنْتُ فِي الْبَحْرِ.",
+     "audio": "q/s14-1.mp3",
+     "pics": [
+      "../../pics/ar-swim-boy.jpg",
+      "../../pics/ar-swim-girl.jpg"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "حَمَلَ النَّمْلُ التُّرْمُسَ.",
+     "audio": "q/s14-2.mp3",
+     "pics": [
+      "../../pics/ar-ants-carry.jpg",
+      "../../pics/ar-ants-dance.jpg"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "vowel",
    "ex": 2,
    "page": 34,
    "task": "أَنْطِقُ وَأَكْتُبُ حَرْفَ السِّينِ مَضْبُوطًا بِالشَّكْلِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "taskAudio": "../q-heads/h-add3b8e4.mp3",
    "hint": "اختار السين بالحركة الصح",
    "choices": [
     "سَ",
@@ -602,7 +783,7 @@
     },
     {
      "word": "سِتَارَة",
-     "audio": "q/w-sitara.mp3",
+     "audio": "words/sitara.mp3",
      "pic": "../../pics/ar-curtain.png",
      "answer": "سِ",
      "choices": [
@@ -613,7 +794,7 @@
     },
     {
      "word": "نَسْر",
-     "audio": "q/w-nasr.mp3",
+     "audio": "../u2l2/words/nasr.mp3",
      "pic": "../../pics/ar-eagle.jpg",
      "answer": "سْ",
      "choices": [
@@ -630,7 +811,7 @@
    "ex": "h1",
    "page": 34,
    "task": "أَكْتُبُ صَوْتَ حَرْفِ السِّينِ تَحْتَ الصُّورَةِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "taskAudio": "../q-heads/h-984ef15a.mp3",
    "hint": "اختار السين بالحركة الصح",
    "choices": [
     "سَ",
@@ -654,7 +835,7 @@
     },
     {
      "word": "سِتَارَة",
-     "audio": "q/w-sitara.mp3",
+     "audio": "words/sitara.mp3",
      "pic": "../../pics/ar-curtain.png",
      "answer": "سِ",
      "choices": [
@@ -665,7 +846,7 @@
     },
     {
      "word": "سُلَحْفَاة",
-     "audio": "q/w-sulhufa.mp3",
+     "audio": "../u1l6/words/sulahfa.mp3",
      "pic": "../../pics/ar-turtle.png",
      "answer": "سُ",
      "choices": [

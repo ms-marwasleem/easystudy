@@ -4,7 +4,7 @@
              optional "options":[3,6,2,9] (else a keypad 0-10, "max" on the item changes the top number).
    bond    = number tree (book: 5 -> 3 and ?). item: {whole:5, parts:[3,null]} or {whole:null, parts:[3,2]}: tap the missing number. optional "options".
    bigger  = pick the bigger / smaller number. item: {nums:[3,7], find:"bigger"|"smaller", dots:true}; "dots":true shows red dots under each number.
-   count   = count the pictures and tap the number. item: {img:"apple.png", n:4, options:[3,4,5]} (no options = keypad 0-10); no "img" = red dots; "group":true = the picture already shows all n (book picture), shown once. "cols" sets the pictures per row.
+   count   = count the pictures and tap the number. item: {img:"apple.png", n:4, options:[3,4,5]} (no options = keypad 0-10); no "img" = red dots; "group":true = the picture already shows all n, shown once. Count pictures are ONE unit repeated: write "img":"../../pics/bee.png#4" (core.js cpicFill) — never a library picture per count. "cols" sets the pictures per row.
    mwrite  = the child WRITES a number sentence or an answer on lines (like the word writing), with the app's own keypad: 0-9 and + − = (no phone keyboard).
              item: {pics, ask, lead:"Addition sentence:", word:"3 + 4 = 7", tail:"bicycles" (a card after the lines), keys:"0123456789+−=" (default digits), askAudio, audio}
              a wrong key: the line shakes with a soft buzz; done: the full sentence is said (audio), then on.
@@ -57,8 +57,8 @@ function mBigger(box,q,s,run){
   box.append(row);
 }
 function mCount(box,q,s,run){
-  const n=q.n; q.word=q.word||mW(n);  q.hush=1; const grid=el('div','qmcount'+(q.group?' grp':'')); grid.style.setProperty('--c',q.cols||Math.min(n,5)); grid.style.setProperty('--r',Math.ceil(n/(q.cols||Math.min(n,5))));
-  if(q.img&&q.group){ const im=new Image(); im.src=R_Q(q.img); im.alt=''; grid.append(im); } else if(q.img){ const src=R_Q(q.img); for(let k=0;k<n;k++){ const im=new Image(); im.src=src; im.alt=''; grid.append(im); } } else { const im=new Image(); im.src=mDots(n); im.alt=''; grid.append(im); }
+  const n=q.n; q.word=q.word||mW(n);  q.hush=1; const grid=el('div','qmcount'+(q.group||q.img?' grp':'')); grid.style.setProperty('--c',q.cols||Math.min(n,5)); grid.style.setProperty('--r',Math.ceil(n/(q.cols||Math.min(n,5))));
+  if(q.img&&q.group){ const im=new Image(); im.src=R_Q(q.img); im.alt=''; grid.append(im); } else if(q.img){ const im=new Image(); im.alt=''; cpicMake(new URL(R_Q(q.img),location.href).href,n).then(u=>{ im.src=u; }); grid.append(im); }   // a unit without "#n": the ONE count-picture helper (core.js) repeats it n times else { const im=new Image(); im.src=mDots(n); im.alt=''; grid.append(im); }
   box.append(grid);
   if(/^write the number/i.test(s.task||'')||s.typed){
     if(s.both){ const duo=el('div','qxduo'); box.append(duo); const pre=el('div','qxline qxpre'); pre.append(qxWordEl(mW(n),null,false,true)); pre.style.order=2; duo.append(pre); }   // both places (number, word) show from the start   // the book's "write the number": the child types it (Help shows it faintly for a moment); "both":true = then types its word too

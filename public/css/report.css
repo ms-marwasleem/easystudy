@@ -1,0 +1,19 @@
+/* REPORT A PROBLEM (js/report.js): a small flag beside the book-page tag (lesson row) and at the end of the exam header; a light popup. */
+.rpbtn{display:inline-flex;align-items:center;justify-content:center;position:relative;width:1.05rem;height:1.9rem;margin:0;padding:0;border:0;background:none;color:var(--c-on-bg,#fff);opacity:.7;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.rpbtn::after{content:"";position:absolute;inset:-.1rem -.45rem}   /* tap area bigger than the flag, so the flag itself takes little room beside the page tag */
+.rpbtn svg{width:.95rem;height:.95rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.rpbtn:hover,.rpbtn:focus-visible{opacity:1}
+#exam > header{position:relative}
+#exam > header .rpbtn{margin-inline-start:auto;color:#fff}
+.rp-pop{gap:clamp(.4rem,1.6vh,.9rem)}
+.rp-pop h2{margin:0;font-size:clamp(1.6rem,min(7vw,7vh),2.6rem)}
+.rp-where{margin:0;max-width:100%;color:#fff;font-family:var(--f-ui);font-weight:700;font-size:.95rem;line-height:1.35;-webkit-text-stroke:.1em var(--ol);paint-order:stroke fill}
+.rp-kinds{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem}
+.rp-k{font-size:.9rem;padding:.3em .8em}
+.rp-k.on{--t:#FFD64A;--b:#E8A60C;outline:.18rem solid #fff}
+.rp-txt{width:100%;box-sizing:border-box;resize:none;font:inherit;font-family:var(--f-ui);font-weight:600;font-size:1.05rem;padding:.5em .8em;border-radius:1rem;border:.12rem solid var(--btn-rim);background:#fff;color:#000;text-align:start}
+.rp-txt:focus{border-color:var(--ol);outline:0;box-shadow:0 0 0 .2rem rgba(255,255,255,.7)}
+.rp-pop .btns{display:flex;gap:.6rem;justify-content:center}
+.rp-pop .btns button[disabled]{opacity:.6}
+@media (max-height:560px){.rp-ov{place-items:start center;overflow:auto}.rp-pop h2{display:none}.rp-txt{rows:2}}
+.rp-car{display:block;width:clamp(5rem,30vw,8rem)}

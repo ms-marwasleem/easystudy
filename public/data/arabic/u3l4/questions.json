@@ -24,8 +24,8 @@
      "answer": 0
     },
     {
-     "word": "ـع",
-     "text": "ـع",
+     "word": "عـ",
+     "text": "عـ",
      "answer": 1
     },
     {
@@ -34,18 +34,23 @@
      "answer": 0
     },
     {
-     "word": "ص",
-     "text": "ص",
-     "answer": 0
-    },
-    {
      "word": "ـعـ",
      "text": "ـعـ",
      "answer": 1
     },
     {
-     "word": "عـ",
-     "text": "عـ",
+     "word": "صـ",
+     "text": "صـ",
+     "answer": 0
+    },
+    {
+     "word": "ـح",
+     "text": "ـح",
+     "answer": 0
+    },
+    {
+     "word": "ـع",
+     "text": "ـع",
      "answer": 1
     }
    ]
@@ -91,56 +96,89 @@
    ]
   },
   {
-   "type": "sound",
+   "type": "vowel",
    "ex": 5,
    "page": 90,
    "task": "أَنْطِقُ صَوْتَ حَرْفِ الْعَيْنِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
    "taskAudio": "q/task-5.mp3",
-   "hint": "اسمع الجملة وردد وراها",
+   "hint": "اضغط صوت العين الصح",
+   "choices": [
+    "عَ",
+    "عُ",
+    "عِ",
+    "عْ"
+   ],
    "items": [
     {
      "word": "عَلَم",
-     "ask": "عَ",
+     "audio": "../u3l4/words/alam.mp3",
      "pic": "../../pics/ar-flag.png",
-     "audio": [
-      "../letters/639/name.mp3",
-      "../shared/h-fatha.mp3",
-      "../../syl-ar/639-64e.mp3",
-      "words/alam.mp3"
-     ]
+     "answer": "عَ"
     },
     {
      "word": "عُصْفُور",
-     "ask": "عُ",
+     "audio": "../u4l5/words/usfur.mp3",
      "pic": "../../pics/ar-bird.png",
-     "audio": [
-      "../letters/639/name.mp3",
-      "../shared/h-damma.mp3",
-      "../../syl-ar/639-64f.mp3",
-      "../u3l3/words/usfur.mp3"
-     ]
+     "answer": "عُ"
     },
     {
      "word": "عِنَب",
-     "ask": "عِ",
+     "audio": "../u3l4/words/inab.mp3",
      "pic": "../../pics/ar-grapes.png",
-     "audio": [
-      "../letters/639/name.mp3",
-      "../shared/h-kasra.mp3",
-      "../../syl-ar/639-650.mp3",
-      "words/inab.mp3"
-     ]
+     "answer": "عِ"
     },
     {
      "word": "ثُعْبَان",
-     "ask": "عْ",
+     "audio": "../u4l7/words/thu3ban.mp3",
      "pic": "../../pics/ar-snake.png",
-     "audio": [
-      "../letters/639/name.mp3",
-      "../shared/h-sukoon.mp3",
-      "../../syl-ar/639-652.mp3",
-      "words/thuban.mp3"
-     ]
+     "answer": "عْ",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 6,
+   "page": 90,
+   "task": "أَضَعُ عَلَامَةً (✓) عِنْدَ الصُّورَةِ الَّتِي بِهَا صَوْتُ الْحَرْفِ",
+   "taskAudio": "q/task-6.mp3",
+   "hint": "اختار الصورة اللي فيها الصوت",
+   "items": [
+    {
+     "word": "عُ",
+     "audio": "../../syl-ar/639-64f.mp3",
+     "pics": [
+      "../../pics/ar-eye.png",
+      "../../pics/ar-nest.jpg"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "عِ",
+     "audio": "../../syl-ar/639-650.mp3",
+     "pics": [
+      "../../pics/ar-juice.png",
+      "../../pics/ar-grapes.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "عَ",
+     "audio": "../../syl-ar/639-64e.mp3",
+     "pics": [
+      "../../pics/ar-nest.jpg",
+      "../../pics/ar-honey.png"
+     ],
+     "answer": 1
+    },
+    {
+     "word": "عْ",
+     "audio": "../../syl-ar/639-652.mp3",
+     "pics": [
+      "../../pics/ar-fox.png",
+      "../../pics/ar-flag.png"
+     ],
+     "answer": 0
     }
    ]
   },
@@ -149,7 +187,7 @@
    "ex": 8,
    "page": 91,
    "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ الْعَيْنِ مَضْبُوطًا بِالشَّكْلِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "taskAudio": "../q-heads/h-06900d73.mp3",
    "hint": "اختار العين بالحركة الصح",
    "choices": [
     "عَ",
@@ -159,49 +197,80 @@
    ],
    "items": [
     {
-     "word": "عَسَل",
-     "audio": "words/asal.mp3",
-     "pic": "../../pics/ar-honey.png",
-     "answer": "عَ",
-     "choices": [
-      "عَ",
-      "عُ",
-      "عِ"
-     ]
-    },
-    {
      "word": "عِنَب",
-     "audio": "words/inab.mp3",
+     "audio": "../u3l4/words/inab.mp3",
      "pic": "../../pics/ar-grapes.png",
      "answer": "عِ",
      "choices": [
       "عَ",
       "عُ",
-      "عِ"
-     ]
-    },
-    {
-     "word": "عُصْفُور",
-     "audio": "../u3l3/words/usfur.mp3",
-     "pic": "../../pics/ar-bird.png",
-     "answer": "عُ",
-     "choices": [
-      "عَ",
-      "عُ",
-      "عِ"
+      "عِ",
+      "عْ"
      ]
     },
     {
      "word": "ثُعْبَان",
-     "audio": "words/thuban.mp3",
+     "audio": "../u4l7/words/thu3ban.mp3",
      "pic": "../../pics/ar-snake.png",
      "answer": "عْ",
+     "at": 1,
      "choices": [
       "عَ",
       "عُ",
-      "عِ"
-     ],
-     "at": 1
+      "عِ",
+      "عْ"
+     ]
+    },
+    {
+     "word": "عَيْن",
+     "audio": "../words/ayn.mp3",
+     "pic": "../../pics/ar-eye.png",
+     "answer": "عَ",
+     "choices": [
+      "عَ",
+      "عُ",
+      "عِ",
+      "عْ"
+     ]
+    },
+    {
+     "word": "عُشّ",
+     "audio": "../words/ush.mp3",
+     "pic": "../../pics/ar-nest.jpg",
+     "answer": "عُ",
+     "choices": [
+      "عَ",
+      "عُ",
+      "عِ",
+      "عْ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "split",
+   "ex": 9,
+   "page": 91,
+   "task": "أَقْرَأُ الْكَلِمَاتِ الْآتِيَةَ، وَأُحَلِّلُهَا إِلَى حُرُوفٍ",
+   "taskAudio": "q/task-9.mp3",
+   "hint": "اسحب الحروف وركّبها في أماكنها",
+   "items": [
+    {
+     "word": "عَسَل",
+     "parts": [
+      "عَ",
+      "سَ",
+      "ل"
+     ]
+    },
+    {
+     "word": "مَلْعَب",
+     "parts": [
+      "مَ",
+      "لْ",
+      "عَ",
+      "ب"
+     ]
     }
    ]
   },
@@ -209,28 +278,38 @@
    "type": "write",
    "ex": 10,
    "page": 92,
-   "task": "أَدْمِجُ الْحُرُوفَ لِأُكَوِّنَ كَلِمَةً",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
-   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "task": "أُكَوِّنُ كَلِمَةً، ثُمَّ أَكْتُبُهَا؛ لِأَكْتَشِفَ الْجُزْءَ النَّاقِصَ فِي الْجِسْمِ",
+   "taskAudio": "q/task-10.mp3",
+   "hint": "اكتب الكلمة بعد ما ترتب الحروف",
    "items": [
     {
      "word": "عَيْن",
-     "audio": "../u3l3/words/ayn.mp3",
+     "audio": "../words/ayn.mp3",
      "pic": "../../pics/ar-eye.png",
      "chips": [
-      "عَيْ",
-      "ن"
+      "ي",
+      "ن",
+      "ع"
      ]
-    },
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 11,
+   "page": 92,
+   "task": "أَقْرَأُ الْجُمْلَةَ، وَأَصِلُهَا بِالصُّورَةِ الْمُنَاسِبَةِ",
+   "taskAudio": "q/task-11.mp3",
+   "hint": "اقرأ الجملة واختار الصورة",
+   "items": [
     {
-     "word": "عِنَب",
-     "audio": "words/inab.mp3",
-     "pic": "../../pics/ar-grapes.png",
-     "chips": [
-      "عِ",
-      "نَ",
-      "ب"
-     ]
+     "word": "تَلْبَسُ الْبِنْتُ الْعِقْدَ الْأَحْمَرَ.",
+     "audio": "q/s11.mp3",
+     "pics": [
+      "../../pics/ar-girl-glasses.jpg",
+      "../../pics/ar-girl-necklace-red.jpg"
+     ],
+     "answer": 1
     }
    ]
   },
@@ -253,31 +332,64 @@
   },
   {
    "type": "circle",
+   "ex": 6,
+   "page": 84,
+   "task": "أَضَعُ خَطًّا تَحْتَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ (ع)",
+   "taskAudio": "q/task-b6.mp3",
+   "hint": "اضغط على الكلمات اللي فيها العين",
+   "items": [
+    {
+     "word": "عُمَر",
+     "audio": "words/omar.mp3",
+     "answer": true
+    },
+    {
+     "word": "عَمُود",
+     "audio": "words/amud.mp3",
+     "answer": true
+    },
+    {
+     "word": "نَهْر",
+     "audio": "../words/nahr.mp3",
+     "answer": false
+    },
+    {
+     "word": "وَعْد",
+     "audio": "words/waad.mp3",
+     "answer": true
+    },
+    {
+     "word": "فَهْد",
+     "audio": "../u3l7/words/fahd.mp3",
+     "answer": false
+    },
+    {
+     "word": "قَلَم",
+     "audio": "../u4l2/words/qalam.mp3",
+     "answer": false
+    },
+    {
+     "word": "فَرْع",
+     "audio": "words/farea.mp3",
+     "answer": true
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "circle",
    "ex": 7,
    "page": 85,
-   "task": "اسْتَمِعْ وَارْسُمْ دَائِرَةً حَوْلَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الْعَيْنِ",
-   "taskAudio": [
-    "../q-prompts/circle-letter-sound.mp3",
-    "../letters/639/name.mp3"
-   ],
+   "task": "اسْتَمِعْ وَضَعْ عَلَامَةَ (✓) تَحْتَ الصُّورَةِ الَّتِي بِهَا حَرْفُ الْعَيْنِ (ع)",
+   "taskAudio": "q/task-b7.mp3",
    "hint": "اضغط على الصور التي فيها صوت العين",
    "silent": true,
    "book": "booklet",
    "items": [
     {
-     "word": "grass",
-     "pic": "../../pics/ar-grass.png",
+     "word": "hair",
+     "pic": "../../pics/ar-hair.png",
      "answer": true
-    },
-    {
-     "word": "perfume",
-     "pic": "../../pics/ar-perfume.png",
-     "answer": true
-    },
-    {
-     "word": "horse-book",
-     "pic": "../../pics/ar-horse-book.jpg",
-     "answer": false
     },
     {
      "word": "lion",
@@ -285,23 +397,23 @@
      "answer": false
     },
     {
-     "word": "hair",
-     "pic": "../../pics/ar-hair.png",
-     "answer": true
-    },
-    {
-     "word": "bird",
-     "pic": "../../pics/ar-bird.png",
-     "answer": true
-    },
-    {
-     "word": "strawberry",
-     "pic": "../../pics/ar-strawberry.png",
+     "word": "horse-book",
+     "pic": "../../pics/ar-horse-book.jpg",
      "answer": false
     },
     {
-     "word": "flag",
-     "pic": "../../pics/ar-flag.png",
+     "word": "perfume",
+     "pic": "../../pics/ar-perfume.png",
+     "answer": true
+    },
+    {
+     "word": "grass",
+     "pic": "../../pics/ar-grass.png",
+     "answer": true
+    },
+    {
+     "word": "honey",
+     "pic": "../../pics/ar-honey.png",
      "answer": true
     },
     {
@@ -310,120 +422,143 @@
      "answer": false
     },
     {
-     "word": "honey",
-     "pic": "../../pics/ar-honey.png",
+     "word": "flag",
+     "pic": "../../pics/ar-flag.png",
+     "answer": true
+    },
+    {
+     "word": "strawberry",
+     "pic": "../../pics/ar-strawberry.png",
+     "answer": false
+    },
+    {
+     "word": "bird",
+     "pic": "../../pics/ar-bird.png",
      "answer": true
     }
-   ]
+   ],
+   "mark": "tick"
   },
   {
    "type": "position",
    "ex": 8,
    "page": 85,
-   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ الْعَيْنِ",
-   "taskAudio": [
-    "../q-prompts/mark-letter-position.mp3",
-    "../letters/639/name.mp3"
-   ],
+   "task": "انْطِقْ، وَارْسُمْ دَائِرَةً فِي مَكَانِ صَوْتِ حَرْفِ (ع)",
+   "taskAudio": "q/task-b8.mp3",
    "hint": "اضغط على الدائرة التي فيها العين",
-   "book": "booklet",
    "items": [
+    {
+     "word": "ضِفْدِع",
+     "pic": "../../pics/frog.png",
+     "audio": "../u4l6/words/difda3.mp3",
+     "at": 3
+    },
     {
      "word": "عِظَام",
      "pic": "../../pics/ar-bones.png",
      "audio": "words/izam.mp3",
      "at": 0
+    },
+    {
+     "word": "ضَبُع",
+     "pic": "../../pics/ar-hyena.png",
+     "audio": "../u4l6/words/daba3.mp3",
+     "at": 2
+    },
+    {
+     "word": "عَلَم",
+     "pic": "../../pics/ar-flag.png",
+     "audio": "../u3l4/words/alam.mp3",
+     "at": 0
+    },
+    {
+     "word": "كَعْك",
+     "pic": "../../pics/ar-kaak.jpg",
+     "audio": "words/kaak.mp3",
+     "at": 1
     },
     {
      "word": "عُشْب",
      "pic": "../../pics/ar-grass.png",
      "audio": "words/ushb.mp3",
      "at": 0
-    },
-    {
-     "word": "عَلَم",
-     "pic": "../../pics/ar-flag.png",
-     "audio": "words/alam.mp3",
-     "at": 0
-    },
-    {
-     "word": "ثَعْلَب",
-     "pic": "../../pics/ar-fox.png",
-     "audio": "../exams/t3/w-thalab.mp3",
-     "at": 1
-    },
-    {
-     "word": "ثُعْبَان",
-     "pic": "../../pics/ar-snake.png",
-     "audio": "words/thuban.mp3",
-     "at": 1
     }
-   ]
+   ],
+   "book": "booklet"
   },
   {
    "type": "vowel",
    "ex": 9,
    "page": 85,
-   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ الْعَيْنِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
-   "taskAudio": [
-    "../q-prompts/choose-letter-sound-a.mp3",
-    "../letters/639/name.mp3",
-    "../q-prompts/choose-letter-sound-b.mp3"
-   ],
-   "hint": "اختار صوت العين",
+   "task": "انْطِقْ، وَاكْتُبْ حَرْفَ (ع) مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "q/task-b9.mp3",
+   "hint": "اختار العين بالحركة الصح",
    "choices": [
     "عَ",
     "عُ",
     "عِ",
     "عْ"
    ],
-   "book": "booklet",
    "items": [
     {
-     "word": "عُصْفُور",
-     "pic": "../../pics/ar-bird.png",
-     "audio": "../u3l3/words/usfur.mp3",
-     "answer": "عُ"
-    },
-    {
-     "word": "عِقْد",
-     "pic": "../../pics/ar-necklace.jpg",
-     "audio": "../u2l9/words/iqd.mp3",
-     "answer": "عِ"
-    },
-    {
-     "word": "عَسَل",
-     "pic": "../../pics/ar-honey.png",
-     "audio": "words/asal.mp3",
-     "answer": "عَ"
-    },
-    {
      "word": "ثَعْلَب",
+     "audio": "../u4l7/words/tha3lab.mp3",
      "pic": "../../pics/ar-fox.png",
-     "audio": "../exams/t3/w-thalab.mp3",
      "answer": "عْ",
      "at": 1
     },
     {
-     "word": "عِظَام",
-     "pic": "../../pics/ar-bones.png",
-     "audio": "words/izam.mp3",
+     "word": "عَسَل",
+     "audio": "words/asal.mp3",
+     "pic": "../../pics/ar-honey.png",
+     "answer": "عَ"
+    },
+    {
+     "word": "عِقْد",
+     "audio": "../words/iqd.mp3",
+     "pic": "../../pics/ar-necklace.jpg",
      "answer": "عِ"
     },
     {
+     "word": "عُصْفُور",
+     "audio": "../u4l5/words/usfur.mp3",
+     "pic": "../../pics/ar-bird.png",
+     "answer": "عُ"
+    },
+    {
+     "word": "عَيْن",
+     "audio": "../words/ayn.mp3",
+     "pic": "../../pics/ar-eye.png",
+     "answer": "عَ"
+    },
+    {
+     "word": "شَعْر",
+     "audio": "words/shaar.mp3",
+     "pic": "../../pics/ar-hair.png",
+     "answer": "عْ",
+     "at": 1
+    },
+    {
      "word": "عِنَب",
+     "audio": "../u3l4/words/inab.mp3",
      "pic": "../../pics/ar-grapes.png",
-     "audio": "words/inab.mp3",
+     "answer": "عِ"
+    },
+    {
+     "word": "عِظَام",
+     "audio": "words/izam.mp3",
+     "pic": "../../pics/ar-bones.png",
      "answer": "عِ"
     }
-   ]
+   ],
+   "book": "booklet"
   },
   {
    "type": "arrange",
    "ex": 10,
    "page": 85,
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "taskAudio": "../q-heads/h-c412ebef.mp3",
    "hint": "رتب الحروف",
    "book": "booklet",
    "items": [
@@ -451,7 +586,6 @@
    "task": "أَدْمِجُ الْمَقَاطِعَ الصَّوْتِيَّةَ لِتَكُونَ كَلِمَاتٍ",
    "taskAudio": "../q-prompts/merge-syllables.mp3",
    "hint": "اكتب الكلمة بعد ما تدمج المقاطع",
-   "book": "booklet",
    "items": [
     {
      "word": "عُصْفُور",
@@ -460,7 +594,7 @@
       "فُو",
       "ر"
      ],
-     "audio": "../u3l3/words/usfur.mp3"
+     "audio": "../u4l5/words/usfur.mp3"
     },
     {
      "word": "عَيْن",
@@ -468,7 +602,16 @@
       "عَيْ",
       "ن"
      ],
-     "audio": "../u3l3/words/ayn.mp3"
+     "audio": "../words/ayn.mp3"
+    },
+    {
+     "word": "عِنَب",
+     "chips": [
+      "عِ",
+      "نَ",
+      "ب"
+     ],
+     "audio": "../u3l4/words/inab.mp3"
     },
     {
      "word": "إِصْبَع",
@@ -479,74 +622,281 @@
      ],
      "audio": "words/isbaa.mp3"
     }
-   ]
+   ],
+   "book": "booklet"
   },
   {
-   "type": "arrange",
+   "type": "order",
    "ex": 12,
    "page": 86,
-   "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/arrange-letters.mp3",
-   "hint": "رتب الحروف",
-   "book": "booklet",
+   "task": "أُرَتِّبُ الْمَقَاطِعَ لِتَكُونَ كَلِمَاتٍ",
+   "taskAudio": "q/task-b12.mp3",
+   "hint": "رتب المقاطع",
    "items": [
     {
+     "word": "شُمْع",
+     "chunks": [
+      "شُ",
+      "مْ",
+      "ع"
+     ],
+     "end": "",
+     "audio": "../u3l5/words/shamaa2.mp3",
+     "img": "../../pics/ar-candle.png"
+    },
+    {
      "word": "عَسَل",
-     "pic": "../../pics/ar-honey.png",
-     "audio": "words/asal.mp3"
+     "chunks": [
+      "عَ",
+      "سَ",
+      "ل"
+     ],
+     "end": "",
+     "audio": "words/asal.mp3",
+     "img": "../../pics/ar-honey.png"
     },
     {
-     "word": "عُطُور",
-     "pic": "../../pics/ar-perfume.png",
-     "audio": "words/uttur.mp3"
+     "word": "لُعْبَة",
+     "chunks": [
+      "لُ",
+      "عْ",
+      "بَ",
+      "ة"
+     ],
+     "end": "",
+     "audio": "../u1l4/words/lu3ba.mp3",
+     "img": "../../pics/ar-toy-blocks.png"
     },
     {
-     "word": "ثُعْبَان",
-     "pic": "../../pics/ar-snake.png",
-     "audio": "words/thuban.mp3"
+     "word": "عُشّ",
+     "chunks": [
+      "عُ",
+      "شّ"
+     ],
+     "end": "",
+     "audio": "../words/ush.mp3",
+     "img": "../../pics/ar-nest.jpg"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "write",
+   "ex": 13,
+   "page": 86,
+   "sentence": true,
+   "faint": true,
+   "task": "أَقْرَأُ ثُمَّ أَكْتُبُ",
+   "taskAudio": "q/task-b13.mp3",
+   "hint": "اقرأ الجملة واكتبها",
+   "items": [
+    {
+     "word": "عَلَاءٌ عَامِلٌ مُجْتَهِدٌ",
+     "audio": "q/b13-1.mp3"
+    },
+    {
+     "word": "عَبِيرٌ عَامِلَةٌ مُجْتَهِدَةٌ",
+     "audio": "q/b13-2.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "yesno",
+   "ex": 14,
+   "page": 86,
+   "book": "booklet",
+   "task": "أَضَعُ عَلَامَةً (✓) أَمَامَ الْجُمْلَةِ الْمُعَبِّرَةِ عَنِ الصُّورَةِ",
+   "taskAudio": "q/task-b14.mp3",
+   "hint": "هل الجملة تعبر عن الصورة؟",
+   "items": [
+    {
+     "word": "أَلْبَسُ الْمِعْطَفَ فِي الْبَرْدِ",
+     "audio": "q/b14-1.mp3",
+     "pic": "../../pics/ar-honey-milk-coat.png",
+     "answer": true
+    },
+    {
+     "word": "أَلْبَسُ الْعِقْدَ فِي الْحَفْلِ",
+     "audio": "q/b14-2.mp3",
+     "pic": "../../pics/ar-honey-milk-coat.png",
+     "answer": false
+    },
+    {
+     "word": "قَعَدَ الْعِجْلُ عَلَى الْعُشْبِ",
+     "audio": "q/b14-3.mp3",
+     "pic": "../../pics/ar-honey-milk-coat.png",
+     "answer": false
+    },
+    {
+     "word": "أَشْرَبُ اللَّبَنَ مَعَ الْعَسَلِ",
+     "audio": "q/b14-4.mp3",
+     "pic": "../../pics/ar-honey-milk-coat.png",
+     "answer": true
     }
    ]
   },
   {
-   "type": "circle",
+   "type": "ring",
    "ex": 1,
    "page": 48,
-   "book": "workbook",
-   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي فِيهَا حَرْفُ (ع)",
-   "taskAudio": "q/wb-circle-48.mp3",
-   "hint": "اضغط على الكلمات اللي فيها حرف ع",
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ حَرْفِ (ع) فِي الْكَلِمَاتِ التَّالِيَةِ كَمَا بِالْمِثَالِ",
+   "taskAudio": "q/task-wb-1.mp3",
+   "hint": "اضغط على العين داخل الكلمة",
    "items": [
     {
      "word": "عَلَم",
-     "text": "عَلَم",
-     "answer": true
+     "letter": "ع",
+     "audio": "../u3l4/words/alam.mp3"
     },
     {
      "word": "عُصْفُور",
-     "text": "عُصْفُور",
-     "answer": true
+     "letter": "ع",
+     "audio": "../u4l5/words/usfur.mp3"
     },
     {
      "word": "شُعْلَة",
-     "text": "شُعْلَة",
-     "answer": true
+     "letter": "ع",
+     "audio": "../u3l5/words/shula.mp3"
     },
     {
      "word": "ثَعْلَب",
-     "text": "ثَعْلَب",
-     "answer": true
+     "letter": "ع",
+     "audio": "../u4l7/words/tha3lab.mp3"
     },
     {
      "word": "قَمْع",
-     "text": "قَمْع",
-     "answer": true
+     "letter": "ع",
+     "audio": "words/qamaa.mp3"
     },
     {
      "word": "مُرَبَّع",
-     "text": "مُرَبَّع",
-     "answer": true
+     "letter": "ع",
+     "audio": "words/murabbaa.mp3"
     }
-   ]
+   ],
+   "book": "workbook"
+  },
+  {
+   "type": "link",
+   "ex": 2,
+   "page": 48,
+   "task": "أَصِلُ كُلَّ كَلِمَتَيْنِ مُتَشَابِهَتَيْنِ فِي رَسْمِ حَرْفِ (ع) فِيمَا يَلِي",
+   "taskAudio": "q/task-wb-2.mp3",
+   "hint": "صل الكلمتين اللي شكل العين فيهم زي بعض",
+   "items": [
+    {
+     "word": "مُرَبَّع",
+     "text2": "رَضِيع",
+     "audio": "words/murabbaa.mp3",
+     "audio2": "words/radii.mp3"
+    },
+    {
+     "word": "عَظْم",
+     "text2": "عِنَب",
+     "audio": "../words/adhm.mp3",
+     "audio2": "../u3l4/words/inab.mp3"
+    },
+    {
+     "word": "مِذْيَاع",
+     "text2": "ذِرَاع",
+     "audio": "words/midyaa.mp3",
+     "audio2": "../words/dhira.mp3"
+    },
+    {
+     "word": "شُعْلَة",
+     "text2": "شَمْعَة",
+     "audio": "../u3l5/words/shula.mp3",
+     "audio2": "../u3l5/words/shamaa.mp3"
+    }
+   ],
+   "book": "workbook"
+  },
+  {
+   "type": "ring",
+   "ex": "h1",
+   "page": 48,
+   "task": "أَنْطِقُ وَأُلَوِّنُ مَكَانَ صَوْتِ حَرْفِ (ع)",
+   "taskAudio": "q/task-wb-h1.mp3",
+   "hint": "اضغط على العين داخل الكلمة",
+   "items": [
+    {
+     "word": "عَمُود",
+     "letter": "ع",
+     "audio": "words/amud.mp3"
+    },
+    {
+     "word": "ثُعْبَان",
+     "letter": "ع",
+     "audio": "../u4l7/words/thu3ban.mp3"
+    },
+    {
+     "word": "بَاع",
+     "letter": "ع",
+     "audio": "words/baa.mp3"
+    }
+   ],
+   "book": "workbook"
+  },
+  {
+   "type": "vowel",
+   "ex": "h2",
+   "page": 48,
+   "task": "أُكْمِلُ الْحَرْفَ النَّاقِصَ",
+   "taskAudio": "q/task-wb-h2.mp3",
+   "hint": "اختار الحرف الناقص",
+   "choices": [
+    "ع",
+    "غ",
+    "ح"
+   ],
+   "items": [
+    {
+     "word": "شعر",
+     "audio": "words/shaar.mp3",
+     "answer": "ع",
+     "at": 1,
+     "choices": [
+      "ع",
+      "غ",
+      "ح"
+     ]
+    },
+    {
+     "word": "عين",
+     "audio": "../words/ayn.mp3",
+     "answer": "ع",
+     "at": 0,
+     "choices": [
+      "ع",
+      "غ",
+      "ح"
+     ]
+    },
+    {
+     "word": "عظم",
+     "audio": "../words/adhm.mp3",
+     "answer": "ع",
+     "at": 0,
+     "choices": [
+      "ع",
+      "غ",
+      "ح"
+     ]
+    },
+    {
+     "word": "كعك",
+     "audio": "words/kaak.mp3",
+     "answer": "ع",
+     "at": 1,
+     "choices": [
+      "ع",
+      "غ",
+      "ح"
+     ]
+    }
+   ],
+   "book": "workbook"
   }
  ]
 }

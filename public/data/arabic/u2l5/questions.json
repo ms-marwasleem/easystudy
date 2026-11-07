@@ -4,18 +4,18 @@
    "type": "circle",
    "ex": 2,
    "page": 56,
-   "task": "أَضَعُ عَلَامَةً أَسْفَلَ حَرْفِ النُّونِ",
+   "task": "أَضَعُ عَلَامَةً (✓) أَسْفَلَ حَرْفِ (ن)",
    "taskAudio": "q/task-2.mp3",
    "hint": "اضغط على أشكال النون",
    "items": [
     {
-     "word": "فـ",
-     "text": "فـ",
+     "word": "ف",
+     "text": "ف",
      "answer": 0
     },
     {
-     "word": "ن",
-     "text": "ن",
+     "word": "ـن",
+     "text": "ـن",
      "answer": 1
     },
     {
@@ -34,166 +34,135 @@
      "answer": 0
     },
     {
-     "word": "ـن",
-     "text": "ـن",
+     "word": "ن",
+     "text": "ن",
      "answer": 1
     },
     {
-     "word": "ف",
-     "text": "ف",
+     "word": "فـ",
+     "text": "فـ",
      "answer": 0
     }
-   ]
+   ],
+   "mark": "tick"
   },
   {
-   "type": "circle",
+   "type": "match",
    "ex": 3,
    "page": 56,
    "task": "أَصِلُ حَرْفَ النُّونِ بِالْكَلِمَاتِ الَّتِي بِهَا",
-   "taskAudio": [
-    "../q-prompts/circle-word-letter.mp3",
-    "../letters/646/name.mp3"
-   ],
+   "taskAudio": "../q-heads/h-152b48c2.mp3",
    "hint": "اضغط على الكلمات اللي فيها النون",
    "items": [
     {
      "word": "نُسُور",
      "audio": "../u2l2/words/m-nasr.mp3",
-     "answer": true
+     "answer": true,
+     "pos": [
+      50,
+      14
+     ],
+     "posP": [
+      50,
+      14
+     ]
     },
     {
      "word": "فَرَاشَة",
-     "audio": "q/w-farasha.mp3",
-     "answer": false
+     "audio": "../u2l7/words/farasha.mp3",
+     "answer": false,
+     "pos": [
+      84,
+      32
+     ],
+     "posP": [
+      84,
+      32
+     ]
     },
     {
      "word": "أَرَانِب",
      "audio": "q/w-aranib.mp3",
-     "answer": true
+     "answer": true,
+     "pos": [
+      84,
+      70
+     ],
+     "posP": [
+      84,
+      70
+     ]
     },
     {
      "word": "لَبَن",
      "audio": "../u2l3/words/laban.mp3",
-     "answer": true
+     "answer": true,
+     "pos": [
+      50,
+      88
+     ],
+     "posP": [
+      50,
+      88
+     ]
     },
     {
      "word": "حِصَان",
-     "audio": "q/w-hisan.mp3",
-     "answer": true
+     "audio": "../u1l6/words/hisan.mp3",
+     "answer": true,
+     "pos": [
+      16,
+      70
+     ],
+     "posP": [
+      16,
+      70
+     ]
     },
     {
      "word": "بِنْت",
      "audio": "../u1l4/words/bint.mp3",
-     "answer": true
-    }
-   ]
-  },
-  {
-   "type": "sound",
-   "ex": 4,
-   "page": 57,
-   "task": "أَنْطِقُ صَوْتَ حَرْفِ النُّونِ، وَأُلَاحِظُ الْحَرَكَاتِ الْقَصِيرَةَ وَالسُّكُونَ",
-   "taskAudio": "q/task-4.mp3",
-   "hint": "اسمع الجملة وردد وراها",
-   "items": [
-    {
-     "word": "نَخْلَة",
-     "ask": "نَ",
-     "pic": "../../pics/ar-palm.png",
-     "audio": [
-      "../letters/646/name.mp3",
-      "../shared/h-fatha.mp3",
-      "../../syl-ar/646-64e.mp3",
-      "words/nakhla.mp3"
-     ]
-    },
-    {
-     "word": "نُسُور",
-     "ask": "نُ",
-     "pic": "../../pics/ar-eagles3.png",
-     "audio": [
-      "../letters/646/name.mp3",
-      "../shared/h-damma.mp3",
-      "../../syl-ar/646-64f.mp3",
-      "../u2l2/words/m-nasr.mp3"
-     ]
-    },
-    {
-     "word": "نِصْف",
-     "ask": "نِ",
-     "pic": "../../pics/ar-half.jpg",
-     "audio": [
-      "../letters/646/name.mp3",
-      "../shared/h-kasra.mp3",
-      "../../syl-ar/646-650.mp3",
-      "q/w-nisf.mp3"
-     ]
-    },
-    {
-     "word": "بِنْت",
-     "ask": "نْ",
-     "pic": "../../pics/ar-girl.png",
-     "audio": [
-      "../letters/646/name.mp3",
-      "../shared/h-sukoon.mp3",
-      "../../syl-ar/646-652.mp3",
-      "../u1l4/words/bint.mp3"
+     "answer": true,
+     "pos": [
+      16,
+      32
+     ],
+     "posP": [
+      16,
+      32
      ]
     }
-   ]
+   ],
+   "center": "ن",
+   "centerAudio": "../letters/646/name.mp3"
   },
   {
-   "type": "vowel",
+   "type": "link",
    "ex": 5,
    "page": 57,
    "task": "أَنْطِقُ، ثُمَّ أَصِلُ حَرْفَ النُّونِ بِالصُّورَةِ الْمُنَاسِبَةِ",
-   "taskAudio": [
-    "../q-prompts/choose-letter-sound-a.mp3",
-    "../letters/646/name.mp3",
-    "../q-prompts/choose-letter-sound-b.mp3"
-   ],
-   "hint": "اختار صوت النون",
-   "choices": [
-    "نَ",
-    "نُ",
-    "نِ",
-    "نْ"
-   ],
+   "taskAudio": "../q-heads/h-c1b6f662.mp3",
+   "hint": "صل حرف النون بالصورة المناسبة",
    "items": [
     {
-     "word": "أَرَانِب",
-     "audio": "q/w-aranib.mp3",
-     "pic": "../../pics/ar-rabbit.png",
-     "answer": "نِ",
-     "choices": [
-      "نَ",
-      "نُ",
-      "نِ"
-     ],
-     "at": 3
+     "word": "نَ",
+     "audio": "q/w-naama.mp3",
+     "pic": "../../pics/ostrich-u4l2.png"
     },
     {
-     "word": "مِنْشَار",
-     "audio": "q/w-minshar.mp3",
-     "pic": "../../pics/ar-saw.png",
-     "answer": "نْ",
-     "choices": [
-      "نَ",
-      "نُ",
-      "نِ"
-     ],
-     "at": 1
-    },
-    {
-     "word": "نُسُور",
+     "word": "نُ",
      "audio": "../u2l2/words/m-nasr.mp3",
-     "pic": "../../pics/ar-eagles3.png",
-     "answer": "نُ",
-     "choices": [
-      "نَ",
-      "نُ",
-      "نِ"
-     ]
+     "pic": "../../pics/ar-eagles3.png"
+    },
+    {
+     "word": "نِ",
+     "audio": "q/w-aranib.mp3",
+     "pic": "../../pics/ar-rabbit.png"
+    },
+    {
+     "word": "نْ",
+     "audio": "q/w-minshar.mp3",
+     "pic": "../../pics/ar-saw.png"
     }
    ]
   },
@@ -202,7 +171,7 @@
    "ex": 6,
    "page": 57,
    "task": "أَنْطِقُ اسْمَ الصُّورَةِ، ثُمَّ أَضْبِطُ حَرْفَ النُّونِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "taskAudio": "../q-heads/h-c0a071d6.mp3",
    "hint": "اختار النون بالحركة الصح",
    "choices": [
     "نَ",
@@ -213,7 +182,7 @@
    "items": [
     {
      "word": "نِصْف",
-     "audio": "q/w-nisf.mp3",
+     "audio": "words/nisf.mp3",
      "pic": "../../pics/ar-half.jpg",
      "answer": "نِ",
      "choices": [
@@ -234,14 +203,26 @@
      ]
     },
     {
+     "word": "نَمِر",
+     "audio": "words/nimr.mp3",
+     "pic": "../../pics/ar-tiger.png",
+     "answer": "نَ",
+     "choices": [
+      "نَ",
+      "نُ",
+      "نِ"
+     ]
+    },
+    {
      "word": "جُنْدِيّ",
-     "audio": "q/w-jundi.mp3",
+     "audio": "../u1l7/words/jundi.mp3",
      "pic": "../../pics/ar-soldier.png",
      "answer": "نْ",
      "choices": [
       "نَ",
       "نُ",
-      "نِ"
+      "نِ",
+      "نْ"
      ],
      "at": 1
     }
@@ -252,7 +233,7 @@
    "ex": 8,
    "page": 58,
    "task": "أَنْطِقُ، وَأَكْتُبُ حَرْفَ النُّونِ مَضْبُوطًا بِالشَّكْلِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "taskAudio": "../q-heads/h-e26a95e8.mp3",
    "hint": "اختار النون بالحركة الصح",
    "choices": [
     "نَ",
@@ -263,25 +244,27 @@
    "items": [
     {
      "word": "جُنْدِيّ",
-     "audio": "q/w-jundi.mp3",
+     "audio": "../u1l7/words/jundi.mp3",
      "pic": "../../pics/ar-soldier.png",
      "answer": "نْ",
      "choices": [
       "نَ",
       "نُ",
-      "نِ"
+      "نِ",
+      "نْ"
      ],
      "at": 1
     },
     {
      "word": "نِصْف",
-     "audio": "q/w-nisf.mp3",
+     "audio": "words/nisf.mp3",
      "pic": "../../pics/ar-half.jpg",
      "answer": "نِ",
      "choices": [
       "نَ",
       "نُ",
-      "نِ"
+      "نِ",
+      "نْ"
      ]
     },
     {
@@ -292,7 +275,8 @@
      "choices": [
       "نَ",
       "نُ",
-      "نِ"
+      "نِ",
+      "نْ"
      ]
     },
     {
@@ -303,40 +287,83 @@
      "choices": [
       "نَ",
       "نُ",
-      "نِ"
+      "نِ",
+      "نْ"
      ]
     }
    ]
   },
   {
-   "type": "write",
-   "ex": 10,
-   "page": 59,
-   "task": "أَدْمِجُ الْحُرُوفَ لِأُكَوِّنَ كَلِمَةً",
-   "taskAudio": "../q-prompts/merge-syllables.mp3",
-   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "type": "split",
+   "ex": 9,
+   "page": 58,
+   "task": "أَقْرَأُ الْكَلِمَاتِ الْآتِيَةَ، وَأُحَلِّلُهَا إِلَى حُرُوفٍ كَالْمِثَالِ",
+   "taskAudio": "q/task-9.mp3",
+   "hint": "اسحب الحروف وركّبها في أماكنها",
    "items": [
     {
-     "word": "نَخْلَة",
-     "audio": "words/nakhla.mp3",
-     "pic": "../../pics/ar-palm.png",
-     "chips": [
-      "نَ",
-      "خْ",
-      "لَ",
-      "ة"
+     "word": "بِنْت",
+     "parts": [
+      "بِ",
+      "نْ",
+      "ت"
      ]
     },
     {
-     "word": "نَحْلَة",
-     "audio": "words/nahla.mp3",
-     "pic": "../../pics/ar-bee.jpg",
-     "chips": [
+     "word": "نَجْم",
+     "parts": [
       "نَ",
-      "حْ",
-      "لَ",
-      "ة"
+      "جْ",
+      "م"
      ]
+    }
+   ]
+  },
+  {
+   "type": "build",
+   "ex": 10,
+   "page": 59,
+   "task": "أُكَوِّنُ كَلِمَةً مِنَ الْحُرُوفِ التَّالِيَةِ حَسَبَ الصُّورَةِ",
+   "taskAudio": "../q-heads/h-25e6a200.mp3",
+   "hint": "اسحب الحروف وكوّن كلمة لكل صورة",
+   "items": [
+    {
+     "letters": [
+      "ن",
+      "ل",
+      "ح",
+      "خ"
+     ],
+     "words": [
+      "نَحْل",
+      "نَخْل"
+     ],
+     "slots": 2,
+     "need": 2,
+     "cells": 3,
+     "pics": [
+      "../../pics/ar-bee.jpg",
+      "../../pics/ar-palm.png"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 11,
+   "page": 59,
+   "task": "أَقْرَأُ، ثُمَّ أُلَوِّنُ الصُّورَةَ الَّتِي تُعَبِّرُ عَنْهَا الْجُمْلَةُ",
+   "taskAudio": "q/task-11.mp3",
+   "hint": "اقرأ الجملة واختار الصورة",
+   "items": [
+    {
+     "word": "حَمَلَ النَّمْلُ الْحَبَّ.",
+     "audio": "q/s11-1.mp3",
+     "pics": [
+      "../../pics/ar-ants-carry.jpg",
+      "../../pics/ar-bee.jpg"
+     ],
+     "answer": 0
     }
    ]
   },
@@ -359,56 +386,296 @@
   },
   {
    "type": "circle",
-   "ex": 6,
-   "page": 54,
-   "task": "انْطِقْ وَصِلْ حَرْفَ النُّونِ بِالصُّورَةِ الْمُنَاسِبَةِ",
-   "taskAudio": [
-    "../q-prompts/circle-letter-sound.mp3",
-    "../letters/646/name.mp3"
-   ],
-   "hint": "اضغط على الصور التي فيها صوت النون",
-   "silent": true,
+   "ex": 5,
+   "page": 53,
    "book": "booklet",
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ حَرْفِ (ن - نـ) فِي مَجْمُوعَةِ الْحُرُوفِ الْآتِيَةِ",
+   "taskAudio": "q/task-b5.mp3",
+   "hint": "اضغط على النون",
    "items": [
     {
-     "word": "engineer",
-     "pic": "../../pics/ar-engineer.png",
-     "answer": true
+     "word": "ن",
+     "text": "ن",
+     "answer": true,
+     "pos": [
+      90,
+      32
+     ],
+     "posP": [
+      88,
+      20
+     ]
     },
     {
-     "word": "eagles",
-     "pic": "../../pics/ar-eagles.jpg",
-     "answer": true
+     "word": "ت",
+     "text": "ت",
+     "answer": false,
+     "pos": [
+      77,
+      32
+     ],
+     "posP": [
+      69,
+      20
+     ]
     },
     {
-     "word": "nose",
-     "pic": "../../pics/ar-nose.jpg",
-     "answer": true
+     "word": "نـ",
+     "text": "نـ",
+     "answer": true,
+     "pos": [
+      64,
+      32
+     ],
+     "posP": [
+      50,
+      20
+     ]
     },
     {
-     "word": "bee",
-     "pic": "../../pics/ar-bee.jpg",
-     "answer": true
+     "word": "ح",
+     "text": "ح",
+     "answer": false,
+     "pos": [
+      51,
+      32
+     ],
+     "posP": [
+      31,
+      20
+     ]
     },
     {
-     "word": "tiger",
-     "pic": "../../pics/ar-tiger.png",
-     "answer": true
+     "word": "بـ",
+     "text": "بـ",
+     "answer": false,
+     "pos": [
+      38,
+      32
+     ],
+     "posP": [
+      12,
+      20
+     ]
     },
     {
-     "word": "stars",
-     "pic": "../../pics/ar-stars.jpg",
-     "answer": true
+     "word": "نـ",
+     "text": "نـ",
+     "answer": true,
+     "pos": [
+      25,
+      32
+     ],
+     "posP": [
+      80,
+      50
+     ]
     },
     {
-     "word": "nile",
-     "pic": "../../pics/ar-nile.png",
-     "answer": true
+     "word": "و",
+     "text": "و",
+     "answer": false,
+     "pos": [
+      12,
+      32
+     ],
+     "posP": [
+      60,
+      50
+     ]
     },
     {
-     "word": "monkey",
+     "word": "سـ",
+     "text": "سـ",
+     "answer": false,
+     "pos": [
+      96,
+      68
+     ],
+     "posP": [
+      40,
+      50
+     ]
+    },
+    {
+     "word": "نـ",
+     "text": "نـ",
+     "answer": true,
+     "pos": [
+      84,
+      68
+     ],
+     "posP": [
+      20,
+      50
+     ]
+    },
+    {
+     "word": "ب",
+     "text": "ب",
+     "answer": false,
+     "pos": [
+      70,
+      68
+     ],
+     "posP": [
+      80,
+      80
+     ]
+    },
+    {
+     "word": "ن",
+     "text": "ن",
+     "answer": true,
+     "pos": [
+      58,
+      68
+     ],
+     "posP": [
+      60,
+      80
+     ]
+    },
+    {
+     "word": "فـ",
+     "text": "فـ",
+     "answer": false,
+     "pos": [
+      44,
+      68
+     ],
+     "posP": [
+      40,
+      80
+     ]
+    },
+    {
+     "word": "ص",
+     "text": "ص",
+     "answer": false,
+     "pos": [
+      32,
+      68
+     ],
+     "posP": [
+      20,
+      80
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 6,
+   "page": 54,
+   "book": "booklet",
+   "task": "صِلْ حَرْفَ النُّونِ بِالصُّورَةِ الْمُنَاسِبَةِ",
+   "taskAudio": "q/task-b6.mp3",
+   "hint": "اختار صوت النون",
+   "choices": [
+    "نَ",
+    "نُ",
+    "نِ",
+    "نْ"
+   ],
+   "items": [
+    {
+     "word": "نِسْنَاس",
+     "audio": "q/w-nisnas.mp3",
      "pic": "../../pics/ar-monkey.jpg",
-     "answer": true
+     "answer": "نِ",
+     "choices": [
+      "نَ",
+      "نُ",
+      "نِ",
+      "نْ"
+     ]
+    },
+    {
+     "word": "نِيل",
+     "audio": "../u2l3/words/nil.mp3",
+     "pic": "../../pics/ar-nile.png",
+     "answer": "نِ",
+     "choices": [
+      "نَ",
+      "نُ",
+      "نِ",
+      "نْ"
+     ]
+    },
+    {
+     "word": "نُجُوم",
+     "audio": "words/nujum.mp3",
+     "pic": "../../pics/ar-stars.jpg",
+     "answer": "نُ",
+     "choices": [
+      "نَ",
+      "نُ",
+      "نِ",
+      "نْ"
+     ]
+    },
+    {
+     "word": "نَمِر",
+     "audio": "words/nimr.mp3",
+     "pic": "../../pics/ar-tiger.png",
+     "answer": "نَ",
+     "choices": [
+      "نَ",
+      "نُ",
+      "نِ",
+      "نْ"
+     ]
+    },
+    {
+     "word": "نَحْلَة",
+     "audio": "words/nahla.mp3",
+     "pic": "../../pics/ar-bee.jpg",
+     "answer": "نَ",
+     "choices": [
+      "نَ",
+      "نُ",
+      "نِ",
+      "نْ"
+     ]
+    },
+    {
+     "word": "أَنْف",
+     "audio": "../u1l3/q/c6-0.mp3",
+     "pic": "../../pics/ar-nose.jpg",
+     "answer": "نْ",
+     "choices": [
+      "نَ",
+      "نُ",
+      "نِ",
+      "نْ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "نُسُور",
+     "audio": "../u2l2/words/m-nasr.mp3",
+     "pic": "../../pics/ar-eagles.jpg",
+     "answer": "نُ",
+     "choices": [
+      "نَ",
+      "نُ",
+      "نِ",
+      "نْ"
+     ]
+    },
+    {
+     "word": "مُهَنْدِس",
+     "audio": "../u1l5/words/muhandis.mp3",
+     "pic": "../../pics/ar-engineer.png",
+     "answer": "نْ",
+     "choices": [
+      "نَ",
+      "نُ",
+      "نِ",
+      "نْ"
+     ],
+     "at": 2
     }
    ]
   },
@@ -416,19 +683,16 @@
    "type": "position",
    "ex": 7,
    "page": 54,
-   "task": "انْطِقْ وَحَدِّدْ مَوْضِعَ حَرْفِ النُّونِ",
-   "taskAudio": [
-    "../q-prompts/mark-letter-position.mp3",
-    "../letters/646/name.mp3"
-   ],
+   "task": "انْطِقْ، وَارْسُمْ دَائِرَةً فِي مَكَانِ صَوْتِ حَرْفِ (ن)",
+   "taskAudio": "q/task-b7.mp3",
    "hint": "اضغط على الدائرة التي فيها النون",
    "book": "booklet",
    "items": [
     {
-     "word": "أَنْف",
-     "pic": "../../pics/ar-nose.jpg",
-     "audio": "../u1l3/q/c6-0.mp3",
-     "at": 1
+     "word": "لَبَن",
+     "pic": "../../pics/ar-milk.png",
+     "audio": "../u2l3/words/laban.mp3",
+     "at": 2
     },
     {
      "word": "نَحْلَة",
@@ -437,10 +701,16 @@
      "at": 0
     },
     {
-     "word": "لَبَن",
-     "pic": "../../pics/ar-milk.png",
-     "audio": "../u2l3/words/laban.mp3",
-     "at": 2
+     "word": "أَنْف",
+     "pic": "../../pics/ar-nose.jpg",
+     "audio": "../u1l3/q/c6-0.mp3",
+     "at": 1
+    },
+    {
+     "word": "نَمِر",
+     "pic": "../../pics/ar-tiger.png",
+     "audio": "words/nimr.mp3",
+     "at": 0
     },
     {
      "word": "بِنْت",
@@ -449,10 +719,10 @@
      "at": 1
     },
     {
-     "word": "نَمِر",
-     "pic": "../../pics/ar-tiger.png",
-     "audio": "words/nimr.mp3",
-     "at": 0
+     "word": "عَيْن",
+     "pic": "../../pics/ar-eye.png",
+     "audio": "q/w-ayn.mp3",
+     "at": 2
     }
    ]
   },
@@ -484,6 +754,14 @@
      "audio": "../u2l4/words/sinjab.mp3"
     },
     {
+     "word": "نَسْر",
+     "chips": [
+      "نَسْ",
+      "ر"
+     ],
+     "audio": "../u2l2/words/nasr.mp3"
+    },
+    {
      "word": "نَخْلَة",
      "chips": [
       "نَخْ",
@@ -491,14 +769,6 @@
       "ة"
      ],
      "audio": "words/nakhla.mp3"
-    },
-    {
-     "word": "نَسْر",
-     "chips": [
-      "نَسْ",
-      "ر"
-     ],
-     "audio": "../u2l2/words/nasr.mp3"
     }
    ]
   },
@@ -507,7 +777,7 @@
    "ex": 9,
    "page": 54,
    "task": "أُرَتِّبُ الْحُرُوفَ لِتَكُونَ كَلِمَاتٍ",
-   "taskAudio": "../q-prompts/arrange-letters.mp3",
+   "taskAudio": "../q-heads/h-c412ebef.mp3",
    "hint": "رتب الحروف",
    "book": "booklet",
    "items": [
@@ -522,14 +792,14 @@
      "audio": "words/nahla.mp3"
     },
     {
-     "word": "نُسُور",
-     "pic": "../../pics/ar-eagles.jpg",
-     "audio": "../u2l2/words/m-nasr.mp3"
-    },
-    {
      "word": "نُجُوم",
      "pic": "../../pics/ar-stars.jpg",
      "audio": "words/nujum.mp3"
+    },
+    {
+     "word": "نَسْر",
+     "pic": "../../pics/ar-eagle.jpg",
+     "audio": "../u2l2/words/nasr.mp3"
     }
    ]
   },
@@ -537,11 +807,8 @@
    "type": "circle",
    "ex": 10,
    "page": 54,
-   "task": "ارْسُمْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ النُّونِ",
-   "taskAudio": [
-    "../q-prompts/circle-word-letter.mp3",
-    "../letters/646/name.mp3"
-   ],
+   "task": "ضَعْ عَلَامَةَ (✓) أَمَامَ الْكَلِمَةِ الَّتِي بِهَا حَرْفُ (ن)",
+   "taskAudio": "q/task-b10.mp3",
    "hint": "اضغط على الكلمات اللي فيها النون",
    "book": "booklet",
    "items": [
@@ -565,51 +832,221 @@
      "audio": "../u2l3/words/laban.mp3",
      "answer": true
     }
-   ]
+   ],
+   "mark": "tick"
   },
   {
    "type": "vowel",
-   "ex": 12,
+   "ex": 11,
    "page": 55,
-   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ النُّونِ الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
-   "taskAudio": [
-    "../q-prompts/choose-letter-sound-a.mp3",
-    "../letters/646/name.mp3",
-    "../q-prompts/choose-letter-sound-b.mp3"
-   ],
-   "hint": "اختار صوت النون",
+   "book": "booklet",
+   "task": "انْطِقْ وَاكْتُبْ حَرْفَ (ن) مَضْبُوطًا بِالشَّكْلِ",
+   "taskAudio": "q/task-b11.mp3",
+   "hint": "اختار النون بالحركة الصح",
    "choices": [
     "نَ",
     "نُ",
     "نِ",
     "نْ"
    ],
-   "book": "booklet",
    "items": [
     {
-     "word": "نَحْلَة",
-     "pic": "../../pics/ar-bee.jpg",
-     "audio": "words/nahla.mp3",
-     "answer": "نَ"
-    },
-    {
      "word": "نُجُوم",
-     "pic": "../../pics/ar-stars.jpg",
      "audio": "words/nujum.mp3",
-     "answer": "نُ"
+     "pic": "../../pics/ar-stars.jpg",
+     "answer": "نُ",
+     "choices": [
+      "نَ",
+      "نُ",
+      "نِ",
+      "نْ"
+     ]
     },
     {
-     "word": "نُسُور",
-     "pic": "../../pics/ar-eagles.jpg",
-     "audio": "../u2l2/words/m-nasr.mp3",
-     "answer": "نُ"
+     "word": "نَسْر",
+     "audio": "../u2l2/words/nasr.mp3",
+     "pic": "../../pics/ar-eagle.jpg",
+     "answer": "نَ",
+     "choices": [
+      "نَ",
+      "نُ",
+      "نِ",
+      "نْ"
+     ]
     },
     {
-     "word": "أَنْف",
-     "pic": "../../pics/ar-nose.jpg",
-     "audio": "../u1l3/q/c6-0.mp3",
+     "word": "نَخْلَة",
+     "audio": "words/nakhla.mp3",
+     "pic": "../../pics/ar-palm.png",
+     "answer": "نَ",
+     "choices": [
+      "نَ",
+      "نُ",
+      "نِ",
+      "نْ"
+     ]
+    },
+    {
+     "word": "نَحْلَة",
+     "audio": "words/nahla.mp3",
+     "pic": "../../pics/ar-bee.jpg",
+     "answer": "نَ",
+     "choices": [
+      "نَ",
+      "نُ",
+      "نِ",
+      "نْ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "vowel",
+   "ex": 12,
+   "page": 55,
+   "book": "booklet",
+   "task": "أُكْمِلُ بِصَوْتِ الْحَرْفِ الْمُنَاسِبِ بِحَرَكَتِهِ (نَ - مَ - نْ - فِ)",
+   "taskAudio": "q/task-b12.mp3",
+   "hint": "اختار الحرف بحركته",
+   "choices": [
+    "نَ",
+    "مَ",
+    "نْ",
+    "فِ"
+   ],
+   "items": [
+    {
+     "word": "بِنْت",
+     "audio": "../u1l4/words/bint.mp3",
+     "pic": "../../pics/ar-girl.png",
      "answer": "نْ",
+     "choices": [
+      "نَ",
+      "مَ",
+      "نْ",
+      "فِ"
+     ],
      "at": 1
+    },
+    {
+     "word": "مَوْز",
+     "audio": "../u1l5/words/mawz.mp3",
+     "pic": "../../pics/ar-banana.png",
+     "answer": "مَ",
+     "choices": [
+      "نَ",
+      "مَ",
+      "نْ",
+      "فِ"
+     ],
+     "at": 0
+    },
+    {
+     "word": "فِيل",
+     "audio": "../u1l3/q/c5-fil.mp3",
+     "pic": "../../pics/ar-elephant.png",
+     "answer": "فِ",
+     "choices": [
+      "نَ",
+      "مَ",
+      "نْ",
+      "فِ"
+     ],
+     "at": 0
+    },
+    {
+     "word": "نَخْلَة",
+     "audio": "words/nakhla.mp3",
+     "pic": "../../pics/ar-palm.png",
+     "answer": "نَ",
+     "choices": [
+      "نَ",
+      "مَ",
+      "نْ",
+      "فِ"
+     ],
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "first",
+   "ex": 13,
+   "page": 55,
+   "book": "booklet",
+   "task": "انْطِقْ، وَاكْتُبِ الْحَرْفَ الْأَوَّلَ، ثُمَّ أَدْمِجِ الْحُرُوفَ لِتَكُونَ كَلِمَةً",
+   "taskAudio": "q/task-b13.mp3",
+   "hint": "اكتب أول حرف من كل صورة، وبعدين ادمجهم",
+   "items": [
+    {
+     "word": "بُنّ",
+     "result": "../../pics/ar-coffee.png",
+     "hush": true,
+     "parts": [
+      {
+       "pic": "../../pics/ar-owl.png",
+       "first": "ب"
+      },
+      {
+       "pic": "../../pics/ostrich-u4l2.png",
+       "first": "ن"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 15,
+   "page": 55,
+   "book": "booklet",
+   "task": "اِقْرَأْ، ثُمَّ لَوِّنِ الصُّورَةَ الَّتِي تُعَبِّرُ عَنِ الْجُمْلَةِ",
+   "taskAudio": "q/task-b15.mp3",
+   "hint": "اقرأ الجملة واختار الصورة",
+   "items": [
+    {
+     "word": "حَمَلَ النَّمْلُ الْحَبَّ.",
+     "audio": "q/s11-1.mp3",
+     "pics": [
+      "../../pics/ar-ants-carry.jpg",
+      "../../pics/ar-ants-dance.jpg"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 1,
+   "page": 35,
+   "book": "workbook",
+   "task": "أَصِلُ الصُّورَةَ بِشَكْلِ حَرْفِ (ن) الْمُنَاسِبِ لَهَا كَمَا بِالْمِثَالِ",
+   "taskAudio": "q/task-w1.mp3",
+   "hint": "صل شكل النون بالصورة",
+   "items": [
+    {
+     "word": "ن",
+     "pic": "../../pics/ar-snake.png",
+     "audio": "../letters/646/name.mp3",
+     "audio2": "../u4l7/words/thu3ban.mp3"
+    },
+    {
+     "word": "نـ",
+     "pic": "../../pics/ar-eagle.jpg",
+     "audio": "../letters/646/name.mp3",
+     "audio2": "../u2l2/words/nasr.mp3"
+    },
+    {
+     "word": "ـنـ",
+     "pic": "../../pics/ar-grapes.png",
+     "audio": "../letters/646/name.mp3",
+     "audio2": "../u3l4/words/inab.mp3"
+    },
+    {
+     "word": "ـن",
+     "pic": "../../pics/ar-branch.png",
+     "audio": "../letters/646/name.mp3",
+     "audio2": "q/w-ghusn.mp3"
     }
    ]
   },
@@ -617,8 +1054,8 @@
    "type": "vowel",
    "ex": 2,
    "page": 35,
-   "task": "أَنْطِقُ وَأَكْتُبُ صَوْتَ حَرْفِ النُّونِ تَحْتَ الصُّورَةِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "task": "أَنْطِقُ وَأَكْتُبُ صَوْتَ حَرْفِ (نَ - نِ - نُ - نْ) تَحْتَ الصُّورَةِ الْمُنَاسِبَةِ",
+   "taskAudio": "q/task-w2.mp3",
    "hint": "اختار النون بالحركة الصح",
    "choices": [
     "نَ",
@@ -629,28 +1066,6 @@
    "book": "workbook",
    "items": [
     {
-     "word": "نُجُوم",
-     "audio": "words/nujum.mp3",
-     "pic": "../../pics/ar-star-set.png",
-     "answer": "نُ",
-     "choices": [
-      "نَ",
-      "نُ",
-      "نِ"
-     ]
-    },
-    {
-     "word": "نَمِر",
-     "audio": "words/nimr.mp3",
-     "pic": "../../pics/ar-tiger.png",
-     "answer": "نَ",
-     "choices": [
-      "نَ",
-      "نُ",
-      "نِ"
-     ]
-    },
-    {
      "word": "بِنْت",
      "audio": "../u1l4/words/bint.mp3",
      "pic": "../../pics/ar-girl.png",
@@ -658,9 +1073,135 @@
      "choices": [
       "نَ",
       "نُ",
-      "نِ"
+      "نِ",
+      "نْ"
      ],
      "at": 1
+    },
+    {
+     "word": "نَسْر",
+     "audio": "../u2l2/words/nasr.mp3",
+     "pic": "../../pics/ar-eagle.jpg",
+     "answer": "نَ",
+     "choices": [
+      "نَ",
+      "نُ",
+      "نِ",
+      "نْ"
+     ]
+    },
+    {
+     "word": "نَجْم",
+     "audio": "../u1l7/words/najm.mp3",
+     "pic": "../../pics/ar-star-u1l7.png",
+     "answer": "نَ",
+     "choices": [
+      "نَ",
+      "نُ",
+      "نِ",
+      "نْ"
+     ]
+    },
+    {
+     "word": "نُجُوم",
+     "audio": "words/nujum.mp3",
+     "pic": "../../pics/ar-star-set.png",
+     "answer": "نُ",
+     "choices": [
+      "نَ",
+      "نُ",
+      "نِ",
+      "نْ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": "h1",
+   "page": 35,
+   "book": "workbook",
+   "task": "أَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الَّتِي بِهَا حَرْفُ (ن)",
+   "taskAudio": "q/task-wh1.mp3",
+   "hint": "اضغط على الكلمات اللي فيها النون",
+   "items": [
+    {
+     "word": "نَسْر",
+     "audio": "../u2l2/words/nasr.mp3",
+     "answer": true
+    },
+    {
+     "word": "بَلَح",
+     "audio": "../u1l6/words/balah.mp3",
+     "answer": false
+    },
+    {
+     "word": "أَرْنَب",
+     "audio": "q/w-arnab.mp3",
+     "answer": true
+    },
+    {
+     "word": "قُطْن",
+     "audio": "q/w-qutn.mp3",
+     "answer": true
+    },
+    {
+     "word": "بِنْت",
+     "audio": "../u1l4/words/bint.mp3",
+     "answer": true
+    },
+    {
+     "word": "دَرَّاجَة",
+     "audio": "../u1l8/words/darraja.mp3",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "split",
+   "ex": "h2",
+   "page": 35,
+   "book": "workbook",
+   "task": "أَقْرَأُ ثُمَّ أُحَلِّلُ الْكَلِمَةَ الْآتِيَةَ كَمَا بِالْمِثَالِ",
+   "taskAudio": "q/task-wh2.mp3",
+   "hint": "اسحب الحروف وركّبها في أماكنها",
+   "items": [
+    {
+     "word": "سَجَدَ",
+     "parts": [
+      "سَ",
+      "جَ",
+      "دَ"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": "h3",
+   "page": 35,
+   "book": "workbook",
+   "task": "أَدْمِجُ وَأُكَوِّنُ كَلِمَةً",
+   "taskAudio": "q/task-wh3.mp3",
+   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
+   "items": [
+    {
+     "word": "نَسْر",
+     "audio": "../u2l2/words/nasr.mp3",
+     "chips": [
+      "ن",
+      "س",
+      "ر"
+     ]
+    },
+    {
+     "word": "جَلَسَ",
+     "audio": "q/w-jalasa.mp3",
+     "chips": [
+      "ج",
+      "ل",
+      "س"
+     ]
     }
    ]
   }

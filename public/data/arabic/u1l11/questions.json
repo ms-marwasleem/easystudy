@@ -55,7 +55,7 @@
    "ex": 3,
    "page": 39,
    "task": "أَصِلُ كُلَّ جُمْلَةٍ بِالصُّورَةِ الْمُنَاسِبَةِ",
-   "taskAudio": "../q-prompts/match-picture.mp3",
+   "taskAudio": "../q-heads/h-18f18d93.mp3",
    "hint": "صل الجملة بالصورة",
    "book": "booklet",
    "items": [
@@ -114,60 +114,244 @@
    ]
   },
   {
-   "type": "link",
-   "ex": 2,
+   "type": "circle",
+   "ex": 1,
    "page": 28,
-   "task": "أَصِلُ كُلَّ كَلِمَةٍ بِالصُّورَةِ الْمُنَاسِبَةِ",
-   "taskAudio": "../q-prompts/match-picture.mp3",
-   "hint": "صل الكلمة بالصورة",
+   "task": "أَقْرَأُ ثُمَّ أُجِيبُ: «أَنَا أُحِبُّ أَبِي» - أَضَعُ دَائِرَةً حَوْلَ كَلِمَةٍ فِيهَا حَرْفُ الْبَاءِ",
+   "taskAudio": "q/t-wb28-c1.mp3",
+   "hint": "اضغط على الكلمة اللي فيها حرف الباء",
    "book": "workbook",
    "items": [
     {
-     "word": "أُمِّي",
-     "pic": "../../pics/ar-love-mom.jpg",
-     "audio": "../u1l1/words/ummi-h.mp3"
+     "word": "أَنَا",
+     "text": "أَنَا",
+     "answer": 0,
+     "pos": [
+      80,
+      40
+     ],
+     "posP": [
+      50,
+      15
+     ]
     },
+    {
+     "word": "أُحِبُّ",
+     "text": "أُحِبُّ",
+     "answer": 1,
+     "pos": [
+      50,
+      40
+     ],
+     "posP": [
+      50,
+      40
+     ]
+    },
+    {
+     "word": "أَبِي",
+     "text": "أَبِي",
+     "answer": 1,
+     "pos": [
+      20,
+      40
+     ],
+     "posP": [
+      50,
+      65
+     ]
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 1,
+   "page": 28,
+   "sentence": true,
+   "task": "أُكْمِلُ الْجُمْلَةَ",
+   "taskAudio": "q/t-wb28-c1b.mp3",
+   "hint": "اكتب الكلمة الناقصة",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "أَنَا أُحِبُّ أَبِي",
+     "gaps": [
+      4,
+      5,
+      6
+     ],
+     "pic": "../../pics/ar-love-dad.jpg",
+     "audio": "q/s-dad.mp3"
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": 2,
+   "page": 28,
+   "task": "أَخْتَارُ الْكَلِمَةَ الْمُنَاسِبَةَ لِكُلِّ صُورَةٍ مِمَّا بَيْنَ الْقَوْسَيْنِ ثُمَّ أَكْتُبُهَا: ( أُمِّي - أَبِي - أُسْرَتِي - جَدِّي )",
+   "taskAudio": "q/t-wb28-c2.mp3",
+   "hint": "اكتب الكلمة المناسبة للصورة",
+   "book": "workbook",
+   "items": [
     {
      "word": "أَبِي",
      "pic": "../../pics/ar-love-dad.jpg",
      "audio": "../u4l1/q/h-abi.mp3"
     },
     {
+     "word": "أُمِّي",
+     "pic": "../../pics/ar-love-mom.jpg",
+     "audio": "../u1l1/words/ummi-h.mp3"
+    },
+    {
      "word": "أُسْرَتِي",
      "pic": "../../pics/ar-love-family.jpg",
      "audio": "../u1l1/words/usrati-h.mp3"
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": "h1",
+   "page": 28,
+   "task": "أَقْرَأُ ثُمَّ أُجِيبُ: «أَنَا أُحِبُّ أُمِّي» - أَضَعُ دَائِرَةً حَوْلَ كَلِمَةٍ فِيهَا حَرْفُ الْبَاءِ",
+   "taskAudio": "q/t-wb28-h1a.mp3",
+   "hint": "اضغط على الكلمة اللي فيها حرف الباء",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "أَنَا",
+     "text": "أَنَا",
+     "answer": 0,
+     "pos": [
+      80,
+      40
+     ],
+     "posP": [
+      50,
+      15
+     ]
     },
     {
-     "word": "جَدِّي",
-     "pic": "../../pics/ar-love-grandparents.jpg",
-     "audio": "../u1l8/words/jaddi.mp3"
+     "word": "أُحِبُّ",
+     "text": "أُحِبُّ",
+     "answer": 1,
+     "pos": [
+      50,
+      40
+     ],
+     "posP": [
+      50,
+      40
+     ]
+    },
+    {
+     "word": "أُمِّي",
+     "text": "أُمِّي",
+     "answer": 0,
+     "pos": [
+      20,
+      40
+     ],
+     "posP": [
+      50,
+      65
+     ]
+    }
+   ]
+  },
+  {
+   "type": "circle",
+   "ex": "h1",
+   "page": 28,
+   "task": "أَقْرَأُ ثُمَّ أُجِيبُ: «أَنَا أُحِبُّ أُمِّي» - أَضَعُ دَائِرَةً حَوْلَ كَلِمَةٍ فِيهَا حَرْفُ الْمِيمِ",
+   "taskAudio": "q/t-wb28-h1m.mp3",
+   "hint": "اضغط على الكلمة اللي فيها حرف الميم",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "أَنَا",
+     "text": "أَنَا",
+     "answer": 0,
+     "pos": [
+      80,
+      40
+     ],
+     "posP": [
+      50,
+      15
+     ]
+    },
+    {
+     "word": "أُحِبُّ",
+     "text": "أُحِبُّ",
+     "answer": 0,
+     "pos": [
+      50,
+      40
+     ],
+     "posP": [
+      50,
+      40
+     ]
+    },
+    {
+     "word": "أُمِّي",
+     "text": "أُمِّي",
+     "answer": 1,
+     "pos": [
+      20,
+      40
+     ],
+     "posP": [
+      50,
+      65
+     ]
+    }
+   ]
+  },
+  {
+   "type": "write",
+   "ex": "h1",
+   "page": 28,
+   "sentence": true,
+   "task": "أُكْمِلُ الْجُمْلَةَ",
+   "taskAudio": "q/t-wb28-c1b.mp3",
+   "hint": "اكتب الكلمة الناقصة",
+   "book": "workbook",
+   "items": [
+    {
+     "word": "أَنَا أُحِبُّ أُمِّي",
+     "gaps": [
+      4,
+      5,
+      6
+     ],
+     "pic": "../../pics/ar-love-mom.jpg",
+     "audio": "q/s-mom.mp3"
     }
    ]
   },
   {
    "type": "arrange",
-   "ex": "h1",
+   "ex": "h2",
    "page": 28,
    "words": true,
-   "task": "أُرَتِّبُ الْكَلِمَاتِ لِأُكَوِّنَ جُمْلَةً",
+   "task": "أُرَتِّبُ الْكَلِمَاتِ وَأُكَوِّنُ جُمْلَةً",
    "taskAudio": "../u2l10/q/p-arrange-words.mp3",
    "hint": "رتب الكلمات",
    "book": "workbook",
    "items": [
     {
-     "word": "أَنَا أُحِبُّ أُسْرَتِي",
-     "pic": "../../pics/ar-love-family.jpg",
-     "audio": "q/s-fam.mp3"
+     "word": "أَنَا أُحِبُّ أَبِي",
+     "pic": "../../pics/ar-love-dad.jpg",
+     "audio": "q/s-dad.mp3"
     },
     {
      "word": "أَنَا أُحِبُّ أُمِّي",
      "pic": "../../pics/ar-love-mom.jpg",
      "audio": "q/s-mom.mp3"
-    },
-    {
-     "word": "أَنَا أُحِبُّ أَبِي",
-     "pic": "../../pics/ar-love-dad.jpg",
-     "audio": "q/s-dad.mp3"
     }
    ]
   },
@@ -176,7 +360,7 @@
    "ex": 3,
    "page": 43,
    "task": "أَنْطِقُ، وَأَكْتُبُ الْحَرْفَ الْأَوَّلَ مَضْبُوطًا بِالشَّكْلِ",
-   "taskAudio": "../q-prompts/write-example.mp3",
+   "taskAudio": "../q-heads/h-8c353078.mp3",
    "hint": "اختار الحرف الأول بالحركة الصح",
    "book": "workbook",
    "items": [
