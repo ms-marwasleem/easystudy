@@ -248,6 +248,12 @@
 .scene.story:not(.poem):not(.point) .sbg{border:.25rem solid var(--story-frame);box-shadow:0 .35rem 1rem rgba(20,40,40,.3)}
 .scene.story:not(.point)>.sbadge{position:absolute;top:.7rem;inset-inline-start:.7rem;z-index:2;width:clamp(2.2rem,9vmin,3.2rem);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;
   background:var(--story-badge);color:#fff;font-family:var(--f-title);font-size:clamp(1.2rem,4.6vmin,1.9rem);line-height:1;border:.15rem solid #fff;box-shadow:0 .15rem .4rem rgba(0,0,0,.25)}
+/* portrait (Marwa 2026-11-08): the picture sits on TOP, the text panel UNDER it (the text never covers the picture) */
+@media (max-aspect-ratio:5/4){
+.scene.point.slide .scard{aspect-ratio:auto;width:100cqw;display:flex;flex-direction:column;gap:.6rem}
+.scene.point.slide .scard .pbox{position:relative;inset:auto;width:100%;aspect-ratio:var(--ar);max-height:56cqh;flex:none}
+.scene.point.slide .scard .note{position:relative;left:auto;right:auto;bottom:auto;width:100%;flex:none}
+}
 .scene.point.slide .scard .sbadge{position:absolute;top:4%;inset-inline-start:4%;z-index:2;width:11cqw;max-width:3.2rem;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;
   background:var(--story-badge);color:#fff;font-family:var(--f-title);font-size:min(6.5cqw,1.9rem);line-height:1;border:.15rem solid #fff;box-shadow:0 .15rem .4rem rgba(0,0,0,.25)}
 .scene.point.slide .note{flex:0 0 auto}
@@ -309,3 +315,15 @@
 .vthumb .vst{display:none}
 /* a question whose only question text is its header (e.g. "I say the sound of the letter...") gets the small speaker at the END of the header (Marwa 2026-11-06); questions with their own question line keep the speaker after that line */
 .quiz:not(:has(.qask)) .qhead .qtsay{display:grid!important;width:1.5rem;height:1.5rem}.quiz:not(:has(.qask)) .qhead .qtsay svg{width:1rem;height:1rem}
+
+/* READING / STORY TEMPLATE, PORTRAIT (Marwa 2026-11-08, ONE template for every reading lesson, layouts "story" / "text" / "slide"):
+   the picture on TOP in its frame, the text panel UNDER it (never over the picture): 3 big lines, the text slides up while it is read, the read word lights up */
+@media (max-aspect-ratio:5/4){
+  .scene.story:not(.poem):not(.point){justify-content:flex-start;gap:.6rem;padding:0 .5rem .5rem}
+  .scene.story:not(.poem):not(.point) .sbg{position:relative;inset:auto;flex:1 1 0;min-height:0}
+  .scene.story:not(.poem):not(.point) .note{margin:0;flex:none}
+}
+@media (min-aspect-ratio:5/4){
+  #lesson.ar .scene.story:not(.poem):not(.point) .note .in{font-size:clamp(1.5rem,min(3.3vw,5.2vh),2.5rem);justify-content:flex-start;padding:.7em 1rem}
+  #lesson:not(.ar) .scene.story:not(.poem):not(.point) .note .in{font-size:clamp(1.4rem,min(3.1vw,5vh),2.3rem)}
+}

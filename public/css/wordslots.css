@@ -27,6 +27,9 @@
 #lesson .ws.ws-ar .sp{display:inline-block;width:.5em}
 #lesson .ws.ws-ar .lt.cur{text-decoration-color:var(--ws-now)}
 
+/* a word inside a written sentence (ringword): no line under it, it is part of the sentence */
+#lesson .ws.qxcw .lt{text-decoration:none}
+
 /* the states */
 #lesson .ws .lt.hid{color:transparent}
 #lesson .ws .lt.hid.peek{color:color-mix(in srgb,var(--ws-ink) 45%,transparent)}               /* Help: the letter shows see-through for a moment */

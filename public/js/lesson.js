@@ -138,7 +138,7 @@ function pageDefaultSlow(){ return new Set(LESSON.lines.filter(l=>nPages()<2||l.
    One entry per lesson/page template: show = draws the page from data, story = true when pages swipe inside the story panel. A new template = a new entry + lessons.json + docs; a lesson only names it ("layout" for the lesson, "pageLayouts"[i] per page) and supplies data. */
 const LT={
   letter:{show:()=>showLetter(),story:false}, math:{show:()=>showMathExplain(),story:false}, explain:{show:()=>showExplain(),story:false},
-  bubbles:{show:()=>showBubbles(),story:false}, point:{show:()=>showPoint(),story:false}, slide:{show:()=>showPoint(),story:false},
+  bubbles:{show:()=>showBubbles(),story:false}, point:{show:()=>showPoint(),story:false}, slide:{show:()=>showStory(),story:true},
   pictures:{show:()=>showPics(),story:false}, poem:{show:()=>showPoem(),story:false}, story:{show:()=>showStory(),story:true}, text:{show:()=>showStory(),story:true}
 };
 function showRead(){
@@ -185,15 +185,16 @@ function fitStory3(note,inn){ note.style.height=''; inn.style.fontSize=''; const
   const pad=parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom); let fs=parseFloat(cs.fontSize), h, pitch=()=>{ const tops=[...new Set($$('.w',inn).map(w=>Math.round(w.getBoundingClientRect().top)))].sort((a,b)=>a-b); const nx=tops.find(t=>t-tops[0]>.8*fs); return nx!=null?nx-tops[0]:1.65*fs; };
   const calc=()=>{ inn.style.fontSize=fs+'px'; h=3*pitch()+parseFloat(getComputedStyle(inn).paddingTop)-.1*fs; };   // the REAL distance between two lines (Arabic marks make a line taller than 1.65em)
   calc(); for(let i=0;i<60&&h>full&&fs>12;i++){ fs-=.5; calc(); }
-  $$('.in',note).forEach(x=>x.style.fontSize=fs+'px'); note.style.height=Math.min(h,full)+'px';
+  $$('.in',note).forEach(x=>x.style.fontSize=fs+'px'); { const body=[...inn.children].reduce((s,c)=>s+c.getBoundingClientRect().height,0)+parseFloat(getComputedStyle(inn).paddingTop)+.35*fs; note.style.height=Math.min(h,full,Math.max(body,1.4*fs))+'px'; }   // fewer than 3 lines = the panel is only as tall as its text
   const cw=rd.cur>=0&&rd.words[rd.cur]; if(cw) storyScroll(cw.el,true); else $$('.in',note).forEach(x=>{ x.scrollTop=0; }); }   // after a re-fit the text sits on a whole line again
-function storyScroll(e,force){ const inn=e&&e.closest&&e.closest('.scene.story:not(.poem):not(.point) .in'); if(!inn) return false;
+function storyScroll(e,force){ const inn=e&&e.closest&&e.closest('.scene.story:not(.poem):not(.point) .in, .scene.point.slide .in'); if(!inn) return false;
   const r=e.getBoundingClientRect(), b=inn.getBoundingClientRect(), cs=getComputedStyle(inn), pt=parseFloat(cs.paddingTop), pb=parseFloat(cs.paddingBottom);
   if(force||r.bottom>b.bottom-pb+1||r.top<b.top+pt-1) inn.scrollTo({top:inn.scrollTop+(r.top-b.top)-pt,behavior:force||!anim?'auto':'smooth'}); return true; }
 function fitStory(){ const note=$('.scene.story:not(.poem) .note'), inn=note&&$('.in:last-child',note); if(!inn||!note.clientHeight&&!note.style.height) return;
   if(note.closest('.scene.point.slide')){ inn.style.fontSize=''; note.style.maxHeight=''; let fs=parseFloat(getComputedStyle(inn).fontSize); for(let i=0;i<80&&inn.scrollHeight>note.clientHeight+1&&fs>11;i++){ fs-=.5; inn.style.fontSize=fs+'px'; } return; }   // slide card: the panel grows up to 48% of the picture, then the text shrinks to fit (long segments)
   if(note.closest('.scene.story:not(.poem):not(.point)')&&!matchMedia('(min-aspect-ratio:5/4)').matches) return fitStory3(note,inn);   // portrait: 3 lines; landscape: the text column fits the whole page
   if(note.style.height) note.style.height='';
+  if(note.closest('.scene.story:not(.poem):not(.point)')){ $$('.in',note).forEach(x=>{ x.style.fontSize=''; }); const cw=rd.cur>=0&&rd.words[rd.cur]; if(cw) storyScroll(cw.el,true); else $$('.in',note).forEach(x=>{ x.scrollTop=0; }); return; }   // landscape (Marwa 2026-11-08): BIG text in the right column, it scrolls and follows the read word (same as portrait), nothing is shrunk to fit a whole page
   const key=LESSON.id+':'+note.clientWidth+'x'+note.clientHeight;
   if(fitStory.key!==key){ inn.style.fontSize=''; let fs=parseFloat(getComputedStyle(inn).fontSize); const sv=[rd.page,rd.words,rd.lineEls], np=nPages();
     for(let p=1;p<=np;p++){ if(np>1&&!LESSON.lines.some(l=>l.page===p)) continue; rd.page=p; rd.words=[]; rd.lineEls=[];
@@ -225,7 +226,7 @@ function showPoint(){
   img.alt=''; img.draggable=false; img.src=new URL(u,location.href).href;
   const ar=()=>{ if(img.naturalWidth) box.style.setProperty('--ar',img.naturalWidth+'/'+img.naturalHeight); }; img.addEventListener('load',ar); ar();
   if(LESSON.figure){ box.classList.add('figbox'); box.style.removeProperty('--ar'); box.append(pointFigure(LESSON.figure)); } else box.append(img);   // figure = built from text (no picture): {formula:[{t,id?}], word}; its letters have ids g0,g1.. and pop while read
-  if(scene.classList.contains('slide')){ const card=el('div','scard'); card.style.setProperty('--ar',box.style.getPropertyValue('--ar')||'1.4'); img.addEventListener('load',()=>card.style.setProperty('--ar',img.naturalWidth+'/'+img.naturalHeight)); card.append(box,note,el('span','sbadge',num(rd.page))); fig.append(card); note.append(storyText()); scene.append(fig); stage.append(scene); const fit=()=>requestAnimationFrame(()=>fitSlideNote(note)); fit(); img.addEventListener('load',fit); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit); setTimeout(fit,700); }   // slide = the book's card: picture in its frame, the sentence on a light panel over its bottom edge
+  if(scene.classList.contains('slide')){ const card=el('div','scard'); card.style.setProperty('--ar',box.style.getPropertyValue('--ar')||'1.4'); img.addEventListener('load',()=>card.style.setProperty('--ar',img.naturalWidth+'/'+img.naturalHeight)); card.append(box,note,el('span','sbadge',num(rd.page))); fig.append(card); note.append(storyText()); scene.append(fig); stage.append(scene); note.style.visibility='hidden'; const fit=(force)=>requestAnimationFrame(()=>{ fitSlideNote(note); if(force===true||img.complete) note.style.visibility=''; }); fit(); img.addEventListener('load',fit); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit); setTimeout(()=>fit(true),700); }   // the text shows ONCE, only after the picture is in and the size fitted (no flash of text that then re-sizes)   // slide = the book's card: picture in its frame, the sentence on a light panel over its bottom edge
   else { fig.append(box);
   note.append(storyText()); scene.append(fig,note); stage.append(scene); }
   LESSON.lines.forEach((l,li)=>{ if(!l.mark||(LESSON.pages>1&&l.page!==rd.page)) return;
@@ -397,10 +398,14 @@ function markNewWords(){
 }
 { const _sr=showRead; showRead=function(){ const r=_sr.apply(this,arguments); try{ markNewWords(); }catch(e){} return r; }; }
 
-function fitSlideNote(note){ if(!note.isConnected) return; const inn=$('.in',note)||note, card=note.closest('.scard'); const body=()=>[...inn.children].reduce((h,c)=>h+c.getBoundingClientRect().height,0), over=()=>body()>note.clientHeight-4;
-  inn.style.fontSize=''; note.style.maxHeight=''; if(card&&card._ar0!=null) card.style.setProperty('--ar',card._ar0);
-  let fs=parseFloat(getComputedStyle(inn).fontSize), n=0, shrink=min=>{ while(over()&&fs>min&&n++<80){ fs*=.95; inn.style.fontSize=fs+'px'; } };
-  if(over()){ note.style.maxHeight='74%'; shrink(12); }
-  if(over()&&card){ if(card._ar0==null) card._ar0=card.style.getPropertyValue('--ar'); card.style.setProperty('--ar','1'); shrink(10); }   // still too long: the card gets taller (the picture is cropped a little), then the text shrinks again
-}   // a long page text fits its panel instead of being cut (slide lessons)
+function fitSlideNote(note){ if(!note.isConnected) return; const inn=$('.in',note)||note, card=note.closest('.scard'); if(!card) return;
+  // slide card = the same as the plain story card (Marwa 2026-11-08): ONLY 3 lines show, in the BIG story size; the text slides up when the reading reaches the hidden lines (storyScroll)
+  const sp=(k,v)=>note.style.setProperty(k,v,'important'); inn.style.fontSize=''; sp('height','auto'); sp('max-height','none'); sp('min-height','0'); inn.scrollTop=0;
+  const cw=card.clientWidth; if(!cw) return; const pbx=$('.pbox',card), fg=card.closest('.pfig'), port=!matchMedia('(min-aspect-ratio:5/4)').matches, maxH=port&&pbx&&fg?Math.max(60,fg.clientHeight-pbx.offsetHeight-12):card.clientHeight*.5; let fs=cw*.074, h=0;   // portrait: the room UNDER the picture; landscape: half of the card
+  const calc=()=>{ inn.style.fontSize=fs+'px'; inn.style.height='auto'; inn.style.overflow='visible'; inn.style.display='block'; inn.style.paddingTop=inn.style.paddingBottom='.3em'; const full=inn.scrollHeight, top=inn.getBoundingClientRect().top;
+    const tops=[...new Set($$('.w',inn).map(w=>Math.round(w.getBoundingClientRect().top)))].sort((a,b)=>a-b); h=tops.length>3?tops[3]-top-.12*fs:full; };   // the panel ends right before the 4th line starts (paragraph gaps included)
+  calc(); for(let i=0;i<60&&h>maxH&&fs>14;i++){ fs-=.5; calc(); }
+  inn.style.overflow='hidden'; inn.style.height='100%'; sp('height',h+'px'); note.style.alignItems='stretch';
+  const w=rd.cur>=0&&rd.words[rd.cur]; if(w) storyScroll(w.el,true);
+}   // a long page text shows 3 lines at a time (slide lessons)
 addEventListener('resize',()=>{ clearTimeout(fitSlideNote.t); fitSlideNote.t=setTimeout(()=>$$('.scene.point.slide .note').forEach(fitSlideNote),160); });

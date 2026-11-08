@@ -181,12 +181,24 @@ function qPicBoard(w,s,play,run){
   if(s.centerPic){ const c=el('div','qcenter pic',`<img src="${R_Q(s.centerPic)}" alt="">`); { const ca=(s.centerAtP&&!$('#lesson').classList.contains('q-land'))?s.centerAtP:s.centerAt; if(ca){ c.style.setProperty('--cx',ca[0]); c.style.setProperty('--cy',ca[1]); } } b.append(c); }   // "centerPic": a picture to match (book: circle the SIMILAR picture)
   if(s.center){ const c=el('button','qcenter',`<span>${s.center}</span>`); c.setAttribute('aria-label','Letter '+s.center); c.addEventListener('click',()=>qSound(s.centerSrc,s.center[0]));
     b.append(c); }
+  b._items=s.items;
   s.items.forEach(it=>{ const p=el('button','qmp'+(it.picSrc?'':' tx'),(it.picSrc?`<img src="${it.picSrc}" alt="">`+(it.text?`<b class="qpt">${it.text}</b>`:''):`<b>${it.word}</b>`)+`<span class="qmark"></span>`); p.setAttribute('aria-label',it.word);   // a word-only option (book: circle the different WORD)
     const ps=it.posP&&!$('#lesson').classList.contains('q-land')?it.posP:it.pos; p.style.left=`clamp(calc(var(--w) / 2), ${ps[0]}%, calc(100% - var(--w) / 2))`; p.style.top=`clamp(calc(var(--w) / 2), ${ps[1]}%, calc(100% - var(--w) / 2))`; p.addEventListener('click',()=>qMatch(p,it,s)); b.append(p); });
-  play.append(b);
+  play.append(b); qFitBoard(b); requestAnimationFrame(()=>qFitBoard(b));
   // the first time: read the instruction, then the letter's sound
   const first=qNewEx(); setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(first) await qTask(); if(s.center&&qz.list[qz.i]&&qz.list[qz.i].set===s&&inQ()) qSound(s.centerSrc,s.center[0]); },350);
 }
+// BIGGEST pictures that fit (Marwa 2026-11-08, ALL subjects): a board of pictures sizes every picture from the room it has: as big as the nearest
+// neighbours / the letter in the middle / the board edges allow (squares never overlap), so a page with room never shows tiny pictures. Looks at the pictures
+// only (a board with words keeps its own sizes); --wfit is read by css/quiz.css (.qmp), re-run on every resize.
+function qFitBoard(b){ b=b||$('.qboard'); if(!b||b.classList.contains('dense')||b.querySelector('.qmp.tx')) return;
+  const B=b.getBoundingClientRect(); if(!B.width||!B.height) return; const its=[...b.querySelectorAll('.qmp')], c=b.querySelector('.qcenter'); if(!its.length) return;
+  const pts=its.map((e,k)=>{ const it=b._items&&b._items[k]; const ps=it?((it.posP&&!$('#lesson').classList.contains('q-land'))?it.posP:it.pos):null; return ps?[ps[0]*B.width/100,ps[1]*B.height/100]:null; });
+  if(pts.some(p=>!p)) return;
+  let w=Math.min(B.width,B.height)*.92; const cw=c?c.getBoundingClientRect().width:0; if(c&&c.classList.contains('pic')) return;
+  for(let i=0;i<pts.length;i++){ for(let j=i+1;j<pts.length;j++){ w=Math.min(w,Math.max(Math.abs(pts[i][0]-pts[j][0]),Math.abs(pts[i][1]-pts[j][1]))*.94); }
+    if(c){ const cr=c.getBoundingClientRect(), cx=cr.left+cr.width/2-B.left, cy=cr.top+cr.height/2-B.top; w=Math.min(w,(2*Math.max(Math.abs(pts[i][0]-cx),Math.abs(pts[i][1]-cy))-cw)*.94); } }
+  const lo=Math.min(B.width*.2,B.height*.3); b.style.setProperty('--wfit',Math.max(lo,w).toFixed(0)+'px'); }
 // the lines of the joined pictures, worked out again when the screen changes size
 function qLines(fresh){ const bd=$('.qboard'); if(!bd||$('.quiz').dataset.type!=='match'||bd.classList.contains('ring')) return; const c=$('.qcenter span',bd); if(!c) return; const B=bd.getBoundingClientRect();
   const mid=e=>{ const r=e.getBoundingClientRect(); return [r.left+r.width/2-B.left,r.top+r.height/2-B.top]; }, [x2,y2]=mid(c);
@@ -295,7 +307,7 @@ function qLayout(){ const L=$('#lesson'); if(!L) return;
   // two pictures: side by side, or one above the other when that makes them bigger (tall phones)
   const pl=$('.qplay'); if(!pl) return; pl.classList.remove('stack'); if(wr&&(QM[wr.dataset.type]||{}).fit===0) return; const w=pl.clientWidth, h=pl.clientHeight, a=.8;
   pl.classList.toggle('stack', Math.min(w,h/2*a) > Math.min(w/2,h*a)*1.15); }
-addEventListener('resize',()=>{ if(inQ()){ qLayout(); qLines(); } });
+addEventListener('resize',()=>{ if(inQ()){ qLayout(); qLines(); qFitBoard(); } });
 
 /* link: words in one row, pictures in the other (or two columns); a line joins a word to its picture */
 function qLinkBoard(w,s,play,run){

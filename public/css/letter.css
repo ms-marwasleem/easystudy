@@ -78,7 +78,7 @@
 
 .qx{position:relative}.qxsay{position:absolute;top:0;left:0;z-index:2;display:grid;place-items:center;width:3.25rem;height:3.25rem;color:var(--c-accent);background:none;border-radius:0.75rem}
 .qxsay svg{width:2.125rem;height:2.125rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-#lesson.q-port .qboard.bigP .qmp{--w:min(29cqw,22cqh)}
+#lesson.q-port .qboard.bigP .qmp{--w:var(--wfit,min(29cqw,22cqh))}
 .qxchoices .qlet span{font-size:clamp(2.5rem,min(14cqh,13cqw),4rem)!important;line-height:1.5}
 
 /* qa: question (red) and answer (blue) as two big lines under the picture; the line being read lights up */
@@ -293,8 +293,8 @@
 
 /* ringword = circle the WORD in the sentence (js/quiz-letters.js qxRingWord): question line on top, every word of the sentence is a tap target; the right word gets a circle (same ring colour as `ring`) */
 .qxask{font-weight:700;font-size:clamp(1.2rem,min(4.6vh,3.6vw),2rem);line-height:1.5;color:var(--c-on-bg);text-align:center}
-.qxsent{display:flex;flex-wrap:wrap;justify-content:center;gap:.2em .6em;max-width:100%;font-weight:700;font-size:clamp(1.7rem,min(7vh,6.4vw),3rem);line-height:1.6}
-.qxcw{cursor:pointer;position:relative;padding:.05em .3em;white-space:nowrap}
+.qxsent{direction:rtl;display:flex;flex-wrap:wrap;justify-content:center;gap:.1em .3em;max-width:100%;box-sizing:border-box;padding:.3em .6em;border-radius:.6em;background:rgba(255,255,255,.14);font-weight:700;font-size:clamp(1.7rem,min(7vh,6.4vw),3rem);line-height:1.6}
+.qxcw{cursor:pointer;position:relative;padding:.05em .12em;white-space:nowrap}
 .qxcw.rung::after{content:'';position:absolute;inset:-.02em 0;border:.07em solid #ffe066;border-radius:999px;pointer-events:none}
 
 .qxsbank{box-sizing:border-box;padding-inline:3rem}

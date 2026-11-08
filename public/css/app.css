@@ -911,6 +911,7 @@ button.qpic{cursor:pointer}
   -webkit-text-stroke:max(0.3125rem,1.2cqh) var(--c-white);paint-order:stroke fill;filter:drop-shadow(0 0.1875rem 2px rgba(90,52,24,.35))}
 .qmp{--w:min(20cqw,30cqh);position:absolute;width:var(--w);aspect-ratio:1;transform:translate(-50%,-50%);padding:0;background:none;z-index:3;display:grid;place-items:center;cursor:pointer}
 .qmp{min-height:0;min-width:0}
+.qboard:not(.dense) .qmp:not(.tx){--w:var(--wfit,min(20cqw,30cqh))}   /* the biggest that fits (js qFitBoard) */
 .qmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0.1875rem 0.1875rem rgba(90,52,24,.3))}
 .qmp .qmark{width:min(9cqw,13cqh);height:min(9cqw,13cqh);right:-4%;bottom:-4%}
 .qmp.done img{filter:drop-shadow(0 0 0 var(--c-white)) drop-shadow(0 0 0.375rem rgba(42,127,216,.7))}
@@ -966,7 +967,7 @@ button.qpic{cursor:pointer}
 
 /* link: all the words in one row, all the pictures in the other (two columns on tall phones with many words, or when the set says "cols"); a line joins a word to its picture */
 .quiz[data-type="link"] :is(.qword,.qans){display:none}
-.qlink{--fs:1.375rem;position:relative;width:100%;height:100%;display:grid;grid-template-rows:auto minmax(0,1fr);gap:clamp(1.25rem,9cqh,4.375rem);container-type:size;touch-action:none;user-select:none;-webkit-user-select:none}
+.qlink{--fs:1.375rem;position:relative;width:100%;height:100%;display:grid;grid-template-rows:auto minmax(0,1fr);gap:clamp(1rem,4cqh,2.25rem);container-type:size;touch-action:none;user-select:none;-webkit-user-select:none}
 .qlw,.qlp{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:clamp(0.25rem,1.4cqw,1rem);min-height:0;min-width:0}
 .qlw{align-items:center}
 .qlp{align-items:stretch}
@@ -1259,7 +1260,7 @@ button.qpic{cursor:pointer}
 
 .qx{position:relative}.qxsay{position:absolute;top:0;left:0;z-index:2;display:grid;place-items:center;width:3.25rem;height:3.25rem;color:var(--c-accent);background:none;border-radius:0.75rem}
 .qxsay svg{width:2.125rem;height:2.125rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-#lesson.q-port .qboard.bigP .qmp{--w:min(29cqw,22cqh)}
+#lesson.q-port .qboard.bigP .qmp{--w:var(--wfit,min(29cqw,22cqh))}
 .qxchoices .qlet span{font-size:clamp(2.5rem,min(14cqh,13cqw),4rem)!important;line-height:1.5}
 
 /* qa: question (red) and answer (blue) as two big lines under the picture; the line being read lights up */
@@ -1474,8 +1475,8 @@ button.qpic{cursor:pointer}
 
 /* ringword = circle the WORD in the sentence (js/quiz-letters.js qxRingWord): question line on top, every word of the sentence is a tap target; the right word gets a circle (same ring colour as `ring`) */
 .qxask{font-weight:700;font-size:clamp(1.2rem,min(4.6vh,3.6vw),2rem);line-height:1.5;color:var(--c-on-bg);text-align:center}
-.qxsent{display:flex;flex-wrap:wrap;justify-content:center;gap:.2em .6em;max-width:100%;font-weight:700;font-size:clamp(1.7rem,min(7vh,6.4vw),3rem);line-height:1.6}
-.qxcw{cursor:pointer;position:relative;padding:.05em .3em;white-space:nowrap}
+.qxsent{direction:rtl;display:flex;flex-wrap:wrap;justify-content:center;gap:.1em .3em;max-width:100%;box-sizing:border-box;padding:.3em .6em;border-radius:.6em;background:rgba(255,255,255,.14);font-weight:700;font-size:clamp(1.7rem,min(7vh,6.4vw),3rem);line-height:1.6}
+.qxcw{cursor:pointer;position:relative;padding:.05em .12em;white-space:nowrap}
 .qxcw.rung::after{content:'';position:absolute;inset:-.02em 0;border:.07em solid #ffe066;border-radius:999px;pointer-events:none}
 
 .qxsbank{box-sizing:border-box;padding-inline:3rem}
@@ -2345,6 +2346,12 @@ button.qpic{cursor:pointer}
 .scene.story:not(.poem):not(.point) .sbg{border:.25rem solid var(--story-frame);box-shadow:0 .35rem 1rem rgba(20,40,40,.3)}
 .scene.story:not(.point)>.sbadge{position:absolute;top:.7rem;inset-inline-start:.7rem;z-index:2;width:clamp(2.2rem,9vmin,3.2rem);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;
   background:var(--story-badge);color:#fff;font-family:var(--f-title);font-size:clamp(1.2rem,4.6vmin,1.9rem);line-height:1;border:.15rem solid #fff;box-shadow:0 .15rem .4rem rgba(0,0,0,.25)}
+/* portrait (Marwa 2026-11-08): the picture sits on TOP, the text panel UNDER it (the text never covers the picture) */
+@media (max-aspect-ratio:5/4){
+.scene.point.slide .scard{aspect-ratio:auto;width:100cqw;display:flex;flex-direction:column;gap:.6rem}
+.scene.point.slide .scard .pbox{position:relative;inset:auto;width:100%;aspect-ratio:var(--ar);max-height:56cqh;flex:none}
+.scene.point.slide .scard .note{position:relative;left:auto;right:auto;bottom:auto;width:100%;flex:none}
+}
 .scene.point.slide .scard .sbadge{position:absolute;top:4%;inset-inline-start:4%;z-index:2;width:11cqw;max-width:3.2rem;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;
   background:var(--story-badge);color:#fff;font-family:var(--f-title);font-size:min(6.5cqw,1.9rem);line-height:1;border:.15rem solid #fff;box-shadow:0 .15rem .4rem rgba(0,0,0,.25)}
 .scene.point.slide .note{flex:0 0 auto}
@@ -2406,6 +2413,18 @@ button.qpic{cursor:pointer}
 .vthumb .vst{display:none}
 /* a question whose only question text is its header (e.g. "I say the sound of the letter...") gets the small speaker at the END of the header (Marwa 2026-11-06); questions with their own question line keep the speaker after that line */
 .quiz:not(:has(.qask)) .qhead .qtsay{display:grid!important;width:1.5rem;height:1.5rem}.quiz:not(:has(.qask)) .qhead .qtsay svg{width:1rem;height:1rem}
+
+/* READING / STORY TEMPLATE, PORTRAIT (Marwa 2026-11-08, ONE template for every reading lesson, layouts "story" / "text" / "slide"):
+   the picture on TOP in its frame, the text panel UNDER it (never over the picture): 3 big lines, the text slides up while it is read, the read word lights up */
+@media (max-aspect-ratio:5/4){
+  .scene.story:not(.poem):not(.point){justify-content:flex-start;gap:.6rem;padding:0 .5rem .5rem}
+  .scene.story:not(.poem):not(.point) .sbg{position:relative;inset:auto;flex:1 1 0;min-height:0}
+  .scene.story:not(.poem):not(.point) .note{margin:0;flex:none}
+}
+@media (min-aspect-ratio:5/4){
+  #lesson.ar .scene.story:not(.poem):not(.point) .note .in{font-size:clamp(1.5rem,min(3.3vw,5.2vh),2.5rem);justify-content:flex-start;padding:.7em 1rem}
+  #lesson:not(.ar) .scene.story:not(.poem):not(.point) .note .in{font-size:clamp(1.4rem,min(3.1vw,5vh),2.3rem)}
+}
 /* ===== css/clarity.css ===== */
 /* CLARITY (2026-11-03, Marwa): NO outline, stroke or shadow on any text (they blur small letters). Colours are NOT changed here.
    Loaded last (before explainer, which has its own file). */
@@ -2578,6 +2597,9 @@ button.qpic{cursor:pointer}
   text-decoration:underline;text-decoration-color:var(--ws-line);text-decoration-thickness:.05em;text-underline-offset:.14em;text-decoration-skip-ink:none}
 #lesson .ws.ws-ar .sp{display:inline-block;width:.5em}
 #lesson .ws.ws-ar .lt.cur{text-decoration-color:var(--ws-now)}
+
+/* a word inside a written sentence (ringword): no line under it, it is part of the sentence */
+#lesson .ws.qxcw .lt{text-decoration:none}
 
 /* the states */
 #lesson .ws .lt.hid{color:transparent}
@@ -2794,6 +2816,15 @@ body.ws-typing .ws-side{position:fixed!important;right:auto!important;bottom:aut
 .quiz[data-type="choice"] .qpic.one,#lesson.q-port .quiz[data-type="choice"] .qpic.one{flex:1 1 auto;width:100%;height:100%;max-width:100%;align-self:stretch}
 .qmbond{container-type:inline-size}.qmbond .qmb b{font-size:18cqw}   /* the number is half its circle / box, whatever the screen */
 .quiz[data-type="choice"] .qpic.one img:is(:not([src$=".png" i]),.pf):not([src^="data:"]){box-sizing:content-box;width:calc(min(100cqw,calc(100cqh * var(--ar,1))) - 2 * var(--pf-border))}   /* framed photo hugs its picture */
+
+/* ---------- BIG PICTURE on wide screens (Marwa 2026-11-08, ALL subjects): a question that has a picture + a word + its choices (vowel, type, letter, write ...)
+   puts the picture on the LEFT, full height, and the word + choices on the RIGHT, so the picture is never a small strip between the word and the choices.
+   Tall screens keep picture on top, word under it (the picture already gets the room there). "mad" has its own grid (letter.css). */
+@media (orientation:landscape) and (min-aspect-ratio:11/10){
+  .quiz:not([data-type="mad"]) .qx:has(>.qxpic){flex-direction:column;flex-wrap:wrap;align-content:center;justify-content:center;column-gap:clamp(1rem,4cqw,2.5rem)}
+  .quiz:not([data-type="mad"]) .qx:has(>.qxpic)>.qxpic{order:-1;flex:0 0 auto;height:100%;width:calc(50% - clamp(.5rem,2cqw,1.25rem))}
+  .quiz:not([data-type="mad"]) .qx:has(>.qxpic)>:not(.qxpic):not(.qxsay){max-width:calc(50% - clamp(.5rem,2cqw,1.25rem))}
+}
 /* ===== css/coins.css ===== */
 /* COINS — the coin chip beside the star counter, the share sheet and the unlock popup (js/coins.js). Same popup look as the app's messages. */
 .coinhud{position:relative;display:flex;align-items:center;height:2.2rem;padding:0 .9rem 0 2.3rem;margin-left:1.6rem;border-radius:62.4375rem;border:0;cursor:pointer;
@@ -2878,4 +2909,4 @@ body.ws-typing .ws-side{position:fixed!important;right:auto!important;bottom:aut
 .rp-pop .btns button[disabled]{opacity:.6}
 @media (max-height:560px){.rp-ov{place-items:start center;overflow:auto}.rp-pop h2{display:none}.rp-txt{rows:2}}
 .rp-car{display:block;width:clamp(5rem,30vw,8rem)}
-:root{--app-build:"d78d0cc06c"}
+:root{--app-build:"1d9f501c8f"}

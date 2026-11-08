@@ -381,7 +381,7 @@ QM.build={sheet:'box', noword:1, bulb:0, draw:qxBuild};
    (Circle the WHOLE word that has the letter = type `circle`; circle the LETTER inside one word = this one.)
    item: {word:"تُوت", letter:"ت" (marks ignored), audio} */
 function qxRing(box,q,s,run){
-  const wd=wsFill(el('b','qxw'),q.word,{}), L=$$('.lt',wd), want=l=>sameLetter(arBase(l.textContent),q.letter); wd.classList.add('ring'); box.append(wd);
+  const wd=wsFill(el('b','qxw'),q.word,{letters:true}), L=$$('.lt',wd), want=l=>sameLetter(arBase(l.textContent),q.letter); wd.classList.add('ring'); box.append(wd);
   L.forEach(l=>l.addEventListener('click',()=>{ if(qz.busy||l.classList.contains('rung')) return; if(!want(l)) return qxBad(l);
     l.classList.add('rung'); blip(560+$$('.rung',wd).length*60,.05); if(L.every(x=>!want(x)||x.classList.contains('rung'))) qxWin(wd,q,1500); }));
 }

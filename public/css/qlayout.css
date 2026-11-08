@@ -95,3 +95,12 @@
 .quiz[data-type="choice"] .qpic.one,#lesson.q-port .quiz[data-type="choice"] .qpic.one{flex:1 1 auto;width:100%;height:100%;max-width:100%;align-self:stretch}
 .qmbond{container-type:inline-size}.qmbond .qmb b{font-size:18cqw}   /* the number is half its circle / box, whatever the screen */
 .quiz[data-type="choice"] .qpic.one img:is(:not([src$=".png" i]),.pf):not([src^="data:"]){box-sizing:content-box;width:calc(min(100cqw,calc(100cqh * var(--ar,1))) - 2 * var(--pf-border))}   /* framed photo hugs its picture */
+
+/* ---------- BIG PICTURE on wide screens (Marwa 2026-11-08, ALL subjects): a question that has a picture + a word + its choices (vowel, type, letter, write ...)
+   puts the picture on the LEFT, full height, and the word + choices on the RIGHT, so the picture is never a small strip between the word and the choices.
+   Tall screens keep picture on top, word under it (the picture already gets the room there). "mad" has its own grid (letter.css). */
+@media (orientation:landscape) and (min-aspect-ratio:11/10){
+  .quiz:not([data-type="mad"]) .qx:has(>.qxpic){flex-direction:column;flex-wrap:wrap;align-content:center;justify-content:center;column-gap:clamp(1rem,4cqw,2.5rem)}
+  .quiz:not([data-type="mad"]) .qx:has(>.qxpic)>.qxpic{order:-1;flex:0 0 auto;height:100%;width:calc(50% - clamp(.5rem,2cqw,1.25rem))}
+  .quiz:not([data-type="mad"]) .qx:has(>.qxpic)>:not(.qxpic):not(.qxsay){max-width:calc(50% - clamp(.5rem,2cqw,1.25rem))}
+}

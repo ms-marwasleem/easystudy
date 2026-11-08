@@ -10,11 +10,17 @@ const WS_IN=['vin','qin','qxin'];
    o.parts: [part texts] = the letters shown in groups in <span class="wsg" data-p> (syllables / chips; ' ' = a space);  o.ltr: left to right inside any subject.
    States the places switch on a letter: hid (to write) · cur (its turn: brighter line) · peek (Help) · got (written) · bad (wrong: shakes, never written).
    The look is ONLY in css/wordslots.css; a place never styles .lt itself. */
+const parts0=o=>!!(o&&o.parts&&o.parts.length);
 function wsFill(box,text,o){ o=o||{}; text=String(text==null?'':text); box.classList.add('ws'); box.replaceChildren();
   const ar=/[\u0600-\u06FF]/.test(text); box.classList.toggle('ws-ar',ar); if(o.ltr) box.dir='ltr';
   const gs=glyphs(text); box.style.setProperty('--n',gs.length); let k=0;
   const hid=i=>o.hide===true||(Array.isArray(o.hide)&&o.hide.includes(i));
-  const lt=g=>{ const i=k++; if(g===' ') return el('span','sp',' '); const s=el('span','lt'+(hid(i)?' hid':'')+(o.faint?' fnt':''),g); s.dataset.i=i; return s; };
+  /* Arabic in iOS Safari: a word cut into one <span> per letter can come out as loose, unjoined letters. So (1) a word that only has to be SHOWN (no letter to write, no groups) is ONE text node
+     in ONE span, and (2) when letters must be separate spans (write / groups / ring) each one carries a zero-width joiner on the sides where it joins its neighbour, so it keeps its joined shape. */
+  const flat=parts0(o)?o.parts.flatMap(p=>p===' '?[' ']:glyphs(p)):gs;
+  const NOJOIN='ءآأإاةدذرزوؤ', joinsNext=(g,n)=>{ if(!g||!n||g===' '||n===' ') return false; const b=arBase(g); return !!b&&!NOJOIN.includes(b[0])&&!!arBase(n); };
+  if(ar&&!parts0(o)&&o.hide!==true&&!(Array.isArray(o.hide)&&o.hide.length)&&!o.letters){ const s=el('span','lt',text); s.dataset.i=0; box.append(s); return box; }
+  const lt=g=>{ const i=k++; if(g===' ') return el('span','sp',' '); let t=g; if(ar){ const pv=flat[i-1], nx=flat[i+1]; if(joinsNext(pv,g)) t='\u200d'+t; if(joinsNext(g,nx)) t+='\u200d'; } const s=el('span','lt'+(hid(i)?' hid':'')+(o.faint?' fnt':''),t); s.dataset.i=i; return s; };
   const parts=o.parts&&o.parts.length?o.parts:null;   // the parts are shown as given (Arabic syllables may spell a shadda out)
   if(parts) parts.forEach((p,pi)=>{ if(p===' '){ box.append(lt(' ')); return; } const g=el('span','wsg'); g.dataset.p=pi; glyphs(p).forEach(c=>g.append(lt(c))); box.append(g); });
   else gs.forEach(g=>box.append(lt(g)));

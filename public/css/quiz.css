@@ -119,6 +119,7 @@ button.qpic{cursor:pointer}
   -webkit-text-stroke:max(0.3125rem,1.2cqh) var(--c-white);paint-order:stroke fill;filter:drop-shadow(0 0.1875rem 2px rgba(90,52,24,.35))}
 .qmp{--w:min(20cqw,30cqh);position:absolute;width:var(--w);aspect-ratio:1;transform:translate(-50%,-50%);padding:0;background:none;z-index:3;display:grid;place-items:center;cursor:pointer}
 .qmp{min-height:0;min-width:0}
+.qboard:not(.dense) .qmp:not(.tx){--w:var(--wfit,min(20cqw,30cqh))}   /* the biggest that fits (js qFitBoard) */
 .qmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0.1875rem 0.1875rem rgba(90,52,24,.3))}
 .qmp .qmark{width:min(9cqw,13cqh);height:min(9cqw,13cqh);right:-4%;bottom:-4%}
 .qmp.done img{filter:drop-shadow(0 0 0 var(--c-white)) drop-shadow(0 0 0.375rem rgba(42,127,216,.7))}
@@ -174,7 +175,7 @@ button.qpic{cursor:pointer}
 
 /* link: all the words in one row, all the pictures in the other (two columns on tall phones with many words, or when the set says "cols"); a line joins a word to its picture */
 .quiz[data-type="link"] :is(.qword,.qans){display:none}
-.qlink{--fs:1.375rem;position:relative;width:100%;height:100%;display:grid;grid-template-rows:auto minmax(0,1fr);gap:clamp(1.25rem,9cqh,4.375rem);container-type:size;touch-action:none;user-select:none;-webkit-user-select:none}
+.qlink{--fs:1.375rem;position:relative;width:100%;height:100%;display:grid;grid-template-rows:auto minmax(0,1fr);gap:clamp(1rem,4cqh,2.25rem);container-type:size;touch-action:none;user-select:none;-webkit-user-select:none}
 .qlw,.qlp{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:clamp(0.25rem,1.4cqw,1rem);min-height:0;min-width:0}
 .qlw{align-items:center}
 .qlp{align-items:stretch}

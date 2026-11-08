@@ -12,7 +12,7 @@
     {
      "word": "duck",
      "audio": "../u2l3/words/duck.mp3",
-     "pic": "../../pics/duck-u3l4.png",
+     "pic": "../../pics/duck.png",
      "answer": true
     },
     {
@@ -42,7 +42,7 @@
     {
      "word": "cow",
      "audio": "words/cow.mp3",
-     "pic": "../../pics/cow-u5l1.png",
+     "pic": "../../pics/cow.png",
      "answer": true
     },
     {
@@ -72,7 +72,7 @@
      "word": "The cow is big.",
      "audio": "../../en-shared/q/thing-colour-cow-big.mp3",
      "pics": [
-      "../../pics/cow-u5l1.png",
+      "../../pics/cow.png",
       "../../pics/bird.png"
      ],
      "answer": 0
@@ -82,7 +82,7 @@
      "audio": "../../en-shared/q/thing-colour-duck-small.mp3",
      "pics": [
       "../../pics/horse-u3l4.png",
-      "../../pics/duck-u3l4.png"
+      "../../pics/duck.png"
      ],
      "answer": 1
     },
@@ -100,7 +100,7 @@
      "audio": "../../en-shared/q/thing-colour-chicken-small.mp3",
      "pics": [
       "../../pics/chicken-u5l1.png",
-      "../../pics/cow-u5l1.png"
+      "../../pics/cow.png"
      ],
      "answer": 0
     }
@@ -117,13 +117,13 @@
     {
      "word": "cow",
      "audio": "words/cow.mp3",
-     "pic": "../../pics/cow-u5l1.png",
+     "pic": "../../pics/cow.png",
      "answer": true
     },
     {
      "word": "horse",
      "audio": "../u2l3/words/horse.mp3",
-     "pic": "../../pics/duck-u3l4.png",
+     "pic": "../../pics/duck.png",
      "answer": false
     },
     {
@@ -193,7 +193,7 @@
     {
      "word": "mouse",
      "audio": "words/mouse.mp3",
-     "pic": "../../pics/mouse-u5l2.png",
+     "pic": "../../pics/mouse.png",
      "answer": false
     }
    ]
@@ -211,7 +211,7 @@
      "word": "The chicken is small.",
      "audio": "../../en-shared/q/thing-colour-chicken-small.mp3",
      "pics": [
-      "../../pics/cow-u5l1.png",
+      "../../pics/cow.png",
       "../../pics/chicken-u5l1.png"
      ],
      "answer": 1
@@ -221,7 +221,7 @@
      "audio": "../../en-shared/q/thing-colour-cow-big.mp3",
      "pics": [
       "../../pics/chicken-u5l1.png",
-      "../../pics/cow-u5l1.png"
+      "../../pics/cow.png"
      ],
      "answer": 1
     },
@@ -230,7 +230,7 @@
      "audio": "../../en-shared/q/thing-colour-horse-big.mp3",
      "pics": [
       "../../pics/horse-u3l4.png",
-      "../../pics/duck-u3l4.png"
+      "../../pics/duck.png"
      ],
      "answer": 0
     },
@@ -238,7 +238,7 @@
      "word": "The duck is small.",
      "audio": "../../en-shared/q/thing-colour-duck-small.mp3",
      "pics": [
-      "../../pics/duck-u3l4.png",
+      "../../pics/duck.png",
       "../../pics/horse-u3l4.png"
      ],
      "answer": 0
@@ -272,13 +272,13 @@
      "word": "duck",
      "scr": "ukdc",
      "audio": "../u2l3/words/duck.mp3",
-     "pic": "../../pics/duck-u3l4.png"
+     "pic": "../../pics/duck.png"
     },
     {
      "word": "cow",
      "scr": "woc",
      "audio": "words/cow.mp3",
-     "pic": "../../pics/cow-u5l1.png"
+     "pic": "../../pics/cow.png"
     }
    ]
   },
@@ -350,7 +350,7 @@
     {
      "word": "cow",
      "audio": "words/cow.mp3",
-     "pic": "../../pics/cow-u5l1.png",
+     "pic": "../../pics/cow.png",
      "gaps": [
       0,
       1,
@@ -360,7 +360,7 @@
     {
      "word": "duck",
      "audio": "../u2l3/words/duck.mp3",
-     "pic": "../../pics/duck-u3l4.png",
+     "pic": "../../pics/duck.png",
      "gaps": [
       0,
       1,
