@@ -18,4 +18,4 @@ json.dump(out,open('public/media.json','w'),separators=(',',':'),sort_keys=True)
 V=$(cd public && find . -type f \( -name '*.js' -o -name '*.css' -o -name '*.json' -o -name '*.html' \) ! -name version.json -print0 | sort -z | xargs -0 cat | sha1sum | cut -c1-12)
 sed -i "s|<head>|<head><script>window.APP_V='$V'</script>|" public/index.html
 echo "{\"v\":\"$V\"}" > public/version.json
-git add -A && git commit -q -m "Sync app: library pictures (normalized, merged, new), picture key map" -m "Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>" -m "Claude-Session: https://claude.ai/code/session_01PPqajSzbLZVpvKKERLLdiZ" && git push
+git add -A && git commit -m "Sync app" && git push
