@@ -103,7 +103,7 @@
     {
      "word": "هَرَم",
      "audio": "words/haram.mp3",
-     "pic": "../../pics/ar-pyramid.png",
+     "pic": "../../pics/pyramid.png",
      "answer": true,
      "pos": [
       88,
@@ -117,7 +117,7 @@
     {
      "word": "هَدِيَّة",
      "audio": "words/hadiya.mp3",
-     "pic": "../../pics/ar-gift.jpg",
+     "pic": "../../pics/ar-gift.png",
      "answer": true,
      "pos": [
       50,
@@ -145,7 +145,7 @@
      "audio": "../../syl-ar/647-64f.mp3",
      "pics": [
       "../../pics/ar-hoopoe.png",
-      "../../pics/ar-cheetah.png"
+      "../../pics/cheetah.png"
      ],
      "answer": 0
     },
@@ -154,7 +154,7 @@
      "audio": "../../syl-ar/647-650.mp3",
      "pics": [
       "../../pics/ar-crescent.jpg",
-      "../../pics/ar-pyramid.png"
+      "../../pics/pyramid.png"
      ],
      "answer": 0
     },
@@ -162,7 +162,7 @@
      "word": "هَ",
      "audio": "../../syl-ar/647-64e.mp3",
      "pics": [
-      "../../pics/ar-gift.jpg",
+      "../../pics/ar-gift.png",
       "../../pics/ar-hoopoe.png"
      ],
      "answer": 0
@@ -195,7 +195,7 @@
     {
      "word": "هَدِيَّة",
      "audio": "words/hadiya.mp3",
-     "pic": "../../pics/ar-gift.jpg",
+     "pic": "../../pics/ar-gift.png",
      "answer": "هَ",
      "choices": [
       "هَ",
@@ -207,7 +207,7 @@
     {
      "word": "فَهْد",
      "audio": "words/fahd.mp3",
-     "pic": "../../pics/ar-cheetah.png",
+     "pic": "../../pics/cheetah.png",
      "answer": "هْ",
      "choices": [
       "هَ",
@@ -297,8 +297,9 @@
      "cells": 3,
      "pics": [
       "../../pics/ar-face.png",
-      "../../pics/ar-cheetah.png"
-     ]
+      "../../pics/cheetah.png"
+     ],
+     "picWords": [["وَجْه"], ["فَهْد"]]
     }
    ]
   },
@@ -436,12 +437,12 @@
     },
     {
      "word": "pyramid",
-     "pic": "../../pics/ar-pyramid.png",
+     "pic": "../../pics/pyramid.png",
      "answer": true
     },
     {
      "word": "gift",
-     "pic": "../../pics/ar-gift.jpg",
+     "pic": "../../pics/ar-gift.png",
      "answer": true
     },
     {
@@ -467,7 +468,7 @@
    "items": [
     {
      "word": "هَرَم",
-     "pic": "../../pics/ar-pyramid.png",
+     "pic": "../../pics/pyramid.png",
      "audio": "words/haram.mp3",
      "at": 0
     },
@@ -479,13 +480,13 @@
     },
     {
      "word": "فَهْد",
-     "pic": "../../pics/ar-cheetah.png",
+     "pic": "../../pics/cheetah.png",
      "audio": "words/fahd.mp3",
      "at": 1
     },
     {
      "word": "هَدِيَّة",
-     "pic": "../../pics/ar-gift.jpg",
+     "pic": "../../pics/ar-gift.png",
      "audio": "words/hadiya.mp3",
      "at": 0
     },

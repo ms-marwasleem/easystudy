@@ -1,6 +1,72 @@
 {
  "sets": [
   {
+   "type": "circle",
+   "ex": 2,
+   "page": 83,
+   "task": "أَضَعُ عَلَامَةً (✓) أَسْفَلَ الصُّوَرِ الَّتِي كَانَتْ فِي صُنْدُوقِ الْجَدَّةِ",
+   "taskAudio": "q/t-s2.mp3",
+   "hint": "اضغط على الصورة التي كانت في الصندوق",
+   "silent": true,
+   "items": [
+    {
+     "word": "food",
+     "pic": "../../pics/cards-food.jpg",
+     "answer": false
+    },
+    {
+     "word": "body",
+     "pic": "../../pics/cards-body.jpg",
+     "answer": true
+    },
+    {
+     "word": "family",
+     "pic": "../../pics/cards-family.jpg",
+     "answer": false
+    },
+    {
+     "word": "animals",
+     "pic": "../../pics/cards-animals.jpg",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "ex": 3,
+   "page": 83,
+   "task": "أَصِلُ كُلَّ جُزْءٍ مِنْ جِسْمِي بِوَظِيفَتِهِ الصَّحِيحَةِ",
+   "taskAudio": "q/t-s3.mp3",
+   "hint": "صل الجزء بوظيفته",
+   "items": [
+    {
+     "word": "الْأُذُنُ",
+     "wpic": "../../pics/ear-book.png",
+     "pic": "../../pics/bird-singing.png"
+    },
+    {
+     "word": "الْأَنْفُ",
+     "wpic": "../../pics/ar-nose.png",
+     "pic": "../../pics/girl-smelling.png"
+    },
+    {
+     "word": "الْفَمُ",
+     "wpic": "../../pics/ar-mouth.png",
+     "pic": "../../pics/boy-eating.png"
+    },
+    {
+     "word": "الْيَدُ",
+     "wpic": "../../pics/hand-book.png",
+     "pic": "../../pics/easel-painting.png"
+    },
+    {
+     "word": "الْقَدَمُ",
+     "wpic": "../../pics/foot-book.png",
+     "pic": "../../pics/boy-soccer.png"
+    }
+   ]
+  },
+  {
    "type": "link",
    "ex": 1,
    "page": 77,
@@ -41,7 +107,7 @@
    "book": "booklet",
    "items": [
     {
-     "pic": "../../pics/ar-girl.png",
+     "pic": "../../pics/book-girl.png",
      "options": [
       "هَذَا",
       "هَذِهِ"
@@ -49,7 +115,7 @@
      "answer": 1
     },
     {
-     "pic": "../../pics/ar-boy.png",
+     "pic": "../../pics/book-boy.png",
      "options": [
       "هَذَا",
       "هَذِهِ"
@@ -122,7 +188,7 @@
    ]
   },
   {
-   "type": "match",
+   "type": "circle",
    "ex": 1,
    "page": 44,
    "task": "أَقْرَأُ الْكَلِمَاتِ وَأَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الْمُمَاثِلَةِ كَمَا بِالْمِثَالِ",
@@ -187,7 +253,7 @@
    ]
   },
   {
-   "type": "match",
+   "type": "circle",
    "ex": 1,
    "page": 44,
    "task": "أَقْرَأُ الْكَلِمَاتِ وَأَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الْمُمَاثِلَةِ كَمَا بِالْمِثَالِ",
@@ -252,7 +318,7 @@
    ]
   },
   {
-   "type": "match",
+   "type": "circle",
    "ex": 1,
    "page": 44,
    "task": "أَقْرَأُ الْكَلِمَاتِ وَأَضَعُ دَائِرَةً حَوْلَ الْكَلِمَاتِ الْمُمَاثِلَةِ كَمَا بِالْمِثَالِ",
@@ -374,7 +440,7 @@
    "book": "workbook",
    "items": [
     {
-     "word": "هَذَا أَنْفٌ نَشُمُّ بِهِ",
+     "word": "هَذَا أَنْفٌ أَشُمُّ بِهِ",
      "gaps": [
       8,
       9,
@@ -385,25 +451,28 @@
      "audio": "q/s-anf.mp3"
     },
     {
-     "word": "هَذِهِ الْعَيْنُ نَرَى بِهَا",
-     "gaps": [
-      10,
-      11,
-      12,
-      14,
-      15
-     ],
-     "audio": "q/s-ayn.mp3"
-    },
-    {
-     "word": "هَذِهِ الْقَدَمُ نَمْشِي بِهَا",
+     "word": "هَذِهِ الْعَيْنُ أُبْصِرُ بِهَا",
      "gaps": [
       10,
       11,
       12,
       13,
       15,
-      16
+      16,
+      17
+     ],
+     "audio": "q/s-ayn.mp3"
+    },
+    {
+     "word": "هَذِهِ الْقَدَمُ أَسِيرُ بِهَا",
+     "gaps": [
+      10,
+      11,
+      12,
+      13,
+      15,
+      16,
+      17
      ],
      "audio": "q/s-qadam.mp3"
     }

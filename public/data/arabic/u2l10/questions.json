@@ -1,572 +1,6 @@
 {
  "sets": [
   {
-   "type": "circle",
-   "ex": 1,
-   "page": 78,
-   "task": "أَضَعُ دَائِرَةً حَوْلَ شَكْلِ الْحَرْفِ الْمُلَوَّنِ مُتَّصِلًا",
-   "taskAudio": "q/task-s1.mp3",
-   "hint": "اختار شكل الحرف الملون",
-   "center": "ر",
-   "centerAudio": "../letters/631/name.mp3",
-   "items": [
-    {
-     "word": "دـ",
-     "text": "دـ",
-     "answer": false,
-     "pos": [
-      50,
-      14
-     ],
-     "posP": [
-      50,
-      14
-     ]
-    },
-    {
-     "word": "رـ",
-     "text": "رـ",
-     "answer": true,
-     "pos": [
-      84,
-      82
-     ],
-     "posP": [
-      84,
-      82
-     ]
-    },
-    {
-     "word": "ز",
-     "text": "ز",
-     "answer": false,
-     "pos": [
-      16,
-      82
-     ],
-     "posP": [
-      16,
-      82
-     ]
-    }
-   ]
-  },
-  {
-   "type": "circle",
-   "ex": 1,
-   "page": 78,
-   "task": "أَضَعُ دَائِرَةً حَوْلَ شَكْلِ الْحَرْفِ الْمُلَوَّنِ مُتَّصِلًا",
-   "taskAudio": "q/task-s1.mp3",
-   "hint": "اختار شكل الحرف الملون",
-   "center": "ل",
-   "centerAudio": "../letters/644/name.mp3",
-   "items": [
-    {
-     "word": "أـ",
-     "text": "أـ",
-     "answer": false,
-     "pos": [
-      50,
-      14
-     ],
-     "posP": [
-      50,
-      14
-     ]
-    },
-    {
-     "word": "دـ",
-     "text": "دـ",
-     "answer": false,
-     "pos": [
-      84,
-      82
-     ],
-     "posP": [
-      84,
-      82
-     ]
-    },
-    {
-     "word": "لـ",
-     "text": "لـ",
-     "answer": true,
-     "pos": [
-      16,
-      82
-     ],
-     "posP": [
-      16,
-      82
-     ]
-    }
-   ]
-  },
-  {
-   "type": "circle",
-   "ex": 1,
-   "page": 78,
-   "task": "أَضَعُ دَائِرَةً حَوْلَ شَكْلِ الْحَرْفِ الْمُلَوَّنِ مُتَّصِلًا",
-   "taskAudio": "q/task-s1.mp3",
-   "hint": "اختار شكل الحرف الملون",
-   "center": "س",
-   "centerAudio": "../letters/633/name.mp3",
-   "items": [
-    {
-     "word": "شـ",
-     "text": "شـ",
-     "answer": false,
-     "pos": [
-      50,
-      14
-     ],
-     "posP": [
-      50,
-      14
-     ]
-    },
-    {
-     "word": "صـ",
-     "text": "صـ",
-     "answer": true,
-     "pos": [
-      84,
-      82
-     ],
-     "posP": [
-      84,
-      82
-     ]
-    },
-    {
-     "word": "سـ",
-     "text": "سـ",
-     "answer": false,
-     "pos": [
-      16,
-      82
-     ],
-     "posP": [
-      16,
-      82
-     ]
-    }
-   ]
-  },
-  {
-   "type": "circle",
-   "ex": 1,
-   "page": 78,
-   "task": "أَضَعُ دَائِرَةً حَوْلَ شَكْلِ الْحَرْفِ الْمُلَوَّنِ مُتَّصِلًا",
-   "taskAudio": "q/task-s1.mp3",
-   "hint": "اختار شكل الحرف الملون",
-   "center": "ن",
-   "centerAudio": "../letters/646/name.mp3",
-   "items": [
-    {
-     "word": "نـ",
-     "text": "نـ",
-     "answer": true,
-     "pos": [
-      50,
-      14
-     ],
-     "posP": [
-      50,
-      14
-     ]
-    },
-    {
-     "word": "تـ",
-     "text": "تـ",
-     "answer": false,
-     "pos": [
-      84,
-      82
-     ],
-     "posP": [
-      84,
-      82
-     ]
-    },
-    {
-     "word": "بـ",
-     "text": "بـ",
-     "answer": false,
-     "pos": [
-      16,
-      82
-     ],
-     "posP": [
-      16,
-      82
-     ]
-    }
-   ]
-  },
-  {
-   "type": "circle",
-   "ex": 1,
-   "page": 78,
-   "task": "أَضَعُ دَائِرَةً حَوْلَ شَكْلِ الْحَرْفِ الْمُلَوَّنِ مُتَّصِلًا",
-   "taskAudio": "q/task-s1.mp3",
-   "hint": "اختار شكل الحرف الملون",
-   "center": "ف",
-   "centerAudio": "../letters/641/name.mp3",
-   "items": [
-    {
-     "word": "قـ",
-     "text": "قـ",
-     "answer": false,
-     "pos": [
-      50,
-      14
-     ],
-     "posP": [
-      50,
-      14
-     ]
-    },
-    {
-     "word": "فـ",
-     "text": "فـ",
-     "answer": true,
-     "pos": [
-      84,
-      82
-     ],
-     "posP": [
-      84,
-      82
-     ]
-    },
-    {
-     "word": "عـ",
-     "text": "عـ",
-     "answer": false,
-     "pos": [
-      16,
-      82
-     ],
-     "posP": [
-      16,
-      82
-     ]
-    }
-   ]
-  },
-  {
-   "type": "circle",
-   "ex": 1,
-   "page": 78,
-   "task": "أَضَعُ دَائِرَةً حَوْلَ شَكْلِ الْحَرْفِ الْمُلَوَّنِ مُتَّصِلًا",
-   "taskAudio": "q/task-s1.mp3",
-   "hint": "اختار شكل الحرف الملون",
-   "center": "ك",
-   "centerAudio": "../letters/643/name.mp3",
-   "items": [
-    {
-     "word": "لـ",
-     "text": "لـ",
-     "answer": false,
-     "pos": [
-      50,
-      14
-     ],
-     "posP": [
-      50,
-      14
-     ]
-    },
-    {
-     "word": "كـ",
-     "text": "كـ",
-     "answer": true,
-     "pos": [
-      84,
-      82
-     ],
-     "posP": [
-      84,
-      82
-     ]
-    },
-    {
-     "word": "أ",
-     "text": "أ",
-     "answer": false,
-     "pos": [
-      16,
-      82
-     ],
-     "posP": [
-      16,
-      82
-     ]
-    }
-   ]
-  },
-  {
-   "type": "circle",
-   "ex": 1,
-   "page": 78,
-   "task": "أَضَعُ دَائِرَةً حَوْلَ شَكْلِ الْحَرْفِ الْمُلَوَّنِ مُتَّصِلًا",
-   "taskAudio": "q/task-s1.mp3",
-   "hint": "اختار شكل الحرف الملون",
-   "center": "ق",
-   "centerAudio": "../letters/642/name.mp3",
-   "items": [
-    {
-     "word": "فـ",
-     "text": "فـ",
-     "answer": false,
-     "pos": [
-      50,
-      14
-     ],
-     "posP": [
-      50,
-      14
-     ]
-    },
-    {
-     "word": "تـ",
-     "text": "تـ",
-     "answer": false,
-     "pos": [
-      84,
-      82
-     ],
-     "posP": [
-      84,
-      82
-     ]
-    },
-    {
-     "word": "قـ",
-     "text": "قـ",
-     "answer": true,
-     "pos": [
-      16,
-      82
-     ],
-     "posP": [
-      16,
-      82
-     ]
-    }
-   ]
-  },
-  {
-   "type": "link",
-   "ex": 2,
-   "page": 78,
-   "task": "أَنْطِقُ، وَأَصِلُ كُلَّ صُورَةٍ بِالْحَرْفِ الْمُنَاسِبِ",
-   "taskAudio": "q/task-s2.mp3",
-   "hint": "صل الصورة بالحرف",
-   "items": [
-    {
-     "word": "لَ",
-     "pic": "../../pics/ar-lemon.png",
-     "audio": "../../syl-ar/644-64e.mp3"
-    },
-    {
-     "word": "فِ",
-     "pic": "../../pics/ar-mice.jpg",
-     "audio": "../../syl-ar/641-650.mp3"
-    },
-    {
-     "word": "كُ",
-     "pic": "../../pics/ar-books.jpg",
-     "audio": "../../syl-ar/643-64f.mp3"
-    },
-    {
-     "word": "سَ",
-     "pic": "../../pics/ar-fish.png",
-     "audio": "../../syl-ar/633-64e.mp3"
-    },
-    {
-     "word": "رِ",
-     "pic": "../../pics/ar-foot.png",
-     "audio": "../../syl-ar/631-650.mp3"
-    }
-   ]
-  },
-  {
-   "type": "vowel",
-   "ex": 3,
-   "page": 78,
-   "task": "أَنْطِقُ، وَأَكْتُبُ الْحَرْفَ الْأَوَّلَ مَضْبُوطًا بِالشَّكْلِ",
-   "taskAudio": "../q-heads/h-8c353078.mp3",
-   "hint": "اختار الحرف الأول بالحركة الصح",
-   "items": [
-    {
-     "word": "لَبَن",
-     "audio": "../u2l3/words/laban.mp3",
-     "pic": "../../pics/ar-milk.png",
-     "answer": "لَ",
-     "choices": [
-      "لَ",
-      "لُ",
-      "لِ"
-     ]
-    },
-    {
-     "word": "سُلَحْفَاة",
-     "audio": "../u1l6/words/sulahfa.mp3",
-     "pic": "../../pics/ar-turtle.png",
-     "answer": "سُ",
-     "choices": [
-      "سَ",
-      "سُ",
-      "سِ"
-     ]
-    },
-    {
-     "word": "فَرَاشَة",
-     "audio": "../u2l7/words/farasha.mp3",
-     "pic": "../../pics/ar-butterfly.jpg",
-     "answer": "فَ",
-     "choices": [
-      "فَ",
-      "فُ",
-      "فِ"
-     ]
-    },
-    {
-     "word": "نَمِر",
-     "audio": "../u2l5/words/nimr.mp3",
-     "pic": "../../pics/ar-tiger.png",
-     "answer": "نَ",
-     "choices": [
-      "نَ",
-      "نُ",
-      "نِ"
-     ]
-    }
-   ]
-  },
-  {
-   "type": "write",
-   "ex": 4,
-   "page": 79,
-   "task": "أُكْمِلُ الْكَلِمَاتِ بِالْحَرْفِ الْمُنَاسِبِ، وَأَضْبِطُهُ",
-   "taskAudio": "q/task-s4.mp3",
-   "hint": "اكتب الحرف الناقص",
-   "items": [
-    {
-     "word": "بِنْت",
-     "gaps": [
-      0
-     ],
-     "pic": "../../pics/ar-girl-brown.png",
-     "audio": "../u1l4/words/bint.mp3"
-    },
-    {
-     "word": "بَقَر",
-     "gaps": [
-      1
-     ],
-     "pic": "../../pics/ar-cow.png",
-     "audio": "q/baqar.mp3"
-    },
-    {
-     "word": "فَأْس",
-     "gaps": [
-      0
-     ],
-     "pic": "../../pics/ar-axe.png",
-     "audio": "../u1l3/q/c6-1.mp3"
-    },
-    {
-     "word": "سُحُب",
-     "gaps": [
-      0
-     ],
-     "pic": "../../pics/ar-cloud.jpg",
-     "audio": "../u2l4/words/suhub.mp3"
-    }
-   ]
-  },
-  {
-   "type": "split",
-   "ex": 5,
-   "page": 79,
-   "task": "أَنْطِقُ، ثُمَّ أُحَلِّلُ الْكَلِمَتَيْنِ إِلَى حُرُوفٍ",
-   "taskAudio": "q/task-s5.mp3",
-   "hint": "اسحب الحروف وركّبها في أماكنها",
-   "items": [
-    {
-     "word": "بَحْر",
-     "parts": [
-      "بَ",
-      "حْ",
-      "ر"
-     ]
-    },
-    {
-     "word": "مَكْتَب",
-     "parts": [
-      "مَ",
-      "كْ",
-      "تَ",
-      "ب"
-     ]
-    }
-   ]
-  },
-  {
-   "type": "write",
-   "ex": 6,
-   "page": 79,
-   "task": "أَسْتَخْدِمُ الْحُرُوفَ لِأُكَوِّنَ اسْمَ كُلِّ صُورَةٍ",
-   "taskAudio": "../q-heads/h-068ae82a.mp3",
-   "hint": "اكتب الكلمة بعد ما تدمج الحروف",
-   "items": [
-    {
-     "word": "جَرَس",
-     "audio": "../u1l7/words/jaras.mp3",
-     "pic": "../../pics/ar-bell.png",
-     "chips": [
-      "ج",
-      "أ",
-      "س",
-      "ر"
-     ]
-    },
-    {
-     "word": "رَأْس",
-     "audio": "../u1l3/words/ras.mp3",
-     "pic": "../../pics/ar-head.png",
-     "chips": [
-      "ج",
-      "أ",
-      "س",
-      "ر"
-     ]
-    }
-   ]
-  },
-  {
-   "type": "pick",
-   "ex": 7,
-   "page": 79,
-   "task": "أَقْرَأُ الْجُمْلَةَ، وَأَصِلُهَا بِالصُّورَةِ الْمُنَاسِبَةِ",
-   "taskAudio": "q/task-s7.mp3",
-   "hint": "اقرأ الجملة واختار الصورة",
-   "items": [
-    {
-     "word": "تَأْكُلُ أُخْتِي التَّمْرَ",
-     "audio": "q/s-ukhti-tamr.mp3",
-     "pics": [
-      "../../pics/ar-girl-eats-orange.jpg",
-      "../../pics/ar-girl-eats-dates.jpg"
-     ],
-     "answer": 1
-    }
-   ]
-  },
-  {
    "type": "choice",
    "page": 73,
    "task": "أَخْتَارُ الْكَلِمَةَ الْمُنَاسِبَةَ الْمَوْجُودَةَ فِي الْقِصَّةِ",
@@ -576,7 +10,6 @@
    "items": [
     {
      "word": "يَأْكُلُ الدُّبُّ السَّمَكَ.",
-     "pic": "../../pics/ar-bear-book.jpg",
      "lead": "يَأْكُلُ الدُّبُّ",
      "options": [
       "اللَّحْمَ",
@@ -589,7 +22,6 @@
     },
     {
      "word": "يَأْكُلُ الْجَمَلُ الْخَسَّ.",
-     "pic": "../../pics/ar-camel-book.jpg",
      "lead": "يَأْكُلُ الْجَمَلُ",
      "options": [
       "الْجُبْنَ",
@@ -602,7 +34,6 @@
     },
     {
      "word": "يَأْكُلُ الْفَرَسُ السُّكَّرَ.",
-     "pic": "../../pics/ar-horse-book.jpg",
      "lead": "يَأْكُلُ الْفَرَسُ",
      "options": [
       "الْخَسَّ",
@@ -615,7 +46,6 @@
     },
     {
      "word": "يَأْكُلُ الْفَأْرُ الْجُبْنَ.",
-     "pic": "../../pics/ar-mouse.png",
      "lead": "يَأْكُلُ الْفَأْرُ",
      "options": [
       "السُّكَّرَ",
@@ -628,7 +58,6 @@
     },
     {
      "word": "يَأْكُلُ الْأَسَدُ الْفَأْرَ.",
-     "pic": "../../pics/ar-lion.png",
      "lead": "يَأْكُلُ الْأَسَدُ",
      "options": [
       "السَّمَكَ",
@@ -673,7 +102,7 @@
     {
      "word": "الدُّبّ",
      "audio": "q/l-bear.mp3",
-     "wpic": "../../pics/ar-bear.png",
+     "wpic": "../../pics/bear.png",
      "pic": "../../pics/ar-fish.png"
     },
     {
@@ -686,13 +115,13 @@
      "word": "الْفَرَس",
      "audio": "q/l-horse.mp3",
      "wpic": "../../pics/ar-horse.png",
-     "pic": "../../pics/ar-sugar.jpg"
+     "pic": "../../pics/sugar.png"
     },
     {
      "word": "الْفَأْر",
      "audio": "q/l-mouse.mp3",
      "wpic": "../../pics/ar-mouse.png",
-     "pic": "../../pics/ar-cheese.png"
+     "pic": "../../pics/cheese.png"
     },
     {
      "word": "الْأَسَد",

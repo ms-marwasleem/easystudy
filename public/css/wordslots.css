@@ -29,9 +29,10 @@
 
 /* the states */
 #lesson .ws .lt.hid{color:transparent}
-#lesson .ws .lt.hid.peek{color:var(--ws-ink);opacity:.45}               /* Help: the letter shows see-through for a moment */
-#lesson .ws .lt.hid.fnt:not(.peek){color:var(--ws-ink);opacity:.35}     /* "copy the example": the letters show faintly */
-#lesson .ws .lt.bad{animation:wsno .4s ease-out}                         /* wrong: never written, the place shakes */
+#lesson .ws .lt.hid.peek{color:color-mix(in srgb,var(--ws-ink) 45%,transparent)}               /* Help: the letter shows see-through for a moment */
+#lesson .ws .lt.hid.fnt:not(.peek){color:color-mix(in srgb,var(--ws-ink) 35%,transparent)}     /* "copy the example": the letters show faintly */
+#lesson .ws:not(.ws-ar) .lt.bad{animation:wsno .4s ease-out}
+#lesson .ws.ws-ar .lt.bad{animation:none;text-decoration-color:#ffb3b3}   /* Arabic: no transform on a letter (it would unjoin the word in iOS Safari) */                         /* wrong: never written, the place shakes */
 @keyframes wsno{20%{transform:translateX(-.1em)}60%{transform:translateX(.1em)}}
 
 /* where the word stands: the Words tab sizes it to its room (JS fit), the question sheets to their box, a word inside a sentence takes the sentence's size */
@@ -50,7 +51,7 @@
 body.ws-typing .quiz .qdots{visibility:hidden}
 body.ws-tight #lesson .l-head{visibility:hidden;height:0;min-height:0;padding:0;margin:0;border:0;overflow:hidden}   /* stays in its grid row (display:none moved the stage into the header row and squeezed it to nothing) */
 body.ws-typing .ws-side{position:fixed!important;right:auto!important;bottom:auto!important;margin:0!important;z-index:60}
-.ws-mv{transition:translate .2s ease-out}
+.ws-mv{transition:none}   /* wsKeep re-measures on every keyboard/scroll report; a transition made the word slide 0 -> lift each time (the shaking) */
 
 /* the question word line with a plain word or a sentence (not spelled): a sentence wraps inside the screen and takes the sentence size */
 #lesson .qword b:not(:has(.ws)){white-space:normal;text-align:center;max-width:100%;overflow-wrap:break-word}

@@ -152,7 +152,7 @@
     {
      "word": "قْ",
      "audio": "../../syl-ar/642-652.mp3",
-     "pic": "../../pics/ar-necklace.jpg",
+     "pic": "../../pics/necklace.png",
      "audio2": "words/iqd.mp3"
     }
    ]
@@ -177,7 +177,7 @@
     },
     {
      "word": "قِطَّة",
-     "pic": "../../pics/ar-cat.png",
+     "pic": "../../pics/cat-kitten.png",
      "audio": "words/qitta.mp3",
      "answer": true
     }
@@ -200,7 +200,7 @@
     {
      "word": "قِطَّة",
      "audio": "words/qitta.mp3",
-     "pic": "../../pics/ar-cat.png",
+     "pic": "../../pics/cat-kitten.png",
      "answer": "قِ"
     }
    ]
@@ -221,7 +221,7 @@
     },
     {
      "word": "قِطَّة",
-     "pic": "../../pics/ar-cat.png",
+     "pic": "../../pics/cat-kitten.png",
      "audio": "words/qitta.mp3"
     },
     {
@@ -273,7 +273,7 @@
     },
     {
      "word": "صَقْر",
-     "pic": "../../pics/ar-eagle.jpg",
+     "pic": "../../pics/falcon.png",
      "audio": "words/saqr.mp3",
      "answer": true
     }
@@ -296,27 +296,9 @@
     {
      "word": "صَقْر",
      "audio": "words/saqr.mp3",
-     "pic": "../../pics/ar-eagle.jpg",
+     "pic": "../../pics/falcon.png",
      "answer": "قْ",
      "at": 1
-    }
-   ]
-  },
-  {
-   "type": "write",
-   "ex": 9,
-   "page": 74,
-   "task": "أُلَاحِظُ الْفَرْقَ بَيْنَ (ق) وَ(ف)، ثُمَّ أَكْتُبُ",
-   "taskAudio": "q/task-9.mp3",
-   "hint": "اكتب الحرف",
-   "items": [
-    {
-     "word": "ق",
-     "audio": "../letters/642/name.mp3"
-    },
-    {
-     "word": "ف",
-     "audio": "../letters/641/name.mp3"
     }
    ]
   },
@@ -343,7 +325,7 @@
     {
      "word": "قُطْن",
      "audio": "../u4l4/words/qutn.mp3",
-     "pic": "../../pics/ar-cotton.jpg",
+     "pic": "../../pics/cotton.png",
      "answer": "قُ"
     },
     {
@@ -413,6 +395,14 @@
      "pics": [
       "../../pics/ar-heart.png",
       "../../pics/ar-pencil.png"
+     ],
+     "picWords": [
+      [
+       "قَلْب"
+      ],
+      [
+       "قَلَم"
+      ]
      ]
     }
    ]
@@ -579,7 +569,7 @@
     },
     {
      "word": "قَمْح",
-     "pic": "../../pics/ar-wheat.jpg",
+     "pic": "../../pics/wheat.png",
      "audio": "words/qamh.mp3",
      "at": 0
     },
@@ -650,7 +640,7 @@
     {
      "word": "قِطَّة",
      "audio": "words/qitta.mp3",
-     "pic": "../../pics/ar-cat.png",
+     "pic": "../../pics/cat-kitten.png",
      "answer": "قِ"
     },
     {
@@ -662,14 +652,14 @@
     {
      "word": "مِقْلَمَة",
      "audio": "words/miqlama.mp3",
-     "pic": "../../pics/ar-pencil-case.jpg",
+     "pic": "../../pics/pencil-case.png",
      "answer": "قْ",
      "at": 1
     },
     {
      "word": "قُنْفُذ",
      "audio": "words/qunfudh.mp3",
-     "pic": "../../pics/ar-hedgehog.jpg",
+     "pic": "../../pics/hedgehog.png",
      "answer": "قُ"
     }
    ],
@@ -704,7 +694,7 @@
     {
      "word": "حَقْل",
      "audio": "q/h-4.mp3",
-     "pic": "../../pics/ar-fields.jpg",
+     "pic": "../../pics/field.png",
      "answer": "قْ",
      "at": 1
     },
@@ -787,7 +777,7 @@
       1,
       2
      ],
-     "pic": "../../pics/ar-wheat.jpg",
+     "pic": "../../pics/wheat.png",
      "audio": "words/qamh.mp3"
     },
     {
@@ -812,7 +802,7 @@
    "items": [
     {
      "word": "الْقَمْحُ فِي الْحَقْلِ.",
-     "pic": "../../pics/ar-wheat.jpg",
+     "pic": "../../pics/wheat.png",
      "audio": "q/s14-1.mp3"
     },
     {
@@ -822,39 +812,8 @@
     },
     {
      "word": "دَقَّ الرَّجُلُ الْجَرَسَ.",
-     "pic": "../../pics/ar-man.png",
+     "pic": "../../pics/man-bell.png",
      "audio": "q/s14-3.mp3"
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "write",
-   "ex": 15,
-   "page": 71,
-   "task": "اِقْرَأْ، وَتَتَبَّعِ النُّقَطَ، ثُمَّ اكْتُبِ الْكَلِمَاتِ بِخَطٍّ جَمِيلٍ",
-   "taskAudio": "q/task-b15.mp3",
-   "hint": "اكتب الكلمة حرف حرف",
-   "items": [
-    {
-     "word": "بُنْدُق",
-     "audio": "../u1l4/words/bunduq.mp3"
-    },
-    {
-     "word": "قِرْد",
-     "audio": "../u2l6/words/qird.mp3"
-    },
-    {
-     "word": "قَلَم",
-     "audio": "words/qalam.mp3"
-    },
-    {
-     "word": "حَقْل",
-     "audio": "q/h-4.mp3"
-    },
-    {
-     "word": "أَزْرَق",
-     "audio": "../u4l3/words/azraq.mp3"
     }
    ],
    "book": "booklet"
@@ -950,7 +909,7 @@
     {
      "word": "صَقْر",
      "audio": "words/saqr.mp3",
-     "pic": "../../pics/ar-eagle.jpg",
+     "pic": "../../pics/falcon.png",
      "answer": "قْ",
      "at": 1
     },
@@ -992,7 +951,7 @@
      "gaps": [
       2
      ],
-     "pic": "../../pics/ar-bowl.jpg",
+     "pic": "../../pics/plate.png",
      "audio": "../u4l4/words/tabaq.mp3"
     }
    ],

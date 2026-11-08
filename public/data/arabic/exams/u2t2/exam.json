@@ -1,0 +1,156 @@
+{
+ "title": "تقييم الوحدة الثانية",
+ "ratio": 0.707,
+ "pages": [
+  {
+   "title": "تقييم الوحدة الثانية",
+   "foot": 79,
+   "style": "bar",
+   "blocks": [
+    {
+     "t": "q",
+     "n": "٤",
+     "text": "أُكْمِلُ الْكَلِمَاتِ بِالْحَرْفِ الْمُنَاسِبِ، وَأَضْبِطُهُ:",
+     "audio": "q4.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-girl-brown.png",
+           "w": 5
+          },
+          "[[بِ:box,tiny]]نْت"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-cow.png",
+           "w": 5
+          },
+          "بَ[[قَ:box,tiny]]ر"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-axe.png",
+           "w": 5
+          },
+          "[[فَ:box,tiny]]أْس"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-cloud.jpg",
+           "w": 5
+          },
+          "[[سُ:box,tiny]]حُب"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٥",
+     "text": "أَنْطِقُ، ثُمَّ أُحَلِّلُ الْكَلِمَتَيْنِ إِلَى حُرُوفٍ:",
+     "audio": "q5.mp3",
+     "body": [
+      {
+       "t": "text",
+       "text": "بَحْر = [[بَ:box,tiny]] + [[حْ:box,tiny]] + [[ر:box,tiny]]"
+      },
+      {
+       "t": "text",
+       "text": "مَكْتَب = [[مَ:box,tiny]] + [[كْ:box,tiny]] + [[تَ:box,tiny]] + [[ب:box,tiny]]"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٦",
+     "text": "أَسْتَخْدِمُ الْحُرُوفَ لِأُكَوِّنَ اسْمَ كُلِّ صُورَةٍ:",
+     "audio": "q6.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 2,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-bell.png",
+           "w": 5
+          },
+          "ج  أ  س  ر",
+          "[[جَرَس:box,wide]]"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-head.png",
+           "w": 5
+          },
+          "ج  أ  س  ر",
+          "[[رَأْس:box,wide]]"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٧",
+     "text": "أَقْرَأُ الْجُمْلَةَ، وَأَصِلُهَا بِالصُّورَةِ الْمُنَاسِبَةِ:",
+     "audio": "q7.mp3",
+     "body": [
+      {
+       "t": "text",
+       "text": "تَأْكُلُ أُخْتِي التَّمْرَ"
+      },
+      {
+       "t": "mcq",
+       "opts": [
+        {
+         "art": "../../../pics/ar-girl-eats-orange.jpg",
+         "h": 6
+        },
+        {
+         "art": "../../../pics/ar-girl-eats-dates.jpg",
+         "h": 6
+        }
+       ],
+       "answer": 1,
+       "labels": "none",
+       "style": "",
+       "cols": 2
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -190,11 +190,7 @@
           "audio": "words/kalb.mp3",
           "pic": "../../pics/ar-dog.png",
           "answer": "لْ",
-          "choices": [
-            "لَ",
-            "لُ",
-            "لِ"
-          ],
+          "choices": ["لَ", "لُ", "لْ"],
           "at": 1
         },
         {
@@ -541,7 +537,7 @@
         },
         {
           "word": "فِيل",
-          "pic": "../../pics/ar-elephant.png",
+          "pic": "../../pics/elephant.png",
           "audio": "../u1l3/q/c5-fil.mp3",
           "at": 2
         },

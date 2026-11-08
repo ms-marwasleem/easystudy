@@ -46,13 +46,14 @@ function wsRoom(){ WS_GUESS=false; const vv=window.visualViewport, H=document.do
   if(framed&&matchMedia('(pointer:coarse)').matches){ WS_GUESS=true; return {top:0,bottom:Math.round(H*(innerWidth>H?.42:.55))}; }
   return null; }
 function wsKeep(){
-  $$('.ws-mv').forEach(e=>{ e.style.translate=''; e.classList.remove('ws-mv'); });
+  const prev=$$('.ws-mv'); prev.forEach(e=>{ e.style.translate=''; });   // measured from the natural place; the transition is off, so no visible jump while the phone keeps reporting scroll/resize
   const P0=wsParts(), R=P0&&wsRoom(), open=!!R, B=document.body;
   if(open&&!WS_GUESS&&typeof kbPin==='function') kbPin();   // the page never stays slid under the keyboard (js/core.js)
   B.classList.toggle('ws-typing',open);
   const rem=parseFloat(getComputedStyle(document.documentElement).fontSize)||16;
   B.classList.toggle('ws-tight',open&&R.bottom-R.top<rem*22);   // little room (phone on its side): the title, lesson name and road step aside while typing
   wsHelp(null);
+  prev.forEach(e=>e.classList.remove('ws-mv'));
   if(!open) return;
   let lift=wsLift(wsParts()||P0,R);
   if(lift.short&&!B.classList.contains('ws-tight')){ B.classList.add('ws-tight'); lift.undo(); lift=wsLift(wsParts()||P0,R); }   // still not enough room above the keyboard: the header steps aside too
@@ -61,7 +62,7 @@ function wsKeep(){
 // lift the word (and its lines) so all of it, and the Help bulb under it, stand above the keyboard; short = it still does not fit
 function wsLift(P,R){
   const w=P.word.getBoundingClientRect(), pad=Math.max(10,w.height*.15);
-  const hs=P.help?wsHelpEls():[], hh=hs.length?(hs[0].offsetWidth||40)+Math.max(6,w.height*.12):0;   // the Help bulb stands under the word
+  const hh=0;   // the Help bulb stands BESIDE the word (opposite the speaker), so it takes no height
   const top=Math.max(P.top,R.top+6);
   const over=Math.max(P.bottom.getBoundingClientRect().bottom,w.bottom+hh)+pad-R.bottom;
   let sh=over>0?Math.min(Math.max(0,w.top-top),over):0;
@@ -70,14 +71,15 @@ function wsLift(P,R){
   return {P,short:over-sh>1,undo:()=>P.movers.forEach(m=>{ m.style.translate=''; m.classList.remove('ws-mv'); })};
 }
 const wsHelpEls=()=>$$('#lmeta .qxhelp, #lmeta .qhelpb, .quiz>.qhelpb').filter(h=>!h.hidden&&getComputedStyle(h).display!=='none');
-// while typing, the Help bulb stands right under the word, in the middle (the keyboard covers its corner)
+// while typing, the Help bulb stands right beside the word, on the side away from the Listen speaker (fixed: it never moves the layout)
 function wsHelp(P,R){
   $$('.ws-side').forEach(h=>{ h.classList.remove('ws-side'); h.style.left=''; h.style.top=''; });
   if(!P) return;
-  const r=P.word.getBoundingClientRect(), bot=R?R.bottom:innerHeight, topL=R?R.top:0;
+  const r=P.word.getBoundingClientRect(), bot=R?R.bottom:innerHeight, topL=R?R.top:0, sr=P.say&&P.say.getBoundingClientRect();
+  const sayRight=!!(sr&&sr.width&&(sr.left+sr.width/2>r.left+r.width/2));   // speaker right of the word -> bulb on its left, and the other way round
   wsHelpEls().forEach(h=>{ h.classList.add('ws-side'); const s=h.offsetWidth||40, g=Math.max(6,r.height*.12);
-    let x=r.left+r.width/2-s/2, y=r.bottom+g;
-    if(y+s+6>bot){ y=r.top+r.height/2-s/2; x=r.left-s-g; if(x<6) x=r.right+g; }   // no room under the word above the keyboard: beside it instead
+    let x=(sr&&sr.width&&!sayRight)?r.right+g:r.left-s-g, y=r.top+r.height/2-s/2;
+    if(x<6) x=r.right+g;   // no room on that side: the other side
     x=Math.max(6,Math.min(innerWidth-s-6,x)); y=Math.max(topL+6,Math.min(bot-s-6,y));   // never under the keyboard
     h.style.left=Math.round(x)+'px'; h.style.top=Math.round(y)+'px'; });
 }

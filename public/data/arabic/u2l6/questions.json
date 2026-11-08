@@ -207,11 +207,7 @@
      "audio": "../u1l3/words/arnab.mp3",
      "pic": "../../pics/ar-rabbit.png",
      "answer": "رْ",
-     "choices": [
-      "رَ",
-      "رُ",
-      "رِ"
-     ],
+     "choices": ["رَ", "رُ", "رْ"],
      "at": 1
     },
     {
@@ -279,11 +275,7 @@
      "audio": "q/w-durj.mp3",
      "pic": "../../pics/ar-drawer.png",
      "answer": "رْ",
-     "choices": [
-      "رَ",
-      "رُ",
-      "رِ"
-     ],
+     "choices": ["رَ", "رُ", "رْ"],
      "at": 1
     }
    ]
@@ -340,7 +332,7 @@
      "pics": [
       "../../pics/ar-eagle.jpg",
       "../../pics/ar-tiger.png"
-     ]
+     ], "picWords": [["نَسْر"], ["نَمِر"]]
     }
    ]
   },
@@ -563,7 +555,7 @@
      "word": "رِ",
      "audio": "../../syl-ar/631-650.mp3",
      "pics": [
-      "../../pics/ar-pyramid.png",
+      "../../pics/pyramid.png",
       "../../pics/ar-men.png"
      ],
      "answer": 1
@@ -573,7 +565,7 @@
      "audio": "../../syl-ar/631-64f.mp3",
      "pics": [
       "../../pics/ar-knee.png",
-      "../../pics/ar-tower.png"
+      "../../pics/tower.png"
      ],
      "answer": 0
     },
@@ -582,7 +574,7 @@
      "audio": "../../syl-ar/631-652.mp3",
      "pics": [
       "../../pics/ar-rocket.png",
-      "../../pics/ar-hose.jpg"
+      "../../pics/hose.png"
      ],
      "answer": 1
     }
@@ -752,7 +744,7 @@
     },
     {
      "word": "رَجُل",
-     "pic": "../../pics/ar-man.png",
+     "pic": "../../pics/man.png",
      "audio": "words/rajul.mp3"
     },
     {
@@ -815,7 +807,7 @@
     {
      "word": "سَرِير",
      "audio": "../u2l4/words/sarir.mp3",
-     "pic": "../../pics/ar-bed.jpg"
+     "pic": "../../pics/bed.png"
     },
     {
      "word": "بَحْر",
@@ -830,7 +822,7 @@
     {
      "word": "بُرْج",
      "audio": "../u1l4/words/burj.mp3",
-     "pic": "../../pics/ar-tower.png"
+     "pic": "../../pics/tower.png"
     }
    ]
   },
@@ -847,8 +839,8 @@
      "word": "حَمَلَ الْأَرْنَبُ الْحَبْلَ.",
      "audio": "q/s14-1.mp3",
      "pics": [
-      "../../pics/ar-rabbit-rope.jpg",
-      "../../pics/ar-rabbit-grass.jpg"
+      "../../pics/rabbit-rope.png",
+      "../../pics/rabbit-carrot.png"
      ],
      "answer": 0
     },
@@ -857,7 +849,7 @@
      "audio": "q/s14-2.mp3",
      "pics": [
       "../../pics/ar-laptop-kids.jpg",
-      "../../pics/ar-party-kids.jpg"
+      "../../pics/party.png"
      ],
      "answer": 1
     }
@@ -923,7 +915,7 @@
     {
      "word": "هَرَم",
      "audio": "../u3l7/words/haram.mp3",
-     "pic": "../../pics/ar-pyramid.png",
+     "pic": "../../pics/pyramid.png",
      "answer": "رَ",
      "choices": [
       "رَ",
@@ -937,11 +929,7 @@
      "audio": "words/burtuqal.mp3",
      "pic": "../../pics/ar-orange.png",
      "answer": "رْ",
-     "choices": [
-      "رَ",
-      "رُ",
-      "رِ"
-     ],
+     "choices": ["رَ", "رُ", "رْ"],
      "at": 1
     },
     {
@@ -1040,7 +1028,7 @@
      "pics": [
       "../../pics/ar-palm.png",
       "../../pics/ar-fa-bees.jpg"
-     ]
+     ], "picWords": [["نَخْل"], ["نَحْل"]]
     }
    ]
   },

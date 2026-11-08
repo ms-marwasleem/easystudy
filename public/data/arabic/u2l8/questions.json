@@ -193,7 +193,7 @@
     {
      "word": "كُمَّثْرَى",
      "audio": "q/w-kummathra.mp3",
-     "pic": "../../pics/ar-pear.jpg",
+     "pic": "../../pics/pear.png",
      "answer": "كُ",
      "choices": [
       "كَ",
@@ -220,7 +220,8 @@
      "choices": [
       "كَ",
       "كُ",
-      "كِ"
+      "كِ",
+      "كْ"
      ],
      "at": 1
     }
@@ -243,7 +244,7 @@
     {
      "word": "كَلْب",
      "audio": "../u2l3/words/kalb.mp3",
-     "pic": "../../pics/ar-dog.png",
+     "pic": "../../pics/dog-happy.png",
      "answer": "كَ",
      "choices": [
       "كَ",
@@ -270,7 +271,8 @@
      "choices": [
       "كَ",
       "كُ",
-      "كِ"
+      "كِ",
+      "كْ"
      ],
      "at": 1
     },
@@ -347,7 +349,7 @@
      "pics": [
       "../../pics/ar-book-stack.png",
       "../../pics/ar-desk.png"
-     ]
+     ], "picWords": [["كُتُب"], ["مَكْتَب"]]
     }
    ]
   },
@@ -363,8 +365,8 @@
      "word": "أَكَلَ الْكَلْبُ اللَّحْمَ.",
      "audio": "q/s11.mp3",
      "pics": [
-      "../../pics/ar-tiger.png",
-      "../../pics/ar-dog.png"
+      "../../pics/tiger-meat.png",
+      "../../pics/dog-meat.png"
      ],
      "answer": 1
     }
@@ -475,7 +477,7 @@
     },
     {
      "word": "elephant",
-     "pic": "../../pics/ar-elephant.png",
+     "pic": "../../pics/elephant.png",
      "answer": false
     },
     {
@@ -490,7 +492,7 @@
     },
     {
      "word": "dog",
-     "pic": "../../pics/ar-dog.png",
+     "pic": "../../pics/dog-happy.png",
      "answer": true
     }
    ]
@@ -571,7 +573,7 @@
     {
      "word": "كُمَّثْرَى",
      "audio": "q/w-kummathra.mp3",
-     "pic": "../../pics/ar-pear.jpg",
+     "pic": "../../pics/pear.png",
      "answer": "كُ",
      "choices": [
       "كَ",
@@ -681,7 +683,7 @@
     {
      "word": "كَلْب",
      "audio": "../u2l3/words/kalb.mp3",
-     "pic": "../../pics/ar-dog.png",
+     "pic": "../../pics/dog-happy.png",
      "answer": "كَ",
      "choices": [
       "كَ",
@@ -759,11 +761,11 @@
    "items": [
     {
      "word": "سَمَك",
-     "pic": "../../pics/ar-fish.png"
+     "pic": "../../pics/fish-lemon.png"
     },
     {
-     "word": "تُفَّاح",
-     "pic": "../../pics/ar-green-fruit.jpg"
+     "word": "كُمَّثْرَى",
+     "pic": "../../pics/pear.png"
     },
     {
      "word": "رُكْبَة",
@@ -907,7 +909,8 @@
      "choices": [
       "كَ",
       "كُ",
-      "كِ"
+      "كِ",
+      "كْ"
      ],
      "at": 1
     },
@@ -979,7 +982,7 @@
     {
      "word": "كَلْب",
      "audio": "../u2l3/words/kalb.mp3",
-     "pic": "../../pics/ar-dog.png",
+     "pic": "../../pics/dog-happy.png",
      "answer": "كَ",
      "choices": [
       "كَ",
@@ -991,7 +994,7 @@
     {
      "word": "أَسْمَاكْ",
      "audio": "q/w-asmak.mp3",
-     "pic": "../../pics/ar-fish.png",
+     "pic": "../../pics/fish-lemon.png",
      "answer": "كْ",
      "choices": [
       "كَ",

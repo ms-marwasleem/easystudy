@@ -115,3 +115,4 @@
 .vwrow>.vboy[hidden]{display:none}
 .vwrow:has(>.vboy)>.vword{max-width:calc(100% - 2.3rem - 4rem)}
 .scene .txt:has(.haspen){padding-top:.7rem;padding-inline-end:.8rem}   /* room for the word pen at a line edge (never cut) */
+#lesson.vmode .vinfo{margin-bottom:.75rem}#lesson.ar.vmode .vm-t span{line-height:1.6;padding-bottom:.1em}

@@ -99,7 +99,7 @@ function xOrder(a,Q){
   const chips=a.words.map(w=>{ const b=el('button','xw'); b.textContent=w; return b; }), placed=[];
   const at={solved:false,el:d,help(){ if(at.solved) return null; line.dataset.ghost=[].concat(a.answer)[0]+end; d.classList.add('help'); return ()=>d.classList.remove('help'); }}; Q.atoms.push(at);
   const draw=()=>{ line.innerHTML=''; placed.forEach(c=>line.append(c)); if(end) line.append(el('i','xend',end)); pool.innerHTML=''; chips.filter(c=>!placed.includes(c)).forEach(c=>pool.append(c)); line.classList.toggle('has',placed.length>0); };
-  chips.forEach(c=>c.addEventListener('click',()=>{ if(at.solved) return; vStop(); stopAll(); tts(c.textContent,'en',.8);
+  chips.forEach(c=>c.addEventListener('click',()=>{ if(at.solved) return; vStop(); stopAll(); if(!isAr()) tts(c.textContent,'en',.8);   // Arabic: never the device voice
     if(placed.includes(c)){ placed.splice(placed.indexOf(c),1); draw(); return; }
     placed.push(c); draw();
     if(placed.length===chips.length){ const t=xNorm(placed.map(x=>x.textContent).join(' '));
@@ -122,7 +122,7 @@ function xInline(str,Q,host){
 }
 // a blank the child types into. [[answer]] [[a|b]] (alternatives) [[>7]] [[<5]] (any number bigger / smaller); flags after ":" : box, wide, circ, tiny
 function xBlank(spec,Q){
-  const [ans,fl='']=spec.split(':'), flags=fl.split(',').filter(Boolean), alts=ans.split('|').map(xNorm), rm=alts.length===1&&alts[0].match(/^([<>])(\d+)$/);
+  const fm=spec.match(/^(.*):((?:box|wide|tiny|circ)(?:,(?:box|wide|tiny|circ))*)$/), [ans,fl='']=fm?[fm[1],fm[2]]:[spec,''], flags=fl.split(',').filter(Boolean), alts=ans.split('|').map(xNorm), rm=alts.length===1&&alts[0].match(/^([<>])(\d+)$/);
   const test=v=>{ v=xNorm(v); if(!v) return false; if(rm){ const n=+v; return /^\d+$/.test(v)&&(rm[1]==='>'?n>+rm[2]:n<+rm[2]); } return alts.includes(v); };
   const show=rm?(rm[1]==='>'?+rm[2]+1:Math.max(0,+rm[2]-1)):ans.split('|')[0], max=Math.max(...alts.map(s=>s.length));
   const w=el('span','xbl '+flags.map(x=>'f-'+x).join(' ')), inp=el('input','xin'), gh=el('i','xgh',show);

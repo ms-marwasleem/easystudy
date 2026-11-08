@@ -113,9 +113,9 @@ function showWords(){
 function vRender(fill){
   const v=LESSON.vocab[vs.i], img=$('.vimg');
   if(!img._fit){ img._fit=1; img.addEventListener('load',vFitImg); }
-  if(img.getAttribute('src')!==v.img){ img.src=v.img; if(anim){ G.set(img,{opacity:0}); const go=()=>G.to(img,{opacity:1,duration:.3}); img.decode?img.decode().then(go,go):go(); } }
+  if(v.img&&img.getAttribute('src')!==v.img){ img.src=v.img; if(anim){ G.set(img,{opacity:0}); const go=()=>G.to(img,{opacity:1,duration:.3}); img.decode?img.decode().then(go,go):go(); } }
   const boy=$('.vboy'); if(boy){ boy.hidden=!v.har; if(v.har) boy.src=LESSON.base+'../../pics/ar-boy-'+v.har+'.png'; }
-  img.alt=v.word; img.classList.toggle('cut',/\.png$/i.test(v.img)); if(vMode()&&v.rel) $('.vm-t').innerHTML=`<small>${v.rel.label}</small><span>${v.rel.text}</span>`; else $('.vm-t').textContent=v.ar||''; $('.vmeaning').hidden=!(v.ar||v.rel);   // library cut-outs are png
+  img.alt=v.word; img.classList.toggle('cut',/\.png$/i.test(v.img||'')); if(vMode()&&v.rel) $('.vm-t').innerHTML=`<small>${v.rel.label}</small><span>${v.rel.text}</span>`; else $('.vm-t').textContent=v.ar||''; $('.vmeaning').hidden=!(v.ar||v.rel);   // library cut-outs are png
   $$('.vthumb').forEach((b,i)=>b.classList.toggle('on',i===vs.i));
   const pk=$('.vpick'), on=$('.vthumb.on'); if(pk&&on&&pk.scrollWidth>pk.clientWidth) pk.scrollTo({left:on.offsetLeft-pk.clientWidth/2+on.offsetWidth/2,behavior:'smooth'});   // keep the current word in view in the strip
   const w=$('.vword'); w.innerHTML=''; w.classList.remove('lit','writing','focus');
@@ -154,27 +154,29 @@ async function vMean(){
     vs.i=left.find(i=>i>vs.i) ?? left[0]; vMean();
   }catch(e){}
 }
+/* Arabic letters are separate inline spans; iOS Safari stops joining them when a span is animated (opacity/transform), so Arabic letters are never animated by GSAP (the colour states still change). */
+const ltAnim=()=>anim&&!$('.vword')?.classList.contains('ws-ar');
 async function vTeach(){
   if(vMode()) return vMean();
   vStop(); hideHint(); const ip=$('#vin'); if(ip) ip.blur();
   const run=++vs.run; vs.mode='learn'; vRail();
   const v=LESSON.vocab[vs.i];
   vRender(true); vStatus(tr('Listen!'));
-  if(anim) G.from('.vword .lt',{opacity:0,stagger:.04,duration:.3});
+  if(ltAnim()) G.from('.vword .lt',{opacity:0,stagger:.04,duration:.3});
   try{
     await vSleep(500,run);
     $('.vword').classList.add('lit'); await sayHead(v); if(run!==vs.run) return; $('.vword').classList.remove('lit'); await vSleep(800,run);
     const reps=LESSON.vocabRepeats||3;   // fixed order: word once, then (parts -> whole word) x3
     for(let rep=1;rep<=reps;rep++){
       vStatus(isAr()?`${tr('Read with me!')} ${num(rep)}/${num(reps)}`:`Read with me! ${rep}/${reps}`);
-      if(anim) await new Promise(r=>G.to('.vword .lt',{opacity:0,duration:.2,onComplete:r}));
+      if(ltAnim()) await new Promise(r=>G.to('.vword .lt',{opacity:0,duration:.2,onComplete:r}));
       if(run!==vs.run) return;
       vRender(false); await vSleep(350,run);
       for(let pi=0;pi<v.parts.length;pi++){
         const p=v.parts[pi]; if(p.t===' '){ await vSleep(350,run); continue; }
         const seg=$(`.vword .wsg[data-p="${pi}"]`), lts=$$('.lt',seg); seg.classList.add('on');
         const snd=sayPart(p);
-        for(let k=0;k<lts.length;k++){ lts[k].classList.remove('hid'); if(anim) G.fromTo(lts[k],{scale:1.4},{scale:1,duration:.3,ease:'back.out(3)'}); await vSleep(260,run); }
+        for(let k=0;k<lts.length;k++){ lts[k].classList.remove('hid'); if(ltAnim()) G.fromTo(lts[k],{scale:1.4},{scale:1,duration:.3,ease:'back.out(3)'}); await vSleep(260,run); }
         await snd; if(run!==vs.run) return;
         seg.classList.remove('on'); await vSleep(750,run);   // longer pause between parts than between letters
         if(p.blend){   // the sounds so far, joined: sh-a-k-e -> "shake"
@@ -207,7 +209,7 @@ function vWrite(){
         const want=vs.letters[vs.pos];
         if(isAr()&&new RegExp('['+AR_MARKS+']').test(ch)){ typed+=ch; continue; }   // a vowel mark typed on its own is ignored
         if(isAr()?sameLetter(ch,want):ch.toLowerCase()===want.toLowerCase()){ const b=boxes[vs.pos]; b.classList.remove('hid','peek'); b.classList.add('got'); typed+=ch; blip(560+vs.pos*40,.05);
-          if(anim) G.fromTo(b,{scale:1.3},{scale:1,duration:.35,ease:'back.out(3)'}); vs.pos++; }
+          if(ltAnim()) G.fromTo(b,{scale:1.3},{scale:1,duration:.35,ease:'back.out(3)'}); vs.pos++; }
         else { tone(170,'square',.06,.18); wsBad(boxes[vs.pos]); break; }   // never written, the place shakes
       }
     }
@@ -218,7 +220,7 @@ function vWrite(){
 // Help: show the letter the child is on (faintly) and say the sound of its part
 function vHelp(){
   if(vs.mode!=='write') return; const v=LESSON.vocab[vs.i], boxes=$$('.vword .lt'), i=vs.pos; if(i>=boxes.length) return;
-  const b=boxes[i]; b.classList.remove('hid'); b.classList.add('peek'); if(anim) G.fromTo(b,{scale:1.3},{scale:1,duration:.4,ease:'back.out(3)'});
+  const b=boxes[i]; b.classList.remove('hid'); b.classList.add('peek'); if(ltAnim()) G.fromTo(b,{scale:1.3},{scale:1,duration:.4,ease:'back.out(3)'});
   const seg=b.closest('.wsg'); const p=v.parts[+seg.dataset.p]; seg.classList.add('on'); sayPart(p).then(()=>seg.classList.remove('on'));
   setTimeout(()=>{ if(b.classList.contains('peek')){ b.classList.add('hid'); b.classList.remove('peek'); } },tokMs('--help-letter-ms',1500));
   const inp=$('#vin'); if(inp) inp.focus({preventScroll:true});

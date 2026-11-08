@@ -307,3 +307,6 @@
 .qboard.dense .qmp{--w:min(14cqw,15cqh)}
 .qboard.dense .qmp.tx{min-width:0;padding:.05em .3em .1em}
 .qboard.dense .qmp.tx b{font-size:min(6.5cqw,11cqh);line-height:1.15}
+
+/* build with picWords: a built word is one joined written word (js/quiz-letters.js qxBuild) */
+.qxbjoin{font-family:var(--f-ar);font-weight:700;font-size:1.25em;color:var(--c-text);line-height:1.5;padding:0 .4rem}

@@ -134,7 +134,7 @@
     {
      "word": "فِ",
      "audio": "words/firan.mp3",
-     "pic": "../../pics/ar-mice.jpg"
+     "pic": "../../pics/mice.png"
     },
     {
      "word": "فَ",
@@ -149,7 +149,7 @@
     {
      "word": "فْ",
      "audio": "words/difda.mp3",
-     "pic": "../../pics/ar-frog.jpg"
+     "pic": "../../pics/frog-jump.png"
     }
    ]
   },
@@ -170,7 +170,7 @@
     {
      "word": "فُلّ",
      "audio": "words/full.mp3",
-     "pic": "../../pics/ar-jasmine.jpg",
+     "pic": "../../pics/jasmine.png",
      "answer": "فُ",
      "choices": [
       "فَ",
@@ -192,7 +192,7 @@
     {
      "word": "فِيل",
      "audio": "../u1l3/q/c5-fil.mp3",
-     "pic": "../../pics/ar-elephant.png",
+     "pic": "../../pics/elephant.png",
      "answer": "فِ",
      "choices": [
       "فَ",
@@ -329,9 +329,9 @@
      "need": 2,
      "cells": 3,
      "pics": [
-      "../../pics/ar-jasmine.jpg",
+      "../../pics/jasmine.png",
       "../../pics/ar-peppers.png"
-     ]
+     ], "picWords": [["فُلّ"], ["فُلْفُل"]]
     }
    ]
   },
@@ -379,7 +379,7 @@
     },
     {
      "word": "elephant",
-     "pic": "../../pics/ar-elephant.png",
+     "pic": "../../pics/elephant.png",
      "answer": true
     },
     {
@@ -390,7 +390,7 @@
     {
      "word": "phone",
      "pic": "../../pics/ar-phone.png",
-     "answer": false
+     "answer": true
     },
     {
      "word": "toothbrush",
@@ -409,7 +409,7 @@
     },
     {
      "word": "rabbit",
-     "pic": "../../pics/ar-rabbit.png",
+     "pic": "../../pics/rabbit-hole.png",
      "answer": false
     }
    ]
@@ -456,7 +456,7 @@
     {
      "word": "فْ",
      "audio": "words/difda.mp3",
-     "pic": "../../pics/ar-frog.jpg"
+     "pic": "../../pics/frog-jump.png"
     },
     {
      "word": "فُ",
@@ -477,7 +477,7 @@
    "items": [
     {
      "word": "فَهْد",
-     "pic": "../../pics/ar-cheetah.png",
+     "pic": "../../pics/cheetah.png",
      "audio": "../u3l7/words/fahd.mp3",
      "at": 0
     },
@@ -489,7 +489,7 @@
     },
     {
      "word": "سَيْف",
-     "pic": "../../pics/ar-swords.png",
+     "pic": "../../pics/sword.png",
      "audio": "../u3l3/q/w-sayf.mp3",
      "at": 2
     },
@@ -575,12 +575,12 @@
     },
     {
      "word": "فِيل",
-     "pic": "../../pics/ar-elephant.png",
+     "pic": "../../pics/elephant.png",
      "audio": "../u1l3/q/c5-fil.mp3"
     },
     {
      "word": "فُلّ",
-     "pic": "../../pics/ar-jasmine.jpg",
+     "pic": "../../pics/jasmine.png",
      "audio": "words/full.mp3"
     },
     {
@@ -619,7 +619,7 @@
     },
     {
      "word": "فِيل",
-     "pic": "../../pics/ar-elephant.png",
+     "pic": "../../pics/elephant.png",
      "audio": "../u1l3/q/c5-fil.mp3",
      "answer": "فِ",
      "choices": [
@@ -631,7 +631,7 @@
     },
     {
      "word": "ضُفْدَع",
-     "pic": "../../pics/ar-frog.jpg",
+     "pic": "../../pics/frog-jump.png",
      "audio": "words/difda.mp3",
      "answer": "فْ",
      "at": 1,
@@ -644,7 +644,7 @@
     },
     {
      "word": "فُلّ",
-     "pic": "../../pics/ar-jasmine.jpg",
+     "pic": "../../pics/jasmine.png",
      "audio": "words/full.mp3",
      "answer": "فُ",
      "choices": [
@@ -669,7 +669,7 @@
      "word": "أم",
      "missing": 1,
      "answer": "م",
-     "pic": "../../pics/ar-mother-baby.png",
+     "pic": "../../pics/mother-son.png",
      "audio": "../u1l3/words/umm.mp3"
     },
     {
@@ -683,7 +683,7 @@
      "word": "أب",
      "missing": 0,
      "answer": "أ",
-     "pic": "../../pics/ar-fam-father.jpg",
+     "pic": "../../pics/father-daughter.png",
      "audio": "../u1l4/words/ab.mp3"
     }
    ]
@@ -728,8 +728,8 @@
      "word": "خَرَجَ الْفَأْرُ مِنَ الْجُحْرِ.",
      "audio": "q/s15.mp3",
      "pics": [
-      "../../pics/ar-rabbit.png",
-      "../../pics/ar-mouse.png"
+      "../../pics/rabbit-hole.png",
+      "../../pics/mouse-hole.png"
      ],
      "answer": 1
     }
@@ -809,7 +809,7 @@
     {
      "word": "ضُفْدَع",
      "audio": "words/difda.mp3",
-     "pic": "../../pics/ar-frog.jpg",
+     "pic": "../../pics/frog-jump.png",
      "answer": "فْ",
      "choices": [
       "فَ",
@@ -857,7 +857,7 @@
     },
     {
      "word": "أَنْف",
-     "pic": "../../pics/ar-nose.jpg",
+     "pic": "../../pics/ar-nose.png",
      "audio": "../u1l3/q/c6-0.mp3",
      "at": 2
     },

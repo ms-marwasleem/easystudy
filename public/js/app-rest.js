@@ -56,7 +56,7 @@ function drawMapAll(j,redraw){
       // a unit made only of tests (final assessments): one separate map item each, no lesson circle   // a unit's Tests always come after its LAST lesson
     list.forEach((m,i)=>{ const la=m.testsOnly?{st:'open'}:accessOf(m,!!m.file,'l:'+m.id), byUnit=la.st==='open'&&ust==='locked'&&!(ESET.items['l:'+m.id]||{}).st&&!coinUnlocked('l:'+m.id);   // a lesson of a locked unit is locked too (a tap offers the whole unit)
       const L=mkLesson(m,list[i+1],m===curM,i===list.length-1,byUnit?'locked':la.st,byUnit?ua.coins:la.coins,byUnit?u:null), signs=$$('.jpg',L); let nm=$('.jt',L);
-      if(i<list.length-1&&!m.weekly) { const ex=signs.filter(g=>$('.jpm.ex',g)); if(ex.length){ ex.forEach(g=>{ signs.splice(signs.indexOf(g),1); g.remove(); }); (tests=tests||[]).push(...ex); } }
+      if(i<list.length-1&&!m.weekly&&!m.testsOnly) { const ex=signs.filter(g=>$('.jpm.ex',g)); if(ex.length){ ex.forEach(g=>{ signs.splice(signs.indexOf(g),1); g.remove(); }); (tests=tests||[]).push(...ex); } }
       if(i===list.length-1&&tests){ signs.push(...tests); tests=null; }
       [nm,...signs].forEach(e=>{ if(e) e.dataset.touched=L.dataset.touched; }); $$('.jside',L).forEach(s=>s.remove()); if(nm&&m.testsOnly){ nm.remove(); nm=null; } if(nm){ j.append(nm); nm.addEventListener('click',()=>$('.jbox',L).click()); } j.append(L); signs.forEach(s=>j.append(s)); items.push({k:'l',el:L,signs,name:nm}); });
   });
@@ -390,6 +390,7 @@ function storyScroll(e,force){ const inn=e&&e.closest&&e.closest('.scene.story:n
   const r=e.getBoundingClientRect(), b=inn.getBoundingClientRect(), cs=getComputedStyle(inn), pt=parseFloat(cs.paddingTop), pb=parseFloat(cs.paddingBottom);
   if(force||r.bottom>b.bottom-pb+1||r.top<b.top+pt-1) inn.scrollTo({top:inn.scrollTop+(r.top-b.top)-pt,behavior:force||!anim?'auto':'smooth'}); return true; }
 function fitStory(){ const note=$('.scene.story:not(.poem) .note'), inn=note&&$('.in:last-child',note); if(!inn||!note.clientHeight&&!note.style.height) return;
+  if(note.closest('.scene.point.slide')){ inn.style.fontSize=''; note.style.maxHeight=''; let fs=parseFloat(getComputedStyle(inn).fontSize); for(let i=0;i<80&&inn.scrollHeight>note.clientHeight+1&&fs>11;i++){ fs-=.5; inn.style.fontSize=fs+'px'; } return; }   // slide card: the panel grows up to 48% of the picture, then the text shrinks to fit (long segments)
   if(note.closest('.scene.story:not(.poem):not(.point)')&&!matchMedia('(min-aspect-ratio:5/4)').matches) return fitStory3(note,inn);   // portrait: 3 lines; landscape: the text column fits the whole page
   if(note.style.height) note.style.height='';
   const key=LESSON.id+':'+note.clientWidth+'x'+note.clientHeight;
@@ -423,7 +424,7 @@ function showPoint(){
   img.alt=''; img.draggable=false; img.src=new URL(u,location.href).href;
   const ar=()=>{ if(img.naturalWidth) box.style.setProperty('--ar',img.naturalWidth+'/'+img.naturalHeight); }; img.addEventListener('load',ar); ar();
   if(LESSON.figure){ box.classList.add('figbox'); box.style.removeProperty('--ar'); box.append(pointFigure(LESSON.figure)); } else box.append(img);   // figure = built from text (no picture): {formula:[{t,id?}], word}; its letters have ids g0,g1.. and pop while read
-  if(scene.classList.contains('slide')){ const card=el('div','scard'); card.style.setProperty('--ar',box.style.getPropertyValue('--ar')||'1.4'); img.addEventListener('load',()=>card.style.setProperty('--ar',img.naturalWidth+'/'+img.naturalHeight)); card.append(box,note,el('span','sbadge',num(rd.page))); fig.append(card); note.append(storyText()); scene.append(fig); stage.append(scene); }   // slide = the book's card: picture in its frame, the sentence on a light panel over its bottom edge
+  if(scene.classList.contains('slide')){ const card=el('div','scard'); card.style.setProperty('--ar',box.style.getPropertyValue('--ar')||'1.4'); img.addEventListener('load',()=>card.style.setProperty('--ar',img.naturalWidth+'/'+img.naturalHeight)); card.append(box,note,el('span','sbadge',num(rd.page))); fig.append(card); note.append(storyText()); scene.append(fig); stage.append(scene); const fit=()=>requestAnimationFrame(()=>fitSlideNote(note)); fit(); img.addEventListener('load',fit); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit); setTimeout(fit,700); }   // slide = the book's card: picture in its frame, the sentence on a light panel over its bottom edge
   else { fig.append(box);
   note.append(storyText()); scene.append(fig,note); stage.append(scene); }
   LESSON.lines.forEach((l,li)=>{ if(!l.mark||(LESSON.pages>1&&l.page!==rd.page)) return;
@@ -594,6 +595,14 @@ function markNewWords(){
   $$('#stage .w').forEach(w=>{ const t=w.textContent.toLowerCase().replace(/[^\p{L}\p{N}']/gu,''); w.classList.toggle('nw',!!t&&set.has(t)); });
 }
 { const _sr=showRead; showRead=function(){ const r=_sr.apply(this,arguments); try{ markNewWords(); }catch(e){} return r; }; }
+
+function fitSlideNote(note){ if(!note.isConnected) return; const inn=$('.in',note)||note, card=note.closest('.scard'); const body=()=>[...inn.children].reduce((h,c)=>h+c.getBoundingClientRect().height,0), over=()=>body()>note.clientHeight-4;
+  inn.style.fontSize=''; note.style.maxHeight=''; if(card&&card._ar0!=null) card.style.setProperty('--ar',card._ar0);
+  let fs=parseFloat(getComputedStyle(inn).fontSize), n=0, shrink=min=>{ while(over()&&fs>min&&n++<80){ fs*=.95; inn.style.fontSize=fs+'px'; } };
+  if(over()){ note.style.maxHeight='74%'; shrink(12); }
+  if(over()&&card){ if(card._ar0==null) card._ar0=card.style.getPropertyValue('--ar'); card.style.setProperty('--ar','1'); shrink(10); }   // still too long: the card gets taller (the picture is cropped a little), then the text shrinks again
+}   // a long page text fits its panel instead of being cut (slide lessons)
+addEventListener('resize',()=>{ clearTimeout(fitSlideNote.t); fitSlideNote.t=setTimeout(()=>$$('.scene.point.slide .note').forEach(fitSlideNote),160); });
 ;
 /* ===== js/wordslots.js ===== */
 /* ===== WORD SLOTS: ONE way to show and write a word, in every subject and every place (Marwa 2026-11-04, RULES.md "Word slots") =====
@@ -644,13 +653,14 @@ function wsRoom(){ WS_GUESS=false; const vv=window.visualViewport, H=document.do
   if(framed&&matchMedia('(pointer:coarse)').matches){ WS_GUESS=true; return {top:0,bottom:Math.round(H*(innerWidth>H?.42:.55))}; }
   return null; }
 function wsKeep(){
-  $$('.ws-mv').forEach(e=>{ e.style.translate=''; e.classList.remove('ws-mv'); });
+  const prev=$$('.ws-mv'); prev.forEach(e=>{ e.style.translate=''; });   // measured from the natural place; the transition is off, so no visible jump while the phone keeps reporting scroll/resize
   const P0=wsParts(), R=P0&&wsRoom(), open=!!R, B=document.body;
   if(open&&!WS_GUESS&&typeof kbPin==='function') kbPin();   // the page never stays slid under the keyboard (js/core.js)
   B.classList.toggle('ws-typing',open);
   const rem=parseFloat(getComputedStyle(document.documentElement).fontSize)||16;
   B.classList.toggle('ws-tight',open&&R.bottom-R.top<rem*22);   // little room (phone on its side): the title, lesson name and road step aside while typing
   wsHelp(null);
+  prev.forEach(e=>e.classList.remove('ws-mv'));
   if(!open) return;
   let lift=wsLift(wsParts()||P0,R);
   if(lift.short&&!B.classList.contains('ws-tight')){ B.classList.add('ws-tight'); lift.undo(); lift=wsLift(wsParts()||P0,R); }   // still not enough room above the keyboard: the header steps aside too
@@ -659,7 +669,7 @@ function wsKeep(){
 // lift the word (and its lines) so all of it, and the Help bulb under it, stand above the keyboard; short = it still does not fit
 function wsLift(P,R){
   const w=P.word.getBoundingClientRect(), pad=Math.max(10,w.height*.15);
-  const hs=P.help?wsHelpEls():[], hh=hs.length?(hs[0].offsetWidth||40)+Math.max(6,w.height*.12):0;   // the Help bulb stands under the word
+  const hh=0;   // the Help bulb stands BESIDE the word (opposite the speaker), so it takes no height
   const top=Math.max(P.top,R.top+6);
   const over=Math.max(P.bottom.getBoundingClientRect().bottom,w.bottom+hh)+pad-R.bottom;
   let sh=over>0?Math.min(Math.max(0,w.top-top),over):0;
@@ -668,14 +678,15 @@ function wsLift(P,R){
   return {P,short:over-sh>1,undo:()=>P.movers.forEach(m=>{ m.style.translate=''; m.classList.remove('ws-mv'); })};
 }
 const wsHelpEls=()=>$$('#lmeta .qxhelp, #lmeta .qhelpb, .quiz>.qhelpb').filter(h=>!h.hidden&&getComputedStyle(h).display!=='none');
-// while typing, the Help bulb stands right under the word, in the middle (the keyboard covers its corner)
+// while typing, the Help bulb stands right beside the word, on the side away from the Listen speaker (fixed: it never moves the layout)
 function wsHelp(P,R){
   $$('.ws-side').forEach(h=>{ h.classList.remove('ws-side'); h.style.left=''; h.style.top=''; });
   if(!P) return;
-  const r=P.word.getBoundingClientRect(), bot=R?R.bottom:innerHeight, topL=R?R.top:0;
+  const r=P.word.getBoundingClientRect(), bot=R?R.bottom:innerHeight, topL=R?R.top:0, sr=P.say&&P.say.getBoundingClientRect();
+  const sayRight=!!(sr&&sr.width&&(sr.left+sr.width/2>r.left+r.width/2));   // speaker right of the word -> bulb on its left, and the other way round
   wsHelpEls().forEach(h=>{ h.classList.add('ws-side'); const s=h.offsetWidth||40, g=Math.max(6,r.height*.12);
-    let x=r.left+r.width/2-s/2, y=r.bottom+g;
-    if(y+s+6>bot){ y=r.top+r.height/2-s/2; x=r.left-s-g; if(x<6) x=r.right+g; }   // no room under the word above the keyboard: beside it instead
+    let x=(sr&&sr.width&&!sayRight)?r.right+g:r.left-s-g, y=r.top+r.height/2-s/2;
+    if(x<6) x=r.right+g;   // no room on that side: the other side
     x=Math.max(6,Math.min(innerWidth-s-6,x)); y=Math.max(topL+6,Math.min(bot-s-6,y));   // never under the keyboard
     h.style.left=Math.round(x)+'px'; h.style.top=Math.round(y)+'px'; });
 }
@@ -800,9 +811,9 @@ function showWords(){
 function vRender(fill){
   const v=LESSON.vocab[vs.i], img=$('.vimg');
   if(!img._fit){ img._fit=1; img.addEventListener('load',vFitImg); }
-  if(img.getAttribute('src')!==v.img){ img.src=v.img; if(anim){ G.set(img,{opacity:0}); const go=()=>G.to(img,{opacity:1,duration:.3}); img.decode?img.decode().then(go,go):go(); } }
+  if(v.img&&img.getAttribute('src')!==v.img){ img.src=v.img; if(anim){ G.set(img,{opacity:0}); const go=()=>G.to(img,{opacity:1,duration:.3}); img.decode?img.decode().then(go,go):go(); } }
   const boy=$('.vboy'); if(boy){ boy.hidden=!v.har; if(v.har) boy.src=LESSON.base+'../../pics/ar-boy-'+v.har+'.png'; }
-  img.alt=v.word; img.classList.toggle('cut',/\.png$/i.test(v.img)); if(vMode()&&v.rel) $('.vm-t').innerHTML=`<small>${v.rel.label}</small><span>${v.rel.text}</span>`; else $('.vm-t').textContent=v.ar||''; $('.vmeaning').hidden=!(v.ar||v.rel);   // library cut-outs are png
+  img.alt=v.word; img.classList.toggle('cut',/\.png$/i.test(v.img||'')); if(vMode()&&v.rel) $('.vm-t').innerHTML=`<small>${v.rel.label}</small><span>${v.rel.text}</span>`; else $('.vm-t').textContent=v.ar||''; $('.vmeaning').hidden=!(v.ar||v.rel);   // library cut-outs are png
   $$('.vthumb').forEach((b,i)=>b.classList.toggle('on',i===vs.i));
   const pk=$('.vpick'), on=$('.vthumb.on'); if(pk&&on&&pk.scrollWidth>pk.clientWidth) pk.scrollTo({left:on.offsetLeft-pk.clientWidth/2+on.offsetWidth/2,behavior:'smooth'});   // keep the current word in view in the strip
   const w=$('.vword'); w.innerHTML=''; w.classList.remove('lit','writing','focus');
@@ -841,27 +852,29 @@ async function vMean(){
     vs.i=left.find(i=>i>vs.i) ?? left[0]; vMean();
   }catch(e){}
 }
+/* Arabic letters are separate inline spans; iOS Safari stops joining them when a span is animated (opacity/transform), so Arabic letters are never animated by GSAP (the colour states still change). */
+const ltAnim=()=>anim&&!$('.vword')?.classList.contains('ws-ar');
 async function vTeach(){
   if(vMode()) return vMean();
   vStop(); hideHint(); const ip=$('#vin'); if(ip) ip.blur();
   const run=++vs.run; vs.mode='learn'; vRail();
   const v=LESSON.vocab[vs.i];
   vRender(true); vStatus(tr('Listen!'));
-  if(anim) G.from('.vword .lt',{opacity:0,stagger:.04,duration:.3});
+  if(ltAnim()) G.from('.vword .lt',{opacity:0,stagger:.04,duration:.3});
   try{
     await vSleep(500,run);
     $('.vword').classList.add('lit'); await sayHead(v); if(run!==vs.run) return; $('.vword').classList.remove('lit'); await vSleep(800,run);
     const reps=LESSON.vocabRepeats||3;   // fixed order: word once, then (parts -> whole word) x3
     for(let rep=1;rep<=reps;rep++){
       vStatus(isAr()?`${tr('Read with me!')} ${num(rep)}/${num(reps)}`:`Read with me! ${rep}/${reps}`);
-      if(anim) await new Promise(r=>G.to('.vword .lt',{opacity:0,duration:.2,onComplete:r}));
+      if(ltAnim()) await new Promise(r=>G.to('.vword .lt',{opacity:0,duration:.2,onComplete:r}));
       if(run!==vs.run) return;
       vRender(false); await vSleep(350,run);
       for(let pi=0;pi<v.parts.length;pi++){
         const p=v.parts[pi]; if(p.t===' '){ await vSleep(350,run); continue; }
         const seg=$(`.vword .wsg[data-p="${pi}"]`), lts=$$('.lt',seg); seg.classList.add('on');
         const snd=sayPart(p);
-        for(let k=0;k<lts.length;k++){ lts[k].classList.remove('hid'); if(anim) G.fromTo(lts[k],{scale:1.4},{scale:1,duration:.3,ease:'back.out(3)'}); await vSleep(260,run); }
+        for(let k=0;k<lts.length;k++){ lts[k].classList.remove('hid'); if(ltAnim()) G.fromTo(lts[k],{scale:1.4},{scale:1,duration:.3,ease:'back.out(3)'}); await vSleep(260,run); }
         await snd; if(run!==vs.run) return;
         seg.classList.remove('on'); await vSleep(750,run);   // longer pause between parts than between letters
         if(p.blend){   // the sounds so far, joined: sh-a-k-e -> "shake"
@@ -894,7 +907,7 @@ function vWrite(){
         const want=vs.letters[vs.pos];
         if(isAr()&&new RegExp('['+AR_MARKS+']').test(ch)){ typed+=ch; continue; }   // a vowel mark typed on its own is ignored
         if(isAr()?sameLetter(ch,want):ch.toLowerCase()===want.toLowerCase()){ const b=boxes[vs.pos]; b.classList.remove('hid','peek'); b.classList.add('got'); typed+=ch; blip(560+vs.pos*40,.05);
-          if(anim) G.fromTo(b,{scale:1.3},{scale:1,duration:.35,ease:'back.out(3)'}); vs.pos++; }
+          if(ltAnim()) G.fromTo(b,{scale:1.3},{scale:1,duration:.35,ease:'back.out(3)'}); vs.pos++; }
         else { tone(170,'square',.06,.18); wsBad(boxes[vs.pos]); break; }   // never written, the place shakes
       }
     }
@@ -905,7 +918,7 @@ function vWrite(){
 // Help: show the letter the child is on (faintly) and say the sound of its part
 function vHelp(){
   if(vs.mode!=='write') return; const v=LESSON.vocab[vs.i], boxes=$$('.vword .lt'), i=vs.pos; if(i>=boxes.length) return;
-  const b=boxes[i]; b.classList.remove('hid'); b.classList.add('peek'); if(anim) G.fromTo(b,{scale:1.3},{scale:1,duration:.4,ease:'back.out(3)'});
+  const b=boxes[i]; b.classList.remove('hid'); b.classList.add('peek'); if(ltAnim()) G.fromTo(b,{scale:1.3},{scale:1,duration:.4,ease:'back.out(3)'});
   const seg=b.closest('.wsg'); const p=v.parts[+seg.dataset.p]; seg.classList.add('on'); sayPart(p).then(()=>seg.classList.remove('on'));
   setTimeout(()=>{ if(b.classList.contains('peek')){ b.classList.add('hid'); b.classList.remove('peek'); } },tokMs('--help-letter-ms',1500));
   const inp=$('#vin'); if(inp) inp.focus({preventScroll:true});
@@ -1860,15 +1873,19 @@ function qxBuild(box,q,s,run){
   const fits=l=>{ const c={}; (q.letters||[]).forEach(g=>{ const t=key(g); c[t]=(c[t]||0)+1; }); return l.every(g=>{ const t=key(g); return c[t]>0&&c[t]--; }); };   // a dictionary word may use each given letter only as many times as it is given
   let DICT=null; fetch('data/arabic/dict.json').then(r=>r.ok?r.json():[]).then(j=>{ DICT=new Set(j); }).catch(()=>{});
   const bank=el('div','qxtiles qxbank'); (q.letters||[]).forEach(g=>{ const t=el('button','qxtile',`<span>${g}</span>`); t.dataset.g=g; bank.append(t); });
-  const places=el('div','qxbplaces'), P=[]; for(let i=0;i<(q.slots||4);i++){ const d=el('div','qxbp'+(q.cells?' cells':'')), w=el('b','qxbw'), c=el('button','qxbx','×'); c.setAttribute('aria-label','Clear'); d.append(w,c); places.append(d); P.push({d,w,c,l:[],done:false}); }
+  if(q.pics&&!q.picWords&&q.words&&q.words.length===q.pics.length) q.picWords=q.words.map(w=>[w]);   // pictures + one word per picture (same order): every place gets exactly the word's letter boxes, never fewer
+  const places=el('div','qxbplaces'), P=[]; const PW=q.pics&&q.picWords;   // picWords (with pics): place i belongs to picture i and accepts ONLY that picture's name (list of spellings), with exactly as many letter boxes as the name has letters; a built word turns into one joined written word
+  for(let i=0;i<(PW?q.pics.length:(q.slots||4));i++){ const d=el('div','qxbp'+(q.cells?' cells':'')), w=el('b','qxbw'), c=el('button','qxbx','×'); c.setAttribute('aria-label','Clear'); d.append(w,c); places.append(d); P.push({d,w,c,l:[],done:false,i}); }
   if(q.pics&&q.pics.length){ const pr=el('div','qxfirsts qxbpics'); q.pics.forEach(u=>{ const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${u}" alt="">`)); pr.append(f); }); box.append(pr); }   // "pics": the book's pictures of the words to make (shown above the letters; the answer is still ANY word the letters make)
   box.append(bank,places);
-  const MAXL=6, need=q.need||Math.min(3,P.length), act=()=>P.find(p=>!p.done&&p.l.length<MAXL), show=p=>{ if(!q.cells){ p.w.textContent=p.l.join(''); return; }
+  const MAXL=PW?6:6, need=PW?P.length:(q.need||Math.min(3,P.length)), pwN=p=>PW?(q.picWords[p.i][0].match(/[^ً-ْٰـ][ً-ْٰـ]*/g)||[]).length:0, act=()=>P.find(p=>!p.done&&p.l.length<MAXL), show=p=>{ if(!q.cells){ p.w.textContent=p.l.join(''); return; }
     // q.cells = N: the place is split into N letter boxes so the child sees where each letter goes (one box per letter; a built word shows its marks)
     // boxes do NOT tell how long the word is: as many boxes as letters placed plus one empty (at least 2, at most MAXL); a built word shows its letters with marks
-    const parts=p.done?(p.wk||'').match(/[^ً-ْٰـ][ً-ْٰـ]*/g)||[]:p.l, n=p.done?parts.length:Math.min(MAXL,Math.max(2,p.l.length+1)); p.w.innerHTML=''; for(let i=0;i<n;i++){ const c=el('span','qxbc'+(parts[i]?' on':'')); c.textContent=parts[i]||''; p.w.append(c); } };
-  const put=(g,p)=>{ if(!p||p.done||p.l.length>=MAXL||qz.busy) return false; p.l.push(g); show(p); blip(520+p.l.length*60,.05);
+    if(PW&&p.done){ p.w.innerHTML=''; p.w.append(el('span','qxbjoin',p.wk)); return; }
+    const parts=p.done?(p.wk||'').match(/[^ً-ْٰـ][ً-ْٰـ]*/g)||[]:p.l, n=PW?pwN(p):p.done?parts.length:Math.min(MAXL,Math.max(2,p.l.length+1)); p.w.innerHTML=''; for(let i=0;i<n;i++){ const c=el('span','qxbc'+(parts[i]?' on':'')); c.textContent=parts[i]||''; p.w.append(c); } };
+  const put=(g,p)=>{ if(!p||p.done||p.l.length>=(PW?pwN(p):MAXL)||qz.busy) return false; p.l.push(g); show(p); blip(520+p.l.length*60,.05);
     const lock=m=>{ p.done=true; p.k=m.k; p.wk=m.w; if(q.cells) show(p); else p.w.textContent=m.w; p.d.classList.add('got'); celebrate(p.d); if(P.filter(x=>x.done).length>=need) qxWin(places,q,1700); };
+    if(PW){ const k=key(p.l.join('')), w=q.picWords[p.i].find(x=>key(x)===k); if(w) lock({k,w}); else if(p.l.length>=pwN(p)){ qxBad(p.d); setTimeout(()=>{ p.l=[]; show(p); },420); } return true; }
     const k=key(p.l.join('')), m=ok.find(o=>o.k===k&&!P.some(x=>x.done&&x.k===o.k));
     if(m) lock(m);
     else if(p.l.length>=2&&!P.some(x=>x.done&&x.k===k)&&DICT&&DICT.has(k)&&fits(p.l)){   // ANY real word the letters can make counts (every word of the Arabic data); wait a moment so a longer word can still be finished
@@ -1885,6 +1902,7 @@ function qxBuild(box,q,s,run){
     const r=drag.g.getBoundingClientRect(); drag.g.style.left=(e.clientX-r.width/2)+'px'; drag.g.style.top=(e.clientY-r.height*.8)+'px'; });
   const end=e=>{ if(!drag) return; const d=drag; drag=null; if(d.g) d.g.remove(); if(e.type==='pointercancel') return;
     let p=null; if(d.moved){ const pad=14; p=P.find(x=>{ const r=x.d.getBoundingClientRect(); return e.clientX>r.left-pad&&e.clientX<r.right+pad&&e.clientY>r.top-pad&&e.clientY<r.bottom+pad; }); if(!p) return; }   // dropped elsewhere: it just goes back
+    else if(PW) return;   // with pictures a tap does nothing: the child drags the letter onto the right picture's place
     else p=act();   // a tap goes to the first place that is not full / built
     if(!put(d.t.dataset.g,p)) qxBad(d.t); };
   bank.addEventListener('pointerup',end); bank.addEventListener('pointercancel',end);
@@ -1915,28 +1933,29 @@ function qxRingWord(box,q,s,run){
 }
 QM.ringword={sheet:'box', noword:1, draw:qxRingWord, help:(q,w)=>$$('.qxcw',w).filter(x=>qxRwFits(q,x.textContent)).slice(0,1)};
 
-/* split    = "analyse the word into syllables (or letters)" (book booklet ex "حلل"): the WHOLE word sits on top as separate letter tiles; below, ONE place per part with a "/" between the parts, each place has one box per letter. The child drags the letters (or taps them) one by one into the boxes and builds the parts himself; a wrong letter goes back (shake). Done when every box is filled.
+/* split    = "analyse the word into syllables (or letters)" (book booklet ex "حلل"): the WHOLE word is written JOINED on top (one connected word, not letter cards; every letter in it is draggable); below, ONE place per part with a "/" between the parts, each place has one box per letter. The child DRAGS the letters one by one from the word into the boxes (a tap does nothing); a wrong letter goes back (shake), a drop elsewhere just goes back. Done when every box is filled. Mouse + touch.
    item: {word:"كِتَاب", parts:["كِ","تَا","ب"]}  (the parts joined = the word; one letter = a letter + its marks) */
 function qxSplit(box,q,s,run){
   const GL=/[^ً-ْٰـ][ً-ْٰـ]*/g, letters=q.word.match(GL)||[];
-  const bank=el('div','qxtiles qxbank qxsbank'); letters.forEach(g=>{ const t=el('button','qxtile',`<span>${g}</span>`); t.dataset.g=g; bank.append(t); });
+  const bank=el('b','qxjoin qxsword'), line=el('div','qxline'); letters.forEach(g=>{ const t=el('span','qxl',g); t.dataset.g=g; bank.append(t); });   // the word written joined; every letter can be dragged out of it
+  bank.style.setProperty('--n',letters.length); line.append(bank);
   const row=el('div','qxsplit'), P=[];
   q.parts.forEach((pt,k)=>{ if(k) row.append(el('span','qxsl','/')); const g=pt.match(GL)||[], d=el('div','qxsy'), cells=g.map(()=>{ const c=el('span','qxbc'); d.append(c); return c; }); row.append(d); P.push({d,g,cells,n:0}); });
-  box.append(bank,row);
+  box.append(line,row);
   const total=P.reduce((a,p)=>a+p.g.length,0); let filled=0;
   const put=(t,p)=>{ if(!p||qz.busy||t.classList.contains('used')) return false; if(p.n>=p.g.length||p.g[p.n]!==t.dataset.g) return false;
     const c=p.cells[p.n++]; c.textContent=t.dataset.g; c.classList.add('on'); t.classList.add('used'); blip(520+filled*50,.05); filled++;
     if(p.n===p.g.length) p.d.classList.add('got');
     if(filled>=total) qxWin(row,q,1700); return true; };
   let drag=null;
-  bank.addEventListener('pointerdown',e=>{ const t=e.target.closest('.qxtile'); if(!t||qz.busy||t.classList.contains('used')) return; e.preventDefault(); hideHint();
+  bank.addEventListener('pointerdown',e=>{ const t=e.target.closest('.qxl'); if(!t||qz.busy||t.classList.contains('used')) return; e.preventDefault(); hideHint();
     drag={t,x:e.clientX,y:e.clientY,moved:false,g:null}; try{ bank.setPointerCapture(e.pointerId); }catch(_){} });
   bank.addEventListener('pointermove',e=>{ if(!drag) return; if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)<10) return;
-    if(!drag.moved){ drag.moved=true; const g=el('div','qxtile ghost',`<span>${drag.t.dataset.g}</span>`); g.style.cssText='position:fixed;z-index:50;pointer-events:none;margin:0'; document.body.append(g); drag.g=g; }
+    if(!drag.moved){ drag.moved=true; const g=el('div','qxtile ghost',`<span>${drag.t.dataset.g}</span>`); g.style.cssText='position:fixed;z-index:50;pointer-events:none;margin:0'; document.body.append(g); drag.g=g; drag.t.classList.add('lift'); }
     const r=drag.g.getBoundingClientRect(); drag.g.style.left=(e.clientX-r.width/2)+'px'; drag.g.style.top=(e.clientY-r.height*.8)+'px'; });
-  const end=e=>{ if(!drag) return; const d=drag; drag=null; if(d.g) d.g.remove(); if(e.type==='pointercancel') return;
-    let p=null; if(d.moved){ const pad=14; p=P.find(x=>{ const r=x.d.getBoundingClientRect(); return e.clientX>r.left-pad&&e.clientX<r.right+pad&&e.clientY>r.top-pad&&e.clientY<r.bottom+pad; }); if(!p) return; }   // dropped elsewhere: it just goes back
-    else p=P.find(x=>x.n<x.g.length&&x.g[x.n]===d.t.dataset.g);   // a tap goes to the first part that is waiting for this letter
+  const end=e=>{ if(!drag) return; const d=drag; drag=null; if(d.g) d.g.remove(); d.t.classList.remove('lift'); if(e.type==='pointercancel'||!d.moved) return;   // a plain tap does nothing: the child must drag
+    const pad=14, p=P.find(x=>{ const r=x.d.getBoundingClientRect(); return e.clientX>r.left-pad&&e.clientX<r.right+pad&&e.clientY>r.top-pad&&e.clientY<r.bottom+pad; });
+    if(!p) return;   // dropped elsewhere: it just goes back
     if(!put(d.t,p)) qxBad(d.t); };
   bank.addEventListener('pointerup',end); bank.addEventListener('pointercancel',end);
 }
@@ -2632,7 +2651,7 @@ function xOrder(a,Q){
   const chips=a.words.map(w=>{ const b=el('button','xw'); b.textContent=w; return b; }), placed=[];
   const at={solved:false,el:d,help(){ if(at.solved) return null; line.dataset.ghost=[].concat(a.answer)[0]+end; d.classList.add('help'); return ()=>d.classList.remove('help'); }}; Q.atoms.push(at);
   const draw=()=>{ line.innerHTML=''; placed.forEach(c=>line.append(c)); if(end) line.append(el('i','xend',end)); pool.innerHTML=''; chips.filter(c=>!placed.includes(c)).forEach(c=>pool.append(c)); line.classList.toggle('has',placed.length>0); };
-  chips.forEach(c=>c.addEventListener('click',()=>{ if(at.solved) return; vStop(); stopAll(); tts(c.textContent,'en',.8);
+  chips.forEach(c=>c.addEventListener('click',()=>{ if(at.solved) return; vStop(); stopAll(); if(!isAr()) tts(c.textContent,'en',.8);   // Arabic: never the device voice
     if(placed.includes(c)){ placed.splice(placed.indexOf(c),1); draw(); return; }
     placed.push(c); draw();
     if(placed.length===chips.length){ const t=xNorm(placed.map(x=>x.textContent).join(' '));
@@ -2655,7 +2674,7 @@ function xInline(str,Q,host){
 }
 // a blank the child types into. [[answer]] [[a|b]] (alternatives) [[>7]] [[<5]] (any number bigger / smaller); flags after ":" : box, wide, circ, tiny
 function xBlank(spec,Q){
-  const [ans,fl='']=spec.split(':'), flags=fl.split(',').filter(Boolean), alts=ans.split('|').map(xNorm), rm=alts.length===1&&alts[0].match(/^([<>])(\d+)$/);
+  const fm=spec.match(/^(.*):((?:box|wide|tiny|circ)(?:,(?:box|wide|tiny|circ))*)$/), [ans,fl='']=fm?[fm[1],fm[2]]:[spec,''], flags=fl.split(',').filter(Boolean), alts=ans.split('|').map(xNorm), rm=alts.length===1&&alts[0].match(/^([<>])(\d+)$/);
   const test=v=>{ v=xNorm(v); if(!v) return false; if(rm){ const n=+v; return /^\d+$/.test(v)&&(rm[1]==='>'?n>+rm[2]:n<+rm[2]); } return alts.includes(v); };
   const show=rm?(rm[1]==='>'?+rm[2]+1:Math.max(0,+rm[2]-1)):ans.split('|')[0], max=Math.max(...alts.map(s=>s.length));
   const w=el('span','xbl '+flags.map(x=>'f-'+x).join(' ')), inp=el('input','xin'), gh=el('i','xgh',show);

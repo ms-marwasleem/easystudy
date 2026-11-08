@@ -248,7 +248,10 @@
      "title": "التقييم الأسبوعي",
      "label": "تقييم أسبوعي",
      "file": "data/arabic/exams/wk6/exam.json",
-     "page": 21
+     "page": [
+      21,
+      22
+     ]
     }
    ]
   },
@@ -342,6 +345,15 @@
      "title": "تقييم ٤",
      "label": "تقييم ٤",
      "file": "data/arabic/exams/t4/exam.json"
+    }
+   ],
+   "weekly": [
+    {
+     "id": "wk5",
+     "title": "التقييم الأسبوعي",
+     "label": "تقييم أسبوعي",
+     "file": "data/arabic/exams/wk5/exam.json",
+     "page": 26
     }
    ]
   },
@@ -486,7 +498,16 @@
     "workbook": [
      32
     ]
-   }
+   },
+   "weekly": [
+    {
+     "id": "wk7",
+     "title": "التقييم الأسبوعي",
+     "label": "تقييم أسبوعي",
+     "file": "data/arabic/exams/wk7/exam.json",
+     "page": 33
+    }
+   ]
   },
   {
    "unit": 2,
@@ -570,7 +591,19 @@
     "workbook": [
      36
     ]
-   }
+   },
+   "weekly": [
+    {
+     "id": "wk8",
+     "title": "التقييم الأسبوعي",
+     "label": "تقييم أسبوعي",
+     "file": "data/arabic/exams/wk8/exam.json",
+     "page": [
+      37,
+      38
+     ]
+    }
+   ]
   },
   {
    "unit": 2,
@@ -657,7 +690,19 @@
     "workbook": [
      41
     ]
-   }
+   },
+   "weekly": [
+    {
+     "id": "wk9",
+     "title": "التقييم الأسبوعي",
+     "label": "تقييم أسبوعي",
+     "file": "data/arabic/exams/wk9/exam.json",
+     "page": [
+      42,
+      43
+     ]
+    }
+   ]
   },
   {
    "unit": 2,
@@ -666,10 +711,7 @@
    "title": "ماذا تأكل؟",
    "pages": {
     "read": [
-     72
-    ],
-    "words": [
-     72
+     77
     ],
     "booklet": [
      73
@@ -679,7 +721,29 @@
      78,
      79
     ]
-   }
+   },
+   "weekly": [
+    {
+     "id": "u2t1",
+     "title": "تقييم الوحدة الثانية ١",
+     "label": "تقييم الوحدة ١",
+     "file": "data/arabic/exams/u2t1/exam.json",
+     "page": [
+      78
+     ],
+     "tab": "quiz"
+    },
+    {
+     "id": "u2t2",
+     "title": "تقييم الوحدة الثانية ٢",
+     "label": "تقييم الوحدة ٢",
+     "file": "data/arabic/exams/u2t2/exam.json",
+     "page": [
+      79
+     ],
+     "tab": "quiz"
+    }
+   ]
   },
   {
    "unit": 2,
@@ -688,10 +752,8 @@
    "title": "التعاون سر النجاح",
    "pages": {
     "read": [
-     74
-    ],
-    "words": [
-     74
+     80,
+     81
     ]
    }
   },
@@ -712,6 +774,9 @@
     ],
     "workbook": [
      44
+    ],
+    "quiz": [
+     83
     ]
    }
   },
@@ -761,7 +826,16 @@
     "workbook": [
      46
     ]
-   }
+   },
+   "weekly": [
+    {
+     "id": "wk10",
+     "title": "مراجعة",
+     "label": "مراجعة",
+     "file": "data/arabic/exams/wk10/exam.json",
+     "page": 47
+    }
+   ]
   },
   {
    "unit": 3,
@@ -845,7 +919,16 @@
     "workbook": [
      50
     ]
-   }
+   },
+   "weekly": [
+    {
+     "id": "wk11",
+     "title": "التقييم الأسبوعي",
+     "label": "تقييم أسبوعي",
+     "file": "data/arabic/exams/wk11/exam.json",
+     "page": 51
+    }
+   ]
   },
   {
    "unit": 3,
@@ -930,7 +1013,16 @@
     "workbook": [
      54
     ]
-   }
+   },
+   "weekly": [
+    {
+     "id": "wk12",
+     "title": "التقييم الأسبوعي",
+     "label": "تقييم أسبوعي",
+     "file": "data/arabic/exams/wk12/exam.json",
+     "page": 55
+    }
+   ]
   },
   {
    "unit": 3,
@@ -959,13 +1051,6 @@
       115
      ],
      "tab": "quiz"
-    },
-    {
-     "id": "wk12",
-     "title": "التقييم الأسبوعي",
-     "label": "تقييم أسبوعي",
-     "file": "data/arabic/exams/wk12/exam.json",
-     "page": 55
     },
     {
      "id": "u3r",
@@ -1045,7 +1130,19 @@
     "workbook": [
      59
     ]
-   }
+   },
+   "weekly": [
+    {
+     "id": "wk13",
+     "title": "التقييم الأسبوعي",
+     "label": "تقييم أسبوعي",
+     "file": "data/arabic/exams/wk13/exam.json",
+     "page": [
+      60,
+      61
+     ]
+    }
+   ]
   },
   {
    "unit": 4,
@@ -1126,7 +1223,16 @@
     "workbook": [
      64
     ]
-   }
+   },
+   "weekly": [
+    {
+     "id": "wk14",
+     "title": "التقييم الأسبوعي",
+     "label": "تقييم أسبوعي",
+     "file": "data/arabic/exams/wk14/exam.json",
+     "page": 65
+    }
+   ]
   },
   {
    "unit": 4,
@@ -1200,7 +1306,16 @@
     "workbook": [
      68
     ]
-   }
+   },
+   "weekly": [
+    {
+     "id": "wk15",
+     "title": "مراجعة",
+     "label": "مراجعة",
+     "file": "data/arabic/exams/wk15/exam.json",
+     "page": 69
+    }
+   ]
   },
   {
    "unit": 4,

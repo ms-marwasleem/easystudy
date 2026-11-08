@@ -258,7 +258,7 @@
     {
      "word": "سَرِير",
      "audio": "words/sarir.mp3",
-     "pic": "../../pics/ar-bed.jpg",
+     "pic": "../../pics/bed.png",
      "answer": "سَ",
      "choices": [
       "سَ",
@@ -347,7 +347,11 @@
      "cells": 3,
      "pics": [
       "../../pics/ar-lion.png",
-      "../../pics/ar-cloud.jpg"
+      "../../pics/clouds.png"
+     ],
+     "picWords": [
+      ["أَسَد"],
+      ["سَحَب", "سُحُب"]
      ]
     }
    ]
@@ -387,7 +391,7 @@
     {
      "word": "سَرِير",
      "audio": "words/sarir.mp3",
-     "pic": "../../pics/ar-bed.jpg",
+     "pic": "../../pics/bed.png",
      "answer": "سَ",
      "choices": [
       "سَ",
@@ -409,7 +413,7 @@
     {
      "word": "نُجُوم",
      "audio": "../u2l5/words/nujum.mp3",
-     "pic": "../../pics/ar-stars.jpg",
+     "pic": "../../pics/ar-stars.png",
      "answer": "نُ",
      "choices": [
       "نَ",
@@ -797,11 +801,7 @@
      "audio": "../u2l2/words/nasr.mp3",
      "pic": "../../pics/ar-eagle.jpg",
      "answer": "سْ",
-     "choices": [
-      "سَ",
-      "سُ",
-      "سِ"
-     ],
+     "choices": ["سَ", "سُ", "سْ"],
      "at": 1
     }
    ]
@@ -826,11 +826,7 @@
      "audio": "../u1l7/words/jisr.mp3",
      "pic": "../../pics/ar-bridge.png",
      "answer": "سْ",
-     "choices": [
-      "سَ",
-      "سُ",
-      "سِ"
-     ],
+     "choices": ["سَ", "سُ", "سْ"],
      "at": 1
     },
     {

@@ -135,7 +135,9 @@ $('#addPromo').addEventListener('click',()=>{ S.promos.unshift({code:newCode(),w
 /* ---------- accounts + stats (this device until the server) ---------- */
 const fmt=t=>{ try{ return new Date(t).toLocaleString('ar-EG',{dateStyle:'medium',timeStyle:'short'}); }catch(e){ return t; } };
 // with a server (settings "api"): the real lists come from GET api/admin/accounts and api/admin/stats (same shapes as the local ones below)
-const api=(path,body)=>S.api?fetch(S.api+path,{method:body?'PUT':'GET',credentials:'include',headers:{'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined}).then(r=>r.ok?r.json():null).catch(()=>null):Promise.resolve(null);
+const tokGet=()=>{ try{ return localStorage.getItem('es.adminToken')||''; }catch(e){ return ''; } };
+const hdr=()=>{ const t=tokGet(), h={'Content-Type':'application/json'}; if(t) h.Authorization='Bearer '+t; return h; }; // no-domain admin: ADMIN_TOKEN as Bearer
+const api=(path,body)=>S.api?fetch(S.api+path,{method:body?'PUT':'GET',credentials:'include',headers:hdr(),body:body?JSON.stringify(body):undefined}).then(r=>r.ok?r.json():null).catch(()=>null):Promise.resolve(null);
 let SRV={accounts:null,stats:null,promoUses:null,reports:null};
 function accounts(){ if(SRV.accounts) return SRV.accounts; const a=lsGet('es.account',null); if(!a) return []; return [{...a,kids:lsGet('es.kids',[])}]; }
 function drawAccounts(){ const A=accounts(), box=$('#accts');
@@ -160,7 +162,7 @@ function drawStats(){
 /* ---------- reports (2026-11-06): "report a problem" flags from the app (js/report.js). Server: GET api/admin/reports, POST api/admin/report/<id>; no server: this device's es.reports ---------- */
 const RPTAB={read:'الدرس',words:'الكلمات',quiz:'أسئلة الكتاب',booklet:'الكُتيب',workbook:'كتاب التقييمات',grammar:'القواعد',exam:'ورقة تقييم'};
 const RPKIND={answer:'الإجابة غلط',picture:'الصورة غلط',sound:'الصوت غلط',text:'كلمة مكتوبة غلط',other:'حاجة تانية'};
-const apiPost=(path,body)=>fetch(S.api+path,{method:'POST',credentials:'include',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(r=>r.ok?r.json():null).catch(()=>null);
+const apiPost=(path,body)=>fetch(S.api+path,{method:'POST',credentials:'include',headers:hdr(),body:JSON.stringify(body)}).then(r=>r.ok?r.json():null).catch(()=>null);
 async function loadReports(){ const r=await api('/admin/reports?status=all'); if(r&&r.reports){ SRV.reports=r.reports; drawReports(); } }
 function reportList(){ if(SRV.reports) return SRV.reports;
   return lsGet('es.reports',[]).map(r=>({id:r.id,at:r.at,status:r.done?'done':'open',subject:r.ctx.subject,unit:r.ctx.unit,lesson:r.ctx.lesson,tab:r.ctx.tab,page:r.ctx.page,ex:r.ctx.ex,kind:r.kind,comment:r.comment,ctx:r.ctx})).reverse(); }
@@ -196,3 +198,7 @@ $('#dl').addEventListener('click',()=>{ const out={_note:FILE&&FILE._note,...S};
 $('#reset').addEventListener('click',()=>{ if(!confirm('ترجعي لإعدادات الملف وتمسحي المحفوظ على الجهاز ده؟')) return; try{ localStorage.removeItem('es.settings'); }catch(e){} S=JSON.parse(JSON.stringify(FILE)); location.reload(); });
 addEventListener('beforeunload',e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
 boot().catch(e=>{ $('#where').textContent='مش قادر يحمّل ملفات المنهج: '+e.message; });
+
+/* admin password (ADMIN_TOKEN) for use without a domain: kept on this device, sent as Authorization Bearer */
+{ const b=document.getElementById('tok'); if(b){ const show=()=>{ b.textContent=tokGet()?'كلمة السر: محفوظة ✓':'كلمة السر'; }; show();
+  b.addEventListener('click',()=>{ const v=prompt('اكتبي كلمة سر الأدمن (ADMIN_TOKEN). سيبيها فاضية عشان تتمسح من الجهاز ده.',''); if(v===null) return; try{ if(v.trim()) localStorage.setItem('es.adminToken',v.trim()); else localStorage.removeItem('es.adminToken'); }catch(e){} show(); location.reload(); }); } }

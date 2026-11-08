@@ -1,0 +1,313 @@
+{
+ "title": "تقييم الوحدة الثانية",
+ "ratio": 0.707,
+ "pages": [
+  {
+   "title": "تقييم الوحدة الثانية",
+   "foot": 78,
+   "style": "bar",
+   "blocks": [
+    {
+     "t": "q",
+     "n": "١",
+     "text": "أَضَعُ دَائِرَةً حَوْلَ شَكْلِ الْحَرْفِ الْمُلَوَّنِ مُتَّصِلًا:",
+     "audio": "q1.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "text",
+           "text": "<b class=\"xex\">ر</b>"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "دـ",
+            "رـ",
+            "ز"
+           ],
+           "answer": 1,
+           "labels": "none",
+           "style": "words",
+           "cols": 1,
+           "cls": "xgrp",
+           "pre": true
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "text",
+           "text": "<b class=\"xex\">ل</b>"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "أـ",
+            "دـ",
+            "لـ"
+           ],
+           "answer": 2,
+           "labels": "none",
+           "style": "words",
+           "cols": 1,
+           "cls": "xgrp"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "text",
+           "text": "<b class=\"xex\">س</b>"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "شـ",
+            "صـ",
+            "سـ"
+           ],
+           "answer": 1,
+           "labels": "none",
+           "style": "words",
+           "cols": 1,
+           "cls": "xgrp"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "text",
+           "text": "<b class=\"xex\">ن</b>"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "نـ",
+            "تـ",
+            "بـ"
+           ],
+           "answer": 0,
+           "labels": "none",
+           "style": "words",
+           "cols": 1,
+           "cls": "xgrp"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "text",
+           "text": "<b class=\"xex\">ف</b>"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "قـ",
+            "فـ",
+            "عـ"
+           ],
+           "answer": 1,
+           "labels": "none",
+           "style": "words",
+           "cols": 1,
+           "cls": "xgrp"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "text",
+           "text": "<b class=\"xex\">ك</b>"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "لـ",
+            "كـ",
+            "أ"
+           ],
+           "answer": 1,
+           "labels": "none",
+           "style": "words",
+           "cols": 1,
+           "cls": "xgrp"
+          }
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "text",
+           "text": "<b class=\"xex\">ق</b>"
+          },
+          {
+           "t": "mcq",
+           "opts": [
+            "فـ",
+            "تـ",
+            "قـ"
+           ],
+           "answer": 2,
+           "labels": "none",
+           "style": "words",
+           "cols": 1,
+           "cls": "xgrp"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٢",
+     "text": "أَنْطِقُ، وَأَصِلُ كُلَّ صُورَةٍ بِالْحَرْفِ الْمُنَاسِبِ:",
+     "audio": "q2.mp3",
+     "body": [
+      {
+       "t": "link",
+       "dir": "v",
+       "circ": true,
+       "a": [
+        {
+         "art": "../../../pics/ar-lemon.png",
+         "w": 5
+        },
+        {
+         "art": "../../../pics/mice.png",
+         "w": 5
+        },
+        {
+         "art": "../../../pics/ar-books.jpg",
+         "w": 5
+        },
+        {
+         "art": "../../../pics/ar-fish.png",
+         "w": 5
+        },
+        {
+         "art": "../../../pics/ar-foot.png",
+         "w": 5
+        }
+       ],
+       "b": [
+        "<span style='font-size:1.9em'>سَ</span>",
+        "<span style='font-size:1.9em'>كُ</span>",
+        "<span style='font-size:1.9em'>لَ</span>",
+        "<span style='font-size:1.9em'>رِ</span>",
+        "<span style='font-size:1.9em'>فِ</span>"
+       ],
+       "pairs": [
+        [
+         0,
+         2
+        ],
+        [
+         1,
+         4
+        ],
+        [
+         2,
+         1
+        ],
+        [
+         3,
+         0
+        ],
+        [
+         4,
+         3
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "٣",
+     "text": "أَنْطِقُ، وَأَكْتُبُ الْحَرْفَ الْأَوَّلَ مَضْبُوطًا بِالشَّكْلِ:",
+     "audio": "q3.mp3",
+     "body": [
+      {
+       "t": "row",
+       "cols": 4,
+       "style": "",
+       "items": [
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-milk.png",
+           "w": 5
+          },
+          "[[لَ:box,tiny]]بَن"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-turtle.png",
+           "w": 5
+          },
+          "[[سُ:box,tiny]]لَحْفَاة"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-butterfly.jpg",
+           "w": 5
+          },
+          "[[فَ:box,tiny]]رَاشَة"
+         ]
+        },
+        {
+         "t": "col",
+         "items": [
+          {
+           "t": "art",
+           "art": "../../../pics/ar-tiger.png",
+           "w": 5
+          },
+          "[[نَ:box,tiny]]مِر"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -90,7 +90,7 @@
     {
      "word": "ظَرْف",
      "audio": "words/dharf.mp3",
-     "pic": "../../pics/ar-envelope.jpg",
+     "pic": "../../pics/message.png",
      "answer": true
     }
    ]
@@ -105,7 +105,7 @@
     {
      "word": "ظَ",
      "audio": "words/dharf.mp3",
-     "pic": "../../pics/ar-envelope.jpg"
+     "pic": "../../pics/message.png"
     },
     {
      "word": "ظُ",
@@ -150,7 +150,7 @@
     {
      "word": "ظَ",
      "pics": [
-      "../../pics/ar-envelope.jpg",
+      "../../pics/message.png",
       "../../pics/ar-nail.jpg"
      ],
      "answer": 0
@@ -207,11 +207,7 @@
      "audio": "words/adhm.mp3",
      "pic": "../../pics/ar-bone.png",
      "answer": "ظْ",
-     "choices": [
-      "ظَ",
-      "ظُ",
-      "ظِ"
-     ],
+     "choices": ["ظَ", "ظُ", "ظْ"],
      "at": 1
     },
     {
@@ -274,8 +270,8 @@
      "cells": 3,
      "pics": [
       "../../pics/ar-nail.jpg",
-      "../../pics/ar-envelope.jpg"
-     ]
+      "../../pics/message.png"
+     ], "picWords": [["ظُفْر"], ["ظَرْف"]]
     }
    ]
   },
@@ -400,7 +396,7 @@
     },
     {
      "word": "envelope",
-     "pic": "../../pics/ar-envelope.jpg",
+     "pic": "../../pics/message.png",
      "answer": true
     },
     {
@@ -431,7 +427,7 @@
    "items": [
     {
      "word": "ظَرْف",
-     "pic": "../../pics/ar-envelope.jpg",
+     "pic": "../../pics/message.png",
      "audio": "words/dharf.mp3",
      "at": 0
     },
@@ -613,7 +609,7 @@
     },
     {
      "word": "ظَرْف",
-     "pic": "../../pics/ar-envelope.jpg",
+     "pic": "../../pics/message.png",
      "audio": "words/dharf.mp3"
     },
     {
@@ -708,7 +704,7 @@
      "word": "ظَرْف",
      "audio": "words/dharf.mp3",
      "at": 0,
-     "pic": "../../pics/ar-envelope.jpg"
+     "pic": "../../pics/message.png"
     },
     {
      "word": "ظَبْي",
