@@ -209,7 +209,7 @@
     "count-unit"
    ],
    "w": 480,
-   "h": 449,
+   "h": 311,
    "kind": "cut",
    "cut": true,
    "need": "unit",
@@ -256,8 +256,8 @@
   },
   "apple-toon": {
    "file": "apple-toon.png",
-   "w": 480,
-   "h": 476,
+   "w": 429,
+   "h": 480,
    "cut": true,
    "tags": [
     "u2l4",
@@ -265,14 +265,6 @@
    ],
    "from": "../../../tmp/claude-0/-home-claude/74035036-3ee2-5287-b979-dd80e572d7c6/scratchpad/src/b-039.png",
    "kind": "cut"
-  },
-  "apple2": {
-   "file": "apple2.png",
-   "tags": [],
-   "w": 410,
-   "h": 480,
-   "kind": "cut",
-   "cut": true
   },
   "apples-plate-2": {
    "file": "apples-plate-2.png",
@@ -283,16 +275,12 @@
    "cut": true
   },
   "ar-airplane": {
-   "file": "ar-airplane.jpg",
-   "w": 541,
-   "h": 281,
-   "cut": false,
-   "tags": [
-    "u4l4",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/s7n/n-11.jpg",
-   "kind": "photo"
+   "file": "ar-airplane.png",
+   "tags": [],
+   "w": 480,
+   "h": 210,
+   "kind": "cut",
+   "cut": true
   },
   "ar-amazing": {
    "file": "ar-amazing.jpg",
@@ -370,11 +358,19 @@
    "from": "../../../../tmp/claude-0/s/pg-08.png",
    "kind": "cut"
   },
+  "ar-ants-apple": {
+   "file": "ar-ants-apple.jpg",
+   "tags": [],
+   "w": 547,
+   "h": 600,
+   "kind": "photo",
+   "cut": false
+  },
   "ar-ants-carry": {
    "file": "ar-ants-carry.jpg",
    "tags": [],
-   "w": 512,
-   "h": 251,
+   "w": 547,
+   "h": 600,
    "kind": "photo",
    "cut": false
   },
@@ -386,22 +382,10 @@
    "kind": "photo",
    "cut": false
   },
-  "ar-apple": {
-   "file": "ar-apple.png",
-   "w": 480,
-   "h": 410,
-   "cut": true,
-   "tags": [
-    "u2l4",
-    "book"
-   ],
-   "from": "../../../../tmp/w/nat-000.jpg",
-   "kind": "cut"
-  },
   "ar-apple-u1l10": {
    "file": "ar-apple-u1l10.png",
-   "w": 421,
-   "h": 480,
+   "w": 480,
+   "h": 428,
    "cut": true,
    "tags": [
     "u1l10"
@@ -411,8 +395,8 @@
   },
   "ar-apricot": {
    "file": "ar-apricot.png",
-   "w": 470,
-   "h": 480,
+   "w": 480,
+   "h": 361,
    "cut": true,
    "tags": [
     "arabic",
@@ -423,7 +407,7 @@
   },
   "ar-arm": {
    "file": "ar-arm.png",
-   "w": 432,
+   "w": 460,
    "h": 480,
    "cut": true,
    "tags": [
@@ -435,7 +419,7 @@
   },
   "ar-arrow": {
    "file": "ar-arrow.png",
-   "w": 440,
+   "w": 472,
    "h": 480,
    "cut": true,
    "tags": [
@@ -457,20 +441,16 @@
    "kind": "cut"
   },
   "ar-babies": {
-   "file": "ar-babies.jpg",
-   "w": 191,
-   "h": 143,
-   "cut": false,
-   "tags": [
-    "u4l5",
-    "book"
-   ],
-   "from": "../../../tmp/s/p-13.png",
-   "kind": "photo"
+   "file": "ar-babies.png",
+   "tags": [],
+   "w": 480,
+   "h": 394,
+   "kind": "cut",
+   "cut": true
   },
   "ar-baby": {
    "file": "ar-baby.png",
-   "w": 366,
+   "w": 437,
    "h": 480,
    "cut": true,
    "tags": [
@@ -482,7 +462,7 @@
   },
   "ar-back": {
    "file": "ar-back.png",
-   "w": 312,
+   "w": 206,
    "h": 480,
    "cut": true,
    "tags": [
@@ -508,7 +488,7 @@
    "file": "ar-bakery.png",
    "tags": [],
    "w": 480,
-   "h": 389,
+   "h": 477,
    "kind": "cut",
    "cut": true
   },
@@ -551,7 +531,7 @@
   "ar-barn": {
    "file": "ar-barn.png",
    "w": 480,
-   "h": 417,
+   "h": 387,
    "cut": true,
    "tags": [
     "u3l9",
@@ -563,7 +543,7 @@
   "ar-bat": {
    "file": "ar-bat.png",
    "w": 480,
-   "h": 306,
+   "h": 364,
    "cut": true,
    "tags": [
     "u1l9",
@@ -573,16 +553,12 @@
    "kind": "cut"
   },
   "ar-beach": {
-   "file": "ar-beach.jpg",
-   "w": 194,
-   "h": 189,
-   "cut": false,
-   "tags": [
-    "u3l3",
-    "book"
-   ],
-   "from": "../../../tmp/claude-0/s/pg-05.png",
-   "kind": "photo"
+   "file": "ar-beach.png",
+   "tags": [],
+   "w": 480,
+   "h": 357,
+   "kind": "cut",
+   "cut": true
   },
   "ar-beans": {
    "file": "ar-beans.png",
@@ -642,8 +618,8 @@
   },
   "ar-belly": {
    "file": "ar-belly.png",
-   "w": 449,
-   "h": 480,
+   "w": 480,
+   "h": 458,
    "cut": true,
    "tags": [
     "u4l4",
@@ -672,22 +648,30 @@
    "file": "ar-bike.png",
    "tags": [],
    "w": 480,
-   "h": 289,
+   "h": 379,
    "kind": "cut",
    "cut": true
   },
   "ar-binoculars": {
-   "file": "ar-binoculars.jpg",
+   "file": "ar-binoculars.png",
    "tags": [],
-   "w": 380,
-   "h": 240,
-   "kind": "photo",
-   "cut": false
+   "w": 480,
+   "h": 347,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-birds": {
+   "file": "ar-birds.png",
+   "tags": [],
+   "w": 480,
+   "h": 396,
+   "kind": "cut",
+   "cut": true
   },
   "ar-blender": {
    "file": "ar-blender.png",
    "tags": [],
-   "w": 358,
+   "w": 281,
    "h": 480,
    "kind": "cut",
    "cut": true
@@ -704,6 +688,14 @@
    "from": "../../../../tmp/claude-0/s/nat-05.jpg",
    "kind": "cut"
   },
+  "ar-board": {
+   "file": "ar-board.png",
+   "tags": [],
+   "w": 249,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
+  },
   "ar-body": {
    "file": "ar-body.png",
    "w": 273,
@@ -716,10 +708,66 @@
    "from": "../../../tmp/claude-0/s/nat/b-020.jpg",
    "kind": "cut"
   },
+  "ar-body-eye": {
+   "file": "ar-body-eye.jpg",
+   "tags": [],
+   "w": 480,
+   "h": 483,
+   "kind": "photo",
+   "cut": false
+  },
+  "ar-body-foot": {
+   "file": "ar-body-foot.jpg",
+   "tags": [],
+   "w": 480,
+   "h": 497,
+   "kind": "photo",
+   "cut": false
+  },
+  "ar-body-hand": {
+   "file": "ar-body-hand.jpg",
+   "tags": [],
+   "w": 480,
+   "h": 523,
+   "kind": "photo",
+   "cut": false
+  },
+  "ar-body-mouth": {
+   "file": "ar-body-mouth.jpg",
+   "tags": [],
+   "w": 480,
+   "h": 523,
+   "kind": "photo",
+   "cut": false
+  },
+  "ar-body-nose": {
+   "file": "ar-body-nose.jpg",
+   "tags": [],
+   "w": 480,
+   "h": 498,
+   "kind": "photo",
+   "cut": false
+  },
+  "ar-body-teacher-clap": {
+   "file": "ar-body-teacher-clap.jpg",
+   "tags": [],
+   "w": 480,
+   "h": 519,
+   "kind": "photo",
+   "cut": false
+  },
+  "ar-body-teacher-pen": {
+   "file": "ar-body-teacher-pen.jpg",
+   "tags": [],
+   "w": 480,
+   "h": 504,
+   "kind": "photo",
+   "cut": false
+  },
   "ar-bone": {
    "file": "ar-bone.png",
    "w": 480,
-   "h": 459,
+   "h": 222,
    "cut": true,
    "tags": [
     "u3l9",
@@ -730,7 +778,7 @@
   },
   "ar-bones": {
    "file": "ar-bones.png",
-   "w": 399,
+   "w": 425,
    "h": 480,
    "cut": true,
    "tags": [
@@ -787,7 +835,7 @@
   },
   "ar-bottle": {
    "file": "ar-bottle.png",
-   "w": 160,
+   "w": 186,
    "h": 480,
    "cut": true,
    "tags": [
@@ -810,24 +858,12 @@
    "kind": "cut"
   },
   "ar-bowl": {
-   "file": "ar-bowl.jpg",
+   "file": "ar-bowl.png",
    "tags": [],
-   "w": 316,
-   "h": 307,
-   "kind": "photo",
-   "cut": false
-  },
-  "ar-box": {
-   "file": "ar-box.png",
    "w": 480,
-   "h": 379,
-   "cut": true,
-   "tags": [
-    "u4l5",
-    "book"
-   ],
-   "from": "../../../tmp/s/p-13.png",
-   "kind": "cut"
+   "h": 313,
+   "kind": "cut",
+   "cut": true
   },
   "ar-box-scene-a": {
    "file": "ar-box-scene-a.jpg",
@@ -873,6 +909,17 @@
    "kind": "cut",
    "cut": true
   },
+  "ar-boy-blowing-balloon-hq": {
+   "file": "ar-boy-blowing-balloon-hq.png",
+   "w": 302,
+   "h": 480,
+   "cut": true,
+   "tags": [
+    "u1l9"
+   ],
+   "from": "../../../../root/.claude/uploads/78993e87-cd0d-5cc7-bd02-dc7c8c4864bf/2d96b512-IMG_7081.jpg",
+   "kind": "cut"
+  },
   "ar-boy-bow": {
    "file": "ar-boy-bow.png",
    "tags": [],
@@ -916,6 +963,17 @@
    "h": 600,
    "kind": "photo",
    "cut": false
+  },
+  "ar-boy-entering-door-hq": {
+   "file": "ar-boy-entering-door-hq.png",
+   "w": 380,
+   "h": 480,
+   "cut": true,
+   "tags": [
+    "u1l9"
+   ],
+   "from": "../../../../root/.claude/uploads/78993e87-cd0d-5cc7-bd02-dc7c8c4864bf/84810d9d-IMG_7080.JPG",
+   "kind": "cut"
   },
   "ar-boy-exhibition": {
    "file": "ar-boy-exhibition.jpg",
@@ -964,6 +1022,17 @@
    "h": 308,
    "kind": "photo",
    "cut": false
+  },
+  "ar-boy-leaving-door-hq": {
+   "file": "ar-boy-leaving-door-hq.png",
+   "w": 345,
+   "h": 480,
+   "cut": true,
+   "tags": [
+    "u1l9"
+   ],
+   "from": "../../../../root/.claude/uploads/78993e87-cd0d-5cc7-bd02-dc7c8c4864bf/84810d9d-IMG_7080.JPG",
+   "kind": "cut"
   },
   "ar-boy-orange": {
    "file": "ar-boy-orange.jpg",
@@ -1018,7 +1087,7 @@
   },
   "ar-braid": {
    "file": "ar-braid.png",
-   "w": 312,
+   "w": 271,
    "h": 480,
    "cut": true,
    "tags": [
@@ -1042,8 +1111,8 @@
   },
   "ar-branch": {
    "file": "ar-branch.png",
-   "w": 480,
-   "h": 314,
+   "w": 470,
+   "h": 480,
    "cut": true,
    "tags": [
     "u4l5",
@@ -1055,7 +1124,7 @@
   "ar-bread": {
    "file": "ar-bread.png",
    "w": 480,
-   "h": 397,
+   "h": 304,
    "cut": true,
    "tags": [
     "arabic",
@@ -1074,8 +1143,8 @@
   },
   "ar-bricks": {
    "file": "ar-bricks.png",
-   "w": 480,
-   "h": 444,
+   "w": 429,
+   "h": 480,
    "cut": true,
    "tags": [
     "u4l4",
@@ -1118,7 +1187,7 @@
   },
   "ar-bulb": {
    "file": "ar-bulb.png",
-   "w": 299,
+   "w": 388,
    "h": 480,
    "cut": true,
    "tags": [
@@ -1128,10 +1197,18 @@
    "from": "Ahmed Arabic picture sheets 2026-10-17 (deleted after cutting)",
    "kind": "cut"
   },
+  "ar-bulb-rays": {
+   "file": "ar-bulb-rays.png",
+   "tags": [],
+   "w": 469,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
+  },
   "ar-bull": {
    "file": "ar-bull.png",
-   "w": 480,
-   "h": 356,
+   "w": 462,
+   "h": 480,
    "cut": true,
    "tags": [
     "u4l7",
@@ -1141,16 +1218,12 @@
    "kind": "cut"
   },
   "ar-bulls": {
-   "file": "ar-bulls.jpg",
-   "w": 221,
-   "h": 102,
-   "cut": false,
-   "tags": [
-    "u4l7",
-    "book"
-   ],
-   "from": "../../../../tmp/w/p-21.png",
-   "kind": "photo"
+   "file": "ar-bulls.png",
+   "tags": [],
+   "w": 480,
+   "h": 474,
+   "kind": "cut",
+   "cut": true
   },
   "ar-bulls-fight": {
    "file": "ar-bulls-fight.jpg",
@@ -1198,8 +1271,8 @@
   },
   "ar-cactus": {
    "file": "ar-cactus.png",
-   "w": 480,
-   "h": 449,
+   "w": 414,
+   "h": 480,
    "cut": true,
    "tags": [
     "u4l5",
@@ -1223,8 +1296,8 @@
   "ar-calendar": {
    "file": "ar-calendar.png",
    "tags": [],
-   "w": 480,
-   "h": 332,
+   "w": 450,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
@@ -1256,40 +1329,16 @@
    "kind": "cut",
    "cut": true
   },
-  "ar-candle": {
-   "file": "ar-candle.png",
-   "w": 207,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u3l5",
-    "book"
-   ],
-   "from": "../../../tmp/claude-0/s/big-13.png",
-   "kind": "cut"
-  },
   "ar-candles": {
    "file": "ar-candles.png",
-   "w": 223,
-   "h": 480,
+   "w": 480,
+   "h": 430,
    "cut": true,
    "tags": [
     "u3l5",
     "book"
    ],
    "from": "../../../tmp/claude-0/s/big-13.png",
-   "kind": "cut"
-  },
-  "ar-car": {
-   "file": "ar-car.png",
-   "w": 480,
-   "h": 240,
-   "cut": true,
-   "tags": [
-    "u2l4",
-    "book"
-   ],
-   "from": "../../../../tmp/w/nat-000.jpg",
    "kind": "cut"
   },
   "ar-carrot": {
@@ -1330,7 +1379,7 @@
   },
   "ar-catrain": {
    "file": "ar-catrain.png",
-   "w": 444,
+   "w": 445,
    "h": 480,
    "cut": true,
    "tags": [
@@ -1341,16 +1390,12 @@
    "kind": "cut"
   },
   "ar-cave": {
-   "file": "ar-cave.jpg",
-   "w": 150,
-   "h": 140,
-   "cut": false,
-   "tags": [
-    "u3l7",
-    "book"
-   ],
-   "from": "../../../tmp/claude-0/s/pg-21.png",
-   "kind": "photo"
+   "file": "ar-cave.png",
+   "tags": [],
+   "w": 480,
+   "h": 349,
+   "kind": "cut",
+   "cut": true
   },
   "ar-chair": {
    "file": "ar-chair.png",
@@ -1379,14 +1424,14 @@
   "ar-cheetah-chase": {
    "file": "ar-cheetah-chase.jpg",
    "tags": [],
-   "w": 600,
-   "h": 185,
+   "w": 569,
+   "h": 600,
    "kind": "photo",
    "cut": false
   },
   "ar-chef": {
    "file": "ar-chef.png",
-   "w": 291,
+   "w": 303,
    "h": 480,
    "cut": true,
    "tags": [
@@ -1422,7 +1467,7 @@
   },
   "ar-chin": {
    "file": "ar-chin.png",
-   "w": 468,
+   "w": 392,
    "h": 480,
    "cut": true,
    "tags": [
@@ -1433,16 +1478,12 @@
    "kind": "cut"
   },
   "ar-classline": {
-   "file": "ar-classline.jpg",
-   "w": 174,
-   "h": 154,
-   "cut": false,
-   "tags": [
-    "u4l5",
-    "book"
-   ],
-   "from": "../../../tmp/s/p-13.png",
-   "kind": "photo"
+   "file": "ar-classline.png",
+   "tags": [],
+   "w": 480,
+   "h": 267,
+   "kind": "cut",
+   "cut": true
   },
   "ar-classroom-desks": {
    "file": "ar-classroom-desks.jpg",
@@ -1456,14 +1497,14 @@
    "file": "ar-claws.png",
    "tags": [],
    "w": 480,
-   "h": 313,
+   "h": 373,
    "kind": "cut",
    "cut": true
   },
   "ar-clock": {
    "file": "ar-clock.png",
    "w": 480,
-   "h": 475,
+   "h": 480,
    "cut": true,
    "tags": [
     "arabic",
@@ -1473,16 +1514,12 @@
    "kind": "cut"
   },
   "ar-clothes": {
-   "file": "ar-clothes.jpg",
-   "w": 180,
-   "h": 184,
-   "cut": false,
-   "tags": [
-    "u4l7",
-    "book"
-   ],
-   "from": "../../../../tmp/w/p-21.png",
-   "kind": "photo"
+   "file": "ar-clothes.png",
+   "tags": [],
+   "w": 425,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-clothespin": {
    "file": "ar-clothespin.png",
@@ -1493,22 +1530,18 @@
    "cut": true
   },
   "ar-cloud": {
-   "file": "ar-cloud.jpg",
-   "w": 226,
-   "h": 117,
-   "cut": false,
-   "tags": [
-    "u2l4",
-    "book"
-   ],
-   "from": "../../../../tmp/w/nat-000.jpg",
-   "kind": "photo"
+   "file": "ar-cloud.png",
+   "tags": [],
+   "w": 480,
+   "h": 310,
+   "kind": "cut",
+   "cut": true
   },
   "ar-coconut": {
    "file": "ar-coconut.png",
    "tags": [],
    "w": 480,
-   "h": 374,
+   "h": 452,
    "kind": "cut",
    "cut": true
   },
@@ -1516,14 +1549,14 @@
    "file": "ar-coffee.png",
    "tags": [],
    "w": 480,
-   "h": 238,
+   "h": 304,
    "kind": "cut",
    "cut": true
   },
   "ar-comb": {
    "file": "ar-comb.png",
-   "w": 424,
-   "h": 479,
+   "w": 480,
+   "h": 466,
    "cut": true,
    "tags": [
     "u3l5",
@@ -1585,21 +1618,17 @@
    "cut": true
   },
   "ar-crescent": {
-   "file": "ar-crescent.jpg",
-   "w": 145,
-   "h": 155,
-   "cut": false,
-   "tags": [
-    "u3l7",
-    "book"
-   ],
-   "from": "../../../tmp/claude-0/s/pg-21.png",
-   "kind": "photo"
+   "file": "ar-crescent.png",
+   "tags": [],
+   "w": 463,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-crocodile": {
    "file": "ar-crocodile.png",
    "w": 480,
-   "h": 257,
+   "h": 258,
    "cut": true,
    "tags": [
     "u1l10",
@@ -1609,16 +1638,12 @@
    "kind": "cut"
   },
   "ar-crow": {
-   "file": "ar-crow.jpg",
-   "w": 141,
-   "h": 151,
-   "cut": false,
-   "tags": [
-    "u4l8",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/s/b-1.png",
-   "kind": "photo"
+   "file": "ar-crow.png",
+   "tags": [],
+   "w": 422,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-crown": {
    "file": "ar-crown.png",
@@ -1633,20 +1658,16 @@
    "kind": "cut"
   },
   "ar-crows": {
-   "file": "ar-crows.jpg",
-   "w": 206,
-   "h": 181,
-   "cut": false,
-   "tags": [
-    "u4l8",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/s/b-1.png",
-   "kind": "photo"
+   "file": "ar-crows.png",
+   "tags": [],
+   "w": 480,
+   "h": 261,
+   "kind": "cut",
+   "cut": true
   },
   "ar-cub": {
    "file": "ar-cub.png",
-   "w": 438,
+   "w": 369,
    "h": 480,
    "cut": true,
    "tags": [
@@ -1658,8 +1679,8 @@
   },
   "ar-cucumber": {
    "file": "ar-cucumber.png",
-   "w": 480,
-   "h": 445,
+   "w": 285,
+   "h": 480,
    "cut": true,
    "tags": [
     "arabic",
@@ -1682,7 +1703,7 @@
   },
   "ar-curtain": {
    "file": "ar-curtain.png",
-   "w": 469,
+   "w": 444,
    "h": 480,
    "cut": true,
    "tags": [
@@ -1695,8 +1716,8 @@
   "ar-cutter": {
    "file": "ar-cutter.png",
    "tags": [],
-   "w": 480,
-   "h": 248,
+   "w": 440,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
@@ -1705,6 +1726,14 @@
    "tags": [],
    "w": 480,
    "h": 451,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-dad-carrots": {
+   "file": "ar-dad-carrots.png",
+   "tags": [],
+   "w": 338,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
@@ -1730,8 +1759,8 @@
   },
   "ar-dark": {
    "file": "ar-dark.png",
-   "w": 480,
-   "h": 310,
+   "w": 465,
+   "h": 480,
    "cut": true,
    "tags": [
     "u3l9",
@@ -1742,7 +1771,7 @@
   },
   "ar-dates": {
    "file": "ar-dates.png",
-   "w": 381,
+   "w": 352,
    "h": 480,
    "cut": true,
    "tags": [
@@ -1753,16 +1782,12 @@
    "kind": "cut"
   },
   "ar-decor": {
-   "file": "ar-decor.jpg",
-   "w": 523,
-   "h": 384,
-   "cut": false,
-   "tags": [
-    "u4l3",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/s/nat-05.jpg",
-   "kind": "photo"
+   "file": "ar-decor.png",
+   "tags": [],
+   "w": 480,
+   "h": 212,
+   "kind": "cut",
+   "cut": true
   },
   "ar-deer": {
    "file": "ar-deer.png",
@@ -1772,22 +1797,10 @@
    "kind": "cut",
    "cut": true
   },
-  "ar-desk": {
-   "file": "ar-desk.png",
-   "w": 480,
-   "h": 414,
-   "cut": true,
-   "tags": [
-    "u2l8",
-    "book"
-   ],
-   "from": "../../../tmp/w/nat-01.jpg",
-   "kind": "cut"
-  },
   "ar-doctor-m": {
    "file": "ar-doctor-m.png",
    "tags": [],
-   "w": 294,
+   "w": 153,
    "h": 480,
    "kind": "cut",
    "cut": true
@@ -1812,18 +1825,6 @@
    "from": "../../../../tmp/claude-0/-home-user/1f09f34a-78fb-5930-a48d-767913b684db/scratchpad/p/nat-000.jpg",
    "kind": "cut"
   },
-  "ar-dolphin": {
-   "file": "ar-dolphin.png",
-   "w": 473,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u2l3",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/s/pg-06.png",
-   "kind": "cut"
-  },
   "ar-donkey": {
    "file": "ar-donkey.png",
    "w": 367,
@@ -1837,16 +1838,12 @@
    "kind": "cut"
   },
   "ar-dove": {
-   "file": "ar-dove.jpg",
-   "w": 168,
-   "h": 194,
-   "cut": false,
-   "tags": [
-    "u3l3",
-    "book"
-   ],
-   "from": "../../../tmp/claude-0/s/pg-05.png",
-   "kind": "photo"
+   "file": "ar-dove.png",
+   "tags": [],
+   "w": 480,
+   "h": 397,
+   "kind": "cut",
+   "cut": true
   },
   "ar-draw-cheetah": {
    "file": "ar-draw-cheetah.jpg",
@@ -1868,7 +1865,7 @@
    "file": "ar-drawer.png",
    "tags": [],
    "w": 480,
-   "h": 368,
+   "h": 432,
    "kind": "cut",
    "cut": true
   },
@@ -1886,8 +1883,8 @@
   },
   "ar-drum": {
    "file": "ar-drum.png",
-   "w": 129,
-   "h": 480,
+   "w": 480,
+   "h": 415,
    "cut": true,
    "tags": [
     "u4l4",
@@ -1933,7 +1930,7 @@
   },
   "ar-dwarf": {
    "file": "ar-dwarf.png",
-   "w": 448,
+   "w": 276,
    "h": 480,
    "cut": true,
    "tags": [
@@ -1944,16 +1941,12 @@
    "kind": "cut"
   },
   "ar-eagle": {
-   "file": "ar-eagle.jpg",
-   "w": 324,
-   "h": 216,
-   "cut": false,
-   "tags": [
-    "u2l4",
-    "book"
-   ],
-   "from": "../../../tmp/nat/n-000.jpg",
-   "kind": "photo"
+   "file": "ar-eagle.png",
+   "tags": [],
+   "w": 474,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-eagles": {
    "file": "ar-eagles.png",
@@ -1982,6 +1975,14 @@
    ],
    "from": "../../../../tmp/claude-0/s/pg/full/pg-001.jpg",
    "kind": "cut"
+  },
+  "ar-earth": {
+   "file": "ar-earth.png",
+   "tags": [],
+   "w": 480,
+   "h": 477,
+   "kind": "cut",
+   "cut": true
   },
   "ar-eat-bear-camel": {
    "file": "ar-eat-bear-camel.jpg",
@@ -2025,8 +2026,8 @@
   },
   "ar-eggplant": {
    "file": "ar-eggplant.png",
-   "w": 451,
-   "h": 480,
+   "w": 480,
+   "h": 467,
    "cut": true,
    "tags": [
     "u3l8",
@@ -2034,6 +2035,14 @@
    ],
    "from": "../../../../tmp/claude-0/-home-user/22cf5985-7f38-5f63-a7f8-ae3f8986de19/scratchpad/nat/p-000.jpg",
    "kind": "cut"
+  },
+  "ar-egypt": {
+   "file": "ar-egypt.png",
+   "tags": [],
+   "w": 480,
+   "h": 315,
+   "kind": "cut",
+   "cut": true
   },
   "ar-elephant": {
    "file": "ar-elephant.png",
@@ -2074,7 +2083,7 @@
   "ar-envelopes": {
    "file": "ar-envelopes.png",
    "w": 480,
-   "h": 370,
+   "h": 331,
    "cut": true,
    "tags": [
     "u3l9",
@@ -2090,18 +2099,6 @@
    "h": 348,
    "kind": "cut",
    "cut": true
-  },
-  "ar-eye": {
-   "file": "ar-eye.png",
-   "w": 454,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u3l3",
-    "book"
-   ],
-   "from": "../../../tmp/claude-0/s/pg-05.png",
-   "kind": "cut"
   },
   "ar-eyes": {
    "file": "ar-eyes.png",
@@ -2170,7 +2167,7 @@
   "ar-fa-radish": {
    "file": "ar-fa-radish.png",
    "tags": [],
-   "w": 447,
+   "w": 428,
    "h": 480,
    "kind": "cut",
    "cut": true
@@ -2214,7 +2211,7 @@
   "ar-faces": {
    "file": "ar-faces.png",
    "tags": [],
-   "w": 389,
+   "w": 463,
    "h": 480,
    "kind": "cut",
    "cut": true
@@ -2335,22 +2332,18 @@
   "ar-fans": {
    "file": "ar-fans.png",
    "tags": [],
-   "w": 365,
-   "h": 480,
+   "w": 480,
+   "h": 373,
    "kind": "cut",
    "cut": true
   },
   "ar-farm": {
-   "file": "ar-farm.jpg",
-   "w": 592,
-   "h": 592,
-   "cut": false,
-   "tags": [
-    "u4l3",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/s/nat-05.jpg",
-   "kind": "photo"
+   "file": "ar-farm.png",
+   "tags": [],
+   "w": 480,
+   "h": 383,
+   "kind": "cut",
+   "cut": true
   },
   "ar-farmer": {
    "file": "ar-farmer.png",
@@ -2374,8 +2367,8 @@
   },
   "ar-fatman": {
    "file": "ar-fatman.png",
-   "w": 480,
-   "h": 448,
+   "w": 438,
+   "h": 480,
    "cut": true,
    "tags": [
     "u4l6",
@@ -2399,7 +2392,7 @@
   "ar-fence": {
    "file": "ar-fence.png",
    "w": 480,
-   "h": 247,
+   "h": 214,
    "cut": true,
    "tags": [
     "u2l4",
@@ -2419,7 +2412,7 @@
   "ar-fig": {
    "file": "ar-fig.png",
    "w": 480,
-   "h": 366,
+   "h": 443,
    "cut": true,
    "tags": [
     "arabic",
@@ -2450,8 +2443,8 @@
   },
   "ar-fish": {
    "file": "ar-fish.png",
-   "w": 480,
-   "h": 425,
+   "w": 478,
+   "h": 480,
    "cut": true,
    "tags": [
     "arabic",
@@ -2477,16 +2470,12 @@
    "cut": true
   },
   "ar-fisherman": {
-   "file": "ar-fisherman.jpg",
-   "w": 138,
-   "h": 186,
-   "cut": false,
-   "tags": [
-    "u4l5",
-    "book"
-   ],
-   "from": "../../../tmp/s/p-13.png",
-   "kind": "photo"
+   "file": "ar-fisherman.png",
+   "tags": [],
+   "w": 327,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-fisherman-school": {
    "file": "ar-fisherman-school.png",
@@ -2498,8 +2487,8 @@
   },
   "ar-flag": {
    "file": "ar-flag.png",
-   "w": 480,
-   "h": 324,
+   "w": 467,
+   "h": 480,
    "cut": true,
    "tags": [
     "u3l4",
@@ -2523,7 +2512,7 @@
   "ar-flowers": {
    "file": "ar-flowers.png",
    "tags": [],
-   "w": 413,
+   "w": 474,
    "h": 480,
    "kind": "cut",
    "cut": true
@@ -2531,15 +2520,15 @@
   "ar-flute": {
    "file": "ar-flute.png",
    "tags": [],
-   "w": 480,
-   "h": 314,
+   "w": 477,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
   "ar-fly": {
    "file": "ar-fly.png",
-   "w": 422,
-   "h": 480,
+   "w": 480,
+   "h": 394,
    "cut": true,
    "tags": [
     "u3l8",
@@ -2551,22 +2540,18 @@
   "ar-foal": {
    "file": "ar-foal.png",
    "tags": [],
-   "w": 480,
-   "h": 432,
+   "w": 437,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
   "ar-food": {
-   "file": "ar-food.jpg",
-   "w": 165,
-   "h": 176,
-   "cut": false,
-   "tags": [
-    "u4l8",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/s/b-1.png",
-   "kind": "photo"
+   "file": "ar-food.png",
+   "tags": [],
+   "w": 477,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-foot": {
    "file": "ar-foot.png",
@@ -2580,9 +2565,17 @@
    "from": "../../../tmp/claude-0/s/nat/b-020.jpg",
    "kind": "cut"
   },
+  "ar-forest-animals": {
+   "file": "ar-forest-animals.jpg",
+   "tags": [],
+   "w": 1600,
+   "h": 891,
+   "kind": "photo",
+   "cut": false
+  },
   "ar-fridge": {
    "file": "ar-fridge.png",
-   "w": 293,
+   "w": 269,
    "h": 480,
    "cut": true,
    "tags": [
@@ -2601,16 +2594,12 @@
    "cut": true
   },
   "ar-full-moon": {
-   "file": "ar-full-moon.jpg",
-   "w": 241,
-   "h": 167,
-   "cut": false,
-   "tags": [
-    "u1l8",
-    "book"
-   ],
-   "from": "../../../tmp/claude-0/s/nat/a-000.jpg",
-   "kind": "photo"
+   "file": "ar-full-moon.png",
+   "tags": [],
+   "w": 480,
+   "h": 470,
+   "kind": "cut",
+   "cut": true
   },
   "ar-garden-bed": {
    "file": "ar-garden-bed.png",
@@ -2621,20 +2610,16 @@
    "cut": true
   },
   "ar-garlic": {
-   "file": "ar-garlic.jpg",
-   "w": 154,
-   "h": 154,
-   "cut": false,
-   "tags": [
-    "u4l7",
-    "book"
-   ],
-   "from": "../../../../tmp/w/p-21.png",
-   "kind": "photo"
+   "file": "ar-garlic.png",
+   "tags": [],
+   "w": 480,
+   "h": 447,
+   "kind": "cut",
+   "cut": true
   },
   "ar-gazelle": {
    "file": "ar-gazelle.png",
-   "w": 356,
+   "w": 188,
    "h": 480,
    "cut": true,
    "tags": [
@@ -2644,9 +2629,17 @@
    "from": "../../../../tmp/s/p5.jpg",
    "kind": "cut"
   },
+  "ar-gazelle-f": {
+   "file": "ar-gazelle-f.png",
+   "tags": [],
+   "w": 358,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
+  },
   "ar-gazelles": {
    "file": "ar-gazelles.png",
-   "w": 360,
+   "w": 475,
    "h": 480,
    "cut": true,
    "tags": [
@@ -2663,18 +2656,6 @@
    "h": 480,
    "kind": "cut",
    "cut": true
-  },
-  "ar-giraffe": {
-   "file": "ar-giraffe.png",
-   "w": 403,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u4l3",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/s/nat-05.jpg",
-   "kind": "cut"
   },
   "ar-girl": {
    "file": "ar-girl.png",
@@ -2712,11 +2693,30 @@
    "kind": "cut",
    "cut": true
   },
+  "ar-girl-cooking-hq": {
+   "file": "ar-girl-cooking-hq.png",
+   "w": 420,
+   "h": 480,
+   "cut": true,
+   "tags": [
+    "u1l9"
+   ],
+   "from": "../../../../root/.claude/uploads/78993e87-cd0d-5cc7-bd02-dc7c8c4864bf/2d96b512-IMG_7081.jpg",
+   "kind": "cut"
+  },
   "ar-girl-draw": {
    "file": "ar-girl-draw.png",
    "tags": [],
    "w": 480,
    "h": 479,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-girl-duck": {
+   "file": "ar-girl-duck.png",
+   "tags": [],
+   "w": 402,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
@@ -2828,8 +2828,8 @@
   "ar-girl-pyramid": {
    "file": "ar-girl-pyramid.jpg",
    "tags": [],
-   "w": 600,
-   "h": 276,
+   "w": 568,
+   "h": 600,
    "kind": "photo",
    "cut": false
   },
@@ -2879,56 +2879,40 @@
    "kind": "cut"
   },
   "ar-glue": {
-   "file": "ar-glue.jpg",
-   "w": 91,
-   "h": 186,
-   "cut": false,
-   "tags": [
-    "u4l8",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/s/b-1.png",
-   "kind": "photo"
+   "file": "ar-glue.png",
+   "tags": [],
+   "w": 298,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-goal": {
-   "file": "ar-goal.jpg",
-   "w": 240,
-   "h": 150,
-   "cut": false,
-   "tags": [
-    "u3l7",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/-home-user/3f2eb7be-f68c-53c3-a195-669f2aa6f566/scratchpad/p-23.png",
-   "kind": "photo"
+   "file": "ar-goal.png",
+   "tags": [],
+   "w": 480,
+   "h": 329,
+   "kind": "cut",
+   "cut": true
   },
   "ar-gold": {
-   "file": "ar-gold.jpg",
-   "w": 190,
-   "h": 145,
-   "cut": false,
-   "tags": [
-    "u3l7",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/-home-user/3f2eb7be-f68c-53c3-a195-669f2aa6f566/scratchpad/p-23.png",
-   "kind": "photo"
+   "file": "ar-gold.png",
+   "tags": [],
+   "w": 480,
+   "h": 357,
+   "kind": "cut",
+   "cut": true
   },
   "ar-goose": {
-   "file": "ar-goose.jpg",
-   "w": 224,
-   "h": 246,
-   "cut": false,
-   "tags": [
-    "ar-u1l3",
-    "book"
-   ],
-   "from": "book page 7 (deleted)",
-   "kind": "photo"
+   "file": "ar-goose.png",
+   "tags": [],
+   "w": 259,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-gorilla": {
    "file": "ar-gorilla.png",
-   "w": 424,
+   "w": 409,
    "h": 480,
    "cut": true,
    "tags": [
@@ -2993,7 +2977,7 @@
   "ar-hair": {
    "file": "ar-hair.png",
    "w": 480,
-   "h": 469,
+   "h": 374,
    "cut": true,
    "tags": [
     "u3l4",
@@ -3023,16 +3007,12 @@
    "kind": "cut"
   },
   "ar-hand": {
-   "file": "ar-hand.jpg",
-   "w": 272,
-   "h": 304,
-   "cut": false,
-   "tags": [
-    "u2l8",
-    "book"
-   ],
-   "from": "../../../tmp/w/nat-01.jpg",
-   "kind": "photo"
+   "file": "ar-hand.png",
+   "tags": [],
+   "w": 316,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-hazelnut": {
    "file": "ar-hazelnut.png",
@@ -3065,8 +3045,8 @@
   "ar-hearts": {
    "file": "ar-hearts.png",
    "tags": [],
-   "w": 429,
-   "h": 480,
+   "w": 480,
+   "h": 428,
    "kind": "cut",
    "cut": true
   },
@@ -3127,20 +3107,16 @@
    "kind": "cut"
   },
   "ar-holes": {
-   "file": "ar-holes.jpg",
-   "w": 154,
-   "h": 164,
-   "cut": false,
-   "tags": [
-    "u4l7",
-    "book"
-   ],
-   "from": "../../../../tmp/w/p-21.png",
-   "kind": "photo"
+   "file": "ar-holes.png",
+   "tags": [],
+   "w": 343,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-honey": {
    "file": "ar-honey.png",
-   "w": 339,
+   "w": 427,
    "h": 480,
    "cut": true,
    "tags": [
@@ -3161,8 +3137,8 @@
   "ar-hoopoe": {
    "file": "ar-hoopoe.png",
    "tags": [],
-   "w": 480,
-   "h": 437,
+   "w": 432,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
@@ -3227,8 +3203,8 @@
   },
   "ar-ice": {
    "file": "ar-ice.png",
-   "w": 480,
-   "h": 450,
+   "w": 470,
+   "h": 480,
    "cut": true,
    "tags": [
     "u2l3",
@@ -3271,7 +3247,7 @@
   },
   "ar-juice": {
    "file": "ar-juice.png",
-   "w": 361,
+   "w": 386,
    "h": 480,
    "cut": true,
    "tags": [
@@ -3291,7 +3267,7 @@
   },
   "ar-jumper": {
    "file": "ar-jumper.png",
-   "w": 355,
+   "w": 442,
    "h": 480,
    "cut": true,
    "tags": [
@@ -3310,12 +3286,12 @@
    "cut": true
   },
   "ar-kaak": {
-   "file": "ar-kaak.jpg",
+   "file": "ar-kaak.png",
    "tags": [],
-   "w": 395,
-   "h": 190,
-   "kind": "photo",
-   "cut": false
+   "w": 480,
+   "h": 438,
+   "kind": "cut",
+   "cut": true
   },
   "ar-kangaroo": {
    "file": "ar-kangaroo.png",
@@ -3368,7 +3344,7 @@
   "ar-knife": {
    "file": "ar-knife.png",
    "tags": [],
-   "w": 334,
+   "w": 463,
    "h": 480,
    "kind": "cut",
    "cut": true
@@ -3376,22 +3352,18 @@
   "ar-ladder": {
    "file": "ar-ladder.png",
    "tags": [],
-   "w": 480,
-   "h": 451,
+   "w": 189,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
   "ar-ladle": {
-   "file": "ar-ladle.jpg",
-   "w": 206,
-   "h": 145,
-   "cut": false,
-   "tags": [
-    "u4l8",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/s/b-1.png",
-   "kind": "photo"
+   "file": "ar-ladle.png",
+   "tags": [],
+   "w": 480,
+   "h": 419,
+   "kind": "cut",
+   "cut": true
   },
   "ar-lamp": {
    "file": "ar-lamp.jpg",
@@ -3442,16 +3414,12 @@
    "kind": "cut"
   },
   "ar-leopards": {
-   "file": "ar-leopards.jpg",
-   "w": 170,
-   "h": 165,
-   "cut": false,
-   "tags": [
-    "u3l7",
-    "book"
-   ],
-   "from": "../../../tmp/claude-0/s/pg-21.png",
-   "kind": "photo"
+   "file": "ar-leopards.png",
+   "tags": [],
+   "w": 480,
+   "h": 311,
+   "kind": "cut",
+   "cut": true
   },
   "ar-letters-cloud": {
    "file": "ar-letters-cloud.png",
@@ -3463,8 +3431,8 @@
   },
   "ar-lettuce": {
    "file": "ar-lettuce.png",
-   "w": 480,
-   "h": 414,
+   "w": 463,
+   "h": 480,
    "cut": true,
    "tags": [
     "arabic",
@@ -3472,6 +3440,14 @@
    ],
    "from": "Ahmed Arabic picture sheets 2026-10-17 (deleted after cutting)",
    "kind": "cut"
+  },
+  "ar-light": {
+   "file": "ar-light.png",
+   "tags": [],
+   "w": 480,
+   "h": 420,
+   "kind": "cut",
+   "cut": true
   },
   "ar-lion": {
    "file": "ar-lion.png",
@@ -3564,7 +3540,7 @@
   "ar-loofah": {
    "file": "ar-loofah.png",
    "w": 480,
-   "h": 434,
+   "h": 338,
    "cut": true,
    "tags": [
     "u2l3",
@@ -3575,7 +3551,7 @@
   },
   "ar-looker": {
    "file": "ar-looker.png",
-   "w": 389,
+   "w": 458,
    "h": 480,
    "cut": true,
    "tags": [
@@ -3669,7 +3645,7 @@
    "file": "ar-men.png",
    "tags": [],
    "w": 480,
-   "h": 366,
+   "h": 302,
    "kind": "cut",
    "cut": true
   },
@@ -3697,7 +3673,7 @@
    "file": "ar-molars.png",
    "tags": [],
    "w": 480,
-   "h": 287,
+   "h": 252,
    "kind": "cut",
    "cut": true
   },
@@ -3738,16 +3714,12 @@
    "cut": true
   },
   "ar-moon": {
-   "file": "ar-moon.jpg",
-   "w": 453,
-   "h": 302,
-   "cut": false,
-   "tags": [
-    "u2l9",
-    "book"
-   ],
-   "from": "../../../../tmp/w/n-07.png",
-   "kind": "photo"
+   "file": "ar-moon.png",
+   "tags": [],
+   "w": 477,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-mosque": {
    "file": "ar-mosque.png",
@@ -3777,7 +3749,7 @@
    "file": "ar-mountain.png",
    "tags": [],
    "w": 480,
-   "h": 279,
+   "h": 290,
    "kind": "cut",
    "cut": true
   },
@@ -3825,11 +3797,19 @@
    "from": "../../../tmp/claude-0/s/nat/a-008.jpg",
    "kind": "cut"
   },
+  "ar-mum-cleans": {
+   "file": "ar-mum-cleans.png",
+   "tags": [],
+   "w": 480,
+   "h": 452,
+   "kind": "cut",
+   "cut": true
+  },
   "ar-music-notes": {
    "file": "ar-music-notes.png",
    "tags": [],
    "w": 480,
-   "h": 329,
+   "h": 342,
    "kind": "cut",
    "cut": true
   },
@@ -3858,28 +3838,12 @@
    "kind": "photo"
   },
   "ar-nest": {
-   "file": "ar-nest.jpg",
-   "w": 184,
-   "h": 179,
-   "cut": false,
-   "tags": [
-    "u3l3",
-    "book"
-   ],
-   "from": "../../../tmp/claude-0/s/pg-05.png",
-   "kind": "photo"
-  },
-  "ar-net": {
-   "file": "ar-net.jpg",
-   "w": 252,
-   "h": 248,
-   "cut": false,
-   "tags": [
-    "u3l5",
-    "book"
-   ],
-   "from": "../../../tmp/claude-0/s/big-13.png",
-   "kind": "photo"
+   "file": "ar-nest.png",
+   "tags": [],
+   "w": 480,
+   "h": 332,
+   "kind": "cut",
+   "cut": true
   },
   "ar-nile": {
    "file": "ar-nile.png",
@@ -3893,22 +3857,10 @@
    "from": "../../../../tmp/claude-0/-home-user/c208f5b9-d7b1-51bf-b53a-8e196985ca29/scratchpad/n/a-000.jpg",
    "kind": "cut"
   },
-  "ar-octopus": {
-   "file": "ar-octopus.png",
-   "w": 480,
-   "h": 437,
-   "cut": true,
-   "tags": [
-    "arabic",
-    "sheet-P"
-   ],
-   "from": "Ahmed Arabic picture sheets 2026-10-17 (deleted after cutting)",
-   "kind": "cut"
-  },
   "ar-officers": {
    "file": "ar-officers.png",
-   "w": 414,
-   "h": 480,
+   "w": 480,
+   "h": 355,
    "cut": true,
    "tags": [
     "u4l6",
@@ -3919,7 +3871,7 @@
   },
   "ar-oil": {
    "file": "ar-oil.png",
-   "w": 297,
+   "w": 287,
    "h": 480,
    "cut": true,
    "tags": [
@@ -3943,8 +3895,8 @@
   },
   "ar-olives": {
    "file": "ar-olives.png",
-   "w": 467,
-   "h": 480,
+   "w": 480,
+   "h": 454,
    "cut": true,
    "tags": [
     "u4l3",
@@ -3963,8 +3915,8 @@
   },
   "ar-onion": {
    "file": "ar-onion.png",
-   "w": 480,
-   "h": 155,
+   "w": 373,
+   "h": 480,
    "cut": true,
    "tags": [
     "u4l5",
@@ -4041,15 +3993,15 @@
   "ar-paint-can": {
    "file": "ar-paint-can.png",
    "tags": [],
-   "w": 408,
-   "h": 480,
+   "w": 480,
+   "h": 408,
    "kind": "cut",
    "cut": true
   },
   "ar-paint-green": {
    "file": "ar-paint-green.png",
    "tags": [],
-   "w": 453,
+   "w": 415,
    "h": 480,
    "kind": "cut",
    "cut": true
@@ -4075,12 +4027,12 @@
    "kind": "cut"
   },
   "ar-paper": {
-   "file": "ar-paper.jpg",
+   "file": "ar-paper.png",
    "tags": [],
-   "w": 280,
-   "h": 290,
-   "kind": "photo",
-   "cut": false
+   "w": 480,
+   "h": 350,
+   "kind": "cut",
+   "cut": true
   },
   "ar-party-kids": {
    "file": "ar-party-kids.jpg",
@@ -4093,15 +4045,15 @@
   "ar-peach": {
    "file": "ar-peach.png",
    "tags": [],
-   "w": 480,
-   "h": 374,
+   "w": 463,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
   "ar-peacockw": {
    "file": "ar-peacockw.png",
    "w": 480,
-   "h": 312,
+   "h": 446,
    "cut": true,
    "tags": [
     "u4l4",
@@ -4120,8 +4072,8 @@
   },
   "ar-pearl": {
    "file": "ar-pearl.png",
-   "w": 393,
-   "h": 480,
+   "w": 480,
+   "h": 454,
    "cut": true,
    "tags": [
     "u2l3",
@@ -4144,8 +4096,8 @@
   "ar-peppers": {
    "file": "ar-peppers.png",
    "tags": [],
-   "w": 480,
-   "h": 444,
+   "w": 451,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
@@ -4162,12 +4114,12 @@
    "kind": "cut"
   },
   "ar-perfumes": {
-   "file": "ar-perfumes.jpg",
+   "file": "ar-perfumes.png",
    "tags": [],
-   "w": 218,
-   "h": 148,
-   "kind": "photo",
-   "cut": false
+   "w": 480,
+   "h": 364,
+   "kind": "cut",
+   "cut": true
   },
   "ar-phone": {
    "file": "ar-phone.png",
@@ -4182,21 +4134,17 @@
    "kind": "cut"
   },
   "ar-photos": {
-   "file": "ar-photos.jpg",
-   "w": 180,
-   "h": 95,
-   "cut": false,
-   "tags": [
-    "u4l5",
-    "book"
-   ],
-   "from": "../../../tmp/s/p-13.png",
-   "kind": "photo"
+   "file": "ar-photos.png",
+   "tags": [],
+   "w": 416,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-pie": {
    "file": "ar-pie.png",
-   "w": 480,
-   "h": 254,
+   "w": 446,
+   "h": 480,
    "cut": true,
    "tags": [
     "u4l4",
@@ -4218,12 +4166,12 @@
    "kind": "cut"
   },
   "ar-pillow": {
-   "file": "ar-pillow.jpg",
+   "file": "ar-pillow.png",
    "tags": [],
-   "w": 345,
-   "h": 382,
-   "kind": "photo",
-   "cut": false
+   "w": 480,
+   "h": 396,
+   "kind": "cut",
+   "cut": true
   },
   "ar-pilot": {
    "file": "ar-pilot.jpg",
@@ -4275,7 +4223,7 @@
   },
   "ar-police": {
    "file": "ar-police.png",
-   "w": 292,
+   "w": 259,
    "h": 480,
    "cut": true,
    "tags": [
@@ -4333,9 +4281,41 @@
    "kind": "cut",
    "cut": true
   },
+  "ar-q14-calf-grass": {
+   "file": "ar-q14-calf-grass.jpg",
+   "tags": [],
+   "w": 600,
+   "h": 324,
+   "kind": "photo",
+   "cut": false
+  },
+  "ar-q14-coat-snow": {
+   "file": "ar-q14-coat-snow.jpg",
+   "tags": [],
+   "w": 600,
+   "h": 324,
+   "kind": "photo",
+   "cut": false
+  },
+  "ar-q14-milk-honey": {
+   "file": "ar-q14-milk-honey.jpg",
+   "tags": [],
+   "w": 600,
+   "h": 324,
+   "kind": "photo",
+   "cut": false
+  },
+  "ar-q14-necklace-party": {
+   "file": "ar-q14-necklace-party.jpg",
+   "tags": [],
+   "w": 600,
+   "h": 324,
+   "kind": "photo",
+   "cut": false
+  },
   "ar-rabbit": {
    "file": "ar-rabbit.png",
-   "w": 327,
+   "w": 343,
    "h": 480,
    "cut": true,
    "tags": [
@@ -4355,8 +4335,8 @@
   },
   "ar-racket": {
    "file": "ar-racket.png",
-   "w": 414,
-   "h": 480,
+   "w": 480,
+   "h": 436,
    "cut": true,
    "tags": [
     "u4l6",
@@ -4411,7 +4391,7 @@
   },
   "ar-ribs": {
    "file": "ar-ribs.png",
-   "w": 446,
+   "w": 406,
    "h": 480,
    "cut": true,
    "tags": [
@@ -4425,17 +4405,17 @@
    "file": "ar-rice.png",
    "tags": [],
    "w": 480,
-   "h": 357,
+   "h": 403,
    "kind": "cut",
    "cut": true
   },
   "ar-road": {
-   "file": "ar-road.jpg",
+   "file": "ar-road.png",
    "tags": [],
-   "w": 232,
-   "h": 210,
-   "kind": "photo",
-   "cut": false
+   "w": 480,
+   "h": 407,
+   "kind": "cut",
+   "cut": true
   },
   "ar-rock": {
    "file": "ar-rock.png",
@@ -4463,26 +4443,14 @@
   },
   "ar-rod": {
    "file": "ar-rod.png",
-   "w": 340,
-   "h": 480,
+   "w": 480,
+   "h": 479,
    "cut": true,
    "tags": [
     "u4l5",
     "book"
    ],
    "from": "../../../tmp/s/p-13.png",
-   "kind": "cut"
-  },
-  "ar-rooster": {
-   "file": "ar-rooster.png",
-   "w": 436,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "arabic",
-    "sheet-B"
-   ],
-   "from": "Ahmed Arabic picture sheets 2026-10-17 (deleted after cutting)",
    "kind": "cut"
   },
   "ar-roots": {
@@ -4517,6 +4485,22 @@
    "kind": "cut",
    "cut": true
   },
+  "ar-rope-tie": {
+   "file": "ar-rope-tie.png",
+   "tags": [],
+   "w": 480,
+   "h": 139,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-roses": {
+   "file": "ar-roses.png",
+   "tags": [],
+   "w": 480,
+   "h": 410,
+   "kind": "cut",
+   "cut": true
+  },
   "ar-rowboat": {
    "file": "ar-rowboat.jpg",
    "w": 522,
@@ -4539,7 +4523,7 @@
   },
   "ar-saddle": {
    "file": "ar-saddle.png",
-   "w": 361,
+   "w": 457,
    "h": 480,
    "cut": true,
    "tags": [
@@ -4563,8 +4547,8 @@
   },
   "ar-sail": {
    "file": "ar-sail.png",
-   "w": 310,
-   "h": 479,
+   "w": 480,
+   "h": 459,
    "cut": true,
    "tags": [
     "u3l5",
@@ -4572,6 +4556,22 @@
    ],
    "from": "../../../tmp/claude-0/s/big-13.png",
    "kind": "cut"
+  },
+  "ar-sami-father-lion-bird": {
+   "file": "ar-sami-father-lion-bird.jpg",
+   "tags": [],
+   "w": 600,
+   "h": 597,
+   "kind": "photo",
+   "cut": false
+  },
+  "ar-sami-father-rabbit": {
+   "file": "ar-sami-father-rabbit.jpg",
+   "tags": [],
+   "w": 600,
+   "h": 596,
+   "kind": "photo",
+   "cut": false
   },
   "ar-saw": {
    "file": "ar-saw.png",
@@ -4587,16 +4587,20 @@
    "kind": "cut"
   },
   "ar-scarf": {
-   "file": "ar-scarf.jpg",
-   "w": 300,
-   "h": 250,
-   "cut": false,
-   "tags": [
-    "u3l6",
-    "book"
-   ],
-   "from": "../../../tmp/s/nat-17.png",
-   "kind": "photo"
+   "file": "ar-scarf.png",
+   "tags": [],
+   "w": 438,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-school-class": {
+   "file": "ar-school-class.jpg",
+   "tags": [],
+   "w": 600,
+   "h": 310,
+   "kind": "photo",
+   "cut": false
   },
   "ar-school-cut": {
    "file": "ar-school-cut.png",
@@ -4614,11 +4618,51 @@
    "kind": "photo",
    "cut": false
   },
+  "ar-school-friend": {
+   "file": "ar-school-friend.jpg",
+   "tags": [],
+   "w": 600,
+   "h": 300,
+   "kind": "photo",
+   "cut": false
+  },
+  "ar-school-hind": {
+   "file": "ar-school-hind.jpg",
+   "tags": [],
+   "w": 600,
+   "h": 305,
+   "kind": "photo",
+   "cut": false
+  },
+  "ar-school-home": {
+   "file": "ar-school-home.jpg",
+   "tags": [],
+   "w": 600,
+   "h": 305,
+   "kind": "photo",
+   "cut": false
+  },
   "ar-school-kids": {
    "file": "ar-school-kids.jpg",
    "tags": [],
    "w": 204,
    "h": 196,
+   "kind": "photo",
+   "cut": false
+  },
+  "ar-school-love": {
+   "file": "ar-school-love.jpg",
+   "tags": [],
+   "w": 600,
+   "h": 310,
+   "kind": "photo",
+   "cut": false
+  },
+  "ar-school-playground": {
+   "file": "ar-school-playground.jpg",
+   "tags": [],
+   "w": 600,
+   "h": 305,
    "kind": "photo",
    "cut": false
   },
@@ -4670,6 +4714,14 @@
    "from": "../../../tmp/claude-0/s/nat/b-016.jpg",
    "kind": "cut"
   },
+  "ar-search": {
+   "file": "ar-search.png",
+   "tags": [],
+   "w": 419,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
+  },
   "ar-seas": {
    "file": "ar-seas.jpg",
    "tags": [],
@@ -4688,8 +4740,8 @@
   },
   "ar-seeds": {
    "file": "ar-seeds.png",
-   "w": 480,
-   "h": 287,
+   "w": 457,
+   "h": 480,
    "cut": true,
    "tags": [
     "u3l8",
@@ -4700,7 +4752,7 @@
   },
   "ar-shadow": {
    "file": "ar-shadow.png",
-   "w": 170,
+   "w": 389,
    "h": 480,
    "cut": true,
    "tags": [
@@ -4744,8 +4796,8 @@
   },
   "ar-sheep": {
    "file": "ar-sheep.png",
-   "w": 476,
-   "h": 480,
+   "w": 480,
+   "h": 387,
    "cut": true,
    "tags": [
     "arabic",
@@ -4754,17 +4806,21 @@
    "from": "Ahmed Arabic picture sheets 2026-10-17 (deleted after cutting)",
    "kind": "cut"
   },
+  "ar-sheet": {
+   "file": "ar-sheet.png",
+   "tags": [],
+   "w": 451,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
+  },
   "ar-sheikh": {
-   "file": "ar-sheikh.jpg",
-   "w": 360,
-   "h": 370,
-   "cut": false,
-   "tags": [
-    "u3l3",
-    "book"
-   ],
-   "from": "../../../../tmp/s/h-08.png",
-   "kind": "photo"
+   "file": "ar-sheikh.png",
+   "tags": [],
+   "w": 277,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-shelf": {
    "file": "ar-shelf.png",
@@ -4781,7 +4837,7 @@
   "ar-shield": {
    "file": "ar-shield.png",
    "tags": [],
-   "w": 361,
+   "w": 421,
    "h": 480,
    "kind": "cut",
    "cut": true
@@ -4796,8 +4852,8 @@
   },
   "ar-ships": {
    "file": "ar-ships.png",
-   "w": 480,
-   "h": 346,
+   "w": 443,
+   "h": 480,
    "cut": true,
    "tags": [
     "u2l4",
@@ -4841,15 +4897,15 @@
   "ar-shower": {
    "file": "ar-shower.png",
    "tags": [],
-   "w": 480,
-   "h": 459,
+   "w": 337,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
   "ar-sick-boy": {
    "file": "ar-sick-boy.png",
    "tags": [],
-   "w": 309,
+   "w": 302,
    "h": 480,
    "kind": "cut",
    "cut": true
@@ -4918,7 +4974,7 @@
    "file": "ar-socks.png",
    "tags": [],
    "w": 480,
-   "h": 372,
+   "h": 463,
    "kind": "cut",
    "cut": true
   },
@@ -4948,7 +5004,7 @@
   },
   "ar-spinning": {
    "file": "ar-spinning.png",
-   "w": 269,
+   "w": 432,
    "h": 480,
    "cut": true,
    "tags": [
@@ -4972,7 +5028,7 @@
   },
   "ar-squirrel": {
    "file": "ar-squirrel.png",
-   "w": 307,
+   "w": 447,
    "h": 480,
    "cut": true,
    "tags": [
@@ -5296,7 +5352,7 @@
   "ar-submarine": {
    "file": "ar-submarine.png",
    "w": 480,
-   "h": 392,
+   "h": 469,
    "cut": true,
    "tags": [
     "u4l8",
@@ -5308,22 +5364,22 @@
   "ar-swim-boy": {
    "file": "ar-swim-boy.jpg",
    "tags": [],
-   "w": 449,
-   "h": 251,
+   "w": 550,
+   "h": 600,
    "kind": "photo",
    "cut": false
   },
   "ar-swim-girl": {
    "file": "ar-swim-girl.jpg",
    "tags": [],
-   "w": 449,
-   "h": 272,
+   "w": 600,
+   "h": 595,
    "kind": "photo",
    "cut": false
   },
   "ar-swords": {
    "file": "ar-swords.png",
-   "w": 319,
+   "w": 424,
    "h": 480,
    "cut": true,
    "tags": [
@@ -5335,8 +5391,8 @@
   },
   "ar-tail": {
    "file": "ar-tail.png",
-   "w": 480,
-   "h": 201,
+   "w": 476,
+   "h": 480,
    "cut": true,
    "tags": [
     "u3l8",
@@ -5354,16 +5410,12 @@
    "cut": true
   },
   "ar-tangerine": {
-   "file": "ar-tangerine.jpg",
-   "w": 179,
-   "h": 169,
-   "cut": false,
-   "tags": [
-    "u3l3",
-    "book"
-   ],
-   "from": "../../../tmp/claude-0/s/pg-05.png",
-   "kind": "photo"
+   "file": "ar-tangerine.png",
+   "tags": [],
+   "w": 480,
+   "h": 474,
+   "kind": "cut",
+   "cut": true
   },
   "ar-tank": {
    "file": "ar-tank.png",
@@ -5375,7 +5427,7 @@
   },
   "ar-tap": {
    "file": "ar-tap.png",
-   "w": 408,
+   "w": 413,
    "h": 480,
    "cut": true,
    "tags": [
@@ -5428,17 +5480,25 @@
    "from": "../../../../tmp/claude-0/s/pg/full/pg-001.jpg",
    "kind": "cut"
   },
+  "ar-teeth": {
+   "file": "ar-teeth.png",
+   "tags": [],
+   "w": 480,
+   "h": 444,
+   "kind": "cut",
+   "cut": true
+  },
   "ar-tent": {
    "file": "ar-tent.png",
    "tags": [],
    "w": 480,
-   "h": 279,
+   "h": 292,
    "kind": "cut",
    "cut": true
   },
   "ar-thief": {
    "file": "ar-thief.png",
-   "w": 443,
+   "w": 471,
    "h": 480,
    "cut": true,
    "tags": [
@@ -5486,7 +5546,7 @@
   },
   "ar-tongue": {
    "file": "ar-tongue.png",
-   "w": 408,
+   "w": 447,
    "h": 480,
    "cut": true,
    "tags": [
@@ -5522,7 +5582,7 @@
   },
   "ar-torch": {
    "file": "ar-torch.png",
-   "w": 220,
+   "w": 206,
    "h": 480,
    "cut": true,
    "tags": [
@@ -5562,8 +5622,8 @@
   },
   "ar-toy-rings": {
    "file": "ar-toy-rings.png",
-   "w": 359,
-   "h": 480,
+   "w": 480,
+   "h": 458,
    "cut": true,
    "tags": [
     "u2l3",
@@ -5575,7 +5635,7 @@
   "ar-tractor": {
    "file": "ar-tractor.png",
    "w": 480,
-   "h": 398,
+   "h": 305,
    "cut": true,
    "tags": [
     "u4l7",
@@ -5586,7 +5646,7 @@
   },
   "ar-traffic-light": {
    "file": "ar-traffic-light.png",
-   "w": 270,
+   "w": 336,
    "h": 480,
    "cut": true,
    "tags": [
@@ -5609,34 +5669,26 @@
    "kind": "cut"
   },
   "ar-traps": {
-   "file": "ar-traps.jpg",
-   "w": 179,
-   "h": 199,
-   "cut": false,
-   "tags": [
-    "u3l3",
-    "book"
-   ],
-   "from": "../../../tmp/claude-0/s/pg-05.png",
-   "kind": "photo"
+   "file": "ar-traps.png",
+   "tags": [],
+   "w": 480,
+   "h": 386,
+   "kind": "cut",
+   "cut": true
   },
   "ar-tray": {
-   "file": "ar-tray.jpg",
-   "w": 169,
-   "h": 154,
-   "cut": false,
-   "tags": [
-    "u4l5",
-    "book"
-   ],
-   "from": "../../../tmp/s/p-13.png",
-   "kind": "photo"
+   "file": "ar-tray.png",
+   "tags": [],
+   "w": 480,
+   "h": 222,
+   "kind": "cut",
+   "cut": true
   },
   "ar-trees": {
    "file": "ar-trees.png",
    "tags": [],
    "w": 480,
-   "h": 315,
+   "h": 459,
    "kind": "cut",
    "cut": true
   },
@@ -5654,8 +5706,8 @@
   },
   "ar-trunk": {
    "file": "ar-trunk.png",
-   "w": 480,
-   "h": 383,
+   "w": 438,
+   "h": 480,
    "cut": true,
    "tags": [
     "u3l8",
@@ -5678,8 +5730,8 @@
   },
   "ar-turnip": {
    "file": "ar-turnip.png",
-   "w": 451,
-   "h": 480,
+   "w": 480,
+   "h": 387,
    "cut": true,
    "tags": [
     "u2l3",
@@ -5690,8 +5742,8 @@
   },
   "ar-turtle": {
    "file": "ar-turtle.png",
-   "w": 480,
-   "h": 373,
+   "w": 441,
+   "h": 480,
    "cut": true,
    "tags": [
     "arabic",
@@ -5699,6 +5751,50 @@
    ],
    "from": "Ahmed Arabic picture sheets 2026-10-17 (deleted after cutting)",
    "kind": "cut"
+  },
+  "ar-turtle-camel": {
+   "file": "ar-turtle-camel.jpg",
+   "tags": [
+    "u4l10"
+   ],
+   "w": 1100,
+   "h": 411,
+   "kind": "photo",
+   "cut": false,
+   "from": "school book part 3, PDF page 39"
+  },
+  "ar-turtle-hill": {
+   "file": "ar-turtle-hill.jpg",
+   "tags": [
+    "u4l10"
+   ],
+   "w": 1100,
+   "h": 501,
+   "kind": "photo",
+   "cut": false,
+   "from": "school book part 3, PDF page 38"
+  },
+  "ar-turtle-race": {
+   "file": "ar-turtle-race.jpg",
+   "tags": [
+    "u4l10"
+   ],
+   "w": 1100,
+   "h": 486,
+   "kind": "photo",
+   "cut": false,
+   "from": "school book part 3, PDF page 39"
+  },
+  "ar-turtle-talk": {
+   "file": "ar-turtle-talk.jpg",
+   "tags": [
+    "u4l10"
+   ],
+   "w": 1100,
+   "h": 334,
+   "kind": "photo",
+   "cut": false,
+   "from": "school book part 3, PDF page 38"
   },
   "ar-tv": {
    "file": "ar-tv.png",
@@ -5714,7 +5810,7 @@
   },
   "ar-two": {
    "file": "ar-two.png",
-   "w": 305,
+   "w": 347,
    "h": 480,
    "cut": true,
    "tags": [
@@ -5735,26 +5831,22 @@
   "ar-vacuum": {
    "file": "ar-vacuum.png",
    "tags": [],
-   "w": 480,
-   "h": 477,
+   "w": 473,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
   "ar-veg": {
-   "file": "ar-veg.jpg",
-   "w": 211,
-   "h": 95,
-   "cut": false,
-   "tags": [
-    "u4l6",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/-home-user/a974c509-31ef-5086-8318-17c5ffb01c44/scratchpad/p/pg17-17.png",
-   "kind": "photo"
+   "file": "ar-veg.png",
+   "tags": [],
+   "w": 480,
+   "h": 476,
+   "kind": "cut",
+   "cut": true
   },
   "ar-washer": {
    "file": "ar-washer.png",
-   "w": 362,
+   "w": 398,
    "h": 480,
    "cut": true,
    "tags": [
@@ -5765,24 +5857,20 @@
    "kind": "cut"
   },
   "ar-wave": {
-   "file": "ar-wave.jpg",
+   "file": "ar-wave.png",
    "tags": [],
-   "w": 226,
-   "h": 122,
-   "kind": "photo",
-   "cut": false
+   "w": 480,
+   "h": 372,
+   "kind": "cut",
+   "cut": true
   },
   "ar-weights": {
-   "file": "ar-weights.jpg",
-   "w": 201,
-   "h": 103,
-   "cut": false,
-   "tags": [
-    "u4l7",
-    "book"
-   ],
-   "from": "../../../../tmp/w/p-21.png",
-   "kind": "photo"
+   "file": "ar-weights.png",
+   "tags": [],
+   "w": 480,
+   "h": 385,
+   "kind": "cut",
+   "cut": true
   },
   "ar-whale": {
    "file": "ar-whale.png",
@@ -5800,14 +5888,14 @@
    "file": "ar-winter.png",
    "tags": [],
    "w": 480,
-   "h": 473,
+   "h": 374,
    "kind": "cut",
    "cut": true
   },
   "ar-wolf": {
    "file": "ar-wolf.png",
-   "w": 480,
-   "h": 380,
+   "w": 436,
+   "h": 480,
    "cut": true,
    "tags": [
     "u3l8",
@@ -5830,8 +5918,8 @@
   },
   "ar-worm": {
    "file": "ar-worm.png",
-   "w": 480,
-   "h": 390,
+   "w": 391,
+   "h": 480,
    "cut": true,
    "tags": [
     "u1l8",
@@ -5841,16 +5929,12 @@
    "kind": "cut"
   },
   "ar-wudu": {
-   "file": "ar-wudu.jpg",
-   "w": 336,
-   "h": 373,
-   "cut": false,
-   "tags": [
-    "u3l6",
-    "book"
-   ],
-   "from": "../../../tmp/s/nat-17.png",
-   "kind": "photo"
+   "file": "ar-wudu.png",
+   "tags": [],
+   "w": 433,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-wudu2": {
    "file": "ar-wudu2.png",
@@ -5862,7 +5946,7 @@
   },
   "ar-yogurt": {
    "file": "ar-yogurt.png",
-   "w": 439,
+   "w": 421,
    "h": 480,
    "cut": true,
    "tags": [
@@ -5875,8 +5959,8 @@
   "ar-zero": {
    "file": "ar-zero.png",
    "tags": [],
-   "w": 480,
-   "h": 291,
+   "w": 339,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
@@ -6250,18 +6334,6 @@
    "from": "lesson folder en-al/u1l1/img/big-family.png",
    "kind": "cut"
   },
-  "bike-u6l2": {
-   "file": "bike-u6l2.png",
-   "w": 480,
-   "h": 424,
-   "cut": true,
-   "tags": [
-    "u6l2",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/u5/b-12.png",
-   "kind": "cut"
-  },
   "bird": {
    "file": "bird.png",
    "w": 455,
@@ -6497,7 +6569,7 @@
   "bookcase": {
    "file": "bookcase.png",
    "tags": [],
-   "w": 364,
+   "w": 342,
    "h": 480,
    "kind": "cut",
    "cut": true
@@ -6516,7 +6588,7 @@
   "box": {
    "file": "box.png",
    "w": 480,
-   "h": 429,
+   "h": 295,
    "cut": true,
    "tags": [
     "u1l4",
@@ -6874,18 +6946,6 @@
    "from": "../../../tmp/claude-0/-home-claude/74035036-3ee2-5287-b979-dd80e572d7c6/scratchpad/src/b-029.png",
    "kind": "cut"
   },
-  "cactus": {
-   "file": "cactus.png",
-   "tags": [
-    "count-unit"
-   ],
-   "w": 288,
-   "h": 480,
-   "kind": "cut",
-   "cut": true,
-   "need": "unit",
-   "from": "placeholder cut from cacti-6 (2026-11-06); Marwa makes the real unit picture"
-  },
   "cactus-glasses": {
    "file": "cactus-glasses.png",
    "tags": [
@@ -6940,7 +7000,7 @@
    "tags": [
     "count-unit"
    ],
-   "w": 154,
+   "w": 198,
    "h": 480,
    "kind": "cut",
    "cut": true,
@@ -6964,25 +7024,12 @@
    "tags": [
     "count-unit"
    ],
-   "w": 393,
-   "h": 480,
+   "w": 480,
+   "h": 226,
    "kind": "cut",
    "cut": true,
    "need": "unit",
    "from": "placeholder cut from cars-7-u5l3 (2026-11-06); Marwa makes the real unit picture"
-  },
-  "car-u4l4": {
-   "file": "car-u4l4.png",
-   "w": 480,
-   "h": 429,
-   "cut": true,
-   "tags": [
-    "u4",
-    "phonics",
-    "book"
-   ],
-   "from": "l4-15.png",
-   "kind": "cut"
   },
   "cards-animals": {
    "file": "cards-animals.jpg",
@@ -7247,19 +7294,6 @@
    "kind": "photo",
    "cut": false
   },
-  "clock-r1": {
-   "file": "clock-r1.png",
-   "w": 479,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u3",
-    "review1",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/rv1/hi62-30.png",
-   "kind": "cut"
-  },
   "close": {
    "file": "close.jpg",
    "tags": [],
@@ -7429,29 +7463,13 @@
   "desk": {
    "file": "desk.png",
    "w": 480,
-   "h": 322,
+   "h": 363,
    "cut": true,
    "tags": [
     "u1l3"
    ],
    "from": "originals/u1l3/lesson-3-full.jpg",
    "kind": "cut"
-  },
-  "desk-exrev1": {
-   "file": "desk-exrev1.png",
-   "tags": [],
-   "w": 480,
-   "h": 257,
-   "kind": "cut",
-   "cut": true
-  },
-  "desk-u2": {
-   "file": "desk-u2.png",
-   "tags": [],
-   "w": 480,
-   "h": 389,
-   "kind": "cut",
-   "cut": true
   },
   "dino": {
    "file": "dino.png",
@@ -7568,7 +7586,7 @@
   "dolphin": {
    "file": "dolphin.png",
    "w": 480,
-   "h": 454,
+   "h": 366,
    "cut": true,
    "tags": [
     "u2l4",
@@ -7761,19 +7779,6 @@
    "kind": "cut",
    "cut": true
   },
-  "eggplant-u4l2": {
-   "file": "eggplant-u4l2.png",
-   "w": 480,
-   "h": 478,
-   "cut": true,
-   "tags": [
-    "u4",
-    "phonics",
-    "book"
-   ],
-   "from": "l2-08.png",
-   "kind": "cut"
-  },
   "eggs": {
    "file": "eggs.png",
    "tags": [],
@@ -7880,7 +7885,7 @@
   "eye-u4l1": {
    "file": "eye-u4l1.png",
    "w": 480,
-   "h": 480,
+   "h": 302,
    "cut": true,
    "tags": [
     "u4",
@@ -8139,19 +8144,6 @@
    "from": "math book",
    "kind": "photo"
   },
-  "fish-u4l2": {
-   "file": "fish-u4l2.png",
-   "w": 480,
-   "h": 291,
-   "cut": true,
-   "tags": [
-    "u4",
-    "phonics",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/u4/l2-07.png",
-   "kind": "cut"
-  },
   "flower": {
    "file": "flower.png",
    "w": 284,
@@ -8230,8 +8222,8 @@
   },
   "fork-u4l2": {
    "file": "fork-u4l2.png",
-   "w": 467,
-   "h": 480,
+   "w": 480,
+   "h": 456,
    "cut": true,
    "tags": [
     "u4",
@@ -8325,7 +8317,7 @@
   },
   "giraffe-u6l1": {
    "file": "giraffe-u6l1.png",
-   "w": 238,
+   "w": 297,
    "h": 480,
    "cut": true,
    "tags": [
@@ -8395,7 +8387,7 @@
   },
   "girl-u5l2": {
    "file": "girl-u5l2.png",
-   "w": 475,
+   "w": 206,
    "h": 480,
    "cut": true,
    "tags": [
@@ -8442,7 +8434,7 @@
   },
   "goat-u5l2": {
    "file": "goat-u5l2.png",
-   "w": 478,
+   "w": 422,
    "h": 480,
    "cut": true,
    "tags": [
@@ -8567,15 +8559,12 @@
    "kind": "cut"
   },
   "grandpa": {
-   "file": "grandpa.jpg",
-   "w": 410,
-   "h": 378,
-   "cut": false,
-   "tags": [
-    "u1l1"
-   ],
-   "from": "lesson folder en-al/u1l1/img/grandpa.jpg",
-   "kind": "photo"
+   "file": "grandpa.png",
+   "tags": [],
+   "w": 385,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "grapes": {
    "file": "grapes.png",
@@ -8629,23 +8618,12 @@
    "kind": "cut"
   },
   "green": {
-   "file": "green.jpg",
-   "w": 155,
-   "h": 117,
-   "cut": false,
-   "tags": [
-    "exrev2"
-   ],
-   "from": "lesson folder en-ol/exams/rev2/img/green.jpg",
-   "kind": "photo"
-  },
-  "green-swatch": {
-   "file": "green-swatch.png",
+   "file": "green.png",
    "tags": [],
-   "w": 264,
-   "h": 172,
-   "kind": "shape",
-   "cut": false
+   "w": 459,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "guitar-girl": {
    "file": "guitar-girl.jpg",
@@ -8681,17 +8659,6 @@
    "cut": true,
    "need": "unit",
    "from": "placeholder cut from gummy-bears-7 (2026-11-06); Marwa makes the real unit picture"
-  },
-  "hair": {
-   "file": "hair.jpg",
-   "w": 123,
-   "h": 101,
-   "cut": false,
-   "tags": [
-    "exrev2"
-   ],
-   "from": "lesson folder en-ol/exams/rev2/img/hair.jpg",
-   "kind": "photo"
   },
   "hair-q57": {
    "file": "hair-q57.png",
@@ -9303,8 +9270,8 @@
   },
   "kite-u4l4": {
    "file": "kite-u4l4.png",
-   "w": 480,
-   "h": 478,
+   "w": 450,
+   "h": 480,
    "cut": true,
    "tags": [
     "u4",
@@ -9609,19 +9576,6 @@
    "from": "a-25.png",
    "kind": "cut"
   },
-  "moon-u4l3": {
-   "file": "moon-u4l3.png",
-   "w": 480,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u4",
-    "senses",
-    "book"
-   ],
-   "from": "l3-14.png",
-   "kind": "cut"
-  },
   "moon-u5l2": {
    "file": "moon-u5l2.png",
    "w": 480,
@@ -9805,36 +9759,13 @@
   },
   "net": {
    "file": "net.png",
-   "w": 480,
-   "h": 156,
-   "cut": true,
-   "tags": [
-    "u3l2"
-   ],
-   "from": "lesson folder en-ol/u3l2/img/net.png",
-   "kind": "cut"
-  },
-  "net-6": {
-   "file": "net-6.png",
-   "w": 381,
+   "w": 412,
    "h": 480,
    "cut": true,
    "tags": [
     "u3l2"
    ],
-   "from": "lesson folder en-ol/u3l2/img/net-6.png",
-   "kind": "cut"
-  },
-  "net-n4": {
-   "file": "net-n4.png",
-   "w": 480,
-   "h": 478,
-   "cut": true,
-   "tags": [
-    "u3l2",
-    "book"
-   ],
-   "from": "../../../tmp/claude-0/s/f48.png",
+   "from": "lesson folder en-ol/u3l2/img/net.png",
    "kind": "cut"
   },
   "nose-6": {
@@ -10020,8 +9951,8 @@
   },
   "octopus": {
    "file": "octopus.png",
-   "w": 440,
-   "h": 480,
+   "w": 480,
+   "h": 450,
    "cut": true,
    "tags": [
     "math",
@@ -10029,18 +9960,6 @@
     "book"
    ],
    "from": "../../../tmp/claude-0/-home-user/798bcf21-6e3b-5f2d-b2de-e94fbf2e580f/scratchpad/c/p3-4-1.png",
-   "kind": "cut"
-  },
-  "olive-u5l4": {
-   "file": "olive-u5l4.png",
-   "w": 435,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u5l4",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/u5/b-02.png",
    "kind": "cut"
   },
   "on-u5l4": {
@@ -10508,19 +10427,6 @@
    "kind": "cut",
    "cut": true
   },
-  "rabbit-u4l2": {
-   "file": "rabbit-u4l2.png",
-   "w": 480,
-   "h": 451,
-   "cut": true,
-   "tags": [
-    "u4",
-    "phonics",
-    "book"
-   ],
-   "from": "l2-06.png",
-   "kind": "cut"
-  },
   "raspberry-off-u5l3": {
    "file": "raspberry-off-u5l3.png",
    "tags": [],
@@ -10640,7 +10546,7 @@
    "tags": [
     "count-unit"
    ],
-   "w": 144,
+   "w": 351,
    "h": 480,
    "kind": "cut",
    "cut": true,
@@ -10650,8 +10556,8 @@
   "ruler": {
    "file": "ruler.png",
    "tags": [],
-   "w": 480,
-   "h": 205,
+   "w": 410,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
@@ -10907,6 +10813,14 @@
    "kind": "photo",
    "cut": false
   },
+  "school": {
+   "file": "school.png",
+   "tags": [],
+   "w": 480,
+   "h": 335,
+   "kind": "cut",
+   "cut": true
+  },
   "screw-n4": {
    "file": "screw-n4.png",
    "w": 225,
@@ -10930,6 +10844,14 @@
    ],
    "from": "originals/u1l1/shake-hands.jpg",
    "kind": "photo"
+  },
+  "sheep": {
+   "file": "sheep.png",
+   "tags": [],
+   "w": 436,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "shorts": {
    "file": "shorts.png",
@@ -11278,8 +11200,8 @@
   },
   "star": {
    "file": "star.png",
-   "w": 461,
-   "h": 480,
+   "w": 480,
+   "h": 468,
    "cut": true,
    "tags": [
     "u2l2",
@@ -11298,17 +11220,6 @@
     "quiz"
    ],
    "from": "../../../tmp/claude-0/-home-claude/74035036-3ee2-5287-b979-dd80e572d7c6/scratchpad/src/b-035.png",
-   "kind": "cut"
-  },
-  "star-u2l2": {
-   "file": "star-u2l2.png",
-   "w": 480,
-   "h": 447,
-   "cut": true,
-   "tags": [
-    "u2l2"
-   ],
-   "from": "lesson folder en-ol/u2l2/img/star.png",
    "kind": "cut"
   },
   "starfish": {
@@ -11592,19 +11503,6 @@
    "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/u4/hi-04.png",
    "kind": "cut"
   },
-  "tongue-u4l1": {
-   "file": "tongue-u4l1.png",
-   "w": 480,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u4",
-    "body",
-    "book"
-   ],
-   "from": "hi-02.png",
-   "kind": "cut"
-  },
   "tower": {
    "file": "tower.png",
    "tags": [],
@@ -11762,19 +11660,6 @@
    "need": "unit",
    "from": "placeholder cut from tulips-2 (2026-11-06); Marwa makes the real unit picture"
   },
-  "turtle-u5l1": {
-   "file": "turtle-u5l1.png",
-   "w": 480,
-   "h": 310,
-   "cut": true,
-   "tags": [
-    "u5",
-    "farm",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/u5/a-23.png",
-   "kind": "cut"
-  },
   "u3-ball": {
    "file": "u3-ball.png",
    "tags": [],
@@ -11788,14 +11673,6 @@
    "tags": [],
    "w": 472,
    "h": 480,
-   "kind": "cut",
-   "cut": true
-  },
-  "u3-car": {
-   "file": "u3-car.png",
-   "tags": [],
-   "w": 480,
-   "h": 454,
    "kind": "cut",
    "cut": true
   },
@@ -12354,7 +12231,7 @@
   "umbrella-u6l4": {
    "file": "umbrella-u6l4.png",
    "w": 480,
-   "h": 480,
+   "h": 452,
    "cut": true,
    "tags": [
     "u6l4",
@@ -12479,8 +12356,8 @@
   "window": {
    "file": "window.png",
    "tags": [],
-   "w": 480,
-   "h": 375,
+   "w": 455,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
@@ -12496,17 +12373,9 @@
    "file": "yellow.png",
    "tags": [],
    "w": 480,
-   "h": 402,
+   "h": 450,
    "kind": "cut",
    "cut": true
-  },
-  "yellow-swatch": {
-   "file": "yellow-swatch.png",
-   "tags": [],
-   "w": 264,
-   "h": 172,
-   "kind": "shape",
-   "cut": false
   },
   "your": {
    "file": "your.png",

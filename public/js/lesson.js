@@ -137,7 +137,7 @@ function pageDefaultSlow(){ return new Set(LESSON.lines.filter(l=>nPages()<2||l.
 /* LESSON-TEMPLATE REGISTRY (like QM for questions; the list of names + required data is tools/check/lessons.json, docs/templates.md).
    One entry per lesson/page template: show = draws the page from data, story = true when pages swipe inside the story panel. A new template = a new entry + lessons.json + docs; a lesson only names it ("layout" for the lesson, "pageLayouts"[i] per page) and supplies data. */
 const LT={
-  letter:{show:()=>showLetter(),story:false}, math:{show:()=>showMathExplain(),story:false}, explain:{show:()=>showExplain(),story:false},
+  letter:{show:()=>showLetter(),story:false}, math:{show:()=>showMathExplain(),story:false}, explain:{show:()=>showExplain(),story:false}, nahw:{show:()=>showNahw(),story:false},
   bubbles:{show:()=>showBubbles(),story:false}, point:{show:()=>showPoint(),story:false}, slide:{show:()=>showStory(),story:true},
   pictures:{show:()=>showPics(),story:false}, poem:{show:()=>showPoem(),story:false}, story:{show:()=>showStory(),story:true}, text:{show:()=>showStory(),story:true}
 };

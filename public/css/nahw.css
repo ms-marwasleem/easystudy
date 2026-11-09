@@ -1,0 +1,27 @@
+/* NAHW template (js/nahw.js): animated grammar lessons. FIXED zones (board + sentence), relative units only; colours from theme.css. */
+.scene.nhhost{background:none;border:0;box-shadow:none;overflow:visible;justify-content:flex-start;align-items:stretch;padding:0}
+.scene.nhhost::before,.scene.nhhost::after{display:none}
+.nh{display:grid;grid-template-columns:minmax(0,58fr) minmax(0,42fr);grid-template-rows:minmax(0,1fr);gap:clamp(.3rem,1.5cqh,.8rem);height:100%;min-height:0;user-select:none;-webkit-user-select:none}
+@media (orientation:portrait){.nh{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,66fr) minmax(0,34fr)}}
+.nh-board{position:relative;container-type:size;min-height:0;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3cqh;background:var(--c-paper2);border:.2rem solid var(--ol);border-radius:1.2rem;box-shadow:0 .25rem 0 rgba(90,52,24,.3)}
+.nh-pic{height:25cqh;max-width:60cqw;object-fit:contain}
+.nh-row{display:flex;flex-direction:row;justify-content:center;align-items:center;direction:rtl;gap:3cqw}
+.nh-row.word{display:block;text-align:center;font:400 min(26cqh,19cqw)/1.2 var(--f-ar);color:var(--ol);white-space:nowrap;direction:rtl}   /* block, NOT flex: letters of one word must stay joined */
+.nh-wl{transition:color .3s}
+.nh-wl.lit{color:var(--xc)}
+.nh-tile{width:min(34cqw,38cqh);height:min(34cqw,38cqh);display:grid;place-items:center;background:#fff;border:.25rem solid var(--ol);border-radius:1.2rem;box-shadow:0 .25rem 0 rgba(90,52,24,.3);transition:background .3s}
+.nh-tile.lit{background:var(--xc)}
+.nh-b{position:relative;font:400 min(30cqh,22cqw)/1.6 var(--f-ar);color:var(--ol);transition:color .3s}
+.nh-tile.lit .nh-b{color:#fff}
+.nh-m{color:#E8443A}
+.nh-tile.lit .nh-m{color:var(--ol)}
+.nh-tag{position:absolute;transform:translate(-50%,var(--ty,0%));margin-top:.2rem;padding:.2rem .9rem;border-radius:.9rem;background:var(--xc);color:#fff;font:400 min(8cqh,6cqw)/1.4 var(--f-ar);white-space:nowrap;box-shadow:0 .15rem 0 rgba(0,0,0,.25)}
+.nh-suk{position:absolute;transform:translate(-50%,-60%);width:min(11cqh,9cqw);height:min(11cqh,9cqw);border-radius:50%;border:min(2.4cqh,2cqw) solid #E8443A;background:#fff;pointer-events:none}   /* the sukoon sign drawn as a ring */
+.nh-x{position:absolute;transform:translate(-50%,-50%);font:400 min(30cqh,22cqw)/1 var(--f-title);color:#E8443A;-webkit-text-stroke:.3rem #fff;paint-order:stroke fill;pointer-events:none}
+.nh .hid{opacity:0}
+.nh-cap{container-type:size;min-height:0;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:0 .5rem}
+.nh-capt{margin:0;font:400 min(15cqh,11cqw)/1.7 var(--f-ar);color:var(--c-on-bg);text-align:center;text-shadow:0 .12rem 0 rgba(90,52,24,.4)}
+.nh-w{transition:opacity .25s,color .25s}
+.nh-w.next{opacity:.3}
+.nh-w.now{color:var(--c-hint)}
+.nh-tag.up{--ty:-100%;margin-top:0;margin-bottom:.2rem}

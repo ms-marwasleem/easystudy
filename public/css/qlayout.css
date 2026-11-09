@@ -104,3 +104,6 @@
   .quiz:not([data-type="mad"]) .qx:has(>.qxpic)>.qxpic{order:-1;flex:0 0 auto;height:100%;width:calc(50% - clamp(.5rem,2cqw,1.25rem))}
   .quiz:not([data-type="mad"]) .qx:has(>.qxpic)>:not(.qxpic):not(.qxsay){max-width:calc(50% - clamp(.5rem,2cqw,1.25rem))}
 }
+
+/* link board in rows (tags/words above, pictures below): the two rows breathe, never stuck together (Ahmed 2026-11-08) */
+.qlink:not(.cols){gap:clamp(2.75rem,16cqh,3.5rem)}

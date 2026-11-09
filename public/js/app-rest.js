@@ -336,7 +336,7 @@ function pageDefaultSlow(){ return new Set(LESSON.lines.filter(l=>nPages()<2||l.
 /* LESSON-TEMPLATE REGISTRY (like QM for questions; the list of names + required data is tools/check/lessons.json, docs/templates.md).
    One entry per lesson/page template: show = draws the page from data, story = true when pages swipe inside the story panel. A new template = a new entry + lessons.json + docs; a lesson only names it ("layout" for the lesson, "pageLayouts"[i] per page) and supplies data. */
 const LT={
-  letter:{show:()=>showLetter(),story:false}, math:{show:()=>showMathExplain(),story:false}, explain:{show:()=>showExplain(),story:false},
+  letter:{show:()=>showLetter(),story:false}, math:{show:()=>showMathExplain(),story:false}, explain:{show:()=>showExplain(),story:false}, nahw:{show:()=>showNahw(),story:false},
   bubbles:{show:()=>showBubbles(),story:false}, point:{show:()=>showPoint(),story:false}, slide:{show:()=>showStory(),story:true},
   pictures:{show:()=>showPics(),story:false}, poem:{show:()=>showPoem(),story:false}, story:{show:()=>showStory(),story:true}, text:{show:()=>showStory(),story:true}
 };
@@ -1721,14 +1721,14 @@ function qxQAAll(box,q,s,run){
   const one=async(w,src,t,k)=>{ w.classList.add('reading'); playing=true; paint(); await qSound(src,t); w.classList.remove('reading'); return k===tok&&live(); };
   function stop(){ ++tok; vStop(); playing=false; $$('.w.reading',note).forEach(x=>x.classList.remove('reading')); paint(); }
   const text=k=>{ const it=q.items[k], inn=el('div','in'), ul=el('ul','lines');
-    lines=[[it.ask,it.audio,'qa-q'],[it.word,R_Q(it.ansAudio),'qa-a']].map(([t,src,c])=>{ const li=el('li','line '+c), tx=el('span','txt'), w=el('span','w',t); tx.append(w); li.append(tx); ul.append(li);
+    lines=[[it.ask,it.audio,'qa-q'],[it.word,R_Q(it.ansAudio),'qa-a']].filter(x=>x[0]).map(([t,src,c])=>{ const li=el('li','line '+c), tx=el('span','txt'), w=el('span','w',t); tx.append(w); li.append(tx); ul.append(li);
       li.addEventListener('click',ev=>{ ev.stopPropagation(); stop(); const k=tok; one(w,src,t,k).then(()=>{ if(k===tok){ playing=false; paint(); } }); }); return {w,src,t}; });
     inn.append(ul); return inn; };
   // the words are as big as the panel allows: shrink only when a slide would not fit (as fitStory)
   let fsK='', fsV=0;   // ONE size for every slide: the biggest at which all of them fit
   const fit=()=>{ const inn=$('.in:last-child',note); if(!inn||!note.clientHeight) return; const k=note.clientWidth+'x'+note.clientHeight;
     if(k!==fsK){ inn.style.fontSize=''; let fs=parseFloat(getComputedStyle(inn).fontSize); const keep=lines;
-      q.items.forEach((_,j)=>{ const t=text(j); t.style.visibility='hidden'; t.style.fontSize=fs+'px'; note.append(t); for(let n=0;n<60&&t.scrollHeight>t.clientHeight+1&&fs>11;n++){ fs-=.5; t.style.fontSize=fs+'px'; } t.remove(); });
+      q.items.forEach((_,j)=>{ const t=text(j); t.style.cssText+='visibility:hidden;position:absolute;left:0;right:0;top:0;height:auto'; t.style.fontSize=fs+'px'; note.append(t); for(let n=0;n<80&&t.offsetHeight>note.clientHeight-2&&fs>11;n++){ fs-=.5; t.style.fontSize=fs+'px'; } t.remove(); });
       lines=keep; fsK=k; fsV=fs; }
     $$('.in',note).forEach(x=>x.style.fontSize=fsV+'px'); };
   new ResizeObserver(fit).observe(card);
@@ -1739,8 +1739,7 @@ function qxQAAll(box,q,s,run){
     lnavPaint(); }
   // from this slide on to the end: question, short pause, answer, then the next slide; after the last one the exercise is done
   async function play(){ const k0=++tok; vStop();
-    for(;;){ const [a,b]=lines; if(!(await one(a.w,a.src,a.t,k0))) return; await sleep(350); if(k0!==tok||!live()) return;
-      if(!(await one(b.w,b.src,b.t,k0))) return; await sleep(700); if(k0!==tok||!live()) return;
+    for(;;){ for(let j=0;j<lines.length;j++){ const L=lines[j]; if(!(await one(L.w,L.src,L.t,k0))) return; await sleep(j<lines.length-1?350:700); if(k0!==tok||!live()) return; }   // an item without "ask" is an answer-only slide
       if(i+1<q.items.length) show(i+1,1); else break; await sleep(450); if(k0!==tok||!live()) return; }
     playing=false; paint(); if(qz.busy) return; qz.busy=true; q.solved=true; return qAdvance(run,900); }
   q.sl={live,i:()=>i,n:q.items.length,go:d=>{ stop(); show(i+d,d); }};   // the shared pager's model (book.js lnavModel): the child's swipe moves the slides first
@@ -1899,7 +1898,8 @@ function qxBuild(box,q,s,run){
   if(q.pics&&!q.picWords&&q.words&&q.words.length===q.pics.length) q.picWords=q.words.map(w=>[w]);   // pictures + one word per picture (same order): every place gets exactly the word's letter boxes, never fewer
   const places=el('div','qxbplaces'), P=[]; const PW=q.pics&&q.picWords;   // picWords (with pics): place i belongs to picture i and accepts ONLY that picture's name (list of spellings), with exactly as many letter boxes as the name has letters; a built word turns into one joined written word
   for(let i=0;i<(PW?q.pics.length:(q.slots||4));i++){ const d=el('div','qxbp'+(q.cells?' cells':'')), w=el('b','qxbw'), c=el('button','qxbx','×'); c.setAttribute('aria-label','Clear'); d.append(w,c); places.append(d); P.push({d,w,c,l:[],done:false,i}); }
-  if(q.pics&&q.pics.length){ const pr=el('div','qxfirsts qxbpics'); q.pics.forEach(u=>{ const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${u}" alt="">`)); pr.append(f); }); box.append(pr); }   // "pics": the book's pictures of the words to make (shown above the letters; the answer is still ANY word the letters make)
+  if(PW){ const cols=[...places.children]; cols.forEach((d,i)=>{ const col=el('div','qxbcol'), f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${q.pics[i]}" alt="">`)); d.replaceWith(col); col.append(f,d); }); }   // pictures stand at the sides: each one right above its own place
+  if(q.pics&&q.pics.length&&!PW){ const pr=el('div','qxfirsts qxbpics'); q.pics.forEach(u=>{ const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${u}" alt="">`)); pr.append(f); }); box.append(pr); }   // "pics": the book's pictures of the words to make (shown above the letters; the answer is still ANY word the letters make)
   box.append(bank,places);
   const MAXL=PW?6:6, need=PW?P.length:(q.need||Math.min(3,P.length)), pwN=p=>PW?(q.picWords[p.i][0].match(/[^ً-ْٰـ][ً-ْٰـ]*/g)||[]).length:0, act=()=>P.find(p=>!p.done&&p.l.length<MAXL), show=p=>{ if(!q.cells){ p.w.textContent=p.l.join(''); return; }
     // q.cells = N: the place is split into N letter boxes so the child sees where each letter goes (one box per letter; a built word shows its marks)
@@ -3193,6 +3193,116 @@ function showExplain(){
   carFrac(i/np); rail(false); if(typeof bookTag==='function') bookTag();
   rd.auto=true; x.play(i);   // a new page always starts by itself
 }
+;
+/* ===== js/nahw.js ===== */
+/* NAHW — ONE template for the animated grammar (النحو) lessons of the Arabic subject (layout "nahw"). Not a video: the app draws and moves it, so a lesson is DATA only.
+   lesson.json: "layout":"nahw", "pages" = number of steps (the app's dots), "nahw":{ "steps":[ step ] }  — each step = one page, plays by itself, then goes on.
+   step = { name, text, board, pic?, beats:[ {words:[from,to], audio?, ms?, do:[actions]} ] }
+     text   the rule sentence as the book/teacher wrote it (always shown whole, big; the words of the beat being said light up, later ones are faded)
+     board  {kind:"tiles", cells:[{id, b:"ص", m:"َ"}]}      each letter in its own tile (b = the letter, m = its mark)      OR
+            {kind:"word",  cells:[{id, t:"حِ"}]}             a whole written word, letters joined (spans never change shape, only colour)
+     pic    {src, w?}  a picture shown above the board (e.g. the horse)
+   Actions (in a beat, all start together; after:ms on any action = start later):
+     {add:[ids], from:"right"|"top"|"pop"}   tiles / word letters appear one after the other
+     {lit:id, color}  {unlit:id}              the letter is coloured   (colours: blue, green, red, orange)
+     {tag:id, text, color, up?}   (up:true = above the letter, else under it)  {untag:id|"all"}   a label under the letter ("حرف المد")
+     {pulse:id}                               the letter / its mark bounces
+     {sukoon:id}                              a sukoon mark tries to sit on the letter; it is refused (red ✕) and goes away
+     {pic:true}                               the picture pops in
+   audio = file under the lesson folder (an Arabic recording not made yet is silent: the beat takes the time it needs: ms, else 380 ms per word).
+   Star (award 'read') when every page was played. */
+(function(){
+'use strict';
+const STOP={stop:1};
+const COL={blue:'#2E8FEA',green:'#3A9A2C',red:'#E8443A',orange:'#FF8A1F'};
+const col=c=>COL[c]||c||COL.blue;
+const hel=(tag,cls,html)=>{ const e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e; };
+const an=(e,kf,o)=>{ try{ return e.animate(kf,{duration:450,easing:'ease',fill:'both',...o}).finished.catch(()=>{}); }catch(x){ return Promise.resolve(); } };
+const BOUNCE='cubic-bezier(.3,1.5,.5,1)';
+
+function mount(root,data,opt){
+  opt=opt||{}; const base=opt.base||''; let gen=0;
+  root.classList.add('nh'); root.innerHTML='';
+  const board=hel('div','nh-board'), cap=hel('div','nh-cap'), capT=hel('p','nh-capt'); capT.dir='rtl'; cap.append(capT);
+  root.append(board,cap);
+  const live=g=>{ if(g!==gen||!root.isConnected) throw STOP; };
+  const wait=(ms,g)=>new Promise(r=>setTimeout(r,ms)).then(()=>live(g));
+  const say=async(a,g)=>{ if(!a||!opt.play) return; try{ await opt.play(base+a); }catch(e){} live(g); };
+
+  async function beat(S,B,ctx,g){
+    const words=ctx.words; const [w0,w1]=B.words||[0,words.length];
+    words.forEach((w,k)=>{ w.classList.toggle('now',k>=w0&&k<w1); w.classList.toggle('past',k<w0); w.classList.toggle('next',k>=w1); });
+    const est=B.ms||Math.max(900,(w1-w0)*380);
+    const jobs=[ say(B.audio,g), wait(est,g) ];
+    for(const a of (B.do||[])) jobs.push(act(a,ctx,g));
+    await Promise.all(jobs); live(g); await wait(300,g);
+  }
+  const cell=(ctx,id)=>ctx.cells[id];
+  const rectIn=e=>({x:e.offsetLeft,y:e.offsetTop,w:e.offsetWidth,h:e.offsetHeight});   // layout position (not the moving one): the board is the offset parent
+  async function act(a,ctx,g){
+    if(a.after) await wait(a.after,g);
+    if(a.add){ for(const id of a.add){ const c=cell(ctx,id); if(!c) continue; c.classList.remove('hid');
+        const from=a.from||'pop', kf=from==='right'?[{opacity:0,transform:'translateX(55cqw) scale(.8)'},{opacity:1,transform:'none'}]:from==='top'?[{opacity:0,transform:'translateY(-30cqh)'},{opacity:1,transform:'none'}]:[{opacity:0,transform:'scale(.2)'},{opacity:1,transform:'scale(1)'}];
+        if(ctx.kind==='word'){ c.style.opacity=1; await wait(260,g); } else await an(c,kf,{duration:650,easing:BOUNCE}); live(g); } return; }
+    if(a.lit){ const c=cell(ctx,a.lit); if(c){ c.style.setProperty('--xc',col(a.color)); c.classList.add('lit'); } return; }
+    if(a.unlit){ const c=cell(ctx,a.unlit); if(c) c.classList.remove('lit'); return; }
+    if(a.tag){ const c=cell(ctx,a.tag); if(!c) return; const r=rectIn(c), t=hel('div','nh-tag'); t.textContent=a.text; t.style.setProperty('--xc',col(a.color)); t.dataset.for=a.tag;
+      t.style.left=(r.x+r.w/2)+'px'; if(a.up){ t.classList.add('up'); t.style.top=r.y+'px'; } else t.style.top=(r.y+r.h)+'px'; ctx.board.append(t); ctx.tags.push(t);
+      await an(t,[{opacity:0,transform:'translate(-50%,var(--ty,0%)) scale(.6)'},{opacity:1,transform:'translate(-50%,var(--ty,0%)) scale(1)'}],{duration:450,easing:BOUNCE}); return; }
+    if(a.untag){ ctx.tags=ctx.tags.filter(t=>{ if(a.untag==='all'||t.dataset.for===a.untag){ t.remove(); return false; } return true; }); return; }
+    if(a.pulse){ const c=cell(ctx,a.pulse); if(c) await an(c,[{transform:'scale(1)'},{transform:'scale(1.25)'},{transform:'scale(1)'}],{duration:500,easing:BOUNCE}); return; }
+    if(a.pic){ if(ctx.pic){ ctx.pic.classList.remove('hid'); await an(ctx.pic,[{opacity:0,transform:'scale(.6)'},{opacity:1,transform:'scale(1)'}],{duration:600,easing:BOUNCE}); } return; }
+    if(a.sukoon){ const c=cell(ctx,a.sukoon); if(!c) return; const r=rectIn(c), s=hel('div','nh-suk'), x=hel('div','nh-x','✕');
+      s.style.left=(r.x+r.w/2)+'px'; s.style.top=(r.y-r.h*.15)+'px'; x.style.left=(r.x+r.w/2)+'px'; x.style.top=(r.y+r.h/2)+'px'; ctx.board.append(s,x); x.style.opacity=0;
+      await an(s,[{opacity:0,transform:'translate(-50%,-90%) scale(.5)'},{opacity:1,transform:'translate(-50%,-60%) scale(1)'}],{duration:450}); live(g);
+      await an(s,[{transform:'translate(-50%,-60%)'},{transform:'translate(-50%,10%)'},{transform:'translate(-50%,-60%)'}],{duration:450,easing:'ease-in-out'}); live(g);
+      await Promise.all([an(x,[{opacity:0,transform:'translate(-50%,-50%) scale(.3)'},{opacity:1,transform:'translate(-50%,-50%) scale(1)'}],{duration:350,easing:BOUNCE}),an(c,[{transform:'translateX(0)'},{transform:'translateX(-.5rem)'},{transform:'translateX(.5rem)'},{transform:'translateX(-.35rem)'},{transform:'none'}],{duration:450})]); live(g);
+      await wait(550,g); await Promise.all([an(s,[{opacity:1},{opacity:0,transform:'translate(-50%,-140%)'}],{duration:400}),an(x,[{opacity:1},{opacity:0}],{duration:400})]); s.remove(); x.remove(); return; }
+  }
+
+  async function play(i,done){
+    const g=++gen, S=data.steps[i]; board.innerHTML=''; capT.textContent='';
+    const ctx={kind:S.board.kind,cells:{},tags:[],words:[],board};
+    // the picture (optional)
+    if(S.pic){ const p=hel('img','nh-pic hid'); p.alt=''; p.draggable=false; p.src=new URL(base+S.pic.src,location.href).href; board.append(p); ctx.pic=p; }
+    // the letters
+    const row=hel('div','nh-row '+S.board.kind); board.append(row);
+    S.board.cells.forEach(c=>{ let e;
+      if(S.board.kind==='tiles'){ e=hel('div','nh-tile hid'); const b=hel('span','nh-b'); b.textContent=c.b; e.append(b); if(c.m){ const m=hel('span','nh-m'); m.textContent=c.m; b.append(m); } }
+      else { e=hel('span','nh-wl'); e.textContent=c.t; e.style.opacity=0; }
+      if(c.id) ctx.cells[c.id]=e; row.append(e); });
+    // the sentence, word by word
+    String(S.text).split(/\s+/).forEach((w,k,all)=>{ const s=hel('span','nh-w next'); s.textContent=w; capT.append(s); if(k<all.length-1) capT.append(' '); ctx.words.push(s); });
+    try{
+      await wait(300,g);
+      for(const B of S.beats) await beat(S,B,ctx,g);
+      ctx.words.forEach(w=>{ w.classList.remove('past','next'); w.classList.add('now'); });
+      live(g); if(done) done(i);
+    }catch(e){ if(e!==STOP) console.error(e); }
+  }
+  return { play:i=>play(i,opt.onDone), stop:()=>{ ++gen; if(opt.stop) opt.stop(); if(opt.onState) opt.onState(false); } , onPlayState:null };
+}
+window.Nahw={mount};
+
+/* the Lesson tab of a "nahw" lesson (LT.nahw in lesson.js) — same shell as the explainer: Read/Stop + Restart on the rail, the car moves page by page, auto-advances */
+const np_done={};
+window.showNahw=function(){
+  $('#lesson').classList.remove('story');
+  const host=el('div','scene xhost nhhost'); stage.append(host);
+  const i=rd.page-1, np=nPages(), done=np_done[LESSON.id]=np_done[LESSON.id]||{}; let playing=false;
+  const rail=on=>{ playing=on; if(!host.isConnected||tab!=='read') return; setRail([
+      on?{kind:'stop',icon:'stop',label:tr('Stop'),click:()=>{ rd.auto=false; x.stop(); rail(false); }}:{kind:'go',icon:'play',label:tr('Read'),click:()=>{ rd.auto=true; go(rd.page-1); }},
+      {kind:'again',icon:'restart',label:tr('Restart'),click:()=>{ rd.auto=true; go(rd.page-1); }}]); };
+  if(typeof vStop==='function') vStop();
+  const x=Nahw.mount(host,LESSON.nahw,{base:LESSON.base,play:u=>{ if(typeof vStop==='function') vStop(); return playFile(u); },stop:()=>{ if(typeof vStop==='function') vStop(); },
+    onDone:k=>{ rail(false); done[k]=1; carFrac((k+1)/np); if(Object.keys(done).length>=np) award(LESSON.id,'read');
+      if(rd.auto!==false&&rd.page<np) rd.autoT=setTimeout(()=>{ if(tab==='read'&&host.isConnected) readGo(1,true); },900); }});
+  const go=k=>{ rail(true); carFrac(k/np); x.play(k); };
+  window.nahwStop=()=>{ try{ x.stop(); }catch(e){} };
+  carFrac(i/np); rail(false); if(typeof bookTag==='function') bookTag();
+  rd.auto=true; go(i);
+};
+})();
 ;
 /* ===== js/gramanim.js ===== */
 /* GRAMMAR ANIMATION — ONE template for the Grammar tab (used by showGrammar in quiz-al.js when a card has "anim").

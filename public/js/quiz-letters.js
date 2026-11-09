@@ -167,14 +167,14 @@ function qxQAAll(box,q,s,run){
   const one=async(w,src,t,k)=>{ w.classList.add('reading'); playing=true; paint(); await qSound(src,t); w.classList.remove('reading'); return k===tok&&live(); };
   function stop(){ ++tok; vStop(); playing=false; $$('.w.reading',note).forEach(x=>x.classList.remove('reading')); paint(); }
   const text=k=>{ const it=q.items[k], inn=el('div','in'), ul=el('ul','lines');
-    lines=[[it.ask,it.audio,'qa-q'],[it.word,R_Q(it.ansAudio),'qa-a']].map(([t,src,c])=>{ const li=el('li','line '+c), tx=el('span','txt'), w=el('span','w',t); tx.append(w); li.append(tx); ul.append(li);
+    lines=[[it.ask,it.audio,'qa-q'],[it.word,R_Q(it.ansAudio),'qa-a']].filter(x=>x[0]).map(([t,src,c])=>{ const li=el('li','line '+c), tx=el('span','txt'), w=el('span','w',t); tx.append(w); li.append(tx); ul.append(li);
       li.addEventListener('click',ev=>{ ev.stopPropagation(); stop(); const k=tok; one(w,src,t,k).then(()=>{ if(k===tok){ playing=false; paint(); } }); }); return {w,src,t}; });
     inn.append(ul); return inn; };
   // the words are as big as the panel allows: shrink only when a slide would not fit (as fitStory)
   let fsK='', fsV=0;   // ONE size for every slide: the biggest at which all of them fit
   const fit=()=>{ const inn=$('.in:last-child',note); if(!inn||!note.clientHeight) return; const k=note.clientWidth+'x'+note.clientHeight;
     if(k!==fsK){ inn.style.fontSize=''; let fs=parseFloat(getComputedStyle(inn).fontSize); const keep=lines;
-      q.items.forEach((_,j)=>{ const t=text(j); t.style.visibility='hidden'; t.style.fontSize=fs+'px'; note.append(t); for(let n=0;n<60&&t.scrollHeight>t.clientHeight+1&&fs>11;n++){ fs-=.5; t.style.fontSize=fs+'px'; } t.remove(); });
+      q.items.forEach((_,j)=>{ const t=text(j); t.style.cssText+='visibility:hidden;position:absolute;left:0;right:0;top:0;height:auto'; t.style.fontSize=fs+'px'; note.append(t); for(let n=0;n<80&&t.offsetHeight>note.clientHeight-2&&fs>11;n++){ fs-=.5; t.style.fontSize=fs+'px'; } t.remove(); });
       lines=keep; fsK=k; fsV=fs; }
     $$('.in',note).forEach(x=>x.style.fontSize=fsV+'px'); };
   new ResizeObserver(fit).observe(card);
@@ -185,8 +185,7 @@ function qxQAAll(box,q,s,run){
     lnavPaint(); }
   // from this slide on to the end: question, short pause, answer, then the next slide; after the last one the exercise is done
   async function play(){ const k0=++tok; vStop();
-    for(;;){ const [a,b]=lines; if(!(await one(a.w,a.src,a.t,k0))) return; await sleep(350); if(k0!==tok||!live()) return;
-      if(!(await one(b.w,b.src,b.t,k0))) return; await sleep(700); if(k0!==tok||!live()) return;
+    for(;;){ for(let j=0;j<lines.length;j++){ const L=lines[j]; if(!(await one(L.w,L.src,L.t,k0))) return; await sleep(j<lines.length-1?350:700); if(k0!==tok||!live()) return; }   // an item without "ask" is an answer-only slide
       if(i+1<q.items.length) show(i+1,1); else break; await sleep(450); if(k0!==tok||!live()) return; }
     playing=false; paint(); if(qz.busy) return; qz.busy=true; q.solved=true; return qAdvance(run,900); }
   q.sl={live,i:()=>i,n:q.items.length,go:d=>{ stop(); show(i+d,d); }};   // the shared pager's model (book.js lnavModel): the child's swipe moves the slides first
@@ -345,7 +344,8 @@ function qxBuild(box,q,s,run){
   if(q.pics&&!q.picWords&&q.words&&q.words.length===q.pics.length) q.picWords=q.words.map(w=>[w]);   // pictures + one word per picture (same order): every place gets exactly the word's letter boxes, never fewer
   const places=el('div','qxbplaces'), P=[]; const PW=q.pics&&q.picWords;   // picWords (with pics): place i belongs to picture i and accepts ONLY that picture's name (list of spellings), with exactly as many letter boxes as the name has letters; a built word turns into one joined written word
   for(let i=0;i<(PW?q.pics.length:(q.slots||4));i++){ const d=el('div','qxbp'+(q.cells?' cells':'')), w=el('b','qxbw'), c=el('button','qxbx','×'); c.setAttribute('aria-label','Clear'); d.append(w,c); places.append(d); P.push({d,w,c,l:[],done:false,i}); }
-  if(q.pics&&q.pics.length){ const pr=el('div','qxfirsts qxbpics'); q.pics.forEach(u=>{ const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${u}" alt="">`)); pr.append(f); }); box.append(pr); }   // "pics": the book's pictures of the words to make (shown above the letters; the answer is still ANY word the letters make)
+  if(PW){ const cols=[...places.children]; cols.forEach((d,i)=>{ const col=el('div','qxbcol'), f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${q.pics[i]}" alt="">`)); d.replaceWith(col); col.append(f,d); }); }   // pictures stand at the sides: each one right above its own place
+  if(q.pics&&q.pics.length&&!PW){ const pr=el('div','qxfirsts qxbpics'); q.pics.forEach(u=>{ const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${u}" alt="">`)); pr.append(f); }); box.append(pr); }   // "pics": the book's pictures of the words to make (shown above the letters; the answer is still ANY word the letters make)
   box.append(bank,places);
   const MAXL=PW?6:6, need=PW?P.length:(q.need||Math.min(3,P.length)), pwN=p=>PW?(q.picWords[p.i][0].match(/[^ً-ْٰـ][ً-ْٰـ]*/g)||[]).length:0, act=()=>P.find(p=>!p.done&&p.l.length<MAXL), show=p=>{ if(!q.cells){ p.w.textContent=p.l.join(''); return; }
     // q.cells = N: the place is split into N letter boxes so the child sees where each letter goes (one box per letter; a built word shows its marks)
