@@ -367,6 +367,59 @@ async function adminReport(req, env, id) {
   return r.meta.changes ? J({ ok: true }) : ERR('not-found', 404);
 }
 
+/* ---------- push notifications (2026-11-09, Ahmed): MANUAL ONLY. Nothing here sends by itself: no schedule, no trigger. ----------
+   Device: POST /api/push/sub {endpoint} (allowed) / POST /api/push/unsub {endpoint}; GET /api/push/key (VAPID public key); GET /api/push/latest (newest message).
+   Admin: GET /api/admin/push -> {subs, msgs}; POST /api/admin/push/send {title, body, url} -> {id} (stores the message);
+          POST /api/admin/push/deliver/<id> -> {sent, left} pushes to the next 40 devices (a Worker call may make few outgoing requests: the dashboard repeats until left=0).
+   The push has NO payload (no encryption needed): the service worker wakes, reads GET /api/push/latest and shows it. VAPID keys: secrets VAPID_PUBLIC, VAPID_PRIVATE (JWK json), VAPID_SUBJECT. */
+const b64 = u8 => btoa(String.fromCharCode(...u8)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+let VKEY = null;
+async function vapidHeader(env, endpoint) {
+  if (!VKEY) VKEY = await crypto.subtle.importKey('jwk', JSON.parse(env.VAPID_PRIVATE), { name: 'ECDSA', namedCurve: 'P-256' }, false, ['sign']);
+  const head = b64(enc.encode(JSON.stringify({ typ: 'JWT', alg: 'ES256' })));
+  const pl = b64(enc.encode(JSON.stringify({ aud: new URL(endpoint).origin, exp: Math.floor(now() / 1000) + 12 * 3600, sub: env.VAPID_SUBJECT || 'mailto:admin@example.com' })));
+  const sig = new Uint8Array(await crypto.subtle.sign({ name: 'ECDSA', hash: 'SHA-256' }, VKEY, enc.encode(head + '.' + pl)));
+  return `vapid t=${head}.${pl}.${b64(sig)}, k=${env.VAPID_PUBLIC}`;
+}
+const ENDPOINT = /^https:\/\/[\w.-]{3,100}\/[\w\-./~%+=?&:@]{8,900}$/;
+async function pushSub(req, env, ip, on) {
+  const b = await body(req), e = b && clip(b.endpoint, 1000); if (!e || !ENDPOINT.test(e)) return ERR('bad-body');
+  if (!on) { await env.DB.prepare('DELETE FROM push_subs WHERE endpoint=?').bind(e).run(); return J({ ok: true }); }
+  const d = day(), k = 'push:' + ip + ':' + d, r = await env.DB.prepare('SELECT n FROM limits WHERE key=?').bind(k).first();
+  if (ip && r && r.n >= 60) return ERR('slow', 429);
+  const last = (await env.DB.prepare('SELECT COALESCE(MAX(id),0) m FROM push_msgs').first()).m;   // a new device does not get the old messages
+  const ins = await env.DB.prepare('INSERT OR IGNORE INTO push_subs(endpoint,created,last_msg) VALUES(?,?,?)').bind(e, now(), last).run();
+  if (ip && ins.meta.changes) await env.DB.prepare('INSERT INTO limits(key,n,day) VALUES(?,1,?) ON CONFLICT(key) DO UPDATE SET n=n+1').bind(k, d).run();
+  return J({ ok: true });
+}
+async function adminPush(env) {
+  const subs = (await env.DB.prepare('SELECT COUNT(*) n FROM push_subs').first()).n;
+  const msgs = (await env.DB.prepare('SELECT id,at,title,body,url,sent,gone FROM push_msgs ORDER BY id DESC LIMIT 30').all()).results;
+  return J({ ok: true, subs, ready: !!(env.VAPID_PUBLIC && env.VAPID_PRIVATE), msgs });
+}
+async function adminPushSend(req, env) {
+  const b = await body(req), title = b && clip(b.title, 80), text = b && clip(b.body, 300), url = b && clip(b.url, 200);
+  if (!title || !text) return ERR('bad-body');
+  if (url && !/^(\/|https:\/\/)/.test(url)) return ERR('bad-url');
+  if (!env.VAPID_PUBLIC || !env.VAPID_PRIVATE) return ERR('no-keys', 500);
+  const r = await env.DB.prepare('INSERT INTO push_msgs(at,title,body,url) VALUES(?,?,?,?)').bind(now(), title, text, url).run();
+  return J({ ok: true, id: r.meta.last_row_id });
+}
+async function adminPushDeliver(env, id) {
+  const m = await env.DB.prepare('SELECT id FROM push_msgs WHERE id=?').bind(id).first(); if (!m) return ERR('not-found', 404);
+  const rows = (await env.DB.prepare('SELECT endpoint FROM push_subs WHERE last_msg<? ORDER BY created LIMIT 40').bind(id).all()).results;
+  let sent = 0, gone = 0;
+  await Promise.all(rows.map(async ({ endpoint }) => {
+    let st = 0;
+    try { st = (await fetch(endpoint, { method: 'POST', headers: { Authorization: await vapidHeader(env, endpoint), TTL: '86400', Urgency: 'normal', 'Content-Length': '0' } })).status; } catch (e) { st = 0; }
+    if (st === 404 || st === 410) { gone++; await env.DB.prepare('DELETE FROM push_subs WHERE endpoint=?').bind(endpoint).run(); }
+    else { if (st >= 200 && st < 300) sent++; await env.DB.prepare('UPDATE push_subs SET last_msg=? WHERE endpoint=?').bind(id, endpoint).run(); }   // other errors: skipped, not retried forever
+  }));
+  await env.DB.prepare('UPDATE push_msgs SET sent=sent+?, gone=gone+? WHERE id=?').bind(sent, gone, id).run();
+  const left = (await env.DB.prepare('SELECT COUNT(*) n FROM push_subs WHERE last_msg<?').bind(id).first()).n;
+  return J({ ok: true, sent, gone, left });
+}
+
 /* ---------- router ---------- */
 export default {
   async fetch(req, env, ctx) {
@@ -377,6 +430,10 @@ export default {
       if (path === '/api/ping') return J({ ok: true, v: 1 });
       if (path === '/api/settings' && m === 'GET') { const S = await settings(env); delete S.promos; return J(S); }   // promo codes stay on the server
       if (path === '/api/report' && m === 'POST') return await reportIn(req, env, ip);
+      if (path === '/api/push/key' && m === 'GET') return J({ ok: true, key: env.VAPID_PUBLIC || '' });
+      if (path === '/api/push/latest' && m === 'GET') { const r = await env.DB.prepare('SELECT id,title,body,url FROM push_msgs ORDER BY id DESC LIMIT 1').first(); return J({ ok: true, msg: r || null }); }
+      if (path === '/api/push/sub' && m === 'POST') return await pushSub(req, env, ip, true);
+      if (path === '/api/push/unsub' && m === 'POST') return await pushSub(req, env, ip, false);
       if (path === '/api/auth/start' && m === 'POST') return await authStart(req, env, ip);
       if (path === '/api/auth/verify' && m === 'POST') return await authVerify(req, env, ip);
       if (path.startsWith('/api/admin/')) {
@@ -386,6 +443,9 @@ export default {
         if (path === '/api/admin/accounts' && m === 'GET') return await adminAccounts(env, url);
         if (path === '/api/admin/stats' && m === 'GET') return await adminStats(env);
         if (path === '/api/admin/reports' && m === 'GET') return await adminReports(env, url);
+        if (path === '/api/admin/push' && m === 'GET') return await adminPush(env);
+        if (path === '/api/admin/push/send' && m === 'POST') return await adminPushSend(req, env);
+        const pd = path.match(/^\/api\/admin\/push\/deliver\/(\d{1,12})$/); if (pd && m === 'POST') return await adminPushDeliver(env, +pd[1]);
         const rp = path.match(/^\/api\/admin\/report\/(r_[\w-]+)$/); if (rp && m === 'POST') return await adminReport(req, env, rp[1]);
         const ap = path.match(/^\/api\/admin\/parent\/(p_\w+)$/); if (ap && m === 'POST') return await adminParent(req, env, ap[1]);
         return ERR('not-found', 404);

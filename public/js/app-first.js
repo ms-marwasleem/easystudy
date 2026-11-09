@@ -1,4 +1,4 @@
-const APP_BUILD='8ce2341b90';
+const APP_BUILD='bc66413040';
 /* MADE BY tools/build-app.py from the files named below. Do not edit here: edit those files, then run the script again. */
 /* ===== js/core.js ===== */
 // Arabic-Indic (٠-٩) and Eastern Persian (۰-۹) digits typed anywhere count as Western digits: one helper, applied to every text box before any answer check
@@ -886,6 +886,77 @@ function promoWire(pp,onOpen){
     const x=promoCheck(code); if(x.err) return bad(x.err); promoApply(x.p,x.c); ok(x.p); });
 }
 ;
+/* ===== js/push.js ===== */
+/* NOTIFICATIONS (2026-11-09, Ahmed): a small bell on the subjects page lets a parent allow notifications on this device.
+   Notifications are written and sent ONLY by hand from the admin page (admin.html -> الإشعارات); the app and the server never send by themselves.
+   Needs settings "api" (the server keeps the devices) and the service worker (sw.js shows the message). iPhone / iPad: only when the app was added to the
+   Home Screen (iOS 16.4+): then the bell shows a short "add to Home Screen" note instead. Looks: css/push.css. */
+const PUSH={sub:null};
+const PUT={
+  ar:{on:'الإشعارات شغّالة. دوس تاني لو عايز توقفها',off:'فعّل الإشعارات',denied:'الإشعارات متقفلة من إعدادات المتصفح',ios:'عشان الإشعارات تشتغل على الآيفون / الآيباد: افتح قائمة المشاركة واختار "إضافة إلى الشاشة الرئيسية"، وافتح التطبيق منها وبعدين دوس على الجرس',fail:'مقدرناش نفعّل الإشعارات، جرّب تاني'},
+  en:{on:'Notifications are on. Tap again to turn them off',off:'Turn on notifications',denied:'Notifications are blocked in the browser settings',ios:'On iPhone / iPad: open the Share menu, choose "Add to Home Screen", open the app from there, then tap the bell',fail:'Could not turn notifications on, try again'}};
+const puT=()=>PUT.ar;   // the home page has no subject language yet: Egyptian Arabic (parents)
+const puIOS=()=>/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const puStandalone=()=>navigator.standalone===true||(matchMedia&&matchMedia('(display-mode: standalone)').matches);
+const puCan=()=>!!API()&&'serviceWorker' in navigator&&/^https?:/.test(location.protocol)&&(puIOS()?true:('PushManager' in window&&'Notification' in window));
+const puKey=k=>{ const p='='.repeat((4-k.length%4)%4), r=atob((k+p).replace(/-/g,'+').replace(/_/g,'/')); return Uint8Array.from(r,c=>c.charCodeAt(0)); };
+async function puReg(){ return navigator.serviceWorker.ready; }
+async function puCurrent(){ try{ if(!('PushManager' in window)) return null; return await (await puReg()).pushManager.getSubscription(); }catch(e){ return null; } }
+function puPaint(){ const b=$('#pushBtn'); if(!b) return; const on=!!PUSH.sub&&Notification.permission==='granted';
+  b.classList.toggle('on',on); b.title=b.ariaLabel=on?puT().on:puT().off; }
+async function puToggle(){
+  const T=puT();
+  if(puIOS()&&!puStandalone()) return message('🔔',T.ios);   // iOS only allows it from the Home Screen app
+  if(PUSH.sub){ const e=PUSH.sub.endpoint; try{ await PUSH.sub.unsubscribe(); }catch(x){} PUSH.sub=null; apiCall('/push/unsub',{endpoint:e}); puPaint(); return; }
+  if(Notification.permission==='denied') return message('🔔',T.denied);
+  try{
+    const perm=await Notification.requestPermission(); if(perm!=='granted') return puPaint();   // asked only now, after a tap
+    const k=await apiCall('/push/key'); if(!k||!k.key) throw 0;
+    const s=await (await puReg()).pushManager.subscribe({userVisibleOnly:true,applicationServerKey:puKey(k.key)});
+    const r=await apiCall('/push/sub',{endpoint:s.endpoint}); if(!r||!r.ok) throw 0;
+    PUSH.sub=s; puPaint();
+  }catch(e){ message('🔔',T.fail); }
+}
+async function puInit(){
+  if(!puCan()||$('#pushBtn')) return;
+  const b=document.createElement('button'); b.id='pushBtn'; b.className='pushbtn rb'; b.type='button';
+  b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 2h-15zM10 21a2 2 0 0 0 4 0"/></svg>';
+  b.addEventListener('click',puToggle); $('#subjects').appendChild(b);
+  PUSH.sub=await puCurrent(); puPaint();
+}
+// the settings (api address) arrive a moment after the page opens
+if(typeof ESET_P!=='undefined') ESET_P.then(()=>puInit()).catch(()=>{}); else puInit();
+;
+/* ===== js/deeplink.js ===== */
+/* DEEP LINK (2026-11-09, Ahmed): an address ending in ?go=<subject>[/<place>[/<tab>]] opens that place inside the app. Used by the notification link
+   (admin.html -> الإشعارات builds it from lists), and works from any shared link. place = a lesson folder (u1l3) | a unit (unit-5, opens that subject's map)
+   | an exam paper (x-<exam id>, a lesson's or a unit's). tab = read | words | quiz | booklet | workbook | grammar.
+   Safe by design: a place that does not exist, is not built yet, or is locked / "soon" just opens the subject's map; no child profile yet = normal first launch. */
+function deepGo(){
+  let go=''; try{ go=new URLSearchParams(location.search).get('go')||''; }catch(e){}
+  if(!go) return;
+  try{ const u=new URL(location.href); u.searchParams.delete('go'); history.replaceState(null,'',u.pathname+(u.search||'')+u.hash); }catch(e){}   // a reload does not repeat it
+  const [sid,place,tabName]=go.split('/'), s=COURSE.subjects.find(x=>x.id===sid&&x.open&&x.lessons);
+  if(!s||!kidNow()) return;
+  SUBJECT=s;
+  needRest(async()=>{
+    const m=place&&s.lessons.find(l=>l.folder===place&&l.file);
+    if(m){
+      if(accessOf(m,!!m.file,'l:'+m.id).st!=='open') return openMap();
+      if(tabName&&['read','words','quiz','booklet','workbook','grammar'].includes(tabName)) return bookOpen(m,tabName);
+      return openLesson(m);
+    }
+    const xm=/^x-([\w-]+)$/.exec(place||'');
+    if(xm){
+      const lm=s.lessons.find(l=>(l.exams||[]).some(e=>e.id===xm[1]));
+      if(lm){ const ex=lm.exams.find(e=>e.id===xm[1]); return openExam(lm,ex); }
+      const un=(s.units||[]).find(u=>(u.exams||[]).some(e=>e.id===xm[1]));
+      if(un){ const ex=un.exams.find(e=>e.id===xm[1]); return openExam({unit:un.unit,folder:'t'+un.unit,id:s.id+':t'+un.unit,exams:un.exams,tabs:[]},ex); }
+    }
+    openMap();
+  });
+}
+;
 /* ===== js/subjects.js ===== */
 /* SUBJECTS screen — the cardboard boxes. */
 /* ---------- Subjects ---------- */
@@ -1174,7 +1245,7 @@ async function start(){
   await cssReady;
   if(await buildMixed()) return;
   if(document.fonts&&document.fonts.ready) await Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,2500))]);
-  $('#helloSub').textContent=`${COURSE.grade} · ${COURSE.term}`; paintHud(); busy(false); kidPaint(); if(!kidNow()) openWelcome(); else { openSubjects(); pop('#subjects .top > *',{y:-20}); }   // first launch: curriculum + accounts (js/welcome.js)
+  $('#helloSub').textContent=`${COURSE.grade} · ${COURSE.term}`; paintHud(); busy(false); kidPaint(); if(!kidNow()) openWelcome(); else { openSubjects(); pop('#subjects .top > *',{y:-20}); deepGo(); }   // first launch: curriculum + accounts (js/welcome.js)
   setTimeout(()=>{ const n=$('#splashName'); if(n) n.remove(); $('#loadingText').hidden=false; },400);   // the app name shows on the first screen only; later loads say Loading...
 }
 // sw.js keeps the app, lessons, sounds and pictures on the device (later opens are instant) and shows library pictures that replaced shipped ones

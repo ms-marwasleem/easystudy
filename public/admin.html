@@ -15,6 +15,7 @@
     <button data-p="promos">البرومو كود</button>
     <button data-p="accounts">الحسابات الجديدة</button>
     <button data-p="reports">البلاغات <b id="repBadge" hidden></b></button>
+    <button data-p="push">الإشعارات</button>
     <button data-p="stats">الإحصائيات</button>
   </nav>
   <div class="acts"><button id="save" class="pri">حفظ</button><button id="tok" class="ghost">كلمة السر</button><button id="dl">تنزيل settings.json</button><button id="reset" class="ghost">رجوع لملف الإعدادات</button></div>
@@ -99,6 +100,27 @@
       <div class="filters"><select id="rp-status"><option value="open">المفتوحة</option><option value="done">اللي اتحلت</option><option value="all">الكل</option></select>
         <select id="rp-subj"></select><input type="text" id="rp-q" placeholder="بحث في التعليق أو المكان"><span class="legend" id="rp-count"></span></div>
       <div id="reports"></div>
+    </div>
+  </section>
+
+  <section id="p-push" class="page" hidden>
+    <div class="card">
+      <h2>إشعارات للتطبيق</h2>
+      <p class="hint">الإشعارات بتتبعت بإيدك بس من هنا، مفيش أي إشعار بيتبعت لوحده. بتوصل للأجهزة اللي ضغطت على الجرس في الصفحة الرئيسية للتطبيق. على الآيفون / الآيباد لازم التطبيق يكون مضاف للشاشة الرئيسية.</p>
+      <p class="legend" id="pu-count"></p>
+      <div class="filters" style="flex-direction:column;align-items:stretch;gap:8px">
+        <input type="text" id="pu-title" maxlength="80" placeholder="العنوان">
+        <textarea id="pu-body" maxlength="300" rows="3" placeholder="النص"></textarea>
+        <div class="hint" style="margin:6px 0 0">لما يضغطوا على الإشعار يفتح على (اختياري): اختاري خطوة خطوة</div>
+        <select id="pu-s"></select>
+        <select id="pu-u" hidden></select>
+        <select id="pu-i" hidden></select>
+        <select id="pu-t" hidden></select>
+        <input type="text" id="pu-url" maxlength="200" placeholder="اللينك (بيتكتب لوحده من الاختيارات فوق)" dir="ltr" readonly>
+        <button id="pu-send" class="pri">ابعت لكل الأجهزة</button>
+      </div>
+      <h3>آخر الرسائل</h3>
+      <div id="pu-list"></div>
     </div>
   </section>
 

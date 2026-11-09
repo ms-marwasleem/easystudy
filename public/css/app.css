@@ -2524,12 +2524,12 @@ button.qpic{cursor:pointer}
 .scene.nhhost::before,.scene.nhhost::after{display:none}
 .nh{display:grid;grid-template-columns:minmax(0,58fr) minmax(0,42fr);grid-template-rows:minmax(0,1fr);gap:clamp(.3rem,1.5cqh,.8rem);height:100%;min-height:0;user-select:none;-webkit-user-select:none}
 @media (orientation:portrait){.nh{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,66fr) minmax(0,34fr)}}
-.nh-board{position:relative;container-type:size;min-height:0;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3cqh;background:var(--c-paper2);border:.2rem solid var(--ol);border-radius:1.2rem;box-shadow:0 .25rem 0 rgba(90,52,24,.3)}
-.nh-pic{height:25cqh;max-width:60cqw;object-fit:contain}
+.nh-board{position:relative;container-type:size;min-height:0;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3cqh;padding-top:6cqh;background:none}   /* no white frame: the app's coloured page is the background */
+.nh-pic{position:absolute;top:4cqh;right:4cqw;height:26cqh;max-width:34cqw;object-fit:contain}   /* the example's picture sits in the corner: the word keeps the middle, the labels the rest */
 .nh-row{display:flex;flex-direction:row;justify-content:center;align-items:center;direction:rtl;gap:3cqw}
-.nh-row.word{display:block;text-align:center;font:400 min(26cqh,19cqw)/1.2 var(--f-ar);color:var(--ol);white-space:nowrap;direction:rtl}   /* block, NOT flex: letters of one word must stay joined */
+.nh-row.word{display:block;text-align:center;font:400 min(34cqh,24cqw)/1.2 var(--f-ar);color:#fff;text-shadow:0 .2rem 0 rgba(90,52,24,.45);white-space:nowrap;direction:rtl}   /* block, NOT flex: letters of one word must stay joined */
 .nh-wl{transition:color .3s}
-.nh-wl.lit{color:var(--xc)}
+.nh-wl.lit{color:var(--xl);text-shadow:0 .2rem 0 rgba(0,0,0,.3)}
 .nh-tile{width:min(34cqw,38cqh);height:min(34cqw,38cqh);display:grid;place-items:center;background:#fff;border:.25rem solid var(--ol);border-radius:1.2rem;box-shadow:0 .25rem 0 rgba(90,52,24,.3);transition:background .3s}
 .nh-tile.lit{background:var(--xc)}
 .nh-b{position:relative;font:400 min(30cqh,22cqw)/1.6 var(--f-ar);color:var(--ol);transition:color .3s}
@@ -2546,6 +2546,24 @@ button.qpic{cursor:pointer}
 .nh-w.next{opacity:.3}
 .nh-w.now{color:var(--c-hint)}
 .nh-tag.up{--ty:-100%;margin-top:0;margin-bottom:.2rem}
+/* no written sentence: the board is the whole slide */
+.nh.solo{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr)}
+.nh-title{position:absolute;top:1.5cqh;left:50%;transform:translateX(-50%);font:400 min(8cqh,5.5cqw)/1.3 var(--f-ar);color:#fff;text-shadow:0 .15rem 0 rgba(90,52,24,.45);white-space:nowrap}
+.nh-arrow{position:absolute;transform:translate(-50%,-100%);width:min(9cqh,7cqw);pointer-events:none}
+.nh-arrow.up{transform:translate(-50%,0)}.nh-arrow svg{display:block;width:100%}
+.nh-arrow.up svg{transform:rotate(180deg)}
+.nh-row.scene-words{font-size:min(15cqh,11cqw);line-height:1.3}
+.nh-row.scene-words .nh-wl{margin:0 .35em}
+.nh-scene{position:relative;height:42cqh;aspect-ratio:var(--ar,1.1)}
+.nh-scene img{display:block;height:100%;width:100%;object-fit:contain}
+.nh-spot{position:absolute;width:0;height:0}
+/* scene board: portrait = words on top, picture under them; landscape = words in a column on the right, the picture on the left (room for the arrow + label under it) */
+.nh-board.scene{gap:2cqh}
+.nh-board.scene .nh-scene{height:30cqh;margin-bottom:16cqh}
+.nh-board.scene .scene-words{font-size:min(12cqh,11cqw)}
+@media (orientation:landscape){.nh-board.scene{flex-direction:row;direction:rtl;gap:8cqw;padding-top:4cqh}
+  .nh-board.scene .scene-words{display:flex;flex-direction:column;gap:1cqh;font-size:min(24cqh,12cqw)}
+  .nh-board.scene .nh-scene{height:52cqh;margin-bottom:12cqh}}
 /* ===== css/gramanim.css ===== */
 /* GRAMMAR ANIMATION template (js/gramanim.js): one animated page per grammar card. Relative units only; white text on colour. */
 .gan{display:grid;grid-template-rows:auto minmax(0,1fr) auto;height:100%;padding:.5rem 1rem 4.2rem;gap:.4rem;container-type:size;overflow:hidden}
@@ -2961,4 +2979,11 @@ body.ws-typing .ws-side{position:fixed!important;right:auto!important;bottom:aut
 .rp-pop .btns button[disabled]{opacity:.6}
 @media (max-height:560px){.rp-ov{place-items:start center;overflow:auto}.rp-pop h2{display:none}.rp-txt{rows:2}}
 .rp-car{display:block;width:clamp(5rem,30vw,8rem)}
-:root{--app-build:"8ce2341b90"}
+/* ===== css/push.css ===== */
+/* NOTIFICATIONS bell (js/push.js): bottom corner of the subjects page, opposite the child button */
+.pushbtn{position:fixed;left:max(0.9rem,env(safe-area-inset-left,0px));bottom:max(0.9rem,env(safe-area-inset-bottom,0px));z-index:5;width:3.6rem;height:3.6rem;opacity:.75}
+#subjects[hidden] .pushbtn,.screen[hidden] .pushbtn{display:none}
+.pushbtn svg{width:2rem;height:2rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pushbtn.on{opacity:1}
+.pushbtn.on svg{fill:currentColor}
+:root{--app-build:"bc66413040"}

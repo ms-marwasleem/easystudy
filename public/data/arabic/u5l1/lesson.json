@@ -15,262 +15,155 @@
  "scene": "../../pics/ar-boy-fatha.png",
  "sceneAlt": "الْفَتْحَةُ وَالْأَلِفُ وَكَلِمَةُ سَمَاء",
  "picture": "../../pics/ar-boy-fatha.png",
- "pages": 6,
+ "pages": 1,
  "layout": "nahw",
  "lines": [],
  "speakers": {},
  "nahw": {
   "steps": [
    {
-    "name": "حرف المد",
-    "text": "حَرْفُ الْمَدِّ سَاكِنٌ وَلَا يُوضَعُ عَلَيْهِ سُكُونٌ",
+    "name": "المد بالألف",
+    "text": "",
     "board": {
-     "kind": "tiles",
+     "kind": "word",
      "cells": [
       {
+       "id": "h",
+       "t": "حِ"
+      },
+      {
+       "id": "m",
+       "t": "صَ"
+      },
+      {
        "id": "a",
-       "b": "ا"
+       "t": "ا"
+      },
+      {
+       "id": "n",
+       "t": "ن"
       }
      ]
     },
-    "beats": [
+    "audio": "nahw/explain.mp3",
+    "end": 23.1,
+    "pic": {
+     "src": "../../pics/ar-horse.png"
+    },
+    "timeline": [
      {
-      "words": [
-       0,
-       2
-      ],
-      "audio": "nahw/s1-1.mp3",
+      "t": 0.2,
       "do": [
        {
-        "add": [
-         "a"
-        ]
-       },
-       {
-        "lit": "a",
-        "color": "blue",
-        "after": 700
-       },
-       {
-        "tag": "a",
-        "text": "حَرْفُ الْمَدِّ",
-        "color": "blue",
-        "after": 700
+        "title": "الْمَدُّ بِالْأَلِفِ"
        }
-      ],
-      "ms": 1800
+      ]
      },
      {
-      "words": [
-       2,
-       3
-      ],
-      "audio": "nahw/s1-2.mp3",
+      "t": 2.35,
       "do": [
+       {
+        "pic": true
+       },
+       {
+        "add": [
+         "h",
+         "m",
+         "a",
+         "n"
+        ]
+       }
+      ]
+     },
+     {
+      "t": 4.35,
+      "do": [
+       {
+        "lit": "a",
+        "color": "orange"
+       },
        {
         "pulse": "a"
        }
-      ],
-      "ms": 1000
+      ]
      },
      {
-      "words": [
-       3,
-       7
-      ],
-      "audio": "nahw/s1-3.mp3",
+      "t": 6.65,
       "do": [
        {
         "sukoon": "a"
        }
-      ],
-      "ms": 3200
-     }
-    ]
-   },
-   {
-    "name": "المد بالألف",
-    "text": "الْمَدُّ بِالْأَلِفِ يَسْبِقُهُ حَرْفٌ مَفْتُوحٌ",
-    "board": {
-     "kind": "tiles",
-     "cells": [
-      {
-       "id": "m",
-       "b": "ص",
-       "m": "َ"
-      },
-      {
-       "id": "a",
-       "b": "ا"
-      }
-     ]
-    },
-    "beats": [
+      ]
+     },
      {
-      "words": [
-       0,
-       2
-      ],
-      "audio": "nahw/s2-1.mp3",
+      "t": 10.27,
       "do": [
        {
-        "add": [
-         "a"
-        ]
+        "unlit": "all"
+       },
+       {
+        "untag": "all"
        },
        {
         "lit": "a",
-        "color": "blue",
-        "after": 700
-       }
-      ],
-      "ms": 1500
-     },
-     {
-      "words": [
-       2,
-       3
-      ],
-      "audio": "nahw/s2-2.mp3",
-      "do": [
-       {
-        "add": [
-         "m"
-        ],
-        "from": "right"
-       }
-      ],
-      "ms": 1200
-     },
-     {
-      "words": [
-       3,
-       5
-      ],
-      "audio": "nahw/s2-3.mp3",
-      "do": [
-       {
-        "lit": "m",
         "color": "orange"
        },
        {
-        "pulse": "m"
+        "pulse": "a"
+       }
+      ]
+     },
+     {
+      "t": 11.67,
+      "do": [
+       {
+        "lit": "m",
+        "color": "red"
        },
        {
         "tag": "m",
         "text": "حَرْفٌ مَفْتُوحٌ",
-        "color": "orange",
-        "after": 300
-       }
-      ],
-      "ms": 1800
-     }
-    ]
-   },
-   {
-    "name": "حرف المد",
-    "text": "الْأَلِفُ هُوَ حَرْفُ الْمَدِّ",
-    "board": {
-     "kind": "tiles",
-     "cells": [
-      {
-       "id": "m",
-       "b": "ص",
-       "m": "َ"
-      },
-      {
-       "id": "a",
-       "b": "ا"
-      }
-     ]
-    },
-    "beats": [
-     {
-      "words": [
-       0,
-       1
-      ],
-      "audio": "nahw/s3-1.mp3",
-      "do": [
+        "color": "red",
+        "up": true,
+        "lift": true
+       },
        {
-        "add": [
-         "m",
-         "a"
-        ]
+        "pulse": "m"
        }
-      ],
-      "ms": 1500
+      ]
      },
      {
-      "words": [
-       1,
-       4
-      ],
-      "audio": "nahw/s3-2.mp3",
+      "t": 15.17,
       "do": [
        {
+        "unlit": "all"
+       },
+       {
+        "untag": "all"
+       },
+       {
         "lit": "a",
-        "color": "blue"
+        "color": "orange"
        },
        {
         "pulse": "a"
        },
        {
-        "tag": "a",
-        "text": "حَرْفُ الْمَدِّ",
-        "color": "blue",
-        "after": 300
-       }
-      ],
-      "ms": 1800
-     }
-    ]
-   },
-   {
-    "name": "الحرف الممدود",
-    "text": "الْحَرْفُ قَبْلَهُ هُوَ الْحَرْفُ الْمَمْدُودُ",
-    "board": {
-     "kind": "tiles",
-     "cells": [
-      {
-       "id": "m",
-       "b": "ص",
-       "m": "َ"
-      },
-      {
-       "id": "a",
-       "b": "ا"
-      }
-     ]
-    },
-    "beats": [
-     {
-      "words": [
-       0,
-       2
-      ],
-      "audio": "nahw/s4-1.mp3",
-      "do": [
-       {
-        "add": [
-         "m",
-         "a"
-        ]
+        "arrow": "a",
+        "dir": "down",
+        "color": "orange"
        },
        {
-        "lit": "a",
-        "color": "blue",
-        "after": 1400
+        "tag": "a",
+        "text": "حَرْفُ الْمَدِّ",
+        "color": "orange",
+        "up": true,
+        "lift": true
        }
-      ],
-      "ms": 2000
+      ]
      },
      {
-      "words": [
-       2,
-       5
-      ],
-      "audio": "nahw/s4-2.mp3",
+      "t": 18.37,
       "do": [
        {
         "lit": "m",
@@ -280,154 +173,17 @@
         "pulse": "m"
        },
        {
-        "tag": "m",
-        "text": "الْحَرْفُ الْمَمْدُودُ",
-        "color": "green",
-        "after": 300
-       }
-      ],
-      "ms": 2000
-     }
-    ]
-   },
-   {
-    "name": "مثال",
-    "text": "مِثَالٌ: حِصَان",
-    "board": {
-     "kind": "word",
-     "cells": [
-      {
-       "id": "h",
-       "t": "حِ"
-      },
-      {
-       "id": "m",
-       "t": "صَ"
-      },
-      {
-       "id": "a",
-       "t": "ا"
-      },
-      {
-       "id": "n",
-       "t": "ن"
-      }
-     ]
-    },
-    "pic": {
-     "src": "../../pics/ar-horse.png"
-    },
-    "beats": [
-     {
-      "words": [
-       0,
-       1
-      ],
-      "audio": "nahw/s5-1.mp3",
-      "do": [
-       {
-        "pic": true
-       }
-      ],
-      "ms": 1200
-     },
-     {
-      "words": [
-       1,
-       2
-      ],
-      "audio": "nahw/s5-2.mp3",
-      "do": [
-       {
-        "add": [
-         "h",
-         "m",
-         "a",
-         "n"
-        ]
-       }
-      ],
-      "ms": 1800
-     }
-    ]
-   },
-   {
-    "name": "مثال: حصان",
-    "text": "حَرْفُ الْمَدِّ هُوَ الْأَلِفُ وَالْحَرْفُ الْمَمْدُودُ هُوَ الصَّادُ الْمَفْتُوحَةُ قَبْلَهُ",
-    "board": {
-     "kind": "word",
-     "cells": [
-      {
-       "id": "h",
-       "t": "حِ"
-      },
-      {
-       "id": "m",
-       "t": "صَ"
-      },
-      {
-       "id": "a",
-       "t": "ا"
-      },
-      {
-       "id": "n",
-       "t": "ن"
-      }
-     ]
-    },
-    "beats": [
-     {
-      "words": [
-       0,
-       4
-      ],
-      "audio": "nahw/s6-1.mp3",
-      "do": [
-       {
-        "add": [
-         "h",
-         "m",
-         "a",
-         "n"
-        ]
-       },
-       {
-        "lit": "a",
-        "color": "blue",
-        "after": 1600
-       },
-       {
-        "tag": "a",
-        "text": "حَرْفُ الْمَدِّ",
-        "color": "blue",
-        "after": 1600,
-        "up": true
-       }
-      ],
-      "ms": 3200
-     },
-     {
-      "words": [
-       4,
-       11
-      ],
-      "audio": "nahw/s6-2.mp3",
-      "do": [
-       {
-        "lit": "m",
+        "arrow": "m",
+        "dir": "up",
         "color": "green"
        },
        {
-        "pulse": "m"
-       },
-       {
         "tag": "m",
         "text": "الْحَرْفُ الْمَمْدُودُ",
         "color": "green",
-        "after": 300
+        "lift": true
        }
-      ],
-      "ms": 4200
+      ]
      }
     ]
    }

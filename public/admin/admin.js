@@ -190,8 +190,46 @@ function drawReports(){
 }
 ['rp-status','rp-subj'].forEach(i=>$('#'+i).addEventListener('change',drawReports)); $('#rp-q').addEventListener('input',drawReports);
 
+/* the notification link picker: subject > unit > lesson or exam > tab. Builds ?go=<subject>[/<lesson folder>[/<tab>]] | /x-<exam id> | unit-<n> (js/deeplink.js reads it). Only built lessons are listed. */
+const PU_TABS={read:'الدرس',words:'الكلمات',quiz:'أسئلة الكتاب',booklet:'الكُتيب',workbook:'كتاب التقييمات',grammar:'القواعد'};
+const puOpts=(sel,list,first)=>{ sel.innerHTML=`<option value="">${first}</option>`+list.map(([v,t])=>`<option value="${esc(v)}">${esc(t)}</option>`).join(''); sel.hidden=!list.length; };
+function puSubj(){ return COURSE&&COURSE.subjects.find(x=>x.id===$('#pu-s').value); }
+function puUnitName(u){ return u.label||u.title||('الوحدة '+ar(u.unit)); }
+function puItems(){ const s=puSubj(), un=(s.units||[]).find(u=>String(u.unit)===$('#pu-u').value); if(!un) return [];
+  const out=[]; (s.lessons||[]).filter(l=>l.unit===un.unit&&l.built&&!l.hidden).forEach(l=>{ out.push(['l:'+l.folder,'الدرس '+ar(l.lesson)+' — '+l.title]);
+    (l.exams||[]).forEach(e=>out.push(['x:'+e.id,'اختبار: '+(e.title||e.label)+' (مع الدرس '+ar(l.lesson)+')']));
+    });
+  (un.exams||[]).forEach(e=>out.push(['x:'+e.id,'اختبار: '+(e.title||e.label)])); return out; }
+function puTabs(){ const s=puSubj(), v=$('#pu-i').value; if(!v.startsWith('l:')) return [];
+  const l=(s.lessons||[]).find(x=>x.folder===v.slice(2)); if(!l) return [];
+  const ks=(l.tabs&&l.tabs.length?l.tabs:Object.keys(l.pages||{}).filter(k=>(l.pages[k]||[]).length)); return ks.filter(k=>PU_TABS[k]).map(k=>[k,PU_TABS[k]]); }
+function puLink(){ const s=$('#pu-s').value, u=$('#pu-u').value, i=$('#pu-i').value, t=$('#pu-t').value; let go='';
+  if(s){ go=s; if(i.startsWith('l:')){ go+='/'+i.slice(2)+(t?'/'+t:''); } else if(i.startsWith('x:')) go+='/x-'+i.slice(2); else if(u) go+='/unit-'+u; }
+  $('#pu-url').value=go?'/?go='+go:''; }
+function puInit(){ if(!COURSE||$("#pu-s").options.length) return;
+  puOpts($('#pu-s'),COURSE.subjects.filter(x=>x.lessons).map(x=>[x.id,x.name]),'الصفحة الرئيسية للتطبيق (من غير مكان)'); $('#pu-u').hidden=$('#pu-i').hidden=$('#pu-t').hidden=true; puLink(); }
+$('#pu-s').addEventListener('change',()=>{ const s=puSubj(); puOpts($('#pu-u'),s?(s.units||[]).map(u=>[String(u.unit),puUnitName(u)]):[],'خريطة المادة كلها'); puOpts($('#pu-i'),[],''); puOpts($('#pu-t'),[],''); puLink(); });
+$('#pu-u').addEventListener('change',()=>{ puOpts($('#pu-i'),$('#pu-u').value?puItems():[],'الوحدة نفسها (الخريطة)'); puOpts($('#pu-t'),[],''); puLink(); });
+$('#pu-i').addEventListener('change',()=>{ puOpts($('#pu-t'),puTabs(),'الدرس من أوله'); puLink(); });
+$('#pu-t').addEventListener('change',puLink);
+
+/* ---------- notifications (2026-11-09): written and sent by hand only. Server: GET api/admin/push, POST api/admin/push/send, POST api/admin/push/deliver/<id> ---------- */
+async function loadPush(){ const r=await api('/admin/push'); const c=$('#pu-count');
+  if(!r){ c.textContent='السيرفر مش متاح، الإشعارات محتاجة السيرفر'; $('#pu-list').innerHTML=''; return; }
+  c.textContent=ar(r.subs)+' جهاز مفعّل الإشعارات'+(r.ready?'':' — مفاتيح VAPID مش متظبطة على السيرفر');
+  $('#pu-list').innerHTML=r.msgs.length?r.msgs.map(m=>`<div class="rep"><div class="rep-top"><b>${esc(m.title)}</b><span class="rep-at">${fmt(m.at)}</span></div><p class="rep-c">${esc(m.body)}</p><span class="rep-kind">وصلت لـ ${ar(m.sent)} جهاز${m.gone?' — اتشال '+ar(m.gone)+' جهاز مقفول':''}</span></div>`).join(''):'<p class="empty">لسه ما بعتّيش حاجة.</p>'; }
+$('#pu-send').addEventListener('click',async()=>{
+  const title=$('#pu-title').value.trim(), body=$('#pu-body').value.trim(), url=$('#pu-url').value.trim(); if(!title||!body) return toast('اكتبي العنوان والنص');
+  if(!S.api) return toast('السيرفر مش متاح');
+  if(!confirm('تبعتي الإشعار ده لكل الأجهزة المفعّلة؟\n\n'+title+'\n'+body)) return;
+  const btn=$('#pu-send'); btn.disabled=true;
+  try{ const r=await apiPost('/admin/push/send',{title,body,url}); if(!r||!r.id) return toast('ماتبعتش');
+    let left=1, tries=0; while(left>0&&tries++<200){ const d=await apiPost('/admin/push/deliver/'+r.id,{}); if(!d) { toast('وقف في النص، دوسي ابعت تاني'); break; } left=d.left; btn.textContent='بيتبعت… باقي '+ar(left); }
+    $('#pu-title').value=$('#pu-body').value=''; toast('اتبعت'); }
+  finally{ btn.disabled=false; btn.textContent='ابعت لكل الأجهزة'; loadPush(); } });
+
 /* ---------- tabs + save / download / reset ---------- */
-$$('#tabs button').forEach(b=>b.addEventListener('click',()=>{ $$('#tabs button').forEach(x=>x.classList.toggle('on',x===b)); $$('.page').forEach(p=>p.hidden=p.id!=='p-'+b.dataset.p); if(b.dataset.p==='stats') drawStats(); }));
+$$('#tabs button').forEach(b=>b.addEventListener('click',()=>{ $$('#tabs button').forEach(x=>x.classList.toggle('on',x===b)); $$('.page').forEach(p=>p.hidden=p.id!=='p-'+b.dataset.p); if(b.dataset.p==='stats') drawStats(); if(b.dataset.p==='push'){ puInit(); loadPush(); } }));
 $('#save').addEventListener('click',()=>{ try{ localStorage.setItem('es.settings',JSON.stringify(S)); dirty=false; $('#save').textContent='حفظ'; toast('اتحفظ على الجهاز ده. افتحي التطبيق تشوفيه.'); if(S.api) api('/admin/settings',S).then(r=>toast(r?'اتحفظ على السيرفر كمان، لكل المستخدمين.':'السيرفر مش متاح، اتحفظ على الجهاز بس.')); $('#where').textContent='الإعدادات المعروضة: المحفوظة على الجهاز ده (لسه مش في الملف). اضغطي "تنزيل" عشان تبقى للكل.'; }catch(e){ toast('الحفظ مش متاح هنا'); } });
 $('#dl').addEventListener('click',()=>{ const out={_note:FILE&&FILE._note,...S}; const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob([JSON.stringify(out,null,1)],{type:'application/json'})); a.download='settings.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),2000); });

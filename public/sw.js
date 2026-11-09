@@ -128,3 +128,19 @@ self.addEventListener('fetch', e => {
   else if (/\.(mp3|wav|ogg|m4a|png|jpe?g|webp|gif|svg|woff2?|ttf)$/i.test(rel)) e.respondWith(keep(MEDIA, r).catch(() => fetch(r)));
   else e.respondWith(keep(APP, r).catch(() => fetch(r)));
 });
+
+// ---------- 3. notifications (2026-11-09): sent ONLY by hand from the admin page; the push carries no text, so the newest message is read from the server ----------
+self.addEventListener('push', e => e.waitUntil((async () => {
+  let m = null;
+  try { const s = await (await fetch(new URL('/api/push/latest', self.location.origin).href, { cache: 'no-store' })).json(); m = s && s.msg; } catch (e) {}
+  // a notification must always be shown (iOS drops the permission otherwise): if the text could not be read, a plain one
+  await self.registration.showNotification((m && m.title) || 'EasyStudy', { body: (m && m.body) || '', icon: at_('icon-192.png'), badge: at_('icon-192.png'), data: { url: (m && m.url) || '' }, tag: 'es-msg' });
+})()));
+self.addEventListener('notificationclick', e => {
+  e.notification.close();
+  const to = new URL((e.notification.data && e.notification.data.url) || './', self.registration.scope).href;
+  e.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(cs => {
+    const c = cs.find(w => w.url.startsWith(self.registration.scope));
+    return c ? c.focus().then(w => w.navigate ? w.navigate(to).catch(() => {}) : null) : self.clients.openWindow(to);
+  }));
+});

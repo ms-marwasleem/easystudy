@@ -1,0 +1,6 @@
+/* NOTIFICATIONS bell (js/push.js): bottom corner of the subjects page, opposite the child button */
+.pushbtn{position:fixed;left:max(0.9rem,env(safe-area-inset-left,0px));bottom:max(0.9rem,env(safe-area-inset-bottom,0px));z-index:5;width:3.6rem;height:3.6rem;opacity:.75}
+#subjects[hidden] .pushbtn,.screen[hidden] .pushbtn{display:none}
+.pushbtn svg{width:2rem;height:2rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pushbtn.on{opacity:1}
+.pushbtn.on svg{fill:currentColor}
