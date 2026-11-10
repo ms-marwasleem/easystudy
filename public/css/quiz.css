@@ -344,3 +344,18 @@ button.qpic{cursor:pointer}
 .qxcs{width:clamp(2.6rem,min(11vw,12vh),7rem);height:clamp(2.6rem,min(11vw,12vh),7rem);object-fit:contain;cursor:pointer;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
 .qxcs.no{animation:qxcno .3s}@keyframes qxcno{25%{transform:translateX(-.3rem)}75%{transform:translateX(.3rem)}}
 .qword b .alw{padding:0}   /* shared tappable words (qToks) inside the big word line: no extra width, the line measures like plain text */
+
+/* QUESTIONS WITH A LISTEN BUTTON (qrail: Q&A slides, sound, story...), PORTRAIT (Ahmed 2026-11-09): same as the Lesson tab - Listen + Help sit in ONE small row,
+   bottom centre, UNDER the content; the content is centred above. Landscape keeps the right-hand column. */
+@media (orientation:portrait){
+  #lesson.qtab.qrail .mid{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;gap:.4rem}
+  #lesson.qtab.qrail .rail{flex-direction:row;justify-content:center;align-items:flex-start;width:auto;gap:1.4rem;padding:0}
+  #lesson.qtab.qrail .rail .dash{gap:.1rem;font-size:.72rem}
+  #lesson.qtab.qrail .rail .dash .rb{width:2.5rem;height:2.5rem}
+  #lesson.qtab.qrail .rail .dash .rb svg{width:1.1rem;height:1.1rem}
+}
+
+/* Listen speaker on a word option of a board (circle): small, beside the word, white like the word (Ahmed 2026-11-09) */
+.qmp.tx{display:flex;align-items:center;justify-content:center;gap:.15em}
+.qmp.tx .qmsay{display:grid;place-items:center;flex:none;width:2rem;height:2rem;color:var(--icon-on-color)}
+.qmp.tx .qmsay svg{width:1.4rem;height:1.4rem}

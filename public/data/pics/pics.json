@@ -472,18 +472,6 @@
    "from": "../../../../tmp/s/p5.jpg",
    "kind": "cut"
   },
-  "ar-bag": {
-   "file": "ar-bag.jpg",
-   "w": 224,
-   "h": 264,
-   "cut": false,
-   "tags": [
-    "u2l8",
-    "book"
-   ],
-   "from": "../../../tmp/w/nat-01.jpg",
-   "kind": "photo"
-  },
   "ar-bakery": {
    "file": "ar-bakery.png",
    "tags": [],
@@ -804,7 +792,7 @@
    "file": "ar-book-stack.png",
    "tags": [],
    "w": 480,
-   "h": 475,
+   "h": 446,
    "kind": "cut",
    "cut": true
   },
@@ -1236,7 +1224,7 @@
   "ar-butter": {
    "file": "ar-butter.png",
    "w": 480,
-   "h": 447,
+   "h": 480,
    "cut": true,
    "tags": [
     "u4l3",
@@ -1813,18 +1801,6 @@
    "kind": "cut",
    "cut": true
   },
-  "ar-dog": {
-   "file": "ar-dog.png",
-   "w": 363,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u2l3",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/-home-user/1f09f34a-78fb-5930-a48d-767913b684db/scratchpad/p/nat-000.jpg",
-   "kind": "cut"
-  },
   "ar-donkey": {
    "file": "ar-donkey.png",
    "w": 367,
@@ -2224,14 +2200,6 @@
    "kind": "photo",
    "cut": false
   },
-  "ar-fam-both-head": {
-   "file": "ar-fam-both-head.png",
-   "tags": [],
-   "w": 480,
-   "h": 282,
-   "kind": "cut",
-   "cut": true
-  },
   "ar-fam-dad": {
    "file": "ar-fam-dad.jpg",
    "tags": [],
@@ -2288,6 +2256,14 @@
    "kind": "photo",
    "cut": false
   },
+  "ar-fam-parents": {
+   "file": "ar-fam-parents.jpg",
+   "tags": [],
+   "w": 400,
+   "h": 400,
+   "kind": "photo",
+   "cut": false
+  },
   "ar-fam-sis": {
    "file": "ar-fam-sis.jpg",
    "tags": [],
@@ -2316,6 +2292,14 @@
    "h": 380,
    "kind": "photo",
    "cut": false
+  },
+  "ar-family-hug": {
+   "file": "ar-family-hug.png",
+   "tags": [],
+   "w": 424,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-family-song": {
    "file": "ar-family-song.png",
@@ -2420,6 +2404,14 @@
    ],
    "from": "Ahmed Arabic picture sheets 2026-10-17 (deleted after cutting)",
    "kind": "cut"
+  },
+  "ar-file-rasp": {
+   "file": "ar-file-rasp.png",
+   "tags": [],
+   "w": 480,
+   "h": 447,
+   "kind": "cut",
+   "cut": true
   },
   "ar-file-tool": {
    "file": "ar-file-tool.jpg",
@@ -2605,7 +2597,7 @@
    "file": "ar-garden-bed.png",
    "tags": [],
    "w": 480,
-   "h": 246,
+   "h": 462,
    "kind": "cut",
    "cut": true
   },
@@ -3018,7 +3010,7 @@
    "file": "ar-hazelnut.png",
    "tags": [],
    "w": 480,
-   "h": 377,
+   "h": 313,
    "kind": "cut",
    "cut": true
   },
@@ -3097,7 +3089,7 @@
   "ar-hole": {
    "file": "ar-hole.png",
    "w": 480,
-   "h": 192,
+   "h": 173,
    "cut": true,
    "tags": [
     "u1l6",
@@ -3166,14 +3158,6 @@
    "tags": [],
    "w": 480,
    "h": 405,
-   "kind": "cut",
-   "cut": true
-  },
-  "ar-houses": {
-   "file": "ar-houses.png",
-   "tags": [],
-   "w": 480,
-   "h": 267,
    "kind": "cut",
    "cut": true
   },
@@ -3649,14 +3633,6 @@
    "kind": "cut",
    "cut": true
   },
-  "ar-milk-glass": {
-   "file": "ar-milk-glass.png",
-   "tags": [],
-   "w": 440,
-   "h": 480,
-   "kind": "cut",
-   "cut": true
-  },
   "ar-molar": {
    "file": "ar-molar.png",
    "w": 391,
@@ -3825,18 +3801,6 @@
    "from": "../../../../tmp/w/pg-21.png",
    "kind": "photo"
   },
-  "ar-needle": {
-   "file": "ar-needle.jpg",
-   "w": 194,
-   "h": 190,
-   "cut": false,
-   "tags": [
-    "ar-u1l3",
-    "book"
-   ],
-   "from": "book page 7 (deleted)",
-   "kind": "photo"
-  },
   "ar-nest": {
    "file": "ar-nest.png",
    "tags": [],
@@ -3925,19 +3889,6 @@
    "from": "../../../../tmp/s/n-15.jpg",
    "kind": "cut"
   },
-  "ar-orange": {
-   "file": "ar-orange.png",
-   "w": 471,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "arabic",
-    "u5l1",
-    "book"
-   ],
-   "from": "booklet appendix p.140",
-   "kind": "cut"
-  },
   "ar-oranges-3": {
    "file": "ar-oranges-3.png",
    "tags": [],
@@ -3962,7 +3913,7 @@
    "file": "ar-p37-carrot-tomato.png",
    "tags": [],
    "w": 480,
-   "h": 180,
+   "h": 212,
    "kind": "cut",
    "cut": true
   },
@@ -3986,7 +3937,7 @@
    "file": "ar-p37-turnip-dates.png",
    "tags": [],
    "w": 480,
-   "h": 251,
+   "h": 257,
    "kind": "cut",
    "cut": true
   },
@@ -4025,6 +3976,14 @@
    ],
    "from": "../../../tmp/claude-0/s/nat/a-004.jpg",
    "kind": "cut"
+  },
+  "ar-palms": {
+   "file": "ar-palms.png",
+   "tags": [],
+   "w": 480,
+   "h": 330,
+   "kind": "cut",
+   "cut": true
   },
   "ar-paper": {
    "file": "ar-paper.png",
@@ -4464,26 +4423,6 @@
    ],
    "from": "../../../tmp/claude-0/s/nat/b-020.jpg",
    "kind": "cut"
-  },
-  "ar-rope": {
-   "file": "ar-rope.jpg",
-   "w": 594,
-   "h": 372,
-   "cut": false,
-   "tags": [
-    "u4l4",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/s7n/n-12.jpg",
-   "kind": "photo"
-  },
-  "ar-rope-coil": {
-   "file": "ar-rope-coil.png",
-   "tags": [],
-   "w": 480,
-   "h": 259,
-   "kind": "cut",
-   "cut": true
   },
   "ar-rope-tie": {
    "file": "ar-rope-tie.png",
@@ -4953,8 +4892,8 @@
   "ar-smoke": {
    "file": "ar-smoke.png",
    "tags": [],
-   "w": 480,
-   "h": 276,
+   "w": 334,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
@@ -5421,7 +5360,7 @@
    "file": "ar-tank.png",
    "tags": [],
    "w": 480,
-   "h": 245,
+   "h": 219,
    "kind": "cut",
    "cut": true
   },
@@ -5599,18 +5538,6 @@
    "h": 480,
    "kind": "cut",
    "cut": true
-  },
-  "ar-tower": {
-   "file": "ar-tower.png",
-   "w": 338,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u1l4",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/-home-user/da4dc6d4-8f77-53ec-a713-c2c9316f125a/scratchpad/nat/a-000.jpg",
-   "kind": "cut"
   },
   "ar-toy-blocks": {
    "file": "ar-toy-blocks.png",
@@ -7573,7 +7500,7 @@
   },
   "doll-u3l4": {
    "file": "doll-u3l4.png",
-   "w": 475,
+   "w": 476,
    "h": 480,
    "cut": true,
    "tags": [
@@ -9390,6 +9317,14 @@
    "from": "../../../tmp/claude-0/-home-claude/74035036-3ee2-5287-b979-dd80e572d7c6/scratchpad/src/b-035.png",
    "kind": "cut"
   },
+  "lion-eating": {
+   "file": "lion-eating.png",
+   "tags": [],
+   "w": 415,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
+  },
   "lion-u6l1": {
    "file": "lion-u6l1.png",
    "w": 474,
@@ -9754,6 +9689,14 @@
    "tags": [],
    "w": 480,
    "h": 274,
+   "kind": "cut",
+   "cut": true
+  },
+  "needle": {
+   "file": "needle.png",
+   "tags": [],
+   "w": 476,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
@@ -10552,6 +10495,14 @@
    "cut": true,
    "need": "unit",
    "from": "placeholder cut from roosters-3 (2026-11-06); Marwa makes the real unit picture"
+  },
+  "rope": {
+   "file": "rope.png",
+   "tags": [],
+   "w": 480,
+   "h": 470,
+   "kind": "cut",
+   "cut": true
   },
   "ruler": {
    "file": "ruler.png",

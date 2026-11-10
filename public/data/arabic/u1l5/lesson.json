@@ -22,16 +22,20 @@
   "pic": "../../pics/ar-ram.png",
   "forms": [
    {
-    "t": "م"
+    "t": "م",
+    "pos": "end-alone"
    },
    {
-    "t": "ـم"
+    "t": "ـم",
+    "pos": "end-joined"
    },
    {
-    "t": "ـمـ"
+    "t": "ـمـ",
+    "pos": "mid"
    },
    {
-    "t": "مـ"
+    "t": "مـ",
+    "pos": "start"
    }
   ],
   "sounds": [

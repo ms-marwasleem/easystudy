@@ -22,16 +22,20 @@
   "pic": "../../pics/ar-horse.png",
   "forms": [
    {
-    "t": "ح"
+    "t": "ح",
+    "pos": "end-alone"
    },
    {
-    "t": "حـ"
+    "t": "حـ",
+    "pos": "start"
    },
    {
-    "t": "ـحـ"
+    "t": "ـحـ",
+    "pos": "mid"
    },
    {
-    "t": "ـح"
+    "t": "ـح",
+    "pos": "end-joined"
    }
   ],
   "sounds": [
@@ -138,7 +142,7 @@
   },
   {
    "word": "حَبْل",
-   "img": "../../pics/ar-rope.jpg",
+   "img": "../../pics/rope.png",
    "audio": {
     "word": "words/habl.mp3"
    },

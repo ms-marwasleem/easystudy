@@ -336,9 +336,10 @@ body.kb-open .screen:not(#lesson){height:calc(100% - var(--kb,0px))}
 .msg-art{width:min(46vw,34vh)}
 .msg-art .car{display:block;width:100%}
 .msg-text{margin:0;font-family:var(--f-hand);font-size:clamp(1.25rem,min(4.4vw,4vh),1.875rem);color:var(--c-white);line-height:1.25;text-shadow:0 1px 0 var(--ol),0 0 1px var(--ol)}
-.slots{display:flex;align-items:flex-end;justify-content:center;gap:clamp(0.25rem,2vw,0.875rem)}
-.slot{position:relative;width:min(25vw,19vh);aspect-ratio:1}
-.slot:nth-child(2){width:min(29vw,22vh);transform:translateY(-8%)}
+.slots{display:flex;align-items:flex-end;justify-content:center;gap:var(--sg,clamp(0.25rem,2vw,0.875rem));width:94vw;max-width:94vw;padding-bottom:1.8em;--n:3;--sg:clamp(0.125rem,1.2vw,0.5rem)}
+.slot{position:relative;flex:none;width:min(25vw,19vh,calc((92vw - (var(--n) - 1)*var(--sg))/var(--n)));aspect-ratio:1}
+.slots.n3 .slot:nth-child(2){width:min(29vw,22vh);transform:translateY(-8%)}
+.slots.many .slot .lbl{width:150%;white-space:normal;text-align:center;line-height:1.05;font-size:clamp(0.6875rem,1.5vh,0.9375rem)}
 .slot svg{position:absolute;inset:0;width:100%;height:100%}
 .slot .lbl{position:absolute;left:50%;bottom:-1.6em;transform:translateX(-50%);font-family:var(--f-title);font-size:clamp(0.8125rem,1.8vh,1.0625rem);color:var(--c-white);-webkit-text-stroke:0.07rem var(--ol);paint-order:stroke fill;white-space:nowrap}
 #lvlCar{width:min(26vw,15vh);margin-top:1.4em}
@@ -1136,6 +1137,21 @@ button.qpic{cursor:pointer}
 .qxcs{width:clamp(2.6rem,min(11vw,12vh),7rem);height:clamp(2.6rem,min(11vw,12vh),7rem);object-fit:contain;cursor:pointer;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
 .qxcs.no{animation:qxcno .3s}@keyframes qxcno{25%{transform:translateX(-.3rem)}75%{transform:translateX(.3rem)}}
 .qword b .alw{padding:0}   /* shared tappable words (qToks) inside the big word line: no extra width, the line measures like plain text */
+
+/* QUESTIONS WITH A LISTEN BUTTON (qrail: Q&A slides, sound, story...), PORTRAIT (Ahmed 2026-11-09): same as the Lesson tab - Listen + Help sit in ONE small row,
+   bottom centre, UNDER the content; the content is centred above. Landscape keeps the right-hand column. */
+@media (orientation:portrait){
+  #lesson.qtab.qrail .mid{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;gap:.4rem}
+  #lesson.qtab.qrail .rail{flex-direction:row;justify-content:center;align-items:flex-start;width:auto;gap:1.4rem;padding:0}
+  #lesson.qtab.qrail .rail .dash{gap:.1rem;font-size:.72rem}
+  #lesson.qtab.qrail .rail .dash .rb{width:2.5rem;height:2.5rem}
+  #lesson.qtab.qrail .rail .dash .rb svg{width:1.1rem;height:1.1rem}
+}
+
+/* Listen speaker on a word option of a board (circle): small, beside the word, white like the word (Ahmed 2026-11-09) */
+.qmp.tx{display:flex;align-items:center;justify-content:center;gap:.15em}
+.qmp.tx .qmsay{display:grid;place-items:center;flex:none;width:2rem;height:2rem;color:var(--icon-on-color)}
+.qmp.tx .qmsay svg{width:1.4rem;height:1.4rem}
 /* ===== css/arabic.css ===== */
 /* ---------- Arabic subject (#lesson.ar, set in lesson.js) ----------
    Text runs right to left in a naskh font (shows the vowel marks well). Letters of a word are plain inline text,
@@ -1405,7 +1421,7 @@ button.qpic{cursor:pointer}
 .qxl{cursor:grab;touch-action:none}.qxl.used{opacity:.22}.qxl.lift{opacity:.35}
 .qxslots{display:flex;gap:clamp(1rem,6cqw,2.5rem);justify-content:center}
 .qxslot{display:flex;flex-direction:column;align-items:center;gap:.4rem}
-.qxslot .qxsg{display:grid;place-items:center;width:clamp(3.75rem,min(21cqw,19cqh),6.25rem);height:clamp(3.75rem,min(21cqw,19cqh),6.25rem);border-radius:.875rem;border:.25rem dashed var(--c-accent);font-family:var(--f-ar);font-size:clamp(1.75rem,7vh,3rem);font-weight:700;color:var(--c-text);background:var(--c-paper2)}
+.qxslot .qxsg{display:grid;place-items:center;--sg:clamp(3.75rem,min(21cqw,19cqh),6.25rem);width:var(--sg);height:var(--sg);border-radius:.875rem;border:.25rem dashed var(--c-accent);font-family:var(--f-ar);font-size:calc(var(--sg) * .5);line-height:1;overflow:hidden;font-weight:700;color:var(--c-text);background:var(--c-paper2)}
 .qxslot.got .qxsg{border-style:solid}
 .qxslot small{font-family:var(--f-ar);font-weight:700;font-size:clamp(1rem,3.2vh,1.5rem);color:var(--c-on-bg)}
 
@@ -1474,13 +1490,13 @@ button.qpic{cursor:pointer}
 /* ring = circle the letter inside the word (js/quiz-letters.js qxRing): the tapped right letter gets a circle round it */
 .qxw.ring{font-size:clamp(2.4rem,10vh,4.2rem)}
 .qxw.ring .lt{cursor:pointer;position:relative}
-.qxw.ring .lt.rung::after{content:'';position:absolute;left:50%;top:52%;width:1.15em;height:1.15em;transform:translate(-50%,-50%);border:.07em solid #ffe066;border-radius:50%;pointer-events:none}
+.qxw.ring .lt.rung::after{content:'';position:absolute;left:50%;top:56%;width:.78em;height:.78em;transform:translate(-50%,-50%);border:.05em solid var(--c-pink);border-radius:50%;pointer-events:none}
 
 /* ringword = circle the WORD in the sentence (js/quiz-letters.js qxRingWord): question line on top, every word of the sentence is a tap target; the right word gets a circle (same ring colour as `ring`) */
 .qxask{font-weight:700;font-size:clamp(1.2rem,min(4.6vh,3.6vw),2rem);line-height:1.5;color:var(--c-on-bg);text-align:center}
 .qxsent{direction:rtl;display:flex;flex-wrap:wrap;justify-content:center;gap:.1em .3em;max-width:100%;box-sizing:border-box;padding:.3em .6em;border-radius:.6em;background:rgba(255,255,255,.14);font-weight:700;font-size:clamp(1.7rem,min(7vh,6.4vw),3rem);line-height:1.6}
 .qxcw{cursor:pointer;position:relative;padding:.05em .12em;white-space:nowrap}
-.qxcw.rung::after{content:'';position:absolute;inset:-.02em 0;border:.07em solid #ffe066;border-radius:999px;pointer-events:none}
+.qxcw.rung::after{content:'';position:absolute;inset:-.02em 0;border:.07em solid var(--c-pink);border-radius:999px;pointer-events:none}
 
 .qxsbank{box-sizing:border-box;padding-inline:3rem}
 
@@ -1513,6 +1529,10 @@ button.qpic{cursor:pointer}
 .qx.qa-slides .scene.qasl.slide .scard .pbox{flex:1 1 0;min-height:0;width:100%;justify-content:center}
 }
 .qx.qa-slides .scene.qasl.slide .scard .note{flex-direction:column;justify-content:center;align-items:stretch}   /* an answer-only slide is centred in the panel */
+
+/* the letter with its marks sits in the MIDDLE of the choice circle, marks fully inside (Marwa/Ahmed 2026-11-09, u1l3 q7; every letter-choice circle) */
+.qxchoices .qlet.qlet{display:flex;align-items:center;justify-content:center;padding:0}
+.qxchoices .qlet.qlet span{font-size:calc(var(--q-choice)*.4)!important;line-height:1.5!important;padding:0!important;transform:translateY(.06em)!important;height:auto;display:block}
 /* ===== css/math.css ===== */
 /* ---------- Questions: math types (js/quiz-math.js) ---------- */
 .quiz:is([data-type="numline"],[data-type="bond"],[data-type="bigger"],[data-type="count"]) :is(.qword,.qans){display:none}
@@ -2353,7 +2373,8 @@ button.qpic{cursor:pointer}
   font-size:calc(var(--fs) * 1cqw);color:#1b1b1b;cursor:pointer;text-align-last:justify}
 .scene.poem .ph .w{display:inline-block;color:inherit;padding:0;border-radius:0}
 .scene.poem .ph .w.reading{color:var(--story-now)}
-.scene.story.poem{padding:0 5.6rem 0 .25rem!important}   /* NO panel behind the page (it sits on the app background); the page sits BESIDE the button column (never under a button), centred in the room that is left, whole page visible */
+.scene.story.poem{padding:0 .25rem!important}
+@media (orientation:landscape){.scene.story.poem{padding:0 5.6rem 0 .25rem!important}}   /* portrait: buttons are a bottom row, so the page is centred with equal sides */   /* NO panel behind the page (it sits on the app background); the page sits BESIDE the button column (never under a button), centred in the room that is left, whole page visible */
 
 /* ---- STORY CARD (segment slides, Q&A slides; RULES.md "Story card", Marwa 2026-11-05): the picture fills a rounded card with a thin white frame,
    the caption sits on a warm cream panel INSIDE the bottom of the picture, a round number badge top corner, round child font, dark text ---- */
@@ -2559,7 +2580,7 @@ button.qpic{cursor:pointer}
 .nh-spot{position:absolute;width:0;height:0}
 /* scene board: portrait = words on top, picture under them; landscape = words in a column on the right, the picture on the left (room for the arrow + label under it) */
 .nh-board.scene{gap:2cqh}
-.nh-board.scene .nh-scene{height:30cqh;margin-bottom:16cqh}
+.nh-board.scene .nh-scene{height:28cqh;margin-bottom:24cqh}
 .nh-board.scene .scene-words{font-size:min(12cqh,11cqw)}
 @media (orientation:landscape){.nh-board.scene{flex-direction:row;direction:rtl;gap:8cqw;padding-top:4cqh}
   .nh-board.scene .scene-words{display:flex;flex-direction:column;gap:1cqh;font-size:min(24cqh,12cqw)}
@@ -2894,7 +2915,19 @@ body.ws-typing .ws-side{position:fixed!important;right:auto!important;bottom:aut
 }
 
 /* link board in rows (tags/words above, pictures below): the two rows breathe, never stuck together (Ahmed 2026-11-08) */
-.qlink:not(.cols){gap:clamp(2.75rem,16cqh,3.5rem)}
+.qlink:not(.cols){gap:clamp(2.75rem,26cqh,7rem)}   /* room between the row of words and the row of pictures (Ahmed 2026-11-09) */
+
+/* words sit INSIDE their box, centred, with room for the harakat above and below (Ahmed 2026-11-09, whole app): Arabic needs a taller line than the 1.1-1.15 the boxes used, or the kasra / shadda hang out of the bottom */
+.qch.wd{display:flex!important;align-items:center;justify-content:center;text-align:center}
+#lesson.ar .qch.wd>span,#lesson.ar .qch.wd{line-height:1.85!important}
+#lesson.ar .qch.wd{padding-block:.1em!important}
+#lesson.ar .qlkw b,#lesson.ar .qlkp.tx b,#lesson.ar .qmp.tx b{line-height:1.75;display:block;padding-block:.08em}
+#lesson.ar .qlkw,#lesson.ar .qlkp.tx{display:flex;align-items:center;justify-content:center;text-align:center}
+#lesson.ar .qlkw{flex-direction:column}
+/* sentences joined to pictures in portrait: two columns, the sentence wraps inside its box */
+.qlink.sent .qlkw b{white-space:normal}
+.qlink.sent .qlkw{justify-self:stretch;text-align:center}
+.qlink.sent .qlkw b{text-align:center}   /* sentence boxes: same width, text centred inside (Ahmed 2026-11-09) */
 /* ===== css/coins.css ===== */
 /* COINS — the coin chip beside the star counter, the share sheet and the unlock popup (js/coins.js). Same popup look as the app's messages. */
 .coinhud{position:relative;display:flex;align-items:center;height:2.2rem;padding:0 .9rem 0 2.3rem;margin-left:1.6rem;border-radius:62.4375rem;border:0;cursor:pointer;
@@ -2986,4 +3019,4 @@ body.ws-typing .ws-side{position:fixed!important;right:auto!important;bottom:aut
 .pushbtn svg{width:2rem;height:2rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .pushbtn.on{opacity:1}
 .pushbtn.on svg{fill:currentColor}
-:root{--app-build:"bc66413040"}
+:root{--app-build:"e57f1fe04c"}

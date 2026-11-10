@@ -133,6 +133,7 @@ window.showNahw=function(){
       if(rd.auto!==false&&rd.page<np) rd.autoT=setTimeout(()=>{ if(tab==='read'&&host.isConnected) readGo(1,true); },900); }});
   const go=k=>{ rail(true); carFrac(k/np); x.play(k); };
   window.nahwStop=()=>{ try{ x.stop(); }catch(e){} };
+  window.nahwRestart=()=>{ rd.auto=true; rd.page=1; if(typeof stopVoice==='function') stopVoice(); showRead(); };   // the star pop-up's "again": the animated slide starts over (its own sound, not the story player)
   carFrac(i/np); rail(false); if(typeof bookTag==='function') bookTag();
   rd.auto=true; go(i);
 };

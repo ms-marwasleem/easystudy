@@ -223,7 +223,7 @@
 .qxl{cursor:grab;touch-action:none}.qxl.used{opacity:.22}.qxl.lift{opacity:.35}
 .qxslots{display:flex;gap:clamp(1rem,6cqw,2.5rem);justify-content:center}
 .qxslot{display:flex;flex-direction:column;align-items:center;gap:.4rem}
-.qxslot .qxsg{display:grid;place-items:center;width:clamp(3.75rem,min(21cqw,19cqh),6.25rem);height:clamp(3.75rem,min(21cqw,19cqh),6.25rem);border-radius:.875rem;border:.25rem dashed var(--c-accent);font-family:var(--f-ar);font-size:clamp(1.75rem,7vh,3rem);font-weight:700;color:var(--c-text);background:var(--c-paper2)}
+.qxslot .qxsg{display:grid;place-items:center;--sg:clamp(3.75rem,min(21cqw,19cqh),6.25rem);width:var(--sg);height:var(--sg);border-radius:.875rem;border:.25rem dashed var(--c-accent);font-family:var(--f-ar);font-size:calc(var(--sg) * .5);line-height:1;overflow:hidden;font-weight:700;color:var(--c-text);background:var(--c-paper2)}
 .qxslot.got .qxsg{border-style:solid}
 .qxslot small{font-family:var(--f-ar);font-weight:700;font-size:clamp(1rem,3.2vh,1.5rem);color:var(--c-on-bg)}
 
@@ -292,13 +292,13 @@
 /* ring = circle the letter inside the word (js/quiz-letters.js qxRing): the tapped right letter gets a circle round it */
 .qxw.ring{font-size:clamp(2.4rem,10vh,4.2rem)}
 .qxw.ring .lt{cursor:pointer;position:relative}
-.qxw.ring .lt.rung::after{content:'';position:absolute;left:50%;top:52%;width:1.15em;height:1.15em;transform:translate(-50%,-50%);border:.07em solid #ffe066;border-radius:50%;pointer-events:none}
+.qxw.ring .lt.rung::after{content:'';position:absolute;left:50%;top:56%;width:.78em;height:.78em;transform:translate(-50%,-50%);border:.05em solid var(--c-pink);border-radius:50%;pointer-events:none}
 
 /* ringword = circle the WORD in the sentence (js/quiz-letters.js qxRingWord): question line on top, every word of the sentence is a tap target; the right word gets a circle (same ring colour as `ring`) */
 .qxask{font-weight:700;font-size:clamp(1.2rem,min(4.6vh,3.6vw),2rem);line-height:1.5;color:var(--c-on-bg);text-align:center}
 .qxsent{direction:rtl;display:flex;flex-wrap:wrap;justify-content:center;gap:.1em .3em;max-width:100%;box-sizing:border-box;padding:.3em .6em;border-radius:.6em;background:rgba(255,255,255,.14);font-weight:700;font-size:clamp(1.7rem,min(7vh,6.4vw),3rem);line-height:1.6}
 .qxcw{cursor:pointer;position:relative;padding:.05em .12em;white-space:nowrap}
-.qxcw.rung::after{content:'';position:absolute;inset:-.02em 0;border:.07em solid #ffe066;border-radius:999px;pointer-events:none}
+.qxcw.rung::after{content:'';position:absolute;inset:-.02em 0;border:.07em solid var(--c-pink);border-radius:999px;pointer-events:none}
 
 .qxsbank{box-sizing:border-box;padding-inline:3rem}
 
@@ -331,3 +331,7 @@
 .qx.qa-slides .scene.qasl.slide .scard .pbox{flex:1 1 0;min-height:0;width:100%;justify-content:center}
 }
 .qx.qa-slides .scene.qasl.slide .scard .note{flex-direction:column;justify-content:center;align-items:stretch}   /* an answer-only slide is centred in the panel */
+
+/* the letter with its marks sits in the MIDDLE of the choice circle, marks fully inside (Marwa/Ahmed 2026-11-09, u1l3 q7; every letter-choice circle) */
+.qxchoices .qlet.qlet{display:flex;align-items:center;justify-content:center;padding:0}
+.qxchoices .qlet.qlet span{font-size:calc(var(--q-choice)*.4)!important;line-height:1.5!important;padding:0!important;transform:translateY(.06em)!important;height:auto;display:block}

@@ -22,16 +22,20 @@
   "pic": "../../pics/ar-camel.png",
   "forms": [
    {
-    "t": "ج"
+    "t": "ج",
+    "pos": "end-alone"
    },
    {
-    "t": "جـ"
+    "t": "جـ",
+    "pos": "start"
    },
    {
-    "t": "ـجـ"
+    "t": "ـجـ",
+    "pos": "mid"
    },
    {
-    "t": "ـج"
+    "t": "ـج",
+    "pos": "end-joined"
    }
   ],
   "sounds": [
@@ -298,7 +302,7 @@
   },
   {
    "word": "نَجْم",
-   "img": "../../pics/ar-star-u1l7.png",
+   "img": "../../pics/star.png",
    "audio": {
     "word": "words/najm.mp3"
    },

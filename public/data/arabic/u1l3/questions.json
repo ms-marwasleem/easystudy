@@ -223,7 +223,7 @@
     },
     {
      "word": "إِبْرَة",
-     "pic": "../../pics/ar-needle.jpg",
+     "pic": "../../pics/needle.png",
      "audio": "words/ibra.mp3",
      "answer": "إِ",
      "choices": [
@@ -492,7 +492,7 @@
     },
     {
      "word": "فِيل",
-     "pic": "../../pics/ar-elephant.png",
+     "pic": "../../pics/elephant.png",
      "audio": "q/c5-fil.mp3",
      "answer": false,
      "pos": [
@@ -576,7 +576,7 @@
     },
     {
      "word": "رَأْس",
-     "pic": "../../pics/ar-head.png",
+     "pic": "../../pics/ar-face.png",
      "audio": "words/ras.mp3",
      "answer": true,
      "pos": [
@@ -659,7 +659,7 @@
     },
     {
      "word": "إِبْرَة",
-     "pic": "../../pics/ar-needle.jpg",
+     "pic": "../../pics/needle.png",
      "audio": "words/ibra.mp3",
      "at": 0
     }
@@ -768,7 +768,7 @@
     },
     {
      "word": "رَأْسٌ",
-     "pic": "../../pics/ar-head.png",
+     "pic": "../../pics/ar-face.png",
      "audio": "q/c8-3.mp3"
     },
     {
@@ -791,7 +791,7 @@
    "items": [
     {
      "word": "هَذَا أَسَدٌ يَأْكُلُ لَحْمًا",
-     "pic": "../../pics/ar-lion-eating.jpg",
+     "pic": "../../pics/lion-eating.png",
      "audio": "q/s10.mp3"
     }
    ],
@@ -881,22 +881,38 @@
     {
      "word": "أَ",
      "pic": "../../pics/ar-lion.png",
-     "audio": "../../syl-ar/623-64e.mp3"
+     "audio": "../../syl-ar/623-64e.mp3",
+     "full": [
+      "../../syl-ar/623-64e.mp3",
+      "words/asad.mp3"
+     ]
     },
     {
      "word": "إِ",
      "pic": "../../pics/ar-traffic-light.png",
-     "audio": "../../syl-ar/625-650.mp3"
+     "audio": "../../syl-ar/625-650.mp3",
+     "full": [
+      "../../syl-ar/625-650.mp3",
+      "q/c5-ishara.mp3"
+     ]
     },
     {
      "word": "أْ",
      "pic": "../../pics/mouse.png",
-     "audio": "../../syl-ar/623-652.mp3"
+     "audio": "../../syl-ar/623-652.mp3",
+     "full": [
+      "../../syl-ar/623-652.mp3",
+      "words/fa_r.mp3"
+     ]
     },
     {
      "word": "أُ",
      "pic": "../../pics/ar-ear.png",
-     "audio": "../../syl-ar/623-64f.mp3"
+     "audio": "../../syl-ar/623-64f.mp3",
+     "full": [
+      "../../syl-ar/623-64f.mp3",
+      "words/udhun.mp3"
+     ]
     }
    ],
    "book": "workbook",
@@ -923,7 +939,7 @@
     },
     {
      "word": "إِبْرَة",
-     "pic": "../../pics/ar-needle.jpg",
+     "pic": "../../pics/needle.png",
      "audio": "words/ibra.mp3",
      "at": 0
     },

@@ -284,7 +284,7 @@ let spin=null;
 // a lesson with "pages" (each line has "page": 1|2): the reading tab shows one page at a time; its span is where that page's lines are in the recording
 const nPages=()=>LESSON&&LESSON.pages>1?LESSON.pages:1;
 function pageSpan(){ if(nPages()<2) return [0,LESSON.end]; const ls=LESSON.lines.filter(l=>l.page===rd.page); if(!ls.length) return [0,LESSON.end];
-  return [rd.page===1?0:Math.max(0,ls[0].words[0][1]-.15), rd.page===nPages()?LESSON.end:ls[ls.length-1].words.slice(-1)[0][2]+.35]; }
+  return [rd.page===1?0:Math.max(0,ls[0].words[0][1]-.15), rd.page===nPages()?LESSON.end:Math.min(ls[ls.length-1].words.slice(-1)[0][2]+.35,((LESSON.lines.find(l=>l.page===rd.page+1)||{words:[[0,1e9]]}).words[0][1])-.2)]; }   // a page never plays into the first word of the next page (its start is fragment-free)
 function carAt(t){ if(!LESSON) return; if(LESSON.layout==='explain'&&tab==='read') return carFrac((rd.page-1)/nPages());   // explain pages: the car moves page by page (explainer onBeat), never back to 0
   const [a,b]=pageSpan(), n=nPages(); carFrac(((rd.page-1)+Math.max(0,Math.min(1,(t-a)/(b-a))))/n); }   // progress runs over ALL pages of the lesson, not per page
 // p = 0..1 along the header road (reading time in the Lesson tab, words learned in Vocabulary)
@@ -321,7 +321,7 @@ const stage=$('#stage'), rail=$('#rail'); let tab='read';
 const TABAR={Lesson:'الدرس',Vocab:'كلمات',Q:'أسئلة',Vocabulary:'كلمات',Questions:'أسئلة',Assignments:'كتاب التقييمات',Booklet:'كُتيب',PTS:'كتاب التقييمات',Grammar:'القواعد'};   // the bottom tabs in Arabic lessons
 const TABS={read:['Lesson','book'],words:['Vocabulary','abc'],quiz:['Questions','quiz'],booklet:['Booklet','quiz'],workbook:['Assignments','quiz'],grammar:['Grammar','hint']};
 // English AL: the Lesson tab (book parts) and the Booklet tab both run on the questions engine (quiz.js); inQ() = a questions-style sheet is on screen
-const isAL=()=>!!(LESSON&&LESSON.type==='al'), inQ=()=>tab==='quiz'||tab==='workbook'||tab==='booklet'||(isAL()&&tab==='read'), alSrc=()=>tab==='booklet'?'booklet':'lesson', qKey=()=>isAL()?tab:'quiz';
+const isAL=()=>!!(LESSON&&LESSON.type==='al'), inQ=()=>tab==='quiz'||tab==='workbook'||tab==='booklet'||(isAL()&&tab==='read'), alSrc=()=>tab==='booklet'?'booklet':'lesson', qKey=()=>isAL()||tab==='booklet'||tab==='workbook'?tab:'quiz';
 const KEYTAB={read:'book',quiz:'book',grammar:'book',booklet:'bk',workbook:'pts'};   // the map-key colour each tab belongs to (Words has none)
 function paintTabs(){ $$('.tab').forEach(b=>{ const [l0,ic]=TABS[b.dataset.tab], l=(LESSON&&LESSON.tabLabels&&LESSON.tabLabels[b.dataset.tab])||l0, got=LESSON&&STARS[LESSON.id]&&STARS[LESSON.id][b.dataset.tab];
   b.dataset.book=KEYTAB[b.dataset.tab]||''; b.innerHTML=ICON[ic]+`<span>${isAr()&&TABAR[l]||tr(l)}</span>`+(b.dataset.book?'<i class="kd"></i>':'')+(got?`<span class="st">${STAR(true)}</span>`:''); b.hidden=LESSON&&LESSON.tabs?!LESSON.tabs.includes(b.dataset.tab):['booklet','workbook'].includes(b.dataset.tab)?!hasBook(b.dataset.tab):b.dataset.tab==='grammar'||(b.dataset.tab==='quiz'&&SUBJECT&&SUBJECT.id==='arabic'&&!hasBook('quiz')); b.setAttribute('aria-selected',b.dataset.tab===tab); }); const tb=$('.tabs'); if(tb){ const nt=$$('.tab:not([hidden])').length; tb.classList.toggle('many',nt>3); tb.classList.toggle('many5',nt>4); const on=$('.tab[aria-selected="true"]',tb); if(on) tb.scrollTo({left:on.offsetLeft-tb.clientWidth/2+on.offsetWidth/2,behavior:'auto'}); } }   // optional "tabs": ["read","quiz"] in lesson.json shows only those tabs (Math: explanation + questions, or questions only)
@@ -785,12 +785,15 @@ async function playFile(url){ await ensureCtx();
   }
   if(!buf){ if(isAr()){ await nap(350); return; } throw new Error('missing audio'); }   // Arabic: a recording not made yet is silent
   return playBuf(buf); }
+// load + decode a sound BEFORE it is needed (the first play of a file waits for the network otherwise: Ahmed 2026-11-09 "the sound lags on the first join")
+async function warmFile(url){ try{ if(!url) return; await ensureCtx(); if(await libBuffer(url,player.ctx).catch(()=>null)) return;
+  if(!vs.files[url]) vs.files[url]=fetch(url).then(r=>{ if(!r.ok) throw new Error('missing'); return r.arrayBuffer(); }).then(b=>decodeSnd(player.ctx,b)).catch(()=>{ delete vs.files[url]; return null; }); await vs.files[url]; }catch(_){} }
 async function playClip([s,e]){ try{ await ensureAudio(); }catch(err){ return; } if(!player.bufs.n) return; return playBuf(player.bufs.n,Math.max(0,s-.03),e-s+.08); }   // single words: normal speed
 const sayWord=v=>v.audio&&v.audio.word?playFile(v.audio.word):v.clip?playClip(v.clip):tts(v.word,isAr()?'ar':'en',.75);
 // LETTER-WORDS component (letter lessons): each word has v.har (fatha|damma|kasra|sukoon). Beside the word sits the haraka boy (library ar-boy-<har>);
 // saying the word first says the letter's name and the haraka's name ("ألف، فتحة"), then the word. Recordings: letter.nameAudio + data/arabic/shared/h-<har>.mp3.
 const letterWords=()=>LESSON.type==='letter'&&LESSON.vocab.some(v=>v.har);
-const sayHead=async v=>{ if(letterWords()&&v.har){ if(LESSON.letter&&LESSON.letter.nameAudio) await playFile(LESSON.base+LESSON.letter.nameAudio); await playFile(LESSON.base+'../shared/h-'+v.har+'.mp3'); await nap(250); } return sayWord(v); };
+const sayHead=async v=>{ if(letterWords()&&v.har){ if(LESSON.letter&&LESSON.letter.nameAudio) await playFile(LESSON.base+LESSON.letter.nameAudio); await playFile(LESSON.base+'../shared/k-h-'+v.har+'.mp3'); await nap(250); } return sayWord(v); };
 // the whole word said after its parts (her second take sounds natural there); falls back to the first take
 const sayWordAgain=v=>v.audio&&v.audio.again?playFile(v.audio.again):sayWord(v);
 const sayAr=v=>v.audio&&v.audio.ar?playFile(v.audio.ar):tts(v.ar,'ar',.85);
@@ -1238,6 +1241,7 @@ function qPicBoard(w,s,play,run){
     b.append(c); }
   b._items=s.items;
   s.items.forEach(it=>{ const p=el('button','qmp'+(it.picSrc?'':' tx'),(it.picSrc?`<img src="${it.picSrc}" alt="">`+(it.text?`<b class="qpt">${it.text}</b>`:''):`<b>${it.word}</b>`)+`<span class="qmark"></span>`); p.setAttribute('aria-label',it.word);   // a word-only option (book: circle the different WORD)
+    if(!it.picSrc&&it.audio&&it.src){ const sp=el('span','qsay qmsay',typeof SAY_LN==='string'?SAY_LN:ICON.sound); sp.setAttribute('role','button'); sp.setAttribute('aria-label','Listen'); sp.addEventListener('click',e=>{ e.stopPropagation(); if(!qz.busy) qSound(it.src,it.word); }); p.prepend(sp); }   // a word to find gets its Listen speaker (Ahmed 2026-11-09, all word boards): a child who cannot read it hears it before choosing; a tap on the speaker never circles
     const ps=it.posP&&!$('#lesson').classList.contains('q-land')?it.posP:it.pos; p.style.left=`clamp(calc(var(--w) / 2), ${ps[0]}%, calc(100% - var(--w) / 2))`; p.style.top=`clamp(calc(var(--w) / 2), ${ps[1]}%, calc(100% - var(--w) / 2))`; p.addEventListener('click',()=>qMatch(p,it,s)); b.append(p); });
   play.append(b); qFitBoard(b); requestAnimationFrame(()=>qFitBoard(b));
   // the first time: read the instruction, then the letter's sound
@@ -1373,13 +1377,14 @@ function qLinkBoard(w,s,play,run){
   ord.forEach(k=>{ const it=s.items[k], b=el('button','qlk qlkp'+(it.picSrc?'':' tx'),it.picSrc?`<img src="${it.picSrc}" alt="" draggable="false">`:`<b>${it.text2}</b>`); b.dataset.k=k; b.setAttribute('aria-label',it.picSrc?'Picture':it.text2); pc.append(b); });   // "text2": a word to join instead of a picture
   const svg=document.createElementNS('http://www.w3.org/2000/svg','svg'); svg.setAttribute('class','qlsvg');
   bd.append(wd,pc,svg); play.append(bd);
+  s.items.forEach(it=>[it.src,it.src2,...(it.fullSrc||[])].forEach(f=>warmFile(f)));   // every sound of the board is ready before the first join
   let drag=null, sel=null; const rel=(x,y)=>{ const B=bd.getBoundingClientRect(); return [x-B.left,y-B.top]; };
   const kind=b=>b.classList.contains('qlkw')?'w':'p';
   const tmp=()=>{ let l=$('.qtmp',svg); if(!l){ l=document.createElementNS('http://www.w3.org/2000/svg','line'); l.setAttribute('class','qtmp'); svg.append(l); } return l; };
   const clearSel=()=>{ if(sel){ sel.classList.remove('sel'); sel=null; } };
   bd.addEventListener('pointerdown',e=>{ const b=e.target.closest('.qlk'); if(!b||qz.busy) return; e.preventDefault(); hideHint();
     const it=s.items[+b.dataset.k];
-    if(b.classList.contains('done')){ if(kind(b)==='w') qSound(it.src,it.word); else if(b.classList.contains('tx')) qSound(it.src2||it.src,it.text2); return; }
+    if(b.classList.contains('done')){ if(kind(b)==='w'||b.classList.contains('tx')) qLinkSay(it); return; }
     drag={b,x:e.clientX,y:e.clientY,moved:false}; try{ bd.setPointerCapture(e.pointerId); }catch(_){} });
   bd.addEventListener('pointermove',e=>{ if(!drag) return;
     if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)<10) return; drag.moved=true;
@@ -1411,22 +1416,28 @@ function qLinkLine(bd,wb,pb,cls){ const svg=$('.qlsvg',bd), l=document.createEle
 function qLinkLines(){ const bd=$('.qlink'); if(!bd) return; $$('.qlj',bd).forEach(l=>l.remove()); bd._pairs.forEach(([wb,pb])=>qLinkLine(bd,wb,pb)); }
 // words and pictures as big as the board allows; rows or columns follow the screen
 function qLinkRefresh(land){ const bd=$('.qlink'); if(!bd) return; const s=bd._set, n=s.items.length;
-  bd.classList.toggle('cols',s.layout==='cols'||(!land&&n>4));
-  const B=bd.getBoundingClientRect(), cols=bd.classList.contains('cols'), mx=Math.max(...s.items.map(it=>Math.max(it.word.length,(it.text2||'').length)));
+  const wordsOnly=s.items.every(it=>!it.picSrc&&!it.wpicSrc);   // word-to-word joins (meaning / plural): in portrait two columns, so the words can be BIG with room for the dots (Ahmed 2026-11-09)
+  const mx=Math.max(...s.items.map(it=>Math.max(it.word.length,(it.text2||'').length))), sent=!land&&s.items.some(it=>it.word.split(/\s+/).length>=3&&it.word.length>16);   // whole sentences do not fit side by side on a tall screen (Ahmed 2026-11-09)
+  bd.classList.toggle('cols',s.layout==='cols'||(!land&&(n>4||wordsOnly||sent))); bd.classList.toggle('sent',sent);
+  const B=bd.getBoundingClientRect(), cols=bd.classList.contains('cols');
   const cw=cols?B.width*.4:(B.width-(n-1)*8)/n-14, rh=cols?B.height/n*.5:40;
   const gp=parseFloat(getComputedStyle(cols?bd:($('.qlw',bd)||bd)).columnGap)||0, colW=cols?(B.width-gp)/2:(B.width-(n-1)*gp)/n;   // the room one word box really has
   let fs=Math.max(12,Math.min(isAr()?48:32,cw/(.6*mx),rh*1.1,colW/(1.12*(.6*mx+1.2))));
+  if(sent) fs=Math.max(14,Math.min(26,colW/(.6*mx/2.4),rh*.55));   // 2-3 wrapped lines per sentence
+  if(cols&&wordsOnly) fs=Math.max(fs,Math.min(38,colW/3.2,rh*1.1));   // big words: the fit loop below shrinks it if a word does not fit
   bd.style.setProperty('--fs',fs+'px');
   // the WHOLE word must sit inside its rectangle: shrink until the widest text fits its box (never cut, never over the connector dot)
-  for(let k=0;k<30&&fs>10;k++){ const bad=$$('.qlkw,.qlkp.tx',bd).some(bx=>{ const b=$('b',bx); return b&&(b.scrollWidth>bx.clientWidth-parseFloat(getComputedStyle(bx).paddingLeft)-parseFloat(getComputedStyle(bx).paddingRight)+1||b.getBoundingClientRect().bottom>bd.getBoundingClientRect().bottom+1); }); if(!bad) break; fs-=1; bd.style.setProperty('--fs',fs+'px'); }
+  for(let k=0;k<30&&fs>10;k++){ const bad=$$('.qlkw,.qlkp.tx',bd).some(bx=>{ const b=$('b',bx); return b&&(b.scrollWidth>bx.clientWidth-parseFloat(getComputedStyle(bx).paddingLeft)-parseFloat(getComputedStyle(bx).paddingRight)+1||b.getBoundingClientRect().bottom>bd.getBoundingClientRect().bottom+1||(sent&&bx.offsetHeight>B.height/n*.96)); }); if(!bad) break; fs-=1; bd.style.setProperty('--fs',fs+'px'); }
   qLinkLines(); }
+/* what a joined pair says: "full" (whole phrase) if given; else, when the partner has its own recording ("audio2"), the word then the partner; else the word */
+async function qLinkSay(it){ vStop(); if(it.fullSrc&&it.fullSrc.length){ for(const f of it.fullSrc){ try{ await playFile(f); }catch(_){} } return; } if(it.text2&&it.audio2&&it.src2&&it.src2!==it.src){ for(const f of [it.src,it.src2]){ try{ await playFile(f); }catch(_){} } return; } return qSound(it.src,it.word); }
 async function qLinkTry(bd,s,a,b){
   const run=qz.run;   // the board is kept from pair to pair, so it must use the question running NOW, not the one it was built in
   const wb=a.classList.contains('qlkw')?a:b, pb=wb===a?b:a, it=s.items[+wb.dataset.k];
   if(wb.dataset.k!==pb.dataset.k&&!(s.group&&(it.text2?s.items[+pb.dataset.k].text2===it.text2:it.pic&&s.items[+pb.dataset.k].word===it.word))){ const l=qLinkLine(bd,wb,pb,'qlj bad'); setTimeout(()=>l.remove(),500); return qBad([wb,pb]); }
   if(!qSetMoreAfter(s)) qz.busy=true; wb.classList.add('done'); pb.classList.add('done'); bd._pairs.push([wb,pb]);
   const l=qLinkLine(bd,wb,pb); if(anim){ const len=l.getTotalLength?l.getTotalLength():300; G.fromTo(l,{strokeDasharray:len,strokeDashoffset:len},{strokeDashoffset:0,duration:.35,ease:'power2.out'}); }
-  celebrate(pb); if(it.full) (async()=>{ vStop(); for(const f of it.fullSrc){ try{ await playFile(f); }catch(_){} } })(); else qSound(it.src,it.word);   // "full": the joined phrase of the pair (word + its partner), said on a right join
+  celebrate(pb); qLinkSay(it);   // "full": the joined phrase of the pair (word + its partner), said on a right join
   if(qMore(s)) return; return qDone(s,run,900);
 }
 /* choice: tap the right word of the two; it gets a hand-drawn ring */
@@ -1477,8 +1488,12 @@ function qPicFit(im,tall){ if(!tall) return; const wide=im.src, d={}, t=new Imag
    A page is done when every card was heard (both pages = the lesson star). Reuses the reading pager (readPager) and the book-page tag. */
 function fixLetterPaths(Lt,R){
   Lt.pic=R(Lt.pic); Lt.nameAudio=R(Lt.nameAudio);
-  (Lt.sounds||[]).forEach(s=>{ s.audio=R(s.audio); s.pic=R(s.pic); s.say=[s.audio]; });
-  (Lt.forms||[]).forEach(f=>{ f.say=f.pos?[Lt.nameAudio,R('../shared/p-'+f.pos+'.mp3')]:[Lt.nameAudio]; });
+  // spoken: the letter's name, then the haraka's name, then the letter with that haraka (Marwa 2026-11-08); forms: name + place. Cards run from the RIGHT: fatha, damma, kasra, sukoon / start, mid, end-joined, end-alone
+  const HO=['fatha','damma','kasra','sukoon'], PO=['start','mid','end-joined','end-alone'];
+  (Lt.sounds||[]).forEach(s=>{ s.audio=R(s.audio); s.pic=R(s.pic); s.say=s.har?[Lt.nameAudio,R('../shared/k-h-'+s.har+'.mp3'),s.audio]:[s.audio]; });
+  (Lt.forms||[]).forEach(f=>{ f.say=f.pos?[Lt.nameAudio,R('../shared/k-p-'+f.pos+'.mp3')]:[Lt.nameAudio]; });
+  if((Lt.sounds||[]).every(s=>s.har)) Lt.sounds.sort((a,b)=>HO.indexOf(a.har)-HO.indexOf(b.har));
+  if((Lt.forms||[]).length&&Lt.forms.every(f=>f.pos)) Lt.forms.sort((a,b)=>PO.indexOf(a.pos)-PO.indexOf(b.pos));
   if(Lt.chant){ Lt.chant.pic=R(Lt.chant.pic); Lt.chant.lines.forEach(l=>l.audio=R(l.audio)); }
 }
 const lt={run:0,heard:{}};
@@ -1499,12 +1514,12 @@ function showLetter(){
   const Lt=LESSON.letter, pg=rd.page-lOff(), h=lHeard();
   if(pg<1) return showChant();
   stage.innerHTML=''; rd.words=[]; rd.lineEls=[]; rd.spotEls=[]; lt.run++;
-  const scene=el('div','scene pics letter p'+pg), grid=el('div','lgrid p'+pg);
+  const scene=el('div','scene pics letter p'+pg), grid=el('div','lgrid p'+pg); grid.dir='rtl';
   scene.append(el('p','task',STAR(true)+Lt.tasks[pg-1]),grid);
   const card=(cls,k,html,fn)=>{ const b=el('button','lcard '+cls+(h[pg+':'+k]?' heard':''),html+`<span class="lst">${STAR(true)}</span>`); b.addEventListener('click',()=>fn(b)); grid.append(b); return b; };
   if(pg===1){
     const say=el('button','lspk',SAY_LN); say.setAttribute('aria-label','Listen'); say.onclick=()=>lPlay(Lt.nameAudio,say);
-    grid.append(el('div','lhead',`<img src="${Lt.pic}" alt="">`)); $('.lhead',grid).append(say,el('b','lbig',Lt.ch));
+    grid.append(el('div','lhead',`<img src="${Lt.pic}" alt="">`)); $('.lhead',grid).append(say,el('b','lbig',Lt.ch)); $('.lhead',grid).style.direction='ltr';
     Lt.forms.forEach((f,k)=>card('form',k,`<span class="lglyph">${f.t}</span>${f.label?`<span class="llab">${f.label}</span>`:''}`,async b=>{ lMark(1,k,b); await lPlay(f.say,b); }));
   } else {
     Lt.sounds.forEach((s,k)=>card('snd',k,`<img src="${s.pic}" alt="">${s.t?`<span class="lglyph">${s.t}</span>`:''}<span class="llab">${s.label}</span>`,async b=>{ lMark(2,k,b); await lPlay(s.say,b); }));
@@ -1815,12 +1830,13 @@ function qxPuzzle(box,q,s,run){
     const y0=st+sh+pw*.35, y1=Math.max(y0,H-pw*1.1);
     P.forEach(p=>{ const k=order.indexOf(p.i); if(p.in){ p.x=p.tx; p.y=p.ty; } else { p.x=(W-pw*1.2)*(n>1?k/(n-1):.5)+pw*.1; p.y=y0+(y1-y0)*(k%2?.9:.15); } put(p); }); };
   const say=i=>qSound(q.pieceAudio&&q.pieceAudio[i]?R_Q(q.pieceAudio[i]):null,'');
-  async function finish(){ if(done) return; done=true; q.solved=true; P.forEach(p=>p.e.classList.add('gone')); slot.classList.add('got'); await new Promise(r=>setTimeout(r,400)); if(run!==qz.run||!inQ()) return; await qSound(R_Q(q.audio),q.word); if(run!==qz.run||!inQ()) return; qStar(); }
+  async function finish(last){ if(done) return; done=true; try{ await Promise.race([Promise.resolve(last),new Promise(r=>setTimeout(r,2500))]); }catch(e){}   // the last piece's sound ends first, then the WHOLE word is said (Marwa 2026-11-09)
+    if(run!==qz.run||!inQ()) return; q.solved=true; P.forEach(p=>p.e.classList.add('gone')); slot.classList.add('got'); await new Promise(r=>setTimeout(r,400)); if(run!==qz.run||!inQ()) return; await qSound(R_Q(q.audio),q.word); if(run!==qz.run||!inQ()) return; qStar(); }
   P.forEach(p=>{ let sx,sy,x0,y0,moved=false,on=false;
     p.e.addEventListener('pointerdown',ev=>{ if(done) return; ev.preventDefault(); ev.stopPropagation(); p.e.setPointerCapture(ev.pointerId); sx=ev.clientX; sy=ev.clientY; x0=p.x; y0=p.y; moved=false; on=!p.in; if(on) p.e.classList.add('drag'); });
     p.e.addEventListener('pointermove',ev=>{ if(!on) return; const dx=ev.clientX-sx,dy=ev.clientY-sy; if(!moved&&Math.hypot(dx,dy)<6) return; moved=true; p.x=Math.min(Math.max(0,x0+dx),bd.clientWidth-pw); p.y=Math.min(Math.max(0,y0+dy),bd.clientHeight-pw); put(p); });
     const up=ev=>{ ev.stopPropagation(); p.e.classList.remove('drag'); if(!moved){ if(!done) say(p.i); on=false; return; } if(!on) return; on=false;
-      if(Math.hypot(p.x-p.tx,p.y-p.ty)<pw*.55){ p.in=true; p.x=p.tx; p.y=p.ty; p.e.classList.add('in'); put(p); say(p.i); if(P.every(z=>z.in)) finish(); } };
+      if(Math.hypot(p.x-p.tx,p.y-p.ty)<pw*.55){ p.in=true; p.x=p.tx; p.y=p.ty; p.e.classList.add('in'); put(p); const sp=say(p.i); if(P.every(z=>z.in)) finish(sp); } };
     p.e.addEventListener('pointerup',up); p.e.addEventListener('pointercancel',up); });
   box._after=()=>layout(); requestAnimationFrame(layout); new ResizeObserver(layout).observe(bd);
 }
@@ -1842,7 +1858,8 @@ function qxFace(box,q,s,run){
     P.forEach((p,k)=>{ const nw=p.e.naturalWidth||1, nh=p.e.naturalHeight||1; p.w=p.t.w/100*fw; p.h=p.w*nh/nw; p.e.style.width=p.w+'px'; p.e.style.height=p.h+'px';
       p.tx=fx+p.t.x/100*fw-p.w/2; p.ty=fy+p.t.y/100*fh-p.h/2;
       if(p.in){ p.x=p.tx; p.y=p.ty; } else { const order=(k%2)?n-1-(k>>1):(k>>1); p.x=trX+(trW-p.w)*((k%2)?.8:.2); p.y=fy+(fh-p.h)*(n>1?order/(n-1):.5); } put(p); }); };
-  async function finish(){ if(done) return; done=true; q.solved=true; await new Promise(r=>setTimeout(r,350)); if(run!==qz.run||!inQ()) return; qStar(); }
+  async function finish(last){ if(done) return; done=true; try{ await Promise.race([Promise.resolve(last),new Promise(r=>setTimeout(r,2500))]); }catch(e){}   // the last piece's sound ends first, then the WHOLE word is said (Marwa 2026-11-09)
+    if(run!==qz.run||!inQ()) return; q.solved=true; await new Promise(r=>setTimeout(r,350)); if(run!==qz.run||!inQ()) return; qStar(); }
   P.forEach(p=>{ let sx,sy,x0,y0,moved=false,on=false;
     p.e.addEventListener('pointerdown',ev=>{ if(done||p.in) return; ev.preventDefault(); ev.stopPropagation(); p.e.setPointerCapture(ev.pointerId); sx=ev.clientX; sy=ev.clientY; x0=p.x; y0=p.y; moved=false; on=true; p.e.classList.add('drag'); });
     p.e.addEventListener('pointermove',ev=>{ if(!on) return; const dx=ev.clientX-sx,dy=ev.clientY-sy; if(!moved&&Math.hypot(dx,dy)<6) return; moved=true; p.x=Math.min(Math.max(0,x0+dx),bd.clientWidth-p.w); p.y=Math.min(Math.max(0,y0+dy),bd.clientHeight-p.h); put(p); });
@@ -1858,7 +1875,8 @@ function qxColour(box,q,s,run){
   const row=el('div','qxcr'); bd.append(row); let on=0, done=false;
   const cells=[]; for(let i=0;i<q.total;i++){ const im=el('img','qxcs'); im.alt=''; im.draggable=false; im.src=R_Q(q.off); im.dataset.on=0; row.append(im); cells.push(im); }
   const cnt=()=>cells.filter(c=>c.dataset.on==='1').length;
-  async function finish(){ if(done) return; done=true; q.solved=true; await new Promise(r=>setTimeout(r,450)); if(run!==qz.run||!inQ()) return; qStar(); }
+  async function finish(last){ if(done) return; done=true; try{ await Promise.race([Promise.resolve(last),new Promise(r=>setTimeout(r,2500))]); }catch(e){}   // the last piece's sound ends first, then the WHOLE word is said (Marwa 2026-11-09)
+    if(run!==qz.run||!inQ()) return; q.solved=true; await new Promise(r=>setTimeout(r,450)); if(run!==qz.run||!inQ()) return; qStar(); }
   cells.forEach(c=>c.addEventListener('click',ev=>{ ev.stopPropagation(); if(done) return;
     if(c.dataset.on==='1'){ c.dataset.on=0; c.src=R_Q(q.off); return; }
     if(cnt()>=q.num){ c.classList.remove('no'); void c.offsetWidth; c.classList.add('no'); return; }
@@ -1901,7 +1919,7 @@ function qxBuild(box,q,s,run){
   if(PW){ const cols=[...places.children]; cols.forEach((d,i)=>{ const col=el('div','qxbcol'), f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${q.pics[i]}" alt="">`)); d.replaceWith(col); col.append(f,d); }); }   // pictures stand at the sides: each one right above its own place
   if(q.pics&&q.pics.length&&!PW){ const pr=el('div','qxfirsts qxbpics'); q.pics.forEach(u=>{ const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${u}" alt="">`)); pr.append(f); }); box.append(pr); }   // "pics": the book's pictures of the words to make (shown above the letters; the answer is still ANY word the letters make)
   box.append(bank,places);
-  const MAXL=PW?6:6, need=PW?P.length:(q.need||Math.min(3,P.length)), pwN=p=>PW?(q.picWords[p.i][0].match(/[^ً-ْٰـ][ً-ْٰـ]*/g)||[]).length:0, act=()=>P.find(p=>!p.done&&p.l.length<MAXL), show=p=>{ if(!q.cells){ p.w.textContent=p.l.join(''); return; }
+  const MAXL=PW?6:6, need=P.length, pwN=p=>PW?(q.picWords[p.i][0].match(/[^ً-ْٰـ][ً-ْٰـ]*/g)||[]).length:0, act=()=>P.find(p=>!p.done&&p.l.length<MAXL), show=p=>{ if(!q.cells){ p.w.textContent=p.l.join(''); return; }
     // q.cells = N: the place is split into N letter boxes so the child sees where each letter goes (one box per letter; a built word shows its marks)
     // boxes do NOT tell how long the word is: as many boxes as letters placed plus one empty (at least 2, at most MAXL); a built word shows its letters with marks
     if(PW&&p.done){ p.w.innerHTML=''; p.w.append(el('span','qxbjoin',p.wk)); return; }
@@ -3330,6 +3348,7 @@ window.showNahw=function(){
       if(rd.auto!==false&&rd.page<np) rd.autoT=setTimeout(()=>{ if(tab==='read'&&host.isConnected) readGo(1,true); },900); }});
   const go=k=>{ rail(true); carFrac(k/np); x.play(k); };
   window.nahwStop=()=>{ try{ x.stop(); }catch(e){} };
+  window.nahwRestart=()=>{ rd.auto=true; rd.page=1; if(typeof stopVoice==='function') stopVoice(); showRead(); };   // the star pop-up's "again": the animated slide starts over (its own sound, not the story player)
   carFrac(i/np); rail(false); if(typeof bookTag==='function') bookTag();
   rd.auto=true; go(i);
 };

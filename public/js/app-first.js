@@ -1,4 +1,4 @@
-const APP_BUILD='bc66413040';
+const APP_BUILD='e57f1fe04c';
 /* MADE BY tools/build-app.py from the files named below. Do not edit here: edit those files, then run the script again. */
 /* ===== js/core.js ===== */
 // Arabic-Indic (٠-٩) and Eastern Persian (۰-۹) digits typed anywhere count as Western digits: one helper, applied to every text box before any answer check
@@ -295,6 +295,7 @@ function awardNow(id,part){
 function levelUp(id,isNew){
   const o=$('#levelUp'), t=$('#lvlTitle'); const word=tr(isNew?'Great!':'Super!'); t.textContent=word; t.dataset.t=word; $('#lvlAgain').textContent=tr('Again'); $('#lvlMap').textContent=tr('Map');
   $('#slots').innerHTML=PARTS.filter(([p])=>{ const t=$('.tab[data-tab="'+p+'"]'); return t?!t.hidden:(LESSON&&LESSON.tabs?LESSON.tabs.includes(p):['read','words','quiz'].includes(p)); }).map(([p,l0])=>{ const l=(typeof TABAR!=='undefined'&&isAr()&&TABAR[p==='workbook'?'Assignments':l0])||tr(l0); return `<button class="slot" data-p="${p}" aria-label="Go to ${l}">${STAR(false)}${STARS[id]&&STARS[id][p]?`<span class="on" style="position:absolute;inset:0">${STAR(true)}</span>`:''}<span class="lbl">${l}</span></button>`; }).join('');
+  { const sl=$('#slots'), n=sl.children.length; sl.style.setProperty('--n',n); sl.classList.toggle('n3',n<=3); sl.classList.toggle('many',n>3); }
   putCar($('#lvlCar'),'wow'); o.hidden=false; spinRays(o);
   if(!anim) return;
   G.from('#lvlTitle',{scale:0,rotation:-8,duration:.55,ease:'back.out(2.4)'});
@@ -304,7 +305,7 @@ function levelUp(id,isNew){
   G.from('#levelUp .btns',{y:40,opacity:0,duration:.4,delay:.9});
   G.delayedCall(.7+$$('#slots .on').length*.45,()=>confetti(150));
 }
-$('#lvlAgain').addEventListener('click',()=>{ $('#levelUp').hidden=true; if(tab==='words'){ vs.i=0; vTeach(); } else if(inQ()) showQuiz(0); else playFrom(0); });
+$('#lvlAgain').addEventListener('click',()=>{ $('#levelUp').hidden=true; if(tab==='words'){ vs.i=0; vTeach(); } else if(tab==='read'&&LESSON&&LESSON.layout==='nahw'&&typeof nahwRestart==='function') nahwRestart(); else if(inQ()) showQuiz(0); else playFrom(0); });
 $('#lvlMap').addEventListener('click',()=>{ $('#levelUp').hidden=true; openMap(); });
 // each star (and its name) opens that part of the lesson: Lesson, Vocabulary or Questions
 $('#slots').addEventListener('click',e=>{ const s=e.target.closest('.slot'); if(!s) return; $('#levelUp').hidden=true; switchTab(s.dataset.p); });

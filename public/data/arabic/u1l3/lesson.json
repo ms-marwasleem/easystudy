@@ -22,13 +22,20 @@
   "pic": "../../pics/ar-lion.png",
   "forms": [
    {
-    "t": "أ"
+    "t": "أ",
+    "pos": "start"
    },
    {
-    "t": "إ"
+    "t": "ـأ",
+    "pos": "mid"
    },
    {
-    "t": "ـأ"
+    "t": "ـأ",
+    "pos": "end-joined"
+   },
+   {
+    "t": "أ",
+    "pos": "end-alone"
    }
   ],
   "sounds": [
@@ -135,7 +142,7 @@
   },
   {
    "word": "أَقْلَام",
-   "img": "../../pics/ar-pencils.jpg",
+   "img": "../../pics/pencil.png",
    "audio": {
     "word": "words/aqlam.mp3"
    },
@@ -223,7 +230,7 @@
   },
   {
    "word": "إِبْرَة",
-   "img": "../../pics/ar-needle.jpg",
+   "img": "../../pics/needle.png",
    "audio": {
     "word": "words/ibra.mp3"
    },
@@ -311,7 +318,7 @@
   },
   {
    "word": "رَأْس",
-   "img": "../../pics/ar-head.png",
+   "img": "../../pics/ar-face.png",
    "audio": {
     "word": "words/ras.mp3"
    },

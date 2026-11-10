@@ -21,12 +21,10 @@
   "nameAudio": "../letters/62f/name.mp3",
   "pic": "../../pics/ar-rooster.png",
   "forms": [
-   {
-    "t": "د"
-   },
-   {
-    "t": "ـد"
-   }
+   {"t": "د", "pos": "start"},
+   {"t": "ـد", "pos": "mid"},
+   {"t": "ـد", "pos": "end-joined"},
+   {"t": "د", "pos": "end-alone"}
   ],
   "sounds": [
    {
@@ -292,7 +290,7 @@
   },
   {
    "word": "مَدْرَسَة",
-   "img": "../../pics/ar-school-cut.png",
+   "img": "../../pics/school.png",
    "audio": {
     "word": "words/madrasa.mp3"
    },

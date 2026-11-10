@@ -234,7 +234,8 @@
   font-size:calc(var(--fs) * 1cqw);color:#1b1b1b;cursor:pointer;text-align-last:justify}
 .scene.poem .ph .w{display:inline-block;color:inherit;padding:0;border-radius:0}
 .scene.poem .ph .w.reading{color:var(--story-now)}
-.scene.story.poem{padding:0 5.6rem 0 .25rem!important}   /* NO panel behind the page (it sits on the app background); the page sits BESIDE the button column (never under a button), centred in the room that is left, whole page visible */
+.scene.story.poem{padding:0 .25rem!important}
+@media (orientation:landscape){.scene.story.poem{padding:0 5.6rem 0 .25rem!important}}   /* portrait: buttons are a bottom row, so the page is centred with equal sides */   /* NO panel behind the page (it sits on the app background); the page sits BESIDE the button column (never under a button), centred in the room that is left, whole page visible */
 
 /* ---- STORY CARD (segment slides, Q&A slides; RULES.md "Story card", Marwa 2026-11-05): the picture fills a rounded card with a thin white frame,
    the caption sits on a warm cream panel INSIDE the bottom of the picture, a round number badge top corner, round child font, dark text ---- */

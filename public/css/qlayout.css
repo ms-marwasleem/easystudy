@@ -106,4 +106,16 @@
 }
 
 /* link board in rows (tags/words above, pictures below): the two rows breathe, never stuck together (Ahmed 2026-11-08) */
-.qlink:not(.cols){gap:clamp(2.75rem,16cqh,3.5rem)}
+.qlink:not(.cols){gap:clamp(2.75rem,26cqh,7rem)}   /* room between the row of words and the row of pictures (Ahmed 2026-11-09) */
+
+/* words sit INSIDE their box, centred, with room for the harakat above and below (Ahmed 2026-11-09, whole app): Arabic needs a taller line than the 1.1-1.15 the boxes used, or the kasra / shadda hang out of the bottom */
+.qch.wd{display:flex!important;align-items:center;justify-content:center;text-align:center}
+#lesson.ar .qch.wd>span,#lesson.ar .qch.wd{line-height:1.85!important}
+#lesson.ar .qch.wd{padding-block:.1em!important}
+#lesson.ar .qlkw b,#lesson.ar .qlkp.tx b,#lesson.ar .qmp.tx b{line-height:1.75;display:block;padding-block:.08em}
+#lesson.ar .qlkw,#lesson.ar .qlkp.tx{display:flex;align-items:center;justify-content:center;text-align:center}
+#lesson.ar .qlkw{flex-direction:column}
+/* sentences joined to pictures in portrait: two columns, the sentence wraps inside its box */
+.qlink.sent .qlkw b{white-space:normal}
+.qlink.sent .qlkw{justify-self:stretch;text-align:center}
+.qlink.sent .qlkw b{text-align:center}   /* sentence boxes: same width, text centred inside (Ahmed 2026-11-09) */

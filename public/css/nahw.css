@@ -38,7 +38,7 @@
 .nh-spot{position:absolute;width:0;height:0}
 /* scene board: portrait = words on top, picture under them; landscape = words in a column on the right, the picture on the left (room for the arrow + label under it) */
 .nh-board.scene{gap:2cqh}
-.nh-board.scene .nh-scene{height:30cqh;margin-bottom:16cqh}
+.nh-board.scene .nh-scene{height:28cqh;margin-bottom:24cqh}
 .nh-board.scene .scene-words{font-size:min(12cqh,11cqw)}
 @media (orientation:landscape){.nh-board.scene{flex-direction:row;direction:rtl;gap:8cqw;padding-top:4cqh}
   .nh-board.scene .scene-words{display:flex;flex-direction:column;gap:1cqh;font-size:min(24cqh,12cqw)}

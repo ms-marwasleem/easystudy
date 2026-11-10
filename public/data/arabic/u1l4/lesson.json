@@ -22,16 +22,20 @@
   "pic": "../../pics/cow.png",
   "forms": [
    {
-    "t": "ب"
+    "t": "ب",
+    "pos": "end-alone"
    },
    {
-    "t": "ـب"
+    "t": "ـب",
+    "pos": "end-joined"
    },
    {
-    "t": "ـبـ"
+    "t": "ـبـ",
+    "pos": "mid"
    },
    {
-    "t": "بـ"
+    "t": "بـ",
+    "pos": "start"
    }
   ],
   "sounds": [
@@ -160,7 +164,7 @@
   },
   {
    "word": "بُرْج",
-   "img": "../../pics/ar-tower.png",
+   "img": "../../pics/tower.png",
    "audio": {
     "word": "words/burj.mp3"
    },
@@ -280,7 +284,7 @@
   },
   {
    "word": "إِبْرَة",
-   "img": "../../pics/ar-needle.jpg",
+   "img": "../../pics/needle.png",
    "audio": {
     "word": "../u1l3/words/ibra.mp3"
    },
@@ -302,7 +306,7 @@
   },
   {
    "word": "حَبْل",
-   "img": "../../pics/ar-rope.jpg",
+   "img": "../../pics/rope.png",
    "audio": {
     "word": "../u1l6/words/habl.mp3"
    },

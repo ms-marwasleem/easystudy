@@ -183,6 +183,7 @@ function qPicBoard(w,s,play,run){
     b.append(c); }
   b._items=s.items;
   s.items.forEach(it=>{ const p=el('button','qmp'+(it.picSrc?'':' tx'),(it.picSrc?`<img src="${it.picSrc}" alt="">`+(it.text?`<b class="qpt">${it.text}</b>`:''):`<b>${it.word}</b>`)+`<span class="qmark"></span>`); p.setAttribute('aria-label',it.word);   // a word-only option (book: circle the different WORD)
+    if(!it.picSrc&&it.audio&&it.src){ const sp=el('span','qsay qmsay',typeof SAY_LN==='string'?SAY_LN:ICON.sound); sp.setAttribute('role','button'); sp.setAttribute('aria-label','Listen'); sp.addEventListener('click',e=>{ e.stopPropagation(); if(!qz.busy) qSound(it.src,it.word); }); p.prepend(sp); }   // a word to find gets its Listen speaker (Ahmed 2026-11-09, all word boards): a child who cannot read it hears it before choosing; a tap on the speaker never circles
     const ps=it.posP&&!$('#lesson').classList.contains('q-land')?it.posP:it.pos; p.style.left=`clamp(calc(var(--w) / 2), ${ps[0]}%, calc(100% - var(--w) / 2))`; p.style.top=`clamp(calc(var(--w) / 2), ${ps[1]}%, calc(100% - var(--w) / 2))`; p.addEventListener('click',()=>qMatch(p,it,s)); b.append(p); });
   play.append(b); qFitBoard(b); requestAnimationFrame(()=>qFitBoard(b));
   // the first time: read the instruction, then the letter's sound
@@ -318,13 +319,14 @@ function qLinkBoard(w,s,play,run){
   ord.forEach(k=>{ const it=s.items[k], b=el('button','qlk qlkp'+(it.picSrc?'':' tx'),it.picSrc?`<img src="${it.picSrc}" alt="" draggable="false">`:`<b>${it.text2}</b>`); b.dataset.k=k; b.setAttribute('aria-label',it.picSrc?'Picture':it.text2); pc.append(b); });   // "text2": a word to join instead of a picture
   const svg=document.createElementNS('http://www.w3.org/2000/svg','svg'); svg.setAttribute('class','qlsvg');
   bd.append(wd,pc,svg); play.append(bd);
+  s.items.forEach(it=>[it.src,it.src2,...(it.fullSrc||[])].forEach(f=>warmFile(f)));   // every sound of the board is ready before the first join
   let drag=null, sel=null; const rel=(x,y)=>{ const B=bd.getBoundingClientRect(); return [x-B.left,y-B.top]; };
   const kind=b=>b.classList.contains('qlkw')?'w':'p';
   const tmp=()=>{ let l=$('.qtmp',svg); if(!l){ l=document.createElementNS('http://www.w3.org/2000/svg','line'); l.setAttribute('class','qtmp'); svg.append(l); } return l; };
   const clearSel=()=>{ if(sel){ sel.classList.remove('sel'); sel=null; } };
   bd.addEventListener('pointerdown',e=>{ const b=e.target.closest('.qlk'); if(!b||qz.busy) return; e.preventDefault(); hideHint();
     const it=s.items[+b.dataset.k];
-    if(b.classList.contains('done')){ if(kind(b)==='w') qSound(it.src,it.word); else if(b.classList.contains('tx')) qSound(it.src2||it.src,it.text2); return; }
+    if(b.classList.contains('done')){ if(kind(b)==='w'||b.classList.contains('tx')) qLinkSay(it); return; }
     drag={b,x:e.clientX,y:e.clientY,moved:false}; try{ bd.setPointerCapture(e.pointerId); }catch(_){} });
   bd.addEventListener('pointermove',e=>{ if(!drag) return;
     if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)<10) return; drag.moved=true;
@@ -356,22 +358,28 @@ function qLinkLine(bd,wb,pb,cls){ const svg=$('.qlsvg',bd), l=document.createEle
 function qLinkLines(){ const bd=$('.qlink'); if(!bd) return; $$('.qlj',bd).forEach(l=>l.remove()); bd._pairs.forEach(([wb,pb])=>qLinkLine(bd,wb,pb)); }
 // words and pictures as big as the board allows; rows or columns follow the screen
 function qLinkRefresh(land){ const bd=$('.qlink'); if(!bd) return; const s=bd._set, n=s.items.length;
-  bd.classList.toggle('cols',s.layout==='cols'||(!land&&n>4));
-  const B=bd.getBoundingClientRect(), cols=bd.classList.contains('cols'), mx=Math.max(...s.items.map(it=>Math.max(it.word.length,(it.text2||'').length)));
+  const wordsOnly=s.items.every(it=>!it.picSrc&&!it.wpicSrc);   // word-to-word joins (meaning / plural): in portrait two columns, so the words can be BIG with room for the dots (Ahmed 2026-11-09)
+  const mx=Math.max(...s.items.map(it=>Math.max(it.word.length,(it.text2||'').length))), sent=!land&&s.items.some(it=>it.word.split(/\s+/).length>=3&&it.word.length>16);   // whole sentences do not fit side by side on a tall screen (Ahmed 2026-11-09)
+  bd.classList.toggle('cols',s.layout==='cols'||(!land&&(n>4||wordsOnly||sent))); bd.classList.toggle('sent',sent);
+  const B=bd.getBoundingClientRect(), cols=bd.classList.contains('cols');
   const cw=cols?B.width*.4:(B.width-(n-1)*8)/n-14, rh=cols?B.height/n*.5:40;
   const gp=parseFloat(getComputedStyle(cols?bd:($('.qlw',bd)||bd)).columnGap)||0, colW=cols?(B.width-gp)/2:(B.width-(n-1)*gp)/n;   // the room one word box really has
   let fs=Math.max(12,Math.min(isAr()?48:32,cw/(.6*mx),rh*1.1,colW/(1.12*(.6*mx+1.2))));
+  if(sent) fs=Math.max(14,Math.min(26,colW/(.6*mx/2.4),rh*.55));   // 2-3 wrapped lines per sentence
+  if(cols&&wordsOnly) fs=Math.max(fs,Math.min(38,colW/3.2,rh*1.1));   // big words: the fit loop below shrinks it if a word does not fit
   bd.style.setProperty('--fs',fs+'px');
   // the WHOLE word must sit inside its rectangle: shrink until the widest text fits its box (never cut, never over the connector dot)
-  for(let k=0;k<30&&fs>10;k++){ const bad=$$('.qlkw,.qlkp.tx',bd).some(bx=>{ const b=$('b',bx); return b&&(b.scrollWidth>bx.clientWidth-parseFloat(getComputedStyle(bx).paddingLeft)-parseFloat(getComputedStyle(bx).paddingRight)+1||b.getBoundingClientRect().bottom>bd.getBoundingClientRect().bottom+1); }); if(!bad) break; fs-=1; bd.style.setProperty('--fs',fs+'px'); }
+  for(let k=0;k<30&&fs>10;k++){ const bad=$$('.qlkw,.qlkp.tx',bd).some(bx=>{ const b=$('b',bx); return b&&(b.scrollWidth>bx.clientWidth-parseFloat(getComputedStyle(bx).paddingLeft)-parseFloat(getComputedStyle(bx).paddingRight)+1||b.getBoundingClientRect().bottom>bd.getBoundingClientRect().bottom+1||(sent&&bx.offsetHeight>B.height/n*.96)); }); if(!bad) break; fs-=1; bd.style.setProperty('--fs',fs+'px'); }
   qLinkLines(); }
+/* what a joined pair says: "full" (whole phrase) if given; else, when the partner has its own recording ("audio2"), the word then the partner; else the word */
+async function qLinkSay(it){ vStop(); if(it.fullSrc&&it.fullSrc.length){ for(const f of it.fullSrc){ try{ await playFile(f); }catch(_){} } return; } if(it.text2&&it.audio2&&it.src2&&it.src2!==it.src){ for(const f of [it.src,it.src2]){ try{ await playFile(f); }catch(_){} } return; } return qSound(it.src,it.word); }
 async function qLinkTry(bd,s,a,b){
   const run=qz.run;   // the board is kept from pair to pair, so it must use the question running NOW, not the one it was built in
   const wb=a.classList.contains('qlkw')?a:b, pb=wb===a?b:a, it=s.items[+wb.dataset.k];
   if(wb.dataset.k!==pb.dataset.k&&!(s.group&&(it.text2?s.items[+pb.dataset.k].text2===it.text2:it.pic&&s.items[+pb.dataset.k].word===it.word))){ const l=qLinkLine(bd,wb,pb,'qlj bad'); setTimeout(()=>l.remove(),500); return qBad([wb,pb]); }
   if(!qSetMoreAfter(s)) qz.busy=true; wb.classList.add('done'); pb.classList.add('done'); bd._pairs.push([wb,pb]);
   const l=qLinkLine(bd,wb,pb); if(anim){ const len=l.getTotalLength?l.getTotalLength():300; G.fromTo(l,{strokeDasharray:len,strokeDashoffset:len},{strokeDashoffset:0,duration:.35,ease:'power2.out'}); }
-  celebrate(pb); if(it.full) (async()=>{ vStop(); for(const f of it.fullSrc){ try{ await playFile(f); }catch(_){} } })(); else qSound(it.src,it.word);   // "full": the joined phrase of the pair (word + its partner), said on a right join
+  celebrate(pb); qLinkSay(it);   // "full": the joined phrase of the pair (word + its partner), said on a right join
   if(qMore(s)) return; return qDone(s,run,900);
 }
 /* choice: tap the right word of the two; it gets a hand-drawn ring */

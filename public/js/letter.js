@@ -6,8 +6,12 @@
    A page is done when every card was heard (both pages = the lesson star). Reuses the reading pager (readPager) and the book-page tag. */
 function fixLetterPaths(Lt,R){
   Lt.pic=R(Lt.pic); Lt.nameAudio=R(Lt.nameAudio);
-  (Lt.sounds||[]).forEach(s=>{ s.audio=R(s.audio); s.pic=R(s.pic); s.say=[s.audio]; });
-  (Lt.forms||[]).forEach(f=>{ f.say=f.pos?[Lt.nameAudio,R('../shared/p-'+f.pos+'.mp3')]:[Lt.nameAudio]; });
+  // spoken: the letter's name, then the haraka's name, then the letter with that haraka (Marwa 2026-11-08); forms: name + place. Cards run from the RIGHT: fatha, damma, kasra, sukoon / start, mid, end-joined, end-alone
+  const HO=['fatha','damma','kasra','sukoon'], PO=['start','mid','end-joined','end-alone'];
+  (Lt.sounds||[]).forEach(s=>{ s.audio=R(s.audio); s.pic=R(s.pic); s.say=s.har?[Lt.nameAudio,R('../shared/k-h-'+s.har+'.mp3'),s.audio]:[s.audio]; });
+  (Lt.forms||[]).forEach(f=>{ f.say=f.pos?[Lt.nameAudio,R('../shared/k-p-'+f.pos+'.mp3')]:[Lt.nameAudio]; });
+  if((Lt.sounds||[]).every(s=>s.har)) Lt.sounds.sort((a,b)=>HO.indexOf(a.har)-HO.indexOf(b.har));
+  if((Lt.forms||[]).length&&Lt.forms.every(f=>f.pos)) Lt.forms.sort((a,b)=>PO.indexOf(a.pos)-PO.indexOf(b.pos));
   if(Lt.chant){ Lt.chant.pic=R(Lt.chant.pic); Lt.chant.lines.forEach(l=>l.audio=R(l.audio)); }
 }
 const lt={run:0,heard:{}};
@@ -28,12 +32,12 @@ function showLetter(){
   const Lt=LESSON.letter, pg=rd.page-lOff(), h=lHeard();
   if(pg<1) return showChant();
   stage.innerHTML=''; rd.words=[]; rd.lineEls=[]; rd.spotEls=[]; lt.run++;
-  const scene=el('div','scene pics letter p'+pg), grid=el('div','lgrid p'+pg);
+  const scene=el('div','scene pics letter p'+pg), grid=el('div','lgrid p'+pg); grid.dir='rtl';
   scene.append(el('p','task',STAR(true)+Lt.tasks[pg-1]),grid);
   const card=(cls,k,html,fn)=>{ const b=el('button','lcard '+cls+(h[pg+':'+k]?' heard':''),html+`<span class="lst">${STAR(true)}</span>`); b.addEventListener('click',()=>fn(b)); grid.append(b); return b; };
   if(pg===1){
     const say=el('button','lspk',SAY_LN); say.setAttribute('aria-label','Listen'); say.onclick=()=>lPlay(Lt.nameAudio,say);
-    grid.append(el('div','lhead',`<img src="${Lt.pic}" alt="">`)); $('.lhead',grid).append(say,el('b','lbig',Lt.ch));
+    grid.append(el('div','lhead',`<img src="${Lt.pic}" alt="">`)); $('.lhead',grid).append(say,el('b','lbig',Lt.ch)); $('.lhead',grid).style.direction='ltr';
     Lt.forms.forEach((f,k)=>card('form',k,`<span class="lglyph">${f.t}</span>${f.label?`<span class="llab">${f.label}</span>`:''}`,async b=>{ lMark(1,k,b); await lPlay(f.say,b); }));
   } else {
     Lt.sounds.forEach((s,k)=>card('snd',k,`<img src="${s.pic}" alt="">${s.t?`<span class="lglyph">${s.t}</span>`:''}<span class="llab">${s.label}</span>`,async b=>{ lMark(2,k,b); await lPlay(s.say,b); }));
