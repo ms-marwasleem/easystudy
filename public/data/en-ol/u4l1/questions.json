@@ -23,7 +23,7 @@
      "word": "I have 1 nose.",
      "audio": "../../en-shared/q/i-have-1-nose.mp3",
      "pics": [
-      "../../pics/nose-u4q.png",
+      "../../pics/nose-6.png",
       "../../pics/eyes-u4q.png"
      ],
      "answer": 0
@@ -51,7 +51,7 @@
      "audio": "../../en-shared/q/i-have-2-feet.mp3",
      "pics": [
       "../../pics/soles-u4q.png",
-      "../../pics/foot-u4q.png"
+      "../../pics/ar-foot.png"
      ],
      "answer": 0
     }
@@ -160,7 +160,7 @@
     {
      "word": "foot",
      "audio": "words/foot.mp3",
-     "pic": "../../pics/foot-u4q.png",
+     "pic": "../../pics/ar-foot.png",
      "answer": true
     },
     {
@@ -212,7 +212,7 @@
     {
      "word": "nose",
      "audio": "../u3l2/words/nose.mp3",
-     "pic": "../../pics/nose-u4q.png",
+     "pic": "../../pics/nose-6.png",
      "answer": true
     }
    ]
@@ -336,13 +336,13 @@
      "word": "mouth",
      "scr": "otmhu",
      "audio": "words/mouth.mp3",
-     "pic": "../../pics/mouth-u4l1.png"
+     "pic": "../../pics/ar-mouth.png"
     },
     {
      "word": "ear",
      "scr": "era",
      "audio": "words/ear.mp3",
-     "pic": "../../pics/ear-u4l1.png"
+     "pic": "../../pics/ar-ear.png"
     },
     {
      "word": "legs",
@@ -354,7 +354,7 @@
      "word": "hand",
      "scr": "nadh",
      "audio": "words/hand.mp3",
-     "pic": "../../pics/hand-u4l1.png"
+     "pic": "../../pics/ar-hand.png"
     }
    ]
   },
@@ -403,7 +403,7 @@
       "1"
      ],
      "answer": 1,
-     "pic": "../../pics/nose-u4q.png",
+     "pic": "../../pics/nose-6.png",
      "tail": "nose.",
      "audio": "../../en-shared/q/i-have-1-nose.mp3",
      "askAudio": "../../en-shared/q/askc-dcfa59e0e0.mp3"
@@ -447,7 +447,7 @@
     {
      "word": "nose",
      "audio": "../u3l2/words/nose.mp3",
-     "pic": "../../pics/nose-u4l1.png",
+     "pic": "../../pics/nose-6.png",
      "gaps": [
       0,
       1,
@@ -458,7 +458,7 @@
     {
      "word": "mouth",
      "audio": "words/mouth.mp3",
-     "pic": "../../pics/mouth-u4l1.png",
+     "pic": "../../pics/ar-mouth.png",
      "gaps": [
       0,
       1,
@@ -470,7 +470,7 @@
     {
      "word": "ear",
      "audio": "words/ear.mp3",
-     "pic": "../../pics/ear-u4l1.png",
+     "pic": "../../pics/ar-ear.png",
      "gaps": [
       0,
       1,

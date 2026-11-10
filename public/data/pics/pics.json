@@ -560,14 +560,6 @@
    "from": "../../../../tmp/w/pg-21.png",
    "kind": "cut"
   },
-  "ar-bear": {
-   "file": "ar-bear.png",
-   "tags": [],
-   "w": 273,
-   "h": 480,
-   "kind": "cut",
-   "cut": true
-  },
   "ar-bear-book": {
    "file": "ar-bear-book.jpg",
    "tags": [],
@@ -591,18 +583,6 @@
    "h": 480,
    "kind": "cut",
    "cut": true
-  },
-  "ar-bell": {
-   "file": "ar-bell.png",
-   "w": 335,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u1l7",
-    "book"
-   ],
-   "from": "../../../tmp/claude-0/s/nat/b-020.jpg",
-   "kind": "cut"
   },
   "ar-belly": {
    "file": "ar-belly.png",
@@ -1385,30 +1365,6 @@
    "kind": "cut",
    "cut": true
   },
-  "ar-chair": {
-   "file": "ar-chair.png",
-   "w": 286,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u2l4",
-    "book"
-   ],
-   "from": "../../../../tmp/w/nat-001.jpg",
-   "kind": "cut"
-  },
-  "ar-cheetah": {
-   "file": "ar-cheetah.png",
-   "w": 480,
-   "h": 302,
-   "cut": true,
-   "tags": [
-    "u3l7",
-    "book"
-   ],
-   "from": "../../../tmp/claude-0/s/pg-21.png",
-   "kind": "cut"
-  },
   "ar-cheetah-chase": {
    "file": "ar-cheetah-chase.jpg",
    "tags": [],
@@ -2019,18 +1975,6 @@
    "h": 315,
    "kind": "cut",
    "cut": true
-  },
-  "ar-elephant": {
-   "file": "ar-elephant.png",
-   "w": 464,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "arabic",
-    "sheet-C"
-   ],
-   "from": "Ahmed Arabic picture sheets 2026-10-17 (deleted after cutting)",
-   "kind": "cut"
   },
   "ar-engineer": {
    "file": "ar-engineer.png",
@@ -2934,18 +2878,6 @@
    "kind": "photo",
    "cut": false
   },
-  "ar-grass": {
-   "file": "ar-grass.png",
-   "w": 480,
-   "h": 256,
-   "cut": true,
-   "tags": [
-    "u3l4",
-    "book"
-   ],
-   "from": "../../../tmp/claude-0/u3l4/pg-09.png",
-   "kind": "cut"
-  },
   "ar-green-fruit": {
    "file": "ar-green-fruit.jpg",
    "tags": [],
@@ -3585,18 +3517,6 @@
    "kind": "photo",
    "cut": false
   },
-  "ar-man": {
-   "file": "ar-man.png",
-   "w": 312,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u2l6",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/-home-user/a3eee6da-418d-5159-b233-a9cdcd963762/scratchpad/p/big-17.jpg",
-   "kind": "cut"
-  },
   "ar-meat": {
    "file": "ar-meat.png",
    "w": 480,
@@ -3630,6 +3550,14 @@
    "tags": [],
    "w": 480,
    "h": 302,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-mismar": {
+   "file": "ar-mismar.png",
+   "tags": [],
+   "w": 247,
+   "h": 480,
    "kind": "cut",
    "cut": true
   },
@@ -4140,18 +4068,6 @@
    "kind": "photo",
    "cut": false
   },
-  "ar-pineapple": {
-   "file": "ar-pineapple.png",
-   "w": 250,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "ar-u1l3",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/s/pg/full/pg-002.jpg",
-   "kind": "cut"
-  },
   "ar-plate": {
    "file": "ar-plate.jpg",
    "w": 346,
@@ -4386,18 +4302,6 @@
     "book"
    ],
    "from": "../../../tmp/claude-0/s/nat/a-004.jpg",
-   "kind": "cut"
-  },
-  "ar-rocket": {
-   "file": "ar-rocket.png",
-   "w": 234,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u4l5",
-    "book"
-   ],
-   "from": "../../../../tmp/s/n-15.jpg",
    "kind": "cut"
   },
   "ar-rod": {
@@ -4897,18 +4801,6 @@
    "kind": "cut",
    "cut": true
   },
-  "ar-snake": {
-   "file": "ar-snake.png",
-   "w": 378,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u3l4",
-    "book"
-   ],
-   "from": "../../../tmp/claude-0/u3l4/pg-09.png",
-   "kind": "cut"
-  },
   "ar-socks": {
    "file": "ar-socks.png",
    "tags": [],
@@ -4951,18 +4843,6 @@
     "book"
    ],
    "from": "../../../../tmp/claude-0/s/b-1.png",
-   "kind": "cut"
-  },
-  "ar-spoon": {
-   "file": "ar-spoon.png",
-   "w": 480,
-   "h": 302,
-   "cut": true,
-   "tags": [
-    "u2l3",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/s/pg-06.png",
    "kind": "cut"
   },
   "ar-squirrel": {
@@ -5011,25 +4891,6 @@
     "book"
    ],
    "from": "../../../tmp/claude-0/s/nat/a-008.jpg",
-   "kind": "cut"
-  },
-  "ar-star-set": {
-   "file": "ar-star-set.png",
-   "tags": [],
-   "w": 343,
-   "h": 480,
-   "kind": "cut",
-   "cut": true
-  },
-  "ar-star-u1l7": {
-   "file": "ar-star-u1l7.png",
-   "w": 419,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u1l7"
-   ],
-   "from": "lesson folder arabic/u1l7/img/ar-star.png",
    "kind": "cut"
   },
   "ar-stars": {
@@ -5891,6 +5752,14 @@
    "kind": "cut",
    "cut": true
   },
+  "ar-zufr": {
+   "file": "ar-zufr.png",
+   "tags": [],
+   "w": 352,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
+  },
   "arms-u4l1": {
    "file": "arms-u4l1.png",
    "w": 468,
@@ -6102,14 +5971,6 @@
    "file": "bag-brown.png",
    "tags": [],
    "w": 421,
-   "h": 480,
-   "kind": "cut",
-   "cut": true
-  },
-  "bag-exrev1": {
-   "file": "bag-exrev1.png",
-   "tags": [],
-   "w": 442,
    "h": 480,
    "kind": "cut",
    "cut": true
@@ -6760,17 +6621,6 @@
    "from": "../../../../tmp/claude-0/-home-claude/b9e30832-4798-5b04-88b6-949e2106e7e5/scratchpad/src/b-044.png",
    "kind": "cut"
   },
-  "brothers-6": {
-   "file": "brothers-6.png",
-   "w": 422,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u3l1"
-   ],
-   "from": "lesson folder en-ol/u3l1/img/brothers-6.png",
-   "kind": "cut"
-  },
   "brow1-u4q": {
    "file": "brow1-u4q.png",
    "w": 480,
@@ -6990,30 +6840,6 @@
    "kind": "photo",
    "cut": false
   },
-  "carrot": {
-   "file": "carrot.png",
-   "tags": [
-    "count-unit"
-   ],
-   "w": 172,
-   "h": 480,
-   "kind": "cut",
-   "cut": true,
-   "need": "unit",
-   "from": "placeholder cut from carrots-4 (2026-11-06); Marwa makes the real unit picture"
-  },
-  "cat": {
-   "file": "cat.png",
-   "w": 393,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u1l4",
-    "quiz"
-   ],
-   "from": "English Prim1 Tr1 PDF p21-23",
-   "kind": "cut"
-  },
   "cat-kitten": {
    "file": "cat-kitten.png",
    "tags": [],
@@ -7044,19 +6870,6 @@
     "book"
    ],
    "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/u5/b-19.png",
-   "kind": "cut"
-  },
-  "cat-u4l4": {
-   "file": "cat-u4l4.png",
-   "w": 480,
-   "h": 449,
-   "cut": true,
-   "tags": [
-    "u4",
-    "phonics",
-    "book"
-   ],
-   "from": "l4-15.png",
    "kind": "cut"
   },
   "catcouch-u6l3": {
@@ -7450,30 +7263,6 @@
    "kind": "cut",
    "cut": true
   },
-  "dog-q59": {
-   "file": "dog-q59.png",
-   "w": 331,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u3l4",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/u3l4/hi59-27.png",
-   "kind": "cut"
-  },
-  "dog-u3l4": {
-   "file": "dog-u3l4.png",
-   "w": 480,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u3l4",
-    "book"
-   ],
-   "from": "hi58-26.png",
-   "kind": "cut"
-  },
   "dogchair-u6l3": {
    "file": "dogchair-u6l3.png",
    "w": 480,
@@ -7498,18 +7287,6 @@
    "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/u3l4/hi59-27.png",
    "kind": "cut"
   },
-  "doll-u3l4": {
-   "file": "doll-u3l4.png",
-   "w": 476,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u3l4",
-    "book"
-   ],
-   "from": "hi58-26.png",
-   "kind": "cut"
-  },
   "dolphin": {
    "file": "dolphin.png",
    "w": 480,
@@ -7521,14 +7298,6 @@
    ],
    "from": "../../../tmp/claude-0/-home-claude/74035036-3ee2-5287-b979-dd80e572d7c6/scratchpad/src/b-039.png",
    "kind": "cut"
-  },
-  "door-u2": {
-   "file": "door-u2.png",
-   "tags": [],
-   "w": 306,
-   "h": 480,
-   "kind": "cut",
-   "cut": true
   },
   "door-u3l4": {
    "file": "door-u3l4.png",
@@ -7609,39 +7378,6 @@
    "cut": true,
    "need": "unit",
    "from": "placeholder cut from ducks-yellow-4 (2026-11-06); Marwa makes the real unit picture"
-  },
-  "duckling": {
-   "file": "duckling.png",
-   "w": 269,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u2l3",
-    "quiz"
-   ],
-   "from": "../../../tmp/claude-0/-home-claude/74035036-3ee2-5287-b979-dd80e572d7c6/scratchpad/src/b-035.png",
-   "kind": "cut"
-  },
-  "ear-book": {
-   "file": "ear-book.png",
-   "tags": [],
-   "w": 353,
-   "h": 480,
-   "kind": "cut",
-   "cut": true
-  },
-  "ear-u4l1": {
-   "file": "ear-u4l1.png",
-   "w": 480,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u4",
-    "body",
-    "book"
-   ],
-   "from": "hi-02.png",
-   "kind": "cut"
   },
   "ears-pink-u4q": {
    "file": "ears-pink-u4q.png",
@@ -7734,19 +7470,6 @@
    "h": 456,
    "kind": "cut",
    "cut": true
-  },
-  "elephant-u4l2": {
-   "file": "elephant-u4l2.png",
-   "w": 478,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u4",
-    "phonics",
-    "book"
-   ],
-   "from": "l2-08.png",
-   "kind": "cut"
   },
   "en-bk-balls5": {
    "file": "en-bk-balls5.png",
@@ -7999,17 +7722,6 @@
    "from": "../../../../tmp/claude-0/-home-claude/b9e30832-4798-5b04-88b6-949e2106e7e5/scratchpad/src/b-044.png",
    "kind": "cut"
   },
-  "father-4": {
-   "file": "father-4.png",
-   "w": 332,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u3l1"
-   ],
-   "from": "lesson folder en-ol/u3l1/img/father-4.png",
-   "kind": "cut"
-  },
   "father-daughter": {
    "file": "father-daughter.png",
    "tags": [],
@@ -8124,27 +7836,6 @@
     "quiz"
    ],
    "from": "../../../tmp/claude-0/-home-claude/74035036-3ee2-5287-b979-dd80e572d7c6/scratchpad/src/b-029.png",
-   "kind": "cut"
-  },
-  "foot-book": {
-   "file": "foot-book.png",
-   "tags": [],
-   "w": 406,
-   "h": 480,
-   "kind": "cut",
-   "cut": true
-  },
-  "foot-u4q": {
-   "file": "foot-u4q.png",
-   "w": 348,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u4",
-    "body",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/u4/hi-03.png",
    "kind": "cut"
   },
   "fork-u4l2": {
@@ -8418,17 +8109,6 @@
    "from": "../../../../tmp/claude-0/-home-claude/b9e30832-4798-5b04-88b6-949e2106e7e5/scratchpad/src/b-044.png",
    "kind": "cut"
   },
-  "grandfather-3": {
-   "file": "grandfather-3.png",
-   "w": 480,
-   "h": 442,
-   "cut": true,
-   "tags": [
-    "u3l1"
-   ],
-   "from": "lesson folder en-ol/u3l1/img/grandfather-3.png",
-   "kind": "cut"
-  },
   "grandma": {
    "file": "grandma.jpg",
    "w": 246,
@@ -8450,39 +8130,6 @@
     "vocab"
    ],
    "from": "../../../../tmp/claude-0/-home-claude/b9e30832-4798-5b04-88b6-949e2106e7e5/scratchpad/src/b-044.png",
-   "kind": "cut"
-  },
-  "grandmother-3": {
-   "file": "grandmother-3.png",
-   "w": 402,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u3l1"
-   ],
-   "from": "lesson folder en-ol/u3l1/img/grandmother-3.png",
-   "kind": "cut"
-  },
-  "grandmother-4": {
-   "file": "grandmother-4.png",
-   "w": 397,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u3l1"
-   ],
-   "from": "lesson folder en-ol/u3l1/img/grandmother-4.png",
-   "kind": "cut"
-  },
-  "grandmother-6": {
-   "file": "grandmother-6.png",
-   "w": 324,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u3l1"
-   ],
-   "from": "lesson folder en-ol/u3l1/img/grandmother-6.png",
    "kind": "cut"
   },
   "grandpa": {
@@ -8513,17 +8160,6 @@
    "from": "../../../tmp/claude-0/-home-claude/74035036-3ee2-5287-b979-dd80e572d7c6/scratchpad/src/b-029.png",
    "kind": "cut"
   },
-  "grass-exrev2": {
-   "file": "grass-exrev2.jpg",
-   "w": 206,
-   "h": 171,
-   "cut": false,
-   "tags": [
-    "exrev2"
-   ],
-   "from": "lesson folder en-ol/exams/rev2/img/grass.jpg",
-   "kind": "photo"
-  },
   "grass-photo": {
    "file": "grass-photo.jpg",
    "tags": [],
@@ -8531,18 +8167,6 @@
    "h": 415,
    "kind": "photo",
    "cut": false
-  },
-  "grass-q59": {
-   "file": "grass-q59.png",
-   "w": 480,
-   "h": 334,
-   "cut": true,
-   "tags": [
-    "u3l4",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/u3l4/hi59-27.png",
-   "kind": "cut"
   },
   "green": {
    "file": "green.png",
@@ -8693,19 +8317,6 @@
    "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/u4/hi-04.png",
    "kind": "cut"
   },
-  "hand-u4l1": {
-   "file": "hand-u4l1.png",
-   "w": 480,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u4",
-    "body",
-    "book"
-   ],
-   "from": "hi-02.png",
-   "kind": "cut"
-  },
   "hands-2": {
    "file": "hands-2.png",
    "w": 480,
@@ -8831,18 +8442,6 @@
    ],
    "from": "lesson folder en-ol/exams/rev1/img/hello.jpg",
    "kind": "photo"
-  },
-  "horse-u3l4": {
-   "file": "horse-u3l4.png",
-   "w": 480,
-   "h": 461,
-   "cut": true,
-   "tags": [
-    "u3l4",
-    "book"
-   ],
-   "from": "hi56-24.png",
-   "kind": "cut"
   },
   "hose": {
    "file": "hose.png",
@@ -9079,18 +8678,6 @@
    "from": "math book",
    "kind": "photo"
   },
-  "jar-u6l4": {
-   "file": "jar-u6l4.png",
-   "w": 478,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u6l4",
-    "book"
-   ],
-   "from": "b-23.png",
-   "kind": "cut"
-  },
   "jasmine": {
    "file": "jasmine.png",
    "tags": [],
@@ -9122,31 +8709,6 @@
    ],
    "from": "b-23.png",
    "kind": "cut"
-  },
-  "kangaroo-u4l4": {
-   "file": "kangaroo-u4l4.png",
-   "w": 480,
-   "h": 458,
-   "cut": true,
-   "tags": [
-    "u4",
-    "phonics",
-    "book"
-   ],
-   "from": "l4-17.png",
-   "kind": "cut"
-  },
-  "key": {
-   "file": "key.png",
-   "tags": [
-    "count-unit"
-   ],
-   "w": 285,
-   "h": 480,
-   "kind": "cut",
-   "cut": true,
-   "need": "unit",
-   "from": "placeholder cut from keys-6 (2026-11-06); Marwa makes the real unit picture"
   },
   "key-u4l4": {
    "file": "key-u4l4.png",
@@ -9293,18 +8855,6 @@
    "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/u4/hi-03.png",
    "kind": "cut"
   },
-  "lemon-u6l2": {
-   "file": "lemon-u6l2.png",
-   "w": 480,
-   "h": 479,
-   "cut": true,
-   "tags": [
-    "u6l2",
-    "book"
-   ],
-   "from": "b-14.png",
-   "kind": "cut"
-  },
   "lime": {
    "file": "lime.png",
    "w": 399,
@@ -9324,18 +8874,6 @@
    "h": 480,
    "kind": "cut",
    "cut": true
-  },
-  "lion-u6l1": {
-   "file": "lion-u6l1.png",
-   "w": 474,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u6l1",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/u5/b-11.png",
-   "kind": "cut"
   },
   "lips-u4q": {
    "file": "lips-u4q.png",
@@ -9511,18 +9049,6 @@
    "from": "a-25.png",
    "kind": "cut"
   },
-  "moon-u5l2": {
-   "file": "moon-u5l2.png",
-   "w": 480,
-   "h": 475,
-   "cut": true,
-   "tags": [
-    "u5l2",
-    "book"
-   ],
-   "from": "a-25.png",
-   "kind": "cut"
-  },
   "mother": {
    "file": "mother.png",
    "w": 347,
@@ -9533,17 +9059,6 @@
     "vocab"
    ],
    "from": "../../../../tmp/claude-0/-home-claude/b9e30832-4798-5b04-88b6-949e2106e7e5/scratchpad/src/b-044.png",
-   "kind": "cut"
-  },
-  "mother-3": {
-   "file": "mother-3.png",
-   "w": 436,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u3l1"
-   ],
-   "from": "lesson folder en-ol/u3l1/img/mother-3.png",
    "kind": "cut"
   },
   "mother-son": {
@@ -9569,19 +9084,6 @@
    "h": 403,
    "kind": "cut",
    "cut": true
-  },
-  "mouth-u4l1": {
-   "file": "mouth-u4l1.png",
-   "w": 480,
-   "h": 468,
-   "cut": true,
-   "tags": [
-    "u4",
-    "body",
-    "book"
-   ],
-   "from": "hi-02.png",
-   "kind": "cut"
   },
   "mouth1-u4q": {
    "file": "mouth1-u4q.png",
@@ -9733,32 +9235,6 @@
    ],
    "from": "lesson folder en-ol/u3l2/img/nose-photo.jpg",
    "kind": "photo"
-  },
-  "nose-u4l1": {
-   "file": "nose-u4l1.png",
-   "w": 480,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u4",
-    "body",
-    "book"
-   ],
-   "from": "hi-02.png",
-   "kind": "cut"
-  },
-  "nose-u4q": {
-   "file": "nose-u4q.png",
-   "w": 303,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u4",
-    "body",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/u4/hi-03.png",
-   "kind": "cut"
   },
   "nose1-u4q": {
    "file": "nose1-u4q.png",
@@ -10006,17 +9482,6 @@
     "vocab"
    ],
    "from": "../../../../tmp/claude-0/-home-claude/b9e30832-4798-5b04-88b6-949e2106e7e5/scratchpad/src/b-044.png",
-   "kind": "cut"
-  },
-  "parents-3": {
-   "file": "parents-3.png",
-   "w": 400,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u3l1"
-   ],
-   "from": "lesson folder en-ol/u3l1/img/parents-3.png",
    "kind": "cut"
   },
   "park": {
@@ -10839,28 +10304,6 @@
    "from": "../../../../tmp/claude-0/-home-claude/b9e30832-4798-5b04-88b6-949e2106e7e5/scratchpad/src/b-044.png",
    "kind": "cut"
   },
-  "sisters-4": {
-   "file": "sisters-4.png",
-   "w": 461,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u3l1"
-   ],
-   "from": "lesson folder en-ol/u3l1/img/sisters-4.png",
-   "kind": "cut"
-  },
-  "sisters-6": {
-   "file": "sisters-6.png",
-   "w": 480,
-   "h": 467,
-   "cut": true,
-   "tags": [
-    "u3l1"
-   ],
-   "from": "lesson folder en-ol/u3l1/img/sisters-6.png",
-   "kind": "cut"
-  },
   "sit-down": {
    "file": "sit-down.png",
    "w": 360,
@@ -10961,14 +10404,6 @@
    "from": "../../../tmp/claude-0/-home-claude/74035036-3ee2-5287-b979-dd80e572d7c6/scratchpad/src/b-032.png",
    "kind": "cut"
   },
-  "snake-exrev2": {
-   "file": "snake-exrev2.png",
-   "tags": [],
-   "w": 357,
-   "h": 480,
-   "kind": "cut",
-   "cut": true
-  },
   "snake-photo": {
    "file": "snake-photo.jpg",
    "w": 600,
@@ -10991,18 +10426,6 @@
     "book"
    ],
    "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/u4/hi-03.png",
-   "kind": "cut"
-  },
-  "spider": {
-   "file": "spider.png",
-   "w": 480,
-   "h": 467,
-   "cut": true,
-   "tags": [
-    "u2l2",
-    "quiz"
-   ],
-   "from": "../../../tmp/claude-0/-home-claude/74035036-3ee2-5287-b979-dd80e572d7c6/scratchpad/src/b-032.png",
    "kind": "cut"
   },
   "spider-exrev2": {
@@ -11043,17 +10466,6 @@
    "h": 480,
    "kind": "cut",
    "cut": true
-  },
-  "spoon-u2l2": {
-   "file": "spoon-u2l2.png",
-   "w": 480,
-   "h": 179,
-   "cut": true,
-   "tags": [
-    "u2l2"
-   ],
-   "from": "lesson folder en-ol/u2l2/img/spoon.png",
-   "kind": "cut"
   },
   "spoon2": {
    "file": "spoon2.png",
@@ -12281,19 +11693,6 @@
     "book"
    ],
    "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/rv1/hi62-30.png",
-   "kind": "cut"
-  },
-  "whale-u5l1": {
-   "file": "whale-u5l1.png",
-   "w": 480,
-   "h": 294,
-   "cut": true,
-   "tags": [
-    "u5",
-    "farm",
-    "book"
-   ],
-   "from": "../../../../tmp/claude-0/-home-user/d03839ad-2d5f-5ebd-b1d3-2ceb3b9fa1f4/scratchpad/p/u5/a-24.png",
    "kind": "cut"
   },
   "wheat": {

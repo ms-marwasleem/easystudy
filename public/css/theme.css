@@ -122,6 +122,8 @@
   --text-ol:0.04rem;        /* the thin outline of light text laid on a picture */
   --icon-on-color:#FFFFFF;  /* RULE: icon on a coloured background = white */
   --icon-on-white:#111111;  /* RULE: icon on a white / paper surface = black */
+  --spk-icon:clamp(1.375rem,3.4vh,1.75rem);  /* RULE: the speaker icon is ONE size everywhere (question speakers); box around it: */
+  --spk-box:2.2rem;
   --pop-dim:rgba(8,20,48,.62); --pop-inset-x:min(5vw,3rem); --pop-inset-y:min(7vh,3rem); --pop-radius:1.5rem; --pop-border:.22rem; --pop-rim:rgba(255,255,255,.85); --pop-shadow:0 .75rem 2.5rem rgba(0,0,0,.55); --pop-x-size:3rem;   /* word popup card + its round X button */
   --q-star:0.65rem;          /* RULE: every progress star in every question is this one size (one third of the old 1.9rem, 2026-11-02); more stars than fit = next line */
   --q-choice:clamp(3.25rem,9vh,4rem);  /* RULE: every round choice button (letters, numbers) is this one size */

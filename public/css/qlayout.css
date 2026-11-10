@@ -88,7 +88,7 @@
 /* ---------- 5. white on the coloured page ---------- */
 :is(#lesson,#map) :is(.qsay,.vsay,.vm-say,.alsp,.alreplay,.qxsay,.mxsay){color:var(--icon-on-color)}
 .mxsay svg{stroke:currentColor!important}
-:is(#lesson,#map) :is(.qlkw,.qlkp,.qmp.tx,.qopt,.qlet,.qch,.qxc,.qxtile,.qmcell,.qmb,.qcb .qbtn,.mxrow) :is(.qsay,.vsay,.alsp,.mxsay),
+:is(#lesson,#map) :is(.qlkw,.qlkp,.qopt,.qlet,.qch,.qxc,.qxtile,.qmcell,.qmb,.qcb .qbtn,.mxrow) :is(.qsay,.vsay,.alsp,.mxsay),
 :is(#exam,.exam) :is(.qsay,.vsay,.alsp,.alreplay){color:var(--icon-on-white)}
 .alcloze .alreplay.on{color:var(--c-hint)}
 .mxend b,.mxcap{color:var(--c-on-bg)}
@@ -119,3 +119,7 @@
 .qlink.sent .qlkw b{white-space:normal}
 .qlink.sent .qlkw{justify-self:stretch;text-align:center}
 .qlink.sent .qlkw b{text-align:center}   /* sentence boxes: same width, text centred inside (Ahmed 2026-11-09) */
+
+/* ---------- ONE speaker icon (Ahmed 2026-11-10): size from theme.css tokens --spk-icon / --spk-box in every question place; colour = white on the page, black only on a white/paper card (rules above) ---------- */
+:is(#lesson,#map) .qsay{width:var(--spk-box)!important;height:var(--spk-box)!important}
+:is(#lesson,#map) .qsay svg{width:var(--spk-icon)!important;height:var(--spk-icon)!important}

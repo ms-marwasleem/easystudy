@@ -191,7 +191,7 @@
 .qans .qlet.two span{font-size:calc(var(--q-choice)*.4)!important}
 /* icons: white on the coloured page, black on white surfaces */
 .quiz .qsay,.quiz .qhead .qtsay,.quiz .qword .qsay,.vsay,.vm-say{color:var(--icon-on-color)}
-:is(.qlkw,.qlkp,.qmp.tx,.qopt,.qlet,.qxc,.qxtile,.qmcell,.qmb,.qmbn,.qcb .qbtn,#exam,.exam) :is(.qsay,.vsay){color:var(--icon-on-white)}
+:is(.qlkw,.qlkp,.qopt,.qlet,.qxc,.qxtile,.qmcell,.qmb,.qmbn,.qcb .qbtn,#exam,.exam) :is(.qsay,.vsay){color:var(--icon-on-white)}
 #exam .qsay,#exam .vsay,.exam .qsay{color:var(--icon-on-white)}
 .qcb .qbtn:not(.on){color:var(--icon-on-white)}
 

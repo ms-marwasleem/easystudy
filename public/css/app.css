@@ -124,6 +124,8 @@
   --text-ol:0.04rem;        /* the thin outline of light text laid on a picture */
   --icon-on-color:#FFFFFF;  /* RULE: icon on a coloured background = white */
   --icon-on-white:#111111;  /* RULE: icon on a white / paper surface = black */
+  --spk-icon:clamp(1.375rem,3.4vh,1.75rem);  /* RULE: the speaker icon is ONE size everywhere (question speakers); box around it: */
+  --spk-box:2.2rem;
   --pop-dim:rgba(8,20,48,.62); --pop-inset-x:min(5vw,3rem); --pop-inset-y:min(7vh,3rem); --pop-radius:1.5rem; --pop-border:.22rem; --pop-rim:rgba(255,255,255,.85); --pop-shadow:0 .75rem 2.5rem rgba(0,0,0,.55); --pop-x-size:3rem;   /* word popup card + its round X button */
   --q-star:0.65rem;          /* RULE: every progress star in every question is this one size (one third of the old 1.9rem, 2026-11-02); more stars than fit = next line */
   --q-choice:clamp(3.25rem,9vh,4rem);  /* RULE: every round choice button (letters, numbers) is this one size */
@@ -2330,7 +2332,7 @@ button.qpic{cursor:pointer}
 .qans .qlet.two span{font-size:calc(var(--q-choice)*.4)!important}
 /* icons: white on the coloured page, black on white surfaces */
 .quiz .qsay,.quiz .qhead .qtsay,.quiz .qword .qsay,.vsay,.vm-say{color:var(--icon-on-color)}
-:is(.qlkw,.qlkp,.qmp.tx,.qopt,.qlet,.qxc,.qxtile,.qmcell,.qmb,.qmbn,.qcb .qbtn,#exam,.exam) :is(.qsay,.vsay){color:var(--icon-on-white)}
+:is(.qlkw,.qlkp,.qopt,.qlet,.qxc,.qxtile,.qmcell,.qmb,.qmbn,.qcb .qbtn,#exam,.exam) :is(.qsay,.vsay){color:var(--icon-on-white)}
 #exam .qsay,#exam .vsay,.exam .qsay{color:var(--icon-on-white)}
 .qcb .qbtn:not(.on){color:var(--icon-on-white)}
 
@@ -2897,7 +2899,7 @@ body.ws-typing .ws-side{position:fixed!important;right:auto!important;bottom:aut
 /* ---------- 5. white on the coloured page ---------- */
 :is(#lesson,#map) :is(.qsay,.vsay,.vm-say,.alsp,.alreplay,.qxsay,.mxsay){color:var(--icon-on-color)}
 .mxsay svg{stroke:currentColor!important}
-:is(#lesson,#map) :is(.qlkw,.qlkp,.qmp.tx,.qopt,.qlet,.qch,.qxc,.qxtile,.qmcell,.qmb,.qcb .qbtn,.mxrow) :is(.qsay,.vsay,.alsp,.mxsay),
+:is(#lesson,#map) :is(.qlkw,.qlkp,.qopt,.qlet,.qch,.qxc,.qxtile,.qmcell,.qmb,.qcb .qbtn,.mxrow) :is(.qsay,.vsay,.alsp,.mxsay),
 :is(#exam,.exam) :is(.qsay,.vsay,.alsp,.alreplay){color:var(--icon-on-white)}
 .alcloze .alreplay.on{color:var(--c-hint)}
 .mxend b,.mxcap{color:var(--c-on-bg)}
@@ -2928,6 +2930,10 @@ body.ws-typing .ws-side{position:fixed!important;right:auto!important;bottom:aut
 .qlink.sent .qlkw b{white-space:normal}
 .qlink.sent .qlkw{justify-self:stretch;text-align:center}
 .qlink.sent .qlkw b{text-align:center}   /* sentence boxes: same width, text centred inside (Ahmed 2026-11-09) */
+
+/* ---------- ONE speaker icon (Ahmed 2026-11-10): size from theme.css tokens --spk-icon / --spk-box in every question place; colour = white on the page, black only on a white/paper card (rules above) ---------- */
+:is(#lesson,#map) .qsay{width:var(--spk-box)!important;height:var(--spk-box)!important}
+:is(#lesson,#map) .qsay svg{width:var(--spk-icon)!important;height:var(--spk-icon)!important}
 /* ===== css/coins.css ===== */
 /* COINS — the coin chip beside the star counter, the share sheet and the unlock popup (js/coins.js). Same popup look as the app's messages. */
 .coinhud{position:relative;display:flex;align-items:center;height:2.2rem;padding:0 .9rem 0 2.3rem;margin-left:1.6rem;border-radius:62.4375rem;border:0;cursor:pointer;
@@ -3019,4 +3025,4 @@ body.ws-typing .ws-side{position:fixed!important;right:auto!important;bottom:aut
 .pushbtn svg{width:2rem;height:2rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .pushbtn.on{opacity:1}
 .pushbtn.on svg{fill:currentColor}
-:root{--app-build:"e57f1fe04c"}
+:root{--app-build:"cc7651192a"}

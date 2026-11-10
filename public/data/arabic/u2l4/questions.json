@@ -146,22 +146,22 @@
    "items": [
     {
      "word": "سَ",
-     "audio": "words/sayyara.mp3",
+     "audio": "../../syl-ar/633-64e.mp3",
      "pic": "../../pics/ar-car.png"
     },
     {
      "word": "سُ",
-     "audio": "words/sullam.mp3",
+     "audio": "../../syl-ar/633-64f.mp3",
      "pic": "../../pics/ar-ladder.png"
     },
     {
      "word": "سْ",
-     "audio": "../u2l2/words/nasr.mp3",
+     "audio": "../../syl-ar/633-652.mp3",
      "pic": "../../pics/ar-eagle.jpg"
     },
     {
      "word": "سِ",
-     "audio": "words/silsila.mp3",
+     "audio": "../../syl-ar/633-650.mp3",
      "pic": "../../pics/necklace.png"
     }
    ]
@@ -350,8 +350,13 @@
       "../../pics/clouds.png"
      ],
      "picWords": [
-      ["أَسَد"],
-      ["سَحَب", "سُحُب"]
+      [
+       "أَسَد"
+      ],
+      [
+       "سَحَب",
+       "سُحُب"
+      ]
      ]
     }
    ]
@@ -423,7 +428,7 @@
     },
     {
      "word": "بَقَرَة",
-     "audio": "words/baqara.mp3",
+     "audio": "../u1l4/words/baqara.mp3",
      "pic": "../../pics/cow.png",
      "answer": "بَ",
      "choices": [
@@ -589,7 +594,7 @@
     {
      "word": "مِسْمَار",
      "audio": "words/mismar.mp3",
-     "pic": "../../pics/ar-nail.jpg",
+     "pic": "../../pics/ar-mismar.png",
      "answer": "سْ",
      "at": 1
     },
@@ -667,7 +672,7 @@
    "items": [
     {
      "word": "كُرْسِيّ",
-     "pic": "../../pics/ar-chair.png",
+     "pic": "../../pics/chair.png",
      "audio": "words/kursi.mp3"
     },
     {
@@ -677,7 +682,7 @@
     },
     {
      "word": "جَرَس",
-     "pic": "../../pics/ar-bell.png",
+     "pic": "../../pics/bell-r2.png",
      "audio": "../u1l7/words/jaras.mp3"
     },
     {
@@ -801,7 +806,11 @@
      "audio": "../u2l2/words/nasr.mp3",
      "pic": "../../pics/ar-eagle.jpg",
      "answer": "سْ",
-     "choices": ["سَ", "سُ", "سْ"],
+     "choices": [
+      "سَ",
+      "سُ",
+      "سْ"
+     ],
      "at": 1
     }
    ]
@@ -826,7 +835,11 @@
      "audio": "../u1l7/words/jisr.mp3",
      "pic": "../../pics/ar-bridge.png",
      "answer": "سْ",
-     "choices": ["سَ", "سُ", "سْ"],
+     "choices": [
+      "سَ",
+      "سُ",
+      "سْ"
+     ],
      "at": 1
     },
     {

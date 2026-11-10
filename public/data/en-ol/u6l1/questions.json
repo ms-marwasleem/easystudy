@@ -12,7 +12,7 @@
     {
      "word": "elephant",
      "audio": "../u4l2/words/elephant.mp3",
-     "pic": "../../pics/elephant-u4l2.png",
+     "pic": "../../pics/elephant.png",
      "answer": true
     },
     {
@@ -36,7 +36,7 @@
     {
      "word": "lion",
      "audio": "words/lion.mp3",
-     "pic": "../../pics/lion-u6l1.png",
+     "pic": "../../pics/ar-lion.png",
      "answer": true
     },
     {
@@ -72,8 +72,8 @@
      "word": "lion",
      "audio": "words/lion.mp3",
      "pics": [
-      "../../pics/lion-u6l1.png",
-      "../../pics/horse-u3l4.png"
+      "../../pics/ar-lion.png",
+      "../../pics/ar-horse.png"
      ],
      "answer": 0
     },
@@ -82,7 +82,7 @@
      "audio": "../u4l2/words/elephant.mp3",
      "pics": [
       "../../pics/duck.png",
-      "../../pics/elephant-u4l2.png"
+      "../../pics/elephant.png"
      ],
      "answer": 1
     },
@@ -157,7 +157,7 @@
     {
      "word": "lion",
      "audio": "words/lion.mp3",
-     "pic": "../../pics/lion-u6l1.png",
+     "pic": "../../pics/ar-lion.png",
      "answer": true
     },
     {
@@ -169,7 +169,7 @@
     {
      "word": "elephant",
      "audio": "../u4l2/words/elephant.mp3",
-     "pic": "../../pics/elephant-u4l2.png",
+     "pic": "../../pics/elephant.png",
      "answer": true
     },
     {
@@ -187,7 +187,7 @@
     {
      "word": "horse",
      "audio": "../u2l3/words/horse.mp3",
-     "pic": "../../pics/horse-u3l4.png",
+     "pic": "../../pics/ar-horse.png",
      "answer": true
     },
     {
@@ -209,7 +209,7 @@
     {
      "word": "lion",
      "audio": "words/lion.mp3",
-     "pic": "../../pics/lion-u6l1.png"
+     "pic": "../../pics/ar-lion.png"
     },
     {
      "word": "tiger",
@@ -219,7 +219,7 @@
     {
      "word": "elephant",
      "audio": "../u4l2/words/elephant.mp3",
-     "pic": "../../pics/elephant-u4l2.png"
+     "pic": "../../pics/elephant.png"
     },
     {
      "word": "giraffe",
@@ -254,7 +254,7 @@
      "word": "lion",
      "scr": "oinl",
      "audio": "words/lion.mp3",
-     "pic": "../../pics/lion-u6l1.png"
+     "pic": "../../pics/ar-lion.png"
     },
     {
      "word": "giraffe",
@@ -362,7 +362,7 @@
       "giraffe"
      ],
      "answer": 0,
-     "pic": "../../pics/elephant-u4l2.png",
+     "pic": "../../pics/elephant.png",
      "audio": "../../en-shared/q/i-can-see-an-elephant.mp3",
      "askAudio": "../../en-shared/q/askc-f3f1ee7b58.mp3"
     },
@@ -387,7 +387,7 @@
       "tiger"
      ],
      "answer": 0,
-     "pic": "../../pics/lion-u6l1.png",
+     "pic": "../../pics/ar-lion.png",
      "audio": "../../en-shared/q/i-can-see-a-lion.mp3",
      "askAudio": "../../en-shared/q/askc-97be3b49f0.mp3"
     }

@@ -56,7 +56,7 @@
    "items": [
     {
      "word": "نُسُور",
-     "audio": "../u2l2/words/m-nasr.mp3",
+     "audio": "words/nusur.mp3",
      "answer": true,
      "pos": [
       50,
@@ -151,13 +151,13 @@
     },
     {
      "word": "نُ",
-     "audio": "../u2l2/words/m-nasr.mp3",
-     "pic": "../../pics/ar-eagles3.png"
+     "audio": "words/nusur.mp3",
+     "pic": "../../pics/ar-eagles.png"
     },
     {
      "word": "نِ",
      "audio": "q/w-aranib.mp3",
-     "pic": "../../pics/ar-rabbit.png"
+     "pic": "../../pics/ar-rabbit.png#3"
     },
     {
      "word": "نْ",
@@ -194,7 +194,7 @@
     {
      "word": "نُجُوم",
      "audio": "words/nujum.mp3",
-     "pic": "../../pics/ar-star-set.png",
+     "pic": "../../pics/ar-stars.png",
      "answer": "نُ",
      "choices": [
       "نَ",
@@ -270,7 +270,7 @@
     {
      "word": "نُجُوم",
      "audio": "words/nujum.mp3",
-     "pic": "../../pics/ar-star-set.png",
+     "pic": "../../pics/ar-stars.png",
      "answer": "نُ",
      "choices": [
       "نَ",
@@ -281,7 +281,7 @@
     },
     {
      "word": "نَمْل",
-     "audio": "../u2l1/words/namla.mp3",
+     "audio": "words/naml.mp3",
      "pic": "../../pics/ar-ants.png",
      "answer": "نَ",
      "choices": [
@@ -342,9 +342,17 @@
      "need": 2,
      "cells": 3,
      "pics": [
-      "../../pics/bee.png",
-      "../../pics/ar-palm.png"
-     ], "picWords": [["نَحْل"], ["نَخْل"]]
+      "../../pics/bee.png#3",
+      "../../pics/ar-palms.png"
+     ],
+     "picWords": [
+      [
+       "نَحْل"
+      ],
+      [
+       "نَخْل"
+      ]
+     ]
     }
    ]
   },
@@ -569,8 +577,12 @@
    "ex": 6,
    "page": 54,
    "book": "booklet",
-   "task": "صِلْ حَرْفَ النُّونِ بِالصُّورَةِ الْمُنَاسِبَةِ",
-   "taskAudio": "q/task-b6.mp3",
+   "task": "انْطِقْ وَاخْتَرْ صَوْتَ حَرْفِ (ن) الْمُنَاسِبَ لِكُلِّ صُورَةٍ",
+   "taskAudio": [
+    "../q-prompts/choose-letter-sound-a.mp3",
+    "../letters/646/name.mp3",
+    "../q-prompts/choose-letter-sound-b.mp3"
+   ],
    "hint": "اختار صوت النون",
    "choices": [
     "نَ",
@@ -581,7 +593,7 @@
    "items": [
     {
      "word": "نِسْنَاس",
-     "audio": "q/w-nisnas.mp3",
+     "audio": "words/nisnas.mp3",
      "pic": "../../pics/monkey-u5l2.png",
      "answer": "نِ",
      "choices": [
@@ -654,7 +666,7 @@
     },
     {
      "word": "نُسُور",
-     "audio": "../u2l2/words/m-nasr.mp3",
+     "audio": "words/nusur.mp3",
      "pic": "../../pics/ar-eagles.png",
      "answer": "نُ",
      "choices": [
@@ -1026,27 +1038,39 @@
    "items": [
     {
      "word": "ن",
-     "pic": "../../pics/ar-snake.png",
-     "audio": "../letters/646/name.mp3",
-     "audio2": "../u4l7/words/thu3ban.mp3"
+     "pic": "../../pics/snake.png",
+     "audio": [
+      "../letters/646/name.mp3",
+      "../shared/k-p-end-alone.mp3"
+     ],
+     "audio2": "../u3l4/words/thuban.mp3"
     },
     {
      "word": "نـ",
      "pic": "../../pics/ar-eagle.jpg",
-     "audio": "../letters/646/name.mp3",
+     "audio": [
+      "../letters/646/name.mp3",
+      "../shared/k-p-start.mp3"
+     ],
      "audio2": "../u2l2/words/nasr.mp3"
     },
     {
      "word": "ـنـ",
      "pic": "../../pics/grapes.png",
-     "audio": "../letters/646/name.mp3",
+     "audio": [
+      "../letters/646/name.mp3",
+      "../shared/k-p-mid.mp3"
+     ],
      "audio2": "../u3l4/words/inab.mp3"
     },
     {
      "word": "ـن",
      "pic": "../../pics/ar-branch.png",
-     "audio": "../letters/646/name.mp3",
-     "audio2": "q/w-ghusn.mp3"
+     "audio": [
+      "../letters/646/name.mp3",
+      "../shared/k-p-end-joined.mp3"
+     ],
+     "audio2": "../u4l8/words/ghusn.mp3"
     }
    ]
   },
@@ -1105,7 +1129,7 @@
     {
      "word": "نُجُوم",
      "audio": "words/nujum.mp3",
-     "pic": "../../pics/ar-star-set.png",
+     "pic": "../../pics/ar-stars.png",
      "answer": "نُ",
      "choices": [
       "نَ",
@@ -1137,7 +1161,7 @@
     },
     {
      "word": "أَرْنَب",
-     "audio": "q/w-arnab.mp3",
+     "audio": "../u1l3/q/c8-0.mp3",
      "answer": true
     },
     {
