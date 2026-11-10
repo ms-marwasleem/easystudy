@@ -113,7 +113,7 @@ function alCloze(box,q,s,run){
     b.addEventListener('click',async()=>{ if(qz.busy||q.solved||b.classList.contains('used')) return; hideHint();
       if(o.toLowerCase()!==String(ans[cur]).toLowerCase()){ qxBad(b); b.classList.add('bad'); setTimeout(()=>b.classList.remove('bad'),700); qSound(alWordSrc(sy),sy); return; }
       const bl=blanks[cur]; bl.classList.add('got'); bl.innerHTML=''; bl.textContent=ans[cur]; if(!q.reuse) b.classList.add('used'); celebrate(bl); qSound(alWordSrc(sy),sy); cur++; mark();
-      if(cur>=ans.length){ q.solved=true; qz.busy=true; q.word=String(q.text).replace(/\[\[(.+?)\]\]/g,'$1'); const run0=qz.run; celebrate(txt); vStop(); return qAdvance(run0,1400); } }); });
+      if(cur>=ans.length){ q.solved=true; qz.busy=true; q.word=String(q.text).replace(/\[\[(.+?)\]\]/g,'$1'); const run0=qz.run; celebrate(txt); await qIdle(run0,4000); if(run0!==qz.run) return; await qSound(q.audio,q.word); return qAdvance(run0,600); } }); });
   mark();
   // the passage reads itself when the question opens (whole text, no title, no gap); the small speaker AFTER the text reads it again.
   // Any tap elsewhere, a slide change or a question change stops it, so two sounds never overlap.

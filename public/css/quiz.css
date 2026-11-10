@@ -334,7 +334,7 @@ button.qpic{cursor:pointer}
 /* face = drag the missing parts onto the face */
 .qxfb{position:relative;flex:1 1 0;min-height:9rem;width:100%;touch-action:none;direction:ltr}
 .qxff{position:absolute;display:block;border-radius:.6rem;user-select:none;-webkit-user-select:none;pointer-events:none}
-.qxfp{position:absolute;left:0;top:0;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;transition:filter .2s}
+.qxfp{position:absolute;left:0;top:0;cursor:grab;touch-action:none;pointer-events:none;user-select:none;-webkit-user-select:none;transition:filter .2s}
 .qxfp.drag{z-index:5;filter:drop-shadow(0 .4rem .3rem rgba(0,0,0,.3))}.qxfp.in{cursor:default}
 .quiz[data-type="face"] .qx>.qxfb{flex:1 1 0;min-height:9rem}
 

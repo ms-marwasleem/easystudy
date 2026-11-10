@@ -37,12 +37,14 @@ const wsLang=t=>/[؀-ۿ]/.test(String(t||''))?'ar':'en';
 function wsInput(inp,text,lang){ lang=lang||wsLang(text); inp.lang=lang; inp.setAttribute('lang',lang); inp.dir=lang==='ar'?'rtl':'ltr';
   inp.setAttribute('inputmode',/^\d+$/.test(String(text||''))?'numeric':'text');
   ['autocorrect','autocapitalize','autocomplete'].forEach(a=>inp.setAttribute(a,'off')); inp.spellcheck=false; return inp; }
+// the lowest fixed thing above the typing word: the question title, or the progress stars under it (the stars stay visible while typing)
+function qTopEl(){ const h=$('.quiz .qhead'), d=$('.quiz .qdots'); return d&&d.offsetHeight&&!document.body.classList.contains('ws-tight')&&h&&d.getBoundingClientRect().bottom>h.getBoundingClientRect().bottom?d:h; }
 function wsParts(){ const a=document.activeElement, id=a&&a.id; if(!WS_IN.includes(id)) return null;
   const st=$('#stage'), stTop=st?st.getBoundingClientRect().top:0;
   if(id==='vin'){ const w=$('.vword'); if(!w) return null; const tools=$('.vtools'); return {word:w,movers:[$('.vwrow'),$('.vinfo'),tools].filter(Boolean),bottom:tools||w,top:stTop+6,help:0}; }
-  if(id==='qin'){ const qw=$('.qword'); if(!qw) return null; const hd=$('.quiz .qhead'); return {word:$('b',qw)||qw,movers:[qw],bottom:qw,top:hd?hd.getBoundingClientRect().bottom+4:stTop,help:1,say:$('.qsay',qw)}; }
-  const bx=a.closest('.qx'), line=a.closest('.qxline'); if(!bx||!line) return null; const hd=$('.quiz .qhead');
-  return {word:$('.qxw',line)||line,movers:[bx],bottom:line,top:hd?hd.getBoundingClientRect().bottom+4:stTop,help:1,say:$('.qxsay',bx)}; }
+  if(id==='qin'){ const qw=$('.qword'); if(!qw) return null; const hd=qTopEl(); const pic=$('.quiz .qplay'); return {word:$('b',qw)||qw,movers:[qw,pic].filter(Boolean),pic,bottom:qw,top:hd?hd.getBoundingClientRect().bottom+4:stTop,help:1,head:$('.quiz .qhead'),say:$('.qsay',qw)}; }
+  const bx=a.closest('.qx'), line=a.closest('.qxline'); if(!bx||!line) return null; const hd=qTopEl();
+  return {word:$('.qxw',line)||line,movers:[bx],bottom:line,top:hd?hd.getBoundingClientRect().bottom+4:stTop,help:1,head:$('.quiz .qhead'),say:$('.qxsay',bx)}; }
 // how much of the screen the phone keyboard leaves: the visible top and bottom (page px). Inside a frame (preview) the phone does not tell the frame, so a touch screen guesses the keyboard.
 function framedTouch(){ try{ return window.top!==window&&matchMedia('(pointer:coarse)').matches; }catch(e){ return matchMedia('(pointer:coarse)').matches; } }
 let WS_GUESS=false;   // true while the room is only a guess (framed preview): then the keyboard never reports back, so nothing may react to scroll/resize events (that made the word jump up and down)
@@ -73,6 +75,7 @@ function wsLift(P,R){
   const over=Math.max(P.bottom.getBoundingClientRect().bottom,w.bottom+hh)+pad-R.bottom;
   let sh=over>0?Math.min(Math.max(0,w.top-top),over):0;
   if(over<=0&&w.top<top) sh=w.top-top;   // the phone scrolled the page: bring the word back down into sight
+  if(P.pic){ const o2=P.pic.getBoundingClientRect().bottom+pad-R.bottom; if(o2>0) sh=Math.max(sh,Math.min(Math.max(0,w.top-top),o2)); }   // the picture under the word rises with it (as far as the room above allows) so more of it shows above the keyboard
   if(sh) P.movers.forEach(m=>{ m.style.translate='0 '+(-Math.round(sh))+'px'; m.classList.add('ws-mv'); });
   return {P,short:over-sh>1,undo:()=>P.movers.forEach(m=>{ m.style.translate=''; m.classList.remove('ws-mv'); })};
 }
@@ -83,10 +86,12 @@ function wsHelp(P,R){
   if(!P) return;
   const r=P.word.getBoundingClientRect(), bot=R?R.bottom:innerHeight, topL=R?R.top:0, sr=P.say&&P.say.getBoundingClientRect();
   const sayRight=!!(sr&&sr.width&&(sr.left+sr.width/2>r.left+r.width/2));   // speaker right of the word -> bulb on its left, and the other way round
-  wsHelpEls().forEach(h=>{ h.classList.add('ws-side'); const s=h.offsetWidth||40, g=Math.max(6,r.height*.12);
+  wsHelpEls().forEach(h=>{ h.classList.add('ws-side'); const s=h.offsetWidth||28, g=Math.max(4,r.height*.08);
+    if(P.head&&P.head.getBoundingClientRect().height){ const hr=P.head.getBoundingClientRect(); h.style.left=Math.round(Math.max(4,Math.min(innerWidth-s-8,hr.right-s-4)))+'px'; h.style.top=Math.round(Math.max(topL+2,Math.min(bot-s-6,hr.top+hr.height/2-s/2)))+'px'; return; }   // question pages: the bulb stands at the right end of the title row, far from every letter of the answer
     let x=(sr&&sr.width&&!sayRight)?r.right+g:r.left-s-g, y=r.top+r.height/2-s/2;
-    if(x<6) x=r.right+g;   // no room on that side: the other side
-    x=Math.max(6,Math.min(innerWidth-s-6,x)); y=Math.max(topL+6,Math.min(bot-s-6,y));   // never under the keyboard
+    if(x<4||x+s>innerWidth-4) x=(x<4)?r.right+g:r.left-s-g;   // no room on that side: the other side
+    if(x<4||x+s>innerWidth-4){ x=sayRight?r.left:r.right-s; y=r.top-s-4; }   // the word fills the width: the bulb sits just above its corner, never over a letter
+    x=Math.max(4,Math.min(innerWidth-s-4,x)); y=Math.max(topL+2,Math.min(bot-s-6,y));   // never under the keyboard
     h.style.left=Math.round(x)+'px'; h.style.top=Math.round(y)+'px'; });
 }
 if(window.visualViewport) ['resize','scroll'].forEach(e=>visualViewport.addEventListener(e,()=>{ if(!WS_GUESS) wsKeep(); }));

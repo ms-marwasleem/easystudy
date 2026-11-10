@@ -26,7 +26,7 @@ async function openLesson(m){
   $('#lessonMeta').textContent=`${SUBJECT.name} · ${tr(COURSE.grade)} · ${tr(COURSE.term)}`;
   $('#lessonTitle').textContent=isAr()?`${LESSON.unitLabel||`${tr('Unit')} ${num(LESSON.unit)}`} · ${tr('Lesson')} ${num(LESSON.lesson)} · ${LESSON.title}`:`Unit ${LESSON.unit} · Lesson ${LESSON.lesson} · ${LESSON.title}`;
   $('#stage').style.setProperty('--scene',`url("${new URL(LESSON.scene,location.href).href}")`);   // full address: css files live in css/
-  switchTab(LESSON.tabs?LESSON.tabs[0]:'read'); fitTitle(); if(tab==='read'&&$('.scene.story')&&LESSON.audio) setTimeout(()=>{ if(tab==='read'&&LESSON&&LESSON.id===m.id&&!rd.playing&&!player.run&&$('.scene.story')){ const [ps,pe]=pageSpan(); playFrom(ps,pe,true,true); } },350);   // opening the lesson starts the story by itself
+  switchTab(LESSON.tabs?LESSON.tabs[0]:'read'); fitTitle(); if(tab==='read'&&($('.scene.story')||(nPages()>1&&$('.scene')))&&LESSON.audio) setTimeout(()=>{ if(tab==='read'&&LESSON&&LESSON.id===m.id&&!rd.playing&&!player.run&&($('.scene.story')||(nPages()>1&&$('.scene')))){ const [ps,pe]=pageSpan(); playFrom(ps,pe,true,true); } },350);   // opening the lesson starts the story by itself
   if(!LESSON.tabs&&typeof qLoad==='function') qLoad().then(()=>{ if(LESSON&&LESSON.id===m.id) paintTabs(); }); pop('.l-head > *',{y:-20}); pop('.tabs .tab',{y:30,delay:.1});
 }
 
@@ -132,8 +132,8 @@ function setRail(items){ rail.innerHTML=''; items.forEach(it=>{ const b=el('butt
 function switchTab(t,at){ setLook(t); if(typeof WP!=='undefined'&&WP.saved) wpClose(); stopVoice(); { const r=$('#lmeta .lm-r'); if(r) r.innerHTML=''; } hideHint(); $('#lesson').classList.remove('vtab','qtab','story','poem'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); lnavPaint(); carAt(0); (t==='booklet'||t==='workbook'||t==='read'&&isAL())?showQuiz(at):t==='grammar'?showGrammar():t==='read'?showRead():t==='words'&&LESSON.vocab?showWords():t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); }
 $$('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
 
-// default speed: slow for a page that is a conversation (2+ speakers), normal for everything else; a child's own choice per page wins
-function pageDefaultSlow(){ return new Set(LESSON.lines.filter(l=>nPages()<2||l.page===rd.page).map(l=>l.who)).size>1; }
+// default speed: always normal; a child's own choice per page wins
+function pageDefaultSlow(){ return false; }
 /* LESSON-TEMPLATE REGISTRY (like QM for questions; the list of names + required data is tools/check/lessons.json, docs/templates.md).
    One entry per lesson/page template: show = draws the page from data, story = true when pages swipe inside the story panel. A new template = a new entry + lessons.json + docs; a lesson only names it ("layout" for the lesson, "pageLayouts"[i] per page) and supplies data. */
 const LT={
@@ -372,8 +372,8 @@ function readRail(){ setTimeout(railH,0);
   const on=rd.playing||player.run;   // ONE button: Read while it is quiet, Stop while it reads; a tap toggles
   setRail([
     on?{kind:'stop',icon:'stop',label:tr('Stop'),click:()=>{ if(part()){ stopAll(); clearMarks(); } else pausePlay(); rd.halted=true; readRail(); }}
-      :{kind:'go',icon:'play',label:tr(res?'Continue':'Read'),click:()=>playFrom(res?player.pos:ps,pe,true)},
-    {kind:'again',icon:'restart',label:tr('Restart'),click:()=>playFrom(ps,pe,true)},
+      :{kind:'go',icon:'play',label:tr(res?'Continue':'Read'),click:()=>playFrom(res?player.pos:ps,pe,true,rd.page<nPages())},
+    {kind:'again',icon:'restart',label:tr('Restart'),click:()=>playFrom(ps,pe,true,rd.page<nPages())},
     {kind:'speed',icon:rd.slow?'slow':'fast',label:tr(rd.slow?'Slow':'Normal'),click:()=>{ const was=player.run&&!part(), t=now(); if(was){ halt(); player.run=false; } rd.slow=!rd.slow; rd.pick[LESSON.id+':'+rd.page]=rd.slow; if(was) playFrom(t,pe,true); else readRail(); }}
   ]);
 }

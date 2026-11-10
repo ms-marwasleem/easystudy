@@ -17,7 +17,7 @@ function mkLesson(m,nextL,isCur,isLast,st,coins,lockUnit){
   // the lesson sits on the road: a round badge with its number, the stars above it, the name in a pill across its bottom edge.
   // 'soon' = faded + "Soon" pill, 'locked' = the chunky padlock on the badge. From an open lesson its pages stand beside the road as little signs.
   s.innerHTML=`<div class="jbox">`+(st!=='soon'?`<span class="js">${Array.from({length:lessonParts(m)},(_,k)=>`<span>${STAR(k<n)}</span>`).join('')}</span>`:`<span class="jsoon">${tr('Soon')}</span>`)+
-    `<button class="jcard" aria-label="${open?`Lesson ${m.lesson} ${m.title}`:`Lesson ${m.lesson} ${st}`}"><b class="jn${/-/.test(m.lesson)?' two':''}">${num(m.lesson)}</b>${st==='locked'?`<span class="jlock">${LOCK}</span>`:''}</button>`+
+    `<button class="jcard" aria-label="${open?`Lesson ${m.lesson} ${m.title}`:`Lesson ${m.lesson} ${st}`}"><b class="jn${/-/.test(m.lesson)?' two':''}">${/review|revision|مراجعة/i.test(m.title||m.planned||'')?'R':num(m.lesson)}</b>${st==='locked'?`<span class="jlock">${LOCK}</span>`:''}</button>`+
     (st==='soon'?`<span class="jt soon gt${isAr()?' ar':''}">${GT(m.title||m.planned||tr('Soon'))}</span>`:`<span class="jt gt${isAr()?' ar':''}">${GT(m.title)}</span>`)+`</div>`+
     (open&&typeof bookSides==='function'?bookSides(m,nextL):'');
   if(isLast) s.classList.add('last');

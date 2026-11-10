@@ -86,6 +86,9 @@ function qStart(i){ const w=$('.quiz'); if(!w) return;
 // the arrows: to the start of the next / previous exercise of this book (not the items inside one)
 // the star of the question we are on is 'cur'; the stars of its whole part (same exercise) are 'grp'
 function qCur(i){ const g=qz.list[i]&&qGrp(qz.list[i].set); $$('.qdots i').forEach((x,k)=>{ x.classList.toggle('cur',k===i); x.classList.toggle('grp',qGrp(qz.list[k].set)===g); }); }
+// wait until no sound is playing any more (a sentence read after an answer is never cut by the move to the next question); never longer than `cap` ms (Ahmed 2026-11-10)
+async function qIdle(run,cap){ const t0=Date.now(); let idle=0; cap=cap||12000;
+  while(Date.now()-t0<cap){ if(run!==qz.run) return; const on=(typeof vs!=='undefined'&&vs.src)||(window.speechSynthesis&&speechSynthesis.speaking); idle=on?0:idle+60; if(idle>=240) return; await new Promise(r=>setTimeout(r,60)); } }
 const qGrp=s=>s.grp?s.page+'|'+s.grp:s.ex!=null?s.page+'|'+s.ex:s;   // sets with the same book exercise (e.g. one circle set per colour) are ONE exercise for the arrows
 function qSetStart(d){ const s=qz.list[qz.i]&&qz.list[qz.i].set; if(!s) return -1; const g=qGrp(s); let i=qz.i;
   if(d>0){ while(i<qz.list.length&&qGrp(qz.list[i].set)===g) i++; return i<qz.list.length?i:-1; }
@@ -122,7 +125,7 @@ function qGo(i){
   setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(qNewEx()) await qTask(); if(run===qz.run&&inQ()){ if(s.type==='type') qFocus(); if(q.autoSay) qSay(); } },350);   // Marwa 2026-11-04: the question itself is NOT read by itself (the child reads; the speaker beside it helps)
 }
 // letter / type: the word with its gaps ("missing" = one letter, "gaps" = several, typed left to right), filled in when the child finds them
-const qGapWord=q=>{ const gps=q.gaps||[q.missing||0], w=wsWord(q.word,{hide:gps,ltr:!isAr()}); $$('.lt.hid',w).forEach(x=>x.classList.add('qgap')); wsCur(w);   // THE word component (js/wordslots.js); the gaps are its hidden letters
+const qGapWord=q=>{ const lw=q.letters&&q.letters[q.answer]!=null?String(q.letters[q.answer]):'', gps=q.gaps||(q.missing==null&&[...lw].length>1&&String(q.word).startsWith(lw)?[...lw].map((_,i)=>i):[q.missing||0]), w=wsWord(q.word,{hide:gps,ltr:!isAr()}); $$('.lt.hid',w).forEach(x=>x.classList.add('qgap')); wsCur(w);   // THE word component (js/wordslots.js); the gaps are its hidden letters
   return (q.scr?`<span class="qscr">${q.scr.split('').join(' ')}</span>`:'')+w.outerHTML; };
 const qOnePic=q=>el('div','qpic one',`<img src="${q.pic}" alt="${q.word||''}"><span class="qmark"></span>`);
 const qHalf=a=>{ const o=a.map((x,k)=>k); if(Math.random()<.5) o.reverse(); return o; };   // the right one is not always on the same side
@@ -237,7 +240,7 @@ function qMore(s){ const next=qz.i+1; if(next>=qz.list.length||qz.list[next].set
 // one more right answer of a board: its star, then on to the next one (the same board stays when the exercise has more)
 async function qDone(s,run,ms){
   qStar();
-  await new Promise(r=>setTimeout(r,ms)); if(run!==qz.run||!inQ()) return;
+  await new Promise(r=>setTimeout(r,ms)); await qIdle(run); if(run!==qz.run||!inQ()) return;
   const next=qz.i+1;
   if(next>=qz.list.length){ qz.busy=false; award(LESSON.id,qKey()); return; }
   if(qz.list[next].set!==s) await new Promise(r=>setTimeout(r,500)); if(run!==qz.run||!inQ()) return;
@@ -291,7 +294,7 @@ async function qAnswer(btn,right,said){
   celebrate(q.set.type==='pick'?btn:$('.qpic.one'));
   qStar();
   await new Promise(r=>setTimeout(r,500)); if(run!==qz.run) return;
-  await new Promise(r=>setTimeout(r,900)); if(run!==qz.run||!inQ()) return;
+  await new Promise(r=>setTimeout(r,900)); await qIdle(run); if(run!==qz.run||!inQ()) return;
   if(qz.i+1<qz.list.length) qGo(qz.i+1); else { qz.busy=false; award(LESSON.id,qKey()); }
 }
 /* portrait or landscape, from the screen size WITHOUT the keyboard (same idea as the vocabulary page): the page does not change when it opens */
@@ -349,7 +352,7 @@ function qLinkBoard(w,s,play,run){
 }
 const L$=()=>$('#lesson');
 QM.link={sheet:'board', fit:0, draw:qLinkBoard, help:(q,w)=>{ const bd=$('.qlink',w); if(!bd) return []; const wb=$$('.qlkw',bd).find(b=>!b.classList.contains('done')); return wb?[wb,$$('.qlkp',bd).find(b=>b.dataset.k===wb.dataset.k)].filter(Boolean):[]; }};
-const qNewEx=()=>{ const i=qz.i; return i<=0||qGrp(qz.list[i-1].set)!==qGrp(qz.list[i].set); };   // the instruction is read only when a new exercise starts, not for each part of it
+const qNewEx=()=>{ const i=qz.i; return i<=0||qGrp(qz.list[i-1].set)!==qGrp(qz.list[i].set)||qz.list[i-1].set.task!==qz.list[i].set.task; };   // the instruction is read only when a new exercise starts, not for each part of it
 // where a line leaves a word / arrives at a picture (bottom / top in rows, right / left in columns), in the board's own pixels
 function qAnchor(bd,b,isWord){ const B=bd.getBoundingClientRect(), r=b.getBoundingClientRect(), cols=bd.classList.contains('cols');
   return cols?[(isWord?r.right:r.left)-B.left, r.top+r.height/2-B.top]:[r.left+r.width/2-B.left,(isWord?r.bottom:r.top)-B.top]; }
@@ -391,7 +394,7 @@ async function qChoose(btn,k,q){
 }
 async function qAdvance(run,ms){
   qStar();
-  await new Promise(r=>setTimeout(r,ms)); if(run!==qz.run||!inQ()) return;
+  await new Promise(r=>setTimeout(r,ms)); await qIdle(run); if(run!==qz.run||!inQ()) return;
   if(qz.i+1<qz.list.length) qGo(qz.i+1); else { qz.busy=false; award(LESSON.id,qKey()); }
 }
 // the child "circles" it: a pink oval drawn round the picture or word

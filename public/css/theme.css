@@ -73,6 +73,9 @@
   --c-pink:#E8457A;        /* exercise number circle, choice ring */
   --c-white:#FFF;          /* white surface / text on colour */
   --c-paper2:#FFFDF6;      /* the lightest paper */
+  /* ONE tap-button look (Ahmed 2026-11-10): every choice button, word pill and letter / word tile = white, same outline, same shadow, same font */
+  --btn-bg:#FFF; --btn-ink:var(--c-text); --btn-border:.19rem solid var(--ol); --btn-shadow:0 .22rem 0 rgba(90,52,24,.4);
+  --btn-font:var(--f-read);
   --c-hint:#FFE98A;        /* help highlight */
   --c-muted:#9A7B55;       /* quiet text and lines */
 
@@ -93,7 +96,7 @@
   --f-story:"Andika","Comic Neue",sans-serif;
   --f-story-ar:"Baloo Bhaijaan 2","Noto Naskh Arabic",sans-serif;   /* = the font of the subject name on the Arabic book (home screen) */
   --story-fs-ar:clamp(1.45rem,min(6.6vw,4.6vh),2.6rem);   /* THE Arabic story text size (largest); one size per lesson, shrinks only when a page would not fit */
-  --focus-word-size:clamp(1.7rem,min(6.6vw,5.2vh),3.2rem);   /* THE size of a word the child studies (reading page, question head word, Words tab): one size, whole app */
+  --focus-word-size:clamp(2.05rem,min(8vw,6.2vh),3.9rem);   /* THE size of a word the child studies (reading page, question head word, Words tab): one size, whole app */
   --q-sentence-size:clamp(1.7rem,min(7.4vw,5.6vh),3rem);   /* a sentence the child reads in a question (complete / circle): big, centred */
   --pf-border:0.25rem; --pf-radius:0.75rem; --pf-shadow:0 0.1875rem 0.5rem rgba(90,52,24,.25);
   /* behaviour settings read by the components (numbers, milliseconds) — wired in step 4 */

@@ -267,7 +267,7 @@ function qxPuzzle(box,q,s,run){
     p.e.addEventListener('pointerdown',ev=>{ if(done) return; ev.preventDefault(); ev.stopPropagation(); p.e.setPointerCapture(ev.pointerId); sx=ev.clientX; sy=ev.clientY; x0=p.x; y0=p.y; moved=false; on=!p.in; if(on) p.e.classList.add('drag'); });
     p.e.addEventListener('pointermove',ev=>{ if(!on) return; const dx=ev.clientX-sx,dy=ev.clientY-sy; if(!moved&&Math.hypot(dx,dy)<6) return; moved=true; p.x=Math.min(Math.max(0,x0+dx),bd.clientWidth-pw); p.y=Math.min(Math.max(0,y0+dy),bd.clientHeight-pw); put(p); });
     const up=ev=>{ ev.stopPropagation(); p.e.classList.remove('drag'); if(!moved){ if(!done) say(p.i); on=false; return; } if(!on) return; on=false;
-      if(Math.hypot(p.x-p.tx,p.y-p.ty)<pw*.55){ p.in=true; p.x=p.tx; p.y=p.ty; p.e.classList.add('in'); put(p); const sp=say(p.i); if(P.every(z=>z.in)) finish(sp); } };
+      if(Math.hypot(p.x-p.tx,p.y-p.ty)<pw*.85){ p.in=true; p.x=p.tx; p.y=p.ty; p.e.classList.add('in'); put(p); const sp=say(p.i); if(P.every(z=>z.in)) finish(sp); } };
     p.e.addEventListener('pointerup',up); p.e.addEventListener('pointercancel',up); });
   box._after=()=>layout(); requestAnimationFrame(layout); new ResizeObserver(layout).observe(bd);
 }
@@ -278,25 +278,39 @@ QM.puzzle={sheet:'box', noword:1, bulb:0, draw:qxPuzzle};
 function qxFace(box,q,s,run){
   const bd=el('div','qxfb'); bd.dataset.noswipe=1; box.append(bd);
   const fi=el('img','qxff'); fi.alt=''; fi.draggable=false; fi.src=R_Q(q.face); bd.append(fi);
-  const P=q.parts.map((t,i)=>{ const im=el('img','qxfp'); im.alt=''; im.draggable=false; im.src=R_Q(t.pic); bd.append(im); return {e:im,t,i,x:0,y:0,tx:0,ty:0,w:0,h:0,in:false}; });
+  const P=q.parts.map((t,i)=>{ const im=el('img','qxfp'); im.alt=''; im.draggable=false; im.src=R_Q(t.pic); bd.append(im); return {e:im,t,i,s:i,x:0,y:0,tx:0,ty:0,w:0,h:0,tw:0,th:0,in:false}; });
   let done=false, fx=0,fy=0,fw=0,fh=0; const put=p=>{ p.e.style.transform=`translate(${p.x}px,${p.y}px)`; };
   const say=p=>p.t.audio?qSound(R_Q(p.t.audio),p.t.word||''):null;
+  const size=p=>{ const w=p.in?p.tw:p.w, h=p.in?p.th:p.h; p.e.style.width=w+'px'; p.e.style.height=h+'px'; };
   const layout=()=>{ const W=bd.clientWidth,H=bd.clientHeight; if(!W||!H||!fi.naturalWidth||done) return;
     const ar=fi.naturalWidth/fi.naturalHeight; const sy=$('.qxsay',box), sw=sy&&!sy.hidden&&sy.offsetParent?sy.offsetWidth+6:0;   // the face starts right of the Listen speaker, never under it
     fh=H*.96; fw=fh*ar; if(fw>W*.62-sw){ fw=W*.62-sw; fh=fw/ar; } fx=Math.max(W*.01,sw); fy=(H-fh)/2;
     Object.assign(fi.style,{left:fx+'px',top:fy+'px',width:fw+'px',height:fh+'px'});
     const trX=fx+fw+W*.03, trW=Math.max(20,W-trX), n=P.length;
-    P.forEach((p,k)=>{ const nw=p.e.naturalWidth||1, nh=p.e.naturalHeight||1; p.w=p.t.w/100*fw; p.h=p.w*nh/nw; p.e.style.width=p.w+'px'; p.e.style.height=p.h+'px';
-      p.tx=fx+p.t.x/100*fw-p.w/2; p.ty=fy+p.t.y/100*fh-p.h/2;
-      if(p.in){ p.x=p.tx; p.y=p.ty; } else { const order=(k%2)?n-1-(k>>1):(k>>1); p.x=trX+(trW-p.w)*((k%2)?.8:.2); p.y=fy+(fh-p.h)*(n>1?order/(n-1):.5); } put(p); }); };
+    P.forEach((p,k)=>{ const nw=p.e.naturalWidth||1, nh=p.e.naturalHeight||1; p.tw=p.t.w/100*fw; p.th=p.tw*nh/nw;   // tw/th = its true size on the face
+      const m=Math.max(1,Math.min(1.8,Math.max(H*.09,46)/Math.max(p.tw,p.th))); p.w=p.tw*m; p.h=p.th*m;   // loose parts are never tiny: easy to grab on a phone / iPad
+      size(p);
+      const st=P[p.s].t; p.cx=fx+st.x/100*fw; p.cy=fy+st.y/100*fh; p.tx=p.cx-p.tw/2; p.ty=p.cy-p.th/2;   // p.s = the place (slot) this part belongs in
+      if(p.in){ p.x=p.tx; p.y=p.ty; } put(p); });
+    const cols=[P.filter((_,k)=>k%2===0).reverse(),P.filter((_,k)=>k%2===1)]; cols.forEach((c,ci)=>c.forEach((p,j)=>{ if(p.in) return; const step=fh/c.length; p.x=trX+(trW-p.w)*(ci?.78:.22); p.y=fy+step*(j+.5)-p.h/2; put(p); })); };   // two columns, one slot of the height each: loose parts never overlap
   async function finish(last){ if(done) return; done=true; try{ await Promise.race([Promise.resolve(last),new Promise(r=>setTimeout(r,2500))]); }catch(e){}   // the last piece's sound ends first, then the WHOLE word is said (Marwa 2026-11-09)
     if(run!==qz.run||!inQ()) return; q.solved=true; await new Promise(r=>setTimeout(r,350)); if(run!==qz.run||!inQ()) return; qStar(); }
-  P.forEach(p=>{ let sx,sy,x0,y0,moved=false,on=false;
-    p.e.addEventListener('pointerdown',ev=>{ if(done||p.in) return; ev.preventDefault(); ev.stopPropagation(); p.e.setPointerCapture(ev.pointerId); sx=ev.clientX; sy=ev.clientY; x0=p.x; y0=p.y; moved=false; on=true; p.e.classList.add('drag'); });
-    p.e.addEventListener('pointermove',ev=>{ if(!on) return; const dx=ev.clientX-sx,dy=ev.clientY-sy; if(!moved&&Math.hypot(dx,dy)<6) return; moved=true; p.x=Math.min(Math.max(0,x0+dx),bd.clientWidth-p.w); p.y=Math.min(Math.max(0,y0+dy),bd.clientHeight-p.h); put(p); });
-    const up=ev=>{ ev.stopPropagation(); p.e.classList.remove('drag'); if(!on) return; on=false; if(!moved){ say(p); return; }
-      if(Math.hypot(p.x-p.tx,p.y-p.ty)<Math.max(p.w,p.h)*.6){ p.in=true; p.x=p.tx; p.y=p.ty; p.e.classList.add('in'); put(p); say(p); if(P.every(z=>z.in)) finish(); } };
-    p.e.addEventListener('pointerup',up); p.e.addEventListener('pointercancel',up); });
+  // Forgiving drag (Ahmed 2026-11-10, shared look: touch grabs the NEAREST loose part within a wide margin, a drop near the right place snaps, an identical twin place also counts):
+  const grab=ev=>{ const r=bd.getBoundingClientRect(), px=ev.clientX-r.left, py=ev.clientY-r.top; let best=null,bd2=1e9;
+    P.forEach(p=>{ if(p.in) return; const m=Math.max(16,Math.min(p.w,p.h)*.5), cx=p.x+p.w/2, cy=p.y+p.h/2;
+      if(px>=p.x-m&&px<=p.x+p.w+m&&py>=p.y-m&&py<=p.y+p.h+m){ const d=Math.hypot(px-cx,py-cy); if(d<bd2){ bd2=d; best=p; } } }); return best; };
+  let cur=null,sx,sy,x0,y0,moved=false;
+  bd.addEventListener('pointerdown',ev=>{ if(done) return; const p=grab(ev); if(!p) return; ev.preventDefault(); ev.stopPropagation(); try{ bd.setPointerCapture(ev.pointerId); }catch(e){}
+    cur=p; sx=ev.clientX; sy=ev.clientY; x0=p.x; y0=p.y; moved=false; p.e.classList.add('drag'); });
+  bd.addEventListener('pointermove',ev=>{ if(!cur) return; const dx=ev.clientX-sx,dy=ev.clientY-sy; if(!moved&&Math.hypot(dx,dy)<8) return; moved=true; ev.preventDefault();
+    cur.x=Math.min(Math.max(0,x0+dx),bd.clientWidth-cur.w); cur.y=Math.min(Math.max(0,y0+dy),bd.clientHeight-cur.h); put(cur); });
+  const up=ev=>{ if(!cur) return; ev.stopPropagation(); const p=cur; cur=null; p.e.classList.remove('drag'); if(!moved){ say(p); return; }
+    const cx=p.x+p.w/2, cy=p.y+p.h/2, reach=Math.max(p.w,p.h,p.tw,p.th)*.9+20;
+    let tgt=null,td=1e9; P.forEach(z=>{ if(z.in||(z!==p&&z.t.pic!==p.t.pic)) return; const d=Math.hypot(cx-z.cx,cy-z.cy); if(d<reach&&d<td){ td=d; tgt=z; } });   // z = a free place with the same part (the two eyes / two brows are alike)
+    if(tgt){ if(tgt!==p){ const k=p.s; p.s=tgt.s; tgt.s=k; p.tx=tgt.cx-p.tw/2; p.ty=tgt.cy-p.th/2; tgt.tx=p.cx-tgt.tw/2; tgt.ty=p.cy-tgt.th/2; const c=[p.cx,p.cy]; [p.cx,p.cy]=[tgt.cx,tgt.cy]; [tgt.cx,tgt.cy]=c; }
+      p.in=true; size(p); p.x=p.tx; p.y=p.ty; p.e.classList.add('in'); put(p); say(p); if(P.every(z=>z.in)) finish(); }
+    else layout(); };
+  bd.addEventListener('pointerup',up); bd.addEventListener('pointercancel',up);
   box._after=()=>layout(); fi.addEventListener('load',layout); P.forEach(p=>p.e.addEventListener('load',layout)); requestAnimationFrame(layout); new ResizeObserver(layout).observe(bd);
 }
 QM.face={sheet:'box', noword:1, bulb:0, draw:qxFace};

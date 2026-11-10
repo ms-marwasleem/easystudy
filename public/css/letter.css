@@ -203,6 +203,7 @@
 .qxc.right span{color:var(--c-text)}
 .qxtile{--th:clamp(3.75rem,min(21cqw,19cqh),6.25rem);height:var(--th)}
 .qxtile span{font-size:calc(var(--th)*.42)}
+.qx:has(>.qxpic) .qxtile{--th:clamp(3rem,min(13.5cqw,17cqh),5.25rem)}   /* picture questions: tiles a little smaller so the picture gets the room (Ahmed 2026-11-10, tiny guitar) */
 
 /* the places to write in are always plainly visible (a thick line under each), the current one in blue */
 

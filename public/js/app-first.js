@@ -1,4 +1,4 @@
-const APP_BUILD='cc7651192a';
+const APP_BUILD='cb36a67cbb';
 /* MADE BY tools/build-app.py from the files named below. Do not edit here: edit those files, then run the script again. */
 /* ===== js/core.js ===== */
 // Arabic-Indic (٠-٩) and Eastern Persian (۰-۹) digits typed anywhere count as Western digits: one helper, applied to every text box before any answer check
@@ -25,20 +25,23 @@ const _pre=[], PRE_MAX=80; function preloadImgs(list){ [...new Set((list||[]).fi
    never one picture per count. Data writes the unit + the count after "#": "../../pics/banana-hat.png#5". Every json goes through
    get(), so cpicFill draws the unit n times (rows of up to 5, the last row centred) into ONE transparent picture and puts it in the
    string's place (marked data:image/png;cpic=1 so css/frame.css shows it as a cut-out, no frame): every screen (count, choose, link, pick, yes/no, lesson pages, exams) shows it like any other picture. */
-const CPIC_RE=/\.(png|jpe?g|webp)#(\d+)$/i, _cpic={};
+const CPIC_RE=/\.(png|jpe?g|webp)#(\d+)(n?)$/i, _cpic={};
 const cpicCols=n=>n<=4?n:Math.min(5,Math.ceil(n/2));
-function cpicMake(src,n){ const k=src+'#'+n; if(_cpic[k]) return _cpic[k];
-  return _cpic[k]=new Promise(ok=>{ const im=new Image(); im.onload=()=>{ const s=Math.min(1,260/Math.max(im.naturalWidth,im.naturalHeight)), w=Math.round(im.naturalWidth*s), h=Math.round(im.naturalHeight*s), g=Math.round(Math.max(w,h)*.12), cols=cpicCols(n), rows=Math.ceil(n/cols), c=document.createElement('canvas');
-    c.width=cols*w+(cols-1)*g; c.height=rows*h+(rows-1)*g; const x=c.getContext('2d');
-    for(let i=0;i<n;i++){ const r=Math.floor(i/cols), inRow=Math.min(cols,n-r*cols), off=(cols-inRow)*(w+g)/2; x.drawImage(im,off+(i%cols)*(w+g),r*(h+g),w,h); }
+/* NUMBER CARD: "#6n" = the same repeated unit with the digit 6 written big above it (transparent, no card), for any lesson that teaches a number (English OL u5l3). */
+const CPIC_COL={6:'#ffffff',7:'#ffe27a',8:'#ffb36b',9:'#9fe3ff',10:'#c9f7a5'};
+function cpicMake(src,n,dig){ const k=src+'#'+n+(dig?'n':''); if(_cpic[k]) return _cpic[k];
+  return _cpic[k]=new Promise(ok=>{ const im=new Image(); im.onload=async()=>{ const s=Math.min(1,260/Math.max(im.naturalWidth,im.naturalHeight)), w=Math.round(im.naturalWidth*s), h=Math.round(im.naturalHeight*s), g=Math.round(Math.max(w,h)*.12), cols=cpicCols(n), rows=Math.ceil(n/cols), c=document.createElement('canvas');
+    const gw=cols*w+(cols-1)*g, gh=rows*h+(rows-1)*g, th=dig?Math.round(h*1.25):0; c.width=Math.max(gw,dig?Math.round(th*1.1):0); c.height=gh+th+(dig?g:0); const x=c.getContext('2d'), ox=(c.width-gw)/2, oy=th+(dig?g:0);
+    if(dig){ try{ await document.fonts.ready; }catch(e){} x.font='700 '+Math.round(th*.8)+'px '+(getComputedStyle(document.body).fontFamily||'sans-serif'); x.textAlign='center'; x.textBaseline='middle'; x.lineJoin='round'; x.lineWidth=Math.round(th*.14); x.strokeStyle='#6b2d12'; x.strokeText(String(n),c.width/2,th/2); x.fillStyle=CPIC_COL[n]||'#fff'; x.fillText(String(n),c.width/2,th/2); }
+    for(let i=0;i<n;i++){ const r=Math.floor(i/cols), inRow=Math.min(cols,n-r*cols), off=(cols-inRow)*(w+g)/2; x.drawImage(im,ox+off+(i%cols)*(w+g),oy+r*(h+g),w,h); }
     ok(c.toDataURL('image/png').replace('data:image/png;','data:image/png;cpic=1;')); }; im.onerror=()=>ok(src); im.src=src; }); }
 function cpicFill(d,url){ const todo=[], base=new URL(url,location.href);
-  const walk=o=>{ if(o&&typeof o==='object') for(const k in o){ const v=o[k]; if(typeof v==='string'){ const m=v.match(CPIC_RE); if(m) todo.push(cpicMake(new URL(v.slice(0,v.lastIndexOf('#')),base).href,+m[2]).then(u=>{ o[k]=u; })); } else walk(v); } };
+  const walk=o=>{ if(o&&typeof o==='object') for(const k in o){ const v=o[k]; if(typeof v==='string'){ const m=v.match(CPIC_RE); if(m) todo.push(cpicMake(new URL(v.slice(0,v.lastIndexOf('#')),base).href,+m[2],!!m[3]).then(u=>{ o[k]=u; })); } else walk(v); } };
   walk(d); return Promise.all(todo).then(()=>d); }
 /* THE PICTURE KEY (Marwa 2026-11-08): a lesson / question / exam points at a picture by its library id (the name in ../../pics/<id>.png). data/pics/map.json
    (written by tools/pics/reindex.py) says which FILE an id has now (png / jpg / webp) and which weak ids were merged into which. Every json goes through get(),
    so picFix writes the CURRENT file of the id into the string: replace / add / merge a library picture and the whole app follows, no lesson json to edit. */
-const PIC_RE=/^(.*\/pics\/)([A-Za-z0-9_-]+)\.(png|jpe?g|webp)(#\d+)?$/i; let _picmap=null;
+const PIC_RE=/^(.*\/pics\/)([A-Za-z0-9_-]+)\.(png|jpe?g|webp)(#\d+n?)?$/i; let _picmap=null;
 const picMap=()=>_picmap||(_picmap=fetch('data/pics/map.json').then(r=>r.ok?r.json():{files:{},merged:{}}).catch(()=>({files:{},merged:{}})));
 function picFix(d,url){ if(/\/pics\/(pics|map)\.json$/.test(url)) return d; return picMap().then(M=>{ const walk=o=>{ if(o&&typeof o==='object') for(const k in o){ const v=o[k]; if(typeof v==='string'){ const m=v.match(PIC_RE); if(m){ let id=m[2]; for(let n=0;n<4&&M.merged[id];n++) id=M.merged[id]; const f=M.files[id]; if(f&&f!==m[2]+'.'+m[3]) o[k]=m[1]+f+(m[4]||''); } } else walk(v); } }; walk(d); return d; }); }
 const get = url => fetch(url).then(r=>{ if(!r.ok) throw new Error(url); return r.json(); }).then(d=>picFix(d,url)).then(d=>cpicFill(d,url));

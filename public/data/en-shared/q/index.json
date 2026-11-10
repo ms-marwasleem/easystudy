@@ -33,24 +33,6 @@
  ],
  "entries": [
   {
-   "path": "en-shared/q/start-circle-the-pictures-oo.mp3",
-   "text": "Circle the pictures that start with the letter (Oo).",
-   "template": "start-circle",
-   "params": {
-    "which": "the pictures",
-    "letter": "Oo"
-   }
-  },
-  {
-   "path": "en-shared/q/start-circle-the-pictures-ff.mp3",
-   "text": "Circle the pictures that start with the letter (Ff).",
-   "template": "start-circle",
-   "params": {
-    "which": "the pictures",
-    "letter": "Ff"
-   }
-  },
-  {
    "path": "en-shared/q/look-say-and-write-the-beginning-letter-of-the-word.mp3",
    "text": "Look, say, and write the beginning letter of the word."
   },
@@ -148,24 +130,6 @@
    "template": "i-can-see",
    "params": {
     "thing": "a lion"
-   }
-  },
-  {
-   "path": "en-shared/q/start-circle-the-pictures-bb.mp3",
-   "text": "Circle the pictures that start with the letter (Bb).",
-   "template": "start-circle",
-   "params": {
-    "which": "the pictures",
-    "letter": "Bb"
-   }
-  },
-  {
-   "path": "en-shared/q/start-circle-the-pictures-ll.mp3",
-   "text": "Circle the pictures that start with the letter (Ll).",
-   "template": "start-circle",
-   "params": {
-    "which": "the pictures",
-    "letter": "Ll"
    }
   },
   {
@@ -304,24 +268,6 @@
    "text": "where-is-the-dog.mp3"
   },
   {
-   "path": "en-shared/q/start-circle-the-pictures-uu.mp3",
-   "text": "Circle the pictures that start with the letter (Uu).",
-   "template": "start-circle",
-   "params": {
-    "which": "the pictures",
-    "letter": "Uu"
-   }
-  },
-  {
-   "path": "en-shared/q/start-circle-the-pictures-jj.mp3",
-   "text": "Circle the pictures that start with the letter (Jj).",
-   "template": "start-circle",
-   "params": {
-    "which": "the pictures",
-    "letter": "Jj"
-   }
-  },
-  {
    "path": "en-shared/q/thing-colour-ball-under-the-box.mp3",
    "text": "The ball is under the box.",
    "template": "thing-colour",
@@ -369,6 +315,22 @@
   {
    "path": "en-shared/q/the-bird-is-in-the-cage-mp3.mp3",
    "text": "the-bird-is-in-the-cage.mp3"
+  },
+  {
+   "path": "en-shared/q/start-match.mp3",
+   "text": "Match the objects that start with the letter."
+  },
+  {
+   "path": "en-shared/q/start-circle-the-pictures.mp3",
+   "text": "Circle the pictures that start with the letter."
+  },
+  {
+   "path": "en-shared/q/start-circle-the-objects.mp3",
+   "text": "Circle the objects that start with the letter."
+  },
+  {
+   "path": "en-shared/q/start-circle-all-the-pictures.mp3",
+   "text": "Circle all the pictures that start with the letter."
   }
  ]
 }

@@ -75,6 +75,9 @@
   --c-pink:#E8457A;        /* exercise number circle, choice ring */
   --c-white:#FFF;          /* white surface / text on colour */
   --c-paper2:#FFFDF6;      /* the lightest paper */
+  /* ONE tap-button look (Ahmed 2026-11-10): every choice button, word pill and letter / word tile = white, same outline, same shadow, same font */
+  --btn-bg:#FFF; --btn-ink:var(--c-text); --btn-border:.19rem solid var(--ol); --btn-shadow:0 .22rem 0 rgba(90,52,24,.4);
+  --btn-font:var(--f-read);
   --c-hint:#FFE98A;        /* help highlight */
   --c-muted:#9A7B55;       /* quiet text and lines */
 
@@ -95,7 +98,7 @@
   --f-story:"Andika","Comic Neue",sans-serif;
   --f-story-ar:"Baloo Bhaijaan 2","Noto Naskh Arabic",sans-serif;   /* = the font of the subject name on the Arabic book (home screen) */
   --story-fs-ar:clamp(1.45rem,min(6.6vw,4.6vh),2.6rem);   /* THE Arabic story text size (largest); one size per lesson, shrinks only when a page would not fit */
-  --focus-word-size:clamp(1.7rem,min(6.6vw,5.2vh),3.2rem);   /* THE size of a word the child studies (reading page, question head word, Words tab): one size, whole app */
+  --focus-word-size:clamp(2.05rem,min(8vw,6.2vh),3.9rem);   /* THE size of a word the child studies (reading page, question head word, Words tab): one size, whole app */
   --q-sentence-size:clamp(1.7rem,min(7.4vw,5.6vh),3rem);   /* a sentence the child reads in a question (complete / circle): big, centred */
   --pf-border:0.25rem; --pf-radius:0.75rem; --pf-shadow:0 0.1875rem 0.5rem rgba(90,52,24,.25);
   /* behaviour settings read by the components (numbers, milliseconds) — wired in step 4 */
@@ -736,6 +739,7 @@ body.kb-open .screen:not(#lesson){height:calc(100% - var(--kb,0px))}
   box-shadow:0 2px 0.375rem rgba(90,52,24,.25);opacity:.8;transition:opacity .2s}
 .vthumb img{width:100%;height:100%;object-fit:cover;border-radius:0.625rem;display:block}
 .vthumb img.cut{padding:0.1875rem}
+.vthumb img[src^="data:image/png;cpic"]{object-fit:contain}
 .vthumb b{position:absolute;left:-0.375rem;top:-0.375rem;width:1.25rem;height:1.25rem;border-radius:50%;display:grid;place-items:center;background:var(--blue2);
   font-family:var(--f-title);font-weight:400;font-size:0.8125rem;color:var(--c-white)}
 .vthumb .vst{position:absolute;right:-0.4375rem;top:-0.5625rem;width:1.5rem;height:1.5rem}
@@ -1129,7 +1133,7 @@ button.qpic{cursor:pointer}
 /* face = drag the missing parts onto the face */
 .qxfb{position:relative;flex:1 1 0;min-height:9rem;width:100%;touch-action:none;direction:ltr}
 .qxff{position:absolute;display:block;border-radius:.6rem;user-select:none;-webkit-user-select:none;pointer-events:none}
-.qxfp{position:absolute;left:0;top:0;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;transition:filter .2s}
+.qxfp{position:absolute;left:0;top:0;cursor:grab;touch-action:none;pointer-events:none;user-select:none;-webkit-user-select:none;transition:filter .2s}
 .qxfp.drag{z-index:5;filter:drop-shadow(0 .4rem .3rem rgba(0,0,0,.3))}.qxfp.in{cursor:default}
 .quiz[data-type="face"] .qx>.qxfb{flex:1 1 0;min-height:9rem}
 
@@ -1403,6 +1407,7 @@ button.qpic{cursor:pointer}
 .qxc.right span{color:var(--c-text)}
 .qxtile{--th:clamp(3.75rem,min(21cqw,19cqh),6.25rem);height:var(--th)}
 .qxtile span{font-size:calc(var(--th)*.42)}
+.qx:has(>.qxpic) .qxtile{--th:clamp(3rem,min(13.5cqw,17cqh),5.25rem)}   /* picture questions: tiles a little smaller so the picture gets the room (Ahmed 2026-11-10, tiny guitar) */
 
 /* the places to write in are always plainly visible (a thick line under each), the current one in blue */
 
@@ -2712,9 +2717,9 @@ button.qpic{cursor:pointer}
 
 /* while the phone keyboard is open (js/wordslots.js): the word is lifted above it; the progress stars make room; the Help bulb stands right under the word;
    with little room (phone on its side) the title, lesson name and road step aside */
-body.ws-typing .quiz .qdots{visibility:hidden}
+body.ws-tight .quiz .qdots{visibility:hidden}   /* the stars stay while typing; only in a very short window they step aside */
 body.ws-tight #lesson .l-head{visibility:hidden;height:0;min-height:0;padding:0;margin:0;border:0;overflow:hidden}   /* stays in its grid row (display:none moved the stage into the header row and squeezed it to nothing) */
-body.ws-typing .ws-side{position:fixed!important;right:auto!important;bottom:auto!important;margin:0!important;z-index:60}
+body.ws-typing .ws-side{width:1.75rem!important;height:1.75rem!important;border-width:.125rem!important;position:fixed!important;right:auto!important;bottom:auto!important;margin:0!important;z-index:60}
 .ws-mv{transition:none}   /* wsKeep re-measures on every keyboard/scroll report; a transition made the word slide 0 -> lift each time (the shaking) */
 
 /* the question word line with a plain word or a sentence (not spelled): a sentence wraps inside the screen and takes the sentence size */
@@ -2831,8 +2836,8 @@ body.ws-typing .ws-side{position:fixed!important;right:auto!important;bottom:aut
 /* ---------- 4. THE choice button ---------- */
 .qch,.qans .qch,.qxchoices .qch,.alopts .qch,.albank .qch{--bs:var(--q-choice);position:relative;box-sizing:border-box;width:var(--q-choice)!important;height:var(--q-choice)!important;min-width:0;min-height:0;
   padding:0!important;margin:0;border-radius:50%!important;display:grid!important;place-items:center!important;
-  background:var(--c-paper2)!important;border:.19rem solid var(--ol)!important;box-shadow:0 .22rem 0 rgba(90,52,24,.4)!important;
-  color:var(--c-text)!important;font:700 calc(var(--q-choice)*.5)/1 var(--f-read);text-align:center;overflow:visible;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  background:var(--btn-bg)!important;border:var(--btn-border)!important;box-shadow:var(--btn-shadow)!important;
+  color:var(--btn-ink)!important;font:700 calc(var(--q-choice)*.5)/1 var(--btn-font);text-align:center;overflow:visible;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .qch::before{display:none!important}
 .qch>span{display:block!important;margin:0!important;padding:0!important;transform:none!important;font:inherit!important;line-height:1!important;color:inherit!important;text-align:center;white-space:nowrap}
 .qch.two{font-size:calc(var(--q-choice)*.42)}
@@ -2934,6 +2939,13 @@ body.ws-typing .ws-side{position:fixed!important;right:auto!important;bottom:aut
 /* ---------- ONE speaker icon (Ahmed 2026-11-10): size from theme.css tokens --spk-icon / --spk-box in every question place; colour = white on the page, black only on a white/paper card (rules above) ---------- */
 :is(#lesson,#map) .qsay{width:var(--spk-box)!important;height:var(--spk-box)!important}
 :is(#lesson,#map) .qsay svg{width:var(--spk-icon)!important;height:var(--spk-icon)!important}
+
+/* ---------- ONE tap-button look: letter tiles (unscramble / arrange) = the same button as every choice (Ahmed 2026-11-10). Colours / outline / font come from theme.css --btn-*; a letter = round like a letter choice, a word piece = the pill. ---------- */
+.qxtile{--th:clamp(3.25rem,min(19cqw,17cqh),5.25rem);width:var(--th)!important;height:var(--th)!important;border-radius:50%!important;background:var(--btn-bg)!important;border:var(--btn-border)!important;box-shadow:var(--btn-shadow)!important;color:var(--btn-ink)}
+.qxtile span{font-family:var(--btn-font)!important;font-weight:700;font-size:calc(var(--th)*.5)!important;line-height:1!important;color:inherit}
+#lesson.ar .qxtile span{font-family:var(--f-ar)!important}
+.qxtile.wide{width:auto!important;min-width:calc(var(--th)*1.4);height:auto!important;min-height:calc(var(--th)*.86);padding:.12em .68em!important;border-radius:62rem!important}
+.qxtile.wide span{font-size:calc(var(--th)*.42)!important}
 /* ===== css/coins.css ===== */
 /* COINS — the coin chip beside the star counter, the share sheet and the unlock popup (js/coins.js). Same popup look as the app's messages. */
 .coinhud{position:relative;display:flex;align-items:center;height:2.2rem;padding:0 .9rem 0 2.3rem;margin-left:1.6rem;border-radius:62.4375rem;border:0;cursor:pointer;
@@ -3025,4 +3037,4 @@ body.ws-typing .ws-side{position:fixed!important;right:auto!important;bottom:aut
 .pushbtn svg{width:2rem;height:2rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .pushbtn.on{opacity:1}
 .pushbtn.on svg{fill:currentColor}
-:root{--app-build:"cc7651192a"}
+:root{--app-build:"cb36a67cbb"}

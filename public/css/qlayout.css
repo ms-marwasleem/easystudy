@@ -20,8 +20,8 @@
 /* ---------- 4. THE choice button ---------- */
 .qch,.qans .qch,.qxchoices .qch,.alopts .qch,.albank .qch{--bs:var(--q-choice);position:relative;box-sizing:border-box;width:var(--q-choice)!important;height:var(--q-choice)!important;min-width:0;min-height:0;
   padding:0!important;margin:0;border-radius:50%!important;display:grid!important;place-items:center!important;
-  background:var(--c-paper2)!important;border:.19rem solid var(--ol)!important;box-shadow:0 .22rem 0 rgba(90,52,24,.4)!important;
-  color:var(--c-text)!important;font:700 calc(var(--q-choice)*.5)/1 var(--f-read);text-align:center;overflow:visible;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  background:var(--btn-bg)!important;border:var(--btn-border)!important;box-shadow:var(--btn-shadow)!important;
+  color:var(--btn-ink)!important;font:700 calc(var(--q-choice)*.5)/1 var(--btn-font);text-align:center;overflow:visible;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .qch::before{display:none!important}
 .qch>span{display:block!important;margin:0!important;padding:0!important;transform:none!important;font:inherit!important;line-height:1!important;color:inherit!important;text-align:center;white-space:nowrap}
 .qch.two{font-size:calc(var(--q-choice)*.42)}
@@ -123,3 +123,10 @@
 /* ---------- ONE speaker icon (Ahmed 2026-11-10): size from theme.css tokens --spk-icon / --spk-box in every question place; colour = white on the page, black only on a white/paper card (rules above) ---------- */
 :is(#lesson,#map) .qsay{width:var(--spk-box)!important;height:var(--spk-box)!important}
 :is(#lesson,#map) .qsay svg{width:var(--spk-icon)!important;height:var(--spk-icon)!important}
+
+/* ---------- ONE tap-button look: letter tiles (unscramble / arrange) = the same button as every choice (Ahmed 2026-11-10). Colours / outline / font come from theme.css --btn-*; a letter = round like a letter choice, a word piece = the pill. ---------- */
+.qxtile{--th:clamp(3.25rem,min(19cqw,17cqh),5.25rem);width:var(--th)!important;height:var(--th)!important;border-radius:50%!important;background:var(--btn-bg)!important;border:var(--btn-border)!important;box-shadow:var(--btn-shadow)!important;color:var(--btn-ink)}
+.qxtile span{font-family:var(--btn-font)!important;font-weight:700;font-size:calc(var(--th)*.5)!important;line-height:1!important;color:inherit}
+#lesson.ar .qxtile span{font-family:var(--f-ar)!important}
+.qxtile.wide{width:auto!important;min-width:calc(var(--th)*1.4);height:auto!important;min-height:calc(var(--th)*.86);padding:.12em .68em!important;border-radius:62rem!important}
+.qxtile.wide span{font-size:calc(var(--th)*.42)!important}
