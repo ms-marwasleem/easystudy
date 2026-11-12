@@ -634,9 +634,9 @@
    "hint": "رتب المقاطع",
    "items": [
     {
-     "word": "شُمْع",
+     "word": "شَمْع",
      "chunks": [
-      "شُ",
+      "شَ",
       "مْ",
       "ع"
      ],
@@ -853,6 +853,7 @@
    "items": [
     {
      "word": "شعر",
+     "pic": "../../pics/ar-hair.png",
      "audio": "words/shaar.mp3",
      "answer": "ع",
      "at": 1,
@@ -864,6 +865,7 @@
     },
     {
      "word": "عين",
+     "pic": "../../pics/ar-eye.png",
      "audio": "../words/ayn.mp3",
      "answer": "ع",
      "at": 0,
@@ -875,6 +877,7 @@
     },
     {
      "word": "عظم",
+     "pic": "../../pics/ar-bone.png",
      "audio": "../words/adhm.mp3",
      "answer": "ع",
      "at": 0,
@@ -886,6 +889,7 @@
     },
     {
      "word": "كعك",
+     "pic": "../../pics/ar-kaak.png",
      "audio": "words/kaak.mp3",
      "answer": "ع",
      "at": 1,

@@ -31,6 +31,7 @@
   padding:.12em .68em!important;border-radius:62rem!important;font-size:calc(var(--q-word)*.5)!important}
 :is(.qans,.qxchoices,.qmpad,.alopts,.albank,.alpool,.xpl-ask) .qch.wd>span,.qch.wd>span{font-size:inherit!important}
 .alorder.many .alpool .qch.wd{--q-word:clamp(2.5rem,min(5.6vh,11vw),3.2rem)}   /* a sentence built from many pieces (>7): the same pill, a little smaller, so the picture keeps its room */   /* the word = half the pill's height (old row rules set their own span sizes) */
+#lesson.q-land .alorder.many .alpool .qch.wd{--q-word:clamp(2rem,min(4.4vh,9vw),2.5rem)}   /* wide screen, 12+ pieces beside the picture: smaller pills so every piece stays inside the page (math u3l4) */
 .qch.wd>span{white-space:normal;line-height:1.15!important}
 .alopts.long .qch.wd{font-size:calc(var(--q-word)*.4)!important;border-radius:1.4rem!important}
 #lesson.ar .qch{font-family:var(--f-ar)}

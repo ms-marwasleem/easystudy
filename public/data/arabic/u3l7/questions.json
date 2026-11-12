@@ -130,6 +130,14 @@
     }
    ],
    "center": "ه",
+   "centerAt": [
+    50,
+    12
+   ],
+   "centerAtP": [
+    50,
+    45
+   ],
    "centerAudio": "../letters/647/name.mp3"
   },
   {
@@ -299,7 +307,14 @@
       "../../pics/ar-face.png",
       "../../pics/cheetah.png"
      ],
-     "picWords": [["وَجْه"], ["فَهْد"]]
+     "picWords": [
+      [
+       "وَجْه"
+      ],
+      [
+       "فَهْد"
+      ]
+     ]
     }
    ]
   },
@@ -593,8 +608,8 @@
     },
     {
      "word": "هَاتِف",
-     "audio": "words/hatif.mp3",
      "pic": "../../pics/ar-phone.png",
+     "audio": "words/hatif.mp3",
      "answer": "هَ"
     },
     {
@@ -732,7 +747,8 @@
       "هَرَبَ الْهِرُّ مِنَ الْفَهْدِ."
      ],
      "answer": 1,
-     "audio": "q/s14-1.mp3"
+     "audio": "q/s14-1.mp3",
+     "askAudio": "q/ask-ca0f390336.mp3"
     },
     {
      "word": "ذَهَبَتْ هِنْدُ إِلَى الْهَرَمِ.",
@@ -743,7 +759,8 @@
       "تُحِبُّ هِنْدُ لَوْنَ الذَّهَبِ."
      ],
      "answer": 0,
-     "audio": "q/s14-2.mp3"
+     "audio": "q/s14-2.mp3",
+     "askAudio": "q/ask-b064ad39fb.mp3"
     }
    ]
   },
@@ -839,6 +856,7 @@
    "items": [
     {
      "word": "هَاتِف",
+     "pic": "../../pics/ar-phone.png",
      "audio": "words/hatif.mp3",
      "answer": "هَ",
      "choices": [
@@ -849,6 +867,7 @@
     },
     {
      "word": "كَهْف",
+     "pic": "../../pics/ar-cave.png",
      "audio": "words/kahf.mp3",
      "answer": "هْ",
      "choices": [
@@ -860,6 +879,7 @@
     },
     {
      "word": "رَهِيب",
+     "pic": "img/rahib.png",
      "audio": "words/rahib.mp3",
      "answer": "هِ",
      "choices": [

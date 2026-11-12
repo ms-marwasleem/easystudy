@@ -150,7 +150,7 @@
 .scene.pics .pk .txt{color:var(--pk-word-color)}
 .scene.pics .pk .w{color:var(--pk-word-color)!important}
 .scene.pics .pk .w.reading{color:var(--c-now-bg)!important}
-.scene.pics .pk .txt{font-size:var(--focus-word-size);white-space:normal;text-align:center;max-width:calc(94cqw / var(--pc));line-height:1.15}   /* a phrase wraps inside its cell, a single word stays one line */   /* same size as every focus word (theme.css) */
+.scene.pics .pk .txt{font-size:var(--focus-word-size);white-space:normal;text-align:center;max-width:calc(94cqw / var(--pc));line-height:1.02}   /* a phrase wraps inside its cell, a single word stays one line */   /* same size as every focus word (theme.css) */
 .scene.pics.wrap .pk .txt{font-size:calc(var(--focus-word-size) * .62);max-width:calc(92cqw / var(--pc))}   /* sentences under the pictures: smaller, may wrap */
 
 

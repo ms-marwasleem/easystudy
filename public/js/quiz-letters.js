@@ -339,9 +339,9 @@ QM.qa={sheet:'box', bulb:0, draw:qxQA};
 /* RULE: while the phone keyboard is open the word stays above it, and the Help bulb moves beside the word: shared, js/wordslots.js (wsKeep) */
 
 /* first    = "write the FIRST letter of each picture's word, then merge the letters into the new word" (book booklet ex12): a row of pictures, a place under each for its first letter (typed), then the merged word is typed. The result picture (q.pic) is on top.
-   item: {word: the merged word, result: its picture, parts:[{pic, first: the letter}, ...], hush: true (the word is the answer, so no speaker)} */
+   item: {word: the merged word, result: its picture, parts:[{pic, first: the letter}, ...] (a part with "text" instead of "pic" shows that word, for a book page without pictures), hush: true (the word is the answer, so no speaker)} */
 function qxFirst(box,q,s,run){
-  const row=el('div','qxfirsts'), cells=q.parts.map(p=>{ const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${R_Q(p.pic)}" alt="">`)); const h=el('div','qxfh'); f.append(h); row.append(f); return h; });
+  const row=el('div','qxfirsts'), cells=q.parts.map(p=>{ const f=el('figure','qxfi'); f.append(p.pic?el('div','qxfp2',`<img src="${R_Q(p.pic)}" alt="">`):el('div','qxftx',p.text)); const h=el('div','qxfh'); f.append(h); row.append(f); return h; });
   let rc=null; if(q.result){ row.append(el('span','qxeq','=')); const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${R_Q(q.result)}" alt="">`)); rc=el('div','qxfh'); f.append(rc); row.append(f); }   // the merged word's own picture and its place, after "="
   box.append(row);
   const stage=k=>{ const last=k>=q.parts.length;
@@ -350,6 +350,15 @@ function qxFirst(box,q,s,run){
   stage(0);
 }
 QM.first={sheet:'box', noword:1, bulb:0, draw:qxFirst};
+/* common   = "find the letter the pictures share, then write it" (booklet Arabic u4l3 ex12): a row of pictures and ONE place under them where the letter is typed. ONE template for every lesson.
+   item: {pics:[picture,...], letter: the common letter, hush: true (the letter is the answer, so no speaker)} */
+function qxCommon(box,q,s,run){
+  const row=el('div','qxfirsts qxcommon'); q.pics.forEach(p=>{ const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${p}" alt="">`)); row.append(f); });
+  box.append(row); const h=el('div','qxfh qxcc'); box.append(h);
+  qxWrite(box,q,s,run,q.letter); const ln=$$('.qxline',box).pop(); if(ln) h.append(ln);
+}
+QM.common={sheet:'box', noword:1, bulb:0, draw:qxCommon};
+
 
 /* build    = "make words from these letters" (book workbook): ALL the letters sit on top once, each can be dragged (or tapped) as many times as the child wants into the places below, one place per word to build (3-4 places). A place that spells one of the words locks in green; the question is done when `need` words are built.
    item: {letters:["أ","ب",...], words:["أَب","أُمّ",...] (the words that count, marks ignored), slots:4, need:3} */

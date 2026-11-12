@@ -335,6 +335,14 @@
    "kind": "photo",
    "cut": false
   },
+  "ar-announcer": {
+   "file": "ar-announcer.png",
+   "tags": [],
+   "w": 200,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
+  },
   "ar-ants": {
    "file": "ar-ants.png",
    "w": 480,
@@ -1741,14 +1749,22 @@
   "ar-doctor-woman": {
    "file": "ar-doctor-woman.png",
    "tags": [],
-   "w": 434,
+   "w": 217,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-doctors": {
+   "file": "ar-doctors.png",
+   "tags": [],
+   "w": 446,
    "h": 480,
    "kind": "cut",
    "cut": true
   },
   "ar-donkey": {
    "file": "ar-donkey.png",
-   "w": 367,
+   "w": 449,
    "h": 480,
    "cut": true,
    "tags": [
@@ -1815,12 +1831,12 @@
    "kind": "cut"
   },
   "ar-duck-outline": {
-   "file": "ar-duck-outline.jpg",
+   "file": "ar-duck-outline.png",
    "tags": [],
-   "w": 106,
-   "h": 120,
-   "kind": "photo",
-   "cut": false
+   "w": 480,
+   "h": 462,
+   "kind": "cut",
+   "cut": true
   },
   "ar-duckling": {
    "file": "ar-duckling.png",
@@ -1976,6 +1992,22 @@
    ],
    "from": "../../../tmp/claude-0/s/nat/b-012.jpg",
    "kind": "cut"
+  },
+  "ar-engineer-woman": {
+   "file": "ar-engineer-woman.png",
+   "tags": [],
+   "w": 186,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-engineers": {
+   "file": "ar-engineers.png",
+   "tags": [],
+   "w": 480,
+   "h": 287,
+   "kind": "cut",
+   "cut": true
   },
   "ar-envelope": {
    "file": "ar-envelope.jpg",
@@ -2971,6 +3003,14 @@
    "kind": "cut",
    "cut": true
   },
+  "ar-hedgehog-in-hole": {
+   "file": "ar-hedgehog-in-hole.png",
+   "tags": [],
+   "w": 480,
+   "h": 315,
+   "kind": "cut",
+   "cut": true
+  },
   "ar-hen-shadow": {
    "file": "ar-hen-shadow.jpg",
    "tags": [],
@@ -3138,6 +3178,14 @@
    "from": "../../../tmp/claude-0/s/nat/b-012.jpg",
    "kind": "cut"
   },
+  "ar-island": {
+   "file": "ar-island.png",
+   "tags": [],
+   "w": 480,
+   "h": 456,
+   "kind": "cut",
+   "cut": true
+  },
   "ar-jar": {
    "file": "ar-jar.png",
    "w": 308,
@@ -3149,6 +3197,14 @@
    ],
    "from": "../../../../tmp/claude-0/s/nat-05.jpg",
    "kind": "cut"
+  },
+  "ar-jilbab": {
+   "file": "ar-jilbab.png",
+   "tags": [],
+   "w": 288,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-juice": {
    "file": "ar-juice.png",
@@ -3194,7 +3250,7 @@
    "file": "ar-kaak.png",
    "tags": [],
    "w": 480,
-   "h": 438,
+   "h": 380,
    "kind": "cut",
    "cut": true
   },
@@ -3505,6 +3561,14 @@
    "h": 348,
    "kind": "photo",
    "cut": false
+  },
+  "ar-man-face": {
+   "file": "ar-man-face.png",
+   "tags": [],
+   "w": 333,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-meat": {
    "file": "ar-meat.png",
@@ -3875,12 +3939,12 @@
    "cut": true
   },
   "ar-painter-girl": {
-   "file": "ar-painter-girl.jpg",
+   "file": "ar-painter-girl.png",
    "tags": [],
-   "w": 170,
-   "h": 176,
-   "kind": "photo",
-   "cut": false
+   "w": 398,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-palm": {
    "file": "ar-palm.png",
@@ -4072,16 +4136,24 @@
   "ar-player-boy": {
    "file": "ar-player-boy.png",
    "tags": [],
-   "w": 372,
-   "h": 480,
+   "w": 480,
+   "h": 451,
    "kind": "cut",
    "cut": true
   },
   "ar-player-girl": {
    "file": "ar-player-girl.png",
    "tags": [],
-   "w": 341,
-   "h": 480,
+   "w": 480,
+   "h": 403,
+   "kind": "cut",
+   "cut": true
+  },
+  "ar-players-girls": {
+   "file": "ar-players-girls.png",
+   "tags": [],
+   "w": 480,
+   "h": 436,
    "kind": "cut",
    "cut": true
   },
@@ -4228,6 +4300,14 @@
    ],
    "from": "../../../tmp/claude-0/s/nat/b-012.jpg",
    "kind": "cut"
+  },
+  "ar-red-pen": {
+   "file": "ar-red-pen.png",
+   "tags": [],
+   "w": 480,
+   "h": 461,
+   "kind": "cut",
+   "cut": true
   },
   "ar-rhino": {
    "file": "ar-rhino.png",
@@ -4509,7 +4589,7 @@
   "ar-schoolgirl-blue": {
    "file": "ar-schoolgirl-blue.png",
    "tags": [],
-   "w": 242,
+   "w": 287,
    "h": 480,
    "kind": "cut",
    "cut": true
@@ -4809,6 +4889,14 @@
    ],
    "from": "../../../tmp/claude-0/s/nat/b-020.jpg",
    "kind": "cut"
+  },
+  "ar-soldiers": {
+   "file": "ar-soldiers.png",
+   "tags": [],
+   "w": 480,
+   "h": 476,
+   "kind": "cut",
+   "cut": true
   },
   "ar-spear": {
    "file": "ar-spear.png",
@@ -5126,6 +5214,14 @@
    "from": "../../../../tmp/w13n/n-22.png",
    "kind": "cut"
   },
+  "ar-student-boy": {
+   "file": "ar-student-boy.png",
+   "tags": [],
+   "w": 260,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
+  },
   "ar-students": {
    "file": "ar-students.png",
    "w": 480,
@@ -5247,15 +5343,12 @@
    "cut": false
   },
   "ar-teacher-man": {
-   "file": "ar-teacher-man.jpg",
-   "w": 294,
-   "h": 294,
-   "cut": false,
-   "tags": [
-    "u1l1"
-   ],
-   "from": "lesson folder arabic/u1l1/img/ar-teacher-man.jpg",
-   "kind": "photo"
+   "file": "ar-teacher-man.png",
+   "tags": [],
+   "w": 480,
+   "h": 464,
+   "kind": "cut",
+   "cut": true
   },
   "ar-teapot": {
    "file": "ar-teapot.png",
@@ -5605,6 +5698,14 @@
    "kind": "cut",
    "cut": true
   },
+  "ar-u4l2-qa": {
+   "file": "ar-u4l2-qa.jpg",
+   "tags": [],
+   "w": 600,
+   "h": 353,
+   "kind": "photo",
+   "cut": false
+  },
   "ar-vacuum": {
    "file": "ar-vacuum.png",
    "tags": [],
@@ -5632,6 +5733,14 @@
    ],
    "from": "../../../../tmp/claude-0/s/b-1.png",
    "kind": "cut"
+  },
+  "ar-washing-hands": {
+   "file": "ar-washing-hands.png",
+   "tags": [],
+   "w": 480,
+   "h": 396,
+   "kind": "cut",
+   "cut": true
   },
   "ar-wave": {
    "file": "ar-wave.png",
@@ -5692,6 +5801,14 @@
    ],
    "from": "../../../tmp/claude-0/s/nat/a-004.jpg",
    "kind": "cut"
+  },
+  "ar-worker": {
+   "file": "ar-worker.png",
+   "tags": [],
+   "w": 300,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
   },
   "ar-worm": {
    "file": "ar-worm.png",
@@ -6281,18 +6398,6 @@
     "u1l3"
    ],
    "from": "book-blue.png (single book, Ahmed 2026-11-10: one book, not a stack)",
-   "kind": "cut"
-  },
-  "book-blue": {
-   "file": "book-blue.png",
-   "w": 480,
-   "h": 353,
-   "cut": true,
-   "tags": [
-    "u1l3",
-    "quiz"
-   ],
-   "from": "../../../../tmp/claude-0/-home-claude/fc3fb251-a95f-50ce-adcb-4c76909caa79/scratchpad/quiz-art.jpg",
    "kind": "cut"
   },
   "book-boy": {
@@ -7111,6 +7216,14 @@
    "kind": "cut",
    "cut": true
   },
+  "coin-yen": {
+   "file": "coin-yen.png",
+   "tags": [],
+   "w": 480,
+   "h": 480,
+   "kind": "cut",
+   "cut": true
+  },
   "computer": {
    "file": "computer.png",
    "tags": [],
@@ -7138,17 +7251,6 @@
    "h": 477,
    "kind": "cut",
    "cut": true
-  },
-  "count-1-butterfly": {
-   "file": "count-1-butterfly.png",
-   "w": 480,
-   "h": 453,
-   "cut": true,
-   "tags": [
-    "u3l3"
-   ],
-   "from": "book p53",
-   "kind": "cut"
   },
   "cousin": {
    "file": "cousin.jpg",
@@ -7444,8 +7546,8 @@
   },
   "egg-u4l2": {
    "file": "egg-u4l2.png",
-   "w": 293,
-   "h": 429,
+   "w": 328,
+   "h": 480,
    "cut": true,
    "tags": [
     "u4",
@@ -7481,8 +7583,8 @@
   },
   "elbow-u4l2": {
    "file": "elbow-u4l2.png",
-   "w": 349,
-   "h": 364,
+   "w": 460,
+   "h": 480,
    "cut": true,
    "tags": [
     "u4",
@@ -7550,8 +7652,8 @@
   },
   "enter-u4l2": {
    "file": "enter-u4l2.png",
-   "w": 275,
-   "h": 468,
+   "w": 282,
+   "h": 480,
    "cut": true,
    "tags": [
     "u4",
@@ -7718,8 +7820,8 @@
   },
   "fan-u5l4": {
    "file": "fan-u5l4.png",
-   "w": 321,
-   "h": 457,
+   "w": 337,
+   "h": 480,
    "cut": true,
    "tags": [
     "u5l4",
@@ -8434,7 +8536,7 @@
   },
   "head-u4l1": {
    "file": "head-u4l1.png",
-   "w": 480,
+   "w": 468,
    "h": 480,
    "cut": true,
    "tags": [
@@ -8601,29 +8703,6 @@
    "kind": "cut",
    "cut": true
   },
-  "ink-icon": {
-   "file": "ink-icon.png",
-   "w": 409,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u1l4",
-    "quiz"
-   ],
-   "from": "English Prim1 Tr1 PDF p21-23",
-   "kind": "cut"
-  },
-  "ink-u1l4": {
-   "file": "ink-u1l4.png",
-   "w": 409,
-   "h": 480,
-   "cut": true,
-   "tags": [
-    "u1l4"
-   ],
-   "from": "lesson folder en-ol/u1l4/img/ink.png",
-   "kind": "cut"
-  },
   "ink2": {
    "file": "ink2.png",
    "tags": [],
@@ -8665,8 +8744,8 @@
   },
   "jam-u6l4": {
    "file": "jam-u6l4.png",
-   "w": 480,
-   "h": 478,
+   "w": 430,
+   "h": 480,
    "cut": true,
    "tags": [
     "u6l4",
@@ -8729,7 +8808,7 @@
   },
   "jeans-u6l4": {
    "file": "jeans-u6l4.png",
-   "w": 480,
+   "w": 260,
    "h": 480,
    "cut": true,
    "tags": [
@@ -8871,7 +8950,7 @@
   },
   "legs-u4l1": {
    "file": "legs-u4l1.png",
-   "w": 480,
+   "w": 380,
    "h": 480,
    "cut": true,
    "tags": [
@@ -9883,8 +9962,8 @@
   },
   "red-u4l2": {
    "file": "red-u4l2.png",
-   "w": 453,
-   "h": 473,
+   "w": 460,
+   "h": 480,
    "cut": true,
    "tags": [
     "u4",
@@ -9896,8 +9975,8 @@
   },
   "ring-u4l2": {
    "file": "ring-u4l2.png",
-   "w": 298,
-   "h": 426,
+   "w": 336,
+   "h": 480,
    "cut": true,
    "tags": [
     "u4",
@@ -11619,8 +11698,8 @@
   },
   "up-u6l4": {
    "file": "up-u6l4.png",
-   "w": 327,
-   "h": 462,
+   "w": 340,
+   "h": 480,
    "cut": true,
    "tags": [
     "u6l4",

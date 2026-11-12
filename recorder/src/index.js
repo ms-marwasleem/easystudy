@@ -105,7 +105,7 @@ export default {
     if (kind === 'migrate-done' && req.method === 'POST') { const pre = url.searchParams.get('pre'); if (!'mscgj'.includes(pre) || pre.length !== 1) return J({ error: 'pre' }, 400); await kv.put('idxdone:' + pre, '1'); return J({ ok: true }); }
     const idxAll = async pre => { if (!(await kv.get('idxdone:' + pre))) throw new Error('not-migrated'); return Object.values((await kv.get('idx:' + pre, 'json')) || {}); };
     if (kind === 'list') {
-      try { return J({ rec: await idxAll('m'), splits: await idxAll('s'), custom: await idxAll('c'), regen: await idxAll('g'), pics: await idxAll('j') }); }
+      try { return J({ rec: await idxAll('m'), splits: await idxAll('s'), custom: await idxAll('c'), regen: await idxAll('g'), pics: await idxAll('j'), picreq: Object.values((await kv.get('idx:q', 'json')) || {}) }); }
       catch (e) { return J({ error: String(e && e.message || e) }, 503); }
     }
     if (kind === 'export') { // everything in the format tools/ar-library/import_recordings.py reads; ?offset=&limit= to take it in pieces (default 40 recordings)
@@ -118,7 +118,7 @@ export default {
     if (!id || !safe(id)) return J({ error: 'bad id' }, 400);
     if (kind === 'pic') { // PUT body = the image (meta in ?meta=), PUT with ?meta alias only = point this picture at another one, DELETE = back to the shipped picture
       if (req.method === 'GET') { const buf = await kv.get('i:' + id, 'arrayBuffer'), m = await kv.get('j:' + id, 'json'); return buf ? new Response(buf, { headers: { 'content-type': (m && m.mime) || 'image/png', 'cache-control': 'no-store' } }) : J({ error: 'none' }, 404); }
-      if (req.method === 'PUT') {
+      if (req.method === 'PUT') try {
         const meta = JSON.parse(decodeURIComponent(url.searchParams.get('meta') || '{}')); meta.id = id; meta.ts = Date.now();
         if (meta.alias) { delete meta.mime; await kv.delete('i:' + id); }
         else {
@@ -129,7 +129,7 @@ export default {
           await kv.put('i:' + id, buf);
         }
         const pmd = { path: meta.path, alias: meta.alias, ts: meta.ts, mime: meta.mime }; await kv.put('j:' + id, JSON.stringify(meta), { metadata: pmd }); await idxSet(kv, 'j', id, meta); await setPub(kv, 'pub:pics', 'j:', id, pmd); return J({ ok: true });
-      }
+      } catch (e) { return J({ error: String(e && e.message || e) }, 500); } // show the real reason (e.g. KV daily write limit) instead of a bare 500
       if (req.method === 'DELETE') { await kv.delete('i:' + id); await kv.delete('j:' + id); await idxSet(kv, 'j', id, null); await setPub(kv, 'pub:pics', 'j:', id, null); return J({ ok: true }); }
     }
     if (kind === 'audio') {
@@ -143,7 +143,7 @@ export default {
       }
       if (req.method === 'DELETE') { await kv.delete('a:' + id); await kv.delete('m:' + id); await idxSet(kv, 'm', id, null); await setPub(kv, 'pub:manifest', 'm:', id, null); return J({ ok: true }); }
     }
-    const pre = { split: 's:', custom: 'c:', regen: 'g:' }[kind];
+    const pre = { split: 's:', custom: 'c:', regen: 'g:', picreq: 'q:' }[kind]; // picreq = pictures asked from Marwa (empty slots on the picture library page)
     if (pre) {
       if (req.method === 'PUT') { const o = await req.json(); o.id = id; o.ts = Date.now(); await kv.put(pre + id, JSON.stringify(o)); await idxSet(kv, pre[0], id, o); return J({ ok: true }); }
       if (req.method === 'DELETE') { await kv.delete(pre + id); await idxSet(kv, pre[0], id, null); return J({ ok: true }); }

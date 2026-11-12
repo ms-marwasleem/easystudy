@@ -672,6 +672,43 @@
   {
    "book": "workbook",
    "page": 50,
+   "type": "circle",
+   "ex": 1,
+   "task": "أَرْسُمُ دَائِرَةً حَوْلَ حَرْفِ (و)",
+   "taskAudio": "q/task-2.mp3",
+   "hint": "اضغط على الكلمة اللي فيها الواو",
+   "items": [
+    {
+     "word": "مِلْح",
+     "text": "مِلْح",
+     "answer": false
+    },
+    {
+     "word": "وَلَد",
+     "text": "وَلَد",
+     "audio": "words/walad.mp3",
+     "answer": true
+    },
+    {
+     "word": "مَنْزِل",
+     "text": "مَنْزِل",
+     "answer": false
+    },
+    {
+     "word": "لِسَان",
+     "text": "لِسَان",
+     "answer": false
+    },
+    {
+     "word": "عَسَل",
+     "text": "عَسَل",
+     "answer": false
+    }
+   ]
+  },
+  {
+   "book": "workbook",
+   "page": 50,
    "type": "link",
    "ex": 2,
    "task": "أَصِلُ كُلَّ كَلِمَةٍ بِمَا يُنَاسِبُهَا مِنْ شَكْلِ حَرْفِ (و)",
@@ -717,6 +754,53 @@
     }
    ],
    "words": true
+  },
+  {
+   "book": "workbook",
+   "page": 50,
+   "type": "first",
+   "ex": "h2",
+   "task": "أَجْمَعُ الْحَرْفَ الْأَوَّلَ مِنْ كُلِّ كَلِمَةٍ؛ لِأُكَوِّنَ كَلِمَةً جَدِيدَةً",
+   "taskAudio": "q/task-wbh2.mp3",
+   "hint": "اكتب أول حرف من كل كلمة، وبعدين ادمجهم",
+   "items": [
+    {
+     "word": "وَقْت",
+     "hush": true,
+     "parts": [
+      {
+       "text": "وَقَعَ",
+       "first": "و"
+      },
+      {
+       "text": "قَوْس",
+       "first": "ق"
+      },
+      {
+       "text": "تَسَوَّقَ",
+       "first": "ت"
+      }
+     ]
+    },
+    {
+     "word": "وَرْد",
+     "hush": true,
+     "parts": [
+      {
+       "text": "وَعْد",
+       "first": "و"
+      },
+      {
+       "text": "رُوح",
+       "first": "ر"
+      },
+      {
+       "text": "دَوْر",
+       "first": "د"
+      }
+     ]
+    }
+   ]
   }
  ]
 }

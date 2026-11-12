@@ -46,6 +46,7 @@ async function qLoad(){
     if(s.type==='link') s.items.forEach(it=>{ it.answer=true; it.fullSrc=[].concat(it.full||[]).map(R); });
     if((QM[s.type]||{}).sheet==='board'){ s.centerSrc=R(s.centerAudio); s.items.forEach(it=>{ it.src=Array.isArray(it.audio)?it.audio.map(R):R(it.audio); it.src2=it.audio2?R(it.audio2):it.src; it.picSrc=R(it.pic); it.wpicSrc=it.wpic?R(it.wpic):''; if(it.dots&&typeof mDots==='function') it.picSrc=mDots(it.dots); });
       if(s.type==='circle'&&s.shuffle&&!s._sh){ s._sh=1; const ps=s.items.map(it=>it.pos); for(let t=0;t<20;t++){ ps.sort(()=>Math.random()-.5); if(ps.some((p,k)=>p!==s.items[k].pos)) break; } s.items.forEach((it,k)=>it.pos=ps[k]); }   // "shuffle": the options swap their places (the book order is not kept)
+      if(s.type==='circle'&&s.center&&!s.centerAt&&s.items.length>=7&&s.items.every(it=>!it.pos)){ const T=s.items.length+1, rows=Math.ceil(T/3), mr=Math.floor(rows/2), mid=mr*3+1; let cell=0; s.items.forEach(it=>{ if(cell===mid) cell++; it.pos=[(cell%3+.5)*100/3,(Math.floor(cell/3)+.5)*100/rows]; cell++; }); s._cAt=[50,(mr+.5)*100/rows]; }   // a letter in the middle of 7+ pictures with no "pos": the letter takes the middle cell of the grid, the pictures the other cells (never on the letter)
       if(s.type==='circle') s.items.forEach((it,k)=>{ if(!it.pos){ const n=s.items.length, cols=3, rows=Math.ceil(n/cols), r=Math.floor(k/cols), c=k%cols, inRow=Math.min(cols,n-r*cols);
         it.pos=[(c+.5+(cols-inRow)/2)*100/cols,(r+.5)*100/rows]; } });   // no "pos": spread them in rows of 3
       s.items.filter(it=>it.answer).forEach((it,k)=>qz.all.push({set:s,si,k,word:s.center||''})); return; }
@@ -157,9 +158,9 @@ QM.letter={sheet:'word', word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q)
 /* choice ("Look, read, and circle"): the sentence big on top with a blank where the answer goes, the picture, the word choices under it (THE choice buttons) */
 QM.choice={sheet:'word', fit:0, word:()=>'', draw(play,ans,q){ const b=$('.qword b'); b.classList.add('qsent'); b.textContent=''; b.dir=isAr()?'rtl':'ltr';   // an Arabic sentence reads right to left (the word line itself is ltr for letter gaps)
     if(q.ask){ const a=el('span','qask'); qToks(a,q.ask); b.append(a); }
-    const sen=el('span','qsen'); if(q.lead){ qToks(sen,q.lead); sen.append(' '); } sen.append(el('span','qblank','')); if(q.tail){ sen.append(' '); const t=el('span'); qToks(t,q.tail); sen.append(t); } b.append(sen);
+    const sen=el('span','qsen'), sp=q.forms?'':' '; if(q.lead){ qToks(sen,q.lead); sen.append(sp); } sen.append(el('span','qblank','')); if(q.tail){ sen.append(sp); const t=el('span'); qToks(t,q.tail); sen.append(t); } b.append(sen);   // forms = a letter choice inside a word: letters touch (the script joins them), each choice shown in its position form (ـز, ز) as in the book
     if(q.pic) play.append(el('div','qpic one',`<img src="${q.pic}" alt="">`));   // a choice without a picture (Arabic appendix pronoun sentences, no picture in the book)
-    q.options.forEach((o,k)=>{ const c=qChBtn(o,qWords(q.options)); c.dataset.k=k; c.addEventListener('click',()=>qChoose(c,k,q)); ans.append(c); }); },
+    q.options.forEach((o,k)=>{ const c=qChBtn(q.forms?q.forms[k]:o,q.forms?0:qWords(q.options)); c.dataset.k=k; c.addEventListener('click',()=>qChoose(c,k,q)); ans.append(c); }); },
   help:(q,w)=>$$('.qans .qch',w).filter(b=>+b.dataset.k===q.answer)};
 QM.type={sheet:'word', word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q));
     qFocus(); },   // the keyboard stays open from one word to the next; it first opens when the instruction has been read (or when the child taps the letter)
@@ -183,6 +184,8 @@ function qPicBoard(w,s,play,run){
   const b=el('div','qboard'); if(s.bigP) b.classList.add('bigP'); if(s.dense) b.classList.add('dense');   /* "dense": many small options (the book's 28-letter board, Arabic u3l10 p113): smaller buttons so rows of 6 never overlap */ if(s.type==='circle'||qCircleTask(s)) b.classList.add('ring'); if(s.mark==='tick') b.classList.add('tickmk');   // "mark":"tick" (circle): a small green check under the tapped item, not a ring (book: put a ✓ under the letter, Ahmed 2026-11-06)   // the book says "circle": a ring round the picture, never a line (Marwa 2026-11-04)   // "bigP": bigger pictures on tall screens (with "posP" per item)
   if(s.centerPic){ const c=el('div','qcenter pic',`<img src="${R_Q(s.centerPic)}" alt="">`); { const ca=(s.centerAtP&&!$('#lesson').classList.contains('q-land'))?s.centerAtP:s.centerAt; if(ca){ c.style.setProperty('--cx',ca[0]); c.style.setProperty('--cy',ca[1]); } } b.append(c); }   // "centerPic": a picture to match (book: circle the SIMILAR picture)
   if(s.center){ const c=el('button','qcenter',`<span>${s.center}</span>`); c.setAttribute('aria-label','Letter '+s.center); c.addEventListener('click',()=>qSound(s.centerSrc,s.center[0]));
+    if(s._cAt) b.classList.add('cgrid');
+    { const ca=s._cAt||((s.centerAtP&&!$('#lesson').classList.contains('q-land'))?s.centerAtP:s.centerAt); if(ca){ c.style.setProperty('--cx',ca[0]); c.style.setProperty('--cy',ca[1]); } }   // "centerAt"/"centerAtP" (landscape / portrait) also place a LETTER in the middle, like a centre picture
     b.append(c); }
   b._items=s.items;
   s.items.forEach(it=>{ const p=el('button','qmp'+(it.picSrc?'':' tx'),(it.picSrc?`<img src="${it.picSrc}" alt="">`+(it.text?`<b class="qpt">${it.text}</b>`:''):`<b>${it.word}</b>`)+`<span class="qmark"></span>`); p.setAttribute('aria-label',it.word);   // a word-only option (book: circle the different WORD)

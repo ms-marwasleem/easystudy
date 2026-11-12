@@ -281,7 +281,16 @@
      "pics": [
       "../../pics/ar-rice.png",
       "../../pics/ar-carrot.png"
-     ], "picWords": [["أُرْز", "أَرُزّ"], ["جَزَر"]]
+     ],
+     "picWords": [
+      [
+       "أُرْز",
+       "أَرُزّ"
+      ],
+      [
+       "جَزَر"
+      ]
+     ]
     }
    ]
   },
@@ -550,6 +559,32 @@
       "زِ",
       "زْ"
      ]
+    },
+    {
+     "word": "مِزْمَار",
+     "audio": "words/mizmar.mp3",
+     "pic": "../../pics/ar-flute.png",
+     "answer": "زْ",
+     "choices": [
+      "زَ",
+      "زُ",
+      "زِ",
+      "زْ"
+     ],
+     "at": 1
+    },
+    {
+     "word": "جَزِيرَة",
+     "audio": "words/jazira.mp3",
+     "pic": "../../pics/ar-island.png",
+     "answer": "زِ",
+     "choices": [
+      "زَ",
+      "زُ",
+      "زِ",
+      "زْ"
+     ],
+     "at": 1
     }
    ]
   },
@@ -627,6 +662,26 @@
      "word": "زَيْتُون",
      "pic": "../../pics/ar-olives.png",
      "audio": "words/zaytun.mp3"
+    }
+   ]
+  },
+  {
+   "type": "common",
+   "ex": 12,
+   "page": 115,
+   "book": "booklet",
+   "task": "أَكْتَشِفُ الْحَرْفَ الْمُشْتَرَكَ بَيْنَ الصُّوَرِ، ثُمَّ أَكْتُبُهُ",
+   "taskAudio": "q/b-task-12.mp3",
+   "hint": "اكتب الحرف الموجود في أسماء الصور كلها",
+   "items": [
+    {
+     "pics": [
+      "../../pics/ar-oilbottle.png",
+      "../../pics/ar-carrot.png",
+      "../../pics/ar-yogurt.png"
+     ],
+     "letter": "ز",
+     "hush": true
     }
    ]
   },
@@ -785,7 +840,11 @@
       "ر"
      ],
      "answer": 0,
-     "askAudio": "q/ask-475fae26d9.mp3"
+     "askAudio": "q/ask-475fae26d9.mp3",
+     "forms": [
+      "ز",
+      "ر"
+     ]
     },
     {
      "word": "بئر",
@@ -796,7 +855,11 @@
       "ر"
      ],
      "answer": 1,
-     "askAudio": "q/ask-fe48d403da.mp3"
+     "askAudio": "q/ask-fe48d403da.mp3",
+     "forms": [
+      "ـز",
+      "ـر"
+     ]
     },
     {
      "word": "جزر",
@@ -807,7 +870,11 @@
       "ر"
      ],
      "answer": 0,
-     "askAudio": "q/ask-78140bf96a.mp3"
+     "askAudio": "q/ask-78140bf96a.mp3",
+     "forms": [
+      "ـز",
+      "ـر"
+     ]
     },
     {
      "word": "رمح",
@@ -818,7 +885,11 @@
       "ز"
      ],
      "answer": 0,
-     "askAudio": "q/ask-bf3e091304.mp3"
+     "askAudio": "q/ask-bf3e091304.mp3",
+     "forms": [
+      "ر",
+      "ز"
+     ]
     }
    ]
   },

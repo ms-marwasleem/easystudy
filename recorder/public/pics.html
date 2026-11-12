@@ -63,6 +63,10 @@ input.txt{font-size:18px;width:100%;box-sizing:border-box;direction:ltr;text-ali
 .filters label{font-size:15px;color:var(--soft)}
 #gate[hidden]{display:none!important}
 body:not(.in) main>section:not(#gate),body:not(.in) main>.how,body:not(.in) main>.filters{display:none!important}
+
+.req .big{font-size:26px}
+.req .tx small{direction:rtl;text-align:right}
+.req .th{background:repeating-conic-gradient(#eee 0 25%,#fff 0 50%) 0 0/16px 16px}
 </style>
 </head><body style="margin:0">
 <main>
@@ -81,7 +85,7 @@ const mk=(t,c,h)=>{const e=document.createElement(t); if(c) e.className=c; if(h!
 const ICON={ up:'<svg viewBox="0 0 24 24"><path d="M12 16V5"/><path d="M7 9l5-5 5 5"/><path d="M5 19h14"/></svg>' };
 const APP='https://easystudy.marwasleem.workers.dev/data/';
 const MAXPX=700;
-let items=[], pics={}, PW='', q='', only=false, dup=false;
+let needed=[], items=[], pics={}, reqs=[], PW='', q='', only=false, dup=false;
 try{ PW=localStorage.getItem('pw')||''; }catch(e){}
 const idOf=k=>k.replace(/[\/:]/g,'~');
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
@@ -113,7 +117,9 @@ async function upload(it,file){
  say('جاري التجهيز...');
  let s; try{ s=await shrink(file); }catch(e){ return say('الملف ده مش صورة أقدر أقراها'); }
  try{ const r=await api('PUT','/api/pic/'+idOf(it.path)+'?meta='+encodeURIComponent(JSON.stringify({path:it.path,label:it.label,w:s.w,h:s.h})),s.blob,s.blob.type);
-  if(!r.ok) return say('لم يتم الحفظ'); await load(); say('تم الحفظ ✓ التطبيق بيعرضها دلوقتي','ok'); }catch(e){ if(e.message!=='auth') say('لم يتم الحفظ، تأكد من الإنترنت'); }
+  if(!r.ok){ let m=''; try{ m=(await r.json()).error||''; }catch(e){ m='HTTP '+r.status; }
+   const why=/limit exceeded|too many|429/i.test(m)||r.status===429?'وصلنا للحد اليومي لتخزين Cloudflare (1000 كتابة في اليوم)، هيتجدد بكرة':m==='size'?'الصورة كبيرة قوي':m==='type'?'نوع الملف مش صورة':(m||'خطأ '+r.status);
+   return say('لم يتم الحفظ: '+why); } await load(); say('تم الحفظ ✓ التطبيق بيعرضها دلوقتي','ok'); }catch(e){ if(e.message!=='auth') say('لم يتم الحفظ، تأكد من الإنترنت'); }
 }
 async function revert(it){ try{ await api('DELETE','/api/pic/'+idOf(it.path)); await load(); say('رجعت الصورة الأصلية','ok'); }catch(e){ say('تعذر الرجوع'); } }
 async function useOther(it,other){ try{ await api('PUT','/api/pic/'+idOf(it.path)+'?meta='+encodeURIComponent(JSON.stringify({path:it.path,label:it.label,alias:other})),'{}','application/json'); await load(); say('تمام ✓ دلوقتي «'+it.label+'» بتستخدم صورة «'+other.replace(/^pics\//,'')+'»','ok'); }catch(e){ if(e.message!=='auth') say('لم يتم'); } }
@@ -122,19 +128,34 @@ function line(it){
  const l=mk('div','line'); l.dataset.q=(it.label+' '+it.path+' '+(it.tags||[]).join(' ')).toLowerCase(); l.dataset.mine=m?'1':''; l.dataset.dup=it.sib?'1':'';
  const th=mk('span','th'); const im=mk('img'); im.loading='lazy'; im.alt=''; im.src=src(it.path); th.append(im); l.append(th);
  const tx=mk('span','tx'); tx.innerHTML='<span class="en">'+esc(it.label)+'</span><small>'+esc(it.w+'×'+it.h)+(it.n?' · مستخدمة في '+it.n+' ملف':' · غير مستخدمة')+'</small>'; l.append(tx);
- l.append(mk('span','tag'+(m?' mine':''),mine?'مغيّرة':al?'بتستخدم '+esc(al.replace(/^pics\//,'')):'الأصلية'));
+ l.append(mk('span','tag'+(m?' mine':''),mine?'مغيّرة':al?'بتستخدم '+esc(al.replace(/^pics\//,'')):it.g==='need'?'مطلوبة (مؤقتة)':'الأصلية'));
  const w=mk('span','ctl'); const u=mk('label','ib',ICON.up); u.title='رفع صورة جديدة'; const i=mk('input'); i.type='file'; i.accept='image/*'; i.onchange=async()=>{ if(i.files[0]) await upload(it,i.files[0]); i.value=''; }; u.append(i); w.append(u); l.append(w);
  if(m){ const x=mk('button','x','رجوع للأصلية'); x.onclick=()=>revert(it); l.append(x); }
  if(it.sib&&!al){ const s=mk('div','sibs'); s.append(mk('span','how','نفس الشيء:')); it.sib.forEach(p=>{ const b=mk('button','sib','استخدم صورة '+esc(p.replace(/^pics\//,''))); b.onclick=()=>useOther(it,p); s.append(b); }); l.append(s); }
  return l;
 }
-const GROUPS=[['shared','صور مشتركة (إنجليزي وعام)'],['ar','صور العربي'],['lesson','صور خاصة بدرس (من الكتاب)']];
+const GROUPS=[['need','صور الوحدة المطلوبة منك: صورة واحدة بس (موزة واحدة، نحلة واحدة) والتطبيق بيكررها حسب العدد'],['shared','صور مشتركة (إنجليزي وعام)'],['ar','صور العربي'],['lesson','صور خاصة بدرس (من الكتاب)']];
+function reqLine(r){
+ const id=idOf(r.path), m=pics[id], done=!!m;
+ const l=mk('div','line'); l.dataset.q=(r.word+' '+r.path+' '+(r.lesson||'')).toLowerCase(); l.dataset.mine=done?'1':''; l.dataset.dup='';
+ const th=mk('span','th'); if(done){ const im=mk('img'); im.alt=''; im.src=src(r.path); th.append(im); } l.append(th);
+ const tx=mk('span','tx'); tx.innerHTML='<span class="big">'+esc(r.word)+'</span><small>'+esc([r.lesson,r.page].filter(Boolean).join(' · '))+(r.note?' — '+esc(r.note):'')+'</small>'; l.append(tx);
+ l.append(mk('span','tag '+(done?'mine':'wait'),done?'تم ✓':'مطلوبة'));
+ const w=mk('span','ctl'); const u=mk('label','ib',ICON.up); u.title='رفع الصورة'; const i=mk('input'); i.type='file'; i.accept='image/*'; i.onchange=async()=>{ if(i.files[0]) await upload({path:r.path,label:r.word},i.files[0]); i.value=''; }; u.append(i); w.append(u); l.append(w);
+ if(done){ const x=mk('button','x','إلغاء الصورة'); x.onclick=()=>revert({path:r.path}); l.append(x); }
+ return l;
+}
 function render(){
  const y=scrollY, open={}; document.querySelectorAll('#groups details').forEach(d=>{ open[d.dataset.id]=d.open; });
  const G=$('#groups'); G.innerHTML='';
+ if(reqs.length){
+  const d=mk('details'); d.dataset.id='req'; d.open='req' in open?!!open.req:true; const left=reqs.filter(r=>!pics[idOf(r.path)]).length;
+  d.append(mk('summary','','مطلوب منك: صور بجودة عالية، الكلمة جنب كل صورة <span class="n">('+left+' لسه من '+reqs.length+')</span>'));
+  const box=mk('div','sec req'); reqs.forEach(r=>box.append(reqLine(r))); d.append(box); G.append(d);
+ }
  GROUPS.forEach(([g,title])=>{
   const list=items.filter(i=>i.g===g); if(!list.length) return;
-  const d=mk('details'); d.dataset.id=g; d.open=!!open[g]; const ch=list.filter(i=>pics[idOf(i.path)]).length;
+  const d=mk('details'); d.dataset.id=g; d.open=g in open?!!open[g]:g==='need'; const ch=list.filter(i=>pics[idOf(i.path)]).length;
   d.append(mk('summary','',title+' <span class="n">('+list.length+' صورة'+(ch?'، '+ch+' متغيّرة':'')+')</span>'));
   const box=mk('div','sec'); list.forEach(it=>box.append(line(it))); d.append(box); G.append(d);
  });
@@ -149,7 +170,7 @@ function filter(){
 $('#find').oninput=e=>{ q=e.target.value; filter(); };
 $('#onlyMine').onchange=e=>{ only=e.target.checked; filter(); };
 $('#onlyDup').onchange=e=>{ dup=e.target.checked; filter(); };
-async function load(){ const r=await api('GET','/api/list'); const d=await r.json(); if(!r.ok||d.error) throw new Error(d.error==='not-migrated'?'المكتبة تحتاج تحديث على الخادم':'خطأ من الخادم '+r.status); pics={}; (d.pics||[]).forEach(m=>{ pics[m.id]=m; }); render(); }
+async function load(){ const r=await api('GET','/api/list'); const d=await r.json(); if(!r.ok||d.error) throw new Error(d.error==='not-migrated'?'المكتبة تحتاج تحديث على الخادم':'خطأ من الخادم '+r.status); pics={}; (d.pics||[]).forEach(m=>{ pics[m.id]=m; }); const seen={}; reqs=[]; [...needed,...(d.picreq||[])].forEach(x=>{ seen[x.id]=x; }); reqs=Object.values(seen); render(); }
 async function gate(why){
  document.body.classList.remove('in'); $('#gate').hidden=false; let claimed=true;
  const note=(m,k)=>{ const n=$('#pwnote'); n.textContent=m||''; n.style.color=k==='err'?'#c0392b':k==='ok'?'#1e8449':''; n.style.fontWeight=m?'700':''; n.style.fontSize=m?'17px':''; say(m,k==='err'?'':k); };
@@ -171,7 +192,7 @@ async function enter(){
  catch(e){ if(e.message==='auth') return; const n=$('#pwnote'); n.textContent='تم الدخول لكن تعذر تحميل المحتوى ('+e.message+'). اضغطي دخول للمحاولة مرة أخرى.'; n.style.color='#c0392b'; }
 }
 (async function(){
- items=(await (await fetch('pics-items.json')).json()).items; 
+ items=(await (await fetch('pics-items.json')).json()).items; try{ needed=await (await fetch('pics-needed.json')).json(); }catch(e){} 
  try{ const r=PW?await fetch('/api/check',{headers:{'x-pw':PW}}):null; if(r&&r.ok) await enter(); else gate(PW?'كلمة السر المحفوظة غير صحيحة، ادخلي من جديد':''); }catch(e){ gate('لا يوجد اتصال بالإنترنت'); }
 })();
 </script>

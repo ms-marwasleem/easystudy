@@ -226,10 +226,12 @@ button.qpic{cursor:pointer}
 #lesson.q-port .quiz[data-type="choice"] .qsen{justify-content:center}
 
 /* Arabic: a picture to match in the middle (circle "centerPic"), word-only options (circle) and words on both sides of a link */
+.qboard:has(.qmp.tx) .qcenter:not(.pic){--cy:50}.qboard:has(.qmp.tx) .qcenter span{font-size:min(36cqh,26cqw);line-height:.9}   /* a letter between WORDS above/below it: smaller and level, so the word buttons never sit on it */
+.qboard.cgrid .qcenter span{font-size:min(20cqh,24cqw)}   /* the letter takes one cell of a 3-wide picture grid: cell-sized */
 .qcenter.pic{cursor:default;width:min(26cqw,34cqh);aspect-ratio:1;display:grid;place-items:center;pointer-events:none}
 .qcenter.pic img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0.1875rem 0.1875rem rgba(90,52,24,.3))}
 .qmp.tx{width:auto;aspect-ratio:auto;min-width:min(24cqw,20cqh);padding:.25em .6em .35em;background:none;border-radius:1rem;box-shadow:none}   /* a word to choose = plain white text on the coloured background (Marwa 2026-11-02) */
-.qmp.tx b{font-family:var(--f-read);font-weight:700;font-size:min(9cqw,20cqh);line-height:1.5;color:var(--c-white);text-shadow:0 .1rem 0 rgba(90,52,24,.35);white-space:nowrap}
+.qmp.tx b{font-family:var(--f-read);font-weight:700;font-size:min(7.2cqw,16cqh);line-height:1.5;color:var(--c-white);text-shadow:0 .1rem 0 rgba(90,52,24,.35);white-space:nowrap}
 .qlkp.tx{justify-self:center;max-width:100%;padding:.22em .5em .3em;border-radius:0.625rem;background:rgba(255,255,255,.7);border:0.1562rem solid var(--c-edge)}
 .qlkp.tx b{font-family:var(--f-read);font-weight:700;font-size:var(--fs);line-height:1.5;color:var(--c-text);white-space:nowrap}
 .qlkp.tx.done{border-color:var(--c-accent)}.qlkp.tx.done b{color:var(--c-accent)}
@@ -304,10 +306,10 @@ button.qpic{cursor:pointer}
 .qxsd{direction:rtl;display:flex;flex-direction:row;justify-content:center;align-items:flex-end;gap:clamp(.5rem,2.5vw,1.5rem);width:100%;flex:1 1 0;min-height:0}
 .qsd{display:flex;flex-direction:column;align-items:center;gap:.2rem;background:none;border:0;padding:0;cursor:pointer;min-width:0;flex:1 1 0;max-width:15rem}
 .qsd b{font-family:var(--f-read);font-size:clamp(2rem,9vmin,4rem);line-height:1.3;color:var(--c-white);text-shadow:0 .1rem 0 rgba(90,52,24,.35)}
-.qsdp{display:grid;place-items:center;width:min(100%,34vh);aspect-ratio:1;background:#DDF1FA;border-radius:56% 44% 52% 48% / 48% 54% 46% 52%;box-shadow:0 .2rem 0 rgba(90,52,24,.25);padding:8%;transition:transform .2s,box-shadow .2s}
+.qsdp{display:grid;place-items:center;width:min(100%,29vh);aspect-ratio:1;background:#DDF1FA;border-radius:56% 44% 52% 48% / 48% 54% 46% 52%;box-shadow:0 .2rem 0 rgba(90,52,24,.25);padding:8%;transition:transform .2s,box-shadow .2s}
 .qsdp{position:relative}.qsdp img{position:absolute;inset:0;margin:auto;width:calc(82% * min(1,var(--ar,1)));height:auto;aspect-ratio:var(--ar,1);max-height:82%;object-fit:fill}
 .qsd.lit .qsdp{transform:scale(1.06);box-shadow:0 0 0 .3rem rgba(255,200,60,.8)}
-@media (max-aspect-ratio:1/1){.qxsd{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:center;direction:rtl}.qsd{max-width:none}.qsdp{width:min(100%,16dvh)}}
+@media (max-aspect-ratio:1/1){.qxsd{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:center;direction:rtl}.qsd{max-width:none}.qsdp{width:min(100%,15dvh)}}
 
 /* puzzle (merge the letters): word frame (faint empty pieces) on top, loose pieces below */
 .quiz[data-type="puzzle"] .qxpic{flex:0 0 26%}

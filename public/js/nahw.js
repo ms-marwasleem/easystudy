@@ -15,6 +15,7 @@
      {lit:id, color}  {unlit:id}              the letter is coloured   (colours: blue, green, red, orange)
      {tag:id, text, color, up?}   (up:true = above the letter, else under it)  {untag:id|"all"}   a label under the letter ("حرف المد")
      {arrow:id, dir:"down"|"up", color}      an arrow pointing at the letter (removed by untag)   {title:text}  small lesson title at the top   tag lift:true = the label sits further away (room for an arrow)
+     {show:groupId}  {hide:true}  {text:"...",color}      (kind "stage") a group of drawn children pops in (replaces the last one) / all go / a written example line under them
      {pulse:id}                               the letter / its mark bounces
      {sukoon:id}                              a sukoon mark tries to sit on the letter; it is refused (red ✕) and goes away
      {pic:true}                               the picture pops in
@@ -30,6 +31,22 @@ const hel=(tag,cls,html)=>{ const e=document.createElement(tag); if(cls) e.class
 const an=(e,kf,o)=>{ try{ return e.animate(kf,{duration:450,easing:'ease',fill:'both',...o}).finished.catch(()=>{}); }catch(x){ return Promise.resolve(); } };
 const BOUNCE='cubic-bezier(.3,1.5,.5,1)';
 
+/* our own drawn characters for kind "stage" (a boy and a girl, the same style, any number of copies) */
+const OL='#6B2E0C';
+const CHAR={
+  boy:`<svg viewBox="0 0 100 170"><g stroke="${OL}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M38 112 L36 150 M62 112 L64 150" stroke="#35507A" stroke-width="13" fill="none"/><path d="M28 156 H44 V164 H26Z M56 156 H72 V164 H74 H56Z" fill="#C0392B"/>
+    <path d="M30 74 Q50 66 70 74 L74 118 H26Z" fill="#2E8FEA"/><path d="M30 78 L16 108 M70 78 L84 108" stroke="#2E8FEA" stroke-width="12" fill="none"/><circle cx="15" cy="111" r="7" fill="#F7C59F"/><circle cx="85" cy="111" r="7" fill="#F7C59F"/>
+    <circle cx="50" cy="42" r="27" fill="#F7C59F"/><path d="M23 40 Q22 14 50 14 Q78 14 77 40 Q64 28 50 30 Q36 28 23 40Z" fill="#4A3426"/></g>
+    <circle cx="40" cy="46" r="3.4" fill="#222"/><circle cx="60" cy="46" r="3.4" fill="#222"/><path d="M41 58 Q50 66 59 58" stroke="#222" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="33" cy="54" r="4" fill="#F29C9C" opacity=".7"/><circle cx="67" cy="54" r="4" fill="#F29C9C" opacity=".7"/></svg>`,
+  girl:`<svg viewBox="0 0 100 170"><g stroke="${OL}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M40 116 L38 150 M60 116 L62 150" stroke="#F7C59F" stroke-width="9" fill="none"/><path d="M28 156 H44 V164 H26Z M56 156 H72 V164 H74 H56Z" fill="#8E3B6B"/>
+    <path d="M30 74 Q50 66 70 74 L80 124 H20Z" fill="#E8457A"/><path d="M31 78 L17 106 M69 78 L83 106" stroke="#F7C59F" stroke-width="9" fill="none"/>
+    <path d="M20 34 Q18 8 50 8 Q82 8 80 34 L84 76 Q76 82 72 70 L28 70 Q24 82 16 76Z" fill="#6B3A1E"/>
+    <circle cx="50" cy="42" r="26" fill="#F7C59F"/><path d="M25 38 Q26 16 50 16 Q74 16 75 38 Q60 26 50 30 Q40 26 25 38Z" fill="#6B3A1E"/>
+    <path d="M62 14 L78 8 L74 24Z M62 14 L56 4 L74 24Z" fill="#FFC928"/></g>
+    <circle cx="41" cy="46" r="3.4" fill="#222"/><circle cx="59" cy="46" r="3.4" fill="#222"/><path d="M42 57 Q50 64 58 57" stroke="#222" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="34" cy="53" r="4" fill="#F29C9C" opacity=".7"/><circle cx="66" cy="53" r="4" fill="#F29C9C" opacity=".7"/></svg>`
+};
 function mount(root,data,opt){
   opt=opt||{}; const base=opt.base||''; let gen=0;
   root.classList.add('nh'); root.innerHTML='';
@@ -60,6 +77,9 @@ function mount(root,data,opt){
     if(a.tag){ const c=cell(ctx,a.tag); if(!c) return; const r=rectIn(c), t=hel('div','nh-tag'); t.textContent=a.text; t.style.setProperty('--xc',col(a.color)); t.dataset.for=a.tag;
       t.style.left=(r.x+r.w/2)+'px'; if(a.lift) t.classList.add('lift'); const lf=a.lift?ctx.board.clientHeight*.13:0; if(a.up){ t.classList.add('up'); t.style.top=(r.y+r.h*.22-lf)+'px'; } else t.style.top=(r.y+r.h*.85+lf)+'px'; (c.offsetParent||ctx.board).append(t); ctx.tags.push(t);
       await an(t,[{opacity:0,transform:'translate(-50%,var(--ty,0%)) scale(.6)'},{opacity:1,transform:'translate(-50%,var(--ty,0%)) scale(1)'}],{duration:450,easing:BOUNCE}); return; }
+    if(a.show){ const gr=ctx.groups[a.show]; if(!gr) return; Object.values(ctx.groups).forEach(o=>{ if(o!==gr){ o.getAnimations().forEach(x=>x.cancel()); o.classList.add('hid'); } }); gr.classList.remove('hid'); await an(gr,[{opacity:0,transform:'scale(.6)'},{opacity:1,transform:'scale(1)'}],{duration:550,easing:BOUNCE}); return; }
+    if(a.hide){ Object.values(ctx.groups||{}).forEach(o=>{ o.getAnimations().forEach(x=>x.cancel()); o.classList.add('hid'); }); return; }
+    if(a.text!==undefined){ ctx.line.textContent=a.text; ctx.line.style.setProperty('--xc',col(a.color)); if(a.text) await an(ctx.line,[{opacity:0,transform:'translateY(.6rem)'},{opacity:1,transform:'none'}],{duration:450}); return; }
     if(a.title){ const t=hel('div','nh-title'); t.textContent=a.title; ctx.board.append(t); await an(t,[{opacity:0,transform:'translate(-50%,-1rem)'},{opacity:1,transform:'translate(-50%,0)'}],{duration:500}); return; }
     if(a.arrow){ const c=cell(ctx,a.arrow); if(!c) return; const r=rectIn(c), up=a.dir==='up', k=col(a.color), A=hel('div','nh-arrow'+(up?' up':''));
       A.innerHTML=`<svg viewBox="0 0 40 70"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 V62 M6 46 L20 62 L34 46" stroke="${k}" stroke-width="8"/></g></svg>`;
@@ -81,7 +101,13 @@ function mount(root,data,opt){
     const g=++gen, S=data.steps[i]; board.innerHTML=''; capT.textContent='';
     const ctx={kind:S.board.kind,cells:{},tags:[],words:[],board};
     // kind "scene": a row of written words (board.words) + a picture (S.pic) with named spots (board.spots {id:{x,y} in % of the picture}) that arrows / labels point at
-    if(S.board.kind==='scene'){
+    if(S.board.kind==='stage'){   // written words on top + a stage where groups of drawn children appear one at a time (board.groups {id:["boy","girl",..]}) and a line of written text under it
+      board.classList.add('scene'); const row=hel('div','nh-row word scene-words'); board.append(row);
+      (S.board.words||[]).forEach(c=>{ const e=hel('span','nh-wl'); e.textContent=c.t; e.style.opacity=0; ctx.cells[c.id]=e; row.append(e); });
+      const st=hel('div','nh-stage'), ln=hel('div','nh-line'); ctx.groups={};
+      Object.entries(S.board.groups||{}).forEach(([id,list])=>{ const g=hel('div','nh-grp hid'); list.forEach(k=>{ const c=hel('div','nh-kid'); c.innerHTML=CHAR[k]; g.append(c); }); g.style.setProperty('--n',list.length); st.append(g); ctx.groups[id]=g; });
+      ctx.line=ln; board.append(st,ln); }
+    else if(S.board.kind==='scene'){
       board.classList.add('scene'); const row=hel('div','nh-row word scene-words'); board.append(row);
       (S.board.words||[]).forEach(c=>{ const e=hel('span','nh-wl'); e.textContent=c.t; e.style.opacity=0; ctx.cells[c.id]=e; row.append(e); });
       const wrap=hel('div','nh-scene hid'), im=hel('img'); im.alt=''; im.draggable=false; im.src=new URL(base+S.pic.src,location.href).href;

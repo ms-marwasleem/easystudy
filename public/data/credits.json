@@ -340,6 +340,31 @@
      "link": "https://openclipart.org/detail/226137/glass-jar"
     }
    ]
+  },
+  {
+   "id": "wikimedia",
+   "name": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org",
+   "kinds": [
+    "pictures"
+   ],
+   "usedFor": {
+    "ar": "صورة عملة الين (coin-yen).",
+    "en": "Yen coin picture (coin-yen)."
+   },
+   "licence": {
+    "ar": "ملكية عامة (Public domain): الاستخدام حر ولا يشترط ذكر المصدر، ونذكره للشفافية.",
+    "en": "Public domain: free to use, attribution not required; listed for transparency."
+   },
+   "credit": "Yen coin from commons.wikimedia.org (public domain, Bank of Japan)",
+   "since": "2026-11-12",
+   "items": [
+    {
+     "what": "coin-yen",
+     "file": "data/pics/coin-yen.png",
+     "link": "https://commons.wikimedia.org/wiki/File:100_Yen_Vorderseite.jpg"
+    }
+   ]
   }
  ]
 }
