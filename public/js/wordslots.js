@@ -87,9 +87,9 @@ function wsHelp(P,R){
   const r=P.word.getBoundingClientRect(), bot=R?R.bottom:innerHeight, topL=R?R.top:0, sr=P.say&&P.say.getBoundingClientRect();
   const sayRight=!!(sr&&sr.width&&(sr.left+sr.width/2>r.left+r.width/2));   // speaker right of the word -> bulb on its left, and the other way round
   wsHelpEls().forEach(h=>{ h.classList.add('ws-side'); const s=h.offsetWidth||28, g=Math.max(4,r.height*.08);
-    if(P.head&&P.head.getBoundingClientRect().height){ const hr=P.head.getBoundingClientRect(); h.style.left=Math.round(Math.max(4,Math.min(innerWidth-s-8,hr.right-s-4)))+'px'; h.style.top=Math.round(Math.max(topL+2,Math.min(bot-s-6,hr.top+hr.height/2-s/2)))+'px'; return; }   // question pages: the bulb stands at the right end of the title row, far from every letter of the answer
-    let x=(sr&&sr.width&&!sayRight)?r.right+g:r.left-s-g, y=r.top+r.height/2-s/2;
-    if(x<4||x+s>innerWidth-4) x=(x<4)?r.right+g:r.left-s-g;   // no room on that side: the other side
+    const hasSay=!!(sr&&sr.width); let x, y=(hasSay?sr.top+sr.height/2:r.top+r.height/2)-s/2;   // 2026-11-11 (Ahmed): the bulb stands NEXT TO THE SPEAKER, on the far side of it from the word (all pages, questions too)
+    if(hasSay) x=sayRight?sr.right+g:sr.left-s-g; else x=r.left-s-g;
+    if(x<4||x+s>innerWidth-4) x=hasSay?(sayRight?sr.left-s-g:sr.right+g):(x<4?r.right+g:r.left-s-g);   // no room on that side: the other side of the speaker
     if(x<4||x+s>innerWidth-4){ x=sayRight?r.left:r.right-s; y=r.top-s-4; }   // the word fills the width: the bulb sits just above its corner, never over a letter
     x=Math.max(4,Math.min(innerWidth-s-4,x)); y=Math.max(topL+2,Math.min(bot-s-6,y));   // never under the keyboard
     h.style.left=Math.round(x)+'px'; h.style.top=Math.round(y)+'px'; });

@@ -39,7 +39,7 @@ async function start(){
   await cssReady;
   if(await buildMixed()) return;
   if(document.fonts&&document.fonts.ready) await Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,2500))]);
-  $('#helloSub').textContent=`${COURSE.grade} · ${COURSE.term}`; paintHud(); busy(false); kidPaint(); if(!kidNow()) openWelcome(); else { openSubjects(); pop('#subjects .top > *',{y:-20}); deepGo(); }   // first launch: curriculum + accounts (js/welcome.js)
+  $('#helloSub').textContent=`${COURSE.grade} · ${COURSE.term}`; paintHud(); busy(false); kidPaint(); if(!kidNow()) openWelcome(); else if((()=>{ try{ const v=sessionStorage.getItem('es.pick'); sessionStorage.removeItem('es.pick'); return v; }catch(e){ return null; } })()){ show('welcome'); WL.step='pick'; wlDraw(); } else { openSubjects(); pop('#subjects .top > *',{y:-20}); deepGo(); }   // first launch: curriculum + accounts (js/welcome.js)
   setTimeout(()=>{ const n=$('#splashName'); if(n) n.remove(); $('#loadingText').hidden=false; },400);   // the app name shows on the first screen only; later loads say Loading...
 }
 // sw.js keeps the app, lessons, sounds and pictures on the device (later opens are instant) and shows library pictures that replaced shipped ones

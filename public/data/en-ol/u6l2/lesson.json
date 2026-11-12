@@ -162,7 +162,7 @@
   {
    "word": "lamp",
    "ar": "مصباح",
-   "img": "../../pics/lamp-u6l2.png",
+   "img": "../../pics/ar-bulb.png",
    "parts": [
     {
      "t": "la",
@@ -190,14 +190,14 @@
    "img": "../../pics/ar-lion.png",
    "parts": [
     {
-     "t": "l",
-     "ph": "l",
-     "audio": "../../phonics/l.mp3"
+     "t": "li",
+     "ph": "l_igh",
+     "audio": "../../phonics/chunks/l_igh.mp3"
     },
     {
-     "t": "io",
-     "ph": "igh_o",
-     "audio": "../../phonics/chunks/igh_o.mp3"
+     "t": "o",
+     "ph": "schwa",
+     "audio": "../../phonics/schwa.mp3"
     },
     {
      "t": "n",
@@ -377,7 +377,7 @@
      9.23
     ]
    ],
-   "pic": "../../pics/lamp-u6l2.png",
+   "pic": "../../pics/ar-bulb.png",
    "pos": [
     50,
     50

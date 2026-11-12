@@ -176,7 +176,7 @@
   {
    "word": "jar",
    "ar": "برطمان",
-   "img": "../../pics/ar-jar.png",
+   "img": "../../pics/jar.png",
    "parts": [
     {
      "t": "ja",
@@ -205,12 +205,13 @@
      "audio": "../../phonics/chunks/j_a.mp3"
     },
     {
-     "t": "c",
+     "t": "ck",
      "ph": "k",
      "audio": "../../phonics/k.mp3"
     },
     {
-     "t": "ke",
+     "t": "e",
+     "spell": true,
      "ph": "i",
      "audio": "../../phonics/i.mp3"
     },
@@ -382,7 +383,7 @@
      9.76
     ]
    ],
-   "pic": "../../pics/ar-jar.png",
+   "pic": "../../pics/jar.png",
    "pos": [
     50,
     50

@@ -19,11 +19,12 @@ function syForget(){ try{ localStorage.removeItem('es.session'); }catch(e){} if(
 const SYERR={'bad-email':'البريد الإلكتروني مش مكتوب صح','wait':'استني دقيقة وبعدين اطلبي كود جديد','too-many':'محاولات كتير. جربي تاني بكرة',
   'code-wrong':'الكود مش صح','code-expired':'الكود انتهى. اطلبي كود جديد','blocked':'الحساب ده موقوف','mail-not-set':'إرسال الإيميل لسه مش متجهز','mail-failed':'الإيميل ما اتبعتش. جربي تاني'};
 
-/* ---------- parent step: send the code (server on) or keep it on this device (server off / can't be reached) ---------- */
+/* ---------- parent login (stage 1): a code to the email (server on) or the student stage opens below (server off / phone only / can't be reached) ---------- */
 async function acctSubmit(a,err){
-  if(!(await syApi())){ wlSet('es.account',a); return wlGo('kid'); }
-  const r=await syCall('/auth/start',{email:a.email,name:a.name});
-  if(!r){ wlSet('es.account',{...a,pending:true}); return wlGo('kid'); }   // offline: go on locally, confirm the email later (children popup)
+  WL.login=a; WL.pending=false;
+  if(!(await syApi())||!a.email){ WL.stage=2; return wlGo('main'); }   // no server yet (or phone only: server login by phone needs an SMS service, later): kept on this device
+  const r=await syCall('/auth/start',{email:a.email});
+  if(!r){ WL.pending=true; WL.stage=2; return wlGo('main'); }   // offline: go on locally, confirm the email later (account page)
   if(!r.j.ok){ err(SYERR[r.j.error]||'حصلت مشكلة. جربي تاني'); return; }
   SY.a=a; SY.dev=r.j.devCode||''; SY.known=r.j.known; wlGo('code');
 }
@@ -38,22 +39,22 @@ function syDrawCode(b){
     <button class="pill cream wl-resend" type="button"><span class="wl-ar">ابعت كود تاني</span></button></form>`;
   const f=$('form',b), er=$('.wl-err',b), say=t=>{ er.textContent=t; er.hidden=false; };
   setTimeout(()=>f.code.focus(),60);
-  $('.wl-resend',b).addEventListener('click',async()=>{ const r=await syCall('/auth/start',{email:a.email,name:a.name}); if(!r) return say('مفيش إنترنت دلوقتي');
+  $('.wl-resend',b).addEventListener('click',async()=>{ const r=await syCall('/auth/start',{email:a.email}); if(!r) return say('مفيش إنترنت دلوقتي');
     if(!r.j.ok) return say(SYERR[r.j.error]||'حصلت مشكلة'); SY.dev=r.j.devCode||''; say('اتبعت كود جديد'); });
   f.addEventListener('submit',async e=>{ e.preventDefault(); const code=f.code.value.trim();
     if(!/^[0-9٠-٩]{6}$/.test(code)) return wlBad(f,'code','اكتبي الـ ٦ أرقام');
     const ref=typeof refCode==='function'?refCode():null;
-    const r=await syCall('/auth/verify',{email:a.email,code,name:a.name,phone:a.phone,curr:WL.pick||currPick()||{},ref,device:syDevice()});
+    const r=await syCall('/auth/verify',{email:a.email,code,phone:a.phone,curr:WL.pick||currPick()||{},ref,device:syDevice()});
     if(!r) return say('مفيش إنترنت دلوقتي');
     if(!r.j.ok) return wlBad(f,r.j.error==='code-wrong'?'code':'',(SYERR[r.j.error]||'حصلت مشكلة')+(r.j.error==='code-wrong'&&r.j.left>=0?` (باقي ${r.j.left} محاولات)`:''));
     syTake(r.j.token,r.j.me);
-    if(r.j.me.kids.length&&!WL.adding&&!WL.after){ syRestore(r.j.me); return; }   // a parent coming back on a new device: their children come back
-    syPushKids(); if(WL.after){ const go=WL.after; WL.after=null; go(); } else wlGo('kid'); });
+    if(r.j.me.kids.length&&!WL.adding&&!WL.after){ syRestore(r.j.me); return; }   // a registered parent: their children come back, straight into the app (child picker when more than one)
+    syPushKids(); if(WL.after){ const go=WL.after; WL.after=null; go(); } else { WL.stage=2; wlGo('main'); } });   // a new parent: the student stage opens
 }
 // keep the signed-in parent on this device
 function syTake(token,me){ const old=acct()||{};
   wlSet('es.session',{token,id:me.id,ref:me.ref});
-  wlSet('es.account',{name:me.name||old.name,email:me.email,phone:me.phone||old.phone||'',created:me.created||old.created,id:me.id,ref:me.ref});
+  wlSet('es.account',{email:me.email,phone:me.phone||old.phone||'',created:me.created||old.created,id:me.id,ref:me.ref});
   window.ACCOUNT={...acct(),id:me.id,token}; if(me.wallet&&typeof walletSave==='function') walletSave(me.wallet); }
 // the server's children replace this device's: each child's progress goes to its own keys, the first child becomes the active one
 function syRestore(me){
@@ -62,7 +63,7 @@ function syRestore(me){
     KID_KEYS.forEach(x=>{ if(P[x]!=null) localStorage.setItem(`es.kid.${k.id}.${x}`,P[x]); else localStorage.removeItem(`es.kid.${k.id}.${x}`); });
     wlSet('es.progAt.'+k.id,k.progressAt||0); });
     const f=K[0]; KID_KEYS.forEach(x=>{ const v=localStorage.getItem(`es.kid.${f.id}.${x}`); if(v==null) localStorage.removeItem(x); else localStorage.setItem(x,v); }); }catch(e){}
-  wlSet('es.kids',K); wlSet('es.kid',K[0].id); currSave(K[0].curr); location.reload();
+  wlSet('es.kids',K); wlSet('es.kid',K[0].id); currSave(K[0].curr); if(K.length>1){ try{ sessionStorage.setItem('es.pick','1'); }catch(e){} } location.reload();
 }
 // send this device's children (name, grade, curriculum) to the server
 function syPushKids(){ if(!sySession()) return; kids().forEach(k=>syCall('/kids/'+k.id,{name:k.name,grade:k.grade,curr:k.curr},'PUT')); }
@@ -90,15 +91,16 @@ async function syBoot(){
 }
 syBoot();
 
-/* ---------- children popup: confirm the email (made offline) / sign out ---------- */
+/* ---------- account page: confirm the email (made offline) / sign out ---------- */
 async function syMenuButtons(p,close){
-  if(!(await syApi())) return; const s=sySession(), a=acct()||{}, list=$('.wl-list',p); if(!list) return;
-  const b=el('button',`pill ${s?'cream':'yellow'} wl-big wl-acct`,s?`<span class="wl-ar">تسجيل الخروج</span><small>Sign out</small>`:`<span class="wl-ar">تأكيد الحساب بالإيميل</span><small>Confirm your email</small>`);
+  if(!(await syApi())) return; const s=sySession(), a=acct()||{}, list=$('.arows',p); if(!list) return;
+  const b=el('button','arow wl-acct',`<i>${ACH.out}</i><b>${s?'تسجيل الخروج':'تأكيد الحساب بالإيميل'}</b><s></s>`);
   list.append(b);
   b.addEventListener('click',async()=>{ close();
     if(s){ if(!confirm('تسجيل الخروج من الجهاز ده؟ هيتطلب كود جديد على الإيميل للدخول تاني.')) return; syPushProgress(); await syCall('/auth/signout',{}); syForget();
       ['es.account','es.kids','es.kid'].forEach(k=>{ try{ localStorage.removeItem(k); }catch(e){} }); location.reload(); return; }
-    WL.hist=[]; WL.adding=false; WL.pick=currPick(); WL.after=()=>{ openSubjects(); }; show('welcome');
-    const r=await syCall('/auth/start',{email:a.email,name:a.name}); if(!r||!r.j.ok){ WL.step='parent'; wlDraw(); return; }
+    if(!a.email) return;
+    WL.adding=false; WL.after=()=>{ openSubjects(); }; WL.login={email:a.email,phone:a.phone||''}; show('welcome');
+    const r=await syCall('/auth/start',{email:a.email}); if(!r||!r.j.ok){ WL.step='main'; WL.stage=1; wlDraw(); return; }
     SY.a=a; SY.dev=r.j.devCode||''; WL.step='code'; wlDraw(); });
 }

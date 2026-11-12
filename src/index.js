@@ -129,13 +129,14 @@ async function me(env, pid) {
   const [p, kids, un, w] = await Promise.all([
     env.DB.prepare('SELECT id,email,name,phone,curr,ref_code FROM parents WHERE id=?').bind(pid).first(),
     env.DB.prepare('SELECT id,name,grade,curr,progress,progress_at,created FROM children WHERE parent_id=? AND deleted=0 ORDER BY created').bind(pid).all(),
-    env.DB.prepare('SELECT u.child_id,u.item,u.how FROM unlocks u JOIN children c ON c.id=u.child_id WHERE c.parent_id=?').bind(pid).all(),
+    env.DB.prepare('SELECT u.child_id,u.item,u.how,u.at FROM unlocks u JOIN children c ON c.id=u.child_id WHERE c.parent_id=?').bind(pid).all(),
     walletOf(env, pid, '')]);
   const pj = s => { try { return JSON.parse(s); } catch (e) { return {}; } };
+  const cut = seasonStart(now());   // everything opened / learned before the last 31 Aug has ended (Ahmed: progress not kept)
   const pc = await env.DB.prepare('SELECT created FROM parents WHERE id=?').bind(pid).first();
   return { id: p.id, email: p.email, name: p.name, phone: p.phone, curr: pj(p.curr), ref: p.ref_code, created: new Date(pc.created).toISOString(), wallet: w.wallet,
-    kids: kids.results.map(k => ({ id: k.id, name: k.name, grade: k.grade, curr: pj(k.curr), created: new Date(k.created).toISOString(), progress: pj(k.progress), progressAt: k.progress_at,
-      unlocked: un.results.filter(u => u.child_id === k.id && (u.how === 'coins' || u.how === 'promo')).map(u => u.item), freeused: un.results.filter(u => u.child_id === k.id && u.how === 'free').map(u => u.item) })) };
+    kids: kids.results.map(k => ({ id: k.id, name: k.name, grade: k.grade, curr: pj(k.curr), created: new Date(k.created).toISOString(), progress: k.progress_at >= cut ? pj(k.progress) : {}, progressAt: k.progress_at >= cut ? k.progress_at : 0,
+      unlocked: un.results.filter(u => u.child_id === k.id && u.at >= cut && (u.how === 'coins' || u.how === 'promo')).map(u => u.item), freeused: un.results.filter(u => u.child_id === k.id && u.at >= cut && u.how === 'free').map(u => u.item) })) };
 }
 
 /* ---------- children ---------- */
@@ -237,6 +238,77 @@ async function pick(req, env, p) {
   return J({ ok: true, ...(await walletOf(env, p.id, child)) });
 }
 
+
+/* ---------- TERM SUBSCRIPTIONS (Ahmed 2026-11-11, docs/subscriptions-spec.md) ----------
+   Parent: GET /api/subs -> {subs:[{child,term,st,at,trial,until,price,ref}]}; POST /api/subs {child, term:'p1:t1', ref, receipt:'data:image/jpeg;base64,...'}
+     -> {ok, at, trial, until}. The price is read from settings.subs.prices[term] here (never from the app). The FIRST upload per child+term opens it for 24 h
+     (trial); a re-upload after a rejection / closing has no 24 h. 'active' or a pending one that is still waiting = refused.
+   Admin: GET /api/admin/subs?st=pending|all (no receipts); GET /api/admin/sub/<child>/<term>/receipt -> {receipt}; POST /api/admin/sub {child, term, action: activate|reject|close}
+     activate / reject / close work on an existing row; POST /api/admin/sub/grant {child, term} opens it with no receipt (creates the row).
+   Everything ends 31 August (subEnd, Cairo time); a row past 'until' counts as closed for the app. */
+const TERM = /^[\w-]{1,12}:t[12]$/;
+// the last 31 Aug at or before t (the start of the current season)
+function seasonStart(t = now()) { const y = +day(t).slice(0, 4), e = Date.parse(y + '-08-31T23:59:59+03:00'); return t > e ? e : Date.parse((y - 1) + '-08-31T23:59:59+03:00'); }
+function subEnd(t = now()) { const y = +day(t).slice(0, 4), e = Date.parse(y + '-08-31T23:59:59+03:00'); return t > e ? Date.parse((y + 1) + '-08-31T23:59:59+03:00') : e; }
+const subPub = r => ({ child: r.child_id, term: r.term, st: r.until <= now() && r.st !== 'rejected' ? 'closed' : r.st, at: r.at, trial: r.trial, until: r.until, price: r.price, ref: r.ref });
+async function subsList(env, p) {
+  const rows = (await env.DB.prepare('SELECT child_id,term,st,price,ref,at,trial,until FROM subs WHERE parent_id=?').bind(p.id).all()).results;
+  return J({ ok: true, subs: rows.map(subPub) });
+}
+async function subsIn(req, env, p) {
+  const b = await body(req); if (!b) return ERR('bad-body');
+  const child = clip(b.child, 32), term = clip(b.term, 20), ref = clip(b.ref, 40), rc = String(b.receipt || '');
+  if (!child || !(await childOk(env, p, child)) || !TERM.test(term)) return ERR('bad-body');
+  if (!ref) return ERR('bad-body');
+  if (!/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(rc)) return ERR('bad-receipt');
+  if (rc.length > 220000) return ERR('big');
+  const S = await settings(env); if (!(S.subs && S.subs.on)) return ERR('off');
+  const pr = (S.subs.prices || {})[term] || {}, fin = pr.discOn && +pr.disc > 0 ? +pr.disc : (+pr.price || 0); if (!fin) return ERR('no-price');
+  const old = await env.DB.prepare('SELECT st,until,trial FROM subs WHERE child_id=? AND term=?').bind(child, term).first(), t = now();
+  if (old && old.until > t && old.st === 'active') return ERR('already', 409);
+  if (old && old.until > t && old.st === 'pending' && old.trial <= t) return ERR('pending', 409);   // waiting for the admin (the 24 h is over)
+  const trial = old ? (old.until > t && old.st === 'pending' ? old.trial : 0) : t + 864e5, until = subEnd(t);   // 24 h only the first time ever for this child + term
+  await env.DB.prepare(`INSERT INTO subs(child_id,term,parent_id,st,price,ref,receipt,at,trial,until) VALUES(?,?,?,'pending',?,?,?,?,?,?)
+    ON CONFLICT(child_id,term) DO UPDATE SET st='pending',price=excluded.price,ref=excluded.ref,receipt=excluded.receipt,at=excluded.at,trial=excluded.trial,until=excluded.until,decided=0,by=''`)
+    .bind(child, term, p.id, fin, ref, rc, t, trial, until).run();
+  return J({ ok: true, at: t, trial, until });
+}
+async function adminSubs(env, url) {
+  const all = url.searchParams.get('st') === 'all';
+  const rows = (await env.DB.prepare(`SELECT s.child_id,s.term,s.st,s.price,s.ref,s.at,s.trial,s.until,s.decided,s.by,c.name child,p.email,p.phone,length(s.receipt)>0 has_receipt
+    FROM subs s JOIN children c ON c.id=s.child_id JOIN parents p ON p.id=s.parent_id WHERE (?=1 OR s.st='pending') ORDER BY s.at DESC LIMIT 500`).bind(all ? 1 : 0).all()).results;
+  return J({ ok: true, subs: rows.map(r => ({ ...subPub(r), name: r.child, email: r.email, phone: r.phone, receipt: !!r.has_receipt, decided: r.decided, by: r.by })) });
+}
+// POST /api/admin/user {email?, phone?, kid, grade?, curr?, activate?: 'p1:t1'} -> {ok, parent, child}: the admin makes a parent + one child (or adds a child to a known email / phone),
+// and may open a term with NO receipt. The parent signs in later with that email (code) like anyone; the child shows up on the device after sign-in.
+async function adminUserAdd(req, env) {
+  const b = await body(req); if (!b) return ERR('bad-body');
+  const email = clip(b.email, 200).toLowerCase(), phone = clip(b.phone, 20).replace(/[^\d+]/g, ''), kid = clip(b.kid, 40), grade = clip(b.grade, 10) || 'p1', t = now();
+  if (!kid) return ERR('bad-name'); if (!email && !phone) return ERR('need-contact'); if (email && !EMAIL.test(email)) return ERR('bad-email');
+  const act = b.activate ? clip(b.activate, 20) : ''; if (act && !TERM.test(act)) return ERR('bad-term');
+  let p = (email ? await env.DB.prepare('SELECT id FROM parents WHERE email=?').bind(email).first() : null) || (phone ? await env.DB.prepare("SELECT id FROM parents WHERE phone=? AND phone!=''").bind(phone).first() : null);
+  const stmts = [], cid = 'k' + t.toString(36) + rnd(3);
+  if (!p) { p = { id: 'p_' + rnd(14) };
+    stmts.push(env.DB.prepare('INSERT INTO parents(id,email,name,phone,curr,ref_code,ref_by,bal,blocked,created,last_seen) VALUES(?,?,?,?,?,?,NULL,0,0,?,?)')
+      .bind(p.id, email || (phone.replace(/\D/g, '') + '@phone.local'), '', phone, '{}', rnd(7), t, t)); }
+  stmts.push(env.DB.prepare('INSERT INTO children(id,parent_id,name,grade,curr,created) VALUES(?,?,?,?,?,?)').bind(cid, p.id, kid, grade, JSON.stringify(b.curr || {}), t));
+  if (act) stmts.push(env.DB.prepare(`INSERT INTO subs(child_id,term,parent_id,st,at,until,decided,by) VALUES(?,?,?,'active',?,?,?,'admin')`).bind(cid, act, p.id, t, subEnd(t), t));
+  await env.DB.batch(stmts); return J({ ok: true, parent: p.id, child: cid });
+}
+async function adminSub(req, env, path) {
+  const rc = path.match(/^\/api\/admin\/sub\/(k\w+)\/([\w-]+:t[12])\/receipt$/);
+  if (rc) { const r = await env.DB.prepare('SELECT receipt FROM subs WHERE child_id=? AND term=?').bind(rc[1], rc[2]).first(); return r && r.receipt ? J({ ok: true, receipt: r.receipt }) : ERR('not-found', 404); }
+  const b = await body(req); if (!b) return ERR('bad-body');
+  const child = clip(b.child, 32), term = clip(b.term, 20), t = now(); if (!TERM.test(term)) return ERR('bad-body');
+  if (path === '/api/admin/sub/grant') {   // open a child's term with NO receipt (cash, gift, a problem with the picture)
+    const c = await env.DB.prepare('SELECT parent_id FROM children WHERE id=? AND deleted=0').bind(child).first(); if (!c) return ERR('not-found', 404);
+    await env.DB.prepare(`INSERT INTO subs(child_id,term,parent_id,st,at,until,decided,by) VALUES(?,?,?,'active',?,?,?,'admin')
+      ON CONFLICT(child_id,term) DO UPDATE SET st='active',until=excluded.until,decided=excluded.decided,by='admin'`).bind(child, term, c.parent_id, t, subEnd(t), t).run(); return J({ ok: true }); }
+  const st = { activate: 'active', reject: 'rejected', close: 'closed' }[b.action]; if (!st) return ERR('bad-body');
+  const r = await env.DB.prepare('UPDATE subs SET st=?, decided=?, by=\'admin\', trial=CASE WHEN ?=\'active\' THEN trial ELSE 0 END WHERE child_id=? AND term=?').bind(st, t, st, child, term).run();
+  return r.meta && r.meta.changes ? J({ ok: true }) : ERR('not-found', 404);
+}
+
 /* ---------- promo codes (Marwa 2026-11-05; app/docs/coins-and-admin.md §7) ----------
    POST /api/promo {child, code}: settings.promos = [{code, what: lesson|unit|subject|all, target, uses: once|many, max, until, on}].
    once = one use in total (any parent); many = each child once, at most max in total (0 = no limit). until = last day (Cairo).
@@ -250,7 +322,7 @@ async function promo(req, env, p, ip) {
   // a few wrong tries are fine; many from one parent in a day = guessing
   const lk = 'promo:' + p.id + ':' + day(), tries = await env.DB.prepare('SELECT n FROM limits WHERE key=?').bind(lk).first();
   if (tries && tries.n >= 20) return ERR('slow', 429);
-  const S = await settings(env), P = (S.promos || []).find(x => promoNorm(x.code) === c);
+  const S = await settings(env), P = S.promoOn === false ? null : (S.promos || []).find(x => promoNorm(x.code) === c);
   const bad = async e => { await env.DB.prepare('INSERT INTO limits(key,n,day) VALUES(?,1,?) ON CONFLICT(key) DO UPDATE SET n=n+1').bind(lk, day()).run(); return ERR(e, 409); };
   if (!P || P.on === false || (P.what !== 'all' && !P.target)) return bad('bad');
   if (P.until && day() > P.until) return ERR('old', 409);
@@ -302,10 +374,10 @@ async function adminAccounts(env, url) {
       (SELECT COUNT(*) FROM coin_events e WHERE e.parent_id=p.id AND e.kind='referral') referred_paid
     FROM parents p WHERE p.created>=? AND (?='' OR p.email LIKE ? OR p.name LIKE ? OR p.phone LIKE ?) ORDER BY p.created DESC LIMIT ?`)
     .bind(since, q, '%' + q + '%', '%' + q + '%', '%' + q + '%', lim).all()).results;
-  const kids = rows.length ? (await env.DB.prepare(`SELECT parent_id,name,grade FROM children WHERE deleted=0 AND parent_id IN (${rows.map(() => '?').join(',')}) ORDER BY created`).bind(...rows.map(r => r.id)).all()).results : [];
+  const kids = rows.length ? (await env.DB.prepare(`SELECT id,parent_id,name,grade FROM children WHERE deleted=0 AND parent_id IN (${rows.map(() => '?').join(',')}) ORDER BY created`).bind(...rows.map(r => r.id)).all()).results : [];
   const pj = s => { try { return JSON.parse(s); } catch (e) { return {}; } };
   return J({ ok: true, accounts: rows.map(r => ({ ...r, curr: pj(r.curr), created: new Date(r.created).toISOString(), last_seen: new Date(r.last_seen).toISOString(),
-    kids: kids.filter(k => k.parent_id === r.id).map(k => ({ name: k.name, grade: k.grade })) })) });
+    kids: kids.filter(k => k.parent_id === r.id).map(k => ({ id: k.id, name: k.name, grade: k.grade })) })) });
 }
 // GET /api/admin/stats -> {hist:[{k,t,id,n,at,parent}] latest 500, totals, byDay (last 14 days)}
 async function adminStats(env) {
@@ -440,6 +512,10 @@ export default {
         if (!(await isAdmin(req, env))) return ERR('admin-only', 401);
         if (path === '/api/admin/settings' && m === 'PUT') { const b = await body(req); if (!b || !b.coins) return ERR('bad-body');
           await env.DB.prepare("INSERT INTO settings(key,json,updated) VALUES('app',?,?) ON CONFLICT(key) DO UPDATE SET json=excluded.json,updated=excluded.updated").bind(JSON.stringify(b), now()).run(); return J({ ok: true }); }
+        if (path === '/api/admin/user' && m === 'POST') return await adminUserAdd(req, env);
+        if (path === '/api/admin/subs' && m === 'GET') return await adminSubs(env, url);
+        if (path.startsWith('/api/admin/sub/') && (m === 'POST' || m === 'GET')) return await adminSub(req, env, path);
+        if (path === '/api/admin/sub' && m === 'POST') return await adminSub(req, env, path);
         if (path === '/api/admin/accounts' && m === 'GET') return await adminAccounts(env, url);
         if (path === '/api/admin/stats' && m === 'GET') return await adminStats(env);
         if (path === '/api/admin/reports' && m === 'GET') return await adminReports(env, url);
@@ -464,6 +540,8 @@ export default {
       if (path === '/api/share' && m === 'POST') return await share(req, env, p, ip, child && await childOk(env, p, child) ? child : '');
       if (path === '/api/unlock' && m === 'POST') return await unlock(req, env, p, ip);
       if (path === '/api/pick' && m === 'POST') return await pick(req, env, p);
+      if (path === '/api/subs' && m === 'GET') return await subsList(env, p);
+      if (path === '/api/subs' && m === 'POST') return await subsIn(req, env, p);
       if (path === '/api/promo' && m === 'POST') return await promo(req, env, p, ip);
       return ERR('not-found', 404);
     } catch (e) { console.error(e); return ERR('server', 500); }

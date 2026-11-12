@@ -85,3 +85,56 @@
 .wl-pts li + li::before{content:"";width:.35em;height:.35em;border-radius:50%;background:var(--c-white);box-shadow:0 0 0 0.08em var(--ol)}
 .wl-about.sm .wl-tag{font-size:clamp(1rem,min(4.2vw,3.2vh),1.3rem)}
 .wl-about.sm .wl-pts{font-size:clamp(0.85rem,min(3.6vw,2.7vh),1.1rem)}
+
+/* ---------- 2026-11-11: one-screen staged login, school list, child picker, account page, parent gate ---------- */
+#welcome[data-step="form"] .wl-logo .gamelogo{font-size:clamp(2.2rem,min(9vw,7vh),4rem)}
+.wl-note2{margin:0;text-align:center;font-family:var(--f-ui);font-weight:800;font-size:clamp(1rem,min(4.2vw,3.2vh),1.2rem);color:var(--c-white);-webkit-text-stroke:0.1em var(--ol);paint-order:stroke fill}
+.wl-sum{display:flex;align-items:center;justify-content:center;gap:.6rem;flex-wrap:wrap;font-family:var(--f-ui);font-weight:800;font-size:1.1rem;color:var(--c-white);-webkit-text-stroke:0.1em var(--ol);paint-order:stroke fill}
+.wl-sum span{-webkit-text-stroke:0;color:var(--ol);background:#FFF8E6;border-radius:1rem;padding:.2em .8em;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.wl-chg{font-size:1rem!important}
+.wl-chips.col{flex-direction:column;align-items:stretch}
+.wl-chips.col .pill{width:100%;justify-content:center}
+.wl-sh{line-height:1.3}
+.pill.wl-chip.yellow{opacity:1;color:var(--ol)}
+.wl-card{width:100%;background:#fff;border-radius:2rem;padding:clamp(1rem,3vh,1.8rem);display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem;box-shadow:0 .3rem 0 rgba(110,37,9,.25)}
+.wl-who{display:flex;flex-direction:column;align-items:center;gap:.4rem;background:none;border:0;cursor:pointer;font-family:var(--f-ui);font-weight:800;font-size:1.3rem;color:var(--ol);min-width:6rem}
+i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem;height:5rem;border-radius:50%;background:var(--av);color:#fff;font-style:normal;font-family:var(--f-ui);font-weight:800;font-size:2.4rem;box-shadow:inset 0 -.3rem 0 rgba(0,0,0,.18)}
+/* the account page: light page, white outlined cards, dark text (like the reference), orange accents */
+.acctpage{position:fixed;inset:0;z-index:15;overflow-y:auto;background:#FFF7E3;color:var(--ol);font-family:var(--f-ui);direction:rtl}
+.acctpage[hidden]{display:none}
+.ac-top{position:sticky;top:0;display:flex;align-items:center;justify-content:center;padding:.8rem 1rem;background:#FFF7E3;z-index:1}
+.ac-top h2{margin:0;font-weight:800;font-size:1.5rem}
+.rb.ac-back{position:absolute;left:max(.8rem,env(safe-area-inset-left,0px));width:3.2rem;height:3.2rem}
+.rb.ac-back svg{width:1.7rem;height:1.7rem}
+.ac-in{width:min(92vw,34rem);margin:0 auto;display:flex;flex-direction:column;gap:1rem;padding:.5rem 0 3rem}
+.ac-card{background:#fff;border:.15rem solid #F2C27A;border-radius:1.8rem;padding:1.1rem 1.2rem 1.3rem}
+.ac-card h3{margin:0 0 .9rem;font-size:1.6rem;font-weight:800}
+.ac-kids{display:flex;flex-wrap:wrap;gap:1.2rem}
+.ac-kid{position:relative;display:flex;flex-direction:column;align-items:center;gap:.15rem;width:5.6rem;text-align:center}
+.ac-kid b{font-size:1rem;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ac-kid small{font-size:.75rem;opacity:.7}
+.ac-pic{width:5rem;height:5rem;padding:0;border-radius:50%;border:.25rem solid transparent;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.ac-kid.on .ac-pic{border-color:#FFB21F}
+.ac-pic .wl-av{width:100%;height:100%}
+.ac-pic.ac-add{border:.18rem dashed var(--ol);color:var(--ol)}
+.ac-pic.ac-add svg{width:2rem;height:2rem;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round}
+.ac-pen{position:absolute;top:-.2rem;left:.2rem;width:1.9rem;height:1.9rem;padding:.35rem;border-radius:50%;border:0;background:#fff;box-shadow:0 .1rem .3rem rgba(0,0,0,.3);cursor:pointer;color:var(--ol)}
+.ac-pen svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.4}
+.arows{display:flex;flex-direction:column;gap:.9rem}
+.arow{display:flex;align-items:center;gap:.9rem;width:100%;background:#fff;border:.15rem solid #F2C27A;border-radius:1.8rem;padding:1.1rem 1.2rem;font:inherit;font-weight:800;font-size:1.3rem;color:var(--ol);cursor:pointer;text-align:start}
+.arow i{display:inline-flex;width:1.8rem;height:1.8rem}
+.arow i svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.arow b{flex:1;font-weight:800}
+.arow em{font-style:normal;font-weight:700;font-size:1rem;opacity:.6}
+.arow s{width:.7rem;height:.7rem;border:solid currentColor;border-width:0 0 .16rem .16rem;transform:rotate(45deg);opacity:.5}
+/* the parent gate: the numbers as Arabic words + a keypad */
+.gate-w{font-weight:800}
+.gate-dots{display:flex;gap:.8rem;justify-content:center}
+.gate-dots i{width:1.1rem;height:1.1rem;border-radius:50%;border:.15rem solid var(--c-white);background:transparent}
+.gate-dots i.on{background:var(--c-white)}
+.gate-pad{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;direction:ltr;width:min(70vw,17rem)}
+.gate-k{aspect-ratio:1;border-radius:50%;border:.12rem solid var(--ol);background:#FFF8E6;color:var(--ol);font:inherit;font-weight:800;font-size:clamp(1.4rem,5vh,2rem);cursor:pointer}
+.gate-k:active{background:#FFE15A}
+@media (max-height:560px){ .gate-pad{width:min(40vh,15rem);grid-template-columns:repeat(5,1fr)} .gate-k{font-size:1.3rem} }
+.pill.wl-chip[disabled]{opacity:.5;filter:none;cursor:not-allowed}
+.pill.wl-chip small{font-size:.65em;margin-inline-start:.3em}

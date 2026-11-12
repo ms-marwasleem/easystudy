@@ -3,70 +3,10 @@
  "coins": {
   "enabled": false,
   "lessonCost": 3,
-  "unitCost": 20,
-  "startCoins": 5,
-  "dailyCap": 30,
+  "dailyCap": 20,
   "parentGate": true,
   "shareText": "تطبيق EasyStudy للمذاكرة بالألعاب لأولادنا في الصف الأول الابتدائي، جربوه:",
   "shareUrl": "https://easystudy.marwasleem.workers.dev",
-  "shares": [
-   {
-    "id": "wa-chat",
-    "ar": "واتساب (شخصي)",
-    "en": "WhatsApp chat",
-    "on": true,
-    "coins": 3,
-    "cooldownH": 24
-   },
-   {
-    "id": "wa-group",
-    "ar": "واتساب (جروب)",
-    "en": "WhatsApp group",
-    "on": true,
-    "coins": 5,
-    "cooldownH": 24
-   },
-   {
-    "id": "messenger",
-    "ar": "ماسنجر",
-    "en": "Messenger",
-    "on": true,
-    "coins": 3,
-    "cooldownH": 24
-   },
-   {
-    "id": "fb-profile",
-    "ar": "فيسبوك (بروفايلك)",
-    "en": "Facebook profile",
-    "on": true,
-    "coins": 3,
-    "cooldownH": 24
-   },
-   {
-    "id": "fb-group",
-    "ar": "فيسبوك (جروب)",
-    "en": "Facebook group",
-    "on": true,
-    "coins": 5,
-    "cooldownH": 24
-   },
-   {
-    "id": "telegram",
-    "ar": "تيليجرام",
-    "en": "Telegram",
-    "on": false,
-    "coins": 3,
-    "cooldownH": 24
-   },
-   {
-    "id": "copy",
-    "ar": "نسخ الرابط",
-    "en": "Copy link",
-    "on": true,
-    "coins": 2,
-    "cooldownH": 24
-   }
-  ],
   "referral": {
    "on": true,
    "coins": 15,
@@ -74,19 +14,28 @@
   },
   "_marwa": "2026-11-05: sign-up gift 5 coins; personal shares 3 (WhatsApp, Messenger, own Facebook profile), groups 5 (WhatsApp / Facebook groups)",
   "shareMinSec": 8,
-  "_shareCheck": "Marwa 2026-11-05: credits only when the app really leaves after the share tap (WhatsApp/Facebook opened) and comes back after at least shareMinSec seconds"
+  "_shareCheck": "Marwa 2026-11-05: credits only when the app really leaves after the share tap (WhatsApp/Facebook opened) and comes back after at least shareMinSec seconds",
+  "shareCoins": 1
  },
  "access": {
   "free": {
-   "mode": "pick",
+   "mode": "first",
    "count": 1,
-   "perSubject": true,
    "list": [],
-   "_marwa": "2026-11-05: the child picks ONE free lesson in each subject",
-   "_modes": "first = first <count> lessons of every subject; firstUnit = first <count> units of every subject; pick = the child picks <count> lessons anywhere; pickUnit = the child picks <count> whole units; list = only the lessons / units in list"
+   "_marwa": "2026-11-11: free trial = first lesson of each subject (unit 1); count per subject in the dashboard (per)",
+   "_modes": "first = first <count> lessons of every subject; firstUnit = first <count> units of every subject; pick = the child picks <count> lessons anywhere; pickUnit = the child picks <count> whole units; list = only the lessons / units in list",
+   "per": {}
   }
  },
  "items": {},
  "api": "",
- "_api": "the server address, e.g. \"/api\" once the Worker is live; empty = everything stays on this device"
+ "whatsapp": "",
+ "_api": "the server address, e.g. \"/api\" once the Worker is live; empty = everything stays on this device",
+ "subs": {
+  "on": false,
+  "name": "",
+  "link": "",
+  "prices": {}
+ },
+ "promoOn": true
 }

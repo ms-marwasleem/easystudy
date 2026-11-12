@@ -7,87 +7,105 @@ const get=u=>fetch(u,{cache:'no-store'}).then(r=>{ if(!r.ok) throw new Error(u);
 const lsGet=(k,d)=>{ try{ const v=JSON.parse(localStorage.getItem(k)||'null'); return v==null?d:v; }catch(e){ return d; } };
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const ar=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
-let S=null, FILE=null, COURSE=null, dirty=false;
+let S=null, FILE=null, COURSE=null, GRADES=[], dirty=false;
 const toast=t=>{ const o=$('#toast'); o.textContent=t; o.hidden=false; clearTimeout(toast.t); toast.t=setTimeout(()=>o.hidden=true,1800); };
 const mark=()=>{ dirty=true; $('#save').textContent='حفظ •'; };
 
 async function boot(){
-  FILE=await get('data/settings.json').catch(()=>({coins:{shares:[]},access:{free:{mode:'first',count:3}},items:{}}));
+  FILE=await get('data/settings.json').catch(()=>({coins:{},access:{free:{mode:'first',count:1}},items:{}}));
   S=lsGet('es.settings',null)||JSON.parse(JSON.stringify(FILE));
-  S.coins=S.coins||{shares:[]}; S.access=S.access||{}; S.access.free=S.access.free||{mode:'first',count:3,list:[]}; S.items=S.items||{};
-  S.access.free.list=S.access.free.list||[]; S.coins.referral=S.coins.referral||{on:false,coins:15};
+  S.coins=S.coins||{}; S.access=S.access||{}; S.access.free=S.access.free||{}; S.items=S.items||{};
+  const F=S.access.free; F.mode='first'; delete F.perSubject; if(F.count==null||F.count>5) F.count=1; F.per=F.per||{}; F.list=F.list||[];   // free = first lessons of unit 1 per subject
+  S.coins.referral=S.coins.referral||{on:false,coins:15}; if(S.coins.shareCoins==null) S.coins.shareCoins=1; if(!S.coins.dailyCap||S.coins.dailyCap>20) S.coins.dailyCap=20; if(!S.coins.lessonCost) S.coins.lessonCost=3;
+  S.subs=S.subs||{}; S.subs.prices=S.subs.prices||{}; S.currOff=S.currOff||{}; S.promos=S.promos||[]; if(S.promoOn==null) S.promoOn=true;
+  Object.keys(S.items).forEach(k=>{ if(S.items[k].st!=='soon') delete S.items[k]; else S.items[k]={st:'soon'}; });   // old open/locked/price options removed: only "soon" is kept
   COURSE=await get('data/course.json');
+  const CJ=await get('data/curriculum.json').catch(()=>({grades:[],types:[]})); GRADES=CJ.grades.filter(g=>g.open!==false); CTYPES=CJ.types||[];
   await Promise.all(COURSE.subjects.filter(s=>s.file).map(async s=>{ const d=await get(s.file).catch(()=>null); if(!d) return;
     s.units=d.units||[]; s.lessons=(d.lessons||[]).map(l=>({...l,id:`${s.id}-${l.folder}`,built:!!l.title})); }));
   $('#where').textContent=lsGet('es.settings',null)?'الإعدادات المعروضة: المحفوظة على الجهاز ده (لسه مش في الملف). اضغطي "تنزيل" عشان تبقى للكل.':'الإعدادات المعروضة: من ملف data/settings.json.';
-  S.promos=S.promos||[];
-  drawSettings(); drawTree(); drawPromos(); drawAccounts(); drawStats(); drawReports();
-  if(S.api){ const [ac,st]=await Promise.all([api('/admin/accounts'),api('/admin/stats')]); if(ac&&ac.accounts){ SRV.accounts=ac.accounts; drawAccounts(); } if(st&&st.hist){ SRV.stats=st; drawStats(); }
+  drawSettings(); drawTree(); drawPromos(); drawUsers(); drawStats(); drawReports();
+  if(S.api){ const [ac,st]=await Promise.all([api('/admin/accounts'),api('/admin/stats')]); if(ac&&ac.accounts){ SRV.accounts=ac.accounts; drawUsers(); loadSubs(); } if(st&&st.hist){ SRV.stats=st; drawStats(); }
     if(st&&st.promoUses){ SRV.promoUses=st.promoUses; drawPromos(); }
     loadReports();
-    $('#where').textContent+=ac?' الحسابات والإحصائيات من السيرفر.':' السيرفر مش متاح دلوقتي، المعروض من الجهاز ده بس.'; }
+    $('#where').textContent+=ac?' المستخدمين والإحصائيات من السيرفر.':' السيرفر مش متاح دلوقتي، المعروض من الجهاز ده بس.'; }
 }
 
 /* ---------- settings page ---------- */
-const NUMS=['lessonCost','unitCost','startCoins','dailyCap'];
-function drawSettings(){
-  const C=S.coins;
+let CTYPES=[];
+const NUMS=['shareCoins','lessonCost','dailyCap'];
+const TERMS=[['t1','الترم الأول'],['t2','الترم الثاني']];
+function drawSettings(){ $('#u-grade').innerHTML=GRADES.map(g=>`<option value="${esc(g.id)}">${esc(g.ar)}</option>`).join('');
+  const C=S.coins, B=S.subs;
   $('#c-enabled').checked=!!C.enabled; $('#c-parentGate').checked=C.parentGate!==false;
   NUMS.forEach(k=>$('#c-'+k).value=C[k]!=null?C[k]:'');
+  $('#c-wa').value=S.whatsapp||''; $('#s-name').value=B.name||''; $('#s-link').value=B.link||'';
   $('#c-shareText').value=C.shareText||''; $('#c-shareUrl').value=C.shareUrl||'';
   $('#r-on').checked=!!C.referral.on; $('#r-coins').value=C.referral.coins||0;
-  $('#f-mode').value=S.access.free.mode||'first'; $('#f-count').value=S.access.free.count!=null?S.access.free.count:3;
-  drawShares(); freeHint();
+  $('#s-on').checked=!!B.on; $('#p-on').checked=S.promoOn!==false;
+  $('#f-count').value=S.access.free.count; drawPrices(); drawFreePer(); drawCurr();
 }
-function drawShares(){
-  const box=$('#shares'); box.innerHTML=`<div class="row shr h"><span>تشغيل</span><span>الاسم</span><span>كريدتس</span><span>كل (ساعة)</span><span></span></div>`+
-    S.coins.shares.map((t,i)=>`<div class="row shr" data-i="${i}"><label class="sw"><input type="checkbox" data-k="on"${t.on?' checked':''}><span></span></label>
-      <input type="text" data-k="ar" value="${esc(t.ar)}" aria-label="الاسم"><input type="number" min="0" data-k="coins" value="${t.coins||0}" aria-label="كريدتس">
-      <input type="number" min="0" data-k="cooldownH" value="${t.cooldownH||0}" aria-label="كل كام ساعة"><button class="x" aria-label="حذف">×</button></div>`).join('');
-  $$('.shr[data-i]',box).forEach(r=>{ const t=S.coins.shares[+r.dataset.i];
-    $$('[data-k]',r).forEach(i=>i.addEventListener('input',()=>{ const k=i.dataset.k; t[k]=k==='on'?i.checked:k==='ar'?i.value:+i.value; mark(); }));
-    $('.x',r).addEventListener('click',()=>{ S.coins.shares.splice(+r.dataset.i,1); mark(); drawShares(); }); });
+// curricula on/off (S.currOff[id]=true = closed in the signup / student step)
+function drawCurr(){ const box=$('#curr-on'); box.innerHTML=CTYPES.map(t=>`<div class="row" data-t="${t.id}"><b class="nm">${esc(t.id==='private'?'لغات':t.ar)}</b><label class="sw"><input type="checkbox"${S.currOff[t.id]?'':' checked'}><span></span> متاح</label></div>`).join('');
+  $$('.row',box).forEach(r=>$('input',r).addEventListener('change',e=>{ if(e.target.checked) delete S.currOff[r.dataset.t]; else S.currOff[r.dataset.t]=true; mark(); })); }
+function drawPrices(){ const P=S.subs.prices, box=$('#prices'), rows=[];
+  GRADES.forEach(g=>TERMS.forEach(([t,tn])=>{ const k=g.id+':'+t, p=P[k]||{}, fin=p.discOn&&+p.disc>0?+p.disc:(+p.price||0);
+    rows.push(`<div class="row prc" data-k="${k}"><b class="nm">${esc(g.ar)} — ${tn}</b>
+      <label>السعر <input type="number" min="0" data-f="price" value="${p.price!=null?p.price:''}" placeholder="500"></label>
+      <label class="sw"><input type="checkbox" data-f="discOn"${p.discOn?' checked':''}><span></span> خصم</label>
+      <label>بعد الخصم <input type="number" min="0" data-f="disc" value="${p.disc!=null?p.disc:''}" placeholder="300"${p.discOn?'':' disabled'}></label>
+      <em class="fin">${fin?'يدفع '+ar(fin)+' جنيه':'—'}</em></div>`); }));
+  box.innerHTML=rows.join('')||'<p class="empty">مفيش سنوات دراسية في ملف المنهج.</p>';
+  $$('.prc',box).forEach(r=>{ const k=r.dataset.k; $$('[data-f]',r).forEach(i=>i.addEventListener(i.type==='checkbox'?'change':'input',()=>{ const f=i.dataset.f, p=P[k]=P[k]||{};
+    p[f]=f==='discOn'?i.checked:(i.value===''?undefined:+i.value); mark(); if(f==='discOn'){ drawPrices(); return; }
+    const q=P[k], fin=q.discOn&&+q.disc>0?+q.disc:(+q.price||0); $('.fin',r).textContent=fin?'يدفع '+ar(fin)+' جنيه':'—'; })); });
 }
-$('#addShare').addEventListener('click',()=>{ S.coins.shares.push({id:'share-'+Date.now().toString(36),ar:'نوع جديد',on:true,coins:5,cooldownH:24}); mark(); drawShares(); });
+function drawFreePer(){ const per=S.access.free.per;
+  $('#free-per').innerHTML=COURSE.subjects.filter(s=>s.lessons).map(s=>`<div class="row frp" data-s="${s.id}"><b class="nm">${esc(s.name)}</b><input type="number" min="0" value="${per[s.id]!=null?per[s.id]:''}" placeholder="${S.access.free.count}" aria-label="${esc(s.name)}"></div>`).join('');
+  $$('#free-per .frp').forEach(r=>$('input',r).addEventListener('input',e=>{ const v=e.target.value; if(v==='') delete per[r.dataset.s]; else per[r.dataset.s]=+v; mark(); })); }
 $('#c-enabled').addEventListener('change',e=>{ S.coins.enabled=e.target.checked; mark(); });
 $('#c-parentGate').addEventListener('change',e=>{ S.coins.parentGate=e.target.checked; mark(); });
+$('#s-on').addEventListener('change',e=>{ S.subs.on=e.target.checked; mark(); });
+$('#p-on').addEventListener('change',e=>{ S.promoOn=e.target.checked; mark(); });
 NUMS.forEach(k=>$('#c-'+k).addEventListener('input',e=>{ S.coins[k]=+e.target.value||0; mark(); }));
+$('#c-wa').addEventListener('input',e=>{ S.whatsapp=e.target.value.trim(); mark(); });
+$('#s-name').addEventListener('input',e=>{ S.subs.name=e.target.value; mark(); });
+$('#s-link').addEventListener('input',e=>{ S.subs.link=e.target.value.trim(); mark(); });
 $('#c-shareText').addEventListener('input',e=>{ S.coins.shareText=e.target.value; mark(); });
 $('#c-shareUrl').addEventListener('input',e=>{ S.coins.shareUrl=e.target.value; mark(); });
 $('#r-on').addEventListener('change',e=>{ S.coins.referral.on=e.target.checked; mark(); });
 $('#r-coins').addEventListener('input',e=>{ S.coins.referral.coins=+e.target.value||0; mark(); });
-$('#f-mode').addEventListener('change',e=>{ S.access.free.mode=e.target.value; mark(); freeHint(); drawTree(); });
-$('#f-count').addEventListener('input',e=>{ S.access.free.count=+e.target.value||0; mark(); freeHint(); });
-$('#f-per').addEventListener('change',e=>{ S.access.free.perSubject=e.target.checked; mark(); freeHint(); });
-function freeHint(){ const F=S.access.free, n=ar(F.count||0), pick=/^pick/.test(F.mode);
-  $('#f-per').checked=!!F.perSubject; $('#f-per-row').hidden=!pick;
-  if(pick&&F.perSubject){ $('#f-hint').textContent=F.mode==='pick'?`الطفل يختار ${n} درس مجانًا من كل مادة، بالضغط على أي درس مقفول فيها.`:`الطفل يختار ${n} وحدة كاملة مجانًا من كل مادة.`; if(!S.coins.enabled) $('#f-hint').textContent+=' (الكريدتس مقفولة دلوقتي، فكل الدروس الجاهزة مفتوحة إلا اللي تقفليه بنفسك.)'; return; }
-  $('#f-hint').textContent={first:`أول ${n} دروس في كل مادة مفتوحة، والباقي يتفتح بالكريدتس.`,firstUnit:`أول ${n} وحدات في كل مادة مفتوحة كاملة.`,
-    pick:`الطفل يختار ${n} دروس مجانًا من أي مادة، بالضغط على أي درس مقفول.`,pickUnit:`الطفل يختار ${n} وحدات كاملة مجانًا.`,
-    list:`المفتوح بس هو اللي تعلّمي عليه "مجاني" في صفحة الدروس (${ar(F.list.length)} دلوقتي). العدد مش مستخدم هنا.`}[F.mode]||'';
-  if(!S.coins.enabled) $('#f-hint').textContent+=' (الكريدتس مقفولة دلوقتي، فكل الدروس الجاهزة مفتوحة إلا اللي تقفليه بنفسك.)'; }
+$('#f-count').addEventListener('input',e=>{ S.access.free.count=+e.target.value||0; mark(); drawFreePer(); });
 
-/* ---------- lessons page: a state + price per subject / unit / lesson ---------- */
-const STATES=[['','تلقائي'],['open','مفتوح'],['soon','قريبًا'],['locked','مقفول']];
-function row(cls,id,name,built,priceDefault){ const it=S.items[id]||{}, isList=S.access.free.mode==='list'&&cls!=='subj';
-  return `<div class="it ${cls}" data-id="${id}"><i class="dot${built?' b':''}"></i><span class="nm" title="${esc(name)}">${esc(name)}</span>
-    <select class="${it.st||''}" aria-label="الحالة">${STATES.map(([v,l])=>`<option value="${v}"${(it.st||'')===v?' selected':''}>${l}</option>`).join('')}</select>
-    <input type="number" min="0" class="pr" placeholder="${priceDefault}" value="${it.coins!=null?it.coins:''}" aria-label="السعر" title="سعر خاص (فاضي = السعر العام)">
-    <label class="fr"${isList?'':' hidden'}><input type="checkbox" class="fl"${S.access.free.list.includes(id)?' checked':''}> مجاني</label></div>`; }
+/* ---------- lessons page: tree subject > unit > lesson, multi-select, open | soon ----------
+   Default: a built lesson is open, an unbuilt one is "soon". Only "soon" is stored (S.items[id]={st:'soon'}); open = no entry. */
+const SEL=new Set();
+const kidsOf=s=>(s.units||[]).map(u=>({u,ls:(s.lessons||[]).filter(l=>l.unit===u.unit&&!l.hidden)}));
+function lessonOpen(l){ return l.built&&!(S.items['l:'+l.id]||{}).st; }
+function stOf(kind,s,u,ls,l){
+  if(kind==='les') return lessonOpen(l)?'open':'soon';
+  const own=(S.items[kind==='subj'?'s:'+s.id:`u:${s.id}:${u.unit}`]||{}).st==='soon';
+  const L=kind==='subj'?(s.lessons||[]).filter(x=>!x.hidden):ls, n=L.filter(lessonOpen).length;
+  if(own||!n) return 'soon'; return n===L.length?'open':'mixed'; }
+const STLBL={open:'مفتوح',soon:'قريبًا',mixed:'مختلط'};
+function row(cls,id,name,built,st){ return `<div class="it ${cls}" data-id="${id}"><input type="checkbox" class="sel"${SEL.has(id)?' checked':''} aria-label="تعليم"><i class="dot${built?' b':''}"></i><span class="nm" title="${esc(name)}">${esc(name)}</span><span class="stb ${st}">${STLBL[st]}</span></div>`; }
 function drawTree(){
   const sel=$('#l-subj'), cur=sel.value; sel.innerHTML='<option value="">كل المواد</option>'+COURSE.subjects.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join(''); sel.value=cur;
-  const C=S.coins, lc=C.lessonCost||0, uc=C.unitCost||0;
   $('#tree').innerHTML=COURSE.subjects.filter(s=>!sel.value||s.id===sel.value).map(s=>{
-    let h=row('subj','s:'+s.id,s.name,!!s.lessons,'');
-    (s.units||[]).forEach(u=>{ const ls=(s.lessons||[]).filter(l=>l.unit===u.unit&&!l.hidden);
-      h+=row('unit',`u:${s.id}:${u.unit}`,u.label||`الوحدة ${ar(u.unit)}`,ls.some(l=>l.built),uc);
-      ls.forEach(l=>h+=row('les','l:'+l.id,`${ar(l.lesson)}. ${l.title||l.planned||'—'}`,l.built,lc)); });
+    let h=row('subj','s:'+s.id,s.name,!!s.lessons,s.lessons?stOf('subj',s):'soon');
+    kidsOf(s).forEach(({u,ls})=>{ h+=row('unit',`u:${s.id}:${u.unit}`,u.label||`الوحدة ${ar(u.unit)}`,ls.some(l=>l.built),stOf('unit',s,u,ls));
+      ls.forEach(l=>h+=row('les','l:'+l.id,`${ar(l.lesson)}. ${l.title||l.planned||'—'}`,l.built,stOf('les',s,u,ls,l))); });
     return h; }).join('');
-  $$('#tree .it').forEach(r=>{ const id=r.dataset.id, put=()=>{ const it=S.items[id]||{}; if(!it.st) delete it.st; if(it.coins==null) delete it.coins; if(Object.keys(it).length) S.items[id]=it; else delete S.items[id]; mark(); };
-    const s=$('select',r); s.addEventListener('change',()=>{ (S.items[id]=S.items[id]||{}).st=s.value||undefined; s.className=s.value; put(); });
-    $('.pr',r).addEventListener('input',e=>{ (S.items[id]=S.items[id]||{}).coins=e.target.value===''?undefined:+e.target.value; put(); });
-    const f=$('.fl',r); if(f) f.addEventListener('change',()=>{ const L=S.access.free.list, k=L.indexOf(id); if(f.checked&&k<0) L.push(id); if(!f.checked&&k>=0) L.splice(k,1); mark(); freeHint(); }); });
+  $$('#tree .it').forEach(r=>$('.sel',r).addEventListener('change',e=>{ const id=r.dataset.id, on=e.target.checked, rows=$$('#tree .it'), i=rows.indexOf(r), cls=r.classList.contains('subj')?'subj':r.classList.contains('unit')?'unit':'les';
+    const set=(x,v)=>{ v?SEL.add(x.dataset.id):SEL.delete(x.dataset.id); $('.sel',x).checked=v; }; set(r,on);
+    if(cls!=='les') for(let k=i+1;k<rows.length;k++){ const c=rows[k].classList; if(c.contains('subj')||(cls==='unit'&&c.contains('unit'))) break; set(rows[k],on); }
+    bulkInfo(); }));
+  bulkInfo();
 }
+function bulkInfo(){ const n=SEL.size; $('#bulk-n').textContent=n?'معلّم '+ar(n):'مفيش حاجة معلّمة'; $$('#bulk button').forEach(b=>b.disabled=!n); }
+$$('#bulk button').forEach(b=>b.addEventListener('click',()=>{ const st=b.dataset.st;
+  SEL.forEach(id=>{ if(st==='soon') S.items[id]={st:'soon'}; else delete S.items[id]; });
+  SEL.clear(); mark(); drawTree(); toast(st==='soon'?'اتحطت "قريبًا"':st==='open'?'اتفتحت (اللي جاهز بس)':'اتلغى التعليم'); }));
 $('#l-subj').addEventListener('change',drawTree);
 
 /* ---------- promo codes (Marwa 2026-11-05): S.promos = [{code, what, target, uses, max, until, on, note}] — js/coins.js PROMO CODES ---------- */
@@ -138,12 +156,49 @@ const fmt=t=>{ try{ return new Date(t).toLocaleString('ar-EG',{dateStyle:'medium
 const tokGet=()=>{ try{ return localStorage.getItem('es.adminToken')||''; }catch(e){ return ''; } };
 const hdr=()=>{ const t=tokGet(), h={'Content-Type':'application/json'}; if(t) h.Authorization='Bearer '+t; return h; }; // no-domain admin: ADMIN_TOKEN as Bearer
 const api=(path,body)=>S.api?fetch(S.api+path,{method:body?'PUT':'GET',credentials:'include',headers:hdr(),body:body?JSON.stringify(body):undefined}).then(r=>r.ok?r.json():null).catch(()=>null):Promise.resolve(null);
-let SRV={accounts:null,stats:null,promoUses:null,reports:null};
+let SRV={subs:null,accounts:null,stats:null,promoUses:null,reports:null};
 function accounts(){ if(SRV.accounts) return SRV.accounts; const a=lsGet('es.account',null); if(!a) return []; return [{...a,kids:lsGet('es.kids',[])}]; }
-function drawAccounts(){ const A=accounts(), box=$('#accts');
-  if(!A.length){ box.innerHTML='<p class="empty">مفيش حسابات مسجلة على الجهاز ده لسه.</p>'; return; }
-  box.innerHTML=`<div class="row acr h"><span>ولي الأمر</span><span>الإيميل</span><span>التليفون</span><span>الأطفال</span><span>التسجيل</span></div>`+
-    A.map(a=>`<div class="row acr"><b>${esc(a.name)}</b><span dir="ltr">${esc(a.email)}</span><span dir="ltr">${esc(a.phone||'—')}</span><span>${a.kids.map(k=>esc(k.name)).join('، ')||'—'}</span><span>${a.created?fmt(a.created):'—'}</span></div>`).join(''); }
+const subRow=(kid,t)=>(SRV.subs||[]).find(x=>x.child===kid&&x.term.split(':')[1]===t);
+function drawUsers(){ const A=accounts(), box=$('#users'), q=$('#u-q').value.trim().toLowerCase(), srv=!!SRV.accounts;
+  $('#u-where').textContent=srv?'من السيرفر.':'دلوقتي بيظهر الحساب اللي على الجهاز ده بس. لما السيرفر يشتغل هتظهر كل الحسابات هنا بنفس الشكل، وأزرار الاشتراك وإضافة مستخدم بتشتغل.';
+  const L=A.filter(a=>!q||[a.email,a.phone,...(a.kids||[]).map(k=>k.name)].join(' ').toLowerCase().includes(q)); $('#u-count').textContent=ar(L.length)+' ولي أمر';
+  $('#u-add').disabled=!srv; $('#u-add').title=srv?'':'السيرفر مش شغال';
+  if(!L.length){ box.innerHTML='<p class="empty">'+(A.length?'مفيش نتيجة.':'مفيش حسابات مسجلة لسه.')+'</p>'; return; }
+  const dis=srv?'':' disabled title="السيرفر مش شغال"';
+  box.innerHTML=L.map(a=>`<div class="usr"><div class="usr-top"><b dir="ltr">${esc(a.email&&!/@phone\.local$/.test(a.email)?a.email:'—')}</b><span dir="ltr">${esc(a.phone||'')}</span><span class="rep-at">${a.created?fmt(a.created):''}</span></div>
+    ${(a.kids||[]).length?a.kids.map(k=>`<div class="kid kidh"><span class="nm">${esc(k.name)}${k.school?' · '+esc(k.school):''}</span></div>`+['t1','t2'].map(t=>{ const r=subRow(k.id,t), live=r&&r.st==='active'&&r.until>Date.now(), g=k.grade||'p1';
+      return `<div class="kid trm" data-k="${esc(k.id)}" data-g="${esc(g)}" data-t="${t}"><span class="nm">${TNAME[t]}</span><span class="stb ${live?'on':'none'}">${r?(live?'مفعّل لحد '+new Date(r.until).toLocaleDateString('ar-EG',{day:'numeric',month:'long'}):STN[r.st]||r.st):'بدون اشتراك'}</span>${r&&r.ref?`<span dir="ltr" class="rep-at">${esc(r.ref)}</span>`:''}
+        ${r&&r.receipt?`<button data-a="rc"${dis}>الإيصال</button>`:''}${live?'':`<button data-a="grant"${dis}>${r&&r.st==='pending'?'تفعيل':'تفعيل بدون إيصال'}</button>`}${r&&(r.st==='active'||r.st==='pending')?`<button data-a="close"${dis}>إلغاء</button>`:''}<div class="sb-img"></div></div>`; }).join('')).join(''):'<p class="empty">مفيش أطفال.</p>'}</div>`).join(''); }
+$('#u-q').addEventListener('input',drawUsers);
+/* ---------- term subscriptions (server only; docs/subscriptions-spec.md): pending receipts first, activate / reject / close, grant with no receipt ---------- */
+const termNow=()=>/2/.test((COURSE&&COURSE.term)||'')?'t2':'t1', TNAME={t1:'الترم الأول',t2:'الترم التاني'};
+const STN={pending:'منتظر المراجعة',active:'مفعّل',rejected:'مرفوض',closed:'مقفول'};
+const post=(path,body)=>fetch(S.api+path,{method:body?'POST':'GET',credentials:'include',headers:hdr(),body:body?JSON.stringify(body):undefined}).then(r=>r.json()).catch(()=>null);
+const subOf=id=>{ const r=(SRV.subs||[]).filter(x=>x.child===id&&x.st==='active'&&x.until>Date.now()); return r.length?'مفعّل: '+r.map(x=>TNAME[x.term.split(':')[1]]).join('، '):'بدون اشتراك'; };
+async function loadSubs(){ if(!S.api){ drawSubs(); return; } const r=await post('/admin/subs?st=all'); if(r&&r.subs){ SRV.subs=r.subs; } drawSubs(); drawUsers(); }
+function drawSubs(){ const box=$('#subsList'), all=$('#sb-all').checked, L=(SRV.subs||[]).filter(x=>all||x.st==='pending');
+  $('#sb-where').textContent=S.api?(SRV.subs?'الإيصالات المرفوعة من التطبيق. التأكيد بيفضل لحد ٣١ أغسطس، والرفض بيقفل الدروس فورًا.':'السيرفر مش متاح.'):'الاشتراكات محتاجة السيرفر.';
+  box.innerHTML=L.length?L.map(x=>`<div class="usr sb" data-c="${esc(x.child)}" data-t="${esc(x.term)}"><div class="usr-top"><b>${esc(x.name)} — ${TNAME[x.term.split(':')[1]]||esc(x.term)}</b><span dir="ltr">${esc(x.email||'')} ${esc(x.phone||'')}</span><span class="rep-at">${fmt(x.at)}</span></div>
+    <div class="kid"><span class="nm">${ar(x.price)} جنيه · رقم العملية <b dir="ltr">${esc(x.ref||'—')}</b></span><span class="stb ${x.st==='active'?'on':'none'}">${STN[x.st]||x.st}</span>
+      ${x.receipt?'<button data-act="rc">الإيصال</button>':''}${x.st!=='active'?'<button data-act="activate">تفعيل</button>':''}${x.st==='pending'?'<button data-act="reject">رفض</button>':''}${x.st==='active'?'<button data-act="close">إلغاء</button>':''}</div><div class="sb-img"></div></div>`).join(''):'<p class="empty">مفيش اشتراكات هنا.</p>';
+  $$('.sb',box).forEach(r=>$$('[data-act]',r).forEach(b=>b.addEventListener('click',async()=>{ const c=r.dataset.c, t=r.dataset.t, act=b.dataset.act;
+    if(act==='rc'){ const x=await post(`/admin/sub/${c}/${t}/receipt`); $('.sb-img',r).innerHTML=x&&x.receipt?`<img src="${x.receipt}" alt="receipt" style="max-width:100%;max-height:70vh;border-radius:.5rem">`:'<p class="empty">الإيصال مش متاح.</p>'; return; }
+    if(act==='reject'&&!confirm('رفض الإيصال بيقفل الدروس فورًا. متأكدة؟')) return; if(act==='close'&&!confirm('إلغاء الاشتراك؟')) return;
+    const x=await post('/admin/sub',{child:c,term:t,action:act}); if(!x||!x.ok) alert('ما نفعش. جربي تاني'); loadSubs(); })));
+}
+$('#sb-all').addEventListener('change',drawSubs);
+$('#users').addEventListener('click',async e=>{ const b=e.target.closest('[data-a]'); if(!b||b.disabled) return; const r=b.closest('.trm'), id=r.dataset.k, term=r.dataset.g+':'+r.dataset.t, tn=TNAME[r.dataset.t], a=b.dataset.a;
+  if(a==='rc'){ const x=await post(`/admin/sub/${id}/${term}/receipt`); $('.sb-img',r).innerHTML=x&&x.receipt?`<img src="${x.receipt}" alt="receipt" style="max-width:100%;max-height:70vh;border-radius:.5rem">`:'<p class="empty">الإيصال مش متاح.</p>'; return; }
+  if(a==='grant'){ if(!confirm('تفعيل '+tn+' بدون مراجعة إيصال؟')) return; const x=await post('/admin/sub/grant',{child:id,term}); if(!x||!x.ok) alert('ما نفعش'); }
+  else { if(!confirm('إلغاء اشتراك '+tn+'؟ الدروس هتتقفل فورًا.')) return; const x=await post('/admin/sub',{child:id,term,action:'close'}); if(!x||!x.ok) alert('مفيش اشتراك ليه أو ما نفعش'); }
+  loadSubs(); });
+$('#u-add').addEventListener('click',()=>{ const f=$('#u-form'); f.hidden=!f.hidden; });
+$('#u-form').addEventListener('submit',async e=>{ e.preventDefault(); const f=e.target, er=$('.u-err',f), v=n=>f.elements[n].value.trim(); er.hidden=true;
+  const body={email:v('email'),phone:v('phone'),kid:v('kid'),grade:v('grade'),activate:f.elements.act.checked?v('grade')+':'+v('term'):''};
+  if(!body.kid){ er.textContent='اكتبي اسم الطفل'; er.hidden=false; return; } if(!body.email&&!body.phone){ er.textContent='اكتبي الإيميل أو الموبايل'; er.hidden=false; return; }
+  const x=await post('/admin/user',body); if(!x||!x.ok){ er.textContent={'bad-email':'الإيميل مش مظبوط','need-contact':'اكتبي الإيميل أو الموبايل','bad-name':'اكتبي اسم الطفل'}[x&&x.error]||'ما نفعش. جربي تاني'; er.hidden=false; return; }
+  f.reset(); f.hidden=true; const ac=await api('/admin/accounts'); if(ac&&ac.accounts) SRV.accounts=ac.accounts; loadSubs(); });
+
 function wallets(){ const out=[]; try{ for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k.startsWith('es.wallet.')) out.push(lsGet(k,{bal:0,hist:[]})); } }catch(e){} return out; }
 const KIND={promo:'برومو كود',share:'مشاركة',gift:'هدية',referral:'تسجيل من رابطه','unlock-lesson':'فتح درس','unlock-unit':'فتح وحدة'};
 function drawStats(){
@@ -151,10 +206,8 @@ function drawStats(){
   const earned=H.filter(h=>h.n>0).reduce((a,h)=>a+h.n,0), spent=-H.filter(h=>h.n<0).reduce((a,h)=>a+h.n,0), shares=H.filter(h=>h.k==='share');
   const today=new Date().toDateString(), newToday=A.filter(a=>a.created&&new Date(a.created).toDateString()===today).length;
   const K=[['حسابات أولياء الأمور',A.length],['حسابات اليوم',newToday],['الأطفال',A.reduce((a,x)=>a+x.kids.length,0)],['المشاركات',shares.length],
-    ['كريدتس اتكسبت',earned],['كريدتس اتصرفت',spent],['دروس اتفتحت',H.filter(h=>h.k==='unlock-lesson').length],['وحدات اتفتحت',H.filter(h=>h.k==='unlock-unit').length]];
+    ['كريدتس اتكسبت',earned],['كريدتس اتصرفت',spent],['دروس اتفتحت',H.filter(h=>h.k==='unlock-lesson').length]];
   $('#kpis').innerHTML=K.map(([l,v])=>`<div class="kpi"><b>${ar(v)}</b><span>${l}</span></div>`).join('');
-  const by={}; shares.forEach(h=>by[h.t]=(by[h.t]||0)+1); const mx=Math.max(1,...Object.values(by));
-  $('#byShare').innerHTML=(S.coins.shares||[]).map(t=>`<div class="bar"><span>${esc(t.ar)}</span><i style="width:${((by[t.id]||0)/mx*100).toFixed(0)}%"></i><em>${ar(by[t.id]||0)}</em></div>`).join('')||'<p class="empty">مفيش أنواع مشاركة.</p>';
   const name=id=>{ const t=(S.coins.shares||[]).find(x=>x.id===id); return t?t.ar:id||''; };
   $('#hist').innerHTML=H.length?`<div class="row hr h"><span>الوقت</span><span>النوع</span><span>التفاصيل</span><span>كريدتس</span></div>`+H.slice(0,40).map(h=>`<div class="row hr"><span>${fmt(h.at)}</span><span>${KIND[h.k]||h.k}</span><span>${esc(h.k==='share'?name(h.t):h.k==='promo'?(h.code?h.code+' · ':'')+(h.id||''):h.id||'')}</span><b dir="ltr">${h.n>0?'+':''}${h.n}</b></div>`).join(''):'<p class="empty">مفيش حركات كريدتس على الجهاز ده لسه.</p>';
 }
@@ -229,7 +282,7 @@ $('#pu-send').addEventListener('click',async()=>{
   finally{ btn.disabled=false; btn.textContent='ابعت لكل الأجهزة'; loadPush(); } });
 
 /* ---------- tabs + save / download / reset ---------- */
-$$('#tabs button').forEach(b=>b.addEventListener('click',()=>{ $$('#tabs button').forEach(x=>x.classList.toggle('on',x===b)); $$('.page').forEach(p=>p.hidden=p.id!=='p-'+b.dataset.p); if(b.dataset.p==='stats') drawStats(); if(b.dataset.p==='push'){ puInit(); loadPush(); } }));
+$$('#tabs button').forEach(b=>b.addEventListener('click',()=>{ $$('#tabs button').forEach(x=>x.classList.toggle('on',x===b)); $$('.page').forEach(p=>p.hidden=p.id!=='p-'+b.dataset.p); if(b.dataset.p==='stats') drawStats(); if(b.dataset.p==='users'){ drawUsers(); drawSubs(); } if(b.dataset.p==='push'){ puInit(); loadPush(); } }));
 $('#save').addEventListener('click',()=>{ try{ localStorage.setItem('es.settings',JSON.stringify(S)); dirty=false; $('#save').textContent='حفظ'; toast('اتحفظ على الجهاز ده. افتحي التطبيق تشوفيه.'); if(S.api) api('/admin/settings',S).then(r=>toast(r?'اتحفظ على السيرفر كمان، لكل المستخدمين.':'السيرفر مش متاح، اتحفظ على الجهاز بس.')); $('#where').textContent='الإعدادات المعروضة: المحفوظة على الجهاز ده (لسه مش في الملف). اضغطي "تنزيل" عشان تبقى للكل.'; }catch(e){ toast('الحفظ مش متاح هنا'); } });
 $('#dl').addEventListener('click',()=>{ const out={_note:FILE&&FILE._note,...S}; const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob([JSON.stringify(out,null,1)],{type:'application/json'})); a.download='settings.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),2000); });

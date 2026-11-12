@@ -24,7 +24,7 @@ try{ const r=new URLSearchParams(location.search).get('r'); if(r&&!localStorage.
 const refCode=()=>(cGet('es.ref',null)||{}).code||null;
 const ESET_P=get('data/settings.json').catch(()=>null).then(async d=>{
   const local=cGet('es.settings',null); ESET=local||d||ESET;
-  if(ESET.api){ const s=await apiCall('/settings'); if(s&&s.coins) ESET={...s,api:ESET.api}; apiTake(await apiCall('/wallet'+(coinChild()?'?child='+encodeURIComponent(coinChild()):''))); }
+  if(ESET.api){ const s=await apiCall('/settings'); if(s&&s.coins) ESET={...s,api:ESET.api,whatsapp:s.whatsapp||ESET.whatsapp}; apiTake(await apiCall('/wallet'+(coinChild()?'?child='+encodeURIComponent(coinChild()):''))); }
   ESET.items=ESET.items||{}; ESET.coins=ESET.coins||{shares:[]};
   if(typeof COURSE!=='undefined'&&COURSE){ paintHud(); if(!$('#subjects').hidden&&typeof drawSubjects==='function') drawSubjects(); else if(!$('#map').hidden&&typeof drawMap==='function') openMap(); }
 });
@@ -33,10 +33,10 @@ const ESET_P=get('data/settings.json').catch(()=>null).then(async d=>{
 const unlockKey=()=>'es.unlocked';   // welcome.js swaps this key when the child changes (KID_KEYS), so it is per child already
 const freeKey=()=>'es.freeused';   // per child too (welcome.js KID_KEYS)
 function wallet(){ const k='es.wallet.'+coinParent(); let w=cGet(k,null);
-  if(!w){ const g=+CS().startCoins||0; w={bal:g,hist:g?[{k:'gift',n:g,at:Date.now()}]:[],last:{}}; cSet(k,w); } return w; }
+  if(!w){ w={bal:0,hist:[],last:{}}; cSet(k,w); } return w; }
 const walletSave=w=>cSet('es.wallet.'+coinParent(),w);
 const coinBal=()=>wallet().bal;
-function addUnlock(id,coins,kind){ const s=cGet(unlockKey(),[]); if(!s.includes(id)) s.push(id); cSet(unlockKey(),s);
+function addUnlock(id,coins,kind){ const s=cGet(unlockKey(),[]); if(!s.includes(id)) s.push(id); cSet(unlockKey(),s); if(typeof subSeason==='function') subSeason();   // opened lessons end on 31 Aug too
   const w=wallet(); w.hist.push({k:kind,id,n:-coins,at:Date.now(),child:coinChild()}); w.bal-=coins; walletSave(w);
   apiCall('/unlock',{child:coinChild(),id,kind:kind==='unlock-unit'?'unit':'lesson'}).then(apiTake); }
 
@@ -54,12 +54,13 @@ const unitIdOf=(s,l)=>'u:'+s.id+':'+l.unit;
    4. coins on: the free policy (ESET.access.free) decides; everything else is locked and costs coins (lesson or whole unit) */
 function coinAccess(o,hasContent,id,idx,kind){
   const it=(id&&ESET.items[id])||{}, C=CS(), A=COURSE.access||{}, un=new Set(cGet(unlockKey(),[]));
-  const cost=it.coins!=null?it.coins:o.coins!=null?o.coins:kind==='unit'?(+C.unitCost||0):id&&id[0]==='l'?(+C.lessonCost||0):(A.coins||0);
+  const cost=it.coins!=null?it.coins:o.coins!=null?o.coins:id&&id[0]==='l'?(+C.lessonCost||0):(A.coins||0);
   const out=st=>({st,coins:cost,kind:kind||(id&&id[0]==='l'?'lesson':'subject')});
   if(it.st==='soon') return out('soon');
   if(!hasContent) return out('soon');
   if(it.st==='open') return out('open');
   if(id&&promoOpen(un,id)) return out('open');
+  if(id&&id[0]!=='s'&&typeof subOpen==='function'&&subOpen()) return out('open');   // a paid term (or the 24 h after the receipt) opens every lesson of this child
   if(it.st==='locked') return out('locked');
   if(!coinsOn()){ let st=o.status||'open';
     if(st==='open'&&!o.status&&A.enabled&&A.trial&&kind==='unit'&&idx>=(A.trial.units||1)) st='locked';
@@ -78,33 +79,22 @@ const coinUnlocked=id=>promoOpen(new Set(cGet(unlockKey(),[])),id);
 //  pickUnit   = the child picks <count> whole units anywhere
 //  list       = only the lessons / units the admin listed (ids like l:arabic-u1l1, u:math:1)
 function isFree(id,kind,idx){
-  const F=(ESET.access&&ESET.access.free)||{mode:'first',count:3}, n=+F.count||0, s=subjOf(id); if(!s) return true;
-  if(F.mode===(kind==='unit'?'pickUnit':'pick')) return cGet(freeKey(),[]).includes(id);   // picked by the child = free
+  const F=(ESET.access&&ESET.access.free)||{mode:'first',count:3}, s=subjOf(id); if(!s) return true;
+  const n=(F.per&&F.per[s.id]!=null&&F.per[s.id]!==''&&+F.per[s.id]>=0)?+F.per[s.id]:(+F.count||0);   // per-subject free count (dashboard) or the default
   if(kind==='unit'){ const ui=(s.units||[]).findIndex(u=>'u:'+s.id+':'+u.unit===id);
     if(F.mode==='firstUnit') return ui<n;
     if(F.mode==='pickUnit') return false;
     return true; }   // lesson modes never lock a whole unit: the locks sit on the lessons
   const l=lessonOf(id); if(!l) return true; const uid=unitIdOf(s,l);
-  if(new Set(cGet(unlockKey(),[])).has(uid)) return true;
   if(F.mode==='first'){ const built=s.lessons.filter(x=>x.file&&!x.hidden); return built.indexOf(l)<n; }
   if(F.mode==='list') return (F.list||[]).includes(id)||(F.list||[]).includes(uid);
   return true;   // unit modes: the unit decides (the map locks its lessons); pick: locked until picked
 }
 // free picks left; perSubject (Marwa 2026-11-05: the child picks ONE free lesson in EACH subject) counts the picks of this subject only
-function freeLeft(kind,sid){ const F=(ESET.access&&ESET.access.free)||{}; const want=kind==='unit'?'pickUnit':'pick';
-  if(!coinsOn()||F.mode!==want) return 0; let used=cGet(freeKey(),[]);
-  if(F.perSubject&&sid) used=used.filter(id=>{ const s=subjOf(id); return s&&s.id===sid; });
-  return Math.max(0,(+F.count||0)-used.length); }
+function freeLeft(){ return 0; }   // no more free picks (signup gift removed 2026-11-11)
 /* ---------- coin pictures ---------- */
 const COIN=`<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="22" r="16" fill="#C98A12" stroke="var(--btn-ol)" stroke-width="2.6"/><circle cx="20" cy="19" r="16" fill="#FFD23F" stroke="var(--btn-ol)" stroke-width="2.6"/><circle cx="20" cy="19" r="11" fill="none" stroke="#E0A419" stroke-width="2.4"/><path d="M20 12v14M16.5 15.5h5.5a2.5 2.5 0 0 1 0 5h-4a2.5 2.5 0 0 0 0 5H24" fill="none" stroke="#B57A0C" stroke-width="2.6" stroke-linecap="round"/><path d="M11 13a11 11 0 0 1 6-5" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".8"/></svg>`;
-const SHAREIC={
-  'wa-chat':'<svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9.5c.3 2.300 2.300 4.300 4.700 4.800l1.100-1.200 1.700.8c-.3 1.100-1.300 1.800-2.400 1.600-3.200-.6-5.600-3-6.200-6.200-.2-1.100.5-2.100 1.600-2.400l.8 1.700z" fill="currentColor" stroke="none"/></svg>',
-  'fb':'<svg viewBox="0 0 24 24"><path d="M14 8h2.500V4.500H14A4 4 0 0 0 10 8.500V11H7.500v3.500H10V21h3.500v-6.500H16l.5-3.500h-3V8.700c0-.4.3-.7.7-.7z" fill="currentColor" stroke="none"/></svg>',
-  'messenger':'<svg viewBox="0 0 24 24"><path d="M12 3C7 3 3 6.700 3 11.300c0 2.600 1.300 4.900 3.300 6.400V21l3-1.700c.9.300 1.800.4 2.700.4 5 0 9-3.700 9-8.400S17 3 12 3z"/><path d="M7.500 13.500l3-3.200 2 2 3.500-2.300-3 3.300-2-2z" fill="currentColor"/></svg>',
-  'telegram':'<svg viewBox="0 0 24 24"><path d="M3 11.500L20.500 4.500 17.500 19.500 11.500 15l-2.500 3v-4.500l8-7.500-10 6z"/></svg>',
-  'copy':'<svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.500"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>',
-  'other':'<svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.500"/><circle cx="18" cy="6" r="2.500"/><circle cx="18" cy="18" r="2.500"/><path d="M8.200 10.900l7.600-3.800M8.200 13.100l7.600 3.800"/></svg>'};
-const shareIcon=id=>SHAREIC[id]||SHAREIC[/^wa/.test(id)?'wa-chat':/^fb/.test(id)?'fb':'other'];
+const SHAREIC='<svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.500"/><circle cx="18" cy="6" r="2.500"/><circle cx="18" cy="18" r="2.500"/><path d="M8.200 10.900l7.600-3.800M8.200 13.100l7.600 3.800"/></svg>';
 const CT=(ar,en)=>ar;   // credits, share and unlock popups are for the PARENT: always Arabic (Marwa 2026-11-05), whatever the subject; en kept for later
 
 /* ---------- CREDITS (Marwa 2026-11-05: "credits", not coins; shown ONLY in the parent's account, not on the child's screens) ----------
@@ -124,38 +114,38 @@ function coinPop(html,onOpen){
 const coinClose=()=>{ const o=$('#coinPop'); if(o) o.hidden=true; };
 const bigCoins=balLine;
 
-// a grown-up question first (Marwa 2026-11-05: no times-table sum): type the parent's name saved in the parent account.
-// Tolerant: spaces, case, harakat, tatweel, أ/إ/آ=ا, ة=ه, ى=ي; the full name or its first word. No parent name yet = no question.
-// Passed once = no more questions until the app is opened again.
+// a grown-up question first (Ahmed 2026-11-11, replaces typing the parent's name): 3 numbers written as ARABIC WORDS ("واحد - ثلاثة - خمسة"); the parent taps them on a keypad.
+// Guards the account page and every credits / unlock sheet. Passed once = no more questions until the app is opened again. Switch off: settings coins.parentGate=false.
 let gateOk=false;
-const gateNorm=t=>String(t||'').toLowerCase().replace(/[\u064B-\u065F\u0670\u0640]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/\s+/g,' ').trim();
+const GATEW=['','واحد','اثنين','ثلاثة','أربعة','خمسة','ستة','سبعة','ثمانية','تسعة'], GATED='٠١٢٣٤٥٦٧٨٩';
 function parentGate(then){
-  const nm=gateNorm((window.ACCOUNT||{}).name);
-  if(gateOk||!CS().parentGate||!nm) return then();
-  coinPop(`<h2 class="outline">${CT('لولي الأمر','For grown-ups')}</h2><p class="msg-text">${CT('اكتب اسم ولي الأمر:','Type the parent\'s name:')}</p>
-    <input class="coingate" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" dir="auto"><button class="pill green" data-go>${CT('تمام','OK')}</button>`, p=>{
-    const i=$('.coingate',p), go=()=>{ const v=gateNorm(i.value); if(v&&(v===nm||v===nm.split(' ')[0])){ gateOk=true; then(); } else { i.value=''; if(anim) G.fromTo(i,{x:-8},{x:0,duration:.4,ease:'elastic.out(1,.3)'}); } };
-    $('[data-go]',p).addEventListener('click',go); i.addEventListener('keydown',e=>{ if(e.key==='Enter') go(); }); setTimeout(()=>i.focus(),50); });
+  if(gateOk||CS().parentGate===false) return then();
+  const want=[0,0,0].map(()=>1+Math.floor(Math.random()*9)); let got=[];
+  coinPop(`<h2 class="outline">لولي الأمر</h2><p class="msg-text">اضغط الأرقام دي بالترتيب:</p><p class="msg-text gate-w">${want.map(n=>GATEW[n]).join(' - ')}</p>
+    <div class="gate-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="gate-pad">${[1,2,3,4,5,6,7,8,9].map(n=>`<button type="button" class="gate-k" data-n="${n}">${GATED[n]}</button>`).join('')}<span></span><button type="button" class="gate-k gate-x" aria-label="مسح">⌫</button></div>`, p=>{
+    const dots=$$('.gate-dots i',p), paint=()=>dots.forEach((d,i)=>d.classList.toggle('on',i<got.length));
+    $$('.gate-k[data-n]',p).forEach(k=>k.addEventListener('click',()=>{ if(got.length>=3) return; got.push(+k.dataset.n); paint();
+      if(got.length<3) return;
+      if(got.join()===want.join()){ gateOk=true; coinClose(); then(); }
+      else { if(anim) G.fromTo($('.gate-dots',p),{x:-10},{x:0,duration:.4,ease:'elastic.out(1,.3)'}); got=[]; setTimeout(paint,250); } }));
+    $('.gate-x',p).addEventListener('click',()=>{ got.pop(); paint(); }); });
 }
 
 /* ---------- the share sheet ---------- */
 // ?r= = the parent's ref code or server id (js/sync.js); never the email (no server = no r at all)
 function shareLink(){ const u=CS().shareUrl||location.origin+location.pathname.replace(/[^/]*$/,''), A=window.ACCOUNT||{}, r=A.ref||(A.token&&A.id&&!String(A.id).includes('@')?A.id:'');
   return r?u+(u.includes('?')?'&':'?')+'r='+encodeURIComponent(r):u; }
-function shareOpen(t){
-  const url=shareLink(), txt=(CS().shareText||'EasyStudy')+' '+url, e=encodeURIComponent;
-  if(/^wa/.test(t.id)) return window.open('https://wa.me/?text='+e(txt),'_blank');
-  if(t.id==='messenger') return window.open(/Android|iPhone|iPad/i.test(navigator.userAgent)?'fb-messenger://share/?link='+e(url):'https://www.facebook.com/sharer/sharer.php?u='+e(url),'_blank');
-  if(/^fb/.test(t.id)) return window.open('https://www.facebook.com/sharer/sharer.php?u='+e(url),'_blank');
-  if(t.id==='telegram') return window.open('https://t.me/share/url?url='+e(url)+'&text='+e(CS().shareText||''),'_blank');
-  if(t.id==='copy'){ try{ navigator.clipboard.writeText(txt); }catch(x){} return; }
-  if(navigator.share) navigator.share({title:'EasyStudy',text:CS().shareText||'',url}).catch(()=>{});
-}
-// how many credits a share of this type pays now (0 = cooldown or the day's cap)
-function sharePays(t,w){ const C=CS(), now=Date.now(), last=w.last[t.id]||0;
-  if(now-last<(+t.cooldownH||0)*3600e3) return 0;
-  const day=new Date().toDateString(), got=w.hist.filter(h=>h.k==='share'&&new Date(h.at).toDateString()===day).reduce((a,h)=>a+h.n,0);
-  return Math.max(0,Math.min(+t.coins||0,(C.dailyCap!=null?+C.dailyCap:1e9)-got)); }
+// ONE share button (Ahmed 2026-11-11): the device share sheet; no sheet (desktop) = copy the link. Any share = 1 credit, at most dailyCap (20) shares a day.
+let COPIED=false;
+function shareOpen(){
+  const url=shareLink(), text=CS().shareText||'EasyStudy'; COPIED=false;
+  if(navigator.share) return navigator.share({title:'EasyStudy',text,url}).catch(()=>{});
+  try{ navigator.clipboard.writeText(text+' '+url); }catch(x){} COPIED=true; }
+// how many credits one share pays now (0 = today's cap of shares is reached)
+function sharePays(w){ const C=CS(), per=C.shareCoins!=null?+C.shareCoins:1, cap=C.dailyCap!=null?+C.dailyCap:20, day=new Date().toDateString(),
+    n=w.hist.filter(h=>h.k==='share'&&new Date(h.at).toDateString()===day).length;
+  return n<cap?per:0; }
 /* SHARE CHECK (Marwa 2026-11-05: "do the most we can to make sure the share happened"). A web page can never see inside WhatsApp / Facebook,
    so the strongest proof on the device is: after the tap the app must really LEAVE (WhatsApp / Facebook / Messenger opened over it; for
    "copy link" the parent goes to another app to paste) within a few seconds, stay away long enough to send (coins.shareMinSec, default 8 s),
@@ -163,37 +153,37 @@ function sharePays(t,w){ const C=CS(), now=Date.now(), last=w.last[t.id]||0;
    server the per-account / device / IP limits plus the referral bonus (the only share that is fully proven: a new parent registers). */
 let SHR=null;
 const shareMin=()=>(CS().shareMinSec!=null?+CS().shareMinSec:8)*1000;
-function shareStart(t,after){ const w=wallet(), p=sharePays(t,w);
-  if(!p){ shareOpen(t); return; }   // already paid for this type today: the share still opens, no credits
-  SHR={t,p,at:Date.now(),left:0,after};
-  const leaveIn=t.id==='copy'?60000:5000;
-  shareOpen(t);
-  setTimeout(()=>{ if(SHR&&SHR.t===t&&!SHR.left){ SHR=null; shareNote('no',t,after); } },leaveIn);
-  if(t.id==='copy') shareNote('copied',t,after); }
+function shareStart(after){ const w=wallet(), p=sharePays(w);
+  if(!p){ shareOpen(); return shareNote('cap',after); }   // the day's 20 shares are paid: the share still opens, no credits
+  SHR={p,at:Date.now(),left:0,after};
+  const copy=!navigator.share, leaveIn=copy?60000:5000, me=SHR;
+  shareOpen();
+  setTimeout(()=>{ if(SHR===me&&!SHR.left){ SHR=null; shareNote('no',after); } },leaveIn);
+  if(copy) shareNote('copied',after); }
 document.addEventListener('visibilitychange',()=>{ if(!SHR) return;
   if(document.hidden){ if(!SHR.left) SHR.left=Date.now(); return; }
   if(!SHR.left) return; const s=SHR; SHR=null;
-  if(Date.now()-s.left<shareMin()) return shareNote('short',s.t,s.after);
-  sharePay(s.t,s.after); });
-function sharePay(t,after){ const w=wallet(), p=sharePays(t,w); if(!p) return coinSheet(after);
-  w.bal+=p; w.last[t.id]=Date.now(); w.hist.push({k:'share',t:t.id,n:p,at:Date.now()}); walletSave(w); paintHud();
-  apiCall('/share',{type:t.id}).then(apiTake);   // the server pays again by its own rules (cooldown, day cap) and sends the true wallet
+  if(Date.now()-s.left<shareMin()) return shareNote('short',s.after);
+  sharePay(s.after); });
+function sharePay(after){ const w=wallet(), p=sharePays(w); if(!p) return coinSheet(after);
+  w.bal+=p; w.hist.push({k:'share',n:p,at:Date.now()}); walletSave(w); paintHud();
+  apiCall('/share',{}).then(apiTake);   // the server pays again by its own rules and sends the true wallet
   if(typeof chime==='function') chime(2);
   coinPop(`<h2 class="outline">${CT('شكرًا!','Thank you!')}</h2>${balLine(w.bal)}<p class="msg-text">${CT(`أخدت ${CRED(p)} على المشاركة`,`You got ${CRED(p)} for sharing`)}</p><button class="pill green" data-ok>${CT('تمام','OK')}</button>`,
     pp=>$('[data-ok]',pp).addEventListener('click',()=>coinSheet(after))); }
-function shareNote(why,t,after){ const nm=t.ar;
-  const txt={no:CT(`ملحقناش نشوف ${nm} اتفتح. ابعت الرسالة وارجع هنا عشان تاخد الكريدتس`,`We did not see ${nm} open. Send the message, then come back here to get the credits`),
+function shareNote(why,after){
+  const txt={no:CT('ملحقناش نشوف المشاركة اتبعتت. ابعت الرسالة وارجع هنا عشان تاخد الكريدتس','We did not see the share go out. Send the message, then come back here to get the credits'),
     short:CT('رجعت بسرعة قوي. ابعت الرسالة فعلًا وارجع هنا عشان تاخد الكريدتس','You came back too fast. Really send the message, then come back here for the credits'),
+    cap:CT('خلصت مشاركات النهارده (٢٠). كمّل بكرة','You reached today\'s 20 shares. Continue tomorrow'),
     copied:CT('الرابط اتنسخ. الصقه في محادثة أو جروب وابعته، وارجع هنا عشان تاخد الكريدتس','The link is copied. Paste it in a chat or group and send it, then come back here for the credits')}[why];
-  coinPop(`<h2 class="outline">${why==='copied'?CT('اتنسخ','Copied'):CT('لسه','Not yet')}</h2><p class="msg-text">${txt}</p><button class="pill green" data-ok>${CT('تمام','OK')}</button>`,
+  coinPop(`<h2 class="outline">${why==='copied'?CT('اتنسخ','Copied'):why==='cap'?CT('كفاية النهارده','Enough for today'):CT('لسه','Not yet')}</h2><p class="msg-text">${txt}</p><button class="pill green" data-ok>${CT('تمام','OK')}</button>`,
     pp=>$('[data-ok]',pp).addEventListener('click',()=>why==='copied'?coinClose():coinSheet(after))); }
 function coinSheet(after){ parentGate(()=>{
-  const w=wallet(), list=(CS().shares||[]).filter(t=>t.on);
+  const w=wallet(), p=sharePays(w);
   coinPop(`<h2 class="outline">${CT('اجمع كريدتس','Get credits')}</h2>${balLine(w.bal)}
-    <p class="msg-text">${CT('شارك التطبيق مع أصحابك واكسب كريدتس تفتح بيها دروس جديدة. ابعت الرسالة فعلًا وارجع هنا عشان تتحسب','Share the app with friends and earn credits to open new lessons. Really send it, then come back here so it counts')}</p>
-    <div class="coinshares">${list.map(t=>{ const p=sharePays(t,w); return `<button class="cshare ${/^wa/.test(t.id)?'wa':/^fb|messenger/.test(t.id)?'fb':''}" data-id="${t.id}"><span class="si">${shareIcon(t.id)}</span><span class="sn">${t.ar}</span><span class="sc${p?'':' done'}">${p?'+'+num(p):'✓'}</span></button>`; }).join('')}</div>
-    ${list.some(t=>!sharePays(t,w))?`<p class="cnote">✓ ${CT('= خدت كريدتس المشاركة دي النهارده، تقدر تكسبها تاني بكرة','= paid today for this share, again tomorrow')}</p>`:''}`, pp=>{
-    $$('.cshare',pp).forEach(b=>b.addEventListener('click',()=>shareStart(list.find(x=>x.id===b.dataset.id),after)));
+    <p class="msg-text">${CT('شارك التطبيق مع أصحابك واكسب كريدت على كل مشاركة، وافتح بيها دروس جديدة. ابعت الرسالة فعلًا وارجع هنا عشان تتحسب','Share the app with friends: every share earns a credit to open new lessons. Really send it, then come back here so it counts')}</p>
+    <button class="pill green cshare1" data-share><span class="si">${SHAREIC}</span><span>${CT('شارك','Share')}</span>${p?`<span class="sc">+${num(p)}</span>`:''}</button>`, pp=>{
+    $('[data-share]',pp).addEventListener('click',()=>shareStart(after));
     if(after) $('.popx',pp).addEventListener('click',after);
   }); }); }
 
@@ -201,7 +191,6 @@ function coinSheet(after){ parentGate(()=>{
 const HK={gift:['هدية التسجيل','Sign-up gift'],share:['مشاركة','Share'],ref:['ولي أمر سجّل من رابطك','A parent joined from your link'],referral:['ولي أمر سجّل من رابطك','A parent joined from your link'],
   promo:['برومو كود','Promo code'],'unlock-lesson':['فتح درس','Unlocked a lesson'],'unlock-unit':['فتح وحدة','Unlocked a unit']};
 function histName(h){ const b=HK[h.k]||[h.k,h.k]; let x=CT(b[0],b[1]);
-  if(h.k==='share'){ const t=(CS().shares||[]).find(s=>s.id===h.t); if(t) x+=': '+t.ar; }
   if(h.k==='promo') x+=': '+promoWhat(h.id);
   if(h.id&&h.k==='unlock-lesson'){ const l=lessonOf(h.id), s=subjOf(h.id); if(l) x+=': '+(s?s.name+' · ':'')+(l.title||''); }
   if(h.id&&h.k==='unlock-unit'){ const p=h.id.split(':'), s=subjOf(h.id); x+=': '+(s?s.name+' · ':'')+CT('الوحدة ','Unit ')+num(p[2]||''); }
@@ -224,28 +213,17 @@ function creditsPage(){ parentGate(()=>{
    kind 'unit':   open the whole unit (unitCost). Credits off, or no price = "this opens later". onOpen() redraws the map. */
 function lockTap(kind,item,cost,art,onOpen){
   const C=CS(), title=CT('مقفول','Locked');
-  if(!coinsOn()){ message(title,cost?CT(`تفتحيه بـ ${COINTXT(cost)}`,`Open it with ${COINTXT(cost)}!`):CT('ده هيتفتح قريبًا','This opens later!'),art); return; }
-  const s=SUBJECT, uid=kind==='unit'?'u:'+s.id+':'+item.unit:unitIdOf(s,item), lid=kind==='lesson'?'l:'+item.id:null;
-  const uc=(ESET.items[uid]&&ESET.items[uid].coins)!=null?ESET.items[uid].coins:(+C.unitCost||0), uOff=ESET.items[uid]&&ESET.items[uid].st==='locked'&&kind==='lesson';
-  const fl=freeLeft(kind==='unit'?'unit':'lesson',s.id), lc=cost||(+C.lessonCost||0), F=(ESET.access&&ESET.access.free)||{}, fc=+F.count||1;
+  if(!coinsOn()||kind!=='lesson'){ message(title,kind==='lesson'&&cost?CT(`تفتحيه بـ ${COINTXT(cost)}`,`Open it with ${COINTXT(cost)}!`):CT('ده هيتفتح قريبًا','This opens later!'),art); return; }
+  const lid='l:'+item.id, lc=cost||(+C.lessonCost||3);   // credits open LESSONS only (Ahmed 2026-11-11): no whole-unit buy, no sign-up gift
   const done=()=>{ coinClose(); paintHud(); if(typeof chime==='function') chime(3); onOpen&&onOpen(); };
-  const pay=(id,n,k)=>{ if(coinBal()<n) return; addUnlock(id,n,k); done(); };
-  if(fl){ const what=kind==='unit'?(fc>1?CT(`${num(fc)} وحدات`,`${fc} units`):CT('وحدة','one unit')):(fc>1?CT(`${num(fc)} دروس`,`${fc} lessons`):CT('درس','one lesson'));
-    const txt=F.perSubject?CT(`هدية التسجيل: تقدر تفتح أي ${what} تختاره من كل مادة مجانًا. تحب تفتح ${kind==='unit'?'الوحدة دي':'الدرس ده'} كهديتك في المادة دي؟`,`Sign-up gift: you can open any ${what} you choose in each subject for free. Open this ${kind} as your gift in this subject?`)
-      :CT(`هدية التسجيل: تقدر تفتح أي ${what} تختاره مجانًا (باقي لك ${num(fl)}). تحب تفتح ${kind==='unit'?'الوحدة دي':'الدرس ده'}؟`,`Sign-up gift: you can open any ${what} you choose for free (${fl} left). Open this ${kind}?`);
-    coinPop(`<h2 class="outline">${CT('هدية!','A gift!')}</h2><div class="msg-art">${art||''}</div>
-      <p class="msg-text">${txt}</p><button class="pill green" data-free>${CT('افتحه مجانًا','Open it free')}</button>`,
-      p=>$('[data-free]',p).addEventListener('click',()=>{ const f=cGet(freeKey(),[]); f.push(kind==='unit'?uid:lid); cSet(freeKey(),f); apiCall('/pick',{child:coinChild(),id:kind==='unit'?uid:lid}).then(apiTake); done(); })); return; }
-  parentGate(()=>{ const bal=coinBal(), btn=(n,lab,attr)=>`<button class="pill ${bal>=n?'green':'cream off'} cbuy" ${attr}${bal>=n?'':' disabled aria-disabled="true"'}><span>${lab} = ${num(n)} ${CT('كريدتس','credits')}</span></button>`;   // Marwa 2026-11-05: "افتح الدرس = ٣ كريدتس" (word, no coin picture)
-    const prices=[kind==='lesson'&&lc?lc:0,uc&&!uOff?uc:0].filter(Boolean), low=prices.length&&bal<Math.min(...prices);
+  parentGate(()=>{ const bal=coinBal(), ok=bal>=lc;
     coinPop(`<h2 class="outline">${title}</h2><div class="msg-art">${art||''}</div>${balLine(bal)}
-      <div class="cbuys">${kind==='lesson'&&lc?btn(lc,CT('افتح الدرس','Open the lesson'),'data-l'):''}${uc&&!uOff?btn(uc,CT('افتح الوحدة كلها','Open the whole unit'),'data-u'):''}</div>
-      ${low?`<p class="msg-text clow">${CT('رصيدك لا يكفي','Not enough credits')}</p>`:''}
+      <div class="cbuys"><button class="pill ${ok?'green':'cream off'} cbuy" data-l${ok?'':' disabled aria-disabled="true"'}><span>${CT('افتح الدرس','Open the lesson')} = ${num(lc)} ${CT('كريدتس','credits')}</span></button></div>
+      ${ok?'':`<p class="msg-text clow">${CT('رصيدك لا يكفي','Not enough credits')}</p>`}
       <button class="pill blue" data-more>${CT('اجمع كريدتس','Get credits')}</button>${promoLine()}`, p=>{
       promoWire(p,onOpen);
-      const l=$('[data-l]',p), u=$('[data-u]',p);
-      if(l) l.addEventListener('click',()=>pay(lid,lc,'unlock-lesson'));
-      if(u) u.addEventListener('click',()=>pay(uid,uc,'unlock-unit'));
+      const l=$('[data-l]',p);
+      if(l) l.addEventListener('click',()=>{ if(coinBal()<lc) return; addUnlock(lid,lc,'unlock-lesson'); done(); });
       $('[data-more]',p).addEventListener('click',()=>coinSheet(()=>lockTap(kind,item,cost,art,onOpen))); }); });
 }
 
@@ -268,7 +246,7 @@ function promoWhat(p){ if(!p) return ''; if(typeof p==='string') p={what:p==='*'
 const promoKey=p=>p.what==='all'?'*':p.what==='subject'?'s:'+p.target:p.target;
 function promoCheck(code){   // local check -> {p} or {err}
   const c=promoNorm(code); if(!c) return {err:'empty'};
-  const p=(ESET.promos||[]).find(x=>promoNorm(x.code)===c); if(!p||p.on===false) return {err:'bad'};
+  const p=(ESET.promos||[]).find(x=>promoNorm(x.code)===c); if(ESET.promoOn===false||!p||p.on===false) return {err:'bad'};
   if(p.until&&new Date().toISOString().slice(0,10)>p.until) return {err:'old'};
   if(p.what!=='all'&&!p.target) return {err:'bad'};
   const U=cGet('es.promoUses',{}), mine=cGet(freeKey()+'.promo',[]), n=U[c]||0;
@@ -276,13 +254,13 @@ function promoCheck(code){   // local check -> {p} or {err}
   if(p.uses!=='many'&&n>=1) return {err:'used'};
   if(p.uses==='many'&&+p.max>0&&n>=+p.max) return {err:'full'};
   return {p,c}; }
-function promoApply(p,c){ const id=promoKey(p), s=cGet(unlockKey(),[]); if(!s.includes(id)) s.push(id); cSet(unlockKey(),s);
+function promoApply(p,c){ const id=promoKey(p), s=cGet(unlockKey(),[]); if(!s.includes(id)) s.push(id); cSet(unlockKey(),s); if(typeof subSeason==='function') subSeason();
   const U=cGet('es.promoUses',{}); U[c]=(U[c]||0)+1; cSet('es.promoUses',U);
   const mine=cGet(freeKey()+'.promo',[]); mine.push(c); cSet(freeKey()+'.promo',mine);
   const w=wallet(); w.hist.push({k:'promo',id,n:0,at:Date.now(),child:coinChild(),code:c}); walletSave(w); }
 const PROMO_ERR={empty:['اكتب الكود الأول','Type the code first'],bad:['الكود ده مش صحيح','This code is not valid'],old:['الكود ده انتهى','This code has expired'],
   used:['الكود ده اتستخدم قبل كده','This code was already used'],full:['الكود ده خلص عدد مرات استخدامه','This code has no uses left'],net:['مفيش اتصال، جرّب تاني','No connection, try again']};
-function promoLine(){ return `<button type="button" class="cpromo" data-promo>${CT('عندك برومو كود؟','Have a promo code?')}</button>
+function promoLine(){ if(ESET.promoOn===false) return ''; return `<button type="button" class="cpromo" data-promo>${CT('عندك برومو كود؟','Have a promo code?')}</button>
   <form class="cpromof" hidden autocomplete="off"><input class="cpromoin" name="code" dir="ltr" inputmode="latin" autocapitalize="characters" spellcheck="false" maxlength="32" placeholder="${CT('اكتب الكود','Type the code')}" aria-label="${CT('البرومو كود','Promo code')}">
   <button class="pill green cpromogo">${CT('فعّل','Use')}</button><p class="cpromoerr" role="alert" hidden></p></form>`; }
 function promoWire(pp,onOpen){
