@@ -1,105 +1,208 @@
 {
-  "sets": [
+ "sets": [
+  {
+   "type": "pick",
+   "ex": 1,
+   "page": 45,
+   "task": "Which picture shows 6 - 4?",
+   "taskAudio": "q/task-1.mp3",
+   "hint": "Count all the cookies, then the cookies that go away.",
+   "items": [
     {
-      "type": "pick",
-      "ex": 1,
-      "page": 45,
-      "task": "Which picture shows 6 - 4?",
-      "taskAudio": "q/task-1.mp3",
-      "hint": "Count all the cookies, then the cookies that go away.",
-      "items": [
-        {
-          "word": "6 - 4",
-          "audio": "q/pick.mp3",
-          "pics": [
-            "story-1.jpg",
-            "story-2.jpg",
-            "story-3.jpg"
-          ],
-          "answer": 2
-        }
-      ]
+     "word": "6 - 4",
+     "audio": "q/pick.mp3",
+     "pics": [
+      "story-1.png",
+      "story-2.png",
+      "story-3.png"
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 45,
+   "task": "Let's do subtraction.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "stem": "4 - 2 = ___",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 1,
+     "askAudio": "q/sub-1-q.mp3",
+     "audio": "q/sub-1.mp3",
+     "word": "4 - 2 = 2"
     },
     {
-      "type": "mcq",
-      "ex": 2,
-      "page": 45,
-      "task": "Let's do subtraction.",
-      "taskAudio": "q/task-2.mp3",
-      "items": [
-        {
-          "stem": "4 - 2 = ___",
-          "options": [
-            "1",
-            "2",
-            "3"
-          ],
-          "answer": 1,
-          "askAudio": "q/sub-1-q.mp3",
-          "audio": "q/sub-1.mp3",
-          "word": "4 - 2 = 2"
-        },
-        {
-          "stem": "5 - 1 = ___",
-          "options": [
-            "3",
-            "4",
-            "5"
-          ],
-          "answer": 1,
-          "askAudio": "q/sub-2-q.mp3",
-          "audio": "q/sub-2.mp3",
-          "word": "5 - 1 = 4"
-        },
-        {
-          "stem": "6 - 5 = ___",
-          "options": [
-            "1",
-            "2",
-            "3"
-          ],
-          "answer": 0,
-          "askAudio": "q/sub-3-q.mp3",
-          "audio": "q/sub-3.mp3",
-          "word": "6 - 5 = 1"
-        },
-        {
-          "stem": "9 - 7 = ___",
-          "options": [
-            "1",
-            "2",
-            "3"
-          ],
-          "answer": 1,
-          "askAudio": "q/sub-4-q.mp3",
-          "audio": "q/sub-4.mp3",
-          "word": "9 - 7 = 2"
-        },
-        {
-          "stem": "10 - 5 = ___",
-          "options": [
-            "4",
-            "5",
-            "6"
-          ],
-          "answer": 1,
-          "askAudio": "q/sub-5-q.mp3",
-          "audio": "q/sub-5.mp3",
-          "word": "10 - 5 = 5"
-        },
-        {
-          "stem": "10 - 9 = ___",
-          "options": [
-            "1",
-            "2",
-            "3"
-          ],
-          "answer": 0,
-          "askAudio": "q/sub-6-q.mp3",
-          "audio": "q/sub-6.mp3",
-          "word": "10 - 9 = 1"
-        }
-      ]
+     "stem": "5 - 1 = ___",
+     "options": [
+      "3",
+      "4",
+      "5"
+     ],
+     "answer": 1,
+     "askAudio": "q/sub-2-q.mp3",
+     "audio": "q/sub-2.mp3",
+     "word": "5 - 1 = 4"
+    },
+    {
+     "stem": "6 - 5 = ___",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 0,
+     "askAudio": "q/sub-3-q.mp3",
+     "audio": "q/sub-3.mp3",
+     "word": "6 - 5 = 1"
+    },
+    {
+     "stem": "9 - 7 = ___",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 1,
+     "askAudio": "q/sub-4-q.mp3",
+     "audio": "q/sub-4.mp3",
+     "word": "9 - 7 = 2"
+    },
+    {
+     "stem": "10 - 5 = ___",
+     "options": [
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 1,
+     "askAudio": "q/sub-5-q.mp3",
+     "audio": "q/sub-5.mp3",
+     "word": "10 - 5 = 5"
+    },
+    {
+     "stem": "10 - 9 = ___",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 0,
+     "askAudio": "q/sub-6-q.mp3",
+     "audio": "q/sub-6.mp3",
+     "word": "10 - 9 = 1"
     }
-  ]
+   ]
+  },
+  {
+   "type": "pick",
+   "ex": 1,
+   "page": 45,
+   "task": "Which picture shows 6 - 4?",
+   "taskAudio": "q/task-1.mp3",
+   "hint": "Count all the cookies, then the cookies that go away.",
+   "items": [
+    {
+     "word": "6 - 4",
+     "audio": "q/pick.mp3",
+     "pics": [
+      "story-1.png",
+      "story-2.png",
+      "story-3.png"
+     ],
+     "answer": 2
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 45,
+   "task": "Let's do subtraction.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "stem": "4 - 2 = ___",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 1,
+     "askAudio": "q/sub-1-q.mp3",
+     "audio": "q/sub-1.mp3",
+     "word": "4 - 2 = 2"
+    },
+    {
+     "stem": "5 - 1 = ___",
+     "options": [
+      "3",
+      "4",
+      "5"
+     ],
+     "answer": 1,
+     "askAudio": "q/sub-2-q.mp3",
+     "audio": "q/sub-2.mp3",
+     "word": "5 - 1 = 4"
+    },
+    {
+     "stem": "6 - 5 = ___",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 0,
+     "askAudio": "q/sub-3-q.mp3",
+     "audio": "q/sub-3.mp3",
+     "word": "6 - 5 = 1"
+    },
+    {
+     "stem": "9 - 7 = ___",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 1,
+     "askAudio": "q/sub-4-q.mp3",
+     "audio": "q/sub-4.mp3",
+     "word": "9 - 7 = 2"
+    },
+    {
+     "stem": "10 - 5 = ___",
+     "options": [
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 1,
+     "askAudio": "q/sub-5-q.mp3",
+     "audio": "q/sub-5.mp3",
+     "word": "10 - 5 = 5"
+    },
+    {
+     "stem": "10 - 9 = ___",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 0,
+     "askAudio": "q/sub-6-q.mp3",
+     "audio": "q/sub-6.mp3",
+     "word": "10 - 9 = 1"
+    }
+   ],
+   "book": "booklet"
+  }
+ ]
 }

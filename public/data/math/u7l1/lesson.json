@@ -1,0 +1,961 @@
+{
+ "id": "u7l1",
+ "unit": 7,
+ "lesson": 1,
+ "title": "Numbers up to 20",
+ "task": "Numbers up to 20",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz",
+  "booklet"
+ ],
+ "tabLabels": {
+  "read": "Lesson",
+  "quiz": "Book Questions"
+ },
+ "pages": 10,
+ "pageNums": [
+  72,
+  72,
+  72,
+  72,
+  72,
+  72,
+  72,
+  72,
+  72,
+  72
+ ],
+ "layout": "explain",
+ "explain": {
+  "caption": false,
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3",
+   "6": "../u1l4/words/six.mp3",
+   "7": "../u1l4/words/seven.mp3",
+   "8": "../u1l4/words/eight.mp3",
+   "9": "../u1l4/words/nine.mp3",
+   "10": "../u1l4/words/ten.mp3",
+   "11": "words/eleven.mp3",
+   "12": "words/twelve.mp3",
+   "13": "words/thirteen.mp3",
+   "14": "words/fourteen.mp3",
+   "15": "words/fifteen.mp3",
+   "16": "words/sixteen.mp3",
+   "17": "words/seventeen.mp3",
+   "18": "words/eighteen.mp3",
+   "19": "words/nineteen.mp3",
+   "20": "words/twenty.mp3"
+  },
+  "steps": [
+   {
+    "name": "11",
+    "beats": [
+     {
+      "say": "Ten.",
+      "audio": "explain/ten.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 11,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "ten",
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "And one more.",
+      "audio": "explain/s11-2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ]
+        ],
+        "start": 11,
+        "color": "orange",
+        "keep": true,
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Ten and one make eleven.",
+      "audio": "explain/s11-3.mp3",
+      "do": [
+       {
+        "add": "10 + 1 = 11",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "eleven",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "12",
+    "beats": [
+     {
+      "say": "Ten.",
+      "audio": "explain/ten.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 12,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "ten",
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "And two more.",
+      "audio": "explain/s12-2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ]
+        ],
+        "start": 11,
+        "color": "orange",
+        "keep": true,
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Ten and two make twelve.",
+      "audio": "explain/s12-3.mp3",
+      "do": [
+       {
+        "add": "10 + 2 = 12",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "twelve",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "13",
+    "beats": [
+     {
+      "say": "Ten.",
+      "audio": "explain/ten.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 13,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "ten",
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "And three more.",
+      "audio": "explain/s13-2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ]
+        ],
+        "start": 11,
+        "color": "orange",
+        "keep": true,
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Ten and three make thirteen.",
+      "audio": "explain/s13-3.mp3",
+      "do": [
+       {
+        "add": "10 + 3 = 13",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "thirteen",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "14",
+    "beats": [
+     {
+      "say": "Ten.",
+      "audio": "explain/ten.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 14,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "ten",
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "And four more.",
+      "audio": "explain/s14-2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ],
+         [
+          373,
+          203
+         ]
+        ],
+        "start": 11,
+        "color": "orange",
+        "keep": true,
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Ten and four make fourteen.",
+      "audio": "explain/s14-3.mp3",
+      "do": [
+       {
+        "add": "10 + 4 = 14",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "fourteen",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "15",
+    "beats": [
+     {
+      "say": "Ten.",
+      "audio": "explain/ten.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 15,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "ten",
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "And five more.",
+      "audio": "explain/s15-2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ],
+         [
+          373,
+          203
+         ],
+         [
+          453,
+          203
+         ]
+        ],
+        "start": 11,
+        "color": "orange",
+        "keep": true,
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Ten and five make fifteen.",
+      "audio": "explain/s15-3.mp3",
+      "do": [
+       {
+        "add": "10 + 5 = 15",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "fifteen",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "16",
+    "beats": [
+     {
+      "say": "Ten.",
+      "audio": "explain/ten.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 16,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "ten",
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "And six more.",
+      "audio": "explain/s16-2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ],
+         [
+          373,
+          203
+         ],
+         [
+          453,
+          203
+         ],
+         [
+          533,
+          203
+         ]
+        ],
+        "start": 11,
+        "color": "orange",
+        "keep": true,
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Ten and six make sixteen.",
+      "audio": "explain/s16-3.mp3",
+      "do": [
+       {
+        "add": "10 + 6 = 16",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "sixteen",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "17",
+    "beats": [
+     {
+      "say": "Ten.",
+      "audio": "explain/ten.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 17,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "ten",
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "And seven more.",
+      "audio": "explain/s17-2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ],
+         [
+          373,
+          203
+         ],
+         [
+          453,
+          203
+         ],
+         [
+          533,
+          203
+         ],
+         [
+          613,
+          203
+         ]
+        ],
+        "start": 11,
+        "color": "orange",
+        "keep": true,
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Ten and seven make seventeen.",
+      "audio": "explain/s17-3.mp3",
+      "do": [
+       {
+        "add": "10 + 7 = 17",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "seventeen",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "18",
+    "beats": [
+     {
+      "say": "Ten.",
+      "audio": "explain/ten.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 18,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "ten",
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "And eight more.",
+      "audio": "explain/s18-2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ],
+         [
+          373,
+          203
+         ],
+         [
+          453,
+          203
+         ],
+         [
+          533,
+          203
+         ],
+         [
+          613,
+          203
+         ],
+         [
+          693,
+          203
+         ]
+        ],
+        "start": 11,
+        "color": "orange",
+        "keep": true,
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Ten and eight make eighteen.",
+      "audio": "explain/s18-3.mp3",
+      "do": [
+       {
+        "add": "10 + 8 = 18",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "eighteen",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "19",
+    "beats": [
+     {
+      "say": "Ten.",
+      "audio": "explain/ten.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 19,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "ten",
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "And nine more.",
+      "audio": "explain/s19-2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ],
+         [
+          373,
+          203
+         ],
+         [
+          453,
+          203
+         ],
+         [
+          533,
+          203
+         ],
+         [
+          613,
+          203
+         ],
+         [
+          693,
+          203
+         ],
+         [
+          773,
+          203
+         ]
+        ],
+        "start": 11,
+        "color": "orange",
+        "keep": true,
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Ten and nine make nineteen.",
+      "audio": "explain/s19-3.mp3",
+      "do": [
+       {
+        "add": "10 + 9 = 19",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "nineteen",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "20",
+    "beats": [
+     {
+      "say": "Ten.",
+      "audio": "explain/ten.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 20,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "ten",
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "And ten more.",
+      "audio": "explain/s20-2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ],
+         [
+          373,
+          203
+         ],
+         [
+          453,
+          203
+         ],
+         [
+          533,
+          203
+         ],
+         [
+          613,
+          203
+         ],
+         [
+          693,
+          203
+         ],
+         [
+          773,
+          203
+         ],
+         [
+          853,
+          203
+         ]
+        ],
+        "start": 11,
+        "color": "orange",
+        "keep": true,
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Ten and ten make twenty.",
+      "audio": "explain/s20-3.mp3",
+      "do": [
+       {
+        "add": "10 + 10 = 20",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "twenty",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   }
+  ]
+ }
+}

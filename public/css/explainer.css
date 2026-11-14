@@ -48,6 +48,11 @@
 .xpl-line .xtw.reading{background:var(--c-now-bg);color:var(--c-text);box-shadow:0 0 0 .12em var(--c-now-bg)}
 /* Try: the scattered pieces = THE choice pills; a chosen one is written on the line above */
 .xpl-cap.asking.built .xpl-ask{flex-wrap:wrap;justify-content:center;align-content:center;gap:.4rem .5rem;margin:auto 0;padding-top:.4rem;border-top:.12rem dashed var(--c-on-bg-line)}
+/* sentence building (Ahmed 2026-11-14): the pieces are smaller so every one fits (never cut off), and the sentence being written is bigger = the focus */
+.xpl-cap.asking.built .xpl-ask{min-height:0;overflow-y:auto;gap:.3rem .4rem}
+.xpl-cap.asking.built .xpl-ask .qch.wd{--q-word:clamp(2rem,min(4.6vh,9vw),2.6rem)}
+.xpl-cap.asking.built .xpl-ask .qch.wd>span{padding-inline:.1rem}
+.xpl-cap.asking.built .xpl-line{font-size:calc(var(--xfs)*1.2);flex:none}
 .xpl-ask .xpick{cursor:pointer}   /* look + size = THE choice button (css/qlayout.css), Marwa 2026-11-06 */
 .xpl-ask .xpick.used{opacity:0;pointer-events:none}
 .xpl-ask .xpick.no{animation:xshake .45s}
@@ -62,3 +67,12 @@
 .xpl-ask .xkeys .qmn{--q-choice:clamp(2.4rem,min(11cqw,13cqh),3.8rem)}
 .xpl-ask .xkeys .qmn.no,.xpl-ask .xans.no{animation:xshake .45s}
 .xpl-ask .xans.yes{background:var(--c-good);color:#fff}
+
+/* line scene (Front / Back ends; the end counting starts from lights up) */
+.xpl .xl-end{font:400 40px var(--f-title);fill:#9a8a7a;paint-order:stroke;stroke:none}
+.xpl .xl-end.on{fill:#FF8A1F;font-size:50px}
+
+/* wide = a LINE lesson (data explain.wide): the picture takes the whole width, the answer is written under it, in landscape too */
+.xpl.xwide{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,76fr) minmax(0,24fr)}
+.xpl.xwide .xpl-cap{--xfs:min(15cqh,6.8cqw,2.5rem)}
+.xpl.xwide .xtw.xcard{font-size:calc(var(--xfs)*1.7);padding:.1em .6em}

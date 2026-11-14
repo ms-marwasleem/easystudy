@@ -1,0 +1,844 @@
+{
+ "id": "u2l2",
+ "unit": 2,
+ "lesson": 2,
+ "title": "Where Is It?",
+ "task": "Where Is It?",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz",
+  "booklet"
+ ],
+ "tabLabels": {
+  "read": "Lesson",
+  "quiz": "Book Questions"
+ },
+ "pages": 8,
+ "pageNums": [
+  34,
+  34,
+  34,
+  34,
+  34,
+  35,
+  35,
+  35
+ ],
+ "layout": "explain",
+ "explain": {
+  "caption": false,
+  "wide": true,
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3",
+   "6": "../u1l4/words/six.mp3",
+   "7": "../u1l4/words/seven.mp3",
+   "8": "../u1l4/words/eight.mp3",
+   "9": "../u1l4/words/nine.mp3",
+   "10": "../u1l4/words/ten.mp3"
+  },
+  "steps": [
+   {
+    "name": "rabbit 3rd from the top",
+    "beats": [
+     {
+      "say": "Where is the rabbit? Look from the top.",
+      "audio": "explain/s1-1.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "items": [
+         "../../pics/turtle-green.png",
+         "../../pics/cat-gray.png",
+         "../../pics/rabbit-white.png",
+         "../../pics/frog.png"
+        ],
+        "vert": true,
+        "ends": [
+         "Top",
+         "Bottom"
+        ],
+        "wide": false
+       },
+       {
+        "frame": {
+         "box": [
+          404,
+          284,
+          596,
+          386
+         ],
+         "color": "blue",
+         "id": "t"
+        }
+       }
+      ]
+     },
+     {
+      "say": "We start counting from the top.",
+      "audio": "explain/start-top.mp3",
+      "do": [
+       {
+        "dir": "front"
+       },
+       {
+        "unring": "t"
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "../u2l1/explain/lets-count.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          345,
+          115
+         ],
+         [
+          345,
+          225
+         ],
+         [
+          345,
+          335
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "The rabbit is the third from the top.",
+      "audio": "explain/s1-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          404,
+          284,
+          596,
+          386
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "3rd",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "rabbit 2nd from the bottom",
+    "beats": [
+     {
+      "say": "Where is the rabbit? Look from the bottom.",
+      "audio": "explain/s2-1.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "items": [
+         "../../pics/turtle-green.png",
+         "../../pics/cat-gray.png",
+         "../../pics/rabbit-white.png",
+         "../../pics/frog.png"
+        ],
+        "vert": true,
+        "ends": [
+         "Top",
+         "Bottom"
+        ],
+        "wide": false
+       },
+       {
+        "frame": {
+         "box": [
+          404,
+          284,
+          596,
+          386
+         ],
+         "color": "blue",
+         "id": "t"
+        }
+       }
+      ]
+     },
+     {
+      "say": "We start counting from the bottom.",
+      "audio": "explain/start-bottom.mp3",
+      "do": [
+       {
+        "dir": "back"
+       },
+       {
+        "unring": "t"
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "../u2l1/explain/lets-count.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          345,
+          445
+         ],
+         [
+          345,
+          335
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "The rabbit is the second from the bottom.",
+      "audio": "explain/s2-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          404,
+          284,
+          596,
+          386
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "2nd",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "banana 2nd from the top",
+    "beats": [
+     {
+      "say": "Where is the banana? Look from the top.",
+      "audio": "explain/s3-1.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "items": [
+         "../../pics/apple-toon.png",
+         "../../pics/banana-u4l2.png",
+         "../../pics/grapes.png",
+         "../../pics/orange.png"
+        ],
+        "vert": true,
+        "ends": [
+         "Top",
+         "Bottom"
+        ],
+        "wide": false
+       },
+       {
+        "frame": {
+         "box": [
+          404,
+          174,
+          596,
+          276
+         ],
+         "color": "blue",
+         "id": "t"
+        }
+       }
+      ]
+     },
+     {
+      "say": "We start counting from the top.",
+      "audio": "explain/start-top.mp3",
+      "do": [
+       {
+        "dir": "front"
+       },
+       {
+        "unring": "t"
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "../u2l1/explain/lets-count.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          345,
+          115
+         ],
+         [
+          345,
+          225
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "The banana is the second from the top.",
+      "audio": "explain/s3-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          404,
+          174,
+          596,
+          276
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "2nd",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "orange 1st from the bottom",
+    "beats": [
+     {
+      "say": "Where is the orange? Look from the bottom.",
+      "audio": "explain/s4-1.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "items": [
+         "../../pics/apple-toon.png",
+         "../../pics/banana-u4l2.png",
+         "../../pics/grapes.png",
+         "../../pics/orange.png"
+        ],
+        "vert": true,
+        "ends": [
+         "Top",
+         "Bottom"
+        ],
+        "wide": false
+       },
+       {
+        "frame": {
+         "box": [
+          404,
+          394,
+          596,
+          496
+         ],
+         "color": "blue",
+         "id": "t"
+        }
+       }
+      ]
+     },
+     {
+      "say": "We start counting from the bottom.",
+      "audio": "explain/start-bottom.mp3",
+      "do": [
+       {
+        "dir": "back"
+       },
+       {
+        "unring": "t"
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "../u2l1/explain/lets-count.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          345,
+          445
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "The orange is the first from the bottom.",
+      "audio": "explain/s4-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          404,
+          394,
+          596,
+          496
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "1st",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "tomato 3rd from the right",
+    "beats": [
+     {
+      "say": "Where is the tomato? Look from the right.",
+      "audio": "explain/s5-1.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "items": [
+         "../../pics/pepper-green-bell.png",
+         "../../pics/tomato.png",
+         "../../pics/corn-cob.png",
+         "../../pics/onion-on-u5l3.png"
+        ],
+        "ends": [
+         "Left",
+         "Right"
+        ],
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          314,
+          16,
+          496,
+          232
+         ],
+         "color": "blue",
+         "id": "t"
+        }
+       }
+      ]
+     },
+     {
+      "say": "We start counting from the right.",
+      "audio": "explain/start-right.mp3",
+      "do": [
+       {
+        "dir": "back"
+       },
+       {
+        "unring": "t"
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "../u2l1/explain/lets-count.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          785,
+          44
+         ],
+         [
+          595,
+          44
+         ],
+         [
+          405,
+          44
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "The tomato is the third from the right.",
+      "audio": "explain/s5-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          314,
+          16,
+          496,
+          232
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "3rd",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "tomato 2nd from the top",
+    "beats": [
+     {
+      "say": "Where is the tomato? Look from the top.",
+      "audio": "explain/s6-1.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "items": [
+         "../../pics/pepper-green-bell.png",
+         "../../pics/tomato.png",
+         "../../pics/eggplant-on-u5l3.png",
+         "../../pics/corn-cob.png"
+        ],
+        "vert": true,
+        "ends": [
+         "Top",
+         "Bottom"
+        ],
+        "wide": false
+       },
+       {
+        "frame": {
+         "box": [
+          404,
+          174,
+          596,
+          276
+         ],
+         "color": "blue",
+         "id": "t"
+        }
+       }
+      ]
+     },
+     {
+      "say": "We start counting from the top.",
+      "audio": "explain/start-top.mp3",
+      "do": [
+       {
+        "dir": "front"
+       },
+       {
+        "unring": "t"
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "../u2l1/explain/lets-count.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          345,
+          115
+         ],
+         [
+          345,
+          225
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "The tomato is the second from the top.",
+      "audio": "explain/s6-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          404,
+          174,
+          596,
+          276
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "2nd",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "corn 1st from the bottom",
+    "beats": [
+     {
+      "say": "Where is the corn? Look from the bottom.",
+      "audio": "explain/s7-1.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "items": [
+         "../../pics/pepper-green-bell.png",
+         "../../pics/tomato.png",
+         "../../pics/eggplant-on-u5l3.png",
+         "../../pics/corn-cob.png"
+        ],
+        "vert": true,
+        "ends": [
+         "Top",
+         "Bottom"
+        ],
+        "wide": false
+       },
+       {
+        "frame": {
+         "box": [
+          404,
+          394,
+          596,
+          496
+         ],
+         "color": "blue",
+         "id": "t"
+        }
+       }
+      ]
+     },
+     {
+      "say": "We start counting from the bottom.",
+      "audio": "explain/start-bottom.mp3",
+      "do": [
+       {
+        "dir": "back"
+       },
+       {
+        "unring": "t"
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "../u2l1/explain/lets-count.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          345,
+          445
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "The corn is the first from the bottom.",
+      "audio": "explain/s7-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          404,
+          394,
+          596,
+          496
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "1st",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "frog 3rd from the right",
+    "beats": [
+     {
+      "say": "Where is the frog? Look from the right.",
+      "audio": "explain/s8-1.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "items": [
+         "../../pics/cat-gray.png",
+         "../../pics/frog.png",
+         "../../pics/elephant.png",
+         "../../pics/horse-brown.png"
+        ],
+        "ends": [
+         "Left",
+         "Right"
+        ],
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          314,
+          16,
+          496,
+          232
+         ],
+         "color": "blue",
+         "id": "t"
+        }
+       }
+      ]
+     },
+     {
+      "say": "We start counting from the right.",
+      "audio": "explain/start-right.mp3",
+      "do": [
+       {
+        "dir": "back"
+       },
+       {
+        "unring": "t"
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "../u2l1/explain/lets-count.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          785,
+          44
+         ],
+         [
+          595,
+          44
+         ],
+         [
+          405,
+          44
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "The frog is the third from the right.",
+      "audio": "explain/s8-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          314,
+          16,
+          496,
+          232
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "3rd",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   }
+  ]
+ }
+}

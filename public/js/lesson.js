@@ -26,7 +26,7 @@ async function openLesson(m){
   $('#lessonMeta').textContent=`${SUBJECT.name} · ${tr(COURSE.grade)} · ${tr(COURSE.term)}`;
   $('#lessonTitle').textContent=isAr()?`${LESSON.unitLabel||`${tr('Unit')} ${num(LESSON.unit)}`} · ${tr('Lesson')} ${num(LESSON.lesson)} · ${LESSON.title}`:`Unit ${LESSON.unit} · Lesson ${LESSON.lesson} · ${LESSON.title}`;
   $('#stage').style.setProperty('--scene',`url("${new URL(LESSON.scene,location.href).href}")`);   // full address: css files live in css/
-  switchTab(LESSON.tabs?LESSON.tabs[0]:'read'); fitTitle(); if(tab==='read'&&($('.scene.story')||(nPages()>1&&$('.scene')))&&LESSON.audio) setTimeout(()=>{ if(tab==='read'&&LESSON&&LESSON.id===m.id&&!rd.playing&&!player.run&&($('.scene.story')||(nPages()>1&&$('.scene')))){ const [ps,pe]=pageSpan(); playFrom(ps,pe,true,true); } },350);   // opening the lesson starts the story by itself
+  switchTab(LESSON.tabs?LESSON.tabs[0]:'read'); fitTitle();   // (the Lesson tab reads by itself: switchTab -> readAuto)
   if(!LESSON.tabs&&typeof qLoad==='function') qLoad().then(()=>{ if(LESSON&&LESSON.id===m.id) paintTabs(); }); pop('.l-head > *',{y:-20}); pop('.tabs .tab',{y:30,delay:.1});
 }
 
@@ -68,9 +68,9 @@ function ensureAudio(){
 const factor=()=>rd.slow?1/(LESSON.audio.slowRate||.75):1;
 function now(){ return player.run?player.startT+Math.max(0,player.ctx.currentTime-player.startCtx)/factor():player.pos; }
 function halt(){ if(player.src){ player.src.onended=null; try{player.src.stop();}catch(e){} player.src=null; } }
-async function playFrom(t,stopAt=null,full=stopAt==null,auto=false){
+async function playFrom(t,stopAt=null,full=stopAt==null,auto=false,quiet=false){
   rd.halted=false; hideHint(); if(typeof vStop==='function') vStop(); halt(); player.run=false; clearTimeout(rd.autoT); rd.auto=auto; rd.stopAt=stopAt; rd.playing=full; rd.full=full; readRail();
-  try{ await ensureAudio(); }catch(e){ rd.playing=false; readRail(); if(LESSON.layout==='poem'||LESSON.pageAudio) showHint($('#rail .dash.go .rb'),LESSON.pageAudio?'لسه مفيش تسجيل':'لسه مفيش تسجيل للنشيد',60,'norec'+Date.now()); return; }   // an empty recording slot: say so
+  try{ await ensureAudio(); }catch(e){ rd.playing=false; readRail(); if(!quiet&&(LESSON.layout==='poem'||LESSON.pageAudio)) showHint($('#rail .dash.go .rb'),LESSON.pageAudio?'لسه مفيش تسجيل':'لسه مفيش تسجيل للنشيد',60,'norec'+Date.now()); return; }   // an empty recording slot: say so
   const f=factor(), src=player.ctx.createBufferSource(), rate=rd.slow&&!player.bufs.s; src.buffer=rd.slow&&player.bufs.s?player.bufs.s:player.bufs.n; if(rate) src.playbackRate.value=1/f; src.connect(player.ctx.destination);   // rate: no slow recording = the normal one slowed down
   const o=rate?t:t*f, dur=stopAt!=null?Math.max(.05,(stopAt-t)*f):undefined; const lead=.12, at=player.ctx.currentTime+lead; dur!=null?src.start(at,o,rate&&dur!=null?(stopAt-t):dur):src.start(at,o);
   player.src=src; player.run=true; player.startCtx=at; player.startT=t;
@@ -78,7 +78,7 @@ async function playFrom(t,stopAt=null,full=stopAt==null,auto=false){
   startLoop();
 }
 function pausePlay(){ rd.auto=false; clearTimeout(rd.autoT); if(!player.run) return; player.pos=now(); halt(); player.run=false; rd.playing=false; cancelAnimationFrame(rd.raf); carDrive(false); }
-function stopAll(){ rd.auto=false; clearTimeout(rd.autoT); halt(); player.run=false; player.pos=0; rd.stopAt=null; rd.playing=false; rd.full=false; cancelAnimationFrame(rd.raf); carDrive(false); }
+function stopAll(){ rd.autoGen=(rd.autoGen||0)+1; rd.auto=false; clearTimeout(rd.autoT); halt(); player.run=false; player.pos=0; rd.stopAt=null; rd.playing=false; rd.full=false; cancelAnimationFrame(rd.raf); carDrive(false); }
 
 const trackCar=$('#trackCar'); putCar(trackCar);
 let spin=null;
@@ -119,7 +119,7 @@ function endPlay(full){
 
 /* ---------- Tabs + rail ---------- */
 const stage=$('#stage'), rail=$('#rail'); let tab='read';
-const TABAR={Lesson:'الدرس',Vocab:'كلمات',Q:'أسئلة',Vocabulary:'كلمات',Questions:'أسئلة',Assignments:'كتاب التقييمات',Booklet:'كُتيب',PTS:'كتاب التقييمات',Grammar:'القواعد'};   // the bottom tabs in Arabic lessons
+const TABAR={Lesson:'الدرس',Vocab:'كلمات',Q:'أسئلة',Vocabulary:'كلمات',Questions:'أسئلة',Assignments:'كتاب التقييمات','Book Questions':'أسئلة الكتاب','Assessment Book':'كتاب التقييمات',Booklet:'كُتيب',PTS:'كتاب التقييمات',Grammar:'القواعد'};   // the bottom tabs in Arabic lessons
 const TABS={read:['Lesson','book'],words:['Vocabulary','abc'],quiz:['Questions','quiz'],booklet:['Booklet','quiz'],workbook:['Assignments','quiz'],grammar:['Grammar','hint']};
 // English AL: the Lesson tab (book parts) and the Booklet tab both run on the questions engine (quiz.js); inQ() = a questions-style sheet is on screen
 const isAL=()=>!!(LESSON&&LESSON.type==='al'), inQ=()=>tab==='quiz'||tab==='workbook'||tab==='booklet'||(isAL()&&tab==='read'), alSrc=()=>tab==='booklet'?'booklet':'lesson', qKey=()=>isAL()||tab==='booklet'||tab==='workbook'?tab:'quiz';
@@ -129,7 +129,7 @@ function paintTabs(){ $$('.tab').forEach(b=>{ const [l0,ic]=TABS[b.dataset.tab],
 // a default lesson shows Booklet / PTS only when it has that book (its pages in subject.json, or questions of that book)
 function hasBook(k){ const m=SUBJECT&&LESSON&&SUBJECT.lessons.find(l=>l.id===LESSON.id); return !!(m&&m.pages&&[].concat(m.pages[k]||[]).length)||!!(qz.sets&&qz.file&&LESSON&&qz.file.includes('/'+(m&&m.folder)+'/')&&qz.all.some(q=>qSrcOf(q.set)===k)); }
 function setRail(items){ rail.innerHTML=''; items.forEach(it=>{ const b=el('button','dash '+it.kind+(it.on?' on':'')+(it.icon==='restart'?' ln':''),`<span class="rb${it.kind==='tool'?' tgear':''}">${it.kind==='tool'?toolLabel(LESSON.tool):ICON[it.icon]}</span><span>${it.label}</span>`); b.addEventListener('click',it.click); rail.append(b); }); }
-function switchTab(t,at){ setLook(t); if(typeof WP!=='undefined'&&WP.saved) wpClose(); stopVoice(); { const r=$('#lmeta .lm-r'); if(r) r.innerHTML=''; } hideHint(); $('#lesson').classList.remove('vtab','qtab','story','poem'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); lnavPaint(); carAt(0); (t==='booklet'||t==='workbook'||t==='read'&&isAL())?showQuiz(at):t==='grammar'?showGrammar():t==='read'?showRead():t==='words'&&LESSON.vocab?showWords():t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); }
+function switchTab(t,at){ setLook(t); if(typeof WP!=='undefined'&&WP.saved) wpClose(); stopVoice(); { const r=$('#lmeta .lm-r'); if(r) r.innerHTML=''; } hideHint(); $('#lesson').classList.remove('vtab','qtab','story','poem'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); lnavPaint(); carAt(0); (t==='booklet'||t==='workbook'||t==='read'&&isAL())?showQuiz(at):t==='grammar'?showGrammar():t==='read'?showRead():t==='words'&&LESSON.vocab?showWords():t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); if(t==='read') readAuto(); }
 $$('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
 
 // default speed: always normal; a child's own choice per page wins
@@ -148,11 +148,17 @@ function showRead(){
   const pl=(LESSON.pageLayouts||[])[rd.page-1];   // optional per page: a name from the LT registry (below)
   const m=LT[pl]||LT[LESSON.layout]; return (m?m.show:showStory)();   // stories and dialogs: picture as the background, words on a soft panel (below)
 }
+// EVERY page of a reading / nasheed lesson reads by itself (Ahmed 2026-11-13): opening the lesson, coming back to the Lesson tab, any new page (one slide or many).
+// Only the pages that have their own player (letter chant / cards, math, explain, nahw) start their own sound. whenSound (core.js) waits for the first tap if the browser has not allowed sound yet.
+const OWNPLAYER=()=>isAL()||LESSON.type==='letter'||LESSON.type==='math'||['explain','nahw'].includes(LESSON.layout);
+function readAuto(){ if(!LESSON||!LESSON.audio||OWNPLAYER()) return; const id=LESSON.id, pg=rd.page, g=rd.autoGen=(rd.autoGen||0)+1;
+  whenSound(()=>setTimeout(()=>{ if(!LESSON||LESSON.id!==id||tab!=='read'||rd.page!==pg||rd.autoGen!==g||rd.playing||player.run||$('#lesson').hidden||!$('.scene')) return;
+    if(nPages()>1&&!LESSON.lines.some(l=>l.page===rd.page)) return; const [ps,pe]=pageSpan(); playFrom(ps,pe,true,true,true); },350)); }
 // pages of one lesson: a swipe / drag left or right, the dots above the tabs, or a dot tap. A new page ALWAYS starts reading by itself (Marwa 2026-11-01).
 const isStoryPage=p=>{ const m=LT[(LESSON.pageLayouts||[])[p-1]]||LT[LESSON.layout]||LT[LESSON.type]; return !m||m.story; };
-function readGo(d,auto){ const np=nPages(), to=rd.page+d; if(to<1||to>np) return; if(!auto) rd.hold=rd.halted; if($('.scene.story:not(.point)')&&isStoryPage(to)) return storyGo(d,auto);
+function readGo(d,auto){ const np=nPages(), to=rd.page+d; if(to<1||to>np) return; if($('.scene.story:not(.point)')&&isStoryPage(to)) return storyGo(d,auto);
   if(!auto) stopVoice(); clearMarks(); rd.page=to; lnavPaint(); showRead(); carAt(pageSpan()[0]);
-  if(LESSON.lines.some(l=>l.page===rd.page)&&!(rd.hold&&!auto)){ const [ps,pe]=pageSpan(); playFrom(ps,pe,true,!!auto); } rd.halted=!auto&&!!rd.hold; }   // (the child stopped the sound before moving = it stays quiet, never restarts by itself) a new page ALWAYS starts reading by itself (Marwa 2026-11-01); the child's own move reads that page only, the automatic run goes on to the next
+  if(LESSON.lines.some(l=>l.page===rd.page)){ const [ps,pe]=pageSpan(); playFrom(ps,pe,true,!!auto); } }   // a new page ALWAYS starts reading by itself (Marwa 2026-11-01, Ahmed 2026-11-13: even after a Stop); the child's own move reads that page only, the automatic run goes on to the next
 function readPager(){}   // swipe itself = the shared pager in book.js
 
 /* ---------- STORY / DIALOG lessons (the default Lesson tab) ----------
@@ -293,7 +299,7 @@ function storyGo(d,auto){
     else bg.style.backgroundImage=cssUrl(u);
   }
   readRail();
-  if(LESSON.lines.some(l=>l.page===rd.page)&&!(rd.hold&&!auto)){ const [ps,pe]=pageSpan(); playFrom(ps,pe,true,!!auto); } rd.halted=!auto&&!!rd.hold;   // same rule: every new page reads by itself
+  if(LESSON.lines.some(l=>l.page===rd.page)){ const [ps,pe]=pageSpan(); playFrom(ps,pe,true,!!auto); }   // same rule: every new page reads by itself
 }
 // swipe / drag left or right = ONE shared pager in book.js (whole page area); no per-screen swipe code
 // the unit / lesson / name line is ONE line always: the letters shrink until it fits

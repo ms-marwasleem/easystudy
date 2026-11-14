@@ -1,0 +1,283 @@
+{
+ "id": "u8l1",
+ "unit": 8,
+ "lesson": 1,
+ "title": "Telling Time on a Clock",
+ "task": "Telling Time on a Clock",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz",
+  "booklet"
+ ],
+ "tabLabels": {
+  "read": "Lesson",
+  "quiz": "Book Questions"
+ },
+ "pages": 4,
+ "pageNums": [
+  86,
+  86,
+  86,
+  86
+ ],
+ "layout": "explain",
+ "explain": {
+  "caption": false,
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3",
+   "6": "../u1l4/words/six.mp3",
+   "7": "../u1l4/words/seven.mp3",
+   "8": "../u1l4/words/eight.mp3",
+   "9": "../u1l4/words/nine.mp3",
+   "10": "../u1l4/words/ten.mp3",
+   "11": "../u7l1/words/eleven.mp3",
+   "12": "../u7l1/words/twelve.mp3"
+  },
+  "steps": [
+   {
+    "name": "8 o'clock",
+    "beats": [
+     {
+      "say": "The short hand is on eight.",
+      "audio": "explain/c0-1.mp3",
+      "do": [
+       {
+        "scene": "clock",
+        "h": 8,
+        "half": 0
+       },
+       {
+        "frame": {
+         "box": [
+          369,
+          228,
+          449,
+          308
+         ],
+         "color": "red"
+        }
+       }
+      ]
+     },
+     {
+      "say": "The long hand is on twelve.",
+      "audio": "explain/c0-2.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          460,
+          25,
+          540,
+          105
+         ],
+         "color": "blue"
+        }
+       }
+      ]
+     },
+     {
+      "say": "It is 8 oclock.",
+      "audio": "explain/c0-3.mp3",
+      "do": [
+       {
+        "add": "8 o'clock",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "half past 8",
+    "beats": [
+     {
+      "say": "The short hand is between eight and nine.",
+      "audio": "explain/c1-1.mp3",
+      "do": [
+       {
+        "scene": "clock",
+        "h": 8,
+        "half": 1
+       },
+       {
+        "frame": {
+         "box": [
+          359,
+          202,
+          439,
+          282
+         ],
+         "color": "red"
+        }
+       }
+      ]
+     },
+     {
+      "say": "The long hand is on six.",
+      "audio": "explain/c1-2.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          460,
+          325,
+          540,
+          405
+         ],
+         "color": "blue"
+        }
+       }
+      ]
+     },
+     {
+      "say": "It is half past 8.",
+      "audio": "explain/c1-3.mp3",
+      "do": [
+       {
+        "add": "half past 8",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "1 o'clock",
+    "beats": [
+     {
+      "say": "The short hand is on one.",
+      "audio": "explain/c2-1.mp3",
+      "do": [
+       {
+        "scene": "clock",
+        "h": 1,
+        "half": 0
+       },
+       {
+        "frame": {
+         "box": [
+          512,
+          84,
+          592,
+          164
+         ],
+         "color": "red"
+        }
+       }
+      ]
+     },
+     {
+      "say": "The long hand is on twelve.",
+      "audio": "explain/c2-2.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          460,
+          25,
+          540,
+          105
+         ],
+         "color": "blue"
+        }
+       }
+      ]
+     },
+     {
+      "say": "It is 1 oclock.",
+      "audio": "explain/c2-3.mp3",
+      "do": [
+       {
+        "add": "1 o'clock",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "half past 5",
+    "beats": [
+     {
+      "say": "The short hand is between five and six.",
+      "audio": "explain/c3-1.mp3",
+      "do": [
+       {
+        "scene": "clock",
+        "h": 5,
+        "half": 1
+       },
+       {
+        "frame": {
+         "box": [
+          487,
+          276,
+          567,
+          356
+         ],
+         "color": "red"
+        }
+       }
+      ]
+     },
+     {
+      "say": "The long hand is on six.",
+      "audio": "explain/c3-2.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          460,
+          325,
+          540,
+          405
+         ],
+         "color": "blue"
+        }
+       }
+      ]
+     },
+     {
+      "say": "It is half past 5.",
+      "audio": "explain/c3-3.mp3",
+      "do": [
+       {
+        "add": "half past 5",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   }
+  ]
+ }
+}

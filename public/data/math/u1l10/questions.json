@@ -26,6 +26,230 @@
      "audio": "words/two.mp3"
     }
    ]
+  },
+  {
+   "type": "count",
+   "ex": 2,
+   "page": 22,
+   "task": "Write the number.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "img": "../../pics/pot-tulips-5.png",
+     "n": 5,
+     "group": true,
+     "audio": "words/five.mp3"
+    },
+    {
+     "img": "../../pics/pot-empty.png",
+     "n": 0,
+     "group": true,
+     "audio": "words/zero.mp3"
+    },
+    {
+     "img": "../../pics/pot-tulips-2.png",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "count",
+   "page": 23,
+   "task": "Write the number.",
+   "taskAudio": "q/task-bk-write-the-number.mp3",
+   "items": [
+    {
+     "img": "../../pics/frog-lilypad.png",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3"
+    },
+    {
+     "img": "../../pics/frog.png#7",
+     "n": 7,
+     "group": true,
+     "audio": "words/seven.mp3"
+    },
+    {
+     "img": "../../pics/plate.png",
+     "n": 0,
+     "group": true,
+     "audio": "words/zero.mp3"
+    },
+    {
+     "img": "../../pics/orange.png#4",
+     "n": 4,
+     "group": true,
+     "audio": "words/four.mp3"
+    },
+    {
+     "img": "../../pics/orange.png",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3"
+    },
+    {
+     "img": "../../pics/fish-plate-1.jpg",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3"
+    },
+    {
+     "img": "../../pics/fish-plate-2.png",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    },
+    {
+     "img": "../../pics/ar-bowl.png",
+     "n": 0,
+     "group": true,
+     "audio": "words/zero.mp3"
+    },
+    {
+     "img": "../../pics/jar-beans-2.png",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    },
+    {
+     "img": "../../pics/jar.png",
+     "n": 0,
+     "group": true,
+     "audio": "words/zero.mp3"
+    },
+    {
+     "img": "../../pics/jar-beans-4.png",
+     "n": 4,
+     "group": true,
+     "audio": "words/four.mp3"
+    }
+   ],
+   "book": "booklet",
+   "ex": 3
+  },
+  {
+   "type": "count",
+   "page": 25,
+   "task": "Write the number.",
+   "taskAudio": "q/task-bk-write-the-number.mp3",
+   "items": [
+    {
+     "img": "../../pics/banana-u4l2.png#4",
+     "n": 4,
+     "group": true,
+     "audio": "words/four.mp3"
+    },
+    {
+     "img": "../../pics/banana-u4l2.png#3",
+     "n": 3,
+     "group": true,
+     "audio": "words/three.mp3"
+    },
+    {
+     "img": "../../pics/ar-bowl.png",
+     "n": 0,
+     "group": true,
+     "audio": "words/zero.mp3"
+    },
+    {
+     "img": "../../pics/plate.png",
+     "n": 0,
+     "group": true,
+     "audio": "words/zero.mp3"
+    },
+    {
+     "img": "../../pics/orange.png#5",
+     "n": 5,
+     "group": true,
+     "audio": "words/five.mp3"
+    },
+    {
+     "img": "../../pics/orange.png",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3"
+    },
+    {
+     "img": "../../pics/apple-toon.png",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3"
+    },
+    {
+     "img": "../../pics/plate.png",
+     "n": 0,
+     "group": true,
+     "audio": "words/zero.mp3"
+    },
+    {
+     "img": "../../pics/apple-toon.png#2",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    },
+    {
+     "img": "../../pics/hand-2.png",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    }
+   ],
+   "book": "booklet",
+   "ex": 4
+  },
+  {
+   "type": "numline",
+   "page": 26,
+   "task": "Write the missing numbers.",
+   "taskAudio": "q/task-bk-write-the-missing-numbers.mp3",
+   "items": [
+    {
+     "seq": [
+      1,
+      2,
+      null,
+      4,
+      null,
+      null
+     ]
+    },
+    {
+     "seq": [
+      4,
+      5,
+      null,
+      null,
+      8,
+      null
+     ]
+    },
+    {
+     "seq": [
+      null,
+      6,
+      7,
+      8,
+      null,
+      null
+     ]
+    },
+    {
+     "seq": [
+      null,
+      null,
+      2,
+      3,
+      null,
+      5
+     ]
+    }
+   ],
+   "book": "booklet",
+   "ex": 5
   }
  ]
 }

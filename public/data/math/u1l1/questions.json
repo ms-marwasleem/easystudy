@@ -19,7 +19,7 @@
      ]
     },
     {
-     "img": "../../pics/strawberry-hat.png#3",
+     "img": "../../pics/strawberry-u4l3.png#3",
      "n": 3,
      "group": true,
      "audio": "words/three.mp3",
@@ -74,7 +74,7 @@
      ]
     },
     {
-     "img": "../../pics/cactus-hat.png#2",
+     "img": "../../pics/ar-cactus.png#2",
      "n": 2,
      "group": true,
      "audio": "words/two.mp3",
@@ -96,6 +96,104 @@
      ]
     }
    ]
+  },
+  {
+   "type": "count",
+   "ex": 1,
+   "page": 2,
+   "task": "Circle the correct number.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "img": "../../pics/frog.png#2",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3",
+     "options": [
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "img": "../../pics/strawberry-u4l3.png#3",
+     "n": 3,
+     "group": true,
+     "audio": "words/three.mp3",
+     "options": [
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "img": "../../pics/dino.png",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3",
+     "options": [
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "img": "../../pics/hat-wizard.png#3",
+     "n": 3,
+     "group": true,
+     "audio": "words/three.mp3",
+     "options": [
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "img": "../../pics/cookie.png",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3",
+     "options": [
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "img": "../../pics/sunflower-glasses.png#2",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3",
+     "options": [
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "img": "../../pics/ar-cactus.png#2",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3",
+     "options": [
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "img": "../../pics/bee-cape.png#4",
+     "n": 4,
+     "group": true,
+     "audio": "words/four.mp3",
+     "options": [
+      3,
+      4,
+      5
+     ]
+    }
+   ],
+   "book": "booklet"
   }
  ]
 }

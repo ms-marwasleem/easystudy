@@ -1,132 +1,263 @@
 {
-  "sets": [
+ "sets": [
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 41,
+   "task": "Let's do addition.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
     {
-      "type": "mcq",
-      "ex": 1,
-      "page": 41,
-      "task": "Let's do addition.",
-      "taskAudio": "q/task-1.mp3",
-      "items": [
-        {
-          "stem": "2 + 0 = ___",
-          "options": [
-            "1",
-            "2",
-            "3"
-          ],
-          "answer": 1,
-          "askAudio": "q/sum-1-q.mp3",
-          "audio": "q/sum-1.mp3",
-          "word": "2 + 0 = 2"
-        },
-        {
-          "stem": "6 + 0 = ___",
-          "options": [
-            "5",
-            "6",
-            "7"
-          ],
-          "answer": 1,
-          "askAudio": "q/sum-2-q.mp3",
-          "audio": "q/sum-2.mp3",
-          "word": "6 + 0 = 6"
-        },
-        {
-          "stem": "7 + 2 = ___",
-          "options": [
-            "8",
-            "9",
-            "10"
-          ],
-          "answer": 1,
-          "askAudio": "q/sum-3-q.mp3",
-          "audio": "q/sum-3.mp3",
-          "word": "7 + 2 = 9"
-        },
-        {
-          "stem": "0 + 1 = ___",
-          "options": [
-            "0",
-            "1",
-            "2"
-          ],
-          "answer": 1,
-          "askAudio": "q/sum-4-q.mp3",
-          "audio": "q/sum-4.mp3",
-          "word": "0 + 1 = 1"
-        },
-        {
-          "stem": "0 + 5 = ___",
-          "options": [
-            "4",
-            "5",
-            "6"
-          ],
-          "answer": 1,
-          "askAudio": "q/sum-5-q.mp3",
-          "audio": "q/sum-5.mp3",
-          "word": "0 + 5 = 5"
-        },
-        {
-          "stem": "4 + 4 = ___",
-          "options": [
-            "7",
-            "8",
-            "9"
-          ],
-          "answer": 1,
-          "askAudio": "q/sum-6-q.mp3",
-          "audio": "q/sum-6.mp3",
-          "word": "4 + 4 = 8"
-        }
-      ]
+     "stem": "2 + 0 = ___",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 1,
+     "askAudio": "q/sum-1-q.mp3",
+     "audio": "q/sum-1.mp3",
+     "word": "2 + 0 = 2"
     },
     {
-      "type": "mwrite",
-      "ex": 2,
-      "page": 41,
-      "task": "Write the addition sentence and the answer.",
-      "taskAudio": "q/task-2.mp3",
-      "items": [
-        {
-          "pics": [
-            "story-1.png"
-          ],
-          "ask": "Yesterday, you caught 4 fish. Today, you caught 0 fish. How many fish did you catch in total?",
-          "lead": "Addition sentence:",
-          "word": "4 + 0 = 4",
-          "keys": "1234567890+−=",
-          "askSay": "Yesterday, you caught four fish. Today, you caught zero fish. How many fish did you catch in total? Write the addition sentence.",
-          "askAudio": "q/p1-s-q.mp3",
-          "audio": "q/p1-s.mp3"
-        }
-      ]
+     "stem": "6 + 0 = ___",
+     "options": [
+      "5",
+      "6",
+      "7"
+     ],
+     "answer": 1,
+     "askAudio": "q/sum-2-q.mp3",
+     "audio": "q/sum-2.mp3",
+     "word": "6 + 0 = 6"
     },
     {
-      "type": "mcq",
-      "ex": 2,
-      "page": 41,
-      "task": "Write the addition sentence and the answer.",
-      "taskAudio": "q/task-2.mp3",
-      "items": [
-        {
-          "pics": [
-            "story-1.png"
-          ],
-          "ask": "How many fish did you catch in total?",
-          "stem": "Answer: ___",
-          "options": [
-            "0 fish",
-            "4 fish",
-            "4"
-          ],
-          "answer": 1,
-          "askSay": "How many fish did you catch in total? What is the answer?",
-          "askAudio": "q/p1-a-q.mp3",
-          "audio": "q/p1-a.mp3",
-          "word": "Answer: 4 fish"
-        }
-      ]
+     "stem": "7 + 2 = ___",
+     "options": [
+      "8",
+      "9",
+      "10"
+     ],
+     "answer": 1,
+     "askAudio": "q/sum-3-q.mp3",
+     "audio": "q/sum-3.mp3",
+     "word": "7 + 2 = 9"
+    },
+    {
+     "stem": "0 + 1 = ___",
+     "options": [
+      "0",
+      "1",
+      "2"
+     ],
+     "answer": 1,
+     "askAudio": "q/sum-4-q.mp3",
+     "audio": "q/sum-4.mp3",
+     "word": "0 + 1 = 1"
+    },
+    {
+     "stem": "0 + 5 = ___",
+     "options": [
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 1,
+     "askAudio": "q/sum-5-q.mp3",
+     "audio": "q/sum-5.mp3",
+     "word": "0 + 5 = 5"
+    },
+    {
+     "stem": "4 + 4 = ___",
+     "options": [
+      "7",
+      "8",
+      "9"
+     ],
+     "answer": 1,
+     "askAudio": "q/sum-6-q.mp3",
+     "audio": "q/sum-6.mp3",
+     "word": "4 + 4 = 8"
     }
-  ]
+   ]
+  },
+  {
+   "type": "mwrite",
+   "ex": 2,
+   "page": 41,
+   "task": "Write the addition sentence and the answer.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-1.png"
+     ],
+     "ask": "Yesterday, you caught 4 fish. Today, you caught 0 fish. How many fish did you catch in total?",
+     "lead": "Addition sentence:",
+     "word": "4 + 0 = 4",
+     "keys": "1234567890+−=",
+     "askSay": "Yesterday, you caught four fish. Today, you caught zero fish. How many fish did you catch in total? Write the addition sentence.",
+     "askAudio": "q/p1-s-q.mp3",
+     "audio": "q/p1-s.mp3"
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 41,
+   "task": "Write the addition sentence and the answer.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-1.png"
+     ],
+     "ask": "How many fish did you catch in total?",
+     "stem": "Answer: ___",
+     "options": [
+      "0 fish",
+      "4 fish",
+      "4"
+     ],
+     "answer": 1,
+     "askSay": "How many fish did you catch in total? What is the answer?",
+     "askAudio": "q/p1-a-q.mp3",
+     "audio": "q/p1-a.mp3",
+     "word": "Answer: 4 fish"
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 41,
+   "task": "Let's do addition.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "stem": "2 + 0 = ___",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 1,
+     "askAudio": "q/sum-1-q.mp3",
+     "audio": "q/sum-1.mp3",
+     "word": "2 + 0 = 2"
+    },
+    {
+     "stem": "6 + 0 = ___",
+     "options": [
+      "5",
+      "6",
+      "7"
+     ],
+     "answer": 1,
+     "askAudio": "q/sum-2-q.mp3",
+     "audio": "q/sum-2.mp3",
+     "word": "6 + 0 = 6"
+    },
+    {
+     "stem": "7 + 2 = ___",
+     "options": [
+      "8",
+      "9",
+      "10"
+     ],
+     "answer": 1,
+     "askAudio": "q/sum-3-q.mp3",
+     "audio": "q/sum-3.mp3",
+     "word": "7 + 2 = 9"
+    },
+    {
+     "stem": "0 + 1 = ___",
+     "options": [
+      "0",
+      "1",
+      "2"
+     ],
+     "answer": 1,
+     "askAudio": "q/sum-4-q.mp3",
+     "audio": "q/sum-4.mp3",
+     "word": "0 + 1 = 1"
+    },
+    {
+     "stem": "0 + 5 = ___",
+     "options": [
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 1,
+     "askAudio": "q/sum-5-q.mp3",
+     "audio": "q/sum-5.mp3",
+     "word": "0 + 5 = 5"
+    },
+    {
+     "stem": "4 + 4 = ___",
+     "options": [
+      "7",
+      "8",
+      "9"
+     ],
+     "answer": 1,
+     "askAudio": "q/sum-6-q.mp3",
+     "audio": "q/sum-6.mp3",
+     "word": "4 + 4 = 8"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mwrite",
+   "ex": 2,
+   "page": 41,
+   "task": "Write the addition sentence and the answer.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-1.png"
+     ],
+     "ask": "Yesterday, you caught 4 fish. Today, you caught 0 fish. How many fish did you catch in total?",
+     "lead": "Addition sentence:",
+     "word": "4 + 0 = 4",
+     "keys": "1234567890+−=",
+     "askSay": "Yesterday, you caught four fish. Today, you caught zero fish. How many fish did you catch in total? Write the addition sentence.",
+     "askAudio": "q/p1-s-q.mp3",
+     "audio": "q/p1-s.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 41,
+   "task": "Write the addition sentence and the answer.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-1.png"
+     ],
+     "ask": "How many fish did you catch in total?",
+     "stem": "Answer: ___",
+     "options": [
+      "0 fish",
+      "4 fish",
+      "4"
+     ],
+     "answer": 1,
+     "askSay": "How many fish did you catch in total? What is the answer?",
+     "askAudio": "q/p1-a-q.mp3",
+     "audio": "q/p1-a.mp3",
+     "word": "Answer: 4 fish"
+    }
+   ],
+   "book": "booklet"
+  }
+ ]
 }

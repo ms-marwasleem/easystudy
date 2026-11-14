@@ -44,7 +44,7 @@ async function qLoad(){
   qz.all=[]; qz.sets.forEach((s,si)=>{ s.taskSrc=Array.isArray(s.taskAudio)?s.taskAudio.map(R):R(s.taskAudio);   // taskAudio: one file, or a list played in order (prompt + letter name)
    
     if(s.type==='link') s.items.forEach(it=>{ it.answer=true; it.fullSrc=[].concat(it.full||[]).map(R); });
-    if((QM[s.type]||{}).sheet==='board'){ s.centerSrc=R(s.centerAudio); s.items.forEach(it=>{ it.src=Array.isArray(it.audio)?it.audio.map(R):R(it.audio); it.src2=it.audio2?R(it.audio2):it.src; it.picSrc=R(it.pic); it.wpicSrc=it.wpic?R(it.wpic):''; if(it.dots&&typeof mDots==='function') it.picSrc=mDots(it.dots); });
+    if((QM[s.type]||{}).sheet==='board'){ s.centerSrc=R(s.centerAudio); s.items.forEach(it=>{ it.src=Array.isArray(it.audio)?it.audio.map(R):R(it.audio); it.src2=it.audio2?R(it.audio2):it.src; it.psrc=it.paudio?R(it.paudio):''; it.picSrc=R(it.pic); it.wpicSrc=it.wpic?R(it.wpic):''; if(it.dots&&typeof mDots==='function') it.picSrc=mDots(it.dots); });
       if(s.type==='circle'&&s.shuffle&&!s._sh){ s._sh=1; const ps=s.items.map(it=>it.pos); for(let t=0;t<20;t++){ ps.sort(()=>Math.random()-.5); if(ps.some((p,k)=>p!==s.items[k].pos)) break; } s.items.forEach((it,k)=>it.pos=ps[k]); }   // "shuffle": the options swap their places (the book order is not kept)
       if(s.type==='circle'&&s.center&&!s.centerAt&&s.items.length>=7&&s.items.every(it=>!it.pos)){ const T=s.items.length+1, rows=Math.ceil(T/3), mr=Math.floor(rows/2), mid=mr*3+1; let cell=0; s.items.forEach(it=>{ if(cell===mid) cell++; it.pos=[(cell%3+.5)*100/3,(Math.floor(cell/3)+.5)*100/rows]; cell++; }); s._cAt=[50,(mr+.5)*100/rows]; }   // a letter in the middle of 7+ pictures with no "pos": the letter takes the middle cell of the grid, the pictures the other cells (never on the letter)
       if(s.type==='circle') s.items.forEach((it,k)=>{ if(!it.pos){ const n=s.items.length, cols=3, rows=Math.ceil(n/cols), r=Math.floor(k/cols), c=k%cols, inRow=Math.min(cols,n-r*cols);
@@ -218,7 +218,7 @@ function qLines(fresh){ const bd=$('.qboard'); if(!bd||$('.quiz').dataset.type!=
 function qStar(){ const d=$(`.qdots i[data-i="${qz.i}"]`); if(d){ d.innerHTML=STAR(true); d.classList.add('got'); if(anim) G.fromTo(d,{scale:1.8},{scale:1,duration:.6,ease:'elastic.out(1.2,.4)'}); } carFrac((qz.i+1)/qz.list.length); }
 const qCross=b=>{ const m=$('.qmark',b); if(!m) return; m.className='qmark bad'; m.innerHTML=Q_CROSS; setTimeout(()=>{ m.className='qmark'; m.innerHTML=''; },700); };   // a wrong picture: a red cross for a moment
 function qBad(b){ tone(170,'square',.06,.18); if(anim) G.fromTo(b,{x:-9},{x:0,duration:.5,ease:'elastic.out(1.5,.25)'}); }
-function qSound(src,text){ vStop(); if(Array.isArray(src)) return src.reduce((p,f)=>p.then(()=>playFile(f)),Promise.resolve()).catch(()=>{}); return (src?playFile(src).catch(()=>tts(text,isAr()?'ar':'en',.75)):tts(text,isAr()?'ar':'en',.75)).catch(()=>{}); }
+function qSound(src,text){ vStop(); if(Array.isArray(src)){ const vr=vs.run; return src.reduce((p,f)=>p.then(()=>{ if(vr===vs.run) return playFile(f); }),Promise.resolve()).catch(()=>{}); } return (src?playFile(src).catch(()=>tts(text,isAr()?'ar':'en',.75)):tts(text,isAr()?'ar':'en',.75)).catch(()=>{}); }
 async function qMatch(btn,it,s){
   if(qz.busy) return; hideHint();
   if(btn.classList.contains('done')) return s.silent?null:qSound(it.src,it.word);
@@ -278,7 +278,7 @@ function qTask(){ const q=qz.list[qz.i]; if(!q) return Promise.resolve(); vStop(
   const done=()=>{ const x=$('.qtask'); if(x) x.classList.remove('lit'); };
   const ts=q.set.taskSrc, fb=()=>tts(q.set.task,isAr()?'ar':'en',.85);
   if(!ts) return fb().then(done,done);   // no task recording: never ask for a file called "undefined"
-  const play=Array.isArray(ts)?ts.reduce((p,u,k)=>p.then(()=>{ if(qz.list[qz.i]!==q) return; return (k?new Promise(r=>setTimeout(r,120)):Promise.resolve()).then(()=>playFile(u)); }),Promise.resolve()):playFile(ts);
+  const vr=vs.run, play=Array.isArray(ts)?ts.reduce((p,u,k)=>p.then(()=>{ if(qz.list[qz.i]!==q||vr!==vs.run) return; return (k?new Promise(r=>setTimeout(r,120)):Promise.resolve()).then(()=>playFile(u)); }),Promise.resolve()):playFile(ts);
   return play.catch(fb).then(done,done); }
 function qStamp(pic,cross){
   const m=$('.qmark',pic); m.className='qmark good'; m.innerHTML=cross?Q_CROSS:Q_TICK;
@@ -325,14 +325,14 @@ function qLinkBoard(w,s,play,run){
   ord.forEach(k=>{ const it=s.items[k], b=el('button','qlk qlkp'+(it.picSrc?'':' tx'),it.picSrc?`<img src="${it.picSrc}" alt="" draggable="false">`:`<b>${it.text2}</b>`); b.dataset.k=k; b.setAttribute('aria-label',it.picSrc?'Picture':it.text2); pc.append(b); });   // "text2": a word to join instead of a picture
   const svg=document.createElementNS('http://www.w3.org/2000/svg','svg'); svg.setAttribute('class','qlsvg');
   bd.append(wd,pc,svg); play.append(bd);
-  s.items.forEach(it=>[it.src,it.src2,...(it.fullSrc||[])].flat().forEach(f=>warmFile(f)));   // every sound of the board is ready before the first join
+  s.items.forEach(it=>[it.src,it.src2,it.psrc,...(it.fullSrc||[])].flat().filter(Boolean).forEach(f=>warmFile(f)));   // every sound of the board is ready before the first join
   let drag=null, sel=null; const rel=(x,y)=>{ const B=bd.getBoundingClientRect(); return [x-B.left,y-B.top]; };
   const kind=b=>b.classList.contains('qlkw')?'w':'p';
   const tmp=()=>{ let l=$('.qtmp',svg); if(!l){ l=document.createElementNS('http://www.w3.org/2000/svg','line'); l.setAttribute('class','qtmp'); svg.append(l); } return l; };
   const clearSel=()=>{ if(sel){ sel.classList.remove('sel'); sel=null; } };
   bd.addEventListener('pointerdown',e=>{ const b=e.target.closest('.qlk'); if(!b||qz.busy) return; e.preventDefault(); hideHint();
     const it=s.items[+b.dataset.k];
-    if(b.classList.contains('done')){ if(kind(b)==='w'||b.classList.contains('tx')) qLinkSay(it); return; }
+    if(b.classList.contains('done')){ if(kind(b)==='w'||b.classList.contains('tx')) qLinkSay(it); else if(it.psrc) qSound(it.psrc,''); return; }
     drag={b,x:e.clientX,y:e.clientY,moved:false}; try{ bd.setPointerCapture(e.pointerId); }catch(_){} });
   bd.addEventListener('pointermove',e=>{ if(!drag) return;
     if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)<10) return; drag.moved=true;
@@ -345,7 +345,7 @@ function qLinkBoard(w,s,play,run){
     if(e.type==='pointercancel') return;
     if(d.moved){ clearSel(); if(tb&&tb!==d.b&&kind(tb)!==kind(d.b)&&!tb.classList.contains('done')) qLinkTry(bd,s,d.b,tb,run); return; }
     // a tap: pick it up (a word also says itself), or join it to the one picked before
-    if(kind(d.b)==='w'){ const it=s.items[+d.b.dataset.k]; qSound(it.src,it.word); } else if(d.b.classList.contains('tx')){ const it=s.items[+d.b.dataset.k]; qSound(it.src2||it.src,it.text2); }
+    if(kind(d.b)==='w'){ const it=s.items[+d.b.dataset.k]; qSound(it.src,it.word); } else if(s.items[+d.b.dataset.k].psrc&&!d.b.classList.contains('tx')){ const it=s.items[+d.b.dataset.k]; qSound(it.psrc,''); } else if(d.b.classList.contains('tx')){ const it=s.items[+d.b.dataset.k]; qSound(it.src2||it.src,it.text2); }
     if(sel&&sel!==d.b&&kind(sel)!==kind(d.b)){ const a=sel; clearSel(); qLinkTry(bd,s,a,d.b,run); return; }
     if(sel===d.b){ clearSel(); return; }
     clearSel(); sel=d.b; d.b.classList.add('sel'); };
@@ -378,7 +378,7 @@ function qLinkRefresh(land){ const bd=$('.qlink'); if(!bd) return; const s=bd._s
   for(let k=0;k<30&&fs>10;k++){ const bad=$$('.qlkw,.qlkp.tx',bd).some(bx=>{ const b=$('b',bx); return b&&(b.scrollWidth>bx.clientWidth-parseFloat(getComputedStyle(bx).paddingLeft)-parseFloat(getComputedStyle(bx).paddingRight)+1||b.getBoundingClientRect().bottom>bd.getBoundingClientRect().bottom+1||(sent&&bx.offsetHeight>B.height/n*.96)); }); if(!bad) break; fs-=1; bd.style.setProperty('--fs',fs+'px'); }
   qLinkLines(); }
 /* what a joined pair says: "full" (whole phrase) if given; else, when the partner has its own recording ("audio2"), the word then the partner; else the word */
-async function qLinkSay(it){ vStop(); if(it.fullSrc&&it.fullSrc.length){ for(const f of it.fullSrc){ try{ await playFile(f); }catch(_){} } return; } if(it.text2&&it.audio2&&it.src2&&it.src2!==it.src){ for(const f of [it.src,it.src2]){ try{ await playFile(f); }catch(_){} } return; } return qSound(it.src,it.word); }
+async function qLinkSay(it){ vStop(); const vr=vs.run; if(it.psrc){ for(const f of [it.src,it.psrc]){ if(vr!==vs.run) return; try{ await playFile(f); }catch(_){} } return; }   /* "paudio" = the picture's own word: a right join says the letter (with its harakah) then that word */ if(it.fullSrc&&it.fullSrc.length){ for(const f of it.fullSrc){ if(vr!==vs.run) return; try{ await playFile(f); }catch(_){} } return; } if(it.text2&&it.audio2&&it.src2&&it.src2!==it.src){ for(const f of [it.src,it.src2]){ if(vr!==vs.run) return; try{ await playFile(f); }catch(_){} } return; } return qSound(it.src,it.word); }
 async function qLinkTry(bd,s,a,b){
   const run=qz.run;   // the board is kept from pair to pair, so it must use the question running NOW, not the one it was built in
   const wb=a.classList.contains('qlkw')?a:b, pb=wb===a?b:a, it=s.items[+wb.dataset.k];

@@ -1,0 +1,662 @@
+{
+ "sets": [
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 88,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is five plus one plus three?",
+     "stem": "5 + 1 + 3 = __",
+     "options": [
+      "8",
+      "9",
+      "10"
+     ],
+     "answer": 1,
+     "askSay": "What is five plus one plus three?",
+     "askAudio": "q/a1-q.mp3",
+     "audio": "q/a1-a.mp3",
+     "word": "Nine."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 88,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is seven plus two plus one?",
+     "stem": "7 + 2 + 1 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is seven plus two plus one?",
+     "askAudio": "q/a2-q.mp3",
+     "audio": "q/a2-a.mp3",
+     "word": "Ten."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 3,
+   "page": 88,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is two plus eight plus five?",
+     "stem": "2 + 8 + 5 = __",
+     "options": [
+      "14",
+      "15",
+      "16"
+     ],
+     "answer": 1,
+     "askSay": "What is two plus eight plus five?",
+     "askAudio": "q/a3-q.mp3",
+     "audio": "q/a3-a.mp3",
+     "word": "Fifteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 4,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is one plus two plus three?",
+     "stem": "1 + 2 + 3 = __",
+     "options": [
+      "5",
+      "6",
+      "7"
+     ],
+     "answer": 1,
+     "askSay": "What is one plus two plus three?",
+     "askAudio": "q/a4-q.mp3",
+     "audio": "q/a4-a.mp3",
+     "word": "Six."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 5,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is two plus two plus four?",
+     "stem": "2 + 2 + 4 = __",
+     "options": [
+      "7",
+      "8",
+      "9"
+     ],
+     "answer": 1,
+     "askSay": "What is two plus two plus four?",
+     "askAudio": "q/a5-q.mp3",
+     "audio": "q/a5-a.mp3",
+     "word": "Eight."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 6,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is four plus five plus one?",
+     "stem": "4 + 5 + 1 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is four plus five plus one?",
+     "askAudio": "q/a6-q.mp3",
+     "audio": "q/a6-a.mp3",
+     "word": "Ten."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 7,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is seven plus three plus two?",
+     "stem": "7 + 3 + 2 = __",
+     "options": [
+      "11",
+      "12",
+      "13"
+     ],
+     "answer": 1,
+     "askSay": "What is seven plus three plus two?",
+     "askAudio": "q/a7-q.mp3",
+     "audio": "q/a7-a.mp3",
+     "word": "Twelve."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 8,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is five plus seven plus six?",
+     "stem": "5 + 7 + 6 = __",
+     "options": [
+      "17",
+      "18",
+      "19"
+     ],
+     "answer": 1,
+     "askSay": "What is five plus seven plus six?",
+     "askAudio": "q/a9-q.mp3",
+     "audio": "q/a9-a.mp3",
+     "word": "Eighteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 9,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is two plus one plus five?",
+     "stem": "2 + 1 + 5 = __",
+     "options": [
+      "7",
+      "8",
+      "9"
+     ],
+     "answer": 1,
+     "askSay": "What is two plus one plus five?",
+     "askAudio": "q/a10-q.mp3",
+     "audio": "q/a10-a.mp3",
+     "word": "Eight."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 10,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is six plus one plus two?",
+     "stem": "6 + 1 + 2 = __",
+     "options": [
+      "8",
+      "9",
+      "10"
+     ],
+     "answer": 1,
+     "askSay": "What is six plus one plus two?",
+     "askAudio": "q/a11-q.mp3",
+     "audio": "q/a11-a.mp3",
+     "word": "Nine."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 11,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is three plus two plus five?",
+     "stem": "3 + 2 + 5 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is three plus two plus five?",
+     "askAudio": "q/a12-q.mp3",
+     "audio": "q/a12-a.mp3",
+     "word": "Ten."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 12,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is four plus six plus four?",
+     "stem": "4 + 6 + 4 = __",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askSay": "What is four plus six plus four?",
+     "askAudio": "q/a13-q.mp3",
+     "audio": "q/a13-a.mp3",
+     "word": "Fourteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 13,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is one plus nine plus eight?",
+     "stem": "1 + 9 + 8 = __",
+     "options": [
+      "17",
+      "18",
+      "19"
+     ],
+     "answer": 1,
+     "askSay": "What is one plus nine plus eight?",
+     "askAudio": "q/a14-q.mp3",
+     "audio": "q/a14-a.mp3",
+     "word": "Eighteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 14,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is four plus eight plus seven?",
+     "stem": "4 + 8 + 7 = __",
+     "options": [
+      "18",
+      "19",
+      "20"
+     ],
+     "answer": 1,
+     "askSay": "What is four plus eight plus seven?",
+     "askAudio": "q/a15-q.mp3",
+     "audio": "q/a15-a.mp3",
+     "word": "Nineteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 88,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is five plus one plus three?",
+     "stem": "5 + 1 + 3 = __",
+     "options": [
+      "8",
+      "9",
+      "10"
+     ],
+     "answer": 1,
+     "askSay": "What is five plus one plus three?",
+     "askAudio": "q/a1-q.mp3",
+     "audio": "q/a1-a.mp3",
+     "word": "Nine."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 88,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is seven plus two plus one?",
+     "stem": "7 + 2 + 1 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is seven plus two plus one?",
+     "askAudio": "q/a2-q.mp3",
+     "audio": "q/a2-a.mp3",
+     "word": "Ten."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 3,
+   "page": 88,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is two plus eight plus five?",
+     "stem": "2 + 8 + 5 = __",
+     "options": [
+      "14",
+      "15",
+      "16"
+     ],
+     "answer": 1,
+     "askSay": "What is two plus eight plus five?",
+     "askAudio": "q/a3-q.mp3",
+     "audio": "q/a3-a.mp3",
+     "word": "Fifteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 4,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is one plus two plus three?",
+     "stem": "1 + 2 + 3 = __",
+     "options": [
+      "5",
+      "6",
+      "7"
+     ],
+     "answer": 1,
+     "askSay": "What is one plus two plus three?",
+     "askAudio": "q/a4-q.mp3",
+     "audio": "q/a4-a.mp3",
+     "word": "Six."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 5,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is two plus two plus four?",
+     "stem": "2 + 2 + 4 = __",
+     "options": [
+      "7",
+      "8",
+      "9"
+     ],
+     "answer": 1,
+     "askSay": "What is two plus two plus four?",
+     "askAudio": "q/a5-q.mp3",
+     "audio": "q/a5-a.mp3",
+     "word": "Eight."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 6,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is four plus five plus one?",
+     "stem": "4 + 5 + 1 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is four plus five plus one?",
+     "askAudio": "q/a6-q.mp3",
+     "audio": "q/a6-a.mp3",
+     "word": "Ten."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 7,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is seven plus three plus two?",
+     "stem": "7 + 3 + 2 = __",
+     "options": [
+      "11",
+      "12",
+      "13"
+     ],
+     "answer": 1,
+     "askSay": "What is seven plus three plus two?",
+     "askAudio": "q/a7-q.mp3",
+     "audio": "q/a7-a.mp3",
+     "word": "Twelve."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 8,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is five plus seven plus six?",
+     "stem": "5 + 7 + 6 = __",
+     "options": [
+      "17",
+      "18",
+      "19"
+     ],
+     "answer": 1,
+     "askSay": "What is five plus seven plus six?",
+     "askAudio": "q/a9-q.mp3",
+     "audio": "q/a9-a.mp3",
+     "word": "Eighteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 9,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is two plus one plus five?",
+     "stem": "2 + 1 + 5 = __",
+     "options": [
+      "7",
+      "8",
+      "9"
+     ],
+     "answer": 1,
+     "askSay": "What is two plus one plus five?",
+     "askAudio": "q/a10-q.mp3",
+     "audio": "q/a10-a.mp3",
+     "word": "Eight."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 10,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is six plus one plus two?",
+     "stem": "6 + 1 + 2 = __",
+     "options": [
+      "8",
+      "9",
+      "10"
+     ],
+     "answer": 1,
+     "askSay": "What is six plus one plus two?",
+     "askAudio": "q/a11-q.mp3",
+     "audio": "q/a11-a.mp3",
+     "word": "Nine."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 11,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is three plus two plus five?",
+     "stem": "3 + 2 + 5 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is three plus two plus five?",
+     "askAudio": "q/a12-q.mp3",
+     "audio": "q/a12-a.mp3",
+     "word": "Ten."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 12,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is four plus six plus four?",
+     "stem": "4 + 6 + 4 = __",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askSay": "What is four plus six plus four?",
+     "askAudio": "q/a13-q.mp3",
+     "audio": "q/a13-a.mp3",
+     "word": "Fourteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 13,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is one plus nine plus eight?",
+     "stem": "1 + 9 + 8 = __",
+     "options": [
+      "17",
+      "18",
+      "19"
+     ],
+     "answer": 1,
+     "askSay": "What is one plus nine plus eight?",
+     "askAudio": "q/a14-q.mp3",
+     "audio": "q/a14-a.mp3",
+     "word": "Eighteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 14,
+   "page": 89,
+   "task": "Calculate from left to right.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "ask": "What is four plus eight plus seven?",
+     "stem": "4 + 8 + 7 = __",
+     "options": [
+      "18",
+      "19",
+      "20"
+     ],
+     "answer": 1,
+     "askSay": "What is four plus eight plus seven?",
+     "askAudio": "q/a15-q.mp3",
+     "audio": "q/a15-a.mp3",
+     "word": "Nineteen."
+    }
+   ],
+   "book": "booklet"
+  }
+ ]
+}

@@ -1,0 +1,662 @@
+{
+ "sets": [
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 80,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 10 plus 2?",
+     "stem": "10 + 2 = __",
+     "options": [
+      "11",
+      "12",
+      "13"
+     ],
+     "answer": 1,
+     "askSay": "What is 10 plus 2?",
+     "askAudio": "q/e1-q.mp3",
+     "audio": "q/e1-a.mp3",
+     "word": "Twelve."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 80,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 12 minus 2?",
+     "stem": "12 - 2 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is 12 minus 2?",
+     "askAudio": "q/e3-q.mp3",
+     "audio": "q/e3-a.mp3",
+     "word": "Ten."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 3,
+   "page": 80,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 17 minus 7?",
+     "stem": "17 - 7 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is 17 minus 7?",
+     "askAudio": "q/e4-q.mp3",
+     "audio": "q/e4-a.mp3",
+     "word": "Ten."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 4,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 10 plus 9?",
+     "stem": "10 + 9 = __",
+     "options": [
+      "18",
+      "19",
+      "20"
+     ],
+     "answer": 1,
+     "askSay": "What is 10 plus 9?",
+     "askAudio": "q/e6-q.mp3",
+     "audio": "q/e6-a.mp3",
+     "word": "Nineteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 5,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 10 plus 4?",
+     "stem": "10 + 4 = __",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askSay": "What is 10 plus 4?",
+     "askAudio": "q/e7-q.mp3",
+     "audio": "q/e7-a.mp3",
+     "word": "Fourteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 6,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 18 minus 8?",
+     "stem": "18 - 8 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is 18 minus 8?",
+     "askAudio": "q/e9-q.mp3",
+     "audio": "q/e9-a.mp3",
+     "word": "Ten."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 7,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 19 minus 9?",
+     "stem": "19 - 9 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is 19 minus 9?",
+     "askAudio": "q/e10-q.mp3",
+     "audio": "q/e10-a.mp3",
+     "word": "Ten."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 8,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 10 plus 7?",
+     "stem": "10 + 7 = __",
+     "options": [
+      "16",
+      "17",
+      "18"
+     ],
+     "answer": 1,
+     "askSay": "What is 10 plus 7?",
+     "askAudio": "q/e12-q.mp3",
+     "audio": "q/e12-a.mp3",
+     "word": "Seventeen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 9,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 10 plus 6?",
+     "stem": "10 + 6 = __",
+     "options": [
+      "15",
+      "16",
+      "17"
+     ],
+     "answer": 1,
+     "askSay": "What is 10 plus 6?",
+     "askAudio": "q/e13-q.mp3",
+     "audio": "q/e13-a.mp3",
+     "word": "Sixteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 10,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 14 minus 4?",
+     "stem": "14 - 4 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is 14 minus 4?",
+     "askAudio": "q/e15-q.mp3",
+     "audio": "q/e15-a.mp3",
+     "word": "Ten."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 11,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 11 minus 1?",
+     "stem": "11 - 1 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is 11 minus 1?",
+     "askAudio": "q/e16-q.mp3",
+     "audio": "q/e16-a.mp3",
+     "word": "Ten."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 12,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "There are 10 cats. Then 6 more come. How many cats are there now?",
+     "stem": "10 + 6 = __",
+     "options": [
+      "15",
+      "16",
+      "17"
+     ],
+     "answer": 1,
+     "askSay": "There are 10 cats. Then 6 more come. How many cats are there now?",
+     "askAudio": "q/e18-q.mp3",
+     "audio": "q/e18-a.mp3",
+     "word": "Sixteen cats."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 13,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "There are 17 balloons. 7 fly away. How many are left?",
+     "stem": "17 - 7 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "There are 17 balloons. 7 fly away. How many are left?",
+     "askAudio": "q/e19-q.mp3",
+     "audio": "q/e19-a.mp3",
+     "word": "Ten balloons."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 14,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "There are 12 cats. 2 go out. How many are left?",
+     "stem": "12 - 2 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "There are 12 cats. 2 go out. How many are left?",
+     "askAudio": "q/e21-q.mp3",
+     "audio": "q/e21-a.mp3",
+     "word": "Ten cats."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 80,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 10 plus 2?",
+     "stem": "10 + 2 = __",
+     "options": [
+      "11",
+      "12",
+      "13"
+     ],
+     "answer": 1,
+     "askSay": "What is 10 plus 2?",
+     "askAudio": "q/e1-q.mp3",
+     "audio": "q/e1-a.mp3",
+     "word": "Twelve."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 80,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 12 minus 2?",
+     "stem": "12 - 2 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is 12 minus 2?",
+     "askAudio": "q/e3-q.mp3",
+     "audio": "q/e3-a.mp3",
+     "word": "Ten."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 3,
+   "page": 80,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 17 minus 7?",
+     "stem": "17 - 7 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is 17 minus 7?",
+     "askAudio": "q/e4-q.mp3",
+     "audio": "q/e4-a.mp3",
+     "word": "Ten."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 4,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 10 plus 9?",
+     "stem": "10 + 9 = __",
+     "options": [
+      "18",
+      "19",
+      "20"
+     ],
+     "answer": 1,
+     "askSay": "What is 10 plus 9?",
+     "askAudio": "q/e6-q.mp3",
+     "audio": "q/e6-a.mp3",
+     "word": "Nineteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 5,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 10 plus 4?",
+     "stem": "10 + 4 = __",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askSay": "What is 10 plus 4?",
+     "askAudio": "q/e7-q.mp3",
+     "audio": "q/e7-a.mp3",
+     "word": "Fourteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 6,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 18 minus 8?",
+     "stem": "18 - 8 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is 18 minus 8?",
+     "askAudio": "q/e9-q.mp3",
+     "audio": "q/e9-a.mp3",
+     "word": "Ten."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 7,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 19 minus 9?",
+     "stem": "19 - 9 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is 19 minus 9?",
+     "askAudio": "q/e10-q.mp3",
+     "audio": "q/e10-a.mp3",
+     "word": "Ten."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 8,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 10 plus 7?",
+     "stem": "10 + 7 = __",
+     "options": [
+      "16",
+      "17",
+      "18"
+     ],
+     "answer": 1,
+     "askSay": "What is 10 plus 7?",
+     "askAudio": "q/e12-q.mp3",
+     "audio": "q/e12-a.mp3",
+     "word": "Seventeen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 9,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 10 plus 6?",
+     "stem": "10 + 6 = __",
+     "options": [
+      "15",
+      "16",
+      "17"
+     ],
+     "answer": 1,
+     "askSay": "What is 10 plus 6?",
+     "askAudio": "q/e13-q.mp3",
+     "audio": "q/e13-a.mp3",
+     "word": "Sixteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 10,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 14 minus 4?",
+     "stem": "14 - 4 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is 14 minus 4?",
+     "askAudio": "q/e15-q.mp3",
+     "audio": "q/e15-a.mp3",
+     "word": "Ten."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 11,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 11 minus 1?",
+     "stem": "11 - 1 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is 11 minus 1?",
+     "askAudio": "q/e16-q.mp3",
+     "audio": "q/e16-a.mp3",
+     "word": "Ten."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 12,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "There are 10 cats. Then 6 more come. How many cats are there now?",
+     "stem": "10 + 6 = __",
+     "options": [
+      "15",
+      "16",
+      "17"
+     ],
+     "answer": 1,
+     "askSay": "There are 10 cats. Then 6 more come. How many cats are there now?",
+     "askAudio": "q/e18-q.mp3",
+     "audio": "q/e18-a.mp3",
+     "word": "Sixteen cats."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 13,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "There are 17 balloons. 7 fly away. How many are left?",
+     "stem": "17 - 7 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "There are 17 balloons. 7 fly away. How many are left?",
+     "askAudio": "q/e19-q.mp3",
+     "audio": "q/e19-a.mp3",
+     "word": "Ten balloons."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 14,
+   "page": 81,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "There are 12 cats. 2 go out. How many are left?",
+     "stem": "12 - 2 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "There are 12 cats. 2 go out. How many are left?",
+     "askAudio": "q/e21-q.mp3",
+     "audio": "q/e21-a.mp3",
+     "word": "Ten cats."
+    }
+   ],
+   "book": "booklet"
+  }
+ ]
+}

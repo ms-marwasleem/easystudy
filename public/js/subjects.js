@@ -19,4 +19,4 @@ function drawSubjects(){
     wig=G.timeline({repeat:-1,repeatDelay:1.2,delay:1.4}); cubes.forEach(o=>wig.to(o,{rotation:-4,y:-6,duration:.12}).to(o,{rotation:4,duration:.1,repeat:3,yoyo:true}).to(o,{rotation:0,y:0,duration:.15}).to({},{duration:.5}));
     $$('.peek',g).forEach(p=>G.to(p,{x:4,duration:.9,yoyo:true,repeat:-1,ease:'sine.inOut'})); }
 }
-function openSubjects(){ if(restOk){ stopAll(); vStop(); clearMarks(); } show('subjects'); kidPaint(); drawSubjects(); pop('.box'); showHint($('.box.open'),COURSE.hints.subjects,1300,'subjects'); }
+function openSubjects(){ stopVoice(); if(restOk){ stopAll(); vStop(); clearMarks(); } show('subjects'); kidPaint(); drawSubjects(); pop('.box'); showHint($('.box.open'),COURSE.hints.subjects,1300,'subjects'); }

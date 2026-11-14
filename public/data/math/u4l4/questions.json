@@ -1,110 +1,220 @@
 {
-  "sets": [
+ "sets": [
+  {
+   "type": "mwrite",
+   "ex": 1,
+   "page": 51,
+   "task": "Write the subtraction sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
     {
-      "type": "mwrite",
-      "ex": 1,
-      "page": 51,
-      "task": "Write the subtraction sentence and the answer.",
-      "taskAudio": "q/task-1.mp3",
-      "items": [
-        {
-          "pics": [
-            "story-4.png"
-          ],
-          "ask": "What is the difference between the number of watermelons and melons?",
-          "lead": "Subtraction sentence:",
-          "word": "10 − 5 = 5",
-          "keys": "1234567890+−=",
-          "askSay": "What is the difference between the number of watermelons and melons? Write the subtraction sentence.",
-          "askAudio": "q/p1-s-q.mp3",
-          "audio": "q/p1-s.mp3",
-          "picsTall": [
-            "story-4-tall.png"
-          ]
-        }
-      ]
-    },
-    {
-      "type": "mcq",
-      "ex": 1,
-      "page": 51,
-      "task": "Write the subtraction sentence and the answer.",
-      "taskAudio": "q/task-1.mp3",
-      "items": [
-        {
-          "pics": [
-            "story-4.png"
-          ],
-          "ask": "What is the difference between the number of watermelons and melons?",
-          "stem": "Answer: ___",
-          "options": [
-            "15",
-            "6",
-            "5"
-          ],
-          "answer": 2,
-          "askSay": "What is the difference between the number of watermelons and melons? What is the answer?",
-          "askAudio": "q/p1-a-q.mp3",
-          "audio": "q/p1-a.mp3",
-          "word": "Answer: 5",
-          "picsTall": [
-            "story-4-tall.png"
-          ]
-        }
-      ]
-    },
-    {
-      "type": "mwrite",
-      "ex": 2,
-      "page": 51,
-      "task": "Write the subtraction sentence and the answer.",
-      "taskAudio": "q/task-1.mp3",
-      "items": [
-        {
-          "pics": [
-            "story-5.png"
-          ],
-          "ask": "What is the difference between the number of candies and cakes?",
-          "lead": "Subtraction sentence:",
-          "word": "7 − 5 = 2",
-          "keys": "1234567890+−=",
-          "askSay": "What is the difference between the number of candies and cakes? Write the subtraction sentence.",
-          "askAudio": "q/p2-s-q.mp3",
-          "audio": "q/p2-s.mp3",
-          "picsTall": [
-            "story-5-tall.png"
-          ]
-        }
-      ]
-    },
-    {
-      "type": "mcq",
-      "ex": 2,
-      "page": 51,
-      "task": "Write the subtraction sentence and the answer.",
-      "taskAudio": "q/task-1.mp3",
-      "items": [
-        {
-          "pics": [
-            "story-5.png"
-          ],
-          "ask": "What is the difference between the number of candies and cakes?",
-          "stem": "Answer: ___",
-          "options": [
-            "12",
-            "2",
-            "5"
-          ],
-          "answer": 1,
-          "askSay": "What is the difference between the number of candies and cakes? What is the answer?",
-          "askAudio": "q/p2-a-q.mp3",
-          "audio": "q/p2-a.mp3",
-          "word": "Answer: 2",
-          "picsTall": [
-            "story-5-tall.png"
-          ]
-        }
-      ]
+     "pics": [
+      "story-4.png"
+     ],
+     "ask": "What is the difference between the number of watermelons and melons?",
+     "lead": "Subtraction sentence:",
+     "word": "10 − 5 = 5",
+     "keys": "1234567890+−=",
+     "askSay": "What is the difference between the number of watermelons and melons? Write the subtraction sentence.",
+     "askAudio": "q/p1-s-q.mp3",
+     "audio": "q/p1-s.mp3",
+     "picsTall": [
+      "story-4-tall.png"
+     ]
     }
-  ]
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 51,
+   "task": "Write the subtraction sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-4.png"
+     ],
+     "ask": "What is the difference between the number of watermelons and melons?",
+     "stem": "Answer: ___",
+     "options": [
+      "15",
+      "6",
+      "5"
+     ],
+     "answer": 2,
+     "askSay": "What is the difference between the number of watermelons and melons? What is the answer?",
+     "askAudio": "q/p1-a-q.mp3",
+     "audio": "q/p1-a.mp3",
+     "word": "Answer: 5",
+     "picsTall": [
+      "story-4-tall.png"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "mwrite",
+   "ex": 2,
+   "page": 51,
+   "task": "Write the subtraction sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-5.png"
+     ],
+     "ask": "What is the difference between the number of candies and cakes?",
+     "lead": "Subtraction sentence:",
+     "word": "7 − 5 = 2",
+     "keys": "1234567890+−=",
+     "askSay": "What is the difference between the number of candies and cakes? Write the subtraction sentence.",
+     "askAudio": "q/p2-s-q.mp3",
+     "audio": "q/p2-s.mp3",
+     "picsTall": [
+      "story-5-tall.png"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 51,
+   "task": "Write the subtraction sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-5.png"
+     ],
+     "ask": "What is the difference between the number of candies and cakes?",
+     "stem": "Answer: ___",
+     "options": [
+      "12",
+      "2",
+      "5"
+     ],
+     "answer": 1,
+     "askSay": "What is the difference between the number of candies and cakes? What is the answer?",
+     "askAudio": "q/p2-a-q.mp3",
+     "audio": "q/p2-a.mp3",
+     "word": "Answer: 2",
+     "picsTall": [
+      "story-5-tall.png"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "mwrite",
+   "ex": 1,
+   "page": 51,
+   "task": "Write the subtraction sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-4.png"
+     ],
+     "ask": "What is the difference between the number of watermelons and melons?",
+     "lead": "Subtraction sentence:",
+     "word": "10 − 5 = 5",
+     "keys": "1234567890+−=",
+     "askSay": "What is the difference between the number of watermelons and melons? Write the subtraction sentence.",
+     "askAudio": "q/p1-s-q.mp3",
+     "audio": "q/p1-s.mp3",
+     "picsTall": [
+      "story-4-tall.png"
+     ]
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 51,
+   "task": "Write the subtraction sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-4.png"
+     ],
+     "ask": "What is the difference between the number of watermelons and melons?",
+     "stem": "Answer: ___",
+     "options": [
+      "15",
+      "6",
+      "5"
+     ],
+     "answer": 2,
+     "askSay": "What is the difference between the number of watermelons and melons? What is the answer?",
+     "askAudio": "q/p1-a-q.mp3",
+     "audio": "q/p1-a.mp3",
+     "word": "Answer: 5",
+     "picsTall": [
+      "story-4-tall.png"
+     ]
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mwrite",
+   "ex": 2,
+   "page": 51,
+   "task": "Write the subtraction sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-5.png"
+     ],
+     "ask": "What is the difference between the number of candies and cakes?",
+     "lead": "Subtraction sentence:",
+     "word": "7 − 5 = 2",
+     "keys": "1234567890+−=",
+     "askSay": "What is the difference between the number of candies and cakes? Write the subtraction sentence.",
+     "askAudio": "q/p2-s-q.mp3",
+     "audio": "q/p2-s.mp3",
+     "picsTall": [
+      "story-5-tall.png"
+     ]
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 51,
+   "task": "Write the subtraction sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-5.png"
+     ],
+     "ask": "What is the difference between the number of candies and cakes?",
+     "stem": "Answer: ___",
+     "options": [
+      "12",
+      "2",
+      "5"
+     ],
+     "answer": 1,
+     "askSay": "What is the difference between the number of candies and cakes? What is the answer?",
+     "askAudio": "q/p2-a-q.mp3",
+     "audio": "q/p2-a.mp3",
+     "word": "Answer: 2",
+     "picsTall": [
+      "story-5-tall.png"
+     ]
+    }
+   ],
+   "book": "booklet"
+  }
+ ]
 }

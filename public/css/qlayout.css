@@ -107,7 +107,7 @@
 }
 
 /* link board in rows (tags/words above, pictures below): the two rows breathe, never stuck together (Ahmed 2026-11-08) */
-.qlink:not(.cols){gap:clamp(2.75rem,26cqh,7rem)}   /* room between the row of words and the row of pictures (Ahmed 2026-11-09) */
+.qlink:not(.cols){gap:clamp(1.25rem,7cqh,7rem)}   /* room between the row of words and the row of pictures (Ahmed 2026-11-09; 7cqh not 26cqh: at 1100x720 the pictures row collapsed to 5px, Ahmed 2026-11-13) */
 
 /* words sit INSIDE their box, centred, with room for the harakat above and below (Ahmed 2026-11-09, whole app): Arabic needs a taller line than the 1.1-1.15 the boxes used, or the kasra / shadda hang out of the bottom */
 .qch.wd{display:flex!important;align-items:center;justify-content:center;text-align:center}

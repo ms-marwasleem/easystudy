@@ -1,0 +1,410 @@
+{
+ "id": "u7l4",
+ "unit": 7,
+ "lesson": 4,
+ "title": "Adding and Subtracting Numbers (Part 1)",
+ "task": "Adding and Subtracting Numbers (Part 1)",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz",
+  "booklet"
+ ],
+ "tabLabels": {
+  "read": "Lesson",
+  "quiz": "Book Questions"
+ },
+ "pages": 5,
+ "pageNums": [
+  80,
+  80,
+  80,
+  80,
+  80
+ ],
+ "layout": "explain",
+ "explain": {
+  "caption": false,
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3",
+   "6": "../u1l4/words/six.mp3",
+   "7": "../u1l4/words/seven.mp3",
+   "8": "../u1l4/words/eight.mp3",
+   "9": "../u1l4/words/nine.mp3",
+   "10": "../u1l4/words/ten.mp3",
+   "11": "../u7l1/words/eleven.mp3",
+   "12": "../u7l1/words/twelve.mp3",
+   "13": "../u7l1/words/thirteen.mp3",
+   "14": "../u7l1/words/fourteen.mp3",
+   "15": "../u7l1/words/fifteen.mp3",
+   "16": "../u7l1/words/sixteen.mp3",
+   "17": "../u7l1/words/seventeen.mp3",
+   "18": "../u7l1/words/eighteen.mp3",
+   "19": "../u7l1/words/nineteen.mp3",
+   "20": "../u7l1/words/twenty.mp3"
+  },
+  "steps": [
+   {
+    "name": "10 + 3",
+    "beats": [
+     {
+      "say": "Ten.",
+      "audio": "../u7l1/explain/ten.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 13,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green"
+        }
+       }
+      ]
+     },
+     {
+      "say": "Add three.",
+      "audio": "explain/s0-b.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ]
+        ],
+        "color": "orange",
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Ten and three make thirteen.",
+      "audio": "explain/s0-c.mp3",
+      "do": [
+       {
+        "add": "10 + 3 = 13",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "10 + 8",
+    "beats": [
+     {
+      "say": "Ten.",
+      "audio": "../u7l1/explain/ten.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 18,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green"
+        }
+       }
+      ]
+     },
+     {
+      "say": "Add eight.",
+      "audio": "explain/s1-b.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ],
+         [
+          373,
+          203
+         ],
+         [
+          453,
+          203
+         ],
+         [
+          533,
+          203
+         ],
+         [
+          613,
+          203
+         ],
+         [
+          693,
+          203
+         ]
+        ],
+        "color": "orange",
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Ten and eight make eighteen.",
+      "audio": "explain/s1-c.mp3",
+      "do": [
+       {
+        "add": "10 + 8 = 18",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "13 - 3",
+    "beats": [
+     {
+      "say": "Thirteen. Take away three.",
+      "audio": "explain/s2-a.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 13,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ]
+        ],
+        "color": "red",
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Ten is left.",
+      "audio": "explain/s2-c.mp3",
+      "do": [
+       {
+        "add": "13 - 3 = 10",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "17 - 7",
+    "beats": [
+     {
+      "say": "Seventeen. Take away seven.",
+      "audio": "explain/s3-a.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 17,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ],
+         [
+          373,
+          203
+         ],
+         [
+          453,
+          203
+         ],
+         [
+          533,
+          203
+         ],
+         [
+          613,
+          203
+         ]
+        ],
+        "color": "red",
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Ten is left.",
+      "audio": "explain/s3-c.mp3",
+      "do": [
+       {
+        "add": "17 - 7 = 10",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "14 - 4",
+    "beats": [
+     {
+      "say": "Fourteen. Take away four.",
+      "audio": "explain/s4-a.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 14,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ],
+         [
+          373,
+          203
+         ]
+        ],
+        "color": "red",
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Ten is left.",
+      "audio": "explain/s4-c.mp3",
+      "do": [
+       {
+        "add": "14 - 4 = 10",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   }
+  ]
+ }
+}

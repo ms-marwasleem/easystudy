@@ -1,0 +1,426 @@
+{
+ "sets": [
+  {
+   "type": "mcq",
+   "ex": 11,
+   "page": 70,
+   "task": "Look at the charts and answer.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-3.png"
+     ],
+     "ask": "Which class has more dogs?",
+     "stem": "The ___ has more dogs.",
+     "options": [
+      "Class 1",
+      "Class 2"
+     ],
+     "answer": 1,
+     "askSay": "Which class has more dogs?",
+     "askAudio": "q/a1-q.mp3",
+     "audio": "q/a1-a.mp3",
+     "word": "Class 2 has more dogs."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 12,
+   "page": 70,
+   "task": "Look at the charts and answer.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-3.png"
+     ],
+     "ask": "Which class has more camels?",
+     "stem": "The ___ has more camels.",
+     "options": [
+      "Class 1",
+      "Class 2"
+     ],
+     "answer": 0,
+     "askSay": "Which class has more camels?",
+     "askAudio": "q/a2-q.mp3",
+     "audio": "q/a2-a.mp3",
+     "word": "Class 1 has more camels."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 13,
+   "page": 70,
+   "task": "Look at the charts and answer.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-3.png"
+     ],
+     "ask": "Which animal is the most in Class 1?",
+     "stem": "The most in Class 1 is the ___.",
+     "options": [
+      "giraffes",
+      "dogs",
+      "cats",
+      "camels"
+     ],
+     "answer": 2,
+     "askSay": "Which animal is the most in Class 1?",
+     "askAudio": "q/a3-q.mp3",
+     "audio": "q/a3-a.mp3",
+     "word": "The most in Class 1 is the cats."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 14,
+   "page": 70,
+   "task": "Look at the charts and answer.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-3.png"
+     ],
+     "ask": "Which animal has the same number in both classes?",
+     "stem": "The ___ have the same number.",
+     "options": [
+      "giraffes",
+      "dogs",
+      "cats",
+      "camels"
+     ],
+     "answer": 0,
+     "askSay": "Which animal has the same number in both classes?",
+     "askAudio": "q/a4-q.mp3",
+     "audio": "q/a4-a.mp3",
+     "word": "The giraffes have the same number."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 21,
+   "page": 71,
+   "task": "Look at the charts and answer.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-4.png"
+     ],
+     "ask": "Which group has more hearts?",
+     "stem": "The ___ has more hearts.",
+     "options": [
+      "Group 1",
+      "Group 2"
+     ],
+     "answer": 0,
+     "askSay": "Which group has more hearts?",
+     "askAudio": "q/s1-q.mp3",
+     "audio": "q/s1-a.mp3",
+     "word": "Group 1 has more hearts."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 22,
+   "page": 71,
+   "task": "Look at the charts and answer.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-4.png"
+     ],
+     "ask": "Which card is the most in Group 1?",
+     "stem": "The most in Group 1 is the ___.",
+     "options": [
+      "triangles",
+      "circles",
+      "squares",
+      "stars",
+      "hearts"
+     ],
+     "answer": 2,
+     "askSay": "Which card is the most in Group 1?",
+     "askAudio": "q/s2-q.mp3",
+     "audio": "q/s2-a.mp3",
+     "word": "The most in Group 1 is the square."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 23,
+   "page": 71,
+   "task": "Look at the charts and answer.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-4.png"
+     ],
+     "ask": "If the winning card is the circle, which group is the winner?",
+     "stem": "The winner is ___.",
+     "options": [
+      "Group 1",
+      "Group 2"
+     ],
+     "answer": 0,
+     "askSay": "If the winning card is the circle, which group is the winner?",
+     "askAudio": "q/s3-q.mp3",
+     "audio": "q/s3-a.mp3",
+     "word": "Group 1 is the winner."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 24,
+   "page": 71,
+   "task": "Look at the charts and answer.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-4.png"
+     ],
+     "ask": "If the winning card is the triangle, which group is the winner?",
+     "stem": "The winner is ___.",
+     "options": [
+      "Group 1",
+      "Group 2"
+     ],
+     "answer": 1,
+     "askSay": "If the winning card is the triangle, which group is the winner?",
+     "askAudio": "q/s4-q.mp3",
+     "audio": "q/s4-a.mp3",
+     "word": "Group 2 is the winner."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 11,
+   "page": 70,
+   "task": "Look at the charts and answer.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-3.png"
+     ],
+     "ask": "Which class has more dogs?",
+     "stem": "The ___ has more dogs.",
+     "options": [
+      "Class 1",
+      "Class 2"
+     ],
+     "answer": 1,
+     "askSay": "Which class has more dogs?",
+     "askAudio": "q/a1-q.mp3",
+     "audio": "q/a1-a.mp3",
+     "word": "Class 2 has more dogs."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 12,
+   "page": 70,
+   "task": "Look at the charts and answer.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-3.png"
+     ],
+     "ask": "Which class has more camels?",
+     "stem": "The ___ has more camels.",
+     "options": [
+      "Class 1",
+      "Class 2"
+     ],
+     "answer": 0,
+     "askSay": "Which class has more camels?",
+     "askAudio": "q/a2-q.mp3",
+     "audio": "q/a2-a.mp3",
+     "word": "Class 1 has more camels."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 13,
+   "page": 70,
+   "task": "Look at the charts and answer.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-3.png"
+     ],
+     "ask": "Which animal is the most in Class 1?",
+     "stem": "The most in Class 1 is the ___.",
+     "options": [
+      "giraffes",
+      "dogs",
+      "cats",
+      "camels"
+     ],
+     "answer": 2,
+     "askSay": "Which animal is the most in Class 1?",
+     "askAudio": "q/a3-q.mp3",
+     "audio": "q/a3-a.mp3",
+     "word": "The most in Class 1 is the cats."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 14,
+   "page": 70,
+   "task": "Look at the charts and answer.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-3.png"
+     ],
+     "ask": "Which animal has the same number in both classes?",
+     "stem": "The ___ have the same number.",
+     "options": [
+      "giraffes",
+      "dogs",
+      "cats",
+      "camels"
+     ],
+     "answer": 0,
+     "askSay": "Which animal has the same number in both classes?",
+     "askAudio": "q/a4-q.mp3",
+     "audio": "q/a4-a.mp3",
+     "word": "The giraffes have the same number."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 21,
+   "page": 71,
+   "task": "Look at the charts and answer.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-4.png"
+     ],
+     "ask": "Which group has more hearts?",
+     "stem": "The ___ has more hearts.",
+     "options": [
+      "Group 1",
+      "Group 2"
+     ],
+     "answer": 0,
+     "askSay": "Which group has more hearts?",
+     "askAudio": "q/s1-q.mp3",
+     "audio": "q/s1-a.mp3",
+     "word": "Group 1 has more hearts."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 22,
+   "page": 71,
+   "task": "Look at the charts and answer.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-4.png"
+     ],
+     "ask": "Which card is the most in Group 1?",
+     "stem": "The most in Group 1 is the ___.",
+     "options": [
+      "triangles",
+      "circles",
+      "squares",
+      "stars",
+      "hearts"
+     ],
+     "answer": 2,
+     "askSay": "Which card is the most in Group 1?",
+     "askAudio": "q/s2-q.mp3",
+     "audio": "q/s2-a.mp3",
+     "word": "The most in Group 1 is the square."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 23,
+   "page": 71,
+   "task": "Look at the charts and answer.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-4.png"
+     ],
+     "ask": "If the winning card is the circle, which group is the winner?",
+     "stem": "The winner is ___.",
+     "options": [
+      "Group 1",
+      "Group 2"
+     ],
+     "answer": 0,
+     "askSay": "If the winning card is the circle, which group is the winner?",
+     "askAudio": "q/s3-q.mp3",
+     "audio": "q/s3-a.mp3",
+     "word": "Group 1 is the winner."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 24,
+   "page": 71,
+   "task": "Look at the charts and answer.",
+   "taskAudio": "q/task.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-4.png"
+     ],
+     "ask": "If the winning card is the triangle, which group is the winner?",
+     "stem": "The winner is ___.",
+     "options": [
+      "Group 1",
+      "Group 2"
+     ],
+     "answer": 1,
+     "askSay": "If the winning card is the triangle, which group is the winner?",
+     "askAudio": "q/s4-q.mp3",
+     "audio": "q/s4-a.mp3",
+     "word": "Group 2 is the winner."
+    }
+   ],
+   "book": "booklet"
+  }
+ ]
+}

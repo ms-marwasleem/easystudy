@@ -1,0 +1,270 @@
+{
+ "id": "u9l2",
+ "unit": 9,
+ "lesson": 2,
+ "title": "Subtracting Three Numbers",
+ "task": "Subtracting Three Numbers",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz",
+  "booklet"
+ ],
+ "tabLabels": {
+  "read": "Lesson",
+  "quiz": "Book Questions"
+ },
+ "pages": 3,
+ "pageNums": [
+  90,
+  90,
+  90
+ ],
+ "layout": "explain",
+ "explain": {
+  "caption": false,
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3",
+   "6": "../u1l4/words/six.mp3",
+   "7": "../u1l4/words/seven.mp3",
+   "8": "../u1l4/words/eight.mp3",
+   "9": "../u1l4/words/nine.mp3",
+   "10": "../u1l4/words/ten.mp3",
+   "11": "../u7l1/words/eleven.mp3",
+   "12": "../u7l1/words/twelve.mp3",
+   "13": "../u7l1/words/thirteen.mp3",
+   "14": "../u7l1/words/fourteen.mp3",
+   "15": "../u7l1/words/fifteen.mp3",
+   "16": "../u7l1/words/sixteen.mp3",
+   "17": "../u7l1/words/seventeen.mp3",
+   "18": "../u7l1/words/eighteen.mp3",
+   "19": "../u7l1/words/nineteen.mp3",
+   "20": "../u7l1/words/twenty.mp3"
+  },
+  "steps": [
+   {
+    "name": "8 - 1 - 2",
+    "beats": [
+     {
+      "say": "Eight minus one minus two. Start from the left.",
+      "audio": "explain/s0-a.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "n": 8,
+        "unit": "../../pics/apple-toon.png",
+        "ends": [
+         "",
+         ""
+        ],
+        "wide": true
+       }
+      ]
+     },
+     {
+      "say": "Eight minus one is seven.",
+      "audio": "explain/s0-b.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          779,
+          40,
+          886,
+          214
+         ],
+         "color": "red"
+        }
+       },
+       {
+        "add": "8 - 1 = 7",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "Seven minus two is five.",
+      "audio": "explain/s0-c.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          589,
+          40,
+          791,
+          214
+         ],
+         "color": "red"
+        }
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "7 - 2 = 5",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "6 - 1 - 3",
+    "beats": [
+     {
+      "say": "Six minus one minus three. Start from the left.",
+      "audio": "explain/s1-a.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "n": 6,
+        "unit": "../../pics/apple-toon.png",
+        "ends": [
+         "",
+         ""
+        ],
+        "wide": true
+       }
+      ]
+     },
+     {
+      "say": "Six minus one is five.",
+      "audio": "explain/s1-b.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          747,
+          40,
+          886,
+          214
+         ],
+         "color": "red"
+        }
+       },
+       {
+        "add": "6 - 1 = 5",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "Five minus three is two.",
+      "audio": "explain/s1-c.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          367,
+          40,
+          759,
+          214
+         ],
+         "color": "red"
+        }
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "5 - 3 = 2",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "9 - 3 - 4",
+    "beats": [
+     {
+      "say": "Nine minus three minus four. Start from the left.",
+      "audio": "explain/s2-a.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "n": 9,
+        "unit": "../../pics/apple-toon.png",
+        "ends": [
+         "",
+         ""
+        ],
+        "wide": true
+       }
+      ]
+     },
+     {
+      "say": "Nine minus three is six.",
+      "audio": "explain/s2-b.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          621,
+          40,
+          886,
+          214
+         ],
+         "color": "red"
+        }
+       },
+       {
+        "add": "9 - 3 = 6",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "Six minus four is two.",
+      "audio": "explain/s2-c.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          283,
+          40,
+          633,
+          214
+         ],
+         "color": "red"
+        }
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "6 - 4 = 2",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -21,10 +21,26 @@
   "nameAudio": "../letters/62f/name.mp3",
   "pic": "../../pics/ar-rooster.png",
   "forms": [
-   {"t": "د", "pos": "start"},
-   {"t": "ـد", "pos": "mid"},
-   {"t": "ـد", "pos": "end-joined"},
-   {"t": "د", "pos": "end-alone"}
+   {
+    "t": "د",
+    "pos": "start",
+    "label": "أول الكلمة"
+   },
+   {
+    "t": "ـد",
+    "pos": "mid",
+    "label": "وسط الكلمة"
+   },
+   {
+    "t": "ـد",
+    "pos": "end-joined",
+    "label": "آخر الكلمة (متصل)"
+   },
+   {
+    "t": "د",
+    "pos": "end-alone",
+    "label": "آخر الكلمة (منفصل)"
+   }
   ],
   "sounds": [
    {
@@ -97,7 +113,7 @@
     },
     {
      "t": "و",
-     "audio": "../../syl-ar/648.mp3"
+     "audio": "../../syl-ar/648-652.mp3"
     }
    ],
    "har": "fatha"
@@ -181,7 +197,7 @@
     },
     {
      "t": "ج",
-     "audio": "../../syl-ar/62c.mp3"
+     "audio": "../../syl-ar/62c-652.mp3"
     }
    ],
    "har": "damma"
@@ -221,7 +237,7 @@
     },
     {
      "t": "ك",
-     "audio": "../../syl-ar/643.mp3"
+     "audio": "../../syl-ar/643-652.mp3"
     }
    ],
    "har": "kasra"
@@ -239,7 +255,7 @@
     },
     {
      "t": "ع",
-     "audio": "../../syl-ar/639.mp3"
+     "audio": "../../syl-ar/639-652.mp3"
     }
    ],
    "har": "kasra"
@@ -261,7 +277,7 @@
     },
     {
      "t": "غ",
-     "audio": "../../syl-ar/63a.mp3"
+     "audio": "../../syl-ar/63a-652.mp3"
     }
    ],
    "har": "kasra"
@@ -283,7 +299,7 @@
     },
     {
      "t": "د",
-     "audio": "../../syl-ar/62f.mp3"
+     "audio": "../../syl-ar/62f-652.mp3"
     }
    ],
    "har": "sukoon"
@@ -327,7 +343,7 @@
     },
     {
      "t": "ر",
-     "audio": "../../syl-ar/631.mp3"
+     "audio": "../../syl-ar/631-652.mp3"
     }
    ],
    "har": "sukoon"

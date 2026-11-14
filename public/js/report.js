@@ -77,7 +77,7 @@ function rpOpen(){
 // ---------- the button: lesson row (beside the page tag) and the exam header ----------
 function rpButton(){ const b=el('button','rpbtn',RPFLAG); b.type='button'; b.setAttribute('aria-label','Report a problem'); b.addEventListener('click',e=>{ e.stopPropagation(); rpOpen(); }); return b; }
 (function(){
-  const lm=$('#lmeta .lm-l'); if(lm) lm.append(rpButton());
+  const sg=$('#lesson .sign'); if(sg) sg.append(rpButton());   // end of the subject·term line (2026-11-14), no longer beside the page tag
   const xh=$('#exam > header'); if(xh) xh.append(rpButton());
   rpRetry(); addEventListener('online',rpRetry); document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible') rpRetry(); });
 })();

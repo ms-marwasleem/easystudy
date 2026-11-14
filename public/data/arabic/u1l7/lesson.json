@@ -10,7 +10,7 @@
   22,
   23
  ],
- "scene": "../../pics/ar-camel.png",
+ "scene": "../../pics/ar-fa-camel2.png",
  "sceneAlt": "جِيم",
  "lines": [],
  "end": 1,
@@ -19,23 +19,27 @@
   "ch": "ج",
   "name": "جِيم",
   "nameAudio": "../letters/62c/name.mp3",
-  "pic": "../../pics/ar-camel.png",
+  "pic": "../../pics/ar-fa-camel2.png",
   "forms": [
    {
     "t": "ج",
-    "pos": "end-alone"
+    "pos": "end-alone",
+    "label": "آخر الكلمة (منفصل)"
    },
    {
     "t": "جـ",
-    "pos": "start"
+    "pos": "start",
+    "label": "أول الكلمة"
    },
    {
     "t": "ـجـ",
-    "pos": "mid"
+    "pos": "mid",
+    "label": "وسط الكلمة"
    },
    {
     "t": "ـج",
-    "pos": "end-joined"
+    "pos": "end-joined",
+    "label": "آخر الكلمة (متصل)"
    }
   ],
   "sounds": [
@@ -113,14 +117,14 @@
     },
     {
      "t": "ر",
-     "audio": "../../syl-ar/631.mp3"
+     "audio": "../../syl-ar/631-652.mp3"
     }
    ],
    "har": "fatha"
   },
   {
    "word": "جَمَل",
-   "img": "../../pics/ar-camel.png",
+   "img": "../../pics/ar-fa-camel2.png",
    "audio": {
     "word": "words/jamal.mp3"
    },
@@ -135,7 +139,7 @@
     },
     {
      "t": "ل",
-     "audio": "../../syl-ar/644.mp3"
+     "audio": "../../syl-ar/644-652.mp3"
     }
    ],
    "har": "fatha"
@@ -157,7 +161,7 @@
     },
     {
      "t": "س",
-     "audio": "../../syl-ar/633.mp3"
+     "audio": "../../syl-ar/633-652.mp3"
     }
    ],
    "har": "fatha"
@@ -175,7 +179,7 @@
     },
     {
      "t": "ن",
-     "audio": "../../syl-ar/646.mp3"
+     "audio": "../../syl-ar/646-652.mp3"
     }
    ],
    "har": "damma"
@@ -241,7 +245,7 @@
     },
     {
      "t": "ر",
-     "audio": "../../syl-ar/631.mp3"
+     "audio": "../../syl-ar/631-652.mp3"
     }
    ],
    "har": "kasra"
@@ -259,7 +263,7 @@
     },
     {
      "t": "ر",
-     "audio": "../../syl-ar/631.mp3"
+     "audio": "../../syl-ar/631-652.mp3"
     }
    ],
    "har": "kasra"
@@ -277,7 +281,7 @@
     },
     {
      "t": "م",
-     "audio": "../../syl-ar/645.mp3"
+     "audio": "../../syl-ar/645-652.mp3"
     }
    ],
    "har": "kasra"
@@ -295,7 +299,7 @@
     },
     {
      "t": "ل",
-     "audio": "../../syl-ar/644.mp3"
+     "audio": "../../syl-ar/644-652.mp3"
     }
    ],
    "har": "sukoon"
@@ -313,7 +317,7 @@
     },
     {
      "t": "م",
-     "audio": "../../syl-ar/645.mp3"
+     "audio": "../../syl-ar/645-652.mp3"
     }
    ],
    "har": "sukoon"

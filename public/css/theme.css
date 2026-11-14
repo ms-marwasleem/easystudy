@@ -108,7 +108,7 @@
 
 
   /* lesson / unit header (rows: buttons + stars, name, subject) */
-  --thin-weight:400; --head-gap:0.2rem; --head-title-size:clamp(1.25rem,min(5.8vw,3.8vh),1.95rem); --head-title-stroke:0.07rem;
+  --thin-weight:400; --head-gap:0.2rem; --head-title-size:clamp(1.05rem,min(4.6vw,3.1vh),1.6rem); --head-title-stroke:0.07rem;
   --head-sub-size:clamp(.85rem,min(3.4vw,2.5vh),1.1rem); --head-sub-stroke:0; --head-track-h:2.6rem;
   /* pictures: transparent object cut-out (png) = no frame, soft shadow; people / nature photos = framed (frame.css) */
   --cut-shadow:drop-shadow(0 0.25rem 0.35rem rgba(90,52,24,.32)); --cut-ring:drop-shadow(0 0 0.2rem rgba(42,127,216,.95)) drop-shadow(0 0 0.1rem rgba(42,127,216,.95));

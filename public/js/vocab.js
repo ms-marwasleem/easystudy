@@ -84,7 +84,7 @@ const sayWord=v=>v.audio&&v.audio.word?playFile(v.audio.word):v.clip?playClip(v.
 // LETTER-WORDS component (letter lessons): each word has v.har (fatha|damma|kasra|sukoon). Beside the word sits the haraka boy (library ar-boy-<har>);
 // saying the word first says the letter's name and the haraka's name ("ألف، فتحة"), then the word. Recordings: letter.nameAudio + data/arabic/shared/h-<har>.mp3.
 const letterWords=()=>LESSON.type==='letter'&&LESSON.vocab.some(v=>v.har);
-const sayHead=async v=>{ if(letterWords()&&v.har){ if(LESSON.letter&&LESSON.letter.nameAudio) await playFile(LESSON.base+LESSON.letter.nameAudio); await playFile(LESSON.base+'../shared/k-h-'+v.har+'.mp3'); await nap(250); } return sayWord(v); };
+const sayHead=async v=>{ if(letterWords()&&v.har){ const vr=vs.run; if(LESSON.letter&&LESSON.letter.nameAudio) await playFile(LESSON.base+LESSON.letter.nameAudio); if(vr!==vs.run) return; await playFile(LESSON.base+'../shared/k-h-'+v.har+'.mp3'); if(vr!==vs.run) return; await nap(250); if(vr!==vs.run) return; } return sayWord(v); };
 // the whole word said after its parts (her second take sounds natural there); falls back to the first take
 const sayWordAgain=v=>v.audio&&v.audio.again?playFile(v.audio.again):sayWord(v);
 const sayAr=v=>v.audio&&v.audio.ar?playFile(v.audio.ar):tts(v.ar,'ar',.85);

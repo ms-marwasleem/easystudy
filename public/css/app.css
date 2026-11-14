@@ -110,7 +110,7 @@
 
 
   /* lesson / unit header (rows: buttons + stars, name, subject) */
-  --thin-weight:400; --head-gap:0.2rem; --head-title-size:clamp(1.25rem,min(5.8vw,3.8vh),1.95rem); --head-title-stroke:0.07rem;
+  --thin-weight:400; --head-gap:0.2rem; --head-title-size:clamp(1.05rem,min(4.6vw,3.1vh),1.6rem); --head-title-stroke:0.07rem;
   --head-sub-size:clamp(.85rem,min(3.4vw,2.5vh),1.1rem); --head-sub-stroke:0; --head-track-h:2.6rem;
   /* pictures: transparent object cut-out (png) = no frame, soft shadow; people / nature photos = framed (frame.css) */
   --cut-shadow:drop-shadow(0 0.25rem 0.35rem rgba(90,52,24,.32)); --cut-ring:drop-shadow(0 0 0.2rem rgba(42,127,216,.95)) drop-shadow(0 0 0.1rem rgba(42,127,216,.95));
@@ -1734,6 +1734,10 @@ button.qpic{cursor:pointer}
 /* in the weekly papers */
 .xclk{display:flex;flex-direction:column;align-items:center;gap:.4em;margin:.3em 0}
 .xclk .clkface{width:6.6em;height:auto;max-height:none}.xclk .clkchip{font-size:.8em}
+
+/* Arabic math: number sentences / answer line right to left, bigger numbers (Ahmed 2026-11-14) */
+.alstem .altx.mrtl{direction:rtl;font-size:calc(var(--q-sentence-size) * 1.05)}
+#lesson.ar .mwline .lt,#lesson.ar .mwline .mwlead{font-size:clamp(1.6rem,min(7cqw,7cqh),3rem)}
 /* ===== css/frame.css ===== */
 /* ONE picture frame for the whole app: white border, soft shadow, rounded corners (same look on every screen and subject).
    Only pictures; the dots / numbers drawn by the app (data: images) and the lesson's book scene keep their own look. */
@@ -2147,7 +2151,7 @@ button.qpic{cursor:pointer}
 .alorder:has(.alspellpic){display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto auto;align-content:stretch;padding-bottom:.3rem}
 .alorder .alspellpic{height:auto;min-height:0}
 .alorder .alspellpic img{max-width:100%;max-height:100%}
-.alorder .alsent{--alsz:clamp(1.15rem,min(4.6cqw,4.4cqh),2.1rem);font:700 var(--alsz)/1.4 var(--f-read);height:calc(2 * 1.4em + .7rem);min-height:0;overflow:hidden;
+.alorder .alsent{--alsz:clamp(1.4rem,min(6cqw,5.4cqh),2.6rem);font:700 var(--alsz)/1.4 var(--f-read);height:calc(2 * 1.4em + .7rem);min-height:0;overflow:hidden;
   display:block;text-align:center;align-content:center;color:var(--c-on-bg)}
 .alorder.many .alsent{height:calc(3 * 1.4em + .7rem)}
 .alorder .alsent .alph,.alorder .alsent .alend{font:inherit;color:inherit}
@@ -2621,6 +2625,11 @@ button.qpic{cursor:pointer}
 .xpl-line .xtw.reading{background:var(--c-now-bg);color:var(--c-text);box-shadow:0 0 0 .12em var(--c-now-bg)}
 /* Try: the scattered pieces = THE choice pills; a chosen one is written on the line above */
 .xpl-cap.asking.built .xpl-ask{flex-wrap:wrap;justify-content:center;align-content:center;gap:.4rem .5rem;margin:auto 0;padding-top:.4rem;border-top:.12rem dashed var(--c-on-bg-line)}
+/* sentence building (Ahmed 2026-11-14): the pieces are smaller so every one fits (never cut off), and the sentence being written is bigger = the focus */
+.xpl-cap.asking.built .xpl-ask{min-height:0;overflow-y:auto;gap:.3rem .4rem}
+.xpl-cap.asking.built .xpl-ask .qch.wd{--q-word:clamp(2rem,min(4.6vh,9vw),2.6rem)}
+.xpl-cap.asking.built .xpl-ask .qch.wd>span{padding-inline:.1rem}
+.xpl-cap.asking.built .xpl-line{font-size:calc(var(--xfs)*1.2);flex:none}
 .xpl-ask .xpick{cursor:pointer}   /* look + size = THE choice button (css/qlayout.css), Marwa 2026-11-06 */
 .xpl-ask .xpick.used{opacity:0;pointer-events:none}
 .xpl-ask .xpick.no{animation:xshake .45s}
@@ -3191,6 +3200,14 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .rp-pop .btns button[disabled]{opacity:.6}
 @media (max-height:560px){.rp-ov{place-items:start center;overflow:auto}.rp-pop h2{display:none}.rp-txt{rows:2}}
 .rp-car{display:block;width:clamp(5rem,30vw,8rem)}
+
+/* 2026-11-14: the flag sits at the end of the subject·term line in the lesson header (left in RTL, right in LTR), out of the page-number row */
+#lesson .sign{position:relative}
+#lesson .sign .rpbtn{position:absolute;bottom:0;right:0;width:1.6rem;height:1.6rem;z-index:1}
+#lesson .sign .rpbtn svg{width:.9rem;height:.9rem}
+#lesson .sign small{padding-right:1.7rem;box-sizing:border-box}
+#lesson.ar .sign .rpbtn{right:auto;left:0}
+#lesson.ar .sign small{padding-right:0;padding-left:1.7rem}
 /* ===== css/push.css ===== */
 /* NOTIFICATIONS bell (js/push.js): bottom corner of the subjects page, opposite the child button */
 .pushbtn{position:fixed;left:max(0.9rem,env(safe-area-inset-left,0px));bottom:max(0.9rem,env(safe-area-inset-bottom,0px));z-index:5;width:3.6rem;height:3.6rem;opacity:.75}
@@ -3216,4 +3233,4 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .subf input.bad{border-color:#D32F2F}
 .subimg{margin:0;color:#2E7D32;font-size:.9rem}
 .subnote{font-size:.8rem;opacity:.85;margin:0;line-height:1.5}
-:root{--app-build:"e6bce628a5"}
+:root{--app-build:"9e7709686f"}

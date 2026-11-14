@@ -30,7 +30,7 @@
     lang = b.dataset.l; draw();
     try { history.replaceState(null, '', '?lang=' + lang); } catch (e) {}
   });
-  Promise.all(['data/terms.json', 'data/credits.json'].map(f => fetch(f, { cache: 'no-cache' }).then(r => r.json())))
-    .then(([t, c]) => { T = t; C = c; draw(); })
+  Promise.all(['data/terms.json', 'data/credits.json', 'data/settings.json'].map(f => fetch(f, { cache: 'no-cache' }).then(r => r.json()).catch(e => f === 'data/settings.json' ? {} : Promise.reject(e))))
+    .then(([t, c, s]) => { T = t; C = c; let loc = {}; try { loc = JSON.parse(localStorage.getItem('es.settings')) || {}; } catch (e) {} if (!t.contactEmail) t.contactEmail = loc.adminEmail || (s && s.adminEmail) || ''; draw(); })
     .catch(() => { document.getElementById('tm').textContent = 'Could not load the page. Please try again.'; });
 })();

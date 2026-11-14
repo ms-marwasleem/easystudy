@@ -321,7 +321,7 @@ function endPlay(full){
 
 /* ---------- Tabs + rail ---------- */
 const stage=$('#stage'), rail=$('#rail'); let tab='read';
-const TABAR={Lesson:'الدرس',Vocab:'كلمات',Q:'أسئلة',Vocabulary:'كلمات',Questions:'أسئلة',Assignments:'كتاب التقييمات',Booklet:'كُتيب',PTS:'كتاب التقييمات',Grammar:'القواعد'};   // the bottom tabs in Arabic lessons
+const TABAR={Lesson:'الدرس',Vocab:'كلمات',Q:'أسئلة',Vocabulary:'كلمات',Questions:'أسئلة',Assignments:'كتاب التقييمات','Book Questions':'أسئلة الكتاب','Assessment Book':'كتاب التقييمات',Booklet:'كُتيب',PTS:'كتاب التقييمات',Grammar:'القواعد'};   // the bottom tabs in Arabic lessons
 const TABS={read:['Lesson','book'],words:['Vocabulary','abc'],quiz:['Questions','quiz'],booklet:['Booklet','quiz'],workbook:['Assignments','quiz'],grammar:['Grammar','hint']};
 // English AL: the Lesson tab (book parts) and the Booklet tab both run on the questions engine (quiz.js); inQ() = a questions-style sheet is on screen
 const isAL=()=>!!(LESSON&&LESSON.type==='al'), inQ=()=>tab==='quiz'||tab==='workbook'||tab==='booklet'||(isAL()&&tab==='read'), alSrc=()=>tab==='booklet'?'booklet':'lesson', qKey=()=>isAL()||tab==='booklet'||tab==='workbook'?tab:'quiz';
@@ -1681,6 +1681,8 @@ function qxWrite(box,q,s,run,text,onDone){   // text: what to type (default the 
 }
 document.addEventListener('keydown',e=>{ const inp=$('#qxin'); if(!inp||!inQ()||document.activeElement===inp||e.ctrlKey||e.metaKey||e.altKey||e.key.length!==1||!qxWrite.type) return;
   const a=document.activeElement; if(a&&/^(INPUT|TEXTAREA)$/.test(a.tagName)) return; inp.focus({preventScroll:true}); qxWrite.type(normDigits(e.key)); e.preventDefault(); });
+// tapping the empty dashed box (number bond, number line gap, any gap cell) where the child writes the number opens the keyboard, same as tapping the writing line
+document.addEventListener('click',e=>{ const g=e.target.closest&&e.target.closest('.qmb.gap,.qmb.cur,.qmcell.gap,.qmcell.cur'); const inp=$('#qxin'); if(!g||!inp||!inQ()||!document.body.contains(inp)) return; inp.focus({preventScroll:true}); });
 function qxArrange(box,q,s,run){
   const WS=!!(q.words||s.words), wd=WS?el('b','qxw qxwords'):qxWordEl(q.word,q.split), line=el('div','qxline');   // q.split = [group,...]: the whole word is shown above, the blanks are grouped with slashes (letters or syllables); the tiles are still single letters
   if(q.split&&!WS){ box.append(el('b','qxw qxshow',q.word)); wd.classList.add('qxsplit'); }   // words: the tiles are whole words of a sentence
@@ -2130,7 +2132,7 @@ function alMcq(box,q,s,run){
   const st=el('div','alstem'); w.append(st); let blank=null;
   const sp=el('button','qsay alsp',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>{ if(!qz.busy) q.sayFn(); };
   if(q.ask){ const a=el('p','alask',''); alToks(a,q.ask); st.append(a); }
-  const p=el('p','altx'); st.append(p);
+  const p=el('p','altx'); st.append(p); if(isAr()&&/^math/.test(SUBJECT.id)){ p.dir='rtl'; p.classList.add('mrtl'); }   // Arabic math: the number sentence and "الإجابة: __" read from the right (Ahmed 2026-11-14)
   const word=(t,k)=>{ const sp=el('span','alw',t); sp.addEventListener('click',()=>{ hideHint(); vStop(); sp.classList.add('lit'); qSound(alWordSrc(t),alClean(t)).then(()=>sp.classList.remove('lit')); }); p.append(k?' ':'',sp); };
   String(q.stem).split(/\s+/).filter(Boolean).forEach((t,k)=>{ const m=/^([^_]*)_{2,}([^_]*)$/.exec(t);
     if(m&&!blank){ blank=el('button','alblank','<i></i>'); if(k) p.append(' '); if(m[1]) p.append(m[1]); p.append(blank); if(m[2]) p.append(m[2]); blank.addEventListener('click',()=>q.sayFn&&q.sayFn()); }
@@ -3350,9 +3352,10 @@ function mount(root, data, opt){
   /* number sentence on the sky */
   function eq(cells,state){
     Leq.innerHTML=''; const n=cells.length, step=118, x0=W/2-(n-1)*step/2;
-    eqT=cells.map((c,i)=>{ const op=/[+=−-]/.test(c); const g=mk('g',{class:'xeq'+(op?' op':''),transform:`translate(${x0+i*step} 92)`});
+    const rtl=data.lang==='ar'; /* Arabic: first number on the right, result on the left */
+    eqT=cells.map((c,i)=>{ const px=x0+(rtl?n-1-i:i)*step, op=/[+=−-]/.test(c); const g=mk('g',{class:'xeq'+(op?' op':''),transform:`translate(${px} 92)`});
       g.innerHTML=op?`<text y="26" text-anchor="middle">${c}</text>`:`<rect x="-52" y="-56" width="104" height="112" rx="24"/><text y="28" text-anchor="middle">${c}</text>`;
-      Leq.append(g); return {g,c,x:x0+i*step,op}; });
+      Leq.append(g); return {g,c,x:px,op}; });
     eqState(state||'show');
   }
   function eqState(state){ eqT.forEach(t=>{ t.g.classList.remove('lit'); t.g.style.removeProperty('--xc'); t.g.classList.toggle('dim',state==='dim'); if(!t.op&&state==='dim') t.g.querySelector('text').textContent='?'; else t.g.querySelector('text').textContent=t.c; }); }
@@ -3900,7 +3903,7 @@ function rpOpen(){
 // ---------- the button: lesson row (beside the page tag) and the exam header ----------
 function rpButton(){ const b=el('button','rpbtn',RPFLAG); b.type='button'; b.setAttribute('aria-label','Report a problem'); b.addEventListener('click',e=>{ e.stopPropagation(); rpOpen(); }); return b; }
 (function(){
-  const lm=$('#lmeta .lm-l'); if(lm) lm.append(rpButton());
+  const sg=$('#lesson .sign'); if(sg) sg.append(rpButton());   // end of the subject·term line (2026-11-14), no longer beside the page tag
   const xh=$('#exam > header'); if(xh) xh.append(rpButton());
   rpRetry(); addEventListener('online',rpRetry); document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible') rpRetry(); });
 })();

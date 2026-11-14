@@ -1,0 +1,652 @@
+{
+ "id": "u2l1",
+ "unit": 2,
+ "lesson": 1,
+ "title": "What's the Position?",
+ "task": "What's the Position?",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz",
+  "booklet"
+ ],
+ "tabLabels": {
+  "read": "Lesson",
+  "quiz": "Book Questions"
+ },
+ "pages": 7,
+ "pageNums": [
+  32,
+  32,
+  32,
+  32,
+  33,
+  33,
+  33
+ ],
+ "layout": "explain",
+ "explain": {
+  "caption": false,
+  "wide": true,
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3",
+   "6": "../u1l4/words/six.mp3",
+   "7": "../u1l4/words/seven.mp3",
+   "8": "../u1l4/words/eight.mp3",
+   "9": "../u1l4/words/nine.mp3",
+   "10": "../u1l4/words/ten.mp3"
+  },
+  "steps": [
+   {
+    "name": "4 people from the front",
+    "beats": [
+     {
+      "say": "Four people from the front.",
+      "audio": "explain/s1-1.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "n": 10,
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "img": "../../pics/kids-line.png",
+        "w": 1000,
+        "h": 174
+       }
+      ]
+     },
+     {
+      "say": "The question says from the front. We start counting from the front.",
+      "audio": "explain/s1-2.mp3",
+      "do": [
+       {
+        "dir": "front"
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "explain/lets-count.mp3",
+      "do": [
+       {
+        "pts": [
+         [
+          158,
+          44
+         ],
+         [
+          234,
+          44
+         ],
+         [
+          310,
+          44
+         ],
+         [
+          386,
+          44
+         ]
+        ],
+        "color": "orange",
+        "count": []
+       }
+      ]
+     },
+     {
+      "say": "Four people.",
+      "audio": "explain/s1-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          124,
+          16,
+          420,
+          232
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "4 people",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "4th person from the front",
+    "beats": [
+     {
+      "say": "The fourth person from the front.",
+      "audio": "explain/s2-1.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "n": 10,
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "img": "../../pics/kids-line.png",
+        "w": 1000,
+        "h": 174
+       }
+      ]
+     },
+     {
+      "say": "The question says from the front. We start counting from the front.",
+      "audio": "explain/s2-2.mp3",
+      "do": [
+       {
+        "dir": "front"
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "explain/lets-count.mp3",
+      "do": [
+       {
+        "pts": [
+         [
+          158,
+          44
+         ],
+         [
+          234,
+          44
+         ],
+         [
+          310,
+          44
+         ],
+         [
+          386,
+          44
+         ]
+        ],
+        "color": "orange",
+        "count": []
+       }
+      ]
+     },
+     {
+      "say": "The fourth person.",
+      "audio": "explain/s2-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          124,
+          16,
+          420,
+          232
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "4th",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "3 rabbits from the front",
+    "beats": [
+     {
+      "say": "Three rabbits from the front.",
+      "audio": "explain/s3-1.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "n": 5,
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "unit": "../../pics/rabbit-white.png"
+       }
+      ]
+     },
+     {
+      "say": "The question says from the front. We start counting from the front.",
+      "audio": "explain/s3-2.mp3",
+      "do": [
+       {
+        "dir": "front"
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "explain/lets-count.mp3",
+      "do": [
+       {
+        "pts": [
+         [
+          196,
+          44
+         ],
+         [
+          348,
+          44
+         ],
+         [
+          500,
+          44
+         ]
+        ],
+        "color": "orange",
+        "count": []
+       }
+      ]
+     },
+     {
+      "say": "Three rabbits.",
+      "audio": "explain/s3-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          124,
+          16,
+          572,
+          232
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "3 rabbits",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "4th person from the back",
+    "beats": [
+     {
+      "say": "The fourth person from the back.",
+      "audio": "explain/s4-1.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "n": 10,
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "img": "../../pics/kids-line.png",
+        "w": 1000,
+        "h": 174
+       }
+      ]
+     },
+     {
+      "say": "The question says from the back. We start counting from the back.",
+      "audio": "explain/s4-2.mp3",
+      "do": [
+       {
+        "dir": "back"
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "explain/lets-count.mp3",
+      "do": [
+       {
+        "pts": [
+         [
+          842,
+          44
+         ],
+         [
+          766,
+          44
+         ],
+         [
+          690,
+          44
+         ],
+         [
+          614,
+          44
+         ]
+        ],
+        "color": "orange",
+        "count": []
+       }
+      ]
+     },
+     {
+      "say": "The fourth person.",
+      "audio": "explain/s4-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          580,
+          16,
+          876,
+          232
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "4th",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "2 horses from the front",
+    "beats": [
+     {
+      "say": "Two horses from the front.",
+      "audio": "explain/s5-1.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "n": 5,
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "unit": "../../pics/horse-brown.png"
+       }
+      ]
+     },
+     {
+      "say": "The question says from the front. We start counting from the front.",
+      "audio": "explain/s5-2.mp3",
+      "do": [
+       {
+        "dir": "front"
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "explain/lets-count.mp3",
+      "do": [
+       {
+        "pts": [
+         [
+          196,
+          44
+         ],
+         [
+          348,
+          44
+         ]
+        ],
+        "color": "orange",
+        "count": []
+       }
+      ]
+     },
+     {
+      "say": "Two horses.",
+      "audio": "explain/s5-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          124,
+          16,
+          420,
+          232
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "2 horses",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "5th frog from the front",
+    "beats": [
+     {
+      "say": "The fifth frog from the front.",
+      "audio": "explain/s6-1.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "n": 10,
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "unit": "../../pics/frog-green-side.png"
+       }
+      ]
+     },
+     {
+      "say": "The question says from the front. We start counting from the front.",
+      "audio": "explain/s6-2.mp3",
+      "do": [
+       {
+        "dir": "front"
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "explain/lets-count.mp3",
+      "do": [
+       {
+        "pts": [
+         [
+          158,
+          44
+         ],
+         [
+          234,
+          44
+         ],
+         [
+          310,
+          44
+         ],
+         [
+          386,
+          44
+         ],
+         [
+          462,
+          44
+         ]
+        ],
+        "color": "orange",
+        "count": []
+       }
+      ]
+     },
+     {
+      "say": "The fifth frog.",
+      "audio": "explain/s6-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          124,
+          16,
+          496,
+          232
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "5th",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "6th person from the back",
+    "beats": [
+     {
+      "say": "The sixth person from the back.",
+      "audio": "explain/s7-1.mp3",
+      "do": [
+       {
+        "scene": "line",
+        "n": 10,
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "img": "../../pics/kids-line.png",
+        "w": 1000,
+        "h": 174
+       }
+      ]
+     },
+     {
+      "say": "The question says from the back. We start counting from the back.",
+      "audio": "explain/s7-2.mp3",
+      "do": [
+       {
+        "dir": "back"
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "explain/lets-count.mp3",
+      "do": [
+       {
+        "pts": [
+         [
+          842,
+          44
+         ],
+         [
+          766,
+          44
+         ],
+         [
+          690,
+          44
+         ],
+         [
+          614,
+          44
+         ],
+         [
+          538,
+          44
+         ],
+         [
+          462,
+          44
+         ]
+        ],
+        "color": "orange",
+        "count": []
+       }
+      ]
+     },
+     {
+      "say": "The sixth person.",
+      "audio": "explain/s7-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          428,
+          16,
+          876,
+          232
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "6th",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   }
+  ]
+ }
+}

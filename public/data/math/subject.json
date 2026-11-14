@@ -38,10 +38,14 @@
    "pages": {
     "quiz": [
      2
+    ],
+    "booklet": [
+     2
     ]
    },
    "tabs": [
-    "quiz"
+    "quiz",
+    "booklet"
    ]
   },
   {
@@ -57,11 +61,22 @@
      3,
      4,
      5
+    ],
+    "workbook": [
+     6,
+     9
+    ],
+    "booklet": [
+     3,
+     4,
+     5
     ]
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet",
+    "workbook"
    ],
    "tools": [
     {
@@ -69,6 +84,18 @@
      "label": "Tool",
      "title": "Make numbers",
      "map": "make number"
+    }
+   ],
+   "weekly": [
+    {
+     "id": "wk-u1l2",
+     "title": "Weekly Assessment",
+     "label": "Weekly assessment",
+     "file": "data/math/exams/wk-u1l2/exam.json",
+     "page": [
+      7,
+      8
+     ]
     }
    ]
   },
@@ -86,11 +113,22 @@
      8,
      9,
      10
+    ],
+    "booklet": [
+     6,
+     8,
+     9,
+     10
+    ],
+    "workbook": [
+     10
     ]
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet",
+    "workbook"
    ],
    "tool": "make-numbers",
    "toolN": 5
@@ -106,11 +144,19 @@
     ],
     "quiz": [
      11
+    ],
+    "booklet": [
+     11
+    ],
+    "workbook": [
+     11
     ]
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -121,10 +167,14 @@
    "pages": {
     "quiz": [
      12
+    ],
+    "booklet": [
+     12
     ]
    },
    "tabs": [
-    "quiz"
+    "quiz",
+    "booklet"
    ]
   },
   {
@@ -140,11 +190,17 @@
      13,
      14,
      15
+    ],
+    "booklet": [
+     13,
+     14,
+     15
     ]
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet"
    ],
    "tool": "make-numbers",
    "toolN": 6
@@ -160,11 +216,15 @@
     ],
     "quiz": [
      16
+    ],
+    "booklet": [
+     16
     ]
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet"
    ],
    "tool": "make-numbers",
    "toolN": 7
@@ -180,11 +240,15 @@
     ],
     "quiz": [
      17
+    ],
+    "booklet": [
+     17
     ]
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet"
    ],
    "tool": "make-numbers",
    "toolN": 8
@@ -200,11 +264,15 @@
     ],
     "quiz": [
      18
+    ],
+    "booklet": [
+     18
     ]
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet"
    ],
    "tool": "make-numbers",
    "toolN": 9
@@ -220,11 +288,15 @@
     ],
     "quiz": [
      19
+    ],
+    "booklet": [
+     19
     ]
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet"
    ],
    "tool": "make-numbers",
    "toolN": 10
@@ -240,11 +312,16 @@
     ],
     "quiz": [
      21
+    ],
+    "booklet": [
+     21,
+     24
     ]
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet"
    ]
   },
   {
@@ -258,11 +335,18 @@
     ],
     "quiz": [
      22
+    ],
+    "booklet": [
+     22,
+     23,
+     25,
+     26
     ]
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet"
    ],
    "exams": [
     {
@@ -289,13 +373,39 @@
    "unit": 2,
    "lesson": 1,
    "folder": "u2l1",
-   "planned": "What's the Position?"
+   "title": "What's the Position?",
+   "pages": {
+    "read": [
+     32
+    ],
+    "quiz": [
+     33
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz",
+    "booklet"
+   ]
   },
   {
    "unit": 2,
    "lesson": 2,
    "folder": "u2l2",
-   "planned": "Where Is It?"
+   "title": "Where Is It?",
+   "pages": {
+    "read": [
+     34
+    ],
+    "quiz": [
+     35
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz",
+    "booklet"
+   ]
   },
   {
    "unit": 3,
@@ -313,7 +423,8 @@
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet"
    ]
   },
   {
@@ -332,7 +443,8 @@
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet"
    ]
   },
   {
@@ -351,7 +463,8 @@
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet"
    ]
   },
   {
@@ -370,7 +483,8 @@
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet"
    ]
   },
   {
@@ -389,7 +503,8 @@
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet"
    ]
   },
   {
@@ -408,7 +523,8 @@
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet"
    ]
   },
   {
@@ -427,7 +543,8 @@
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet"
    ]
   },
   {
@@ -446,7 +563,8 @@
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet"
    ]
   },
   {
@@ -465,104 +583,329 @@
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "booklet"
    ]
   },
   {
    "unit": 5,
    "lesson": 1,
    "folder": "u5l1",
-   "planned": "Which One Is Longer?"
+   "title": "Which One Is Longer?",
+   "pages": {
+    "read": [
+     54,
+     55
+    ],
+    "quiz": [
+     55
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz",
+    "booklet"
+   ]
   },
   {
    "unit": 5,
    "lesson": 2,
    "folder": "u5l2",
-   "planned": "How Can We Measure?"
+   "title": "How Can We Measure?",
+   "pages": {
+    "read": [
+     56,
+     57
+    ]
+   },
+   "tabs": [
+    "read"
+   ]
   },
   {
    "unit": 5,
    "lesson": 3,
    "folder": "u5l3",
-   "planned": "Let's Compare Lengths"
+   "title": "Let's Compare Lengths",
+   "pages": {
+    "read": [
+     58,
+     59
+    ],
+    "quiz": [
+     59
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz",
+    "booklet"
+   ]
   },
   {
    "unit": 6,
    "lesson": 1,
    "folder": "u6l1",
-   "planned": "Representing Data with Pictures"
+   "title": "Representing Data with Pictures",
+   "pages": {
+    "read": [
+     60,
+     61
+    ],
+    "quiz": [
+     62,
+     63
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ]
   },
   {
    "unit": 6,
    "lesson": 2,
    "folder": "u6l2",
-   "planned": "What We Learn from Results"
+   "title": "What We Learn from Results",
+   "pages": {
+    "read": [
+     64,
+     65
+    ],
+    "quiz": [
+     66,
+     67
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz",
+    "booklet"
+   ]
   },
   {
    "unit": 6,
    "lesson": 3,
    "folder": "u6l3",
-   "planned": "Let's Compare Results"
+   "title": "Let's Compare Results",
+   "pages": {
+    "read": [
+     68,
+     69
+    ],
+    "quiz": [
+     70,
+     71
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz",
+    "booklet"
+   ]
   },
   {
    "unit": 7,
    "lesson": 1,
    "folder": "u7l1",
-   "planned": "Numbers up to 20"
+   "title": "Numbers up to 20",
+   "pages": {
+    "read": [
+     72,
+     73
+    ],
+    "quiz": [
+     73
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz",
+    "booklet"
+   ]
   },
   {
    "unit": 7,
    "lesson": 2,
    "folder": "u7l2",
-   "planned": "Ten and Some Number (from 1 to 10)"
+   "title": "Ten and Some Number",
+   "pages": {
+    "read": [
+     74,
+     75
+    ],
+    "quiz": [
+     74,
+     75
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz",
+    "booklet"
+   ]
   },
   {
    "unit": 7,
    "lesson": 3,
    "folder": "u7l3",
-   "planned": "Number Line"
+   "title": "Number Line",
+   "pages": {
+    "read": [
+     76,
+     77
+    ],
+    "quiz": [
+     77,
+     79
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz",
+    "booklet"
+   ]
   },
   {
    "unit": 7,
    "lesson": 4,
    "folder": "u7l4",
-   "planned": "Adding and Subtracting Numbers (Part 1)"
+   "title": "Adding and Subtracting Numbers (Part 1)",
+   "pages": {
+    "read": [
+     80,
+     81
+    ],
+    "quiz": [
+     80,
+     81
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz",
+    "booklet"
+   ]
   },
   {
    "unit": 7,
    "lesson": 5,
    "folder": "u7l5",
-   "planned": "Adding and Subtracting Numbers (Part 2)"
+   "title": "Adding and Subtracting Numbers (Part 2)",
+   "pages": {
+    "read": [
+     82,
+     83
+    ],
+    "quiz": [
+     82,
+     83
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz",
+    "booklet"
+   ]
   },
   {
    "unit": 7,
    "lesson": 6,
    "folder": "u7l6",
-   "planned": "Numbers Greater than 20"
+   "title": "Numbers Greater than 20",
+   "pages": {
+    "read": [
+     84
+    ],
+    "quiz": [
+     84,
+     85
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz"
+   ]
   },
   {
    "unit": 8,
    "lesson": 1,
    "folder": "u8l1",
-   "planned": "Telling Time on a Clock"
+   "title": "Telling Time on a Clock",
+   "pages": {
+    "read": [
+     86
+    ],
+    "quiz": [
+     86,
+     87
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz",
+    "booklet"
+   ]
   },
   {
    "unit": 9,
    "lesson": 1,
    "folder": "u9l1",
-   "planned": "Adding Three Numbers"
+   "title": "Adding Three Numbers",
+   "pages": {
+    "read": [
+     88
+    ],
+    "quiz": [
+     88,
+     89
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz",
+    "booklet"
+   ]
   },
   {
    "unit": 9,
    "lesson": 2,
    "folder": "u9l2",
-   "planned": "Subtracting Three Numbers"
+   "title": "Subtracting Three Numbers",
+   "pages": {
+    "read": [
+     90
+    ],
+    "quiz": [
+     90,
+     91
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz",
+    "booklet"
+   ]
   },
   {
    "unit": 9,
    "lesson": 3,
    "folder": "u9l3",
-   "planned": "Calculating with Three Numbers"
+   "title": "Calculating with Three Numbers",
+   "pages": {
+    "read": [
+     92
+    ],
+    "quiz": [
+     92,
+     93
+    ]
+   },
+   "tabs": [
+    "read",
+    "quiz",
+    "booklet"
+   ]
   }
  ]
 }

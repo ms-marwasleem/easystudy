@@ -1,0 +1,365 @@
+{
+ "id": "u7l5",
+ "unit": 7,
+ "lesson": 5,
+ "title": "Adding and Subtracting Numbers (Part 2)",
+ "task": "Adding and Subtracting Numbers (Part 2)",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz",
+  "booklet"
+ ],
+ "tabLabels": {
+  "read": "Lesson",
+  "quiz": "Book Questions"
+ },
+ "pages": 5,
+ "pageNums": [
+  82,
+  82,
+  82,
+  82,
+  82
+ ],
+ "layout": "explain",
+ "explain": {
+  "caption": false,
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3",
+   "6": "../u1l4/words/six.mp3",
+   "7": "../u1l4/words/seven.mp3",
+   "8": "../u1l4/words/eight.mp3",
+   "9": "../u1l4/words/nine.mp3",
+   "10": "../u1l4/words/ten.mp3",
+   "11": "../u7l1/words/eleven.mp3",
+   "12": "../u7l1/words/twelve.mp3",
+   "13": "../u7l1/words/thirteen.mp3",
+   "14": "../u7l1/words/fourteen.mp3",
+   "15": "../u7l1/words/fifteen.mp3",
+   "16": "../u7l1/words/sixteen.mp3",
+   "17": "../u7l1/words/seventeen.mp3",
+   "18": "../u7l1/words/eighteen.mp3",
+   "19": "../u7l1/words/nineteen.mp3",
+   "20": "../u7l1/words/twenty.mp3"
+  },
+  "steps": [
+   {
+    "name": "12 + 2",
+    "beats": [
+     {
+      "say": "Keep ten. Add the ones.",
+      "audio": "explain/s0-a.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 14,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green"
+        }
+       }
+      ]
+     },
+     {
+      "say": "Two and two make four.",
+      "audio": "explain/s0-b.mp3",
+      "do": [
+       {
+        "add": "2 + 2 = 4",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "Ten and four make fourteen.",
+      "audio": "explain/s0-c.mp3",
+      "do": [
+       {
+        "add": "10 + 4 = 14",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "15 + 4",
+    "beats": [
+     {
+      "say": "Keep ten. Add the ones.",
+      "audio": "explain/s1-a.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 19,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green"
+        }
+       }
+      ]
+     },
+     {
+      "say": "Five and four make nine.",
+      "audio": "explain/s1-b.mp3",
+      "do": [
+       {
+        "add": "5 + 4 = 9",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "Ten and nine make nineteen.",
+      "audio": "explain/s1-c.mp3",
+      "do": [
+       {
+        "add": "10 + 9 = 19",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "16 - 1",
+    "beats": [
+     {
+      "say": "Keep ten. Take away from the ones.",
+      "audio": "explain/s2-a.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 16,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          533,
+          203
+         ]
+        ],
+        "color": "red",
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Six take away one is five. Ten and five make fifteen.",
+      "audio": "explain/s2-c.mp3",
+      "do": [
+       {
+        "add": "6 - 1 = 5",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "10 + 5 = 15",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "19 - 7",
+    "beats": [
+     {
+      "say": "Keep ten. Take away from the ones.",
+      "audio": "explain/s3-a.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 19,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          293,
+          203
+         ],
+         [
+          373,
+          203
+         ],
+         [
+          453,
+          203
+         ],
+         [
+          533,
+          203
+         ],
+         [
+          613,
+          203
+         ],
+         [
+          693,
+          203
+         ],
+         [
+          773,
+          203
+         ]
+        ],
+        "color": "red",
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Nine take away seven is two. Ten and two make twelve.",
+      "audio": "explain/s3-c.mp3",
+      "do": [
+       {
+        "add": "9 - 7 = 2",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "10 + 2 = 12",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "17 - 3",
+    "beats": [
+     {
+      "say": "Keep ten. Take away from the ones.",
+      "audio": "explain/s4-a.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 17,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          453,
+          203
+         ],
+         [
+          533,
+          203
+         ],
+         [
+          613,
+          203
+         ]
+        ],
+        "color": "red",
+        "r": 24
+       }
+      ]
+     },
+     {
+      "say": "Seven take away three is four. Ten and four make fourteen.",
+      "audio": "explain/s4-c.mp3",
+      "do": [
+       {
+        "add": "7 - 3 = 4",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "10 + 4 = 14",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   }
+  ]
+ }
+}

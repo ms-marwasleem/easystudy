@@ -1,157 +1,316 @@
 {
-  "sets": [
+ "sets": [
+  {
+   "type": "mwrite",
+   "ex": 1,
+   "page": 39,
+   "task": "Write the addition sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
     {
-      "type": "mwrite",
-      "ex": 1,
-      "page": 39,
-      "task": "Write the addition sentence and the answer.",
-      "taskAudio": "q/task-1.mp3",
-      "items": [
-        {
-          "pics": [
-            "story-4.png"
-          ],
-          "ask": "There are 3 red bicycles and 4 blue bicycles. How many bicycles are there in total?",
-          "lead": "Addition sentence:",
-          "word": "3 + 4 = 7",
-          "keys": "1234567890+−=",
-          "askSay": "There are three red bicycles and four blue bicycles. How many bicycles are there in total? Write the addition sentence.",
-          "askAudio": "q/p1-s-q.mp3",
-          "audio": "q/p1-s.mp3",
-          "picsTall": [
-            "story-4-tall.png"
-          ]
-        }
-      ]
-    },
-    {
-      "type": "mcq",
-      "ex": 1,
-      "page": 39,
-      "task": "Write the addition sentence and the answer.",
-      "taskAudio": "q/task-1.mp3",
-      "items": [
-        {
-          "pics": [
-            "story-4.png"
-          ],
-          "ask": "How many bicycles are there in total?",
-          "stem": "Answer: ___",
-          "options": [
-            "4 bicycles",
-            "7 bicycles",
-            "7"
-          ],
-          "answer": 1,
-          "askSay": "How many bicycles are there in total? What is the answer?",
-          "askAudio": "q/p1-a-q.mp3",
-          "audio": "q/p1-a.mp3",
-          "word": "Answer: 7 bicycles",
-          "picsTall": [
-            "story-4-tall.png"
-          ]
-        }
-      ]
-    },
-    {
-      "type": "mwrite",
-      "ex": 1,
-      "page": 39,
-      "task": "Write the addition sentence and the answer.",
-      "taskAudio": "q/task-1.mp3",
-      "items": [
-        {
-          "pics": [
-            "story-5.png"
-          ],
-          "ask": "There are 5 rabbits. Then 1 more rabbit comes. How many rabbits are there now?",
-          "lead": "Addition sentence:",
-          "word": "5 + 1 = 6",
-          "keys": "1234567890+−=",
-          "askSay": "There are five rabbits. Then one more rabbit comes. How many rabbits are there now? Write the addition sentence.",
-          "askAudio": "q/p2-s-q.mp3",
-          "audio": "q/p2-s.mp3"
-        }
-      ]
-    },
-    {
-      "type": "mcq",
-      "ex": 1,
-      "page": 39,
-      "task": "Write the addition sentence and the answer.",
-      "taskAudio": "q/task-1.mp3",
-      "items": [
-        {
-          "pics": [
-            "story-5.png"
-          ],
-          "ask": "How many rabbits are there now?",
-          "stem": "Answer: ___",
-          "options": [
-            "6 rabbits",
-            "6",
-            "1 rabbits"
-          ],
-          "answer": 0,
-          "askSay": "How many rabbits are there now? What is the answer?",
-          "askAudio": "q/p2-a-q.mp3",
-          "audio": "q/p2-a.mp3",
-          "word": "Answer: 6 rabbits"
-        }
-      ]
-    },
-    {
-      "type": "mwrite",
-      "ex": 1,
-      "page": 39,
-      "task": "Write the addition sentence and the answer.",
-      "taskAudio": "q/task-1.mp3",
-      "items": [
-        {
-          "pics": [
-            "story-6.png"
-          ],
-          "ask": "There are 4 bottles of water and 6 bottles of orange juice. How many bottles are there in total?",
-          "lead": "Addition sentence:",
-          "word": "4 + 6 = 10",
-          "keys": "1234567890+−=",
-          "askSay": "There are four bottles of water and six bottles of orange juice. How many bottles are there in total? Write the addition sentence.",
-          "askAudio": "q/p3-s-q.mp3",
-          "audio": "q/p3-s.mp3",
-          "picsTall": [
-            "story-6-tall.png"
-          ]
-        }
-      ]
-    },
-    {
-      "type": "mcq",
-      "ex": 1,
-      "page": 39,
-      "task": "Write the addition sentence and the answer.",
-      "taskAudio": "q/task-1.mp3",
-      "items": [
-        {
-          "pics": [
-            "story-6.png"
-          ],
-          "ask": "How many bottles are there in total?",
-          "stem": "Answer: ___",
-          "options": [
-            "10",
-            "6 bottles",
-            "10 bottles"
-          ],
-          "answer": 2,
-          "askSay": "How many bottles are there in total? What is the answer?",
-          "askAudio": "q/p3-a-q.mp3",
-          "audio": "q/p3-a.mp3",
-          "word": "Answer: 10 bottles",
-          "picsTall": [
-            "story-6-tall.png"
-          ]
-        }
-      ]
+     "pics": [
+      "story-4.png"
+     ],
+     "ask": "There are 3 red bicycles and 4 blue bicycles. How many bicycles are there in total?",
+     "lead": "Addition sentence:",
+     "word": "3 + 4 = 7",
+     "keys": "1234567890+−=",
+     "askSay": "There are three red bicycles and four blue bicycles. How many bicycles are there in total? Write the addition sentence.",
+     "askAudio": "q/p1-s-q.mp3",
+     "audio": "q/p1-s.mp3",
+     "picsTall": [
+      "story-4-tall.png"
+     ]
     }
-  ]
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 39,
+   "task": "Write the addition sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-4.png"
+     ],
+     "ask": "How many bicycles are there in total?",
+     "stem": "Answer: ___",
+     "options": [
+      "4 bicycles",
+      "7 bicycles",
+      "7"
+     ],
+     "answer": 1,
+     "askSay": "How many bicycles are there in total? What is the answer?",
+     "askAudio": "q/p1-a-q.mp3",
+     "audio": "q/p1-a.mp3",
+     "word": "Answer: 7 bicycles",
+     "picsTall": [
+      "story-4-tall.png"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "mwrite",
+   "ex": 1,
+   "page": 39,
+   "task": "Write the addition sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-5.png"
+     ],
+     "ask": "There are 5 rabbits. Then 1 more rabbit comes. How many rabbits are there now?",
+     "lead": "Addition sentence:",
+     "word": "5 + 1 = 6",
+     "keys": "1234567890+−=",
+     "askSay": "There are five rabbits. Then one more rabbit comes. How many rabbits are there now? Write the addition sentence.",
+     "askAudio": "q/p2-s-q.mp3",
+     "audio": "q/p2-s.mp3"
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 39,
+   "task": "Write the addition sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-5.png"
+     ],
+     "ask": "How many rabbits are there now?",
+     "stem": "Answer: ___",
+     "options": [
+      "6 rabbits",
+      "6",
+      "1 rabbits"
+     ],
+     "answer": 0,
+     "askSay": "How many rabbits are there now? What is the answer?",
+     "askAudio": "q/p2-a-q.mp3",
+     "audio": "q/p2-a.mp3",
+     "word": "Answer: 6 rabbits"
+    }
+   ]
+  },
+  {
+   "type": "mwrite",
+   "ex": 1,
+   "page": 39,
+   "task": "Write the addition sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-6.png"
+     ],
+     "ask": "There are 4 bottles of water and 6 bottles of orange juice. How many bottles are there in total?",
+     "lead": "Addition sentence:",
+     "word": "4 + 6 = 10",
+     "keys": "1234567890+−=",
+     "askSay": "There are four bottles of water and six bottles of orange juice. How many bottles are there in total? Write the addition sentence.",
+     "askAudio": "q/p3-s-q.mp3",
+     "audio": "q/p3-s.mp3",
+     "picsTall": [
+      "story-6-tall.png"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 39,
+   "task": "Write the addition sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-6.png"
+     ],
+     "ask": "How many bottles are there in total?",
+     "stem": "Answer: ___",
+     "options": [
+      "10",
+      "6 bottles",
+      "10 bottles"
+     ],
+     "answer": 2,
+     "askSay": "How many bottles are there in total? What is the answer?",
+     "askAudio": "q/p3-a-q.mp3",
+     "audio": "q/p3-a.mp3",
+     "word": "Answer: 10 bottles",
+     "picsTall": [
+      "story-6-tall.png"
+     ]
+    }
+   ]
+  },
+  {
+   "type": "mwrite",
+   "ex": 1,
+   "page": 39,
+   "task": "Write the addition sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-4.png"
+     ],
+     "ask": "There are 3 red bicycles and 4 blue bicycles. How many bicycles are there in total?",
+     "lead": "Addition sentence:",
+     "word": "3 + 4 = 7",
+     "keys": "1234567890+−=",
+     "askSay": "There are three red bicycles and four blue bicycles. How many bicycles are there in total? Write the addition sentence.",
+     "askAudio": "q/p1-s-q.mp3",
+     "audio": "q/p1-s.mp3",
+     "picsTall": [
+      "story-4-tall.png"
+     ]
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 39,
+   "task": "Write the addition sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-4.png"
+     ],
+     "ask": "How many bicycles are there in total?",
+     "stem": "Answer: ___",
+     "options": [
+      "4 bicycles",
+      "7 bicycles",
+      "7"
+     ],
+     "answer": 1,
+     "askSay": "How many bicycles are there in total? What is the answer?",
+     "askAudio": "q/p1-a-q.mp3",
+     "audio": "q/p1-a.mp3",
+     "word": "Answer: 7 bicycles",
+     "picsTall": [
+      "story-4-tall.png"
+     ]
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mwrite",
+   "ex": 1,
+   "page": 39,
+   "task": "Write the addition sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-5.png"
+     ],
+     "ask": "There are 5 rabbits. Then 1 more rabbit comes. How many rabbits are there now?",
+     "lead": "Addition sentence:",
+     "word": "5 + 1 = 6",
+     "keys": "1234567890+−=",
+     "askSay": "There are five rabbits. Then one more rabbit comes. How many rabbits are there now? Write the addition sentence.",
+     "askAudio": "q/p2-s-q.mp3",
+     "audio": "q/p2-s.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 39,
+   "task": "Write the addition sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-5.png"
+     ],
+     "ask": "How many rabbits are there now?",
+     "stem": "Answer: ___",
+     "options": [
+      "6 rabbits",
+      "6",
+      "1 rabbits"
+     ],
+     "answer": 0,
+     "askSay": "How many rabbits are there now? What is the answer?",
+     "askAudio": "q/p2-a-q.mp3",
+     "audio": "q/p2-a.mp3",
+     "word": "Answer: 6 rabbits"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mwrite",
+   "ex": 1,
+   "page": 39,
+   "task": "Write the addition sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-6.png"
+     ],
+     "ask": "There are 4 bottles of water and 6 bottles of orange juice. How many bottles are there in total?",
+     "lead": "Addition sentence:",
+     "word": "4 + 6 = 10",
+     "keys": "1234567890+−=",
+     "askSay": "There are four bottles of water and six bottles of orange juice. How many bottles are there in total? Write the addition sentence.",
+     "askAudio": "q/p3-s-q.mp3",
+     "audio": "q/p3-s.mp3",
+     "picsTall": [
+      "story-6-tall.png"
+     ]
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 39,
+   "task": "Write the addition sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-6.png"
+     ],
+     "ask": "How many bottles are there in total?",
+     "stem": "Answer: ___",
+     "options": [
+      "10",
+      "6 bottles",
+      "10 bottles"
+     ],
+     "answer": 2,
+     "askSay": "How many bottles are there in total? What is the answer?",
+     "askAudio": "q/p3-a-q.mp3",
+     "audio": "q/p3-a.mp3",
+     "word": "Answer: 10 bottles",
+     "picsTall": [
+      "story-6-tall.png"
+     ]
+    }
+   ],
+   "book": "booklet"
+  }
+ ]
 }

@@ -1,6 +1,6 @@
 /* COINS + ACCESS — who can open which subject / unit / lesson, the parent's coin wallet, the share sheet and the unlock popup
    (Marwa 2026-11-05, design: docs/coins-and-admin.md). Everything is driven by ONE settings object: data/settings.json, or the copy the
-   admin dashboard (admin.html) saved on this device (localStorage es.settings). accessOf() in core.js asks coinAccess() here.
+   admin dashboard (admin.html) saved on the server (api). accessOf() in core.js asks coinAccess() here.
    LOCAL-FIRST: wallet, unlocks and free picks live on this device; the server (Cloudflare Worker + D1) replaces only the store functions below.
    Accounts hooks: coinParent() / coinChild() read window.ACCOUNT / window.CHILD when the accounts code sets them ({id,...}); else 'local'. */
 let ESET={coins:{enabled:false,shares:[]},items:{},access:{}};
@@ -23,8 +23,8 @@ function apiTake(r){ if(!r) return; if(r.wallet) walletSave(r.wallet); if(r.unlo
 try{ const r=new URLSearchParams(location.search).get('r'); if(r&&!localStorage.getItem('es.ref')) localStorage.setItem('es.ref',JSON.stringify({code:r,at:Date.now()})); }catch(e){}
 const refCode=()=>(cGet('es.ref',null)||{}).code||null;
 const ESET_P=get('data/settings.json').catch(()=>null).then(async d=>{
-  const local=cGet('es.settings',null); ESET=local||d||ESET;
-  if(ESET.api){ const s=await apiCall('/settings'); if(s&&s.coins) ESET={...s,api:ESET.api,whatsapp:s.whatsapp||ESET.whatsapp}; apiTake(await apiCall('/wallet'+(coinChild()?'?child='+encodeURIComponent(coinChild()):''))); }
+  ESET=d||ESET;   // no device copy: the real settings come from the server below
+  if(ESET.api){ const s=await apiCall('/settings'); if(s&&s.coins) ESET={...s,api:ESET.api,whatsapp:s.whatsapp||ESET.whatsapp,adminEmail:s.adminEmail||ESET.adminEmail}; apiTake(await apiCall('/wallet'+(coinChild()?'?child='+encodeURIComponent(coinChild()):''))); }
   ESET.items=ESET.items||{}; ESET.coins=ESET.coins||{shares:[]};
   if(typeof COURSE!=='undefined'&&COURSE){ paintHud(); if(!$('#subjects').hidden&&typeof drawSubjects==='function') drawSubjects(); else if(!$('#map').hidden&&typeof drawMap==='function') openMap(); }
 });

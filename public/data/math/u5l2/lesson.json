@@ -1,0 +1,495 @@
+{
+ "id": "u5l2",
+ "unit": 5,
+ "lesson": 2,
+ "title": "How Can We Measure?",
+ "task": "How Can We Measure?",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read"
+ ],
+ "tabLabels": {
+  "read": "Lesson"
+ },
+ "pages": 3,
+ "pageNums": [
+  56,
+  56,
+  57
+ ],
+ "layout": "explain",
+ "explain": {
+  "caption": false,
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3",
+   "6": "../u1l4/words/six.mp3",
+   "7": "../u1l4/words/seven.mp3",
+   "8": "../u1l4/words/eight.mp3",
+   "9": "../u1l4/words/nine.mp3",
+   "10": "../u1l4/words/ten.mp3"
+  },
+  "steps": [
+   {
+    "name": "5 pencils",
+    "beats": [
+     {
+      "say": "Measure with pencils. Put them end to end.",
+      "audio": "explain/s1-1.mp3",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "rib",
+          "img": "../../pics/len-rib-green.png",
+          "x": 125,
+          "y": 60,
+          "w": 750,
+          "h": 44
+         },
+         {
+          "id": "p0",
+          "img": "../../pics/len-pen-yellow.png",
+          "x": -400,
+          "y": 130,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "p1",
+          "img": "../../pics/len-pen-yellow.png",
+          "x": -400,
+          "y": 130,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "p2",
+          "img": "../../pics/len-pen-yellow.png",
+          "x": -400,
+          "y": 130,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "p3",
+          "img": "../../pics/len-pen-yellow.png",
+          "x": -400,
+          "y": 130,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "p4",
+          "img": "../../pics/len-pen-yellow.png",
+          "x": -400,
+          "y": 130,
+          "w": 150,
+          "h": 24
+         }
+        ],
+        "ih": 250,
+        "top": 24
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "move": [
+         {
+          "id": "p0",
+          "x": 125,
+          "y": 125
+         }
+        ],
+        "ms": 550
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          200,
+          190
+         ]
+        ],
+        "start": 1,
+        "keep": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 250
+     },
+     {
+      "do": [
+       {
+        "move": [
+         {
+          "id": "p1",
+          "x": 275,
+          "y": 125
+         }
+        ],
+        "ms": 550
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          350,
+          190
+         ]
+        ],
+        "start": 2,
+        "keep": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 250
+     },
+     {
+      "do": [
+       {
+        "move": [
+         {
+          "id": "p2",
+          "x": 425,
+          "y": 125
+         }
+        ],
+        "ms": 550
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          500,
+          190
+         ]
+        ],
+        "start": 3,
+        "keep": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 250
+     },
+     {
+      "do": [
+       {
+        "move": [
+         {
+          "id": "p3",
+          "x": 575,
+          "y": 125
+         }
+        ],
+        "ms": 550
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          650,
+          190
+         ]
+        ],
+        "start": 4,
+        "keep": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 250
+     },
+     {
+      "do": [
+       {
+        "move": [
+         {
+          "id": "p4",
+          "x": 725,
+          "y": 125
+         }
+        ],
+        "ms": 550
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          800,
+          190
+         ]
+        ],
+        "start": 5,
+        "keep": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 250
+     },
+     {
+      "say": "The ribbon is five pencils long.",
+      "audio": "explain/s1-2.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          117,
+          50,
+          883,
+          160
+         ],
+         "color": "orange"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "5 pencils",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1300
+     }
+    ]
+   },
+   {
+    "name": "3 pencils",
+    "beats": [
+     {
+      "say": "Now measure the short ribbon.",
+      "audio": "explain/s2-1.mp3",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "rib",
+          "img": "../../pics/len-rib-red.png",
+          "x": 125,
+          "y": 60,
+          "w": 450,
+          "h": 33
+         },
+         {
+          "id": "p0",
+          "img": "../../pics/len-pen-yellow.png",
+          "x": -400,
+          "y": 130,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "p1",
+          "img": "../../pics/len-pen-yellow.png",
+          "x": -400,
+          "y": 130,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "p2",
+          "img": "../../pics/len-pen-yellow.png",
+          "x": -400,
+          "y": 130,
+          "w": 150,
+          "h": 24
+         }
+        ],
+        "ih": 250,
+        "top": 24
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "move": [
+         {
+          "id": "p0",
+          "x": 125,
+          "y": 125
+         }
+        ],
+        "ms": 550
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          200,
+          190
+         ]
+        ],
+        "start": 1,
+        "keep": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 250
+     },
+     {
+      "do": [
+       {
+        "move": [
+         {
+          "id": "p1",
+          "x": 275,
+          "y": 125
+         }
+        ],
+        "ms": 550
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          350,
+          190
+         ]
+        ],
+        "start": 2,
+        "keep": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 250
+     },
+     {
+      "do": [
+       {
+        "move": [
+         {
+          "id": "p2",
+          "x": 425,
+          "y": 125
+         }
+        ],
+        "ms": 550
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          500,
+          190
+         ]
+        ],
+        "start": 3,
+        "keep": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 250
+     },
+     {
+      "say": "The ribbon is three pencils long.",
+      "audio": "explain/s2-2.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          117,
+          50,
+          583,
+          160
+         ],
+         "color": "orange"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "3 pencils",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1300
+     }
+    ]
+   },
+   {
+    "name": "5 > 3",
+    "beats": [
+     {
+      "say": "Which ribbon is longer? Five pencils, or three pencils?",
+      "audio": "explain/s3-1.mp3",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "g",
+          "img": "../../pics/len-rib-green.png",
+          "x": 125,
+          "y": 60,
+          "w": 750,
+          "h": 44
+         },
+         {
+          "id": "r",
+          "img": "../../pics/len-rib-red.png",
+          "x": 125,
+          "y": 150,
+          "w": 450,
+          "h": 33
+         }
+        ],
+        "ih": 250,
+        "top": 24
+       },
+       {
+        "guide": {
+         "x0": 115,
+         "y0": 30,
+         "x1": 115,
+         "y1": 230,
+         "color": "black"
+        }
+       }
+      ]
+     },
+     {
+      "say": "Five is more than three. The green ribbon is longer.",
+      "audio": "explain/s3-2.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          117,
+          50,
+          883,
+          112
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "5 > 3",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

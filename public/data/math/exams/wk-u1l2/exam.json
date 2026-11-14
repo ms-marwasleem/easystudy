@@ -1,0 +1,297 @@
+{
+ "title": "Weekly Assessment",
+ "ratio": 0.707,
+ "pages": [
+  {
+   "title": "Model A",
+   "chip": "A",
+   "group": "A",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/butterfly.png#3",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number of butterflies in the opposite picture is ..........",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "1",
+        "2",
+        "3",
+        "4"
+       ],
+       "answer": 2,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/ar-roses.png#1",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "What is the number of flowers in the opposite picture ? [[4:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Match each image to its correct number:",
+     "body": [
+      {
+       "t": "link",
+       "dir": "v",
+       "a": [
+        {
+         "art": "../../../pics/frog.png#2",
+         "w": 8
+        },
+        {
+         "art": "../../../pics/flower-red.png#4",
+         "w": 8
+        },
+        {
+         "art": "../../../pics/ice-cream.png#1",
+         "w": 8
+        }
+       ],
+       "b": [
+        "4",
+        "1",
+        "2"
+       ],
+       "pairs": [
+        [
+         0,
+         2
+        ],
+        [
+         1,
+         0
+        ],
+        [
+         2,
+         1
+        ]
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Model B",
+   "chip": "B",
+   "group": "B",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/car.png#2",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number of cars in the opposite picture is ..........",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "1",
+        "2",
+        "3",
+        "4"
+       ],
+       "answer": 1,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/flower-red.png#5",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "What is the number of flowers in the opposite picture ? [[5:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Match each image to its correct number:",
+     "body": [
+      {
+       "t": "link",
+       "dir": "v",
+       "a": [
+        {
+         "art": "../../../pics/dolphin.png#2",
+         "w": 8
+        },
+        {
+         "art": "../../../pics/tomato.png#3",
+         "w": 8
+        },
+        {
+         "art": "../../../pics/ant.png#4",
+         "w": 8
+        }
+       ],
+       "b": [
+        "4",
+        "2",
+        "3"
+       ],
+       "pairs": [
+        [
+         0,
+         1
+        ],
+        [
+         1,
+         2
+        ],
+        [
+         2,
+         0
+        ]
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Model C",
+   "chip": "C",
+   "group": "C",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/star.png#5",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number of stars in the opposite picture is ..........",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "2",
+        "3",
+        "4",
+        "5"
+       ],
+       "answer": 3,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/flower-red.png#4",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "What is the number of flowers in the opposite picture ? [[4:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Match each image to its correct number:",
+     "body": [
+      {
+       "t": "link",
+       "dir": "v",
+       "a": [
+        {
+         "art": "../../../pics/dolphin.png#1",
+         "w": 8
+        },
+        {
+         "art": "../../../pics/tomato.png#5",
+         "w": 8
+        },
+        {
+         "art": "../../../pics/ar-fa-camel2.png#3",
+         "w": 8
+        }
+       ],
+       "b": [
+        "3",
+        "1",
+        "5"
+       ],
+       "pairs": [
+        [
+         0,
+         1
+        ],
+        [
+         1,
+         2
+        ],
+        [
+         2,
+         0
+        ]
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

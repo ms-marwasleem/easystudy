@@ -1,0 +1,499 @@
+{
+ "id": "u6l2",
+ "unit": 6,
+ "lesson": 2,
+ "title": "What We Learn from Results",
+ "task": "What We Learn from Results",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz",
+  "booklet"
+ ],
+ "tabLabels": {
+  "read": "Lesson",
+  "quiz": "Book Questions"
+ },
+ "pages": 8,
+ "pageNums": [
+  64,
+  64,
+  64,
+  64,
+  65,
+  65,
+  65,
+  65
+ ],
+ "layout": "explain",
+ "explain": {
+  "caption": false,
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3",
+   "6": "../u1l4/words/six.mp3",
+   "7": "../u1l4/words/seven.mp3",
+   "8": "../u1l4/words/eight.mp3",
+   "9": "../u1l4/words/nine.mp3",
+   "10": "../u1l4/words/ten.mp3"
+  },
+  "steps": [
+   {
+    "name": "most: strawberries",
+    "beats": [
+     {
+      "say": "Which has the most?",
+      "audio": "explain/s1-1.mp3",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-1.jpg",
+        "w": 1000,
+        "h": 1352
+       }
+      ]
+     },
+     {
+      "say": "The tallest column. Strawberries has the most.",
+      "audio": "explain/s1-2.mp3",
+      "do": [
+       {
+        "guide": {
+         "x0": 27,
+         "y0": 145,
+         "x1": 974,
+         "y1": 145,
+         "color": "orange"
+        }
+       },
+       {
+        "frame": {
+         "box": [
+          31,
+          141,
+          260,
+          1258
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "strawberries",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "least: melons",
+    "beats": [
+     {
+      "say": "Which has the least?",
+      "audio": "explain/s2-1.mp3",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-1.jpg",
+        "w": 1000,
+        "h": 1352
+       }
+      ]
+     },
+     {
+      "say": "The shortest column. Melons has the least.",
+      "audio": "explain/s2-2.mp3",
+      "do": [
+       {
+        "guide": {
+         "x0": 27,
+         "y0": 761,
+         "x1": 974,
+         "y1": 761,
+         "color": "orange"
+        }
+       },
+       {
+        "frame": {
+         "box": [
+          268,
+          757,
+          496,
+          1258
+         ],
+         "color": "red"
+        }
+       },
+       {
+        "add": "melons",
+        "card": true,
+        "color": "red"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "same: oranges = grapes",
+    "beats": [
+     {
+      "say": "Which have the same number?",
+      "audio": "explain/s3-1.mp3",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-1.jpg",
+        "w": 1000,
+        "h": 1352
+       }
+      ]
+     },
+     {
+      "say": "Oranges and grapes are the same height. They have the same number.",
+      "audio": "explain/s3-2.mp3",
+      "do": [
+       {
+        "guide": {
+         "x0": 27,
+         "y0": 392,
+         "x1": 974,
+         "y1": 392,
+         "color": "orange"
+        }
+       },
+       {
+        "frame": {
+         "box": [
+          504,
+          388,
+          733,
+          1258
+         ],
+         "color": "blue"
+        }
+       },
+       {
+        "frame": {
+         "box": [
+          741,
+          388,
+          970,
+          1258
+         ],
+         "color": "blue"
+        }
+       },
+       {
+        "add": "oranges = grapes",
+        "card": true,
+        "color": "blue"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "7 grapes",
+    "beats": [
+     {
+      "say": "How many grapes are there? Count from the bottom.",
+      "audio": "explain/s4-1.mp3",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-1.jpg",
+        "w": 1000,
+        "h": 1352
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          856,
+          1192
+         ],
+         [
+          856,
+          1069
+         ],
+         [
+          856,
+          946
+         ],
+         [
+          856,
+          823
+         ],
+         [
+          856,
+          700
+         ],
+         [
+          856,
+          576
+         ],
+         [
+          856,
+          453
+         ]
+        ],
+        "color": "orange",
+        "r": 22
+       }
+      ]
+     },
+     {
+      "say": "Seven grapes.",
+      "audio": "explain/s4-2.mp3",
+      "do": [
+       {
+        "add": "7",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "most: circles",
+    "beats": [
+     {
+      "say": "Which has the most?",
+      "audio": "explain/s5-1.mp3",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-2.jpg",
+        "w": 1000,
+        "h": 1352
+       }
+      ]
+     },
+     {
+      "say": "The tallest column. Circles has the most.",
+      "audio": "explain/s5-2.mp3",
+      "do": [
+       {
+        "guide": {
+         "x0": 21,
+         "y0": 396,
+         "x1": 980,
+         "y1": 396,
+         "color": "orange"
+        }
+       },
+       {
+        "frame": {
+         "box": [
+          25,
+          392,
+          257,
+          1276
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "circles",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "least: stars",
+    "beats": [
+     {
+      "say": "Which has the least?",
+      "audio": "explain/s6-1.mp3",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-2.jpg",
+        "w": 1000,
+        "h": 1352
+       }
+      ]
+     },
+     {
+      "say": "The shortest column. Stars has the least.",
+      "audio": "explain/s6-2.mp3",
+      "do": [
+       {
+        "guide": {
+         "x0": 21,
+         "y0": 1022,
+         "x1": 980,
+         "y1": 1022,
+         "color": "orange"
+        }
+       },
+       {
+        "frame": {
+         "box": [
+          744,
+          1018,
+          976,
+          1276
+         ],
+         "color": "red"
+        }
+       },
+       {
+        "add": "stars",
+        "card": true,
+        "color": "red"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "same: triangles = squares",
+    "beats": [
+     {
+      "say": "Which have the same number?",
+      "audio": "explain/s7-1.mp3",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-2.jpg",
+        "w": 1000,
+        "h": 1352
+       }
+      ]
+     },
+     {
+      "say": "Triangles and squares are the same height. They have the same number.",
+      "audio": "explain/s7-2.mp3",
+      "do": [
+       {
+        "guide": {
+         "x0": 21,
+         "y0": 646,
+         "x1": 980,
+         "y1": 646,
+         "color": "orange"
+        }
+       },
+       {
+        "frame": {
+         "box": [
+          265,
+          642,
+          496,
+          1276
+         ],
+         "color": "blue"
+        }
+       },
+       {
+        "frame": {
+         "box": [
+          504,
+          642,
+          736,
+          1276
+         ],
+         "color": "blue"
+        }
+       },
+       {
+        "add": "triangles = squares",
+        "card": true,
+        "color": "blue"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "5 triangles",
+    "beats": [
+     {
+      "say": "How many triangles are there? Count from the bottom.",
+      "audio": "explain/s8-1.mp3",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-2.jpg",
+        "w": 1000,
+        "h": 1352
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          381,
+          1209
+         ],
+         [
+          381,
+          1084
+         ],
+         [
+          381,
+          959
+         ],
+         [
+          381,
+          834
+         ],
+         [
+          381,
+          709
+         ]
+        ],
+        "color": "orange",
+        "r": 22
+       }
+      ]
+     },
+     {
+      "say": "Five triangles.",
+      "audio": "explain/s8-2.mp3",
+      "do": [
+       {
+        "add": "5",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -26,7 +26,7 @@
      "audio": "words/ten.mp3"
     },
     {
-     "img": "../../pics/burger.png#8",
+     "img": "../../pics/burger-cheese.png#8",
      "n": 8,
      "group": true,
      "audio": "words/eight.mp3"
@@ -44,6 +44,77 @@
      "audio": "words/nine.mp3"
     }
    ]
+  },
+  {
+   "type": "link",
+   "page": 11,
+   "task": "Match each image to its correct number.",
+   "taskAudio": "q/task-bk-match-each-image-to-its-correct-number.mp3",
+   "items": [
+    {
+     "word": "6",
+     "pic": "../../pics/flower.png#6",
+     "audio": "words/six.mp3"
+    },
+    {
+     "word": "8",
+     "pic": "../../pics/ant.png#8",
+     "audio": "words/eight.mp3"
+    },
+    {
+     "word": "7",
+     "pic": "../../pics/cap.png#7",
+     "audio": "words/seven.mp3"
+    }
+   ],
+   "book": "workbook",
+   "ex": 2
+  },
+  {
+   "type": "count",
+   "ex": 1,
+   "page": 11,
+   "task": "Write the number.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "img": "../../pics/ant.png#7",
+     "n": 7,
+     "group": true,
+     "audio": "words/seven.mp3"
+    },
+    {
+     "img": "../../pics/flower.png#6",
+     "n": 6,
+     "group": true,
+     "audio": "words/six.mp3"
+    },
+    {
+     "img": "../../pics/cap.png#10",
+     "n": 10,
+     "group": true,
+     "audio": "words/ten.mp3"
+    },
+    {
+     "img": "../../pics/burger-cheese.png#8",
+     "n": 8,
+     "group": true,
+     "audio": "words/eight.mp3"
+    },
+    {
+     "img": "../../pics/ar-cat.png#6",
+     "n": 6,
+     "group": true,
+     "audio": "words/six.mp3"
+    },
+    {
+     "img": "../../pics/frog.png#9",
+     "n": 9,
+     "group": true,
+     "audio": "words/nine.mp3"
+    }
+   ],
+   "book": "booklet"
   }
  ]
 }

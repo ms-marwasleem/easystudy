@@ -21,13 +21,13 @@
      "audio": "words/one.mp3"
     },
     {
-     "img": "../../pics/hamster.png#2",
+     "img": "../../pics/hamster-brown.png#2",
      "n": 2,
      "group": true,
      "audio": "words/two.mp3"
     },
     {
-     "img": "../../pics/duck-glasses.png#4",
+     "img": "../../pics/duck.png#4",
      "n": 4,
      "group": true,
      "audio": "words/four.mp3"
@@ -113,6 +113,259 @@
      "audio": "words/four.mp3"
     }
    ]
+  },
+  {
+   "type": "link",
+   "page": 6,
+   "task": "Match each image to its correct number.",
+   "taskAudio": "q/task-bk-match-each-image-to-its-correct-number.mp3",
+   "items": [
+    {
+     "word": "4",
+     "pic": "../../pics/flower-red.png#4",
+     "audio": "words/four.mp3"
+    },
+    {
+     "word": "2",
+     "pic": "../../pics/frog.png#2",
+     "audio": "words/two.mp3"
+    },
+    {
+     "word": "1",
+     "pic": "../../pics/apple-toon.png#1",
+     "audio": "words/one.mp3"
+    }
+   ],
+   "book": "workbook",
+   "ex": 4
+  },
+  {
+   "type": "link",
+   "page": 6,
+   "task": "Match each image to its correct number.",
+   "taskAudio": "q/task-bk-match-each-image-to-its-correct-number.mp3",
+   "items": [
+    {
+     "word": "5",
+     "pic": "../../pics/goldfish.png#5",
+     "audio": "words/five.mp3"
+    },
+    {
+     "word": "1",
+     "pic": "../../pics/bee.png#1",
+     "audio": "words/one.mp3"
+    },
+    {
+     "word": "3",
+     "pic": "../../pics/flower-red.png#3",
+     "audio": "words/three.mp3"
+    }
+   ],
+   "book": "workbook",
+   "ex": 5
+  },
+  {
+   "type": "count",
+   "page": 9,
+   "task": "Write the number.",
+   "taskAudio": "q/task-bk-write-the-number.mp3",
+   "items": [
+    {
+     "img": "../../pics/car.png#2",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    },
+    {
+     "img": "../../pics/ar-cat.png#5",
+     "n": 5,
+     "group": true,
+     "audio": "words/five.mp3"
+    },
+    {
+     "img": "../../pics/balloon.png#3",
+     "n": 3,
+     "group": true,
+     "audio": "words/three.mp3"
+    },
+    {
+     "img": "../../pics/butterfly.png#4",
+     "n": 4,
+     "group": true,
+     "audio": "words/four.mp3"
+    }
+   ],
+   "book": "workbook",
+   "ex": 6
+  },
+  {
+   "type": "count",
+   "ex": 1,
+   "page": 3,
+   "task": "Write the number.",
+   "taskAudio": "q/task-1.mp3",
+   "both": true,
+   "items": [
+    {
+     "img": "../../pics/banana-hat.png#3",
+     "n": 3,
+     "group": true,
+     "audio": "words/three.mp3"
+    },
+    {
+     "img": "../../pics/octopus.png",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3"
+    },
+    {
+     "img": "../../pics/hamster-brown.png#2",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    },
+    {
+     "img": "../../pics/duck.png#4",
+     "n": 4,
+     "group": true,
+     "audio": "words/four.mp3"
+    },
+    {
+     "img": "../../pics/cookie.png",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3"
+    },
+    {
+     "img": "../../pics/broccoli.png#3",
+     "n": 3,
+     "group": true,
+     "audio": "words/three.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "link",
+   "ex": 2,
+   "page": 4,
+   "task": "Join the ants to the number.",
+   "taskAudio": "q/task-3.mp3",
+   "items": [
+    {
+     "word": "3",
+     "pic": "../../pics/ant.png#3",
+     "audio": "words/three.mp3"
+    },
+    {
+     "word": "2",
+     "pic": "../../pics/ant.png#2",
+     "audio": "words/two.mp3"
+    },
+    {
+     "word": "1",
+     "pic": "../../pics/ant.png#1",
+     "audio": "words/one.mp3"
+    },
+    {
+     "word": "4",
+     "pic": "../../pics/ant.png#4",
+     "audio": "words/four.mp3"
+    },
+    {
+     "word": "5",
+     "pic": "../../pics/ant.png#5",
+     "audio": "words/five.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "link",
+   "ex": 2,
+   "page": 4,
+   "task": "Join the number to the word.",
+   "taskAudio": "q/task-4.mp3",
+   "items": [
+    {
+     "word": "3",
+     "text2": "Three",
+     "audio": "words/three.mp3"
+    },
+    {
+     "word": "1",
+     "text2": "One",
+     "audio": "words/one.mp3"
+    },
+    {
+     "word": "2",
+     "text2": "Two",
+     "audio": "words/two.mp3"
+    },
+    {
+     "word": "5",
+     "text2": "Five",
+     "audio": "words/five.mp3"
+    },
+    {
+     "word": "4",
+     "text2": "Four",
+     "audio": "words/four.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "count",
+   "page": 5,
+   "task": "Write the number.",
+   "taskAudio": "q/task-bk-write-the-number.mp3",
+   "items": [
+    {
+     "img": "../../pics/broccoli.png#5",
+     "n": 5,
+     "group": true,
+     "audio": "words/five.mp3"
+    },
+    {
+     "img": "../../pics/hamster.png#4",
+     "n": 4,
+     "group": true,
+     "audio": "words/four.mp3"
+    },
+    {
+     "img": "../../pics/pepper-green-bell.png#4",
+     "n": 4,
+     "group": true,
+     "audio": "words/four.mp3"
+    },
+    {
+     "img": "../../pics/ar-airplane.png",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3"
+    },
+    {
+     "img": "../../pics/watermelon.png#4",
+     "n": 4,
+     "group": true,
+     "audio": "words/four.mp3"
+    },
+    {
+     "img": "../../pics/spider-exrev2.png#5",
+     "n": 5,
+     "group": true,
+     "audio": "words/five.mp3"
+    },
+    {
+     "img": "../../pics/penguin.png#3",
+     "n": 3,
+     "group": true,
+     "audio": "words/three.mp3"
+    }
+   ],
+   "book": "booklet",
+   "ex": 10
   }
  ]
 }

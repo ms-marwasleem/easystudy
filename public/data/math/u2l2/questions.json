@@ -1,0 +1,212 @@
+{
+ "sets": [
+  {
+   "type": "line",
+   "page": 35,
+   "grp": "ex-1",
+   "task": "The frog is the ___ from the bottom.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/cat-gray.png",
+      "../../pics/elephant.png",
+      "../../pics/frog.png",
+      "../../pics/horse-brown.png"
+     ],
+     "target": 2,
+     "from": "back",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "ex": 1
+  },
+  {
+   "type": "line",
+   "page": 35,
+   "grp": "ex-2",
+   "task": "The elephant is the ___ from the top.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/cat-gray.png",
+      "../../pics/elephant.png",
+      "../../pics/frog.png",
+      "../../pics/horse-brown.png"
+     ],
+     "target": 1,
+     "from": "front",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "ex": 2
+  },
+  {
+   "type": "line",
+   "page": 35,
+   "grp": "ex-3",
+   "task": "The apple is the ___ from the left.",
+   "taskAudio": "q/task-3.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/banana-u4l2.png",
+      "../../pics/grapes.png",
+      "../../pics/apple-toon.png",
+      "../../pics/orange.png",
+      "../../pics/watermelon.png"
+     ],
+     "target": 2,
+     "from": "front",
+     "vert": false,
+     "ends": [
+      "Left",
+      "Right"
+     ]
+    }
+   ],
+   "ex": 3
+  },
+  {
+   "type": "line",
+   "page": 35,
+   "grp": "ex-4",
+   "task": "The grapes is the ___ from the right.",
+   "taskAudio": "q/task-4.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/banana-u4l2.png",
+      "../../pics/grapes.png",
+      "../../pics/apple-toon.png",
+      "../../pics/orange.png",
+      "../../pics/watermelon.png"
+     ],
+     "target": 1,
+     "from": "back",
+     "vert": false,
+     "ends": [
+      "Left",
+      "Right"
+     ]
+    }
+   ],
+   "ex": 4
+  },
+  {
+   "type": "line",
+   "page": 35,
+   "grp": "ex-1",
+   "task": "The frog is the ___ from the bottom.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/cat-gray.png",
+      "../../pics/elephant.png",
+      "../../pics/frog.png",
+      "../../pics/horse-brown.png"
+     ],
+     "target": 2,
+     "from": "back",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "book": "booklet",
+   "ex": 5
+  },
+  {
+   "type": "line",
+   "page": 35,
+   "grp": "ex-2",
+   "task": "The elephant is the ___ from the top.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/cat-gray.png",
+      "../../pics/elephant.png",
+      "../../pics/frog.png",
+      "../../pics/horse-brown.png"
+     ],
+     "target": 1,
+     "from": "front",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "book": "booklet",
+   "ex": 6
+  },
+  {
+   "type": "line",
+   "page": 35,
+   "grp": "ex-3",
+   "task": "The apple is the ___ from the left.",
+   "taskAudio": "q/task-3.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/banana-u4l2.png",
+      "../../pics/grapes.png",
+      "../../pics/apple-toon.png",
+      "../../pics/orange.png",
+      "../../pics/watermelon.png"
+     ],
+     "target": 2,
+     "from": "front",
+     "vert": false,
+     "ends": [
+      "Left",
+      "Right"
+     ]
+    }
+   ],
+   "book": "booklet",
+   "ex": 7
+  },
+  {
+   "type": "line",
+   "page": 35,
+   "grp": "ex-4",
+   "task": "The grapes is the ___ from the right.",
+   "taskAudio": "q/task-4.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/banana-u4l2.png",
+      "../../pics/grapes.png",
+      "../../pics/apple-toon.png",
+      "../../pics/orange.png",
+      "../../pics/watermelon.png"
+     ],
+     "target": 1,
+     "from": "back",
+     "vert": false,
+     "ends": [
+      "Left",
+      "Right"
+     ]
+    }
+   ],
+   "book": "booklet",
+   "ex": 8
+  }
+ ]
+}

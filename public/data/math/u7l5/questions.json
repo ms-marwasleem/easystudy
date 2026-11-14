@@ -1,0 +1,662 @@
+{
+ "sets": [
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 82,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 12 plus 2?",
+     "stem": "12 + 2 = __",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askSay": "What is 12 plus 2?",
+     "askAudio": "q/e1-q.mp3",
+     "audio": "q/e1-a.mp3",
+     "word": "Fourteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 82,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 16 minus 1?",
+     "stem": "16 - 1 = __",
+     "options": [
+      "14",
+      "15",
+      "16"
+     ],
+     "answer": 1,
+     "askSay": "What is 16 minus 1?",
+     "askAudio": "q/e3-q.mp3",
+     "audio": "q/e3-a.mp3",
+     "word": "Fifteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 3,
+   "page": 82,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 19 minus 7?",
+     "stem": "19 - 7 = __",
+     "options": [
+      "11",
+      "12",
+      "13"
+     ],
+     "answer": 1,
+     "askSay": "What is 19 minus 7?",
+     "askAudio": "q/e4-q.mp3",
+     "audio": "q/e4-a.mp3",
+     "word": "Twelve."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 4,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 16 plus 2?",
+     "stem": "16 + 2 = __",
+     "options": [
+      "17",
+      "18",
+      "19"
+     ],
+     "answer": 1,
+     "askSay": "What is 16 plus 2?",
+     "askAudio": "q/e6-q.mp3",
+     "audio": "q/e6-a.mp3",
+     "word": "Eighteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 5,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 12 minus 1?",
+     "stem": "12 - 1 = __",
+     "options": [
+      "10",
+      "11",
+      "12"
+     ],
+     "answer": 1,
+     "askSay": "What is 12 minus 1?",
+     "askAudio": "q/e8-q.mp3",
+     "audio": "q/e8-a.mp3",
+     "word": "Eleven."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 6,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 14 minus 2?",
+     "stem": "14 - 2 = __",
+     "options": [
+      "11",
+      "12",
+      "13"
+     ],
+     "answer": 1,
+     "askSay": "What is 14 minus 2?",
+     "askAudio": "q/e9-q.mp3",
+     "audio": "q/e9-a.mp3",
+     "word": "Twelve."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 7,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 14 plus 2?",
+     "stem": "14 + 2 = __",
+     "options": [
+      "15",
+      "16",
+      "17"
+     ],
+     "answer": 1,
+     "askSay": "What is 14 plus 2?",
+     "askAudio": "q/e11-q.mp3",
+     "audio": "q/e11-a.mp3",
+     "word": "Sixteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 8,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 13 plus 6?",
+     "stem": "13 + 6 = __",
+     "options": [
+      "18",
+      "19",
+      "20"
+     ],
+     "answer": 1,
+     "askSay": "What is 13 plus 6?",
+     "askAudio": "q/e13-q.mp3",
+     "audio": "q/e13-a.mp3",
+     "word": "Nineteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 9,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 11 plus 3?",
+     "stem": "11 + 3 = __",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askSay": "What is 11 plus 3?",
+     "askAudio": "q/e15-q.mp3",
+     "audio": "q/e15-a.mp3",
+     "word": "Fourteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 10,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 16 minus 3?",
+     "stem": "16 - 3 = __",
+     "options": [
+      "12",
+      "13",
+      "14"
+     ],
+     "answer": 1,
+     "askSay": "What is 16 minus 3?",
+     "askAudio": "q/e16-q.mp3",
+     "audio": "q/e16-a.mp3",
+     "word": "Thirteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 11,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 15 minus 4?",
+     "stem": "15 - 4 = __",
+     "options": [
+      "10",
+      "11",
+      "12"
+     ],
+     "answer": 1,
+     "askSay": "What is 15 minus 4?",
+     "askAudio": "q/e18-q.mp3",
+     "audio": "q/e18-a.mp3",
+     "word": "Eleven."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 12,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "There are 12 children. Then 5 more come. How many children are there now?",
+     "stem": "12 + 5 = __",
+     "options": [
+      "16",
+      "17",
+      "18"
+     ],
+     "answer": 1,
+     "askSay": "There are 12 children. Then 5 more come. How many children are there now?",
+     "askAudio": "q/e20-q.mp3",
+     "audio": "q/e20-a.mp3",
+     "word": "Seventeen children."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 13,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "You have 16 candies. You give away 4. How many are left?",
+     "stem": "16 - 4 = __",
+     "options": [
+      "11",
+      "12",
+      "13"
+     ],
+     "answer": 1,
+     "askSay": "You have 16 candies. You give away 4. How many are left?",
+     "askAudio": "q/e21-q.mp3",
+     "audio": "q/e21-a.mp3",
+     "word": "Twelve candies."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 14,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "You have 18 notebooks. You used 6. How many are not used?",
+     "stem": "18 - 6 = __",
+     "options": [
+      "11",
+      "12",
+      "13"
+     ],
+     "answer": 1,
+     "askSay": "You have 18 notebooks. You used 6. How many are not used?",
+     "askAudio": "q/e23-q.mp3",
+     "audio": "q/e23-a.mp3",
+     "word": "Twelve notebooks."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 82,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 12 plus 2?",
+     "stem": "12 + 2 = __",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askSay": "What is 12 plus 2?",
+     "askAudio": "q/e1-q.mp3",
+     "audio": "q/e1-a.mp3",
+     "word": "Fourteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 82,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 16 minus 1?",
+     "stem": "16 - 1 = __",
+     "options": [
+      "14",
+      "15",
+      "16"
+     ],
+     "answer": 1,
+     "askSay": "What is 16 minus 1?",
+     "askAudio": "q/e3-q.mp3",
+     "audio": "q/e3-a.mp3",
+     "word": "Fifteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 3,
+   "page": 82,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 19 minus 7?",
+     "stem": "19 - 7 = __",
+     "options": [
+      "11",
+      "12",
+      "13"
+     ],
+     "answer": 1,
+     "askSay": "What is 19 minus 7?",
+     "askAudio": "q/e4-q.mp3",
+     "audio": "q/e4-a.mp3",
+     "word": "Twelve."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 4,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 16 plus 2?",
+     "stem": "16 + 2 = __",
+     "options": [
+      "17",
+      "18",
+      "19"
+     ],
+     "answer": 1,
+     "askSay": "What is 16 plus 2?",
+     "askAudio": "q/e6-q.mp3",
+     "audio": "q/e6-a.mp3",
+     "word": "Eighteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 5,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 12 minus 1?",
+     "stem": "12 - 1 = __",
+     "options": [
+      "10",
+      "11",
+      "12"
+     ],
+     "answer": 1,
+     "askSay": "What is 12 minus 1?",
+     "askAudio": "q/e8-q.mp3",
+     "audio": "q/e8-a.mp3",
+     "word": "Eleven."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 6,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 14 minus 2?",
+     "stem": "14 - 2 = __",
+     "options": [
+      "11",
+      "12",
+      "13"
+     ],
+     "answer": 1,
+     "askSay": "What is 14 minus 2?",
+     "askAudio": "q/e9-q.mp3",
+     "audio": "q/e9-a.mp3",
+     "word": "Twelve."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 7,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 14 plus 2?",
+     "stem": "14 + 2 = __",
+     "options": [
+      "15",
+      "16",
+      "17"
+     ],
+     "answer": 1,
+     "askSay": "What is 14 plus 2?",
+     "askAudio": "q/e11-q.mp3",
+     "audio": "q/e11-a.mp3",
+     "word": "Sixteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 8,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 13 plus 6?",
+     "stem": "13 + 6 = __",
+     "options": [
+      "18",
+      "19",
+      "20"
+     ],
+     "answer": 1,
+     "askSay": "What is 13 plus 6?",
+     "askAudio": "q/e13-q.mp3",
+     "audio": "q/e13-a.mp3",
+     "word": "Nineteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 9,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 11 plus 3?",
+     "stem": "11 + 3 = __",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askSay": "What is 11 plus 3?",
+     "askAudio": "q/e15-q.mp3",
+     "audio": "q/e15-a.mp3",
+     "word": "Fourteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 10,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 16 minus 3?",
+     "stem": "16 - 3 = __",
+     "options": [
+      "12",
+      "13",
+      "14"
+     ],
+     "answer": 1,
+     "askSay": "What is 16 minus 3?",
+     "askAudio": "q/e16-q.mp3",
+     "audio": "q/e16-a.mp3",
+     "word": "Thirteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 11,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "What is 15 minus 4?",
+     "stem": "15 - 4 = __",
+     "options": [
+      "10",
+      "11",
+      "12"
+     ],
+     "answer": 1,
+     "askSay": "What is 15 minus 4?",
+     "askAudio": "q/e18-q.mp3",
+     "audio": "q/e18-a.mp3",
+     "word": "Eleven."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 12,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "There are 12 children. Then 5 more come. How many children are there now?",
+     "stem": "12 + 5 = __",
+     "options": [
+      "16",
+      "17",
+      "18"
+     ],
+     "answer": 1,
+     "askSay": "There are 12 children. Then 5 more come. How many children are there now?",
+     "askAudio": "q/e20-q.mp3",
+     "audio": "q/e20-a.mp3",
+     "word": "Seventeen children."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 13,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "You have 16 candies. You give away 4. How many are left?",
+     "stem": "16 - 4 = __",
+     "options": [
+      "11",
+      "12",
+      "13"
+     ],
+     "answer": 1,
+     "askSay": "You have 16 candies. You give away 4. How many are left?",
+     "askAudio": "q/e21-q.mp3",
+     "audio": "q/e21-a.mp3",
+     "word": "Twelve candies."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 14,
+   "page": 83,
+   "task": "Solve the problem.",
+   "taskAudio": "q/task-solv.mp3",
+   "items": [
+    {
+     "ask": "You have 18 notebooks. You used 6. How many are not used?",
+     "stem": "18 - 6 = __",
+     "options": [
+      "11",
+      "12",
+      "13"
+     ],
+     "answer": 1,
+     "askSay": "You have 18 notebooks. You used 6. How many are not used?",
+     "askAudio": "q/e23-q.mp3",
+     "audio": "q/e23-a.mp3",
+     "word": "Twelve notebooks."
+    }
+   ],
+   "book": "booklet"
+  }
+ ]
+}

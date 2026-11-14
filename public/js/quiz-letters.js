@@ -87,6 +87,8 @@ function qxWrite(box,q,s,run,text,onDone){   // text: what to type (default the 
 }
 document.addEventListener('keydown',e=>{ const inp=$('#qxin'); if(!inp||!inQ()||document.activeElement===inp||e.ctrlKey||e.metaKey||e.altKey||e.key.length!==1||!qxWrite.type) return;
   const a=document.activeElement; if(a&&/^(INPUT|TEXTAREA)$/.test(a.tagName)) return; inp.focus({preventScroll:true}); qxWrite.type(normDigits(e.key)); e.preventDefault(); });
+// tapping the empty dashed box (number bond, number line gap, any gap cell) where the child writes the number opens the keyboard, same as tapping the writing line
+document.addEventListener('click',e=>{ const g=e.target.closest&&e.target.closest('.qmb.gap,.qmb.cur,.qmcell.gap,.qmcell.cur'); const inp=$('#qxin'); if(!g||!inp||!inQ()||!document.body.contains(inp)) return; inp.focus({preventScroll:true}); });
 function qxArrange(box,q,s,run){
   const WS=!!(q.words||s.words), wd=WS?el('b','qxw qxwords'):qxWordEl(q.word,q.split), line=el('div','qxline');   // q.split = [group,...]: the whole word is shown above, the blanks are grouped with slashes (letters or syllables); the tiles are still single letters
   if(q.split&&!WS){ box.append(el('b','qxw qxshow',q.word)); wd.classList.add('qxsplit'); }   // words: the tiles are whole words of a sentence

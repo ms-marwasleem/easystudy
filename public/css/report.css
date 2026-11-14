@@ -17,3 +17,11 @@
 .rp-pop .btns button[disabled]{opacity:.6}
 @media (max-height:560px){.rp-ov{place-items:start center;overflow:auto}.rp-pop h2{display:none}.rp-txt{rows:2}}
 .rp-car{display:block;width:clamp(5rem,30vw,8rem)}
+
+/* 2026-11-14: the flag sits at the end of the subject·term line in the lesson header (left in RTL, right in LTR), out of the page-number row */
+#lesson .sign{position:relative}
+#lesson .sign .rpbtn{position:absolute;bottom:0;right:0;width:1.6rem;height:1.6rem;z-index:1}
+#lesson .sign .rpbtn svg{width:.9rem;height:.9rem}
+#lesson .sign small{padding-right:1.7rem;box-sizing:border-box}
+#lesson.ar .sign .rpbtn{right:auto;left:0}
+#lesson.ar .sign small{padding-right:0;padding-left:1.7rem}

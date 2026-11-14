@@ -1,116 +1,240 @@
 {
-  "sets": [
+ "sets": [
+  {
+   "type": "order",
+   "page": 53,
+   "grp": "ex-1",
+   "task": "Let's make a story for 3 - 2 = 1.",
+   "taskAudio": "q/task-ex.mp3",
+   "items": [
     {
-      "type": "order",
-      "page": 53,
-      "grp": "ex-1",
-      "task": "Let's make a story for 3 - 2 = 1.",
-      "taskAudio": "q/task-ex.mp3",
-      "items": [
-        {
-          "img": "story-1.jpg",
-          "chunks": [
-            "There",
-            "are",
-            "3",
-            "birds.",
-            "2",
-            "fly",
-            "away.",
-            "How",
-            "many",
-            "birds",
-            "are",
-            "left?"
-          ],
-          "word": "There are 3 birds. 2 fly away. How many birds are left?",
-          "audio": "q/story-1.mp3"
-        }
-      ]
-    },
-    {
-      "type": "order",
-      "page": 53,
-      "grp": "ex-2",
-      "task": "Let's make a story for 3 - 2 = 1.",
-      "taskAudio": "q/task-ex.mp3",
-      "items": [
-        {
-          "img": "story-2.jpg",
-          "chunks": [
-            "There",
-            "are",
-            "3",
-            "bikes.",
-            "2",
-            "go",
-            "away.",
-            "How",
-            "many",
-            "bikes",
-            "are",
-            "left?"
-          ],
-          "word": "There are 3 bikes. 2 go away. How many bikes are left?",
-          "audio": "q/story-2.mp3"
-        }
-      ]
-    },
-    {
-      "type": "order",
-      "page": 53,
-      "grp": "ex-3",
-      "task": "Let's make a story for 3 - 2 = 1.",
-      "taskAudio": "q/task-ex.mp3",
-      "items": [
-        {
-          "img": "story-3.jpg",
-          "chunks": [
-            "There",
-            "are",
-            "3",
-            "cats.",
-            "2",
-            "run",
-            "away.",
-            "How",
-            "many",
-            "cats",
-            "are",
-            "left?"
-          ],
-          "word": "There are 3 cats. 2 run away. How many cats are left?",
-          "audio": "q/story-3.mp3"
-        }
-      ]
-    },
-    {
-      "type": "order",
-      "page": 53,
-      "grp": "ex-4",
-      "task": "Let's make a story for 3 - 2 = 1.",
-      "taskAudio": "q/task-ex.mp3",
-      "items": [
-        {
-          "img": "story-4.jpg",
-          "chunks": [
-            "There",
-            "are",
-            "3",
-            "children.",
-            "2",
-            "go",
-            "home.",
-            "How",
-            "many",
-            "children",
-            "are",
-            "left?"
-          ],
-          "word": "There are 3 children. 2 go home. How many children are left?",
-          "audio": "q/story-4.mp3"
-        }
-      ]
+     "img": "story-1.png",
+     "chunks": [
+      "There",
+      "are",
+      "3",
+      "birds.",
+      "2",
+      "fly",
+      "away.",
+      "How",
+      "many",
+      "birds",
+      "are",
+      "left?"
+     ],
+     "word": "There are 3 birds. 2 fly away. How many birds are left?",
+     "audio": "q/story-1.mp3"
     }
-  ]
+   ],
+   "ex": 1
+  },
+  {
+   "type": "order",
+   "page": 53,
+   "grp": "ex-2",
+   "task": "Let's make a story for 3 - 2 = 1.",
+   "taskAudio": "q/task-ex.mp3",
+   "items": [
+    {
+     "img": "story-2.png",
+     "chunks": [
+      "There",
+      "are",
+      "3",
+      "bikes.",
+      "2",
+      "go",
+      "away.",
+      "How",
+      "many",
+      "bikes",
+      "are",
+      "left?"
+     ],
+     "word": "There are 3 bikes. 2 go away. How many bikes are left?",
+     "audio": "q/story-2.mp3"
+    }
+   ],
+   "ex": 2
+  },
+  {
+   "type": "order",
+   "page": 53,
+   "grp": "ex-3",
+   "task": "Let's make a story for 3 - 2 = 1.",
+   "taskAudio": "q/task-ex.mp3",
+   "items": [
+    {
+     "img": "story-3.png",
+     "chunks": [
+      "There",
+      "are",
+      "3",
+      "cats.",
+      "2",
+      "run",
+      "away.",
+      "How",
+      "many",
+      "cats",
+      "are",
+      "left?"
+     ],
+     "word": "There are 3 cats. 2 run away. How many cats are left?",
+     "audio": "q/story-3.mp3"
+    }
+   ],
+   "ex": 3
+  },
+  {
+   "type": "order",
+   "page": 53,
+   "grp": "ex-4",
+   "task": "Let's make a story for 3 - 2 = 1.",
+   "taskAudio": "q/task-ex.mp3",
+   "items": [
+    {
+     "img": "story-4.png",
+     "chunks": [
+      "There",
+      "are",
+      "3",
+      "children.",
+      "2",
+      "go",
+      "home.",
+      "How",
+      "many",
+      "children",
+      "are",
+      "left?"
+     ],
+     "word": "There are 3 children. 2 go home. How many children are left?",
+     "audio": "q/story-4.mp3"
+    }
+   ],
+   "ex": 4
+  },
+  {
+   "type": "order",
+   "page": 53,
+   "grp": "ex-1",
+   "task": "Let's make a story for 3 - 2 = 1.",
+   "taskAudio": "q/task-ex.mp3",
+   "items": [
+    {
+     "img": "story-1.png",
+     "chunks": [
+      "There",
+      "are",
+      "3",
+      "birds.",
+      "2",
+      "fly",
+      "away.",
+      "How",
+      "many",
+      "birds",
+      "are",
+      "left?"
+     ],
+     "word": "There are 3 birds. 2 fly away. How many birds are left?",
+     "audio": "q/story-1.mp3"
+    }
+   ],
+   "book": "booklet",
+   "ex": 5
+  },
+  {
+   "type": "order",
+   "page": 53,
+   "grp": "ex-2",
+   "task": "Let's make a story for 3 - 2 = 1.",
+   "taskAudio": "q/task-ex.mp3",
+   "items": [
+    {
+     "img": "story-2.png",
+     "chunks": [
+      "There",
+      "are",
+      "3",
+      "bikes.",
+      "2",
+      "go",
+      "away.",
+      "How",
+      "many",
+      "bikes",
+      "are",
+      "left?"
+     ],
+     "word": "There are 3 bikes. 2 go away. How many bikes are left?",
+     "audio": "q/story-2.mp3"
+    }
+   ],
+   "book": "booklet",
+   "ex": 6
+  },
+  {
+   "type": "order",
+   "page": 53,
+   "grp": "ex-3",
+   "task": "Let's make a story for 3 - 2 = 1.",
+   "taskAudio": "q/task-ex.mp3",
+   "items": [
+    {
+     "img": "story-3.png",
+     "chunks": [
+      "There",
+      "are",
+      "3",
+      "cats.",
+      "2",
+      "run",
+      "away.",
+      "How",
+      "many",
+      "cats",
+      "are",
+      "left?"
+     ],
+     "word": "There are 3 cats. 2 run away. How many cats are left?",
+     "audio": "q/story-3.mp3"
+    }
+   ],
+   "book": "booklet",
+   "ex": 7
+  },
+  {
+   "type": "order",
+   "page": 53,
+   "grp": "ex-4",
+   "task": "Let's make a story for 3 - 2 = 1.",
+   "taskAudio": "q/task-ex.mp3",
+   "items": [
+    {
+     "img": "story-4.png",
+     "chunks": [
+      "There",
+      "are",
+      "3",
+      "children.",
+      "2",
+      "go",
+      "home.",
+      "How",
+      "many",
+      "children",
+      "are",
+      "left?"
+     ],
+     "word": "There are 3 children. 2 go home. How many children are left?",
+     "audio": "q/story-4.mp3"
+    }
+   ],
+   "book": "booklet",
+   "ex": 8
+  }
+ ]
 }

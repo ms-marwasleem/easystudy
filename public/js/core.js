@@ -148,7 +148,7 @@ document.addEventListener('load',e=>{ const i=e.target; if(i&&i.tagName==='IMG'&
 fetch('data/pic-frame.json').then(r=>r.ok?r.json():null).then(j=>{ if(!j) return; PFRE=new RegExp('(^|-)('+[...(j.people||[]),...(j.nature||[])].join('|')+')(s)?(-|$)','i'); document.querySelectorAll('img').forEach(markPf); }).catch(()=>{});
 
 /* ONE voice at a time: whatever is being read (lesson recording, word, question, exam) stops the moment the child goes somewhere else */
-function stopVoice(){ try{ if(typeof stopAll==='function') stopAll(); if(typeof vStop==='function') vStop(); if(typeof gramStop==='function') gramStop(); if(typeof nahwStop==='function') nahwStop(); }catch(e){} }   // gramStop: a running grammar animation stops too (it went on reading in the background into the next lesson)
+function stopVoice(){ try{ if(typeof stopAll==='function') stopAll(); if(typeof vStop==='function') vStop(); if(typeof gramStop==='function') gramStop(); if(typeof nahwStop==='function') nahwStop(); if(typeof explainStop==='function') explainStop(); if(typeof mathStop==='function') mathStop(); }catch(e){} }   // gramStop: a running grammar animation stops too (it went on reading in the background into the next lesson)
 /* ---------- Motion helpers ---------- */
 /* light motion: times and ease come from theme.css (--t-pop, --t-fade); small scale, no bouncing */
 const TM=(n,d)=>{ const v=parseFloat(getComputedStyle(document.documentElement).getPropertyValue(n)); return isFinite(v)?v:d; };
@@ -344,6 +344,9 @@ function busy(on,text){ busyN=Math.max(0,busyN+(on?1:-1)); const b=$('#loading')
    so on the first taps we wake up both the speaker (Web Audio) and the talking voice. ---------- */
 let unlocked=false;
 const SILENT_WAV='data:audio/wav;base64,UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA==';
+// whenSound(fn): run fn (it starts a sound by itself) now if the browser already allowed sound (a tap happened); else at the FIRST tap (Safari / iPad: no sound before a touch)
+const SOUNDQ=[];
+function whenSound(fn){ if(unlocked) fn(); else SOUNDQ.push(fn); }
 function unlockSound(){
   if(SND.stale){ SND.stale=false; newSpeaker(); try{ speechSynthesis.cancel(); }catch(e){} }   // back from lock / another app: a fresh speaker
   try{ const c=ac(); if(c){ const b=c.createBuffer(1,1,22050), s=c.createBufferSource(); s.buffer=b; s.connect(c.destination); s.start(0); } }catch(e){}
@@ -351,6 +354,7 @@ function unlockSound(){
     try{ const a=new Audio(SILENT_WAV); a.volume=0; const p=a.play(); if(p&&p.catch) p.catch(()=>{}); }catch(e){} }
   try{ if('speechSynthesis' in window && !unlocked){ const u=new SpeechSynthesisUtterance('.'); u.volume=0.01; u.rate=2; speechSynthesis.speak(u); speechSynthesis.getVoices(); } }catch(e){}
   unlocked=true;
+  while(SOUNDQ.length){ const f=SOUNDQ.shift(); try{ f(); }catch(e){} }   // the sounds that waited for the first tap
 }
 ['pointerdown','touchend','click','keydown'].forEach(ev=>document.addEventListener(ev,unlockSound,{capture:true}));
 if('speechSynthesis' in window){ try{ speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices(); }catch(e){} }

@@ -1,0 +1,106 @@
+{
+ "sets": [
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 55,
+   "task": "Which one is longer?",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-1.png"
+     ],
+     "ask": "Compare the length of the red ribbon and the green ribbon. Which ribbon is longer?",
+     "stem": "The ___ ribbon is longer.",
+     "options": [
+      "red",
+      "green"
+     ],
+     "answer": 1,
+     "askSay": "Compare the length of the red ribbon and the green ribbon. Which ribbon is longer?",
+     "askAudio": "q/p1-q.mp3",
+     "audio": "q/p1-a.mp3",
+     "word": "The green ribbon is longer."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 55,
+   "task": "Which one is longer?",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-2.png"
+     ],
+     "ask": "Compare the length of the crayon and the pencil. Which one is longer?",
+     "stem": "The ___ is longer.",
+     "options": [
+      "crayon",
+      "pencil"
+     ],
+     "answer": 1,
+     "askSay": "Compare the length of the crayon and the pencil. Which one is longer?",
+     "askAudio": "q/p2-q.mp3",
+     "audio": "q/p2-a.mp3",
+     "word": "The pencil is longer."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 55,
+   "task": "Which one is longer?",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-1.png"
+     ],
+     "ask": "Compare the length of the red ribbon and the green ribbon. Which ribbon is longer?",
+     "stem": "The ___ ribbon is longer.",
+     "options": [
+      "red",
+      "green"
+     ],
+     "answer": 1,
+     "askSay": "Compare the length of the red ribbon and the green ribbon. Which ribbon is longer?",
+     "askAudio": "q/p1-q.mp3",
+     "audio": "q/p1-a.mp3",
+     "word": "The green ribbon is longer."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 55,
+   "task": "Which one is longer?",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-2.png"
+     ],
+     "ask": "Compare the length of the crayon and the pencil. Which one is longer?",
+     "stem": "The ___ is longer.",
+     "options": [
+      "crayon",
+      "pencil"
+     ],
+     "answer": 1,
+     "askSay": "Compare the length of the crayon and the pencil. Which one is longer?",
+     "askAudio": "q/p2-q.mp3",
+     "audio": "q/p2-a.mp3",
+     "word": "The pencil is longer."
+    }
+   ],
+   "book": "booklet"
+  }
+ ]
+}

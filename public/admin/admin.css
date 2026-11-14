@@ -126,3 +126,35 @@ input[disabled]{opacity:.5}
   .it{grid-template-columns:auto auto minmax(0,1fr) 4.8rem}
   .bulk{top:5.6rem}
 }
+
+.dwrap{position:relative;display:block}
+.dwrap em{display:none;font-style:normal}
+.dwrap.empty input[type=date]{color:transparent}
+.dwrap.empty input[type=date]::-webkit-datetime-edit{color:transparent}
+.dwrap.empty em{display:block;position:absolute;inset-inline-start:.7rem;top:50%;transform:translateY(-50%);color:#999;pointer-events:none}
+.dwrap .dclr{position:absolute;inset-inline-end:.4rem;top:50%;transform:translateY(-50%);border:0;background:none;color:#C33;font-size:1.1rem;cursor:pointer}
+
+/* lessons tree: collapsible subject > unit */
+#tree .it.cl{display:none}
+#tree .it.subj,#tree .it.unit{cursor:pointer}
+#tree .car{display:inline-block;transition:transform .15s;color:var(--mut);font-size:.8rem}
+#tree .it.xo>.car{transform:rotate(-90deg)}
+#tree .it:not(.les){grid-template-columns:auto auto auto minmax(0,1fr) 5.5rem}
+
+/* users table (2026-11-13) */
+.utwrap{overflow-x:auto;margin-top:.4rem}
+.utbl{width:100%;border-collapse:collapse;min-width:44rem;background:#FFFCF7}
+.utbl th{background:#FFF0DC;padding:.4rem .6rem;text-align:start;font-weight:800;white-space:nowrap}
+.utbl td{border:.06rem solid var(--line);padding:.3rem .5rem;vertical-align:top}
+.utbl .u-who{width:6rem}.utbl .u-who small{display:block;color:var(--mut);font-size:.75rem}
+.utbl .u-in{width:100%;box-sizing:border-box;border:.06rem solid transparent;background:transparent;padding:.2rem .3rem;border-radius:.4rem;font:inherit}
+.utbl .u-in:hover,.utbl .u-in:focus{border-color:var(--line);background:#fff}
+.utbl .trm{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;padding:.2rem 0}
+.utbl .trm+.trm{border-top:.06rem dashed var(--line)}
+.utbl .trm .nm{font-weight:700;min-width:5.5rem}
+.utbl .trm button,.u-del{border:.1rem solid var(--acc-dk);background:#fff;color:var(--acc-dk);padding:.1rem .7rem;border-radius:.6rem;font-weight:700;cursor:pointer}
+.u-del{display:block;margin-top:.4rem;border-color:#b3261e;color:#b3261e}
+.utbl .sb-img{flex-basis:100%}
+
+.stabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}.stabs button{border:1px solid #e6c98a;background:#fff;border-radius:999px;padding:6px 14px;font:inherit;cursor:pointer}.stabs button.on{background:#ff9f1c;color:#fff;border-color:#ff9f1c}
+.utbl td:nth-child(2) .u-in{min-width:14rem}

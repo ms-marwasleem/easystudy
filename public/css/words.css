@@ -1,0 +1,219 @@
+/* =====================================================================
+   EASY WORDS — the look of the words app (teal paper notebook) and its own screens.
+   Loaded LAST (tools/build-words.py), after the curriculum app's shared design files. Rule (Ahmed 2026-11-13): modular — a change of a colour, a part or a template here
+   changes it everywhere in this app; no screen has a look of its own. Same fonts as Easy Study (Luckiest Guy logo, Baloo Bhaijaan 2, Andika).
+   ===================================================================== */
+:root[data-theme="words"]{
+  /* palette: teal ink on white notebook paper */
+  --ew-ink:#1d4f57; --ew-teal:#2f7a86; --ew-teal-dk:#1f5f6b; --ew-teal-lt:#cfe4e7; --ew-paper:#fbfaf6; --ew-line:#d7e3e5;
+  --ew-gold:#f2b632; --ew-red:#e0583f; --ew-green:#3a9a5c;
+  --ol:var(--ew-ink); --logo-ol:var(--ew-ink); --btn-ol:var(--ew-ink); --btn-rim:var(--ew-teal-dk);
+  --btn1:#3d8f9c; --btn2:var(--ew-teal-dk); --btn-shadow:0 .1rem 0 rgba(29,79,87,.75),0 .3rem .45rem rgba(29,79,87,.25);
+  --kraft:var(--ew-teal); --kraft-lt:#6fb0ba; --kraft-dk:var(--ew-teal-dk); --kraft-deep:var(--ew-ink);
+  --bg-hi:#fff; --bg-mid:#f3f1ec; --bg-lo:#e7ece9; --bg-pat:none; --bg-patp:none; --page-tint:#fff;
+  --c-accent:var(--ew-teal); --c-accent-dk:var(--ew-teal-dk); --c-text:#23383d; --c-on-bg:var(--ew-ink); --c-muted:#6f8a90; --c-good:var(--ew-green); --c-bad:var(--ew-red);
+  --c-pink:var(--ew-teal); --c-paper2:#fff; --c-hint:#fff2b8; --hud:rgba(29,79,87,.12);
+  --star-on:var(--ew-gold); --star-off:#d9e2e3; --gold1:#ffe58a; --gold2:var(--ew-gold); --gold-ol:#8a6410;
+  --btn-bg:#fff; --btn-ink:var(--ew-ink); --btn-border:.19rem solid var(--ew-ink); --btn-shadow:0 .22rem 0 rgba(29,79,87,.35);
+  --blue1:#6fb0ba; --blue2:var(--ew-teal); --green1:#7fd19a; --green2:var(--ew-green); --yellow1:#ffe58a; --yellow2:var(--ew-gold); --help-icon:#a97a0a;
+  --f-ui:"Baloo Bhaijaan 2","Tahoma",sans-serif; --f-title:"Luckiest Guy","Baloo Bhaijaan 2",sans-serif;
+  --speaker:var(--ew-teal); --cut-ring:drop-shadow(0 0 .2rem rgba(47,122,134,.95)) drop-shadow(0 0 .1rem rgba(47,122,134,.95));
+  --c-on-bg-line:rgba(29,79,87,.38); --c-now-bg:#b86f00; --c-newword:#b8325f; --dot-off:rgba(29,79,87,.25); --dot-on:var(--ew-teal); --pop-dim:rgba(18,50,56,.6); --pop-rim:#fff;
+  --ew-sheet:rgba(255,255,255,.82); --ew-card:0 .15rem 0 rgba(29,79,87,.22),0 .5rem .9rem rgba(29,79,87,.12);
+}
+html[data-theme="words"],html[data-theme="words"] body{background:#f3f1ec url(../data/words/paper.jpg) center/cover fixed;color:var(--ew-ink)}
+
+/* ---------- parts used by every screen ---------- */
+.ewt{font-family:"Luckiest Guy","Baloo Bhaijaan 2",sans-serif;paint-order:stroke fill;stroke-linejoin:round}   /* (fill and stroke colour are attributes in the svg: a url(#id) in a css file would point at the css file) */
+.ewa{font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800}
+.ew-hatch{background:var(--ew-teal) repeating-linear-gradient(-35deg,transparent 0 .32rem,rgba(31,95,107,.7) .32rem .46rem)}   /* the teal pencil-hatched sticker of the notebook theme */
+.ew-top{padding-inline:clamp(.4rem,1.4vw,1.2rem)}
+.ew-top .topr{display:flex;align-items:center;gap:.7rem}
+.ew-title{margin:0;font-family:var(--f-title);font-weight:400;font-size:clamp(1.5rem,4.2vw,2.5rem);color:var(--ew-ink);letter-spacing:.03em;text-align:center;flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ew-title[dir=rtl]{font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;letter-spacing:0}
+.ew-logo{width:clamp(7rem,16vw,11rem);flex:none}.ew-logo svg{display:block;width:100%;height:auto;overflow:visible}
+.ew-logo.big{width:clamp(11rem,34vw,17rem);margin:0 auto}
+.ew-chip{font-family:var(--f-ui);font-weight:800;font-size:1.1rem;color:var(--ew-ink);background:#fff;border:var(--btn-border);border-radius:62rem;padding:.25em .9em;box-shadow:var(--btn-shadow);cursor:pointer}
+.ew-q{font-family:var(--f-title);font-size:2rem;color:#fff}.ew-q span{line-height:1}
+.ew-rep svg{width:1.5rem;height:1.5rem}
+.ew-empty,.ewt-help{font-family:var(--f-ui);font-weight:600;color:var(--c-muted);text-align:center;margin:.6rem}
+.ew-scroll{min-height:0;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:.2rem clamp(.6rem,2.4vw,1.8rem) 1.4rem}
+
+/* ---------- picker (first open) ---------- */
+#welcome{align-content:center;justify-items:center}
+.ew-pick{display:flex;flex-direction:column;align-items:center;gap:1.4rem;padding:1rem;width:min(100%,34rem)}
+.ew-h{margin:0;font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:2rem;color:var(--ew-ink)}
+.ew-picks{display:grid;gap:.9rem;width:100%}
+.ew-pickb{display:flex;flex-direction:column;align-items:center;gap:.1rem;padding:.7rem 1rem;border-radius:1.1rem;background:#fff;border:var(--btn-border);box-shadow:var(--btn-shadow);cursor:pointer;font-family:"Baloo Bhaijaan 2",sans-serif;color:var(--ew-ink)}
+.ew-pickb b{font-size:2rem;font-weight:800;line-height:1.2}.ew-pickb small{font-size:1rem;font-weight:600;color:var(--c-muted)}
+.ew-pickb:active{transform:translateY(.15rem);box-shadow:0 .08rem 0 rgba(29,79,87,.35)}
+
+/* ---------- home: the subjects as icons ---------- */
+#subjects{grid-template-rows:auto minmax(0,1fr)}
+.ew-home{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(.8rem,3vw,2.4rem);min-height:0;padding:.5rem}
+.ew-subj{all:unset;cursor:pointer;display:block;width:min(30vw,36vh);min-width:9rem;-webkit-tap-highlight-color:transparent}
+@media (max-aspect-ratio:1/1){.ew-home{flex-direction:column;flex-wrap:nowrap;gap:clamp(.6rem,2.4vh,1.6rem)}.ew-subj{width:min(58vw,23vh);min-width:0}}
+@media (min-aspect-ratio:1/1){.ew-home{flex-wrap:nowrap}.ew-subj{width:min(26vw,40vh);min-width:0}}
+.ew-icon{display:block;aspect-ratio:1;background:#f3f1ec url(../data/words/paper.jpg) center/cover;border-radius:22%;box-shadow:0 .5rem 1rem rgba(0,0,0,.22),0 0 0 .12rem rgba(255,255,255,.8);overflow:hidden;transition:transform .15s}
+.ew-icon svg{display:block;width:100%;height:100%}
+.ew-subj:active .ew-icon{transform:scale(.95)}
+
+/* ---------- subject map: unit = file, lesson = square, word = square; everything open ---------- */
+#map{grid-template-rows:auto minmax(0,1fr);gap:.4rem}
+.ew-unit{margin:0 0 1.5rem}
+.ew-utab{display:inline-block;margin-inline:.8rem 0;position:relative;z-index:1;padding:.3rem 1.2rem .35rem;border-radius:.9rem .9rem 0 0;font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:1.25rem;color:#fff;text-shadow:0 .1rem 0 var(--ew-ink);border:.19rem solid #fff;border-bottom:0;box-shadow:0 -.1rem .4rem rgba(29,79,87,.18);background:var(--ew-teal) repeating-linear-gradient(-35deg,transparent 0 .32rem,rgba(31,95,107,.7) .32rem .46rem)}
+.ew-ubody{margin-top:-.19rem;padding:.9rem;border:.19rem solid var(--ew-teal);border-radius:1rem;background:rgba(255,255,255,.82);box-shadow:var(--ew-card);display:flex;flex-wrap:wrap;align-items:flex-start;gap:.9rem .7rem}
+.ew-lrow{display:flex;flex-wrap:wrap;align-items:stretch;gap:.7rem;flex:1 1 100%}.ew-lrow.solo{flex:0 0 auto}
+.ew-lsq,.ew-wsq{--sq:clamp(7rem,15vw,10.5rem);position:relative;width:var(--sq);height:var(--sq);flex:none;border-radius:.9rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem;padding:.4rem;box-sizing:border-box;cursor:pointer;text-align:center;-webkit-tap-highlight-color:transparent}
+.ew-lsq{border:.19rem solid #fff;box-shadow:0 .18rem 0 var(--ew-teal-dk),0 .5rem .8rem rgba(29,79,87,.22);color:#fff;background:var(--ew-teal) repeating-linear-gradient(-35deg,transparent 0 .32rem,rgba(31,95,107,.7) .32rem .46rem)}
+.ew-lnum{font-family:var(--f-title);font-weight:400;font-size:2.6rem;line-height:1;color:#fff;-webkit-text-stroke:.14rem var(--ew-ink);paint-order:stroke fill}
+.ew-lname{font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:.95rem;line-height:1.1;color:#fff;text-shadow:0 .08rem 0 var(--ew-ink);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;max-width:100%}
+.ew-lsq i{position:absolute;inset-inline:.3rem;bottom:.3rem;font-style:normal;font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:.85rem;background:#fff;color:var(--ew-ink);border-radius:62rem;padding:0 .4rem}
+.ew-lsq.soon{opacity:.55;filter:saturate(.7);cursor:default}
+.ew-lsq:not(.soon):active,.ew-wsq:active{transform:translateY(.15rem)}
+.ew-words{display:flex;flex-wrap:wrap;gap:.7rem;align-items:stretch}
+.ew-wsq{background:#fff;border:.19rem solid var(--ew-teal);box-shadow:0 .18rem 0 rgba(31,95,107,.4);color:var(--ew-ink);justify-content:space-between;padding:.35rem .35rem .3rem}
+.ew-wimg{flex:1 1 0;min-height:0;width:100%;display:grid;place-items:center}
+.ew-wimg img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.ew-wimg img.cut{filter:var(--cut-shadow)}
+.ew-wsq b{flex:none;font-family:"Andika","Baloo Bhaijaan 2",sans-serif;font-weight:700;font-size:1.1rem;line-height:1.15;max-width:100%;overflow-wrap:anywhere;color:var(--ew-ink)}
+.ew-wsq b[dir=rtl]{font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:1.3rem}
+.ew-wsq .vst{position:absolute;top:-.55rem;inset-inline-end:-.55rem;width:1.7rem;height:1.7rem}.ew-wsq .vst svg{width:100%;height:100%}
+.ew-words.rep .ew-wsq{--sq:clamp(5.5rem,11vw,8rem);cursor:default}
+
+.hud{color:var(--ew-ink)!important;background:rgba(29,79,87,.1)}
+
+/* ---------- lesson screen on the notebook paper (the curriculum app's own lesson parts; only colours differ) ---------- */
+#lesson .dash>span:not(.rb),.vtools .dash>span:not(.rb){color:var(--ew-ink)}
+#lesson :is(.vsay,.vm-say,.qsay){color:var(--ew-teal)}
+
+/* ---------- practice templates ---------- */
+#lesson.q-land .quiz.ep[data-ep],#lesson.q-port .quiz.ep[data-ep],#lesson .quiz.ep[data-ep]{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr) auto;grid-template-areas:"head" "dots" "word" "play" "ans"}
+#lesson.q-land .quiz.ep .qans{flex-direction:row}
+.quiz.ep .qans{min-height:0}
+.quiz.ep .qans.ep-tiles{flex-wrap:wrap;gap:.6rem;padding:.2rem .5rem .5rem}
+.eptile{all:unset;box-sizing:border-box;cursor:pointer;min-width:3.6rem;height:3.6rem;padding:0 .5rem;display:grid;place-items:center;border-radius:.9rem;background:#fff;border:.19rem solid var(--ew-teal);box-shadow:0 .2rem 0 var(--ew-teal-dk);font-family:"Andika","Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:2rem;color:var(--ew-ink);-webkit-tap-highlight-color:transparent}
+.eptile .ewa{font-family:"Baloo Bhaijaan 2",sans-serif;font-size:2.2rem}
+.eptile:active{transform:translateY(.15rem);box-shadow:0 .05rem 0 var(--ew-teal-dk)}
+.eptile.used{opacity:.25;pointer-events:none}
+.eptile.glow,.epm-b.glow{animation:ewglow .5s ease-in-out 4 alternate}
+@keyframes ewglow{to{box-shadow:0 0 0 .35rem rgba(255,200,40,.9);transform:scale(1.08)}}
+.eptile.shake,.epm-b.shake{animation:ewshake .4s}
+@keyframes ewshake{25%{transform:translateX(-.35rem)}75%{transform:translateX(.35rem)}}
+#lesson .quiz.ep[data-type="link"][data-ep]{grid-template-rows:auto auto minmax(0,1fr);grid-template-areas:"head" "dots" "play"}
+.quiz.ep[data-type="link"] .qans{display:none}
+.quiz.ep[data-type="link"] .qplay{display:block;min-height:0}
+.epm{height:100%;display:grid;grid-template-columns:minmax(0,1fr) clamp(5rem,26vh,9rem);gap:clamp(.8rem,6vw,4rem);width:min(100%,44rem);margin-inline:auto;padding:.2rem .5rem;min-height:0}
+.epm-w,.epm-p{display:grid;grid-auto-rows:minmax(0,1fr);gap:.6rem;min-height:0}
+.epm-b{all:unset;box-sizing:border-box;cursor:pointer;display:grid;place-items:center;min-height:0;padding:.3rem;border-radius:.9rem;background:#fff;border:.19rem solid var(--ew-teal);box-shadow:0 .2rem 0 var(--ew-teal-dk);font-family:"Andika","Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:clamp(1.3rem,3.4vh,2rem);color:var(--ew-ink);-webkit-tap-highlight-color:transparent}
+.epm-b[dir=rtl]{font-family:"Baloo Bhaijaan 2",sans-serif}
+.epm-b.sel{background:#fff3c4;border-color:#e0a000;transform:scale(1.04)}
+.epm-b.done{opacity:.35;pointer-events:none;background:#d9f2e0}
+.epm .epm-b.epm-pic{position:relative;overflow:hidden}.epm .epm-b.epm-pic img{position:absolute;inset:.3rem;width:calc(100% - .6rem);height:calc(100% - .6rem);max-width:none;max-height:none;object-fit:contain;border:0;box-shadow:none;transform:none;border-radius:.5rem}
+.epm-pic img.cut{filter:var(--cut-shadow)}
+.ew-stars{display:flex;justify-content:center;gap:.5rem;margin:.3rem 0}
+.ew-stars i{width:3.6rem;height:3.6rem;display:block;opacity:.5}.ew-stars i.on{opacity:1}.ew-stars svg{width:100%;height:100%}
+#lesson .quiz.ep[data-ep] .qans.ep-tiles{display:flex}
+.epm-b span{text-align:center;line-height:1.15}
+
+/* ---------- test builder (a collapsed tree) ---------- */
+#ewTest,#ewReport{grid-template-rows:auto minmax(0,1fr)}
+.ewt-tree{display:grid;gap:.6rem;max-width:44rem;margin-inline:auto}
+.ewt-node{border-radius:.9rem;background:rgba(255,255,255,.85);border:.16rem solid var(--ew-teal);overflow:hidden}
+.ewt-node .ewt-node{border-width:.12rem;margin:.1rem .5rem .5rem;background:#fff}
+.ewt-unit>.ewt-row{background:var(--ew-teal);color:#fff}
+.ewt-unit>.ewt-row .ewt-name{color:#fff}
+.ewt-row{display:flex;align-items:center;gap:.6rem;padding:.45rem .6rem;cursor:pointer}
+.ewt-name{all:unset;flex:1;min-width:0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:1.15rem;color:var(--ew-ink)}
+.ewt-cnt{font-size:.9rem;font-weight:700;opacity:.8;font-style:normal}
+.ewt-chk{all:unset;flex:none;width:1.7rem;height:1.7rem;border-radius:.45rem;background:#fff;border:.15rem solid var(--ew-teal);cursor:pointer;display:grid;place-items:center;box-sizing:border-box}
+.ewt-node.all>.ewt-row .ewt-chk{background:var(--ew-green);border-color:var(--ew-green)}
+.ewt-node.all>.ewt-row .ewt-chk::after{content:"";width:.45rem;height:.8rem;border:solid #fff;border-width:0 .2rem .2rem 0;transform:rotate(45deg) translate(-.05rem,-.05rem)}
+.ewt-node.some>.ewt-row .ewt-chk{background:#cfe9d7}
+.ewt-node.some>.ewt-row .ewt-chk::after{content:"";width:.8rem;height:.2rem;background:var(--ew-green);border-radius:1rem}
+.ewt-chev{flex:none;width:.7rem;height:.7rem;border:solid currentColor;border-width:0 .2rem .2rem 0;transform:rotate(45deg);transition:transform .2s;color:var(--ew-ink);opacity:.7}
+.ewt-unit>.ewt-row .ewt-chev{color:#fff}
+.ewt-node.open>.ewt-row .ewt-chev{transform:rotate(-135deg)}
+.ewt-word>.ewt-row .ewt-chev,.ewt-node.soon .ewt-chev{display:none}
+.ewt-kids{display:none}.ewt-node.open>.ewt-kids{display:block}
+.ewt-node.soon{opacity:.55}
+.ewt-wimg{flex:none;width:2.6rem;height:2.6rem;display:grid;place-items:center}.ewt-wimg img{max-width:100%;max-height:100%;object-fit:contain}
+.ewt-word b{font-family:"Andika","Baloo Bhaijaan 2",sans-serif;font-size:1.1rem;color:var(--ew-ink);flex:1}.ewt-word b[dir=rtl]{font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:1.25rem}
+.ewt-opts{max-width:44rem;margin:1rem auto 0;display:grid;gap:.9rem}
+.ewt-grp{display:grid;gap:.4rem}.ewt-grp>b{font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:1.1rem;color:var(--ew-ink)}
+.ewt-chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.ewt-chip{all:unset;cursor:pointer;padding:.3rem .9rem;border-radius:62rem;background:#fff;border:.15rem solid var(--ew-teal);font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:1.05rem;color:var(--ew-ink)}
+.ewt-chip.on{background:var(--ew-teal);color:#fff}
+.ewt-go{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem}
+.ewt-weak,.ewt-all{all:unset;cursor:pointer;padding:.3rem .9rem;border-radius:.8rem;background:#fff;border:.15rem dashed var(--ew-teal);font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;color:var(--ew-ink)}
+.ewt-sum{flex:1 1 100%;font-weight:700;color:var(--c-muted);font-family:"Baloo Bhaijaan 2",sans-serif}
+.ewt-start{margin-inline:auto}.ewt-start:disabled{opacity:.45}
+.great{color:var(--ew-ink)}
+
+/* ---------- report ---------- */
+.ew-rsum{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;max-width:44rem;margin:.2rem auto 1rem}
+.ew-rsum>div{background:#fff;border:.16rem solid var(--ew-teal);border-radius:.9rem;padding:.5rem .3rem;text-align:center;display:grid;gap:.1rem}
+.ew-rsum b{font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:1.8rem;color:var(--ew-ink)}.ew-rsum span{font-size:.85rem;font-weight:700;color:var(--c-muted);font-family:"Baloo Bhaijaan 2",sans-serif}
+.ew-rsec{max-width:44rem;margin:0 auto 1.2rem;padding:.6rem;border-radius:1rem;background:rgba(255,255,255,.85);border:.16rem solid var(--ew-teal)}
+.ew-rsec.weak{border-color:var(--ew-red)}.ew-rsec.good{border-color:var(--ew-green)}.ew-rsec.review{border-color:var(--ew-gold)}
+.ew-rhead{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.5rem}
+.ew-rhead h3{margin:0;font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:1.2rem;color:var(--ew-ink)}.ew-rhead em{font-style:normal;opacity:.7}
+.ew-wsq .ew-wimg{position:relative}.ew-wsq .ew-wimg img{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;border:0;box-shadow:none;background:none}
+
+/* ---------- Easy Words screens, round 2 (Ahmed 2026-11-14) ---------- */
+/* home: logo with the school year and term in small letters (the curriculum itself is changed in the account / student settings) */
+.ew-brand{display:flex;flex-direction:column;align-items:center;gap:.1rem;flex:none}
+.ew-grade{font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:700;font-size:.8rem;color:var(--ew-ink);opacity:.8}
+/* lesson header: the subject name beside the buttons, a smaller unit / lesson line */
+#lesson .l-head{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"nav meta hud" "sign sign sign"}
+#lesson .l-head .ew-meta{grid-area:meta;justify-self:start;font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:1rem;color:var(--ew-ink);padding-inline:.4rem;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#lesson.ar .l-head .ew-meta{direction:rtl}
+#lesson .sign h1.outline{font-size:clamp(.9rem,3.1vw,1.25rem)}
+/* the dots under the question: groups */
+:root[data-theme="words"]{--dot-off:rgba(29,79,87,.28);--dot-on:var(--ew-teal)}
+/* the words tab's help: the hidden letter shows faintly (the curriculum rule needs .hid, which the help removes) */
+#lesson .ws .lt.peek:not(.got){color:color-mix(in srgb,var(--ew-ink) 30%,transparent)!important}
+/* the stars popup */
+.ew-pop{width:min(92vw,30rem);padding:2.6rem 1.2rem 1.2rem;background:linear-gradient(#eaf6f8,#d3eaee);border:.2rem solid #fff;border-radius:1.4rem;box-shadow:0 .6rem 0 rgba(29,79,87,.25),0 1rem 2rem rgba(0,0,0,.3);position:relative;display:grid;gap:.9rem;justify-items:center}
+.ew-ribbon{position:absolute;top:-1.6rem;left:50%;transform:translateX(-50%);min-width:62%;text-align:center;padding:.35rem 2.2rem;background:linear-gradient(#a9dbe3,#7cc4cf);border:.15rem solid #fff;border-radius:.8rem;box-shadow:0 .25rem 0 rgba(29,79,87,.3)}
+.ew-ribbon::before,.ew-ribbon::after{content:"";position:absolute;top:.5rem;width:1.6rem;height:100%;background:#6bb5c1;z-index:-1;border:.15rem solid #fff}
+.ew-ribbon::before{left:-1.1rem;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,35% 50%)}.ew-ribbon::after{right:-1.1rem;clip-path:polygon(0 0,100% 0,65% 50%,100% 100%,0 100%)}
+.ew-ribbon span{font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:1.7rem;color:#fff;text-shadow:0 .1rem 0 var(--ew-ink)}
+.ew-pstars{display:flex;justify-content:center;gap:1.4rem;margin-top:.6rem}
+.ew-ps{display:grid;justify-items:center;gap:.2rem}.ew-ps i{display:block;width:5.2rem;height:5.2rem}.ew-ps i svg{width:100%;height:100%}
+.ew-ps:not(.on) i{filter:grayscale(1) opacity(.55)}
+.ew-ps small{font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:.95rem;color:var(--ew-ink)}
+.ew-ptxt{margin:0;font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:700;color:var(--ew-ink);text-align:center}
+.ew-bar{position:relative;width:min(100%,19rem);height:2rem;border-radius:62rem;background:#2a3a3d;border:.15rem solid #f3c14a;overflow:visible;display:flex;align-items:center;justify-content:center}
+.ew-fill{position:absolute;left:0;top:0;bottom:0;border-radius:62rem;background:linear-gradient(#ffd966,#f2b632)}
+.ew-bar b{position:relative;font-family:"Baloo Bhaijaan 2",sans-serif;font-style:italic;font-weight:800;font-size:1.15rem;color:#fff;text-shadow:0 .08rem 0 #000}
+.ew-bstar{position:absolute;right:-1.1rem;top:50%;width:2.6rem;height:2.6rem;transform:translateY(-50%)}.ew-bstar svg{width:100%;height:100%}
+.ew-pbtns{display:flex;justify-content:center;gap:1rem;margin-top:.2rem}
+.ew-pb{all:unset;cursor:pointer;width:3.6rem;height:3.6rem;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#fff 0,transparent 35%),var(--ew-teal);border:.18rem solid #fff;box-shadow:0 .25rem 0 var(--ew-teal-dk),0 .5rem .8rem rgba(0,0,0,.2);-webkit-tap-highlight-color:transparent}
+.ew-pb svg{width:1.9rem;height:1.9rem;fill:none;stroke:#fff;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.ew-pb.again{background:radial-gradient(circle at 35% 30%,#fff 0,transparent 35%),#6bb9d8}.ew-pb.map{background:radial-gradient(circle at 35% 30%,#fff 0,transparent 35%),var(--ew-green)}
+.ew-pb:active{transform:translateY(.2rem)}.ew-pb:disabled{opacity:.35;pointer-events:none;filter:grayscale(.6)}
+.quiz.ep .qtask{font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:700;color:var(--ew-ink)}
+#lesson .l-head .ew-meta{font-size:.85rem;max-width:100%}
+.ew-bar{width:min(calc(100% - 2.6rem),19rem)}
+:root[data-theme="words"]{--c-edge:var(--ew-teal)}
+#lesson .quiz.ep[data-ep] .qplay{height:auto;min-height:0}
+.ew-brand{align-items:flex-start}
+.eptile{min-width:3.1rem;height:3.1rem;font-size:1.8rem}
+
+/* round 3: no stars above the question, a dot per question under it; the map header */
+.quiz.ep .qdots{display:none}
+#lmDots{max-width:min(80vw,30rem);gap:0}
+#lmDots .ldot{width:.95rem;height:.95rem;padding:.24rem}
+#lmDots .ldot.gs{margin-inline-start:.7rem}
+#lmDots .ldot.done:not(.on){background-color:var(--ew-teal);opacity:.55}
+.quiz.ep{touch-action:pan-y}
+#map .ew-top{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"nav . hud" "title title title";align-items:center;gap:.2rem .6rem}
+#map .ew-top .navbtns{grid-area:nav;display:flex;gap:.6rem}#map .ew-top .topr{grid-area:hud}
+#map .ew-top .ew-title{grid-area:title;font-size:clamp(.95rem,3vw,1.3rem);text-align:start;padding-inline:.4rem}
+#lmDots{max-width:min(70vw,30rem)}#lmDots .ldot{width:.85rem;height:.85rem;padding:.2rem}#lmDots .ldot.gs{margin-inline-start:.5rem}
+
+/* round 4: thin helper-button labels; the subject name sits low, level with the bottom of the round buttons */
+#lesson .dash>span:not(.rb),.vtools .dash>span:not(.rb){font-family:"Baloo Bhaijaan 2",sans-serif!important;font-weight:600!important;-webkit-text-stroke:0!important;text-shadow:none!important;letter-spacing:0}
+#lesson .l-head .ew-meta{align-self:end;padding-bottom:.3rem}
+#lesson .l-head .ew-meta{font-size:.75rem}

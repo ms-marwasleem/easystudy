@@ -216,7 +216,7 @@
    "taskAudio": "q/task-2.mp3",
    "items": [
     {
-     "img": "../../pics/crab.png#10",
+     "img": "../../pics/crab-red.png#10",
      "n": 10,
      "group": true,
      "audio": "words/ten.mp3"
@@ -246,7 +246,7 @@
      "audio": "words/ten.mp3"
     },
     {
-     "img": "../../pics/clownfish.png#6",
+     "img": "../../pics/clownfish-orange.png#6",
      "n": 6,
      "group": true,
      "audio": "words/six.mp3"
@@ -285,6 +285,297 @@
      "audio": "words/two-and-four-make-six.mp3"
     }
    ]
+  },
+  {
+   "type": "bond",
+   "ex": 1,
+   "page": 13,
+   "task": "Write the missing number in the box.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "whole": 6,
+     "parts": [
+      2,
+      null
+     ],
+     "audio": "words/two-and-four-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      null,
+      5
+     ],
+     "audio": "words/one-and-five-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      3,
+      null
+     ],
+     "audio": "words/three-and-three-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      4,
+      null
+     ],
+     "audio": "words/four-and-two-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      null,
+      1
+     ],
+     "audio": "words/five-and-one-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      null,
+      2
+     ],
+     "audio": "words/four-and-two-make-six.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "count",
+   "ex": 2,
+   "page": 14,
+   "task": "Write the number.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "img": "../../pics/starfish.png#3",
+     "n": 3,
+     "group": true,
+     "audio": "words/three.mp3"
+    },
+    {
+     "img": "../../pics/bird-book-1.png",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3"
+    },
+    {
+     "img": "../../pics/ar-duckling.png#2",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    },
+    {
+     "img": "../../pics/ar-trophy.png#9",
+     "n": 9,
+     "group": true,
+     "audio": "words/nine.mp3"
+    },
+    {
+     "img": "../../pics/tomato.png#5",
+     "n": 5,
+     "group": true,
+     "audio": "words/five.mp3"
+    },
+    {
+     "img": "../../pics/apple-toon.png#7",
+     "n": 7,
+     "group": true,
+     "audio": "words/seven.mp3"
+    },
+    {
+     "img": "../../pics/almond.png#6",
+     "n": 6,
+     "group": true,
+     "audio": "words/six.mp3"
+    },
+    {
+     "img": "../../pics/book.png#8",
+     "n": 8,
+     "group": true,
+     "audio": "words/eight.mp3"
+    },
+    {
+     "img": "../../pics/ar-carrot.png#4",
+     "n": 4,
+     "group": true,
+     "audio": "words/four.mp3"
+    },
+    {
+     "img": "../../pics/pencil.png#10",
+     "n": 10,
+     "group": true,
+     "audio": "words/ten.mp3"
+    },
+    {
+     "img": "../../pics/candle.png#6",
+     "n": 6,
+     "group": true,
+     "audio": "words/six.mp3"
+    },
+    {
+     "img": "../../pics/hands-2.png",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "write",
+   "ex": 2,
+   "page": 14,
+   "task": "Write the word.",
+   "taskAudio": "q/task-3.mp3",
+   "lang": "en",
+   "items": [
+    {
+     "pic": "../../pics/starfish.png#3",
+     "word": "three",
+     "audio": "words/three.mp3"
+    },
+    {
+     "pic": "../../pics/bird-book-1.png",
+     "word": "one",
+     "audio": "words/one.mp3"
+    },
+    {
+     "pic": "../../pics/ar-duckling.png#2",
+     "word": "two",
+     "audio": "words/two.mp3"
+    },
+    {
+     "pic": "../../pics/ar-trophy.png#9",
+     "word": "nine",
+     "audio": "words/nine.mp3"
+    },
+    {
+     "pic": "../../pics/tomato.png#5",
+     "word": "five",
+     "audio": "words/five.mp3"
+    },
+    {
+     "pic": "../../pics/apple-toon.png#7",
+     "word": "seven",
+     "audio": "words/seven.mp3"
+    },
+    {
+     "pic": "../../pics/almond.png#6",
+     "word": "six",
+     "audio": "words/six.mp3"
+    },
+    {
+     "pic": "../../pics/book.png#8",
+     "word": "eight",
+     "audio": "words/eight.mp3"
+    },
+    {
+     "pic": "../../pics/ar-carrot.png#4",
+     "word": "four",
+     "audio": "words/four.mp3"
+    },
+    {
+     "pic": "../../pics/pencil.png#10",
+     "word": "ten",
+     "audio": "words/ten.mp3"
+    },
+    {
+     "pic": "../../pics/candle.png#6",
+     "word": "six",
+     "audio": "words/six.mp3"
+    },
+    {
+     "pic": "../../pics/hands-2.png",
+     "word": "two",
+     "audio": "words/two.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "count",
+   "ex": 3,
+   "page": 15,
+   "task": "Write the number.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "img": "../../pics/crab-red.png#10",
+     "n": 10,
+     "group": true,
+     "audio": "words/ten.mp3"
+    },
+    {
+     "img": "../../pics/bus-u5l1.png#9",
+     "n": 9,
+     "group": true,
+     "audio": "words/nine.mp3"
+    },
+    {
+     "img": "../../pics/balloon.png#7",
+     "n": 7,
+     "group": true,
+     "audio": "words/seven.mp3"
+    },
+    {
+     "img": "../../pics/butterfly.png#8",
+     "n": 8,
+     "group": true,
+     "audio": "words/eight.mp3"
+    },
+    {
+     "img": "../../pics/ice-cream.png#10",
+     "n": 10,
+     "group": true,
+     "audio": "words/ten.mp3"
+    },
+    {
+     "img": "../../pics/clownfish-orange.png#6",
+     "n": 6,
+     "group": true,
+     "audio": "words/six.mp3"
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "bond",
+   "ex": 4,
+   "page": 15,
+   "task": "Write the missing number in the box.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "whole": 6,
+     "parts": [
+      5,
+      null
+     ],
+     "audio": "words/five-and-one-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      1,
+      null
+     ],
+     "audio": "words/one-and-five-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      null,
+      4
+     ],
+     "audio": "words/two-and-four-make-six.mp3"
+    }
+   ],
+   "book": "booklet"
   }
  ]
 }

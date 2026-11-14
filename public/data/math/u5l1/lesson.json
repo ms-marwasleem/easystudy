@@ -1,0 +1,512 @@
+{
+ "id": "u5l1",
+ "unit": 5,
+ "lesson": 1,
+ "title": "Which One Is Longer?",
+ "task": "Which One Is Longer?",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz",
+  "booklet"
+ ],
+ "tabLabels": {
+  "read": "Lesson",
+  "quiz": "Book Questions"
+ },
+ "pages": 5,
+ "pageNums": [
+  54,
+  54,
+  54,
+  55,
+  55
+ ],
+ "layout": "explain",
+ "explain": {
+  "caption": false,
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3",
+   "6": "../u1l4/words/six.mp3",
+   "7": "../u1l4/words/seven.mp3",
+   "8": "../u1l4/words/eight.mp3",
+   "9": "../u1l4/words/nine.mp3",
+   "10": "../u1l4/words/ten.mp3"
+  },
+  "steps": [
+   {
+    "name": "Which pencil is longer?",
+    "beats": [
+     {
+      "say": "Which pencil is longer?",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "g",
+          "img": "../../pics/len-pen-green.png",
+          "x": 300,
+          "y": 60,
+          "w": 599,
+          "h": 61
+         },
+         {
+          "id": "r",
+          "img": "../../pics/len-pen-red.png",
+          "x": 70,
+          "y": 200,
+          "w": 373,
+          "h": 61
+         }
+        ],
+        "ih": 330,
+        "top": 24
+       }
+      ],
+      "audio": "explain/s1-1.mp3"
+     },
+     {
+      "say": "When you compare lengths, line up one end.",
+      "do": [
+       {
+        "move": [
+         {
+          "id": "g",
+          "x": 140,
+          "y": 60
+         },
+         {
+          "id": "r",
+          "x": 140,
+          "y": 200
+         }
+        ],
+        "ms": 1800
+       },
+       {
+        "guide": {
+         "x0": 128,
+         "y0": 30,
+         "x1": 128,
+         "y1": 300,
+         "color": "black"
+        }
+       },
+       {
+        "add": "Line up one end.",
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/s1-2.mp3"
+     },
+     {
+      "say": "The red pencil ends here.",
+      "do": [
+       {
+        "guide": {
+         "x0": 513,
+         "y0": 30,
+         "x1": 513,
+         "y1": 300,
+         "color": "orange"
+        }
+       }
+      ],
+      "audio": "explain/s1-3.mp3"
+     },
+     {
+      "say": "The green pencil goes further. The green pencil is longer.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          130,
+          50,
+          749,
+          131
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "The"
+       },
+       {
+        "add": "green",
+        "color": "green"
+       },
+       {
+        "add": "pencil is longer."
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s1-4.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Warm Up: strings",
+    "beats": [
+     {
+      "say": "Warm Up. Compare the red string and the blue string. They are lined up at one end. Which string is longer?",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "a",
+          "img": "../../pics/len-string-red.png",
+          "x": 140,
+          "y": 70,
+          "w": 566,
+          "h": 47
+         },
+         {
+          "id": "b",
+          "img": "../../pics/len-string-blue.png",
+          "x": 140,
+          "y": 170,
+          "w": 668,
+          "h": 47
+         }
+        ],
+        "ih": 290,
+        "top": 24
+       },
+       {
+        "guide": {
+         "x0": 128,
+         "y0": 40,
+         "x1": 128,
+         "y1": 250,
+         "color": "black"
+        }
+       }
+      ],
+      "audio": "explain/s2-1.mp3"
+     },
+     {
+      "say": "The red string ends here. The blue string goes further. The blue string is longer.",
+      "do": [
+       {
+        "guide": {
+         "x0": 706,
+         "y0": 40,
+         "x1": 706,
+         "y1": 250,
+         "color": "orange"
+        }
+       },
+       {
+        "frame": {
+         "box": [
+          130,
+          160,
+          818,
+          227
+         ],
+         "color": "blue"
+        }
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "The"
+       },
+       {
+        "add": "blue",
+        "color": "blue"
+       },
+       {
+        "add": "string is longer."
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s2-2.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Warm Up: pencils",
+    "beats": [
+     {
+      "say": "Now the pencils are lined up at the right end. Even if the place you line up changes, think about it in the same way. Which pencil is longer?",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "a",
+          "img": "../../pics/len-pen-red2.png",
+          "x": 211,
+          "y": 70,
+          "w": 649,
+          "h": 51
+         },
+         {
+          "id": "b",
+          "img": "../../pics/len-pen-yellow.png",
+          "x": 375,
+          "y": 170,
+          "w": 485,
+          "h": 51
+         }
+        ],
+        "ih": 290,
+        "top": 24
+       },
+       {
+        "guide": {
+         "x0": 872,
+         "y0": 40,
+         "x1": 872,
+         "y1": 250,
+         "color": "black"
+        }
+       }
+      ],
+      "audio": "explain/s3-1.mp3"
+     },
+     {
+      "say": "The yellow pencil ends here. The red pencil goes further. The red pencil is longer.",
+      "do": [
+       {
+        "guide": {
+         "x0": 375,
+         "y0": 40,
+         "x1": 375,
+         "y1": 250,
+         "color": "orange"
+        }
+       },
+       {
+        "frame": {
+         "box": [
+          201,
+          60,
+          870,
+          131
+         ],
+         "color": "red"
+        }
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "The"
+       },
+       {
+        "add": "red",
+        "color": "red"
+       },
+       {
+        "add": "pencil is longer."
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s3-2.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Try: toothbrushes",
+    "beats": [
+     {
+      "say": "Try! Compare the blue toothbrush and the green toothbrush. They are lined up at one end. Which toothbrush is longer? Tap it.",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "a",
+          "img": "../../pics/len-brush-blue.png",
+          "x": 140,
+          "y": 60,
+          "w": 610,
+          "h": 75
+         },
+         {
+          "id": "b",
+          "img": "../../pics/len-brush-green.png",
+          "x": 140,
+          "y": 180,
+          "w": 470,
+          "h": 75
+         }
+        ],
+        "ih": 330,
+        "top": 24
+       },
+       {
+        "guide": {
+         "x0": 128,
+         "y0": 30,
+         "x1": 128,
+         "y1": 290,
+         "color": "black"
+        }
+       },
+       {
+        "pick": {
+         "boxes": [
+          [
+           130,
+           50,
+           760,
+           145
+          ],
+          [
+           130,
+           170,
+           620,
+           265
+          ]
+         ],
+         "answer": 0
+        }
+       }
+      ],
+      "audio": "explain/s4-1.mp3"
+     },
+     {
+      "say": "Yes! The blue toothbrush is longer.",
+      "do": [
+       {
+        "guide": {
+         "x0": 610,
+         "y0": 30,
+         "x1": 610,
+         "y1": 290,
+         "color": "orange"
+        }
+       },
+       {
+        "add": "The"
+       },
+       {
+        "add": "blue",
+        "color": "blue"
+       },
+       {
+        "add": "toothbrush is longer."
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s4-2.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Try: umbrellas",
+    "beats": [
+     {
+      "say": "Try! Compare the yellow umbrella and the red umbrella. They stand on the same line. Which umbrella is longer? Tap it.",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "a",
+          "img": "../../pics/len-umb-yellow.png",
+          "x": 380,
+          "y": 119,
+          "w": 96,
+          "h": 253
+         },
+         {
+          "id": "b",
+          "img": "../../pics/len-umb-red.png",
+          "x": 520,
+          "y": 35,
+          "w": 80,
+          "h": 337
+         }
+        ],
+        "ih": 410,
+        "top": 24
+       },
+       {
+        "guide": {
+         "x0": 270,
+         "y0": 374,
+         "x1": 690,
+         "y1": 374,
+         "color": "black"
+        }
+       },
+       {
+        "pick": {
+         "boxes": [
+          [
+           370,
+           109,
+           486,
+           382
+          ],
+          [
+           510,
+           25,
+           610,
+           382
+          ]
+         ],
+         "answer": 1
+        }
+       }
+      ],
+      "audio": "explain/s5-1.mp3"
+     },
+     {
+      "say": "Yes! The red umbrella is longer.",
+      "do": [
+       {
+        "guide": {
+         "x0": 270,
+         "y0": 119,
+         "x1": 690,
+         "y1": 119,
+         "color": "orange"
+        }
+       },
+       {
+        "add": "The"
+       },
+       {
+        "add": "red",
+        "color": "red"
+       },
+       {
+        "add": "umbrella is longer."
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/s5-2.mp3"
+     }
+    ]
+   }
+  ]
+ }
+}

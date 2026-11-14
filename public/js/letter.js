@@ -25,16 +25,16 @@ function lMark(p,k,card){
   if([...Array(lCount(p)).keys()].every(i=>h[p+':'+i])){ rd.done[p]=1; if(Object.keys(rd.done).length>=nPages()) award(LESSON.id,'read'); }
 }
 // url = one file or a list said one after the other
-const lPlay=async(url,btn)=>{ vStop(); const run=++lt.run; if(btn){ btn.classList.add('on'); }
-  for(const u of [].concat(url||[])){ if(run!==lt.run) break; try{ await playFile(u); }catch(e){} if(run===lt.run&&u!==[].concat(url).slice(-1)[0]) await new Promise(r=>setTimeout(r,120)); }
-  if(btn&&run===lt.run) btn.classList.remove('on'); };
+const lPlay=async(url,btn)=>{ vStop(); const run=++lt.run, vr=vs.run; if(btn){ btn.classList.add('on'); }   // vr: any other stop of the sound (another tab, the map) ends the list too
+  for(const u of [].concat(url||[])){ if(run!==lt.run||vr!==vs.run) break; try{ await playFile(u); }catch(e){} if(run===lt.run&&vr===vs.run&&u!==[].concat(url).slice(-1)[0]) await new Promise(r=>setTimeout(r,120)); }
+  if(btn) btn.classList.remove('on'); };   // (a card whose sound was cut by another card or a tab must not stay lit)
 function showLetter(){
   const Lt=LESSON.letter, pg=rd.page-lOff(), h=lHeard();
   if(pg<1) return showChant();
   stage.innerHTML=''; rd.words=[]; rd.lineEls=[]; rd.spotEls=[]; lt.run++;
   const scene=el('div','scene pics letter p'+pg), grid=el('div','lgrid p'+pg); grid.dir='rtl';
   scene.append(el('p','task',STAR(true)+Lt.tasks[pg-1]),grid);
-  const card=(cls,k,html,fn)=>{ const b=el('button','lcard '+cls+(h[pg+':'+k]?' heard':''),html+`<span class="lst">${STAR(true)}</span>`); b.addEventListener('click',()=>fn(b)); grid.append(b); return b; };
+  const card=(cls,k,html,fn)=>{ const b=el('button','lcard '+cls+(h[pg+':'+k]?' heard':''),html+`<span class="lst">${STAR(true)}</span>`); b.addEventListener('click',()=>fn(b)); b._play=()=>fn(b); grid.append(b); return b; };
   if(pg===1){
     const say=el('button','lspk',SAY_LN); say.setAttribute('aria-label','Listen'); say.onclick=()=>lPlay(Lt.nameAudio,say);
     grid.append(el('div','lhead',`<img src="${Lt.pic}" alt="">`)); $('.lhead',grid).append(say,el('b','lbig',Lt.ch)); $('.lhead',grid).style.direction='ltr';
@@ -45,11 +45,15 @@ function showLetter(){
   readPager(scene); stage.append(scene);
   setRail([{kind:'go',icon:'play',label:tr('Listen'),click:lAll}]);
   if(typeof bookTag==='function') bookTag(); showHint($('#rail .dash.go .rb'),LESSON.hints&&LESSON.hints.read,1400,'read');
-  if(lt.auto){ lt.auto=0; setTimeout(()=>{ if(tab==='read') lAll(); },500); }
+  letterAuto();   // every page plays by itself, card after card (Ahmed 2026-11-13)
 }
+// automatic start of a page: only if nothing else started meanwhile (a tap, another page, the map): lt.run / rd.autoGen say so
+function letterAuto(fn){ const r=lt.run, g=rd.autoGen=(rd.autoGen||0)+1, id=LESSON.id, pg=rd.page; fn=fn||lAll;
+  whenSound(()=>setTimeout(()=>{ if(!LESSON||LESSON.id!==id||tab!=='read'||rd.page!==pg||lt.run!==r||rd.autoGen!==g||$('#lesson').hidden) return; fn(); },500)); }
 // the rail button: every card of the page in turn
-async function lAll(){ const cards=$$('.lgrid .lcard'); vStop(); lt.auto=0; const run=++lt.run; for(const c of cards){ if(run!==lt.run) return; c.click(); await new Promise(r=>setTimeout(r,4200)); if(run!==lt.run) return; }
-  if(run===lt.run&&tab==='read'&&rd.page<nPages()){ lt.auto=1; readGo(1); } }   // the Listen button reads the whole lesson: on to the next page
+async function lAll(){ const cards=$$('.lgrid .lcard'); vStop(); let run=++lt.run, vr=vs.run; const dead=()=>run!==lt.run||vr!==vs.run||tab!=='read';
+  for(const c of cards){ if(dead()) return; const r0=lt.run, v0=vs.run; await c._play(); if(lt.run===r0+1&&vs.run===v0+1){ run=lt.run; vr=vs.run; } if(dead()) return;   /* a card's own play = lPlay: it starts with vStop() and lt.run++ (exactly +1 each): take those over, or the list stopped after the first card; any other change (a tap, a tab) still stops it (Ahmed 2026-11-13) */ await nap(450); if(dead()) return; }   // card by card: each one to its END (places of the letter / harakat), then a short pause
+  if(!dead()&&rd.page<nPages()) readGo(1,true); }   // the Listen button reads the whole lesson: on to the next page, which reads by itself
 
 /* CHANT page (lesson.json letter.chant = {pic, task, lines:[{t, audio}]}): the book's picture + the chant lines written big; the rail = the listening controls
    (Read / Stop (pause) / Continue, Restart, Slow / Normal). The audio is the library's recording of each line (an empty requested slot stays silent: the lines still light one by one). */
@@ -68,7 +72,8 @@ function chLit(i){ chWordsStop(); $$('.lchant .cl').forEach((e,k)=>e.classList.t
 async function chRun(from){ const Lt=LESSON.letter.chant; vStop(); lt.run++; const run=lt.run, vr=vs.run; ch.on=true; chRail();
   const dead=()=>run!==lt.run||vr!==vs.run||tab!=='read';
   for(let i=from;i<Lt.lines.length;i++){ ch.i=i; chLit(i); try{ await chSay(Lt.lines[i].audio,i); }catch(e){} if(dead()) return; if(i<Lt.lines.length-1) await nap(350); if(dead()) return; }
-  ch.on=false; ch.i=0; chLit(-1); chRail(); rd.done[1]=1; if(Object.keys(rd.done).length>=nPages()) award(LESSON.id,'read'); carFrac(1); }
+  ch.on=false; ch.i=0; chLit(-1); chRail(); rd.done[1]=1; if(Object.keys(rd.done).length>=nPages()) award(LESSON.id,'read'); carFrac(1);
+  await nap(900); if(!dead()&&rd.page<nPages()) readGo(1,true); }   // then the next page (places of the letter) reads by itself
 function chPause(){ vStop(); lt.run++; ch.on=false; chWordsStop(); chRail(); }
 function chRail(){ if(tab!=='read'||!$('.lchant')) return; const res=!ch.on&&ch.i>0;
   setRail([ ch.on?{kind:'stop',icon:'stop',label:tr('Stop'),click:chPause}:{kind:'go',icon:'play',label:tr(res?'Continue':'Read'),click:()=>chRun(ch.i)},
@@ -80,6 +85,6 @@ function showChant(){
   scene.append(el('p','task',STAR(true)+(C.task||'نشيد الحرف')),body);
   body.append(el('div','cpic fit-media',`<img src="${C.pic}" alt="">`)); const tx=el('div','ctx'); body.append(tx);
   C.lines.forEach((l,i)=>{ const b=el('button','cl txt'); String(l.t).split(/\s+/).filter(Boolean).forEach((w,k,a)=>{ b.append(el('span','w',w)); if(k<a.length-1) b.append(' '); }); b.addEventListener('click',()=>{ chRun(i); }); tx.append(b); });
-  readPager(scene); stage.append(scene); carFrac(0); chRail();
+  readPager(scene); stage.append(scene); carFrac(0); chRail(); letterAuto(()=>chRun(0));   // the nasheed of the letter plays by itself
   if(typeof bookTag==='function') bookTag(); showHint($('#rail .dash.go .rb'),LESSON.hints&&LESSON.hints.chant||LESSON.hints&&LESSON.hints.read,1400,'read');
 }

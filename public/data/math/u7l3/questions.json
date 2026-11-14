@@ -1,0 +1,658 @@
+{
+ "sets": [
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 77,
+   "task": "Circle the bigger number.",
+   "taskAudio": "q/task-cir.mp3",
+   "items": [
+    {
+     "ask": "Which number is bigger?",
+     "stem": "The bigger number is __",
+     "options": [
+      "12",
+      "8"
+     ],
+     "answer": 0,
+     "askSay": "Which number is bigger?",
+     "askAudio": "q/whichnumberisbigger.mp3",
+     "audio": "q/b12-a.mp3",
+     "word": "Twelve is bigger."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 78,
+   "task": "Circle the bigger number.",
+   "taskAudio": "q/task-cir.mp3",
+   "items": [
+    {
+     "ask": "Which number is bigger?",
+     "stem": "The bigger number is __",
+     "options": [
+      "17",
+      "16"
+     ],
+     "answer": 0,
+     "askSay": "Which number is bigger?",
+     "askAudio": "q/whichnumberisbigger.mp3",
+     "audio": "q/b17-a.mp3",
+     "word": "Seventeen is bigger."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 3,
+   "page": 77,
+   "task": "What number goes in the box?",
+   "taskAudio": "q/task-wha.mp3",
+   "items": [
+    {
+     "ask": "Which number is missing?",
+     "stem": "12, __, 14, 15, 16, 17",
+     "options": [
+      "12",
+      "13",
+      "14"
+     ],
+     "answer": 1,
+     "askSay": "Which number is missing?",
+     "askAudio": "q/whichnumberismissing.mp3",
+     "audio": "q/s01-a.mp3",
+     "word": "Thirteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 4,
+   "page": 77,
+   "task": "What number goes in the box?",
+   "taskAudio": "q/task-wha.mp3",
+   "items": [
+    {
+     "ask": "Which number is missing?",
+     "stem": "10, __, 14, 16, 18, 20",
+     "options": [
+      "11",
+      "12",
+      "13"
+     ],
+     "answer": 1,
+     "askSay": "Which number is missing?",
+     "askAudio": "q/whichnumberismissing.mp3",
+     "audio": "q/s11-a.mp3",
+     "word": "Twelve."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 5,
+   "page": 77,
+   "task": "What number goes in the box?",
+   "taskAudio": "q/task-wha.mp3",
+   "items": [
+    {
+     "ask": "Which number is missing?",
+     "stem": "18, __, 16, 15, 14, 13",
+     "options": [
+      "16",
+      "17",
+      "18"
+     ],
+     "answer": 1,
+     "askSay": "Which number is missing?",
+     "askAudio": "q/whichnumberismissing.mp3",
+     "audio": "q/s21-a.mp3",
+     "word": "Seventeen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 6,
+   "page": 78,
+   "task": "What number goes in the box?",
+   "taskAudio": "q/task-wha.mp3",
+   "items": [
+    {
+     "ask": "Which number is missing?",
+     "stem": "13, __, 15, 16, 17, 18",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askSay": "Which number is missing?",
+     "askAudio": "q/whichnumberismissing.mp3",
+     "audio": "q/s31-a.mp3",
+     "word": "Fourteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 7,
+   "page": 78,
+   "task": "What number goes in the box?",
+   "taskAudio": "q/task-wha.mp3",
+   "items": [
+    {
+     "ask": "Which number is missing?",
+     "stem": "20, __, 18, 17, 16, 15",
+     "options": [
+      "18",
+      "19",
+      "20"
+     ],
+     "answer": 1,
+     "askSay": "Which number is missing?",
+     "askAudio": "q/whichnumberismissing.mp3",
+     "audio": "q/s41-a.mp3",
+     "word": "Nineteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 8,
+   "page": 78,
+   "task": "What number goes in the box?",
+   "taskAudio": "q/task-wha.mp3",
+   "items": [
+    {
+     "ask": "Which number is missing?",
+     "stem": "8, __, 12, 14, 16, 18, 20",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "Which number is missing?",
+     "askAudio": "q/whichnumberismissing.mp3",
+     "audio": "q/s51-a.mp3",
+     "word": "Ten."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 9,
+   "page": 78,
+   "task": "What number goes in the box?",
+   "taskAudio": "q/task-wha.mp3",
+   "items": [
+    {
+     "ask": "Which number is missing?",
+     "stem": "8, 10, 12, 14, 16, __, 20",
+     "options": [
+      "17",
+      "18",
+      "19"
+     ],
+     "answer": 1,
+     "askSay": "Which number is missing?",
+     "askAudio": "q/whichnumberismissing.mp3",
+     "audio": "q/s55-a.mp3",
+     "word": "Eighteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 10,
+   "page": 77,
+   "task": "Use the number line and answer.",
+   "taskAudio": "q/task-use.mp3",
+   "items": [
+    {
+     "ask": "What number is four more than eleven?",
+     "stem": "4 more than 11 is __",
+     "options": [
+      "14",
+      "15",
+      "16"
+     ],
+     "answer": 1,
+     "askSay": "What number is four more than eleven?",
+     "askAudio": "q/whatnumberisfourmorethaneleven.mp3",
+     "audio": "q/m1-a.mp3",
+     "word": "Fifteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 11,
+   "page": 77,
+   "task": "Put the cards in order from least to greatest.",
+   "taskAudio": "q/task-put.mp3",
+   "items": [
+    {
+     "ask": "Which is in order from least to greatest?",
+     "stem": "15, 12, 17, 13",
+     "options": [
+      "12, 13, 15, 17",
+      "17, 15, 13, 12",
+      "12, 15, 13, 17"
+     ],
+     "answer": 0,
+     "askSay": "Which is in order from least to greatest?",
+     "askAudio": "q/whichisinorderfromleasttogreat.mp3",
+     "audio": "q/o1-a.mp3",
+     "word": "Twelve, thirteen, fifteen, seventeen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 12,
+   "page": 79,
+   "task": "Use the number line and answer.",
+   "taskAudio": "q/task-use.mp3",
+   "items": [
+    {
+     "ask": "What number is eight more than twelve?",
+     "stem": "8 more than 12 is __",
+     "options": [
+      "19",
+      "20",
+      "21"
+     ],
+     "answer": 1,
+     "askSay": "What number is eight more than twelve?",
+     "askAudio": "q/whatnumberiseightmorethantwelv.mp3",
+     "audio": "q/p2-a.mp3",
+     "word": "Twenty."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 13,
+   "page": 79,
+   "task": "Use the number line and answer.",
+   "taskAudio": "q/task-use.mp3",
+   "items": [
+    {
+     "ask": "What number is seven less than seventeen?",
+     "stem": "7 less than 17 is __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What number is seven less than seventeen?",
+     "askAudio": "q/whatnumberissevenlessthanseven.mp3",
+     "audio": "q/p4-a.mp3",
+     "word": "Ten."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 14,
+   "page": 79,
+   "task": "Put the cards in order from least to greatest.",
+   "taskAudio": "q/task-put.mp3",
+   "items": [
+    {
+     "ask": "Which is in order from least to greatest?",
+     "stem": "10, 18, 14, 15",
+     "options": [
+      "10, 14, 15, 18",
+      "18, 15, 14, 10",
+      "10, 15, 14, 18"
+     ],
+     "answer": 0,
+     "askSay": "Which is in order from least to greatest?",
+     "askAudio": "q/whichisinorderfromleasttogreat.mp3",
+     "audio": "q/o3-a.mp3",
+     "word": "Ten, fourteen, fifteen, eighteen."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 77,
+   "task": "Circle the bigger number.",
+   "taskAudio": "q/task-cir.mp3",
+   "items": [
+    {
+     "ask": "Which number is bigger?",
+     "stem": "The bigger number is __",
+     "options": [
+      "12",
+      "8"
+     ],
+     "answer": 0,
+     "askSay": "Which number is bigger?",
+     "askAudio": "q/whichnumberisbigger.mp3",
+     "audio": "q/b12-a.mp3",
+     "word": "Twelve is bigger."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 78,
+   "task": "Circle the bigger number.",
+   "taskAudio": "q/task-cir.mp3",
+   "items": [
+    {
+     "ask": "Which number is bigger?",
+     "stem": "The bigger number is __",
+     "options": [
+      "17",
+      "16"
+     ],
+     "answer": 0,
+     "askSay": "Which number is bigger?",
+     "askAudio": "q/whichnumberisbigger.mp3",
+     "audio": "q/b17-a.mp3",
+     "word": "Seventeen is bigger."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 3,
+   "page": 77,
+   "task": "What number goes in the box?",
+   "taskAudio": "q/task-wha.mp3",
+   "items": [
+    {
+     "ask": "Which number is missing?",
+     "stem": "12, __, 14, 15, 16, 17",
+     "options": [
+      "12",
+      "13",
+      "14"
+     ],
+     "answer": 1,
+     "askSay": "Which number is missing?",
+     "askAudio": "q/whichnumberismissing.mp3",
+     "audio": "q/s01-a.mp3",
+     "word": "Thirteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 4,
+   "page": 77,
+   "task": "What number goes in the box?",
+   "taskAudio": "q/task-wha.mp3",
+   "items": [
+    {
+     "ask": "Which number is missing?",
+     "stem": "10, __, 14, 16, 18, 20",
+     "options": [
+      "11",
+      "12",
+      "13"
+     ],
+     "answer": 1,
+     "askSay": "Which number is missing?",
+     "askAudio": "q/whichnumberismissing.mp3",
+     "audio": "q/s11-a.mp3",
+     "word": "Twelve."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 5,
+   "page": 77,
+   "task": "What number goes in the box?",
+   "taskAudio": "q/task-wha.mp3",
+   "items": [
+    {
+     "ask": "Which number is missing?",
+     "stem": "18, __, 16, 15, 14, 13",
+     "options": [
+      "16",
+      "17",
+      "18"
+     ],
+     "answer": 1,
+     "askSay": "Which number is missing?",
+     "askAudio": "q/whichnumberismissing.mp3",
+     "audio": "q/s21-a.mp3",
+     "word": "Seventeen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 6,
+   "page": 78,
+   "task": "What number goes in the box?",
+   "taskAudio": "q/task-wha.mp3",
+   "items": [
+    {
+     "ask": "Which number is missing?",
+     "stem": "13, __, 15, 16, 17, 18",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askSay": "Which number is missing?",
+     "askAudio": "q/whichnumberismissing.mp3",
+     "audio": "q/s31-a.mp3",
+     "word": "Fourteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 7,
+   "page": 78,
+   "task": "What number goes in the box?",
+   "taskAudio": "q/task-wha.mp3",
+   "items": [
+    {
+     "ask": "Which number is missing?",
+     "stem": "20, __, 18, 17, 16, 15",
+     "options": [
+      "18",
+      "19",
+      "20"
+     ],
+     "answer": 1,
+     "askSay": "Which number is missing?",
+     "askAudio": "q/whichnumberismissing.mp3",
+     "audio": "q/s41-a.mp3",
+     "word": "Nineteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 8,
+   "page": 78,
+   "task": "What number goes in the box?",
+   "taskAudio": "q/task-wha.mp3",
+   "items": [
+    {
+     "ask": "Which number is missing?",
+     "stem": "8, __, 12, 14, 16, 18, 20",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "Which number is missing?",
+     "askAudio": "q/whichnumberismissing.mp3",
+     "audio": "q/s51-a.mp3",
+     "word": "Ten."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 9,
+   "page": 78,
+   "task": "What number goes in the box?",
+   "taskAudio": "q/task-wha.mp3",
+   "items": [
+    {
+     "ask": "Which number is missing?",
+     "stem": "8, 10, 12, 14, 16, __, 20",
+     "options": [
+      "17",
+      "18",
+      "19"
+     ],
+     "answer": 1,
+     "askSay": "Which number is missing?",
+     "askAudio": "q/whichnumberismissing.mp3",
+     "audio": "q/s55-a.mp3",
+     "word": "Eighteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 10,
+   "page": 77,
+   "task": "Use the number line and answer.",
+   "taskAudio": "q/task-use.mp3",
+   "items": [
+    {
+     "ask": "What number is four more than eleven?",
+     "stem": "4 more than 11 is __",
+     "options": [
+      "14",
+      "15",
+      "16"
+     ],
+     "answer": 1,
+     "askSay": "What number is four more than eleven?",
+     "askAudio": "q/whatnumberisfourmorethaneleven.mp3",
+     "audio": "q/m1-a.mp3",
+     "word": "Fifteen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 11,
+   "page": 77,
+   "task": "Put the cards in order from least to greatest.",
+   "taskAudio": "q/task-put.mp3",
+   "items": [
+    {
+     "ask": "Which is in order from least to greatest?",
+     "stem": "15, 12, 17, 13",
+     "options": [
+      "12, 13, 15, 17",
+      "17, 15, 13, 12",
+      "12, 15, 13, 17"
+     ],
+     "answer": 0,
+     "askSay": "Which is in order from least to greatest?",
+     "askAudio": "q/whichisinorderfromleasttogreat.mp3",
+     "audio": "q/o1-a.mp3",
+     "word": "Twelve, thirteen, fifteen, seventeen."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 12,
+   "page": 79,
+   "task": "Use the number line and answer.",
+   "taskAudio": "q/task-use.mp3",
+   "items": [
+    {
+     "ask": "What number is eight more than twelve?",
+     "stem": "8 more than 12 is __",
+     "options": [
+      "19",
+      "20",
+      "21"
+     ],
+     "answer": 1,
+     "askSay": "What number is eight more than twelve?",
+     "askAudio": "q/whatnumberiseightmorethantwelv.mp3",
+     "audio": "q/p2-a.mp3",
+     "word": "Twenty."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 13,
+   "page": 79,
+   "task": "Use the number line and answer.",
+   "taskAudio": "q/task-use.mp3",
+   "items": [
+    {
+     "ask": "What number is seven less than seventeen?",
+     "stem": "7 less than 17 is __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What number is seven less than seventeen?",
+     "askAudio": "q/whatnumberissevenlessthanseven.mp3",
+     "audio": "q/p4-a.mp3",
+     "word": "Ten."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 14,
+   "page": 79,
+   "task": "Put the cards in order from least to greatest.",
+   "taskAudio": "q/task-put.mp3",
+   "items": [
+    {
+     "ask": "Which is in order from least to greatest?",
+     "stem": "10, 18, 14, 15",
+     "options": [
+      "10, 14, 15, 18",
+      "18, 15, 14, 10",
+      "10, 15, 14, 18"
+     ],
+     "answer": 0,
+     "askSay": "Which is in order from least to greatest?",
+     "askAudio": "q/whichisinorderfromleasttogreat.mp3",
+     "audio": "q/o3-a.mp3",
+     "word": "Ten, fourteen, fifteen, eighteen."
+    }
+   ],
+   "book": "booklet"
+  }
+ ]
+}

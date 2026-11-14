@@ -52,7 +52,7 @@
      ]
     },
     {
-     "img": "../../pics/gummy-bear.png#7",
+     "img": "../../pics/gummy-bear-green.png#7",
      "n": 7,
      "group": true,
      "audio": "words/seven.mp3",
@@ -74,7 +74,7 @@
      ]
     },
     {
-     "img": "../../pics/marble.png#9",
+     "img": "../../pics/marble-glass.png#9",
      "n": 9,
      "group": true,
      "audio": "words/nine.mp3",
@@ -85,7 +85,7 @@
      ]
     },
     {
-     "img": "../../pics/cactus.png#6",
+     "img": "../../pics/ar-cactus.png#6",
      "n": 6,
      "group": true,
      "audio": "words/six.mp3",
@@ -107,6 +107,115 @@
      ]
     }
    ]
+  },
+  {
+   "type": "count",
+   "ex": 1,
+   "page": 12,
+   "task": "Circle the correct number.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "img": "../../pics/balloon.png#7",
+     "n": 7,
+     "group": true,
+     "audio": "words/seven.mp3",
+     "options": [
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "img": "../../pics/caterpillar.png#8",
+     "n": 8,
+     "group": true,
+     "audio": "words/eight.mp3",
+     "options": [
+      7,
+      8,
+      9
+     ]
+    },
+    {
+     "img": "../../pics/ice-cream.png#3",
+     "n": 3,
+     "group": true,
+     "audio": "words/three.mp3",
+     "options": [
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "img": "../../pics/lego.png#9",
+     "n": 9,
+     "group": true,
+     "audio": "words/nine.mp3",
+     "options": [
+      7,
+      9,
+      10
+     ]
+    },
+    {
+     "img": "../../pics/gummy-bear-green.png#7",
+     "n": 7,
+     "group": true,
+     "audio": "words/seven.mp3",
+     "options": [
+      6,
+      7,
+      8
+     ]
+    },
+    {
+     "img": "../../pics/ar-key.png#6",
+     "n": 6,
+     "group": true,
+     "audio": "words/six.mp3",
+     "options": [
+      6,
+      7,
+      8
+     ]
+    },
+    {
+     "img": "../../pics/marble-glass.png#9",
+     "n": 9,
+     "group": true,
+     "audio": "words/nine.mp3",
+     "options": [
+      8,
+      10,
+      9
+     ]
+    },
+    {
+     "img": "../../pics/ar-cactus.png#6",
+     "n": 6,
+     "group": true,
+     "audio": "words/six.mp3",
+     "options": [
+      7,
+      6,
+      4
+     ]
+    },
+    {
+     "img": "../../pics/sushi.png#5",
+     "n": 5,
+     "group": true,
+     "audio": "words/five.mp3",
+     "options": [
+      6,
+      5,
+      4
+     ]
+    }
+   ],
+   "book": "booklet"
   }
  ]
 }

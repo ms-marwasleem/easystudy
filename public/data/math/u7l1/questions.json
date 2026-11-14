@@ -1,0 +1,212 @@
+{
+ "sets": [
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 73,
+   "task": "Write the number.",
+   "taskAudio": "q/task-num.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-1.png"
+     ],
+     "ask": "How many strawberries are there?",
+     "stem": "There are __ strawberries.",
+     "options": [
+      "16",
+      "17",
+      "18"
+     ],
+     "answer": 1,
+     "askSay": "How many strawberries are there?",
+     "askAudio": "q/st-q.mp3",
+     "audio": "q/st-a.mp3",
+     "word": "Seventeen strawberries."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 73,
+   "task": "Write the number.",
+   "taskAudio": "q/task-num.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-2.png"
+     ],
+     "ask": "How many eggs are there?",
+     "stem": "There are __ eggs.",
+     "options": [
+      "18",
+      "19",
+      "20"
+     ],
+     "answer": 2,
+     "askSay": "How many eggs are there?",
+     "askAudio": "q/eg-q.mp3",
+     "audio": "q/eg-a.mp3",
+     "word": "Twenty eggs."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 3,
+   "page": 73,
+   "task": "Write the number.",
+   "taskAudio": "q/task-num.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-3.png"
+     ],
+     "ask": "How many birds are there?",
+     "stem": "There are __ birds.",
+     "options": [
+      "18",
+      "19",
+      "20"
+     ],
+     "answer": 2,
+     "askSay": "How many birds are there?",
+     "askAudio": "q/bi-q.mp3",
+     "audio": "q/bi-a.mp3",
+     "word": "Twenty birds."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 4,
+   "page": 73,
+   "task": "Write the number.",
+   "taskAudio": "q/task-num.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-4.png"
+     ],
+     "ask": "How many cookies are there?",
+     "stem": "There are __ cookies.",
+     "options": [
+      "14",
+      "15",
+      "16"
+     ],
+     "answer": 1,
+     "askSay": "How many cookies are there?",
+     "askAudio": "q/ck-q.mp3",
+     "audio": "q/ck-a.mp3",
+     "word": "Fifteen cookies."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 5,
+   "page": 73,
+   "task": "Look at the picture and answer.",
+   "taskAudio": "q/task-look.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-5.png"
+     ],
+     "ask": "How many children are standing in line?",
+     "stem": "There are __ children.",
+     "options": [
+      "12",
+      "13",
+      "14"
+     ],
+     "answer": 1,
+     "askSay": "How many children are standing in line?",
+     "askAudio": "q/l1n-q.mp3",
+     "audio": "q/l1n-a.mp3",
+     "word": "Thirteen children."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 6,
+   "page": 73,
+   "task": "Look at the picture and answer.",
+   "taskAudio": "q/task-look.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-5.png"
+     ],
+     "ask": "What position is Hassan from the front?",
+     "stem": "Hassan is __ from the front.",
+     "options": [
+      "tenth",
+      "eleventh",
+      "twelfth"
+     ],
+     "answer": 1,
+     "askSay": "What position is Hassan from the front?",
+     "askAudio": "q/l1p-q.mp3",
+     "audio": "q/l1p-a.mp3",
+     "word": "Hassan is eleventh from the front."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 7,
+   "page": 73,
+   "task": "Look at the picture and answer.",
+   "taskAudio": "q/task-look.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-6.png"
+     ],
+     "ask": "How many children are standing in line?",
+     "stem": "There are __ children.",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askSay": "How many children are standing in line?",
+     "askAudio": "q/l2n-q.mp3",
+     "audio": "q/l2n-a.mp3",
+     "word": "Fourteen children."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 8,
+   "page": 73,
+   "task": "Look at the picture and answer.",
+   "taskAudio": "q/task-look.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-6.png"
+     ],
+     "ask": "What position is Sara from the front?",
+     "stem": "Sara is __ from the front.",
+     "options": [
+      "eleventh",
+      "twelfth",
+      "thirteenth"
+     ],
+     "answer": 1,
+     "askSay": "What position is Sara from the front?",
+     "askAudio": "q/l2p-q.mp3",
+     "audio": "q/l2p-a.mp3",
+     "word": "Sara is twelfth from the front."
+    }
+   ]
+  }
+ ]
+}

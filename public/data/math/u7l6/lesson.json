@@ -1,0 +1,479 @@
+{
+ "id": "u7l6",
+ "unit": 7,
+ "lesson": 6,
+ "title": "Numbers Greater than 20",
+ "task": "Numbers Greater than 20",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz"
+ ],
+ "tabLabels": {
+  "read": "Lesson",
+  "quiz": "Book Questions"
+ },
+ "pages": 5,
+ "pageNums": [
+  84,
+  84,
+  84,
+  84,
+  84
+ ],
+ "layout": "explain",
+ "explain": {
+  "caption": false,
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3",
+   "6": "../u1l4/words/six.mp3",
+   "7": "../u1l4/words/seven.mp3",
+   "8": "../u1l4/words/eight.mp3",
+   "9": "../u1l4/words/nine.mp3",
+   "10": "../u1l4/words/ten.mp3",
+   "11": "../u7l1/words/eleven.mp3",
+   "12": "../u7l1/words/twelve.mp3",
+   "13": "../u7l1/words/thirteen.mp3",
+   "14": "../u7l1/words/fourteen.mp3",
+   "15": "../u7l1/words/fifteen.mp3",
+   "16": "../u7l1/words/sixteen.mp3",
+   "17": "../u7l1/words/seventeen.mp3",
+   "18": "../u7l1/words/eighteen.mp3",
+   "19": "../u7l1/words/nineteen.mp3",
+   "20": "../u7l1/words/twenty.mp3",
+   "21": "words/twenty-one.mp3",
+   "22": "words/twenty-two.mp3",
+   "23": "words/twenty-three.mp3",
+   "24": "words/twenty-four.mp3",
+   "25": "words/twenty-five.mp3",
+   "26": "words/twenty-six.mp3",
+   "27": "words/twenty-seven.mp3",
+   "28": "words/twenty-eight.mp3",
+   "29": "words/twenty-nine.mp3",
+   "30": "words/thirty.mp3",
+   "31": "words/thirty-one.mp3",
+   "32": "words/thirty-two.mp3",
+   "33": "words/thirty-three.mp3",
+   "34": "words/thirty-four.mp3",
+   "35": "words/thirty-five.mp3",
+   "36": "words/thirty-six.mp3",
+   "37": "words/thirty-seven.mp3",
+   "38": "words/thirty-eight.mp3",
+   "39": "words/thirty-nine.mp3",
+   "40": "words/forty.mp3"
+  },
+  "steps": [
+   {
+    "name": "21",
+    "beats": [
+     {
+      "say": "Two tens make twenty.",
+      "audio": "explain/s21-a.mp3",
+      "do": [
+       {
+        "scene": "groups",
+        "t": 2,
+        "o": 1,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          30,
+          12,
+          542,
+          148
+         ],
+         "color": "green"
+        }
+       }
+      ]
+     },
+     {
+      "say": "And one.",
+      "audio": "explain/s21-b.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          630,
+          12,
+          694,
+          82
+         ],
+         "color": "blue"
+        }
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          663,
+          43
+         ]
+        ],
+        "color": "orange",
+        "r": 20
+       }
+      ]
+     },
+     {
+      "say": "Twenty and one make twenty-one.",
+      "audio": "explain/s21-c.mp3",
+      "do": [
+       {
+        "add": "20 + 1 = 21",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "twenty-one",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "30",
+    "beats": [
+     {
+      "say": "Three tens make thirty.",
+      "audio": "explain/s30-a.mp3",
+      "do": [
+       {
+        "scene": "groups",
+        "t": 3,
+        "o": 0,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          30,
+          12,
+          542,
+          210
+         ],
+         "color": "green"
+        }
+       }
+      ]
+     },
+     {
+      "say": "Thirty.",
+      "audio": "explain/s30-c.mp3",
+      "do": [
+       {
+        "add": "30",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "thirty",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "32",
+    "beats": [
+     {
+      "say": "Three tens make thirty.",
+      "audio": "explain/s32-a.mp3",
+      "do": [
+       {
+        "scene": "groups",
+        "t": 3,
+        "o": 2,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          30,
+          12,
+          542,
+          210
+         ],
+         "color": "green"
+        }
+       }
+      ]
+     },
+     {
+      "say": "And two.",
+      "audio": "explain/s32-b.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          630,
+          12,
+          752,
+          82
+         ],
+         "color": "blue"
+        }
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          663,
+          43
+         ],
+         [
+          721,
+          43
+         ]
+        ],
+        "color": "orange",
+        "r": 20
+       }
+      ]
+     },
+     {
+      "say": "Thirty and two make thirty-two.",
+      "audio": "explain/s32-c.mp3",
+      "do": [
+       {
+        "add": "30 + 2 = 32",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "thirty-two",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "26",
+    "beats": [
+     {
+      "say": "Two tens make twenty.",
+      "audio": "explain/s26-a.mp3",
+      "do": [
+       {
+        "scene": "groups",
+        "t": 2,
+        "o": 6,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          30,
+          12,
+          542,
+          148
+         ],
+         "color": "green"
+        }
+       }
+      ]
+     },
+     {
+      "say": "And six.",
+      "audio": "explain/s26-b.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          630,
+          12,
+          926,
+          144
+         ],
+         "color": "blue"
+        }
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          663,
+          43
+         ],
+         [
+          721,
+          43
+         ],
+         [
+          779,
+          43
+         ],
+         [
+          837,
+          43
+         ],
+         [
+          895,
+          43
+         ],
+         [
+          663,
+          105
+         ]
+        ],
+        "color": "orange",
+        "r": 20
+       }
+      ]
+     },
+     {
+      "say": "Twenty and six make twenty-six.",
+      "audio": "explain/s26-c.mp3",
+      "do": [
+       {
+        "add": "20 + 6 = 26",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "twenty-six",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "38",
+    "beats": [
+     {
+      "say": "Three tens make thirty.",
+      "audio": "explain/s38-a.mp3",
+      "do": [
+       {
+        "scene": "groups",
+        "t": 3,
+        "o": 8,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          30,
+          12,
+          542,
+          210
+         ],
+         "color": "green"
+        }
+       }
+      ]
+     },
+     {
+      "say": "And eight.",
+      "audio": "explain/s38-b.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          630,
+          12,
+          926,
+          144
+         ],
+         "color": "blue"
+        }
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          663,
+          43
+         ],
+         [
+          721,
+          43
+         ],
+         [
+          779,
+          43
+         ],
+         [
+          837,
+          43
+         ],
+         [
+          895,
+          43
+         ],
+         [
+          663,
+          105
+         ],
+         [
+          721,
+          105
+         ],
+         [
+          779,
+          105
+         ]
+        ],
+        "color": "orange",
+        "r": 20
+       }
+      ]
+     },
+     {
+      "say": "Thirty and eight make thirty-eight.",
+      "audio": "explain/s38-c.mp3",
+      "do": [
+       {
+        "add": "30 + 8 = 38",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "thirty-eight",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   }
+  ]
+ }
+}

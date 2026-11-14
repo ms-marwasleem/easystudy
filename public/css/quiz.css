@@ -344,6 +344,7 @@ button.qpic{cursor:pointer}
 .qxcn{font:inherit;font-weight:800;font-size:clamp(3rem,14vh,7rem);line-height:1;border:0;background:none;color:#D93D78;cursor:pointer}
 .qxcr{display:flex;flex-wrap:wrap;justify-content:center;align-content:center;gap:2vh 2vw;width:92%;max-width:60rem}
 .qxcs{width:clamp(2.6rem,min(11vw,12vh),7rem);height:clamp(2.6rem,min(11vw,12vh),7rem);object-fit:contain;cursor:pointer;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.qxcpm{gap:1.5vh}.qxcp{max-height:25vh;max-width:70%;object-fit:contain;border:2px solid #c9b9a8;background:#fff;border-radius:1rem}.qxcpm .qxcs{width:clamp(2rem,min(6vw,6.5vh),4rem);height:clamp(2rem,min(6vw,6.5vh),4rem)}
 .qxcs.no{animation:qxcno .3s}@keyframes qxcno{25%{transform:translateX(-.3rem)}75%{transform:translateX(.3rem)}}
 .qword b .alw{padding:0}   /* shared tappable words (qToks) inside the big word line: no extra width, the line measures like plain text */
 

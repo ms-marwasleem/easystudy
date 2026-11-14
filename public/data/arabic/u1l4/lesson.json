@@ -23,19 +23,23 @@
   "forms": [
    {
     "t": "ب",
-    "pos": "end-alone"
+    "pos": "end-alone",
+    "label": "آخر الكلمة (منفصل)"
    },
    {
     "t": "ـب",
-    "pos": "end-joined"
+    "pos": "end-joined",
+    "label": "آخر الكلمة (متصل)"
    },
    {
     "t": "ـبـ",
-    "pos": "mid"
+    "pos": "mid",
+    "label": "وسط الكلمة"
    },
    {
     "t": "بـ",
-    "pos": "start"
+    "pos": "start",
+    "label": "أول الكلمة"
    }
   ],
   "sounds": [
@@ -135,7 +139,7 @@
     },
     {
      "t": "ض",
-     "audio": "../../syl-ar/636.mp3"
+     "audio": "../../syl-ar/636-652.mp3"
     }
    ],
    "har": "fatha"
@@ -175,7 +179,7 @@
     },
     {
      "t": "ج",
-     "audio": "../../syl-ar/62c.mp3"
+     "audio": "../../syl-ar/62c-652.mp3"
     }
    ],
    "har": "damma"
@@ -215,14 +219,14 @@
     },
     {
      "t": "ق",
-     "audio": "../../syl-ar/642.mp3"
+     "audio": "../../syl-ar/642-652.mp3"
     }
    ],
    "har": "damma"
   },
   {
    "word": "بِنْت",
-   "img": "../../pics/ar-girl.png",
+   "img": "../../pics/girl-u5l2.png",
    "audio": {
     "word": "words/bint.mp3"
    },
@@ -233,7 +237,7 @@
     },
     {
      "t": "ت",
-     "audio": "../../syl-ar/62a.mp3"
+     "audio": "../../syl-ar/62a-652.mp3"
     }
    ],
    "har": "kasra"
@@ -255,7 +259,7 @@
     },
     {
      "t": "خ",
-     "audio": "../../syl-ar/62e.mp3"
+     "audio": "../../syl-ar/62e-652.mp3"
     }
    ],
    "har": "kasra"
@@ -277,7 +281,7 @@
     },
     {
      "t": "ق",
-     "audio": "../../syl-ar/642.mp3"
+     "audio": "../../syl-ar/642-652.mp3"
     }
    ],
    "har": "kasra"
@@ -317,7 +321,7 @@
     },
     {
      "t": "ل",
-     "audio": "../../syl-ar/644.mp3"
+     "audio": "../../syl-ar/644-652.mp3"
     }
    ],
    "har": "sukoon"
@@ -335,7 +339,7 @@
     },
     {
      "t": "ع",
-     "audio": "../../syl-ar/639.mp3"
+     "audio": "../../syl-ar/639-652.mp3"
     }
    ],
    "har": "sukoon"

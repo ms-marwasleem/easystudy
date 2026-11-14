@@ -1,0 +1,88 @@
+{
+ "sets": [
+  {
+   "type": "colour",
+   "ex": 1,
+   "page": 62,
+   "task": "Count each type of the vegetables and color them.",
+   "taskAudio": "q/task-veg.mp3",
+   "hint": "Count first. Then tap that many to color them!",
+   "items": [
+    {
+     "word": "tomatoes",
+     "num": 6,
+     "total": 10,
+     "pic": "story-3.jpg",
+     "off": "../../pics/tomato-off-u5l3.png",
+     "on": "../../pics/tomato-on-u5l3.png"
+    },
+    {
+     "word": "onions",
+     "num": 4,
+     "total": 10,
+     "pic": "story-3.jpg",
+     "off": "../../pics/onion-off-u5l3.png",
+     "on": "../../pics/onion-on-u5l3.png"
+    },
+    {
+     "word": "cucumbers",
+     "num": 8,
+     "total": 10,
+     "pic": "story-3.jpg",
+     "off": "../../pics/cucumber-off-u6l1.png",
+     "on": "../../pics/cucumber-on-u6l1.png"
+    },
+    {
+     "word": "eggplants",
+     "num": 3,
+     "total": 10,
+     "pic": "story-3.jpg",
+     "off": "../../pics/eggplant-off-u5l3.png",
+     "on": "../../pics/eggplant-on-u5l3.png"
+    }
+   ]
+  },
+  {
+   "type": "colour",
+   "ex": 2,
+   "page": 63,
+   "task": "Count each type of the animal cards and color them.",
+   "taskAudio": "q/task-ani.mp3",
+   "hint": "Count first. Then tap that many to color them!",
+   "items": [
+    {
+     "word": "lions",
+     "num": 3,
+     "total": 10,
+     "pic": "story-4.jpg",
+     "off": "../../pics/lion-off-u6l1.png",
+     "on": "../../pics/lion-on-u6l1.png"
+    },
+    {
+     "word": "giraffes",
+     "num": 4,
+     "total": 10,
+     "pic": "story-4.jpg",
+     "off": "../../pics/giraffe-off-u6l1.png",
+     "on": "../../pics/giraffe-on-u6l1.png"
+    },
+    {
+     "word": "birds",
+     "num": 7,
+     "total": 10,
+     "pic": "story-4.jpg",
+     "off": "../../pics/bird-off-u6l1.png",
+     "on": "../../pics/bird-on-u6l1.png"
+    },
+    {
+     "word": "camels",
+     "num": 4,
+     "total": 10,
+     "pic": "story-4.jpg",
+     "off": "../../pics/camel-off-u6l1.png",
+     "on": "../../pics/camel-on-u6l1.png"
+    }
+   ]
+  }
+ ]
+}

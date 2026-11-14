@@ -1,0 +1,109 @@
+{
+ "sets": [
+  {
+   "type": "line",
+   "page": 33,
+   "grp": "ex-1",
+   "task": "4 cats from the front",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "n": 5,
+     "from": "front",
+     "at": 4,
+     "group": true,
+     "unit": "../../pics/cat-gray.png"
+    }
+   ],
+   "ex": 1
+  },
+  {
+   "type": "line",
+   "page": 33,
+   "grp": "ex-2",
+   "task": "The 4th car from the front",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "n": 7,
+     "from": "front",
+     "at": 4,
+     "group": false,
+     "unit": "../../pics/truck-white.png"
+    }
+   ],
+   "ex": 2
+  },
+  {
+   "type": "line",
+   "page": 33,
+   "grp": "ex-3",
+   "task": "The 5th person from the back",
+   "taskAudio": "q/task-3.mp3",
+   "items": [
+    {
+     "n": 10,
+     "from": "back",
+     "at": 5,
+     "group": false,
+     "img": "../../pics/kids-line.png"
+    }
+   ],
+   "ex": 3
+  },
+  {
+   "type": "line",
+   "page": 33,
+   "grp": "ex-1",
+   "task": "4 cats from the front",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "n": 5,
+     "from": "front",
+     "at": 4,
+     "group": true,
+     "unit": "../../pics/cat-gray.png"
+    }
+   ],
+   "book": "booklet",
+   "ex": 4
+  },
+  {
+   "type": "line",
+   "page": 33,
+   "grp": "ex-2",
+   "task": "The 4th car from the front",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "n": 7,
+     "from": "front",
+     "at": 4,
+     "group": false,
+     "unit": "../../pics/truck-white.png"
+    }
+   ],
+   "book": "booklet",
+   "ex": 5
+  },
+  {
+   "type": "line",
+   "page": 33,
+   "grp": "ex-3",
+   "task": "The 5th person from the back",
+   "taskAudio": "q/task-3.mp3",
+   "items": [
+    {
+     "n": 10,
+     "from": "back",
+     "at": 5,
+     "group": false,
+     "img": "../../pics/kids-line.png"
+    }
+   ],
+   "book": "booklet",
+   "ex": 6
+  }
+ ]
+}

@@ -1,19 +1,23 @@
 /* ADMIN DASHBOARD (Marwa 2026-11-05, docs/coins-and-admin.md). Edits ONE settings object (same shape as data/settings.json):
    coins (on/off, prices, share types), access.free (the free policy for a new child), items (state + price per subject / unit / lesson).
-   Save = this device (localStorage es.settings, the app reads it); Download = the file for data/settings.json.
+   Settings are read from and saved to the server only (GET/PUT api/admin/settings); no device copy.
    Accounts + stats read this device (es.account, es.kids, es.wallet.*) until the server API exists (GET /api/admin/accounts, /stats). */
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const get=u=>fetch(u,{cache:'no-store'}).then(r=>{ if(!r.ok) throw new Error(u); return r.json(); });
 const lsGet=(k,d)=>{ try{ const v=JSON.parse(localStorage.getItem(k)||'null'); return v==null?d:v; }catch(e){ return d; } };
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const ar=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
-let S=null, FILE=null, COURSE=null, GRADES=[], dirty=false;
+let LOCKED=false, S=null, FILE=null, COURSE=null, GRADES=[], dirty=false;
 const toast=t=>{ const o=$('#toast'); o.textContent=t; o.hidden=false; clearTimeout(toast.t); toast.t=setTimeout(()=>o.hidden=true,1800); };
 const mark=()=>{ dirty=true; $('#save').textContent='حفظ •'; };
 
 async function boot(){
   FILE=await get('data/settings.json').catch(()=>({coins:{},access:{free:{mode:'first',count:1}},items:{}}));
-  S=lsGet('es.settings',null)||JSON.parse(JSON.stringify(FILE));
+  const API=FILE.api||'/api'; S={api:API};
+  const live=await api('/admin/settings');   // THE real settings, kept on the server; nothing is kept on this device
+  LOCKED=!(live&&live.coins);
+  S=LOCKED?JSON.parse(JSON.stringify(FILE)):live; S.api=API;
+  if(LOCKED){ $('#save').disabled=true; }
   S.coins=S.coins||{}; S.access=S.access||{}; S.access.free=S.access.free||{}; S.items=S.items||{};
   const F=S.access.free; F.mode='first'; delete F.perSubject; if(F.count==null||F.count>5) F.count=1; F.per=F.per||{}; F.list=F.list||[];   // free = first lessons of unit 1 per subject
   S.coins.referral=S.coins.referral||{on:false,coins:15}; if(S.coins.shareCoins==null) S.coins.shareCoins=1; if(!S.coins.dailyCap||S.coins.dailyCap>20) S.coins.dailyCap=20; if(!S.coins.lessonCost) S.coins.lessonCost=3;
@@ -23,12 +27,12 @@ async function boot(){
   const CJ=await get('data/curriculum.json').catch(()=>({grades:[],types:[]})); GRADES=CJ.grades.filter(g=>g.open!==false); CTYPES=CJ.types||[];
   await Promise.all(COURSE.subjects.filter(s=>s.file).map(async s=>{ const d=await get(s.file).catch(()=>null); if(!d) return;
     s.units=d.units||[]; s.lessons=(d.lessons||[]).map(l=>({...l,id:`${s.id}-${l.folder}`,built:!!l.title})); }));
-  $('#where').textContent=lsGet('es.settings',null)?'الإعدادات المعروضة: المحفوظة على الجهاز ده (لسه مش في الملف). اضغطي "تنزيل" عشان تبقى للكل.':'الإعدادات المعروضة: من ملف data/settings.json.';
+  $('#where').textContent=LOCKED?'مش قادرين نجيب الإعدادات الحالية دلوقتي، فالحفظ متوقف عشان ما يتمسحش حاجة. اتأكدي من الإنترنت ومن كلمة السر (زرار «كلمة السر») وافتحي الصفحة تاني.':'';
   drawSettings(); drawTree(); drawPromos(); drawUsers(); drawStats(); drawReports();
   if(S.api){ const [ac,st]=await Promise.all([api('/admin/accounts'),api('/admin/stats')]); if(ac&&ac.accounts){ SRV.accounts=ac.accounts; drawUsers(); loadSubs(); } if(st&&st.hist){ SRV.stats=st; drawStats(); }
     if(st&&st.promoUses){ SRV.promoUses=st.promoUses; drawPromos(); }
     loadReports();
-    $('#where').textContent+=ac?' المستخدمين والإحصائيات من السيرفر.':' السيرفر مش متاح دلوقتي، المعروض من الجهاز ده بس.'; }
+    if(!ac&&!LOCKED) $('#where').textContent='المستخدمين والإحصائيات مش ظاهرين دلوقتي. اتأكدي من الإنترنت وكلمة السر.'; }
 }
 
 /* ---------- settings page ---------- */
@@ -39,7 +43,7 @@ function drawSettings(){ $('#u-grade').innerHTML=GRADES.map(g=>`<option value="$
   const C=S.coins, B=S.subs;
   $('#c-enabled').checked=!!C.enabled; $('#c-parentGate').checked=C.parentGate!==false;
   NUMS.forEach(k=>$('#c-'+k).value=C[k]!=null?C[k]:'');
-  $('#c-wa').value=S.whatsapp||''; $('#s-name').value=B.name||''; $('#s-link').value=B.link||'';
+  $('#c-wa').value=S.whatsapp||''; $('#c-email').value=S.adminEmail||''; $('#s-name').value=B.name||''; $('#s-link').value=B.link||'';
   $('#c-shareText').value=C.shareText||''; $('#c-shareUrl').value=C.shareUrl||'';
   $('#r-on').checked=!!C.referral.on; $('#r-coins').value=C.referral.coins||0;
   $('#s-on').checked=!!B.on; $('#p-on').checked=S.promoOn!==false;
@@ -55,7 +59,7 @@ function drawPrices(){ const P=S.subs.prices, box=$('#prices'), rows=[];
       <label class="sw"><input type="checkbox" data-f="discOn"${p.discOn?' checked':''}><span></span> خصم</label>
       <label>بعد الخصم <input type="number" min="0" data-f="disc" value="${p.disc!=null?p.disc:''}" placeholder="300"${p.discOn?'':' disabled'}></label>
       <em class="fin">${fin?'يدفع '+ar(fin)+' جنيه':'—'}</em></div>`); }));
-  box.innerHTML=rows.join('')||'<p class="empty">مفيش سنوات دراسية في ملف المنهج.</p>';
+  box.innerHTML=rows.join('')||'<p class="empty">مفيش سنوات دراسية.</p>';
   $$('.prc',box).forEach(r=>{ const k=r.dataset.k; $$('[data-f]',r).forEach(i=>i.addEventListener(i.type==='checkbox'?'change':'input',()=>{ const f=i.dataset.f, p=P[k]=P[k]||{};
     p[f]=f==='discOn'?i.checked:(i.value===''?undefined:+i.value); mark(); if(f==='discOn'){ drawPrices(); return; }
     const q=P[k], fin=q.discOn&&+q.disc>0?+q.disc:(+q.price||0); $('.fin',r).textContent=fin?'يدفع '+ar(fin)+' جنيه':'—'; })); });
@@ -69,6 +73,7 @@ $('#s-on').addEventListener('change',e=>{ S.subs.on=e.target.checked; mark(); })
 $('#p-on').addEventListener('change',e=>{ S.promoOn=e.target.checked; mark(); });
 NUMS.forEach(k=>$('#c-'+k).addEventListener('input',e=>{ S.coins[k]=+e.target.value||0; mark(); }));
 $('#c-wa').addEventListener('input',e=>{ S.whatsapp=e.target.value.trim(); mark(); });
+$('#c-email').addEventListener('input',e=>{ S.adminEmail=e.target.value.trim(); mark(); });
 $('#s-name').addEventListener('input',e=>{ S.subs.name=e.target.value; mark(); });
 $('#s-link').addEventListener('input',e=>{ S.subs.link=e.target.value.trim(); mark(); });
 $('#c-shareText').addEventListener('input',e=>{ S.coins.shareText=e.target.value; mark(); });
@@ -79,7 +84,7 @@ $('#f-count').addEventListener('input',e=>{ S.access.free.count=+e.target.value|
 
 /* ---------- lessons page: tree subject > unit > lesson, multi-select, open | soon ----------
    Default: a built lesson is open, an unbuilt one is "soon". Only "soon" is stored (S.items[id]={st:'soon'}); open = no entry. */
-const SEL=new Set();
+const SEL=new Set(), OPEN=new Set();   // OPEN = expanded subject/unit ids (collapsed by default)
 const kidsOf=s=>(s.units||[]).map(u=>({u,ls:(s.lessons||[]).filter(l=>l.unit===u.unit&&!l.hidden)}));
 function lessonOpen(l){ return l.built&&!(S.items['l:'+l.id]||{}).st; }
 function stOf(kind,s,u,ls,l){
@@ -88,20 +93,25 @@ function stOf(kind,s,u,ls,l){
   const L=kind==='subj'?(s.lessons||[]).filter(x=>!x.hidden):ls, n=L.filter(lessonOpen).length;
   if(own||!n) return 'soon'; return n===L.length?'open':'mixed'; }
 const STLBL={open:'مفتوح',soon:'قريبًا',mixed:'مختلط'};
-function row(cls,id,name,built,st){ return `<div class="it ${cls}" data-id="${id}"><input type="checkbox" class="sel"${SEL.has(id)?' checked':''} aria-label="تعليم"><i class="dot${built?' b':''}"></i><span class="nm" title="${esc(name)}">${esc(name)}</span><span class="stb ${st}">${STLBL[st]}</span></div>`; }
+function row(cls,id,name,built,st,par){ return `<div class="it ${cls}" data-id="${id}"${par?` data-par="${par}"`:''}><input type="checkbox" class="sel"${SEL.has(id)?' checked':''} aria-label="تعليم">${cls==='les'?'':'<b class="car">◂</b>'}<i class="dot${built?' b':''}"></i><span class="nm" title="${esc(name)}">${esc(name)}</span><span class="stb ${st}">${STLBL[st]}</span></div>`; }
 function drawTree(){
   const sel=$('#l-subj'), cur=sel.value; sel.innerHTML='<option value="">كل المواد</option>'+COURSE.subjects.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join(''); sel.value=cur;
   $('#tree').innerHTML=COURSE.subjects.filter(s=>!sel.value||s.id===sel.value).map(s=>{
     let h=row('subj','s:'+s.id,s.name,!!s.lessons,s.lessons?stOf('subj',s):'soon');
-    kidsOf(s).forEach(({u,ls})=>{ h+=row('unit',`u:${s.id}:${u.unit}`,u.label||`الوحدة ${ar(u.unit)}`,ls.some(l=>l.built),stOf('unit',s,u,ls));
-      ls.forEach(l=>h+=row('les','l:'+l.id,`${ar(l.lesson)}. ${l.title||l.planned||'—'}`,l.built,stOf('les',s,u,ls,l))); });
+    kidsOf(s).forEach(({u,ls})=>{ h+=row('unit',`u:${s.id}:${u.unit}`,u.label||`الوحدة ${ar(u.unit)}`,ls.some(l=>l.built),stOf('unit',s,u,ls),'s:'+s.id);
+      ls.forEach(l=>h+=row('les','l:'+l.id,`${ar(l.lesson)}. ${l.title||l.planned||'—'}`,l.built,stOf('les',s,u,ls,l),`u:${s.id}:${u.unit}`)); });
     return h; }).join('');
   $$('#tree .it').forEach(r=>$('.sel',r).addEventListener('change',e=>{ const id=r.dataset.id, on=e.target.checked, rows=$$('#tree .it'), i=rows.indexOf(r), cls=r.classList.contains('subj')?'subj':r.classList.contains('unit')?'unit':'les';
     const set=(x,v)=>{ v?SEL.add(x.dataset.id):SEL.delete(x.dataset.id); $('.sel',x).checked=v; }; set(r,on);
     if(cls!=='les') for(let k=i+1;k<rows.length;k++){ const c=rows[k].classList; if(c.contains('subj')||(cls==='unit'&&c.contains('unit'))) break; set(rows[k],on); }
     bulkInfo(); }));
-  bulkInfo();
+  $$('#tree .it:not(.les)').forEach(r=>r.addEventListener('click',e=>{ if(e.target.closest('.sel')) return; const id=r.dataset.id; OPEN.has(id)?OPEN.delete(id):OPEN.add(id); applyOpen(); }));
+  applyOpen(); bulkInfo();
 }
+function applyOpen(){   // a unit shows only when its subject is open, a lesson only when its unit and subject are open
+  $$('#tree .it').forEach(r=>{ const p=r.dataset.par; let hide=false;
+    if(p){ hide=!OPEN.has(p); if(!hide&&r.classList.contains('les')) hide=!OPEN.has('s:'+p.split(':')[1]); }
+    r.classList.toggle('cl',hide); r.classList.toggle('xo',OPEN.has(r.dataset.id)); }); }
 function bulkInfo(){ const n=SEL.size; $('#bulk-n').textContent=n?'معلّم '+ar(n):'مفيش حاجة معلّمة'; $$('#bulk button').forEach(b=>b.disabled=!n); }
 $$('#bulk button').forEach(b=>b.addEventListener('click',()=>{ const st=b.dataset.st;
   SEL.forEach(id=>{ if(st==='soon') S.items[id]={st:'soon'}; else delete S.items[id]; });
@@ -122,8 +132,7 @@ function targets(what,cur){   // the <option>s for "what it opens"
 const firstTarget=what=>{ const m=targets(what,'').match(/<option value="([^"]*)"/); return m?m[1]:''; };
 function promoUses(c){ if(SRV.promoUses) return (SRV.promoUses.find(x=>x.code===c)||{}).n||0; return lsGet('es.promoUses',{})[c]||0; }
 function drawPromos(){ const box=$('#promos'), P=S.promos;
-  $('#promoWhere').textContent=S.api?(SRV.promoUses?'عدد مرات الاستخدام من السيرفر (لكل المستخدمين).':'السيرفر مش متاح: عدد الاستخدام من الجهاز ده بس.')
-    :'دلوقتي (من غير سيرفر) "مرة واحدة" يعني مرة على كل جهاز، وعدد الاستخدام من الجهاز ده بس. لما السيرفر يشتغل هيتحسب لكل المستخدمين.';
+  $('#promoWhere').textContent=SRV.promoUses?'عدد مرات الاستخدام لكل المستخدمين.':'عدد مرات الاستخدام مش ظاهر دلوقتي.';
   if(!P.length){ box.innerHTML='<p class="empty">مفيش أكواد لسه.</p>'; return; }
   box.innerHTML=P.map((p,i)=>{ const c=promoNorm(p.code), dup=P.findIndex(x=>promoNorm(x.code)===c)!==i, n=promoUses(c), old=p.until&&new Date().toISOString().slice(0,10)>p.until;
     return `<div class="pr-card${p.on===false||old?' off':''}" data-i="${i}">
@@ -137,7 +146,7 @@ function drawPromos(){ const box=$('#promos'), P=S.promos;
         <label${p.what==='all'?' hidden':''}>${{lesson:'الدرس',unit:'الوحدة',subject:'المادة'}[p.what]||''} <select data-k="target">${targets(p.what,p.target)}</select></label>
         <label>الاستخدام <select data-k="uses"><option value="once"${p.uses!=='many'?' selected':''}>مرة واحدة بس</option><option value="many"${p.uses==='many'?' selected':''}>أكتر من مرة (كل طفل مرة)</option></select></label>
         <label${p.uses==='many'?'':' hidden'}>أقصى عدد <small>(فاضي = من غير حد)</small><input type="number" min="0" data-k="max" value="${+p.max>0?p.max:''}"></label>
-        <label>آخر يوم <small>(فاضي = دايمًا)</small><input type="date" data-k="until" value="${esc(p.until||'')}"></label>
+        <label>آخر يوم <small>(فاضي = دايمًا)</small><span class="dwrap${p.until?'':' empty'}"><input type="date" data-k="until" value="${esc(p.until||'')}"><em>دايمًا</em>${p.until?'<button type="button" class="dclr" title="مسح التاريخ">×</button>':''}</span></label>
         <label>ملاحظة <input type="text" data-k="note" value="${esc(p.note||'')}" placeholder="لمين الكود ده"></label>
       </div></div>`; }).join('');
   $$('.pr-card',box).forEach(r=>{ const p=S.promos[+r.dataset.i];
@@ -146,6 +155,7 @@ function drawPromos(){ const box=$('#promos'), P=S.promos;
       if(k==='code'&&inp.value!==p.code){ const at=inp.selectionStart; inp.value=p.code; try{ inp.setSelectionRange(at,at); }catch(e){} }
       if(k==='what') p.target=p.what==='all'?'':firstTarget(p.what);
       mark(); if(['what','uses','on','until'].includes(k)) drawPromos(); else if(k==='code'){ const c=promoNorm(p.code), d=S.promos.filter(x=>promoNorm(x.code)===c).length>1; inp.classList.toggle('bad',d||!c); } }));
+    const dc=$('.dclr',r); if(dc) dc.addEventListener('click',e=>{ e.preventDefault(); p.until=''; mark(); drawPromos(); });
     $('.x',r).addEventListener('click',()=>{ if(!confirm('تمسحي الكود '+p.code+'؟')) return; S.promos.splice(+r.dataset.i,1); mark(); drawPromos(); }); });
 }
 $('#addPromo').addEventListener('click',()=>{ S.promos.unshift({code:newCode(),what:'lesson',target:firstTarget('lesson'),uses:'once',max:0,until:'',on:true,note:''}); mark(); drawPromos(); const c=$('#promos .pr-code'); if(c){ c.focus(); c.select(); } });
@@ -160,15 +170,26 @@ let SRV={subs:null,accounts:null,stats:null,promoUses:null,reports:null};
 function accounts(){ if(SRV.accounts) return SRV.accounts; const a=lsGet('es.account',null); if(!a) return []; return [{...a,kids:lsGet('es.kids',[])}]; }
 const subRow=(kid,t)=>(SRV.subs||[]).find(x=>x.child===kid&&x.term.split(':')[1]===t);
 function drawUsers(){ const A=accounts(), box=$('#users'), q=$('#u-q').value.trim().toLowerCase(), srv=!!SRV.accounts;
-  $('#u-where').textContent=srv?'من السيرفر.':'دلوقتي بيظهر الحساب اللي على الجهاز ده بس. لما السيرفر يشتغل هتظهر كل الحسابات هنا بنفس الشكل، وأزرار الاشتراك وإضافة مستخدم بتشتغل.';
-  const L=A.filter(a=>!q||[a.email,a.phone,...(a.kids||[]).map(k=>k.name)].join(' ').toLowerCase().includes(q)); $('#u-count').textContent=ar(L.length)+' ولي أمر';
-  $('#u-add').disabled=!srv; $('#u-add').title=srv?'':'السيرفر مش شغال';
-  if(!L.length){ box.innerHTML='<p class="empty">'+(A.length?'مفيش نتيجة.':'مفيش حسابات مسجلة لسه.')+'</p>'; return; }
-  const dis=srv?'':' disabled title="السيرفر مش شغال"';
-  box.innerHTML=L.map(a=>`<div class="usr"><div class="usr-top"><b dir="ltr">${esc(a.email&&!/@phone\.local$/.test(a.email)?a.email:'—')}</b><span dir="ltr">${esc(a.phone||'')}</span><span class="rep-at">${a.created?fmt(a.created):''}</span></div>
-    ${(a.kids||[]).length?a.kids.map(k=>`<div class="kid kidh"><span class="nm">${esc(k.name)}${k.school?' · '+esc(k.school):''}</span></div>`+['t1','t2'].map(t=>{ const r=subRow(k.id,t), live=r&&r.st==='active'&&r.until>Date.now(), g=k.grade||'p1';
-      return `<div class="kid trm" data-k="${esc(k.id)}" data-g="${esc(g)}" data-t="${t}"><span class="nm">${TNAME[t]}</span><span class="stb ${live?'on':'none'}">${r?(live?'مفعّل لحد '+new Date(r.until).toLocaleDateString('ar-EG',{day:'numeric',month:'long'}):STN[r.st]||r.st):'بدون اشتراك'}</span>${r&&r.ref?`<span dir="ltr" class="rep-at">${esc(r.ref)}</span>`:''}
-        ${r&&r.receipt?`<button data-a="rc"${dis}>الإيصال</button>`:''}${live?'':`<button data-a="grant"${dis}>${r&&r.st==='pending'?'تفعيل':'تفعيل بدون إيصال'}</button>`}${r&&(r.st==='active'||r.st==='pending')?`<button data-a="close"${dis}>إلغاء</button>`:''}<div class="sb-img"></div></div>`; }).join('')).join(''):'<p class="empty">مفيش أطفال.</p>'}</div>`).join(''); }
+  $('#u-where').textContent=srv?'عدّلي أي خانة (إيميل / موبايل / اسم الطالب) وهتتحفظ لوحدها أول ما تخرجي منها.':'قائمة المستخدمين مش ظاهرة دلوقتي. اتأكدي من الإنترنت وكلمة السر وافتحي الصفحة تاني.';
+  const L=A.filter(a=>!q||[a.email,a.phone,...(a.kids||[]).map(k=>k.name)].join(' ').toLowerCase().includes(q)); $('#u-count').textContent=ar(L.length)+' مستخدم';
+  $('#u-add').disabled=!srv; $('#u-add').title=srv?'':'مش متاح دلوقتي';
+  if(!L.length){ box.innerHTML='<tr><td colspan="5"><p class="empty">'+(A.length?'مفيش نتيجة.':'مفيش حسابات مسجلة لسه.')+'</p></td></tr>'; return; }
+  const dis=srv?'':' disabled title="مش متاح دلوقتي"', ro=srv?'':' readonly';
+  const mail=a=>a.email&&!/@phone\.local$/.test(a.email)?a.email:'';
+  box.innerHTML=L.map((a,i)=>{ const K=(a.kids||[]).length?a.kids:[null], n=K.length;
+    return K.map((k,j)=>`<tr data-p="${esc(a.id||'')}">`+(j?'':`<td rowspan="${n}" class="u-who"><b>${ar(i+1)}</b><small>${a.created?esc(fmt(a.created)):''}</small><button type="button" class="u-del" data-a="del"${dis} title="حذف المستخدم">حذف</button></td>
+      <td rowspan="${n}"><input class="u-in" data-f="email" dir="ltr" type="email" value="${esc(mail(a))}" placeholder="—"${ro}></td>
+      <td rowspan="${n}"><input class="u-in" data-f="phone" dir="ltr" type="tel" value="${esc(a.phone||'')}" placeholder="—"${ro}></td>`)+
+      (k?`<td data-k="${esc(k.id)}"><input class="u-in" data-f="kid" value="${esc(k.name)}"${ro}>${k.school?'<small>'+esc(k.school)+'</small>':''}</td>
+      <td>${['t1','t2'].map(t=>{ const r=subRow(k.id,t), live=r&&r.st==='active'&&r.until>Date.now(), g=k.grade||'p1';
+        return `<div class="trm" data-k="${esc(k.id)}" data-g="${esc(g)}" data-t="${t}"><span class="nm">${TNAME[t]}</span><span class="stb ${live?'on':'none'}">${r?(live?'مفعّل لحد '+new Date(r.until).toLocaleDateString('ar-EG',{day:'numeric',month:'long'}):STN[r.st]||r.st):'بدون اشتراك'}</span>${r&&r.ref?`<span dir="ltr" class="rep-at">${esc(r.ref)}</span>`:''}
+          ${r&&r.receipt?`<button data-a="rc"${dis}>الإيصال</button>`:''}${live?'':`<button data-a="grant"${dis}>${r&&r.st==='pending'?'تفعيل':'تفعيل بدون إيصال'}</button>`}${r&&(r.st==='active'||r.st==='pending')?`<button data-a="close"${dis}>${live?'وقف الاشتراك':'إلغاء'}</button>`:''}<div class="sb-img"></div></div>`; }).join('')}</td>`
+      :'<td><span class="empty">مفيش طالب</span></td><td></td>')+'</tr>').join(''); }).join(''); }
+$('#users').addEventListener('change',async e=>{ const i=e.target.closest('.u-in'); if(!i||i.readOnly) return; const tr=i.closest('tr'), f=i.dataset.f, v=i.value.trim(); let x;
+  if(f==='kid'){ if(!v){ toast('اكتبي اسم الطالب'); return drawUsers(); } x=await post('/admin/kid/'+i.closest('td').dataset.k,{name:v}); }
+  else { const p=tr.dataset.p, row=tr.parentNode.querySelector(`tr[data-p="${p}"]`), g=n=>row.querySelector(`[data-f="${n}"]`).value.trim(); x=await post('/admin/user/'+p,{email:g('email'),phone:g('phone')}); }
+  if(x&&x.ok){ toast('اتحفظ'); const ac=await api('/admin/accounts'); if(ac&&ac.accounts){ SRV.accounts=ac.accounts; drawUsers(); } }
+  else { toast({'bad-email':'الإيميل مش مظبوط','need-contact':'لازم إيميل أو موبايل','email-taken':'الإيميل ده لحساب تاني'}[x&&x.error]||'ما اتحفظش'); const ac=await api('/admin/accounts'); if(ac&&ac.accounts) SRV.accounts=ac.accounts; drawUsers(); } });
 $('#u-q').addEventListener('input',drawUsers);
 /* ---------- term subscriptions (server only; docs/subscriptions-spec.md): pending receipts first, activate / reject / close, grant with no receipt ---------- */
 const termNow=()=>/2/.test((COURSE&&COURSE.term)||'')?'t2':'t1', TNAME={t1:'الترم الأول',t2:'الترم التاني'};
@@ -177,7 +198,7 @@ const post=(path,body)=>fetch(S.api+path,{method:body?'POST':'GET',credentials:'
 const subOf=id=>{ const r=(SRV.subs||[]).filter(x=>x.child===id&&x.st==='active'&&x.until>Date.now()); return r.length?'مفعّل: '+r.map(x=>TNAME[x.term.split(':')[1]]).join('، '):'بدون اشتراك'; };
 async function loadSubs(){ if(!S.api){ drawSubs(); return; } const r=await post('/admin/subs?st=all'); if(r&&r.subs){ SRV.subs=r.subs; } drawSubs(); drawUsers(); }
 function drawSubs(){ const box=$('#subsList'), all=$('#sb-all').checked, L=(SRV.subs||[]).filter(x=>all||x.st==='pending');
-  $('#sb-where').textContent=S.api?(SRV.subs?'الإيصالات المرفوعة من التطبيق. التأكيد بيفضل لحد ٣١ أغسطس، والرفض بيقفل الدروس فورًا.':'السيرفر مش متاح.'):'الاشتراكات محتاجة السيرفر.';
+  $('#sb-where').textContent=SRV.subs?'الإيصالات المرفوعة من التطبيق. التأكيد بيفضل لحد ٣١ أغسطس، والرفض بيقفل الدروس فورًا.':'الاشتراكات مش ظاهرة دلوقتي. اتأكدي من الإنترنت وكلمة السر.';
   box.innerHTML=L.length?L.map(x=>`<div class="usr sb" data-c="${esc(x.child)}" data-t="${esc(x.term)}"><div class="usr-top"><b>${esc(x.name)} — ${TNAME[x.term.split(':')[1]]||esc(x.term)}</b><span dir="ltr">${esc(x.email||'')} ${esc(x.phone||'')}</span><span class="rep-at">${fmt(x.at)}</span></div>
     <div class="kid"><span class="nm">${ar(x.price)} جنيه · رقم العملية <b dir="ltr">${esc(x.ref||'—')}</b></span><span class="stb ${x.st==='active'?'on':'none'}">${STN[x.st]||x.st}</span>
       ${x.receipt?'<button data-act="rc">الإيصال</button>':''}${x.st!=='active'?'<button data-act="activate">تفعيل</button>':''}${x.st==='pending'?'<button data-act="reject">رفض</button>':''}${x.st==='active'?'<button data-act="close">إلغاء</button>':''}</div><div class="sb-img"></div></div>`).join(''):'<p class="empty">مفيش اشتراكات هنا.</p>';
@@ -187,7 +208,9 @@ function drawSubs(){ const box=$('#subsList'), all=$('#sb-all').checked, L=(SRV.
     const x=await post('/admin/sub',{child:c,term:t,action:act}); if(!x||!x.ok) alert('ما نفعش. جربي تاني'); loadSubs(); })));
 }
 $('#sb-all').addEventListener('change',drawSubs);
-$('#users').addEventListener('click',async e=>{ const b=e.target.closest('[data-a]'); if(!b||b.disabled) return; const r=b.closest('.trm'), id=r.dataset.k, term=r.dataset.g+':'+r.dataset.t, tn=TNAME[r.dataset.t], a=b.dataset.a;
+$('#users').addEventListener('click',async e=>{ const b=e.target.closest('[data-a]'); if(!b||b.disabled) return;
+  if(b.dataset.a==='del'){ const p=b.closest('tr').dataset.p; if(!confirm('حذف المستخدم ده نهائيًا؟ هيتمسح معاه الأطفال والاشتراكات والإيصالات والكريدتس، ومفيش رجوع.')) return; const x=await post('/admin/user/'+p+'/delete',{}); if(x&&x.ok){ toast('اتحذف'); const ac=await api('/admin/accounts'); if(ac&&ac.accounts) SRV.accounts=ac.accounts; await loadSubs(); } else toast('ما نفعش'); return; }
+  const r=b.closest('.trm'), id=r.dataset.k, term=r.dataset.g+':'+r.dataset.t, tn=TNAME[r.dataset.t], a=b.dataset.a;
   if(a==='rc'){ const x=await post(`/admin/sub/${id}/${term}/receipt`); $('.sb-img',r).innerHTML=x&&x.receipt?`<img src="${x.receipt}" alt="receipt" style="max-width:100%;max-height:70vh;border-radius:.5rem">`:'<p class="empty">الإيصال مش متاح.</p>'; return; }
   if(a==='grant'){ if(!confirm('تفعيل '+tn+' بدون مراجعة إيصال؟')) return; const x=await post('/admin/sub/grant',{child:id,term}); if(!x||!x.ok) alert('ما نفعش'); }
   else { if(!confirm('إلغاء اشتراك '+tn+'؟ الدروس هتتقفل فورًا.')) return; const x=await post('/admin/sub',{child:id,term,action:'close'}); if(!x||!x.ok) alert('مفيش اشتراك ليه أو ما نفعش'); }
@@ -230,14 +253,14 @@ function drawReports(){
   sj.innerHTML='<option value="">كل المواد</option>'+subs.map(x=>`<option value="${esc(x)}">${esc(((COURSE&&COURSE.subjects.find(s=>s.id===x))||{}).name||x)}</option>`).join(''); sj.value=subs.includes(cur)?cur:'';
   const open=all.filter(r=>r.status!=='done').length, b=$('#repBadge'); b.hidden=!open; b.textContent=ar(open);
   const L=all.filter(r=>(st==='all'||(st==='done')===(r.status==='done'))&&(!sj.value||r.subject===sj.value)&&(!q||(r.comment+' '+rpPlace(r)).toLowerCase().includes(q)));
-  $('#rp-count').textContent=ar(L.length)+' بلاغ'+(SRV.reports?'':' (من الجهاز ده)');
+  $('#rp-count').textContent=ar(L.length)+' بلاغ';
   $('#reports').innerHTML=L.length?L.map(r=>`<div class="rep${r.status==='done'?' done':''}" data-id="${esc(r.id)}">
     <div class="rep-top"><b>${esc(rpPlace(r))}</b><span class="rep-at">${fmt(r.at)}</span></div>
     ${r.kind?`<span class="rep-kind">${esc(RPKIND[r.kind]||r.kind)}</span>`:''}${r.comment?`<p class="rep-c">${esc(r.comment)}</p>`:'<p class="rep-c none">من غير تعليق</p>'}
     ${r.ctx&&r.ctx.task?`<p class="rep-t">${esc(r.ctx.task)}</p>`:''}
     <div class="rep-act"><button data-s="${r.status==='done'?'open':'done'}">${r.status==='done'?'رجّعيه مفتوح':'اتحل ✓'}</button></div></div>`).join(''):'<p class="empty">مفيش بلاغات.</p>';
   $$('#reports .rep').forEach(d=>$('button',d).addEventListener('click',async e=>{ const id=d.dataset.id, s=e.target.dataset.s;
-    if(SRV.reports){ const ok=await apiPost('/admin/report/'+id,{status:s}); if(!ok) return toast('السيرفر مش متاح'); const r=SRV.reports.find(x=>x.id===id); if(r) r.status=s; }
+    if(SRV.reports){ const ok=await apiPost('/admin/report/'+id,{status:s}); if(!ok) return toast('مش متاح دلوقتي، حاولي تاني'); const r=SRV.reports.find(x=>x.id===id); if(r) r.status=s; }
     else { const q2=lsGet('es.reports',[]), r=q2.find(x=>x.id===id); if(r){ r.done=s==='done'?1:0; localStorage.setItem('es.reports',JSON.stringify(q2)); } }
     drawReports(); }));
 }
@@ -268,12 +291,12 @@ $('#pu-t').addEventListener('change',puLink);
 
 /* ---------- notifications (2026-11-09): written and sent by hand only. Server: GET api/admin/push, POST api/admin/push/send, POST api/admin/push/deliver/<id> ---------- */
 async function loadPush(){ const r=await api('/admin/push'); const c=$('#pu-count');
-  if(!r){ c.textContent='السيرفر مش متاح، الإشعارات محتاجة السيرفر'; $('#pu-list').innerHTML=''; return; }
-  c.textContent=ar(r.subs)+' جهاز مفعّل الإشعارات'+(r.ready?'':' — مفاتيح VAPID مش متظبطة على السيرفر');
+  if(!r){ c.textContent='الإشعارات مش متاحة دلوقتي. اتأكدي من الإنترنت وكلمة السر.'; $('#pu-list').innerHTML=''; return; }
+  c.textContent=ar(r.subs)+' جهاز مفعّل الإشعارات'+(r.ready?'':' — الإشعارات لسه مش جاهزة للإرسال');
   $('#pu-list').innerHTML=r.msgs.length?r.msgs.map(m=>`<div class="rep"><div class="rep-top"><b>${esc(m.title)}</b><span class="rep-at">${fmt(m.at)}</span></div><p class="rep-c">${esc(m.body)}</p><span class="rep-kind">وصلت لـ ${ar(m.sent)} جهاز${m.gone?' — اتشال '+ar(m.gone)+' جهاز مقفول':''}</span></div>`).join(''):'<p class="empty">لسه ما بعتّيش حاجة.</p>'; }
 $('#pu-send').addEventListener('click',async()=>{
   const title=$('#pu-title').value.trim(), body=$('#pu-body').value.trim(), url=$('#pu-url').value.trim(); if(!title||!body) return toast('اكتبي العنوان والنص');
-  if(!S.api) return toast('السيرفر مش متاح');
+  if(!S.api) return toast('مش متاح دلوقتي، حاولي تاني');
   if(!confirm('تبعتي الإشعار ده لكل الأجهزة المفعّلة؟\n\n'+title+'\n'+body)) return;
   const btn=$('#pu-send'); btn.disabled=true;
   try{ const r=await apiPost('/admin/push/send',{title,body,url}); if(!r||!r.id) return toast('ماتبعتش');
@@ -282,14 +305,13 @@ $('#pu-send').addEventListener('click',async()=>{
   finally{ btn.disabled=false; btn.textContent='ابعت لكل الأجهزة'; loadPush(); } });
 
 /* ---------- tabs + save / download / reset ---------- */
-$$('#tabs button').forEach(b=>b.addEventListener('click',()=>{ $$('#tabs button').forEach(x=>x.classList.toggle('on',x===b)); $$('.page').forEach(p=>p.hidden=p.id!=='p-'+b.dataset.p); if(b.dataset.p==='stats') drawStats(); if(b.dataset.p==='users'){ drawUsers(); drawSubs(); } if(b.dataset.p==='push'){ puInit(); loadPush(); } }));
-$('#save').addEventListener('click',()=>{ try{ localStorage.setItem('es.settings',JSON.stringify(S)); dirty=false; $('#save').textContent='حفظ'; toast('اتحفظ على الجهاز ده. افتحي التطبيق تشوفيه.'); if(S.api) api('/admin/settings',S).then(r=>toast(r?'اتحفظ على السيرفر كمان، لكل المستخدمين.':'السيرفر مش متاح، اتحفظ على الجهاز بس.')); $('#where').textContent='الإعدادات المعروضة: المحفوظة على الجهاز ده (لسه مش في الملف). اضغطي "تنزيل" عشان تبقى للكل.'; }catch(e){ toast('الحفظ مش متاح هنا'); } });
-$('#dl').addEventListener('click',()=>{ const out={_note:FILE&&FILE._note,...S}; const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob([JSON.stringify(out,null,1)],{type:'application/json'})); a.download='settings.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),2000); });
-$('#reset').addEventListener('click',()=>{ if(!confirm('ترجعي لإعدادات الملف وتمسحي المحفوظ على الجهاز ده؟')) return; try{ localStorage.removeItem('es.settings'); }catch(e){} S=JSON.parse(JSON.stringify(FILE)); location.reload(); });
-addEventListener('beforeunload',e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
-boot().catch(e=>{ $('#where').textContent='مش قادر يحمّل ملفات المنهج: '+e.message; });
+$$('#tabs button').forEach(b=>b.addEventListener('click',()=>{ $$('#tabs button').forEach(x=>x.classList.toggle('on',x===b)); $$('.page').forEach(p=>p.hidden=p.id!=='p-'+b.dataset.p); if(b.dataset.p==='stats') drawStats(); if(b.dataset.p==='users') drawUsers(); if(b.dataset.p==='subs') drawSubs(); if(b.dataset.p==='push'){ puInit(); loadPush(); } }));
+$('#save').addEventListener('click',async()=>{ if(LOCKED) return toast('الحفظ متوقف دلوقتي'); const r=await api('/admin/settings',S); if(r&&r.ok){ dirty=false; $('#save').textContent='حفظ'; toast('اتحفظ لكل المستخدمين'); } else toast('ما اتحفظش، اتأكدي من الإنترنت وكلمة السر وحاولي تاني'); });
+
+$$('#stabs button').forEach(b=>b.addEventListener('click',()=>{ $$('#stabs button').forEach(x=>x.classList.toggle('on',x===b)); $$('#p-settings [data-st]').forEach(c=>c.hidden=c.dataset.st!==b.dataset.s); }));
+$$('#p-settings [data-st]').forEach(c=>c.hidden=c.dataset.st!=='contact');
+boot().catch(e=>{ $('#where').textContent='الصفحة ما اتحمّلتش كاملة، افتحيها تاني.'; });
 
 /* admin password (ADMIN_TOKEN) for use without a domain: kept on this device, sent as Authorization Bearer */
 { const b=document.getElementById('tok'); if(b){ const show=()=>{ b.textContent=tokGet()?'كلمة السر: محفوظة ✓':'كلمة السر'; }; show();
-  b.addEventListener('click',()=>{ const v=prompt('اكتبي كلمة سر الأدمن (ADMIN_TOKEN). سيبيها فاضية عشان تتمسح من الجهاز ده.',''); if(v===null) return; try{ if(v.trim()) localStorage.setItem('es.adminToken',v.trim()); else localStorage.removeItem('es.adminToken'); }catch(e){} show(); location.reload(); }); } }
+  b.addEventListener('click',()=>{ const v=prompt('اكتبي كلمة سر لوحة الإدارة.',''); if(v===null) return; try{ if(v.trim()) localStorage.setItem('es.adminToken',v.trim()); else localStorage.removeItem('es.adminToken'); }catch(e){} show(); location.reload(); }); } }

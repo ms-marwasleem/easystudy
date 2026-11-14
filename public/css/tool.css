@@ -56,8 +56,10 @@
 :root{--gear-img:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M87.1 41.7 L97.5 43.3 L97.5 56.7 L87.1 58.3 L82.1 70.4 L88.3 78.9 L78.9 88.3 L70.4 82.1 L58.3 87.1 L56.7 97.5 L43.3 97.5 L41.7 87.1 L29.6 82.1 L21.1 88.3 L11.7 78.9 L17.9 70.4 L12.9 58.3 L2.5 56.7 L2.5 43.3 L12.9 41.7 L17.9 29.6 L11.7 21.1 L21.1 11.7 L29.6 17.9 L41.7 12.9 L43.3 2.5 L56.7 2.5 L58.3 12.9 L70.4 17.9 L78.9 11.7 L88.3 21.1 L82.1 29.6Z' fill='%23FFF6D6' stroke='%23D9A000' stroke-width='5' stroke-linejoin='round'/%3E%3C/svg%3E")}
 .tgear,.qhead .qtool.tgear,.dash.tool .rb.tgear{display:grid;place-items:center;width:3.4rem;height:3.4rem;padding:0;border:0;border-radius:0;box-shadow:none;background:var(--gear-img) center/100% 100% no-repeat;color:var(--c-tool-ink);font-family:var(--f-title);font-size:.95rem;font-weight:700;letter-spacing:.04em;line-height:1;white-space:nowrap;-webkit-text-stroke:0;text-shadow:none;paint-order:normal;overflow:visible}
 .dash.tool>span:last-child{display:none}
-.dash.tool .rb{width:4rem;height:4rem;background:none;border:0;box-shadow:none}
-.dash.tool .rb.tgear{width:4rem;height:4rem;font-size:1.1rem;background:var(--gear-img) center/100% 100% no-repeat}
+.dash.tool .rb{width:5.5rem;height:5.5rem;background:none;border:0;box-shadow:none}
+.dash.tool .rb.tgear{width:5.5rem;height:5.5rem;font-size:1.1rem;background:var(--gear-img) center/100% 100% no-repeat}
+#lesson .rail .dash.tool .rb.tgear{width:5.5rem;height:5.5rem}
+@media(max-height:560px){#lesson .rail .dash.tool .rb.tgear{width:4rem;height:4rem}}
 .tgear::before,.tgear::after{content:none!important}
 .dash.tool .rb.tgear{filter:none}
 

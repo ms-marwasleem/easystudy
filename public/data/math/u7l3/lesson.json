@@ -1,0 +1,459 @@
+{
+ "id": "u7l3",
+ "unit": 7,
+ "lesson": 3,
+ "title": "Number Line",
+ "task": "Number Line",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz",
+  "booklet"
+ ],
+ "tabLabels": {
+  "read": "Lesson",
+  "quiz": "Book Questions"
+ },
+ "pages": 6,
+ "pageNums": [
+  76,
+  76,
+  76,
+  76,
+  76,
+  76
+ ],
+ "layout": "explain",
+ "explain": {
+  "caption": false,
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3",
+   "6": "../u1l4/words/six.mp3",
+   "7": "../u1l4/words/seven.mp3",
+   "8": "../u1l4/words/eight.mp3",
+   "9": "../u1l4/words/nine.mp3",
+   "10": "../u1l4/words/ten.mp3",
+   "11": "../u7l1/words/eleven.mp3",
+   "12": "../u7l1/words/twelve.mp3",
+   "13": "../u7l1/words/thirteen.mp3",
+   "14": "../u7l1/words/fourteen.mp3",
+   "15": "../u7l1/words/fifteen.mp3",
+   "16": "../u7l1/words/sixteen.mp3",
+   "17": "../u7l1/words/seventeen.mp3",
+   "18": "../u7l1/words/eighteen.mp3",
+   "19": "../u7l1/words/nineteen.mp3",
+   "20": "../u7l1/words/twenty.mp3"
+  },
+  "steps": [
+   {
+    "name": "greater",
+    "beats": [
+     {
+      "say": "On a number line, numbers get greater to the right.",
+      "audio": "explain/r.mp3",
+      "do": [
+       {
+        "scene": "nline",
+        "arrow": "right"
+       }
+      ],
+      "gap": 1500
+     }
+    ]
+   },
+   {
+    "name": "less",
+    "beats": [
+     {
+      "say": "And they get less to the left.",
+      "audio": "explain/l.mp3",
+      "do": [
+       {
+        "scene": "nline",
+        "arrow": "left"
+       }
+      ],
+      "gap": 1500
+     }
+    ]
+   },
+   {
+    "name": "rabbit 9",
+    "beats": [
+     {
+      "say": "How far did the rabbit go?",
+      "audio": "explain/g9-1.mp3",
+      "do": [
+       {
+        "scene": "nline",
+        "pet": 9,
+        "img": "../../pics/rabbit-white.png"
+       }
+      ]
+     },
+     {
+      "say": "Start at zero. Count the jumps.",
+      "audio": "explain/g9-2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          95,
+          105
+         ],
+         [
+          140,
+          105
+         ],
+         [
+          185,
+          105
+         ],
+         [
+          230,
+          105
+         ],
+         [
+          275,
+          105
+         ],
+         [
+          320,
+          105
+         ],
+         [
+          365,
+          105
+         ],
+         [
+          410,
+          105
+         ],
+         [
+          455,
+          105
+         ]
+        ],
+        "color": "orange",
+        "r": 17
+       }
+      ]
+     },
+     {
+      "say": "Nine.",
+      "audio": "explain/g9-3.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          429,
+          150,
+          481,
+          200
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "9",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "rabbit 13",
+    "beats": [
+     {
+      "say": "How far did the rabbit go?",
+      "audio": "explain/g13-1.mp3",
+      "do": [
+       {
+        "scene": "nline",
+        "pet": 13,
+        "img": "../../pics/rabbit-white.png"
+       }
+      ]
+     },
+     {
+      "say": "Start at zero. Count the jumps.",
+      "audio": "explain/g13-2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          95,
+          105
+         ],
+         [
+          140,
+          105
+         ],
+         [
+          185,
+          105
+         ],
+         [
+          230,
+          105
+         ],
+         [
+          275,
+          105
+         ],
+         [
+          320,
+          105
+         ],
+         [
+          365,
+          105
+         ],
+         [
+          410,
+          105
+         ],
+         [
+          455,
+          105
+         ],
+         [
+          500,
+          105
+         ],
+         [
+          545,
+          105
+         ],
+         [
+          590,
+          105
+         ],
+         [
+          635,
+          105
+         ]
+        ],
+        "color": "orange",
+        "r": 17
+       }
+      ]
+     },
+     {
+      "say": "Thirteen.",
+      "audio": "explain/g13-3.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          609,
+          150,
+          661,
+          200
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "13",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "4 more than 11",
+    "beats": [
+     {
+      "say": "What is four more than eleven? Start at eleven.",
+      "audio": "explain/m1.mp3",
+      "do": [
+       {
+        "scene": "nline"
+       },
+       {
+        "frame": {
+         "box": [
+          519,
+          150,
+          571,
+          200
+         ],
+         "color": "blue"
+        }
+       }
+      ]
+     },
+     {
+      "say": "Jump four to the right.",
+      "audio": "explain/m2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          590,
+          105
+         ],
+         [
+          635,
+          105
+         ],
+         [
+          680,
+          105
+         ],
+         [
+          725,
+          105
+         ]
+        ],
+        "color": "orange",
+        "r": 17
+       }
+      ]
+     },
+     {
+      "say": "Fifteen.",
+      "audio": "explain/m3.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          699,
+          150,
+          751,
+          200
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "11 + 4 = 15",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "7 less than 18",
+    "beats": [
+     {
+      "say": "What is seven less than eighteen? Start at eighteen.",
+      "audio": "explain/n1.mp3",
+      "do": [
+       {
+        "scene": "nline"
+       },
+       {
+        "frame": {
+         "box": [
+          834,
+          150,
+          886,
+          200
+         ],
+         "color": "blue"
+        }
+       }
+      ]
+     },
+     {
+      "say": "Jump seven to the left.",
+      "audio": "explain/n2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          815,
+          105
+         ],
+         [
+          770,
+          105
+         ],
+         [
+          725,
+          105
+         ],
+         [
+          680,
+          105
+         ],
+         [
+          635,
+          105
+         ],
+         [
+          590,
+          105
+         ],
+         [
+          545,
+          105
+         ]
+        ],
+        "color": "orange",
+        "r": 17
+       }
+      ]
+     },
+     {
+      "say": "Eleven.",
+      "audio": "explain/n3.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          519,
+          150,
+          571,
+          200
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "18 - 7 = 11",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -68,7 +68,7 @@ function alMcq(box,q,s,run){
   const st=el('div','alstem'); w.append(st); let blank=null;
   const sp=el('button','qsay alsp',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>{ if(!qz.busy) q.sayFn(); };
   if(q.ask){ const a=el('p','alask',''); alToks(a,q.ask); st.append(a); }
-  const p=el('p','altx'); st.append(p);
+  const p=el('p','altx'); st.append(p); if(isAr()&&/^math/.test(SUBJECT.id)){ p.dir='rtl'; p.classList.add('mrtl'); }   // Arabic math: the number sentence and "الإجابة: __" read from the right (Ahmed 2026-11-14)
   const word=(t,k)=>{ const sp=el('span','alw',t); sp.addEventListener('click',()=>{ hideHint(); vStop(); sp.classList.add('lit'); qSound(alWordSrc(t),alClean(t)).then(()=>sp.classList.remove('lit')); }); p.append(k?' ':'',sp); };
   String(q.stem).split(/\s+/).filter(Boolean).forEach((t,k)=>{ const m=/^([^_]*)_{2,}([^_]*)$/.exec(t);
     if(m&&!blank){ blank=el('button','alblank','<i></i>'); if(k) p.append(' '); if(m[1]) p.append(m[1]); p.append(blank); if(m[2]) p.append(m[2]); blank.addEventListener('click',()=>q.sayFn&&q.sayFn()); }

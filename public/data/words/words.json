@@ -1,0 +1,6 @@
+{
+  "_note": "Easy Words settings (the words app, words.html). Words, pictures, syllables and sounds are NOT here: they come by reference from the curriculum app's own files (subject.json, lesson.json vocab). Here only what is specific to this app. 'open' = lessons that are open (preview: the first lesson of each subject); every other lesson shows 'soon'. The dashboard will write this later.",
+  "open": ["arabic-u1l1", "en-ol-u1l1", "en-al-u1l1"],
+  "questions": 5,
+  "types": ["missing", "order", "picture", "match"]
+}

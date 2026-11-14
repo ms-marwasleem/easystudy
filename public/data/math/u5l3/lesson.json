@@ -1,0 +1,716 @@
+{
+ "id": "u5l3",
+ "unit": 5,
+ "lesson": 3,
+ "title": "Let's Compare Lengths",
+ "task": "Let's Compare Lengths",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz",
+  "booklet"
+ ],
+ "tabLabels": {
+  "read": "Lesson",
+  "quiz": "Book Questions"
+ },
+ "pages": 5,
+ "pageNums": [
+  58,
+  58,
+  58,
+  59,
+  59
+ ],
+ "layout": "explain",
+ "explain": {
+  "caption": false,
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3",
+   "6": "../u1l4/words/six.mp3",
+   "7": "../u1l4/words/seven.mp3",
+   "8": "../u1l4/words/eight.mp3",
+   "9": "../u1l4/words/nine.mp3",
+   "10": "../u1l4/words/ten.mp3"
+  },
+  "steps": [
+   {
+    "name": "pencil 7 > 5",
+    "beats": [
+     {
+      "say": "Which is longer, the pencil or the crayon?",
+      "audio": "explain/s1-1.mp3",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-1.png",
+        "w": 1000,
+        "h": 232,
+        "wide": true
+       }
+      ]
+     },
+     {
+      "say": "Count the blocks. The pencil.",
+      "audio": "explain/s1-2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          206,
+          32
+         ],
+         [
+          246,
+          32
+         ],
+         [
+          286,
+          32
+         ],
+         [
+          326,
+          32
+         ],
+         [
+          366,
+          32
+         ],
+         [
+          406,
+          32
+         ],
+         [
+          446,
+          32
+         ]
+        ],
+        "color": "green",
+        "r": 18
+       },
+       {
+        "add": "7 blocks",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "The crayon.",
+      "audio": "explain/s1-3.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          646,
+          112
+         ],
+         [
+          686,
+          112
+         ],
+         [
+          726,
+          112
+         ],
+         [
+          766,
+          112
+         ],
+         [
+          806,
+          112
+         ]
+        ],
+        "color": "orange",
+        "r": 18
+       },
+       {
+        "add": "5 blocks",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "Seven is more than five. The pencil is longer.",
+      "audio": "explain/s1-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          175,
+          52,
+          463,
+          100
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "7 > 5",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "yellow train 4 < 5",
+    "beats": [
+     {
+      "say": "Which is longer, the yellow train or the green train?",
+      "audio": "explain/s2-1.mp3",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-2.png",
+        "w": 1000,
+        "h": 227,
+        "wide": true
+       }
+      ]
+     },
+     {
+      "say": "Count the carriages. The yellow train.",
+      "audio": "explain/s2-2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          209,
+          -8
+         ],
+         [
+          401,
+          -8
+         ],
+         [
+          594,
+          -8
+         ],
+         [
+          786,
+          -8
+         ]
+        ],
+        "color": "orange",
+        "r": 26
+       },
+       {
+        "add": "4 carriages",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "The green train.",
+      "audio": "explain/s2-3.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          112,
+          104
+         ],
+         [
+          305,
+          104
+         ],
+         [
+          497,
+          104
+         ],
+         [
+          689,
+          104
+         ],
+         [
+          882,
+          104
+         ]
+        ],
+        "color": "green",
+        "r": 26
+       },
+       {
+        "add": "5 carriages",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "Five is more than four. The green train is longer.",
+      "audio": "explain/s2-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          6,
+          124,
+          988,
+          227
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "4 < 5",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "toothbrush 8 > 6",
+    "beats": [
+     {
+      "say": "Which is longer, the toothbrush or the toothpaste?",
+      "audio": "explain/s3-1.mp3",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-3.png",
+        "w": 1000,
+        "h": 196,
+        "wide": true
+       }
+      ]
+     },
+     {
+      "say": "Count the blocks. The toothbrush.",
+      "audio": "explain/s3-2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          156,
+          43
+         ],
+         [
+          196,
+          43
+         ],
+         [
+          236,
+          43
+         ],
+         [
+          276,
+          43
+         ],
+         [
+          316,
+          43
+         ],
+         [
+          356,
+          43
+         ],
+         [
+          396,
+          43
+         ],
+         [
+          436,
+          43
+         ]
+        ],
+        "color": "blue",
+        "r": 18
+       },
+       {
+        "add": "8 blocks",
+        "card": true,
+        "color": "blue"
+       }
+      ]
+     },
+     {
+      "say": "The toothpaste.",
+      "audio": "explain/s3-3.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          596,
+          74
+         ],
+         [
+          636,
+          74
+         ],
+         [
+          676,
+          74
+         ],
+         [
+          716,
+          74
+         ],
+         [
+          756,
+          74
+         ],
+         [
+          796,
+          74
+         ]
+        ],
+        "color": "orange",
+        "r": 18
+       },
+       {
+        "add": "6 blocks",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "Eight is more than six. The toothbrush is longer.",
+      "audio": "explain/s3-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          127,
+          63,
+          469,
+          108
+         ],
+         "color": "blue"
+        }
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "8 > 6",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "cheer": true
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "white train 6 > 5",
+    "beats": [
+     {
+      "say": "Which is longer, the white train or the green train?",
+      "audio": "explain/s4-1.mp3",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-4.png",
+        "w": 1000,
+        "h": 180,
+        "wide": true
+       }
+      ]
+     },
+     {
+      "say": "Count the carriages. The white train.",
+      "audio": "explain/s4-2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          58,
+          -3
+         ],
+         [
+          125,
+          -3
+         ],
+         [
+          193,
+          -3
+         ],
+         [
+          260,
+          -3
+         ],
+         [
+          328,
+          -3
+         ],
+         [
+          395,
+          -3
+         ]
+        ],
+        "color": "red",
+        "r": 26
+       },
+       {
+        "add": "6 carriages",
+        "card": true,
+        "color": "red"
+       }
+      ]
+     },
+     {
+      "say": "The green train.",
+      "audio": "explain/s4-3.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          359,
+          85
+         ],
+         [
+          497,
+          85
+         ],
+         [
+          636,
+          85
+         ],
+         [
+          774,
+          85
+         ],
+         [
+          912,
+          85
+         ]
+        ],
+        "color": "green",
+        "r": 26
+       },
+       {
+        "add": "5 carriages",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "Six is more than five. The white train is longer.",
+      "audio": "explain/s4-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          14,
+          17,
+          439,
+          76
+         ],
+         "color": "red"
+        }
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "6 > 5",
+        "card": true,
+        "color": "red"
+       },
+       {
+        "cheer": true
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "green pencil 9 < 10",
+    "beats": [
+     {
+      "say": "Which is longer, the green pencil or the red pencil?",
+      "audio": "explain/s5-1.mp3",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "story-5.png",
+        "w": 1000,
+        "h": 220,
+        "wide": true
+       }
+      ]
+     },
+     {
+      "say": "Count the blocks. The green pencil.",
+      "audio": "explain/s5-2.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          196,
+          27
+         ],
+         [
+          238,
+          27
+         ],
+         [
+          278,
+          27
+         ],
+         [
+          320,
+          27
+         ],
+         [
+          360,
+          27
+         ],
+         [
+          402,
+          27
+         ],
+         [
+          442,
+          27
+         ],
+         [
+          484,
+          27
+         ],
+         [
+          524,
+          27
+         ]
+        ],
+        "color": "green",
+        "r": 18
+       },
+       {
+        "add": "9 blocks",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "The red pencil.",
+      "audio": "explain/s5-3.mp3",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          402,
+          108
+         ],
+         [
+          442,
+          108
+         ],
+         [
+          484,
+          108
+         ],
+         [
+          524,
+          108
+         ],
+         [
+          566,
+          108
+         ],
+         [
+          606,
+          108
+         ],
+         [
+          648,
+          108
+         ],
+         [
+          688,
+          108
+         ],
+         [
+          730,
+          108
+         ],
+         [
+          770,
+          108
+         ]
+        ],
+        "color": "red",
+        "r": 18
+       },
+       {
+        "add": "10 blocks",
+        "card": true,
+        "color": "red"
+       }
+      ]
+     },
+     {
+      "say": "Ten is more than nine. The red pencil is longer.",
+      "audio": "explain/s5-4.mp3",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          377,
+          128,
+          797,
+          178
+         ],
+         "color": "red"
+        }
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "9 < 10",
+        "card": true,
+        "color": "red"
+       },
+       {
+        "cheer": true
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,8 +1,7 @@
 <!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>EasyStudy Admin</title>
 <!-- THE ADMIN DASHBOARD (Marwa 2026-11-05, docs/coins-and-admin.md). Not part of the app bundle (own files in admin/).
-     LOCAL VERSION: "Save" keeps the settings on this device (localStorage es.settings, the app uses them at once);
-     "Download settings.json" gives the file to put in data/. Accounts and stats show this device only until the server exists. -->
+     Always shows and saves the REAL settings on the server (no device copy, no file download/reset). -->
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&display=swap">
 <link rel="stylesheet" href="admin/admin.css">
@@ -14,10 +13,11 @@
     <button data-p="settings">إعدادات التطبيق</button>
     <button data-p="lessons">الدروس</button>
     <button data-p="users">المستخدمين</button>
+    <button data-p="subs">الاشتراكات</button>
     <button data-p="push">الإشعارات</button>
     <button data-p="reports">البلاغات <b id="repBadge" hidden></b></button>
   </nav>
-  <div class="acts"><button id="save" class="pri">حفظ</button><button id="tok" class="ghost">كلمة السر</button><button id="dl">تنزيل settings.json</button><button id="reset" class="ghost">رجوع لملف الإعدادات</button></div>
+  <div class="acts"><button id="save" class="pri">حفظ</button><button id="tok" class="ghost">كلمة السر</button></div>
 </header>
 <main>
   <p class="note" id="where"></p>
@@ -28,24 +28,43 @@
   </section>
 
   <section id="p-settings" class="page" hidden>
-    <div class="card">
-      <h2>التواصل والدفع</h2>
-      <p class="hint">بيانات بتظهر لولي الأمر في التطبيق: واتساب الإدارة (إضافة مدرسة، ومساعدة الدفع)، ولينك إنستا باي واسم صاحب المحفظة اللي بيحوّل عليها.</p>
+    <nav id="stabs" class="stabs"><button data-s="contact" class="on">التواصل</button><button data-s="pay">الدفع</button><button data-s="subs">الاشتراكات</button><button data-s="credits">الكريدتس</button><button data-s="free">الدروس المجانية</button><button data-s="curr">المناهج</button></nav>
+
+    <div class="card" data-st="contact">
+      <h2>التواصل</h2>
+      <p class="hint">بيانات بتظهر لولي الأمر في التطبيق: واتساب الإدارة (إضافة مدرسة، ومساعدة في الدفع) وإيميل الإدارة.</p>
       <div class="grid">
         <label>رقم واتساب الإدارة <small>(بالصيغة الدولية)</small><input type="tel" id="c-wa" dir="ltr" inputmode="tel" placeholder="201001234567"></label>
+        <label>إيميل الإدارة <small>(للتواصل والإشعارات)</small><input type="email" id="c-email" dir="ltr" inputmode="email" placeholder="admin@example.com"></label>
+      </div>
+    </div>
+
+    <div class="card" data-st="pay">
+      <h2>الدفع</h2>
+      <p class="hint">المحفظة اللي ولي الأمر بيحوّل عليها: اسم صاحب المحفظة ولينك إنستا باي. أسعار الاشتراكات والبرومو كود تحت.</p>
+      <div class="grid">
         <label>اسم صاحب المحفظة <input type="text" id="s-name" placeholder="الاسم زي ما بيظهر في إنستا باي"></label>
         <label class="wide">لينك إنستا باي <input type="url" id="s-link" dir="ltr" placeholder="https://ipn.eg/…"></label>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-st="subs">
       <h2>الاشتراكات</h2>
       <label class="sw"><input type="checkbox" id="s-on"><span></span> تشغيل الاشتراكات</label>
       <p class="hint">كل ترم بيتباع لوحده، لكل طفل، وكل المواد. بيفتح وقت الشراء وبينتهي ٣١ أغسطس. السعر لكل سنة دراسية وترم. الخصم: شغّلي الخصم وحطي السعر بعده.</p>
       <div class="tbl" id="prices"></div>
     </div>
 
-    <div class="card">
+    <div class="card" data-st="subs">
+      <h2>البرومو كود</h2>
+      <label class="sw"><input type="checkbox" id="p-on"><span></span> تشغيل البرومو كود</label>
+      <p class="hint">كل كود: بيفتح إيه (درس، وحدة، مادة، أو كل المواد)، مرة واحدة ولا أكتر (كل طفل مرة)، وآخر يوم يشتغل. بيظهر في التطبيق تحت زرار "اجمع كريدتس".</p>
+      <div id="promos"></div>
+      <button id="addPromo" class="ghost">+ كود جديد</button>
+      <p class="hint" id="promoWhere"></p>
+    </div>
+
+    <div class="card" data-st="credits">
       <h2>الكريدتس</h2>
       <label class="sw"><input type="checkbox" id="c-enabled"><span></span> تشغيل نظام الكريدتس</label>
       <div class="grid">
@@ -58,16 +77,16 @@
         <label class="wide">نص المشاركة <textarea id="c-shareText" rows="2"></textarea></label>
         <label class="wide">رابط التطبيق <input type="url" id="c-shareUrl" dir="ltr"></label>
       </div>
-      <label class="sw"><input type="checkbox" id="r-on"><span></span> كريدتس لما حد يسجل من رابط ولي الأمر <input type="number" min="0" id="r-coins" class="mini"> كريدت <small>(تشتغل مع السيرفر بس)</small></label>
+      <label class="sw"><input type="checkbox" id="r-on"><span></span> كريدتس لما حد يسجل من رابط ولي الأمر <input type="number" min="0" id="r-coins" class="mini"> كريدت</label>
     </div>
 
-    <div class="card">
+    <div class="card" data-st="curr">
       <h2>المناهج</h2>
       <p class="hint">لو اتقفل منهج، مش هيبقى متاح للاختيار وقت التسجيل (بيظهر «قريبًا»). الأطفال المسجلين فيه بالفعل مش بيتأثروا.</p>
       <div class="tbl" id="curr-on"></div>
     </div>
 
-    <div class="card">
+    <div class="card" data-st="free">
       <h2>الدروس المجانية</h2>
       <p class="hint">عدد الدروس المفتوحة مجانًا من أول وحدة في كل مادة. الباقي بالكريدتس أو بالاشتراك.</p>
       <div class="grid">
@@ -75,15 +94,6 @@
       </div>
       <div class="tbl" id="free-per"></div>
       <p class="hint">اكتبي رقم في أي مادة عشان يبقى ليها عدد خاص (فاضي = الافتراضي).</p>
-    </div>
-
-    <div class="card">
-      <h2>البرومو كود</h2>
-      <label class="sw"><input type="checkbox" id="p-on"><span></span> تشغيل البرومو كود</label>
-      <p class="hint">كل كود: بيفتح إيه (درس، وحدة، مادة، أو كل المواد)، مرة واحدة ولا أكتر (كل طفل مرة)، وآخر يوم يشتغل. بيظهر في التطبيق تحت زرار "اجمع كريدتس".</p>
-      <div id="promos"></div>
-      <button id="addPromo" class="ghost">+ كود جديد</button>
-      <p class="hint" id="promoWhere"></p>
     </div>
   </section>
 
@@ -98,25 +108,28 @@
     </div>
   </section>
 
-  <section id="p-users" class="page" hidden>
+  <section id="p-subs" class="page" hidden>
     <div class="card" id="subsCard">
       <h2>الاشتراكات</h2>
       <p class="hint" id="sb-where"></p>
       <div class="filters"><label class="sw"><input type="checkbox" id="sb-all"><span></span> كل الاشتراكات (مش المنتظرة بس)</label></div>
       <div id="subsList"></div>
     </div>
+  </section>
+
+  <section id="p-users" class="page" hidden>
     <div class="card">
       <h2>المستخدمين</h2>
       <p class="hint" id="u-where"></p>
-      <div class="filters"><input type="text" id="u-q" placeholder="بحث بالإيميل أو التليفون أو اسم الطفل">
-        <button class="ghost" id="u-add" type="button" disabled>+ إضافة مستخدم</button><span class="legend" id="u-count"></span></div>
+      <div class="filters"><input type="text" id="u-q" placeholder="بحث بالإيميل أو التليفون أو اسم الطالب"><span class="legend" id="u-count"></span></div>
+      <div class="filters"><button class="ghost" id="u-add" type="button" disabled>+ إضافة مستخدم</button></div>
       <form id="u-form" class="filters" hidden autocomplete="off" novalidate>
         <input name="email" type="email" dir="ltr" placeholder="إيميل ولي الأمر"><input name="phone" type="tel" dir="ltr" placeholder="موبايل (اختياري لو فيه إيميل)">
-        <input name="kid" type="text" placeholder="اسم الطفل"><select name="grade" id="u-grade"></select>
+        <input name="kid" type="text" placeholder="اسم الطالب"><select name="grade" id="u-grade"></select>
         <label class="sw"><input type="checkbox" name="act"><span></span> تفعيل بدون إيصال</label>
         <select name="term"><option value="t1">الترم الأول</option><option value="t2">الترم التاني</option></select>
         <button type="submit">حفظ</button><span class="u-err wl-err" hidden style="color:#b3261e"></span></form>
-      <div id="users"></div>
+      <div class="utwrap"><table class="utbl"><thead><tr><th>المستخدم</th><th>الإيميل</th><th>الموبايل</th><th>الطالب</th><th>الاشتراك</th></tr></thead><tbody id="users"></tbody></table></div>
     </div>
   </section>
 

@@ -265,9 +265,10 @@ function mount(root, data, opt){
   /* number sentence on the sky */
   function eq(cells,state){
     Leq.innerHTML=''; const n=cells.length, step=118, x0=W/2-(n-1)*step/2;
-    eqT=cells.map((c,i)=>{ const op=/[+=−-]/.test(c); const g=mk('g',{class:'xeq'+(op?' op':''),transform:`translate(${x0+i*step} 92)`});
+    const rtl=data.lang==='ar'; /* Arabic: first number on the right, result on the left */
+    eqT=cells.map((c,i)=>{ const px=x0+(rtl?n-1-i:i)*step, op=/[+=−-]/.test(c); const g=mk('g',{class:'xeq'+(op?' op':''),transform:`translate(${px} 92)`});
       g.innerHTML=op?`<text y="26" text-anchor="middle">${c}</text>`:`<rect x="-52" y="-56" width="104" height="112" rx="24"/><text y="28" text-anchor="middle">${c}</text>`;
-      Leq.append(g); return {g,c,x:x0+i*step,op}; });
+      Leq.append(g); return {g,c,x:px,op}; });
     eqState(state||'show');
   }
   function eqState(state){ eqT.forEach(t=>{ t.g.classList.remove('lit'); t.g.style.removeProperty('--xc'); t.g.classList.toggle('dim',state==='dim'); if(!t.op&&state==='dim') t.g.querySelector('text').textContent='?'; else t.g.querySelector('text').textContent=t.c; }); }

@@ -1,0 +1,212 @@
+{
+ "sets": [
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 59,
+   "task": "Which is longer?",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-6.png"
+     ],
+     "ask": "Which is longer, the yellow train or the black train?",
+     "stem": "The ___ train is longer.",
+     "options": [
+      "yellow",
+      "black"
+     ],
+     "answer": 0,
+     "askSay": "Which is longer, the yellow train or the black train?",
+     "askAudio": "q/p1-q.mp3",
+     "audio": "q/p1-a.mp3",
+     "word": "The yellow train is longer."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 59,
+   "task": "Count the blocks.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-7.png"
+     ],
+     "ask": "How many blocks long is the scissors?",
+     "stem": "The scissors is ___ blocks long.",
+     "options": [
+      "6",
+      "7",
+      "8"
+     ],
+     "answer": 1,
+     "askSay": "How many blocks long is the scissors?",
+     "askAudio": "q/p2-q.mp3",
+     "audio": "q/p2-a.mp3",
+     "word": "The scissors is seven blocks long."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 3,
+   "page": 59,
+   "task": "Count the blocks.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-7.png"
+     ],
+     "ask": "How many blocks long is the ruler?",
+     "stem": "The ruler is ___ blocks long.",
+     "options": [
+      "7",
+      "8",
+      "9"
+     ],
+     "answer": 1,
+     "askSay": "How many blocks long is the ruler?",
+     "askAudio": "q/p3-q.mp3",
+     "audio": "q/p3-a.mp3",
+     "word": "The ruler is eight blocks long."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 4,
+   "page": 59,
+   "task": "Which is longer?",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-7.png"
+     ],
+     "ask": "Which is longer, the scissors or the ruler?",
+     "stem": "The ___ is longer.",
+     "options": [
+      "scissors",
+      "ruler"
+     ],
+     "answer": 1,
+     "askSay": "Which is longer, the scissors or the ruler?",
+     "askAudio": "q/p4-q.mp3",
+     "audio": "q/p4-a.mp3",
+     "word": "The ruler is longer."
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "ex": 1,
+   "page": 59,
+   "task": "Which is longer?",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-6.png"
+     ],
+     "ask": "Which is longer, the yellow train or the black train?",
+     "stem": "The ___ train is longer.",
+     "options": [
+      "yellow",
+      "black"
+     ],
+     "answer": 0,
+     "askSay": "Which is longer, the yellow train or the black train?",
+     "askAudio": "q/p1-q.mp3",
+     "audio": "q/p1-a.mp3",
+     "word": "The yellow train is longer."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 2,
+   "page": 59,
+   "task": "Count the blocks.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-7.png"
+     ],
+     "ask": "How many blocks long is the scissors?",
+     "stem": "The scissors is ___ blocks long.",
+     "options": [
+      "6",
+      "7",
+      "8"
+     ],
+     "answer": 1,
+     "askSay": "How many blocks long is the scissors?",
+     "askAudio": "q/p2-q.mp3",
+     "audio": "q/p2-a.mp3",
+     "word": "The scissors is seven blocks long."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 3,
+   "page": 59,
+   "task": "Count the blocks.",
+   "taskAudio": "q/task-2.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-7.png"
+     ],
+     "ask": "How many blocks long is the ruler?",
+     "stem": "The ruler is ___ blocks long.",
+     "options": [
+      "7",
+      "8",
+      "9"
+     ],
+     "answer": 1,
+     "askSay": "How many blocks long is the ruler?",
+     "askAudio": "q/p3-q.mp3",
+     "audio": "q/p3-a.mp3",
+     "word": "The ruler is eight blocks long."
+    }
+   ],
+   "book": "booklet"
+  },
+  {
+   "type": "mcq",
+   "ex": 4,
+   "page": 59,
+   "task": "Which is longer?",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "story-7.png"
+     ],
+     "ask": "Which is longer, the scissors or the ruler?",
+     "stem": "The ___ is longer.",
+     "options": [
+      "scissors",
+      "ruler"
+     ],
+     "answer": 1,
+     "askSay": "Which is longer, the scissors or the ruler?",
+     "askAudio": "q/p4-q.mp3",
+     "audio": "q/p4-a.mp3",
+     "word": "The ruler is longer."
+    }
+   ],
+   "book": "booklet"
+  }
+ ]
+}
