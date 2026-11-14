@@ -1,0 +1,801 @@
+{
+ "id": "u2l2",
+ "unit": 2,
+ "lesson": 2,
+ "title": "أين هو؟",
+ "task": "أين هو؟",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz"
+ ],
+ "tabLabels": {
+  "read": "الدرس",
+  "quiz": "التدريب"
+ },
+ "pages": 8,
+ "pageNums": [
+  34,
+  34,
+  34,
+  34,
+  34,
+  35,
+  35,
+  35
+ ],
+ "layout": "explain",
+ "explain": {
+  "caption": false,
+  "wide": true,
+  "steps": [
+   {
+    "name": "الأرنب الثالث من الأعلى",
+    "beats": [
+     {
+      "say": "أين الأرنب؟ ننظر من الأعلى.",
+      "do": [
+       {
+        "scene": "line",
+        "items": [
+         "../../pics/turtle-green.png",
+         "../../pics/cat-gray.png",
+         "../../pics/rabbit-white.png",
+         "../../pics/frog.png"
+        ],
+        "vert": true,
+        "ends": [
+         "أعلى",
+         "أسفل"
+        ],
+        "wide": false
+       },
+       {
+        "frame": {
+         "box": [
+          404,
+          284,
+          596,
+          386
+         ],
+         "color": "blue",
+         "id": "t"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نبدأ العد من الأعلى.",
+      "do": [
+       {
+        "dir": "front"
+       },
+       {
+        "unring": "t"
+       }
+      ]
+     },
+     {
+      "say": "هيا نعد.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          345,
+          115
+         ],
+         [
+          345,
+          225
+         ],
+         [
+          345,
+          335
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "الأرنب هو الثالث من الأعلى.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          404,
+          284,
+          596,
+          386
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "الثالث",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "الأرنب الثاني من الأسفل",
+    "beats": [
+     {
+      "say": "أين الأرنب؟ ننظر من الأسفل.",
+      "do": [
+       {
+        "scene": "line",
+        "items": [
+         "../../pics/turtle-green.png",
+         "../../pics/cat-gray.png",
+         "../../pics/rabbit-white.png",
+         "../../pics/frog.png"
+        ],
+        "vert": true,
+        "ends": [
+         "أعلى",
+         "أسفل"
+        ],
+        "wide": false
+       },
+       {
+        "frame": {
+         "box": [
+          404,
+          284,
+          596,
+          386
+         ],
+         "color": "blue",
+         "id": "t"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نبدأ العد من الأسفل.",
+      "do": [
+       {
+        "dir": "back"
+       },
+       {
+        "unring": "t"
+       }
+      ]
+     },
+     {
+      "say": "هيا نعد.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          345,
+          445
+         ],
+         [
+          345,
+          335
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "الأرنب هو الثاني من الأسفل.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          404,
+          284,
+          596,
+          386
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "الثاني",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "الموز الثاني من الأعلى",
+    "beats": [
+     {
+      "say": "أين الموز؟ ننظر من الأعلى.",
+      "do": [
+       {
+        "scene": "line",
+        "items": [
+         "../../pics/apple-toon.png",
+         "../../pics/banana-u4l2.png",
+         "../../pics/grapes.png",
+         "../../pics/orange.png"
+        ],
+        "vert": true,
+        "ends": [
+         "أعلى",
+         "أسفل"
+        ],
+        "wide": false
+       },
+       {
+        "frame": {
+         "box": [
+          404,
+          174,
+          596,
+          276
+         ],
+         "color": "blue",
+         "id": "t"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نبدأ العد من الأعلى.",
+      "do": [
+       {
+        "dir": "front"
+       },
+       {
+        "unring": "t"
+       }
+      ]
+     },
+     {
+      "say": "هيا نعد.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          345,
+          115
+         ],
+         [
+          345,
+          225
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "الموز هو الثاني من الأعلى.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          404,
+          174,
+          596,
+          276
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "الثاني",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "البرتقالة الأولى من الأسفل",
+    "beats": [
+     {
+      "say": "أين البرتقالة؟ ننظر من الأسفل.",
+      "do": [
+       {
+        "scene": "line",
+        "items": [
+         "../../pics/apple-toon.png",
+         "../../pics/banana-u4l2.png",
+         "../../pics/grapes.png",
+         "../../pics/orange.png"
+        ],
+        "vert": true,
+        "ends": [
+         "أعلى",
+         "أسفل"
+        ],
+        "wide": false
+       },
+       {
+        "frame": {
+         "box": [
+          404,
+          394,
+          596,
+          496
+         ],
+         "color": "blue",
+         "id": "t"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نبدأ العد من الأسفل.",
+      "do": [
+       {
+        "dir": "back"
+       },
+       {
+        "unring": "t"
+       }
+      ]
+     },
+     {
+      "say": "هيا نعد.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          345,
+          445
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "البرتقالة هي الأولى من الأسفل.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          404,
+          394,
+          596,
+          496
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "الأولى",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "الطماطمة الثالثة من اليمين",
+    "beats": [
+     {
+      "say": "أين الطماطمة؟ ننظر من اليمين.",
+      "do": [
+       {
+        "scene": "line",
+        "items": [
+         "../../pics/pepper-green-bell.png",
+         "../../pics/tomato.png",
+         "../../pics/corn-cob.png",
+         "../../pics/onion-on-u5l3.png"
+        ],
+        "ends": [
+         "يسار",
+         "يمين"
+        ],
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          314,
+          16,
+          496,
+          232
+         ],
+         "color": "blue",
+         "id": "t"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نبدأ العد من اليمين.",
+      "do": [
+       {
+        "dir": "back"
+       },
+       {
+        "unring": "t"
+       }
+      ]
+     },
+     {
+      "say": "هيا نعد.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          785,
+          44
+         ],
+         [
+          595,
+          44
+         ],
+         [
+          405,
+          44
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "الطماطمة هي الثالثة من اليمين.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          314,
+          16,
+          496,
+          232
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "الثالثة",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "الطماطمة الثانية من الأعلى",
+    "beats": [
+     {
+      "say": "أين الطماطمة؟ ننظر من الأعلى.",
+      "do": [
+       {
+        "scene": "line",
+        "items": [
+         "../../pics/pepper-green-bell.png",
+         "../../pics/tomato.png",
+         "../../pics/eggplant-on-u5l3.png",
+         "../../pics/corn-cob.png"
+        ],
+        "vert": true,
+        "ends": [
+         "أعلى",
+         "أسفل"
+        ],
+        "wide": false
+       },
+       {
+        "frame": {
+         "box": [
+          404,
+          174,
+          596,
+          276
+         ],
+         "color": "blue",
+         "id": "t"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نبدأ العد من الأعلى.",
+      "do": [
+       {
+        "dir": "front"
+       },
+       {
+        "unring": "t"
+       }
+      ]
+     },
+     {
+      "say": "هيا نعد.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          345,
+          115
+         ],
+         [
+          345,
+          225
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "الطماطمة هي الثانية من الأعلى.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          404,
+          174,
+          596,
+          276
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "الثانية",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "الذرة الأولى من الأسفل",
+    "beats": [
+     {
+      "say": "أين الذرة؟ ننظر من الأسفل.",
+      "do": [
+       {
+        "scene": "line",
+        "items": [
+         "../../pics/pepper-green-bell.png",
+         "../../pics/tomato.png",
+         "../../pics/eggplant-on-u5l3.png",
+         "../../pics/corn-cob.png"
+        ],
+        "vert": true,
+        "ends": [
+         "أعلى",
+         "أسفل"
+        ],
+        "wide": false
+       },
+       {
+        "frame": {
+         "box": [
+          404,
+          394,
+          596,
+          496
+         ],
+         "color": "blue",
+         "id": "t"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نبدأ العد من الأسفل.",
+      "do": [
+       {
+        "dir": "back"
+       },
+       {
+        "unring": "t"
+       }
+      ]
+     },
+     {
+      "say": "هيا نعد.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          345,
+          445
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "الذرة هي الأولى من الأسفل.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          404,
+          394,
+          596,
+          496
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "الأولى",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "الضفدع الثالث من اليمين",
+    "beats": [
+     {
+      "say": "أين الضفدع؟ ننظر من اليمين.",
+      "do": [
+       {
+        "scene": "line",
+        "items": [
+         "../../pics/cat-gray.png",
+         "../../pics/frog.png",
+         "../../pics/elephant.png",
+         "../../pics/horse-brown.png"
+        ],
+        "ends": [
+         "يسار",
+         "يمين"
+        ],
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          314,
+          16,
+          496,
+          232
+         ],
+         "color": "blue",
+         "id": "t"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نبدأ العد من اليمين.",
+      "do": [
+       {
+        "dir": "back"
+       },
+       {
+        "unring": "t"
+       }
+      ]
+     },
+     {
+      "say": "هيا نعد.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          785,
+          44
+         ],
+         [
+          595,
+          44
+         ],
+         [
+          405,
+          44
+         ]
+        ],
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "الضفدع هو الثالث من اليمين.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          314,
+          16,
+          496,
+          232
+         ],
+         "color": "orange",
+         "id": "fr"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "الثالث",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   }
+  ],
+  "rtl": true,
+  "lang": "ar"
+ }
+}

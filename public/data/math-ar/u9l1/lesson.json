@@ -1,0 +1,242 @@
+{
+ "id": "u9l1",
+ "unit": 9,
+ "lesson": 1,
+ "title": "جمع ثلاثة أعداد",
+ "task": "جمع ثلاثة أعداد",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz",
+  "workbook"
+ ],
+ "tabLabels": {
+  "read": "الدرس",
+  "quiz": "التدريب",
+  "workbook": "الأداءات"
+ },
+ "pages": 3,
+ "pageNums": [
+  88,
+  88,
+  88
+ ],
+ "layout": "explain",
+ "explain": {
+  "caption": false,
+  "steps": [
+   {
+    "name": "3 + 4 + 1",
+    "beats": [
+     {
+      "say": "ثلاثة زائد أربعة زائد واحد. نبدأ من اليمين.",
+      "do": [
+       {
+        "scene": "line",
+        "n": 8,
+        "unit": "../../pics/apple-toon.png",
+        "ends": [
+         "",
+         ""
+        ],
+        "wide": true
+       }
+      ]
+     },
+     {
+      "say": "ثلاثة زائد أربعة يساوي سبعة.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          114,
+          40,
+          791,
+          214
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "3 + 4 = 7",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "سبعة زائد واحد يساوي ثمانية.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          779,
+          40,
+          886,
+          214
+         ],
+         "color": "blue"
+        }
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "7 + 1 = 8",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "3 + 2 + 4",
+    "beats": [
+     {
+      "say": "ثلاثة زائد اثنين زائد أربعة. نبدأ من اليمين.",
+      "do": [
+       {
+        "scene": "line",
+        "n": 9,
+        "unit": "../../pics/apple-toon.png",
+        "ends": [
+         "",
+         ""
+        ],
+        "wide": true
+       }
+      ]
+     },
+     {
+      "say": "ثلاثة زائد اثنين يساوي خمسة.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          114,
+          40,
+          548,
+          214
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "3 + 2 = 5",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "خمسة زائد أربعة يساوي تسعة.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          536,
+          40,
+          886,
+          214
+         ],
+         "color": "blue"
+        }
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "5 + 4 = 9",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "5 + 3 + 2",
+    "beats": [
+     {
+      "say": "خمسة زائد ثلاثة زائد اثنين. نبدأ من اليمين.",
+      "do": [
+       {
+        "scene": "line",
+        "n": 10,
+        "unit": "../../pics/apple-toon.png",
+        "ends": [
+         "",
+         ""
+        ],
+        "wide": true
+       }
+      ]
+     },
+     {
+      "say": "خمسة زائد ثلاثة يساوي ثمانية.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          114,
+          40,
+          734,
+          214
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "5 + 3 = 8",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "ثمانية زائد اثنين يساوي عشرة.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          722,
+          40,
+          886,
+          214
+         ],
+         "color": "blue"
+        }
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "8 + 2 = 10",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   }
+  ],
+  "rtl": true,
+  "lang": "ar"
+ }
+}

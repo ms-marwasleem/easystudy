@@ -9,18 +9,21 @@ const LOCK=`<svg viewBox="0 0 60 68" aria-hidden="true">${PADLOCK}</svg>`;
 const CHAINLOCK=`<svg class="uchain" viewBox="0 0 100 100" aria-hidden="true">
   ${[0,1,2,3,4,5,6,7].map(k=>{ const h=k%2===0, x=9+k*11.7, w=h?15:8, hh=h?9:13; return `<rect x="${(x-w/2).toFixed(1)}" y="${(74-hh/2).toFixed(1)}" width="${w}" height="${hh}" rx="4" fill="none" stroke="var(--btn-ol)" stroke-width="6.500"/><rect x="${(x-w/2).toFixed(1)}" y="${(74-hh/2).toFixed(1)}" width="${w}" height="${hh}" rx="4" fill="none" stroke="var(--lock-metal)" stroke-width="3.200"/><path d="M${(x-w/2+2).toFixed(1)} ${(74-hh/2).toFixed(1)}h${(w*.4).toFixed(1)}" stroke="#fff" stroke-width="1.200" stroke-linecap="round" opacity=".9"/>`; }).join('')}
   <g transform="translate(26 44) scale(.8)">${PADLOCK}</g></svg>`;
+/* map label of an Arabic letter lesson: the letter itself ("ف" instead of "حرف الفاء"), for kids. Display only; the lesson title elsewhere is unchanged. */
+const LETTER_NAMES={'الباء':'ب','اللام':'ل','السين':'س','النون':'ن','الراء':'ر','الفاء':'ف','الكاف':'ك','القاف':'ق','الياء':'ي','العين':'ع','الشين':'ش','الواو':'و','الهاء':'ه','الذال':'ذ','الظاء':'ظ','الزاي':'ز','الطاء':'ط','الصاد':'ص','الضاد':'ض','الثاء':'ث','الغين':'غ'};
+function mapName(t){ const m=/^حرف\s+(\S+)$/.exec((t||'').trim()); return m?(LETTER_NAMES[m[1]]||m[1]):t; }
 function unitBox(u,st){
   const b=(SUBJECT&&SUBJECT.book)||'blue';
   return `<div class="ubox ${st}"><img src="data/books/${b}.png" width="352" height="364" alt="" draggable="false">${u.label?`<b class="gt${/[\u0600-\u06FF]/.test(u.label)?' ar':''} lab"><span>${u.label}</span></b>`:`<b class="gt${isAr()?' ar':''}"><small>${GT(tr('Unit'))}</small><span class="n">${num(u.unit)}</span></b>`}${st==='locked'?CHAINLOCK:st==='soon'?`<span class="usoon">${tr('Soon')}</span>`:''}</div>`;
 }
 function mkLesson(m,nextL,isCur,isLast,st,coins,lockUnit){
   st=st||(m.file?'open':'soon'); const open=st==='open', n=lessonStars(m.id);
-  const s=el('div','jl '+st+(isCur?' cur':'')+(m.testsOnly?' to':'')); s.dataset.stars=n; s.dataset.touched=lessonTouched(m)?1:0; s.dataset.name=m.title||m.planned||'';
+  const s=el('div','jl '+st+(isCur?' cur':'')+(m.testsOnly?' to':'')); s.dataset.stars=n; s.dataset.touched=lessonTouched(m)?1:0; s.dataset.name=mapName(m.title||m.planned||'');
   // the lesson sits on the road: a round badge with its number, the stars above it, the name in a pill across its bottom edge.
   // 'soon' = faded + "Soon" pill, 'locked' = the chunky padlock on the badge. From an open lesson its pages stand beside the road as little signs.
   s.innerHTML=`<div class="jbox">`+(st!=='soon'?`<span class="js">${Array.from({length:lessonParts(m)},(_,k)=>`<span>${STAR(k<n)}</span>`).join('')}</span>`:`<span class="jsoon">${tr('Soon')}</span>`)+
     `<button class="jcard" aria-label="${open?`Lesson ${m.lesson} ${m.title}`:`Lesson ${m.lesson} ${st}`}"><b class="jn${/-/.test(m.lesson)?' two':''}">${/review|revision|مراجعة/i.test(m.title||m.planned||'')?'R':num(m.lesson)}</b>${st==='locked'?`<span class="jlock">${LOCK}</span>`:''}</button>`+
-    (st==='soon'?`<span class="jt soon gt${isAr()?' ar':''}">${GT(m.title||m.planned||tr('Soon'))}</span>`:`<span class="jt gt${isAr()?' ar':''}">${GT(m.title)}</span>`)+`</div>`+
+    (st==='soon'?`<span class="jt soon gt${isAr()?' ar':''}">${GT(mapName(m.title||m.planned||tr('Soon')))}</span>`:`<span class="jt gt${isAr()?' ar':''}">${GT(mapName(m.title))}</span>`)+`</div>`+
     (open&&typeof bookSides==='function'?bookSides(m,nextL):'');
   if(isLast) s.classList.add('last');
   $('.jbox',s).addEventListener('click',()=>{   // the whole box (number, stars, name) opens the lesson
@@ -173,7 +176,7 @@ function placeCar(i, drive){
     G.to('.jl.cur .jcard',{scale:1.07,duration:.7,yoyo:true,repeat:-1,ease:'sine.inOut',delay:1});
   }
 }
-function openMap(){
+function openMap(){ stopVoice();
   if(!SUBJECT) SUBJECT=COURSE.subjects.find(s=>s.open);
   stopAll(); vStop(); clearMarks(); show('map');
   drawMap(); showHint($(mapView()==='grid'?'.gl.cur .jcard':'.jl.cur .jcard'),isAr()?'اضغط هنا لتبدأ!':COURSE.hints.map,1500,'map');
@@ -225,7 +228,7 @@ async function openLesson(m){
   $('#lessonMeta').textContent=`${SUBJECT.name} · ${tr(COURSE.grade)} · ${tr(COURSE.term)}`;
   $('#lessonTitle').textContent=isAr()?`${LESSON.unitLabel||`${tr('Unit')} ${num(LESSON.unit)}`} · ${tr('Lesson')} ${num(LESSON.lesson)} · ${LESSON.title}`:`Unit ${LESSON.unit} · Lesson ${LESSON.lesson} · ${LESSON.title}`;
   $('#stage').style.setProperty('--scene',`url("${new URL(LESSON.scene,location.href).href}")`);   // full address: css files live in css/
-  switchTab(LESSON.tabs?LESSON.tabs[0]:'read'); fitTitle(); if(tab==='read'&&($('.scene.story')||(nPages()>1&&$('.scene')))&&LESSON.audio) setTimeout(()=>{ if(tab==='read'&&LESSON&&LESSON.id===m.id&&!rd.playing&&!player.run&&($('.scene.story')||(nPages()>1&&$('.scene')))){ const [ps,pe]=pageSpan(); playFrom(ps,pe,true,true); } },350);   // opening the lesson starts the story by itself
+  switchTab(LESSON.tabs?LESSON.tabs[0]:'read'); fitTitle();   // (the Lesson tab reads by itself: switchTab -> readAuto)
   if(!LESSON.tabs&&typeof qLoad==='function') qLoad().then(()=>{ if(LESSON&&LESSON.id===m.id) paintTabs(); }); pop('.l-head > *',{y:-20}); pop('.tabs .tab',{y:30,delay:.1});
 }
 
@@ -267,9 +270,9 @@ function ensureAudio(){
 const factor=()=>rd.slow?1/(LESSON.audio.slowRate||.75):1;
 function now(){ return player.run?player.startT+Math.max(0,player.ctx.currentTime-player.startCtx)/factor():player.pos; }
 function halt(){ if(player.src){ player.src.onended=null; try{player.src.stop();}catch(e){} player.src=null; } }
-async function playFrom(t,stopAt=null,full=stopAt==null,auto=false){
+async function playFrom(t,stopAt=null,full=stopAt==null,auto=false,quiet=false){
   rd.halted=false; hideHint(); if(typeof vStop==='function') vStop(); halt(); player.run=false; clearTimeout(rd.autoT); rd.auto=auto; rd.stopAt=stopAt; rd.playing=full; rd.full=full; readRail();
-  try{ await ensureAudio(); }catch(e){ rd.playing=false; readRail(); if(LESSON.layout==='poem'||LESSON.pageAudio) showHint($('#rail .dash.go .rb'),LESSON.pageAudio?'لسه مفيش تسجيل':'لسه مفيش تسجيل للنشيد',60,'norec'+Date.now()); return; }   // an empty recording slot: say so
+  try{ await ensureAudio(); }catch(e){ rd.playing=false; readRail(); if(!quiet&&(LESSON.layout==='poem'||LESSON.pageAudio)) showHint($('#rail .dash.go .rb'),LESSON.pageAudio?'لسه مفيش تسجيل':'لسه مفيش تسجيل للنشيد',60,'norec'+Date.now()); return; }   // an empty recording slot: say so
   const f=factor(), src=player.ctx.createBufferSource(), rate=rd.slow&&!player.bufs.s; src.buffer=rd.slow&&player.bufs.s?player.bufs.s:player.bufs.n; if(rate) src.playbackRate.value=1/f; src.connect(player.ctx.destination);   // rate: no slow recording = the normal one slowed down
   const o=rate?t:t*f, dur=stopAt!=null?Math.max(.05,(stopAt-t)*f):undefined; const lead=.12, at=player.ctx.currentTime+lead; dur!=null?src.start(at,o,rate&&dur!=null?(stopAt-t):dur):src.start(at,o);
   player.src=src; player.run=true; player.startCtx=at; player.startT=t;
@@ -277,7 +280,7 @@ async function playFrom(t,stopAt=null,full=stopAt==null,auto=false){
   startLoop();
 }
 function pausePlay(){ rd.auto=false; clearTimeout(rd.autoT); if(!player.run) return; player.pos=now(); halt(); player.run=false; rd.playing=false; cancelAnimationFrame(rd.raf); carDrive(false); }
-function stopAll(){ rd.auto=false; clearTimeout(rd.autoT); halt(); player.run=false; player.pos=0; rd.stopAt=null; rd.playing=false; rd.full=false; cancelAnimationFrame(rd.raf); carDrive(false); }
+function stopAll(){ rd.autoGen=(rd.autoGen||0)+1; rd.auto=false; clearTimeout(rd.autoT); halt(); player.run=false; player.pos=0; rd.stopAt=null; rd.playing=false; rd.full=false; cancelAnimationFrame(rd.raf); carDrive(false); }
 
 const trackCar=$('#trackCar'); putCar(trackCar);
 let spin=null;
@@ -328,7 +331,7 @@ function paintTabs(){ $$('.tab').forEach(b=>{ const [l0,ic]=TABS[b.dataset.tab],
 // a default lesson shows Booklet / PTS only when it has that book (its pages in subject.json, or questions of that book)
 function hasBook(k){ const m=SUBJECT&&LESSON&&SUBJECT.lessons.find(l=>l.id===LESSON.id); return !!(m&&m.pages&&[].concat(m.pages[k]||[]).length)||!!(qz.sets&&qz.file&&LESSON&&qz.file.includes('/'+(m&&m.folder)+'/')&&qz.all.some(q=>qSrcOf(q.set)===k)); }
 function setRail(items){ rail.innerHTML=''; items.forEach(it=>{ const b=el('button','dash '+it.kind+(it.on?' on':'')+(it.icon==='restart'?' ln':''),`<span class="rb${it.kind==='tool'?' tgear':''}">${it.kind==='tool'?toolLabel(LESSON.tool):ICON[it.icon]}</span><span>${it.label}</span>`); b.addEventListener('click',it.click); rail.append(b); }); }
-function switchTab(t,at){ setLook(t); if(typeof WP!=='undefined'&&WP.saved) wpClose(); stopVoice(); { const r=$('#lmeta .lm-r'); if(r) r.innerHTML=''; } hideHint(); $('#lesson').classList.remove('vtab','qtab','story','poem'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); lnavPaint(); carAt(0); (t==='booklet'||t==='workbook'||t==='read'&&isAL())?showQuiz(at):t==='grammar'?showGrammar():t==='read'?showRead():t==='words'&&LESSON.vocab?showWords():t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); }
+function switchTab(t,at){ setLook(t); if(typeof WP!=='undefined'&&WP.saved) wpClose(); stopVoice(); { const r=$('#lmeta .lm-r'); if(r) r.innerHTML=''; } hideHint(); $('#lesson').classList.remove('vtab','qtab','story','poem'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); lnavPaint(); carAt(0); (t==='booklet'||t==='workbook'||t==='read'&&isAL())?showQuiz(at):t==='grammar'?showGrammar():t==='read'?showRead():t==='words'&&LESSON.vocab?showWords():t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); if(t==='read') readAuto(); }
 $$('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
 
 // default speed: always normal; a child's own choice per page wins
@@ -347,11 +350,17 @@ function showRead(){
   const pl=(LESSON.pageLayouts||[])[rd.page-1];   // optional per page: a name from the LT registry (below)
   const m=LT[pl]||LT[LESSON.layout]; return (m?m.show:showStory)();   // stories and dialogs: picture as the background, words on a soft panel (below)
 }
+// EVERY page of a reading / nasheed lesson reads by itself (Ahmed 2026-11-13): opening the lesson, coming back to the Lesson tab, any new page (one slide or many).
+// Only the pages that have their own player (letter chant / cards, math, explain, nahw) start their own sound. whenSound (core.js) waits for the first tap if the browser has not allowed sound yet.
+const OWNPLAYER=()=>isAL()||LESSON.type==='letter'||LESSON.type==='math'||['explain','nahw'].includes(LESSON.layout);
+function readAuto(){ if(!LESSON||!LESSON.audio||OWNPLAYER()) return; const id=LESSON.id, pg=rd.page, g=rd.autoGen=(rd.autoGen||0)+1;
+  whenSound(()=>setTimeout(()=>{ if(!LESSON||LESSON.id!==id||tab!=='read'||rd.page!==pg||rd.autoGen!==g||rd.playing||player.run||$('#lesson').hidden||!$('.scene')) return;
+    if(nPages()>1&&!LESSON.lines.some(l=>l.page===rd.page)) return; const [ps,pe]=pageSpan(); playFrom(ps,pe,true,true,true); },350)); }
 // pages of one lesson: a swipe / drag left or right, the dots above the tabs, or a dot tap. A new page ALWAYS starts reading by itself (Marwa 2026-11-01).
 const isStoryPage=p=>{ const m=LT[(LESSON.pageLayouts||[])[p-1]]||LT[LESSON.layout]||LT[LESSON.type]; return !m||m.story; };
-function readGo(d,auto){ const np=nPages(), to=rd.page+d; if(to<1||to>np) return; if(!auto) rd.hold=rd.halted; if($('.scene.story:not(.point)')&&isStoryPage(to)) return storyGo(d,auto);
+function readGo(d,auto){ const np=nPages(), to=rd.page+d; if(to<1||to>np) return; if($('.scene.story:not(.point)')&&isStoryPage(to)) return storyGo(d,auto);
   if(!auto) stopVoice(); clearMarks(); rd.page=to; lnavPaint(); showRead(); carAt(pageSpan()[0]);
-  if(LESSON.lines.some(l=>l.page===rd.page)&&!(rd.hold&&!auto)){ const [ps,pe]=pageSpan(); playFrom(ps,pe,true,!!auto); } rd.halted=!auto&&!!rd.hold; }   // (the child stopped the sound before moving = it stays quiet, never restarts by itself) a new page ALWAYS starts reading by itself (Marwa 2026-11-01); the child's own move reads that page only, the automatic run goes on to the next
+  if(LESSON.lines.some(l=>l.page===rd.page)){ const [ps,pe]=pageSpan(); playFrom(ps,pe,true,!!auto); } }   // a new page ALWAYS starts reading by itself (Marwa 2026-11-01, Ahmed 2026-11-13: even after a Stop); the child's own move reads that page only, the automatic run goes on to the next
 function readPager(){}   // swipe itself = the shared pager in book.js
 
 /* ---------- STORY / DIALOG lessons (the default Lesson tab) ----------
@@ -492,7 +501,7 @@ function storyGo(d,auto){
     else bg.style.backgroundImage=cssUrl(u);
   }
   readRail();
-  if(LESSON.lines.some(l=>l.page===rd.page)&&!(rd.hold&&!auto)){ const [ps,pe]=pageSpan(); playFrom(ps,pe,true,!!auto); } rd.halted=!auto&&!!rd.hold;   // same rule: every new page reads by itself
+  if(LESSON.lines.some(l=>l.page===rd.page)){ const [ps,pe]=pageSpan(); playFrom(ps,pe,true,!!auto); }   // same rule: every new page reads by itself
 }
 // swipe / drag left or right = ONE shared pager in book.js (whole page area); no per-screen swipe code
 // the unit / lesson / name line is ONE line always: the letters shrink until it fits
@@ -798,7 +807,7 @@ const sayWord=v=>v.audio&&v.audio.word?playFile(v.audio.word):v.clip?playClip(v.
 // LETTER-WORDS component (letter lessons): each word has v.har (fatha|damma|kasra|sukoon). Beside the word sits the haraka boy (library ar-boy-<har>);
 // saying the word first says the letter's name and the haraka's name ("ألف، فتحة"), then the word. Recordings: letter.nameAudio + data/arabic/shared/h-<har>.mp3.
 const letterWords=()=>LESSON.type==='letter'&&LESSON.vocab.some(v=>v.har);
-const sayHead=async v=>{ if(letterWords()&&v.har){ if(LESSON.letter&&LESSON.letter.nameAudio) await playFile(LESSON.base+LESSON.letter.nameAudio); await playFile(LESSON.base+'../shared/k-h-'+v.har+'.mp3'); await nap(250); } return sayWord(v); };
+const sayHead=async v=>{ if(letterWords()&&v.har){ const vr=vs.run; if(LESSON.letter&&LESSON.letter.nameAudio) await playFile(LESSON.base+LESSON.letter.nameAudio); if(vr!==vs.run) return; await playFile(LESSON.base+'../shared/k-h-'+v.har+'.mp3'); if(vr!==vs.run) return; await nap(250); if(vr!==vs.run) return; } return sayWord(v); };
 // the whole word said after its parts (her second take sounds natural there); falls back to the first take
 const sayWordAgain=v=>v.audio&&v.audio.again?playFile(v.audio.again):sayWord(v);
 const sayAr=v=>v.audio&&v.audio.ar?playFile(v.audio.ar):tts(v.ar,'ar',.85);
@@ -1107,7 +1116,7 @@ async function qLoad(){
   qz.all=[]; qz.sets.forEach((s,si)=>{ s.taskSrc=Array.isArray(s.taskAudio)?s.taskAudio.map(R):R(s.taskAudio);   // taskAudio: one file, or a list played in order (prompt + letter name)
    
     if(s.type==='link') s.items.forEach(it=>{ it.answer=true; it.fullSrc=[].concat(it.full||[]).map(R); });
-    if((QM[s.type]||{}).sheet==='board'){ s.centerSrc=R(s.centerAudio); s.items.forEach(it=>{ it.src=Array.isArray(it.audio)?it.audio.map(R):R(it.audio); it.src2=it.audio2?R(it.audio2):it.src; it.picSrc=R(it.pic); it.wpicSrc=it.wpic?R(it.wpic):''; if(it.dots&&typeof mDots==='function') it.picSrc=mDots(it.dots); });
+    if((QM[s.type]||{}).sheet==='board'){ s.centerSrc=R(s.centerAudio); s.items.forEach(it=>{ it.src=Array.isArray(it.audio)?it.audio.map(R):R(it.audio); it.src2=it.audio2?R(it.audio2):it.src; it.psrc=it.paudio?R(it.paudio):''; it.picSrc=R(it.pic); it.wpicSrc=it.wpic?R(it.wpic):''; if(it.dots&&typeof mDots==='function') it.picSrc=mDots(it.dots); });
       if(s.type==='circle'&&s.shuffle&&!s._sh){ s._sh=1; const ps=s.items.map(it=>it.pos); for(let t=0;t<20;t++){ ps.sort(()=>Math.random()-.5); if(ps.some((p,k)=>p!==s.items[k].pos)) break; } s.items.forEach((it,k)=>it.pos=ps[k]); }   // "shuffle": the options swap their places (the book order is not kept)
       if(s.type==='circle'&&s.center&&!s.centerAt&&s.items.length>=7&&s.items.every(it=>!it.pos)){ const T=s.items.length+1, rows=Math.ceil(T/3), mr=Math.floor(rows/2), mid=mr*3+1; let cell=0; s.items.forEach(it=>{ if(cell===mid) cell++; it.pos=[(cell%3+.5)*100/3,(Math.floor(cell/3)+.5)*100/rows]; cell++; }); s._cAt=[50,(mr+.5)*100/rows]; }   // a letter in the middle of 7+ pictures with no "pos": the letter takes the middle cell of the grid, the pictures the other cells (never on the letter)
       if(s.type==='circle') s.items.forEach((it,k)=>{ if(!it.pos){ const n=s.items.length, cols=3, rows=Math.ceil(n/cols), r=Math.floor(k/cols), c=k%cols, inRow=Math.min(cols,n-r*cols);
@@ -1281,7 +1290,7 @@ function qLines(fresh){ const bd=$('.qboard'); if(!bd||$('.quiz').dataset.type!=
 function qStar(){ const d=$(`.qdots i[data-i="${qz.i}"]`); if(d){ d.innerHTML=STAR(true); d.classList.add('got'); if(anim) G.fromTo(d,{scale:1.8},{scale:1,duration:.6,ease:'elastic.out(1.2,.4)'}); } carFrac((qz.i+1)/qz.list.length); }
 const qCross=b=>{ const m=$('.qmark',b); if(!m) return; m.className='qmark bad'; m.innerHTML=Q_CROSS; setTimeout(()=>{ m.className='qmark'; m.innerHTML=''; },700); };   // a wrong picture: a red cross for a moment
 function qBad(b){ tone(170,'square',.06,.18); if(anim) G.fromTo(b,{x:-9},{x:0,duration:.5,ease:'elastic.out(1.5,.25)'}); }
-function qSound(src,text){ vStop(); if(Array.isArray(src)) return src.reduce((p,f)=>p.then(()=>playFile(f)),Promise.resolve()).catch(()=>{}); return (src?playFile(src).catch(()=>tts(text,isAr()?'ar':'en',.75)):tts(text,isAr()?'ar':'en',.75)).catch(()=>{}); }
+function qSound(src,text){ vStop(); if(Array.isArray(src)){ const vr=vs.run; return src.reduce((p,f)=>p.then(()=>{ if(vr===vs.run) return playFile(f); }),Promise.resolve()).catch(()=>{}); } return (src?playFile(src).catch(()=>tts(text,isAr()?'ar':'en',.75)):tts(text,isAr()?'ar':'en',.75)).catch(()=>{}); }
 async function qMatch(btn,it,s){
   if(qz.busy) return; hideHint();
   if(btn.classList.contains('done')) return s.silent?null:qSound(it.src,it.word);
@@ -1341,7 +1350,7 @@ function qTask(){ const q=qz.list[qz.i]; if(!q) return Promise.resolve(); vStop(
   const done=()=>{ const x=$('.qtask'); if(x) x.classList.remove('lit'); };
   const ts=q.set.taskSrc, fb=()=>tts(q.set.task,isAr()?'ar':'en',.85);
   if(!ts) return fb().then(done,done);   // no task recording: never ask for a file called "undefined"
-  const play=Array.isArray(ts)?ts.reduce((p,u,k)=>p.then(()=>{ if(qz.list[qz.i]!==q) return; return (k?new Promise(r=>setTimeout(r,120)):Promise.resolve()).then(()=>playFile(u)); }),Promise.resolve()):playFile(ts);
+  const vr=vs.run, play=Array.isArray(ts)?ts.reduce((p,u,k)=>p.then(()=>{ if(qz.list[qz.i]!==q||vr!==vs.run) return; return (k?new Promise(r=>setTimeout(r,120)):Promise.resolve()).then(()=>playFile(u)); }),Promise.resolve()):playFile(ts);
   return play.catch(fb).then(done,done); }
 function qStamp(pic,cross){
   const m=$('.qmark',pic); m.className='qmark good'; m.innerHTML=cross?Q_CROSS:Q_TICK;
@@ -1388,14 +1397,14 @@ function qLinkBoard(w,s,play,run){
   ord.forEach(k=>{ const it=s.items[k], b=el('button','qlk qlkp'+(it.picSrc?'':' tx'),it.picSrc?`<img src="${it.picSrc}" alt="" draggable="false">`:`<b>${it.text2}</b>`); b.dataset.k=k; b.setAttribute('aria-label',it.picSrc?'Picture':it.text2); pc.append(b); });   // "text2": a word to join instead of a picture
   const svg=document.createElementNS('http://www.w3.org/2000/svg','svg'); svg.setAttribute('class','qlsvg');
   bd.append(wd,pc,svg); play.append(bd);
-  s.items.forEach(it=>[it.src,it.src2,...(it.fullSrc||[])].flat().forEach(f=>warmFile(f)));   // every sound of the board is ready before the first join
+  s.items.forEach(it=>[it.src,it.src2,it.psrc,...(it.fullSrc||[])].flat().filter(Boolean).forEach(f=>warmFile(f)));   // every sound of the board is ready before the first join
   let drag=null, sel=null; const rel=(x,y)=>{ const B=bd.getBoundingClientRect(); return [x-B.left,y-B.top]; };
   const kind=b=>b.classList.contains('qlkw')?'w':'p';
   const tmp=()=>{ let l=$('.qtmp',svg); if(!l){ l=document.createElementNS('http://www.w3.org/2000/svg','line'); l.setAttribute('class','qtmp'); svg.append(l); } return l; };
   const clearSel=()=>{ if(sel){ sel.classList.remove('sel'); sel=null; } };
   bd.addEventListener('pointerdown',e=>{ const b=e.target.closest('.qlk'); if(!b||qz.busy) return; e.preventDefault(); hideHint();
     const it=s.items[+b.dataset.k];
-    if(b.classList.contains('done')){ if(kind(b)==='w'||b.classList.contains('tx')) qLinkSay(it); return; }
+    if(b.classList.contains('done')){ if(kind(b)==='w'||b.classList.contains('tx')) qLinkSay(it); else if(it.psrc) qSound(it.psrc,''); return; }
     drag={b,x:e.clientX,y:e.clientY,moved:false}; try{ bd.setPointerCapture(e.pointerId); }catch(_){} });
   bd.addEventListener('pointermove',e=>{ if(!drag) return;
     if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)<10) return; drag.moved=true;
@@ -1408,7 +1417,7 @@ function qLinkBoard(w,s,play,run){
     if(e.type==='pointercancel') return;
     if(d.moved){ clearSel(); if(tb&&tb!==d.b&&kind(tb)!==kind(d.b)&&!tb.classList.contains('done')) qLinkTry(bd,s,d.b,tb,run); return; }
     // a tap: pick it up (a word also says itself), or join it to the one picked before
-    if(kind(d.b)==='w'){ const it=s.items[+d.b.dataset.k]; qSound(it.src,it.word); } else if(d.b.classList.contains('tx')){ const it=s.items[+d.b.dataset.k]; qSound(it.src2||it.src,it.text2); }
+    if(kind(d.b)==='w'){ const it=s.items[+d.b.dataset.k]; qSound(it.src,it.word); } else if(s.items[+d.b.dataset.k].psrc&&!d.b.classList.contains('tx')){ const it=s.items[+d.b.dataset.k]; qSound(it.psrc,''); } else if(d.b.classList.contains('tx')){ const it=s.items[+d.b.dataset.k]; qSound(it.src2||it.src,it.text2); }
     if(sel&&sel!==d.b&&kind(sel)!==kind(d.b)){ const a=sel; clearSel(); qLinkTry(bd,s,a,d.b,run); return; }
     if(sel===d.b){ clearSel(); return; }
     clearSel(); sel=d.b; d.b.classList.add('sel'); };
@@ -1441,7 +1450,7 @@ function qLinkRefresh(land){ const bd=$('.qlink'); if(!bd) return; const s=bd._s
   for(let k=0;k<30&&fs>10;k++){ const bad=$$('.qlkw,.qlkp.tx',bd).some(bx=>{ const b=$('b',bx); return b&&(b.scrollWidth>bx.clientWidth-parseFloat(getComputedStyle(bx).paddingLeft)-parseFloat(getComputedStyle(bx).paddingRight)+1||b.getBoundingClientRect().bottom>bd.getBoundingClientRect().bottom+1||(sent&&bx.offsetHeight>B.height/n*.96)); }); if(!bad) break; fs-=1; bd.style.setProperty('--fs',fs+'px'); }
   qLinkLines(); }
 /* what a joined pair says: "full" (whole phrase) if given; else, when the partner has its own recording ("audio2"), the word then the partner; else the word */
-async function qLinkSay(it){ vStop(); if(it.fullSrc&&it.fullSrc.length){ for(const f of it.fullSrc){ try{ await playFile(f); }catch(_){} } return; } if(it.text2&&it.audio2&&it.src2&&it.src2!==it.src){ for(const f of [it.src,it.src2]){ try{ await playFile(f); }catch(_){} } return; } return qSound(it.src,it.word); }
+async function qLinkSay(it){ vStop(); const vr=vs.run; if(it.psrc){ for(const f of [it.src,it.psrc]){ if(vr!==vs.run) return; try{ await playFile(f); }catch(_){} } return; }   /* "paudio" = the picture's own word: a right join says the letter (with its harakah) then that word */ if(it.fullSrc&&it.fullSrc.length){ for(const f of it.fullSrc){ if(vr!==vs.run) return; try{ await playFile(f); }catch(_){} } return; } if(it.text2&&it.audio2&&it.src2&&it.src2!==it.src){ for(const f of [it.src,it.src2]){ if(vr!==vs.run) return; try{ await playFile(f); }catch(_){} } return; } return qSound(it.src,it.word); }
 async function qLinkTry(bd,s,a,b){
   const run=qz.run;   // the board is kept from pair to pair, so it must use the question running NOW, not the one it was built in
   const wb=a.classList.contains('qlkw')?a:b, pb=wb===a?b:a, it=s.items[+wb.dataset.k];
@@ -1518,16 +1527,16 @@ function lMark(p,k,card){
   if([...Array(lCount(p)).keys()].every(i=>h[p+':'+i])){ rd.done[p]=1; if(Object.keys(rd.done).length>=nPages()) award(LESSON.id,'read'); }
 }
 // url = one file or a list said one after the other
-const lPlay=async(url,btn)=>{ vStop(); const run=++lt.run; if(btn){ btn.classList.add('on'); }
-  for(const u of [].concat(url||[])){ if(run!==lt.run) break; try{ await playFile(u); }catch(e){} if(run===lt.run&&u!==[].concat(url).slice(-1)[0]) await new Promise(r=>setTimeout(r,120)); }
-  if(btn&&run===lt.run) btn.classList.remove('on'); };
+const lPlay=async(url,btn)=>{ vStop(); const run=++lt.run, vr=vs.run; if(btn){ btn.classList.add('on'); }   // vr: any other stop of the sound (another tab, the map) ends the list too
+  for(const u of [].concat(url||[])){ if(run!==lt.run||vr!==vs.run) break; try{ await playFile(u); }catch(e){} if(run===lt.run&&vr===vs.run&&u!==[].concat(url).slice(-1)[0]) await new Promise(r=>setTimeout(r,120)); }
+  if(btn) btn.classList.remove('on'); };   // (a card whose sound was cut by another card or a tab must not stay lit)
 function showLetter(){
   const Lt=LESSON.letter, pg=rd.page-lOff(), h=lHeard();
   if(pg<1) return showChant();
   stage.innerHTML=''; rd.words=[]; rd.lineEls=[]; rd.spotEls=[]; lt.run++;
   const scene=el('div','scene pics letter p'+pg), grid=el('div','lgrid p'+pg); grid.dir='rtl';
   scene.append(el('p','task',STAR(true)+Lt.tasks[pg-1]),grid);
-  const card=(cls,k,html,fn)=>{ const b=el('button','lcard '+cls+(h[pg+':'+k]?' heard':''),html+`<span class="lst">${STAR(true)}</span>`); b.addEventListener('click',()=>fn(b)); grid.append(b); return b; };
+  const card=(cls,k,html,fn)=>{ const b=el('button','lcard '+cls+(h[pg+':'+k]?' heard':''),html+`<span class="lst">${STAR(true)}</span>`); b.addEventListener('click',()=>fn(b)); b._play=()=>fn(b); grid.append(b); return b; };
   if(pg===1){
     const say=el('button','lspk',SAY_LN); say.setAttribute('aria-label','Listen'); say.onclick=()=>lPlay(Lt.nameAudio,say);
     grid.append(el('div','lhead',`<img src="${Lt.pic}" alt="">`)); $('.lhead',grid).append(say,el('b','lbig',Lt.ch)); $('.lhead',grid).style.direction='ltr';
@@ -1538,11 +1547,15 @@ function showLetter(){
   readPager(scene); stage.append(scene);
   setRail([{kind:'go',icon:'play',label:tr('Listen'),click:lAll}]);
   if(typeof bookTag==='function') bookTag(); showHint($('#rail .dash.go .rb'),LESSON.hints&&LESSON.hints.read,1400,'read');
-  if(lt.auto){ lt.auto=0; setTimeout(()=>{ if(tab==='read') lAll(); },500); }
+  letterAuto();   // every page plays by itself, card after card (Ahmed 2026-11-13)
 }
+// automatic start of a page: only if nothing else started meanwhile (a tap, another page, the map): lt.run / rd.autoGen say so
+function letterAuto(fn){ const r=lt.run, g=rd.autoGen=(rd.autoGen||0)+1, id=LESSON.id, pg=rd.page; fn=fn||lAll;
+  whenSound(()=>setTimeout(()=>{ if(!LESSON||LESSON.id!==id||tab!=='read'||rd.page!==pg||lt.run!==r||rd.autoGen!==g||$('#lesson').hidden) return; fn(); },500)); }
 // the rail button: every card of the page in turn
-async function lAll(){ const cards=$$('.lgrid .lcard'); vStop(); lt.auto=0; const run=++lt.run; for(const c of cards){ if(run!==lt.run) return; c.click(); await new Promise(r=>setTimeout(r,4200)); if(run!==lt.run) return; }
-  if(run===lt.run&&tab==='read'&&rd.page<nPages()){ lt.auto=1; readGo(1); } }   // the Listen button reads the whole lesson: on to the next page
+async function lAll(){ const cards=$$('.lgrid .lcard'); vStop(); let run=++lt.run, vr=vs.run; const dead=()=>run!==lt.run||vr!==vs.run||tab!=='read';
+  for(const c of cards){ if(dead()) return; const r0=lt.run, v0=vs.run; await c._play(); if(lt.run===r0+1&&vs.run===v0+1){ run=lt.run; vr=vs.run; } if(dead()) return;   /* a card's own play = lPlay: it starts with vStop() and lt.run++ (exactly +1 each): take those over, or the list stopped after the first card; any other change (a tap, a tab) still stops it (Ahmed 2026-11-13) */ await nap(450); if(dead()) return; }   // card by card: each one to its END (places of the letter / harakat), then a short pause
+  if(!dead()&&rd.page<nPages()) readGo(1,true); }   // the Listen button reads the whole lesson: on to the next page, which reads by itself
 
 /* CHANT page (lesson.json letter.chant = {pic, task, lines:[{t, audio}]}): the book's picture + the chant lines written big; the rail = the listening controls
    (Read / Stop (pause) / Continue, Restart, Slow / Normal). The audio is the library's recording of each line (an empty requested slot stays silent: the lines still light one by one). */
@@ -1561,7 +1574,8 @@ function chLit(i){ chWordsStop(); $$('.lchant .cl').forEach((e,k)=>e.classList.t
 async function chRun(from){ const Lt=LESSON.letter.chant; vStop(); lt.run++; const run=lt.run, vr=vs.run; ch.on=true; chRail();
   const dead=()=>run!==lt.run||vr!==vs.run||tab!=='read';
   for(let i=from;i<Lt.lines.length;i++){ ch.i=i; chLit(i); try{ await chSay(Lt.lines[i].audio,i); }catch(e){} if(dead()) return; if(i<Lt.lines.length-1) await nap(350); if(dead()) return; }
-  ch.on=false; ch.i=0; chLit(-1); chRail(); rd.done[1]=1; if(Object.keys(rd.done).length>=nPages()) award(LESSON.id,'read'); carFrac(1); }
+  ch.on=false; ch.i=0; chLit(-1); chRail(); rd.done[1]=1; if(Object.keys(rd.done).length>=nPages()) award(LESSON.id,'read'); carFrac(1);
+  await nap(900); if(!dead()&&rd.page<nPages()) readGo(1,true); }   // then the next page (places of the letter) reads by itself
 function chPause(){ vStop(); lt.run++; ch.on=false; chWordsStop(); chRail(); }
 function chRail(){ if(tab!=='read'||!$('.lchant')) return; const res=!ch.on&&ch.i>0;
   setRail([ ch.on?{kind:'stop',icon:'stop',label:tr('Stop'),click:chPause}:{kind:'go',icon:'play',label:tr(res?'Continue':'Read'),click:()=>chRun(ch.i)},
@@ -1573,7 +1587,7 @@ function showChant(){
   scene.append(el('p','task',STAR(true)+(C.task||'نشيد الحرف')),body);
   body.append(el('div','cpic fit-media',`<img src="${C.pic}" alt="">`)); const tx=el('div','ctx'); body.append(tx);
   C.lines.forEach((l,i)=>{ const b=el('button','cl txt'); String(l.t).split(/\s+/).filter(Boolean).forEach((w,k,a)=>{ b.append(el('span','w',w)); if(k<a.length-1) b.append(' '); }); b.addEventListener('click',()=>{ chRun(i); }); tx.append(b); });
-  readPager(scene); stage.append(scene); carFrac(0); chRail();
+  readPager(scene); stage.append(scene); carFrac(0); chRail(); letterAuto(()=>chRun(0));   // the nasheed of the letter plays by itself
   if(typeof bookTag==='function') bookTag(); showHint($('#rail .dash.go .rb'),LESSON.hints&&LESSON.hints.chant||LESSON.hints&&LESSON.hints.read,1400,'read');
 }
 ;
@@ -1622,12 +1636,17 @@ function qxPosition(box,q,s,run){
     $$('.qxc',row).forEach(x=>x.classList.add('show')); b.classList.add('right'); qxWin(b,q); }); row.append(b); });
   box.append(row);
 }
+// a right answer says the letter's sound with its haraka, then the haraka's name (Ahmed 2026-11-13); then the word as before
+const QX_HAR={'َ':['64e','fatha'],'ُ':['64f','damma'],'ِ':['650','kasra'],'ْ':['652','sukoon']};
+async function qxVowelSay(c,run){ const g=[...String(c||'')], h=g.length===2&&QX_HAR[g[1]]; if(!h) return;
+  qz.busy=true; try{ await qSound(R_Q('../../syl-ar/'+g[0].codePointAt(0).toString(16)+'-'+h[0]+'.mp3'),''); if(run!==qz.run) return; await nap(200); if(run!==qz.run) return; await qSound(R_Q('../shared/k-h-'+h[1]+'.mp3'),''); } catch(e){} finally{ if(run===qz.run) qz.busy=false; } }
 function qxVowel(box,q,s,run){
   const at=q.at||0, wd=wsFill(el('b','qxw'),q.word,{hide:[at]}), gap=$('.lt.hid',wd); gap.classList.add('cur'); box.append(wd);   // THE word component (js/wordslots.js)
   const row=el('div','qxchoices');
   (q.choices||s.choices).forEach(c=>{ const b=qChBtn(c);   // THE choice button (quiz.js qChBtn)
     b.addEventListener('click',()=>{ if(qz.busy) return; if(c!==q.answer){ wsBad(gap); return qxBad(b); }
-      b.classList.add('on'); gap.classList.remove('bad','hid','cur'); gap.classList.add('got'); qxWin(b,q); }); row.append(b); });
+      b.classList.add('on'); gap.classList.remove('bad','hid','cur'); gap.classList.add('got');
+      qxVowelSay(c,run).then(()=>{ if(run===qz.run&&inQ()) qxWin(b,q); }); }); row.append(b); });
   box.append(row);
 }
 // the word (or sentence) as hidden letters with their places underlined; spaces are not letters
@@ -1650,7 +1669,7 @@ function qxWrite(box,q,s,run,text,onDone){   // text: what to type (default the 
   line.append(inp); wsInput(inp,text,/^\d+$/.test(text)?'en':(s.lang||null));   // keyboard language from the word (js/wordslots.js)
   const cur=()=>{ $$('.lt',wd).forEach(x=>x.classList.remove('cur')); const n=qxNext(wd); if(n) n.classList.add('cur'); }; cur();
   const type=ch=>{ if(qz.busy||qz.list[qz.i]!==q||!ch||/\s/.test(ch)) return; const n=qxNext(wd); if(!n) return;
-    if(sameLetter(ch,n.textContent)){ qxReveal(wd); blip(560+$$('.lt.got',wd).length*40,.05); cur(); if(qxDone(wd)){ if(onDone) onDone(wd); else qxWin(wd,q,1700); } }
+    if(sameLetter(ch,window.arDigitsBack?arDigitsBack(n.textContent):n.textContent)){ qxReveal(wd); blip(560+$$('.lt.got',wd).length*40,.05); cur(); if(qxDone(wd)){ if(onDone) onDone(wd); else qxWin(wd,q,1700); } }
     else { wsBad(n); qxBad(line); } };
   qxWrite.type=type;   // a key pressed anywhere on the page types too (no click into the box first)
   inp.oninput=()=>{ const ch=inp.value.replace(/\s/g,'').slice(-1); inp.value=''; type(ch); };
@@ -1658,7 +1677,7 @@ function qxWrite(box,q,s,run,text,onDone){   // text: what to type (default the 
   line.onclick=()=>inp.focus({preventScroll:true});
   help.onpointerdown=e=>{ if(document.activeElement===inp) e.preventDefault(); };
   help.onclick=()=>{ if(qz.busy) return; qxPeek(wd); inp.focus({preventScroll:true}); };
-  inp.focus({preventScroll:true}); showHint(line,s.lang==='en'||/^[\x00-\x7f]+$/.test(text)?'Type here':'اكتب هنا',500,'qxwrite');
+  inp.focus({preventScroll:true}); showHint(line,(s.lang==='en'||/^[\x00-\x7f]+$/.test(text))&&!(isAr()&&/^\d+$/.test(text))?'Type here':'اكتب هنا',500,'qxwrite');
 }
 document.addEventListener('keydown',e=>{ const inp=$('#qxin'); if(!inp||!inQ()||document.activeElement===inp||e.ctrlKey||e.metaKey||e.altKey||e.key.length!==1||!qxWrite.type) return;
   const a=document.activeElement; if(a&&/^(INPUT|TEXTAREA)$/.test(a.tagName)) return; inp.focus({preventScroll:true}); qxWrite.type(normDigits(e.key)); e.preventDefault(); });
@@ -1896,7 +1915,8 @@ function qxFace(box,q,s,run){
 QM.face={sheet:'box', noword:1, bulb:0, draw:qxFace};
 function qxColour(box,q,s,run){
   const bd=el('div','qxcb'); bd.dataset.noswipe=1; box.append(bd);
-  const nb=el('button','qxcn'); nb.type='button'; nb.textContent=q.num; nb.onclick=()=>{ if(q.audio) qSound(R_Q(q.audio),q.word||''); }; bd.append(nb);
+  if(q.pic){ const pi=el('img','qxcp'); pi.alt=''; pi.draggable=false; pi.src=q.pic; bd.append(pi); bd.classList.add('qxcpm'); }   // Math 6-1: count the things in the picture, then colour that many (the number is not shown)
+  else { const nb=el('button','qxcn'); nb.type='button'; nb.textContent=q.num; nb.onclick=()=>{ if(q.audio) qSound(R_Q(q.audio),q.word||''); }; bd.append(nb); }
   const row=el('div','qxcr'); bd.append(row); let on=0, done=false;
   const cells=[]; for(let i=0;i<q.total;i++){ const im=el('img','qxcs'); im.alt=''; im.draggable=false; im.src=R_Q(q.off); im.dataset.on=0; row.append(im); cells.push(im); }
   const cnt=()=>cells.filter(c=>c.dataset.on==='1').length;
@@ -1924,9 +1944,12 @@ function qxFirst(box,q,s,run){
   const row=el('div','qxfirsts'), cells=q.parts.map(p=>{ const f=el('figure','qxfi'); f.append(p.pic?el('div','qxfp2',`<img src="${R_Q(p.pic)}" alt="">`):el('div','qxftx',p.text)); const h=el('div','qxfh'); f.append(h); row.append(f); return h; });
   let rc=null; if(q.result){ row.append(el('span','qxeq','=')); const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${R_Q(q.result)}" alt="">`)); rc=el('div','qxfh'); f.append(rc); row.append(f); }   // the merged word's own picture and its place, after "="
   box.append(row);
+  // ALL the places show from the start (Ahmed 2026-11-13): every letter's empty place under its picture and the merged word's places under the result; the live line replaces its ghost when its turn comes
+  const ghost=(h,t)=>{ if(!h||!t) return; const w=el('div','qxline qxgl'); w.append(qxWordEl(t,null,s.faint,/^[\x00-\x7f]+$/.test(t),null)); h.append(w); };
+  cells.forEach((h,i)=>ghost(h,q.parts[i].first)); ghost(rc,q.word);
   const stage=k=>{ const last=k>=q.parts.length;
     qxWrite(box,q,s,run,last?q.word:q.parts[k].first,last?null:()=>{ stage(k+1); });
-    const ln=$$('.qxline',box).pop(); if(ln) (last&&rc?rc:cells[k]).append(ln); };
+    const ln=$$('.qxline:not(.qxgl)',box).pop(); if(ln){ const h=(last&&rc?rc:cells[k]); $$('.qxgl',h).forEach(x=>x.remove()); h.append(ln); } };
   stage(0);
 }
 QM.first={sheet:'box', noword:1, bulb:0, draw:qxFirst};
@@ -2275,10 +2298,10 @@ function mNumline(box,q,s,run){
 function mBond(box,q,s,run){
   const parts=q.parts, miss=q.whole==null?-1:parts.findIndex(v=>v==null), ans=miss<0?parts[0]+parts[1]:q.whole-parts[1-miss];
   q.word=q.word||`${mW(miss===0?ans:parts[0])} and ${mW(miss===1?ans:parts[1])} make ${mW(q.whole==null?ans:q.whole)}`;
-  q.ask=`${miss===0?'what':mW(parts[0])} and ${miss===1?'what':mW(parts[1])} make ${q.whole==null?'what':mW(q.whole)}`;   // the question never says its own answer
-  const t=el('div','qmbond'+(/\bbox/i.test(s.task||'')?' box':'')); t.innerHTML=`<svg viewBox="0 0 100 60" preserveAspectRatio="none"><path d="M50 20 L22 44 M50 20 L78 44"/></svg>`;
+  if(!q.ask) q.ask=`${miss===0?'what':mW(parts[0])} and ${miss===1?'what':mW(parts[1])} make ${q.whole==null?'what':mW(q.whole)}`;   // the question never says its own answer
+  const t=el('div','qmbond'+(/\bbox/i.test(s.task||'')||s.boxed?' box':'')); t.innerHTML=`<svg viewBox="0 0 100 60" preserveAspectRatio="none"><path d="M50 20 L22 44 M50 20 L78 44"/></svg>`;
   const mk=(cls,v)=>{ const c=el('div','qmb '+cls+(v==null?' gap cur':''),`<b>${v==null?'':v}</b>`); t.append(c); return c; };
-  const top=mk('top',q.whole), a=mk('l',parts[0]), b=mk('r',parts[1]), target=q.whole==null?top:miss===0?a:b;
+  const top=mk('top',q.whole), a=mk(isAr()?'r':'l',parts[0]), b=mk(isAr()?'l':'r',parts[1]), target=q.whole==null?top:miss===0?a:b;
   box.append(t);
   if(/^write /i.test(s.task||'')||s.typed){ qxWrite(box,q,s,run,String(ans),()=>{ $('b',target).textContent=ans; target.classList.remove('cur','gap'); target.classList.add('got'); qxWin(t,q,1600); }); return; }
   q.hush=1; mHelp(box,()=>target.classList.contains('gap')?target:null,()=>ans);
@@ -2309,48 +2332,127 @@ function mWrite(box,q,s,run){
   const sp=el('button','qsay alsp',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>{ if(!qz.busy) q.sayFn(); };
   if(q.ask){ const a=el('p','alask',''); alToks(a,q.ask); a.append(' ',sp); st.append(a); } else st.append(sp);   // the listen icon at the end of the story (no line of its own)
   const line=el('div','qxline mwline'); if(q.lead) line.append(el('span','mwlead',q.lead));
-  let wd=qxWordEl(q.word,null,false,true); line.append(wd); if(q.tail) line.append(el('span','mwcard',q.tail)); st.append(line);
+  let wd=qxWordEl(q.word,null,false,!isAr()); line.append(wd); if(q.tail) line.append(el('span','mwcard',q.tail)); st.append(line);
   const cur=()=>{ $$('.lt',wd).forEach(x=>x.classList.remove('cur')); const n=qxNext(wd); if(n) n.classList.add('cur'); }; cur();
   const pad=el('div','qmpad mwkeys'); w.append(pad);
   [...(q.keys||s.keys||'1234567890')].forEach(k=>{ const b=el('button','rb qbtn qlet qmn',`<span>${k}</span>`); b.dataset.v=k; b.setAttribute('aria-label',k==='−'?'minus':k==='+'?'plus':k==='='?'equals':k);
     b.addEventListener('click',()=>{ if(qz.busy||q.solved||qz.list[qz.i]!==q) return; hideHint(); let n=qxNext(wd); if(!n) return;
-      if(k!==n.textContent&&!$$('.lt.got',wd).length){ const sw=mSwapSum(q.word,k); if(sw){ q.word=sw; const nw=qxWordEl(sw,null,false,true); wd.replaceWith(nw); wd=nw; n=qxNext(wd); } }   // addition in either order is right: 4 + 3 = 7 as well as 3 + 4 = 7 (Marwa 2026-11-05)
-      if(k===n.textContent){ qxReveal(wd); blip(560+$$('.lt.got',wd).length*40,.05); cur(); if(qxDone(wd)) qxWin(wd,q,1700); }
+      if(k!==arDb(n.textContent)&&!$$('.lt.got',wd).length){ const sw=mSwapSum(q.word,k); if(sw){ q.word=sw; const nw=qxWordEl(sw,null,false,true); wd.replaceWith(nw); wd=nw; n=qxNext(wd); } }   // addition in either order is right: 4 + 3 = 7 as well as 3 + 4 = 7 (Marwa 2026-11-05)
+      if(k===arDb(n.textContent)){ qxReveal(wd); blip(560+$$('.lt.got',wd).length*40,.05); cur(); if(qxDone(wd)) qxWin(wd,q,1700); }
       else { wsBad(n); qxBad(line); } }); pad.append(b); });
   q.sayFn=async()=>{ vStop(); if(q.askAudio&&!q.solved) return qSound(R_Q(q.askAudio),q.ask||''); return qSound(q.audio,q.word); };
   box._after=()=>{ if(q.autoSay) return q.sayFn(); };
 }
+/* line = "Circle the answer" on a LINE of things (book 2-1 What's the Position?): item {unit | img, n (things, or equal slots of the strip), from:"front"|"back", at:k (the k-th thing from that end), group:true ("4 cats from the front") }.
+   The child taps the k-th thing (for a group: its last one); right = the frame is drawn round it / round the group, wrong = shake. */
+const arDb=s=>window.arDigitsBack?arDigitsBack(s):s;   // math-ar shows ٠-٩ (js/math-ar.js): turn shown digits back before comparing
+const mEnds=()=>isAr()?['أمام','خلف']:['Front','Back'];   // Arabic book: Front at the RIGHT end (css .mlrtl)
+const M_ORD_AR=['','الأول','الثاني','الثالث','الرابع','الخامس','السادس','السابع','الثامن','التاسع','العاشر'];
+const M_ORD_ARF=['','الأولى','الثانية','الثالثة','الرابعة','الخامسة','السادسة','السابعة','الثامنة','التاسعة','العاشرة'];
+const mOrd=(k,fem)=>isAr()?((fem?M_ORD_ARF:M_ORD_AR)[k]||String(k)):({1:'1st',2:'2nd',3:'3rd'})[k]||k+'th';
+// ordinal mode (book 2-2 "Where is it?"): q.items = the things (library pictures) in a row / column, q.target = the marked thing, q.from = which end counting starts, q.vert = a column,
+// q.ends = ["Top","Bottom"] | ["Left","Right"]; the child picks 1st, 2nd, 3rd... (the right one is worked out from target and from).
+function mLineOrd(box,q,s,run){
+  q.hush=1; q.word=q.word||s.task||''; const n=q.items.length, fr=q.from!=='back', ends=q.ends||mEnds(), ans=fr?q.target+1:n-q.target;
+  const w=el('div','mline mlord'+(q.vert?' mlv':'')+(!q.ends&&isAr()?' mlrtl':'')); w.style.setProperty('--n',n); const row=el('div','mlrow'); const lf=el('span','mlend',ends[0]), lb=el('span','mlend',ends[1]); const things=el('div','mlthings');
+  q.items.forEach((it,i)=>{ const c=el('div','mlc'+(i===q.target?' mark':'')); const im=new Image(); im.alt=''; im.src=R_Q(it); c.append(im); things.append(c); });
+  row.append(lf,things,lb); w.append(row); box.append(w);
+  const chips=el('div','qxchoices mlchips'); for(let k=1;k<=n;k++){ const b=qChBtn(mOrd(k,q.fem)); b.dataset.v=k;
+    b.addEventListener('click',()=>{ if(qz.busy||q.solved) return; if(k!==ans) return qxBad(b); b.classList.add('on'); $$('.qch',chips).forEach(x=>x!==b&&x.classList.add('dim')); (fr?lf:lb).classList.add('on'); qxWin(w,q,1600); }); chips.append(b); }
+  w.append(chips); }
+function mLine(box,q,s,run){
+  if(q.items) return mLineOrd(box,q,s,run);
+  q.hush=1; q.word=q.word||s.task||''; const n=q.n, fr=q.from!=='back';
+  const w=el('div','mline'+(isAr()?' mlrtl':'')); w.style.setProperty('--n',n); const row=el('div','mlrow'); const lf=el('span','mlend',mEnds()[0]), lb=el('span','mlend',mEnds()[1]); const things=el('div','mlthings'+(q.img&&!q.unit?' strip':''));
+  row.append(lf,things,lb); w.append(row); box.append(w); const btns=[];
+  if(q.img&&!q.unit){ const im=new Image(); im.alt=''; im.src=R_Q(q.img); things.append(im); }
+  for(let i=0;i<n;i++){ const b=el('button','mlt'); b.setAttribute('aria-label',String(i+1)); if(q.unit){ const im=new Image(); im.alt=''; im.src=R_Q(q.unit); b.append(im); } things.append(b); btns.push(b); }
+  const target=fr?q.at-1:n-q.at;
+  btns.forEach((b,i)=>b.addEventListener('click',()=>{ if(qz.busy||q.solved) return; if(i!==target) return qxBad(b);
+    const sl=q.group?(fr?[0,target]:[target,n-1]):[target,target]; const fb=el('div','mlframe'); fb.style.setProperty('--a',sl[0]); fb.style.setProperty('--b',sl[1]+1); things.append(fb);
+    (fr?lf:lb).classList.add('on'); qxWin(w,q,1600); }));
+}
+QM.line={sheet:'box', draw:mLine, help:(q,w)=>q.items?$$('.mlchips .qch',w).filter(b=>+b.dataset.v===(q.from!=='back'?q.target+1:q.items.length-q.target)):$$('.mlt',w).filter((b,i)=>i===(q.from!=='back'?q.at-1:q.n-q.at))};
 QM.numline={sheet:'box', bulb:0, draw:mNumline};
 QM.bond={sheet:'box', bulb:0, draw:mBond};
 QM.bigger={sheet:'box', draw:mBigger, help:(q,w)=>{ const v=q.find==='smaller'?Math.min(...q.nums):Math.max(...q.nums); return $$('.qmbig .qch',w).filter(b=>+b.dataset.v===v); }};
 QM.count={sheet:'box', bulb:0, draw:mCount};
-QM.mwrite={sheet:'box', own:1, draw:mWrite, help:(q,w)=>{ const n=qxNext($('.mwline .qxw',w)); return n?$$('.mwkeys .qmn',w).filter(b=>b.dataset.v===n.textContent):[]; }};
+QM.mwrite={sheet:'box', own:1, draw:mWrite, help:(q,w)=>{ const n=qxNext($('.mwline .qxw',w)); return n?$$('.mwkeys .qmn',w).filter(b=>b.dataset.v===arDb(n.textContent)):[]; }};
+
+// colorn = the Arabic book 1-1 "colour the same number of circles as things in the picture": item {img:"../../pics/dog.png#2", n:2, group:true}; the child taps circles of a 2x5 frame (red); the n-th one = right,
+// one more than n = shake (not coloured); tap a red one = back to white. The frame fills from the right in RTL (math-ar).
+function mColorN(box,q,s,run){
+  const n=q.n; q.word=q.word||mW(n); q.hush=1; const grid=el('div','qmcount grp'); grid.style.setProperty('--c',1); grid.style.setProperty('--r',1);
+  if(q.img&&q.group){ const im=new Image(); im.src=R_Q(q.img); im.alt=''; grid.append(im); } else if(q.img){ const im=new Image(); im.alt=''; cpicMake(new URL(R_Q(q.img),location.href).href,n).then(u=>{ im.src=u; }); grid.append(im); }
+  const fr=el('div','qmcirc'); const cs=Array.from({length:q.max||10},()=>{ const b=el('button','qmcc'); b.setAttribute('aria-label','circle'); fr.append(b); return b; });
+  const on=()=>cs.filter(x=>x.classList.contains('on')).length;
+  cs.forEach(b=>b.addEventListener('click',()=>{ if(qz.busy||q.solved) return; if(b.classList.contains('on')){ b.classList.remove('on'); return; }
+    if(on()>=n) return qxBad(b); b.classList.add('on'); blip(560+on()*40,.05); if(on()===n) qxWin(fr,q,1600); }));
+  box.append(grid,fr);
+  const h=el('button','qxhelp qmhelp',ICON.hint); h.setAttribute('aria-label','Help');
+  h.onclick=()=>{ if(qz.busy||q.solved) return; cs.slice(0,n).forEach(c=>c.classList.add('peek')); setTimeout(()=>cs.forEach(c=>c.classList.remove('peek')),1500); }; qHelpHost(h);
+}
+QM.colorn={sheet:'box', bulb:0, draw:mColorN};
 ;
 /* ===== js/math-explain.js ===== */
 /* MATH lesson EXPLAIN tab (lesson.json "type": "math", "math": {rows:[{n, word, audio}]}) — the book's number table: red dots, the number, its word.
    One row per number; tap a row to hear the word (the speaker sits beside the word). Done (star) when every row was heard.
    The dots are drawn by mDots() (quiz-math.js), so no picture files. */
 const mx={run:0,all:0,heard:{}};
+window.mathStop=()=>{ mx.all++; mx.run++; };   // core.js stopVoice: leaving the lesson/tab ends the running animation/sequence (its timers and queued clips see a new token and quit)
 const mxHeard=()=>mx.heard[LESSON.id]=mx.heard[LESSON.id]||{};
 function mxMark(i,row){ const h=mxHeard(); h[i]=1; row.classList.add('heard'); carFrac(Object.keys(h).length/(LESSON.math.bonds||LESSON.math.line||LESSON.math).rows.length); }
 // the star comes only after the last row's sound has finished
 function mxDone(){ if(Object.keys(mxHeard()).length>=(LESSON.math.bonds||LESSON.math.line||LESSON.math).rows.length) award(LESSON.id,'read'); }
-async function mxSay(r,btn){ vStop(); const run=++mx.run; btn.classList.add('on'); try{ await playFile(r.audio); }catch(e){} if(run===mx.run){ btn.classList.remove('on'); mxDone(); } }
+// "What makes N?" rows: while the sentence is said the dots pop in one by one (the CSS delay puts them at the word "make")
+function mxPop(btn,on){ $$('.mxbond.pop').forEach(x=>x.classList.remove('pop')); if(on&&btn.classList.contains('mxbond')){ void btn.offsetWidth; btn.classList.add('pop'); } }
+async function mxSay(r,btn){ vStop(); const run=++mx.run; btn.classList.add('on'); mxPop(btn,true); try{ await playFile(r.audio); }catch(e){} if(run===mx.run){ btn.classList.remove('on'); setTimeout(()=>{ if(run===mx.run) mxPop(btn,false); },400); mxDone(); } }
 // "What makes N?" table: M.bonds = {whole:8, rows:[{a:1,b:7,audio}]}: red + blue dots in a frame, "1 and 7 make 8" (tap = the sentence is said)
-function mxBondDots(a,b){ const R=5,s=40,n=a+b,rows=Math.ceil(n/R),c=Array.from({length:n},(_,k)=>`<circle cx="${(k%R)*s+s/2}" cy="${Math.floor(k/R)*s+s/2}" r="14" fill="${k<a?'#E0412C':'#2A7FD8'}" stroke="#5A3418" stroke-width="3"/>`).join('');
-  return 'data:image/svg+xml,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${R*s} ${rows*s}">${c}</svg>`); }
-function mxBondRow(r,whole){ return el('button','mxrow mxbond',`<span class="mxdots"><img src="${mxBondDots(r.a,r.b)}" alt=""></span><span class="mxeq"><b class="r">${r.a}</b><i>and</i><b class="b">${r.b}</b></span><span class="mxmk">make <b>${whole}</b></span><i class="mxsay">${SAY_LN}</i>`); }
+function mxBondDots(a,b){ const R=5,s=40,n=a+b,rows=Math.ceil(n/R),st=Math.min(.14,.7/n);
+  const c=Array.from({length:n},(_,k)=>`<circle class="mxd" style="--dl:${(.9+k*st).toFixed(2)}s" cx="${(k%R)*s+s/2}" cy="${Math.floor(k/R)*s+s/2}" r="17" fill="${k<a?'#E0412C':'#2A7FD8'}" stroke="#5A3418" stroke-width="3"/>`).join('');
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${Math.min(n,R)*s} ${rows*s}" preserveAspectRatio="xMidYMid meet">${c}</svg>`; }
+function mxBondRow(r,whole){ return el('button','mxrow mxbond',`<span class="mxdots">${mxBondDots(r.a,r.b)}</span><span class="mxeq"><b class="r">${r.a}</b><i>${(LESSON.math.bonds||{}).and||'and'}</i><b class="b">${r.b}</b></span><span class="mxmk">${(LESSON.math.bonds||{}).mk||'make'} <b>${whole}</b></span><i class="mxsay">${SAY_LN}</i>`); }
 // number line (M.line = {rows:[{n,word,audio}], small:{img,word,audio}, big:{...}, text, textAudio}): coloured stones 1..10, mouse = Smallest, elephant = Biggest; tap = said
 const MX_STONE=['#E0412C','#2A7FD8','#F2B321','#2FA8A0','#8A5CC9','#F08A2C','#3FA34D','#D8396B','#E0412C','#8A5CC9'];
 function showMathLine(){
   const L=LESSON.math.line, h=mxHeard(); stage.innerHTML=''; mx.run++;
   const scene=el('div','scene pics mx'), box=el('div','mxline'); const bind=(b,r,mark)=>{ b.addEventListener('click',e=>{ if(e.isTrusted) mx.all++; if(mark!=null) mxMark(mark,b); mxSay(r,b); }); return b; };
-  const end=(c,o)=>bind(el('button','mxend '+c,`<img src="${o.img}" alt=""><b>${o.word}</b>`),o);
+  const end=(c,o)=>bind(el('button','mxend '+c,`${o.img?`<img src="${o.img}" alt="">`:''}<b>${o.word}</b>`),o);
   const stones=el('div','mxstones'); L.rows.forEach((r,i)=>{ const b=bind(el('button','mxstone'+(h[i]?' heard':''),`<b>${r.n}</b>`),r,i); b.style.background=MX_STONE[i]; b.style.setProperty('--k',i+1);   /* the stones grow from 1 to 10 (small -> big) */ b.setAttribute('aria-label',r.word); stones.append(b); });
   const cap=bind(el('button','mxcap',`<span>${L.text}</span><i class="mxsay">${SAY_LN}</i>`),{audio:L.textAudio});
   box.append(end('sm',L.small),stones,end('bg',L.big),cap); scene.append(box); stage.append(scene); carFrac(Object.keys(h).length/L.rows.length);
-  setRail([{kind:'go',icon:'play',label:tr('Listen'),click:()=>mxSeq($$('.mxstone'))},...mxTool()]);
+  setRail([{kind:'go',icon:'play',label:tr('Listen'),click:()=>mxAnim()},...mxTool()]);
   if(typeof bookTag==='function') bookTag();
+}
+
+/* Listen on the number line = a timed story (Ahmed 2026-11-12): mouse appears with "Smallest", stones 1..10 appear one by one with their number,
+   elephant appears with "Biggest", then while the sentence is said an arrow is drawn left -> right above the numbers (one arrow per row of stones;
+   on tall screens the two rows share the sentence time). Data only: audio and words come from LESSON.math.line. A tap on anything stops it. */
+async function mxAnim(){
+  const L=LESSON.math.line, box=$('.mxline'); if(!box) return; vStop(); const tok=++mx.all; mx.run++;
+  const clean=()=>box.querySelectorAll('.mxarrow').forEach(a=>a.parentNode.removeChild(a));
+  clean(); $$('.mxline .on').forEach(x=>x.classList.remove('on'));
+  const sm=$('.mxend.sm'), bg=$('.mxend.bg'), stones=$$('.mxstone'), cap=$('.mxcap');
+  box.classList.add('mxplay'); [sm,bg,...stones,cap].forEach(x=>x.classList.remove('show'));
+  const live=()=>tok===mx.all, wait=ms=>new Promise(r=>setTimeout(r,ms));
+  const say=async(a)=>{ try{ await playFile(a); }catch(e){} };
+  const stop=()=>{ box.classList.remove('mxplay'); clean(); };
+  await wait(250); if(!live()) return stop();
+  sm.classList.add('show'); await say(L.small.audio); if(!live()) return stop(); await wait(250);
+  for(let i=0;i<stones.length;i++){ if(!live()) return stop(); stones[i].classList.add('show'); await say(L.rows[i].audio); mxMark(i,stones[i]); await wait(120); }
+  if(!live()) return stop(); await wait(150);
+  bg.classList.add('show'); await say(L.big.audio); if(!live()) return stop(); await wait(300);
+  cap.classList.add('show');
+  const bb=box.getBoundingClientRect(), rows=[];
+  stones.forEach(s=>{ const r=s.getBoundingClientRect(); let g=rows.find(x=>Math.abs(x.cy-(r.top+r.height/2))<r.height*.6); if(!g) rows.push(g={cy:r.top+r.height/2,top:r.top,l:r.left,r:r.right}); g.top=Math.min(g.top,r.top); g.l=Math.min(g.l,r.left); g.r=Math.max(g.r,r.right); });
+  const done=say(L.textAudio);
+  let ms=2900; for(let k=0;k<30&&!(vs.src&&vs.src.buffer);k++) await wait(30); if(vs.src&&vs.src.buffer) ms=vs.src.buffer.duration*1000;   // the sentence's real length (library clip or file)
+  const dur=Math.max(600,ms*.92)/rows.length;
+  const arrows=rows.map(g=>{ const a=el('div','mxarrow',`<svg viewBox="0 0 100 20" preserveAspectRatio="none"><line x1="2" y1="10" x2="90" y2="10" stroke="#fff" stroke-width="5" stroke-linecap="round" vector-effect="non-scaling-stroke"/><path d="M82 2 L98 10 L82 18" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg>`);
+    a.style.cssText=`left:${g.l-bb.left}px;width:${g.r-g.l}px;top:${g.top-bb.top-28}px;--d:${dur}ms`; box.append(a); return a; });
+  for(const a of arrows){ if(!live()) break; void a.offsetWidth; a.classList.add('draw'); await wait(dur); }
+  await done; if(!live()) return stop();
+  box.classList.remove('mxplay'); clean(); mxDone();
 }
 function showMathExplain(){
   if(LESSON.math.line) return showMathLine();
@@ -2370,6 +2472,27 @@ async function mxSeq(els){ vStop(); const tok=++mx.all; for(const r of els){ if(
 const mxAll=()=>mxSeq($$('.mxgrid .mxrow'));
 
 const mxTool=()=>LESSON.tool?[{kind:'tool',icon:'arcs',label:toolName(LESSON.tool),click:()=>toolOpen(LESSON.toolN)}]:[];
+;
+/* ===== js/math-ar.js ===== */
+/* MATH IN ARABIC (math-ar, عام curriculum; Ahmed 2026-11-13: the Arabic book as it is, right to left).
+   Digits: the data keeps ASCII digits (0-9, so every template and answer check stays the same); everything the child SEES in a math-ar screen is shown as ٠-٩ here:
+   one observer turns the digits of every text node (HTML + SVG) into Arabic-Indic digits, only while a math-ar subject is open. Inputs are never touched.
+   A script that compares shown text with a value must turn it back first: arDigitsBack(). The mirroring of lines, number lines and scenes is in the templates (css/math.css .mlrtl, explainer SC.mir). */
+(function(){
+  const AD='٠١٢٣٤٥٦٧٨٩', on=()=>typeof SUBJECT!=='undefined'&&SUBJECT&&SUBJECT.rtl&&/^math/.test(SUBJECT.id);
+  const cv=s=>s.replace(/[0-9]/g,d=>AD[d]);
+  window.arDigitsBack=s=>String(s).replace(/[٠-٩]/g,d=>AD.indexOf(d));
+  function fixNode(n){
+    if(n.nodeType===3){ if(/[0-9]/.test(n.nodeValue)){ const p=n.parentNode; if(p&&/^(INPUT|TEXTAREA|SCRIPT|STYLE)$/i.test(p.nodeName)) return; n.nodeValue=cv(n.nodeValue); } return; }
+    if(n.nodeType!==1||/^(SCRIPT|STYLE|INPUT|TEXTAREA)$/i.test(n.nodeName)) return;
+    const w=document.createTreeWalker(n,NodeFilter.SHOW_TEXT); let t; const L=[]; while((t=w.nextNode())) L.push(t); L.forEach(fixNode);
+  }
+  function start(){
+    new MutationObserver(ms=>{ if(!on()) return; for(const m of ms){ if(m.type==='characterData') fixNode(m.target); else m.addedNodes.forEach(fixNode); } })
+      .observe(document.body,{childList:true,subtree:true,characterData:true});
+  }
+  if(document.body) start(); else document.addEventListener('DOMContentLoaded',start);
+})();
 ;
 /* ===== js/book.js ===== */
 /* BOOK PAGES — jump to the part of the app that matches a page of the school book.
@@ -2621,7 +2744,7 @@ XA.story=(n=1)=>{ const sky='<ellipse cx="50" cy="50" rx="46" ry="46" fill="#CDE
    `<path d="M50 66V30" stroke="#357A2A" stroke-width="5" stroke-linecap="round"/>${leaf(50,58,-30)}${leaf(50,58,-150)}${leaf(50,42,-40,.9)}${leaf(50,42,-140,.9)}${leaf(50,30,-80,.7)}`,
    `<path d="M44 68V40h12v28z" fill="#8A5A34" stroke="#5A3418" stroke-width="2.5"/><circle cx="50" cy="30" r="20" fill="#5CB83F" stroke="#357A2A" stroke-width="2.5"/><circle cx="36" cy="38" r="12" fill="#6CC04A" stroke="#357A2A" stroke-width="2.5"/><circle cx="64" cy="38" r="12" fill="#6CC04A" stroke="#357A2A" stroke-width="2.5"/><circle cx="46" cy="26" r="3" fill="#E2362E"/><circle cx="58" cy="34" r="3" fill="#E2362E"/>`];
   return XS(100,100,sky+b[n-1]); };
-function xArt(spec,base){ if(!spec) return ''; if(/\.(svg|png|jpe?g|webp)$/i.test(spec)) return `<img class="xart" src="${new URL(spec,base)}" alt="">`;
+function xArt(spec,base){ if(!spec) return ''; if(/^data:image\//.test(spec)) return `<img class="xart" src="${spec}" alt="">`; if(/\.(svg|png|jpe?g|webp)$/i.test(spec)) return `<img class="xart" src="${new URL(spec,base)}" alt="">`;   // a count picture (library id#n) arrives from get() as a data: url
   const [n,p]=String(spec).split(':'), f=XA[n]; return f?f(...(p?p.split(',').map(v=>/^-?\d+(\.\d+)?$/.test(v)?+v:v):[])):''; }
 ;
 /* ===== js/exam.js ===== */
@@ -2916,6 +3039,7 @@ async function toolPick(a){
      {ring:ids|pts, r, color, id} {unring:id|"all"}  hand-drawn ring round a group
      {hold:n, on:ringId, color}                      the number of a group 'in your head' (one badge, said); then {count:ids, start:n+1, keep:true} counts on
      {scene:'pic', frame:false}                      a picture made of framed parts: no big white frame behind it
+     {scene:'free', items:[{id,img,x,y,w,h}], ih, top}  separate pictures that move: {move:[{id,x,y}],ms} slides them together, {guide:{x0,y0,x1,y1,color}} draws a dotted line (Math 5-1)
      {link:[[[x,y],[x,y]]..], color, r, id}         "What is the difference?": pairs joined by lines one by one; the ones left over are the difference
      {cross:true, pts, r, color}                     things that go away (subtraction) are crossed out one by one
      {eq:["2","+","3","=","5"]} {eqState:"show"|"dim"} {lit:i,color,value} {pulse:i}   the number sentence on top
@@ -2982,13 +3106,13 @@ const SCENES={
 /* ---------- player ---------- */
 function mount(root, data, opt){
   opt=opt||{}; const base=opt.base||'';
-  root.classList.add('xpl'); root.innerHTML='';
+  root.classList.add('xpl'); root.classList.toggle('xwide',!!data.wide); root.innerHTML='';
   const svg=mk('svg',{viewBox:`0 0 ${W} ${H}`,preserveAspectRatio:'xMidYMid meet',class:'xpl-svg','aria-hidden':'true'});
   const Lbg=mk('g'), Lring=mk('g'), Lact=mk('g'), Lbadge=mk('g'), Leq=mk('g'), Lfx=mk('g');
   svg.append(Lbg,Lring,Lact,Lbadge,Leq,Lfx);
   const stageEl=hel('div','xpl-stage'); stageEl.append(svg);
   const cap=hel('div','xpl-cap'), capT=hel('p','xpl-capt'); capT.dir=data.lang==='ar'?'rtl':'ltr'; cap.append(capT);
-  const askRow=hel('div','xpl-ask'), line=hel('div','xpl-line'); cap.append(line,askRow);
+  const askRow=hel('div','xpl-ask'), line=hel('div','xpl-line'); if(data.lang==='ar') line.dir='rtl'; cap.append(line,askRow);   // Arabic: the sentence builds from the right
   root.append(stageEl,cap);
 
   /* clock: everything waits on a virtual time; leaving the page (the element is gone) stops everything */
@@ -3014,14 +3138,83 @@ function mount(root, data, opt){
 
   /* ---------- the drawing state ---------- */
   let A={}, rings={}, eqT=[], badges=[], VH=H, PIC=null;
-  const TOP=170;   // a book picture sits under a band of sky that holds the number sentence
+  let TOP=170;   // a book picture sits under a band of sky that holds the number sentence
   const P=(x,y)=>PIC?[x*PIC.k,TOP+y*PIC.k]:[x,y];
   const setT=a=>a.g.setAttribute('transform',`translate(${a.x} ${a.y}) scale(${a.s*a.face} ${a.s})`);
+  /* a LINE of things (people, rabbits, cars…): n things side by side, "Front" at the left end, "Back" at the right end (as in the book).
+     d.unit = one picture repeated n times, or d.img = one strip picture with n equal slots (d.w,d.h = its pixels). Coordinates under it are picture px
+     (x 0..1000, y below the number band). A line: slots x 120..880. The helper of the data builder (tools/lessons/math-gen/position_u2l1.py) computes them. */
+  let LAB={}, IT={};
+  /* FREE scene (Math 5-1 lengths): separate see-through pictures (pencils, strings…) that can MOVE. d.items=[{id,img,x,y,w,h}] (picture px, top-left + drawn size),
+     d.ih = height of the white panel, d.top = gap above it (default 30). Actions {move:[{id,x,y}],ms} slide things together; {guide:{x0,y0,x1,y1,color,id}} draws a dotted line. */
+  function freeScene(d){ PIC={k:1}; const ih=d.ih||420; VH=TOP+ih; const tag=[];
+    if(d.frame!==false) tag.push(`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`);
+    (d.items||[]).forEach((o,i)=>tag.push(`<image data-i="${i}" href="${base+o.img}" x="${o.x}" y="${TOP+o.y}" width="${o.w}" height="${o.h}" preserveAspectRatio="none"/>`));
+    Lbg.innerHTML=tag.join(''); IT={};   // (scene() empties the actors layer afterwards, so the things live in the background layer)
+    (d.items||[]).forEach((o,i)=>{ IT[o.id]={e:Lbg.querySelector(`image[data-i="${i}"]`),x:o.x,y:o.y}; }); }
+  async function move(list,ms){ const L=[].concat(list).map(m=>({...m,it:IT[m.id]})).filter(m=>m.it); const f=L.map(m=>({m,x0:m.it.x,y0:m.it.y}));
+    await tween(X.fast?1:(ms||1500),v=>f.forEach(o=>{ const x=o.x0+(o.m.x-o.x0)*v, y=o.y0+(o.m.y-o.y0)*v; o.m.it.e.setAttribute('x',x); o.m.it.e.setAttribute('y',TOP+y); if(v>=1){ o.m.it.x=o.m.x; o.m.it.y=o.m.y; } })); }
+  // a dotted line (the book's alignment line) drawn from its start to its end, over the pictures
+  async function guide(o){ const [x0,y0]=P(o.x0,o.y0), [x1,y1]=P(o.x1,o.y1); const l=mk('line',{x1:x0,y1:y0,x2:x0,y2:y0,stroke:col(o.color||'black'),'stroke-width':o.w||6,'stroke-dasharray':'3 13','stroke-linecap':'round'}); Lbadge.append(l);
+    await tween(X.fast?1:(o.ms||900),v=>{ l.setAttribute('x2',x0+(x1-x0)*v); l.setAttribute('y2',y0+(y1-y0)*v); }); }
+  let SC={}, PICD=null;
+  function lineScene(d){
+    const ends=d.ends||['Front','Back'], tag=[], items=d.items; const card=ih=>`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`;
+    if(items&&d.vert){   // a column (first end above, second below): cells 110 high in the middle, the arrow at its right
+      const n=items.length, ih=60+110*n+70; TOP=20; PIC={k:1}; VH=TOP+ih; SC={vert:true,n,y0:60,ch:110,ax:790};
+      tag.push(card(ih)); tag.push(`<rect x="400" y="${TOP+60}" width="200" height="${110*n}" fill="none" stroke="#c9b9a8" stroke-width="4"/>`);
+      items.forEach((it,i)=>{ if(i) tag.push(`<path d="M400 ${TOP+60+110*i} H600" stroke="#c9b9a8" stroke-width="3"/>`); tag.push(`<image href="${base+it}" x="420" y="${TOP+60+110*i+8}" width="160" height="94" preserveAspectRatio="xMidYMid meet"/>`); });
+      tag.push(`<text class="xl-end" id="xlf" x="500" y="${TOP+46}" text-anchor="middle">${ends[0]}</text><text class="xl-end" id="xlb" x="500" y="${TOP+60+110*n+52}" text-anchor="middle">${ends[1]}</text>`);
+    } else {
+      const ih=d.ih||230; PIC={k:1}; VH=TOP+ih; const n=items?items.length:d.n, x0=120, x1=880, sw=(x1-x0)/n, base0=TOP+(d.floor||200); SC={vert:false,n};
+      tag.push(card(ih));
+      const MI=!!d.mirror, flip=cx=>MI?` transform="translate(${2*cx} 0) scale(-1 1)"`:''; SC.mir=MI;   // Arabic: Front at the right, the pictures face the other way
+      if(d.img){ const w=x1-x0, h=Math.round(w*d.h/d.w); tag.push(`<image href="${base+d.img}" x="${x0}" y="${base0-h}" width="${w}" height="${h}" preserveAspectRatio="none"${flip(500)}/>`); }
+      else { const mw=Math.min(sw*.82,d.maxw||150), mh=d.maxh||150; for(let i=0;i<n;i++){ tag.push(`<image href="${base+(items?items[i]:d.unit)}" x="${x0+sw*(i+.5)-mw/2}" y="${base0-mh}" width="${mw}" height="${mh}" preserveAspectRatio="xMidYMax meet"${flip(x0+sw*(i+.5))}/>`); } }
+      tag.push(`<text class="xl-end" id="xlf" x="${MI?940:60}" y="${base0-30}" text-anchor="middle">${ends[0]}</text><text class="xl-end" id="xlb" x="${MI?60:940}" y="${base0-30}" text-anchor="middle">${ends[1]}</text>`);
+    }
+    Leq.innerHTML=''; eqT=[];
+    Lbg.innerHTML=tag.join(''); LAB={f:Lbg.querySelector('#xlf'),b:Lbg.querySelector('#xlb')}; }
+  /* "Numbers up to 20" (book 7-1): n cubes = a ROW OF TEN (blue) and the ones under it (orange). Picture px: row 1 y=50, row 2 y=170, cube 66 wide, step 80, first x=100. */
+  function tensScene(d){ const n=d.n, ih=d.ih||300; PIC={k:1}; TOP=170; VH=TOP+ih; const tag=[`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`];
+    const cube=(x,y,c)=>`<rect x="${x}" y="${y}" width="66" height="66" rx="12" fill="${c}" stroke="#1f5f96" stroke-width="4"/><path d="M${x+10} ${y+16} h46" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".5"/>`;
+    for(let i=0;i<Math.min(10,n);i++) tag.push(cube(100+i*80,TOP+50,'#46A8E8')); for(let i=0;i<n-10;i++) tag.push(cube(100+i*80,TOP+170,'#FF9A3C'));
+    Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; SC={}; }
+  /* NUMBER LINE (Math 7-3): ticks 0..max with the numbers under them; d.pet = a picture standing on tick d.at; d.arrow='right' draws "Greater" arrow. Picture px: line y=130, tick i at x=50+45*i, label y=190; count pts at y=100. */
+  function nlineScene(d){ const mx=d.max||20, ih=d.ih||225, X0=50, ST=900/mx; PIC={k:1}; VH=TOP+ih; SC={};
+    const tag=[`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`, `<path d="M${X0-20} ${TOP+130} H${X0+900+20}" stroke="#444" stroke-width="5" stroke-linecap="round"/>`];
+    for(let i=0;i<=mx;i++){ const x=X0+ST*i; tag.push(`<path d="M${x} ${TOP+118} v24" stroke="#444" stroke-width="4"/><text x="${x}" y="${TOP+185}" text-anchor="middle" font-size="27" font-weight="700" fill="#333">${i}</text>`); }
+    if(d.arrow){ const r=d.arrow==='right'; tag.push(`<path d="M${r?200:800} ${TOP+50} H${r?800:200}" stroke="#E5352B" stroke-width="7" stroke-linecap="round"/><path d="${r?'M780 '+(TOP+34)+' L808 '+(TOP+50)+' L780 '+(TOP+66):'M220 '+(TOP+34)+' L192 '+(TOP+50)+' L220 '+(TOP+66)}" fill="none" stroke="#E5352B" stroke-width="7" stroke-linecap="round"/>`); }
+    if(d.pet!=null&&d.img){ const x=X0+ST*d.pet; tag.push(`<image href="${base+d.img}" x="${x-35}" y="${TOP+15}" width="70" height="72" preserveAspectRatio="xMidYMax meet"/>`); }
+    Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; }
+  /* GROUPS scene (Math 7-6, numbers over 20): d.t rows of ten blue cubes on the left, d.o orange ones on the right (picture px: row r y=20+62r, cube 42, step 50, x0=40; ones x=640+58(i%5), y=20+62(i/5), size 46). */
+  function groupsScene(d){ const t=d.t, o=d.o||0, ih=Math.max(t,2)*62+40; PIC={k:1}; TOP=170; VH=TOP+ih; SC={};
+    const cube=(x,y,z,c)=>`<rect x="${x}" y="${TOP+y}" width="${z}" height="${z}" rx="9" fill="${c}" stroke="#1f5f96" stroke-width="3"/>`;
+    const tag=[`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`];
+    for(let r=0;r<t;r++) for(let j=0;j<10;j++) tag.push(cube(40+j*50,20+r*62,42,'#46A8E8'));
+    for(let i=0;i<o;i++) tag.push(cube(640+58*(i%5),20+62*Math.floor(i/5),46,'#FF9A3C'));
+    Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; }
+  /* CLOCK scene (Math 8-1): face with numbers; d.h = hour, d.half = 1 for half past (long hand on 6). Picture px: centre (500,215), face r 190, short hand 105 (red), long hand 150 (blue). */
+  function clockScene(d){ const ih=430, cx=500, cy=215; PIC={k:1}; TOP=170; VH=TOP+ih; SC={};
+    const tag=[`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`, `<circle cx="${cx}" cy="${TOP+cy}" r="190" fill="#fffdf5" stroke="#444" stroke-width="8"/>`];
+    for(let i=0;i<60;i++){ const a=i*Math.PI/30, r1=i%5?176:164; tag.push(`<path d="M${cx+Math.sin(a)*r1} ${TOP+cy-Math.cos(a)*r1} L${cx+Math.sin(a)*184} ${TOP+cy-Math.cos(a)*184}" stroke="#444" stroke-width="${i%5?2:4}"/>`); }
+    for(let i=1;i<=12;i++){ const a=i*Math.PI/6; tag.push(`<text x="${cx+Math.sin(a)*135}" y="${TOP+cy-Math.cos(a)*135+13}" text-anchor="middle" font-size="38" font-weight="700" fill="#333">${i}</text>`); }
+    const ha=((d.h%12)+(d.half?.5:0))*Math.PI/6, ma=d.half?Math.PI:0;
+    tag.push(`<path d="M${cx} ${TOP+cy} L${cx+Math.sin(ma)*150} ${TOP+cy-Math.cos(ma)*150}" stroke="#1E6FD0" stroke-width="10" stroke-linecap="round"/>`);
+    tag.push(`<path d="M${cx} ${TOP+cy} L${cx+Math.sin(ha)*105} ${TOP+cy-Math.cos(ha)*105}" stroke="#E5352B" stroke-width="15" stroke-linecap="round"/><circle cx="${cx}" cy="${TOP+cy}" r="12" fill="#333"/>`);
+    Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; }
   function scene(name,actors,d){
-    if(name==='pic'&&d&&d.img){ const k=1000/d.w, ih=Math.round(d.h*k); PIC={k}; VH=TOP+ih;
+    TOP=(name==='free'&&d&&d.top!=null)?d.top:170; IT={}; if(d&&d.wide!==undefined) root.classList.toggle('xwide',!!d.wide);
+    if(name==='pic'&&d&&d.img){ const k=1000/d.w, ih=Math.round(d.h*k); PIC={k}; VH=TOP+ih; PICD={href:base+d.img,ih};
       Lbg.innerHTML=`<defs><clipPath id="xpc"><rect x="0" y="${TOP}" width="1000" height="${ih}" rx="22"/></clipPath></defs>
         ${d.frame===false?'':`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`}
         <image href="${base+d.img}" x="0" y="${TOP}" width="1000" height="${ih}" preserveAspectRatio="none" ${d.frame===false?'':'clip-path="url(#xpc)"'}/>`; }
+    else if(name==='line'&&d){ lineScene(d); }
+    else if(name==='tens'&&d){ tensScene(d); }
+    else if(name==='nline'&&d){ nlineScene(d); }
+    else if(name==='groups'&&d){ groupsScene(d); }
+    else if(name==='clock'&&d){ clockScene(d); }
+    else if(name==='free'&&d){ freeScene(d); }
     else { PIC=null; VH=H; Lbg.innerHTML=SCENES[name]||''; }
     line.innerHTML=''; cap.classList.remove('built'); fit();
     Lact.innerHTML=''; Lfx.innerHTML=''; Lring.innerHTML=''; Lbadge.innerHTML=''; A={}; rings={}; badges=[];
@@ -3042,10 +3235,10 @@ function mount(root, data, opt){
       a.g.classList.add('moving'); await tween(1300,p=>{ a.x=fx+(tx-fx)*p; a.y=fy+(ty-fy)*p; a.g.style.opacity=1-Math.max(0,p-.6)/.4; setT(a); },ease.inout); a.g.classList.remove('moving'); }));
   }
   function clearBadges(){ badges.forEach(b=>b.remove()); badges=[]; }
-  async function count(list,start,color,pts,keep){
+  async function count(list,start,color,pts,keep,rr){
     if(!keep) clearBadges(); let n=(start||1)-1;
     if(pts){ for(const pt of pts){ n++; const [x,y]=P(pt[0],pt[1]);   // things drawn in a book picture: the number appears on each one
-      const b=mk('g',{class:'xbadge'}); b.innerHTML=`<circle r="26" fill="${col(color||'#2A7FD8')}" stroke="#fff" stroke-width="5"/><text y="11" text-anchor="middle">${n}</text>`;
+      const b=mk('g',{class:'xbadge'}); const R=rr||26; b.innerHTML=`<circle r="${R}" fill="${col(color||'#2A7FD8')}" stroke="#fff" stroke-width="${R>20?5:3}"/><text y="${Math.round(R*.42)}" text-anchor="middle" ${R<26?`style="font-size:${Math.round(R*1.3)}px"`:''}>${n}</text>`;
       b.style.opacity=0; Lbadge.append(b); badges.push(b);
       const snd=play((data.nums||{})[n]||null,0); snd.catch(()=>{});
       await tween(320,p=>{ b.style.opacity=Math.min(1,p*2); b.setAttribute('transform',`translate(${x} ${y}) scale(${.4+.6*ease.back(p)})`); },x=>x);
@@ -3141,7 +3334,7 @@ function mount(root, data, opt){
     return new Promise((res,rej)=>{ X.rejAsk=rej;
       [...(o.keys||'1234567890+\u2212=')].forEach(k=>{ const b=hel('button','rb qbtn qlet qmn',`<span>${k}</span>`); b.dataset.v=k;
         b.addEventListener('click',()=>{ if(g!==X.gen) return; const n=qxNext(wd); if(!n) return;
-          if(k===n.textContent){ qxReveal(wd); if(typeof blip==='function') blip(560+wd.querySelectorAll('.lt.got').length*40,.05); cur();
+          if(k===(window.arDigitsBack?arDigitsBack(n.textContent):n.textContent)){ qxReveal(wd); if(typeof blip==='function') blip(560+wd.querySelectorAll('.lt.got').length*40,.05); cur();
             if(qxDone(wd)){ X.rejAsk=null; wd.querySelectorAll('.lt').forEach(x=>x.classList.remove('cur')); askRow.innerHTML=''; cap.classList.remove('asking'); res(); } }
           else { n.classList.add('bad'); setTimeout(()=>n.classList.remove('bad'),500); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); if(opt.wrong) opt.wrong(); } });
         pad.append(b); }); }).then(()=>live(g));
@@ -3169,11 +3362,47 @@ function mount(root, data, opt){
           if(next===ch.length){ X.rejAsk=null; setTimeout(()=>{ if(g!==X.gen) return; askRow.innerHTML=''; cap.classList.remove('asking'); res(); },900); } }); if(typeof chipDrag==='function') chipDrag(b,line,()=>g===X.gen); });
     }).then(()=>live(g));
   }
+  /* where does counting start? a big arrow in the top band from the Front end (or the Back end) of the line; that end's word lights up */
+  async function dir(side,color){ Leq.innerHTML=''; eqT=[]; const c=col(color||'orange'), fr=side!=='back';
+    if(SC.vert){ if(LAB.f){ LAB.f.classList.toggle('on',fr); LAB.b.classList.toggle('on',!fr); }
+      const ya=TOP+SC.y0+(fr?14:SC.ch*SC.n-14), yb=TOP+SC.y0+(fr?SC.ch*SC.n-14:14), x=SC.ax, g=mk('g'); Leq.append(g);
+      const p=mk('path',{d:`M${x} ${ya} L${x} ${yb}`,class:'xring',stroke:c,pathLength:'1'}); p.style.strokeWidth='14px'; g.append(p);
+      const h=mk('path',{d:`M${x-28} ${yb+(fr?-34:34)} L${x} ${yb} L${x+28} ${yb+(fr?-34:34)}`,class:'xring',stroke:c,pathLength:'1'}); h.style.strokeDashoffset=1; h.style.strokeWidth='14px'; h.style.strokeLinejoin='round'; g.append(h);
+      g.append(mk('circle',{cx:x,cy:ya,r:20,fill:c,stroke:'#fff','stroke-width':6}));
+      await tween(X.fast?1:1300,v=>{ p.style.strokeDashoffset=1-v; }); await tween(X.fast?1:260,v=>{ h.style.strokeDashoffset=1-v; }); return; }
+    const xa=(fr!==!!SC.mir)?150:850, xb=(fr!==!!SC.mir)?850:150, y=92;   // (mirrored line: the Front end is at the right)
+    if(LAB.f){ LAB.f.classList.toggle('on',fr); LAB.b.classList.toggle('on',!fr); }
+    const g=mk('g'); Leq.append(g);
+    const p=mk('path',{d:`M${xa} ${y} L${xb} ${y}`,class:'xring',stroke:c,'stroke-width':14,pathLength:'1','stroke-linecap':'round'}); p.style.strokeWidth='14px'; g.append(p);
+    const h=mk('path',{d:`M${xb+(xb>xa?-34:34)} ${y-28} L${xb} ${y} L${xb+(xb>xa?-34:34)} ${y+28}`,class:'xring',stroke:c,'stroke-width':14,pathLength:'1','stroke-linecap':'round','stroke-linejoin':'round',fill:'none'}); h.style.strokeDashoffset=1; h.style.strokeWidth='14px'; g.append(h);
+    const dot=mk('circle',{cx:xa,cy:y,r:20,fill:c,stroke:'#fff','stroke-width':6}); g.append(dot);
+    await tween(X.fast?1:1300,v=>{ p.style.strokeDashoffset=1-v; }); await tween(X.fast?1:260,v=>{ h.style.strokeDashoffset=1-v; }); }
+  /* a rounded rectangle is DRAWN round a part of the line (the book's orange frame): box in picture px */
+  async function frame(o){ const [x0,y0]=P(o.box[0],o.box[1]), [x1,y1]=P(o.box[2],o.box[3]), r=Math.min(26,(y1-y0)/3);
+    const pth=mk('path',{d:`M${x0+r} ${y0} H${x1-r} A${r} ${r} 0 0 1 ${x1} ${y0+r} V${y1-r} A${r} ${r} 0 0 1 ${x1-r} ${y1} H${x0+r} A${r} ${r} 0 0 1 ${x0} ${y1-r} V${y0+r} A${r} ${r} 0 0 1 ${x0+r} ${y0} Z`,class:'xring',stroke:col(o.color||'orange'),'stroke-width':9,fill:'none',pathLength:'1'});
+    pth.style.strokeWidth='9px'; Lring.append(pth); rings[o.id||('f'+Object.keys(rings).length)]={el:pth,b:{x0,y0,x1,y1,cx:(x0+x1)/2,cy:(y0+y1)/2}}; await tween(X.fast?1:800,v=>{ pth.style.strokeDashoffset=1-v; }); }
+  /* "color from the bottom up" (book 6-1): a piece of the book picture (o.src = [x0,y0,x1,y1] picture px, e.g. one strawberry) is copied into each cell of o.cells = [[x0,y0,x1,y1]..]
+     one after another, in the order given (data lists the bottom cell first) */
+  async function stamp(o){ const k=PIC?PIC.k:1, sr=(o.src||[0,0,1,1]).map(v=>v*k);
+    for(const c of o.cells){ const [x0,y0]=P(c[0],c[1]), [x1,y1]=P(c[2],c[3]);
+      let sv;
+      if(o.shape){ const cx=(x0+x1)/2, cy=(y0+y1)/2, r=Math.min(x1-x0,y1-y0)*.38, F={circle:'#1E9BE8',triangle:'#1FA25C',square:'#E5352B',star:'#FFD91A'}[o.shape]||'#888';
+        const d={circle:`M${cx-r} ${cy} a${r} ${r} 0 1 0 ${2*r} 0 a${r} ${r} 0 1 0 ${-2*r} 0Z`, triangle:`M${cx} ${cy-r} L${cx+r*1.1} ${cy+r*.85} L${cx-r*1.1} ${cy+r*.85}Z`, square:`M${cx-r*.9} ${cy-r*.9} h${r*1.8} v${r*1.8} h${-r*1.8}Z`,
+          star:`M${cx} ${cy-r*1.1} L${cx+r*.3} ${cy-r*.35} L${cx+r*1.1} ${cy-r*.3} L${cx+r*.5} ${cy+r*.25} L${cx+r*.7} ${cy+r*1.0} L${cx} ${cy+r*.55} L${cx-r*.7} ${cy+r*1.0} L${cx-r*.5} ${cy+r*.25} L${cx-r*1.1} ${cy-r*.3} L${cx-r*.3} ${cy-r*.35}Z`}[o.shape];
+        sv=mk('path',{d,fill:F,stroke:'#333','stroke-width':3,'stroke-linejoin':'round'}); }
+      else { sv=mk('svg',{x:x0,y:y0,width:x1-x0,height:y1-y0,viewBox:`${sr[0]} ${sr[1]} ${sr[2]-sr[0]} ${sr[3]-sr[1]}`,preserveAspectRatio:'xMidYMid meet',overflow:'hidden'});
+        sv.append(mk('image',{href:PICD.href,x:0,y:0,width:1000,height:PICD.ih,preserveAspectRatio:'none'})); } sv.style.opacity=0; sv.style.overflow='hidden'; Lring.append(sv);
+      if(typeof blip==='function'&&!X.fast) blip(600,.04); await tween(X.fast?1:300,v=>{ sv.style.opacity=v; }); } }
   async function act(d){
     if(d.scene) return scene(d.scene,d.actors,d);
+    if(d.move) return move(d.move,d.ms);
+    if(d.guide) return guide(d.guide);
+    if(d.dir) return dir(d.dir,d.color);
+    if(d.frame) return frame(d.frame);
+    if(d.stamp) return stamp(d.stamp);
     if(d.enter) return enter(d.enter,d.from,d.gap);
     if(d.leave) return leave(d.leave,d.to,d.gap);
-    if(d.count) return count(d.count,d.start,d.color,d.pts,d.keep);
+    if(d.count) return count(d.count,d.start,d.color,d.pts,d.keep,d.r);
     if(d.hold) return hold(d.hold,d.on,d.color);
     if(d.ring) return ring(d.ring,d.color,d.id,d.box,d.pts,d.r);
     if(d.add) return add(d.add,d.color,d.card);
@@ -3195,7 +3424,7 @@ function mount(root, data, opt){
     if(d.wait) return wait(d.wait);
   }
   async function beat(b){
-    if(b.say!=null){ capT.textContent=b.say; cap.classList.toggle('empty',!b.say); }
+    if(b.say!=null){ capT.textContent=data.caption===false?'':b.say; cap.classList.toggle('empty',data.caption===false||!b.say); }   // caption:false = the spoken words are NOT written, only important things (Ahmed 2026-11-12)
     const voice=b.say?play(b.audio,sayMs(b.say)):Promise.resolve();
     if(b.hl&&!X.fast){ const ws=[...line.querySelectorAll('.xtw')].slice(-b.hl.length), t0=X.vt;   // the LAST words on the line = the sentence being re-read
       b.hl.forEach(([a,e],i)=>{ const w=ws[i]; if(!w) return; X.jobs.push({at:t0+a*1000,fn:()=>w.classList.add('reading')},{at:t0+e*1000+60,fn:()=>w.classList.remove('reading')}); }); }
@@ -3212,7 +3441,7 @@ function mount(root, data, opt){
   async function rebuild(i){ X.fast=true; scene('tree',{}); Leq.innerHTML=''; eqT=[];   // a step opened directly: earlier steps are laid out at once, silently
     try{ for(let k=0;k<i;k++) for(const b of steps[k].beats||[]) await beat(b); } finally{ X.fast=false; } }
   // show step i as it is when it starts (nothing plays)
-  async function show(i){ halt(); X.step=i; await rebuild(i); const b=(steps[i].beats||[])[0]; capT.textContent=b&&b.say||''; }
+  async function show(i){ halt(); X.step=i; await rebuild(i); const b=(steps[i].beats||[])[0]; capT.textContent=data.caption===false?'':(b&&b.say||''); }
   // play step i from its start; onDone when its last line ended
   async function play1(i){
     halt(); const g=X.gen; X.step=i; X.playing=true; if(opt.onState) opt.onState(true);
@@ -3243,6 +3472,7 @@ function showExplain(){
     onDone:k=>{ done[k]=1; carFrac((k+1)/np); if(Object.keys(done).length>=np) award(LESSON.id,'read');
       if(rd.auto!==false&&rd.page<np) rd.autoT=setTimeout(()=>{ if(tab==='read'&&host.isConnected) readGo(1,true); },900); }});
   carFrac(i/np); rail(false); if(typeof bookTag==='function') bookTag();
+  window.explainStop=()=>{ try{ x.stop(); }catch(e){} };   // core.js stopVoice: leaving the lesson/tab stops the explain animation and its queued clips
   rd.auto=true; x.play(i);   // a new page always starts by itself
 }
 ;

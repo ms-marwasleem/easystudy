@@ -1,0 +1,103 @@
+{
+ "sets": [
+  {
+   "type": "line",
+   "page": 35,
+   "grp": "ex-1",
+   "task": "الضفدع هو ___ من الأسفل.",
+   "items": [
+    {
+     "items": [
+      "../../pics/cat-gray.png",
+      "../../pics/elephant.png",
+      "../../pics/frog.png",
+      "../../pics/horse-brown.png"
+     ],
+     "target": 2,
+     "from": "back",
+     "vert": true,
+     "ends": [
+      "أعلى",
+      "أسفل"
+     ]
+    }
+   ],
+   "ex": 1
+  },
+  {
+   "type": "line",
+   "page": 35,
+   "grp": "ex-2",
+   "task": "الفيل هو ___ من الأعلى.",
+   "items": [
+    {
+     "items": [
+      "../../pics/cat-gray.png",
+      "../../pics/elephant.png",
+      "../../pics/frog.png",
+      "../../pics/horse-brown.png"
+     ],
+     "target": 1,
+     "from": "front",
+     "vert": true,
+     "ends": [
+      "أعلى",
+      "أسفل"
+     ]
+    }
+   ],
+   "ex": 2
+  },
+  {
+   "type": "line",
+   "page": 35,
+   "grp": "ex-3",
+   "task": "التفاحة هي ___ من اليسار.",
+   "items": [
+    {
+     "items": [
+      "../../pics/banana-u4l2.png",
+      "../../pics/grapes.png",
+      "../../pics/apple-toon.png",
+      "../../pics/orange.png",
+      "../../pics/watermelon.png"
+     ],
+     "target": 2,
+     "from": "front",
+     "vert": false,
+     "ends": [
+      "يسار",
+      "يمين"
+     ],
+     "fem": true
+    }
+   ],
+   "ex": 3
+  },
+  {
+   "type": "line",
+   "page": 35,
+   "grp": "ex-4",
+   "task": "العنب هو ___ من اليمين.",
+   "items": [
+    {
+     "items": [
+      "../../pics/banana-u4l2.png",
+      "../../pics/grapes.png",
+      "../../pics/apple-toon.png",
+      "../../pics/orange.png",
+      "../../pics/watermelon.png"
+     ],
+     "target": 1,
+     "from": "back",
+     "vert": false,
+     "ends": [
+      "يسار",
+      "يمين"
+     ]
+    }
+   ],
+   "ex": 4
+  }
+ ]
+}

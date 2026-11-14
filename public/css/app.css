@@ -429,12 +429,12 @@ body.kb-open .screen:not(#lesson){height:calc(100% - var(--kb,0px))}
 .js{display:flex;align-items:flex-end;gap:0;margin-bottom:-.6em;position:relative;z-index:3}
 .js span{display:block;width:1.45em;height:1.45em}.js span:nth-child(2){width:1.85em;height:1.85em;transform:translateY(-.25em)}   /* bigger stars, sitting on the circle (Marwa 2026-11-04) */
 .js svg{width:100%;height:100%;filter:drop-shadow(0 2px 0 rgba(90,52,24,.3))}
-.jcard{position:relative;width:2.9em;height:2.9em;border-radius:50%;display:grid;place-items:center;background:linear-gradient(var(--btn1),var(--btn2));border:var(--btn-edge) solid var(--btn-rim);box-shadow:var(--btn-shadow);padding:0}
+.jcard{position:relative;width:2.5em;height:2.5em;border-radius:50%;display:grid;place-items:center;background:linear-gradient(var(--btn1),var(--btn2));border:var(--btn-edge) solid var(--btn-rim);box-shadow:var(--btn-shadow);padding:0}
 .jcard::before{content:"";position:absolute;inset:.17em;border-radius:50%;border:0.075em solid rgba(255,225,200,.5);pointer-events:none}
 .jcard::after{content:"";position:absolute;left:14%;top:7%;width:46%;height:20%;border-radius:62.4375rem;background:linear-gradient(90deg,rgba(255,255,255,.8),rgba(255,255,255,.1));transform:rotate(-12deg);pointer-events:none}
 .jn{font-family:var(--f-logo);font-weight:400;font-size:1.4em;color:var(--c-white);line-height:1;text-box:trim-both cap alphabetic;display:block;text-align:center;text-shadow:var(--btn-text-shadow);position:relative;z-index:1}
 .jn.two{font-size:1.05em;white-space:nowrap}
-.jt{position:absolute;z-index:3;transform:translateX(-50%) rotate(-2deg);width:max-content;max-width:none;white-space:nowrap;text-align:center;font-size:1.05em;line-height:1.1;
+.jt{position:absolute;z-index:3;margin-top:.45em;transform:translateX(-50%) rotate(-2deg);width:max-content;max-width:none;white-space:nowrap;text-align:center;font-size:1.05em;line-height:1.1;
   background:linear-gradient(var(--btn1),var(--btn2));border:var(--btn-edge) solid var(--btn-rim);border-radius:1em;padding:.18em .8em .26em;box-shadow:var(--btn-shadow);cursor:pointer}
 .jt.gt{font-family:var(--f-title);letter-spacing:.03em}
 .jt.ar{font-family:var(--f-ui);font-weight:800}
@@ -1143,6 +1143,7 @@ button.qpic{cursor:pointer}
 .qxcn{font:inherit;font-weight:800;font-size:clamp(3rem,14vh,7rem);line-height:1;border:0;background:none;color:#D93D78;cursor:pointer}
 .qxcr{display:flex;flex-wrap:wrap;justify-content:center;align-content:center;gap:2vh 2vw;width:92%;max-width:60rem}
 .qxcs{width:clamp(2.6rem,min(11vw,12vh),7rem);height:clamp(2.6rem,min(11vw,12vh),7rem);object-fit:contain;cursor:pointer;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.qxcpm{gap:1.5vh}.qxcp{max-height:25vh;max-width:70%;object-fit:contain;border:2px solid #c9b9a8;background:#fff;border-radius:1rem}.qxcpm .qxcs{width:clamp(2rem,min(6vw,6.5vh),4rem);height:clamp(2rem,min(6vw,6.5vh),4rem)}
 .qxcs.no{animation:qxcno .3s}@keyframes qxcno{25%{transform:translateX(-.3rem)}75%{transform:translateX(.3rem)}}
 .qword b .alw{padding:0}   /* shared tappable words (qToks) inside the big word line: no extra width, the line measures like plain text */
 
@@ -1600,19 +1601,23 @@ button.qpic{cursor:pointer}
 .qmcount.grp>img{width:min(86cqw,28.75rem);max-height:44cqh}
 @media (max-aspect-ratio:5/4){.mxrow{grid-template-columns:minmax(0,2.4fr) minmax(0,.8fr) minmax(0,2.8fr) auto;gap:0.375rem;padding:0.25rem 0.5rem}.mxword{font-size:min(8cqh,9.5cqw)}}
 /* Explain, "What makes N?" rows: dots frame | 1 and 7 | make 8 */
-.mxrow.mxbond{grid-template-columns:minmax(0,2.2fr) minmax(0,3fr) minmax(0,1.6fr) auto}
 .mxbond .mxdots{overflow:hidden}.mxbond .mxdots img{box-sizing:border-box;height:auto;width:auto;max-width:100%;max-height:calc(78cqh/max(var(--n),7));object-fit:contain;border:0;padding:0;padding:0.25rem 0.375rem;border:0.1875rem solid var(--c-brown-dk);border-radius:0.375rem;background:var(--c-white)}
 .mxeq{display:flex;align-items:baseline;justify-content:center;gap:clamp(0.375rem,2cqw,1.125rem);font-weight:700;line-height:1}
 .mxeq b{font-size:min(calc(84cqh/max(var(--n),7)),15cqw)}.mxeq b.r{color:var(--c-bad)}.mxeq b.b{color:var(--c-accent)}.mxeq i{font-style:normal;font-size:min(calc(52cqh/max(var(--n),7)),9cqw);color:var(--c-brown-dk)}
 .mxmk{font-weight:700;font-size:min(calc(52cqh/max(var(--n),7)),9cqw);line-height:1;color:var(--c-brown-dk);white-space:nowrap}.mxmk b{color:var(--c-accent);font-size:1.35em}
-@media (max-aspect-ratio:5/4){.mxrow.mxbond{grid-template-columns:minmax(0,1.7fr) minmax(0,2.4fr) auto auto;gap:0.25rem 0.5rem;padding:0.25rem 0.625rem}.mxeq b{font-size:min(calc(60cqh/max(var(--n),7)),12cqw)}.mxeq i{font-size:min(calc(38cqh/max(var(--n),7)),7cqw)}.mxmk{font-size:min(calc(35cqh/max(var(--n),7)),6.5cqw)}.mxbond .mxsay{margin-left:2px}}
 
 /* number line explain (u1l9, Marwa 2026-11-04): small -> big, mouse -> elephant. The stones GROW from 1 to 10 (--k), read left to right.
    Wide screens: one row  [mouse] 1 2 3 ... 10 [elephant].  Tall screens: [mouse] on top, 1-5, 6-10, [elephant] at the bottom right.
    Text and speaker white on the page colour. */
 .mxline{flex:1 1 0;min-height:0;container-type:size;display:grid;grid-template-columns:minmax(0,1.6fr) repeat(10,minmax(0,1fr)) minmax(0,2.4fr);grid-template-rows:minmax(0,1fr) auto;
   align-items:end;align-content:center;column-gap:min(1.2cqw,.7rem);row-gap:min(4cqh,1.5rem);max-width:80rem;width:100%;margin:0 auto;padding:0 .25rem}
+.mxline{position:relative}
 .mxstones{display:contents}
+.mxplay .mxend,.mxplay .mxstone,.mxplay .mxcap{opacity:0;transform:scale(.3);transition:opacity .25s,transform .35s cubic-bezier(.3,1.6,.5,1)}
+.mxplay .mxend.show,.mxplay .mxstone.show,.mxplay .mxcap.show{opacity:1;transform:none}
+.mxarrow{position:absolute;height:22px;pointer-events:none;clip-path:inset(-6px 100% -6px 0)}
+.mxarrow svg{display:block;width:100%;height:100%;overflow:visible}
+.mxarrow.draw{clip-path:inset(-6px -6px -6px 0);transition:clip-path var(--d,1500ms) linear}
 .mxend{grid-row:1;display:grid;grid-template-rows:minmax(0,1fr) auto;justify-items:center;align-items:end;height:100%;max-height:44cqh;min-height:0;gap:.25rem;padding:0;align-self:end}
 .mxend.sm{grid-column:1;max-height:26cqh}.mxend.bg{grid-column:12;max-height:56cqh}
 .mxend img{max-width:100%;max-height:100%;object-fit:contain;min-height:0}
@@ -1636,15 +1641,10 @@ button.qpic{cursor:pointer}
 .qmhelp{align-self:center;margin-top:0.5rem}
 .qmcell.peek b,.qmb.peek b{color:rgba(46,27,12,.28)}
 .qxduo{display:flex;align-items:flex-end;justify-content:center;gap:1rem 3rem;flex-wrap:wrap}
-.mxbond .mxdots img{border:0;background:none;padding:0;border-radius:0;max-height:76%;height:auto;width:auto;max-width:100%}
 /* everything stays inside the sheet, margins equal on the sides; the book-page tag has its own strip at the bottom */
 .scene.mx{padding:0.5rem 0.5rem 1.75rem}
 .mxgrid,.mxline{padding:0}
 @media (max-aspect-ratio:5/4){
-  .mxrow.mxbond{grid-template-columns:minmax(0,1fr) auto;grid-template-rows:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"d s" "e m";gap:0.125rem 0.5rem;padding:0.25rem 0.75rem}
-  .mxrow.mxbond .mxdots{grid-area:d;place-items:center start}.mxrow.mxbond .mxeq{grid-area:e;justify-content:flex-start}.mxrow.mxbond .mxmk{grid-area:m;justify-self:end}.mxrow.mxbond .mxsay{grid-area:s;margin:0}
-  .mxbond .mxdots{position:relative}.mxbond .mxdots img{position:absolute;inset:0;height:100%;width:100%;max-height:none;max-width:none;object-fit:contain;object-position:left center}
-  .mxeq b{font-size:min(calc(34cqh/max(var(--n),5)),9cqw)}.mxeq i{font-size:min(calc(26cqh/max(var(--n),5)),6cqw)}.mxmk{font-size:min(calc(26cqh/max(var(--n),5)),6cqw)}
 }
 /* mwrite: write a number sentence / an answer on lines with the app's keypad (0-9 + − =) */
 .mwline{flex:1 0 100%;flex-wrap:wrap;gap:.2rem .6rem;cursor:default}
@@ -1658,6 +1658,66 @@ button.qpic{cursor:pointer}
 .mwrite .alfig,.mwrite .alfig img{height:100%;max-height:100%}
 .mwrite .alfig img{width:100%;object-fit:contain}
 .mwrite .alstem .alask{flex:0 1 auto}
+
+/* "What makes N?" rows (Ahmed 2026-11-12): [1 and 7] [big dots in the middle] [make 8 + speaker]; the dots pop in one by one while "make" is said */
+.mxrow.mxbond{grid-template-columns:auto minmax(0,1fr) auto auto;grid-template-areas:"e d m s";gap:clamp(.375rem,2cqw,1.25rem);padding:.25rem clamp(.625rem,3cqw,1.5rem)}
+.mxrow.mxbond .mxeq{grid-area:e;justify-content:flex-start}.mxrow.mxbond .mxdots{grid-area:d;display:flex;align-items:center;justify-content:center;overflow:visible}
+.mxrow.mxbond .mxmk{grid-area:m;justify-self:auto}.mxrow.mxbond .mxsay{grid-area:s;margin:0}
+.mxbond .mxdots svg{display:block;height:88%;width:100%;max-height:100%}
+.mxbond .mxd{transform-box:fill-box;transform-origin:center}
+.mxbond.pop .mxd{animation:mxpop .22s var(--dl) both cubic-bezier(.3,1.6,.5,1)}
+@keyframes mxpop{from{opacity:.1;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+@media (max-aspect-ratio:5/4){.mxeq b{font-size:min(calc(62cqh/max(var(--n),7)),11cqw)}.mxeq i{font-size:min(calc(40cqh/max(var(--n),7)),7cqw)}.mxmk{font-size:min(calc(40cqh/max(var(--n),7)),7cqw)}.mxrow.mxbond{grid-template-columns:auto minmax(0,1fr) auto auto}}
+
+/* line question (book 2-1): a row of things, Front at the left, Back at the right; the frame is drawn over the chosen slots */
+.mline{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2cqh}
+.mlrow{display:flex;align-items:center;gap:1.4rem;width:100%;justify-content:center}
+.mlend{font:400 1.5rem var(--f-title);color:#fff;opacity:.85;flex:none;text-shadow:0 2px 0 rgba(0,0,0,.2)}
+.mlend.on{opacity:1;color:#FFE45C;font-size:1.9rem}
+.mlthings{position:relative;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:.3rem;flex:1 1 auto;max-width:46rem;background:#fff;border-radius:1.4rem;padding:1rem .6rem;align-items:end}
+.mlthings.strip>img{position:absolute;inset:1rem .6rem;width:calc(100% - 1.2rem);height:calc(100% - 2rem);object-fit:fill;pointer-events:none}
+.mlthings.strip{min-height:9rem}
+.mlt{appearance:none;border:0;background:none;padding:.2rem;display:flex;align-items:flex-end;justify-content:center;min-height:5rem;position:relative;z-index:1;cursor:pointer}
+.mlt img{width:100%;max-height:7rem;object-fit:contain}
+.mlframe{position:absolute;top:.35rem;bottom:.35rem;left:calc(.6rem + (100% - 1.2rem) * var(--a) / var(--n));width:calc((100% - 1.2rem) * (var(--b) - var(--a)) / var(--n));border:.45rem solid #FF8A1F;border-radius:1.2rem;pointer-events:none;animation:mlpop .5s ease-out}
+@keyframes mlpop{from{opacity:0;transform:scale(1.15)}to{opacity:1;transform:none}}
+
+.mlord .mlthings{align-items:center}
+.mlc{display:flex;align-items:center;justify-content:center;padding:.3rem;border-radius:1rem}
+.mlc img{width:100%;max-height:6rem;object-fit:contain}
+.mlc.mark{outline:.4rem solid #2E8FEA;outline-offset:-.3rem}
+.mlv .mlthings{grid-template-columns:minmax(0,9rem);grid-template-rows:repeat(var(--n),auto);gap:.2rem}
+.mlv .mlrow{flex-direction:column}
+.mlchips{margin-top:1rem}
+.mlord.mlv{flex-direction:row;align-items:center;justify-content:center;gap:2.4rem}
+.mlv .mlchips{flex-direction:column;margin-top:0}
+.mlv .mlc img{max-height:min(2.1rem,4vh)}
+.mlv .mlrow{gap:.2rem}
+.mlv .mlend{font-size:1.2rem}
+.mlv .mlc{padding:.1rem}
+.mlv .mlchips{gap:.3rem}
+.mlv .mlthings{padding:.5rem .6rem}
+
+/* MATH IN ARABIC (math-ar): a line of things has Front at the RIGHT end and the pictures face the other way (Arabic book 2-1) */
+.mline.mlrtl .mlrow{direction:rtl}
+.mline.mlrtl .mlthings{direction:rtl}
+.mline.mlrtl .mlthings img{transform:scaleX(-1)}
+.mline.mlrtl .mlthings.strip>img{transform:scaleX(-1)}
+.mline.mlrtl .mlframe{left:auto;right:calc(.6rem + (100% - 1.2rem) * var(--a) / var(--n))}
+/* colorn (math-ar 1-1): a 2x5 frame of circles to colour */
+.qmcirc{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(.375rem,1.6cqw,.75rem);width:min(62cqw,20rem);padding:.5rem;border:.1875rem solid var(--c-brown-dk);border-radius:.5rem;background:#fff;margin-top:.75rem}
+#lesson.ar .qmcirc{direction:rtl}
+.qmcc{aspect-ratio:1;border-radius:50%;border:.1875rem solid var(--c-brown-dk);background:#fff;padding:0;cursor:pointer;transition:background .15s,transform .15s}
+.qmcc.on{background:#E0412C}.qmcc.peek{box-shadow:0 0 0 .25rem rgba(42,127,216,.55)}.qmcc:active{transform:scale(.92)}
+/* math-ar explain (RTL as the book): rows flow from the right (dots, number, word, speaker at the left); bond rows: dots, "1 و 4", "يكوّنان 5"; number line: 1 at the right, arrow drawn right -> left */
+#lesson.ar .mxrow{direction:rtl}
+#lesson.ar .mxrow.mxbond{grid-template-columns:minmax(0,1fr) auto auto auto;grid-template-areas:"d e m s"}
+@media (max-aspect-ratio:5/4){#lesson.ar .mxrow.mxbond{grid-template-columns:minmax(0,1fr) auto auto auto}}
+#lesson.ar .mxrow.mxbond .mxeq{justify-content:flex-end}
+#lesson.ar .mxline{direction:rtl}
+#lesson.ar .mxarrow{transform:scaleX(-1)}
+#lesson.ar .mxend:not(:has(img)){align-self:end;justify-content:center}
+#lesson.ar .mwline{direction:rtl}
 /* ===== css/frame.css ===== */
 /* ONE picture frame for the whole app: white border, soft shadow, rounded corners (same look on every screen and subject).
    Only pictures; the dots / numbers drawn by the app (data: images) and the lesson's book scene keep their own look. */
@@ -1935,8 +1995,10 @@ button.qpic{cursor:pointer}
 :root{--gear-img:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M87.1 41.7 L97.5 43.3 L97.5 56.7 L87.1 58.3 L82.1 70.4 L88.3 78.9 L78.9 88.3 L70.4 82.1 L58.3 87.1 L56.7 97.5 L43.3 97.5 L41.7 87.1 L29.6 82.1 L21.1 88.3 L11.7 78.9 L17.9 70.4 L12.9 58.3 L2.5 56.7 L2.5 43.3 L12.9 41.7 L17.9 29.6 L11.7 21.1 L21.1 11.7 L29.6 17.9 L41.7 12.9 L43.3 2.5 L56.7 2.5 L58.3 12.9 L70.4 17.9 L78.9 11.7 L88.3 21.1 L82.1 29.6Z' fill='%23FFF6D6' stroke='%23D9A000' stroke-width='5' stroke-linejoin='round'/%3E%3C/svg%3E")}
 .tgear,.qhead .qtool.tgear,.dash.tool .rb.tgear{display:grid;place-items:center;width:3.4rem;height:3.4rem;padding:0;border:0;border-radius:0;box-shadow:none;background:var(--gear-img) center/100% 100% no-repeat;color:var(--c-tool-ink);font-family:var(--f-title);font-size:.95rem;font-weight:700;letter-spacing:.04em;line-height:1;white-space:nowrap;-webkit-text-stroke:0;text-shadow:none;paint-order:normal;overflow:visible}
 .dash.tool>span:last-child{display:none}
-.dash.tool .rb{width:4rem;height:4rem;background:none;border:0;box-shadow:none}
-.dash.tool .rb.tgear{width:4rem;height:4rem;font-size:1.1rem;background:var(--gear-img) center/100% 100% no-repeat}
+.dash.tool .rb{width:5.5rem;height:5.5rem;background:none;border:0;box-shadow:none}
+.dash.tool .rb.tgear{width:5.5rem;height:5.5rem;font-size:1.1rem;background:var(--gear-img) center/100% 100% no-repeat}
+#lesson .rail .dash.tool .rb.tgear{width:5.5rem;height:5.5rem}
+@media(max-height:560px){#lesson .rail .dash.tool .rb.tgear{width:4rem;height:4rem}}
 .tgear::before,.tgear::after{content:none!important}
 .dash.tool .rb.tgear{filter:none}
 
@@ -2486,7 +2548,7 @@ button.qpic{cursor:pointer}
 /* ===== css/clarity.css ===== */
 /* CLARITY (2026-11-03, Marwa): NO outline, stroke or shadow on any text (they blur small letters). Colours are NOT changed here.
    Loaded last (before explainer, which has its own file). */
-:where(body *):not(.xpl):not(.xpl *):not(.gamelogo span){-webkit-text-stroke:0 !important;paint-order:normal !important;text-shadow:none !important}
+:where(body *):not(.xpl):not(.xpl *):not(.gamelogo span):not(.ewt){-webkit-text-stroke:0 !important;paint-order:normal !important;text-shadow:none !important}
 .hello b.gamelogo{font-size:clamp(2rem,4.6vw,3rem)}
 /* app logo: white-silver gradient letters WITH the dark outline (Marwa 2026-11-05: the logo is the one exception to no-outline; outline colour = --logo-ol in theme.css) */
 .gamelogo span::after{background:linear-gradient(#FFFFFF 15%,#EEF0F8 42%,#B7BDD0 58%,#F8F9FD 82%);-webkit-background-clip:text;background-clip:text}
@@ -2555,6 +2617,15 @@ button.qpic{cursor:pointer}
 .xpl-ask .xkeys .qmn{--q-choice:clamp(2.4rem,min(11cqw,13cqh),3.8rem)}
 .xpl-ask .xkeys .qmn.no,.xpl-ask .xans.no{animation:xshake .45s}
 .xpl-ask .xans.yes{background:var(--c-good);color:#fff}
+
+/* line scene (Front / Back ends; the end counting starts from lights up) */
+.xpl .xl-end{font:400 40px var(--f-title);fill:#9a8a7a;paint-order:stroke;stroke:none}
+.xpl .xl-end.on{fill:#FF8A1F;font-size:50px}
+
+/* wide = a LINE lesson (data explain.wide): the picture takes the whole width, the answer is written under it, in landscape too */
+.xpl.xwide{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,76fr) minmax(0,24fr)}
+.xpl.xwide .xpl-cap{--xfs:min(15cqh,6.8cqw,2.5rem)}
+.xpl.xwide .xtw.xcard{font-size:calc(var(--xfs)*1.7);padding:.1em .6em}
 /* ===== css/nahw.css ===== */
 /* NAHW template (js/nahw.js): animated grammar lessons. FIXED zones (board + sentence), relative units only; colours from theme.css. */
 .scene.nhhost{background:none;border:0;box-shadow:none;overflow:visible;justify-content:flex-start;align-items:stretch;padding:0}
@@ -2990,7 +3061,7 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 }
 
 /* link board in rows (tags/words above, pictures below): the two rows breathe, never stuck together (Ahmed 2026-11-08) */
-.qlink:not(.cols){gap:clamp(2.75rem,26cqh,7rem)}   /* room between the row of words and the row of pictures (Ahmed 2026-11-09) */
+.qlink:not(.cols){gap:clamp(1.25rem,7cqh,7rem)}   /* room between the row of words and the row of pictures (Ahmed 2026-11-09; 7cqh not 26cqh: at 1100x720 the pictures row collapsed to 5px, Ahmed 2026-11-13) */
 
 /* words sit INSIDE their box, centred, with room for the harakat above and below (Ahmed 2026-11-09, whole app): Arabic needs a taller line than the 1.1-1.15 the boxes used, or the kasra / shadda hang out of the bottom */
 .qch.wd{display:flex!important;align-items:center;justify-content:center;text-align:center}
@@ -3127,4 +3198,4 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .subf input.bad{border-color:#D32F2F}
 .subimg{margin:0;color:#2E7D32;font-size:.9rem}
 .subnote{font-size:.8rem;opacity:.85;margin:0;line-height:1.5}
-:root{--app-build:"02d8770019"}
+:root{--app-build:"f1b4c1a62a"}

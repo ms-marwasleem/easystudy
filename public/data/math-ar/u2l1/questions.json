@@ -1,0 +1,52 @@
+{
+ "sets": [
+  {
+   "type": "line",
+   "page": 33,
+   "grp": "ex-1",
+   "task": "٤ قطط من الأمام",
+   "items": [
+    {
+     "n": 5,
+     "from": "front",
+     "at": 4,
+     "group": true,
+     "unit": "../../pics/cat-gray.png"
+    }
+   ],
+   "ex": 1
+  },
+  {
+   "type": "line",
+   "page": 33,
+   "grp": "ex-2",
+   "task": "السيارة الرابعة من الأمام",
+   "items": [
+    {
+     "n": 7,
+     "from": "front",
+     "at": 4,
+     "group": false,
+     "unit": "../../pics/truck-white.png"
+    }
+   ],
+   "ex": 2
+  },
+  {
+   "type": "line",
+   "page": 33,
+   "grp": "ex-3",
+   "task": "الشخص الخامس من الخلف",
+   "items": [
+    {
+     "n": 10,
+     "from": "back",
+     "at": 5,
+     "group": false,
+     "img": "../../pics/kids-line.png"
+    }
+   ],
+   "ex": 3
+  }
+ ]
+}

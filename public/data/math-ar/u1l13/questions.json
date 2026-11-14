@@ -1,0 +1,79 @@
+{
+ "sets": [
+  {
+   "type": "count",
+   "ex": 1,
+   "page": 30,
+   "task": "نكتب عدد البرتقالات.",
+   "typed": true,
+   "items": [
+    {
+     "img": "../../pics/orange.png#4",
+     "n": 4,
+     "group": true,
+     "word": "أربعة"
+    },
+    {
+     "img": "../../pics/plate.png",
+     "n": 0,
+     "group": true,
+     "word": "صفر"
+    }
+   ]
+  },
+  {
+   "type": "count",
+   "ex": 2,
+   "page": 31,
+   "task": "نكتب عدد الورود.",
+   "typed": true,
+   "items": [
+    {
+     "img": "../../pics/pot-tulips-5.png",
+     "n": 5,
+     "group": true,
+     "word": "خمسة"
+    },
+    {
+     "img": "../../pics/pot-empty.png",
+     "n": 0,
+     "group": true,
+     "word": "صفر"
+    },
+    {
+     "img": "../../pics/pot-tulips-2.png",
+     "n": 2,
+     "group": true,
+     "word": "اثنان"
+    }
+   ]
+  },
+  {
+   "type": "count",
+   "ex": 3,
+   "page": 31,
+   "task": "نكتب عدد الضفادع.",
+   "typed": true,
+   "items": [
+    {
+     "img": "../../pics/frog-lilypad.png",
+     "n": 1,
+     "group": true,
+     "word": "واحد"
+    },
+    {
+     "img": "../../pics/frog.png#6",
+     "n": 6,
+     "group": true,
+     "word": "ستة"
+    },
+    {
+     "img": "../../pics/frog.png#8",
+     "n": 8,
+     "group": true,
+     "word": "ثمانية"
+    }
+   ]
+  }
+ ]
+}

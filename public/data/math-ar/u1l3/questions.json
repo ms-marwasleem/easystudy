@@ -1,0 +1,85 @@
+{
+ "sets": [
+  {
+   "type": "count",
+   "ex": 1,
+   "page": 10,
+   "task": "نكتب عدد الأشياء التي نراها.",
+   "typed": true,
+   "items": [
+    {
+     "img": "../../pics/cat-gray.png#2",
+     "n": 2,
+     "group": true,
+     "word": "اثنان"
+    },
+    {
+     "img": "../../pics/balloon.png#4",
+     "n": 4,
+     "group": true,
+     "word": "أربعة"
+    }
+   ]
+  },
+  {
+   "type": "count",
+   "ex": 2,
+   "page": 11,
+   "task": "نكتب عدد الأشياء التي نراها.",
+   "typed": true,
+   "items": [
+    {
+     "img": "../../pics/truck-white.png",
+     "n": 1,
+     "group": true,
+     "word": "واحد"
+    },
+    {
+     "img": "../../pics/butterfly.png#5",
+     "n": 5,
+     "group": true,
+     "word": "خمسة"
+    }
+   ]
+  },
+  {
+   "type": "count",
+   "ex": 3,
+   "page": 11,
+   "task": "نكتب عدد الأشياء التي نراها.",
+   "typed": true,
+   "items": [
+    {
+     "img": "../../pics/ball.png#3",
+     "n": 3,
+     "group": true,
+     "word": "ثلاثة"
+    },
+    {
+     "img": "../../pics/horse-brown.png",
+     "n": 1,
+     "group": true,
+     "word": "واحد"
+    },
+    {
+     "img": "../../pics/ar-airplane.png#2",
+     "n": 2,
+     "group": true,
+     "word": "اثنان"
+    },
+    {
+     "img": "../../pics/frog.png#5",
+     "n": 5,
+     "group": true,
+     "word": "خمسة"
+    },
+    {
+     "img": "../../pics/bear.png#4",
+     "n": 4,
+     "group": true,
+     "word": "أربعة"
+    }
+   ]
+  }
+ ]
+}

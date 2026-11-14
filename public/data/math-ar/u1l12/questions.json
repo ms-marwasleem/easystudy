@@ -1,0 +1,148 @@
+{
+ "sets": [
+  {
+   "type": "bigger",
+   "ex": 1,
+   "page": 28,
+   "task": "نضع دائرة حول العدد الأكبر.",
+   "items": [
+    {
+     "nums": [
+      6,
+      7
+     ],
+     "find": "bigger",
+     "word": "سبعة"
+    }
+   ]
+  },
+  {
+   "type": "bigger",
+   "ex": 2,
+   "page": 29,
+   "task": "نضع دائرة حول العدد الأكبر.",
+   "items": [
+    {
+     "nums": [
+      1,
+      3
+     ],
+     "find": "bigger",
+     "word": "ثلاثة"
+    },
+    {
+     "nums": [
+      5,
+      2
+     ],
+     "find": "bigger",
+     "word": "خمسة"
+    }
+   ]
+  },
+  {
+   "type": "bigger",
+   "ex": 3,
+   "page": 29,
+   "task": "نضع دائرة حول العدد الأصغر.",
+   "items": [
+    {
+     "nums": [
+      8,
+      4
+     ],
+     "find": "smaller",
+     "word": "أربعة"
+    },
+    {
+     "nums": [
+      7,
+      10
+     ],
+     "find": "smaller",
+     "word": "سبعة"
+    }
+   ]
+  },
+  {
+   "type": "bigger",
+   "ex": 4,
+   "page": 29,
+   "task": "نضع دائرة حول العدد الأكبر.",
+   "items": [
+    {
+     "nums": [
+      2,
+      10
+     ],
+     "find": "bigger",
+     "word": "عشرة"
+    },
+    {
+     "nums": [
+      7,
+      5
+     ],
+     "find": "bigger",
+     "word": "سبعة"
+    },
+    {
+     "nums": [
+      4,
+      3
+     ],
+     "find": "bigger",
+     "word": "أربعة"
+    },
+    {
+     "nums": [
+      9,
+      6
+     ],
+     "find": "bigger",
+     "word": "تسعة"
+    }
+   ]
+  },
+  {
+   "type": "bigger",
+   "ex": 5,
+   "page": 29,
+   "task": "نضع دائرة حول العدد الأصغر.",
+   "items": [
+    {
+     "nums": [
+      8,
+      1
+     ],
+     "find": "smaller",
+     "word": "واحد"
+    },
+    {
+     "nums": [
+      3,
+      5
+     ],
+     "find": "smaller",
+     "word": "ثلاثة"
+    },
+    {
+     "nums": [
+      5,
+      9
+     ],
+     "find": "smaller",
+     "word": "خمسة"
+    },
+    {
+     "nums": [
+      8,
+      6
+     ],
+     "find": "smaller",
+     "word": "ستة"
+    }
+   ]
+  }
+ ]
+}

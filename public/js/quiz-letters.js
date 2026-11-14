@@ -42,12 +42,17 @@ function qxPosition(box,q,s,run){
     $$('.qxc',row).forEach(x=>x.classList.add('show')); b.classList.add('right'); qxWin(b,q); }); row.append(b); });
   box.append(row);
 }
+// a right answer says the letter's sound with its haraka, then the haraka's name (Ahmed 2026-11-13); then the word as before
+const QX_HAR={'َ':['64e','fatha'],'ُ':['64f','damma'],'ِ':['650','kasra'],'ْ':['652','sukoon']};
+async function qxVowelSay(c,run){ const g=[...String(c||'')], h=g.length===2&&QX_HAR[g[1]]; if(!h) return;
+  qz.busy=true; try{ await qSound(R_Q('../../syl-ar/'+g[0].codePointAt(0).toString(16)+'-'+h[0]+'.mp3'),''); if(run!==qz.run) return; await nap(200); if(run!==qz.run) return; await qSound(R_Q('../shared/k-h-'+h[1]+'.mp3'),''); } catch(e){} finally{ if(run===qz.run) qz.busy=false; } }
 function qxVowel(box,q,s,run){
   const at=q.at||0, wd=wsFill(el('b','qxw'),q.word,{hide:[at]}), gap=$('.lt.hid',wd); gap.classList.add('cur'); box.append(wd);   // THE word component (js/wordslots.js)
   const row=el('div','qxchoices');
   (q.choices||s.choices).forEach(c=>{ const b=qChBtn(c);   // THE choice button (quiz.js qChBtn)
     b.addEventListener('click',()=>{ if(qz.busy) return; if(c!==q.answer){ wsBad(gap); return qxBad(b); }
-      b.classList.add('on'); gap.classList.remove('bad','hid','cur'); gap.classList.add('got'); qxWin(b,q); }); row.append(b); });
+      b.classList.add('on'); gap.classList.remove('bad','hid','cur'); gap.classList.add('got');
+      qxVowelSay(c,run).then(()=>{ if(run===qz.run&&inQ()) qxWin(b,q); }); }); row.append(b); });
   box.append(row);
 }
 // the word (or sentence) as hidden letters with their places underlined; spaces are not letters
@@ -70,7 +75,7 @@ function qxWrite(box,q,s,run,text,onDone){   // text: what to type (default the 
   line.append(inp); wsInput(inp,text,/^\d+$/.test(text)?'en':(s.lang||null));   // keyboard language from the word (js/wordslots.js)
   const cur=()=>{ $$('.lt',wd).forEach(x=>x.classList.remove('cur')); const n=qxNext(wd); if(n) n.classList.add('cur'); }; cur();
   const type=ch=>{ if(qz.busy||qz.list[qz.i]!==q||!ch||/\s/.test(ch)) return; const n=qxNext(wd); if(!n) return;
-    if(sameLetter(ch,n.textContent)){ qxReveal(wd); blip(560+$$('.lt.got',wd).length*40,.05); cur(); if(qxDone(wd)){ if(onDone) onDone(wd); else qxWin(wd,q,1700); } }
+    if(sameLetter(ch,window.arDigitsBack?arDigitsBack(n.textContent):n.textContent)){ qxReveal(wd); blip(560+$$('.lt.got',wd).length*40,.05); cur(); if(qxDone(wd)){ if(onDone) onDone(wd); else qxWin(wd,q,1700); } }
     else { wsBad(n); qxBad(line); } };
   qxWrite.type=type;   // a key pressed anywhere on the page types too (no click into the box first)
   inp.oninput=()=>{ const ch=inp.value.replace(/\s/g,'').slice(-1); inp.value=''; type(ch); };
@@ -78,7 +83,7 @@ function qxWrite(box,q,s,run,text,onDone){   // text: what to type (default the 
   line.onclick=()=>inp.focus({preventScroll:true});
   help.onpointerdown=e=>{ if(document.activeElement===inp) e.preventDefault(); };
   help.onclick=()=>{ if(qz.busy) return; qxPeek(wd); inp.focus({preventScroll:true}); };
-  inp.focus({preventScroll:true}); showHint(line,s.lang==='en'||/^[\x00-\x7f]+$/.test(text)?'Type here':'اكتب هنا',500,'qxwrite');
+  inp.focus({preventScroll:true}); showHint(line,(s.lang==='en'||/^[\x00-\x7f]+$/.test(text))&&!(isAr()&&/^\d+$/.test(text))?'Type here':'اكتب هنا',500,'qxwrite');
 }
 document.addEventListener('keydown',e=>{ const inp=$('#qxin'); if(!inp||!inQ()||document.activeElement===inp||e.ctrlKey||e.metaKey||e.altKey||e.key.length!==1||!qxWrite.type) return;
   const a=document.activeElement; if(a&&/^(INPUT|TEXTAREA)$/.test(a.tagName)) return; inp.focus({preventScroll:true}); qxWrite.type(normDigits(e.key)); e.preventDefault(); });
@@ -316,7 +321,8 @@ function qxFace(box,q,s,run){
 QM.face={sheet:'box', noword:1, bulb:0, draw:qxFace};
 function qxColour(box,q,s,run){
   const bd=el('div','qxcb'); bd.dataset.noswipe=1; box.append(bd);
-  const nb=el('button','qxcn'); nb.type='button'; nb.textContent=q.num; nb.onclick=()=>{ if(q.audio) qSound(R_Q(q.audio),q.word||''); }; bd.append(nb);
+  if(q.pic){ const pi=el('img','qxcp'); pi.alt=''; pi.draggable=false; pi.src=q.pic; bd.append(pi); bd.classList.add('qxcpm'); }   // Math 6-1: count the things in the picture, then colour that many (the number is not shown)
+  else { const nb=el('button','qxcn'); nb.type='button'; nb.textContent=q.num; nb.onclick=()=>{ if(q.audio) qSound(R_Q(q.audio),q.word||''); }; bd.append(nb); }
   const row=el('div','qxcr'); bd.append(row); let on=0, done=false;
   const cells=[]; for(let i=0;i<q.total;i++){ const im=el('img','qxcs'); im.alt=''; im.draggable=false; im.src=R_Q(q.off); im.dataset.on=0; row.append(im); cells.push(im); }
   const cnt=()=>cells.filter(c=>c.dataset.on==='1').length;
@@ -344,9 +350,12 @@ function qxFirst(box,q,s,run){
   const row=el('div','qxfirsts'), cells=q.parts.map(p=>{ const f=el('figure','qxfi'); f.append(p.pic?el('div','qxfp2',`<img src="${R_Q(p.pic)}" alt="">`):el('div','qxftx',p.text)); const h=el('div','qxfh'); f.append(h); row.append(f); return h; });
   let rc=null; if(q.result){ row.append(el('span','qxeq','=')); const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${R_Q(q.result)}" alt="">`)); rc=el('div','qxfh'); f.append(rc); row.append(f); }   // the merged word's own picture and its place, after "="
   box.append(row);
+  // ALL the places show from the start (Ahmed 2026-11-13): every letter's empty place under its picture and the merged word's places under the result; the live line replaces its ghost when its turn comes
+  const ghost=(h,t)=>{ if(!h||!t) return; const w=el('div','qxline qxgl'); w.append(qxWordEl(t,null,s.faint,/^[\x00-\x7f]+$/.test(t),null)); h.append(w); };
+  cells.forEach((h,i)=>ghost(h,q.parts[i].first)); ghost(rc,q.word);
   const stage=k=>{ const last=k>=q.parts.length;
     qxWrite(box,q,s,run,last?q.word:q.parts[k].first,last?null:()=>{ stage(k+1); });
-    const ln=$$('.qxline',box).pop(); if(ln) (last&&rc?rc:cells[k]).append(ln); };
+    const ln=$$('.qxline:not(.qxgl)',box).pop(); if(ln){ const h=(last&&rc?rc:cells[k]); $$('.qxgl',h).forEach(x=>x.remove()); h.append(ln); } };
   stage(0);
 }
 QM.first={sheet:'box', noword:1, bulb:0, draw:qxFirst};

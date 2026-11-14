@@ -1,0 +1,209 @@
+{
+ "id": "u9l3",
+ "unit": 9,
+ "lesson": 3,
+ "title": "العمليات الحسابية على ثلاثة أعداد",
+ "task": "العمليات الحسابية على ثلاثة أعداد",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read",
+  "quiz",
+  "workbook"
+ ],
+ "tabLabels": {
+  "read": "الدرس",
+  "quiz": "التدريب",
+  "workbook": "الأداءات"
+ },
+ "pages": 3,
+ "pageNums": [
+  92,
+  92,
+  92
+ ],
+ "layout": "explain",
+ "explain": {
+  "caption": false,
+  "steps": [
+   {
+    "name": "8 - 3 + 2",
+    "beats": [
+     {
+      "say": "ثمانية ناقص ثلاثة زائد اثنين. نبدأ من اليمين.",
+      "do": [
+       {
+        "scene": "line",
+        "n": 8,
+        "unit": "../../pics/apple-toon.png",
+        "ends": [
+         "",
+         ""
+        ],
+        "wide": true
+       }
+      ]
+     },
+     {
+      "say": "ثمانية ناقص ثلاثة يساوي خمسة.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          589,
+          40,
+          886,
+          214
+         ],
+         "color": "red"
+        }
+       },
+       {
+        "add": "8 - 3 = 5",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "خمسة زائد اثنين يساوي سبعة.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "5 + 2 = 7",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "6 - 2 + 3",
+    "beats": [
+     {
+      "say": "ستة ناقص اثنين زائد ثلاثة. نبدأ من اليمين.",
+      "do": [
+       {
+        "scene": "line",
+        "n": 6,
+        "unit": "../../pics/apple-toon.png",
+        "ends": [
+         "",
+         ""
+        ],
+        "wide": true
+       }
+      ]
+     },
+     {
+      "say": "ستة ناقص اثنين يساوي أربعة.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          621,
+          40,
+          886,
+          214
+         ],
+         "color": "red"
+        }
+       },
+       {
+        "add": "6 - 2 = 4",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "أربعة زائد ثلاثة يساوي سبعة.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "4 + 3 = 7",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "7 + 2 - 3",
+    "beats": [
+     {
+      "say": "سبعة زائد اثنين ناقص ثلاثة. نبدأ من اليمين.",
+      "do": [
+       {
+        "scene": "line",
+        "n": 9,
+        "unit": "../../pics/apple-toon.png",
+        "ends": [
+         "",
+         ""
+        ],
+        "wide": true
+       }
+      ]
+     },
+     {
+      "say": "سبعة زائد اثنين يساوي تسعة.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          114,
+          40,
+          886,
+          214
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "7 + 2 = 9",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "تسعة ناقص ثلاثة يساوي ستة.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "9 - 3 = 6",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   }
+  ],
+  "rtl": true,
+  "lang": "ar"
+ }
+}

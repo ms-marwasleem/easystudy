@@ -11,6 +11,7 @@
      {ring:ids|pts, r, color, id} {unring:id|"all"}  hand-drawn ring round a group
      {hold:n, on:ringId, color}                      the number of a group 'in your head' (one badge, said); then {count:ids, start:n+1, keep:true} counts on
      {scene:'pic', frame:false}                      a picture made of framed parts: no big white frame behind it
+     {scene:'free', items:[{id,img,x,y,w,h}], ih, top}  separate pictures that move: {move:[{id,x,y}],ms} slides them together, {guide:{x0,y0,x1,y1,color}} draws a dotted line (Math 5-1)
      {link:[[[x,y],[x,y]]..], color, r, id}         "What is the difference?": pairs joined by lines one by one; the ones left over are the difference
      {cross:true, pts, r, color}                     things that go away (subtraction) are crossed out one by one
      {eq:["2","+","3","=","5"]} {eqState:"show"|"dim"} {lit:i,color,value} {pulse:i}   the number sentence on top
@@ -77,13 +78,13 @@ const SCENES={
 /* ---------- player ---------- */
 function mount(root, data, opt){
   opt=opt||{}; const base=opt.base||'';
-  root.classList.add('xpl'); root.innerHTML='';
+  root.classList.add('xpl'); root.classList.toggle('xwide',!!data.wide); root.innerHTML='';
   const svg=mk('svg',{viewBox:`0 0 ${W} ${H}`,preserveAspectRatio:'xMidYMid meet',class:'xpl-svg','aria-hidden':'true'});
   const Lbg=mk('g'), Lring=mk('g'), Lact=mk('g'), Lbadge=mk('g'), Leq=mk('g'), Lfx=mk('g');
   svg.append(Lbg,Lring,Lact,Lbadge,Leq,Lfx);
   const stageEl=hel('div','xpl-stage'); stageEl.append(svg);
   const cap=hel('div','xpl-cap'), capT=hel('p','xpl-capt'); capT.dir=data.lang==='ar'?'rtl':'ltr'; cap.append(capT);
-  const askRow=hel('div','xpl-ask'), line=hel('div','xpl-line'); cap.append(line,askRow);
+  const askRow=hel('div','xpl-ask'), line=hel('div','xpl-line'); if(data.lang==='ar') line.dir='rtl'; cap.append(line,askRow);   // Arabic: the sentence builds from the right
   root.append(stageEl,cap);
 
   /* clock: everything waits on a virtual time; leaving the page (the element is gone) stops everything */
@@ -109,14 +110,83 @@ function mount(root, data, opt){
 
   /* ---------- the drawing state ---------- */
   let A={}, rings={}, eqT=[], badges=[], VH=H, PIC=null;
-  const TOP=170;   // a book picture sits under a band of sky that holds the number sentence
+  let TOP=170;   // a book picture sits under a band of sky that holds the number sentence
   const P=(x,y)=>PIC?[x*PIC.k,TOP+y*PIC.k]:[x,y];
   const setT=a=>a.g.setAttribute('transform',`translate(${a.x} ${a.y}) scale(${a.s*a.face} ${a.s})`);
+  /* a LINE of things (people, rabbits, cars…): n things side by side, "Front" at the left end, "Back" at the right end (as in the book).
+     d.unit = one picture repeated n times, or d.img = one strip picture with n equal slots (d.w,d.h = its pixels). Coordinates under it are picture px
+     (x 0..1000, y below the number band). A line: slots x 120..880. The helper of the data builder (tools/lessons/math-gen/position_u2l1.py) computes them. */
+  let LAB={}, IT={};
+  /* FREE scene (Math 5-1 lengths): separate see-through pictures (pencils, strings…) that can MOVE. d.items=[{id,img,x,y,w,h}] (picture px, top-left + drawn size),
+     d.ih = height of the white panel, d.top = gap above it (default 30). Actions {move:[{id,x,y}],ms} slide things together; {guide:{x0,y0,x1,y1,color,id}} draws a dotted line. */
+  function freeScene(d){ PIC={k:1}; const ih=d.ih||420; VH=TOP+ih; const tag=[];
+    if(d.frame!==false) tag.push(`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`);
+    (d.items||[]).forEach((o,i)=>tag.push(`<image data-i="${i}" href="${base+o.img}" x="${o.x}" y="${TOP+o.y}" width="${o.w}" height="${o.h}" preserveAspectRatio="none"/>`));
+    Lbg.innerHTML=tag.join(''); IT={};   // (scene() empties the actors layer afterwards, so the things live in the background layer)
+    (d.items||[]).forEach((o,i)=>{ IT[o.id]={e:Lbg.querySelector(`image[data-i="${i}"]`),x:o.x,y:o.y}; }); }
+  async function move(list,ms){ const L=[].concat(list).map(m=>({...m,it:IT[m.id]})).filter(m=>m.it); const f=L.map(m=>({m,x0:m.it.x,y0:m.it.y}));
+    await tween(X.fast?1:(ms||1500),v=>f.forEach(o=>{ const x=o.x0+(o.m.x-o.x0)*v, y=o.y0+(o.m.y-o.y0)*v; o.m.it.e.setAttribute('x',x); o.m.it.e.setAttribute('y',TOP+y); if(v>=1){ o.m.it.x=o.m.x; o.m.it.y=o.m.y; } })); }
+  // a dotted line (the book's alignment line) drawn from its start to its end, over the pictures
+  async function guide(o){ const [x0,y0]=P(o.x0,o.y0), [x1,y1]=P(o.x1,o.y1); const l=mk('line',{x1:x0,y1:y0,x2:x0,y2:y0,stroke:col(o.color||'black'),'stroke-width':o.w||6,'stroke-dasharray':'3 13','stroke-linecap':'round'}); Lbadge.append(l);
+    await tween(X.fast?1:(o.ms||900),v=>{ l.setAttribute('x2',x0+(x1-x0)*v); l.setAttribute('y2',y0+(y1-y0)*v); }); }
+  let SC={}, PICD=null;
+  function lineScene(d){
+    const ends=d.ends||['Front','Back'], tag=[], items=d.items; const card=ih=>`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`;
+    if(items&&d.vert){   // a column (first end above, second below): cells 110 high in the middle, the arrow at its right
+      const n=items.length, ih=60+110*n+70; TOP=20; PIC={k:1}; VH=TOP+ih; SC={vert:true,n,y0:60,ch:110,ax:790};
+      tag.push(card(ih)); tag.push(`<rect x="400" y="${TOP+60}" width="200" height="${110*n}" fill="none" stroke="#c9b9a8" stroke-width="4"/>`);
+      items.forEach((it,i)=>{ if(i) tag.push(`<path d="M400 ${TOP+60+110*i} H600" stroke="#c9b9a8" stroke-width="3"/>`); tag.push(`<image href="${base+it}" x="420" y="${TOP+60+110*i+8}" width="160" height="94" preserveAspectRatio="xMidYMid meet"/>`); });
+      tag.push(`<text class="xl-end" id="xlf" x="500" y="${TOP+46}" text-anchor="middle">${ends[0]}</text><text class="xl-end" id="xlb" x="500" y="${TOP+60+110*n+52}" text-anchor="middle">${ends[1]}</text>`);
+    } else {
+      const ih=d.ih||230; PIC={k:1}; VH=TOP+ih; const n=items?items.length:d.n, x0=120, x1=880, sw=(x1-x0)/n, base0=TOP+(d.floor||200); SC={vert:false,n};
+      tag.push(card(ih));
+      const MI=!!d.mirror, flip=cx=>MI?` transform="translate(${2*cx} 0) scale(-1 1)"`:''; SC.mir=MI;   // Arabic: Front at the right, the pictures face the other way
+      if(d.img){ const w=x1-x0, h=Math.round(w*d.h/d.w); tag.push(`<image href="${base+d.img}" x="${x0}" y="${base0-h}" width="${w}" height="${h}" preserveAspectRatio="none"${flip(500)}/>`); }
+      else { const mw=Math.min(sw*.82,d.maxw||150), mh=d.maxh||150; for(let i=0;i<n;i++){ tag.push(`<image href="${base+(items?items[i]:d.unit)}" x="${x0+sw*(i+.5)-mw/2}" y="${base0-mh}" width="${mw}" height="${mh}" preserveAspectRatio="xMidYMax meet"${flip(x0+sw*(i+.5))}/>`); } }
+      tag.push(`<text class="xl-end" id="xlf" x="${MI?940:60}" y="${base0-30}" text-anchor="middle">${ends[0]}</text><text class="xl-end" id="xlb" x="${MI?60:940}" y="${base0-30}" text-anchor="middle">${ends[1]}</text>`);
+    }
+    Leq.innerHTML=''; eqT=[];
+    Lbg.innerHTML=tag.join(''); LAB={f:Lbg.querySelector('#xlf'),b:Lbg.querySelector('#xlb')}; }
+  /* "Numbers up to 20" (book 7-1): n cubes = a ROW OF TEN (blue) and the ones under it (orange). Picture px: row 1 y=50, row 2 y=170, cube 66 wide, step 80, first x=100. */
+  function tensScene(d){ const n=d.n, ih=d.ih||300; PIC={k:1}; TOP=170; VH=TOP+ih; const tag=[`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`];
+    const cube=(x,y,c)=>`<rect x="${x}" y="${y}" width="66" height="66" rx="12" fill="${c}" stroke="#1f5f96" stroke-width="4"/><path d="M${x+10} ${y+16} h46" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".5"/>`;
+    for(let i=0;i<Math.min(10,n);i++) tag.push(cube(100+i*80,TOP+50,'#46A8E8')); for(let i=0;i<n-10;i++) tag.push(cube(100+i*80,TOP+170,'#FF9A3C'));
+    Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; SC={}; }
+  /* NUMBER LINE (Math 7-3): ticks 0..max with the numbers under them; d.pet = a picture standing on tick d.at; d.arrow='right' draws "Greater" arrow. Picture px: line y=130, tick i at x=50+45*i, label y=190; count pts at y=100. */
+  function nlineScene(d){ const mx=d.max||20, ih=d.ih||225, X0=50, ST=900/mx; PIC={k:1}; VH=TOP+ih; SC={};
+    const tag=[`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`, `<path d="M${X0-20} ${TOP+130} H${X0+900+20}" stroke="#444" stroke-width="5" stroke-linecap="round"/>`];
+    for(let i=0;i<=mx;i++){ const x=X0+ST*i; tag.push(`<path d="M${x} ${TOP+118} v24" stroke="#444" stroke-width="4"/><text x="${x}" y="${TOP+185}" text-anchor="middle" font-size="27" font-weight="700" fill="#333">${i}</text>`); }
+    if(d.arrow){ const r=d.arrow==='right'; tag.push(`<path d="M${r?200:800} ${TOP+50} H${r?800:200}" stroke="#E5352B" stroke-width="7" stroke-linecap="round"/><path d="${r?'M780 '+(TOP+34)+' L808 '+(TOP+50)+' L780 '+(TOP+66):'M220 '+(TOP+34)+' L192 '+(TOP+50)+' L220 '+(TOP+66)}" fill="none" stroke="#E5352B" stroke-width="7" stroke-linecap="round"/>`); }
+    if(d.pet!=null&&d.img){ const x=X0+ST*d.pet; tag.push(`<image href="${base+d.img}" x="${x-35}" y="${TOP+15}" width="70" height="72" preserveAspectRatio="xMidYMax meet"/>`); }
+    Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; }
+  /* GROUPS scene (Math 7-6, numbers over 20): d.t rows of ten blue cubes on the left, d.o orange ones on the right (picture px: row r y=20+62r, cube 42, step 50, x0=40; ones x=640+58(i%5), y=20+62(i/5), size 46). */
+  function groupsScene(d){ const t=d.t, o=d.o||0, ih=Math.max(t,2)*62+40; PIC={k:1}; TOP=170; VH=TOP+ih; SC={};
+    const cube=(x,y,z,c)=>`<rect x="${x}" y="${TOP+y}" width="${z}" height="${z}" rx="9" fill="${c}" stroke="#1f5f96" stroke-width="3"/>`;
+    const tag=[`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`];
+    for(let r=0;r<t;r++) for(let j=0;j<10;j++) tag.push(cube(40+j*50,20+r*62,42,'#46A8E8'));
+    for(let i=0;i<o;i++) tag.push(cube(640+58*(i%5),20+62*Math.floor(i/5),46,'#FF9A3C'));
+    Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; }
+  /* CLOCK scene (Math 8-1): face with numbers; d.h = hour, d.half = 1 for half past (long hand on 6). Picture px: centre (500,215), face r 190, short hand 105 (red), long hand 150 (blue). */
+  function clockScene(d){ const ih=430, cx=500, cy=215; PIC={k:1}; TOP=170; VH=TOP+ih; SC={};
+    const tag=[`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`, `<circle cx="${cx}" cy="${TOP+cy}" r="190" fill="#fffdf5" stroke="#444" stroke-width="8"/>`];
+    for(let i=0;i<60;i++){ const a=i*Math.PI/30, r1=i%5?176:164; tag.push(`<path d="M${cx+Math.sin(a)*r1} ${TOP+cy-Math.cos(a)*r1} L${cx+Math.sin(a)*184} ${TOP+cy-Math.cos(a)*184}" stroke="#444" stroke-width="${i%5?2:4}"/>`); }
+    for(let i=1;i<=12;i++){ const a=i*Math.PI/6; tag.push(`<text x="${cx+Math.sin(a)*135}" y="${TOP+cy-Math.cos(a)*135+13}" text-anchor="middle" font-size="38" font-weight="700" fill="#333">${i}</text>`); }
+    const ha=((d.h%12)+(d.half?.5:0))*Math.PI/6, ma=d.half?Math.PI:0;
+    tag.push(`<path d="M${cx} ${TOP+cy} L${cx+Math.sin(ma)*150} ${TOP+cy-Math.cos(ma)*150}" stroke="#1E6FD0" stroke-width="10" stroke-linecap="round"/>`);
+    tag.push(`<path d="M${cx} ${TOP+cy} L${cx+Math.sin(ha)*105} ${TOP+cy-Math.cos(ha)*105}" stroke="#E5352B" stroke-width="15" stroke-linecap="round"/><circle cx="${cx}" cy="${TOP+cy}" r="12" fill="#333"/>`);
+    Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; }
   function scene(name,actors,d){
-    if(name==='pic'&&d&&d.img){ const k=1000/d.w, ih=Math.round(d.h*k); PIC={k}; VH=TOP+ih;
+    TOP=(name==='free'&&d&&d.top!=null)?d.top:170; IT={}; if(d&&d.wide!==undefined) root.classList.toggle('xwide',!!d.wide);
+    if(name==='pic'&&d&&d.img){ const k=1000/d.w, ih=Math.round(d.h*k); PIC={k}; VH=TOP+ih; PICD={href:base+d.img,ih};
       Lbg.innerHTML=`<defs><clipPath id="xpc"><rect x="0" y="${TOP}" width="1000" height="${ih}" rx="22"/></clipPath></defs>
         ${d.frame===false?'':`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`}
         <image href="${base+d.img}" x="0" y="${TOP}" width="1000" height="${ih}" preserveAspectRatio="none" ${d.frame===false?'':'clip-path="url(#xpc)"'}/>`; }
+    else if(name==='line'&&d){ lineScene(d); }
+    else if(name==='tens'&&d){ tensScene(d); }
+    else if(name==='nline'&&d){ nlineScene(d); }
+    else if(name==='groups'&&d){ groupsScene(d); }
+    else if(name==='clock'&&d){ clockScene(d); }
+    else if(name==='free'&&d){ freeScene(d); }
     else { PIC=null; VH=H; Lbg.innerHTML=SCENES[name]||''; }
     line.innerHTML=''; cap.classList.remove('built'); fit();
     Lact.innerHTML=''; Lfx.innerHTML=''; Lring.innerHTML=''; Lbadge.innerHTML=''; A={}; rings={}; badges=[];
@@ -137,10 +207,10 @@ function mount(root, data, opt){
       a.g.classList.add('moving'); await tween(1300,p=>{ a.x=fx+(tx-fx)*p; a.y=fy+(ty-fy)*p; a.g.style.opacity=1-Math.max(0,p-.6)/.4; setT(a); },ease.inout); a.g.classList.remove('moving'); }));
   }
   function clearBadges(){ badges.forEach(b=>b.remove()); badges=[]; }
-  async function count(list,start,color,pts,keep){
+  async function count(list,start,color,pts,keep,rr){
     if(!keep) clearBadges(); let n=(start||1)-1;
     if(pts){ for(const pt of pts){ n++; const [x,y]=P(pt[0],pt[1]);   // things drawn in a book picture: the number appears on each one
-      const b=mk('g',{class:'xbadge'}); b.innerHTML=`<circle r="26" fill="${col(color||'#2A7FD8')}" stroke="#fff" stroke-width="5"/><text y="11" text-anchor="middle">${n}</text>`;
+      const b=mk('g',{class:'xbadge'}); const R=rr||26; b.innerHTML=`<circle r="${R}" fill="${col(color||'#2A7FD8')}" stroke="#fff" stroke-width="${R>20?5:3}"/><text y="${Math.round(R*.42)}" text-anchor="middle" ${R<26?`style="font-size:${Math.round(R*1.3)}px"`:''}>${n}</text>`;
       b.style.opacity=0; Lbadge.append(b); badges.push(b);
       const snd=play((data.nums||{})[n]||null,0); snd.catch(()=>{});
       await tween(320,p=>{ b.style.opacity=Math.min(1,p*2); b.setAttribute('transform',`translate(${x} ${y}) scale(${.4+.6*ease.back(p)})`); },x=>x);
@@ -236,7 +306,7 @@ function mount(root, data, opt){
     return new Promise((res,rej)=>{ X.rejAsk=rej;
       [...(o.keys||'1234567890+\u2212=')].forEach(k=>{ const b=hel('button','rb qbtn qlet qmn',`<span>${k}</span>`); b.dataset.v=k;
         b.addEventListener('click',()=>{ if(g!==X.gen) return; const n=qxNext(wd); if(!n) return;
-          if(k===n.textContent){ qxReveal(wd); if(typeof blip==='function') blip(560+wd.querySelectorAll('.lt.got').length*40,.05); cur();
+          if(k===(window.arDigitsBack?arDigitsBack(n.textContent):n.textContent)){ qxReveal(wd); if(typeof blip==='function') blip(560+wd.querySelectorAll('.lt.got').length*40,.05); cur();
             if(qxDone(wd)){ X.rejAsk=null; wd.querySelectorAll('.lt').forEach(x=>x.classList.remove('cur')); askRow.innerHTML=''; cap.classList.remove('asking'); res(); } }
           else { n.classList.add('bad'); setTimeout(()=>n.classList.remove('bad'),500); b.classList.remove('no'); void b.offsetWidth; b.classList.add('no'); if(opt.wrong) opt.wrong(); } });
         pad.append(b); }); }).then(()=>live(g));
@@ -264,11 +334,47 @@ function mount(root, data, opt){
           if(next===ch.length){ X.rejAsk=null; setTimeout(()=>{ if(g!==X.gen) return; askRow.innerHTML=''; cap.classList.remove('asking'); res(); },900); } }); if(typeof chipDrag==='function') chipDrag(b,line,()=>g===X.gen); });
     }).then(()=>live(g));
   }
+  /* where does counting start? a big arrow in the top band from the Front end (or the Back end) of the line; that end's word lights up */
+  async function dir(side,color){ Leq.innerHTML=''; eqT=[]; const c=col(color||'orange'), fr=side!=='back';
+    if(SC.vert){ if(LAB.f){ LAB.f.classList.toggle('on',fr); LAB.b.classList.toggle('on',!fr); }
+      const ya=TOP+SC.y0+(fr?14:SC.ch*SC.n-14), yb=TOP+SC.y0+(fr?SC.ch*SC.n-14:14), x=SC.ax, g=mk('g'); Leq.append(g);
+      const p=mk('path',{d:`M${x} ${ya} L${x} ${yb}`,class:'xring',stroke:c,pathLength:'1'}); p.style.strokeWidth='14px'; g.append(p);
+      const h=mk('path',{d:`M${x-28} ${yb+(fr?-34:34)} L${x} ${yb} L${x+28} ${yb+(fr?-34:34)}`,class:'xring',stroke:c,pathLength:'1'}); h.style.strokeDashoffset=1; h.style.strokeWidth='14px'; h.style.strokeLinejoin='round'; g.append(h);
+      g.append(mk('circle',{cx:x,cy:ya,r:20,fill:c,stroke:'#fff','stroke-width':6}));
+      await tween(X.fast?1:1300,v=>{ p.style.strokeDashoffset=1-v; }); await tween(X.fast?1:260,v=>{ h.style.strokeDashoffset=1-v; }); return; }
+    const xa=(fr!==!!SC.mir)?150:850, xb=(fr!==!!SC.mir)?850:150, y=92;   // (mirrored line: the Front end is at the right)
+    if(LAB.f){ LAB.f.classList.toggle('on',fr); LAB.b.classList.toggle('on',!fr); }
+    const g=mk('g'); Leq.append(g);
+    const p=mk('path',{d:`M${xa} ${y} L${xb} ${y}`,class:'xring',stroke:c,'stroke-width':14,pathLength:'1','stroke-linecap':'round'}); p.style.strokeWidth='14px'; g.append(p);
+    const h=mk('path',{d:`M${xb+(xb>xa?-34:34)} ${y-28} L${xb} ${y} L${xb+(xb>xa?-34:34)} ${y+28}`,class:'xring',stroke:c,'stroke-width':14,pathLength:'1','stroke-linecap':'round','stroke-linejoin':'round',fill:'none'}); h.style.strokeDashoffset=1; h.style.strokeWidth='14px'; g.append(h);
+    const dot=mk('circle',{cx:xa,cy:y,r:20,fill:c,stroke:'#fff','stroke-width':6}); g.append(dot);
+    await tween(X.fast?1:1300,v=>{ p.style.strokeDashoffset=1-v; }); await tween(X.fast?1:260,v=>{ h.style.strokeDashoffset=1-v; }); }
+  /* a rounded rectangle is DRAWN round a part of the line (the book's orange frame): box in picture px */
+  async function frame(o){ const [x0,y0]=P(o.box[0],o.box[1]), [x1,y1]=P(o.box[2],o.box[3]), r=Math.min(26,(y1-y0)/3);
+    const pth=mk('path',{d:`M${x0+r} ${y0} H${x1-r} A${r} ${r} 0 0 1 ${x1} ${y0+r} V${y1-r} A${r} ${r} 0 0 1 ${x1-r} ${y1} H${x0+r} A${r} ${r} 0 0 1 ${x0} ${y1-r} V${y0+r} A${r} ${r} 0 0 1 ${x0+r} ${y0} Z`,class:'xring',stroke:col(o.color||'orange'),'stroke-width':9,fill:'none',pathLength:'1'});
+    pth.style.strokeWidth='9px'; Lring.append(pth); rings[o.id||('f'+Object.keys(rings).length)]={el:pth,b:{x0,y0,x1,y1,cx:(x0+x1)/2,cy:(y0+y1)/2}}; await tween(X.fast?1:800,v=>{ pth.style.strokeDashoffset=1-v; }); }
+  /* "color from the bottom up" (book 6-1): a piece of the book picture (o.src = [x0,y0,x1,y1] picture px, e.g. one strawberry) is copied into each cell of o.cells = [[x0,y0,x1,y1]..]
+     one after another, in the order given (data lists the bottom cell first) */
+  async function stamp(o){ const k=PIC?PIC.k:1, sr=(o.src||[0,0,1,1]).map(v=>v*k);
+    for(const c of o.cells){ const [x0,y0]=P(c[0],c[1]), [x1,y1]=P(c[2],c[3]);
+      let sv;
+      if(o.shape){ const cx=(x0+x1)/2, cy=(y0+y1)/2, r=Math.min(x1-x0,y1-y0)*.38, F={circle:'#1E9BE8',triangle:'#1FA25C',square:'#E5352B',star:'#FFD91A'}[o.shape]||'#888';
+        const d={circle:`M${cx-r} ${cy} a${r} ${r} 0 1 0 ${2*r} 0 a${r} ${r} 0 1 0 ${-2*r} 0Z`, triangle:`M${cx} ${cy-r} L${cx+r*1.1} ${cy+r*.85} L${cx-r*1.1} ${cy+r*.85}Z`, square:`M${cx-r*.9} ${cy-r*.9} h${r*1.8} v${r*1.8} h${-r*1.8}Z`,
+          star:`M${cx} ${cy-r*1.1} L${cx+r*.3} ${cy-r*.35} L${cx+r*1.1} ${cy-r*.3} L${cx+r*.5} ${cy+r*.25} L${cx+r*.7} ${cy+r*1.0} L${cx} ${cy+r*.55} L${cx-r*.7} ${cy+r*1.0} L${cx-r*.5} ${cy+r*.25} L${cx-r*1.1} ${cy-r*.3} L${cx-r*.3} ${cy-r*.35}Z`}[o.shape];
+        sv=mk('path',{d,fill:F,stroke:'#333','stroke-width':3,'stroke-linejoin':'round'}); }
+      else { sv=mk('svg',{x:x0,y:y0,width:x1-x0,height:y1-y0,viewBox:`${sr[0]} ${sr[1]} ${sr[2]-sr[0]} ${sr[3]-sr[1]}`,preserveAspectRatio:'xMidYMid meet',overflow:'hidden'});
+        sv.append(mk('image',{href:PICD.href,x:0,y:0,width:1000,height:PICD.ih,preserveAspectRatio:'none'})); } sv.style.opacity=0; sv.style.overflow='hidden'; Lring.append(sv);
+      if(typeof blip==='function'&&!X.fast) blip(600,.04); await tween(X.fast?1:300,v=>{ sv.style.opacity=v; }); } }
   async function act(d){
     if(d.scene) return scene(d.scene,d.actors,d);
+    if(d.move) return move(d.move,d.ms);
+    if(d.guide) return guide(d.guide);
+    if(d.dir) return dir(d.dir,d.color);
+    if(d.frame) return frame(d.frame);
+    if(d.stamp) return stamp(d.stamp);
     if(d.enter) return enter(d.enter,d.from,d.gap);
     if(d.leave) return leave(d.leave,d.to,d.gap);
-    if(d.count) return count(d.count,d.start,d.color,d.pts,d.keep);
+    if(d.count) return count(d.count,d.start,d.color,d.pts,d.keep,d.r);
     if(d.hold) return hold(d.hold,d.on,d.color);
     if(d.ring) return ring(d.ring,d.color,d.id,d.box,d.pts,d.r);
     if(d.add) return add(d.add,d.color,d.card);
@@ -290,7 +396,7 @@ function mount(root, data, opt){
     if(d.wait) return wait(d.wait);
   }
   async function beat(b){
-    if(b.say!=null){ capT.textContent=b.say; cap.classList.toggle('empty',!b.say); }
+    if(b.say!=null){ capT.textContent=data.caption===false?'':b.say; cap.classList.toggle('empty',data.caption===false||!b.say); }   // caption:false = the spoken words are NOT written, only important things (Ahmed 2026-11-12)
     const voice=b.say?play(b.audio,sayMs(b.say)):Promise.resolve();
     if(b.hl&&!X.fast){ const ws=[...line.querySelectorAll('.xtw')].slice(-b.hl.length), t0=X.vt;   // the LAST words on the line = the sentence being re-read
       b.hl.forEach(([a,e],i)=>{ const w=ws[i]; if(!w) return; X.jobs.push({at:t0+a*1000,fn:()=>w.classList.add('reading')},{at:t0+e*1000+60,fn:()=>w.classList.remove('reading')}); }); }
@@ -307,7 +413,7 @@ function mount(root, data, opt){
   async function rebuild(i){ X.fast=true; scene('tree',{}); Leq.innerHTML=''; eqT=[];   // a step opened directly: earlier steps are laid out at once, silently
     try{ for(let k=0;k<i;k++) for(const b of steps[k].beats||[]) await beat(b); } finally{ X.fast=false; } }
   // show step i as it is when it starts (nothing plays)
-  async function show(i){ halt(); X.step=i; await rebuild(i); const b=(steps[i].beats||[])[0]; capT.textContent=b&&b.say||''; }
+  async function show(i){ halt(); X.step=i; await rebuild(i); const b=(steps[i].beats||[])[0]; capT.textContent=data.caption===false?'':(b&&b.say||''); }
   // play step i from its start; onDone when its last line ended
   async function play1(i){
     halt(); const g=X.gen; X.step=i; X.playing=true; if(opt.onState) opt.onState(true);
@@ -338,5 +444,6 @@ function showExplain(){
     onDone:k=>{ done[k]=1; carFrac((k+1)/np); if(Object.keys(done).length>=np) award(LESSON.id,'read');
       if(rd.auto!==false&&rd.page<np) rd.autoT=setTimeout(()=>{ if(tab==='read'&&host.isConnected) readGo(1,true); },900); }});
   carFrac(i/np); rail(false); if(typeof bookTag==='function') bookTag();
+  window.explainStop=()=>{ try{ x.stop(); }catch(e){} };   // core.js stopVoice: leaving the lesson/tab stops the explain animation and its queued clips
   rd.auto=true; x.play(i);   // a new page always starts by itself
 }

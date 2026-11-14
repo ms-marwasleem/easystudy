@@ -1,0 +1,480 @@
+{
+ "id": "u5l2",
+ "unit": 5,
+ "lesson": 2,
+ "title": "كيف نقيس؟",
+ "task": "كيف نقيس؟",
+ "lines": [],
+ "end": 1,
+ "speakers": {},
+ "vocab": [],
+ "tabs": [
+  "read"
+ ],
+ "tabLabels": {
+  "read": "الدرس",
+  "quiz": "التدريب"
+ },
+ "pages": 3,
+ "pageNums": [
+  56,
+  56,
+  57
+ ],
+ "layout": "explain",
+ "explain": {
+  "caption": false,
+  "steps": [
+   {
+    "name": "5 أقلام رصاص",
+    "beats": [
+     {
+      "say": "نقيس بالأقلام. نضعها طرفاً إلى طرف.",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "rib",
+          "img": "../../pics/ar-m-len-rib-green.png",
+          "x": 125,
+          "y": 60,
+          "w": 750,
+          "h": 44
+         },
+         {
+          "id": "p0",
+          "img": "../../pics/ar-m-len-pen-yellow.png",
+          "x": 1250,
+          "y": 130,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "p1",
+          "img": "../../pics/ar-m-len-pen-yellow.png",
+          "x": 1250,
+          "y": 130,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "p2",
+          "img": "../../pics/ar-m-len-pen-yellow.png",
+          "x": 1250,
+          "y": 130,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "p3",
+          "img": "../../pics/ar-m-len-pen-yellow.png",
+          "x": 1250,
+          "y": 130,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "p4",
+          "img": "../../pics/ar-m-len-pen-yellow.png",
+          "x": 1250,
+          "y": 130,
+          "w": 150,
+          "h": 24
+         }
+        ],
+        "ih": 250,
+        "top": 24
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "move": [
+         {
+          "id": "p0",
+          "x": 725,
+          "y": 125
+         }
+        ],
+        "ms": 550
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          800,
+          190
+         ]
+        ],
+        "start": 1,
+        "keep": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 250
+     },
+     {
+      "do": [
+       {
+        "move": [
+         {
+          "id": "p1",
+          "x": 575,
+          "y": 125
+         }
+        ],
+        "ms": 550
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          650,
+          190
+         ]
+        ],
+        "start": 2,
+        "keep": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 250
+     },
+     {
+      "do": [
+       {
+        "move": [
+         {
+          "id": "p2",
+          "x": 425,
+          "y": 125
+         }
+        ],
+        "ms": 550
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          500,
+          190
+         ]
+        ],
+        "start": 3,
+        "keep": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 250
+     },
+     {
+      "do": [
+       {
+        "move": [
+         {
+          "id": "p3",
+          "x": 275,
+          "y": 125
+         }
+        ],
+        "ms": 550
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          350,
+          190
+         ]
+        ],
+        "start": 4,
+        "keep": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 250
+     },
+     {
+      "do": [
+       {
+        "move": [
+         {
+          "id": "p4",
+          "x": 125,
+          "y": 125
+         }
+        ],
+        "ms": 550
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          200,
+          190
+         ]
+        ],
+        "start": 5,
+        "keep": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 250
+     },
+     {
+      "say": "طول الشريط خمسة أقلام.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          117,
+          50,
+          883,
+          160
+         ],
+         "color": "orange"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "5 أقلام رصاص",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1300
+     }
+    ]
+   },
+   {
+    "name": "3 أقلام",
+    "beats": [
+     {
+      "say": "الآن نقيس الشريط الأقصر.",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "rib",
+          "img": "../../pics/ar-m-len-rib-red.png",
+          "x": 425,
+          "y": 60,
+          "w": 450,
+          "h": 33
+         },
+         {
+          "id": "p0",
+          "img": "../../pics/ar-m-len-pen-yellow.png",
+          "x": 1250,
+          "y": 130,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "p1",
+          "img": "../../pics/ar-m-len-pen-yellow.png",
+          "x": 1250,
+          "y": 130,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "p2",
+          "img": "../../pics/ar-m-len-pen-yellow.png",
+          "x": 1250,
+          "y": 130,
+          "w": 150,
+          "h": 24
+         }
+        ],
+        "ih": 250,
+        "top": 24
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "move": [
+         {
+          "id": "p0",
+          "x": 725,
+          "y": 125
+         }
+        ],
+        "ms": 550
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          800,
+          190
+         ]
+        ],
+        "start": 1,
+        "keep": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 250
+     },
+     {
+      "do": [
+       {
+        "move": [
+         {
+          "id": "p1",
+          "x": 575,
+          "y": 125
+         }
+        ],
+        "ms": 550
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          650,
+          190
+         ]
+        ],
+        "start": 2,
+        "keep": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 250
+     },
+     {
+      "do": [
+       {
+        "move": [
+         {
+          "id": "p2",
+          "x": 425,
+          "y": 125
+         }
+        ],
+        "ms": 550
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          500,
+          190
+         ]
+        ],
+        "start": 3,
+        "keep": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 250
+     },
+     {
+      "say": "طول الشريط ثلاثة أقلام.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          417,
+          50,
+          883,
+          160
+         ],
+         "color": "orange"
+        }
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "add": "3 أقلام",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1300
+     }
+    ]
+   },
+   {
+    "name": "5 > 3",
+    "beats": [
+     {
+      "say": "أي شريط أطول؟ خمسة أقلام أم ثلاثة أقلام؟",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "g",
+          "img": "../../pics/ar-m-len-rib-green.png",
+          "x": 125,
+          "y": 60,
+          "w": 750,
+          "h": 44
+         },
+         {
+          "id": "r",
+          "img": "../../pics/ar-m-len-rib-red.png",
+          "x": 425,
+          "y": 150,
+          "w": 450,
+          "h": 33
+         }
+        ],
+        "ih": 250,
+        "top": 24
+       },
+       {
+        "guide": {
+         "x0": 885,
+         "y0": 30,
+         "x1": 885,
+         "y1": 230,
+         "color": "black"
+        }
+       }
+      ]
+     },
+     {
+      "say": "خمسة أكبر من ثلاثة. الشريط الأخضر أطول.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          117,
+          50,
+          883,
+          112
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "5 > 3",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "rtl": true,
+  "lang": "ar"
+ }
+}

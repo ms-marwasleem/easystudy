@@ -48,19 +48,23 @@
 .qmcount.grp>img{width:min(86cqw,28.75rem);max-height:44cqh}
 @media (max-aspect-ratio:5/4){.mxrow{grid-template-columns:minmax(0,2.4fr) minmax(0,.8fr) minmax(0,2.8fr) auto;gap:0.375rem;padding:0.25rem 0.5rem}.mxword{font-size:min(8cqh,9.5cqw)}}
 /* Explain, "What makes N?" rows: dots frame | 1 and 7 | make 8 */
-.mxrow.mxbond{grid-template-columns:minmax(0,2.2fr) minmax(0,3fr) minmax(0,1.6fr) auto}
 .mxbond .mxdots{overflow:hidden}.mxbond .mxdots img{box-sizing:border-box;height:auto;width:auto;max-width:100%;max-height:calc(78cqh/max(var(--n),7));object-fit:contain;border:0;padding:0;padding:0.25rem 0.375rem;border:0.1875rem solid var(--c-brown-dk);border-radius:0.375rem;background:var(--c-white)}
 .mxeq{display:flex;align-items:baseline;justify-content:center;gap:clamp(0.375rem,2cqw,1.125rem);font-weight:700;line-height:1}
 .mxeq b{font-size:min(calc(84cqh/max(var(--n),7)),15cqw)}.mxeq b.r{color:var(--c-bad)}.mxeq b.b{color:var(--c-accent)}.mxeq i{font-style:normal;font-size:min(calc(52cqh/max(var(--n),7)),9cqw);color:var(--c-brown-dk)}
 .mxmk{font-weight:700;font-size:min(calc(52cqh/max(var(--n),7)),9cqw);line-height:1;color:var(--c-brown-dk);white-space:nowrap}.mxmk b{color:var(--c-accent);font-size:1.35em}
-@media (max-aspect-ratio:5/4){.mxrow.mxbond{grid-template-columns:minmax(0,1.7fr) minmax(0,2.4fr) auto auto;gap:0.25rem 0.5rem;padding:0.25rem 0.625rem}.mxeq b{font-size:min(calc(60cqh/max(var(--n),7)),12cqw)}.mxeq i{font-size:min(calc(38cqh/max(var(--n),7)),7cqw)}.mxmk{font-size:min(calc(35cqh/max(var(--n),7)),6.5cqw)}.mxbond .mxsay{margin-left:2px}}
 
 /* number line explain (u1l9, Marwa 2026-11-04): small -> big, mouse -> elephant. The stones GROW from 1 to 10 (--k), read left to right.
    Wide screens: one row  [mouse] 1 2 3 ... 10 [elephant].  Tall screens: [mouse] on top, 1-5, 6-10, [elephant] at the bottom right.
    Text and speaker white on the page colour. */
 .mxline{flex:1 1 0;min-height:0;container-type:size;display:grid;grid-template-columns:minmax(0,1.6fr) repeat(10,minmax(0,1fr)) minmax(0,2.4fr);grid-template-rows:minmax(0,1fr) auto;
   align-items:end;align-content:center;column-gap:min(1.2cqw,.7rem);row-gap:min(4cqh,1.5rem);max-width:80rem;width:100%;margin:0 auto;padding:0 .25rem}
+.mxline{position:relative}
 .mxstones{display:contents}
+.mxplay .mxend,.mxplay .mxstone,.mxplay .mxcap{opacity:0;transform:scale(.3);transition:opacity .25s,transform .35s cubic-bezier(.3,1.6,.5,1)}
+.mxplay .mxend.show,.mxplay .mxstone.show,.mxplay .mxcap.show{opacity:1;transform:none}
+.mxarrow{position:absolute;height:22px;pointer-events:none;clip-path:inset(-6px 100% -6px 0)}
+.mxarrow svg{display:block;width:100%;height:100%;overflow:visible}
+.mxarrow.draw{clip-path:inset(-6px -6px -6px 0);transition:clip-path var(--d,1500ms) linear}
 .mxend{grid-row:1;display:grid;grid-template-rows:minmax(0,1fr) auto;justify-items:center;align-items:end;height:100%;max-height:44cqh;min-height:0;gap:.25rem;padding:0;align-self:end}
 .mxend.sm{grid-column:1;max-height:26cqh}.mxend.bg{grid-column:12;max-height:56cqh}
 .mxend img{max-width:100%;max-height:100%;object-fit:contain;min-height:0}
@@ -84,15 +88,10 @@
 .qmhelp{align-self:center;margin-top:0.5rem}
 .qmcell.peek b,.qmb.peek b{color:rgba(46,27,12,.28)}
 .qxduo{display:flex;align-items:flex-end;justify-content:center;gap:1rem 3rem;flex-wrap:wrap}
-.mxbond .mxdots img{border:0;background:none;padding:0;border-radius:0;max-height:76%;height:auto;width:auto;max-width:100%}
 /* everything stays inside the sheet, margins equal on the sides; the book-page tag has its own strip at the bottom */
 .scene.mx{padding:0.5rem 0.5rem 1.75rem}
 .mxgrid,.mxline{padding:0}
 @media (max-aspect-ratio:5/4){
-  .mxrow.mxbond{grid-template-columns:minmax(0,1fr) auto;grid-template-rows:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"d s" "e m";gap:0.125rem 0.5rem;padding:0.25rem 0.75rem}
-  .mxrow.mxbond .mxdots{grid-area:d;place-items:center start}.mxrow.mxbond .mxeq{grid-area:e;justify-content:flex-start}.mxrow.mxbond .mxmk{grid-area:m;justify-self:end}.mxrow.mxbond .mxsay{grid-area:s;margin:0}
-  .mxbond .mxdots{position:relative}.mxbond .mxdots img{position:absolute;inset:0;height:100%;width:100%;max-height:none;max-width:none;object-fit:contain;object-position:left center}
-  .mxeq b{font-size:min(calc(34cqh/max(var(--n),5)),9cqw)}.mxeq i{font-size:min(calc(26cqh/max(var(--n),5)),6cqw)}.mxmk{font-size:min(calc(26cqh/max(var(--n),5)),6cqw)}
 }
 /* mwrite: write a number sentence / an answer on lines with the app's keypad (0-9 + − =) */
 .mwline{flex:1 0 100%;flex-wrap:wrap;gap:.2rem .6rem;cursor:default}
@@ -106,3 +105,63 @@
 .mwrite .alfig,.mwrite .alfig img{height:100%;max-height:100%}
 .mwrite .alfig img{width:100%;object-fit:contain}
 .mwrite .alstem .alask{flex:0 1 auto}
+
+/* "What makes N?" rows (Ahmed 2026-11-12): [1 and 7] [big dots in the middle] [make 8 + speaker]; the dots pop in one by one while "make" is said */
+.mxrow.mxbond{grid-template-columns:auto minmax(0,1fr) auto auto;grid-template-areas:"e d m s";gap:clamp(.375rem,2cqw,1.25rem);padding:.25rem clamp(.625rem,3cqw,1.5rem)}
+.mxrow.mxbond .mxeq{grid-area:e;justify-content:flex-start}.mxrow.mxbond .mxdots{grid-area:d;display:flex;align-items:center;justify-content:center;overflow:visible}
+.mxrow.mxbond .mxmk{grid-area:m;justify-self:auto}.mxrow.mxbond .mxsay{grid-area:s;margin:0}
+.mxbond .mxdots svg{display:block;height:88%;width:100%;max-height:100%}
+.mxbond .mxd{transform-box:fill-box;transform-origin:center}
+.mxbond.pop .mxd{animation:mxpop .22s var(--dl) both cubic-bezier(.3,1.6,.5,1)}
+@keyframes mxpop{from{opacity:.1;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+@media (max-aspect-ratio:5/4){.mxeq b{font-size:min(calc(62cqh/max(var(--n),7)),11cqw)}.mxeq i{font-size:min(calc(40cqh/max(var(--n),7)),7cqw)}.mxmk{font-size:min(calc(40cqh/max(var(--n),7)),7cqw)}.mxrow.mxbond{grid-template-columns:auto minmax(0,1fr) auto auto}}
+
+/* line question (book 2-1): a row of things, Front at the left, Back at the right; the frame is drawn over the chosen slots */
+.mline{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2cqh}
+.mlrow{display:flex;align-items:center;gap:1.4rem;width:100%;justify-content:center}
+.mlend{font:400 1.5rem var(--f-title);color:#fff;opacity:.85;flex:none;text-shadow:0 2px 0 rgba(0,0,0,.2)}
+.mlend.on{opacity:1;color:#FFE45C;font-size:1.9rem}
+.mlthings{position:relative;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:.3rem;flex:1 1 auto;max-width:46rem;background:#fff;border-radius:1.4rem;padding:1rem .6rem;align-items:end}
+.mlthings.strip>img{position:absolute;inset:1rem .6rem;width:calc(100% - 1.2rem);height:calc(100% - 2rem);object-fit:fill;pointer-events:none}
+.mlthings.strip{min-height:9rem}
+.mlt{appearance:none;border:0;background:none;padding:.2rem;display:flex;align-items:flex-end;justify-content:center;min-height:5rem;position:relative;z-index:1;cursor:pointer}
+.mlt img{width:100%;max-height:7rem;object-fit:contain}
+.mlframe{position:absolute;top:.35rem;bottom:.35rem;left:calc(.6rem + (100% - 1.2rem) * var(--a) / var(--n));width:calc((100% - 1.2rem) * (var(--b) - var(--a)) / var(--n));border:.45rem solid #FF8A1F;border-radius:1.2rem;pointer-events:none;animation:mlpop .5s ease-out}
+@keyframes mlpop{from{opacity:0;transform:scale(1.15)}to{opacity:1;transform:none}}
+
+.mlord .mlthings{align-items:center}
+.mlc{display:flex;align-items:center;justify-content:center;padding:.3rem;border-radius:1rem}
+.mlc img{width:100%;max-height:6rem;object-fit:contain}
+.mlc.mark{outline:.4rem solid #2E8FEA;outline-offset:-.3rem}
+.mlv .mlthings{grid-template-columns:minmax(0,9rem);grid-template-rows:repeat(var(--n),auto);gap:.2rem}
+.mlv .mlrow{flex-direction:column}
+.mlchips{margin-top:1rem}
+.mlord.mlv{flex-direction:row;align-items:center;justify-content:center;gap:2.4rem}
+.mlv .mlchips{flex-direction:column;margin-top:0}
+.mlv .mlc img{max-height:min(2.1rem,4vh)}
+.mlv .mlrow{gap:.2rem}
+.mlv .mlend{font-size:1.2rem}
+.mlv .mlc{padding:.1rem}
+.mlv .mlchips{gap:.3rem}
+.mlv .mlthings{padding:.5rem .6rem}
+
+/* MATH IN ARABIC (math-ar): a line of things has Front at the RIGHT end and the pictures face the other way (Arabic book 2-1) */
+.mline.mlrtl .mlrow{direction:rtl}
+.mline.mlrtl .mlthings{direction:rtl}
+.mline.mlrtl .mlthings img{transform:scaleX(-1)}
+.mline.mlrtl .mlthings.strip>img{transform:scaleX(-1)}
+.mline.mlrtl .mlframe{left:auto;right:calc(.6rem + (100% - 1.2rem) * var(--a) / var(--n))}
+/* colorn (math-ar 1-1): a 2x5 frame of circles to colour */
+.qmcirc{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(.375rem,1.6cqw,.75rem);width:min(62cqw,20rem);padding:.5rem;border:.1875rem solid var(--c-brown-dk);border-radius:.5rem;background:#fff;margin-top:.75rem}
+#lesson.ar .qmcirc{direction:rtl}
+.qmcc{aspect-ratio:1;border-radius:50%;border:.1875rem solid var(--c-brown-dk);background:#fff;padding:0;cursor:pointer;transition:background .15s,transform .15s}
+.qmcc.on{background:#E0412C}.qmcc.peek{box-shadow:0 0 0 .25rem rgba(42,127,216,.55)}.qmcc:active{transform:scale(.92)}
+/* math-ar explain (RTL as the book): rows flow from the right (dots, number, word, speaker at the left); bond rows: dots, "1 و 4", "يكوّنان 5"; number line: 1 at the right, arrow drawn right -> left */
+#lesson.ar .mxrow{direction:rtl}
+#lesson.ar .mxrow.mxbond{grid-template-columns:minmax(0,1fr) auto auto auto;grid-template-areas:"d e m s"}
+@media (max-aspect-ratio:5/4){#lesson.ar .mxrow.mxbond{grid-template-columns:minmax(0,1fr) auto auto auto}}
+#lesson.ar .mxrow.mxbond .mxeq{justify-content:flex-end}
+#lesson.ar .mxline{direction:rtl}
+#lesson.ar .mxarrow{transform:scaleX(-1)}
+#lesson.ar .mxend:not(:has(img)){align-self:end;justify-content:center}
+#lesson.ar .mwline{direction:rtl}
