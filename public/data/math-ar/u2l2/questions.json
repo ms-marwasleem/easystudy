@@ -98,6 +98,133 @@
     }
    ],
    "ex": 4
+  },
+  {
+   "type": "line",
+   "page": 25,
+   "grp": "hw-1",
+   "task": "الفيل هو ___ من الأعلى.",
+   "items": [
+    {
+     "items": [
+      "../../pics/cat-gray.png",
+      "../../pics/elephant.png",
+      "../../pics/frog.png",
+      "../../pics/horse-brown.png"
+     ],
+     "target": 1,
+     "from": "front",
+     "vert": true,
+     "ends": [
+      "أعلى",
+      "أسفل"
+     ]
+    }
+   ],
+   "ex": 1,
+   "book": "workbook"
+  },
+  {
+   "type": "line",
+   "page": 25,
+   "grp": "hw-2",
+   "task": "القطة هي ___ من الأعلى.",
+   "items": [
+    {
+     "items": [
+      "../../pics/cat-gray.png",
+      "../../pics/elephant.png",
+      "../../pics/frog.png",
+      "../../pics/horse-brown.png"
+     ],
+     "target": 0,
+     "from": "front",
+     "vert": true,
+     "ends": [
+      "أعلى",
+      "أسفل"
+     ],
+     "fem": true
+    }
+   ],
+   "ex": 2,
+   "book": "workbook"
+  },
+  {
+   "type": "line",
+   "page": 25,
+   "grp": "hw-3",
+   "task": "الضفدع هو ___ من الأسفل.",
+   "items": [
+    {
+     "items": [
+      "../../pics/cat-gray.png",
+      "../../pics/elephant.png",
+      "../../pics/frog.png",
+      "../../pics/horse-brown.png"
+     ],
+     "target": 2,
+     "from": "back",
+     "vert": true,
+     "ends": [
+      "أعلى",
+      "أسفل"
+     ]
+    }
+   ],
+   "ex": 3,
+   "book": "workbook"
+  },
+  {
+   "type": "line",
+   "page": 25,
+   "grp": "hw-4",
+   "task": "القطة هي ___ من الأسفل.",
+   "items": [
+    {
+     "items": [
+      "../../pics/cat-gray.png",
+      "../../pics/elephant.png",
+      "../../pics/frog.png",
+      "../../pics/horse-brown.png"
+     ],
+     "target": 0,
+     "from": "back",
+     "vert": true,
+     "ends": [
+      "أعلى",
+      "أسفل"
+     ],
+     "fem": true
+    }
+   ],
+   "ex": 4,
+   "book": "workbook"
+  },
+  {
+   "type": "line",
+   "page": 25,
+   "grp": "hw-5",
+   "task": "الحصان هو ___ من الأعلى.",
+   "items": [
+    {
+     "items": [
+      "../../pics/cat-gray.png",
+      "../../pics/elephant.png",
+      "../../pics/frog.png",
+      "../../pics/horse-brown.png"
+     ],
+     "target": 3,
+     "from": "front",
+     "vert": true,
+     "ends": [
+      "أعلى",
+      "أسفل"
+     ]
+    }
+   ],
+   "ex": 5,
+   "book": "workbook"
   }
  ]
 }

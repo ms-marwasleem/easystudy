@@ -80,6 +80,62 @@
      "word": "ثمانية"
     }
    ]
+  },
+  {
+   "type": "count",
+   "ex": 1,
+   "page": 22,
+   "task": "نكتب عدد البرتقالات.",
+   "typed": true,
+   "items": [
+    {
+     "img": "../../pics/orange.png#2",
+     "n": 2,
+     "group": true,
+     "word": "اثنان"
+    },
+    {
+     "img": "../../pics/orange.png",
+     "n": 1,
+     "group": true,
+     "word": "واحد"
+    },
+    {
+     "img": "../../pics/plate.png",
+     "n": 0,
+     "group": true,
+     "word": "صفر"
+    }
+   ],
+   "book": "workbook"
+  },
+  {
+   "type": "count",
+   "ex": 2,
+   "page": 22,
+   "task": "نكتب عدد الورود.",
+   "typed": true,
+   "items": [
+    {
+     "img": "../../pics/pot-tulips-2.png",
+     "n": 2,
+     "group": true,
+     "word": "اثنان"
+    },
+    {
+     "img": "../../pics/pot-empty.png",
+     "n": 0,
+     "group": true,
+     "word": "صفر"
+    },
+    {
+     "img": "../../pics/pot-tulips-5.png",
+     "n": 5,
+     "group": true,
+     "word": "خمسة"
+    }
+   ],
+   "book": "workbook"
   }
  ]
 }

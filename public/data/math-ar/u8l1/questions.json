@@ -321,6 +321,81 @@
      "word": "العقرب الطويل يشير إلى 6."
     }
    ]
+  },
+  {
+   "type": "clock",
+   "ex": 1,
+   "page": 59,
+   "task": "نرسم العقرب الطويل.",
+   "items": [
+    {
+     "h": 3,
+     "m": 0,
+     "mode": "long",
+     "ask": "الساعة 3"
+    }
+   ],
+   "book": "workbook"
+  },
+  {
+   "type": "clock",
+   "ex": 2,
+   "page": 59,
+   "task": "نرسم العقرب الطويل.",
+   "items": [
+    {
+     "h": 1,
+     "m": 30,
+     "mode": "long",
+     "ask": "الساعة 1 ونصف"
+    }
+   ],
+   "book": "workbook"
+  },
+  {
+   "type": "clock",
+   "ex": 3,
+   "page": 59,
+   "task": "نرسم العقرب الطويل.",
+   "items": [
+    {
+     "h": 6,
+     "m": 30,
+     "mode": "long",
+     "ask": "الساعة 6 ونصف"
+    }
+   ],
+   "book": "workbook"
+  },
+  {
+   "type": "clock",
+   "ex": 4,
+   "page": 59,
+   "task": "نقرأ الساعة.",
+   "items": [
+    {
+     "h": 9,
+     "m": 30,
+     "mode": "read",
+     "ask": "كم الوقت؟"
+    }
+   ],
+   "book": "workbook"
+  },
+  {
+   "type": "clock",
+   "ex": 5,
+   "page": 59,
+   "task": "نقرأ الساعة.",
+   "items": [
+    {
+     "h": 7,
+     "m": 0,
+     "mode": "read",
+     "ask": "كم الوقت؟"
+    }
+   ],
+   "book": "workbook"
   }
  ]
 }

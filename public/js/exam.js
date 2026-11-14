@@ -35,8 +35,9 @@ function xPage(pg,pi,d){
   let sec=null;
   (pg.blocks||[]).forEach(b=>{
     if(b.t==='section'){ flow.append(el('h3','xsec',`<span class="xpi">${xArt('pencilicon')}</span><span>${b.text}</span>`)); }
-    else if(b.t==='art'){ const f=el('div','xfloat '+(b.float||'right')+(b.frame?' frame':'')); f.style.width=(b.w||14)+'em'; f.innerHTML=xArt(b.art,X.base); flow.append(f); }
+    else if(b.t==='art'){ const f=el('div','xfloat '+(b.float||'right')+(b.frame?' frame':'')); f.style.width=(b.w||14)+'em'; if(b.clear) f.style.clear='both'; f.innerHTML=xArt(b.art,X.base); flow.append(f); }
     else if(b.t==='q') flow.append(xQuestion(b,pi));
+    else if(b.t==='clr') flow.append(el('div','xclr')); // clears the floated picture before the next question
   });
   p.append(el('footer','xfoot',`<i class="xwave"></i><span class="xcloud">${xArt('cloudnum:'+(pg.foot||pi+1))}</span>`));
   return p;
@@ -87,7 +88,7 @@ function xHelp(Q){
 // ---------- atoms ----------
 function xAtom(a,Q){
   if(typeof a==='string') a={t:'text',text:a};
-  const f={text:xTextAtom,mcq:xMcq,link:xLink,fill:xFill,bond:xBond,art:xArtAtom,pins:xPins,row:xRow,col:xRow,say:xSayAtom,order:xOrder}[a.t]; const e=f?f(a,Q):el('div');
+  const f={text:xTextAtom,mcq:xMcq,link:xLink,fill:xFill,bond:xBond,art:xArtAtom,pins:xPins,row:xRow,col:xRow,say:xSayAtom,order:xOrder,clock:xClock}[a.t]; const e=f?f(a,Q):el('div');
   if(a.cls) e.classList.add(...a.cls.split(' ')); if(a.float) e.classList.add('xfl-'+a.float); return e;
 }
 function xTextAtom(a,Q){ const d=el('div','xtext '+(a.style||'')); xInline(a.text,Q,d);
@@ -107,6 +108,10 @@ function xOrder(a,Q){
       else{ xWarn(line); setTimeout(()=>{ placed.length=0; draw(); },800); } } }));
   draw(); return d;
 }
+// clock (Arabic math, unit 8): {t:"clock",h:6,m:30,mode:"set"|"long"|"read",options?,answer?} — the widget of quiz-math.js: set the hands / read the time
+function xClock(a,Q){ const d=el('div','xclk'), at={solved:false,el:d,help(){ return at.solved?null:(w.hint&&w.hint()); }}; Q.atoms.push(at);
+  const mode=a.mode||'set', w=clockWidget({h:a.h,m:a.m||0,mode,options:mode==='read'?(a.options||mClockOptions(a.h,a.m||0)):null,answer:a.answer||clockTime(a.h,a.m||0),onWrong:t=>xWarn(t),onDone:()=>{ at.solved=true; xYay(d); xAtomDone(Q,at); }});
+  d.append(w); return d; }
 // a word to listen to (tap it): its recording, or (English only) the device voice
 function xSayAtom(a){ const b=el('button','xsay '+(a.style||''),`<span class="xsw"></span>${SAY_LN}`); $('.xsw',b).textContent=a.text;
   b.onclick=async()=>{ vStop(); stopAll(); if(a.audio){ try{ await playFile(new URL(a.audio,X.base).href); return; }catch(e){} } if(!isAr()) await tts(a.text,'en',.8); }; return b; }

@@ -165,3 +165,19 @@
 #lesson.ar .mxarrow{transform:scaleX(-1)}
 #lesson.ar .mxend:not(:has(img)){align-self:end;justify-content:center}
 #lesson.ar .mwline{direction:rtl}
+/* picture questions: the grid fills the sheet so the picture/chart gets the free height (workbook charts) */
+.qplay>.qx-mcq:has(.almcq.haspic:not(.mwrite)){align-self:stretch}
+.almcq.haspic:not(.mwrite){height:100%}
+
+/* clock models (quiz-math.js clockWidget): the face is an SVG, the chips choose the hand / the time words */
+.mclock{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:min(1.6cqh,.8rem);width:100%;height:100%;min-height:0}
+.clkask{margin:0;font-weight:800;font-size:clamp(1.2rem,4.2cqh,2.2rem);color:var(--c-on-bg,#fff);text-align:center}
+.clkw{display:flex;flex-direction:column;align-items:center;gap:min(1.4cqh,.7rem);min-height:0}
+.clkface{width:min(27vh,64vw,20rem);height:auto;touch-action:manipulation;cursor:pointer}
+.clkw.clk-read .clkface,.clkw.clkdone .clkface{cursor:default}
+.clkchips,.clkopts{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+.clkchip{font:inherit;font-weight:800;font-size:clamp(.95rem,2.6cqh,1.3rem);padding:.45em .9em;border-radius:1.2em;border:.18em solid #8a4a1a;background:#fff8e8;color:#3a2a1a;cursor:pointer}
+.clkchip.on{background:#FFC94A;border-color:#B8741A}.clkchip.ok{background:#bdf0c0;border-color:#2c8a3a}.clkchip.peek{outline:.25em solid #FFC94A}
+/* in the weekly papers */
+.xclk{display:flex;flex-direction:column;align-items:center;gap:.4em;margin:.3em 0}
+.xclk .clkface{width:6.6em;height:auto;max-height:none}.xclk .clkchip{font-size:.8em}

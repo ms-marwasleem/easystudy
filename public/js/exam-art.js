@@ -68,5 +68,5 @@ XA.story=(n=1)=>{ const sky='<ellipse cx="50" cy="50" rx="46" ry="46" fill="#CDE
    `<path d="M50 66V30" stroke="#357A2A" stroke-width="5" stroke-linecap="round"/>${leaf(50,58,-30)}${leaf(50,58,-150)}${leaf(50,42,-40,.9)}${leaf(50,42,-140,.9)}${leaf(50,30,-80,.7)}`,
    `<path d="M44 68V40h12v28z" fill="#8A5A34" stroke="#5A3418" stroke-width="2.5"/><circle cx="50" cy="30" r="20" fill="#5CB83F" stroke="#357A2A" stroke-width="2.5"/><circle cx="36" cy="38" r="12" fill="#6CC04A" stroke="#357A2A" stroke-width="2.5"/><circle cx="64" cy="38" r="12" fill="#6CC04A" stroke="#357A2A" stroke-width="2.5"/><circle cx="46" cy="26" r="3" fill="#E2362E"/><circle cx="58" cy="34" r="3" fill="#E2362E"/>`];
   return XS(100,100,sky+b[n-1]); };
-function xArt(spec,base){ if(!spec) return ''; if(/\.(svg|png|jpe?g|webp)$/i.test(spec)) return `<img class="xart" src="${new URL(spec,base)}" alt="">`;
+function xArt(spec,base){ if(!spec) return ''; if(/^data:image\//.test(spec)) return `<img class="xart" src="${spec}" alt="">`; if(/\.(svg|png|jpe?g|webp)$/i.test(spec)) return `<img class="xart" src="${new URL(spec,base)}" alt="">`;   // a count picture (library id#n) arrives from get() as a data: url
   const [n,p]=String(spec).split(':'), f=XA[n]; return f?f(...(p?p.split(',').map(v=>/^-?\d+(\.\d+)?$/.test(v)?+v:v):[])):''; }

@@ -47,6 +47,91 @@
     }
    ],
    "ex": 3
+  },
+  {
+   "type": "line",
+   "page": 24,
+   "grp": "hw-1",
+   "task": "القطة الثالثة من الأمام",
+   "items": [
+    {
+     "n": 5,
+     "from": "front",
+     "at": 3,
+     "group": false,
+     "unit": "../../pics/cat-gray.png"
+    }
+   ],
+   "ex": 1,
+   "book": "workbook"
+  },
+  {
+   "type": "line",
+   "page": 24,
+   "grp": "hw-2",
+   "task": "القطة الثانية من الخلف",
+   "items": [
+    {
+     "n": 5,
+     "from": "back",
+     "at": 2,
+     "group": false,
+     "unit": "../../pics/cat-gray.png"
+    }
+   ],
+   "ex": 2,
+   "book": "workbook"
+  },
+  {
+   "type": "line",
+   "page": 24,
+   "grp": "hw-3",
+   "task": "السيارة الخامسة من الأمام",
+   "items": [
+    {
+     "n": 7,
+     "from": "front",
+     "at": 5,
+     "group": false,
+     "unit": "../../pics/truck-white.png"
+    }
+   ],
+   "ex": 3,
+   "book": "workbook"
+  },
+  {
+   "type": "line",
+   "page": 24,
+   "grp": "hw-4",
+   "task": "السيارة الرابعة من الخلف",
+   "items": [
+    {
+     "n": 7,
+     "from": "back",
+     "at": 4,
+     "group": false,
+     "unit": "../../pics/truck-white.png"
+    }
+   ],
+   "ex": 4,
+   "book": "workbook"
+  },
+  {
+   "type": "line",
+   "page": 24,
+   "grp": "hw-5",
+   "task": "السيارة الأولى من الخلف",
+   "items": [
+    {
+     "n": 7,
+     "from": "back",
+     "at": 1,
+     "group": false,
+     "unit": "../../pics/truck-white.png"
+    }
+   ],
+   "ex": 5,
+   "book": "workbook"
   }
  ]
 }

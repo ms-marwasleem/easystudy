@@ -143,6 +143,55 @@
      "word": "ستة"
     }
    ]
+  },
+  {
+   "type": "bigger",
+   "ex": 1,
+   "page": 21,
+   "task": "نضع دائرة حول العدد الأكبر.",
+   "items": [
+    {
+     "nums": [
+      10,
+      9
+     ],
+     "find": "bigger",
+     "word": "عشرة"
+    },
+    {
+     "nums": [
+      4,
+      3
+     ],
+     "find": "bigger",
+     "word": "أربعة"
+    },
+    {
+     "nums": [
+      6,
+      5
+     ],
+     "find": "bigger",
+     "word": "ستة"
+    },
+    {
+     "nums": [
+      10,
+      7
+     ],
+     "find": "bigger",
+     "word": "عشرة"
+    },
+    {
+     "nums": [
+      8,
+      6
+     ],
+     "find": "bigger",
+     "word": "ثمانية"
+    }
+   ],
+   "book": "workbook"
   }
  ]
 }

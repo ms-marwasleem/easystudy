@@ -135,3 +135,55 @@ function mColorN(box,q,s,run){
   h.onclick=()=>{ if(qz.busy||q.solved) return; cs.slice(0,n).forEach(c=>c.classList.add('peek')); setTimeout(()=>cs.forEach(c=>c.classList.remove('peek')),1500); }; qHelpHost(h);
 }
 QM.colorn={sheet:'box', bulb:0, draw:mColorN};
+
+/* clock = the clock models (Arabic book unit 8, "قراءة الساعة"): ONE widget (clockWidget) used by the questions (QM.clock) and by the weekly papers (exam atom {t:"clock"}).
+   item {h:6, m:0|30, mode, ask, options}:
+     "set"  : the child sets BOTH hands for h:m (short hand = hours, long hand = minutes). He taps the clock where the selected hand must point; right = the hand stays (and the other hand is selected), wrong = shake.
+     "long" : the short hand is already drawn; the child sets only the LONG hand ("نرسم العقرب الطويل").
+     "read" : the clock shows h:m; the child picks the time from "options" (time words) — default 4 options made from h and m.
+   The hour hand is checked to 15 degrees (half hours sit between two numbers), the minute hand to 30 degrees (the numbers). The numbers are DOM text, so math-ar shows Arabic-Indic digits like everywhere else. */
+function clockTime(h,m){ return m===30?(isAr()?`الساعة ${h} ونصف`:`${h}:30`):(isAr()?`الساعة ${h}`:`${h} o'clock`); }
+function clockWidget(o){
+  const NS='http://www.w3.org/2000/svg', mode=o.mode||'set', h=o.h, m=o.m||0, hrA=((h%12)*30+m/2)%360, mnA=(m*6)%360;
+  const w=el('div','clkw clk-'+mode), svg=document.createElementNS(NS,'svg'); svg.setAttribute('viewBox','0 0 200 200'); svg.setAttribute('class','clkface'); w.append(svg);
+  const add=(tag,at,txt)=>{ const e=document.createElementNS(NS,tag); Object.keys(at).forEach(k=>e.setAttribute(k,at[k])); if(txt!=null) e.textContent=txt; svg.append(e); return e; };
+  add('circle',{cx:100,cy:100,r:94,fill:'#fff',stroke:'#3a2a1a','stroke-width':5});
+  for(let i=0;i<60;i++){ const a=i*6*Math.PI/180, big=i%5===0, r1=big?82:86; add('line',{x1:100+Math.sin(a)*r1,y1:100-Math.cos(a)*r1,x2:100+Math.sin(a)*90,y2:100-Math.cos(a)*90,stroke:'#3a2a1a','stroke-width':big?2.4:1}); }
+  for(let i=1;i<=12;i++){ const a=i*30*Math.PI/180; add('text',{x:100+Math.sin(a)*68,y:100-Math.cos(a)*68+1,'text-anchor':'middle','dominant-baseline':'central','font-size':19,'font-weight':800,fill:'#3a2a1a','font-family':'inherit'},String(i)); }
+  const hand=(len,wd,col,cls)=>add('line',{x1:100,y1:100,x2:100,y2:100-len,stroke:col,'stroke-width':wd,'stroke-linecap':'round',class:'clkh '+cls,style:'display:none'});
+  const hr=hand(46,9,'#E0412C','clk-hr'), mn=hand(70,5.5,'#2E7DD1','clk-mn'); add('circle',{cx:100,cy:100,r:6,fill:'#3a2a1a'});
+  const aim=add('circle',{cx:100,cy:100,r:7,fill:'#FFC94A',stroke:'#3a2a1a','stroke-width':2,style:'display:none'});
+  const put=(e,a)=>{ e.setAttribute('transform',`rotate(${a} 100 100)`); e.style.display=''; };
+  const st={hr:mode==='long'||mode==='read',mn:mode==='read',sel:mode==='long'?'mn':'hr',done:false};
+  if(mode==='long'||mode==='read') put(hr,hrA); if(mode==='read') put(mn,mnA);
+  const chips=el('div','clkchips'); w.append(chips);
+  const mk=(k,t)=>{ const b=el('button','clkchip',t); b.dataset.k=k; b.onclick=()=>{ if(st.done) return; st.sel=k; sync(); }; chips.append(b); return b; };
+  let bh,bm; if(mode==='set'){ bh=mk('hr',isAr()?'العقرب القصير (الساعات)':'Short hand (hours)'); bm=mk('mn',isAr()?'العقرب الطويل (الدقائق)':'Long hand (minutes)'); }
+  const sync=()=>{ if(bh){ bh.classList.toggle('on',st.sel==='hr'); bh.classList.toggle('ok',st.hr); bm.classList.toggle('on',st.sel==='mn'); bm.classList.toggle('ok',st.mn); } };
+  sync();
+  const finish=()=>{ st.done=true; w.classList.add('clkdone'); o.onDone&&o.onDone(); };
+  if(mode==='read'){
+    const ops=o.options||[], row=el('div','clkopts'); w.append(row);
+    ops.forEach(t=>{ const b=el('button','clkchip clkopt',t); b.onclick=()=>{ if(st.done) return; if(t!==o.answer){ o.onWrong&&o.onWrong(b); return; } b.classList.add('ok'); finish(); }; row.append(b); });
+    chips.hidden=true;
+  } else {
+    svg.addEventListener('pointerdown',e=>{ if(st.done) return; const r=svg.getBoundingClientRect(), sx=200/r.width, dx=(e.clientX-r.left)*sx-100, dy=(e.clientY-r.top)*sx-100; if(Math.hypot(dx,dy)<14) return;
+      const a=(Math.atan2(dx,-dy)*180/Math.PI+360)%360, k=st.sel; if(st[k]) return;
+      const snap=k==='mn'?30:15, s=(Math.round(a/snap)*snap)%360, tgt=k==='mn'?mnA:hrA;
+      if(s!==tgt){ o.onWrong&&o.onWrong(svg); return; }
+      put(k==='mn'?mn:hr,tgt); st[k]=true; blip(640,.05); const other=k==='mn'?'hr':'mn'; if(mode==='set'&&!st[other]) st.sel=other; sync();
+      if(st.hr&&st.mn) finish(); }); }
+  w.hint=()=>{ if(st.done) return null; if(mode==='read'){ const b=$$('.clkopt',w).find(x=>x.textContent===o.answer); if(b){ b.classList.add('peek'); return ()=>b.classList.remove('peek'); } return null; }
+    const k=st.sel, a=(k==='mn'?mnA:hrA)*Math.PI/180, r=k==='mn'?70:46; aim.setAttribute('cx',100+Math.sin(a)*r); aim.setAttribute('cy',100-Math.cos(a)*r); aim.style.display=''; return ()=>{ aim.style.display='none'; }; };
+  return w;
+}
+function mClockOptions(h,m){ const set=new Set([clockTime(h,m)]); [[h,m===30?0:30],[h%12+1,m],[(h+10)%12+1,m],[(h+4)%12+1,m===30?0:30]].forEach(([a,b])=>{ if(set.size<4) set.add(clockTime(a,b)); }); return mShuffle([...set]); }
+function mClock(box,q,s,run){
+  q.hush=1; q.word=q.word||q.ask||s.task||''; const mode=q.mode||'set';
+  const w=el('div','mclock'); box.append(w);
+  if(q.ask) w.append(el('p','clkask',q.ask));
+  const opts=q.options||(mode==='read'?mClockOptions(q.h,q.m||0):null), ans=q.answer||clockTime(q.h,q.m||0);
+  const cw=clockWidget({h:q.h,m:q.m||0,mode,options:opts,answer:ans,onWrong:t=>qxBad(t),onDone:()=>qxWin(w,q,1600)}); w.append(cw); q.clockEl=cw;
+  const hb=el('button','qxhelp qmhelp',ICON.hint); hb.setAttribute('aria-label','Help'); let undo=null; hb.onclick=()=>{ if(qz.busy||q.solved) return; if(undo) undo(); undo=cw.hint(); setTimeout(()=>{ if(undo){ undo(); undo=null; } },1800); }; qHelpHost(hb);
+}
+QM.clock={sheet:'box', bulb:0, draw:mClock};
