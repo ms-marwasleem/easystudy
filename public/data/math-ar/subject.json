@@ -704,11 +704,15 @@
     ],
     "quiz": [
      89
+    ],
+    "workbook": [
+     61
     ]
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "workbook"
    ]
   },
   {
@@ -722,11 +726,15 @@
     ],
     "quiz": [
      91
+    ],
+    "workbook": [
+     62
     ]
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "workbook"
    ]
   },
   {
@@ -740,11 +748,15 @@
     ],
     "quiz": [
      93
+    ],
+    "workbook": [
+     62
     ]
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "workbook"
    ],
    "exams": [
     {
@@ -752,6 +764,17 @@
      "title": "تدريبات عامة على المنهج",
      "label": "تدريبات عامة",
      "file": "data/math-ar/exams/final/exam.json"
+    }
+   ],
+   "weekly": [
+    {
+     "id": "wk-u9",
+     "title": "التقييم الأسبوعي",
+     "label": "التقييم الأسبوعي",
+     "file": "data/math-ar/exams/wk-u9/exam.json",
+     "page": [
+      63
+     ]
     }
    ]
   }

@@ -57,7 +57,7 @@ function mBigger(box,q,s,run){
   box.append(row);
 }
 function mCount(box,q,s,run){
-  const n=q.n; q.word=q.word||mW(n);  q.hush=1; const grid=el('div','qmcount'+(q.group||q.img?' grp':'')); grid.style.setProperty('--c',q.cols||Math.min(n,5)); grid.style.setProperty('--r',Math.ceil(n/(q.cols||Math.min(n,5))));
+  const n=q.n; q.word=q.word||mW(n);  q.hush=1; const grid=el('div','qmcount'+(q.group||q.img?' grp':'')); grid.style.setProperty('--c',q.cols||Math.max(1,Math.min(n,5))); grid.style.setProperty('--r',Math.max(1,Math.ceil(n/(q.cols||Math.max(1,Math.min(n,5))))));
   if(q.img&&q.group){ const im=new Image(); im.src=R_Q(q.img); im.alt=''; grid.append(im); } else if(q.img){ const im=new Image(); im.alt=''; cpicMake(new URL(R_Q(q.img),location.href).href,n).then(u=>{ im.src=u; }); grid.append(im); }   // a unit without "#n": the ONE count-picture helper (core.js) repeats it n times else { const im=new Image(); im.src=mDots(n); im.alt=''; grid.append(im); }
   box.append(grid);
   if(/^write the number/i.test(s.task||'')||s.typed){

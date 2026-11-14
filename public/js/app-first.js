@@ -1,4 +1,4 @@
-const APP_BUILD='f1b4c1a62a';
+const APP_BUILD='83edbbf5ed';
 /* MADE BY tools/build-app.py from the files named below. Do not edit here: edit those files, then run the script again. */
 /* ===== js/core.js ===== */
 // Arabic-Indic (٠-٩) and Eastern Persian (۰-۹) digits typed anywhere count as Western digits: one helper, applied to every text box before any answer check
