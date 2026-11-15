@@ -25,6 +25,7 @@ async function acctSubmit(a,err){
   if(!(await syApi())||!a.email){ WL.stage=2; return wlGo('main'); }   // no server yet (or phone only: server login by phone needs an SMS service, later): kept on this device
   const r=await syCall('/auth/start',{email:a.email});
   if(!r){ WL.pending=true; WL.stage=2; return wlGo('main'); }   // offline: go on locally, confirm the email later (account page)
+  if(!r.j.ok&&(r.j.error==='mail-not-set'||r.j.error==='mail-failed')){ WL.pending=true; WL.stage=2; return wlGo('main'); }   // the email can't be sent (not set up / not allowed yet): register anyway, confirm later; never show a server message to the parent
   if(!r.j.ok){ err(SYERR[r.j.error]||'حصلت مشكلة. جربي تاني'); return; }
   SY.a=a; SY.dev=r.j.devCode||''; SY.known=r.j.known; wlGo('code');
 }
