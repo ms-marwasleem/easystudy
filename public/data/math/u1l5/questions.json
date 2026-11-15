@@ -576,6 +576,55 @@
     }
    ],
    "book": "booklet"
+  },
+  {
+   "type": "bond",
+   "page": 15,
+   "task": "What two numbers make 6? Write the missing numbers in the box.",
+   "taskAudio": "q/task-bk-what-two-numbers-make-write-the-missing-numbers-in-the-box.mp3",
+   "items": [
+    {
+     "whole": 6,
+     "parts": [
+      2,
+      null
+     ],
+     "audio": "words/two-and-four-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      5,
+      null
+     ],
+     "audio": "words/five-and-one-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      null,
+      1
+     ],
+     "audio": "words/five-and-one-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      3,
+      null
+     ],
+     "audio": "words/three-and-three-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      null,
+      4
+     ],
+     "audio": "words/two-and-four-make-six.mp3"
+    }
+   ],
+   "book": "workbook"
   }
  ]
 }

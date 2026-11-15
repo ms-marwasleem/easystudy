@@ -14,7 +14,8 @@
       "3"
      ],
      "answer": 1,
-     "word": "2 + 0 = 2"
+     "word": "2 + 0 = 2",
+     "audio": "../../math-ar-audio/07d5894b47.mp3"
     },
     {
      "stem": "6 + 0 = ___",
@@ -24,7 +25,8 @@
       "7"
      ],
      "answer": 1,
-     "word": "6 + 0 = 6"
+     "word": "6 + 0 = 6",
+     "audio": "../../math-ar-audio/5400cc8757.mp3"
     },
     {
      "stem": "7 + 2 = ___",
@@ -34,7 +36,8 @@
       "10"
      ],
      "answer": 1,
-     "word": "7 + 2 = 9"
+     "word": "7 + 2 = 9",
+     "audio": "../../math-ar-audio/0df75c10f0.mp3"
     },
     {
      "stem": "0 + 1 = ___",
@@ -44,7 +47,8 @@
       "2"
      ],
      "answer": 1,
-     "word": "0 + 1 = 1"
+     "word": "0 + 1 = 1",
+     "audio": "../../math-ar-audio/24737f02ee.mp3"
     },
     {
      "stem": "0 + 5 = ___",
@@ -54,7 +58,8 @@
       "6"
      ],
      "answer": 1,
-     "word": "0 + 5 = 5"
+     "word": "0 + 5 = 5",
+     "audio": "../../math-ar-audio/3870727ff6.mp3"
     },
     {
      "stem": "4 + 4 = ___",
@@ -64,9 +69,11 @@
       "9"
      ],
      "answer": 1,
-     "word": "4 + 4 = 8"
+     "word": "4 + 4 = 8",
+     "audio": "../../math-ar-audio/bea13307e8.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/2f896e67b8.mp3"
   },
   {
    "type": "mwrite",
@@ -82,9 +89,12 @@
      "lead": "جملة الجمع:",
      "word": "4 + 0 = 4",
      "keys": "1234567890+−=",
-     "askSay": "ذهبت للصيد. اصطدت بالأمس أربع سمكات. اصطدت اليوم صفر سمكة. كم عدد الأسماك الإجمالي التي اصطدتها؟ اكتب جملة الجمع."
+     "askSay": "ذهبت للصيد. اصطدت بالأمس أربع سمكات. اصطدت اليوم صفر سمكة. كم عدد الأسماك الإجمالي التي اصطدتها؟ اكتب جملة الجمع.",
+     "askAudio": "../../math-ar-audio/20871bd282.mp3",
+     "audio": "../../math-ar-audio/dd7c52ea3c.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
   },
   {
    "type": "mcq",
@@ -105,9 +115,12 @@
      ],
      "answer": 1,
      "askSay": "كم عدد الأسماك الإجمالي التي اصطدتها؟ ما الإجابة؟",
-     "word": "الإجابة: 4 سمكات"
+     "word": "الإجابة: 4 سمكات",
+     "askAudio": "../../math-ar-audio/44b2991bae.mp3",
+     "audio": "../../math-ar-audio/bfeb71ed17.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
   },
   {
    "type": "mcq",
@@ -126,10 +139,13 @@
      ],
      "answer": 1,
      "askSay": "0 + 7 = ؟",
-     "word": "الإجابة 7."
+     "word": "الإجابة 7.",
+     "askAudio": "../../math-ar-audio/df4a1f00b2.mp3",
+     "audio": "../../math-ar-audio/6509dcf9a7.mp3"
     }
    ],
-   "book": "workbook"
+   "book": "workbook",
+   "taskAudio": "../../math-ar-audio/7f25e6f0bc.mp3"
   },
   {
    "type": "mcq",
@@ -148,10 +164,13 @@
      ],
      "answer": 1,
      "askSay": "3 + 4 = ؟",
-     "word": "الإجابة 7."
+     "word": "الإجابة 7.",
+     "askAudio": "../../math-ar-audio/c5e34581fa.mp3",
+     "audio": "../../math-ar-audio/6509dcf9a7.mp3"
     }
    ],
-   "book": "workbook"
+   "book": "workbook",
+   "taskAudio": "../../math-ar-audio/7f25e6f0bc.mp3"
   },
   {
    "type": "mcq",
@@ -170,10 +189,13 @@
      ],
      "answer": 3,
      "askSay": "8 + 0 = ؟",
-     "word": "الإجابة 8."
+     "word": "الإجابة 8.",
+     "askAudio": "../../math-ar-audio/17686e3fe1.mp3",
+     "audio": "../../math-ar-audio/d015823145.mp3"
     }
    ],
-   "book": "workbook"
+   "book": "workbook",
+   "taskAudio": "../../math-ar-audio/7f25e6f0bc.mp3"
   },
   {
    "type": "mwrite",
@@ -186,7 +208,8 @@
      "lead": "جملة الجمع:",
      "word": "5 + 0 = 5",
      "keys": "1234567890+−=",
-     "askSay": "معي 5 قطع حلوى، ومع أخي 0 قطع. كم العدد الإجمالي لقطع الحلوى؟"
+     "askSay": "معي 5 قطع حلوى، ومع أخي 0 قطع. كم العدد الإجمالي لقطع الحلوى؟",
+     "audio": "../../math-ar-audio/3430468583.mp3"
     }
    ],
    "book": "workbook"
@@ -202,7 +225,8 @@
      "lead": "جملة الجمع:",
      "word": "4 + 0 = 4",
      "keys": "1234567890+−=",
-     "askSay": "معي أربع قبعات في المنزل، ولم أشتري قبعات إضافية. كم العدد الإجمالي للقبعات؟"
+     "askSay": "معي أربع قبعات في المنزل، ولم أشتري قبعات إضافية. كم العدد الإجمالي للقبعات؟",
+     "audio": "../../math-ar-audio/dd7c52ea3c.mp3"
     }
    ],
    "book": "workbook"

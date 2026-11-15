@@ -301,315 +301,477 @@
   },
   {
    "type": "mcq",
-   "ex": 1,
-   "page": 92,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
+   "page": 66,
+   "task": "Find the result.",
+   "taskAudio": "q/task-bk-find-the-result.mp3",
    "items": [
     {
-     "ask": "What is ten minus three plus one?",
-     "stem": "10 - 3 + 1 = __",
+     "stem": "15 + 4 − 3 = ___",
+     "options": [
+      "15",
+      "16",
+      "17"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-15-p-4-m-3-q.mp3",
+     "audio": "q/wb-15-p-4-m-3.mp3",
+     "word": "15 + 4 − 3 = 16"
+    },
+    {
+     "stem": "16 − 4 + 6 = ___",
+     "options": [
+      "17",
+      "18",
+      "19"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-16-m-4-p-6-q.mp3",
+     "audio": "q/wb-16-m-4-p-6.mp3",
+     "word": "16 − 4 + 6 = 18"
+    },
+    {
+     "stem": "6 + 4 − 2 = ___",
      "options": [
       "7",
       "8",
       "9"
      ],
      "answer": 1,
-     "askSay": "What is ten minus three plus one?",
-     "askAudio": "q/c1-q.mp3",
-     "audio": "q/c1-a.mp3",
-     "word": "Eight."
+     "askAudio": "q/wb-6-p-4-m-2-q.mp3",
+     "audio": "q/wb-6-p-4-m-2.mp3",
+     "word": "6 + 4 − 2 = 8"
     }
    ],
-   "book": "booklet"
+   "book": "workbook",
+   "ex": 14
   },
   {
    "type": "mcq",
-   "ex": 2,
-   "page": 92,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
+   "page": 107,
+   "task": "Read the story. Find the answer.",
+   "taskAudio": "q/task-bk-read-the-story-find-the-answer.mp3",
    "items": [
     {
-     "ask": "What is three plus five minus seven?",
-     "stem": "3 + 5 - 7 = __",
-     "options": [
-      "0",
-      "1",
-      "2"
-     ],
-     "answer": 1,
-     "askSay": "What is three plus five minus seven?",
-     "askAudio": "q/c2-q.mp3",
-     "audio": "q/c2-a.mp3",
-     "word": "One."
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mcq",
-   "ex": 3,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is nine minus one plus two?",
-     "stem": "9 - 1 + 2 = __",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "What is nine minus one plus two?",
-     "askAudio": "q/c3-q.mp3",
-     "audio": "q/c3-a.mp3",
-     "word": "Ten."
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mcq",
-   "ex": 4,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is ten minus seven plus two?",
-     "stem": "10 - 7 + 2 = __",
-     "options": [
-      "4",
-      "5",
-      "6"
-     ],
-     "answer": 1,
-     "askSay": "What is ten minus seven plus two?",
-     "askAudio": "q/c4-q.mp3",
-     "audio": "q/c4-a.mp3",
-     "word": "Five."
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mcq",
-   "ex": 5,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is one plus eight minus four?",
-     "stem": "1 + 8 - 4 = __",
-     "options": [
-      "4",
-      "5",
-      "6"
-     ],
-     "answer": 1,
-     "askSay": "What is one plus eight minus four?",
-     "askAudio": "q/c5-q.mp3",
-     "audio": "q/c5-a.mp3",
-     "word": "Five."
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mcq",
-   "ex": 6,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is five plus five minus three?",
-     "stem": "5 + 5 - 3 = __",
+     "stem": "There were 6 cats. 2 cats went home. Then 3 new cats came. How many cats are there now?",
      "options": [
       "6",
       "7",
       "8"
      ],
      "answer": 1,
-     "askSay": "What is five plus five minus three?",
-     "askAudio": "q/c6-q.mp3",
-     "audio": "q/c6-a.mp3",
-     "word": "Seven."
+     "askAudio": "q/bk-there-were-cats-cats-went-home-then-new--q.mp3",
+     "audio": "q/bk-there-were-cats-cats-went-home-then-new-.mp3",
+     "word": "7"
     }
    ],
-   "book": "booklet"
+   "book": "booklet",
+   "ex": 15
   },
   {
    "type": "mcq",
-   "ex": 7,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
+   "page": 108,
+   "task": "Read the story. Find the answer.",
+   "taskAudio": "q/task-bk-read-the-story-find-the-answer.mp3",
    "items": [
     {
-     "ask": "What is six plus four minus five?",
-     "stem": "6 + 4 - 5 = __",
-     "options": [
-      "4",
-      "5",
-      "6"
-     ],
-     "answer": 1,
-     "askSay": "What is six plus four minus five?",
-     "askAudio": "q/c7-q.mp3",
-     "audio": "q/c7-a.mp3",
-     "word": "Five."
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mcq",
-   "ex": 8,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is nine minus seven plus two?",
-     "stem": "9 - 7 + 2 = __",
-     "options": [
-      "3",
-      "4",
-      "5"
-     ],
-     "answer": 1,
-     "askSay": "What is nine minus seven plus two?",
-     "askAudio": "q/c8-q.mp3",
-     "audio": "q/c8-a.mp3",
-     "word": "Four."
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mcq",
-   "ex": 9,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is ten minus four plus one?",
-     "stem": "10 - 4 + 1 = __",
-     "options": [
-      "6",
-      "7",
-      "8"
-     ],
-     "answer": 1,
-     "askSay": "What is ten minus four plus one?",
-     "askAudio": "q/c9-q.mp3",
-     "audio": "q/c9-a.mp3",
-     "word": "Seven."
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mcq",
-   "ex": 10,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is five plus three minus six?",
-     "stem": "5 + 3 - 6 = __",
-     "options": [
-      "1",
-      "2",
-      "3"
-     ],
-     "answer": 1,
-     "askSay": "What is five plus three minus six?",
-     "askAudio": "q/c10-q.mp3",
-     "audio": "q/c10-a.mp3",
-     "word": "Two."
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mcq",
-   "ex": 11,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is three plus seven minus one?",
-     "stem": "3 + 7 - 1 = __",
-     "options": [
-      "8",
-      "9",
-      "10"
-     ],
-     "answer": 1,
-     "askSay": "What is three plus seven minus one?",
-     "askAudio": "q/c11-q.mp3",
-     "audio": "q/c11-a.mp3",
-     "word": "Nine."
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mcq",
-   "ex": 12,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is four plus six minus six?",
-     "stem": "4 + 6 - 6 = __",
-     "options": [
-      "3",
-      "4",
-      "5"
-     ],
-     "answer": 1,
-     "askSay": "What is four plus six minus six?",
-     "askAudio": "q/c12-q.mp3",
-     "audio": "q/c12-a.mp3",
-     "word": "Four."
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mcq",
-   "ex": 13,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is seven minus four plus three?",
-     "stem": "7 - 4 + 3 = __",
+     "stem": "There were 7 cookies. You got 2 more. Then you ate 3. How many cookies are left?",
      "options": [
       "5",
       "6",
       "7"
      ],
      "answer": 1,
-     "askSay": "What is seven minus four plus three?",
-     "askAudio": "q/c13-q.mp3",
-     "audio": "q/c13-a.mp3",
-     "word": "Six."
+     "askAudio": "q/bk-there-were-cookies-you-got-more-then-you-q.mp3",
+     "audio": "q/bk-there-were-cookies-you-got-more-then-you.mp3",
+     "word": "6"
+    },
+    {
+     "stem": "There are 6 people on the bus. Then 4 more get on. Then 3 more get on. How many people are on the bus now?",
+     "options": [
+      "12",
+      "13",
+      "14"
+     ],
+     "answer": 1,
+     "askAudio": "q/bk-there-are-people-on-the-bus-then-more-ge-q.mp3",
+     "audio": "q/bk-there-are-people-on-the-bus-then-more-ge.mp3",
+     "word": "13"
     }
    ],
-   "book": "booklet"
+   "book": "booklet",
+   "ex": 16
+  },
+  {
+   "type": "mcq",
+   "page": 108,
+   "task": "Solve the problems.",
+   "taskAudio": "q/task-bk-solve-the-problems.mp3",
+   "items": [
+    {
+     "stem": "9 − 1 + 2 = ___",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-9-m-1-p-2-q.mp3",
+     "audio": "q/wb-9-m-1-p-2.mp3",
+     "word": "9 − 1 + 2 = 10"
+    },
+    {
+     "stem": "10 − 7 + 2 = ___",
+     "options": [
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-10-m-7-p-2-q.mp3",
+     "audio": "q/wb-10-m-7-p-2.mp3",
+     "word": "10 − 7 + 2 = 5"
+    },
+    {
+     "stem": "1 + 8 − 4 = ___",
+     "options": [
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-1-p-8-m-4-q.mp3",
+     "audio": "q/wb-1-p-8-m-4.mp3",
+     "word": "1 + 8 − 4 = 5"
+    },
+    {
+     "stem": "5 + 5 − 3 = ___",
+     "options": [
+      "6",
+      "7",
+      "8"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-5-p-5-m-3-q.mp3",
+     "audio": "q/wb-5-p-5-m-3.mp3",
+     "word": "5 + 5 − 3 = 7"
+    },
+    {
+     "stem": "6 + 4 − 5 = ___",
+     "options": [
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-6-p-4-m-5-q.mp3",
+     "audio": "q/wb-6-p-4-m-5.mp3",
+     "word": "6 + 4 − 5 = 5"
+    },
+    {
+     "stem": "8 − 2 − 2 − 2 = ___",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-8-m-2-m-2-m-2-q.mp3",
+     "audio": "q/wb-8-m-2-m-2-m-2.mp3",
+     "word": "8 − 2 − 2 − 2 = 2"
+    }
+   ],
+   "book": "booklet",
+   "ex": 17
+  },
+  {
+   "type": "mcq",
+   "page": 109,
+   "task": "Add the numbers.",
+   "taskAudio": "q/task-bk-add-the-numbers.mp3",
+   "items": [
+    {
+     "stem": "2 + 1 + 5 = ___",
+     "options": [
+      "7",
+      "8",
+      "9"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-2-p-1-p-5-q.mp3",
+     "audio": "q/wb-2-p-1-p-5.mp3",
+     "word": "2 + 1 + 5 = 8"
+    },
+    {
+     "stem": "6 + 1 + 2 = ___",
+     "options": [
+      "8",
+      "9",
+      "10"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-6-p-1-p-2-q.mp3",
+     "audio": "q/wb-6-p-1-p-2.mp3",
+     "word": "6 + 1 + 2 = 9"
+    },
+    {
+     "stem": "3 + 2 + 5 = ___",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-3-p-2-p-5-q.mp3",
+     "audio": "q/wb-3-p-2-p-5.mp3",
+     "word": "3 + 2 + 5 = 10"
+    },
+    {
+     "stem": "4 + 6 + 4 = ___",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-4-p-6-p-4-q.mp3",
+     "audio": "q/wb-4-p-6-p-4.mp3",
+     "word": "4 + 6 + 4 = 14"
+    },
+    {
+     "stem": "1 + 9 + 8 = ___",
+     "options": [
+      "17",
+      "18",
+      "19"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-1-p-9-p-8-q.mp3",
+     "audio": "q/wb-1-p-9-p-8.mp3",
+     "word": "1 + 9 + 8 = 18"
+    },
+    {
+     "stem": "4 + 8 + 7 = ___",
+     "options": [
+      "18",
+      "19",
+      "20"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-4-p-8-p-7-q.mp3",
+     "audio": "q/wb-4-p-8-p-7.mp3",
+     "word": "4 + 8 + 7 = 19"
+    }
+   ],
+   "book": "booklet",
+   "ex": 18
+  },
+  {
+   "type": "mcq",
+   "page": 109,
+   "task": "Read the story. Find the answer.",
+   "taskAudio": "q/task-bk-read-the-story-find-the-answer.mp3",
+   "items": [
+    {
+     "stem": "There were 10 people on the bus. 5 people got off. Then 3 more people got off. How many people are on the bus now?",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 1,
+     "askAudio": "q/bk-there-were-people-on-the-bus-people-got--q.mp3",
+     "audio": "q/bk-there-were-people-on-the-bus-people-got-.mp3",
+     "word": "2"
+    }
+   ],
+   "book": "booklet",
+   "ex": 19
+  },
+  {
+   "type": "mcq",
+   "page": 109,
+   "task": "Subtract the numbers.",
+   "taskAudio": "q/task-bk-subtract-the-numbers.mp3",
+   "items": [
+    {
+     "stem": "9 − 6 − 1 = ___",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-9-m-6-m-1-q.mp3",
+     "audio": "q/wb-9-m-6-m-1.mp3",
+     "word": "9 − 6 − 1 = 2"
+    },
+    {
+     "stem": "8 − 2 − 3 = ___",
+     "options": [
+      "2",
+      "3",
+      "4"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-8-m-2-m-3-q.mp3",
+     "audio": "q/wb-8-m-2-m-3.mp3",
+     "word": "8 − 2 − 3 = 3"
+    },
+    {
+     "stem": "7 − 1 − 5 = ___",
+     "options": [
+      "0",
+      "1",
+      "2"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-7-m-1-m-5-q.mp3",
+     "audio": "q/wb-7-m-1-m-5.mp3",
+     "word": "7 − 1 − 5 = 1"
+    },
+    {
+     "stem": "18 − 8 − 7 = ___",
+     "options": [
+      "2",
+      "3",
+      "4"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-18-m-8-m-7-q.mp3",
+     "audio": "q/wb-18-m-8-m-7.mp3",
+     "word": "18 − 8 − 7 = 3"
+    },
+    {
+     "stem": "16 − 6 − 9 = ___",
+     "options": [
+      "0",
+      "1",
+      "2"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-16-m-6-m-9-q.mp3",
+     "audio": "q/wb-16-m-6-m-9.mp3",
+     "word": "16 − 6 − 9 = 1"
+    },
+    {
+     "stem": "17 − 7 − 6 = ___",
+     "options": [
+      "3",
+      "4",
+      "5"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-17-m-7-m-6-q.mp3",
+     "audio": "q/wb-17-m-7-m-6.mp3",
+     "word": "17 − 7 − 6 = 4"
+    }
+   ],
+   "book": "booklet",
+   "ex": 20
+  },
+  {
+   "type": "mcq",
+   "page": 110,
+   "task": "Read the story. Find the answer.",
+   "taskAudio": "q/task-bk-read-the-story-find-the-answer.mp3",
+   "items": [
+    {
+     "stem": "There were 7 people on the bus. 4 people got off. Then 3 people got on. How many people are on the bus now?",
+     "options": [
+      "5",
+      "6",
+      "7"
+     ],
+     "answer": 1,
+     "askAudio": "q/bk-there-were-people-on-the-bus-people-got--q.mp3",
+     "audio": "q/bk-there-were-people-on-the-bus-people-got-.mp3",
+     "word": "6"
+    }
+   ],
+   "book": "booklet",
+   "ex": 21
+  },
+  {
+   "type": "mcq",
+   "page": 110,
+   "task": "Solve the problems.",
+   "taskAudio": "q/task-bk-solve-the-problems.mp3",
+   "items": [
+    {
+     "stem": "9 − 7 + 2 = ___",
+     "options": [
+      "3",
+      "4",
+      "5"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-9-m-7-p-2-q.mp3",
+     "audio": "q/wb-9-m-7-p-2.mp3",
+     "word": "9 − 7 + 2 = 4"
+    },
+    {
+     "stem": "10 − 4 + 1 = ___",
+     "options": [
+      "6",
+      "7",
+      "8"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-10-m-4-p-1-q.mp3",
+     "audio": "q/wb-10-m-4-p-1.mp3",
+     "word": "10 − 4 + 1 = 7"
+    },
+    {
+     "stem": "5 + 3 − 6 = ___",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-5-p-3-m-6-q.mp3",
+     "audio": "q/wb-5-p-3-m-6.mp3",
+     "word": "5 + 3 − 6 = 2"
+    },
+    {
+     "stem": "3 + 7 − 1 = ___",
+     "options": [
+      "8",
+      "9",
+      "10"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-3-p-7-m-1-q.mp3",
+     "audio": "q/wb-3-p-7-m-1.mp3",
+     "word": "3 + 7 − 1 = 9"
+    },
+    {
+     "stem": "4 + 6 − 6 = ___",
+     "options": [
+      "3",
+      "4",
+      "5"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-4-p-6-m-6-q.mp3",
+     "audio": "q/wb-4-p-6-m-6.mp3",
+     "word": "4 + 6 − 6 = 4"
+    },
+    {
+     "stem": "2 + 2 + 2 + 2 = ___",
+     "options": [
+      "7",
+      "8",
+      "9"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-2-p-2-p-2-p-2-q.mp3",
+     "audio": "q/wb-2-p-2-p-2-p-2.mp3",
+     "word": "2 + 2 + 2 + 2 = 8"
+    }
+   ],
+   "book": "booklet",
+   "ex": 22
   }
  ]
 }

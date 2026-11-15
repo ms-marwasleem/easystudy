@@ -134,7 +134,8 @@
      "audio": "../../syl-ar/641-651.mp3"
     }
    ],
-   "har": "fatha"
+   "har": "fatha",
+   "school": "nour-el-ilm"
   },
   {
    "word": "كَأْس",
@@ -155,6 +156,50 @@
    "har": "fatha"
   },
   {
+   "word": "كَتْكُوت",
+   "img": "../../pics/ar-chick.png",
+   "audio": {
+    "word": "../u1l10/words/katkut.mp3"
+   },
+   "parts": [
+    {
+     "t": "كَتْ",
+     "audio": "../../syl-ar/643-64e-62a-652.mp3"
+    },
+    {
+     "t": "كُو",
+     "audio": "../../syl-ar/643-64f-648.mp3"
+    },
+    {
+     "t": "ت",
+     "audio": "../../syl-ar/62a-652.mp3"
+    }
+   ],
+   "har": "fatha"
+  },
+  {
+   "word": "مَرْكَب",
+   "img": "../../pics/boat.png",
+   "audio": {
+    "word": "../u1l5/words/markab.mp3"
+   },
+   "parts": [
+    {
+     "t": "مَرْ",
+     "audio": "../../syl-ar/645-64e-631-652.mp3"
+    },
+    {
+     "t": "كَ",
+     "audio": "../../syl-ar/643-64e.mp3"
+    },
+    {
+     "t": "ب",
+     "audio": "../../syl-ar/628-652.mp3"
+    }
+   ],
+   "har": "fatha"
+  },
+  {
    "word": "كُرْسِي",
    "img": "../../pics/chair.png",
    "audio": {
@@ -170,7 +215,8 @@
      "audio": "../../syl-ar/633-650-64a.mp3"
     }
    ],
-   "har": "damma"
+   "har": "damma",
+   "school": "nour-el-ilm"
   },
   {
    "word": "كُرَة",
@@ -217,6 +263,28 @@
    "har": "damma"
   },
   {
+   "word": "كُمَّثْرَى",
+   "img": "../../pics/pear.png",
+   "audio": {
+    "word": "q/w-kummathra.mp3"
+   },
+   "parts": [
+    {
+     "t": "كُ",
+     "audio": "../../syl-ar/643-64f.mp3"
+    },
+    {
+     "t": "مَّثْ",
+     "audio": "../../syl-ar/645-64e-651-62b-652.mp3"
+    },
+    {
+     "t": "رَى",
+     "audio": "../../syl-ar/631-64e-649.mp3"
+    }
+   ],
+   "har": "damma"
+  },
+  {
    "word": "كِتَاب",
    "img": "../../pics/book.png",
    "audio": {
@@ -254,7 +322,8 @@
      "audio": "../../syl-ar/633-652.mp3"
     }
    ],
-   "har": "kasra"
+   "har": "kasra",
+   "school": "nour-el-ilm"
   },
   {
    "word": "كِيوِي",
@@ -272,7 +341,8 @@
      "audio": "../../syl-ar/648-650-64a.mp3"
     }
    ],
-   "har": "kasra"
+   "har": "kasra",
+   "school": "nour-el-ilm"
   },
   {
    "word": "مَكْتَب",
@@ -336,6 +406,68 @@
     {
      "t": "ة",
      "audio": "../../syl-ar/629.mp3"
+    }
+   ],
+   "har": "sukoon"
+  },
+  {
+   "word": "سَمَك",
+   "img": "../../pics/fish-lemon.png",
+   "audio": {
+    "word": "q/w-samak.mp3"
+   },
+   "parts": [
+    {
+     "t": "سَ",
+     "audio": "../../syl-ar/633-64e.mp3"
+    },
+    {
+     "t": "مَ",
+     "audio": "../../syl-ar/645-64e.mp3"
+    },
+    {
+     "t": "ك",
+     "audio": "../../syl-ar/643-652.mp3"
+    }
+   ],
+   "har": "sukoon"
+  },
+  {
+   "word": "شُبَّاك",
+   "img": "../../pics/window.png",
+   "audio": {
+    "word": "../u3l5/words/shubbak.mp3"
+   },
+   "parts": [
+    {
+     "t": "شُ",
+     "audio": "../../syl-ar/634-64f.mp3"
+    },
+    {
+     "t": "بَّا",
+     "audio": "../../syl-ar/628-64e-651-627.mp3"
+    },
+    {
+     "t": "ك",
+     "audio": "../../syl-ar/643-652.mp3"
+    }
+   ],
+   "har": "sukoon"
+  },
+  {
+   "word": "أَسْمَاكْ",
+   "img": "../../pics/fish-lemon.png",
+   "audio": {
+    "word": "q/w-asmak.mp3"
+   },
+   "parts": [
+    {
+     "t": "أَسْ",
+     "audio": "../../syl-ar/623-64e-633-652.mp3"
+    },
+    {
+     "t": "مَاكْ",
+     "audio": "../../syl-ar/645-64e-627-643-652.mp3"
     }
    ],
    "har": "sukoon"

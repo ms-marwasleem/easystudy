@@ -120,7 +120,8 @@
      "audio": "../../syl-ar/646-652.mp3"
     }
    ],
-   "har": "fatha"
+   "har": "fatha",
+   "school": "nour-el-ilm"
   },
   {
    "word": "لَيْمُون",
@@ -163,6 +164,94 @@
    "har": "fatha"
   },
   {
+   "word": "لَوْحَة",
+   "img": "../../pics/easel-painting.png",
+   "audio": {
+    "word": "../u1l6/words/lawha.mp3"
+   },
+   "parts": [
+    {
+     "t": "لَوْ",
+     "audio": "../../syl-ar/644-64e-648-652.mp3"
+    },
+    {
+     "t": "حَ",
+     "audio": "../../syl-ar/62d-64e.mp3"
+    },
+    {
+     "t": "ة",
+     "audio": "../../syl-ar/629.mp3"
+    }
+   ],
+   "har": "fatha"
+  },
+  {
+   "word": "بَلَح",
+   "img": "../../pics/ar-dates.png",
+   "audio": {
+    "word": "../u1l6/words/balah.mp3"
+   },
+   "parts": [
+    {
+     "t": "بَ",
+     "audio": "../../syl-ar/628-64e.mp3"
+    },
+    {
+     "t": "لَ",
+     "audio": "../../syl-ar/644-64e.mp3"
+    },
+    {
+     "t": "ح",
+     "audio": "../../syl-ar/62d-652.mp3"
+    }
+   ],
+   "har": "fatha"
+  },
+  {
+   "word": "نَمْلَة",
+   "img": "../../pics/ant.png",
+   "audio": {
+    "word": "../u2l1/words/namla.mp3"
+   },
+   "parts": [
+    {
+     "t": "نَمْ",
+     "audio": "../../syl-ar/646-64e-645-652.mp3"
+    },
+    {
+     "t": "لَ",
+     "audio": "../../syl-ar/644-64e.mp3"
+    },
+    {
+     "t": "ة",
+     "audio": "../../syl-ar/629.mp3"
+    }
+   ],
+   "har": "fatha"
+  },
+  {
+   "word": "عَلَم",
+   "img": "../../pics/ar-flag.png",
+   "audio": {
+    "word": "../u3l4/words/alam.mp3"
+   },
+   "parts": [
+    {
+     "t": "عَ",
+     "audio": "../../syl-ar/639-64e.mp3"
+    },
+    {
+     "t": "لَ",
+     "audio": "../../syl-ar/644-64e.mp3"
+    },
+    {
+     "t": "م",
+     "audio": "../../syl-ar/645-652.mp3"
+    }
+   ],
+   "har": "fatha"
+  },
+  {
    "word": "لُعْبَة",
    "img": "../../pics/ar-toy-rings.png",
    "audio": {
@@ -182,7 +271,8 @@
      "audio": "../../syl-ar/629.mp3"
     }
    ],
-   "har": "damma"
+   "har": "damma",
+   "school": "nour-el-ilm"
   },
   {
    "word": "لُؤْلُؤَة",
@@ -230,6 +320,29 @@
      "audio": "../../syl-ar/629.mp3"
     }
    ],
+   "har": "damma",
+   "school": "nour-el-ilm"
+  },
+  {
+   "word": "قُلُوب",
+   "img": "../../pics/ar-hearts.png",
+   "audio": {
+    "word": "q/w-qulub.mp3"
+   },
+   "parts": [
+    {
+     "t": "قُ",
+     "audio": "../../syl-ar/642-64f.mp3"
+    },
+    {
+     "t": "لُو",
+     "audio": "../../syl-ar/644-64f-648.mp3"
+    },
+    {
+     "t": "ب",
+     "audio": "../../syl-ar/628-652.mp3"
+    }
+   ],
    "har": "damma"
   },
   {
@@ -270,7 +383,8 @@
      "audio": "../../syl-ar/62a-652.mp3"
     }
    ],
-   "har": "kasra"
+   "har": "kasra",
+   "school": "nour-el-ilm"
   },
   {
    "word": "لِصّ",
@@ -288,7 +402,8 @@
      "audio": "../../syl-ar/635-651.mp3"
     }
    ],
-   "har": "kasra"
+   "har": "kasra",
+   "school": "nour-el-ilm"
   },
   {
    "word": "كَلْب",
@@ -324,7 +439,8 @@
      "audio": "../../syl-ar/648-652.mp3"
     }
    ],
-   "har": "sukoon"
+   "har": "sukoon",
+   "school": "nour-el-ilm"
   },
   {
    "word": "ثَلْج",
@@ -340,6 +456,137 @@
     {
      "t": "ج",
      "audio": "../../syl-ar/62c-652.mp3"
+    }
+   ],
+   "har": "sukoon"
+  },
+  {
+   "word": "جَمَل",
+   "img": "../../pics/ar-fa-camel2.png",
+   "audio": {
+    "word": "../u1l7/words/jamal.mp3"
+   },
+   "parts": [
+    {
+     "t": "جَ",
+     "audio": "../../syl-ar/62c-64e.mp3"
+    },
+    {
+     "t": "مَ",
+     "audio": "../../syl-ar/645-64e.mp3"
+    },
+    {
+     "t": "ل",
+     "audio": "../../syl-ar/644-652.mp3"
+    }
+   ],
+   "har": "sukoon"
+  },
+  {
+   "word": "مَلْعَب",
+   "img": "../../pics/ar-stadium.png",
+   "audio": {
+    "word": "../u1l5/words/malab.mp3"
+   },
+   "parts": [
+    {
+     "t": "مَلْ",
+     "audio": "../../syl-ar/645-64e-644-652.mp3"
+    },
+    {
+     "t": "عَ",
+     "audio": "../../syl-ar/639-64e.mp3"
+    },
+    {
+     "t": "ب",
+     "audio": "../../syl-ar/628-652.mp3"
+    }
+   ],
+   "har": "sukoon"
+  },
+  {
+   "word": "غَزَال",
+   "img": "../../pics/ar-deer.png",
+   "audio": {
+    "word": "../u4l3/words/ghazal.mp3"
+   },
+   "parts": [
+    {
+     "t": "غَ",
+     "audio": "../../syl-ar/63a-64e.mp3"
+    },
+    {
+     "t": "زَا",
+     "audio": "../../syl-ar/632-64e-627.mp3"
+    },
+    {
+     "t": "ل",
+     "audio": "../../syl-ar/644-652.mp3"
+    }
+   ],
+   "har": "sukoon"
+  },
+  {
+   "word": "بُلْبُل",
+   "img": "../../pics/bird.png",
+   "audio": {
+    "word": "../u2l1/words/bulbul.mp3"
+   },
+   "parts": [
+    {
+     "t": "بُلْ",
+     "audio": "../../syl-ar/628-64f-644-652.mp3"
+    },
+    {
+     "t": "بُ",
+     "audio": "../../syl-ar/628-64f.mp3"
+    },
+    {
+     "t": "ل",
+     "audio": "../../syl-ar/644-652.mp3"
+    }
+   ],
+   "ar": "جَمْعُهُ: بَلَابِلُ",
+   "rel": {
+    "label": "جَمْعُهُ",
+    "text": "بَلَابِلُ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "../u2l2/words/m-bulbul.mp3"
+   },
+   "har": "sukoon"
+  },
+  {
+   "word": "مِلْح",
+   "img": "../../pics/salt.png",
+   "audio": {
+    "word": "words/milh.mp3"
+   },
+   "parts": [
+    {
+     "t": "مِلْ",
+     "audio": "../../syl-ar/645-650-644-652.mp3"
+    },
+    {
+     "t": "ح",
+     "audio": "../../syl-ar/62d-652.mp3"
+    }
+   ],
+   "har": "sukoon"
+  },
+  {
+   "word": "حَبْل",
+   "img": "../../pics/rope.png",
+   "audio": {
+    "word": "../u1l6/words/habl.mp3"
+   },
+   "parts": [
+    {
+     "t": "حَبْ",
+     "audio": "../../syl-ar/62d-64e-628-652.mp3"
+    },
+    {
+     "t": "ل",
+     "audio": "../../syl-ar/644-652.mp3"
     }
    ],
    "har": "sukoon"

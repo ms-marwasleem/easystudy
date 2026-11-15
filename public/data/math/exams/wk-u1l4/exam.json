@@ -1,0 +1,230 @@
+{
+ "title": "Weekly Assessment",
+ "ratio": 0.707,
+ "pages": [
+  {
+   "title": "Model A",
+   "chip": "A",
+   "group": "A",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/balloon.png#8",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number of balloons in the opposite picture is ..........",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "7",
+        "8",
+        "9",
+        "10"
+       ],
+       "answer": 1,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/pear.png#8",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "What is the number of pears in the opposite picture ? [[8:wide]]",
+     "body": []
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/ar-airplane.png#3",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Write the number of things you see. [[3:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "What two numbers make 5? Write the missing number in the square.",
+     "body": [
+      {
+       "t": "bond",
+       "top": "5",
+       "l": "1",
+       "r": "[[4]]"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Model B",
+   "chip": "B",
+   "group": "B",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/car.png#8",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number of cars in the opposite picture is ..........",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "7",
+        "8",
+        "9",
+        "10"
+       ],
+       "answer": 1,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/pencil.png#7",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "What is the number of pencils in the opposite picture? [[7:wide]]",
+     "body": []
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/teddy-r1.png#5",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Write the number of things you see. [[5:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "What two numbers make 5? Write the missing number in the square.",
+     "body": [
+      {
+       "t": "bond",
+       "top": "5",
+       "l": "[[1]]",
+       "r": "4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Model C",
+   "chip": "C",
+   "group": "C",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/star-red.png#10",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number of stars in the opposite picture is ..........",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "7",
+        "8",
+        "9",
+        "10"
+       ],
+       "answer": 3,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/pencil.png#6",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "What is the number of pencils in the opposite picture ? [[6:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "What two numbers make 5? Write the missing number in the square.",
+     "body": [
+      {
+       "t": "bond",
+       "top": "5",
+       "l": "2",
+       "r": "[[3]]"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

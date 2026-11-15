@@ -50,6 +50,7 @@ async function qLoad(){
       if(s.type==='circle') s.items.forEach((it,k)=>{ if(!it.pos){ const n=s.items.length, cols=3, rows=Math.ceil(n/cols), r=Math.floor(k/cols), c=k%cols, inRow=Math.min(cols,n-r*cols);
         it.pos=[(c+.5+(cols-inRow)/2)*100/cols,(r+.5)*100/rows]; } });   // no "pos": spread them in rows of 3
       s.items.filter(it=>it.answer).forEach((it,k)=>qz.all.push({set:s,si,k,word:s.center||''})); return; }
+    if(s.type==='colour'&&s.table){ qz.all.push({set:s,si,k:0,table:1,items:s.items}); return; }   // "table": ONE question, the whole table to colour
     if(s.type==='sound'){ qz.all.push({set:s,si,k:0,items:s.items}); return; }   // "sound": all the pictures of the exercise on ONE page
     if(s.type==='qa'&&s.together){ qz.all.push({set:s,si,k:0,together:1,items:s.items.map(it=>({...it,audio:R(it.audio),ansAudio:it.ansAudio,pic:R(it.pic)}))}); return; }   // "together": all the question+answer pairs on one page
     s.items.forEach((it,k)=>{

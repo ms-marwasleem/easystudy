@@ -149,7 +149,9 @@
      11
     ],
     "workbook": [
-     11
+     11,
+     12,
+     13
     ]
    },
    "tabs": [
@@ -157,6 +159,18 @@
     "quiz",
     "booklet",
     "workbook"
+   ],
+   "weekly": [
+    {
+     "id": "wk-u1l4",
+     "title": "Weekly Assessment",
+     "label": "Weekly assessment",
+     "file": "data/math/exams/wk-u1l4/exam.json",
+     "page": [
+      12,
+      13
+     ]
+    }
    ]
   },
   {
@@ -170,11 +184,15 @@
     ],
     "booklet": [
      12
+    ],
+    "workbook": [
+     14
     ]
    },
    "tabs": [
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -195,15 +213,35 @@
      13,
      14,
      15
+    ],
+    "workbook": [
+     15,
+     16,
+     17,
+     18
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ],
    "tool": "make-numbers",
-   "toolN": 6
+   "toolN": 6,
+   "weekly": [
+    {
+     "id": "wk-u1l5",
+     "title": "Weekly Assessment",
+     "label": "Weekly assessment",
+     "file": "data/math/exams/wk-u1l5/exam.json",
+     "page": [
+      16,
+      17,
+      18
+     ]
+    }
+   ]
   },
   {
    "unit": 1,
@@ -219,12 +257,16 @@
     ],
     "booklet": [
      16
+    ],
+    "workbook": [
+     19
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ],
    "tool": "make-numbers",
    "toolN": 7
@@ -243,12 +285,16 @@
     ],
     "booklet": [
      17
+    ],
+    "workbook": [
+     20
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ],
    "tool": "make-numbers",
    "toolN": 8
@@ -267,15 +313,30 @@
     ],
     "booklet": [
      18
+    ],
+    "workbook": [
+     21
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ],
    "tool": "make-numbers",
-   "toolN": 9
+   "toolN": 9,
+   "weekly": [
+    {
+     "id": "wk-u1l7",
+     "title": "Weekly Assessment",
+     "label": "Weekly assessment",
+     "file": "data/math/exams/wk-u1l7/exam.json",
+     "page": [
+      21
+     ]
+    }
+   ]
   },
   {
    "unit": 1,
@@ -291,12 +352,16 @@
     ],
     "booklet": [
      19
+    ],
+    "workbook": [
+     22
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ],
    "tool": "make-numbers",
    "toolN": 10
@@ -316,12 +381,16 @@
     "booklet": [
      21,
      24
+    ],
+    "workbook": [
+     23
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -341,12 +410,17 @@
      23,
      25,
      26
+    ],
+    "workbook": [
+     24,
+     25
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ],
    "exams": [
     {
@@ -367,6 +441,17 @@
       1
      ]
     }
+   ],
+   "weekly": [
+    {
+     "id": "wk-u1l10",
+     "title": "Weekly Assessment",
+     "label": "Weekly assessment",
+     "file": "data/math/exams/wk-u1l10/exam.json",
+     "page": [
+      25
+     ]
+    }
    ]
   },
   {
@@ -380,12 +465,21 @@
     ],
     "quiz": [
      33
+    ],
+    "workbook": [
+     26
+    ],
+    "booklet": [
+     28,
+     29,
+     30
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -399,12 +493,20 @@
     ],
     "quiz": [
      35
+    ],
+    "workbook": [
+     27
+    ],
+    "booklet": [
+     31,
+     32
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -419,12 +521,21 @@
     ],
     "quiz": [
      37
+    ],
+    "workbook": [
+     30
+    ],
+    "booklet": [
+     34,
+     35,
+     36
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -439,6 +550,9 @@
     ],
     "quiz": [
      39
+    ],
+    "booklet": [
+     37
     ]
    },
    "tabs": [
@@ -459,12 +573,32 @@
     ],
     "quiz": [
      41
+    ],
+    "workbook": [
+     32,
+     33
+    ],
+    "booklet": [
+     38
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
+   ],
+   "weekly": [
+    {
+     "id": "wk-u3l3",
+     "title": "Weekly Assessment",
+     "label": "Weekly assessment",
+     "file": "data/math/exams/wk-u3l3/exam.json",
+     "page": [
+      32,
+      33
+     ]
+    }
    ]
   },
   {
@@ -479,6 +613,14 @@
     ],
     "quiz": [
      43
+    ],
+    "booklet": [
+     39,
+     40,
+     41,
+     42,
+     43,
+     44
     ]
    },
    "tabs": [
@@ -499,12 +641,20 @@
     ],
     "quiz": [
      45
+    ],
+    "workbook": [
+     35
+    ],
+    "booklet": [
+     46,
+     47
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -519,12 +669,34 @@
     ],
     "quiz": [
      47
+    ],
+    "workbook": [
+     36,
+     37,
+     38
+    ],
+    "booklet": [
+     47,
+     48
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
+   ],
+   "weekly": [
+    {
+     "id": "wk-u4l2",
+     "title": "Weekly Assessment",
+     "label": "Weekly assessment",
+     "file": "data/math/exams/wk-u4l2/exam.json",
+     "page": [
+      37,
+      38
+     ]
+    }
    ]
   },
   {
@@ -539,12 +711,20 @@
     ],
     "quiz": [
      49
+    ],
+    "workbook": [
+     39
+    ],
+    "booklet": [
+     48,
+     49
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -559,12 +739,20 @@
     ],
     "quiz": [
      51
+    ],
+    "workbook": [
+     40
+    ],
+    "booklet": [
+     49,
+     50
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -579,12 +767,32 @@
     ],
     "quiz": [
      53
+    ],
+    "booklet": [
+     51,
+     52,
+     53,
+     54,
+     55,
+     56
     ]
    },
    "tabs": [
     "read",
     "quiz",
     "booklet"
+   ],
+   "weekly": [
+    {
+     "id": "wk-u4l5",
+     "title": "Weekly Assessment",
+     "label": "Weekly assessment",
+     "file": "data/math/exams/wk-u4l5/exam.json",
+     "page": [
+      41,
+      42
+     ]
+    }
    ]
   },
   {
@@ -737,12 +945,20 @@
     "quiz": [
      74,
      75
+    ],
+    "workbook": [
+     57
+    ],
+    "booklet": [
+     82,
+     83
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -758,12 +974,22 @@
     "quiz": [
      77,
      79
+    ],
+    "workbook": [
+     58
+    ],
+    "booklet": [
+     83,
+     84,
+     85,
+     86
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -779,12 +1005,20 @@
     "quiz": [
      80,
      81
+    ],
+    "workbook": [
+     60
+    ],
+    "booklet": [
+     87,
+     88
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -800,12 +1034,20 @@
     "quiz": [
      82,
      83
+    ],
+    "workbook": [
+     61
+    ],
+    "booklet": [
+     88,
+     89
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -820,6 +1062,13 @@
     "quiz": [
      84,
      85
+    ],
+    "booklet": [
+     90,
+     91,
+     92,
+     93,
+     94
     ]
    },
    "tabs": [
@@ -859,12 +1108,19 @@
     "quiz": [
      88,
      89
+    ],
+    "workbook": [
+     65
+    ],
+    "booklet": [
+     105
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -879,12 +1135,20 @@
     "quiz": [
      90,
      91
+    ],
+    "workbook": [
+     66
+    ],
+    "booklet": [
+     106,
+     107
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -899,12 +1163,22 @@
     "quiz": [
      92,
      93
+    ],
+    "workbook": [
+     66
+    ],
+    "booklet": [
+     107,
+     108,
+     109,
+     110
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   }
  ]

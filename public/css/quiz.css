@@ -362,3 +362,13 @@ button.qpic{cursor:pointer}
 .qmp.tx{display:flex;align-items:center;justify-content:center;gap:.15em}
 .qmp.tx .qmsay{display:grid;place-items:center;flex:none;width:2rem;height:2rem;color:var(--icon-on-color)}
 .qmp.tx .qmsay svg{width:1.4rem;height:1.4rem}
+
+/* colour the table (qxColourTable): picture beside the table, boxes coloured from the bottom up */
+.qxct{flex-direction:row;align-items:center;justify-content:center;gap:2vw;--cs:clamp(1.5rem,min(8.2vw,4.4vh),3.2rem)}
+.qxct.rtl{flex-direction:row-reverse}
+.qxct .qxctp{max-height:62vh;max-width:34%;width:auto;align-self:center}
+.qxtb{display:grid;grid-template-columns:repeat(var(--n),auto);border:3px solid #fff;border-radius:1rem;overflow:hidden;background:rgba(255,255,255,.14)}
+.qxtc{display:flex;flex-direction:column;align-items:center;border-inline-start:2px solid rgba(255,255,255,.7)}
+.qxtc:first-child{border-inline-start:0}
+.qxtc .qxcs.qxtcell{width:var(--cs);height:var(--cs);padding:.12rem;border-bottom:2px solid rgba(255,255,255,.55);box-sizing:border-box}
+.qxtl{font:700 clamp(.42rem,1.8vw,.8rem)/1.1 var(--f-read);color:#fff;text-transform:uppercase;padding:.35rem .1rem;text-align:center;white-space:nowrap}

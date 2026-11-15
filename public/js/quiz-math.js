@@ -119,22 +119,25 @@ QM.numline={sheet:'box', bulb:0, draw:mNumline};
 QM.bond={sheet:'box', bulb:0, draw:mBond};
 QM.bigger={sheet:'box', draw:mBigger, help:(q,w)=>{ const v=q.find==='smaller'?Math.min(...q.nums):Math.max(...q.nums); return $$('.qmbig .qch',w).filter(b=>+b.dataset.v===v); }};
 QM.count={sheet:'box', bulb:0, draw:mCount};
+// shade = the book's "Color the same number of things" (performance book): the picture of n things on top, a row of empty circles under it; the child taps circles to colour them,
+// the star comes when exactly n are coloured (one tap more than n = shake, that circle stays empty; tap a coloured one to take it back). item {img "x.png#n" + group:true | img + n, n, slots (circles, default 10), audio, word}
+function mShade(box,q,s,run){
+  const n=q.n; q.word=q.word||mW(n); q.hush=1; const slots=q.slots||10;
+  const grid=el('div','qmcount grp'); grid.style.setProperty('--c',1); grid.style.setProperty('--r',1);
+  if(!q.img){ const nb=el('div','qmbignum',String(n)); grid.append(nb); }   // no picture: the number itself is shown ("Color the given number")
+  else if(q.group){ const im=new Image(); im.src=R_Q(q.img); im.alt=''; grid.append(im); } else { const im=new Image(); im.alt=''; cpicMake(new URL(R_Q(q.img),location.href).href,n).then(u=>{ im.src=u; }); grid.append(im); }
+  const row=el('div','qmcirc');
+  for(let i=0;i<slots;i++){ const b=el('button','qcirc'); b.setAttribute('aria-label','circle '+(i+1)); row.append(b);
+    b.addEventListener('click',()=>{ if(qz.busy||q.solved) return;
+      if(b.classList.contains('on')){ b.classList.remove('on'); return; }
+      if($$('.qcirc.on',row).length>=n) return qxBad(b);
+      b.classList.add('on'); blip(520+$$('.qcirc.on',row).length*40,.05);
+      if($$('.qcirc.on',row).length===n) qxWin(row,q,1600); }); }
+  box.append(grid,row);
+}
+QM.shade={sheet:'box', draw:mShade, help:(q,w)=>$$('.qcirc',w).filter((b,i)=>i<q.n)};
 QM.mwrite={sheet:'box', own:1, draw:mWrite, help:(q,w)=>{ const n=qxNext($('.mwline .qxw',w)); return n?$$('.mwkeys .qmn',w).filter(b=>b.dataset.v===arDb(n.textContent)):[]; }};
 
-// colorn = the Arabic book 1-1 "colour the same number of circles as things in the picture": item {img:"../../pics/dog.png#2", n:2, group:true}; the child taps circles of a 2x5 frame (red); the n-th one = right,
-// one more than n = shake (not coloured); tap a red one = back to white. The frame fills from the right in RTL (math-ar).
-function mColorN(box,q,s,run){
-  const n=q.n; q.word=q.word||mW(n); q.hush=1; const grid=el('div','qmcount grp'); grid.style.setProperty('--c',1); grid.style.setProperty('--r',1);
-  if(q.img&&q.group){ const im=new Image(); im.src=R_Q(q.img); im.alt=''; grid.append(im); } else if(q.img){ const im=new Image(); im.alt=''; cpicMake(new URL(R_Q(q.img),location.href).href,n).then(u=>{ im.src=u; }); grid.append(im); }
-  const fr=el('div','qmcirc'); const cs=Array.from({length:q.max||10},()=>{ const b=el('button','qmcc'); b.setAttribute('aria-label','circle'); fr.append(b); return b; });
-  const on=()=>cs.filter(x=>x.classList.contains('on')).length;
-  cs.forEach(b=>b.addEventListener('click',()=>{ if(qz.busy||q.solved) return; if(b.classList.contains('on')){ b.classList.remove('on'); return; }
-    if(on()>=n) return qxBad(b); b.classList.add('on'); blip(560+on()*40,.05); if(on()===n) qxWin(fr,q,1600); }));
-  box.append(grid,fr);
-  const h=el('button','qxhelp qmhelp',ICON.hint); h.setAttribute('aria-label','Help');
-  h.onclick=()=>{ if(qz.busy||q.solved) return; cs.slice(0,n).forEach(c=>c.classList.add('peek')); setTimeout(()=>cs.forEach(c=>c.classList.remove('peek')),1500); }; qHelpHost(h);
-}
-QM.colorn={sheet:'box', bulb:0, draw:mColorN};
 
 /* clock = the clock models (Arabic book unit 8, "قراءة الساعة"): ONE widget (clockWidget) used by the questions (QM.clock) and by the weekly papers (exam atom {t:"clock"}).
    item {h:6, m:0|30, mode, ask, options}:
@@ -181,9 +184,9 @@ function mClockOptions(h,m){ const set=new Set([clockTime(h,m)]); [[h,m===30?0:3
 function mClock(box,q,s,run){
   q.hush=1; q.word=q.word||q.ask||s.task||''; const mode=q.mode||'set';
   const w=el('div','mclock'); box.append(w);
-  if(q.ask) w.append(el('p','clkask',q.ask));
+  if(q.ask){ const p=el('p','clkask',''); p.append(document.createTextNode(q.ask)); if(q.askAudio||q.ask){ const sp=el('button','qsay clkspk',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>qSay(); p.append(sp); } w.append(p); }   // the question's own speaker sits INSIDE its line (it used to be a separate row above that took room and nobody knew what it was: Ahmed 2026-11-14)
   const opts=q.options||(mode==='read'?mClockOptions(q.h,q.m||0):null), ans=q.answer||clockTime(q.h,q.m||0);
   const cw=clockWidget({h:q.h,m:q.m||0,mode,options:opts,answer:ans,onWrong:t=>qxBad(t),onDone:()=>qxWin(w,q,1600)}); w.append(cw); q.clockEl=cw;
   const hb=el('button','qxhelp qmhelp',ICON.hint); hb.setAttribute('aria-label','Help'); let undo=null; hb.onclick=()=>{ if(qz.busy||q.solved) return; if(undo) undo(); undo=cw.hint(); setTimeout(()=>{ if(undo){ undo(); undo=null; } },1800); }; qHelpHost(hb);
 }
-QM.clock={sheet:'box', bulb:0, draw:mClock};
+QM.clock={sheet:'box', noword:1, bulb:0, draw:mClock};

@@ -116,7 +116,8 @@
      "audio": "../../syl-ar/62f-652.mp3"
     }
    ],
-   "har": "fatha"
+   "har": "fatha",
+   "school": "nour-el-ilm"
   },
   {
    "word": "يَقْطِين",
@@ -138,7 +139,8 @@
      "audio": "../../syl-ar/646-652.mp3"
     }
    ],
-   "har": "fatha"
+   "har": "fatha",
+   "school": "nour-el-ilm"
   },
   {
    "word": "يَمَامَة",
@@ -208,7 +210,8 @@
      "audio": "../../syl-ar/631-652.mp3"
     }
    ],
-   "har": "damma"
+   "har": "damma",
+   "school": "nour-el-ilm"
   },
   {
    "word": "سُيُوف",
@@ -230,7 +233,8 @@
      "audio": "../../syl-ar/641-652.mp3"
     }
    ],
-   "har": "damma"
+   "har": "damma",
+   "school": "nour-el-ilm"
   },
   {
    "word": "مَصَايِف",
@@ -256,7 +260,8 @@
      "audio": "../../syl-ar/641-652.mp3"
     }
    ],
-   "har": "kasra"
+   "har": "kasra",
+   "school": "nour-el-ilm"
   },
   {
    "word": "مَصَايِد",
@@ -282,7 +287,8 @@
      "audio": "../../syl-ar/62f-652.mp3"
     }
    ],
-   "har": "kasra"
+   "har": "kasra",
+   "school": "nour-el-ilm"
   },
   {
    "word": "فِبْرَايِر",
@@ -308,7 +314,8 @@
      "audio": "../../syl-ar/631-652.mp3"
     }
    ],
-   "har": "kasra"
+   "har": "kasra",
+   "school": "nour-el-ilm"
   },
   {
    "word": "بَيْض",
@@ -344,7 +351,8 @@
      "audio": "../../syl-ar/62a-652.mp3"
     }
    ],
-   "har": "sukoon"
+   "har": "sukoon",
+   "school": "nour-el-ilm"
   },
   {
    "word": "عَيْن",
@@ -360,6 +368,78 @@
     {
      "t": "ن",
      "audio": "../../syl-ar/646-652.mp3"
+    }
+   ],
+   "har": "sukoon"
+  },
+  {
+   "word": "بَيْت",
+   "img": "../../pics/house-u3l4.png",
+   "audio": {
+    "word": "../u2l3/words/bayt.mp3"
+   },
+   "parts": [
+    {
+     "t": "بَيْ",
+     "audio": "../../syl-ar/628-64e-64a-652.mp3"
+    },
+    {
+     "t": "ت",
+     "audio": "../../syl-ar/62a-652.mp3"
+    }
+   ],
+   "har": "sukoon"
+  },
+  {
+   "word": "سَيْف",
+   "img": "../../pics/sword.png",
+   "audio": {
+    "word": "q/w-sayf.mp3"
+   },
+   "parts": [
+    {
+     "t": "سَيْ",
+     "audio": "../../syl-ar/633-64e-64a-652.mp3"
+    },
+    {
+     "t": "ف",
+     "audio": "../../syl-ar/641-652.mp3"
+    }
+   ],
+   "har": "sukoon"
+  },
+  {
+   "word": "كُرْسِي",
+   "img": "../../pics/chair.png",
+   "audio": {
+    "word": "../u2l4/words/kursi.mp3"
+   },
+   "parts": [
+    {
+     "t": "كُرْ",
+     "audio": "../../syl-ar/643-64f-631-652.mp3"
+    },
+    {
+     "t": "سِي",
+     "audio": "../../syl-ar/633-650-64a.mp3"
+    }
+   ],
+   "har": "sukoon"
+  },
+  {
+   "word": "جَدِّي",
+   "img": "../../pics/ar-grandfather-family.jpg",
+   "audio": {
+    "word": "../u1l8/words/jaddi.mp3"
+   },
+   "parts": [
+    {
+     "t": "جَ",
+     "audio": "../../syl-ar/62c-64e.mp3"
+    },
+    {
+     "t": "دِّي",
+     "audio": "../../syl-ar/62f-650-651-64a.mp3"
     }
    ],
    "har": "sukoon"

@@ -11,7 +11,8 @@
  "tabs": [
   "read",
   "quiz",
-  "booklet"
+  "booklet",
+  "workbook"
  ],
  "tabLabels": {
   "read": "Lesson",
@@ -64,7 +65,21 @@
          "",
          ""
         ],
-        "wide": true
+        "wide": true,
+        "show": 8
+       },
+       {
+        "head": {
+         "t": [
+          "8",
+          "-",
+          "1",
+          "-",
+          "2",
+          "="
+         ],
+         "slots": 7
+        }
        }
       ]
      },
@@ -73,20 +88,44 @@
       "audio": "explain/s0-b.mp3",
       "do": [
        {
-        "frame": {
-         "box": [
-          779,
-          40,
-          886,
-          214
-         ],
-         "color": "red"
+        "add": "8",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 8
         }
        },
        {
-        "add": "8 - 1 = 7",
-        "card": true,
-        "color": "green"
+        "add": "-",
+        "big": true
+       },
+       {
+        "add": "1",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 7,
+         "b": 8,
+         "mode": "out"
+        }
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "7",
+        "big": true,
+        "card": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 7
+        }
        }
       ]
      },
@@ -95,23 +134,55 @@
       "audio": "explain/s0-c.mp3",
       "do": [
        {
-        "frame": {
-         "box": [
-          589,
-          40,
-          791,
-          214
-         ],
-         "color": "red"
+        "line": "clear"
+       },
+       {
+        "add": "7",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 7
         }
        },
        {
-        "line": "break"
+        "add": "-",
+        "big": true
        },
        {
-        "add": "7 - 2 = 5",
-        "card": true,
-        "color": "orange"
+        "add": "2",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 5,
+         "b": 7,
+         "mode": "out"
+        }
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "5",
+        "big": true,
+        "card": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 5
+        }
+       },
+       {
+        "head": {
+         "t": [
+          "5"
+         ],
+         "more": true
+        }
        },
        {
         "cheer": true
@@ -136,7 +207,21 @@
          "",
          ""
         ],
-        "wide": true
+        "wide": true,
+        "show": 6
+       },
+       {
+        "head": {
+         "t": [
+          "6",
+          "-",
+          "1",
+          "-",
+          "3",
+          "="
+         ],
+         "slots": 7
+        }
        }
       ]
      },
@@ -145,20 +230,44 @@
       "audio": "explain/s1-b.mp3",
       "do": [
        {
-        "frame": {
-         "box": [
-          747,
-          40,
-          886,
-          214
-         ],
-         "color": "red"
+        "add": "6",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 6
         }
        },
        {
-        "add": "6 - 1 = 5",
-        "card": true,
-        "color": "green"
+        "add": "-",
+        "big": true
+       },
+       {
+        "add": "1",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 5,
+         "b": 6,
+         "mode": "out"
+        }
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "5",
+        "big": true,
+        "card": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 5
+        }
        }
       ]
      },
@@ -167,23 +276,55 @@
       "audio": "explain/s1-c.mp3",
       "do": [
        {
-        "frame": {
-         "box": [
-          367,
-          40,
-          759,
-          214
-         ],
-         "color": "red"
+        "line": "clear"
+       },
+       {
+        "add": "5",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 5
         }
        },
        {
-        "line": "break"
+        "add": "-",
+        "big": true
        },
        {
-        "add": "5 - 3 = 2",
-        "card": true,
-        "color": "orange"
+        "add": "3",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 2,
+         "b": 5,
+         "mode": "out"
+        }
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "2",
+        "big": true,
+        "card": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 2
+        }
+       },
+       {
+        "head": {
+         "t": [
+          "2"
+         ],
+         "more": true
+        }
        },
        {
         "cheer": true
@@ -208,7 +349,21 @@
          "",
          ""
         ],
-        "wide": true
+        "wide": true,
+        "show": 9
+       },
+       {
+        "head": {
+         "t": [
+          "9",
+          "-",
+          "3",
+          "-",
+          "4",
+          "="
+         ],
+         "slots": 7
+        }
        }
       ]
      },
@@ -217,20 +372,44 @@
       "audio": "explain/s2-b.mp3",
       "do": [
        {
-        "frame": {
-         "box": [
-          621,
-          40,
-          886,
-          214
-         ],
-         "color": "red"
+        "add": "9",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 9
         }
        },
        {
-        "add": "9 - 3 = 6",
-        "card": true,
-        "color": "green"
+        "add": "-",
+        "big": true
+       },
+       {
+        "add": "3",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 6,
+         "b": 9,
+         "mode": "out"
+        }
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "6",
+        "big": true,
+        "card": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 6
+        }
        }
       ]
      },
@@ -239,23 +418,55 @@
       "audio": "explain/s2-c.mp3",
       "do": [
        {
-        "frame": {
-         "box": [
-          283,
-          40,
-          633,
-          214
-         ],
-         "color": "red"
+        "line": "clear"
+       },
+       {
+        "add": "6",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 6
         }
        },
        {
-        "line": "break"
+        "add": "-",
+        "big": true
        },
        {
-        "add": "6 - 4 = 2",
-        "card": true,
-        "color": "orange"
+        "add": "4",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 2,
+         "b": 6,
+         "mode": "out"
+        }
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "2",
+        "big": true,
+        "card": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 2
+        }
+       },
+       {
+        "head": {
+         "t": [
+          "2"
+         ],
+         "more": true
+        }
        },
        {
         "cheer": true

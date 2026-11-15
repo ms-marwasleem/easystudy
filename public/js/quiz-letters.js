@@ -321,7 +321,25 @@ function qxFace(box,q,s,run){
   box._after=()=>layout(); fi.addEventListener('load',layout); P.forEach(p=>p.e.addEventListener('load',layout)); requestAnimationFrame(layout); new ResizeObserver(layout).observe(bd);
 }
 QM.face={sheet:'box', noword:1, bulb:0, draw:qxFace};
+/* "colour the table" (Math 6-1 and every data / graph question): ONE question with the real TABLE drawn here - a column per kind, 10 empty boxes each, the name under it - and the picture beside it.
+   The child taps the next box from the BOTTOM up in each column until its count is right (tap the top coloured box again to take it back). Arabic: picture on the right, first column on the right.
+   Data: set {"type":"colour","table":true,"items":[{"word","num","total","off","on","pic"}]}. */
+function qxColourTable(box,q,s,run){
+  const its=q.items, rtl=isAr(), bd=el('div','qxcb qxct'); bd.dataset.noswipe=1; if(rtl) bd.classList.add('rtl'); box.append(bd);
+  const pic=its.find(i=>i.pic); if(pic){ const pi=el('img','qxcp qxctp'); pi.alt=''; pi.draggable=false; pi.src=R_Q(pic.pic); bd.append(pi); }
+  const tb=el('div','qxtb'); tb.style.setProperty('--n',its.length); if(rtl) tb.dir='rtl'; bd.append(tb); let done=false;
+  const cols=its.map(it=>{ const c=el('div','qxtc'), cells=[]; for(let j=0;j<it.total;j++){ const im=el('img','qxcs qxtcell'); im.alt=''; im.draggable=false; im.src=R_Q(it.off); im.dataset.on=0; c.append(im); cells.push(im); }
+    c.append(el('b','qxtl',it.word)); tb.append(c); return {it,cells}; });   // the cells are drawn top to bottom; the first one in the array is the TOP one: index from the bottom = total-1-j
+  const nOn=c=>c.cells.filter(x=>x.dataset.on==='1').length, bad=e=>{ e.classList.remove('no'); void e.offsetWidth; e.classList.add('no'); };
+  async function finish(){ if(done) return; done=true; await new Promise(r=>setTimeout(r,450)); if(run!==qz.run||!inQ()) return; q.solved=true; qStar(); }
+  cols.forEach(c=>c.cells.forEach((cell,j)=>cell.addEventListener('click',ev=>{ ev.stopPropagation(); if(done) return;
+    const t=c.it.total, fromBottom=t-1-j, n=nOn(c);
+    if(cell.dataset.on==='1'){ if(fromBottom===n-1){ cell.dataset.on=0; cell.src=R_Q(c.it.off); } else bad(cell); return; }
+    if(fromBottom!==n||n>=c.it.num){ bad(cell); return; }   // only the next box from the bottom; never more than the count
+    cell.dataset.on=1; cell.src=R_Q(c.it.on); if(cols.every(k=>nOn(k)===k.it.num)) finish(); })));
+}
 function qxColour(box,q,s,run){
+  if(q.table) return qxColourTable(box,q,s,run);
   const bd=el('div','qxcb'); bd.dataset.noswipe=1; box.append(bd);
   if(q.pic){ const pi=el('img','qxcp'); pi.alt=''; pi.draggable=false; pi.src=q.pic; bd.append(pi); bd.classList.add('qxcpm'); }   // Math 6-1: count the things in the picture, then colour that many (the number is not shown)
   else { const nb=el('button','qxcn'); nb.type='button'; nb.textContent=q.num; nb.onclick=()=>{ if(q.audio) qSound(R_Q(q.audio),q.word||''); }; bd.append(nb); }

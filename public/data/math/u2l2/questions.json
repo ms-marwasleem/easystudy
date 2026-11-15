@@ -104,10 +104,9 @@
   },
   {
    "type": "line",
-   "page": 35,
-   "grp": "ex-1",
-   "task": "The frog is the ___ from the bottom.",
-   "taskAudio": "q/task-1.mp3",
+   "page": 27,
+   "task": "The elephant is the ___ from the top.",
+   "taskAudio": "q/task-bk-the-elephant-is-the-from-the-top.mp3",
    "items": [
     {
      "items": [
@@ -116,8 +115,8 @@
       "../../pics/frog.png",
       "../../pics/horse-brown.png"
      ],
-     "target": 2,
-     "from": "back",
+     "target": 1,
+     "from": "front",
      "vert": true,
      "ends": [
       "Top",
@@ -125,15 +124,430 @@
      ]
     }
    ],
-   "book": "booklet",
+   "grp": "wb-1",
+   "book": "workbook",
    "ex": 5
   },
   {
    "type": "line",
-   "page": 35,
-   "grp": "ex-2",
+   "page": 27,
+   "task": "The cat is the ___ from the top.",
+   "taskAudio": "q/task-bk-the-cat-is-the-from-the-top.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/cat-gray.png",
+      "../../pics/elephant.png",
+      "../../pics/frog.png",
+      "../../pics/horse-brown.png"
+     ],
+     "target": 0,
+     "from": "front",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "grp": "wb-2",
+   "book": "workbook",
+   "ex": 6
+  },
+  {
+   "type": "line",
+   "page": 27,
+   "task": "The frog is the ___ from the bottom.",
+   "taskAudio": "q/task-bk-the-frog-is-the-from-the-bottom.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/cat-gray.png",
+      "../../pics/elephant.png",
+      "../../pics/frog.png",
+      "../../pics/horse-brown.png"
+     ],
+     "target": 2,
+     "from": "back",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "grp": "wb-3",
+   "book": "workbook",
+   "ex": 7
+  },
+  {
+   "type": "line",
+   "page": 27,
+   "task": "The cat is the ___ from the bottom.",
+   "taskAudio": "q/task-bk-the-cat-is-the-from-the-bottom.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/cat-gray.png",
+      "../../pics/elephant.png",
+      "../../pics/frog.png",
+      "../../pics/horse-brown.png"
+     ],
+     "target": 0,
+     "from": "back",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "grp": "wb-4",
+   "book": "workbook",
+   "ex": 8
+  },
+  {
+   "type": "line",
+   "page": 27,
+   "task": "The horse is the ___ from the bottom.",
+   "taskAudio": "q/task-bk-the-horse-is-the-from-the-bottom.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/cat-gray.png",
+      "../../pics/elephant.png",
+      "../../pics/frog.png",
+      "../../pics/horse-brown.png"
+     ],
+     "target": 3,
+     "from": "back",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "grp": "wb-5",
+   "book": "workbook",
+   "ex": 9
+  },
+  {
+   "type": "line",
+   "page": 31,
+   "task": "The cat is the ___ from the top.",
+   "taskAudio": "q/task-bk-the-cat-is-the-from-the-top.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/turtle-green.png",
+      "../../pics/cat-gray.png",
+      "../../pics/rabbit-white.png",
+      "../../pics/frog.png"
+     ],
+     "target": 1,
+     "from": "front",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "grp": "bk-31-1",
+   "book": "booklet",
+   "ex": 10
+  },
+  {
+   "type": "line",
+   "page": 31,
+   "task": "The cat is the ___ from the bottom.",
+   "taskAudio": "q/task-bk-the-cat-is-the-from-the-bottom.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/turtle-green.png",
+      "../../pics/cat-gray.png",
+      "../../pics/rabbit-white.png",
+      "../../pics/frog.png"
+     ],
+     "target": 1,
+     "from": "back",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "grp": "bk-31-2",
+   "book": "booklet",
+   "ex": 11
+  },
+  {
+   "type": "line",
+   "page": 31,
+   "task": "The rabbit is the ___ from the top.",
+   "taskAudio": "q/task-bk-the-rabbit-is-the-from-the-top.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/turtle-green.png",
+      "../../pics/cat-gray.png",
+      "../../pics/rabbit-white.png",
+      "../../pics/frog.png"
+     ],
+     "target": 2,
+     "from": "front",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "grp": "bk-31-3",
+   "book": "booklet",
+   "ex": 12
+  },
+  {
+   "type": "line",
+   "page": 31,
+   "task": "The rabbit is the ___ from the bottom.",
+   "taskAudio": "q/task-bk-the-rabbit-is-the-from-the-bottom.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/turtle-green.png",
+      "../../pics/cat-gray.png",
+      "../../pics/rabbit-white.png",
+      "../../pics/frog.png"
+     ],
+     "target": 2,
+     "from": "back",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "grp": "bk-31-4",
+   "book": "booklet",
+   "ex": 13
+  },
+  {
+   "type": "line",
+   "page": 31,
+   "task": "The frog is the ___ from the top.",
+   "taskAudio": "q/task-bk-the-frog-is-the-from-the-top.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/turtle-green.png",
+      "../../pics/cat-gray.png",
+      "../../pics/rabbit-white.png",
+      "../../pics/frog.png"
+     ],
+     "target": 3,
+     "from": "front",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "grp": "bk-31-5",
+   "book": "booklet",
+   "ex": 14
+  },
+  {
+   "type": "line",
+   "page": 31,
+   "task": "The frog is the ___ from the bottom.",
+   "taskAudio": "q/task-bk-the-frog-is-the-from-the-bottom.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/turtle-green.png",
+      "../../pics/cat-gray.png",
+      "../../pics/rabbit-white.png",
+      "../../pics/frog.png"
+     ],
+     "target": 3,
+     "from": "back",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "grp": "bk-31-6",
+   "book": "booklet",
+   "ex": 15
+  },
+  {
+   "type": "line",
+   "page": 31,
+   "task": "The turtle is the ___ from the top.",
+   "taskAudio": "q/task-bk-the-turtle-is-the-from-the-top.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/turtle-green.png",
+      "../../pics/cat-gray.png",
+      "../../pics/rabbit-white.png",
+      "../../pics/frog.png"
+     ],
+     "target": 0,
+     "from": "front",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "grp": "bk-31-7",
+   "book": "booklet",
+   "ex": 16
+  },
+  {
+   "type": "line",
+   "page": 31,
+   "task": "The turtle is the ___ from the bottom.",
+   "taskAudio": "q/task-bk-the-turtle-is-the-from-the-bottom.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/turtle-green.png",
+      "../../pics/cat-gray.png",
+      "../../pics/rabbit-white.png",
+      "../../pics/frog.png"
+     ],
+     "target": 0,
+     "from": "back",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "grp": "bk-31-8",
+   "book": "booklet",
+   "ex": 17
+  },
+  {
+   "type": "line",
+   "page": 32,
+   "task": "The tomato is the ___ from the top.",
+   "taskAudio": "q/task-bk-the-tomato-is-the-from-the-top.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/pepper-green-bell.png",
+      "../../pics/tomato.png",
+      "../../pics/eggplant-on-u5l3.png",
+      "../../pics/corn-cob.png"
+     ],
+     "target": 1,
+     "from": "front",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "grp": "bk-32-1",
+   "book": "booklet",
+   "ex": 18
+  },
+  {
+   "type": "line",
+   "page": 32,
+   "task": "The corn is the ___ from the bottom.",
+   "taskAudio": "q/task-bk-the-corn-is-the-from-the-bottom.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/pepper-green-bell.png",
+      "../../pics/tomato.png",
+      "../../pics/eggplant-on-u5l3.png",
+      "../../pics/corn-cob.png"
+     ],
+     "target": 3,
+     "from": "back",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "grp": "bk-32-2",
+   "book": "booklet",
+   "ex": 19
+  },
+  {
+   "type": "line",
+   "page": 32,
+   "task": "The frog is the ___ from the right.",
+   "taskAudio": "q/task-bk-the-frog-is-the-from-the-right.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/cat-gray.png",
+      "../../pics/frog.png",
+      "../../pics/elephant.png",
+      "../../pics/horse-brown.png"
+     ],
+     "target": 1,
+     "from": "back",
+     "ends": [
+      "Left",
+      "Right"
+     ]
+    }
+   ],
+   "grp": "bk-32-3",
+   "book": "booklet",
+   "ex": 20
+  },
+  {
+   "type": "line",
+   "page": 32,
+   "task": "The frog is the ___ from the bottom.",
+   "taskAudio": "q/task-bk-the-frog-is-the-from-the-bottom.mp3",
+   "items": [
+    {
+     "items": [
+      "../../pics/cat-gray.png",
+      "../../pics/elephant.png",
+      "../../pics/frog.png",
+      "../../pics/horse-brown.png"
+     ],
+     "target": 2,
+     "from": "back",
+     "vert": true,
+     "ends": [
+      "Top",
+      "Bottom"
+     ]
+    }
+   ],
+   "grp": "bk-32-4",
+   "book": "booklet",
+   "ex": 21
+  },
+  {
+   "type": "line",
+   "page": 32,
    "task": "The elephant is the ___ from the top.",
-   "taskAudio": "q/task-2.mp3",
+   "taskAudio": "q/task-bk-the-elephant-is-the-from-the-top.mp3",
    "items": [
     {
      "items": [
@@ -151,15 +565,15 @@
      ]
     }
    ],
+   "grp": "bk-32-5",
    "book": "booklet",
-   "ex": 6
+   "ex": 22
   },
   {
    "type": "line",
-   "page": 35,
-   "grp": "ex-3",
+   "page": 32,
    "task": "The apple is the ___ from the left.",
-   "taskAudio": "q/task-3.mp3",
+   "taskAudio": "q/task-bk-the-apple-is-the-from-the-left.mp3",
    "items": [
     {
      "items": [
@@ -171,22 +585,21 @@
      ],
      "target": 2,
      "from": "front",
-     "vert": false,
      "ends": [
       "Left",
       "Right"
      ]
     }
    ],
+   "grp": "bk-32-6",
    "book": "booklet",
-   "ex": 7
+   "ex": 23
   },
   {
    "type": "line",
-   "page": 35,
-   "grp": "ex-4",
+   "page": 32,
    "task": "The grapes is the ___ from the right.",
-   "taskAudio": "q/task-4.mp3",
+   "taskAudio": "q/task-bk-the-grapes-is-the-from-the-right.mp3",
    "items": [
     {
      "items": [
@@ -198,15 +611,15 @@
      ],
      "target": 1,
      "from": "back",
-     "vert": false,
      "ends": [
       "Left",
       "Right"
      ]
     }
    ],
+   "grp": "bk-32-7",
    "book": "booklet",
-   "ex": 8
+   "ex": 24
   }
  ]
 }

@@ -114,6 +114,55 @@
     }
    ],
    "book": "booklet"
+  },
+  {
+   "type": "bond",
+   "page": 19,
+   "task": "What two numbers make 7? Write the missing numbers in the box.",
+   "taskAudio": "q/task-bk-what-two-numbers-make-write-the-missing-numbers-in-the-box.mp3",
+   "items": [
+    {
+     "whole": 7,
+     "parts": [
+      null,
+      2
+     ],
+     "audio": "words/five-and-two-make-seven.mp3"
+    },
+    {
+     "whole": 7,
+     "parts": [
+      null,
+      4
+     ],
+     "audio": "words/three-and-four-make-seven.mp3"
+    },
+    {
+     "whole": 7,
+     "parts": [
+      1,
+      null
+     ],
+     "audio": "words/one-and-six-make-seven.mp3"
+    },
+    {
+     "whole": 7,
+     "parts": [
+      null,
+      6
+     ],
+     "audio": "words/one-and-six-make-seven.mp3"
+    },
+    {
+     "whole": 7,
+     "parts": [
+      5,
+      null
+     ],
+     "audio": "words/five-and-two-make-seven.mp3"
+    }
+   ],
+   "book": "workbook"
   }
  ]
 }

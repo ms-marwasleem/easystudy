@@ -17,9 +17,12 @@
      "askSay": "هناك تسع قطع حلوى. أكلت ثلاثًا. كم تبقى لديك؟ اكتب جملة الطرح.",
      "picsTall": [
       "story-4-tall.png"
-     ]
+     ],
+     "askAudio": "../../math-ar-audio/14d553269d.mp3",
+     "audio": "../../math-ar-audio/22fe9c4d78.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
   },
   {
    "type": "mcq",
@@ -43,9 +46,12 @@
      "word": "الإجابة: 6 قطع حلوى",
      "picsTall": [
       "story-4-tall.png"
-     ]
+     ],
+     "askAudio": "../../math-ar-audio/7143e3e95d.mp3",
+     "audio": "../../math-ar-audio/fb10f8ff39.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
   },
   {
    "type": "mwrite",
@@ -64,9 +70,12 @@
      "askSay": "هناك أربع سمكات. سبحت منها سمكتان بعيدًا. كم سمكة تبقت؟ اكتب جملة الطرح.",
      "picsTall": [
       "story-5-tall.png"
-     ]
+     ],
+     "askAudio": "../../math-ar-audio/0314253cf2.mp3",
+     "audio": "../../math-ar-audio/b87960d9ce.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
   },
   {
    "type": "mcq",
@@ -90,9 +99,12 @@
      "word": "الإجابة: 2 سمكة",
      "picsTall": [
       "story-5-tall.png"
-     ]
+     ],
+     "audio": "../../math-ar-audio/0b3e58ebcc.mp3",
+     "askAudio": "../../math-ar-audio/7143e3e95d.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
   },
   {
    "type": "mwrite",
@@ -111,9 +123,12 @@
      "askSay": "هناك عشر زهور. أعطيت لصديقك زهرتين. كم تبقى لديك؟ اكتب جملة الطرح.",
      "picsTall": [
       "story-6-tall.png"
-     ]
+     ],
+     "askAudio": "../../math-ar-audio/c926d1b62d.mp3",
+     "audio": "../../math-ar-audio/b71c89649f.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
   },
   {
    "type": "mcq",
@@ -137,9 +152,12 @@
      "word": "الإجابة: 8 زهور",
      "picsTall": [
       "story-6-tall.png"
-     ]
+     ],
+     "audio": "../../math-ar-audio/3089971a13.mp3",
+     "askAudio": "../../math-ar-audio/7143e3e95d.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
   },
   {
    "type": "mcq",
@@ -158,10 +176,13 @@
      ],
      "answer": 1,
      "askSay": "8 − 1 = ؟",
-     "word": "الإجابة 7."
+     "word": "الإجابة 7.",
+     "askAudio": "../../math-ar-audio/2c1be8d439.mp3",
+     "audio": "../../math-ar-audio/6509dcf9a7.mp3"
     }
    ],
-   "book": "workbook"
+   "book": "workbook",
+   "taskAudio": "../../math-ar-audio/b4da6a4269.mp3"
   },
   {
    "type": "mcq",
@@ -180,10 +201,13 @@
      ],
      "answer": 0,
      "askSay": "6 − 2 = ؟",
-     "word": "الإجابة 4."
+     "word": "الإجابة 4.",
+     "askAudio": "../../math-ar-audio/d0f98ad4e0.mp3",
+     "audio": "../../math-ar-audio/cab528a059.mp3"
     }
    ],
-   "book": "workbook"
+   "book": "workbook",
+   "taskAudio": "../../math-ar-audio/b4da6a4269.mp3"
   },
   {
    "type": "mcq",
@@ -202,7 +226,9 @@
      ],
      "answer": 0,
      "askSay": "9 − 5 = ؟",
-     "word": "الإجابة 4."
+     "word": "الإجابة 4.",
+     "askAudio": "../../math-ar-audio/6766161de4.mp3",
+     "audio": "../../math-ar-audio/cab528a059.mp3"
     }
    ],
    "book": "workbook"
@@ -224,7 +250,9 @@
      ],
      "answer": 0,
      "askSay": "10 − 7 = ؟",
-     "word": "الإجابة 3."
+     "word": "الإجابة 3.",
+     "askAudio": "../../math-ar-audio/980c08dbbe.mp3",
+     "audio": "../../math-ar-audio/f6f6cbb068.mp3"
     }
    ],
    "book": "workbook"
@@ -240,7 +268,9 @@
      "lead": "جملة الطرح:",
      "word": "6 − 2 = 4",
      "keys": "1234567890+−=",
-     "askSay": "يوجد 6 سيارات، غادرت منها سيارتان. كم سيارة تبقت؟"
+     "askSay": "يوجد 6 سيارات، غادرت منها سيارتان. كم سيارة تبقت؟",
+     "askAudio": "../../math-ar-audio/99d4305058.mp3",
+     "audio": "../../math-ar-audio/62e3597e96.mp3"
     }
    ],
    "book": "workbook"

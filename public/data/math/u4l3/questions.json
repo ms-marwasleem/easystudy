@@ -183,22 +183,21 @@
   },
   {
    "type": "mcq",
-   "ex": 1,
-   "page": 49,
-   "task": "Let's do subtraction.",
-   "taskAudio": "q/task-1.mp3",
+   "page": 39,
+   "task": "Find the result of subtracting.",
+   "taskAudio": "q/task-bk-find-the-result-of-subtracting.mp3",
    "items": [
     {
-     "stem": "3 − 0 = ___",
+     "stem": "7 − 7 = ___",
      "options": [
-      "2",
-      "3",
-      "4"
+      "0",
+      "1",
+      "2"
      ],
-     "answer": 1,
-     "askAudio": "q/sum-1-q.mp3",
-     "audio": "q/sum-1.mp3",
-     "word": "3 − 0 = 3"
+     "answer": 0,
+     "askAudio": "q/wb-7-m-7-q.mp3",
+     "audio": "q/wb-7-m-7.mp3",
+     "word": "7 − 7 = 0"
     },
     {
      "stem": "5 − 0 = ___",
@@ -208,9 +207,139 @@
       "6"
      ],
      "answer": 1,
-     "askAudio": "q/sum-2-q.mp3",
-     "audio": "q/sum-2.mp3",
+     "askAudio": "q/wb-5-m-0-q.mp3",
+     "audio": "q/wb-5-m-0.mp3",
      "word": "5 − 0 = 5"
+    },
+    {
+     "stem": "4 − 2 = ___",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-4-m-2-q.mp3",
+     "audio": "q/wb-4-m-2.mp3",
+     "word": "4 − 2 = 2"
+    },
+    {
+     "stem": "9 − 9 = ___",
+     "options": [
+      "0",
+      "1",
+      "2"
+     ],
+     "answer": 0,
+     "askAudio": "q/wb-9-m-9-q.mp3",
+     "audio": "q/wb-9-m-9.mp3",
+     "word": "9 − 9 = 0"
+    },
+    {
+     "stem": "3 − 0 = ___",
+     "options": [
+      "2",
+      "3",
+      "4"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-3-m-0-q.mp3",
+     "audio": "q/wb-3-m-0.mp3",
+     "word": "3 − 0 = 3"
+    }
+   ],
+   "book": "workbook",
+   "ex": 6
+  },
+  {
+   "type": "mcq",
+   "page": 48,
+   "task": "Subtract.",
+   "taskAudio": "q/task-bk-subtract.mp3",
+   "items": [
+    {
+     "stem": "8 − 0 = ___",
+     "options": [
+      "7",
+      "8",
+      "9"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-8-m-0-q.mp3",
+     "audio": "q/wb-8-m-0.mp3",
+     "word": "8 − 0 = 8"
+    },
+    {
+     "stem": "6 − 0 = ___",
+     "options": [
+      "5",
+      "6",
+      "7"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-6-m-0-q.mp3",
+     "audio": "q/wb-6-m-0.mp3",
+     "word": "6 − 0 = 6"
+    },
+    {
+     "stem": "7 − 0 = ___",
+     "options": [
+      "6",
+      "7",
+      "8"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-7-m-0-q.mp3",
+     "audio": "q/wb-7-m-0.mp3",
+     "word": "7 − 0 = 7"
+    },
+    {
+     "stem": "4 − 0 = ___",
+     "options": [
+      "3",
+      "4",
+      "5"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-4-m-0-q.mp3",
+     "audio": "q/wb-4-m-0.mp3",
+     "word": "4 − 0 = 4"
+    },
+    {
+     "stem": "3 − 0 = ___",
+     "options": [
+      "2",
+      "3",
+      "4"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-3-m-0-q.mp3",
+     "audio": "q/wb-3-m-0.mp3",
+     "word": "3 − 0 = 3"
+    },
+    {
+     "stem": "2 − 0 = ___",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-2-m-0-q.mp3",
+     "audio": "q/wb-2-m-0.mp3",
+     "word": "2 − 0 = 2"
+    },
+    {
+     "stem": "9 − 4 = ___",
+     "options": [
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-9-m-4-q.mp3",
+     "audio": "q/wb-9-m-4.mp3",
+     "word": "9 − 4 = 5"
     },
     {
      "stem": "8 − 2 = ___",
@@ -220,152 +349,71 @@
       "7"
      ],
      "answer": 1,
-     "askAudio": "q/sum-3-q.mp3",
-     "audio": "q/sum-3.mp3",
+     "askAudio": "q/wb-8-m-2-q.mp3",
+     "audio": "q/wb-8-m-2.mp3",
      "word": "8 − 2 = 6"
     },
     {
-     "stem": "6 − 6 = ___",
+     "stem": "5 − 3 = ___",
      "options": [
-      "0",
       "1",
-      "2"
-     ],
-     "answer": 0,
-     "askAudio": "q/sum-4-q.mp3",
-     "audio": "q/sum-4.mp3",
-     "word": "6 − 6 = 0"
-    },
-    {
-     "stem": "3 − 3 = ___",
-     "options": [
-      "0",
-      "1",
-      "2"
-     ],
-     "answer": 0,
-     "askAudio": "q/sum-5-q.mp3",
-     "audio": "q/sum-5.mp3",
-     "word": "3 − 3 = 0"
-    },
-    {
-     "stem": "4 − 3 = ___",
-     "options": [
-      "0",
-      "1",
-      "2"
+      "2",
+      "3"
      ],
      "answer": 1,
-     "askAudio": "q/sum-6-q.mp3",
-     "audio": "q/sum-6.mp3",
-     "word": "4 − 3 = 1"
+     "askAudio": "q/wb-5-m-3-q.mp3",
+     "audio": "q/wb-5-m-3.mp3",
+     "word": "5 − 3 = 2"
     }
    ],
-   "book": "booklet"
-  },
-  {
-   "type": "mwrite",
-   "ex": 2,
-   "page": 49,
-   "task": "Write the subtraction sentence and the answer.",
-   "taskAudio": "q/task-2.mp3",
-   "items": [
-    {
-     "pics": [
-      "story-2.png"
-     ],
-     "ask": "There are 5 apples. You didn't eat any. How many apples are left?",
-     "lead": "Subtraction sentence:",
-     "word": "5 − 0 = 5",
-     "keys": "1234567890+−=",
-     "askSay": "There are five apples. You didn't eat any. How many apples are left? Write the subtraction sentence.",
-     "askAudio": "q/p1-s-q.mp3",
-     "audio": "q/p1-s.mp3",
-     "picsTall": [
-      "story-2-tall.png"
-     ]
-    }
-   ],
-   "book": "booklet"
+   "book": "booklet",
+   "ex": 7
   },
   {
    "type": "mcq",
-   "ex": 2,
-   "page": 49,
-   "task": "Write the subtraction sentence and the answer.",
-   "taskAudio": "q/task-2.mp3",
+   "page": 48,
+   "task": "Read the story. How many are left?",
+   "taskAudio": "q/task-bk-read-the-story-how-many-are-left.mp3",
    "items": [
     {
-     "pics": [
-      "story-2.png"
-     ],
-     "ask": "How many apples are left?",
-     "stem": "Answer: ___",
+     "stem": "There are 3 oranges in a basket. You did not eat any. How many are left?",
      "options": [
-      "0 apples",
-      "5 apples",
-      "5"
+      "2",
+      "3",
+      "4"
      ],
      "answer": 1,
-     "askSay": "How many apples are left? What is the answer?",
-     "askAudio": "q/p1-a-q.mp3",
-     "audio": "q/p1-a.mp3",
-     "word": "Answer: 5 apples",
-     "picsTall": [
-      "story-2-tall.png"
-     ]
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mwrite",
-   "ex": 2,
-   "page": 49,
-   "task": "Write the subtraction sentence and the answer.",
-   "taskAudio": "q/task-2.mp3",
-   "items": [
+     "askAudio": "q/bk-there-are-oranges-in-a-basket-you-did-no-q.mp3",
+     "audio": "q/bk-there-are-oranges-in-a-basket-you-did-no.mp3",
+     "word": "3"
+    },
     {
-     "pics": [
-      "story-3.png"
-     ],
-     "ask": "There are 2 pieces of cake. You ate all 2. How many are left?",
-     "lead": "Subtraction sentence:",
-     "word": "2 − 2 = 0",
-     "keys": "1234567890+−=",
-     "askSay": "There are two pieces of cake. You ate all two. How many are left? Write the subtraction sentence.",
-     "askAudio": "q/p2-s-q.mp3",
-     "audio": "q/p2-s.mp3"
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mcq",
-   "ex": 2,
-   "page": 49,
-   "task": "Write the subtraction sentence and the answer.",
-   "taskAudio": "q/task-2.mp3",
-   "items": [
-    {
-     "pics": [
-      "story-3.png"
-     ],
-     "ask": "How many are left?",
-     "stem": "Answer: ___",
+     "stem": "There are 5 balls in the basket. You did not take any. How many are left?",
      "options": [
-      "0 pieces",
-      "0",
-      "2 pieces"
+      "4",
+      "5",
+      "6"
      ],
-     "answer": 0,
-     "askSay": "How many are left? What is the answer?",
-     "askAudio": "q/p2-a-q.mp3",
-     "audio": "q/p2-a.mp3",
-     "word": "Answer: 0 pieces"
+     "answer": 1,
+     "askAudio": "q/bk-there-are-balls-in-the-basket-you-did-no-q.mp3",
+     "audio": "q/bk-there-are-balls-in-the-basket-you-did-no.mp3",
+     "word": "5"
+    },
+    {
+     "stem": "You have 7 pencils. You give away 2. How many are left?",
+     "options": [
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 1,
+     "askAudio": "q/bk-you-have-pencils-you-give-away-q.mp3",
+     "audio": "q/bk-you-have-pencils-you-give-away.mp3",
+     "word": "5"
     }
    ],
-   "book": "booklet"
+   "book": "booklet",
+   "ex": 8
   }
  ]
 }

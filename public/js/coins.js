@@ -22,7 +22,7 @@ function apiTake(r){ if(!r) return; if(r.wallet) walletSave(r.wallet); if(r.unlo
 // the referral: a link shared by a parent ends in ?r=<code>; it is kept on this device (es.ref) and the accounts code sends it with the sign-up
 try{ const r=new URLSearchParams(location.search).get('r'); if(r&&!localStorage.getItem('es.ref')) localStorage.setItem('es.ref',JSON.stringify({code:r,at:Date.now()})); }catch(e){}
 const refCode=()=>(cGet('es.ref',null)||{}).code||null;
-const ESET_P=get('data/settings.json').catch(()=>null).then(async d=>{
+const ESET_P=get(typeof SETTINGS_FILE!=='undefined'?SETTINGS_FILE:'data/settings.json').catch(()=>null).then(async d=>{
   ESET=d||ESET;   // no device copy: the real settings come from the server below
   if(ESET.api){ const s=await apiCall('/settings'); if(s&&s.coins) ESET={...s,api:ESET.api,whatsapp:s.whatsapp||ESET.whatsapp,adminEmail:s.adminEmail||ESET.adminEmail}; apiTake(await apiCall('/wallet'+(coinChild()?'?child='+encodeURIComponent(coinChild()):''))); }
   ESET.items=ESET.items||{}; ESET.coins=ESET.coins||{shares:[]};
@@ -139,8 +139,8 @@ function shareLink(){ const u=CS().shareUrl||location.origin+location.pathname.r
 // ONE share button (Ahmed 2026-11-11): the device share sheet; no sheet (desktop) = copy the link. Any share = 1 credit, at most dailyCap (20) shares a day.
 let COPIED=false;
 function shareOpen(){
-  const url=shareLink(), text=CS().shareText||'EasyStudy'; COPIED=false;
-  if(navigator.share) return navigator.share({title:'EasyStudy',text,url}).catch(()=>{});
+  const url=shareLink(), text=CS().shareText||CS().appName||'EasyStudy'; COPIED=false;
+  if(navigator.share) return navigator.share({title:CS().appName||'EasyStudy',text,url}).catch(()=>{});
   try{ navigator.clipboard.writeText(text+' '+url); }catch(x){} COPIED=true; }
 // how many credits one share pays now (0 = today's cap of shares is reached)
 function sharePays(w){ const C=CS(), per=C.shareCoins!=null?+C.shareCoins:1, cap=C.dailyCap!=null?+C.dailyCap:20, day=new Date().toDateString(),
@@ -202,7 +202,7 @@ function creditsPage(){ parentGate(()=>{
   const dt=at=>{ try{ return new Date(at).toLocaleDateString(isAr()?'ar-EG':'en-GB',{day:'numeric',month:'short'}); }catch(e){ return ''; } };
   coinPop(`<h2 class="outline">${CT('رصيدي','My credits')}</h2>
     <div class="cstats"><div><b>${num(w.bal)}</b><small>${CT('الرصيد','Balance')}</small></div><div class="g"><b>${num(sh)}</b><small>${CT('من المشاركة','From shares')}</small></div><div class="y"><b>${num(inv)}</b><small>${CT('من الدعوات','From invites')}</small></div></div>
-    <div class="cinfo"><b>${CT('محتاج رصيد؟','Need credits?')}</b> ${CT(`شارك التطبيق (+٣ أو +٥ لكل مشاركة)${R.on?`، ولما ولي أمر جديد يسجل من رابطك تاخد +${num(R.coins||0)}`:''}.`,`Share the app (+3 or +5 a share)${R.on?`; when a new parent registers from your link you get +${R.coins||0}`:''}.`)}
+    <div class="cinfo"><b>${CT('محتاج رصيد؟','Need credits?')}</b> ${CT(`شارك التطبيق (+${num(+CS().shareCoins||1)} لكل مشاركة)${R.on?`، ولما ولي أمر جديد يسجل من رابطك تاخد +${num(R.coins||0)}`:''}.`,`Share the app (+${num(+CS().shareCoins||1)} a share)${R.on?`; when a new parent registers from your link you get +${R.coins||0}`:''}.`)}
       <button class="pill green" data-share>${CT('شارك التطبيق','Share the app')}</button></div>
     <h3 class="chh">${CT('السجل','History')}</h3>
     <div class="chist">${H.slice().reverse().map(h=>`<div class="crow"><span class="cpm ${h.n<0?'m':'p'}">${h.n<0?'−':'+'}</span><span class="cn"><b>${typeof wlEsc==="function"?wlEsc(histName(h)):histName(h)}</b><small>${dt(h.at)}</small></span><span class="ca ${h.n<0?'m':'p'}" dir="ltr">${h.n<0?'-':'+'}${num(Math.abs(h.n))}</span></div>`).join('')||`<p class="cnote">${CT('لسه مفيش حاجة','Nothing yet')}</p>`}</div>`, pp=>{

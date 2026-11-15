@@ -13,3 +13,6 @@
 .vimg.cut:not(.pf):not([src^="data:"]){background:none;border:0;border-radius:0;box-shadow:none;filter:var(--cut-shadow);transform:none}
 .qmp.done img[src$=".png" i]:not(.pf){box-shadow:none;filter:var(--cut-ring) var(--cut-shadow)}
 
+
+/* clock pictures (math u8: clock-*.svg, hand-*.svg) are see-through: no white card behind the clock (Ahmed 2026-11-14) */
+img[src*="/clock-"][src$=".svg"]:not([src^="data:"]),img[src*="/hand-"][src$=".svg"]:not([src^="data:"]){background:none!important;border-color:transparent!important;box-shadow:none!important}

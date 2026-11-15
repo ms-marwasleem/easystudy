@@ -42,7 +42,8 @@
         ],
         "state": "show"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/67a9610994.mp3"
      },
      {
       "say": "خمسة، ناقص ثلاثة، يساوي اثنين.",
@@ -62,7 +63,8 @@
        {
         "pulse": 4
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/714fe05905.mp3"
      },
      {
       "say": "ننظر إلى الصورة.",
@@ -70,7 +72,8 @@
        {
         "eqState": "dim"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/8920cff0b5.mp3"
      }
     ]
    },
@@ -96,7 +99,8 @@
         ],
         "state": "dim"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/85a169d62e.mp3"
      },
      {
       "do": [
@@ -172,7 +176,8 @@
         "to": 0,
         "color": "orange"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/776e3ccecf.mp3"
      },
      {
       "do": [
@@ -213,7 +218,8 @@
        {
         "pulse": 1
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/85523a83a8.mp3"
      },
      {
       "say": "كم عدد القطط المتبقية؟",
@@ -227,7 +233,8 @@
        {
         "pulse": 3
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/75f5964559.mp3"
      },
      {
       "do": [
@@ -254,7 +261,8 @@
      },
      {
       "say": "توجد 5 قطط. غادرت منهم 3 قطط. كم عدد القطط المتبقية؟",
-      "do": []
+      "do": [],
+      "audio": "../../math-ar-audio/3b2b557f77.mp3"
      }
     ]
    },
@@ -280,7 +288,8 @@
         ],
         "state": "dim"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/7512b9a711.mp3"
      },
      {
       "do": [
@@ -356,7 +365,8 @@
         "to": 0,
         "color": "orange"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/9355f80ec8.mp3"
      },
      {
       "do": [
@@ -397,7 +407,8 @@
        {
         "pulse": 1
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/df360d6e36.mp3"
      },
      {
       "say": "كم عدد الطيور الرمادية المتبقية؟",
@@ -411,7 +422,8 @@
        {
         "pulse": 3
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/68570d4db5.mp3"
      },
      {
       "do": [
@@ -438,7 +450,8 @@
      },
      {
       "say": "توجد 5 طيور رمادية. طارت منها 3 طيور. كم عدد الطيور الرمادية المتبقية؟",
-      "do": []
+      "do": [],
+      "audio": "../../math-ar-audio/35870ff8a7.mp3"
      }
     ]
    },
@@ -464,7 +477,8 @@
         ],
         "state": "dim"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/cf86fa0042.mp3"
      },
      {
       "do": [
@@ -540,7 +554,8 @@
         "to": 0,
         "color": "orange"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/d8f0efe2a4.mp3"
      },
      {
       "do": [
@@ -581,7 +596,8 @@
        {
         "pulse": 1
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/6c5efe0d16.mp3"
      },
      {
       "say": "كم عدد الأشخاص المتبقين؟",
@@ -595,7 +611,8 @@
        {
         "pulse": 3
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/90fa7c3aef.mp3"
      },
      {
       "do": [
@@ -622,7 +639,8 @@
      },
      {
       "say": "يوجد 5 أشخاص. ذهب 3 منهم إلى المنزل. كم عدد الأشخاص المتبقين؟",
-      "do": []
+      "do": [],
+      "audio": "../../math-ar-audio/18b6e3ca14.mp3"
      }
     ]
    },
@@ -648,11 +666,13 @@
         ],
         "state": "show"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/cfb5302415.mp3"
      },
      {
       "say": "ننظر إلى البط.",
-      "do": []
+      "do": [],
+      "audio": "../../math-ar-audio/398d2099dd.mp3"
      },
      {
       "do": [
@@ -731,16 +751,11 @@
           "orange",
           "red",
           null
-         ],
-         "audios": [
-          "../../en-shared/q/there-are.mp3",
-          "../../en-shared/q/4-ducks.mp3",
-          "../../en-shared/q/1-swims-away.mp3",
-          "../../en-shared/q/how-many-ducks-are-left.mp3"
          ]
         }
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/fc919ef5e2.mp3"
      },
      {
       "say": "توجد 4 بطات. سبحت واحدة بعيدًا. كم عدد البطات المتبقية؟",
@@ -748,7 +763,8 @@
        {
         "cheer": true
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/21a3bb67ff.mp3"
      }
     ]
    },
@@ -774,7 +790,8 @@
         ],
         "state": "show"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/c25348e703.mp3"
      },
      {
       "do": [
@@ -842,22 +859,6 @@
       "do": [
        {
         "order": {
-         "audios": [
-          "../../en-shared/q/there.mp3",
-          "../../en-shared/q/are.mp3",
-          "../../en-shared/q/4.mp3",
-          "../../en-shared/q/red.mp3",
-          "../../en-shared/q/birds.mp3",
-          "../../en-shared/q/1.mp3",
-          "../../en-shared/q/flies.mp3",
-          "../../en-shared/q/away.mp3",
-          "../../en-shared/q/how.mp3",
-          "../../en-shared/q/many.mp3",
-          "../../en-shared/q/red.mp3",
-          "../../en-shared/q/birds.mp3",
-          "../../en-shared/q/are.mp3",
-          "../../en-shared/q/left.mp3"
-         ],
          "chunks": [
           "توجد",
           "4",
@@ -888,7 +889,8 @@
          ]
         }
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/fc919ef5e2.mp3"
      },
      {
       "say": "توجد 4 طيور حمراء. طار منها طائر واحد. كم عدد الطيور الحمراء المتبقية؟",
@@ -896,7 +898,8 @@
        {
         "cheer": true
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/d4538660fa.mp3"
      }
     ]
    },
@@ -922,7 +925,8 @@
         ],
         "state": "show"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/7003ce6383.mp3"
      },
      {
       "do": [
@@ -990,21 +994,6 @@
       "do": [
        {
         "order": {
-         "audios": [
-          "../../en-shared/q/there.mp3",
-          "../../en-shared/q/are.mp3",
-          "../../en-shared/q/4.mp3",
-          "../../en-shared/q/flowers.mp3",
-          "../../en-shared/q/the.mp3",
-          "../../en-shared/q/girl.mp3",
-          "../../en-shared/q/takes.mp3",
-          "../../en-shared/q/1.mp3",
-          "../../en-shared/q/how.mp3",
-          "../../en-shared/q/many.mp3",
-          "../../en-shared/q/flowers.mp3",
-          "../../en-shared/q/are.mp3",
-          "../../en-shared/q/left.mp3"
-         ],
          "chunks": [
           "توجد",
           "4",
@@ -1031,7 +1020,8 @@
          ]
         }
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/fc919ef5e2.mp3"
      },
      {
       "say": "توجد 4 زهور. تأخذ الفتاة زهرة واحدة. كم عدد الزهور المتبقية؟",
@@ -1039,7 +1029,8 @@
        {
         "cheer": true
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/5d194ece08.mp3"
      }
     ]
    }

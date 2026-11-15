@@ -167,6 +167,50 @@
    "har": "fatha"
   },
   {
+   "word": "زَبَادِي",
+   "img": "../../pics/ar-yogurt.png",
+   "audio": {
+    "word": "words/zabadi.mp3"
+   },
+   "parts": [
+    {
+     "t": "زَ",
+     "audio": "../../syl-ar/632-64e.mp3"
+    },
+    {
+     "t": "بَا",
+     "audio": "../../syl-ar/628-64e-627.mp3"
+    },
+    {
+     "t": "دِي",
+     "audio": "../../syl-ar/62f-650-64a.mp3"
+    }
+   ],
+   "har": "fatha"
+  },
+  {
+   "word": "جَزَر",
+   "img": "../../pics/ar-carrot.png",
+   "audio": {
+    "word": "words/jazar.mp3"
+   },
+   "parts": [
+    {
+     "t": "جَ",
+     "audio": "../../syl-ar/62c-64e.mp3"
+    },
+    {
+     "t": "زَ",
+     "audio": "../../syl-ar/632-64e.mp3"
+    },
+    {
+     "t": "ر",
+     "audio": "../../syl-ar/631-652.mp3"
+    }
+   ],
+   "har": "fatha"
+  },
+  {
    "word": "زُجَاجَة",
    "img": "../../pics/ar-bottle.png",
    "audio": {
@@ -212,7 +256,8 @@
      "audio": "../../syl-ar/631-652.mp3"
     }
    ],
-   "har": "damma"
+   "har": "damma",
+   "school": "nour-el-ilm"
   },
   {
    "word": "زُبْد",
@@ -230,7 +275,8 @@
      "audio": "../../syl-ar/62f-652.mp3"
     }
    ],
-   "har": "damma"
+   "har": "damma",
+   "school": "nour-el-ilm"
   },
   {
    "word": "زِرّ",
@@ -248,7 +294,8 @@
      "audio": "../../syl-ar/631-651.mp3"
     }
    ],
-   "har": "kasra"
+   "har": "kasra",
+   "school": "nour-el-ilm"
   },
   {
    "word": "زِير",
@@ -266,7 +313,8 @@
      "audio": "../../syl-ar/631-652.mp3"
     }
    ],
-   "har": "kasra"
+   "har": "kasra",
+   "school": "nour-el-ilm"
   },
   {
    "word": "زِينَة",
@@ -288,7 +336,8 @@
      "audio": "../../syl-ar/629.mp3"
     }
    ],
-   "har": "kasra"
+   "har": "kasra",
+   "school": "nour-el-ilm"
   },
   {
    "word": "مَزْرَعَة",
@@ -352,6 +401,29 @@
     {
      "t": "م",
      "audio": "../../syl-ar/645-652.mp3"
+    }
+   ],
+   "har": "sukoon",
+   "school": "nour-el-ilm"
+  },
+  {
+   "word": "مِزْمَار",
+   "img": "../../pics/ar-flute.png",
+   "audio": {
+    "word": "words/mizmar.mp3"
+   },
+   "parts": [
+    {
+     "t": "مِزْ",
+     "audio": "../../syl-ar/645-650-632-652.mp3"
+    },
+    {
+     "t": "مَا",
+     "audio": "../../syl-ar/645-64e-627.mp3"
+    },
+    {
+     "t": "ر",
+     "audio": "../../syl-ar/631-652.mp3"
     }
    ],
    "har": "sukoon"

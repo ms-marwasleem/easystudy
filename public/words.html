@@ -1,14 +1,14 @@
-<!doctype html><html lang="ar" data-theme="words"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-visual">
+<!doctype html><html lang="ar" data-theme="words"><head><script>window.APP_V='dc0ac4b1e782'</script><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-visual">
 <title>Easy Words</title>
 <!-- EASY WORDS: a second, separate app (own look, users, subscriptions, credits, dashboard). It uses the curriculum app's code parts, design parts and data BY REFERENCE
      (tools/build-words.py joins them), so a change to a word, its syllables, picture or sound in the curriculum data shows in both apps. -->
-<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{background:#f3f1ec}body{margin:0;padding:0;font:14px -apple-system,sans-serif;background:#f3f1ec url(data/words/paper.jpg) center/cover fixed}
-#loading{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:#f3f1ec url(data/words/paper.jpg) center/cover;transition:opacity .3s}
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{background:#9fe3f2}body{margin:0;padding:0;font:14px -apple-system,sans-serif;background:linear-gradient(#8ff0e6,#62aef2) fixed}
+#loading{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:linear-gradient(#8ff0e6,#62aef2);transition:opacity .3s}
 #loading .ld{display:flex;flex-direction:column;align-items:center;gap:18px}
-#loading .ldt{font-family:"Luckiest Guy","Baloo Bhaijaan 2",sans-serif;font-size:46px;color:#fff;-webkit-text-stroke:9px #1d4f57;paint-order:stroke fill;text-shadow:0 3px 0 #1d4f57;line-height:1.05;text-align:center}
+#loading .ldlogo{opacity:0;transition:opacity .25s}body.ldok #loading .ldlogo{opacity:1}#loading .ldlogo{width:min(70vw,17rem);height:auto;overflow:visible;filter:drop-shadow(0 6px 8px rgba(22,52,107,.3))}#loading text{paint-order:stroke fill}#loading .ldt{font-family:"Luckiest Guy","Baloo Bhaijaan 2",sans-serif;paint-order:stroke fill;stroke-linejoin:round}
 @keyframes ldr{0%{transform:translateX(-110%)}100%{transform:translateX(260%)}}
-#loading .bar{width:180px;height:16px;border-radius:999px;background:rgba(29,79,87,.25);border:3px solid #1d4f57;overflow:hidden}#loading .bar i{display:block;height:100%;width:40%;border-radius:999px;background:#2f7a86;animation:ldr 1.1s ease-in-out infinite}</style>
-<script>var cssReady=new Promise(function(r){window.cssDone=r});</script>
+#loading .bar{width:180px;height:16px;border-radius:999px;background:rgba(22,52,107,.2);border:3px solid #fff;overflow:hidden}#loading .bar i{display:block;height:100%;width:40%;border-radius:999px;background:#2f80e6;animation:ldr 1.1s ease-in-out infinite}</style>
+<script>(function(){var n=0,done=0,go=function(){if(!done){done=1;clearInterval(t);if(document.body)document.body.classList.add("ldok")}},t=setInterval(function(){n++;if(n>30)return go();var l=document.querySelector('link[href*="googleapis"][rel="stylesheet"]');if(l){try{document.fonts.load('46px "Luckiest Guy"').then(go,go)}catch(e){go()}}},100)})();var cssReady=new Promise(function(r){window.cssDone=r});</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Baloo+Bhaijaan+2:wght@600;800&family=Luckiest+Guy&family=Noto+Naskh+Arabic:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <link rel="preload" as="style" href="css/words-app.css" onload="this.onload=function(){cssDone()};this.rel='stylesheet'" onerror="cssDone()">
@@ -17,19 +17,24 @@
 <link rel="manifest" href="words.webmanifest">
 <link rel="icon" type="image/png" sizes="192x192" href="words-icons/icon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="words-icons/apple-touch-icon.png">
-<meta name="theme-color" content="#2f7a86">
+<meta name="theme-color" content="#62aef2">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Easy Words">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head><body>
-<div id="loading"><div class="ld"><b class="ldt">EASY<br>WORDS</b><b id="loadingText" hidden></b><div class="bar"><i></i></div></div></div>
+<div id="loading"><div class="ld"><svg class="ldlogo" viewBox="0 0 240 190" aria-label="Easy Words"><defs><linearGradient id="lg" x1="0" y1="0" x2="0" y2="1"><stop offset=".3" stop-color="#fff"/><stop offset="1" stop-color="#d4e6fb"/></linearGradient><linearGradient id="lgs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe680"/><stop offset="1" stop-color="#f5a81c"/></linearGradient></defs>
+<g class="ldt" text-anchor="middle"><g transform="rotate(-5 100 62)"><text paint-order="stroke fill" stroke-linejoin="round" x="100" y="62" font-size="46" fill="#1c4fa8" stroke="#1c4fa8" stroke-width="10" transform="translate(0,5)">EASY</text><text paint-order="stroke fill" stroke-linejoin="round" x="100" y="62" font-size="46" fill="#2b6bd2" stroke="#2b6bd2" stroke-width="8">EASY</text><text x="100" y="62" font-size="46" fill="url(#lg)" style="paint-order:stroke fill">EASY</text></g>
+<g transform="rotate(2 120 128)"><text paint-order="stroke fill" stroke-linejoin="round" x="120" y="128" font-size="66" fill="#1c4fa8" stroke="#1c4fa8" stroke-width="13" transform="translate(0,7)">WORDS</text><text paint-order="stroke fill" stroke-linejoin="round" x="120" y="128" font-size="66" fill="#2b6bd2" stroke="#2b6bd2" stroke-width="11">WORDS</text><text x="120" y="128" font-size="66" fill="url(#lg)" style="paint-order:stroke fill">WORDS</text></g></g>
+<path transform="translate(196,38) scale(1.2) rotate(12)" d="M0,-30L3.8,-10.5L28.5,-9.3L9.9,3.2L17.6,24.3L0,12.8L-17.6,24.3L-9.9,3.2L-28.5,-9.3L-3.8,-10.5Z" fill="url(#lgs)" stroke="#fff" stroke-width="5" paint-order="stroke"/></svg><b id="loadingText" hidden></b><div class="bar"><i></i></div></div></div></div>
 <svg width="1" height="1" style="position:absolute;left:0;top:0" aria-hidden="true"><defs id="ewDefs"></defs></svg>
 <canvas id="fx"></canvas>
 
 <!-- CURRICULUM PICKER (first open; the same place later changes it) -->
-<section class="screen" id="welcome" aria-label="Curriculum" hidden>
-  <div class="ew-pick" id="ewPick"></div>
+<section class="screen" id="welcome" aria-label="Welcome" hidden>
+  <div class="wl-logo"><div class="ew-logo big ew-wllogo" id="ewWlLogo" aria-label="Easy Words"></div></div>
+  <div class="wl-body" id="wlBody"></div>
+  <button class="rb wl-back" id="wlBack" aria-label="Back" data-icon="back" hidden></button>
 </section>
 
 <!-- HOME: the subjects as icons (replaces the books of the curriculum app) -->
@@ -39,6 +44,7 @@
     <div class="topr"><div class="hud" data-hud></div></div>
   </header>
   <div class="ew-home" id="ewHome"></div>
+  <button class="kidbtn" id="kidBtn" aria-label="Child profile" hidden><span class="rb" data-icon="kid"></span><b id="kidName"></b></button>
 </section>
 
 <!-- SUBJECT: units as files, lessons as squares, words as squares (no road, no page numbers) -->

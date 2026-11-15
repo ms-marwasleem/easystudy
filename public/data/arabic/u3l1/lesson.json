@@ -662,6 +662,123 @@
  ],
  "vocab": [
   {
+   "word": "عَيْن",
+   "img": "../../pics/ar-eye.png",
+   "audio": {
+    "word": "../u3l3/words/ayn.mp3"
+   },
+   "parts": [
+    {
+     "t": "عَيْ",
+     "audio": "../../syl-ar/639-64e-64a-652.mp3"
+    },
+    {
+     "t": "ن",
+     "audio": "../../syl-ar/646-652.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أُذُن",
+   "img": "../../pics/ar-ear.png",
+   "audio": {
+    "word": "../u1l3/words/udhun.mp3"
+   },
+   "parts": [
+    {
+     "t": "أُ",
+     "audio": "../../syl-ar/623-64f.mp3"
+    },
+    {
+     "t": "ذُ",
+     "audio": "../../syl-ar/630-64f.mp3"
+    },
+    {
+     "t": "ن",
+     "audio": "../../syl-ar/646-652.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أَنْف",
+   "img": "../../pics/nose-6.png",
+   "audio": {
+    "word": "../u1l3/q/c6-0.mp3"
+   },
+   "parts": [
+    {
+     "t": "أَنْ",
+     "audio": "../../syl-ar/623-64e-646-652.mp3"
+    },
+    {
+     "t": "ف",
+     "audio": "../../syl-ar/641-652.mp3"
+    }
+   ]
+  },
+  {
+   "word": "فَم",
+   "img": "../../pics/ar-mouth.png",
+   "audio": {
+    "word": "../u2l7/words/fam.mp3"
+   },
+   "parts": [
+    {
+     "t": "فَ",
+     "audio": "../../syl-ar/641-64e.mp3"
+    },
+    {
+     "t": "م",
+     "audio": "../../syl-ar/645-652.mp3"
+    }
+   ]
+  },
+  {
+   "word": "يَد",
+   "img": "../../pics/ar-hand.jpg",
+   "audio": {
+    "word": "../u3l3/words/yad.mp3"
+   },
+   "parts": [
+    {
+     "t": "يَ",
+     "audio": "../../syl-ar/64a-64e.mp3"
+    },
+    {
+     "t": "د",
+     "audio": "../../syl-ar/62f-652.mp3"
+    }
+   ]
+  },
+  {
+   "word": "قَدَم",
+   "img": "../../pics/ar-foot.png",
+   "audio": {
+    "word": "../u3l2/words/qadam.mp3"
+   },
+   "parts": [
+    {
+     "t": "قَ",
+     "audio": "../../syl-ar/642-64e.mp3"
+    },
+    {
+     "t": "دَ",
+     "audio": "../../syl-ar/62f-64e.mp3"
+    },
+    {
+     "t": "م",
+     "audio": "../../syl-ar/645-652.mp3"
+    }
+   ],
+   "ar": "جَمْعُهَا: أَقْدَامٌ",
+   "rel": {
+    "label": "جَمْعُهَا",
+    "text": "أَقْدَامٌ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "../u3l2/words/m-qadam.mp3"
+   }
+  },
+  {
    "word": "قَالَ",
    "audio": {
     "word": "q/w-qala.mp3"

@@ -1,0 +1,172 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Easy Words Admin</title>
+<!-- THE ADMIN DASHBOARD (Marwa 2026-11-05, docs/coins-and-admin.md). Not part of the app bundle (own files in admin/).
+     Always shows and saves the REAL settings on the server (no device copy, no file download/reset). -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&display=swap">
+<link rel="stylesheet" href="admin/admin.css">
+</head><body>
+<header class="top">
+  <b class="logo">Easy Words <small>لوحة الإدارة</small></b>
+  <nav id="tabs">
+    <button data-p="stats" class="on">إحصائيات</button>
+    <button data-p="settings">إعدادات التطبيق</button>
+    <button data-p="lessons">الدروس</button>
+    <button data-p="users">المستخدمين</button>
+    <button data-p="subs">الاشتراكات</button>
+    <button data-p="push">الإشعارات</button>
+    <button data-p="reports">البلاغات <b id="repBadge" hidden></b></button>
+  </nav>
+  <div class="acts"><button id="save" class="pri">حفظ</button><button id="tok" class="ghost">كلمة السر</button></div>
+</header>
+<main>
+  <p class="note" id="where"></p>
+
+  <section id="p-stats" class="page">
+    <div class="kpis" id="kpis"></div>
+    <div class="card"><h2>آخر الحركات</h2><div class="tbl" id="hist"></div></div>
+  </section>
+
+  <section id="p-settings" class="page" hidden>
+    <nav id="stabs" class="stabs"><button data-s="contact" class="on">التواصل</button><button data-s="pay">الدفع</button><button data-s="subs">الاشتراكات</button><button data-s="credits">الكريدتس</button><button data-s="free">الدروس المجانية</button><button data-s="curr">المناهج</button></nav>
+
+    <div class="card" data-st="contact">
+      <h2>التواصل</h2>
+      <p class="hint">بيانات بتظهر لولي الأمر في التطبيق: واتساب الإدارة (إضافة مدرسة، ومساعدة في الدفع) وإيميل الإدارة.</p>
+      <div class="grid">
+        <label>رقم واتساب الإدارة <small>(بالصيغة الدولية)</small><input type="tel" id="c-wa" dir="ltr" inputmode="tel" placeholder="201001234567"></label>
+        <label>إيميل الإدارة <small>(للتواصل والإشعارات)</small><input type="email" id="c-email" dir="ltr" inputmode="email" placeholder="admin@example.com"></label>
+      </div>
+    </div>
+
+    <div class="card" data-st="pay">
+      <h2>الدفع</h2>
+      <p class="hint">المحفظة اللي ولي الأمر بيحوّل عليها: اسم صاحب المحفظة ولينك إنستا باي. أسعار الاشتراكات والبرومو كود تحت.</p>
+      <div class="grid">
+        <label>اسم صاحب المحفظة <input type="text" id="s-name" placeholder="الاسم زي ما بيظهر في إنستا باي"></label>
+        <label class="wide">لينك إنستا باي <input type="url" id="s-link" dir="ltr" placeholder="https://ipn.eg/…"></label>
+      </div>
+    </div>
+
+    <div class="card" data-st="subs">
+      <h2>الاشتراكات</h2>
+      <label class="sw"><input type="checkbox" id="s-on"><span></span> تشغيل الاشتراكات</label>
+      <p class="hint">كل ترم بيتباع لوحده، لكل طفل، وكل المواد. بيفتح وقت الشراء وبينتهي ٣١ أغسطس. السعر لكل سنة دراسية وترم. الخصم: شغّلي الخصم وحطي السعر بعده.</p>
+      <div class="tbl" id="prices"></div>
+    </div>
+
+    <div class="card" data-st="subs">
+      <h2>البرومو كود</h2>
+      <label class="sw"><input type="checkbox" id="p-on"><span></span> تشغيل البرومو كود</label>
+      <p class="hint">كل كود: بيفتح إيه (درس، وحدة، مادة، أو كل المواد)، مرة واحدة ولا أكتر (كل طفل مرة)، وآخر يوم يشتغل. بيظهر في التطبيق تحت زرار "اجمع كريدتس".</p>
+      <div id="promos"></div>
+      <button id="addPromo" class="ghost">+ كود جديد</button>
+      <p class="hint" id="promoWhere"></p>
+    </div>
+
+    <div class="card" data-st="credits">
+      <h2>الكريدتس</h2>
+      <label class="sw"><input type="checkbox" id="c-enabled"><span></span> تشغيل نظام الكريدتس</label>
+      <div class="grid">
+        <label>كريدتس كل مشاركة <input type="number" min="0" id="c-shareCoins"></label>
+        <label>سعر فتح درس <input type="number" min="0" id="c-lessonCost"></label>
+        <label>أقصى مشاركات في اليوم <input type="number" min="0" id="c-dailyCap"></label>
+      </div>
+      <label class="sw"><input type="checkbox" id="c-parentGate"><span></span> سؤال لولي الأمر قبل المشاركة والفتح (عشان الطفل ميضغطش لوحده)</label>
+      <div class="grid">
+        <label class="wide">نص المشاركة <textarea id="c-shareText" rows="2"></textarea></label>
+        <label class="wide">رابط التطبيق <input type="url" id="c-shareUrl" dir="ltr"></label>
+      </div>
+      <label class="sw"><input type="checkbox" id="r-on"><span></span> كريدتس لما حد يسجل من رابط ولي الأمر <input type="number" min="0" id="r-coins" class="mini"> كريدت</label>
+    </div>
+
+    <div class="card" data-st="curr">
+      <h2>المناهج</h2>
+      <p class="hint">لو اتقفل منهج، مش هيبقى متاح للاختيار وقت التسجيل (بيظهر «قريبًا»). الأطفال المسجلين فيه بالفعل مش بيتأثروا.</p>
+      <div class="tbl" id="curr-on"></div>
+    </div>
+
+    <div class="card" data-st="free">
+      <h2>الدروس المجانية</h2>
+      <p class="hint">عدد الدروس المفتوحة مجانًا من أول وحدة في كل مادة. الباقي بالكريدتس أو بالاشتراك.</p>
+      <div class="grid">
+        <label>الافتراضي لكل مادة <input type="number" min="0" id="f-count"></label>
+      </div>
+      <div class="tbl" id="free-per"></div>
+      <p class="hint">اكتبي رقم في أي مادة عشان يبقى ليها عدد خاص (فاضي = الافتراضي).</p>
+    </div>
+  </section>
+
+  <section id="p-lessons" class="page" hidden>
+    <div class="card">
+      <h2>الدروس</h2>
+      <p class="hint">الدرس الجاهز مفتوح تلقائيًا، واللي لسه ما اتعملش "قريبًا". علّمي على مادة أو وحدة أو دروس (مجموعة أو خليط) وبعدين اضغطي الزرار. تعليم الوحدة بيعلّم دروسها كلها.</p>
+      <div class="filters"><select id="l-subj"></select><span class="legend"><i class="b"></i> جاهز <i class="n"></i> لسه</span></div>
+      <div class="bulk" id="bulk"><span id="bulk-n">مفيش حاجة معلّمة</span>
+        <button data-st="open" class="ok">فتح</button><button data-st="soon" class="sn">قريبًا</button><button data-st="" class="ghost">إلغاء التعليم</button></div>
+      <div id="tree"></div>
+    </div>
+  </section>
+
+  <section id="p-subs" class="page" hidden>
+    <div class="card" id="subsCard">
+      <h2>الاشتراكات</h2>
+      <p class="hint" id="sb-where"></p>
+      <div class="filters"><label class="sw"><input type="checkbox" id="sb-all"><span></span> كل الاشتراكات (مش المنتظرة بس)</label></div>
+      <div id="subsList"></div>
+    </div>
+  </section>
+
+  <section id="p-users" class="page" hidden>
+    <div class="card">
+      <h2>المستخدمين</h2>
+      <p class="hint" id="u-where"></p>
+      <div class="filters"><input type="text" id="u-q" placeholder="بحث بالإيميل أو التليفون أو اسم الطالب"><span class="legend" id="u-count"></span></div>
+      <div class="filters"><button class="ghost" id="u-add" type="button" disabled>+ إضافة مستخدم</button></div>
+      <form id="u-form" class="filters" hidden autocomplete="off" novalidate>
+        <input name="email" type="email" dir="ltr" placeholder="إيميل ولي الأمر"><input name="phone" type="tel" dir="ltr" placeholder="موبايل (اختياري لو فيه إيميل)">
+        <input name="kid" type="text" placeholder="اسم الطالب"><select name="grade" id="u-grade"></select>
+        <label class="sw"><input type="checkbox" name="act"><span></span> تفعيل بدون إيصال</label>
+        <select name="term"><option value="t1">الترم الأول</option><option value="t2">الترم التاني</option></select>
+        <button type="submit">حفظ</button><span class="u-err wl-err" hidden style="color:#b3261e"></span></form>
+      <div class="utwrap"><table class="utbl"><thead><tr><th>المستخدم</th><th>الإيميل</th><th>الموبايل</th><th>الطالب</th><th>الاشتراك</th></tr></thead><tbody id="users"></tbody></table></div>
+    </div>
+  </section>
+
+  <section id="p-reports" class="page" hidden>
+    <div class="card">
+      <h2>البلاغات عن أخطاء</h2>
+      <p class="hint">أي حد بيلاقي حاجة غلط في الدرس أو السؤال بيدوس على العلم الصغير جنب رقم الصفحة. هنا بيظهر مكان الخطأ (المادة والوحدة والدرس والتبويب وصفحة الكتاب ورقم السؤال) وتعليقه. بعد ما تصلحي اضغطي "اتحل".</p>
+      <div class="filters"><select id="rp-status"><option value="open">المفتوحة</option><option value="done">اللي اتحلت</option><option value="all">الكل</option></select>
+        <select id="rp-subj"></select><input type="text" id="rp-q" placeholder="بحث في التعليق أو المكان"><span class="legend" id="rp-count"></span></div>
+      <div id="reports"></div>
+    </div>
+  </section>
+
+  <section id="p-push" class="page" hidden>
+    <div class="card">
+      <h2>إشعارات للتطبيق</h2>
+      <p class="hint">الإشعارات بتتبعت بإيدك بس من هنا، مفيش أي إشعار بيتبعت لوحده. بتوصل للأجهزة اللي ضغطت على الجرس في الصفحة الرئيسية للتطبيق. على الآيفون / الآيباد لازم التطبيق يكون مضاف للشاشة الرئيسية.</p>
+      <p class="legend" id="pu-count"></p>
+      <div class="filters" style="flex-direction:column;align-items:stretch;gap:8px">
+        <input type="text" id="pu-title" maxlength="80" placeholder="العنوان">
+        <textarea id="pu-body" maxlength="300" rows="3" placeholder="النص"></textarea>
+        <div class="hint" style="margin:6px 0 0">لما يضغطوا على الإشعار يفتح على (اختياري): اختاري خطوة خطوة</div>
+        <select id="pu-s"></select>
+        <select id="pu-u" hidden></select>
+        <select id="pu-i" hidden></select>
+        <select id="pu-t" hidden></select>
+        <input type="text" id="pu-url" maxlength="200" placeholder="اللينك (بيتكتب لوحده من الاختيارات فوق)" dir="ltr" readonly>
+        <button id="pu-send" class="pri">ابعت لكل الأجهزة</button>
+      </div>
+      <h3>آخر الرسائل</h3>
+      <div id="pu-list"></div>
+    </div>
+  </section>
+
+</main>
+<div id="toast" hidden></div>
+<script>window.ADMIN_WORDS=1</script>
+<script src="admin/gate.js"></script>
+<script src="admin/admin.js"></script>
+</body></html>

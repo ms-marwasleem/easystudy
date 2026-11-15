@@ -444,19 +444,214 @@
  },
  "vocab": [
   {
-   "word": "هُوَ",
-   "img": "../../pics/ar-boy-orange.jpg",
+   "word": "حَقِيبَة",
+   "img": "../../pics/bag-brown.png",
    "audio": {
-    "word": "q/w-huwa.mp3"
+    "word": "../u1l6/words/haqiba.mp3"
    },
    "parts": [
     {
-     "t": "هُ",
-     "audio": "../../syl-ar/647-64f.mp3"
+     "t": "حَ",
+     "audio": "../../syl-ar/62d-64e.mp3"
     },
     {
-     "t": "وَ",
-     "audio": "../../syl-ar/648-64e.mp3"
+     "t": "قِي",
+     "audio": "../../syl-ar/642-650-64a.mp3"
+    },
+    {
+     "t": "بَ",
+     "audio": "../../syl-ar/628-64e.mp3"
+    },
+    {
+     "t": "ة",
+     "audio": "../../syl-ar/629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "مَدْرَسَة",
+   "img": "../../pics/school.png",
+   "audio": {
+    "word": "../u1l8/words/madrasa.mp3"
+   },
+   "parts": [
+    {
+     "t": "مَدْ",
+     "audio": "../../syl-ar/645-64e-62f-652.mp3"
+    },
+    {
+     "t": "رَ",
+     "audio": "../../syl-ar/631-64e.mp3"
+    },
+    {
+     "t": "سَ",
+     "audio": "../../syl-ar/633-64e.mp3"
+    },
+    {
+     "t": "ة",
+     "audio": "../../syl-ar/629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "مُعَلِّمَة",
+   "img": "../../pics/teacher-woman.png",
+   "audio": {
+    "word": "../u1l5/words/muallima.mp3"
+   },
+   "parts": [
+    {
+     "t": "مُ",
+     "audio": "../../syl-ar/645-64f.mp3"
+    },
+    {
+     "t": "عَ",
+     "audio": "../../syl-ar/639-64e.mp3"
+    },
+    {
+     "t": "لِّ",
+     "audio": "../../syl-ar/644-650-651.mp3"
+    },
+    {
+     "t": "مَ",
+     "audio": "../../syl-ar/645-64e.mp3"
+    },
+    {
+     "t": "ة",
+     "audio": "../../syl-ar/629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "قَلَم",
+   "img": "../../pics/pencil.png",
+   "audio": {
+    "word": "../u4l2/words/qalam.mp3"
+   },
+   "parts": [
+    {
+     "t": "قَ",
+     "audio": "../../syl-ar/642-64e.mp3"
+    },
+    {
+     "t": "لَ",
+     "audio": "../../syl-ar/644-64e.mp3"
+    },
+    {
+     "t": "م",
+     "audio": "../../syl-ar/645-652.mp3"
+    }
+   ],
+   "ar": "جَمْعُهُ: أَقْلَامٌ",
+   "rel": {
+    "label": "جَمْعُهُ",
+    "text": "أَقْلَامٌ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "../u4l2/words/m-qalam.mp3"
+   }
+  },
+  {
+   "word": "أَلْوَان",
+   "img": "../../pics/ar-crayons.png",
+   "audio": {
+    "word": "words/m-627-644-648-627-646.mp3"
+   },
+   "parts": [
+    {
+     "t": "أَلْ",
+     "audio": "../../syl-ar/623-64e-644-652.mp3"
+    },
+    {
+     "t": "وَا",
+     "audio": "../../syl-ar/648-64e-627.mp3"
+    },
+    {
+     "t": "ن",
+     "audio": "../../syl-ar/646-652.mp3"
+    }
+   ]
+  },
+  {
+   "word": "زَهْرَة",
+   "img": "../../pics/ar-flower.png",
+   "audio": {
+    "word": "../u3l7/words/zahra.mp3"
+   },
+   "parts": [
+    {
+     "t": "زَهْ",
+     "audio": "../../syl-ar/632-64e-647-652.mp3"
+    },
+    {
+     "t": "رَ",
+     "audio": "../../syl-ar/631-64e.mp3"
+    },
+    {
+     "t": "ة",
+     "audio": "../../syl-ar/629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أَصْفَر",
+   "img": "../../pics/yellow.png",
+   "audio": {
+    "word": "../u4l5/words/asfar.mp3"
+   },
+   "parts": [
+    {
+     "t": "أَصْ",
+     "audio": "../../syl-ar/623-64e-635-652.mp3"
+    },
+    {
+     "t": "فَ",
+     "audio": "../../syl-ar/641-64e.mp3"
+    },
+    {
+     "t": "ر",
+     "audio": "../../syl-ar/631-652.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أَخْضَر",
+   "img": "../../pics/ar-paint-green.png",
+   "audio": {
+    "word": "../u1l9/words/akhdar.mp3"
+   },
+   "parts": [
+    {
+     "t": "أَخْ",
+     "audio": "../../syl-ar/623-64e-62e-652.mp3"
+    },
+    {
+     "t": "ضَ",
+     "audio": "../../syl-ar/636-64e.mp3"
+    },
+    {
+     "t": "ر",
+     "audio": "../../syl-ar/631-652.mp3"
+    }
+   ]
+  },
+  {
+   "word": "مِمْحَاة",
+   "img": "../../pics/ar-eraser.png",
+   "audio": {
+    "word": "words/m-645-645-62d-627-629.mp3"
+   },
+   "parts": [
+    {
+     "t": "مِمْ",
+     "audio": "../../syl-ar/645-650-645-652.mp3"
+    },
+    {
+     "t": "حَا",
+     "audio": "../../syl-ar/62d-64e-627.mp3"
+    },
+    {
+     "t": "ة",
+     "audio": "../../syl-ar/629.mp3"
     }
    ]
   },
@@ -491,6 +686,23 @@
     {
      "t": "لَى",
      "audio": "../../syl-ar/644-64e-649.mp3"
+    }
+   ]
+  },
+  {
+   "word": "هُوَ",
+   "img": "../../pics/ar-boy-orange.jpg",
+   "audio": {
+    "word": "q/w-huwa.mp3"
+   },
+   "parts": [
+    {
+     "t": "هُ",
+     "audio": "../../syl-ar/647-64f.mp3"
+    },
+    {
+     "t": "وَ",
+     "audio": "../../syl-ar/648-64e.mp3"
     }
    ]
   },

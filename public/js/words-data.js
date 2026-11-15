@@ -8,7 +8,9 @@ const EW_SUBJ={
   'en-ol': { name:'English OL words', small:'ENGLISH', big:'OL', sub:'WORDS', lang:'en' },
   'en-al': { name:'English AL words', small:'ENGLISH', big:'AL', sub:'WORDS', lang:'en' }
 };
-try{ EW.curr=localStorage.getItem('ew.curr')||null; }catch(e){}
+// the curriculum is the child's (set in the account / student settings, js/welcome.js); nothing here picks it any more
+try{ const k=kidNow(); EW.curr=k&&k.curr?(k.curr.school||k.curr.type):null; }catch(e){}
+KID_KEYS.push('ew.stats','ew.log');   // each child keeps their own word statistics (switching child reloads the page, js/welcome.js)
 try{ EW.stats=JSON.parse(localStorage.getItem('ew.stats')||'{}')||{}; EW.log=JSON.parse(localStorage.getItem('ew.log')||'[]')||[]; }catch(e){}
 const ewSave=()=>{ try{ localStorage.setItem('ew.stats',JSON.stringify(EW.stats)); localStorage.setItem('ew.log',JSON.stringify(EW.log.slice(-200))); }catch(e){} };
 const ewN=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);   // the words app speaks Arabic to the parent and child: numbers in Arabic digits
@@ -16,7 +18,7 @@ const ewN=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);   // the wor
 async function ewLoad(){
   let CURR0;
   [COURSE,CURR0,EW.cfg]=await Promise.all([get('data/course.json'),get('data/curriculum.json'),get('data/words/words.json').catch(()=>({open:[]}))]);
-  EW.CURR=CURR0;
+  EW.CURR=CURR0; CURR=CURR0;   // CURR = what the shared welcome / account code reads
   await Promise.all(Object.keys(EW_SUBJ).map(async id=>{
     const s=COURSE.subjects.find(x=>x.id===id); if(!s||!s.file) return;
     const d=await get(s.file), base=s.file.slice(0,s.file.lastIndexOf('/')+1);
@@ -37,10 +39,11 @@ function ewSubjects(){
 function ewUnits(s){
   const by={}; (s.lessons||[]).forEach(l=>{ if(l.tabs&&!l.tabs.includes('words')) return; if(/^(test|تقييم|اختبار)/i.test(l.title||l.planned||'')) return; (by[l.unit]=by[l.unit]||[]).push(l); });
   return Object.keys(by).map(u=>{ const un=(s.units||[]).find(x=>x.unit==u)||{};
-    return { unit:+u, name:s.id==='arabic'?`الوحدة ${ewN(u)}${un.title?' · '+un.title:''}`:`Unit ${u}`, lessons:by[u].map(l=>({...l,name:l.title||l.planned||'',open:!!l.file&&ewOpen(l.id)})) }; })
+    return { unit:+u, name:s.id==='arabic'?`الوحدة ${ewN(u)}${un.title?' · '+un.title:''}`:`Unit ${u}`, lessons:by[u].map((l,i)=>{ const built=!!l.file&&ewOpen(l.id), st=built?coinAccess(l,true,'l:'+l.id,i,'lesson').st:'soon';   // open | locked | soon: the dashboard's state, a paid term, credits and the free trial (js/coins.js)
+      return {...l,name:l.title||l.planned||'',built,st,open:st==='open',locked:st==='locked'}; }) }; })
     .filter(u=>u.lessons.length&&(s.id!=='arabic'||u.unit<=5||u.lessons.some(l=>l.open)));
 }
-const ewOpen=id=>!!(EW.cfg&&(EW.cfg.all||(EW.cfg.open||[]).includes(id)));
+const ewOpen=id=>!!(EW.cfg&&!(EW.cfg.skip||[]).includes(id)&&(EW.cfg.all||(EW.cfg.open||[]).includes(id)));
 const ewSubjOf=id=>COURSE.subjects.find(s=>id.startsWith(s.id+'-'));
 // one open lesson with its words (loaded once; paths already resolved by the curriculum app's own fixPaths)
 async function ewLesson(id){

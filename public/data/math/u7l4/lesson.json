@@ -11,7 +11,8 @@
  "tabs": [
   "read",
   "quiz",
-  "booklet"
+  "booklet",
+  "workbook"
  ],
  "tabLabels": {
   "read": "Lesson",
@@ -61,7 +62,8 @@
        {
         "scene": "tens",
         "n": 13,
-        "wide": true
+        "wide": true,
+        "show": 10
        },
        {
         "frame": {
@@ -73,6 +75,10 @@
          ],
          "color": "green"
         }
+       },
+       {
+        "add": "10",
+        "big": true
        }
       ]
      },
@@ -80,6 +86,15 @@
       "say": "Add three.",
       "audio": "explain/s0-b.mp3",
       "do": [
+       {
+        "add": "+",
+        "big": true
+       },
+       {
+        "add": "3",
+        "big": true,
+        "color": "orange"
+       },
        {
         "count": true,
         "pts": [
@@ -97,7 +112,8 @@
          ]
         ],
         "color": "orange",
-        "r": 24
+        "r": 24,
+        "start": 11
        }
       ]
      },
@@ -106,9 +122,13 @@
       "audio": "explain/s0-c.mp3",
       "do": [
        {
-        "add": "10 + 3 = 13",
-        "card": true,
-        "color": "green"
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "13",
+        "big": true,
+        "card": true
        }
       ],
       "gap": 1200
@@ -125,7 +145,8 @@
        {
         "scene": "tens",
         "n": 18,
-        "wide": true
+        "wide": true,
+        "show": 10
        },
        {
         "frame": {
@@ -137,6 +158,10 @@
          ],
          "color": "green"
         }
+       },
+       {
+        "add": "10",
+        "big": true
        }
       ]
      },
@@ -144,6 +169,15 @@
       "say": "Add eight.",
       "audio": "explain/s1-b.mp3",
       "do": [
+       {
+        "add": "+",
+        "big": true
+       },
+       {
+        "add": "8",
+        "big": true,
+        "color": "orange"
+       },
        {
         "count": true,
         "pts": [
@@ -181,7 +215,8 @@
          ]
         ],
         "color": "orange",
-        "r": 24
+        "r": 24,
+        "start": 11
        }
       ]
      },
@@ -190,9 +225,13 @@
       "audio": "explain/s1-c.mp3",
       "do": [
        {
-        "add": "10 + 8 = 18",
-        "card": true,
-        "color": "green"
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "18",
+        "big": true,
+        "card": true
        }
       ],
       "gap": 1200
@@ -221,6 +260,21 @@
          ],
          "color": "green"
         }
+       },
+       {
+        "add": "13",
+        "big": true
+       },
+       {
+        "wait": 1300
+       },
+       {
+        "add": "-",
+        "big": true
+       },
+       {
+        "add": "3",
+        "big": true
        }
       ]
      },
@@ -243,7 +297,8 @@
          ]
         ],
         "color": "red",
-        "r": 24
+        "r": 24,
+        "out": true
        }
       ]
      },
@@ -252,9 +307,13 @@
       "audio": "explain/s2-c.mp3",
       "do": [
        {
-        "add": "13 - 3 = 10",
-        "card": true,
-        "color": "green"
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "10",
+        "big": true,
+        "card": true
        }
       ],
       "gap": 1200
@@ -283,6 +342,21 @@
          ],
          "color": "green"
         }
+       },
+       {
+        "add": "17",
+        "big": true
+       },
+       {
+        "wait": 1300
+       },
+       {
+        "add": "-",
+        "big": true
+       },
+       {
+        "add": "7",
+        "big": true
        }
       ]
      },
@@ -321,7 +395,8 @@
          ]
         ],
         "color": "red",
-        "r": 24
+        "r": 24,
+        "out": true
        }
       ]
      },
@@ -330,9 +405,13 @@
       "audio": "explain/s3-c.mp3",
       "do": [
        {
-        "add": "17 - 7 = 10",
-        "card": true,
-        "color": "green"
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "10",
+        "big": true,
+        "card": true
        }
       ],
       "gap": 1200
@@ -361,6 +440,21 @@
          ],
          "color": "green"
         }
+       },
+       {
+        "add": "14",
+        "big": true
+       },
+       {
+        "wait": 1300
+       },
+       {
+        "add": "-",
+        "big": true
+       },
+       {
+        "add": "4",
+        "big": true
        }
       ]
      },
@@ -387,7 +481,8 @@
          ]
         ],
         "color": "red",
-        "r": 24
+        "r": 24,
+        "out": true
        }
       ]
      },
@@ -396,9 +491,13 @@
       "audio": "explain/s4-c.mp3",
       "do": [
        {
-        "add": "14 - 4 = 10",
-        "card": true,
-        "color": "green"
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "10",
+        "big": true,
+        "card": true
        }
       ],
       "gap": 1200

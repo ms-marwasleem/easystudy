@@ -10,6 +10,7 @@
       or an alias (use the picture of another path). The list of replaced pictures is kept on the device; nothing ever waits for it:
       while it is not known yet, or the library is down, the file shipped inside the app is shown. */
 const LIB = 'https://easystudy-recorder.marwasleem.workers.dev';
+const WORDS = /easywords/i.test(self.location.hostname);   // the Easy Words site (its own Worker) shows its own name and icon in notifications
 const APP = 'es-app', MEDIA = 'es-media', EXT = 'es-ext';
 const SCOPE = new URL(self.registration.scope).pathname;
 const at_ = p => new URL(p, self.registration.scope).href;
@@ -134,7 +135,7 @@ self.addEventListener('push', e => e.waitUntil((async () => {
   let m = null;
   try { const s = await (await fetch(new URL('/api/push/latest', self.location.origin).href, { cache: 'no-store' })).json(); m = s && s.msg; } catch (e) {}
   // a notification must always be shown (iOS drops the permission otherwise): if the text could not be read, a plain one
-  await self.registration.showNotification((m && m.title) || 'EasyStudy', { body: (m && m.body) || '', icon: at_('icon-192.png'), badge: at_('icon-192.png'), data: { url: (m && m.url) || '' }, tag: 'es-msg' });
+  await self.registration.showNotification((m && m.title) || (WORDS ? 'Easy Words' : 'EasyStudy'), { body: (m && m.body) || '', icon: at_(WORDS ? 'words-icons/icon-192.png' : 'icon-192.png'), badge: at_(WORDS ? 'words-icons/icon-192.png' : 'icon-192.png'), data: { url: (m && m.url) || '' }, tag: 'es-msg' });
 })()));
 self.addEventListener('notificationclick', e => {
   e.notification.close();

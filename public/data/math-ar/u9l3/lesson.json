@@ -42,47 +42,131 @@
          "",
          ""
         ],
-        "wide": true
+        "wide": true,
+        "show": 8
+       },
+       {
+        "head": {
+         "t": [
+          "8",
+          "-",
+          "3",
+          "+",
+          "2",
+          "="
+         ],
+         "slots": 7
+        }
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/b0aef14aeb.mp3"
      },
      {
       "say": "ثمانية ناقص ثلاثة يساوي خمسة.",
       "do": [
        {
-        "frame": {
-         "box": [
-          589,
-          40,
-          886,
-          214
-         ],
-         "color": "red"
+        "add": "8",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 8
         }
        },
        {
-        "add": "8 - 3 = 5",
-        "card": true,
-        "color": "green"
+        "add": "-",
+        "big": true
+       },
+       {
+        "add": "3",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 5,
+         "b": 8,
+         "mode": "out"
+        }
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "5",
+        "big": true,
+        "card": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 5
+        }
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/81a691a989.mp3"
      },
      {
       "say": "خمسة زائد اثنين يساوي سبعة.",
       "do": [
        {
-        "line": "break"
+        "line": "clear"
        },
        {
-        "add": "5 + 2 = 7",
-        "card": true,
-        "color": "orange"
+        "add": "5",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 5
+        }
+       },
+       {
+        "add": "+",
+        "big": true
+       },
+       {
+        "add": "2",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 5,
+         "b": 7,
+         "mode": "in"
+        }
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "7",
+        "big": true,
+        "card": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 7
+        }
+       },
+       {
+        "head": {
+         "t": [
+          "7"
+         ],
+         "more": true
+        }
        },
        {
         "cheer": true
        }
       ],
-      "gap": 1200
+      "gap": 1200,
+      "audio": "../../math-ar-audio/a9eee978c9.mp3"
      }
     ]
    },
@@ -94,53 +178,137 @@
       "do": [
        {
         "scene": "line",
-        "n": 6,
+        "n": 7,
         "unit": "../../pics/apple-toon.png",
         "ends": [
          "",
          ""
         ],
-        "wide": true
+        "wide": true,
+        "show": 6
+       },
+       {
+        "head": {
+         "t": [
+          "6",
+          "-",
+          "2",
+          "+",
+          "3",
+          "="
+         ],
+         "slots": 7
+        }
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/454b8e0025.mp3"
      },
      {
       "say": "ستة ناقص اثنين يساوي أربعة.",
       "do": [
        {
-        "frame": {
-         "box": [
-          621,
-          40,
-          886,
-          214
-         ],
-         "color": "red"
+        "add": "6",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 6
         }
        },
        {
-        "add": "6 - 2 = 4",
-        "card": true,
-        "color": "green"
+        "add": "-",
+        "big": true
+       },
+       {
+        "add": "2",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 4,
+         "b": 6,
+         "mode": "out"
+        }
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "4",
+        "big": true,
+        "card": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 4
+        }
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/232cc22032.mp3"
      },
      {
       "say": "أربعة زائد ثلاثة يساوي سبعة.",
       "do": [
        {
-        "line": "break"
+        "line": "clear"
        },
        {
-        "add": "4 + 3 = 7",
-        "card": true,
-        "color": "orange"
+        "add": "4",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 4
+        }
+       },
+       {
+        "add": "+",
+        "big": true
+       },
+       {
+        "add": "3",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 4,
+         "b": 7,
+         "mode": "in"
+        }
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "7",
+        "big": true,
+        "card": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 7
+        }
+       },
+       {
+        "head": {
+         "t": [
+          "7"
+         ],
+         "more": true
+        }
        },
        {
         "cheer": true
        }
       ],
-      "gap": 1200
+      "gap": 1200,
+      "audio": "../../math-ar-audio/4cc110f9a0.mp3"
      }
     ]
    },
@@ -158,47 +326,131 @@
          "",
          ""
         ],
-        "wide": true
+        "wide": true,
+        "show": 7
+       },
+       {
+        "head": {
+         "t": [
+          "7",
+          "+",
+          "2",
+          "-",
+          "3",
+          "="
+         ],
+         "slots": 7
+        }
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/a39aff6b01.mp3"
      },
      {
       "say": "سبعة زائد اثنين يساوي تسعة.",
       "do": [
        {
-        "frame": {
-         "box": [
-          114,
-          40,
-          886,
-          214
-         ],
-         "color": "green"
+        "add": "7",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 7
         }
        },
        {
-        "add": "7 + 2 = 9",
-        "card": true,
-        "color": "green"
+        "add": "+",
+        "big": true
+       },
+       {
+        "add": "2",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 7,
+         "b": 9,
+         "mode": "in"
+        }
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "9",
+        "big": true,
+        "card": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 9
+        }
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/96b0cddfa5.mp3"
      },
      {
       "say": "تسعة ناقص ثلاثة يساوي ستة.",
       "do": [
        {
-        "line": "break"
+        "line": "clear"
        },
        {
-        "add": "9 - 3 = 6",
-        "card": true,
-        "color": "orange"
+        "add": "9",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 9
+        }
+       },
+       {
+        "add": "-",
+        "big": true
+       },
+       {
+        "add": "3",
+        "big": true
+       },
+       {
+        "pop": {
+         "a": 6,
+         "b": 9,
+         "mode": "out"
+        }
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "6",
+        "big": true,
+        "card": true
+       },
+       {
+        "pop": {
+         "a": 0,
+         "b": 6
+        }
+       },
+       {
+        "head": {
+         "t": [
+          "6"
+         ],
+         "more": true
+        }
        },
        {
         "cheer": true
        }
       ],
-      "gap": 1200
+      "gap": 1200,
+      "audio": "../../math-ar-audio/b26b1bf9ca.mp3"
      }
     ]
    }

@@ -141,6 +141,130 @@
  },
  "vocab": [
   {
+   "word": "مَدْرَسَتِي",
+   "img": "../../pics/school.png",
+   "audio": {
+    "word": "words/m-645-62f-631-633-62a-64a.mp3"
+   },
+   "parts": [
+    {
+     "t": "مَدْ",
+     "audio": "../../syl-ar/645-64e-62f-652.mp3"
+    },
+    {
+     "t": "رَ",
+     "audio": "../../syl-ar/631-64e.mp3"
+    },
+    {
+     "t": "سَ",
+     "audio": "../../syl-ar/633-64e.mp3"
+    },
+    {
+     "t": "تِي",
+     "audio": "../../syl-ar/62a-650-64a.mp3"
+    }
+   ]
+  },
+  {
+   "word": "شَمْس",
+   "img": "../../pics/sun.png",
+   "audio": {
+    "word": "../u1l5/words/shams.mp3"
+   },
+   "parts": [
+    {
+     "t": "شَمْ",
+     "audio": "../../syl-ar/634-64e-645-652.mp3"
+    },
+    {
+     "t": "س",
+     "audio": "../../syl-ar/633-652.mp3"
+    }
+   ],
+   "ar": "جَمْعُهَا: شُمُوسٌ",
+   "rel": {
+    "label": "جَمْعُهَا",
+    "text": "شُمُوسٌ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "words/m-shams.mp3"
+   }
+  },
+  {
+   "word": "مُعَلِّمَتِي",
+   "img": "../../pics/teacher-woman.png",
+   "audio": {
+    "word": "words/m-645-639-644-645-62a-64a.mp3"
+   },
+   "parts": [
+    {
+     "t": "مُ",
+     "audio": "../../syl-ar/645-64f.mp3"
+    },
+    {
+     "t": "عَ",
+     "audio": "../../syl-ar/639-64e.mp3"
+    },
+    {
+     "t": "لِّ",
+     "audio": "../../syl-ar/644-650-651.mp3"
+    },
+    {
+     "t": "مَ",
+     "audio": "../../syl-ar/645-64e.mp3"
+    },
+    {
+     "t": "تِي",
+     "audio": "../../syl-ar/62a-650-64a.mp3"
+    }
+   ]
+  },
+  {
+   "word": "مِقْلَمَتِي",
+   "img": "../../pics/pencil-case.png",
+   "audio": {
+    "word": "words/m-645-642-644-645-62a-64a.mp3"
+   },
+   "parts": [
+    {
+     "t": "مِقْ",
+     "audio": "../../syl-ar/645-650-642-652.mp3"
+    },
+    {
+     "t": "لَ",
+     "audio": "../../syl-ar/644-64e.mp3"
+    },
+    {
+     "t": "مَ",
+     "audio": "../../syl-ar/645-64e.mp3"
+    },
+    {
+     "t": "تِي",
+     "audio": "../../syl-ar/62a-650-64a.mp3"
+    }
+   ]
+  },
+  {
+   "word": "قَلَمِي",
+   "img": "../../pics/pencil.png",
+   "audio": {
+    "word": "words/m-642-644-645-64a.mp3"
+   },
+   "parts": [
+    {
+     "t": "قَ",
+     "audio": "../../syl-ar/642-64e.mp3"
+    },
+    {
+     "t": "لَ",
+     "audio": "../../syl-ar/644-64e.mp3"
+    },
+    {
+     "t": "مِي",
+     "audio": "../../syl-ar/645-650-64a.mp3"
+    }
+   ]
+  },
+  {
    "word": "أُرَدِّدُ",
    "img": "../../pics/ar-students.png",
    "audio": {
@@ -170,7 +294,8 @@
     "text": "أُكَرِّرُ الْكَلَامَ أَوْ أَقُولُهُ بِصَوْتٍ عَالٍ",
     "labelAudio": "../u1l2/words/lbl-meaning.mp3",
     "audio": "words/m-ardd.mp3"
-   }
+   },
+   "school": "nour-el-ilm"
   },
   {
    "word": "تِلْمِيذ",
@@ -198,31 +323,8 @@
     "text": "تَلَامِيذُ",
     "labelAudio": "../u1l2/words/lbl-plural.mp3",
     "audio": "words/m-tilmidh.mp3"
-   }
-  },
-  {
-   "word": "شَمْس",
-   "img": "../../pics/sun.png",
-   "audio": {
-    "word": "../u1l5/words/shams.mp3"
    },
-   "parts": [
-    {
-     "t": "شَمْ",
-     "audio": "../../syl-ar/634-64e-645-652.mp3"
-    },
-    {
-     "t": "س",
-     "audio": "../../syl-ar/633-652.mp3"
-    }
-   ],
-   "ar": "جَمْعُهَا: شُمُوسٌ",
-   "rel": {
-    "label": "جَمْعُهَا",
-    "text": "شُمُوسٌ",
-    "labelAudio": "../u1l2/words/lbl-plural.mp3",
-    "audio": "words/m-shams.mp3"
-   }
+   "school": "nour-el-ilm"
   },
   {
    "word": "قَلَم",
@@ -250,7 +352,8 @@
     "text": "أَقْلَامٌ",
     "labelAudio": "../u1l2/words/lbl-plural.mp3",
     "audio": "words/m-qalam.mp3"
-   }
+   },
+   "school": "nour-el-ilm"
   },
   {
    "word": "مُعَلِّمَة",
@@ -286,7 +389,8 @@
     "text": "مُعَلِّمَاتٌ",
     "labelAudio": "../u1l2/words/lbl-plural.mp3",
     "audio": "words/m-muallima.mp3"
-   }
+   },
+   "school": "nour-el-ilm"
   }
  ],
  "vocabRepeats": 3,

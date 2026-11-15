@@ -18,8 +18,9 @@
   "quiz": "أسئلة الكتاب",
   "workbook": "كتاب التقييمات"
  },
- "pages": 4,
+ "pages": 5,
  "pageNums": [
+  86,
   86,
   86,
   86,
@@ -29,6 +30,57 @@
  "explain": {
   "caption": false,
   "steps": [
+   {
+    "name": "العقربان",
+    "beats": [
+     {
+      "say": "للساعة عقربان.",
+      "do": [
+       {
+        "scene": "clock",
+        "h": 8,
+        "half": 0
+       },
+       {
+        "hand": "both"
+       }
+      ]
+     },
+     {
+      "say": "العقرب القصير يشير إلى الساعات.",
+      "do": [
+       {
+        "line": "clear"
+       },
+       {
+        "hand": "short"
+       },
+       {
+        "add": "الساعات",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "العقرب الطويل يشير إلى الدقائق.",
+      "do": [
+       {
+        "line": "clear"
+       },
+       {
+        "hand": "long"
+       },
+       {
+        "add": "الدقائق",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 900
+     }
+    ]
+   },
    {
     "name": "الساعة 8",
     "beats": [
@@ -41,33 +93,19 @@
         "half": 0
        },
        {
-        "frame": {
-         "box": [
-          369,
-          228,
-          449,
-          308
-         ],
-         "color": "red"
-        }
+        "hand": "short"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/3c0f73ebf7.mp3"
      },
      {
       "say": "العقرب الطويل يشير إلى 12.",
       "do": [
        {
-        "frame": {
-         "box": [
-          460,
-          25,
-          540,
-          105
-         ],
-         "color": "blue"
-        }
+        "hand": "long"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/2608e85f1d.mp3"
      },
      {
       "say": "الساعة 8.",
@@ -81,7 +119,8 @@
         "cheer": true
        }
       ],
-      "gap": 1200
+      "gap": 1200,
+      "audio": "../../math-ar-audio/73d7cbbb2b.mp3"
      }
     ]
    },
@@ -97,33 +136,19 @@
         "half": 1
        },
        {
-        "frame": {
-         "box": [
-          359,
-          202,
-          439,
-          282
-         ],
-         "color": "red"
-        }
+        "hand": "short"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/433c8106b4.mp3"
      },
      {
       "say": "العقرب الطويل يشير إلى 6.",
       "do": [
        {
-        "frame": {
-         "box": [
-          460,
-          325,
-          540,
-          405
-         ],
-         "color": "blue"
-        }
+        "hand": "long"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/7a9084798c.mp3"
      },
      {
       "say": "الساعة 8 ونصف.",
@@ -137,7 +162,8 @@
         "cheer": true
        }
       ],
-      "gap": 1200
+      "gap": 1200,
+      "audio": "../../math-ar-audio/af6f6c2c87.mp3"
      }
     ]
    },
@@ -153,33 +179,19 @@
         "half": 0
        },
        {
-        "frame": {
-         "box": [
-          512,
-          84,
-          592,
-          164
-         ],
-         "color": "red"
-        }
+        "hand": "short"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/696835f158.mp3"
      },
      {
       "say": "العقرب الطويل يشير إلى 12.",
       "do": [
        {
-        "frame": {
-         "box": [
-          460,
-          25,
-          540,
-          105
-         ],
-         "color": "blue"
-        }
+        "hand": "long"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/2608e85f1d.mp3"
      },
      {
       "say": "الساعة 1.",
@@ -193,7 +205,8 @@
         "cheer": true
        }
       ],
-      "gap": 1200
+      "gap": 1200,
+      "audio": "../../math-ar-audio/503a844dc9.mp3"
      }
     ]
    },
@@ -209,33 +222,19 @@
         "half": 1
        },
        {
-        "frame": {
-         "box": [
-          487,
-          276,
-          567,
-          356
-         ],
-         "color": "red"
-        }
+        "hand": "short"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/09864c052d.mp3"
      },
      {
       "say": "العقرب الطويل يشير إلى 6.",
       "do": [
        {
-        "frame": {
-         "box": [
-          460,
-          325,
-          540,
-          405
-         ],
-         "color": "blue"
-        }
+        "hand": "long"
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/7a9084798c.mp3"
      },
      {
       "say": "الساعة 5 ونصف.",
@@ -249,7 +248,8 @@
         "cheer": true
        }
       ],
-      "gap": 1200
+      "gap": 1200,
+      "audio": "../../math-ar-audio/69960f592b.mp3"
      }
     ]
    }

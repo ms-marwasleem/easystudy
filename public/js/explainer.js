@@ -7,6 +7,8 @@
      {scene:"pic", img, w, h}                        the book picture (in its white frame); points below are picture pixels
      {scene:"tree"|"pond", actors:{id:{kind:"bird"|"fish",color,x,y,face}}}   drawn scene with own actors
      {enter:ids,from,gap} {leave:ids,to}             actors fly / swim in or away
+     {scene:"data", cols:[{k,n,color}], items:[[col,x,y]..], tx, tw}  Math 6-1: things + table DRAWN by the template;  {mark:{col:i}} marks ONE thing, says its number, colours its table box (bottom up), next one…
+     {pop:{a,b,mode:"pop"|"in"|"out"}}  things a..b-1 of a line scene bounce / come in / fly out;  scene line + show:n = how many are there at first
      {count:ids|pts:[[x,y]..], start, color}         bounce + number badge + number said (waits for the line)
      {ring:ids|pts, r, color, id} {unring:id|"all"}  hand-drawn ring round a group
      {hold:n, on:ringId, color}                      the number of a group 'in your head' (one badge, said); then {count:ids, start:n+1, keep:true} counts on
@@ -14,6 +16,7 @@
      {scene:'free', items:[{id,img,x,y,w,h}], ih, top}  separate pictures that move: {move:[{id,x,y}],ms} slides them together, {guide:{x0,y0,x1,y1,color}} draws a dotted line (Math 5-1)
      {link:[[[x,y],[x,y]]..], color, r, id}         "What is the difference?": pairs joined by lines one by one; the ones left over are the difference
      {cross:true, pts, r, color}                     things that go away (subtraction) are crossed out one by one
+     {head:{t:["17","-","3","="],slots:5}} {head:{t:["14"],more:true}}   the calculation written large at the top, then its answer
      {eq:["2","+","3","=","5"]} {eqState:"show"|"dim"} {lit:i,color,value} {pulse:i}   the number sentence on top
      {fly:"2", from:ringId, to:i, color}             a group's number flies into the sentence
      {add:"text", color, card} {line:"break"|"clear"} the story is WRITTEN as normal text (colour = underline of the group; card:true = one card, e.g. the answer "8 cats")
@@ -139,19 +142,73 @@ function mount(root, data, opt){
       tag.push(`<text class="xl-end" id="xlf" x="500" y="${TOP+46}" text-anchor="middle">${ends[0]}</text><text class="xl-end" id="xlb" x="500" y="${TOP+60+110*n+52}" text-anchor="middle">${ends[1]}</text>`);
     } else {
       const ih=d.ih||230; PIC={k:1}; VH=TOP+ih; const n=items?items.length:d.n, x0=120, x1=880, sw=(x1-x0)/n, base0=TOP+(d.floor||200); SC={vert:false,n};
-      tag.push(card(ih));
+      if(d.img) tag.push(card(ih));   // our own drawn/picture things sit straight on the page (no white box); only a pasted book strip keeps its card
       const MI=!!d.mirror, flip=cx=>MI?` transform="translate(${2*cx} 0) scale(-1 1)"`:''; SC.mir=MI;   // Arabic: Front at the right, the pictures face the other way
       if(d.img){ const w=x1-x0, h=Math.round(w*d.h/d.w); tag.push(`<image href="${base+d.img}" x="${x0}" y="${base0-h}" width="${w}" height="${h}" preserveAspectRatio="none"${flip(500)}/>`); }
-      else { const mw=Math.min(sw*.82,d.maxw||150), mh=d.maxh||150; for(let i=0;i<n;i++){ tag.push(`<image href="${base+(items?items[i]:d.unit)}" x="${x0+sw*(i+.5)-mw/2}" y="${base0-mh}" width="${mw}" height="${mh}" preserveAspectRatio="xMidYMax meet"${flip(x0+sw*(i+.5))}/>`); } }
+      else { const mw=Math.min(sw*.82,d.maxw||150), mh=d.maxh||150, sh=d.show==null?n:d.show; for(let i=0;i<n;i++){ tag.push(`<g class="xit" data-cx="${x0+sw*(i+.5)}" data-cy="${base0-mh/2}"${i>=sh?' style="opacity:0"':''}><image href="${base+(items?items[i]:d.unit)}" x="${x0+sw*(i+.5)-mw/2}" y="${base0-mh}" width="${mw}" height="${mh}" preserveAspectRatio="xMidYMax meet"${flip(x0+sw*(i+.5))}/></g>`); } }
       tag.push(`<text class="xl-end" id="xlf" x="${MI?940:60}" y="${base0-30}" text-anchor="middle">${ends[0]}</text><text class="xl-end" id="xlb" x="${MI?60:940}" y="${base0-30}" text-anchor="middle">${ends[1]}</text>`);
     }
     Leq.innerHTML=''; eqT=[];
     Lbg.innerHTML=tag.join(''); LAB={f:Lbg.querySelector('#xlf'),b:Lbg.querySelector('#xlb')}; }
   /* "Numbers up to 20" (book 7-1): n cubes = a ROW OF TEN (blue) and the ones under it (orange). Picture px: row 1 y=50, row 2 y=170, cube 66 wide, step 80, first x=100. */
-  function tensScene(d){ const n=d.n, ih=d.ih||300; PIC={k:1}; TOP=170; VH=TOP+ih; const tag=[`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`];
-    const cube=(x,y,c)=>`<rect x="${x}" y="${y}" width="66" height="66" rx="12" fill="${c}" stroke="#1f5f96" stroke-width="4"/><path d="M${x+10} ${y+16} h46" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".5"/>`;
-    for(let i=0;i<Math.min(10,n);i++) tag.push(cube(100+i*80,TOP+50,'#46A8E8')); for(let i=0;i<n-10;i++) tag.push(cube(100+i*80,TOP+170,'#FF9A3C'));
+  function tensScene(d){ const n=d.n, ih=d.ih||300; PIC={k:1}; TOP=170; VH=TOP+ih; const tag=[];   // no white box: the picture sits straight on the app's page (Ahmed 2026-11-14)
+    const sh=d.show==null?n:d.show;   // d.show = how many cubes are there at first; the others are added later by {count} one by one
+    const cube=(x,y,c,k)=>`<g class="xcube" data-cx="${x+33}" data-cy="${y+33}"${k>=sh?' style="opacity:0"':''}><rect x="${x}" y="${y}" width="66" height="66" rx="12" fill="${c}" stroke="#1f5f96" stroke-width="4"/><path d="M${x+10} ${y+16} h46" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".5"/></g>`;
+    for(let i=0;i<Math.min(10,n);i++) tag.push(cube(100+i*80,TOP+50,'#46A8E8',i)); for(let i=0;i<n-10;i++) tag.push(cube(100+i*80,TOP+170,'#FF9A3C',10+i));
     Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; SC={}; }
+  /* DATA scene (Math 6-1 "Representing data with pictures"): the scattered things AND the table are DRAWN here (no pasted book picture, no white box).
+     d.cols=[{k:"strawberry"|"melon"|"orange"|"grape"|"circle"|"triangle"|"square"|"star", n, color}], d.items=[[col,x,y]..] (centres, picture px 0..1000 x 0..780),
+     d.tx = left edge of the table, d.tw = its width (Arabic: the table is on the left and the first column is on the right), d.rows (default 10).
+     {mark:{col}} marks ONE thing of the group, says its number and colours its box in the table, then the next one - never "count all, then colour all". */
+  const ICON={
+    strawberry:()=>`<path d="M50 94C20 72 12 42 27 31c9-6 16 0 23 0s14-6 23 0c15 11 7 41-23 63z" fill="#E8352B" stroke="#A8231C" stroke-width="3"/><path d="M28 30l11-12 11 10 11-10 11 12-22 9z" fill="#3A9A2C" stroke="#25701C" stroke-width="3" stroke-linejoin="round"/><g fill="#FFE9A8"><ellipse cx="38" cy="52" rx="2.4" ry="3.4"/><ellipse cx="55" cy="48" rx="2.4" ry="3.4"/><ellipse cx="66" cy="58" rx="2.4" ry="3.4"/><ellipse cx="46" cy="68" rx="2.4" ry="3.4"/><ellipse cx="58" cy="76" rx="2.4" ry="3.4"/></g>`,
+    melon:()=>`<circle cx="50" cy="56" r="40" fill="#9BD14B" stroke="#5E9A22" stroke-width="3.5"/><g fill="none" stroke="#D5F08C" stroke-width="3.5" stroke-linecap="round"><path d="M24 38q14 8 12 22t14 20"/><path d="M52 18q-8 16 6 28t6 30"/><path d="M76 38q-14 6-12 18"/><path d="M20 62q12 2 18 12"/></g><path d="M50 16v-10" stroke="#3A8A2C" stroke-width="5" stroke-linecap="round"/>`,
+    orange:()=>`<circle cx="50" cy="56" r="38" fill="#FF9A1F" stroke="#C96A06" stroke-width="3.5"/><path d="M50 19c4-12 16-14 24-10-4 10-14 14-24 10z" fill="#3A9A2C" stroke="#25701C" stroke-width="3" stroke-linejoin="round"/><g fill="#E57E0A"><circle cx="38" cy="58" r="1.8"/><circle cx="56" cy="66" r="1.8"/><circle cx="62" cy="50" r="1.8"/></g>`,
+    grape:()=>`<g fill="#7A4BB5" stroke="#4E2B82" stroke-width="2.5"><circle cx="30" cy="38" r="12"/><circle cx="52" cy="38" r="12"/><circle cx="72" cy="40" r="12"/><circle cx="40" cy="58" r="12"/><circle cx="62" cy="58" r="12"/><circle cx="51" cy="77" r="12"/></g><g fill="#fff" opacity=".35"><circle cx="26" cy="34" r="3"/><circle cx="48" cy="34" r="3"/><circle cx="36" cy="54" r="3"/></g><path d="M50 26V12q8 0 14-6" fill="none" stroke="#3A8A2C" stroke-width="5" stroke-linecap="round"/>`,
+    circle:()=>`<circle cx="50" cy="50" r="34" fill="#1E9BE8" stroke="#333" stroke-width="3.5"/>`,
+    triangle:()=>`<path d="M50 14L88 82H12z" fill="#1FA25C" stroke="#333" stroke-width="3.5" stroke-linejoin="round"/>`,
+    square:()=>`<rect x="18" y="18" width="64" height="64" rx="3" fill="#E5352B" stroke="#333" stroke-width="3.5"/>`,
+    star:()=>`<path d="M50 10l12.5 26.5 29 3.6-21.3 20 5.5 28.7L50 74.6 24.3 88.8l5.5-28.7-21.3-20 29-3.6z" fill="#FFD91A" stroke="#333" stroke-width="3.5" stroke-linejoin="round"/>`};
+  const ICONLINE={strawberry:'M50 94C20 72 12 42 27 31c9-6 16 0 23 0s14-6 23 0c15 11 7 41-23 63z',melon:'M50 16a40 40 0 1 0 .1 0z',orange:'M50 18a38 38 0 1 0 .1 0z',grape:'M30 26a12 12 0 1 0 .1 0zM52 26a12 12 0 1 0 .1 0zM72 28a12 12 0 1 0 .1 0zM40 46a12 12 0 1 0 .1 0zM62 46a12 12 0 1 0 .1 0zM51 65a12 12 0 1 0 .1 0z',
+    circle:'M50 16a34 34 0 1 0 .1 0z',triangle:'M50 14L88 82H12z',square:'M18 18h64v64H18z',star:'M50 10l12.5 26.5 29 3.6-21.3 20 5.5 28.7L50 74.6 24.3 88.8l5.5-28.7-21.3-20 29-3.6z'};
+  const SHAPES={circle:1,triangle:1,square:1,star:1};
+  const iconG=(k,x,y,sz,rot,card)=>{ const sc=sz/100, g=mk('g',{transform:`translate(${x} ${y}) rotate(${rot||0}) scale(${sc}) translate(-50 -50)`});
+    g.innerHTML=(card?'<rect x="3" y="3" width="94" height="94" rx="10" fill="#fff" stroke="#333" stroke-width="3.5"/>':'')+`<g${card?' transform="translate(10 10) scale(.8)"':''}>${ICON[k]()}</g>`; return g; };
+  const iconOutline=(k,x,y,sz,op)=>{ const sc=sz/100, g=mk('g',{transform:`translate(${x} ${y}) scale(${sc}) translate(-50 -50)`,opacity:op});
+    g.innerHTML=`<path d="${ICONLINE[k]}" fill="rgba(255,255,255,.14)" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>`; return g; };
+  let DS=null;
+  function dataScene(d){ PIC={k:1}; TOP=0; const R=d.rows||10, tx=d.tx||430, tw=d.tw||550, nc=d.cols.length, cw=tw/nc, hh=84, rh=60, y0=22, rtl=data.lang==='ar'; VH=y0+hh+R*rh+30;
+    Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=''; LAB={}; SC={}; Lact.innerHTML=''; Lring.innerHTML=''; Lbadge.innerHTML=''; badges=[]; rings={};
+    const colX=i=>tx+cw*(rtl?nc-1-i:i)+cw/2, cellY=j=>y0+hh+(R-1-j)*rh+rh/2;   // j = 0 is the bottom row: the table is filled from the bottom up
+    const g=mk('g'); Lbg.append(g);
+    g.append(mk('rect',{x:tx,y:y0,width:tw,height:hh+R*rh,rx:18,fill:'rgba(255,255,255,.12)',stroke:'#fff','stroke-width':4}));
+    for(let i=1;i<nc;i++) g.append(mk('path',{d:`M${tx+cw*i} ${y0} V${y0+hh+R*rh}`,stroke:'#fff','stroke-width':3,opacity:.7}));
+    for(let j=0;j<=R;j++) g.append(mk('path',{d:`M${tx} ${y0+hh+j*rh} H${tx+tw}`,stroke:'#fff','stroke-width':j===0?5:3,opacity:j===0?1:.7}));
+    d.cols.forEach((c,i)=>{ g.append(iconOutline(c.k,colX(i),y0+hh/2,70,1));
+      for(let j=0;j<R;j++) g.append(iconOutline(c.k,colX(i),cellY(j),54,.45)); });
+    const px=d.px||[20,400]; g.append(mk('rect',{x:px[0],y:y0,width:px[1]-px[0],height:hh+R*rh,rx:18,fill:'rgba(255,255,255,.12)',stroke:'#fff','stroke-width':4}));
+    DS={cols:d.cols,colX,cellY,items:[]};
+    (d.items||[]).forEach(([c,x,y],n)=>{ const k=d.cols[c].k, e=iconG(k,x,y,SHAPES[k]?84:78,SHAPES[k]?((n*37)%31)-15:0,!!SHAPES[k]); g.append(e); DS.items.push({c,x,y,e}); }); }
+  /* the things of a line scene act in sync with the narration: {pop:{a,b,mode}} = things a..b-1 counted from the START end (Arabic: from the right):
+     "pop" = a small bounce (no boxes), "out" = they fly out of the picture (taking away), "in" = they come in with a bounce (adding). */
+  async function popIt(o){ const els=[...Lbg.querySelectorAll('.xit')], n=els.length, mode=o.mode||'pop'; const L=[]; for(let i=o.a;i<o.b;i++){ const e=els[data.lang==='ar'?n-1-i:i]; if(e) L.push(e); }
+    const T=(e,dx,dy,sc,rot)=>{ const cx=+e.dataset.cx, cy=+e.dataset.cy; e.setAttribute('transform',`translate(${dx} ${dy}) rotate(${rot||0} ${cx} ${cy}) translate(${(1-sc)*cx} ${(1-sc)*cy}) scale(${sc})`); };
+    await Promise.all(L.map(async(e,k)=>{ await wait(X.fast?0:110*k);
+      if(mode==='out'){ const dx=(k%2?1:-1)*(40+Math.random()*60), dy=330; await tween(750,p=>{ T(e,dx*p,dy*p*p,1-.3*p,(k%2?1:-1)*140*p); e.style.opacity=1-Math.max(0,p-.6)/.4; },ease.inout); e.style.opacity=0; }
+      else if(mode==='in'){ e.removeAttribute('transform'); e.style.opacity=1; await tween(420,p=>T(e,0,0,.3+.7*ease.back(p)),x=>x); e.removeAttribute('transform'); }
+      else await tween(420,p=>T(e,0,-14*Math.sin(p*Math.PI),1+.3*Math.sin(p*Math.PI)),x=>x); }));
+    L.forEach(e=>{ if(mode!=='out') e.removeAttribute('transform'); }); }
+  async function mark(o){ const cl=DS.cols[o.col], its=DS.items.filter(i=>i.c===o.col); let n=0; clearBadges();
+    for(const it of its){ const j=n; n++;
+      const rg=mk('circle',{cx:it.x,cy:it.y,r:SHAPES[cl.k]?58:52,class:'xring',stroke:'#fff','stroke-width':7,fill:'none',pathLength:'1'}); rg.style.stroke=COL[cl.color]||cl.color||'#E8443A'; Lring.append(rg);
+      const b=mk('g',{class:'xbadge'}); b.innerHTML=`<circle r="19" fill="${COL[cl.color]||cl.color||'#2A7FD8'}" stroke="#fff" stroke-width="5"/><text y="9" text-anchor="middle" style="font-size:26px">${n}</text>`; b.style.opacity=0; Lbadge.append(b); badges.push(b);
+      const snd=play((data.nums||{})[n]||null,0); snd.catch(()=>{});
+      const fx=it.x+34, fy=it.y-38, tx=DS.colX(o.col), ty=DS.cellY(j);
+      const ic=iconG(cl.k,it.x,it.y,SHAPES[cl.k]?84:78,0,false); Lact.append(ic);
+      await tween(X.fast?1:320,p=>{ rg.style.strokeDashoffset=1-p; b.style.opacity=Math.min(1,p*2); b.setAttribute('transform',`translate(${fx} ${fy}) scale(${.4+.6*ease.back(p)})`); },x=>x);
+      const mv=tween(X.fast?1:520,p=>{ const q=ease.inout(p), k=1-.28*q; ic.setAttribute('transform',`translate(${it.x+(tx-it.x)*q} ${it.y+(ty-it.y)*q-Math.sin(p*Math.PI)*60}) scale(${(SHAPES[cl.k]?84:78)/100*(1-q)+54/100*q}) translate(-50 -50)`); },x=>x);
+      await Promise.all([snd,mv,wait(380)]); }
+  }
   /* NUMBER LINE (Math 7-3): ticks 0..max with the numbers under them; d.pet = a picture standing on tick d.at; d.arrow='right' draws "Greater" arrow. Picture px: line y=130, tick i at x=50+45*i, label y=190; count pts at y=100. */
   function nlineScene(d){ const mx=d.max||20, ih=d.ih||225, X0=50, ST=900/mx; PIC={k:1}; VH=TOP+ih; SC={};
     const tag=[`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`, `<path d="M${X0-20} ${TOP+130} H${X0+900+20}" stroke="#444" stroke-width="5" stroke-linecap="round"/>`];
@@ -168,21 +225,23 @@ function mount(root, data, opt){
     Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; }
   /* CLOCK scene (Math 8-1): face with numbers; d.h = hour, d.half = 1 for half past (long hand on 6). Picture px: centre (500,215), face r 190, short hand 105 (red), long hand 150 (blue). */
   function clockScene(d){ const ih=430, cx=500, cy=215; PIC={k:1}; TOP=170; VH=TOP+ih; SC={};
-    const tag=[`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`, `<circle cx="${cx}" cy="${TOP+cy}" r="190" fill="#fffdf5" stroke="#444" stroke-width="8"/>`];
+    const tag=[`<circle cx="${cx}" cy="${TOP+cy}" r="190" fill="#fffdf5" stroke="#444" stroke-width="8"/>`];   // see-through: no white card behind the clock (Ahmed 2026-11-14)
     for(let i=0;i<60;i++){ const a=i*Math.PI/30, r1=i%5?176:164; tag.push(`<path d="M${cx+Math.sin(a)*r1} ${TOP+cy-Math.cos(a)*r1} L${cx+Math.sin(a)*184} ${TOP+cy-Math.cos(a)*184}" stroke="#444" stroke-width="${i%5?2:4}"/>`); }
-    for(let i=1;i<=12;i++){ const a=i*Math.PI/6; tag.push(`<text x="${cx+Math.sin(a)*135}" y="${TOP+cy-Math.cos(a)*135+13}" text-anchor="middle" font-size="38" font-weight="700" fill="#333">${i}</text>`); }
+    for(let i=1;i<=12;i++){ const a=i*Math.PI/6; tag.push(`<text id="xcn${i}" data-x="${cx+Math.sin(a)*135}" data-y="${TOP+cy-Math.cos(a)*135+13}" x="${cx+Math.sin(a)*135}" y="${TOP+cy-Math.cos(a)*135+13}" text-anchor="middle" font-size="38" font-weight="700" fill="#333">${i}</text>`); }
     const ha=((d.h%12)+(d.half?.5:0))*Math.PI/6, ma=d.half?Math.PI:0;
-    tag.push(`<path d="M${cx} ${TOP+cy} L${cx+Math.sin(ma)*150} ${TOP+cy-Math.cos(ma)*150}" stroke="#1E6FD0" stroke-width="10" stroke-linecap="round"/>`);
-    tag.push(`<path d="M${cx} ${TOP+cy} L${cx+Math.sin(ha)*105} ${TOP+cy-Math.cos(ha)*105}" stroke="#E5352B" stroke-width="15" stroke-linecap="round"/><circle cx="${cx}" cy="${TOP+cy}" r="12" fill="#333"/>`);
-    Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; }
+    tag.push(`<path id="xchl" d="M${cx} ${TOP+cy} L${cx+Math.sin(ma)*150} ${TOP+cy-Math.cos(ma)*150}" stroke="#1E6FD0" stroke-width="10" stroke-linecap="round"/>`);
+    tag.push(`<path id="xchs" d="M${cx} ${TOP+cy} L${cx+Math.sin(ha)*105} ${TOP+cy-Math.cos(ha)*105}" stroke="#E5352B" stroke-width="15" stroke-linecap="round"/><circle cx="${cx}" cy="${TOP+cy}" r="12" fill="#333"/>`);
+    Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; SC={clock:{h:d.h,half:d.half?1:0}}; }
   function scene(name,actors,d){
-    TOP=(name==='free'&&d&&d.top!=null)?d.top:170; IT={}; if(d&&d.wide!==undefined) root.classList.toggle('xwide',!!d.wide);
+    root.classList.toggle('xclockl',name==='clock'); TOP=(name==='free'&&d&&d.top!=null)?d.top:170;
+    const tall=name==='pic'&&d&&d.w&&d.h/d.w>1.1; if(tall) TOP=20; root.classList.toggle('xtall',!!tall);   // a tall picture (a table): no empty band above it, the picture zone gets the height, the caption sits under it (Ahmed 2026-11-14) IT={}; if(d&&d.wide!==undefined) root.classList.toggle('xwide',!!d.wide);
     if(name==='pic'&&d&&d.img){ const k=1000/d.w, ih=Math.round(d.h*k); PIC={k}; VH=TOP+ih; PICD={href:base+d.img,ih};
       Lbg.innerHTML=`<defs><clipPath id="xpc"><rect x="0" y="${TOP}" width="1000" height="${ih}" rx="22"/></clipPath></defs>
         ${d.frame===false?'':`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`}
         <image href="${base+d.img}" x="0" y="${TOP}" width="1000" height="${ih}" preserveAspectRatio="none" ${d.frame===false?'':'clip-path="url(#xpc)"'}/>`; }
     else if(name==='line'&&d){ lineScene(d); }
     else if(name==='tens'&&d){ tensScene(d); }
+    else if(name==='data'&&d){ dataScene(d); }
     else if(name==='nline'&&d){ nlineScene(d); }
     else if(name==='groups'&&d){ groupsScene(d); }
     else if(name==='clock'&&d){ clockScene(d); }
@@ -207,14 +266,21 @@ function mount(root, data, opt){
       a.g.classList.add('moving'); await tween(1300,p=>{ a.x=fx+(tx-fx)*p; a.y=fy+(ty-fy)*p; a.g.style.opacity=1-Math.max(0,p-.6)/.4; setT(a); },ease.inout); a.g.classList.remove('moving'); }));
   }
   function clearBadges(){ badges.forEach(b=>b.remove()); badges=[]; }
-  async function count(list,start,color,pts,keep,rr){
+  const cubeAt=(x,y)=>[...Lbg.querySelectorAll('.xcube')].find(c=>Math.abs(c.dataset.cx-x)<30&&Math.abs(TOP+(+y)-c.dataset.cy)<30);
+  const cubeT=(c,x,y,sc,rot)=>c.setAttribute('transform',`translate(${x} ${y}) rotate(${rot||0} ${+c.dataset.cx} ${+c.dataset.cy}) translate(${(1-sc)*c.dataset.cx} ${(1-sc)*c.dataset.cy}) scale(${sc})`);
+  /* tens scene: a counted cube that was not there yet pops in (adding: the count runs on 11, 12, 13…); with out:true it FLIES OUT of the picture (taking away) */
+  async function cubeFx(pt,b,out){ const c=cubeAt(pt[0],pt[1]); if(!c) return; const hid=c.style.opacity==='0';
+    if(out){ const dx=(+c.dataset.cx<500?-1:1)*(160+Math.random()*120), dy=-(+c.dataset.cy)-160;
+      await tween(900,p=>{ cubeT(c,dx*p,dy*p*p+(-60*Math.sin(p*Math.PI)),1-.35*p,(dx<0?-1:1)*160*p); c.style.opacity=1-Math.max(0,p-.55)/.45; if(b) b.style.opacity=1-p; },ease.inout); c.style.display='none'; if(b) b.style.opacity=0; }
+    else if(hid){ c.style.opacity=1; await tween(320,p=>cubeT(c,0,0,.3+.7*ease.back(p)),x=>x); c.removeAttribute('transform'); } }
+  async function count(list,start,color,pts,keep,rr,out){
     if(!keep) clearBadges(); let n=(start||1)-1;
     if(pts){ for(const pt of pts){ n++; const [x,y]=P(pt[0],pt[1]);   // things drawn in a book picture: the number appears on each one
       const b=mk('g',{class:'xbadge'}); const R=rr||26; b.innerHTML=`<circle r="${R}" fill="${col(color||'#2A7FD8')}" stroke="#fff" stroke-width="${R>20?5:3}"/><text y="${Math.round(R*.42)}" text-anchor="middle" ${R<26?`style="font-size:${Math.round(R*1.3)}px"`:''}>${n}</text>`;
       b.style.opacity=0; Lbadge.append(b); badges.push(b);
       const snd=play((data.nums||{})[n]||null,0); snd.catch(()=>{});
       await tween(320,p=>{ b.style.opacity=Math.min(1,p*2); b.setAttribute('transform',`translate(${x} ${y}) scale(${.4+.6*ease.back(p)})`); },x=>x);
-      await Promise.all([snd,wait(450)]); } return; }
+      const fx=PIC?cubeFx(pt,b,out):null; await Promise.all([snd,wait(450),fx]); } return; }
     for(const id of ids(list)){ n++; const a=A[id];
       const b=mk('g',{class:'xbadge',transform:`translate(${a.hx} ${a.hy-(a.kind==='fish'?52:62)})`}); b.innerHTML=`<circle r="26" fill="${col(color||'#2A7FD8')}" stroke="#fff" stroke-width="5"/><text y="11" text-anchor="middle">${n}</text>`;
       b.style.opacity=0; Lbadge.append(b); badges.push(b);
@@ -271,6 +337,12 @@ function mount(root, data, opt){
       Leq.append(g); return {g,c,x:px,op}; });
     eqState(state||'show');
   }
+  /* HEAD: the calculation to do, written LARGE at the top before it is explained ("17 - 3 ="); {head:{t:[..],slots:n}} then {head:{t:["14"],more:true}} writes the answer in its place.
+     Arabic: first number on the right. Positions are fixed by slots, so nothing moves when the answer arrives. (Ahmed 2026-11-14) */
+  let HT=[], HS=1;
+  async function head(o){ const rtl=data.lang==='ar'; if(o.slots) HS=o.slots; else if(!o.more) HS=o.t.length; const n=HS, step=130, x0=W/2-(n-1)*step/2; if(!o.more){ HT=[]; Leq.innerHTML=''; eqT=[]; }
+    const fresh=o.t.map(c=>{ const i=HT.length, px=x0+(rtl?n-1-i:i)*step, g=mk('g',{class:'xhead',transform:`translate(${px} 128)`}); g.innerHTML=`<text text-anchor="middle">${c}</text>`; g.style.opacity=0; Leq.append(g); HT.push(g); return g; });
+    await tween(450,p=>fresh.forEach(g=>g.style.opacity=p)); }
   function eqState(state){ eqT.forEach(t=>{ t.g.classList.remove('lit'); t.g.style.removeProperty('--xc'); t.g.classList.toggle('dim',state==='dim'); if(!t.op&&state==='dim') t.g.querySelector('text').textContent='?'; else t.g.querySelector('text').textContent=t.c; }); }
   async function lit(i,color,value){ const t=eqT[i]; if(!t) return; t.g.classList.remove('dim'); if(value!=null) t.c=String(value); t.g.querySelector('text').textContent=t.c;
     if(!t.op&&color){ t.g.classList.add('lit'); t.g.style.setProperty('--xc',col(color)); }   // a pulse (no colour) keeps the tile as it is
@@ -313,11 +385,11 @@ function mount(root, data, opt){
         pad.append(b); }); }).then(()=>live(g));
   }
   /* the story sentence is built under the picture, piece by piece (the same chips as the "order" question) */
-  function words(t,color,card){ cap.classList.add('built'); const out=[];
-    if(card){ const sp=hel('span','xtw xcard'); sp.textContent=t; line.append(sp,' '); out.push(sp); return out; }   // the answer + its word in one card
-    String(t).split(/\s+/).filter(Boolean).forEach(w=>{ const sp=hel('span','xtw'); sp.textContent=w; if(color){ sp.style.setProperty('--xc',col(color)); sp.classList.add('xcol'); } line.append(sp,' '); out.push(sp); });
+  function words(t,color,card,big){ cap.classList.add('built'); const out=[];
+    if(card){ const sp=hel('span','xtw xcard'+(big?' xbig':'')); sp.textContent=t; line.append(sp,' '); out.push(sp); return out; }   // the answer + its word in one card
+    String(t).split(/\s+/).filter(Boolean).forEach(w=>{ const sp=hel('span','xtw'+(big?' xbig':'')); sp.textContent=w; if(color){ sp.style.setProperty('--xc',col(color)); sp.classList.add('xcol'); } line.append(sp,' '); out.push(sp); });
     return out; }
-  async function add(t,color,card){ const ws=words(t,color,card); ws.forEach(w=>w.style.opacity=0);
+  async function add(t,color,card,big){ const ws=words(t,color,card,big); ws.forEach(w=>w.style.opacity=0); fitCap();   // big = a part of the number sentence, written LARGE under the picture as it is said
     await tween(350,p=>ws.forEach(w=>w.style.opacity=p)); }
   /* the child builds the story: the pieces lie mixed under the line; tap them in order (the next piece is taken, any other one shakes and stays) */
   function order(o){
@@ -366,25 +438,39 @@ function mount(root, data, opt){
       else { sv=mk('svg',{x:x0,y:y0,width:x1-x0,height:y1-y0,viewBox:`${sr[0]} ${sr[1]} ${sr[2]-sr[0]} ${sr[3]-sr[1]}`,preserveAspectRatio:'xMidYMid meet',overflow:'hidden'});
         sv.append(mk('image',{href:PICD.href,x:0,y:0,width:1000,height:PICD.ih,preserveAspectRatio:'none'})); } sv.style.opacity=0; sv.style.overflow='hidden'; Lring.append(sv);
       if(typeof blip==='function'&&!X.fast) blip(600,.04); await tween(X.fast?1:300,v=>{ sv.style.opacity=v; }); } }
+  /* clock hand "pop" (no boxes): the hand itself swells and the number it points to pops, twice. which = 'short' | 'long' | 'both' */
+  async function hand(which){ const c=SC&&SC.clock; if(!c) return; const set=[]; const hs=which==='long'?[]:[c.h%12||12], ln=c.half?6:12;
+    if(which!=='long'){ if(c.half) hs.push(c.h%12+1>12?1:(c.h%12)+1); }
+    const nums=[]; if(which!=='long') hs.forEach(i=>nums.push(i)); if(which!=='short') nums.push(ln);
+    const hands=[]; if(which!=='long') hands.push([Lbg.querySelector('#xchs'),15]); if(which!=='short') hands.push([Lbg.querySelector('#xchl'),10]);
+    const ts=nums.map(i=>Lbg.querySelector('#xcn'+i)).filter(Boolean);
+    await tween(X.fast?1:1500,v=>{ const k=Math.sin(Math.min(1,v)*Math.PI*2); const g=Math.max(0,k);
+      hands.forEach(([e,w])=>{ if(e) e.setAttribute('stroke-width',w*(1+.9*g)); });
+      ts.forEach(t=>{ const x=+t.dataset.x,y=+t.dataset.y-13, z=1+.55*g; t.setAttribute('transform',`translate(${x} ${y}) scale(${z}) translate(${-x} ${-y})`); });
+      if(v>=1){ hands.forEach(([e,w])=>e&&e.setAttribute('stroke-width',w)); ts.forEach(t=>t.removeAttribute('transform')); } }); }
   async function act(d){
     if(d.scene) return scene(d.scene,d.actors,d);
     if(d.move) return move(d.move,d.ms);
     if(d.guide) return guide(d.guide);
     if(d.dir) return dir(d.dir,d.color);
+    if(d.hand) return hand(d.hand);
     if(d.frame) return frame(d.frame);
     if(d.stamp) return stamp(d.stamp);
     if(d.enter) return enter(d.enter,d.from,d.gap);
     if(d.leave) return leave(d.leave,d.to,d.gap);
-    if(d.count) return count(d.count,d.start,d.color,d.pts,d.keep,d.r);
+    if(d.pop) return popIt(d.pop);
+    if(d.mark) return mark(d.mark);
+    if(d.count) return count(d.count,d.start,d.color,d.pts,d.keep,d.r,d.out);
     if(d.hold) return hold(d.hold,d.on,d.color);
     if(d.ring) return ring(d.ring,d.color,d.id,d.box,d.pts,d.r);
-    if(d.add) return add(d.add,d.color,d.card);
+    if(d.add!=null) return add(d.add,d.color,d.card,d.big);
     if(d.line) return d.line==='break'?line.append(hel('br')):(line.innerHTML='',cap.classList.remove('built'));
     if(d.unring) return unring(d.unring);
     if(d.cross) return cross(d.pts,d.r,d.color);
     if(d.link) return link(d.link,d.color,d.r,d.id);
     if(d.pick) return pick(d.pick);
     if(d.badges===false) return clearBadges();
+    if(d.head) return head(d.head);
     if(d.eq) return eq(d.eq,d.state);
     if(d.eqState) return eqState(d.eqState);
     if(d.lit!=null) return lit(d.lit,d.color,d.value);
@@ -396,12 +482,14 @@ function mount(root, data, opt){
     if(d.cheer) return cheer();
     if(d.wait) return wait(d.wait);
   }
+  /* the writing zone never overflows: if the text is too long for the (now bigger) letters, they shrink step by step until it fits */
+  function fitCap(){ cap.style.removeProperty('--xk'); let k=1; while(k>.45&&cap.scrollHeight>cap.clientHeight+2){ k-=.07; cap.style.setProperty('--xk',k.toFixed(2)); } }
   async function beat(b){
-    if(b.say!=null){ capT.textContent=data.caption===false?'':b.say; cap.classList.toggle('empty',data.caption===false||!b.say); }   // caption:false = the spoken words are NOT written, only important things (Ahmed 2026-11-12)
+    if(b.say!=null){ capT.textContent=data.caption===false?'':b.say; cap.classList.toggle('empty',data.caption===false||!b.say); fitCap(); }   // caption:false = the spoken words are NOT written, only important things (Ahmed 2026-11-12)
     const voice=b.say?play(b.audio,sayMs(b.say)):Promise.resolve();
     if(b.hl&&!X.fast){ const ws=[...line.querySelectorAll('.xtw')].slice(-b.hl.length), t0=X.vt;   // the LAST words on the line = the sentence being re-read
       b.hl.forEach(([a,e],i)=>{ const w=ws[i]; if(!w) return; X.jobs.push({at:t0+a*1000,fn:()=>w.classList.add('reading')},{at:t0+e*1000+60,fn:()=>w.classList.remove('reading')}); }); }
-    let motion=Promise.resolve(); for(const d of b.do||[]) motion=motion.then(()=>X.fast||!(d.after||d.count||d.ask||d.order||d.pick||d.hold||d.write)?act(d):voice.then(()=>act(d)));
+    let motion=Promise.resolve(); for(const d of b.do||[]) motion=motion.then(()=>X.fast||!(d.after||d.mark||d.count||d.ask||d.order||d.pick||d.hold||d.write)?act(d):voice.then(()=>act(d)));
     // actions run one after another inside a beat, while the line is said; {after:true} = wait for the line first.
     // Anything with its own sound (counting, a question) always waits for the line, so two voices never talk together.
     await Promise.all([voice,motion]); await wait(b.gap!=null?b.gap:750);

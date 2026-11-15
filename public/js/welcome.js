@@ -84,6 +84,16 @@ function wlPicker(b){ const K=kids();
   b.innerHTML=wlHead('مين اللي هيتعلم ويلعب؟','Who\'s learning and playing?')+`<div class="wl-card wl-pick">${K.map(k=>`<button class="wl-who" data-kid="${k.id}">${wlAv(k)}<b>${wlEsc(k.name)}</b></button>`).join('')}</div>`;
   $$('[data-kid]',b).forEach(x=>x.addEventListener('click',()=>{ const id=x.dataset.kid, cur=kidNow(); if(cur&&cur.id===id){ openSubjects(); pop('#subjects .top > *',{y:-20}); } else kidSwitch(id); })); }
 // the student form (stage 2, add a child, edit a child): name, grade, curriculum; لغات -> the school list
+function wlSchoolName(id){ const s=id&&CURR&&CURR.schools.find(x=>x.id===id); return s?s.ar:''; }
+// "اختر مدرسة": one button -> a popup list of the schools; "إضافة مدرسة" at the end only at registration (canAdd)
+function wlSchoolList(btn,canAdd){
+  let o=$('#schList'); if(!o){ o=el('div','overlay','<div class="rays"></div><div class="popup kidpop" role="dialog" aria-label="Choose school"></div>'); o.id='schList'; document.body.append(o); o.addEventListener('click',e=>{ if(e.target===o) o.hidden=true; }); }
+  const p=$('.kidpop',o), C=CURR||{schools:[]}, cur=(WL.pick||{}).school;
+  p.innerHTML=`<button class="rb popx" aria-label="Close">${ICON.close}</button>${wlHead('اختر مدرسة','Choose a school')}<div class="wl-chips col">${C.schools.map(s=>`<button type="button" class="pill cream wl-chip${cur===s.id?' on':''}" data-school="${s.id}">${s.ar}</button>`).join('')}${canAdd?`<button type="button" class="pill yellow wl-chip wl-addsch">${ICON.plus} إضافة مدرسة</button>`:''}</div>`;
+  $('.popx',p).addEventListener('click',()=>o.hidden=true);
+  $$('[data-school]',p).forEach(x=>x.addEventListener('click',()=>{ WL.pick={type:'private',school:x.dataset.school}; btn.textContent=wlSchoolName(x.dataset.school); btn.classList.add('on'); o.hidden=true; }));
+  const ad=$('.wl-addsch',p); if(ad) ad.addEventListener('click',()=>{ o.hidden=true; wlSchoolPop(); });
+  o.hidden=false; }
 function wlStudentHTML(ed){
   const G=(CURR&&CURR.grades)||[{id:'p1',ar:'الصف الأول الابتدائي',open:true}], C=CURR||{types:[],schools:[]}, gr=WL.grade||(ed&&ed.grade)||G[0].id, pk=WL.pick||{}, priv=pk.type==='private';
   if(WL.draft==null&&ed) WL.draft=ed.name;
@@ -91,7 +101,7 @@ function wlStudentHTML(ed){
     <label><span>اسم الطالب <small>Student's name</small></span><input name="kid" autocomplete="off" value="${wlEsc(WL.draft||'')}" required></label>
     <div class="wl-field"><span>السنة الدراسية <small>Grade</small></span><div class="wl-chips">${G.map(g=>`<button type="button" class="pill cream wl-chip${g.id===gr?' on':''}" data-grade="${g.id}"${g.open?'':' disabled'}>${g.ar}</button>`).join('')}</div></div>
     <div class="wl-field"><span>المنهج <small>Curriculum</small></span><div class="wl-chips">${C.types.map(t=>`<button type="button" class="pill cream wl-chip${pk.type===t.id?' on':''}" data-type="${t.id}"${wlTypeOn(t)||pk.type===t.id?'':' disabled'}>${wlTypeLabel(t)}${wlTypeOn(t)?'':' <small>قريبًا</small>'}</button>`).join('')}</div></div>
-    ${priv?`<div class="wl-field wl-schools2"><span class="wl-sh">اختر المدرسة لتوافق كتب المستوى الرفيع AL</span><div class="wl-chips col">${C.schools.map(s=>`<button type="button" class="pill cream wl-chip${pk.school===s.id?' on':''}" data-school="${s.id}">${s.ar}</button>`).join('')}<button type="button" class="pill yellow wl-chip wl-addsch">${ICON.plus} إضافة مدرسة</button></div></div>`:''}
+    ${priv?`<div class="wl-field wl-schools2"><span class="wl-sh">المدرسة <small>لتوافق كتب المستوى الرفيع AL</small></span><div class="wl-chips col"><button type="button" class="pill cream wl-chip wl-pickschool${pk.school?' on':''}">${wlSchoolName(pk.school)||'اختر مدرسة'}</button></div></div>`:''}
     <p class="wl-err" hidden></p>
     <button class="pill wl-big wl-go green" type="submit">${ed?'<span class="wl-ar">حفظ</span><small>Save</small>':'<span class="wl-ar">يلا نبدأ</span><small>Let\'s go</small>'}</button></form>`; }
 function wlStudentBind(b,ed){
@@ -99,8 +109,7 @@ function wlStudentBind(b,ed){
   $('input[name=kid]',b).addEventListener('input',e=>WL.draft=e.target.value);
   $$('[data-grade]',b).forEach(x=>x.addEventListener('click',()=>{ WL.grade=x.dataset.grade; $$('[data-grade]',b).forEach(y=>y.classList.toggle('on',y===x)); }));
   $$('[data-type]',b).forEach(x=>x.addEventListener('click',()=>{ WL.pick={type:x.dataset.type}; WL.draft=f.kid.value; wlDraw(); }));
-  $$('[data-school]',b).forEach(x=>x.addEventListener('click',()=>{ WL.pick={type:'private',school:x.dataset.school}; $$('[data-school]',b).forEach(y=>y.classList.toggle('on',y===x)); }));
-  const ad=$('.wl-addsch',b); if(ad) ad.addEventListener('click',()=>wlSchoolPop());
+  const ps=$('.wl-pickschool',b); if(ps) ps.addEventListener('click',()=>wlSchoolList(ps,!ed));
   f.addEventListener('submit',e=>{ e.preventDefault(); const n=f.kid.value.trim(), pk=WL.pick;
     if(!n) return wlBad(f,'kid','اكتب اسم الطالب');
     if(!pk) return wlBad(f,null,'اختار المنهج');
@@ -155,13 +164,14 @@ function kidMenu(){
   o.innerHTML=`<div class="ac-top"><button class="rb ac-back" aria-label="Back">${ICON.back}</button><h2>حسابي</h2></div>
     <div class="ac-in"><section class="ac-card"><h3>أولادي</h3><div class="ac-kids">${kids().map(k=>`<div class="ac-kid${cur&&k.id===cur.id?' on':''}"><button class="ac-pic" data-kid="${k.id}" aria-label="${wlEsc(k.name)}">${wlAv(k)}</button><button class="ac-pen" data-edit="${k.id}" aria-label="Edit ${wlEsc(k.name)}">${ICON.pencil}</button><b>${wlEsc(k.name)}</b><small>${wlEsc(gradeLabel(k.grade))}</small></div>`).join('')}
       <div class="ac-kid"><button class="ac-pic ac-add" aria-label="Add a child">${ICON.plus}</button><b>إضافة طفل</b></div></div></section>
-    <div class="arows">${wlRow('ac-prof',ACH.user,'الملف الشخصي','')}${typeof coinsOn==='function'&&coinsOn()?wlRow('wl-cred',ACH.coin,'رصيدي',CRED(coinBal())):''}${wlRow('ac-subs',ACH.card,'اشتراكاتي',subNews().length?'جديد':'')}</div></div>`;
+    <div class="arows">${wlRow('ac-prof',ACH.user,'الملف الشخصي','')}${typeof coinsOn==='function'&&coinsOn()?wlRow('wl-cred',ACH.coin,'رصيدي',CRED(coinBal())):''}${wlRow('ac-subs',ACH.card,'اشتراكاتي',subNews().length?'جديد':'')}${typeof acctExtraRows==='function'?acctExtraRows():''}</div></div>`;
   $('.ac-back',o).addEventListener('click',()=>o.hidden=true);
   $$('[data-kid]',o).forEach(b=>b.addEventListener('click',()=>{ o.hidden=true; kidSwitch(b.dataset.kid); }));
   $$('[data-edit]',o).forEach(b=>b.addEventListener('click',()=>{ o.hidden=true; openKidEdit(b.dataset.edit); }));
   $('.ac-add',o).addEventListener('click',()=>{ o.hidden=true; openWelcome(true); });
   $('.ac-prof',o).addEventListener('click',()=>coinPop(`<h2 class="outline">الملف الشخصي</h2><p class="msg-text" dir="ltr">${wlEsc(a.email||'—')}</p><p class="msg-text" dir="ltr">${wlEsc(a.phone||'—')}</p>`));
   $('.ac-subs',o).addEventListener('click',subsPage);
+  if(typeof acctExtraBind==='function') acctExtraBind(o);   // the other app's own rows (Easy Words: the report)
   const cb=$('.wl-cred',o); if(cb) cb.addEventListener('click',()=>{ creditsPage(); });   // the parent's credits (js/coins.js)
   syMenuButtons(o,()=>o.hidden=true);   // confirm the email / sign out (server only, js/sync.js)
   o.hidden=false; pop('.ac-card, .arow',{y:14});

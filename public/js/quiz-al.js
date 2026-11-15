@@ -63,12 +63,14 @@ function alExplain(box,q,s,run){
 
 /* ---------- mcq ---------- */
 function alMcq(box,q,s,run){
-  const w=el('div','almcq'+(q.pics?' haspic':'')); box.append(w);
-  if(q.pics){ const pc=el('div','alpics'); q.pics.forEach((p,k)=>{ const f=el('div','alfig'); const im=el('img','',''); im.src=p; im.alt=''; qPicFit(im,(q.picsTall||[])[k]); f.append(im); if(q.caps&&q.caps[k]){ const c=el('button','alcap',q.caps[k]); c.onclick=()=>{ vStop(); c.classList.add('lit'); qSound(alWordSrc(q.caps[k]),q.caps[k]).then(()=>c.classList.remove('lit')); }; f.append(c); } pc.append(f); }); w.append(pc); }
+  const w=el('div','almcq'+(q.pics?' haspic':'')+(q.pics&&/(^|\/)(clock|hand)-/.test(String(q.pics[0]))?' clockq':'')); box.append(w);
+  if(q.pics){ const pc=el('div','alpics'); q.pics.forEach((p,k)=>{ const f=el('div','alfig'); const im=el('img','',''); im.src=p; im.alt=''; qPicFit(im,(q.picsTall||[])[k]); im.addEventListener('load',()=>{ if(im.naturalHeight/im.naturalWidth>1.1) w.classList.add('chartq'); }); /* a tall picture = a chart/table: it gets the room, the choices get smaller (Ahmed 2026-11-14) */ f.append(im); if(q.caps&&q.caps[k]){ const c=el('button','alcap',q.caps[k]); c.onclick=()=>{ vStop(); c.classList.add('lit'); qSound(alWordSrc(q.caps[k]),q.caps[k]).then(()=>c.classList.remove('lit')); }; f.append(c); } pc.append(f); }); w.append(pc); }
   const st=el('div','alstem'); w.append(st); let blank=null;
   const sp=el('button','qsay alsp',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>{ if(!qz.busy) q.sayFn(); };
   if(q.ask){ const a=el('p','alask',''); alToks(a,q.ask); st.append(a); }
   const p=el('p','altx'); st.append(p); if(isAr()&&/^math/.test(SUBJECT.id)){ p.dir='rtl'; p.classList.add('mrtl'); }   // Arabic math: the number sentence and "الإجابة: __" read from the right (Ahmed 2026-11-14)
+  /* word problems (task "Solve the problem." / "نحل المسائل."): the number sentence is HIDDEN until the Help bulb, so the child reads and understands the story first (Ahmed 2026-11-14). Same in English and Arabic math. */
+  if(/^(Solve the problem|نحل المسائل)/.test(String(q.set.task||''))&&/\d\s*[+−\-]\s*\d\s*=/.test(String(q.stem))){ p.classList.add('eqhid'); q.eqHidden=true; }
   const word=(t,k)=>{ const sp=el('span','alw',t); sp.addEventListener('click',()=>{ hideHint(); vStop(); sp.classList.add('lit'); qSound(alWordSrc(t),alClean(t)).then(()=>sp.classList.remove('lit')); }); p.append(k?' ':'',sp); };
   String(q.stem).split(/\s+/).filter(Boolean).forEach((t,k)=>{ const m=/^([^_]*)_{2,}([^_]*)$/.exec(t);
     if(m&&!blank){ blank=el('button','alblank','<i></i>'); if(k) p.append(' '); if(m[1]) p.append(m[1]); p.append(blank); if(m[2]) p.append(m[2]); blank.addEventListener('click',()=>q.sayFn&&q.sayFn()); }
@@ -80,7 +82,7 @@ function alMcq(box,q,s,run){
     b.addEventListener('click',async()=>{ if(qz.busy||q.solved) return; hideHint();
       if(k!==q.answer){ qxBad(b); b.classList.add('bad'); setTimeout(()=>b.classList.remove('bad'),700); qSound(alWordSrc(say[k]),say[k]); return; }
       if(blank){ blank.classList.add('got'); blank.innerHTML=''; blank.textContent=o; }
-      qRing(b); $$('.alopt',ops).forEach(x=>x!==b&&x.classList.add('dim')); return qxWin(b,q,q.winMs||2300); });
+      p.classList.remove('eqhid'); q.eqHidden=false; alHandDraw(w,q,o); qRing(b); $$('.alopt',ops).forEach(x=>x!==b&&x.classList.add('dim')); return qxWin(b,q,q.winMs||2300); });
     ops.append(b); });
   q.sayFn=async()=>{ vStop(); const ps=(q.parts||[]).map(R_Q); if(q.askAudio&&!q.solved) return qSound(R_Q(q.askAudio),q.stem);   // the question; once solved, audio = the sentence WITH its answer
     if(!ps.length) return qSound(q.audio,q.word); for(let i=0;i<ps.length;i++){ if(qz.list[qz.i]!==q||q.solved) return; await qSound(ps[i],''); if(i<ps.length-1) await new Promise(z=>setTimeout(z,350)); } };
@@ -89,6 +91,12 @@ function alMcq(box,q,s,run){
 
 /* the passage is NOT read by itself (the child reads it, Marwa 2026-11-04); the small speaker AFTER the text reads it (tap while playing = stop).
    Any tap elsewhere, a slide change or a question change stops it, so two sounds never overlap. Used by cloze and underline. */
+/* "Draw the long hand" (math u8, English + Arabic): the picture (hand-H-M.svg) shows only the short hand; the right answer DRAWS the long hand where the child chose, with the short hand and the centre dot on top (Ahmed 2026-11-14). */
+function alHandDraw(w,q,o){ const m=q.pics&&/(^|\/)hand-(\d+)-(\d)\.svg/.exec(String(q.pics[0])), n=parseInt(typeof arDigitsBack==='function'?arDigitsBack(o):o,10), fg=$('.alfig',w); if(!m||!fg||!(n>=1&&n<=12)||$('.clkdraw',fg)) return;
+  const h=+m[2], half=+m[3], la=(n%12)*30*Math.PI/180, sa=((h%12)+(half?.5:0))*30*Math.PI/180, pt=(a,r)=>`${(150+Math.sin(a)*r).toFixed(1)} ${(150-Math.cos(a)*r).toFixed(1)}`;
+  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg'); svg.setAttribute('viewBox','0 0 300 300'); svg.setAttribute('class','clkdraw');
+  svg.innerHTML=`<path d="M150 150 L${pt(la,112)}" stroke="#1E6FD0" stroke-width="7" stroke-linecap="round"/><path d="M150 150 L${pt(sa,76)}" stroke="#E5352B" stroke-width="10" stroke-linecap="round"/><circle cx="150" cy="150" r="9" fill="#333"/>`;
+  fg.append(svg); svg.style.opacity=0; requestAnimationFrame(()=>{ svg.style.transition='opacity .35s'; svg.style.opacity=1; }); }
 function alReplay(box,txt,q){
   const rp=el('button','qsay alsp alreplay',SAY_LN); rp.setAttribute('aria-label','Listen'); txt.append(' ',rp); let pt=0;
   const stopP=()=>{ pt++; vStop(); rp.classList.remove('on'); };
@@ -170,7 +178,10 @@ function alCheck(box,q,s,run){
 }
 
 QM.explain={sheet:'box', own:1, draw:alExplain};
-QM.mcq={sheet:'box', own:1, draw:alMcq, help:(q,w)=>[$$('.alopt',w)[q.answer]]};
+QM.mcq={sheet:'box', own:1, draw:alMcq, help:(q,w)=>[$$('.alopt',w)[q.answer]],
+  // a hidden number sentence (word problem): the first Help shows it; the next Help lights the right answer as usual
+  peek:(q,w)=>{ const t=$('.altx.eqhid',w); if(t){ t.classList.remove('eqhid'); q.eqHidden=false; return; }
+    const e=$$('.alopt',w)[q.answer]; if(!e) return; e.classList.remove('qhl'); void e.offsetWidth; e.classList.add('qhl'); setTimeout(()=>e.classList.remove('qhl'),2000); }};
 QM.cloze={sheet:'box', own:1, draw:alCloze, help:(q,w)=>{ const bl=$$('.alblank',w).find(b=>!b.classList.contains('got')); if(!bl) return []; const a=String((q.text.match(/\[\[(.+?)\]\]/g)||[])[+bl.dataset.n]||'').replace(/\[|\]/g,''); return $$('.alchip:not(.used)',w).filter(x=>x.textContent.toLowerCase()===a.toLowerCase()).slice(0,1); }};
 QM.underline={sheet:'box', own:1, draw:alUnderline, help:(q,w)=>$$('.alans:not(.right)',w).slice(0,1)};
 QM.order={sheet:'box', own:1, draw:alOrder, help:(q,w)=>{ const k=$$('.placed',w).length; return $$('.alpool .alchip',w).filter(x=>!x.classList.contains('used')&&x.textContent===q.chunks[k]).slice(0,1); }};

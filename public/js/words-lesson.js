@@ -28,7 +28,7 @@ function ewTitle(L,s){
 // open a prepared lesson object (a real lesson, or a made-up one of words picked from many lessons)
 function ewEnter(L,at){
   stopVoice(); LESSON=L; player.bufs={}; player.ready=null; rd.page=1; rd.done={}; rd.halted=false; rd.hold=false; vs.i=Math.max(0,Math.min(at||0,L.vocab.length-1));
-  const s=ewSubjOf(L.vocab[0]?L.vocab[0].lid:L.id)||SUBJECT; SUBJECT=s; show('lesson');
+  const s=ewSubjOf(L.vocab[0]?L.vocab[0].lid:L.id)||SUBJECT; SUBJECT=s; show('lesson'); $('#lesson').classList.toggle('ewtest',L.epSrc==='test');   // a test has no tabs
   $('#lessonMeta').textContent=L.virtual?'Easy Words':EW_SUBJ[s.id].name; $('#lessonTitle').textContent=ewTitle(L,s);
   $('#lessonTitle').dir=L.virtual||EW_SUBJ[s.id].lang==='ar'?'rtl':'ltr';
   switchTab(L.startTab||'words'); fitTitle(); pop('.l-head > *',{y:-20}); pop('.tabs .tab',{y:30,delay:.1});

@@ -120,7 +120,8 @@
      "audio": "../../syl-ar/637-652.mp3"
     }
    ],
-   "har": "fatha"
+   "har": "fatha",
+   "school": "nour-el-ilm"
   },
   {
    "word": "ضَبْع",
@@ -162,6 +163,46 @@
     {
      "t": "ة",
      "audio": "../../syl-ar/629.mp3"
+    }
+   ],
+   "har": "fatha"
+  },
+  {
+   "word": "أَخْضَر",
+   "img": "../../pics/ar-paint-green.png",
+   "audio": {
+    "word": "../u1l9/words/akhdar.mp3"
+   },
+   "parts": [
+    {
+     "t": "أَخْ",
+     "audio": "../../syl-ar/623-64e-62e-652.mp3"
+    },
+    {
+     "t": "ضَ",
+     "audio": "../../syl-ar/636-64e.mp3"
+    },
+    {
+     "t": "ر",
+     "audio": "../../syl-ar/631-652.mp3"
+    }
+   ],
+   "har": "fatha"
+  },
+  {
+   "word": "ضَوْء",
+   "img": "../../pics/ar-light.png",
+   "audio": {
+    "word": "words/daw.mp3"
+   },
+   "parts": [
+    {
+     "t": "ضَوْ",
+     "audio": "../../syl-ar/636-64e-648-652.mp3"
+    },
+    {
+     "t": "ء",
+     "audio": "../../syl-ar/621-652.mp3"
     }
    ],
    "har": "fatha"
@@ -230,6 +271,29 @@
      "audio": "../../syl-ar/637-652.mp3"
     }
    ],
+   "har": "damma",
+   "school": "nour-el-ilm"
+  },
+  {
+   "word": "ضُرُوس",
+   "img": "../../pics/ar-molars.png",
+   "audio": {
+    "word": "words/durus.mp3"
+   },
+   "parts": [
+    {
+     "t": "ضُ",
+     "audio": "../../syl-ar/636-64f.mp3"
+    },
+    {
+     "t": "رُو",
+     "audio": "../../syl-ar/631-64f-648.mp3"
+    },
+    {
+     "t": "س",
+     "audio": "../../syl-ar/633-652.mp3"
+    }
+   ],
    "har": "damma"
   },
   {
@@ -266,7 +330,8 @@
      "audio": "../../syl-ar/639-652.mp3"
     }
    ],
-   "har": "kasra"
+   "har": "kasra",
+   "school": "nour-el-ilm"
   },
   {
    "word": "ضِبَاع",
@@ -355,7 +420,44 @@
     },
     {
      "t": "ء",
-     "audio": "../../syl-ar/621.mp3"
+     "audio": "../../syl-ar/621-652.mp3"
+    }
+   ],
+   "har": "sukoon",
+   "school": "nour-el-ilm"
+  },
+  {
+   "word": "بَيْض",
+   "img": "../../pics/eggs.png",
+   "audio": {
+    "word": "../u1l4/words/bayd.mp3"
+   },
+   "parts": [
+    {
+     "t": "بَيْ",
+     "audio": "../../syl-ar/628-64e-64a-652.mp3"
+    },
+    {
+     "t": "ض",
+     "audio": "../../syl-ar/636-652.mp3"
+    }
+   ],
+   "har": "sukoon"
+  },
+  {
+   "word": "حَوْض",
+   "img": "../../pics/ar-sink.png",
+   "audio": {
+    "word": "../u1l6/words/hawd.mp3"
+   },
+   "parts": [
+    {
+     "t": "حَوْ",
+     "audio": "../../syl-ar/62d-64e-648-652.mp3"
+    },
+    {
+     "t": "ض",
+     "audio": "../../syl-ar/636-652.mp3"
     }
    ],
    "har": "sukoon"

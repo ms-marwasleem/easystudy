@@ -39,7 +39,8 @@
        {
         "scene": "tens",
         "n": 13,
-        "wide": true
+        "wide": true,
+        "show": 10
        },
        {
         "frame": {
@@ -51,12 +52,26 @@
          ],
          "color": "green"
         }
+       },
+       {
+        "add": "10",
+        "big": true
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/4854ee954a.mp3"
      },
      {
       "say": "نجمع ثلاثة.",
       "do": [
+       {
+        "add": "+",
+        "big": true
+       },
+       {
+        "add": "3",
+        "big": true,
+        "color": "orange"
+       },
        {
         "count": true,
         "pts": [
@@ -74,20 +89,27 @@
          ]
         ],
         "color": "orange",
-        "r": 24
+        "r": 24,
+        "start": 11
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/33d7052cd1.mp3"
      },
      {
       "say": "عشرة وثلاثة يكوّنان ثلاثة عشر.",
       "do": [
        {
-        "add": "10 + 3 = 13",
-        "card": true,
-        "color": "green"
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "13",
+        "big": true,
+        "card": true
        }
       ],
-      "gap": 1200
+      "gap": 1200,
+      "audio": "../../math-ar-audio/c836ae062a.mp3"
      }
     ]
    },
@@ -100,7 +122,8 @@
        {
         "scene": "tens",
         "n": 18,
-        "wide": true
+        "wide": true,
+        "show": 10
        },
        {
         "frame": {
@@ -112,12 +135,26 @@
          ],
          "color": "green"
         }
+       },
+       {
+        "add": "10",
+        "big": true
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/4854ee954a.mp3"
      },
      {
       "say": "نجمع ثمانية.",
       "do": [
+       {
+        "add": "+",
+        "big": true
+       },
+       {
+        "add": "8",
+        "big": true,
+        "color": "orange"
+       },
        {
         "count": true,
         "pts": [
@@ -155,20 +192,27 @@
          ]
         ],
         "color": "orange",
-        "r": 24
+        "r": 24,
+        "start": 11
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/6e4f58b32d.mp3"
      },
      {
       "say": "عشرة وثمانية يكوّنان ثمانية عشر.",
       "do": [
        {
-        "add": "10 + 8 = 18",
-        "card": true,
-        "color": "green"
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "18",
+        "big": true,
+        "card": true
        }
       ],
-      "gap": 1200
+      "gap": 1200,
+      "audio": "../../math-ar-audio/af46d57457.mp3"
      }
     ]
    },
@@ -193,8 +237,24 @@
          ],
          "color": "green"
         }
+       },
+       {
+        "add": "13",
+        "big": true
+       },
+       {
+        "wait": 1300
+       },
+       {
+        "add": "-",
+        "big": true
+       },
+       {
+        "add": "3",
+        "big": true
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/46d0697b12.mp3"
      },
      {
       "do": [
@@ -215,7 +275,8 @@
          ]
         ],
         "color": "red",
-        "r": 24
+        "r": 24,
+        "out": true
        }
       ]
      },
@@ -223,12 +284,17 @@
       "say": "يبقى عشرة.",
       "do": [
        {
-        "add": "13 - 3 = 10",
-        "card": true,
-        "color": "green"
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "10",
+        "big": true,
+        "card": true
        }
       ],
-      "gap": 1200
+      "gap": 1200,
+      "audio": "../../math-ar-audio/215bea1e16.mp3"
      }
     ]
    },
@@ -253,8 +319,24 @@
          ],
          "color": "green"
         }
+       },
+       {
+        "add": "17",
+        "big": true
+       },
+       {
+        "wait": 1300
+       },
+       {
+        "add": "-",
+        "big": true
+       },
+       {
+        "add": "7",
+        "big": true
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/cbd234b25f.mp3"
      },
      {
       "do": [
@@ -291,7 +373,8 @@
          ]
         ],
         "color": "red",
-        "r": 24
+        "r": 24,
+        "out": true
        }
       ]
      },
@@ -299,12 +382,17 @@
       "say": "يبقى عشرة.",
       "do": [
        {
-        "add": "17 - 7 = 10",
-        "card": true,
-        "color": "green"
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "10",
+        "big": true,
+        "card": true
        }
       ],
-      "gap": 1200
+      "gap": 1200,
+      "audio": "../../math-ar-audio/215bea1e16.mp3"
      }
     ]
    },
@@ -329,8 +417,24 @@
          ],
          "color": "green"
         }
+       },
+       {
+        "add": "14",
+        "big": true
+       },
+       {
+        "wait": 1300
+       },
+       {
+        "add": "-",
+        "big": true
+       },
+       {
+        "add": "4",
+        "big": true
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/60c4a33566.mp3"
      },
      {
       "do": [
@@ -355,7 +459,8 @@
          ]
         ],
         "color": "red",
-        "r": 24
+        "r": 24,
+        "out": true
        }
       ]
      },
@@ -363,12 +468,17 @@
       "say": "يبقى عشرة.",
       "do": [
        {
-        "add": "14 - 4 = 10",
-        "card": true,
-        "color": "green"
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "10",
+        "big": true,
+        "card": true
        }
       ],
-      "gap": 1200
+      "gap": 1200,
+      "audio": "../../math-ar-audio/215bea1e16.mp3"
      }
     ]
    }

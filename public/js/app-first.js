@@ -1,4 +1,4 @@
-const APP_BUILD='9e7709686f';
+const APP_BUILD='0789611b29';
 /* MADE BY tools/build-app.py from the files named below. Do not edit here: edit those files, then run the script again. */
 /* ===== js/core.js ===== */
 // Arabic-Indic (٠-٩) and Eastern Persian (۰-۹) digits typed anywhere count as Western digits: one helper, applied to every text box before any answer check
@@ -559,6 +559,9 @@ function currPlan(p){
   return {type:ty, school:sc||null, subjects:[...ty.subjects,...((sc&&sc.subjects)||[])], books:new Set([...ty.books,...((sc&&sc.books)||[])])};
 }
 let PLAN=null;
+// the private school of the child (null for general / experimental). A vocab word tagged "school":"<id>" (a word that exists only in that school's booklet, Ahmed 2026-11-15) shows only for a child of that school; untagged words = the ministry curriculum, for everyone.
+function currSchoolId(){ try{ if(PLAN&&PLAN.school) return PLAN.school.id; const k=typeof kidNow==='function'&&kidNow(), c=(k&&k.curr)||currPick(); return (c&&c.school)||null; }catch(e){ return null; } }
+const vocabFor=list=>(list||[]).filter(v=>v&&(!v.school||v.school===currSchoolId()));
 const bookOn=k=>!PLAN||PLAN.books.has(k);
 const tabOn=t=>bookOn(TAB_BOOK[t]||'school');
 const currTabs=ts=>ts&&ts.filter(tabOn);
@@ -612,7 +615,7 @@ function apiTake(r){ if(!r) return; if(r.wallet) walletSave(r.wallet); if(r.unlo
 // the referral: a link shared by a parent ends in ?r=<code>; it is kept on this device (es.ref) and the accounts code sends it with the sign-up
 try{ const r=new URLSearchParams(location.search).get('r'); if(r&&!localStorage.getItem('es.ref')) localStorage.setItem('es.ref',JSON.stringify({code:r,at:Date.now()})); }catch(e){}
 const refCode=()=>(cGet('es.ref',null)||{}).code||null;
-const ESET_P=get('data/settings.json').catch(()=>null).then(async d=>{
+const ESET_P=get(typeof SETTINGS_FILE!=='undefined'?SETTINGS_FILE:'data/settings.json').catch(()=>null).then(async d=>{
   ESET=d||ESET;   // no device copy: the real settings come from the server below
   if(ESET.api){ const s=await apiCall('/settings'); if(s&&s.coins) ESET={...s,api:ESET.api,whatsapp:s.whatsapp||ESET.whatsapp,adminEmail:s.adminEmail||ESET.adminEmail}; apiTake(await apiCall('/wallet'+(coinChild()?'?child='+encodeURIComponent(coinChild()):''))); }
   ESET.items=ESET.items||{}; ESET.coins=ESET.coins||{shares:[]};
@@ -729,8 +732,8 @@ function shareLink(){ const u=CS().shareUrl||location.origin+location.pathname.r
 // ONE share button (Ahmed 2026-11-11): the device share sheet; no sheet (desktop) = copy the link. Any share = 1 credit, at most dailyCap (20) shares a day.
 let COPIED=false;
 function shareOpen(){
-  const url=shareLink(), text=CS().shareText||'EasyStudy'; COPIED=false;
-  if(navigator.share) return navigator.share({title:'EasyStudy',text,url}).catch(()=>{});
+  const url=shareLink(), text=CS().shareText||CS().appName||'EasyStudy'; COPIED=false;
+  if(navigator.share) return navigator.share({title:CS().appName||'EasyStudy',text,url}).catch(()=>{});
   try{ navigator.clipboard.writeText(text+' '+url); }catch(x){} COPIED=true; }
 // how many credits one share pays now (0 = today's cap of shares is reached)
 function sharePays(w){ const C=CS(), per=C.shareCoins!=null?+C.shareCoins:1, cap=C.dailyCap!=null?+C.dailyCap:20, day=new Date().toDateString(),
@@ -792,7 +795,7 @@ function creditsPage(){ parentGate(()=>{
   const dt=at=>{ try{ return new Date(at).toLocaleDateString(isAr()?'ar-EG':'en-GB',{day:'numeric',month:'short'}); }catch(e){ return ''; } };
   coinPop(`<h2 class="outline">${CT('رصيدي','My credits')}</h2>
     <div class="cstats"><div><b>${num(w.bal)}</b><small>${CT('الرصيد','Balance')}</small></div><div class="g"><b>${num(sh)}</b><small>${CT('من المشاركة','From shares')}</small></div><div class="y"><b>${num(inv)}</b><small>${CT('من الدعوات','From invites')}</small></div></div>
-    <div class="cinfo"><b>${CT('محتاج رصيد؟','Need credits?')}</b> ${CT(`شارك التطبيق (+٣ أو +٥ لكل مشاركة)${R.on?`، ولما ولي أمر جديد يسجل من رابطك تاخد +${num(R.coins||0)}`:''}.`,`Share the app (+3 or +5 a share)${R.on?`; when a new parent registers from your link you get +${R.coins||0}`:''}.`)}
+    <div class="cinfo"><b>${CT('محتاج رصيد؟','Need credits?')}</b> ${CT(`شارك التطبيق (+${num(+CS().shareCoins||1)} لكل مشاركة)${R.on?`، ولما ولي أمر جديد يسجل من رابطك تاخد +${num(R.coins||0)}`:''}.`,`Share the app (+${num(+CS().shareCoins||1)} a share)${R.on?`; when a new parent registers from your link you get +${R.coins||0}`:''}.`)}
       <button class="pill green" data-share>${CT('شارك التطبيق','Share the app')}</button></div>
     <h3 class="chh">${CT('السجل','History')}</h3>
     <div class="chist">${H.slice().reverse().map(h=>`<div class="crow"><span class="cpm ${h.n<0?'m':'p'}">${h.n<0?'−':'+'}</span><span class="cn"><b>${typeof wlEsc==="function"?wlEsc(histName(h)):histName(h)}</b><small>${dt(h.at)}</small></span><span class="ca ${h.n<0?'m':'p'}" dir="ltr">${h.n<0?'-':'+'}${num(Math.abs(h.n))}</span></div>`).join('')||`<p class="cnote">${CT('لسه مفيش حاجة','Nothing yet')}</p>`}</div>`, pp=>{
@@ -1054,6 +1057,16 @@ function wlPicker(b){ const K=kids();
   b.innerHTML=wlHead('مين اللي هيتعلم ويلعب؟','Who\'s learning and playing?')+`<div class="wl-card wl-pick">${K.map(k=>`<button class="wl-who" data-kid="${k.id}">${wlAv(k)}<b>${wlEsc(k.name)}</b></button>`).join('')}</div>`;
   $$('[data-kid]',b).forEach(x=>x.addEventListener('click',()=>{ const id=x.dataset.kid, cur=kidNow(); if(cur&&cur.id===id){ openSubjects(); pop('#subjects .top > *',{y:-20}); } else kidSwitch(id); })); }
 // the student form (stage 2, add a child, edit a child): name, grade, curriculum; لغات -> the school list
+function wlSchoolName(id){ const s=id&&CURR&&CURR.schools.find(x=>x.id===id); return s?s.ar:''; }
+// "اختر مدرسة": one button -> a popup list of the schools; "إضافة مدرسة" at the end only at registration (canAdd)
+function wlSchoolList(btn,canAdd){
+  let o=$('#schList'); if(!o){ o=el('div','overlay','<div class="rays"></div><div class="popup kidpop" role="dialog" aria-label="Choose school"></div>'); o.id='schList'; document.body.append(o); o.addEventListener('click',e=>{ if(e.target===o) o.hidden=true; }); }
+  const p=$('.kidpop',o), C=CURR||{schools:[]}, cur=(WL.pick||{}).school;
+  p.innerHTML=`<button class="rb popx" aria-label="Close">${ICON.close}</button>${wlHead('اختر مدرسة','Choose a school')}<div class="wl-chips col">${C.schools.map(s=>`<button type="button" class="pill cream wl-chip${cur===s.id?' on':''}" data-school="${s.id}">${s.ar}</button>`).join('')}${canAdd?`<button type="button" class="pill yellow wl-chip wl-addsch">${ICON.plus} إضافة مدرسة</button>`:''}</div>`;
+  $('.popx',p).addEventListener('click',()=>o.hidden=true);
+  $$('[data-school]',p).forEach(x=>x.addEventListener('click',()=>{ WL.pick={type:'private',school:x.dataset.school}; btn.textContent=wlSchoolName(x.dataset.school); btn.classList.add('on'); o.hidden=true; }));
+  const ad=$('.wl-addsch',p); if(ad) ad.addEventListener('click',()=>{ o.hidden=true; wlSchoolPop(); });
+  o.hidden=false; }
 function wlStudentHTML(ed){
   const G=(CURR&&CURR.grades)||[{id:'p1',ar:'الصف الأول الابتدائي',open:true}], C=CURR||{types:[],schools:[]}, gr=WL.grade||(ed&&ed.grade)||G[0].id, pk=WL.pick||{}, priv=pk.type==='private';
   if(WL.draft==null&&ed) WL.draft=ed.name;
@@ -1061,7 +1074,7 @@ function wlStudentHTML(ed){
     <label><span>اسم الطالب <small>Student's name</small></span><input name="kid" autocomplete="off" value="${wlEsc(WL.draft||'')}" required></label>
     <div class="wl-field"><span>السنة الدراسية <small>Grade</small></span><div class="wl-chips">${G.map(g=>`<button type="button" class="pill cream wl-chip${g.id===gr?' on':''}" data-grade="${g.id}"${g.open?'':' disabled'}>${g.ar}</button>`).join('')}</div></div>
     <div class="wl-field"><span>المنهج <small>Curriculum</small></span><div class="wl-chips">${C.types.map(t=>`<button type="button" class="pill cream wl-chip${pk.type===t.id?' on':''}" data-type="${t.id}"${wlTypeOn(t)||pk.type===t.id?'':' disabled'}>${wlTypeLabel(t)}${wlTypeOn(t)?'':' <small>قريبًا</small>'}</button>`).join('')}</div></div>
-    ${priv?`<div class="wl-field wl-schools2"><span class="wl-sh">اختر المدرسة لتوافق كتب المستوى الرفيع AL</span><div class="wl-chips col">${C.schools.map(s=>`<button type="button" class="pill cream wl-chip${pk.school===s.id?' on':''}" data-school="${s.id}">${s.ar}</button>`).join('')}<button type="button" class="pill yellow wl-chip wl-addsch">${ICON.plus} إضافة مدرسة</button></div></div>`:''}
+    ${priv?`<div class="wl-field wl-schools2"><span class="wl-sh">المدرسة <small>لتوافق كتب المستوى الرفيع AL</small></span><div class="wl-chips col"><button type="button" class="pill cream wl-chip wl-pickschool${pk.school?' on':''}">${wlSchoolName(pk.school)||'اختر مدرسة'}</button></div></div>`:''}
     <p class="wl-err" hidden></p>
     <button class="pill wl-big wl-go green" type="submit">${ed?'<span class="wl-ar">حفظ</span><small>Save</small>':'<span class="wl-ar">يلا نبدأ</span><small>Let\'s go</small>'}</button></form>`; }
 function wlStudentBind(b,ed){
@@ -1069,8 +1082,7 @@ function wlStudentBind(b,ed){
   $('input[name=kid]',b).addEventListener('input',e=>WL.draft=e.target.value);
   $$('[data-grade]',b).forEach(x=>x.addEventListener('click',()=>{ WL.grade=x.dataset.grade; $$('[data-grade]',b).forEach(y=>y.classList.toggle('on',y===x)); }));
   $$('[data-type]',b).forEach(x=>x.addEventListener('click',()=>{ WL.pick={type:x.dataset.type}; WL.draft=f.kid.value; wlDraw(); }));
-  $$('[data-school]',b).forEach(x=>x.addEventListener('click',()=>{ WL.pick={type:'private',school:x.dataset.school}; $$('[data-school]',b).forEach(y=>y.classList.toggle('on',y===x)); }));
-  const ad=$('.wl-addsch',b); if(ad) ad.addEventListener('click',()=>wlSchoolPop());
+  const ps=$('.wl-pickschool',b); if(ps) ps.addEventListener('click',()=>wlSchoolList(ps,!ed));
   f.addEventListener('submit',e=>{ e.preventDefault(); const n=f.kid.value.trim(), pk=WL.pick;
     if(!n) return wlBad(f,'kid','اكتب اسم الطالب');
     if(!pk) return wlBad(f,null,'اختار المنهج');
@@ -1125,13 +1137,14 @@ function kidMenu(){
   o.innerHTML=`<div class="ac-top"><button class="rb ac-back" aria-label="Back">${ICON.back}</button><h2>حسابي</h2></div>
     <div class="ac-in"><section class="ac-card"><h3>أولادي</h3><div class="ac-kids">${kids().map(k=>`<div class="ac-kid${cur&&k.id===cur.id?' on':''}"><button class="ac-pic" data-kid="${k.id}" aria-label="${wlEsc(k.name)}">${wlAv(k)}</button><button class="ac-pen" data-edit="${k.id}" aria-label="Edit ${wlEsc(k.name)}">${ICON.pencil}</button><b>${wlEsc(k.name)}</b><small>${wlEsc(gradeLabel(k.grade))}</small></div>`).join('')}
       <div class="ac-kid"><button class="ac-pic ac-add" aria-label="Add a child">${ICON.plus}</button><b>إضافة طفل</b></div></div></section>
-    <div class="arows">${wlRow('ac-prof',ACH.user,'الملف الشخصي','')}${typeof coinsOn==='function'&&coinsOn()?wlRow('wl-cred',ACH.coin,'رصيدي',CRED(coinBal())):''}${wlRow('ac-subs',ACH.card,'اشتراكاتي',subNews().length?'جديد':'')}</div></div>`;
+    <div class="arows">${wlRow('ac-prof',ACH.user,'الملف الشخصي','')}${typeof coinsOn==='function'&&coinsOn()?wlRow('wl-cred',ACH.coin,'رصيدي',CRED(coinBal())):''}${wlRow('ac-subs',ACH.card,'اشتراكاتي',subNews().length?'جديد':'')}${typeof acctExtraRows==='function'?acctExtraRows():''}</div></div>`;
   $('.ac-back',o).addEventListener('click',()=>o.hidden=true);
   $$('[data-kid]',o).forEach(b=>b.addEventListener('click',()=>{ o.hidden=true; kidSwitch(b.dataset.kid); }));
   $$('[data-edit]',o).forEach(b=>b.addEventListener('click',()=>{ o.hidden=true; openKidEdit(b.dataset.edit); }));
   $('.ac-add',o).addEventListener('click',()=>{ o.hidden=true; openWelcome(true); });
   $('.ac-prof',o).addEventListener('click',()=>coinPop(`<h2 class="outline">الملف الشخصي</h2><p class="msg-text" dir="ltr">${wlEsc(a.email||'—')}</p><p class="msg-text" dir="ltr">${wlEsc(a.phone||'—')}</p>`));
   $('.ac-subs',o).addEventListener('click',subsPage);
+  if(typeof acctExtraBind==='function') acctExtraBind(o);   // the other app's own rows (Easy Words: the report)
   const cb=$('.wl-cred',o); if(cb) cb.addEventListener('click',()=>{ creditsPage(); });   // the parent's credits (js/coins.js)
   syMenuButtons(o,()=>o.hidden=true);   // confirm the email / sign out (server only, js/sync.js)
   o.hidden=false; pop('.ac-card, .arow',{y:14});

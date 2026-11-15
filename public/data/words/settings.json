@@ -1,0 +1,43 @@
+{
+ "_note": "Easy Words settings (own copy; the Easy Words dashboard saves its own on the Easy Words server). Same shape as data/settings.json.",
+ "coins": {
+  "enabled": false,
+  "lessonCost": 3,
+  "dailyCap": 20,
+  "parentGate": true,
+  "shareText": "تطبيق Easy Words لحفظ كلمات المنهج بالألعاب لأولادنا، جربوه:",
+  "shareUrl": "https://easywords.marwasleem.workers.dev",
+  "referral": {
+   "on": true,
+   "coins": 15,
+   "_note": "needs the server (api): coins to the sharer when a NEW parent registers from their link, ON TOP of the coins for each share (Marwa 2026-11-05: we want more shares)"
+  },
+  "_marwa": "2026-11-05: sign-up gift 5 coins; personal shares 3 (WhatsApp, Messenger, own Facebook profile), groups 5 (WhatsApp / Facebook groups)",
+  "shareMinSec": 8,
+  "_shareCheck": "Marwa 2026-11-05: credits only when the app really leaves after the share tap (WhatsApp/Facebook opened) and comes back after at least shareMinSec seconds",
+  "shareCoins": 1,
+  "appName": "Easy Words"
+ },
+ "access": {
+  "free": {
+   "mode": "first",
+   "count": 1,
+   "list": [],
+   "_marwa": "2026-11-11: free trial = first lesson of each subject (unit 1); count per subject in the dashboard (per)",
+   "_modes": "first = first <count> lessons of every subject; firstUnit = first <count> units of every subject; pick = the child picks <count> lessons anywhere; pickUnit = the child picks <count> whole units; list = only the lessons / units in list",
+   "per": {}
+  }
+ },
+ "items": {},
+ "api": "/api",
+ "whatsapp": "",
+ "adminEmail": "",
+ "_api": "the server address, e.g. \"/api\" once the Worker is live; empty = everything stays on this device",
+ "subs": {
+  "on": false,
+  "name": "",
+  "link": "",
+  "prices": {}
+ },
+ "promoOn": true
+}

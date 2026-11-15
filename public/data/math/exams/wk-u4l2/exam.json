@@ -1,0 +1,177 @@
+{
+ "title": "Weekly Assessment",
+ "ratio": 0.707,
+ "pages": [
+  {
+   "title": "Model A",
+   "chip": "A",
+   "group": "A",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "5 - 1 = .........",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "3",
+        "6",
+        "4",
+        "10"
+       ],
+       "answer": 2,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "6 - 3 = [[3:wide]]....",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "There are five balloons. Three of them flew away. How many balloons are left? [[2:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "There are four cars. One of them moved. How many cars are left? [[3:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "Rana picked 6 red flowers and gave her sister 2 flowers. How many flowers does she have left? [[4:wide]]",
+     "body": []
+    }
+   ]
+  },
+  {
+   "title": "Model B",
+   "chip": "B",
+   "group": "B",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "6 - 2 = .........",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "4",
+        "6",
+        "8",
+        "10"
+       ],
+       "answer": 0,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "10 - 3 = [[7:wide]]....",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "There are three oranges. I ate one. How many oranges are left? [[2:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "I have 3 flowers. I gave 2 flowers to my friend. How many flowers do I have left? [[1:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "There are 5 books. 3 of them were sold. How many books are remaining? [[2:wide]]",
+     "body": []
+    }
+   ]
+  },
+  {
+   "title": "Model C",
+   "chip": "C",
+   "group": "C",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "8 - 2 = .........",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "1",
+        "6",
+        "8",
+        "10"
+       ],
+       "answer": 1,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "10 - 4 = [[6:wide]]....",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "There are 4 birds. 3 of them flew away. How many birds are left? [[1:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "I have three pieces of candy. My brother ate two pieces. How many pieces of candy are left? [[1:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "There are 7 books. 4 of them were sold. How many books are left? [[3:wide]]",
+     "body": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,177 @@
+{
+ "title": "Weekly Assessment",
+ "ratio": 0.707,
+ "pages": [
+  {
+   "title": "Model A",
+   "chip": "A",
+   "group": "A",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number 7 and the number..... make 10",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "1",
+        "2",
+        "3",
+        "4"
+       ],
+       "answer": 2,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "The number 8 is bigger than[[<8:wide]]...",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Write a number bigger than 0 [[>0:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Write two numbers that make 10, one of them is 2 [[8:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "Write a number smaller than 5 [[<5:wide]]",
+     "body": []
+    }
+   ]
+  },
+  {
+   "title": "Model B",
+   "chip": "B",
+   "group": "B",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number 4 and the number..... make 10",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "5",
+        "6",
+        "7",
+        "4"
+       ],
+       "answer": 1,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "The number 7 is smaller than[[>7:wide]]...",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Write a number smaller than 1 [[<1:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Write two numbers that make 10, one of them is 7 [[3:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "Write a number bigger than 4 [[>4:wide]]",
+     "body": []
+    }
+   ]
+  },
+  {
+   "title": "Model C",
+   "chip": "C",
+   "group": "C",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number ........... is smaller than 1",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "zero",
+        "1",
+        "2",
+        "3"
+       ],
+       "answer": 0,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "The number 7 is bigger than[[<7:wide]]...",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Write a number bigger than 5 [[>5:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Write two numbers that make 10, one of them is 1 [[9:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "Write two numbers that make 10, one of them is 3 [[7:wide]]",
+     "body": []
+    }
+   ]
+  }
+ ]
+}

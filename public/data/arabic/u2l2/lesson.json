@@ -143,91 +143,35 @@
  },
  "vocab": [
   {
-   "word": "سَعِيدَةٌ",
-   "img": "scene.jpg",
+   "word": "الْأُسُود",
+   "img": "../../pics/ar-lion.png",
    "audio": {
-    "word": "words/saida.mp3"
+    "word": "words/usud.mp3"
    },
    "parts": [
     {
-     "t": "سَ",
-     "audio": "../../syl-ar/633-64e.mp3"
+     "t": "الْ",
+     "audio": "../../syl-ar/627-644-652.mp3"
     },
     {
-     "t": "عِي",
-     "audio": "../../syl-ar/639-650-64a.mp3"
+     "t": "أُ",
+     "audio": "../../syl-ar/623-64f.mp3"
     },
     {
-     "t": "دَ",
-     "audio": "../../syl-ar/62f-64e.mp3"
+     "t": "سُو",
+     "audio": "../../syl-ar/633-64f-648.mp3"
     },
     {
-     "t": "ةٌ",
-     "audio": "../../syl-ar/629-64c.mp3"
+     "t": "د",
+     "audio": "../../syl-ar/62f-652.mp3"
     }
    ],
-   "ar": "مَعْنَاهَا: مَسْرُورَةٌ",
+   "ar": "مُفْرَدُهُ: الْأَسَدُ",
    "rel": {
-    "label": "مَعْنَاهَا",
-    "text": "مَسْرُورَةٌ",
-    "labelAudio": "../u1l2/words/lbl-meaning.mp3",
-    "audio": "words/m-saida.mp3"
-   }
-  },
-  {
-   "word": "أَرْنَب",
-   "img": "../../pics/ar-rabbit.png",
-   "audio": {
-    "word": "../u1l3/words/arnab.mp3"
-   },
-   "parts": [
-    {
-     "t": "أَرْ",
-     "audio": "../../syl-ar/623-64e-631-652.mp3"
-    },
-    {
-     "t": "نَ",
-     "audio": "../../syl-ar/646-64e.mp3"
-    },
-    {
-     "t": "ب",
-     "audio": "../../syl-ar/628-652.mp3"
-    }
-   ],
-   "ar": "جَمْعُهُ: أَرَانِبُ",
-   "rel": {
-    "label": "جَمْعُهُ",
-    "text": "أَرَانِبُ",
-    "labelAudio": "../u1l2/words/lbl-plural.mp3",
-    "audio": "words/m-arnab.mp3"
-   }
-  },
-  {
-   "word": "بُلْبُل",
-   "img": "../../pics/bird.png",
-   "audio": {
-    "word": "../u2l1/words/bulbul.mp3"
-   },
-   "parts": [
-    {
-     "t": "بُلْ",
-     "audio": "../../syl-ar/628-64f-644-652.mp3"
-    },
-    {
-     "t": "بُ",
-     "audio": "../../syl-ar/628-64f.mp3"
-    },
-    {
-     "t": "ل",
-     "audio": "../../syl-ar/644-652.mp3"
-    }
-   ],
-   "ar": "جَمْعُهُ: بَلَابِلُ",
-   "rel": {
-    "label": "جَمْعُهُ",
-    "text": "بَلَابِلُ",
-    "labelAudio": "../u1l2/words/lbl-plural.mp3",
-    "audio": "words/m-bulbul.mp3"
+    "label": "مُفْرَدُهُ",
+    "text": "الْأَسَدُ",
+    "labelAudio": "words/lbl-singular.mp3",
+    "audio": "words/m-usud.mp3"
    }
   },
   {
@@ -252,30 +196,6 @@
     "text": "أَفْيَالٌ",
     "labelAudio": "../u1l2/words/lbl-plural.mp3",
     "audio": "words/m-fil.mp3"
-   }
-  },
-  {
-   "word": "نَسْر",
-   "img": "scene.jpg",
-   "audio": {
-    "word": "words/nasr.mp3"
-   },
-   "parts": [
-    {
-     "t": "نَسْ",
-     "audio": "../../syl-ar/646-64e-633-652.mp3"
-    },
-    {
-     "t": "ر",
-     "audio": "../../syl-ar/631-652.mp3"
-    }
-   ],
-   "ar": "جَمْعُهُ: نُسُورٌ",
-   "rel": {
-    "label": "جَمْعُهُ",
-    "text": "نُسُورٌ",
-    "labelAudio": "../u1l2/words/lbl-plural.mp3",
-    "audio": "words/m-nasr.mp3"
    }
   },
   {
@@ -311,35 +231,146 @@
    }
   },
   {
-   "word": "الْأُسُود",
-   "img": "../../pics/ar-lion.png",
+   "word": "ثَعْلَب",
+   "img": "../../pics/fox.png",
    "audio": {
-    "word": "words/usud.mp3"
+    "word": "../exams/t3/w-thalab.mp3"
    },
    "parts": [
     {
-     "t": "الْ",
-     "audio": "../../syl-ar/627-644-652.mp3"
+     "t": "ثَعْ",
+     "audio": "../../syl-ar/62b-64e-639-652.mp3"
     },
     {
-     "t": "أُ",
-     "audio": "../../syl-ar/623-64f.mp3"
+     "t": "لَ",
+     "audio": "../../syl-ar/644-64e.mp3"
     },
     {
-     "t": "سُو",
-     "audio": "../../syl-ar/633-64f-648.mp3"
+     "t": "ب",
+     "audio": "../../syl-ar/628-652.mp3"
+    }
+   ]
+  },
+  {
+   "word": "بُلْبُل",
+   "img": "../../pics/bird.png",
+   "audio": {
+    "word": "../u2l1/words/bulbul.mp3"
+   },
+   "parts": [
+    {
+     "t": "بُلْ",
+     "audio": "../../syl-ar/628-64f-644-652.mp3"
     },
     {
-     "t": "د",
-     "audio": "../../syl-ar/62f-652.mp3"
+     "t": "بُ",
+     "audio": "../../syl-ar/628-64f.mp3"
+    },
+    {
+     "t": "ل",
+     "audio": "../../syl-ar/644-652.mp3"
     }
    ],
-   "ar": "مُفْرَدُهُ: الْأَسَدُ",
+   "ar": "جَمْعُهُ: بَلَابِلُ",
    "rel": {
-    "label": "مُفْرَدُهُ",
-    "text": "الْأَسَدُ",
-    "labelAudio": "words/lbl-singular.mp3",
-    "audio": "words/m-usud.mp3"
+    "label": "جَمْعُهُ",
+    "text": "بَلَابِلُ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "words/m-bulbul.mp3"
+   }
+  },
+  {
+   "word": "نَسْر",
+   "img": "scene.jpg",
+   "audio": {
+    "word": "words/nasr.mp3"
+   },
+   "parts": [
+    {
+     "t": "نَسْ",
+     "audio": "../../syl-ar/646-64e-633-652.mp3"
+    },
+    {
+     "t": "ر",
+     "audio": "../../syl-ar/631-652.mp3"
+    }
+   ],
+   "ar": "جَمْعُهُ: نُسُورٌ",
+   "rel": {
+    "label": "جَمْعُهُ",
+    "text": "نُسُورٌ",
+    "labelAudio": "../u1l2/words/lbl-plural.mp3",
+    "audio": "words/m-nasr.mp3"
+   }
+  },
+  {
+   "word": "بُومَة",
+   "img": "../../pics/owl.png",
+   "audio": {
+    "word": "../u1l4/words/buma.mp3"
+   },
+   "parts": [
+    {
+     "t": "بُو",
+     "audio": "../../syl-ar/628-64f-648.mp3"
+    },
+    {
+     "t": "مَ",
+     "audio": "../../syl-ar/645-64e.mp3"
+    },
+    {
+     "t": "ة",
+     "audio": "../../syl-ar/629.mp3"
+    }
+   ]
+  },
+  {
+   "word": "صَقْر",
+   "img": "../../pics/falcon.png",
+   "audio": {
+    "word": "../u2l9/words/saqr.mp3"
+   },
+   "parts": [
+    {
+     "t": "صَقْ",
+     "audio": "../../syl-ar/635-64e-642-652.mp3"
+    },
+    {
+     "t": "ر",
+     "audio": "../../syl-ar/631-652.mp3"
+    }
+   ]
+  },
+  {
+   "word": "سَعِيدَةٌ",
+   "img": "scene.jpg",
+   "audio": {
+    "word": "words/saida.mp3"
+   },
+   "parts": [
+    {
+     "t": "سَ",
+     "audio": "../../syl-ar/633-64e.mp3"
+    },
+    {
+     "t": "عِي",
+     "audio": "../../syl-ar/639-650-64a.mp3"
+    },
+    {
+     "t": "دَ",
+     "audio": "../../syl-ar/62f-64e.mp3"
+    },
+    {
+     "t": "ةٌ",
+     "audio": "../../syl-ar/629-64c.mp3"
+    }
+   ],
+   "ar": "مَعْنَاهَا: مَسْرُورَةٌ",
+   "rel": {
+    "label": "مَعْنَاهَا",
+    "text": "مَسْرُورَةٌ",
+    "labelAudio": "../u1l2/words/lbl-meaning.mp3",
+    "audio": "words/m-saida.mp3"
    }
   }
  ],

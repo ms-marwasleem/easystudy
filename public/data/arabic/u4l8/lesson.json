@@ -179,6 +179,28 @@
    "har": "fatha"
   },
   {
+   "word": "غَزَال",
+   "img": "../../pics/ar-deer.png",
+   "audio": {
+    "word": "../u4l3/words/ghazal.mp3"
+   },
+   "parts": [
+    {
+     "t": "غَ",
+     "audio": "../../syl-ar/63a-64e.mp3"
+    },
+    {
+     "t": "زَا",
+     "audio": "../../syl-ar/632-64e-627.mp3"
+    },
+    {
+     "t": "ل",
+     "audio": "../../syl-ar/644-652.mp3"
+    }
+   ],
+   "har": "fatha"
+  },
+  {
    "word": "غُورِيلَّا",
    "img": "../../pics/ar-gorilla.png",
    "audio": {
@@ -198,7 +220,8 @@
      "audio": "../../syl-ar/644-64e-651-627.mp3"
     }
    ],
-   "har": "damma"
+   "har": "damma",
+   "school": "nour-el-ilm"
   },
   {
    "word": "غُرَاب",
@@ -260,7 +283,8 @@
      "audio": "../../syl-ar/646-652.mp3"
     }
    ],
-   "har": "kasra"
+   "har": "kasra",
+   "school": "nour-el-ilm"
   },
   {
    "word": "غِرَاء",
@@ -279,10 +303,11 @@
     },
     {
      "t": "ء",
-     "audio": "../../syl-ar/621.mp3"
+     "audio": "../../syl-ar/621-652.mp3"
     }
    ],
-   "har": "kasra"
+   "har": "kasra",
+   "school": "nour-el-ilm"
   },
   {
    "word": "غِذَاء",
@@ -301,7 +326,52 @@
     },
     {
      "t": "ء",
-     "audio": "../../syl-ar/621.mp3"
+     "audio": "../../syl-ar/621-652.mp3"
+    }
+   ],
+   "har": "kasra",
+   "school": "nour-el-ilm"
+  },
+  {
+   "word": "غِطَاء",
+   "img": "../../pics/ar-pot.png",
+   "audio": {
+    "word": "words/ghita.mp3"
+   },
+   "parts": [
+    {
+     "t": "غِ",
+     "audio": "../../syl-ar/63a-650.mp3"
+    },
+    {
+     "t": "طَا",
+     "audio": "../../syl-ar/637-64e-627.mp3"
+    },
+    {
+     "t": "ء",
+     "audio": "../../syl-ar/621-652.mp3"
+    }
+   ],
+   "har": "kasra"
+  },
+  {
+   "word": "صَغِير",
+   "img": "../../pics/ar-little-boy.png",
+   "audio": {
+    "word": "words/saghir.mp3"
+   },
+   "parts": [
+    {
+     "t": "صَ",
+     "audio": "../../syl-ar/635-64e.mp3"
+    },
+    {
+     "t": "غِي",
+     "audio": "../../syl-ar/63a-650-64a.mp3"
+    },
+    {
+     "t": "ر",
+     "audio": "../../syl-ar/631-652.mp3"
     }
    ],
    "har": "kasra"
@@ -352,7 +422,8 @@
      "audio": "../../syl-ar/645-652.mp3"
     }
    ],
-   "har": "sukoon"
+   "har": "sukoon",
+   "school": "nour-el-ilm"
   },
   {
    "word": "مِغْزَل",
@@ -374,7 +445,8 @@
      "audio": "../../syl-ar/644-652.mp3"
     }
    ],
-   "har": "sukoon"
+   "har": "sukoon",
+   "school": "nour-el-ilm"
   }
  ],
  "vocabRepeats": 3

@@ -34,12 +34,13 @@
     "name": "12 + 2",
     "beats": [
      {
-      "say": "نترك العشرة. نجمع الآحاد.",
+      "say": "اثنا عشر زائد اثنين.",
       "do": [
        {
         "scene": "tens",
         "n": 14,
-        "wide": true
+        "wide": true,
+        "show": 12
        },
        {
         "frame": {
@@ -51,29 +52,131 @@
          ],
          "color": "green"
         }
+       },
+       {
+        "head": {
+         "t": [
+          "12",
+          "+",
+          "2",
+          "="
+         ],
+         "slots": 5
+        }
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/01f060de36.mp3"
+     },
+     {
+      "say": "نترك العشرة. نجمع الآحاد.",
+      "do": [],
+      "audio": "../../math-ar-audio/eaf01424fe.mp3"
      },
      {
       "say": "اثنان واثنان يكوّنان أربعة.",
       "do": [
        {
-        "add": "2 + 2 = 4",
-        "card": true,
-        "color": "orange"
+        "add": "2",
+        "big": true
+       },
+       {
+        "wait": 900
+       },
+       {
+        "add": "+",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "2",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "wait": 700
+       },
+       {
+        "add": "4",
+        "big": true,
+        "card": true
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          293,
+          203
+         ],
+         [
+          373,
+          203
+         ]
+        ],
+        "start": 3,
+        "color": "orange",
+        "r": 24
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/e8810fa16e.mp3"
      },
      {
       "say": "عشرة وأربعة يكوّنان أربعة عشر.",
       "do": [
        {
-        "add": "10 + 4 = 14",
-        "card": true,
-        "color": "green"
+        "line": "clear"
+       },
+       {
+        "add": "10",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "+",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "4",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "wait": 600
+       },
+       {
+        "add": "14",
+        "big": true,
+        "card": true
+       },
+       {
+        "head": {
+         "t": [
+          "14"
+         ],
+         "more": true
+        }
        }
       ],
-      "gap": 1200
+      "gap": 1200,
+      "audio": "../../math-ar-audio/bac843b5a7.mp3"
      }
     ]
    },
@@ -81,12 +184,13 @@
     "name": "15 + 4",
     "beats": [
      {
-      "say": "نترك العشرة. نجمع الآحاد.",
+      "say": "خمسة عشر زائد أربعة.",
       "do": [
        {
         "scene": "tens",
         "n": 19,
-        "wide": true
+        "wide": true,
+        "show": 15
        },
        {
         "frame": {
@@ -98,29 +202,139 @@
          ],
          "color": "green"
         }
+       },
+       {
+        "head": {
+         "t": [
+          "15",
+          "+",
+          "4",
+          "="
+         ],
+         "slots": 5
+        }
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/796ee77a33.mp3"
+     },
+     {
+      "say": "نترك العشرة. نجمع الآحاد.",
+      "do": [],
+      "audio": "../../math-ar-audio/eaf01424fe.mp3"
      },
      {
       "say": "خمسة وأربعة يكوّنان تسعة.",
       "do": [
        {
-        "add": "5 + 4 = 9",
-        "card": true,
-        "color": "orange"
+        "add": "5",
+        "big": true
+       },
+       {
+        "wait": 900
+       },
+       {
+        "add": "+",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "4",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "wait": 700
+       },
+       {
+        "add": "9",
+        "big": true,
+        "card": true
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          533,
+          203
+         ],
+         [
+          613,
+          203
+         ],
+         [
+          693,
+          203
+         ],
+         [
+          773,
+          203
+         ]
+        ],
+        "start": 6,
+        "color": "orange",
+        "r": 24
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/9e0414d49a.mp3"
      },
      {
       "say": "عشرة وتسعة يكوّنان تسعة عشر.",
       "do": [
        {
-        "add": "10 + 9 = 19",
-        "card": true,
-        "color": "green"
+        "line": "clear"
+       },
+       {
+        "add": "10",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "+",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "9",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "wait": 600
+       },
+       {
+        "add": "19",
+        "big": true,
+        "card": true
+       },
+       {
+        "head": {
+         "t": [
+          "19"
+         ],
+         "more": true
+        }
        }
       ],
-      "gap": 1200
+      "gap": 1200,
+      "audio": "../../math-ar-audio/826640a2c3.mp3"
      }
     ]
    },
@@ -128,7 +342,7 @@
     "name": "16 - 1",
     "beats": [
      {
-      "say": "نترك العشرة. نطرح من الآحاد.",
+      "say": "ستة عشر ناقص واحد.",
       "do": [
        {
         "scene": "tens",
@@ -145,10 +359,23 @@
          ],
          "color": "green"
         }
+       },
+       {
+        "head": {
+         "t": [
+          "16",
+          "-",
+          "1",
+          "="
+         ],
+         "slots": 5
+        }
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/9d82c7e14b.mp3"
      },
      {
+      "say": "نترك العشرة. نطرح من الآحاد.",
       "do": [
        {
         "count": true,
@@ -159,25 +386,101 @@
          ]
         ],
         "color": "red",
-        "r": 24
-       }
-      ]
-     },
-     {
-      "say": "ستة ناقص واحد يساوي خمسة. عشرة وخمسة يكوّنان خمسة عشر.",
-      "do": [
-       {
-        "add": "6 - 1 = 5",
-        "card": true,
-        "color": "orange"
-       },
-       {
-        "add": "10 + 5 = 15",
-        "card": true,
-        "color": "green"
+        "r": 24,
+        "out": true
        }
       ],
-      "gap": 1200
+      "audio": "../../math-ar-audio/c26a5da003.mp3"
+     },
+     {
+      "say": "ستة ناقص واحد يساوي خمسة.",
+      "do": [
+       {
+        "add": "6",
+        "big": true
+       },
+       {
+        "wait": 800
+       },
+       {
+        "add": "-",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "1",
+        "big": true
+       },
+       {
+        "wait": 600
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "wait": 600
+       },
+       {
+        "add": "5",
+        "big": true,
+        "card": true
+       }
+      ],
+      "audio": "../../math-ar-audio/de2ec30a14.mp3"
+     },
+     {
+      "say": "عشرة وخمسة يكوّنان خمسة عشر.",
+      "do": [
+       {
+        "line": "clear"
+       },
+       {
+        "add": "10",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "+",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "5",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "wait": 700
+       },
+       {
+        "add": "15",
+        "big": true,
+        "card": true
+       },
+       {
+        "head": {
+         "t": [
+          "15"
+         ],
+         "more": true
+        }
+       }
+      ],
+      "gap": 1200,
+      "audio": "../../math-ar-audio/0d586d44bc.mp3"
      }
     ]
    },
@@ -185,7 +488,7 @@
     "name": "19 - 7",
     "beats": [
      {
-      "say": "نترك العشرة. نطرح من الآحاد.",
+      "say": "تسعة عشر ناقص سبعة.",
       "do": [
        {
         "scene": "tens",
@@ -202,10 +505,23 @@
          ],
          "color": "green"
         }
+       },
+       {
+        "head": {
+         "t": [
+          "19",
+          "-",
+          "7",
+          "="
+         ],
+         "slots": 5
+        }
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/a09445015b.mp3"
      },
      {
+      "say": "نترك العشرة. نطرح من الآحاد.",
       "do": [
        {
         "count": true,
@@ -240,25 +556,101 @@
          ]
         ],
         "color": "red",
-        "r": 24
-       }
-      ]
-     },
-     {
-      "say": "تسعة ناقص سبعة يساوي اثنين. عشرة واثنان يكوّنان اثني عشر.",
-      "do": [
-       {
-        "add": "9 - 7 = 2",
-        "card": true,
-        "color": "orange"
-       },
-       {
-        "add": "10 + 2 = 12",
-        "card": true,
-        "color": "green"
+        "r": 24,
+        "out": true
        }
       ],
-      "gap": 1200
+      "audio": "../../math-ar-audio/c26a5da003.mp3"
+     },
+     {
+      "say": "تسعة ناقص سبعة يساوي اثنين.",
+      "do": [
+       {
+        "add": "9",
+        "big": true
+       },
+       {
+        "wait": 800
+       },
+       {
+        "add": "-",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "7",
+        "big": true
+       },
+       {
+        "wait": 600
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "wait": 600
+       },
+       {
+        "add": "2",
+        "big": true,
+        "card": true
+       }
+      ],
+      "audio": "../../math-ar-audio/add88ba5f8.mp3"
+     },
+     {
+      "say": "عشرة واثنان يكوّنان اثني عشر.",
+      "do": [
+       {
+        "line": "clear"
+       },
+       {
+        "add": "10",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "+",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "2",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "wait": 700
+       },
+       {
+        "add": "12",
+        "big": true,
+        "card": true
+       },
+       {
+        "head": {
+         "t": [
+          "12"
+         ],
+         "more": true
+        }
+       }
+      ],
+      "gap": 1200,
+      "audio": "../../math-ar-audio/2b01f1d244.mp3"
      }
     ]
    },
@@ -266,7 +658,7 @@
     "name": "17 - 3",
     "beats": [
      {
-      "say": "نترك العشرة. نطرح من الآحاد.",
+      "say": "سبعة عشر ناقص ثلاثة.",
       "do": [
        {
         "scene": "tens",
@@ -283,10 +675,23 @@
          ],
          "color": "green"
         }
+       },
+       {
+        "head": {
+         "t": [
+          "17",
+          "-",
+          "3",
+          "="
+         ],
+         "slots": 5
+        }
        }
-      ]
+      ],
+      "audio": "../../math-ar-audio/8933a8b705.mp3"
      },
      {
+      "say": "نترك العشرة. نطرح من الآحاد.",
       "do": [
        {
         "count": true,
@@ -305,25 +710,101 @@
          ]
         ],
         "color": "red",
-        "r": 24
-       }
-      ]
-     },
-     {
-      "say": "سبعة ناقص ثلاثة يساوي أربعة. عشرة وأربعة يكوّنان أربعة عشر.",
-      "do": [
-       {
-        "add": "7 - 3 = 4",
-        "card": true,
-        "color": "orange"
-       },
-       {
-        "add": "10 + 4 = 14",
-        "card": true,
-        "color": "green"
+        "r": 24,
+        "out": true
        }
       ],
-      "gap": 1200
+      "audio": "../../math-ar-audio/c26a5da003.mp3"
+     },
+     {
+      "say": "سبعة ناقص ثلاثة يساوي أربعة.",
+      "do": [
+       {
+        "add": "7",
+        "big": true
+       },
+       {
+        "wait": 800
+       },
+       {
+        "add": "-",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "3",
+        "big": true
+       },
+       {
+        "wait": 600
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "wait": 600
+       },
+       {
+        "add": "4",
+        "big": true,
+        "card": true
+       }
+      ],
+      "audio": "../../math-ar-audio/eba02bc33c.mp3"
+     },
+     {
+      "say": "عشرة وأربعة يكوّنان أربعة عشر.",
+      "do": [
+       {
+        "line": "clear"
+       },
+       {
+        "add": "10",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "+",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "4",
+        "big": true
+       },
+       {
+        "wait": 500
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "wait": 700
+       },
+       {
+        "add": "14",
+        "big": true,
+        "card": true
+       },
+       {
+        "head": {
+         "t": [
+          "14"
+         ],
+         "more": true
+        }
+       }
+      ],
+      "gap": 1200,
+      "audio": "../../math-ar-audio/bac843b5a7.mp3"
      }
     ]
    }

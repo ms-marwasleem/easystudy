@@ -206,6 +206,7 @@ let rsT=0; addEventListener('resize',()=>{ clearTimeout(rsT); rsT=setTimeout(()=
 function fixPaths(L,file){
   const base=file.slice(0,file.lastIndexOf('/')+1), R=p=>p&&!/^(https?:|\/|data:)/.test(p)?base+p:p;
   L.base=base; L.scene=R(L.scene); L.picture=R(L.picture); L.pictureTall=R(L.pictureTall); L.pagePictures=(L.pagePictures||[]).map(R); L.pagePicturesTall=(L.pagePicturesTall||[]).map(R); (L.pageAudio||[]).forEach(a=>{ a.normal=R(a.normal); a.slow=R(a.slow); }); if(L.audio){ L.audio.normal=R(L.audio.normal); L.audio.slow=R(L.audio.slow); }
+  if(L.vocab&&typeof vocabFor==='function') L.vocab=vocabFor(L.vocab);   // school-only words (js/curriculum.js)
   (L.vocab||[]).forEach(v=>{ v.img=R(v.img); if(v.audio){ v.audio.word=R(v.audio.word); v.audio.again=R(v.audio.again); v.audio.ar=R(v.audio.ar); } if(v.rel){ v.rel.labelAudio=R(v.rel.labelAudio); v.rel.audio=R(v.rel.audio); } (v.parts||[]).forEach(p=>{ p.audio=R(p.audio); p.blend=R(p.blend); }); });
   (L.lines||[]).forEach(l=>{ l.pic=R(l.pic); });
   Object.values(L.bk||{}).forEach(b=>{ b.img=R(b.img); });
@@ -1122,6 +1123,7 @@ async function qLoad(){
       if(s.type==='circle') s.items.forEach((it,k)=>{ if(!it.pos){ const n=s.items.length, cols=3, rows=Math.ceil(n/cols), r=Math.floor(k/cols), c=k%cols, inRow=Math.min(cols,n-r*cols);
         it.pos=[(c+.5+(cols-inRow)/2)*100/cols,(r+.5)*100/rows]; } });   // no "pos": spread them in rows of 3
       s.items.filter(it=>it.answer).forEach((it,k)=>qz.all.push({set:s,si,k,word:s.center||''})); return; }
+    if(s.type==='colour'&&s.table){ qz.all.push({set:s,si,k:0,table:1,items:s.items}); return; }   // "table": ONE question, the whole table to colour
     if(s.type==='sound'){ qz.all.push({set:s,si,k:0,items:s.items}); return; }   // "sound": all the pictures of the exercise on ONE page
     if(s.type==='qa'&&s.together){ qz.all.push({set:s,si,k:0,together:1,items:s.items.map(it=>({...it,audio:R(it.audio),ansAudio:it.ansAudio,pic:R(it.pic)}))}); return; }   // "together": all the question+answer pairs on one page
     s.items.forEach((it,k)=>{
@@ -1915,7 +1917,25 @@ function qxFace(box,q,s,run){
   box._after=()=>layout(); fi.addEventListener('load',layout); P.forEach(p=>p.e.addEventListener('load',layout)); requestAnimationFrame(layout); new ResizeObserver(layout).observe(bd);
 }
 QM.face={sheet:'box', noword:1, bulb:0, draw:qxFace};
+/* "colour the table" (Math 6-1 and every data / graph question): ONE question with the real TABLE drawn here - a column per kind, 10 empty boxes each, the name under it - and the picture beside it.
+   The child taps the next box from the BOTTOM up in each column until its count is right (tap the top coloured box again to take it back). Arabic: picture on the right, first column on the right.
+   Data: set {"type":"colour","table":true,"items":[{"word","num","total","off","on","pic"}]}. */
+function qxColourTable(box,q,s,run){
+  const its=q.items, rtl=isAr(), bd=el('div','qxcb qxct'); bd.dataset.noswipe=1; if(rtl) bd.classList.add('rtl'); box.append(bd);
+  const pic=its.find(i=>i.pic); if(pic){ const pi=el('img','qxcp qxctp'); pi.alt=''; pi.draggable=false; pi.src=R_Q(pic.pic); bd.append(pi); }
+  const tb=el('div','qxtb'); tb.style.setProperty('--n',its.length); if(rtl) tb.dir='rtl'; bd.append(tb); let done=false;
+  const cols=its.map(it=>{ const c=el('div','qxtc'), cells=[]; for(let j=0;j<it.total;j++){ const im=el('img','qxcs qxtcell'); im.alt=''; im.draggable=false; im.src=R_Q(it.off); im.dataset.on=0; c.append(im); cells.push(im); }
+    c.append(el('b','qxtl',it.word)); tb.append(c); return {it,cells}; });   // the cells are drawn top to bottom; the first one in the array is the TOP one: index from the bottom = total-1-j
+  const nOn=c=>c.cells.filter(x=>x.dataset.on==='1').length, bad=e=>{ e.classList.remove('no'); void e.offsetWidth; e.classList.add('no'); };
+  async function finish(){ if(done) return; done=true; await new Promise(r=>setTimeout(r,450)); if(run!==qz.run||!inQ()) return; q.solved=true; qStar(); }
+  cols.forEach(c=>c.cells.forEach((cell,j)=>cell.addEventListener('click',ev=>{ ev.stopPropagation(); if(done) return;
+    const t=c.it.total, fromBottom=t-1-j, n=nOn(c);
+    if(cell.dataset.on==='1'){ if(fromBottom===n-1){ cell.dataset.on=0; cell.src=R_Q(c.it.off); } else bad(cell); return; }
+    if(fromBottom!==n||n>=c.it.num){ bad(cell); return; }   // only the next box from the bottom; never more than the count
+    cell.dataset.on=1; cell.src=R_Q(c.it.on); if(cols.every(k=>nOn(k)===k.it.num)) finish(); })));
+}
 function qxColour(box,q,s,run){
+  if(q.table) return qxColourTable(box,q,s,run);
   const bd=el('div','qxcb'); bd.dataset.noswipe=1; box.append(bd);
   if(q.pic){ const pi=el('img','qxcp'); pi.alt=''; pi.draggable=false; pi.src=q.pic; bd.append(pi); bd.classList.add('qxcpm'); }   // Math 6-1: count the things in the picture, then colour that many (the number is not shown)
   else { const nb=el('button','qxcn'); nb.type='button'; nb.textContent=q.num; nb.onclick=()=>{ if(q.audio) qSound(R_Q(q.audio),q.word||''); }; bd.append(nb); }
@@ -2127,12 +2147,14 @@ function alExplain(box,q,s,run){
 
 /* ---------- mcq ---------- */
 function alMcq(box,q,s,run){
-  const w=el('div','almcq'+(q.pics?' haspic':'')); box.append(w);
-  if(q.pics){ const pc=el('div','alpics'); q.pics.forEach((p,k)=>{ const f=el('div','alfig'); const im=el('img','',''); im.src=p; im.alt=''; qPicFit(im,(q.picsTall||[])[k]); f.append(im); if(q.caps&&q.caps[k]){ const c=el('button','alcap',q.caps[k]); c.onclick=()=>{ vStop(); c.classList.add('lit'); qSound(alWordSrc(q.caps[k]),q.caps[k]).then(()=>c.classList.remove('lit')); }; f.append(c); } pc.append(f); }); w.append(pc); }
+  const w=el('div','almcq'+(q.pics?' haspic':'')+(q.pics&&/(^|\/)(clock|hand)-/.test(String(q.pics[0]))?' clockq':'')); box.append(w);
+  if(q.pics){ const pc=el('div','alpics'); q.pics.forEach((p,k)=>{ const f=el('div','alfig'); const im=el('img','',''); im.src=p; im.alt=''; qPicFit(im,(q.picsTall||[])[k]); im.addEventListener('load',()=>{ if(im.naturalHeight/im.naturalWidth>1.1) w.classList.add('chartq'); }); /* a tall picture = a chart/table: it gets the room, the choices get smaller (Ahmed 2026-11-14) */ f.append(im); if(q.caps&&q.caps[k]){ const c=el('button','alcap',q.caps[k]); c.onclick=()=>{ vStop(); c.classList.add('lit'); qSound(alWordSrc(q.caps[k]),q.caps[k]).then(()=>c.classList.remove('lit')); }; f.append(c); } pc.append(f); }); w.append(pc); }
   const st=el('div','alstem'); w.append(st); let blank=null;
   const sp=el('button','qsay alsp',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>{ if(!qz.busy) q.sayFn(); };
   if(q.ask){ const a=el('p','alask',''); alToks(a,q.ask); st.append(a); }
   const p=el('p','altx'); st.append(p); if(isAr()&&/^math/.test(SUBJECT.id)){ p.dir='rtl'; p.classList.add('mrtl'); }   // Arabic math: the number sentence and "الإجابة: __" read from the right (Ahmed 2026-11-14)
+  /* word problems (task "Solve the problem." / "نحل المسائل."): the number sentence is HIDDEN until the Help bulb, so the child reads and understands the story first (Ahmed 2026-11-14). Same in English and Arabic math. */
+  if(/^(Solve the problem|نحل المسائل)/.test(String(q.set.task||''))&&/\d\s*[+−\-]\s*\d\s*=/.test(String(q.stem))){ p.classList.add('eqhid'); q.eqHidden=true; }
   const word=(t,k)=>{ const sp=el('span','alw',t); sp.addEventListener('click',()=>{ hideHint(); vStop(); sp.classList.add('lit'); qSound(alWordSrc(t),alClean(t)).then(()=>sp.classList.remove('lit')); }); p.append(k?' ':'',sp); };
   String(q.stem).split(/\s+/).filter(Boolean).forEach((t,k)=>{ const m=/^([^_]*)_{2,}([^_]*)$/.exec(t);
     if(m&&!blank){ blank=el('button','alblank','<i></i>'); if(k) p.append(' '); if(m[1]) p.append(m[1]); p.append(blank); if(m[2]) p.append(m[2]); blank.addEventListener('click',()=>q.sayFn&&q.sayFn()); }
@@ -2144,7 +2166,7 @@ function alMcq(box,q,s,run){
     b.addEventListener('click',async()=>{ if(qz.busy||q.solved) return; hideHint();
       if(k!==q.answer){ qxBad(b); b.classList.add('bad'); setTimeout(()=>b.classList.remove('bad'),700); qSound(alWordSrc(say[k]),say[k]); return; }
       if(blank){ blank.classList.add('got'); blank.innerHTML=''; blank.textContent=o; }
-      qRing(b); $$('.alopt',ops).forEach(x=>x!==b&&x.classList.add('dim')); return qxWin(b,q,q.winMs||2300); });
+      p.classList.remove('eqhid'); q.eqHidden=false; alHandDraw(w,q,o); qRing(b); $$('.alopt',ops).forEach(x=>x!==b&&x.classList.add('dim')); return qxWin(b,q,q.winMs||2300); });
     ops.append(b); });
   q.sayFn=async()=>{ vStop(); const ps=(q.parts||[]).map(R_Q); if(q.askAudio&&!q.solved) return qSound(R_Q(q.askAudio),q.stem);   // the question; once solved, audio = the sentence WITH its answer
     if(!ps.length) return qSound(q.audio,q.word); for(let i=0;i<ps.length;i++){ if(qz.list[qz.i]!==q||q.solved) return; await qSound(ps[i],''); if(i<ps.length-1) await new Promise(z=>setTimeout(z,350)); } };
@@ -2153,6 +2175,12 @@ function alMcq(box,q,s,run){
 
 /* the passage is NOT read by itself (the child reads it, Marwa 2026-11-04); the small speaker AFTER the text reads it (tap while playing = stop).
    Any tap elsewhere, a slide change or a question change stops it, so two sounds never overlap. Used by cloze and underline. */
+/* "Draw the long hand" (math u8, English + Arabic): the picture (hand-H-M.svg) shows only the short hand; the right answer DRAWS the long hand where the child chose, with the short hand and the centre dot on top (Ahmed 2026-11-14). */
+function alHandDraw(w,q,o){ const m=q.pics&&/(^|\/)hand-(\d+)-(\d)\.svg/.exec(String(q.pics[0])), n=parseInt(typeof arDigitsBack==='function'?arDigitsBack(o):o,10), fg=$('.alfig',w); if(!m||!fg||!(n>=1&&n<=12)||$('.clkdraw',fg)) return;
+  const h=+m[2], half=+m[3], la=(n%12)*30*Math.PI/180, sa=((h%12)+(half?.5:0))*30*Math.PI/180, pt=(a,r)=>`${(150+Math.sin(a)*r).toFixed(1)} ${(150-Math.cos(a)*r).toFixed(1)}`;
+  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg'); svg.setAttribute('viewBox','0 0 300 300'); svg.setAttribute('class','clkdraw');
+  svg.innerHTML=`<path d="M150 150 L${pt(la,112)}" stroke="#1E6FD0" stroke-width="7" stroke-linecap="round"/><path d="M150 150 L${pt(sa,76)}" stroke="#E5352B" stroke-width="10" stroke-linecap="round"/><circle cx="150" cy="150" r="9" fill="#333"/>`;
+  fg.append(svg); svg.style.opacity=0; requestAnimationFrame(()=>{ svg.style.transition='opacity .35s'; svg.style.opacity=1; }); }
 function alReplay(box,txt,q){
   const rp=el('button','qsay alsp alreplay',SAY_LN); rp.setAttribute('aria-label','Listen'); txt.append(' ',rp); let pt=0;
   const stopP=()=>{ pt++; vStop(); rp.classList.remove('on'); };
@@ -2234,7 +2262,10 @@ function alCheck(box,q,s,run){
 }
 
 QM.explain={sheet:'box', own:1, draw:alExplain};
-QM.mcq={sheet:'box', own:1, draw:alMcq, help:(q,w)=>[$$('.alopt',w)[q.answer]]};
+QM.mcq={sheet:'box', own:1, draw:alMcq, help:(q,w)=>[$$('.alopt',w)[q.answer]],
+  // a hidden number sentence (word problem): the first Help shows it; the next Help lights the right answer as usual
+  peek:(q,w)=>{ const t=$('.altx.eqhid',w); if(t){ t.classList.remove('eqhid'); q.eqHidden=false; return; }
+    const e=$$('.alopt',w)[q.answer]; if(!e) return; e.classList.remove('qhl'); void e.offsetWidth; e.classList.add('qhl'); setTimeout(()=>e.classList.remove('qhl'),2000); }};
 QM.cloze={sheet:'box', own:1, draw:alCloze, help:(q,w)=>{ const bl=$$('.alblank',w).find(b=>!b.classList.contains('got')); if(!bl) return []; const a=String((q.text.match(/\[\[(.+?)\]\]/g)||[])[+bl.dataset.n]||'').replace(/\[|\]/g,''); return $$('.alchip:not(.used)',w).filter(x=>x.textContent.toLowerCase()===a.toLowerCase()).slice(0,1); }};
 QM.underline={sheet:'box', own:1, draw:alUnderline, help:(q,w)=>$$('.alans:not(.right)',w).slice(0,1)};
 QM.order={sheet:'box', own:1, draw:alOrder, help:(q,w)=>{ const k=$$('.placed',w).length; return $$('.alpool .alchip',w).filter(x=>!x.classList.contains('used')&&x.textContent===q.chunks[k]).slice(0,1); }};
@@ -2379,22 +2410,25 @@ QM.numline={sheet:'box', bulb:0, draw:mNumline};
 QM.bond={sheet:'box', bulb:0, draw:mBond};
 QM.bigger={sheet:'box', draw:mBigger, help:(q,w)=>{ const v=q.find==='smaller'?Math.min(...q.nums):Math.max(...q.nums); return $$('.qmbig .qch',w).filter(b=>+b.dataset.v===v); }};
 QM.count={sheet:'box', bulb:0, draw:mCount};
+// shade = the book's "Color the same number of things" (performance book): the picture of n things on top, a row of empty circles under it; the child taps circles to colour them,
+// the star comes when exactly n are coloured (one tap more than n = shake, that circle stays empty; tap a coloured one to take it back). item {img "x.png#n" + group:true | img + n, n, slots (circles, default 10), audio, word}
+function mShade(box,q,s,run){
+  const n=q.n; q.word=q.word||mW(n); q.hush=1; const slots=q.slots||10;
+  const grid=el('div','qmcount grp'); grid.style.setProperty('--c',1); grid.style.setProperty('--r',1);
+  if(!q.img){ const nb=el('div','qmbignum',String(n)); grid.append(nb); }   // no picture: the number itself is shown ("Color the given number")
+  else if(q.group){ const im=new Image(); im.src=R_Q(q.img); im.alt=''; grid.append(im); } else { const im=new Image(); im.alt=''; cpicMake(new URL(R_Q(q.img),location.href).href,n).then(u=>{ im.src=u; }); grid.append(im); }
+  const row=el('div','qmcirc');
+  for(let i=0;i<slots;i++){ const b=el('button','qcirc'); b.setAttribute('aria-label','circle '+(i+1)); row.append(b);
+    b.addEventListener('click',()=>{ if(qz.busy||q.solved) return;
+      if(b.classList.contains('on')){ b.classList.remove('on'); return; }
+      if($$('.qcirc.on',row).length>=n) return qxBad(b);
+      b.classList.add('on'); blip(520+$$('.qcirc.on',row).length*40,.05);
+      if($$('.qcirc.on',row).length===n) qxWin(row,q,1600); }); }
+  box.append(grid,row);
+}
+QM.shade={sheet:'box', draw:mShade, help:(q,w)=>$$('.qcirc',w).filter((b,i)=>i<q.n)};
 QM.mwrite={sheet:'box', own:1, draw:mWrite, help:(q,w)=>{ const n=qxNext($('.mwline .qxw',w)); return n?$$('.mwkeys .qmn',w).filter(b=>b.dataset.v===arDb(n.textContent)):[]; }};
 
-// colorn = the Arabic book 1-1 "colour the same number of circles as things in the picture": item {img:"../../pics/dog.png#2", n:2, group:true}; the child taps circles of a 2x5 frame (red); the n-th one = right,
-// one more than n = shake (not coloured); tap a red one = back to white. The frame fills from the right in RTL (math-ar).
-function mColorN(box,q,s,run){
-  const n=q.n; q.word=q.word||mW(n); q.hush=1; const grid=el('div','qmcount grp'); grid.style.setProperty('--c',1); grid.style.setProperty('--r',1);
-  if(q.img&&q.group){ const im=new Image(); im.src=R_Q(q.img); im.alt=''; grid.append(im); } else if(q.img){ const im=new Image(); im.alt=''; cpicMake(new URL(R_Q(q.img),location.href).href,n).then(u=>{ im.src=u; }); grid.append(im); }
-  const fr=el('div','qmcirc'); const cs=Array.from({length:q.max||10},()=>{ const b=el('button','qmcc'); b.setAttribute('aria-label','circle'); fr.append(b); return b; });
-  const on=()=>cs.filter(x=>x.classList.contains('on')).length;
-  cs.forEach(b=>b.addEventListener('click',()=>{ if(qz.busy||q.solved) return; if(b.classList.contains('on')){ b.classList.remove('on'); return; }
-    if(on()>=n) return qxBad(b); b.classList.add('on'); blip(560+on()*40,.05); if(on()===n) qxWin(fr,q,1600); }));
-  box.append(grid,fr);
-  const h=el('button','qxhelp qmhelp',ICON.hint); h.setAttribute('aria-label','Help');
-  h.onclick=()=>{ if(qz.busy||q.solved) return; cs.slice(0,n).forEach(c=>c.classList.add('peek')); setTimeout(()=>cs.forEach(c=>c.classList.remove('peek')),1500); }; qHelpHost(h);
-}
-QM.colorn={sheet:'box', bulb:0, draw:mColorN};
 
 /* clock = the clock models (Arabic book unit 8, "قراءة الساعة"): ONE widget (clockWidget) used by the questions (QM.clock) and by the weekly papers (exam atom {t:"clock"}).
    item {h:6, m:0|30, mode, ask, options}:
@@ -2441,12 +2475,12 @@ function mClockOptions(h,m){ const set=new Set([clockTime(h,m)]); [[h,m===30?0:3
 function mClock(box,q,s,run){
   q.hush=1; q.word=q.word||q.ask||s.task||''; const mode=q.mode||'set';
   const w=el('div','mclock'); box.append(w);
-  if(q.ask) w.append(el('p','clkask',q.ask));
+  if(q.ask){ const p=el('p','clkask',''); p.append(document.createTextNode(q.ask)); if(q.askAudio||q.ask){ const sp=el('button','qsay clkspk',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>qSay(); p.append(sp); } w.append(p); }   // the question's own speaker sits INSIDE its line (it used to be a separate row above that took room and nobody knew what it was: Ahmed 2026-11-14)
   const opts=q.options||(mode==='read'?mClockOptions(q.h,q.m||0):null), ans=q.answer||clockTime(q.h,q.m||0);
   const cw=clockWidget({h:q.h,m:q.m||0,mode,options:opts,answer:ans,onWrong:t=>qxBad(t),onDone:()=>qxWin(w,q,1600)}); w.append(cw); q.clockEl=cw;
   const hb=el('button','qxhelp qmhelp',ICON.hint); hb.setAttribute('aria-label','Help'); let undo=null; hb.onclick=()=>{ if(qz.busy||q.solved) return; if(undo) undo(); undo=cw.hint(); setTimeout(()=>{ if(undo){ undo(); undo=null; } },1800); }; qHelpHost(hb);
 }
-QM.clock={sheet:'box', bulb:0, draw:mClock};
+QM.clock={sheet:'box', noword:1, bulb:0, draw:mClock};
 ;
 /* ===== js/math-explain.js ===== */
 /* MATH lesson EXPLAIN tab (lesson.json "type": "math", "math": {rows:[{n, word, audio}]}) — the book's number table: red dots, the number, its word.
@@ -3094,6 +3128,8 @@ async function toolPick(a){
      {scene:"pic", img, w, h}                        the book picture (in its white frame); points below are picture pixels
      {scene:"tree"|"pond", actors:{id:{kind:"bird"|"fish",color,x,y,face}}}   drawn scene with own actors
      {enter:ids,from,gap} {leave:ids,to}             actors fly / swim in or away
+     {scene:"data", cols:[{k,n,color}], items:[[col,x,y]..], tx, tw}  Math 6-1: things + table DRAWN by the template;  {mark:{col:i}} marks ONE thing, says its number, colours its table box (bottom up), next one…
+     {pop:{a,b,mode:"pop"|"in"|"out"}}  things a..b-1 of a line scene bounce / come in / fly out;  scene line + show:n = how many are there at first
      {count:ids|pts:[[x,y]..], start, color}         bounce + number badge + number said (waits for the line)
      {ring:ids|pts, r, color, id} {unring:id|"all"}  hand-drawn ring round a group
      {hold:n, on:ringId, color}                      the number of a group 'in your head' (one badge, said); then {count:ids, start:n+1, keep:true} counts on
@@ -3101,6 +3137,7 @@ async function toolPick(a){
      {scene:'free', items:[{id,img,x,y,w,h}], ih, top}  separate pictures that move: {move:[{id,x,y}],ms} slides them together, {guide:{x0,y0,x1,y1,color}} draws a dotted line (Math 5-1)
      {link:[[[x,y],[x,y]]..], color, r, id}         "What is the difference?": pairs joined by lines one by one; the ones left over are the difference
      {cross:true, pts, r, color}                     things that go away (subtraction) are crossed out one by one
+     {head:{t:["17","-","3","="],slots:5}} {head:{t:["14"],more:true}}   the calculation written large at the top, then its answer
      {eq:["2","+","3","=","5"]} {eqState:"show"|"dim"} {lit:i,color,value} {pulse:i}   the number sentence on top
      {fly:"2", from:ringId, to:i, color}             a group's number flies into the sentence
      {add:"text", color, card} {line:"break"|"clear"} the story is WRITTEN as normal text (colour = underline of the group; card:true = one card, e.g. the answer "8 cats")
@@ -3226,19 +3263,73 @@ function mount(root, data, opt){
       tag.push(`<text class="xl-end" id="xlf" x="500" y="${TOP+46}" text-anchor="middle">${ends[0]}</text><text class="xl-end" id="xlb" x="500" y="${TOP+60+110*n+52}" text-anchor="middle">${ends[1]}</text>`);
     } else {
       const ih=d.ih||230; PIC={k:1}; VH=TOP+ih; const n=items?items.length:d.n, x0=120, x1=880, sw=(x1-x0)/n, base0=TOP+(d.floor||200); SC={vert:false,n};
-      tag.push(card(ih));
+      if(d.img) tag.push(card(ih));   // our own drawn/picture things sit straight on the page (no white box); only a pasted book strip keeps its card
       const MI=!!d.mirror, flip=cx=>MI?` transform="translate(${2*cx} 0) scale(-1 1)"`:''; SC.mir=MI;   // Arabic: Front at the right, the pictures face the other way
       if(d.img){ const w=x1-x0, h=Math.round(w*d.h/d.w); tag.push(`<image href="${base+d.img}" x="${x0}" y="${base0-h}" width="${w}" height="${h}" preserveAspectRatio="none"${flip(500)}/>`); }
-      else { const mw=Math.min(sw*.82,d.maxw||150), mh=d.maxh||150; for(let i=0;i<n;i++){ tag.push(`<image href="${base+(items?items[i]:d.unit)}" x="${x0+sw*(i+.5)-mw/2}" y="${base0-mh}" width="${mw}" height="${mh}" preserveAspectRatio="xMidYMax meet"${flip(x0+sw*(i+.5))}/>`); } }
+      else { const mw=Math.min(sw*.82,d.maxw||150), mh=d.maxh||150, sh=d.show==null?n:d.show; for(let i=0;i<n;i++){ tag.push(`<g class="xit" data-cx="${x0+sw*(i+.5)}" data-cy="${base0-mh/2}"${i>=sh?' style="opacity:0"':''}><image href="${base+(items?items[i]:d.unit)}" x="${x0+sw*(i+.5)-mw/2}" y="${base0-mh}" width="${mw}" height="${mh}" preserveAspectRatio="xMidYMax meet"${flip(x0+sw*(i+.5))}/></g>`); } }
       tag.push(`<text class="xl-end" id="xlf" x="${MI?940:60}" y="${base0-30}" text-anchor="middle">${ends[0]}</text><text class="xl-end" id="xlb" x="${MI?60:940}" y="${base0-30}" text-anchor="middle">${ends[1]}</text>`);
     }
     Leq.innerHTML=''; eqT=[];
     Lbg.innerHTML=tag.join(''); LAB={f:Lbg.querySelector('#xlf'),b:Lbg.querySelector('#xlb')}; }
   /* "Numbers up to 20" (book 7-1): n cubes = a ROW OF TEN (blue) and the ones under it (orange). Picture px: row 1 y=50, row 2 y=170, cube 66 wide, step 80, first x=100. */
-  function tensScene(d){ const n=d.n, ih=d.ih||300; PIC={k:1}; TOP=170; VH=TOP+ih; const tag=[`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`];
-    const cube=(x,y,c)=>`<rect x="${x}" y="${y}" width="66" height="66" rx="12" fill="${c}" stroke="#1f5f96" stroke-width="4"/><path d="M${x+10} ${y+16} h46" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".5"/>`;
-    for(let i=0;i<Math.min(10,n);i++) tag.push(cube(100+i*80,TOP+50,'#46A8E8')); for(let i=0;i<n-10;i++) tag.push(cube(100+i*80,TOP+170,'#FF9A3C'));
+  function tensScene(d){ const n=d.n, ih=d.ih||300; PIC={k:1}; TOP=170; VH=TOP+ih; const tag=[];   // no white box: the picture sits straight on the app's page (Ahmed 2026-11-14)
+    const sh=d.show==null?n:d.show;   // d.show = how many cubes are there at first; the others are added later by {count} one by one
+    const cube=(x,y,c,k)=>`<g class="xcube" data-cx="${x+33}" data-cy="${y+33}"${k>=sh?' style="opacity:0"':''}><rect x="${x}" y="${y}" width="66" height="66" rx="12" fill="${c}" stroke="#1f5f96" stroke-width="4"/><path d="M${x+10} ${y+16} h46" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".5"/></g>`;
+    for(let i=0;i<Math.min(10,n);i++) tag.push(cube(100+i*80,TOP+50,'#46A8E8',i)); for(let i=0;i<n-10;i++) tag.push(cube(100+i*80,TOP+170,'#FF9A3C',10+i));
     Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; SC={}; }
+  /* DATA scene (Math 6-1 "Representing data with pictures"): the scattered things AND the table are DRAWN here (no pasted book picture, no white box).
+     d.cols=[{k:"strawberry"|"melon"|"orange"|"grape"|"circle"|"triangle"|"square"|"star", n, color}], d.items=[[col,x,y]..] (centres, picture px 0..1000 x 0..780),
+     d.tx = left edge of the table, d.tw = its width (Arabic: the table is on the left and the first column is on the right), d.rows (default 10).
+     {mark:{col}} marks ONE thing of the group, says its number and colours its box in the table, then the next one - never "count all, then colour all". */
+  const ICON={
+    strawberry:()=>`<path d="M50 94C20 72 12 42 27 31c9-6 16 0 23 0s14-6 23 0c15 11 7 41-23 63z" fill="#E8352B" stroke="#A8231C" stroke-width="3"/><path d="M28 30l11-12 11 10 11-10 11 12-22 9z" fill="#3A9A2C" stroke="#25701C" stroke-width="3" stroke-linejoin="round"/><g fill="#FFE9A8"><ellipse cx="38" cy="52" rx="2.4" ry="3.4"/><ellipse cx="55" cy="48" rx="2.4" ry="3.4"/><ellipse cx="66" cy="58" rx="2.4" ry="3.4"/><ellipse cx="46" cy="68" rx="2.4" ry="3.4"/><ellipse cx="58" cy="76" rx="2.4" ry="3.4"/></g>`,
+    melon:()=>`<circle cx="50" cy="56" r="40" fill="#9BD14B" stroke="#5E9A22" stroke-width="3.5"/><g fill="none" stroke="#D5F08C" stroke-width="3.5" stroke-linecap="round"><path d="M24 38q14 8 12 22t14 20"/><path d="M52 18q-8 16 6 28t6 30"/><path d="M76 38q-14 6-12 18"/><path d="M20 62q12 2 18 12"/></g><path d="M50 16v-10" stroke="#3A8A2C" stroke-width="5" stroke-linecap="round"/>`,
+    orange:()=>`<circle cx="50" cy="56" r="38" fill="#FF9A1F" stroke="#C96A06" stroke-width="3.5"/><path d="M50 19c4-12 16-14 24-10-4 10-14 14-24 10z" fill="#3A9A2C" stroke="#25701C" stroke-width="3" stroke-linejoin="round"/><g fill="#E57E0A"><circle cx="38" cy="58" r="1.8"/><circle cx="56" cy="66" r="1.8"/><circle cx="62" cy="50" r="1.8"/></g>`,
+    grape:()=>`<g fill="#7A4BB5" stroke="#4E2B82" stroke-width="2.5"><circle cx="30" cy="38" r="12"/><circle cx="52" cy="38" r="12"/><circle cx="72" cy="40" r="12"/><circle cx="40" cy="58" r="12"/><circle cx="62" cy="58" r="12"/><circle cx="51" cy="77" r="12"/></g><g fill="#fff" opacity=".35"><circle cx="26" cy="34" r="3"/><circle cx="48" cy="34" r="3"/><circle cx="36" cy="54" r="3"/></g><path d="M50 26V12q8 0 14-6" fill="none" stroke="#3A8A2C" stroke-width="5" stroke-linecap="round"/>`,
+    circle:()=>`<circle cx="50" cy="50" r="34" fill="#1E9BE8" stroke="#333" stroke-width="3.5"/>`,
+    triangle:()=>`<path d="M50 14L88 82H12z" fill="#1FA25C" stroke="#333" stroke-width="3.5" stroke-linejoin="round"/>`,
+    square:()=>`<rect x="18" y="18" width="64" height="64" rx="3" fill="#E5352B" stroke="#333" stroke-width="3.5"/>`,
+    star:()=>`<path d="M50 10l12.5 26.5 29 3.6-21.3 20 5.5 28.7L50 74.6 24.3 88.8l5.5-28.7-21.3-20 29-3.6z" fill="#FFD91A" stroke="#333" stroke-width="3.5" stroke-linejoin="round"/>`};
+  const ICONLINE={strawberry:'M50 94C20 72 12 42 27 31c9-6 16 0 23 0s14-6 23 0c15 11 7 41-23 63z',melon:'M50 16a40 40 0 1 0 .1 0z',orange:'M50 18a38 38 0 1 0 .1 0z',grape:'M30 26a12 12 0 1 0 .1 0zM52 26a12 12 0 1 0 .1 0zM72 28a12 12 0 1 0 .1 0zM40 46a12 12 0 1 0 .1 0zM62 46a12 12 0 1 0 .1 0zM51 65a12 12 0 1 0 .1 0z',
+    circle:'M50 16a34 34 0 1 0 .1 0z',triangle:'M50 14L88 82H12z',square:'M18 18h64v64H18z',star:'M50 10l12.5 26.5 29 3.6-21.3 20 5.5 28.7L50 74.6 24.3 88.8l5.5-28.7-21.3-20 29-3.6z'};
+  const SHAPES={circle:1,triangle:1,square:1,star:1};
+  const iconG=(k,x,y,sz,rot,card)=>{ const sc=sz/100, g=mk('g',{transform:`translate(${x} ${y}) rotate(${rot||0}) scale(${sc}) translate(-50 -50)`});
+    g.innerHTML=(card?'<rect x="3" y="3" width="94" height="94" rx="10" fill="#fff" stroke="#333" stroke-width="3.5"/>':'')+`<g${card?' transform="translate(10 10) scale(.8)"':''}>${ICON[k]()}</g>`; return g; };
+  const iconOutline=(k,x,y,sz,op)=>{ const sc=sz/100, g=mk('g',{transform:`translate(${x} ${y}) scale(${sc}) translate(-50 -50)`,opacity:op});
+    g.innerHTML=`<path d="${ICONLINE[k]}" fill="rgba(255,255,255,.14)" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>`; return g; };
+  let DS=null;
+  function dataScene(d){ PIC={k:1}; TOP=0; const R=d.rows||10, tx=d.tx||430, tw=d.tw||550, nc=d.cols.length, cw=tw/nc, hh=84, rh=60, y0=22, rtl=data.lang==='ar'; VH=y0+hh+R*rh+30;
+    Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=''; LAB={}; SC={}; Lact.innerHTML=''; Lring.innerHTML=''; Lbadge.innerHTML=''; badges=[]; rings={};
+    const colX=i=>tx+cw*(rtl?nc-1-i:i)+cw/2, cellY=j=>y0+hh+(R-1-j)*rh+rh/2;   // j = 0 is the bottom row: the table is filled from the bottom up
+    const g=mk('g'); Lbg.append(g);
+    g.append(mk('rect',{x:tx,y:y0,width:tw,height:hh+R*rh,rx:18,fill:'rgba(255,255,255,.12)',stroke:'#fff','stroke-width':4}));
+    for(let i=1;i<nc;i++) g.append(mk('path',{d:`M${tx+cw*i} ${y0} V${y0+hh+R*rh}`,stroke:'#fff','stroke-width':3,opacity:.7}));
+    for(let j=0;j<=R;j++) g.append(mk('path',{d:`M${tx} ${y0+hh+j*rh} H${tx+tw}`,stroke:'#fff','stroke-width':j===0?5:3,opacity:j===0?1:.7}));
+    d.cols.forEach((c,i)=>{ g.append(iconOutline(c.k,colX(i),y0+hh/2,70,1));
+      for(let j=0;j<R;j++) g.append(iconOutline(c.k,colX(i),cellY(j),54,.45)); });
+    const px=d.px||[20,400]; g.append(mk('rect',{x:px[0],y:y0,width:px[1]-px[0],height:hh+R*rh,rx:18,fill:'rgba(255,255,255,.12)',stroke:'#fff','stroke-width':4}));
+    DS={cols:d.cols,colX,cellY,items:[]};
+    (d.items||[]).forEach(([c,x,y],n)=>{ const k=d.cols[c].k, e=iconG(k,x,y,SHAPES[k]?84:78,SHAPES[k]?((n*37)%31)-15:0,!!SHAPES[k]); g.append(e); DS.items.push({c,x,y,e}); }); }
+  /* the things of a line scene act in sync with the narration: {pop:{a,b,mode}} = things a..b-1 counted from the START end (Arabic: from the right):
+     "pop" = a small bounce (no boxes), "out" = they fly out of the picture (taking away), "in" = they come in with a bounce (adding). */
+  async function popIt(o){ const els=[...Lbg.querySelectorAll('.xit')], n=els.length, mode=o.mode||'pop'; const L=[]; for(let i=o.a;i<o.b;i++){ const e=els[data.lang==='ar'?n-1-i:i]; if(e) L.push(e); }
+    const T=(e,dx,dy,sc,rot)=>{ const cx=+e.dataset.cx, cy=+e.dataset.cy; e.setAttribute('transform',`translate(${dx} ${dy}) rotate(${rot||0} ${cx} ${cy}) translate(${(1-sc)*cx} ${(1-sc)*cy}) scale(${sc})`); };
+    await Promise.all(L.map(async(e,k)=>{ await wait(X.fast?0:110*k);
+      if(mode==='out'){ const dx=(k%2?1:-1)*(40+Math.random()*60), dy=330; await tween(750,p=>{ T(e,dx*p,dy*p*p,1-.3*p,(k%2?1:-1)*140*p); e.style.opacity=1-Math.max(0,p-.6)/.4; },ease.inout); e.style.opacity=0; }
+      else if(mode==='in'){ e.removeAttribute('transform'); e.style.opacity=1; await tween(420,p=>T(e,0,0,.3+.7*ease.back(p)),x=>x); e.removeAttribute('transform'); }
+      else await tween(420,p=>T(e,0,-14*Math.sin(p*Math.PI),1+.3*Math.sin(p*Math.PI)),x=>x); }));
+    L.forEach(e=>{ if(mode!=='out') e.removeAttribute('transform'); }); }
+  async function mark(o){ const cl=DS.cols[o.col], its=DS.items.filter(i=>i.c===o.col); let n=0; clearBadges();
+    for(const it of its){ const j=n; n++;
+      const rg=mk('circle',{cx:it.x,cy:it.y,r:SHAPES[cl.k]?58:52,class:'xring',stroke:'#fff','stroke-width':7,fill:'none',pathLength:'1'}); rg.style.stroke=COL[cl.color]||cl.color||'#E8443A'; Lring.append(rg);
+      const b=mk('g',{class:'xbadge'}); b.innerHTML=`<circle r="19" fill="${COL[cl.color]||cl.color||'#2A7FD8'}" stroke="#fff" stroke-width="5"/><text y="9" text-anchor="middle" style="font-size:26px">${n}</text>`; b.style.opacity=0; Lbadge.append(b); badges.push(b);
+      const snd=play((data.nums||{})[n]||null,0); snd.catch(()=>{});
+      const fx=it.x+34, fy=it.y-38, tx=DS.colX(o.col), ty=DS.cellY(j);
+      const ic=iconG(cl.k,it.x,it.y,SHAPES[cl.k]?84:78,0,false); Lact.append(ic);
+      await tween(X.fast?1:320,p=>{ rg.style.strokeDashoffset=1-p; b.style.opacity=Math.min(1,p*2); b.setAttribute('transform',`translate(${fx} ${fy}) scale(${.4+.6*ease.back(p)})`); },x=>x);
+      const mv=tween(X.fast?1:520,p=>{ const q=ease.inout(p), k=1-.28*q; ic.setAttribute('transform',`translate(${it.x+(tx-it.x)*q} ${it.y+(ty-it.y)*q-Math.sin(p*Math.PI)*60}) scale(${(SHAPES[cl.k]?84:78)/100*(1-q)+54/100*q}) translate(-50 -50)`); },x=>x);
+      await Promise.all([snd,mv,wait(380)]); }
+  }
   /* NUMBER LINE (Math 7-3): ticks 0..max with the numbers under them; d.pet = a picture standing on tick d.at; d.arrow='right' draws "Greater" arrow. Picture px: line y=130, tick i at x=50+45*i, label y=190; count pts at y=100. */
   function nlineScene(d){ const mx=d.max||20, ih=d.ih||225, X0=50, ST=900/mx; PIC={k:1}; VH=TOP+ih; SC={};
     const tag=[`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`, `<path d="M${X0-20} ${TOP+130} H${X0+900+20}" stroke="#444" stroke-width="5" stroke-linecap="round"/>`];
@@ -3255,21 +3346,23 @@ function mount(root, data, opt){
     Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; }
   /* CLOCK scene (Math 8-1): face with numbers; d.h = hour, d.half = 1 for half past (long hand on 6). Picture px: centre (500,215), face r 190, short hand 105 (red), long hand 150 (blue). */
   function clockScene(d){ const ih=430, cx=500, cy=215; PIC={k:1}; TOP=170; VH=TOP+ih; SC={};
-    const tag=[`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`, `<circle cx="${cx}" cy="${TOP+cy}" r="190" fill="#fffdf5" stroke="#444" stroke-width="8"/>`];
+    const tag=[`<circle cx="${cx}" cy="${TOP+cy}" r="190" fill="#fffdf5" stroke="#444" stroke-width="8"/>`];   // see-through: no white card behind the clock (Ahmed 2026-11-14)
     for(let i=0;i<60;i++){ const a=i*Math.PI/30, r1=i%5?176:164; tag.push(`<path d="M${cx+Math.sin(a)*r1} ${TOP+cy-Math.cos(a)*r1} L${cx+Math.sin(a)*184} ${TOP+cy-Math.cos(a)*184}" stroke="#444" stroke-width="${i%5?2:4}"/>`); }
-    for(let i=1;i<=12;i++){ const a=i*Math.PI/6; tag.push(`<text x="${cx+Math.sin(a)*135}" y="${TOP+cy-Math.cos(a)*135+13}" text-anchor="middle" font-size="38" font-weight="700" fill="#333">${i}</text>`); }
+    for(let i=1;i<=12;i++){ const a=i*Math.PI/6; tag.push(`<text id="xcn${i}" data-x="${cx+Math.sin(a)*135}" data-y="${TOP+cy-Math.cos(a)*135+13}" x="${cx+Math.sin(a)*135}" y="${TOP+cy-Math.cos(a)*135+13}" text-anchor="middle" font-size="38" font-weight="700" fill="#333">${i}</text>`); }
     const ha=((d.h%12)+(d.half?.5:0))*Math.PI/6, ma=d.half?Math.PI:0;
-    tag.push(`<path d="M${cx} ${TOP+cy} L${cx+Math.sin(ma)*150} ${TOP+cy-Math.cos(ma)*150}" stroke="#1E6FD0" stroke-width="10" stroke-linecap="round"/>`);
-    tag.push(`<path d="M${cx} ${TOP+cy} L${cx+Math.sin(ha)*105} ${TOP+cy-Math.cos(ha)*105}" stroke="#E5352B" stroke-width="15" stroke-linecap="round"/><circle cx="${cx}" cy="${TOP+cy}" r="12" fill="#333"/>`);
-    Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; }
+    tag.push(`<path id="xchl" d="M${cx} ${TOP+cy} L${cx+Math.sin(ma)*150} ${TOP+cy-Math.cos(ma)*150}" stroke="#1E6FD0" stroke-width="10" stroke-linecap="round"/>`);
+    tag.push(`<path id="xchs" d="M${cx} ${TOP+cy} L${cx+Math.sin(ha)*105} ${TOP+cy-Math.cos(ha)*105}" stroke="#E5352B" stroke-width="15" stroke-linecap="round"/><circle cx="${cx}" cy="${TOP+cy}" r="12" fill="#333"/>`);
+    Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; SC={clock:{h:d.h,half:d.half?1:0}}; }
   function scene(name,actors,d){
-    TOP=(name==='free'&&d&&d.top!=null)?d.top:170; IT={}; if(d&&d.wide!==undefined) root.classList.toggle('xwide',!!d.wide);
+    root.classList.toggle('xclockl',name==='clock'); TOP=(name==='free'&&d&&d.top!=null)?d.top:170;
+    const tall=name==='pic'&&d&&d.w&&d.h/d.w>1.1; if(tall) TOP=20; root.classList.toggle('xtall',!!tall);   // a tall picture (a table): no empty band above it, the picture zone gets the height, the caption sits under it (Ahmed 2026-11-14) IT={}; if(d&&d.wide!==undefined) root.classList.toggle('xwide',!!d.wide);
     if(name==='pic'&&d&&d.img){ const k=1000/d.w, ih=Math.round(d.h*k); PIC={k}; VH=TOP+ih; PICD={href:base+d.img,ih};
       Lbg.innerHTML=`<defs><clipPath id="xpc"><rect x="0" y="${TOP}" width="1000" height="${ih}" rx="22"/></clipPath></defs>
         ${d.frame===false?'':`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`}
         <image href="${base+d.img}" x="0" y="${TOP}" width="1000" height="${ih}" preserveAspectRatio="none" ${d.frame===false?'':'clip-path="url(#xpc)"'}/>`; }
     else if(name==='line'&&d){ lineScene(d); }
     else if(name==='tens'&&d){ tensScene(d); }
+    else if(name==='data'&&d){ dataScene(d); }
     else if(name==='nline'&&d){ nlineScene(d); }
     else if(name==='groups'&&d){ groupsScene(d); }
     else if(name==='clock'&&d){ clockScene(d); }
@@ -3294,14 +3387,21 @@ function mount(root, data, opt){
       a.g.classList.add('moving'); await tween(1300,p=>{ a.x=fx+(tx-fx)*p; a.y=fy+(ty-fy)*p; a.g.style.opacity=1-Math.max(0,p-.6)/.4; setT(a); },ease.inout); a.g.classList.remove('moving'); }));
   }
   function clearBadges(){ badges.forEach(b=>b.remove()); badges=[]; }
-  async function count(list,start,color,pts,keep,rr){
+  const cubeAt=(x,y)=>[...Lbg.querySelectorAll('.xcube')].find(c=>Math.abs(c.dataset.cx-x)<30&&Math.abs(TOP+(+y)-c.dataset.cy)<30);
+  const cubeT=(c,x,y,sc,rot)=>c.setAttribute('transform',`translate(${x} ${y}) rotate(${rot||0} ${+c.dataset.cx} ${+c.dataset.cy}) translate(${(1-sc)*c.dataset.cx} ${(1-sc)*c.dataset.cy}) scale(${sc})`);
+  /* tens scene: a counted cube that was not there yet pops in (adding: the count runs on 11, 12, 13…); with out:true it FLIES OUT of the picture (taking away) */
+  async function cubeFx(pt,b,out){ const c=cubeAt(pt[0],pt[1]); if(!c) return; const hid=c.style.opacity==='0';
+    if(out){ const dx=(+c.dataset.cx<500?-1:1)*(160+Math.random()*120), dy=-(+c.dataset.cy)-160;
+      await tween(900,p=>{ cubeT(c,dx*p,dy*p*p+(-60*Math.sin(p*Math.PI)),1-.35*p,(dx<0?-1:1)*160*p); c.style.opacity=1-Math.max(0,p-.55)/.45; if(b) b.style.opacity=1-p; },ease.inout); c.style.display='none'; if(b) b.style.opacity=0; }
+    else if(hid){ c.style.opacity=1; await tween(320,p=>cubeT(c,0,0,.3+.7*ease.back(p)),x=>x); c.removeAttribute('transform'); } }
+  async function count(list,start,color,pts,keep,rr,out){
     if(!keep) clearBadges(); let n=(start||1)-1;
     if(pts){ for(const pt of pts){ n++; const [x,y]=P(pt[0],pt[1]);   // things drawn in a book picture: the number appears on each one
       const b=mk('g',{class:'xbadge'}); const R=rr||26; b.innerHTML=`<circle r="${R}" fill="${col(color||'#2A7FD8')}" stroke="#fff" stroke-width="${R>20?5:3}"/><text y="${Math.round(R*.42)}" text-anchor="middle" ${R<26?`style="font-size:${Math.round(R*1.3)}px"`:''}>${n}</text>`;
       b.style.opacity=0; Lbadge.append(b); badges.push(b);
       const snd=play((data.nums||{})[n]||null,0); snd.catch(()=>{});
       await tween(320,p=>{ b.style.opacity=Math.min(1,p*2); b.setAttribute('transform',`translate(${x} ${y}) scale(${.4+.6*ease.back(p)})`); },x=>x);
-      await Promise.all([snd,wait(450)]); } return; }
+      const fx=PIC?cubeFx(pt,b,out):null; await Promise.all([snd,wait(450),fx]); } return; }
     for(const id of ids(list)){ n++; const a=A[id];
       const b=mk('g',{class:'xbadge',transform:`translate(${a.hx} ${a.hy-(a.kind==='fish'?52:62)})`}); b.innerHTML=`<circle r="26" fill="${col(color||'#2A7FD8')}" stroke="#fff" stroke-width="5"/><text y="11" text-anchor="middle">${n}</text>`;
       b.style.opacity=0; Lbadge.append(b); badges.push(b);
@@ -3358,6 +3458,12 @@ function mount(root, data, opt){
       Leq.append(g); return {g,c,x:px,op}; });
     eqState(state||'show');
   }
+  /* HEAD: the calculation to do, written LARGE at the top before it is explained ("17 - 3 ="); {head:{t:[..],slots:n}} then {head:{t:["14"],more:true}} writes the answer in its place.
+     Arabic: first number on the right. Positions are fixed by slots, so nothing moves when the answer arrives. (Ahmed 2026-11-14) */
+  let HT=[], HS=1;
+  async function head(o){ const rtl=data.lang==='ar'; if(o.slots) HS=o.slots; else if(!o.more) HS=o.t.length; const n=HS, step=130, x0=W/2-(n-1)*step/2; if(!o.more){ HT=[]; Leq.innerHTML=''; eqT=[]; }
+    const fresh=o.t.map(c=>{ const i=HT.length, px=x0+(rtl?n-1-i:i)*step, g=mk('g',{class:'xhead',transform:`translate(${px} 128)`}); g.innerHTML=`<text text-anchor="middle">${c}</text>`; g.style.opacity=0; Leq.append(g); HT.push(g); return g; });
+    await tween(450,p=>fresh.forEach(g=>g.style.opacity=p)); }
   function eqState(state){ eqT.forEach(t=>{ t.g.classList.remove('lit'); t.g.style.removeProperty('--xc'); t.g.classList.toggle('dim',state==='dim'); if(!t.op&&state==='dim') t.g.querySelector('text').textContent='?'; else t.g.querySelector('text').textContent=t.c; }); }
   async function lit(i,color,value){ const t=eqT[i]; if(!t) return; t.g.classList.remove('dim'); if(value!=null) t.c=String(value); t.g.querySelector('text').textContent=t.c;
     if(!t.op&&color){ t.g.classList.add('lit'); t.g.style.setProperty('--xc',col(color)); }   // a pulse (no colour) keeps the tile as it is
@@ -3400,11 +3506,11 @@ function mount(root, data, opt){
         pad.append(b); }); }).then(()=>live(g));
   }
   /* the story sentence is built under the picture, piece by piece (the same chips as the "order" question) */
-  function words(t,color,card){ cap.classList.add('built'); const out=[];
-    if(card){ const sp=hel('span','xtw xcard'); sp.textContent=t; line.append(sp,' '); out.push(sp); return out; }   // the answer + its word in one card
-    String(t).split(/\s+/).filter(Boolean).forEach(w=>{ const sp=hel('span','xtw'); sp.textContent=w; if(color){ sp.style.setProperty('--xc',col(color)); sp.classList.add('xcol'); } line.append(sp,' '); out.push(sp); });
+  function words(t,color,card,big){ cap.classList.add('built'); const out=[];
+    if(card){ const sp=hel('span','xtw xcard'+(big?' xbig':'')); sp.textContent=t; line.append(sp,' '); out.push(sp); return out; }   // the answer + its word in one card
+    String(t).split(/\s+/).filter(Boolean).forEach(w=>{ const sp=hel('span','xtw'+(big?' xbig':'')); sp.textContent=w; if(color){ sp.style.setProperty('--xc',col(color)); sp.classList.add('xcol'); } line.append(sp,' '); out.push(sp); });
     return out; }
-  async function add(t,color,card){ const ws=words(t,color,card); ws.forEach(w=>w.style.opacity=0);
+  async function add(t,color,card,big){ const ws=words(t,color,card,big); ws.forEach(w=>w.style.opacity=0); fitCap();   // big = a part of the number sentence, written LARGE under the picture as it is said
     await tween(350,p=>ws.forEach(w=>w.style.opacity=p)); }
   /* the child builds the story: the pieces lie mixed under the line; tap them in order (the next piece is taken, any other one shakes and stays) */
   function order(o){
@@ -3453,25 +3559,39 @@ function mount(root, data, opt){
       else { sv=mk('svg',{x:x0,y:y0,width:x1-x0,height:y1-y0,viewBox:`${sr[0]} ${sr[1]} ${sr[2]-sr[0]} ${sr[3]-sr[1]}`,preserveAspectRatio:'xMidYMid meet',overflow:'hidden'});
         sv.append(mk('image',{href:PICD.href,x:0,y:0,width:1000,height:PICD.ih,preserveAspectRatio:'none'})); } sv.style.opacity=0; sv.style.overflow='hidden'; Lring.append(sv);
       if(typeof blip==='function'&&!X.fast) blip(600,.04); await tween(X.fast?1:300,v=>{ sv.style.opacity=v; }); } }
+  /* clock hand "pop" (no boxes): the hand itself swells and the number it points to pops, twice. which = 'short' | 'long' | 'both' */
+  async function hand(which){ const c=SC&&SC.clock; if(!c) return; const set=[]; const hs=which==='long'?[]:[c.h%12||12], ln=c.half?6:12;
+    if(which!=='long'){ if(c.half) hs.push(c.h%12+1>12?1:(c.h%12)+1); }
+    const nums=[]; if(which!=='long') hs.forEach(i=>nums.push(i)); if(which!=='short') nums.push(ln);
+    const hands=[]; if(which!=='long') hands.push([Lbg.querySelector('#xchs'),15]); if(which!=='short') hands.push([Lbg.querySelector('#xchl'),10]);
+    const ts=nums.map(i=>Lbg.querySelector('#xcn'+i)).filter(Boolean);
+    await tween(X.fast?1:1500,v=>{ const k=Math.sin(Math.min(1,v)*Math.PI*2); const g=Math.max(0,k);
+      hands.forEach(([e,w])=>{ if(e) e.setAttribute('stroke-width',w*(1+.9*g)); });
+      ts.forEach(t=>{ const x=+t.dataset.x,y=+t.dataset.y-13, z=1+.55*g; t.setAttribute('transform',`translate(${x} ${y}) scale(${z}) translate(${-x} ${-y})`); });
+      if(v>=1){ hands.forEach(([e,w])=>e&&e.setAttribute('stroke-width',w)); ts.forEach(t=>t.removeAttribute('transform')); } }); }
   async function act(d){
     if(d.scene) return scene(d.scene,d.actors,d);
     if(d.move) return move(d.move,d.ms);
     if(d.guide) return guide(d.guide);
     if(d.dir) return dir(d.dir,d.color);
+    if(d.hand) return hand(d.hand);
     if(d.frame) return frame(d.frame);
     if(d.stamp) return stamp(d.stamp);
     if(d.enter) return enter(d.enter,d.from,d.gap);
     if(d.leave) return leave(d.leave,d.to,d.gap);
-    if(d.count) return count(d.count,d.start,d.color,d.pts,d.keep,d.r);
+    if(d.pop) return popIt(d.pop);
+    if(d.mark) return mark(d.mark);
+    if(d.count) return count(d.count,d.start,d.color,d.pts,d.keep,d.r,d.out);
     if(d.hold) return hold(d.hold,d.on,d.color);
     if(d.ring) return ring(d.ring,d.color,d.id,d.box,d.pts,d.r);
-    if(d.add) return add(d.add,d.color,d.card);
+    if(d.add!=null) return add(d.add,d.color,d.card,d.big);
     if(d.line) return d.line==='break'?line.append(hel('br')):(line.innerHTML='',cap.classList.remove('built'));
     if(d.unring) return unring(d.unring);
     if(d.cross) return cross(d.pts,d.r,d.color);
     if(d.link) return link(d.link,d.color,d.r,d.id);
     if(d.pick) return pick(d.pick);
     if(d.badges===false) return clearBadges();
+    if(d.head) return head(d.head);
     if(d.eq) return eq(d.eq,d.state);
     if(d.eqState) return eqState(d.eqState);
     if(d.lit!=null) return lit(d.lit,d.color,d.value);
@@ -3483,12 +3603,14 @@ function mount(root, data, opt){
     if(d.cheer) return cheer();
     if(d.wait) return wait(d.wait);
   }
+  /* the writing zone never overflows: if the text is too long for the (now bigger) letters, they shrink step by step until it fits */
+  function fitCap(){ cap.style.removeProperty('--xk'); let k=1; while(k>.45&&cap.scrollHeight>cap.clientHeight+2){ k-=.07; cap.style.setProperty('--xk',k.toFixed(2)); } }
   async function beat(b){
-    if(b.say!=null){ capT.textContent=data.caption===false?'':b.say; cap.classList.toggle('empty',data.caption===false||!b.say); }   // caption:false = the spoken words are NOT written, only important things (Ahmed 2026-11-12)
+    if(b.say!=null){ capT.textContent=data.caption===false?'':b.say; cap.classList.toggle('empty',data.caption===false||!b.say); fitCap(); }   // caption:false = the spoken words are NOT written, only important things (Ahmed 2026-11-12)
     const voice=b.say?play(b.audio,sayMs(b.say)):Promise.resolve();
     if(b.hl&&!X.fast){ const ws=[...line.querySelectorAll('.xtw')].slice(-b.hl.length), t0=X.vt;   // the LAST words on the line = the sentence being re-read
       b.hl.forEach(([a,e],i)=>{ const w=ws[i]; if(!w) return; X.jobs.push({at:t0+a*1000,fn:()=>w.classList.add('reading')},{at:t0+e*1000+60,fn:()=>w.classList.remove('reading')}); }); }
-    let motion=Promise.resolve(); for(const d of b.do||[]) motion=motion.then(()=>X.fast||!(d.after||d.count||d.ask||d.order||d.pick||d.hold||d.write)?act(d):voice.then(()=>act(d)));
+    let motion=Promise.resolve(); for(const d of b.do||[]) motion=motion.then(()=>X.fast||!(d.after||d.mark||d.count||d.ask||d.order||d.pick||d.hold||d.write)?act(d):voice.then(()=>act(d)));
     // actions run one after another inside a beat, while the line is said; {after:true} = wait for the line first.
     // Anything with its own sound (counting, a question) always waits for the line, so two voices never talk together.
     await Promise.all([voice,motion]); await wait(b.gap!=null?b.gap:750);

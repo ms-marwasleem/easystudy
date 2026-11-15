@@ -14,7 +14,8 @@
       "4"
      ],
      "answer": 1,
-     "word": "3 − 0 = 3"
+     "word": "3 − 0 = 3",
+     "audio": "../../math-ar-audio/84b7600901.mp3"
     },
     {
      "stem": "5 − 0 = ___",
@@ -24,7 +25,8 @@
       "6"
      ],
      "answer": 1,
-     "word": "5 − 0 = 5"
+     "word": "5 − 0 = 5",
+     "audio": "../../math-ar-audio/f5048593f5.mp3"
     },
     {
      "stem": "8 − 2 = ___",
@@ -34,7 +36,8 @@
       "7"
      ],
      "answer": 1,
-     "word": "8 − 2 = 6"
+     "word": "8 − 2 = 6",
+     "audio": "../../math-ar-audio/4c4a355483.mp3"
     },
     {
      "stem": "6 − 6 = ___",
@@ -44,7 +47,8 @@
       "2"
      ],
      "answer": 0,
-     "word": "6 − 6 = 0"
+     "word": "6 − 6 = 0",
+     "audio": "../../math-ar-audio/611d44abc1.mp3"
     },
     {
      "stem": "3 − 3 = ___",
@@ -54,7 +58,8 @@
       "2"
      ],
      "answer": 0,
-     "word": "3 − 3 = 0"
+     "word": "3 − 3 = 0",
+     "audio": "../../math-ar-audio/5553b96fdd.mp3"
     },
     {
      "stem": "4 − 3 = ___",
@@ -64,9 +69,11 @@
       "2"
      ],
      "answer": 1,
-     "word": "4 − 3 = 1"
+     "word": "4 − 3 = 1",
+     "audio": "../../math-ar-audio/b7bf4cf4f6.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/d140cb5195.mp3"
   },
   {
    "type": "mwrite",
@@ -85,9 +92,12 @@
      "askSay": "هناك خمس تفاحات. لم نأكل أيًّا منها. كم تفاحة تبقت؟ اكتب جملة الطرح.",
      "picsTall": [
       "story-2-tall.png"
-     ]
+     ],
+     "askAudio": "../../math-ar-audio/105ca798db.mp3",
+     "audio": "../../math-ar-audio/f5048593f5.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
   },
   {
    "type": "mcq",
@@ -111,9 +121,12 @@
      "word": "الإجابة: 5 تفاحات",
      "picsTall": [
       "story-2-tall.png"
-     ]
+     ],
+     "askAudio": "../../math-ar-audio/f3dcb91907.mp3",
+     "audio": "../../math-ar-audio/9491a2c75d.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
   },
   {
    "type": "mwrite",
@@ -129,9 +142,12 @@
      "lead": "جملة الطرح:",
      "word": "2 − 2 = 0",
      "keys": "1234567890+−=",
-     "askSay": "هناك قطعتان من الكيك. أكلت القطعتين. كم قطعة تبقت؟ اكتب جملة الطرح."
+     "askSay": "هناك قطعتان من الكيك. أكلت القطعتين. كم قطعة تبقت؟ اكتب جملة الطرح.",
+     "askAudio": "../../math-ar-audio/1d902c740f.mp3",
+     "audio": "../../math-ar-audio/47f5c29559.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
   },
   {
    "type": "mcq",
@@ -152,9 +168,12 @@
      ],
      "answer": 0,
      "askSay": "كم تبقى؟ ما الإجابة؟",
-     "word": "الإجابة: 0 قطعة"
+     "word": "الإجابة: 0 قطعة",
+     "audio": "../../math-ar-audio/84b62c353c.mp3",
+     "askAudio": "../../math-ar-audio/7143e3e95d.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
   },
   {
    "type": "mcq",
@@ -172,10 +191,13 @@
      ],
      "answer": 2,
      "askSay": "7 − 7 = ؟",
-     "word": "الإجابة 0."
+     "word": "الإجابة 0.",
+     "askAudio": "../../math-ar-audio/0db7784072.mp3",
+     "audio": "../../math-ar-audio/4617e63e7b.mp3"
     }
    ],
-   "book": "workbook"
+   "book": "workbook",
+   "taskAudio": "../../math-ar-audio/b4da6a4269.mp3"
   },
   {
    "type": "mcq",
@@ -194,10 +216,13 @@
      ],
      "answer": 2,
      "askSay": "5 − 0 = ؟",
-     "word": "الإجابة 5."
+     "word": "الإجابة 5.",
+     "askAudio": "../../math-ar-audio/b9613e131a.mp3",
+     "audio": "../../math-ar-audio/0c589f27ec.mp3"
     }
    ],
-   "book": "workbook"
+   "book": "workbook",
+   "taskAudio": "../../math-ar-audio/b4da6a4269.mp3"
   },
   {
    "type": "mcq",
@@ -216,10 +241,13 @@
      ],
      "answer": 3,
      "askSay": "4 − 2 = ؟",
-     "word": "الإجابة 2."
+     "word": "الإجابة 2.",
+     "askAudio": "../../math-ar-audio/fa3b09c848.mp3",
+     "audio": "../../math-ar-audio/08744d3b9f.mp3"
     }
    ],
-   "book": "workbook"
+   "book": "workbook",
+   "taskAudio": "../../math-ar-audio/b4da6a4269.mp3"
   },
   {
    "type": "mcq",
@@ -237,7 +265,9 @@
      ],
      "answer": 2,
      "askSay": "9 − 9 = ؟",
-     "word": "الإجابة 0."
+     "word": "الإجابة 0.",
+     "askAudio": "../../math-ar-audio/4b3f000443.mp3",
+     "audio": "../../math-ar-audio/4617e63e7b.mp3"
     }
    ],
    "book": "workbook"
@@ -253,7 +283,9 @@
      "lead": "جملة الطرح:",
      "word": "3 − 0 = 3",
      "keys": "1234567890+−=",
-     "askSay": "يوجد 3 موزات في سلة، ولم آكل أي واحدة منها. كم العدد المتبقي؟"
+     "askSay": "يوجد 3 موزات في سلة، ولم آكل أي واحدة منها. كم العدد المتبقي؟",
+     "askAudio": "../../math-ar-audio/266f2a7836.mp3",
+     "audio": "../../math-ar-audio/84b7600901.mp3"
     }
    ],
    "book": "workbook"

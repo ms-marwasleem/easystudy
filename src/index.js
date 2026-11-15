@@ -25,7 +25,7 @@ async function settings(env) {
   const r = await env.DB.prepare("SELECT json FROM settings WHERE key='app'").first();
   let s; try { s = r ? JSON.parse(r.json) : null; } catch (e) { s = null; }
   // nothing saved from the dashboard yet = the app's own data/settings.json (served by the assets binding)
-  if (!s && env.ASSETS) s = await env.ASSETS.fetch('https://assets/data/settings.json').then(r => r.ok ? r.json() : null).catch(() => null);
+  if (!s && env.ASSETS) s = await env.ASSETS.fetch('https://assets/' + (env.SETTINGS_PATH || 'data/settings.json')).then(r => r.ok ? r.json() : null).catch(() => null);
   s = s || { coins: { enabled: false, shares: [] } }; s.coins = s.coins || { shares: [] }; s.coins.referral = s.coins.referral || { on: false, coins: 0 };
   s.access = s.access || {}; s.items = s.items || {}; return s;
 }
@@ -43,14 +43,15 @@ async function who(req, env) {
 }
 
 async function sendCode(env, email, code, name) {
+  const replyTo = ((await settings(env).catch(() => ({}))).adminEmail || '').trim();   // dashboard "إيميل الإدارة"
   if (env.DEV_CODES === '1') return { dev: code };
   if (!env.RESEND_API_KEY || !env.MAIL_FROM) throw new Error('mail-not-set');
   const html = `<div dir="rtl" style="font-family:Tahoma,Arial,sans-serif;font-size:18px;color:#333">
-    <p>أهلًا ${name ? escapeHtml(name) : ''}،</p><p>كود الدخول لتطبيق EasyStudy:</p>
+    <p>أهلًا ${name ? escapeHtml(name) : ''}،</p><p>كود الدخول لتطبيق ${env.APP_NAME || 'EasyStudy'}:</p>
     <p style="font-size:34px;font-weight:bold;letter-spacing:8px;direction:ltr;text-align:center">${code}</p>
     <p style="color:#777;font-size:14px">الكود صالح لمدة ١٥ دقيقة. لو ما طلبتش الكود ده تجاهل الرسالة.</p></div>`;
   const r = await fetch('https://api.resend.com/emails', { method: 'POST', headers: { authorization: 'Bearer ' + env.RESEND_API_KEY, 'content-type': 'application/json' },
-    body: JSON.stringify({ from: env.MAIL_FROM, to: [email], subject: `كود الدخول ${code} - EasyStudy`, html, text: `كود الدخول لتطبيق EasyStudy: ${code} (صالح ١٥ دقيقة)` }) });
+    body: JSON.stringify({ from: env.MAIL_FROM, to: [email], ...(replyTo ? { reply_to: replyTo } : {}), subject: `كود الدخول ${code} - ${env.APP_NAME || 'EasyStudy'}`, html, text: `كود الدخول لتطبيق EasyStudy: ${code} (صالح ١٥ دقيقة)` }) });
   if (!r.ok) throw new Error('mail-failed ' + r.status);
   return {};
 }
@@ -271,7 +272,35 @@ async function subsIn(req, env, p) {
   await env.DB.prepare(`INSERT INTO subs(child_id,term,parent_id,st,price,ref,receipt,at,trial,until) VALUES(?,?,?,'pending',?,?,?,?,?,?)
     ON CONFLICT(child_id,term) DO UPDATE SET st='pending',price=excluded.price,ref=excluded.ref,receipt=excluded.receipt,at=excluded.at,trial=excluded.trial,until=excluded.until,decided=0,by=''`)
     .bind(child, term, p.id, fin, ref, rc, t, trial, until).run();
+  try { await Promise.allSettled([waNotifySub(env, S, child, term, fin, ref, p.id), mailNotifySub(env, S, child, term, fin, ref, p.id)]); } catch (e) { /* the notices never block the subscription */ }
   return J({ ok: true, at: t, trial, until });
+}
+// "new subscription needs activation" to the admin WhatsApp number (settings "whatsapp"), sent by the server through the WhatsApp Business Cloud API.
+// Needs the Worker secrets WA_TOKEN + WA_PHONE_ID (Meta); WA_TEMPLATE (an approved template whose body has 5 variables: student, term, price, ref, contact; WA_LANG default ar)
+// is needed to reach the admin outside WhatsApp's 24 h window, without it a plain text is sent. No secrets = silently nothing.
+async function waNotifySub(env, S, child, term, fin, ref, parentId) {
+  if (!env.WA_TOKEN || !env.WA_PHONE_ID) return;
+  const to = String(S.whatsapp || '').replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/\D/g, ''); if (!to) return;
+  const c = await env.DB.prepare('SELECT c.name,p.email,p.phone FROM children c JOIN parents p ON p.id=? WHERE c.id=?').bind(parentId, child).first() || {};
+  const contact = [c.email && !/@phone\.local$/.test(c.email) ? c.email : '', c.phone].filter(Boolean).join(' / ') || '-';
+  const vals = [c.name || '-', term, String(fin), ref, contact];
+  const msg = env.WA_TEMPLATE
+    ? { type: 'template', template: { name: env.WA_TEMPLATE, language: { code: env.WA_LANG || 'ar' }, components: [{ type: 'body', parameters: vals.map(text => ({ type: 'text', text })) }] } }
+    : { type: 'text', text: { body: 'اشتراك جديد محتاج التفعيل - easy study\nالطالب: ' + vals[0] + '\nالترم: ' + term + '\nالمبلغ: ' + fin + ' جنيه\nرقم العملية: ' + ref + '\nولي الأمر: ' + contact } };
+  await fetch('https://graph.facebook.com/v21.0/' + env.WA_PHONE_ID + '/messages', { method: 'POST', headers: { authorization: 'Bearer ' + env.WA_TOKEN, 'content-type': 'application/json' },
+    body: JSON.stringify({ messaging_product: 'whatsapp', to, ...msg }), signal: AbortSignal.timeout(5000) });
+}
+// The same notice by email to the dashboard "إيميل الإدارة" (settings adminEmail; Worker variable ADMIN_EMAIL as a fallback) through Resend (RESEND_API_KEY). Without a verified domain Resend only sends FROM onboarding@resend.dev
+// TO the email of the Resend account owner, which is enough for this notice (MAIL_FROM is used when set). No ADMIN_EMAIL / key = nothing.
+async function mailNotifySub(env, S, child, term, fin, ref, parentId) {
+  const to = String(S.adminEmail || env.ADMIN_EMAIL || '').trim();   // dashboard "إيميل الإدارة" first
+  if (!env.RESEND_API_KEY || !to) return;
+  const c = await env.DB.prepare('SELECT c.name,p.email,p.phone FROM children c JOIN parents p ON p.id=? WHERE c.id=?').bind(parentId, child).first() || {};
+  const contact = [c.email && !/@phone\.local$/.test(c.email) ? c.email : '', c.phone].filter(Boolean).join(' / ') || '-';
+  const rows = [['الطالب', c.name || '-'], ['الترم', term], ['المبلغ', fin + ' جنيه'], ['رقم العملية', ref], ['ولي الأمر', contact]];
+  const html = '<div dir="rtl" style="font-family:Tahoma,Arial,sans-serif;font-size:17px;color:#333"><p><b>اشتراك جديد محتاج التفعيل</b></p>' + rows.map(r => '<p>' + r[0] + ': ' + escapeHtml(r[1]) + '</p>').join('') + '<p>الإيصال في لوحة التحكم (المستخدمين).</p></div>';
+  await fetch('https://api.resend.com/emails', { method: 'POST', headers: { authorization: 'Bearer ' + env.RESEND_API_KEY, 'content-type': 'application/json' },
+    body: JSON.stringify({ from: env.MAIL_FROM || `${env.APP_NAME || 'EasyStudy'} <onboarding@resend.dev>`, to: [to], subject: 'اشتراك جديد محتاج التفعيل - ' + (c.name || ''), html }), signal: AbortSignal.timeout(5000) });
 }
 async function adminSubs(env, url) {
   const all = url.searchParams.get('st') === 'all';
@@ -295,6 +324,37 @@ async function adminUserAdd(req, env) {
   if (act) stmts.push(env.DB.prepare(`INSERT INTO subs(child_id,term,parent_id,st,at,until,decided,by) VALUES(?,?,?,'active',?,?,?,'admin')`).bind(cid, act, p.id, t, subEnd(t), t));
   await env.DB.batch(stmts); return J({ ok: true, parent: p.id, child: cid });
 }
+// POST /api/admin/user/<id> {email?, phone?}: edit a parent's contact (an empty email = phone-only account). POST /api/admin/kid/<id> {name}: rename a student.
+// POST /api/admin/user/<id>/delete: remove the parent with ALL their data (children, subscriptions + receipts, unlocks, credits, sessions, promo uses). Reports are kept.
+async function adminUserEdit(req, env, id) {
+  const b = await body(req); if (!b) return ERR('bad-body');
+  const p = await env.DB.prepare('SELECT id,email,phone FROM parents WHERE id=?').bind(id).first(); if (!p) return ERR('not-found', 404);
+  const phone = b.phone != null ? clip(b.phone, 20).replace(/[^\d+]/g, '') : p.phone;
+  let email = b.email != null ? clip(b.email, 200).toLowerCase() : (/@phone\.local$/.test(p.email) ? '' : p.email);
+  if (email && !EMAIL.test(email)) return ERR('bad-email'); if (!email && !phone) return ERR('need-contact');
+  const mail = email || (phone.replace(/\D/g, '') + '@phone.local');
+  const dup = await env.DB.prepare('SELECT id FROM parents WHERE email=? AND id!=?').bind(mail, id).first(); if (dup) return ERR('email-taken', 409);
+  await env.DB.prepare('UPDATE parents SET email=?, phone=? WHERE id=?').bind(mail, phone, id).run(); return J({ ok: true });
+}
+async function adminUserDelete(env, id) {
+  const p = await env.DB.prepare('SELECT id FROM parents WHERE id=?').bind(id).first(); if (!p) return ERR('not-found', 404);
+  const kids = `(SELECT id FROM children WHERE parent_id=?)`;
+  await env.DB.batch([
+    env.DB.prepare(`DELETE FROM subs WHERE parent_id=? OR child_id IN ${kids}`).bind(id, id),
+    env.DB.prepare(`DELETE FROM unlocks WHERE child_id IN ${kids}`).bind(id),
+    env.DB.prepare(`DELETE FROM promo_uses WHERE parent_id=? OR child_id IN ${kids}`).bind(id, id),
+    env.DB.prepare('DELETE FROM coin_events WHERE parent_id=?').bind(id),
+    env.DB.prepare('DELETE FROM sessions WHERE parent_id=?').bind(id),
+    env.DB.prepare('DELETE FROM children WHERE parent_id=?').bind(id),
+    env.DB.prepare('DELETE FROM parents WHERE id=?').bind(id)]);
+  return J({ ok: true });
+}
+async function adminKidEdit(req, env, id) {
+  const b = await body(req); if (!b) return ERR('bad-body'); const name = clip(b.name, 40); if (!name) return ERR('bad-name');
+  const r = await env.DB.prepare('UPDATE children SET name=? WHERE id=? AND deleted=0').bind(name, id).run();
+  return r.meta && r.meta.changes ? J({ ok: true }) : ERR('not-found', 404);
+}
+
 async function adminSub(req, env, path) {
   const rc = path.match(/^\/api\/admin\/sub\/(k\w+)\/([\w-]+:t[12])\/receipt$/);
   if (rc) { const r = await env.DB.prepare('SELECT receipt FROM subs WHERE child_id=? AND term=?').bind(rc[1], rc[2]).first(); return r && r.receipt ? J({ ok: true, receipt: r.receipt }) : ERR('not-found', 404); }
@@ -446,10 +506,10 @@ async function adminReport(req, env, id) {
    The push has NO payload (no encryption needed): the service worker wakes, reads GET /api/push/latest and shows it. VAPID keys: secrets VAPID_PUBLIC, VAPID_PRIVATE (JWK json), VAPID_SUBJECT. */
 const b64 = u8 => btoa(String.fromCharCode(...u8)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 let VKEY = null;
-async function vapidHeader(env, endpoint) {
+async function vapidHeader(env, endpoint, subject) {
   if (!VKEY) VKEY = await crypto.subtle.importKey('jwk', JSON.parse(env.VAPID_PRIVATE), { name: 'ECDSA', namedCurve: 'P-256' }, false, ['sign']);
   const head = b64(enc.encode(JSON.stringify({ typ: 'JWT', alg: 'ES256' })));
-  const pl = b64(enc.encode(JSON.stringify({ aud: new URL(endpoint).origin, exp: Math.floor(now() / 1000) + 12 * 3600, sub: env.VAPID_SUBJECT || 'mailto:admin@example.com' })));
+  const pl = b64(enc.encode(JSON.stringify({ aud: new URL(endpoint).origin, exp: Math.floor(now() / 1000) + 12 * 3600, sub: env.VAPID_SUBJECT || (subject ? 'mailto:' + subject : 'mailto:admin@example.com') })));
   const sig = new Uint8Array(await crypto.subtle.sign({ name: 'ECDSA', hash: 'SHA-256' }, VKEY, enc.encode(head + '.' + pl)));
   return `vapid t=${head}.${pl}.${b64(sig)}, k=${env.VAPID_PUBLIC}`;
 }
@@ -481,9 +541,10 @@ async function adminPushDeliver(env, id) {
   const m = await env.DB.prepare('SELECT id FROM push_msgs WHERE id=?').bind(id).first(); if (!m) return ERR('not-found', 404);
   const rows = (await env.DB.prepare('SELECT endpoint FROM push_subs WHERE last_msg<? ORDER BY created LIMIT 40').bind(id).all()).results;
   let sent = 0, gone = 0;
+  const adminMail = (await settings(env).catch(() => ({}))).adminEmail || '';   // dashboard "إيميل الإدارة"
   await Promise.all(rows.map(async ({ endpoint }) => {
     let st = 0;
-    try { st = (await fetch(endpoint, { method: 'POST', headers: { Authorization: await vapidHeader(env, endpoint), TTL: '86400', Urgency: 'normal', 'Content-Length': '0' } })).status; } catch (e) { st = 0; }
+    try { st = (await fetch(endpoint, { method: 'POST', headers: { Authorization: await vapidHeader(env, endpoint, adminMail), TTL: '86400', Urgency: 'normal', 'Content-Length': '0' } })).status; } catch (e) { st = 0; }
     if (st === 404 || st === 410) { gone++; await env.DB.prepare('DELETE FROM push_subs WHERE endpoint=?').bind(endpoint).run(); }
     else { if (st >= 200 && st < 300) sent++; await env.DB.prepare('UPDATE push_subs SET last_msg=? WHERE endpoint=?').bind(id, endpoint).run(); }   // other errors: skipped, not retried forever
   }));
@@ -496,7 +557,13 @@ async function adminPushDeliver(env, id) {
 export default {
   async fetch(req, env, ctx) {
     const url = new URL(req.url), path = url.pathname, m = req.method, ip = req.headers.get('cf-connecting-ip') || '';
-    if (!path.startsWith('/api/')) return env.ASSETS ? env.ASSETS.fetch(req) : new Response('Not found', { status: 404 });
+    if (!path.startsWith('/api/')) {
+      if (!env.ASSETS) return new Response('Not found', { status: 404 });
+      // Easy Words Worker (ROOT_PAGE=/words.html): the home address opens that page; everything else is served as it is
+      if (env.ROOT_PAGE && (path === '/' || path === '/index.html')) return env.ASSETS.fetch(new URL(env.ROOT_PAGE, req.url).toString());
+      if (env.ADMIN_PAGE && path === '/admin.html') return env.ASSETS.fetch(new URL(env.ADMIN_PAGE, req.url).toString());   // Easy Words: its own dashboard page at the same address
+      return env.ASSETS.fetch(req);
+    }
     if (m === 'POST' || m === 'PUT') { const o = req.headers.get('origin'); if (o && o !== url.origin && !(env.DEV_CODES === '1')) return ERR('origin', 403); }
     try {
       if (path === '/api/ping') return J({ ok: true, v: 1 });
@@ -510,6 +577,7 @@ export default {
       if (path === '/api/auth/verify' && m === 'POST') return await authVerify(req, env, ip);
       if (path.startsWith('/api/admin/')) {
         if (!(await isAdmin(req, env))) return ERR('admin-only', 401);
+        if (path === '/api/admin/settings' && m === 'GET') return J(await settings(env));   // full copy incl. promos, for the dashboard
         if (path === '/api/admin/settings' && m === 'PUT') { const b = await body(req); if (!b || !b.coins) return ERR('bad-body');
           await env.DB.prepare("INSERT INTO settings(key,json,updated) VALUES('app',?,?) ON CONFLICT(key) DO UPDATE SET json=excluded.json,updated=excluded.updated").bind(JSON.stringify(b), now()).run(); return J({ ok: true }); }
         if (path === '/api/admin/user' && m === 'POST') return await adminUserAdd(req, env);
@@ -523,6 +591,8 @@ export default {
         if (path === '/api/admin/push/send' && m === 'POST') return await adminPushSend(req, env);
         const pd = path.match(/^\/api\/admin\/push\/deliver\/(\d{1,12})$/); if (pd && m === 'POST') return await adminPushDeliver(env, +pd[1]);
         const rp = path.match(/^\/api\/admin\/report\/(r_[\w-]+)$/); if (rp && m === 'POST') return await adminReport(req, env, rp[1]);
+        const ue = path.match(/^\/api\/admin\/user\/(p_\w+)(\/delete)?$/); if (ue && m === 'POST') return ue[2] ? await adminUserDelete(env, ue[1]) : await adminUserEdit(req, env, ue[1]);
+        const ke = path.match(/^\/api\/admin\/kid\/(k\w+)$/); if (ke && m === 'POST') return await adminKidEdit(req, env, ke[1]);
         const ap = path.match(/^\/api\/admin\/parent\/(p_\w+)$/); if (ap && m === 'POST') return await adminParent(req, env, ap[1]);
         return ERR('not-found', 404);
       }

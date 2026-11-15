@@ -4,7 +4,7 @@
 .scene.xhost::before,.scene.xhost::after{display:none}
 .xpl{display:grid;grid-template-columns:minmax(0,60fr) minmax(0,40fr);justify-content:stretch;grid-template-rows:minmax(0,1fr);gap:clamp(.2rem,1cqh,.6rem);height:100%;min-height:0;user-select:none;-webkit-user-select:none}
 /* landscape: picture + number sentence on the left, the writing on the right; portrait: writing under the picture */
-@media (orientation:portrait){.xpl{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,58fr) minmax(0,42fr)}.xpl-cap{--xfs:min(15cqh,6.8cqw,2.5rem)}}
+@media (orientation:portrait){.xpl{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,58fr) minmax(0,42fr)}.xpl-cap{--xfs:min(18cqh,9cqw,3.2rem)}}
 /* FIXED zones: the picture + number sentence zone and the writing zone never change size, so nothing moves when text is added.
    No plain background: the app's coloured page shows; the picture has its own white frame (drawn in the SVG). */
 .xpl-stage{position:relative;min-height:0;overflow:visible}
@@ -25,8 +25,8 @@
 .xpl .xeq.lit text{fill:#fff;stroke:rgba(0,0,0,.25);stroke-width:4;paint-order:stroke}
 /* the writing zone (.fit = size container): the line being said, then the story written like normal text */
 .xpl-cap{container-type:size;min-height:0;overflow:hidden;display:flex;align-items:center;justify-content:flex-start;flex-direction:column;padding:0 .5rem;
-  --xfs:min(8.5cqh,8cqw,2.7rem)}
-.xpl-capt{margin:auto 0;font:700 var(--xfs)/1.35 var(--f-read);color:var(--c-on-bg);text-align:center;unicode-bidi:plaintext}
+  --xfs:min(11cqh,10cqw,3.4rem);--xf:calc(var(--xfs)*var(--xk,1))}
+.xpl-capt{margin:auto 0;font:700 var(--xf)/1.35 var(--f-read);color:var(--c-on-bg);text-align:center;unicode-bidi:plaintext}
 .xpl-capt[dir="rtl"]{font-family:var(--f-ar)}
 .xpl-cap.asking .xpl-capt{display:none}
 .xpl-ask{display:none;gap:clamp(.8rem,4cqw,1.6rem)}
@@ -38,7 +38,7 @@
 .xpl-opt.no{animation:xshake .45s;background:var(--c-bad);color:#fff}
 @keyframes xshake{20%,60%{transform:translateX(-.5rem)}40%,80%{transform:translateX(.5rem)}}
 /* the story sentence: written on the page like story text (no boxes); group words in their colour; read-aloud word lights up */
-.xpl-line{display:none;margin:auto 0;text-align:center;font:700 var(--xfs)/1.45 var(--f-read);color:var(--c-on-bg)}
+.xpl-line{display:none;margin:auto 0;text-align:center;font:700 var(--xf)/1.45 var(--f-read);color:var(--c-on-bg)}
 .xpl-cap.built .xpl-line{display:block}
 .xpl-cap.built .xpl-capt{display:none}
 .xpl-cap.asking.built .xpl-line{margin:0;min-height:2.9em}
@@ -52,7 +52,7 @@
 .xpl-cap.asking.built .xpl-ask{min-height:0;overflow-y:auto;gap:.3rem .4rem}
 .xpl-cap.asking.built .xpl-ask .qch.wd{--q-word:clamp(2rem,min(4.6vh,9vw),2.6rem)}
 .xpl-cap.asking.built .xpl-ask .qch.wd>span{padding-inline:.1rem}
-.xpl-cap.asking.built .xpl-line{font-size:calc(var(--xfs)*1.2);flex:none}
+.xpl-cap.asking.built .xpl-line{font-size:calc(var(--xf)*1.2);flex:none}
 .xpl-ask .xpick{cursor:pointer}   /* look + size = THE choice button (css/qlayout.css), Marwa 2026-11-06 */
 .xpl-ask .xpick.used{opacity:0;pointer-events:none}
 .xpl-ask .xpick.no{animation:xshake .45s}
@@ -74,5 +74,15 @@
 
 /* wide = a LINE lesson (data explain.wide): the picture takes the whole width, the answer is written under it, in landscape too */
 .xpl.xwide{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,76fr) minmax(0,24fr)}
-.xpl.xwide .xpl-cap{--xfs:min(15cqh,6.8cqw,2.5rem)}
-.xpl.xwide .xtw.xcard{font-size:calc(var(--xfs)*1.7);padding:.1em .6em}
+.xpl.xwide .xpl-cap{--xfs:min(18cqh,9cqw,3.2rem)}
+.xpl.xwide .xtw.xcard{font-size:calc(var(--xf)*1.7);padding:.1em .6em}
+
+/* clock lesson: the answer card ("الساعة ٨ ونصف" / "half past 8") is bigger so it reads clearly in Arabic and English (Ahmed 2026-11-14) */
+.xpl.xclockl .xtw.xcard{font-size:calc(var(--xf)*1.6);padding:.1em .6em}
+
+/* the number sentence is written under the picture in LARGE type, part by part, as it is said (Ahmed 2026-11-14) */
+.xpl-line .xtw.xbig{font:400 calc(var(--xf)*2.3)/1.1 var(--f-title);margin:0 .1em;color:var(--c-on-bg)}
+.xpl-line .xtw.xbig.xcard{padding:.02em .4em}
+.xpl-line .xtw.xbig.xcard{color:var(--c-text)}
+.xpl .xhead text{font:400 118px var(--f-title);fill:#fff;stroke:var(--ol);stroke-width:8;paint-order:stroke;stroke-linejoin:round}
+@media (orientation:portrait){.xpl.xtall{grid-template-rows:minmax(0,76fr) minmax(0,24fr)}.xpl.xtall .xpl-cap{--xfs:min(22cqh,9cqw,2.6rem)}}

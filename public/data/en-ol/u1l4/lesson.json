@@ -90,7 +90,7 @@
  "vocab": [
   {
    "word": "in",
-   "ar": "\u0641\u064a",
+   "ar": "في",
    "img": "../../pics/in.png",
    "parts": [
     {
@@ -105,12 +105,13 @@
     }
    ],
    "audio": {
-    "word": "words/in.mp3"
+    "word": "words/in.mp3",
+    "ar": "../../ar-meanings/eca34af797.mp3"
    }
   },
   {
    "word": "ill",
-   "ar": "\u0645\u0631\u064a\u0636",
+   "ar": "مريض",
    "img": "../../pics/ill.jpg",
    "parts": [
     {
@@ -125,12 +126,13 @@
     }
    ],
    "audio": {
-    "word": "words/ill.mp3"
+    "word": "words/ill.mp3",
+    "ar": "../../arabic/u4l6/words/mareed.mp3"
    }
   },
   {
    "word": "insect",
-   "ar": "\u062d\u0634\u0631\u0629",
+   "ar": "حشرة",
    "img": "../../pics/insect-u1l4.png",
    "parts": [
     {
@@ -160,12 +162,13 @@
     }
    ],
    "audio": {
-    "word": "words/insect.mp3"
+    "word": "words/insect.mp3",
+    "ar": "../../ar-meanings/1b4c6cd291.mp3"
    }
   },
   {
    "word": "ink",
-   "ar": "\u062d\u0628\u0631",
+   "ar": "حبر",
    "img": "../../pics/ink.png",
    "parts": [
     {
@@ -180,8 +183,41 @@
     }
    ],
    "audio": {
-    "word": "words/ink.mp3"
+    "word": "words/ink.mp3",
+    "ar": "../../arabic/u1l6/words/hibr.mp3"
    }
+  },
+  {
+   "word": "ruler",
+   "ar": "مسطرة",
+   "img": "../../pics/ruler.png",
+   "parts": [
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "u",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../en-shared/q/ruler.mp3",
+    "ar": "../../arabic/u2l4/words/mistara.mp3"
+   },
+   "school": "nour-el-ilm"
   }
  ]
 }

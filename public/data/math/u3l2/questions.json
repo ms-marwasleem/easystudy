@@ -154,163 +154,62 @@
    ]
   },
   {
-   "type": "mwrite",
-   "ex": 1,
-   "page": 39,
-   "task": "Write the addition sentence and the answer.",
-   "taskAudio": "q/task-1.mp3",
-   "items": [
-    {
-     "pics": [
-      "story-4.png"
-     ],
-     "ask": "There are 3 red bicycles and 4 blue bicycles. How many bicycles are there in total?",
-     "lead": "Addition sentence:",
-     "word": "3 + 4 = 7",
-     "keys": "1234567890+−=",
-     "askSay": "There are three red bicycles and four blue bicycles. How many bicycles are there in total? Write the addition sentence.",
-     "askAudio": "q/p1-s-q.mp3",
-     "audio": "q/p1-s.mp3",
-     "picsTall": [
-      "story-4-tall.png"
-     ]
-    }
-   ],
-   "book": "booklet"
-  },
-  {
    "type": "mcq",
-   "ex": 1,
-   "page": 39,
-   "task": "Write the addition sentence and the answer.",
-   "taskAudio": "q/task-1.mp3",
+   "page": 37,
+   "task": "Read the story. Find the total.",
+   "taskAudio": "q/task-bk-read-the-story-find-the-total.mp3",
    "items": [
     {
-     "pics": [
-      "story-4.png"
-     ],
-     "ask": "How many bicycles are there in total?",
-     "stem": "Answer: ___",
+     "stem": "You have 1 pencil and 4 more pencils. How many pencils are there in total?",
      "options": [
-      "4 bicycles",
-      "7 bicycles",
-      "7"
+      "4",
+      "5",
+      "6"
      ],
      "answer": 1,
-     "askSay": "How many bicycles are there in total? What is the answer?",
-     "askAudio": "q/p1-a-q.mp3",
-     "audio": "q/p1-a.mp3",
-     "word": "Answer: 7 bicycles",
-     "picsTall": [
-      "story-4-tall.png"
-     ]
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mwrite",
-   "ex": 1,
-   "page": 39,
-   "task": "Write the addition sentence and the answer.",
-   "taskAudio": "q/task-1.mp3",
-   "items": [
+     "askAudio": "q/bk-you-have-pencil-and-more-pencils-q.mp3",
+     "audio": "q/bk-you-have-pencil-and-more-pencils.mp3",
+     "word": "5"
+    },
     {
-     "pics": [
-      "story-5.png"
-     ],
-     "ask": "There are 5 rabbits. Then 1 more rabbit comes. How many rabbits are there now?",
-     "lead": "Addition sentence:",
-     "word": "5 + 1 = 6",
-     "keys": "1234567890+−=",
-     "askSay": "There are five rabbits. Then one more rabbit comes. How many rabbits are there now? Write the addition sentence.",
-     "askAudio": "q/p2-s-q.mp3",
-     "audio": "q/p2-s.mp3"
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mcq",
-   "ex": 1,
-   "page": 39,
-   "task": "Write the addition sentence and the answer.",
-   "taskAudio": "q/task-1.mp3",
-   "items": [
-    {
-     "pics": [
-      "story-5.png"
-     ],
-     "ask": "How many rabbits are there now?",
-     "stem": "Answer: ___",
+     "stem": "There are 5 cats. Then 3 more cats come. How many cats are there now?",
      "options": [
-      "6 rabbits",
-      "6",
-      "1 rabbits"
+      "7",
+      "8",
+      "9"
      ],
-     "answer": 0,
-     "askSay": "How many rabbits are there now? What is the answer?",
-     "askAudio": "q/p2-a-q.mp3",
-     "audio": "q/p2-a.mp3",
-     "word": "Answer: 6 rabbits"
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mwrite",
-   "ex": 1,
-   "page": 39,
-   "task": "Write the addition sentence and the answer.",
-   "taskAudio": "q/task-1.mp3",
-   "items": [
+     "answer": 1,
+     "askAudio": "q/bk-there-are-cats-then-more-cats-come-q.mp3",
+     "audio": "q/bk-there-are-cats-then-more-cats-come.mp3",
+     "word": "8"
+    },
     {
-     "pics": [
-      "story-6.png"
-     ],
-     "ask": "There are 4 bottles of water and 6 bottles of orange juice. How many bottles are there in total?",
-     "lead": "Addition sentence:",
-     "word": "4 + 6 = 10",
-     "keys": "1234567890+−=",
-     "askSay": "There are four bottles of water and six bottles of orange juice. How many bottles are there in total? Write the addition sentence.",
-     "askAudio": "q/p3-s-q.mp3",
-     "audio": "q/p3-s.mp3",
-     "picsTall": [
-      "story-6-tall.png"
-     ]
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mcq",
-   "ex": 1,
-   "page": 39,
-   "task": "Write the addition sentence and the answer.",
-   "taskAudio": "q/task-1.mp3",
-   "items": [
-    {
-     "pics": [
-      "story-6.png"
-     ],
-     "ask": "How many bottles are there in total?",
-     "stem": "Answer: ___",
+     "stem": "There are 2 orange fish and 3 blue fish. How many fish are there in total?",
      "options": [
-      "10",
-      "6 bottles",
-      "10 bottles"
+      "4",
+      "5",
+      "6"
      ],
-     "answer": 2,
-     "askSay": "How many bottles are there in total? What is the answer?",
-     "askAudio": "q/p3-a-q.mp3",
-     "audio": "q/p3-a.mp3",
-     "word": "Answer: 10 bottles",
-     "picsTall": [
-      "story-6-tall.png"
-     ]
+     "answer": 1,
+     "askAudio": "q/bk-there-are-orange-fish-and-blue-fish-q.mp3",
+     "audio": "q/bk-there-are-orange-fish-and-blue-fish.mp3",
+     "word": "5"
+    },
+    {
+     "stem": "There are 6 cars. Then 3 more cars come. How many cars are there in total?",
+     "options": [
+      "8",
+      "9",
+      "10"
+     ],
+     "answer": 1,
+     "askAudio": "q/bk-there-are-cars-then-more-cars-come-q.mp3",
+     "audio": "q/bk-there-are-cars-then-more-cars-come.mp3",
+     "word": "9"
     }
    ],
-   "book": "booklet"
+   "book": "booklet",
+   "ex": 7
   }
  ]
 }

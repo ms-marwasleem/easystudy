@@ -6,7 +6,8 @@ async function ewStart(){
   try{ await ewLoad(); }catch(e){ busy(false); message('أوبس!','التطبيق ما اتحملش. اتأكد من النت وجرب تاني.'); $('#msgOk').onclick=()=>location.reload(); return; }
   ewDefs(); await cssReady;
   if(document.fonts&&document.fonts.ready) await Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,2500))]);
-  paintHud(); busy(false);
-  if(!EW.curr||!ewChoices().some(c=>c.id===EW.curr)){ EW.curr=null; ewPick(); } else openSubjects();
+  $('#ewWlLogo').innerHTML=ewIcon('app'); paintHud(); kidPaint(); busy(false);
+  if(!kidNow()||!EW.curr||!ewChoices().some(c=>c.id===EW.curr)){ openWelcome(); } else openSubjects();
 }
 ewStart();
+if('serviceWorker' in navigator&&/^https?:/.test(location.protocol)) navigator.serviceWorker.register('sw.js').catch(()=>{});   // keeps the app on the device (and the bell works): same file as the curriculum app

@@ -117,120 +117,292 @@
    "ex": 4
   },
   {
-   "type": "order",
+   "type": "mcq",
    "page": 53,
-   "grp": "ex-1",
-   "task": "Let's make a story for 3 - 2 = 1.",
-   "taskAudio": "q/task-ex.mp3",
+   "task": "Subtract.",
+   "taskAudio": "q/task-bk-subtract.mp3",
    "items": [
     {
-     "img": "story-1.png",
-     "chunks": [
-      "There",
-      "are",
-      "3",
-      "birds.",
-      "2",
-      "fly",
-      "away.",
-      "How",
-      "many",
-      "birds",
-      "are",
-      "left?"
+     "stem": "9 − 1 = ___",
+     "options": [
+      "7",
+      "8",
+      "9"
      ],
-     "word": "There are 3 birds. 2 fly away. How many birds are left?",
-     "audio": "q/story-1.mp3"
+     "answer": 1,
+     "askAudio": "q/wb-9-m-1-q.mp3",
+     "audio": "q/wb-9-m-1.mp3",
+     "word": "9 − 1 = 8"
+    },
+    {
+     "stem": "5 − 4 = ___",
+     "options": [
+      "0",
+      "1",
+      "2"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-5-m-4-q.mp3",
+     "audio": "q/wb-5-m-4.mp3",
+     "word": "5 − 4 = 1"
+    },
+    {
+     "stem": "7 − 3 = ___",
+     "options": [
+      "3",
+      "4",
+      "5"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-7-m-3-q.mp3",
+     "audio": "q/wb-7-m-3.mp3",
+     "word": "7 − 3 = 4"
+    },
+    {
+     "stem": "4 − 3 = ___",
+     "options": [
+      "0",
+      "1",
+      "2"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-4-m-3-q.mp3",
+     "audio": "q/wb-4-m-3.mp3",
+     "word": "4 − 3 = 1"
+    },
+    {
+     "stem": "8 − 3 = ___",
+     "options": [
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-8-m-3-q.mp3",
+     "audio": "q/wb-8-m-3.mp3",
+     "word": "8 − 3 = 5"
+    },
+    {
+     "stem": "5 − 2 = ___",
+     "options": [
+      "2",
+      "3",
+      "4"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-5-m-2-q.mp3",
+     "audio": "q/wb-5-m-2.mp3",
+     "word": "5 − 2 = 3"
+    },
+    {
+     "stem": "4 − 4 = ___",
+     "options": [
+      "0",
+      "1",
+      "2"
+     ],
+     "answer": 0,
+     "askAudio": "q/wb-4-m-4-q.mp3",
+     "audio": "q/wb-4-m-4.mp3",
+     "word": "4 − 4 = 0"
+    },
+    {
+     "stem": "6 − 1 = ___",
+     "options": [
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-6-m-1-q.mp3",
+     "audio": "q/wb-6-m-1.mp3",
+     "word": "6 − 1 = 5"
+    },
+    {
+     "stem": "5 − 3 = ___",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-5-m-3-q.mp3",
+     "audio": "q/wb-5-m-3.mp3",
+     "word": "5 − 3 = 2"
     }
    ],
    "book": "booklet",
    "ex": 5
   },
   {
-   "type": "order",
+   "type": "mcq",
    "page": 53,
-   "grp": "ex-2",
-   "task": "Let's make a story for 3 - 2 = 1.",
-   "taskAudio": "q/task-ex.mp3",
+   "task": "Circle the correct answer.",
+   "taskAudio": "q/task-bk-circle-the-correct-answer.mp3",
    "items": [
     {
-     "img": "story-2.png",
-     "chunks": [
-      "There",
-      "are",
-      "3",
-      "bikes.",
-      "2",
-      "go",
-      "away.",
-      "How",
-      "many",
-      "bikes",
-      "are",
-      "left?"
+     "stem": "9 − 1 = ___",
+     "options": [
+      "1",
+      "7",
+      "8"
      ],
-     "word": "There are 3 bikes. 2 go away. How many bikes are left?",
-     "audio": "q/story-2.mp3"
+     "answer": 2,
+     "askAudio": "q/wb-9-m-1-q.mp3",
+     "audio": "q/wb-9-m-1.mp3",
+     "word": "9 − 1 = 8"
+    },
+    {
+     "stem": "6 − 2 = ___",
+     "options": [
+      "1",
+      "4",
+      "5"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-6-m-2-q.mp3",
+     "audio": "q/wb-6-m-2.mp3",
+     "word": "6 − 2 = 4"
+    },
+    {
+     "stem": "8 − 3 = ___",
+     "options": [
+      "0",
+      "5",
+      "6"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-8-m-3-q.mp3",
+     "audio": "q/wb-8-m-3.mp3",
+     "word": "8 − 3 = 5"
+    },
+    {
+     "stem": "7 − 6 = ___",
+     "options": [
+      "6",
+      "0",
+      "1"
+     ],
+     "answer": 2,
+     "askAudio": "q/wb-7-m-6-q.mp3",
+     "audio": "q/wb-7-m-6.mp3",
+     "word": "7 − 6 = 1"
+    },
+    {
+     "stem": "6 − 1 = ___",
+     "options": [
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-6-m-1-q.mp3",
+     "audio": "q/wb-6-m-1.mp3",
+     "word": "6 − 1 = 5"
+    },
+    {
+     "stem": "7 − 3 = ___",
+     "options": [
+      "4",
+      "6",
+      "9"
+     ],
+     "answer": 0,
+     "askAudio": "q/wb-7-m-3-q.mp3",
+     "audio": "q/wb-7-m-3.mp3",
+     "word": "7 − 3 = 4"
     }
    ],
    "book": "booklet",
    "ex": 6
   },
   {
-   "type": "order",
-   "page": 53,
-   "grp": "ex-3",
-   "task": "Let's make a story for 3 - 2 = 1.",
-   "taskAudio": "q/task-ex.mp3",
+   "type": "mcq",
+   "page": 54,
+   "task": "Read the story. How many are left?",
+   "taskAudio": "q/task-bk-read-the-story-how-many-are-left.mp3",
    "items": [
     {
-     "img": "story-3.png",
-     "chunks": [
-      "There",
-      "are",
-      "3",
-      "cats.",
+     "stem": "There are 8 cars. 5 cars leave. How many are left?",
+     "options": [
       "2",
-      "run",
-      "away.",
-      "How",
-      "many",
-      "cats",
-      "are",
-      "left?"
+      "3",
+      "4"
      ],
-     "word": "There are 3 cats. 2 run away. How many cats are left?",
-     "audio": "q/story-3.mp3"
+     "answer": 1,
+     "askAudio": "q/bk-there-are-cars-cars-leave-q.mp3",
+     "audio": "q/bk-there-are-cars-cars-leave.mp3",
+     "word": "3"
+    },
+    {
+     "stem": "There are 9 candies. You eat 3. How many are left?",
+     "options": [
+      "5",
+      "6",
+      "7"
+     ],
+     "answer": 1,
+     "askAudio": "q/bk-there-are-candies-you-eat-q.mp3",
+     "audio": "q/bk-there-are-candies-you-eat.mp3",
+     "word": "6"
+    },
+    {
+     "stem": "There are 4 fish. 2 swim away. How many are left?",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 1,
+     "askAudio": "q/bk-there-are-fish-swim-away-q.mp3",
+     "audio": "q/bk-there-are-fish-swim-away.mp3",
+     "word": "2"
+    },
+    {
+     "stem": "There are 10 flowers. You give away 2. How many are left?",
+     "options": [
+      "7",
+      "8",
+      "9"
+     ],
+     "answer": 1,
+     "askAudio": "q/bk-there-are-flowers-you-give-away-q.mp3",
+     "audio": "q/bk-there-are-flowers-you-give-away.mp3",
+     "word": "8"
     }
    ],
    "book": "booklet",
    "ex": 7
   },
   {
-   "type": "order",
-   "page": 53,
-   "grp": "ex-4",
-   "task": "Let's make a story for 3 - 2 = 1.",
-   "taskAudio": "q/task-ex.mp3",
+   "type": "mcq",
+   "page": 55,
+   "task": "Read the story. How many are left?",
+   "taskAudio": "q/task-bk-read-the-story-how-many-are-left.mp3",
    "items": [
     {
-     "img": "story-4.png",
-     "chunks": [
-      "There",
-      "are",
-      "3",
-      "children.",
-      "2",
-      "go",
-      "home.",
-      "How",
-      "many",
-      "children",
-      "are",
-      "left?"
+     "stem": "There are 7 apples. You did not eat any. How many apples are left?",
+     "options": [
+      "6",
+      "7",
+      "8"
      ],
-     "word": "There are 3 children. 2 go home. How many children are left?",
-     "audio": "q/story-4.mp3"
+     "answer": 1,
+     "askAudio": "q/bk-there-are-apples-you-did-not-eat-any-q.mp3",
+     "audio": "q/bk-there-are-apples-you-did-not-eat-any.mp3",
+     "word": "7"
+    },
+    {
+     "stem": "There are 8 red flowers. There are also 3 white flowers. What is the difference between the number of red flowers and white flowers? ",
+     "options": [
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 1,
+     "askAudio": "q/bk-there-are-red-flowers-there-are-also-whi-q.mp3",
+     "audio": "q/bk-there-are-red-flowers-there-are-also-whi.mp3",
+     "word": "5"
     }
    ],
    "book": "booklet",

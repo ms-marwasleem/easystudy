@@ -5,28 +5,28 @@
    ===================================================================== */
 :root[data-theme="words"]{
   /* palette: teal ink on white notebook paper */
-  --ew-ink:#1d4f57; --ew-teal:#2f7a86; --ew-teal-dk:#1f5f6b; --ew-teal-lt:#cfe4e7; --ew-paper:#fbfaf6; --ew-line:#d7e3e5;
-  --ew-gold:#f2b632; --ew-red:#e0583f; --ew-green:#3a9a5c;
+  --ew-ink:#16346b; --ew-teal:#2f80e6; --ew-teal-dk:#1c58b8; --ew-teal-lt:#cfe6fb; --ew-paper:#fbfaf6; --ew-line:#d5e6f7;
+  --ew-gold:#ffc83a; --ew-red:#f2584a; --ew-green:#3cbf62; --ew-purple:#a057e6; --ew-orange:#ff9a3c; --ew-navy:#27306b;
   --ol:var(--ew-ink); --logo-ol:var(--ew-ink); --btn-ol:var(--ew-ink); --btn-rim:var(--ew-teal-dk);
-  --btn1:#3d8f9c; --btn2:var(--ew-teal-dk); --btn-shadow:0 .1rem 0 rgba(29,79,87,.75),0 .3rem .45rem rgba(29,79,87,.25);
-  --kraft:var(--ew-teal); --kraft-lt:#6fb0ba; --kraft-dk:var(--ew-teal-dk); --kraft-deep:var(--ew-ink);
-  --bg-hi:#fff; --bg-mid:#f3f1ec; --bg-lo:#e7ece9; --bg-pat:none; --bg-patp:none; --page-tint:#fff;
-  --c-accent:var(--ew-teal); --c-accent-dk:var(--ew-teal-dk); --c-text:#23383d; --c-on-bg:var(--ew-ink); --c-muted:#6f8a90; --c-good:var(--ew-green); --c-bad:var(--ew-red);
-  --c-pink:var(--ew-teal); --c-paper2:#fff; --c-hint:#fff2b8; --hud:rgba(29,79,87,.12);
+  --btn1:#6fc4fb; --btn2:#2b74dc; --btn-shadow:0 .1rem 0 rgba(22,52,107,.75),0 .3rem .45rem rgba(22,52,107,.25);
+  --kraft:var(--ew-teal); --kraft-lt:#79bdf5; --kraft-dk:var(--ew-teal-dk); --kraft-deep:var(--ew-ink);
+  --bg-hi:#fff; --bg-mid:#9fe3f2; --bg-lo:#e7ece9; --bg-pat:none; --bg-patp:none; --page-tint:#fff;
+  --c-accent:var(--ew-teal); --c-accent-dk:var(--ew-teal-dk); --c-text:#1b2f55; --c-on-bg:var(--ew-ink); --c-muted:#5b7aa3; --c-good:var(--ew-green); --c-bad:var(--ew-red);
+  --c-pink:var(--ew-teal); --c-paper2:#fff; --c-hint:#fff2b8; --hud:rgba(22,52,107,.12);
   --star-on:var(--ew-gold); --star-off:#d9e2e3; --gold1:#ffe58a; --gold2:var(--ew-gold); --gold-ol:#8a6410;
-  --btn-bg:#fff; --btn-ink:var(--ew-ink); --btn-border:.19rem solid var(--ew-ink); --btn-shadow:0 .22rem 0 rgba(29,79,87,.35);
-  --blue1:#6fb0ba; --blue2:var(--ew-teal); --green1:#7fd19a; --green2:var(--ew-green); --yellow1:#ffe58a; --yellow2:var(--ew-gold); --help-icon:#a97a0a;
+  --btn-bg:#fff; --btn-ink:var(--ew-ink); --btn-border:.19rem solid var(--ew-ink); --btn-shadow:0 .22rem 0 rgba(22,52,107,.35);
+  --blue1:#7fd0ff; --blue2:#2b74dc; --green1:#8cec8c; --green2:#2fb04e; --yellow1:#ffe680; --yellow2:#f5b61c; --red1:#ff9b8a; --red2:#e8453a; --help-icon:#a97a0a;
   --f-ui:"Baloo Bhaijaan 2","Tahoma",sans-serif; --f-title:"Luckiest Guy","Baloo Bhaijaan 2",sans-serif;
   --speaker:var(--ew-teal); --cut-ring:drop-shadow(0 0 .2rem rgba(47,122,134,.95)) drop-shadow(0 0 .1rem rgba(47,122,134,.95));
-  --c-on-bg-line:rgba(29,79,87,.38); --c-now-bg:#b86f00; --c-newword:#b8325f; --dot-off:rgba(29,79,87,.25); --dot-on:var(--ew-teal); --pop-dim:rgba(18,50,56,.6); --pop-rim:#fff;
-  --ew-sheet:rgba(255,255,255,.82); --ew-card:0 .15rem 0 rgba(29,79,87,.22),0 .5rem .9rem rgba(29,79,87,.12);
+  --c-on-bg-line:rgba(22,52,107,.38); --c-now-bg:#b86f00; --c-newword:#b8325f; --dot-off:rgba(22,52,107,.25); --dot-on:var(--ew-teal); --pop-dim:rgba(14,40,90,.6); --pop-rim:#fff;
+  --ew-sheet:rgba(255,255,255,.82); --ew-card:0 .15rem 0 rgba(22,52,107,.22),0 .5rem .9rem rgba(22,52,107,.12);
 }
-html[data-theme="words"],html[data-theme="words"] body{background:#f3f1ec url(../data/words/paper.jpg) center/cover fixed;color:var(--ew-ink)}
+html[data-theme="words"],html[data-theme="words"] body{background:radial-gradient(ellipse 60% 38% at 18% 8%,rgba(255,255,255,.75),transparent 70%),radial-gradient(ellipse 45% 30% at 88% 30%,rgba(255,255,255,.45),transparent 70%),radial-gradient(ellipse 70% 35% at 50% 100%,rgba(190,235,255,.7),transparent 70%),linear-gradient(180deg,#8ff0e6 0%,#7fd6f4 45%,#62aef2 100%);background-attachment:fixed;color:var(--ew-ink)}
 
 /* ---------- parts used by every screen ---------- */
 .ewt{font-family:"Luckiest Guy","Baloo Bhaijaan 2",sans-serif;paint-order:stroke fill;stroke-linejoin:round}   /* (fill and stroke colour are attributes in the svg: a url(#id) in a css file would point at the css file) */
 .ewa{font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800}
-.ew-hatch{background:var(--ew-teal) repeating-linear-gradient(-35deg,transparent 0 .32rem,rgba(31,95,107,.7) .32rem .46rem)}   /* the teal pencil-hatched sticker of the notebook theme */
+.ew-hatch{background:var(--ew-teal) repeating-linear-gradient(-35deg,transparent 0 .32rem,rgba(28,88,184,.7) .32rem .46rem)}   /* the teal pencil-hatched sticker of the notebook theme */
 .ew-top{padding-inline:clamp(.4rem,1.4vw,1.2rem)}
 .ew-top .topr{display:flex;align-items:center;gap:.7rem}
 .ew-title{margin:0;font-family:var(--f-title);font-weight:400;font-size:clamp(1.5rem,4.2vw,2.5rem);color:var(--ew-ink);letter-spacing:.03em;text-align:center;flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -46,7 +46,7 @@ html[data-theme="words"],html[data-theme="words"] body{background:#f3f1ec url(..
 .ew-picks{display:grid;gap:.9rem;width:100%}
 .ew-pickb{display:flex;flex-direction:column;align-items:center;gap:.1rem;padding:.7rem 1rem;border-radius:1.1rem;background:#fff;border:var(--btn-border);box-shadow:var(--btn-shadow);cursor:pointer;font-family:"Baloo Bhaijaan 2",sans-serif;color:var(--ew-ink)}
 .ew-pickb b{font-size:2rem;font-weight:800;line-height:1.2}.ew-pickb small{font-size:1rem;font-weight:600;color:var(--c-muted)}
-.ew-pickb:active{transform:translateY(.15rem);box-shadow:0 .08rem 0 rgba(29,79,87,.35)}
+.ew-pickb:active{transform:translateY(.15rem);box-shadow:0 .08rem 0 rgba(22,52,107,.35)}
 
 /* ---------- home: the subjects as icons ---------- */
 #subjects{grid-template-rows:auto minmax(0,1fr)}
@@ -54,25 +54,25 @@ html[data-theme="words"],html[data-theme="words"] body{background:#f3f1ec url(..
 .ew-subj{all:unset;cursor:pointer;display:block;width:min(30vw,36vh);min-width:9rem;-webkit-tap-highlight-color:transparent}
 @media (max-aspect-ratio:1/1){.ew-home{flex-direction:column;flex-wrap:nowrap;gap:clamp(.6rem,2.4vh,1.6rem)}.ew-subj{width:min(58vw,23vh);min-width:0}}
 @media (min-aspect-ratio:1/1){.ew-home{flex-wrap:nowrap}.ew-subj{width:min(26vw,40vh);min-width:0}}
-.ew-icon{display:block;aspect-ratio:1;background:#f3f1ec url(../data/words/paper.jpg) center/cover;border-radius:22%;box-shadow:0 .5rem 1rem rgba(0,0,0,.22),0 0 0 .12rem rgba(255,255,255,.8);overflow:hidden;transition:transform .15s}
+.ew-icon{display:block;aspect-ratio:1;background:radial-gradient(ellipse 70% 40% at 30% 10%,rgba(255,255,255,.85),transparent 70%),linear-gradient(#7fd0f8,#3f8cec);border-radius:26%;box-shadow:0 .35rem 0 #1c58b8,0 .8rem 1.1rem rgba(22,52,107,.3),inset 0 0 0 .14rem rgba(255,255,255,.85),inset 0 -.5rem .8rem rgba(28,88,184,.35);overflow:hidden;transition:transform .15s}
 .ew-icon svg{display:block;width:100%;height:100%}
 .ew-subj:active .ew-icon{transform:scale(.95)}
 
 /* ---------- subject map: unit = file, lesson = square, word = square; everything open ---------- */
 #map{grid-template-rows:auto minmax(0,1fr);gap:.4rem}
 .ew-unit{margin:0 0 1.5rem}
-.ew-utab{display:inline-block;margin-inline:.8rem 0;position:relative;z-index:1;padding:.3rem 1.2rem .35rem;border-radius:.9rem .9rem 0 0;font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:1.25rem;color:#fff;text-shadow:0 .1rem 0 var(--ew-ink);border:.19rem solid #fff;border-bottom:0;box-shadow:0 -.1rem .4rem rgba(29,79,87,.18);background:var(--ew-teal) repeating-linear-gradient(-35deg,transparent 0 .32rem,rgba(31,95,107,.7) .32rem .46rem)}
+.ew-utab{display:inline-block;margin-inline:.8rem 0;position:relative;z-index:1;padding:.3rem 1.2rem .35rem;border-radius:.9rem .9rem 0 0;font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:1.25rem;color:#fff;text-shadow:0 .1rem 0 var(--ew-ink);border:.19rem solid #fff;border-bottom:0;box-shadow:0 -.1rem .4rem rgba(22,52,107,.18);background:var(--ew-teal) repeating-linear-gradient(-35deg,transparent 0 .32rem,rgba(28,88,184,.7) .32rem .46rem)}
 .ew-ubody{margin-top:-.19rem;padding:.9rem;border:.19rem solid var(--ew-teal);border-radius:1rem;background:rgba(255,255,255,.82);box-shadow:var(--ew-card);display:flex;flex-wrap:wrap;align-items:flex-start;gap:.9rem .7rem}
 .ew-lrow{display:flex;flex-wrap:wrap;align-items:stretch;gap:.7rem;flex:1 1 100%}.ew-lrow.solo{flex:0 0 auto}
 .ew-lsq,.ew-wsq{--sq:clamp(7rem,15vw,10.5rem);position:relative;width:var(--sq);height:var(--sq);flex:none;border-radius:.9rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem;padding:.4rem;box-sizing:border-box;cursor:pointer;text-align:center;-webkit-tap-highlight-color:transparent}
-.ew-lsq{border:.19rem solid #fff;box-shadow:0 .18rem 0 var(--ew-teal-dk),0 .5rem .8rem rgba(29,79,87,.22);color:#fff;background:var(--ew-teal) repeating-linear-gradient(-35deg,transparent 0 .32rem,rgba(31,95,107,.7) .32rem .46rem)}
+.ew-lsq{border:.19rem solid #fff;box-shadow:0 .18rem 0 var(--ew-teal-dk),0 .5rem .8rem rgba(22,52,107,.22);color:#fff;background:var(--ew-teal) repeating-linear-gradient(-35deg,transparent 0 .32rem,rgba(28,88,184,.7) .32rem .46rem)}
 .ew-lnum{font-family:var(--f-title);font-weight:400;font-size:2.6rem;line-height:1;color:#fff;-webkit-text-stroke:.14rem var(--ew-ink);paint-order:stroke fill}
 .ew-lname{font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:.95rem;line-height:1.1;color:#fff;text-shadow:0 .08rem 0 var(--ew-ink);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;max-width:100%}
 .ew-lsq i{position:absolute;inset-inline:.3rem;bottom:.3rem;font-style:normal;font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:.85rem;background:#fff;color:var(--ew-ink);border-radius:62rem;padding:0 .4rem}
 .ew-lsq.soon{opacity:.55;filter:saturate(.7);cursor:default}
 .ew-lsq:not(.soon):active,.ew-wsq:active{transform:translateY(.15rem)}
 .ew-words{display:flex;flex-wrap:wrap;gap:.7rem;align-items:stretch}
-.ew-wsq{background:#fff;border:.19rem solid var(--ew-teal);box-shadow:0 .18rem 0 rgba(31,95,107,.4);color:var(--ew-ink);justify-content:space-between;padding:.35rem .35rem .3rem}
+.ew-wsq{background:#fff;border:.19rem solid var(--ew-teal);box-shadow:0 .18rem 0 rgba(28,88,184,.4);color:var(--ew-ink);justify-content:space-between;padding:.35rem .35rem .3rem}
 .ew-wimg{flex:1 1 0;min-height:0;width:100%;display:grid;place-items:center}
 .ew-wimg img{max-width:100%;max-height:100%;object-fit:contain;display:block}
 .ew-wimg img.cut{filter:var(--cut-shadow)}
@@ -81,7 +81,7 @@ html[data-theme="words"],html[data-theme="words"] body{background:#f3f1ec url(..
 .ew-wsq .vst{position:absolute;top:-.55rem;inset-inline-end:-.55rem;width:1.7rem;height:1.7rem}.ew-wsq .vst svg{width:100%;height:100%}
 .ew-words.rep .ew-wsq{--sq:clamp(5.5rem,11vw,8rem);cursor:default}
 
-.hud{color:var(--ew-ink)!important;background:rgba(29,79,87,.1)}
+.hud{color:var(--ew-ink)!important;background:rgba(22,52,107,.1)}
 
 /* ---------- lesson screen on the notebook paper (the curriculum app's own lesson parts; only colours differ) ---------- */
 #lesson .dash>span:not(.rb),.vtools .dash>span:not(.rb){color:var(--ew-ink)}
@@ -170,13 +170,13 @@ html[data-theme="words"],html[data-theme="words"] body{background:#f3f1ec url(..
 #lesson.ar .l-head .ew-meta{direction:rtl}
 #lesson .sign h1.outline{font-size:clamp(.9rem,3.1vw,1.25rem)}
 /* the dots under the question: groups */
-:root[data-theme="words"]{--dot-off:rgba(29,79,87,.28);--dot-on:var(--ew-teal)}
+:root[data-theme="words"]{--dot-off:rgba(22,52,107,.28);--dot-on:var(--ew-teal)}
 /* the words tab's help: the hidden letter shows faintly (the curriculum rule needs .hid, which the help removes) */
 #lesson .ws .lt.peek:not(.got){color:color-mix(in srgb,var(--ew-ink) 30%,transparent)!important}
 /* the stars popup */
-.ew-pop{width:min(92vw,30rem);padding:2.6rem 1.2rem 1.2rem;background:linear-gradient(#eaf6f8,#d3eaee);border:.2rem solid #fff;border-radius:1.4rem;box-shadow:0 .6rem 0 rgba(29,79,87,.25),0 1rem 2rem rgba(0,0,0,.3);position:relative;display:grid;gap:.9rem;justify-items:center}
-.ew-ribbon{position:absolute;top:-1.6rem;left:50%;transform:translateX(-50%);min-width:62%;text-align:center;padding:.35rem 2.2rem;background:linear-gradient(#a9dbe3,#7cc4cf);border:.15rem solid #fff;border-radius:.8rem;box-shadow:0 .25rem 0 rgba(29,79,87,.3)}
-.ew-ribbon::before,.ew-ribbon::after{content:"";position:absolute;top:.5rem;width:1.6rem;height:100%;background:#6bb5c1;z-index:-1;border:.15rem solid #fff}
+.ew-pop{width:min(92vw,30rem);padding:2.6rem 1.2rem 1.2rem;background:linear-gradient(#eef8ff,#cfe8fb);border:.2rem solid #fff;border-radius:1.4rem;box-shadow:0 .6rem 0 rgba(22,52,107,.25),0 1rem 2rem rgba(0,0,0,.3);position:relative;display:grid;gap:.9rem;justify-items:center}
+.ew-ribbon{position:absolute;top:-1.6rem;left:50%;transform:translateX(-50%);min-width:62%;text-align:center;padding:.35rem 2.2rem;background:linear-gradient(#b8e0fb,#79bdf5);border:.15rem solid #fff;border-radius:.8rem;box-shadow:0 .25rem 0 rgba(22,52,107,.3)}
+.ew-ribbon::before,.ew-ribbon::after{content:"";position:absolute;top:.5rem;width:1.6rem;height:100%;background:#5aa6f0;z-index:-1;border:.15rem solid #fff}
 .ew-ribbon::before{left:-1.1rem;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,35% 50%)}.ew-ribbon::after{right:-1.1rem;clip-path:polygon(0 0,100% 0,65% 50%,100% 100%,0 100%)}
 .ew-ribbon span{font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:1.7rem;color:#fff;text-shadow:0 .1rem 0 var(--ew-ink)}
 .ew-pstars{display:flex;justify-content:center;gap:1.4rem;margin-top:.6rem}
@@ -184,14 +184,14 @@ html[data-theme="words"],html[data-theme="words"] body{background:#f3f1ec url(..
 .ew-ps:not(.on) i{filter:grayscale(1) opacity(.55)}
 .ew-ps small{font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:.95rem;color:var(--ew-ink)}
 .ew-ptxt{margin:0;font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:700;color:var(--ew-ink);text-align:center}
-.ew-bar{position:relative;width:min(100%,19rem);height:2rem;border-radius:62rem;background:#2a3a3d;border:.15rem solid #f3c14a;overflow:visible;display:flex;align-items:center;justify-content:center}
+.ew-bar{position:relative;width:min(100%,19rem);height:2rem;border-radius:62rem;background:#27306b;border:.15rem solid #f3c14a;overflow:visible;display:flex;align-items:center;justify-content:center}
 .ew-fill{position:absolute;left:0;top:0;bottom:0;border-radius:62rem;background:linear-gradient(#ffd966,#f2b632)}
 .ew-bar b{position:relative;font-family:"Baloo Bhaijaan 2",sans-serif;font-style:italic;font-weight:800;font-size:1.15rem;color:#fff;text-shadow:0 .08rem 0 #000}
 .ew-bstar{position:absolute;right:-1.1rem;top:50%;width:2.6rem;height:2.6rem;transform:translateY(-50%)}.ew-bstar svg{width:100%;height:100%}
 .ew-pbtns{display:flex;justify-content:center;gap:1rem;margin-top:.2rem}
 .ew-pb{all:unset;cursor:pointer;width:3.6rem;height:3.6rem;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#fff 0,transparent 35%),var(--ew-teal);border:.18rem solid #fff;box-shadow:0 .25rem 0 var(--ew-teal-dk),0 .5rem .8rem rgba(0,0,0,.2);-webkit-tap-highlight-color:transparent}
 .ew-pb svg{width:1.9rem;height:1.9rem;fill:none;stroke:#fff;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
-.ew-pb.again{background:radial-gradient(circle at 35% 30%,#fff 0,transparent 35%),#6bb9d8}.ew-pb.map{background:radial-gradient(circle at 35% 30%,#fff 0,transparent 35%),var(--ew-green)}
+.ew-pb.again{background:radial-gradient(circle at 35% 30%,#fff 0,transparent 35%),#5bc3f5}.ew-pb.map{background:radial-gradient(circle at 35% 30%,#fff 0,transparent 35%),var(--ew-green)}
 .ew-pb:active{transform:translateY(.2rem)}.ew-pb:disabled{opacity:.35;pointer-events:none;filter:grayscale(.6)}
 .quiz.ep .qtask{font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:700;color:var(--ew-ink)}
 #lesson .l-head .ew-meta{font-size:.85rem;max-width:100%}
@@ -217,3 +217,177 @@ html[data-theme="words"],html[data-theme="words"] body{background:#f3f1ec url(..
 #lesson .dash>span:not(.rb),.vtools .dash>span:not(.rb){font-family:"Baloo Bhaijaan 2",sans-serif!important;font-weight:600!important;-webkit-text-stroke:0!important;text-shadow:none!important;letter-spacing:0}
 #lesson .l-head .ew-meta{align-self:end;padding-bottom:.3rem}
 #lesson .l-head .ew-meta{font-size:.75rem}
+
+/* =====================================================================
+   ROUND 5 — THE "JOYFUL GLASS" SKIN (Ahmed 2026-11-14): light-aqua to sky-blue gradient with soft glows, glossy glass buttons (red / green / yellow / blue / purple),
+   the logo blue as the main colour, white glass panels, colourful rounded-top tabs on a dark bar. Only colours / surfaces here; the layouts are untouched.
+   Everything reads the tokens in the :root block above, so a colour is changed in one place.
+   ===================================================================== */
+:root[data-theme="words"]{
+  --ew-gloss:linear-gradient(rgba(255,255,255,.75),rgba(255,255,255,.08));
+  --ew-glass:rgba(255,255,255,.62);--ew-glass-rim:rgba(255,255,255,.9);
+  --btn-rim:#1c58b8;--btn-edge:.12rem;--btn-shadow:0 .22rem 0 rgba(28,88,184,.85),0 .55rem .8rem rgba(22,52,107,.25);
+  --btn-text-shadow:0 .08rem 0 rgba(22,52,107,.55);
+  --hud:rgba(39,48,107,.78);
+}
+/* glass: every white card / sheet becomes frosted glass with a bright rim */
+.ew-ubody,.ewt-node,.ew-rsec,.ew-rsum>div{background:var(--ew-glass);border-color:var(--ew-glass-rim);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 .2rem 0 rgba(255,255,255,.7) inset,var(--ew-card)}
+.ewt-node .ewt-node{background:rgba(255,255,255,.7)}
+.ew-ubody{border-width:.16rem}
+/* the unit tab: a glossy blue label */
+.ew-utab{border:.16rem solid #fff;border-bottom:0;color:#fff;text-shadow:0 .1rem 0 rgba(22,52,107,.6);background:linear-gradient(#7fd0ff,#2b74dc);position:relative;overflow:hidden}
+.ew-utab::before{content:"";position:absolute;left:8%;right:8%;top:6%;height:38%;border-radius:62rem;background:var(--ew-gloss);pointer-events:none}
+/* lesson squares: glossy glass tiles, each lesson a different bright colour in turn */
+.ew-lsq{--t:#7fd0ff;--b:#2b74dc;--e:#1c58b8;border:.16rem solid #fff;background:linear-gradient(var(--t),var(--b));box-shadow:0 .22rem 0 var(--e),0 .6rem .8rem rgba(22,52,107,.25);overflow:hidden}
+.ew-lsq::before{content:"";position:absolute;left:8%;right:8%;top:5%;height:30%;border-radius:62rem;background:var(--ew-gloss);pointer-events:none}
+.ew-lsq:nth-child(5n+2){--t:#a9f09a;--b:#2fb04e;--e:#1f8238}
+.ew-lsq:nth-child(5n+3){--t:#ffe680;--b:#f5b61c;--e:#b97c05}
+.ew-lsq:nth-child(5n+4){--t:#d9a5ff;--b:#9a55e0;--e:#6a30aa}
+.ew-lsq:nth-child(5n+5){--t:#ffa59a;--b:#ee4f43;--e:#a8281f}
+.ew-lnum{-webkit-text-stroke:.16rem rgba(22,52,107,.85);position:relative}
+.ew-lname{position:relative}.ew-lsq i{z-index:1;background:rgba(255,255,255,.92);box-shadow:0 .06rem 0 rgba(0,0,0,.12)}
+.ew-lsq.soon{filter:grayscale(.75) brightness(1.05);opacity:.5}
+/* word squares: white glass cards with a blue rim */
+.ew-wsq{background:linear-gradient(#fff,#eaf5ff);border:.16rem solid #fff;box-shadow:0 .2rem 0 #8fc6f4,0 .5rem .7rem rgba(22,52,107,.2)}
+.ew-wsq b{color:var(--ew-ink)}
+/* subject picker buttons and chips: white glass pills */
+.ew-pickb,.ew-chip{background:linear-gradient(#fff,#e3f1ff);border:.14rem solid #fff;box-shadow:0 .22rem 0 #8fc6f4,0 .5rem .7rem rgba(22,52,107,.18)}
+.ew-pickb:active{box-shadow:0 .06rem 0 #8fc6f4}
+/* header round buttons: colourful glass in turn (home blue, back green, ? yellow) */
+#lesson .navbtns .rb:nth-child(2),#map .navbtns .rb:nth-child(2):not(.ew-q){--t:#a9f09a;--b:#2fb04e}
+.rb.ew-q,#ewTestBtn{--t:#ffe680;--b:#f5b61c}
+.ew-q{color:#fff;text-shadow:0 .08rem 0 rgba(130,80,0,.7)}
+#ewTestBack,.ew-top .navbtns .rb[data-icon="back"]{--t:#a9f09a;--b:#2fb04e}
+.rb,.pill{--btn-rim:rgba(255,255,255,.95)}
+.rb{box-shadow:0 .2rem 0 rgba(22,52,107,.55),0 .5rem .7rem rgba(22,52,107,.22);border-width:.14rem}
+.rb::after{background:linear-gradient(90deg,rgba(255,255,255,.95),rgba(255,255,255,.15))}
+.rb::before{border-color:rgba(255,255,255,.55)}
+.rb svg{filter:drop-shadow(0 .06rem 0 rgba(22,52,107,.55))}
+.pill{border-width:.14rem;box-shadow:0 .22rem 0 rgba(22,52,107,.45),0 .55rem .8rem rgba(22,52,107,.22)}
+.pill::before{background:var(--ew-gloss)}.pill::after{border-color:rgba(255,255,255,.55);border-top-color:rgba(255,255,255,.2)}
+.pill.green{--t:#a9f09a;--b:#2fb04e}
+/* practice tiles and matching buttons */
+.eptile,.epm-b{background:linear-gradient(#fff,#e6f2ff);border:.16rem solid #fff;box-shadow:0 .22rem 0 #7fb8ee,0 .5rem .7rem rgba(22,52,107,.18)}
+.eptile:active{box-shadow:0 .05rem 0 #7fb8ee}
+.epm-b.sel{background:linear-gradient(#fff6c8,#ffe27a);border-color:#fff;box-shadow:0 .22rem 0 #e0a000,0 0 0 .25rem rgba(255,215,80,.7)}
+.epm-b.done{background:linear-gradient(#e4fbe4,#b5f0b5)}
+/* the counter and the pickers */
+.hud{border:.12rem solid rgba(255,255,255,.7);color:#fff!important;-webkit-text-stroke:0;text-shadow:0 .06rem 0 rgba(0,0,0,.4);box-shadow:0 .15rem .4rem rgba(22,52,107,.2)}
+.ewt-chip,.ewt-weak,.ewt-all{background:linear-gradient(#fff,#e6f2ff);border-color:#fff;box-shadow:0 .16rem 0 #8fc6f4}
+.ewt-chip.on{background:linear-gradient(#7fd0ff,#2b74dc);color:#fff;border-color:#fff;text-shadow:0 .06rem 0 rgba(22,52,107,.5)}
+.ewt-unit>.ewt-row{background:linear-gradient(#7fd0ff,#2b74dc)}
+.ewt-chk{border-color:#8fc6f4}
+.ew-pb{background:radial-gradient(circle at 35% 25%,#fff 0,transparent 38%),linear-gradient(#7fd0ff,#2b74dc);border-color:#fff}
+.ew-pb.map{background:radial-gradient(circle at 35% 25%,#fff 0,transparent 38%),linear-gradient(#a9f09a,#2fb04e)}
+.ew-pb.again{background:radial-gradient(circle at 35% 25%,#fff 0,transparent 38%),linear-gradient(#ffe680,#f5b61c)}
+.ew-pop{background:linear-gradient(#f2fbff,#cfe8fb);border-color:#fff}
+.ew-ribbon{background:linear-gradient(#7fd0ff,#2b74dc)}
+.ew-ribbon::before,.ew-ribbon::after{background:#1f63c7}
+.ew-bar{border-color:#fff;box-shadow:0 .15rem 0 rgba(22,52,107,.3)}
+.ew-fill{background:linear-gradient(#a9f09a,#2fb04e)}
+/* the page titles read on the sky: white with a blue edge */
+.ew-title{color:#fff;-webkit-text-stroke:.28rem #2b6bd2;paint-order:stroke fill;text-shadow:0 .22rem 0 #1c4fa8}
+.ew-title[dir=rtl]{-webkit-text-stroke:.3rem #2b6bd2}
+.ew-h{color:#fff;-webkit-text-stroke:.28rem #2b6bd2;paint-order:stroke fill;text-shadow:0 .22rem 0 #1c4fa8}
+.ew-grade{color:#16346b;background:rgba(255,255,255,.7);padding:.05rem .6rem;border-radius:62rem;opacity:1}
+.ew-logo svg,.ew-logo.big svg{filter:drop-shadow(0 .25rem .4rem rgba(22,52,107,.3))}
+.ew-lname,#lesson .l-head .ew-meta{color:#fff}
+#lesson .l-head .ew-meta{color:#16346b;text-shadow:0 .06rem 0 rgba(255,255,255,.7)}
+
+/* ---------- the bottom tabs: colourful rounded-top tabs sitting on a dark rounded bar, white bold labels ---------- */
+#lesson .foot .tabs{gap:0;justify-content:stretch;align-items:flex-end;margin:0 .4rem;padding:.35rem .5rem 0;background:#27306b;border-radius:1.5rem 1.5rem 0 0;box-shadow:0 -.2rem .8rem rgba(22,52,107,.25),inset 0 .12rem 0 rgba(255,255,255,.18);min-height:3.4rem}
+#lesson .foot .tabs .tab{all:unset;box-sizing:border-box;flex:1 1 0;display:flex;align-items:center;justify-content:center;gap:.4rem;height:2.7rem;cursor:pointer;
+  background:linear-gradient(var(--tt),var(--tb));border-radius:1.5rem 1.5rem 0 0;font-family:"Baloo Bhaijaan 2","Tahoma",sans-serif;font-weight:800;font-size:1.15rem;color:#fff;-webkit-text-stroke:0;text-shadow:0 .08rem 0 rgba(0,0,0,.28);position:relative;overflow:hidden;transition:height .15s;-webkit-tap-highlight-color:transparent;padding:0 .6rem}
+#lesson .foot .tabs .tab::before{content:"";position:absolute;left:10%;right:10%;top:6%;height:30%;border-radius:62rem;background:linear-gradient(rgba(255,255,255,.45),rgba(255,255,255,0));pointer-events:none;display:block;inset-inline:10%;bottom:auto}
+#lesson .foot .tabs .tab::after{display:none}
+#lesson .foot .tabs .tab[data-tab="words"]{--tt:#a07be8;--tb:#6f4fc4}
+#lesson .foot .tabs .tab[data-tab="practice"]{--tt:#ffd860;--tb:#f4b01c}
+#lesson .foot .tabs .tab[aria-selected="true"]{height:3.1rem}
+#lesson .foot .tabs .tab[aria-selected="false"]{filter:saturate(.85) brightness(.97);height:2.55rem}
+#lesson .foot .tabs .tab svg{stroke:#fff;filter:drop-shadow(0 .06rem 0 rgba(0,0,0,.25))}
+@media (max-aspect-ratio:1/1){#lesson .foot .tabs,#lesson .foot .tabs.many{padding-inline-end:.5rem}}
+/* round 5 fixes: readable "soon" tiles, the counter pill dark glass, the tab bar rounded all round */
+.ew-lsq.soon{background:linear-gradient(#e4eef8,#bccfe3);box-shadow:0 .2rem 0 #98afc9;filter:none;opacity:.8}
+.ew-lsq.soon .ew-lnum{color:#fff;-webkit-text-stroke:.16rem #7f98b8}.ew-lsq.soon .ew-lname{color:#46608a;text-shadow:none}
+.hud{background:linear-gradient(rgba(60,72,150,.9),rgba(39,48,107,.92))}
+#lesson .foot .tabs{border-radius:1.6rem;margin:0 .6rem .5rem;padding:.4rem .5rem 0;overflow:hidden}
+
+/* =====================================================================
+   ROUND 6 (Ahmed 2026-11-14, from his phone screenshots)
+   ===================================================================== */
+:root[data-theme="words"]{--ws-size:clamp(3.2rem,min(17vw,11.5vh),6.6rem)}   /* the word the child studies / writes: bigger */
+/* the bottom tabs: no dark bar behind them, just the colourful rounded-top tabs */
+#lesson .foot .tabs{background:none;box-shadow:none;border-radius:0;overflow:visible;padding:0;margin:0 .6rem;align-items:flex-end;gap:.35rem;min-height:0}
+#lesson .foot .tabs .tab{border-radius:1.5rem 1.5rem .5rem .5rem;box-shadow:0 .2rem .5rem rgba(22,52,107,.28)}
+/* the page and subject titles: dark, so they read on the sky */
+.ew-title{color:var(--ew-ink);-webkit-text-stroke:0;text-shadow:0 .08rem 0 rgba(255,255,255,.75);letter-spacing:.02em}
+.ew-title[dir=rtl]{-webkit-text-stroke:0}
+/* words tab: the picture sits closer under the buttons; the word is bigger */
+#lesson .vimgwrap{align-self:start;place-items:start center}
+#lesson .vword.ws:not(.ws-ar){font-size:min(var(--ws-size),calc(var(--wfs,5rem) * 2.1))}
+#lesson.ar .vword.ws{font-size:min(var(--ws-size),calc(var(--wfs,5rem) * 1.5))}
+/* practice: a smaller picture, the word big with free space around it, the help bulb fixed beside the speaker */
+.quiz.ep .qword{margin-block:clamp(.6rem,3vh,1.6rem)}
+.quiz.ep .qplay{padding-inline:clamp(1rem,14%,6rem);padding-block:.3rem}
+.quiz.ep .qhead{display:flex;align-items:center;gap:.6rem}
+.quiz.ep .qword{flex-wrap:nowrap}
+.qhelpb.off{visibility:hidden}
+.quiz.ep .qword .qhelpb{flex:none;position:static;margin:0}
+.quiz.ep .qhead .qhelpb{margin-inline-start:auto}
+/* Arabic letters on the tiles: a little smaller so they stay inside the button */
+.eptile{overflow:hidden;line-height:1}
+.eptile .ewa{font-size:1.5rem;line-height:1.7}
+/* round 6b: the word takes the whole row (big), the speaker and the help bulb stand together under it, always in the same place */
+.quiz.ep .qword{flex-wrap:wrap;justify-content:center;column-gap:.9rem;row-gap:.5rem}
+.quiz.ep .qword b{flex:0 0 100%;text-align:center;font-size:min(var(--ws-size),calc((94vw - 1rem) / (var(--n,5) * .8 + .4)))}
+.quiz.ep .qword b.ws:not(.ws-ar),#lesson .quiz.ep .qword b{font-size:min(var(--ws-size),calc((94vw - 1rem) / (var(--n,5) * .8 + .4)))}
+.ew-lsq.soon .ew-lname{-webkit-line-clamp:2;margin-bottom:1.5rem}
+
+/* ROUND 7: the test builder — choices first, then the lessons / words as in the map but smaller; not chosen = faded, chosen = full colour; Arabic starts at the right */
+#ewTestBody .ewt-opts{margin:.2rem auto .4rem}
+#ewTestBody .ewt-help{margin:.2rem 0 .6rem}
+.ewt-tree{display:block;max-width:44rem;margin-inline:auto;direction:ltr}.ewt-ar .ewt-tree{direction:rtl}
+.ewt-tree .ew-unit{margin-bottom:1rem}
+.ewt-tree .ew-lsq,.ewt-tree .ew-wsq{--sq:clamp(3.6rem,17.5vw,5.2rem);padding:.2rem}
+.ewt-tree .ew-lnum{font-size:1.4rem}.ewt-tree .ew-lname{font-size:.7rem;-webkit-line-clamp:2}
+.ewt-tree .ew-wsq b{font-size:.8rem}.ewt-tree .ew-wsq b[dir=rtl]{font-size:.95rem}
+.ewt-tree .ew-ubody{padding:.6rem;gap:.6rem .5rem}.ewt-tree .ew-lrow,.ewt-tree .ew-words{gap:.5rem}
+.ewt-tree .ew-lsq i{font-size:.65rem;bottom:.2rem}
+.ewt-tree .ew-utab{font-size:1.05rem;cursor:pointer}
+/* not chosen: faded; chosen (all or part): full colour with a check */
+.ewt-pick:not(.soon){opacity:.5;filter:saturate(.55);transition:opacity .15s,filter .15s,transform .15s}
+.ewt-pick.all,.ewt-pick.some{opacity:1;filter:none}
+.ewt-pick.some:not(.all){opacity:.8;filter:saturate(.85)}
+.ew-lsq.ewt-pick.all::after,.ew-wsq.ewt-pick.all::after{content:"✓";position:absolute;z-index:3;top:.2rem;inset-inline-end:.2rem;width:1.3rem;height:1.3rem;border-radius:50%;background:#3cbf62;border:.12rem solid #fff;box-shadow:0 .08rem .2rem rgba(0,0,0,.25);color:#fff;font:800 .85rem/1.05rem "Baloo Bhaijaan 2",sans-serif;text-align:center}
+.ew-utab.ewt-pick.all{box-shadow:0 0 0 .2rem #3cbf62}
+.ewt-weak{background:linear-gradient(#fff,#e6f2ff);border:.15rem solid #fff;border-radius:62rem;box-shadow:0 .16rem 0 #8fc6f4}
+/* ROUND 7b: Arabic choices start at the right; the weak-words button under the sentence; the start button at the very end */
+.ewt-ar .ewt-opts,.ewt-ar .ewt-help,.ewt-ar .ewt-weak{direction:rtl;text-align:start}
+.ewt-ar .ewt-chips{direction:rtl}
+.ewt-weak{display:block;margin:.1rem 0 .8rem;padding:.35rem 1.1rem;font-size:1.05rem}
+.ewt-ar .ewt-weak{margin-inline-start:0;margin-inline-end:auto}
+.ewt-weak.on{background:linear-gradient(#ffa59a,#ee4f43);color:#fff;text-shadow:0 .06rem 0 rgba(120,20,10,.5);box-shadow:0 .16rem 0 #a8281f}
+.ewt-go{display:flex;flex-direction:column;align-items:center;gap:.6rem;margin:1rem auto 1.5rem;max-width:44rem}
+.ewt-ar .ewt-sum{text-align:center}
+.ewt-tree .ew-lsq.soon .ew-lname{display:none}
+/* a test has no Words / Practice tabs */
+#lesson.ewtest .foot .tabs{display:none}
+
+/* ROUND 8: the words tab — room above the word (the marks are never cut), a bigger picture so nothing is left empty below, the Help button always visible */
+#lesson .vocab{padding-top:clamp(1rem,3.5vh,2rem)}
+#lesson .vword{padding-top:.35em;padding-bottom:.15em;line-height:1.35}
+#lesson .vimgwrap{align-self:stretch;place-items:center}
+#lesson .vimg{height:calc(var(--pich,8.75rem) * 1.5)}
+#lesson .vtools .dash[data-k="help"].off{opacity:1;pointer-events:auto}
+
+/* ROUND 9 — accounts: the welcome screen (parent login, student), the child button and the bell on the home screen, the account page */
+.wl-logo .ew-wllogo{margin:0 auto}
+#welcome:not([data-step="curr"]) .wl-logo .ew-wllogo{width:clamp(6rem,24vw,8.5rem)}
+#welcome[data-step="form"] .wl-logo .ew-wllogo{width:clamp(5rem,20vw,7rem)}
+.wl-about .wl-tag{color:#fff;text-shadow:0 1px 0 rgba(22,52,107,.35)}
+
+.ew-lsq.locked{cursor:pointer}
+.ew-lsq.locked i.lk{display:flex;align-items:center;justify-content:center;gap:.2rem}
+.ewlock{width:1em;height:1em;fill:#f5b61c;stroke:#8a5a00;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.jlockbig .ewlock{width:4.5rem;height:4.5rem}
+.rpbtn{color:#16346b}

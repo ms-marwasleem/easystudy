@@ -391,6 +391,263 @@
      ]
     }
    ]
+  },
+  {
+   "type": "numline",
+   "page": 92,
+   "task": "Complete.",
+   "taskAudio": "q/task-bk-complete.mp3",
+   "items": [
+    {
+     "seq": [
+      20,
+      null,
+      22,
+      null,
+      24,
+      null,
+      26,
+      null,
+      28,
+      null,
+      30
+     ]
+    }
+   ],
+   "book": "booklet",
+   "ex": 17
+  },
+  {
+   "type": "mcq",
+   "page": 94,
+   "task": "Solve the problems.",
+   "taskAudio": "q/task-bk-solve-the-problems.mp3",
+   "items": [
+    {
+     "stem": "10 + 1 = ___",
+     "options": [
+      "10",
+      "11",
+      "12"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-10-p-1-q.mp3",
+     "audio": "q/wb-10-p-1.mp3",
+     "word": "10 + 1 = 11"
+    },
+    {
+     "stem": "10 + 9 = ___",
+     "options": [
+      "18",
+      "19",
+      "20"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-10-p-9-q.mp3",
+     "audio": "q/wb-10-p-9.mp3",
+     "word": "10 + 9 = 19"
+    },
+    {
+     "stem": "10 + 4 = ___",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-10-p-4-q.mp3",
+     "audio": "q/wb-10-p-4.mp3",
+     "word": "10 + 4 = 14"
+    },
+    {
+     "stem": "15 − 5 = ___",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-15-m-5-q.mp3",
+     "audio": "q/wb-15-m-5.mp3",
+     "word": "15 − 5 = 10"
+    },
+    {
+     "stem": "18 − 8 = ___",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-18-m-8-q.mp3",
+     "audio": "q/wb-18-m-8.mp3",
+     "word": "18 − 8 = 10"
+    },
+    {
+     "stem": "19 − 9 = ___",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-19-m-9-q.mp3",
+     "audio": "q/wb-19-m-9.mp3",
+     "word": "19 − 9 = 10"
+    }
+   ],
+   "book": "booklet",
+   "ex": 18
+  },
+  {
+   "type": "mcq",
+   "page": 94,
+   "task": "Write the number.",
+   "taskAudio": "q/task-bk-write-the-number.mp3",
+   "items": [
+    {
+     "stem": "10 + 4 = ___",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-10-p-4-q.mp3",
+     "audio": "q/wb-10-p-4.mp3",
+     "word": "10 + 4 = 14"
+    },
+    {
+     "stem": "18 − 8 = ___",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-18-m-8-q.mp3",
+     "audio": "q/wb-18-m-8.mp3",
+     "word": "18 − 8 = 10"
+    }
+   ],
+   "book": "booklet",
+   "ex": 19
+  },
+  {
+   "type": "mcq",
+   "page": 94,
+   "task": "Solve the problems.",
+   "taskAudio": "q/task-bk-solve-the-problems.mp3",
+   "items": [
+    {
+     "stem": "10 + 3 = ___",
+     "options": [
+      "12",
+      "13",
+      "14"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-10-p-3-q.mp3",
+     "audio": "q/wb-10-p-3.mp3",
+     "word": "10 + 3 = 13"
+    },
+    {
+     "stem": "10 + 7 = ___",
+     "options": [
+      "16",
+      "17",
+      "18"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-10-p-7-q.mp3",
+     "audio": "q/wb-10-p-7.mp3",
+     "word": "10 + 7 = 17"
+    },
+    {
+     "stem": "10 + 6 = ___",
+     "options": [
+      "15",
+      "16",
+      "17"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-10-p-6-q.mp3",
+     "audio": "q/wb-10-p-6.mp3",
+     "word": "10 + 6 = 16"
+    },
+    {
+     "stem": "13 − 3 = ___",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-13-m-3-q.mp3",
+     "audio": "q/wb-13-m-3.mp3",
+     "word": "13 − 3 = 10"
+    },
+    {
+     "stem": "14 − 4 = ___",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-14-m-4-q.mp3",
+     "audio": "q/wb-14-m-4.mp3",
+     "word": "14 − 4 = 10"
+    },
+    {
+     "stem": "11 − 1 = ___",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-11-m-1-q.mp3",
+     "audio": "q/wb-11-m-1.mp3",
+     "word": "11 − 1 = 10"
+    }
+   ],
+   "book": "booklet",
+   "ex": 20
+  },
+  {
+   "type": "mcq",
+   "page": 94,
+   "task": "Read the story. Find the answer.",
+   "taskAudio": "q/task-bk-read-the-story-find-the-answer.mp3",
+   "items": [
+    {
+     "stem": "There are 10 children. 5 more join. How many children are there now in total?",
+     "options": [
+      "14",
+      "15",
+      "16"
+     ],
+     "answer": 1,
+     "askAudio": "q/bk-there-are-children-more-join-q.mp3",
+     "audio": "q/bk-there-are-children-more-join.mp3",
+     "word": "15"
+    },
+    {
+     "stem": "There are 12 cats. 2 go home. How many are left?",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askAudio": "q/bk-there-are-cats-go-home-q.mp3",
+     "audio": "q/bk-there-are-cats-go-home.mp3",
+     "word": "10"
+    }
+   ],
+   "book": "booklet",
+   "ex": 21
   }
  ]
 }

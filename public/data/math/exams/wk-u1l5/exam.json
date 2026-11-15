@@ -1,0 +1,362 @@
+{
+ "title": "Weekly Assessment",
+ "ratio": 0.707,
+ "pages": [
+  {
+   "title": "Model A",
+   "chip": "A",
+   "group": "A",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/butterfly.png#9",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number of butterflies in the opposite picture is ..........",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "7",
+        "8",
+        "9",
+        "10"
+       ],
+       "answer": 2,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/clownfish-orange.png#8",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "What is the number of fish in the opposite picture ? [[8:wide]]",
+     "body": []
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/ar-airplane.png#6",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Write the number of things you see. [[6:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "What two numbers make 6? Write the missing number in the square.",
+     "body": [
+      {
+       "t": "bond",
+       "top": "6",
+       "l": "[[5]]",
+       "r": "1"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "Match each image to its correct number:",
+     "body": [
+      {
+       "t": "link",
+       "dir": "v",
+       "a": [
+        {
+         "art": "../../../pics/balloon.png#10",
+         "w": 8
+        },
+        {
+         "art": "../../../pics/tomato.png#9",
+         "w": 8
+        },
+        {
+         "art": "../../../pics/crab-red.png#7",
+         "w": 8
+        }
+       ],
+       "b": [
+        "9",
+        "10",
+        "7"
+       ],
+       "pairs": [
+        [
+         0,
+         1
+        ],
+        [
+         1,
+         0
+        ],
+        [
+         2,
+         2
+        ]
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Model B",
+   "chip": "B",
+   "group": "B",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/car.png#9",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number of cars in the opposite picture is ..........",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "7",
+        "8",
+        "9",
+        "10"
+       ],
+       "answer": 2,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/pencil.png#7",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "What is the number of pencils in the opposite picture ? [[7:wide]]",
+     "body": []
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/crab-red.png#6",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Write the number of things you see. [[6:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "What two numbers make 6? Write the missing number in the square.",
+     "body": [
+      {
+       "t": "bond",
+       "top": "6",
+       "l": "5",
+       "r": "[[1]]"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "Match each image to its correct number:",
+     "body": [
+      {
+       "t": "link",
+       "dir": "v",
+       "a": [
+        {
+         "art": "../../../pics/apple-toon.png#6",
+         "w": 8
+        },
+        {
+         "art": "../../../pics/bus-u5l1.png#8",
+         "w": 8
+        },
+        {
+         "art": "../../../pics/bird.png#3",
+         "w": 8
+        }
+       ],
+       "b": [
+        "3",
+        "8",
+        "6"
+       ],
+       "pairs": [
+        [
+         0,
+         2
+        ],
+        [
+         1,
+         1
+        ],
+        [
+         2,
+         0
+        ]
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Model C",
+   "chip": "C",
+   "group": "C",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/star-red.png#10",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number of stars in the opposite picture is ..........",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "7",
+        "8",
+        "9",
+        "10"
+       ],
+       "answer": 3,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "art",
+     "art": "../../../pics/pencil.png#6",
+     "w": 11,
+     "frame": true,
+     "float": "right"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "What is the number of pencils in the opposite picture ? [[6:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "What two numbers make 6? Write the missing number in the square.",
+     "body": [
+      {
+       "t": "bond",
+       "top": "6",
+       "l": "[[2]]",
+       "r": "4"
+      }
+     ]
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "Match each image to its correct number:",
+     "body": [
+      {
+       "t": "link",
+       "dir": "v",
+       "a": [
+        {
+         "art": "../../../pics/apple-toon.png#5",
+         "w": 8
+        },
+        {
+         "art": "../../../pics/bus-u5l1.png#9",
+         "w": 8
+        },
+        {
+         "art": "../../../pics/bird.png#6",
+         "w": 8
+        }
+       ],
+       "b": [
+        "6",
+        "5",
+        "9"
+       ],
+       "pairs": [
+        [
+         0,
+         1
+        ],
+        [
+         1,
+         2
+        ],
+        [
+         2,
+         0
+        ]
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

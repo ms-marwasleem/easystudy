@@ -2,6 +2,8 @@
 # Copy the latest app from the project folder into ./public (run from repo root), then commit and push.
 SRC=/mnt/project-files/easystudy/app
 python3 /mnt/project-files/easystudy/tools/build-app.py || exit 1   # joins css/js into css/app.css, js/app-first.js, js/app-rest.js
+python3 /mnt/project-files/easystudy/tools/build-words.py || exit 1   # joins css/words-app.css, js/words-app.js (Easy Words)
+cp /mnt/project-files/easystudy/server/src/index.js src/index.js   # the Worker code (accounts, credits, subscriptions, dashboard API) is one file shared by EasyStudy and Easy Words
 rm -rf public && mkdir public
 (cd "$SRC" && tar cf - --exclude=./docs --exclude='bundle.*' .) | tar xf - -C public
 # list of sounds/pictures with a short fingerprint each: the app kept on the device downloads again only the ones that changed (app/sw.js)
@@ -17,5 +19,6 @@ json.dump(out,open('public/media.json','w'),separators=(',',':'),sort_keys=True)
 # app version: hash of code/text files (media.json among them, so a changed sound/picture is a new version too); index.html carries it, version.json holds the newest
 V=$(cd public && find . -type f \( -name '*.js' -o -name '*.css' -o -name '*.json' -o -name '*.html' \) ! -name version.json -print0 | sort -z | xargs -0 cat | sha1sum | cut -c1-12)
 sed -i "s|<head>|<head><script>window.APP_V='$V'</script>|" public/index.html
+sed -i "s|<head>|<head><script>window.APP_V='$V'</script>|" public/words.html   # Easy Words: same update check
 echo "{\"v\":\"$V\"}" > public/version.json
 git add -A && git commit -m "Sync app" && git push

@@ -17,8 +17,9 @@
   "read": "Lesson",
   "quiz": "Book Questions"
  },
- "pages": 4,
+ "pages": 5,
  "pageNums": [
+  86,
   86,
   86,
   86,
@@ -43,6 +44,57 @@
   },
   "steps": [
    {
+    "name": "The hands",
+    "beats": [
+     {
+      "say": "There are two hands on a clock.",
+      "do": [
+       {
+        "scene": "clock",
+        "h": 8,
+        "half": 0
+       },
+       {
+        "hand": "both"
+       }
+      ]
+     },
+     {
+      "say": "The short hand shows the hour.",
+      "do": [
+       {
+        "line": "clear"
+       },
+       {
+        "hand": "short"
+       },
+       {
+        "add": "hour",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "The long hand shows the minute.",
+      "do": [
+       {
+        "line": "clear"
+       },
+       {
+        "hand": "long"
+       },
+       {
+        "add": "minute",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 900
+     }
+    ]
+   },
+   {
     "name": "8 o'clock",
     "beats": [
      {
@@ -55,15 +107,7 @@
         "half": 0
        },
        {
-        "frame": {
-         "box": [
-          369,
-          228,
-          449,
-          308
-         ],
-         "color": "red"
-        }
+        "hand": "short"
        }
       ]
      },
@@ -72,15 +116,7 @@
       "audio": "explain/c0-2.mp3",
       "do": [
        {
-        "frame": {
-         "box": [
-          460,
-          25,
-          540,
-          105
-         ],
-         "color": "blue"
-        }
+        "hand": "long"
        }
       ]
      },
@@ -114,15 +150,7 @@
         "half": 1
        },
        {
-        "frame": {
-         "box": [
-          359,
-          202,
-          439,
-          282
-         ],
-         "color": "red"
-        }
+        "hand": "short"
        }
       ]
      },
@@ -131,15 +159,7 @@
       "audio": "explain/c1-2.mp3",
       "do": [
        {
-        "frame": {
-         "box": [
-          460,
-          325,
-          540,
-          405
-         ],
-         "color": "blue"
-        }
+        "hand": "long"
        }
       ]
      },
@@ -173,15 +193,7 @@
         "half": 0
        },
        {
-        "frame": {
-         "box": [
-          512,
-          84,
-          592,
-          164
-         ],
-         "color": "red"
-        }
+        "hand": "short"
        }
       ]
      },
@@ -190,15 +202,7 @@
       "audio": "explain/c2-2.mp3",
       "do": [
        {
-        "frame": {
-         "box": [
-          460,
-          25,
-          540,
-          105
-         ],
-         "color": "blue"
-        }
+        "hand": "long"
        }
       ]
      },
@@ -232,15 +236,7 @@
         "half": 1
        },
        {
-        "frame": {
-         "box": [
-          487,
-          276,
-          567,
-          356
-         ],
-         "color": "red"
-        }
+        "hand": "short"
        }
       ]
      },
@@ -249,15 +245,7 @@
       "audio": "explain/c3-2.mp3",
       "do": [
        {
-        "frame": {
-         "box": [
-          460,
-          325,
-          540,
-          405
-         ],
-         "color": "blue"
-        }
+        "hand": "long"
        }
       ]
      },

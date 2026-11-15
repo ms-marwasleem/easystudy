@@ -1,0 +1,177 @@
+{
+ "title": "Weekly Assessment",
+ "ratio": 0.707,
+ "pages": [
+  {
+   "title": "Model A",
+   "chip": "A",
+   "group": "A",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number 3 and the number..... make 8",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "5",
+        "3",
+        "8",
+        "6"
+       ],
+       "answer": 0,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "The number 7 and the number[[2:wide]] make 9",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Write two numbers that make 7, one of them is 2 [[5:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Write two numbers that make 9, one of them is 3 [[6:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "Write two numbers that make 7, one of them is 3 [[4:wide]]",
+     "body": []
+    }
+   ]
+  },
+  {
+   "title": "Model B",
+   "chip": "B",
+   "group": "B",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number 4 and the number..... make 8",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "4",
+        "5",
+        "8",
+        "2"
+       ],
+       "answer": 0,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "The number 6 and the number[[3:wide]] make 9",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Write two numbers that make 7, one of them is 1 [[6:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Write two numbers that make 9, one of them is 2 [[7:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "Write two numbers that make 7, one of them is 4 [[3:wide]]",
+     "body": []
+    }
+   ]
+  },
+  {
+   "title": "Model C",
+   "chip": "C",
+   "group": "C",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "The number 1 and the number..... make 8",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "5",
+        "6",
+        "7",
+        "4"
+       ],
+       "answer": 2,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "The number 6 and the number[[3:wide]] make 9",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "Write two numbers that make 7, one of them is 6 [[1:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "Write two numbers that make 9, one of them is 1 [[8:wide]]",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "Write two numbers that make 9, one of them is 8 [[1:wide]]",
+     "body": []
+    }
+   ]
+  }
+ ]
+}

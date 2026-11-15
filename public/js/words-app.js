@@ -1,5 +1,10 @@
-const EW_BUILD='e7f22af224';
+const EW_BUILD='88340ab715';
 /* MADE BY tools/build-words.py from the files named below. Do not edit here. */
+/* ===== js/words-boot.js ===== */
+/* EASY WORDS — first file of the bundle: tells the shared accounts / credits code (welcome, sync, subs, coins, push) which settings file and server to use. */
+const SETTINGS_FILE='data/words/settings.json';
+const APP_ID='words';
+;
 /* ===== js/core.js ===== */
 // Arabic-Indic (٠-٩) and Eastern Persian (۰-۹) digits typed anywhere count as Western digits: one helper, applied to every text box before any answer check
 const DIG_RE=/[\u0660-\u0669\u06F0-\u06F9]/g, normDigits=s=>String(s==null?'':s).replace(DIG_RE,d=>{ const c=d.charCodeAt(0); return String(c>=0x6F0?c-0x6F0:c-0x660); });
@@ -540,6 +545,865 @@ function chipDrag(b,target,ok){
     addEventListener('pointermove',mv,{passive:false}); addEventListener('pointerup',up); addEventListener('pointercancel',up); });
 }
 ;
+/* ===== js/curriculum.js ===== */
+/* CURRICULUM — which subjects and books this child sees (Marwa 2026-11-05).
+   data/curriculum.json holds the types (عام / تجريبي / private) and the private schools; the parent's pick is saved as
+   {type, school} (es.curr, or the child profile later). currApply() filters the loaded data ONCE (home subjects, lessons,
+   tabs, map signs, tests); every screen then simply shows what is there. Questions of a hidden book are dropped in qLoad
+   (currSets) and lesson.json tabs in openLesson (currTabs). Never test for a school or subject anywhere else. */
+let CURR=null, CURR_ALL=null;
+const TAB_BOOK={read:'school',words:'school',quiz:'school',grammar:'school',workbook:'workbook',booklet:'booklet'};
+const SET_BOOK={book:'school',workbook:'workbook',booklet:'booklet'};
+function currPick(){ try{ const p=JSON.parse(localStorage.getItem('es.curr')||'null'); return p&&p.type?p:null; }catch(e){ return null; } }
+function currSave(p){ try{ localStorage.setItem('es.curr',JSON.stringify(p)); }catch(e){} }
+// the plan of a pick: {subjects:[ids], books:Set}. A private school = its base type + its own subjects and books.
+function currPlan(p){
+  const C=CURR||{types:[],schools:[]}, sc=p&&p.school&&C.schools.find(s=>s.id===p.school),
+    ty=C.types.find(t=>t.id===(sc?sc.base:p&&p.type))||C.types.find(t=>t.subjects);
+  if(!ty) return null;
+  return {type:ty, school:sc||null, subjects:[...ty.subjects,...((sc&&sc.subjects)||[])], books:new Set([...ty.books,...((sc&&sc.books)||[])])};
+}
+let PLAN=null;
+// the private school of the child (null for general / experimental). A vocab word tagged "school":"<id>" (a word that exists only in that school's booklet, Ahmed 2026-11-15) shows only for a child of that school; untagged words = the ministry curriculum, for everyone.
+function currSchoolId(){ try{ if(PLAN&&PLAN.school) return PLAN.school.id; const k=typeof kidNow==='function'&&kidNow(), c=(k&&k.curr)||currPick(); return (c&&c.school)||null; }catch(e){ return null; } }
+const vocabFor=list=>(list||[]).filter(v=>v&&(!v.school||v.school===currSchoolId()));
+const bookOn=k=>!PLAN||PLAN.books.has(k);
+const tabOn=t=>bookOn(TAB_BOOK[t]||'school');
+const currTabs=ts=>ts&&ts.filter(tabOn);
+const currSets=sets=>(sets||[]).filter(s=>bookOn(SET_BOOK[s.book||'book']||s.book));
+function currExams(sid,list){ if(!list) return list; const eb=(CURR&&CURR.examBooks&&CURR.examBooks[sid]); const out=list.filter(e=>bookOn(e.book||eb||'school')); return out.length?out:undefined; }
+// one lesson of the map, as this curriculum sees it (null = the lesson belongs only to hidden books)
+function currLesson(sid,l){
+  const m={...l}; let had=0, kept=0;
+  if(l.pages){ m.pages={}; Object.entries(l.pages).forEach(([t,v])=>{ had++; if(tabOn(t)){ m.pages[t]=v; kept++; } }); }
+  if(l.tabs){ m.tabs=currTabs(l.tabs); if(!m.tabs.length) return null; }
+  else if(had&&!kept) return null;
+  if(l.exams) m.exams=currExams(sid,l.exams);
+  return m;
+}
+// filter COURSE for the pick (or show everything when nothing is picked yet). Safe to call again after the pick changes.
+function currApply(p){
+  if(!CURR_ALL) CURR_ALL=COURSE.subjects.map(s=>({...s}));
+  PLAN=p?currPlan(p):null;
+  const order=PLAN?PLAN.subjects:CURR_ALL.map(s=>s.id);
+  COURSE.subjects=order.map(id=>CURR_ALL.find(s=>s.id===id)).filter(Boolean).map(s0=>{
+    const s={...s0}; if(!s0.lessons) return s;
+    s.lessons=s0.lessons.map(l=>currLesson(s.id,l)).filter(Boolean);
+    s.units=(s0.units||[]).map(u=>u.exams?{...u,exams:currExams(s.id,u.exams)}:u);
+    return s;
+  });
+  if(typeof SUBJECT!=='undefined'&&SUBJECT) SUBJECT=COURSE.subjects.find(s=>s.id===SUBJECT.id)||null;
+}
+;
+/* ===== js/coins.js ===== */
+/* COINS + ACCESS — who can open which subject / unit / lesson, the parent's coin wallet, the share sheet and the unlock popup
+   (Marwa 2026-11-05, design: docs/coins-and-admin.md). Everything is driven by ONE settings object: data/settings.json, or the copy the
+   admin dashboard (admin.html) saved on the server (api). accessOf() in core.js asks coinAccess() here.
+   LOCAL-FIRST: wallet, unlocks and free picks live on this device; the server (Cloudflare Worker + D1) replaces only the store functions below.
+   Accounts hooks: coinParent() / coinChild() read window.ACCOUNT / window.CHILD when the accounts code sets them ({id,...}); else 'local'. */
+let ESET={coins:{enabled:false,shares:[]},items:{},access:{}};
+const coinParent=()=>(window.ACCOUNT&&ACCOUNT.id)||'local';
+const coinChild=()=>(window.CHILD&&CHILD.id)||'';
+const CS=()=>ESET.coins||{};
+const coinsOn=()=>!!CS().enabled;
+const cGet=(k,d)=>{ try{ const v=JSON.parse(localStorage.getItem(k)||'null'); return v==null?d:v; }catch(e){ return d; } };
+const cSet=(k,v)=>{ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} };
+/* SERVER (Marwa 2026-11-05: coins for EVERY share + a bigger bonus when a new parent registers from the link). When settings "api" is set
+   (e.g. "/api", the Worker built in its own thread), the server is the truth: settings from GET api/settings, and every coin action is
+   ALSO sent there; its answer {wallet, unlocked, freeused} replaces the copy on this device. No api / offline = this device only (as now).
+   API contract: docs/coins-and-admin.md §5. Auth = window.ACCOUNT.token (set by the accounts code) as "Authorization: Bearer". */
+const API=()=>ESET.api||'';
+function apiCall(path,body){ if(!API()) return Promise.resolve(null);
+  const h={'Content-Type':'application/json'}; if(window.ACCOUNT&&ACCOUNT.token) h.Authorization='Bearer '+ACCOUNT.token;
+  return fetch(API()+path,{method:body?'POST':'GET',headers:h,body:body?JSON.stringify(body):undefined}).then(r=>r.ok?r.json():null).catch(()=>null); }
+function apiTake(r){ if(!r) return; if(r.wallet) walletSave(r.wallet); if(r.unlocked) cSet(unlockKey(),r.unlocked); if(r.freeused) cSet(freeKey(),r.freeused); paintHud(); }
+// the referral: a link shared by a parent ends in ?r=<code>; it is kept on this device (es.ref) and the accounts code sends it with the sign-up
+try{ const r=new URLSearchParams(location.search).get('r'); if(r&&!localStorage.getItem('es.ref')) localStorage.setItem('es.ref',JSON.stringify({code:r,at:Date.now()})); }catch(e){}
+const refCode=()=>(cGet('es.ref',null)||{}).code||null;
+const ESET_P=get(typeof SETTINGS_FILE!=='undefined'?SETTINGS_FILE:'data/settings.json').catch(()=>null).then(async d=>{
+  ESET=d||ESET;   // no device copy: the real settings come from the server below
+  if(ESET.api){ const s=await apiCall('/settings'); if(s&&s.coins) ESET={...s,api:ESET.api,whatsapp:s.whatsapp||ESET.whatsapp,adminEmail:s.adminEmail||ESET.adminEmail}; apiTake(await apiCall('/wallet'+(coinChild()?'?child='+encodeURIComponent(coinChild()):''))); }
+  ESET.items=ESET.items||{}; ESET.coins=ESET.coins||{shares:[]};
+  if(typeof COURSE!=='undefined'&&COURSE){ paintHud(); if(!$('#subjects').hidden&&typeof drawSubjects==='function') drawSubjects(); else if(!$('#map').hidden&&typeof drawMap==='function') openMap(); }
+});
+
+/* ---------- store (this device) ---------- */
+const unlockKey=()=>'es.unlocked';   // welcome.js swaps this key when the child changes (KID_KEYS), so it is per child already
+const freeKey=()=>'es.freeused';   // per child too (welcome.js KID_KEYS)
+function wallet(){ const k='es.wallet.'+coinParent(); let w=cGet(k,null);
+  if(!w){ w={bal:0,hist:[],last:{}}; cSet(k,w); } return w; }
+const walletSave=w=>cSet('es.wallet.'+coinParent(),w);
+const coinBal=()=>wallet().bal;
+function addUnlock(id,coins,kind){ const s=cGet(unlockKey(),[]); if(!s.includes(id)) s.push(id); cSet(unlockKey(),s); if(typeof subSeason==='function') subSeason();   // opened lessons end on 31 Aug too
+  const w=wallet(); w.hist.push({k:kind,id,n:-coins,at:Date.now(),child:coinChild()}); w.bal-=coins; walletSave(w);
+  apiCall('/unlock',{child:coinChild(),id,kind:kind==='unlock-unit'?'unit':'lesson'}).then(apiTake); }
+
+/* ---------- where an item sits (for the free rules) ---------- */
+// the subject of an id: 's:<subj>', 'u:<subj>:<unit>', 'l:<subj>-<folder>'
+function subjOf(id){ if(!id) return null; const p=id.split(':'); if(p[0]==='s'||p[0]==='u') return COURSE.subjects.find(s=>s.id===p[1]);
+  return COURSE.subjects.find(s=>s.lessons&&s.lessons.some(l=>'l:'+l.id===id)); }
+function lessonOf(id){ const s=subjOf(id); return s&&s.lessons.find(l=>'l:'+l.id===id); }
+const unitIdOf=(s,l)=>'u:'+s.id+':'+l.unit;
+
+/* ---------- THE access rule ----------
+   1. the admin's own state for this item (ESET.items[id].st = open | soon | locked) wins over everything (soon even when built)
+   2. no content = soon
+   3. coins off: the old rule (item "status" in the subject json, the free-trial rule in course.json "access")
+   4. coins on: the free policy (ESET.access.free) decides; everything else is locked and costs coins (lesson or whole unit) */
+function coinAccess(o,hasContent,id,idx,kind){
+  const it=(id&&ESET.items[id])||{}, C=CS(), A=COURSE.access||{}, un=new Set(cGet(unlockKey(),[]));
+  const cost=it.coins!=null?it.coins:o.coins!=null?o.coins:id&&id[0]==='l'?(+C.lessonCost||0):(A.coins||0);
+  const out=st=>({st,coins:cost,kind:kind||(id&&id[0]==='l'?'lesson':'subject')});
+  if(it.st==='soon') return out('soon');
+  if(!hasContent) return out('soon');
+  if(it.st==='open') return out('open');
+  if(id&&promoOpen(un,id)) return out('open');
+  if(id&&id[0]!=='s'&&typeof subOpen==='function'&&subOpen()) return out('open');   // a paid term (or the 24 h after the receipt) opens every lesson of this child
+  if(it.st==='locked') return out('locked');
+  if(!coinsOn()){ let st=o.status||'open';
+    if(st==='open'&&!o.status&&A.enabled&&A.trial&&kind==='unit'&&idx>=(A.trial.units||1)) st='locked';
+    return out(st); }
+  if(!id||id[0]==='s') return out(o.status||'open');   // coins never lock a whole subject (the admin can, with items)
+  return out(isFree(id,kind,idx)?'open':'locked');
+}
+// opened for this child: the item itself, or (promo codes) its whole unit, its whole subject, or '*' = every subject
+function promoOpen(un,id){ if(un.has(id)||un.has('*')) return true; const s=id[0]==='s'?null:subjOf(id); if(!s) return false;
+  if(un.has('s:'+s.id)) return true; const l=id[0]==='l'&&lessonOf(id); return !!(l&&un.has(unitIdOf(s,l))); }
+const coinUnlocked=id=>promoOpen(new Set(cGet(unlockKey(),[])),id);
+// the free policy for a new child: ESET.access.free = {mode, count, list}
+//  first      = the first <count> built lessons of every subject
+//  firstUnit  = the first <count> units of every subject
+//  pick       = the child picks <count> lessons anywhere (tap a locked lesson -> open it free)
+//  pickUnit   = the child picks <count> whole units anywhere
+//  list       = only the lessons / units the admin listed (ids like l:arabic-u1l1, u:math:1)
+function isFree(id,kind,idx){
+  const F=(ESET.access&&ESET.access.free)||{mode:'first',count:3}, s=subjOf(id); if(!s) return true;
+  const n=(F.per&&F.per[s.id]!=null&&F.per[s.id]!==''&&+F.per[s.id]>=0)?+F.per[s.id]:(+F.count||0);   // per-subject free count (dashboard) or the default
+  if(kind==='unit'){ const ui=(s.units||[]).findIndex(u=>'u:'+s.id+':'+u.unit===id);
+    if(F.mode==='firstUnit') return ui<n;
+    if(F.mode==='pickUnit') return false;
+    return true; }   // lesson modes never lock a whole unit: the locks sit on the lessons
+  const l=lessonOf(id); if(!l) return true; const uid=unitIdOf(s,l);
+  if(F.mode==='first'){ const built=s.lessons.filter(x=>x.file&&!x.hidden); return built.indexOf(l)<n; }
+  if(F.mode==='list') return (F.list||[]).includes(id)||(F.list||[]).includes(uid);
+  return true;   // unit modes: the unit decides (the map locks its lessons); pick: locked until picked
+}
+// free picks left; perSubject (Marwa 2026-11-05: the child picks ONE free lesson in EACH subject) counts the picks of this subject only
+function freeLeft(){ return 0; }   // no more free picks (signup gift removed 2026-11-11)
+/* ---------- coin pictures ---------- */
+const COIN=`<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="22" r="16" fill="#C98A12" stroke="var(--btn-ol)" stroke-width="2.6"/><circle cx="20" cy="19" r="16" fill="#FFD23F" stroke="var(--btn-ol)" stroke-width="2.6"/><circle cx="20" cy="19" r="11" fill="none" stroke="#E0A419" stroke-width="2.4"/><path d="M20 12v14M16.5 15.5h5.5a2.5 2.5 0 0 1 0 5h-4a2.5 2.5 0 0 0 0 5H24" fill="none" stroke="#B57A0C" stroke-width="2.6" stroke-linecap="round"/><path d="M11 13a11 11 0 0 1 6-5" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".8"/></svg>`;
+const SHAREIC='<svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.500"/><circle cx="18" cy="6" r="2.500"/><circle cx="18" cy="18" r="2.500"/><path d="M8.200 10.900l7.600-3.800M8.200 13.100l7.600 3.800"/></svg>';
+const CT=(ar,en)=>ar;   // credits, share and unlock popups are for the PARENT: always Arabic (Marwa 2026-11-05), whatever the subject; en kept for later
+
+/* ---------- CREDITS (Marwa 2026-11-05: "credits", not coins; shown ONLY in the parent's account, not on the child's screens) ----------
+   The HUD chip is gone: coinPaint only removes an old one. The balance lives in the children popup (welcome.js kidMenu -> creditBtn). */
+function coinPaint(){ $$('.coinhud').forEach(c=>c.remove()); }
+const CRED=n=>`${num(n)} ${CT('كريدت','credits')}`;
+const balLine=n=>`<div class="coinbig" dir="rtl"><span class="lab">${CT('رصيدك:','Balance:')}</span><span class="ic">${COIN}</span><b class="outline">${num(n)}</b></div>`;
+
+/* ---------- popups (one overlay of our own, the app's popup look) ---------- */
+function coinPop(html,onOpen){
+  let o=$('#coinPop'); if(!o){ o=el('div','overlay'); o.id='coinPop'; document.body.append(o); o.addEventListener('click',e=>{ if(e.target===o) coinClose(); }); }
+  o.innerHTML=`<div class="rays"></div><div class="popup coinpop" role="dialog"><button class="rb popx" aria-label="Close" data-icon="close">${ICON.close}</button>${html}</div>`;
+  $('.popx',o).addEventListener('click',coinClose); o.hidden=false; if(typeof spinRays==='function') spinRays(o);
+  if(anim) G.from($('.popup',o),{scale:.6,opacity:0,duration:.35,ease:'back.out(2)'});
+  if(onOpen) onOpen($('.popup',o));
+}
+const coinClose=()=>{ const o=$('#coinPop'); if(o) o.hidden=true; };
+const bigCoins=balLine;
+
+// a grown-up question first (Ahmed 2026-11-11, replaces typing the parent's name): 3 numbers written as ARABIC WORDS ("واحد - ثلاثة - خمسة"); the parent taps them on a keypad.
+// Guards the account page and every credits / unlock sheet. Passed once = no more questions until the app is opened again. Switch off: settings coins.parentGate=false.
+let gateOk=false;
+const GATEW=['','واحد','اثنين','ثلاثة','أربعة','خمسة','ستة','سبعة','ثمانية','تسعة'], GATED='٠١٢٣٤٥٦٧٨٩';
+function parentGate(then){
+  if(gateOk||CS().parentGate===false) return then();
+  const want=[0,0,0].map(()=>1+Math.floor(Math.random()*9)); let got=[];
+  coinPop(`<h2 class="outline">لولي الأمر</h2><p class="msg-text">اضغط الأرقام دي بالترتيب:</p><p class="msg-text gate-w">${want.map(n=>GATEW[n]).join(' - ')}</p>
+    <div class="gate-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="gate-pad">${[1,2,3,4,5,6,7,8,9].map(n=>`<button type="button" class="gate-k" data-n="${n}">${GATED[n]}</button>`).join('')}<span></span><button type="button" class="gate-k gate-x" aria-label="مسح">⌫</button></div>`, p=>{
+    const dots=$$('.gate-dots i',p), paint=()=>dots.forEach((d,i)=>d.classList.toggle('on',i<got.length));
+    $$('.gate-k[data-n]',p).forEach(k=>k.addEventListener('click',()=>{ if(got.length>=3) return; got.push(+k.dataset.n); paint();
+      if(got.length<3) return;
+      if(got.join()===want.join()){ gateOk=true; coinClose(); then(); }
+      else { if(anim) G.fromTo($('.gate-dots',p),{x:-10},{x:0,duration:.4,ease:'elastic.out(1,.3)'}); got=[]; setTimeout(paint,250); } }));
+    $('.gate-x',p).addEventListener('click',()=>{ got.pop(); paint(); }); });
+}
+
+/* ---------- the share sheet ---------- */
+// ?r= = the parent's ref code or server id (js/sync.js); never the email (no server = no r at all)
+function shareLink(){ const u=CS().shareUrl||location.origin+location.pathname.replace(/[^/]*$/,''), A=window.ACCOUNT||{}, r=A.ref||(A.token&&A.id&&!String(A.id).includes('@')?A.id:'');
+  return r?u+(u.includes('?')?'&':'?')+'r='+encodeURIComponent(r):u; }
+// ONE share button (Ahmed 2026-11-11): the device share sheet; no sheet (desktop) = copy the link. Any share = 1 credit, at most dailyCap (20) shares a day.
+let COPIED=false;
+function shareOpen(){
+  const url=shareLink(), text=CS().shareText||CS().appName||'EasyStudy'; COPIED=false;
+  if(navigator.share) return navigator.share({title:CS().appName||'EasyStudy',text,url}).catch(()=>{});
+  try{ navigator.clipboard.writeText(text+' '+url); }catch(x){} COPIED=true; }
+// how many credits one share pays now (0 = today's cap of shares is reached)
+function sharePays(w){ const C=CS(), per=C.shareCoins!=null?+C.shareCoins:1, cap=C.dailyCap!=null?+C.dailyCap:20, day=new Date().toDateString(),
+    n=w.hist.filter(h=>h.k==='share'&&new Date(h.at).toDateString()===day).length;
+  return n<cap?per:0; }
+/* SHARE CHECK (Marwa 2026-11-05: "do the most we can to make sure the share happened"). A web page can never see inside WhatsApp / Facebook,
+   so the strongest proof on the device is: after the tap the app must really LEAVE (WhatsApp / Facebook / Messenger opened over it; for
+   "copy link" the parent goes to another app to paste) within a few seconds, stay away long enough to send (coins.shareMinSec, default 8 s),
+   and come BACK. A tap with no leaving, or a quick bounce back, pays nothing. On top: one pay per type per cooldownH, the day cap, and on the
+   server the per-account / device / IP limits plus the referral bonus (the only share that is fully proven: a new parent registers). */
+let SHR=null;
+const shareMin=()=>(CS().shareMinSec!=null?+CS().shareMinSec:8)*1000;
+function shareStart(after){ const w=wallet(), p=sharePays(w);
+  if(!p){ shareOpen(); return shareNote('cap',after); }   // the day's 20 shares are paid: the share still opens, no credits
+  SHR={p,at:Date.now(),left:0,after};
+  const copy=!navigator.share, leaveIn=copy?60000:5000, me=SHR;
+  shareOpen();
+  setTimeout(()=>{ if(SHR===me&&!SHR.left){ SHR=null; shareNote('no',after); } },leaveIn);
+  if(copy) shareNote('copied',after); }
+document.addEventListener('visibilitychange',()=>{ if(!SHR) return;
+  if(document.hidden){ if(!SHR.left) SHR.left=Date.now(); return; }
+  if(!SHR.left) return; const s=SHR; SHR=null;
+  if(Date.now()-s.left<shareMin()) return shareNote('short',s.after);
+  sharePay(s.after); });
+function sharePay(after){ const w=wallet(), p=sharePays(w); if(!p) return coinSheet(after);
+  w.bal+=p; w.hist.push({k:'share',n:p,at:Date.now()}); walletSave(w); paintHud();
+  apiCall('/share',{}).then(apiTake);   // the server pays again by its own rules and sends the true wallet
+  if(typeof chime==='function') chime(2);
+  coinPop(`<h2 class="outline">${CT('شكرًا!','Thank you!')}</h2>${balLine(w.bal)}<p class="msg-text">${CT(`أخدت ${CRED(p)} على المشاركة`,`You got ${CRED(p)} for sharing`)}</p><button class="pill green" data-ok>${CT('تمام','OK')}</button>`,
+    pp=>$('[data-ok]',pp).addEventListener('click',()=>coinSheet(after))); }
+function shareNote(why,after){
+  const txt={no:CT('ملحقناش نشوف المشاركة اتبعتت. ابعت الرسالة وارجع هنا عشان تاخد الكريدتس','We did not see the share go out. Send the message, then come back here to get the credits'),
+    short:CT('رجعت بسرعة قوي. ابعت الرسالة فعلًا وارجع هنا عشان تاخد الكريدتس','You came back too fast. Really send the message, then come back here for the credits'),
+    cap:CT('خلصت مشاركات النهارده (٢٠). كمّل بكرة','You reached today\'s 20 shares. Continue tomorrow'),
+    copied:CT('الرابط اتنسخ. الصقه في محادثة أو جروب وابعته، وارجع هنا عشان تاخد الكريدتس','The link is copied. Paste it in a chat or group and send it, then come back here for the credits')}[why];
+  coinPop(`<h2 class="outline">${why==='copied'?CT('اتنسخ','Copied'):why==='cap'?CT('كفاية النهارده','Enough for today'):CT('لسه','Not yet')}</h2><p class="msg-text">${txt}</p><button class="pill green" data-ok>${CT('تمام','OK')}</button>`,
+    pp=>$('[data-ok]',pp).addEventListener('click',()=>why==='copied'?coinClose():coinSheet(after))); }
+function coinSheet(after){ parentGate(()=>{
+  const w=wallet(), p=sharePays(w);
+  coinPop(`<h2 class="outline">${CT('اجمع كريدتس','Get credits')}</h2>${balLine(w.bal)}
+    <p class="msg-text">${CT('شارك التطبيق مع أصحابك واكسب كريدت على كل مشاركة، وافتح بيها دروس جديدة. ابعت الرسالة فعلًا وارجع هنا عشان تتحسب','Share the app with friends: every share earns a credit to open new lessons. Really send it, then come back here so it counts')}</p>
+    <button class="pill green cshare1" data-share><span class="si">${SHAREIC}</span><span>${CT('شارك','Share')}</span>${p?`<span class="sc">+${num(p)}</span>`:''}</button>`, pp=>{
+    $('[data-share]',pp).addEventListener('click',()=>shareStart(after));
+    if(after) $('.popx',pp).addEventListener('click',after);
+  }); }); }
+
+/* ---------- the parent's credits page (children popup -> "رصيدي") — total, from shares, from invites, then the history ---------- */
+const HK={gift:['هدية التسجيل','Sign-up gift'],share:['مشاركة','Share'],ref:['ولي أمر سجّل من رابطك','A parent joined from your link'],referral:['ولي أمر سجّل من رابطك','A parent joined from your link'],
+  promo:['برومو كود','Promo code'],'unlock-lesson':['فتح درس','Unlocked a lesson'],'unlock-unit':['فتح وحدة','Unlocked a unit']};
+function histName(h){ const b=HK[h.k]||[h.k,h.k]; let x=CT(b[0],b[1]);
+  if(h.k==='promo') x+=': '+promoWhat(h.id);
+  if(h.id&&h.k==='unlock-lesson'){ const l=lessonOf(h.id), s=subjOf(h.id); if(l) x+=': '+(s?s.name+' · ':'')+(l.title||''); }
+  if(h.id&&h.k==='unlock-unit'){ const p=h.id.split(':'), s=subjOf(h.id); x+=': '+(s?s.name+' · ':'')+CT('الوحدة ','Unit ')+num(p[2]||''); }
+  return x; }
+function creditBtn(){ return coinsOn()?`<button class="pill yellow wl-big wl-cred"><span class="wl-ar">${CT('رصيدي:','My credits:')} ${CRED(coinBal())}</span><small>${CT('اجمع كريدتس وافتح دروس','Earn credits, open lessons')}</small></button>`:''; }
+function creditsPage(){ parentGate(()=>{
+  const w=wallet(), H=w.hist||[], sum=f=>H.filter(f).reduce((a,h)=>a+(+h.n||0),0);
+  const sh=sum(h=>h.k==='share'), inv=sum(h=>h.k==='ref'||h.k==='referral'), R=CS().referral||{};
+  const dt=at=>{ try{ return new Date(at).toLocaleDateString(isAr()?'ar-EG':'en-GB',{day:'numeric',month:'short'}); }catch(e){ return ''; } };
+  coinPop(`<h2 class="outline">${CT('رصيدي','My credits')}</h2>
+    <div class="cstats"><div><b>${num(w.bal)}</b><small>${CT('الرصيد','Balance')}</small></div><div class="g"><b>${num(sh)}</b><small>${CT('من المشاركة','From shares')}</small></div><div class="y"><b>${num(inv)}</b><small>${CT('من الدعوات','From invites')}</small></div></div>
+    <div class="cinfo"><b>${CT('محتاج رصيد؟','Need credits?')}</b> ${CT(`شارك التطبيق (+${num(+CS().shareCoins||1)} لكل مشاركة)${R.on?`، ولما ولي أمر جديد يسجل من رابطك تاخد +${num(R.coins||0)}`:''}.`,`Share the app (+${num(+CS().shareCoins||1)} a share)${R.on?`; when a new parent registers from your link you get +${R.coins||0}`:''}.`)}
+      <button class="pill green" data-share>${CT('شارك التطبيق','Share the app')}</button></div>
+    <h3 class="chh">${CT('السجل','History')}</h3>
+    <div class="chist">${H.slice().reverse().map(h=>`<div class="crow"><span class="cpm ${h.n<0?'m':'p'}">${h.n<0?'−':'+'}</span><span class="cn"><b>${typeof wlEsc==="function"?wlEsc(histName(h)):histName(h)}</b><small>${dt(h.at)}</small></span><span class="ca ${h.n<0?'m':'p'}" dir="ltr">${h.n<0?'-':'+'}${num(Math.abs(h.n))}</span></div>`).join('')||`<p class="cnote">${CT('لسه مفيش حاجة','Nothing yet')}</p>`}</div>`, pp=>{
+    $('[data-share]',pp).addEventListener('click',()=>coinSheet(creditsPage)); }); }); }
+
+/* ---------- a tap on a locked lesson / unit ----------
+   kind 'lesson': open this lesson (lessonCost), or its whole unit (unitCost) when unitCost is set; a free pick when the policy gives picks.
+   kind 'unit':   open the whole unit (unitCost). Credits off, or no price = "this opens later". onOpen() redraws the map. */
+function lockTap(kind,item,cost,art,onOpen){
+  const C=CS(), title=CT('مقفول','Locked');
+  if(!coinsOn()||kind!=='lesson'){ message(title,kind==='lesson'&&cost?CT(`تفتحيه بـ ${COINTXT(cost)}`,`Open it with ${COINTXT(cost)}!`):CT('ده هيتفتح قريبًا','This opens later!'),art); return; }
+  const lid='l:'+item.id, lc=cost||(+C.lessonCost||3);   // credits open LESSONS only (Ahmed 2026-11-11): no whole-unit buy, no sign-up gift
+  const done=()=>{ coinClose(); paintHud(); if(typeof chime==='function') chime(3); onOpen&&onOpen(); };
+  parentGate(()=>{ const bal=coinBal(), ok=bal>=lc;
+    coinPop(`<h2 class="outline">${title}</h2><div class="msg-art">${art||''}</div>${balLine(bal)}
+      <div class="cbuys"><button class="pill ${ok?'green':'cream off'} cbuy" data-l${ok?'':' disabled aria-disabled="true"'}><span>${CT('افتح الدرس','Open the lesson')} = ${num(lc)} ${CT('كريدتس','credits')}</span></button></div>
+      ${ok?'':`<p class="msg-text clow">${CT('رصيدك لا يكفي','Not enough credits')}</p>`}
+      <button class="pill blue" data-more>${CT('اجمع كريدتس','Get credits')}</button>${promoLine()}`, p=>{
+      promoWire(p,onOpen);
+      const l=$('[data-l]',p);
+      if(l) l.addEventListener('click',()=>{ if(coinBal()<lc) return; addUnlock(lid,lc,'unlock-lesson'); done(); });
+      $('[data-more]',p).addEventListener('click',()=>coinSheet(()=>lockTap(kind,item,cost,art,onOpen))); }); });
+}
+
+/* ---------- PROMO CODES (Marwa 2026-11-05) ----------
+   The admin makes codes in admin.html (page "البرومو كود"); settings.promos = [{code, what, target, uses, max, until, on, note}]
+     what   = lesson | unit | subject | all         target = l:<subject>-<folder> | u:<subject>:<unit> | <subject id> | ''
+     uses   = once (one use in total) | many (each child once; max = most uses in total, 0 = no limit)    until = 'YYYY-MM-DD' (last day) or ''
+   A small underlined line under "اجمع كريدتس" in the lock popup opens the code field. A good code opens its target for THIS child
+   (stored with the unlocks: the item id, 's:<subject>' or '*'), costs no credits, and adds a 0-credit "promo" row to the history.
+   LOCAL (no settings "api"): the codes come from the settings on this device and the uses are counted on this device only (es.promoUses),
+   so "once" means once per device. SERVER (settings "api"): the app sends POST /promo {child, code}; the server keeps the codes
+   (never sent to the app) and counts every use (server/src/index.js promo). */
+const promoNorm=c=>String(c||'').toUpperCase().replace(/[\s\-_]/g,'').replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+function promoWhat(p){ if(!p) return ''; if(typeof p==='string') p={what:p==='*'?'all':p[0]==='s'?'subject':p[0]==='u'?'unit':'lesson',target:p[0]==='s'?p.slice(2):p};
+  const t=p.target||'';
+  if(p.what==='all') return CT('كل المواد','All subjects');
+  if(p.what==='subject'){ const s=COURSE.subjects.find(x=>x.id===t); return CT('مادة ','Subject ')+(s?s.name:t); }
+  if(p.what==='unit'){ const s=subjOf(t), u=t.split(':')[2]; return (s?s.name+' · ':'')+CT('الوحدة ','Unit ')+num(u||''); }
+  const l=lessonOf(t), s=subjOf(t); return l?(s?s.name+' · ':'')+(l.title||''):t; }
+const promoKey=p=>p.what==='all'?'*':p.what==='subject'?'s:'+p.target:p.target;
+function promoCheck(code){   // local check -> {p} or {err}
+  const c=promoNorm(code); if(!c) return {err:'empty'};
+  const p=(ESET.promos||[]).find(x=>promoNorm(x.code)===c); if(ESET.promoOn===false||!p||p.on===false) return {err:'bad'};
+  if(p.until&&new Date().toISOString().slice(0,10)>p.until) return {err:'old'};
+  if(p.what!=='all'&&!p.target) return {err:'bad'};
+  const U=cGet('es.promoUses',{}), mine=cGet(freeKey()+'.promo',[]), n=U[c]||0;
+  if(mine.includes(c)) return {err:'used'};
+  if(p.uses!=='many'&&n>=1) return {err:'used'};
+  if(p.uses==='many'&&+p.max>0&&n>=+p.max) return {err:'full'};
+  return {p,c}; }
+function promoApply(p,c){ const id=promoKey(p), s=cGet(unlockKey(),[]); if(!s.includes(id)) s.push(id); cSet(unlockKey(),s); if(typeof subSeason==='function') subSeason();
+  const U=cGet('es.promoUses',{}); U[c]=(U[c]||0)+1; cSet('es.promoUses',U);
+  const mine=cGet(freeKey()+'.promo',[]); mine.push(c); cSet(freeKey()+'.promo',mine);
+  const w=wallet(); w.hist.push({k:'promo',id,n:0,at:Date.now(),child:coinChild(),code:c}); walletSave(w); }
+const PROMO_ERR={empty:['اكتب الكود الأول','Type the code first'],bad:['الكود ده مش صحيح','This code is not valid'],old:['الكود ده انتهى','This code has expired'],
+  used:['الكود ده اتستخدم قبل كده','This code was already used'],full:['الكود ده خلص عدد مرات استخدامه','This code has no uses left'],net:['مفيش اتصال، جرّب تاني','No connection, try again']};
+function promoLine(){ if(ESET.promoOn===false) return ''; return `<button type="button" class="cpromo" data-promo>${CT('عندك برومو كود؟','Have a promo code?')}</button>
+  <form class="cpromof" hidden autocomplete="off"><input class="cpromoin" name="code" dir="ltr" inputmode="latin" autocapitalize="characters" spellcheck="false" maxlength="32" placeholder="${CT('اكتب الكود','Type the code')}" aria-label="${CT('البرومو كود','Promo code')}">
+  <button class="pill green cpromogo">${CT('فعّل','Use')}</button><p class="cpromoerr" role="alert" hidden></p></form>`; }
+function promoWire(pp,onOpen){
+  const b=$('[data-promo]',pp), f=$('.cpromof',pp); if(!b||!f) return; const inp=$('input',f), er=$('.cpromoerr',f);
+  b.addEventListener('click',()=>{ b.hidden=true; f.hidden=false; pp.classList.add('promo-on'); inp.focus(); });   // the padlock picture hides: room for the field on short screens
+  const bad=k=>{ er.textContent=CT(...PROMO_ERR[k]||PROMO_ERR.bad); er.hidden=false; inp.classList.add('bad'); inp.focus();   // same as every form (welcome.js wlBad): red, shake, focus
+    if(anim) G.fromTo(inp,{x:0},{x:8,duration:.06,repeat:5,yoyo:true,clearProps:'transform'}); };
+  inp.addEventListener('input',()=>{ er.hidden=true; inp.classList.remove('bad'); });
+  const ok=p=>{ coinClose(); paintHud(); if(typeof chime==='function') chime(3);
+    coinPop(`<h2 class="outline">${CT('اتفتح!','Unlocked!')}</h2><div class="msg-art">${typeof CAR==='function'?`<span class="car">${CAR('happy')}</span>`:''}</div>
+      <p class="msg-text">${CT('الكود فتح لك:','The code opened:')}<br><b>${promoWhat(p)}</b></p><button class="pill green" data-pgo>${CT('يلا نذاكر','Let\'s go')}</button>`,
+      q=>{ const go=()=>{ coinClose(); onOpen&&onOpen(); }; $('[data-pgo]',q).addEventListener('click',go); $('.popx',q).addEventListener('click',()=>onOpen&&onOpen()); }); };
+  f.addEventListener('submit',async e=>{ e.preventDefault(); const code=inp.value; if(!promoNorm(code)) return bad('empty');
+    if(API()){ const go=$('.cpromogo',f); go.disabled=true;
+      const r=await fetch(API()+'/promo',{method:'POST',headers:{'Content-Type':'application/json',...(window.ACCOUNT&&ACCOUNT.token?{Authorization:'Bearer '+ACCOUNT.token}:{})},body:JSON.stringify({child:coinChild(),code})})
+        .then(x=>x.json()).catch(()=>({error:'net'})); go.disabled=false;
+      if(!r||!r.ok) return bad(r&&PROMO_ERR[r.error]?r.error:r&&r.error==='net'?'net':'bad');
+      apiTake(r); return ok(r.promo); }
+    const x=promoCheck(code); if(x.err) return bad(x.err); promoApply(x.p,x.c); ok(x.p); });
+}
+;
+/* ===== js/push.js ===== */
+/* NOTIFICATIONS (2026-11-09, Ahmed): a small bell on the subjects page lets a parent allow notifications on this device.
+   Notifications are written and sent ONLY by hand from the admin page (admin.html -> الإشعارات); the app and the server never send by themselves.
+   Needs settings "api" (the server keeps the devices) and the service worker (sw.js shows the message). iPhone / iPad: only when the app was added to the
+   Home Screen (iOS 16.4+): then the bell shows a short "add to Home Screen" note instead. Looks: css/push.css. */
+const PUSH={sub:null};
+const PUT={
+  ar:{on:'الإشعارات شغّالة. دوس تاني لو عايز توقفها',off:'فعّل الإشعارات',denied:'الإشعارات متقفلة من إعدادات المتصفح',ios:'عشان الإشعارات تشتغل على الآيفون / الآيباد: افتح قائمة المشاركة واختار "إضافة إلى الشاشة الرئيسية"، وافتح التطبيق منها وبعدين دوس على الجرس',fail:'مقدرناش نفعّل الإشعارات، جرّب تاني'},
+  en:{on:'Notifications are on. Tap again to turn them off',off:'Turn on notifications',denied:'Notifications are blocked in the browser settings',ios:'On iPhone / iPad: open the Share menu, choose "Add to Home Screen", open the app from there, then tap the bell',fail:'Could not turn notifications on, try again'}};
+const puT=()=>PUT.ar;   // the home page has no subject language yet: Egyptian Arabic (parents)
+const puIOS=()=>/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const puStandalone=()=>navigator.standalone===true||(matchMedia&&matchMedia('(display-mode: standalone)').matches);
+const puCan=()=>!!API()&&'serviceWorker' in navigator&&/^https?:/.test(location.protocol)&&(puIOS()?true:('PushManager' in window&&'Notification' in window));
+const puKey=k=>{ const p='='.repeat((4-k.length%4)%4), r=atob((k+p).replace(/-/g,'+').replace(/_/g,'/')); return Uint8Array.from(r,c=>c.charCodeAt(0)); };
+async function puReg(){ return navigator.serviceWorker.ready; }
+async function puCurrent(){ try{ if(!('PushManager' in window)) return null; return await (await puReg()).pushManager.getSubscription(); }catch(e){ return null; } }
+function puPaint(){ const b=$('#pushBtn'); if(!b) return; const on=!!PUSH.sub&&Notification.permission==='granted';
+  b.classList.toggle('on',on); b.title=b.ariaLabel=on?puT().on:puT().off; }
+async function puToggle(){
+  const T=puT();
+  if(puIOS()&&!puStandalone()) return message('🔔',T.ios);   // iOS only allows it from the Home Screen app
+  if(PUSH.sub){ const e=PUSH.sub.endpoint; try{ await PUSH.sub.unsubscribe(); }catch(x){} PUSH.sub=null; apiCall('/push/unsub',{endpoint:e}); puPaint(); return; }
+  if(Notification.permission==='denied') return message('🔔',T.denied);
+  try{
+    const perm=await Notification.requestPermission(); if(perm!=='granted') return puPaint();   // asked only now, after a tap
+    const k=await apiCall('/push/key'); if(!k||!k.key) throw 0;
+    const s=await (await puReg()).pushManager.subscribe({userVisibleOnly:true,applicationServerKey:puKey(k.key)});
+    const r=await apiCall('/push/sub',{endpoint:s.endpoint}); if(!r||!r.ok) throw 0;
+    PUSH.sub=s; puPaint();
+  }catch(e){ message('🔔',T.fail); }
+}
+async function puInit(){
+  if(!puCan()||$('#pushBtn')) return;
+  const b=document.createElement('button'); b.id='pushBtn'; b.className='pushbtn rb'; b.type='button';
+  b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 2h-15zM10 21a2 2 0 0 0 4 0"/></svg>';
+  b.addEventListener('click',puToggle); $('#subjects').appendChild(b);
+  PUSH.sub=await puCurrent(); puPaint();
+}
+// the settings (api address) arrive a moment after the page opens
+if(typeof ESET_P!=='undefined') ESET_P.then(()=>puInit()).catch(()=>{}); else puInit();
+;
+/* ===== js/welcome.js ===== */
+/* WELCOME + ACCOUNTS (Marwa 2026-11-05; redesigned 2026-11-11). ONE screen in stages: 1) "دخول ولي الأمر" = email and/or mobile (at least one, no parent name),
+   known parent -> straight into the app (child picker when more than one child); new parent -> stage 2 opens below on the same page:
+   the student (name, grade, curriculum; لغات -> school list + "إضافة مدرسة" popup that sends a WhatsApp request to the administration). Then the home page.
+   Later: the profile button (home, bottom right, child's name beside it) opens the parent gate (Arabic number words, js/coins.js) and then the account page (children, profile, my subscriptions).
+   SERVER (js/sync.js, when settings "api" is set): the email is confirmed with a code, children + progress are kept on the server too.
+   LOCAL VERSION: everything is kept on this device (localStorage es.account / es.kids / es.kid). The server account (Cloudflare) replaces
+   only acctSave / kidsSave later; the screens stay. Each child keeps its own stars, map place and opened lessons: the progress keys (KID_KEYS)
+   are swapped when the child changes, so the rest of the app keeps reading its usual keys. */
+const KID_KEYS=['zoom-stars','zoom-opened','zoom-last','zoom-vocab','es.unlocked','es.freeused'];   // es.freeused = the child's free picks (js/coins.js)
+const wlGet=(k,d)=>{ try{ const v=JSON.parse(localStorage.getItem(k)||'null'); return v==null?d:v; }catch(e){ return d; } };
+const wlSet=(k,v)=>{ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} };
+const acct=()=>wlGet('es.account',null), kids=()=>wlGet('es.kids',[]), kidNow=()=>{ const id=wlGet('es.kid',null), K=kids(); return K.find(k=>k.id===id)||K[0]||null; };
+// the curriculum line of a pick, in Arabic (for the parent)
+function currLabel(p){ if(!p||!CURR) return ''; const sc=p.school&&CURR.schools.find(s=>s.id===p.school), ty=CURR.types.find(t=>t.id===p.type); return sc?sc.ar:ty?ty.ar:''; }
+const gradeLabel=g=>((CURR&&CURR.grades||[]).find(x=>x.id===g)||{}).ar||'';
+// change child: keep the current child's progress under its own name, bring the other child's back, open the app again
+function kidSwitch(id){ const cur=kidNow(); if(cur&&cur.id===id) return;
+  try{ KID_KEYS.forEach(k=>{ const v=localStorage.getItem(k); if(cur){ if(v==null) localStorage.removeItem(`es.kid.${cur.id}.${k}`); else localStorage.setItem(`es.kid.${cur.id}.${k}`,v); }
+    const n=localStorage.getItem(`es.kid.${id}.${k}`); if(n==null) localStorage.removeItem(k); else localStorage.setItem(k,n); }); }catch(e){}
+  const kd=kids().find(k=>k.id===id); wlSet('es.kid',id); if(kd) currSave(kd.curr); location.reload(); }
+
+/* ---------- the welcome steps ---------- */
+const WL={step:'main',stage:1,pick:null,adding:false,login:null,pending:false};
+const wlEsc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const wlDigits=s=>String(s||'').replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/\D/g,'');
+const wlSamePhone=(a,b)=>{ a=wlDigits(a); b=wlDigits(b); return a.length>=8&&b.length>=8&&a.slice(-10)===b.slice(-10); };
+const wlSameId=(a,b)=>!!a&&!!b&&((!!a.email&&!!b.email&&a.email.toLowerCase()===b.email.toLowerCase())||wlSamePhone(a.phone,b.phone));
+// a wrong / missing field: THAT field turns red, shakes and gets the focus; the message shows under the form (Marwa 2026-11-05, every form)
+function wlBad(f,name,msg){ const er=$('.wl-err',f); $$('.bad',f).forEach(x=>x.classList.remove('bad')); if(er){ er.textContent=msg; er.hidden=false; }
+  const i=name&&f[name]; if(!i) return; i.classList.add('bad'); i.focus(); if(anim) G.fromTo(i,{x:0},{x:8,duration:.06,repeat:5,yoyo:true,clearProps:'transform'});
+  i.addEventListener('input',()=>{ i.classList.remove('bad'); if(er) er.hidden=true; },{once:true}); }
+// the short app description (Marwa 2026-11-05/06): on the loading screen (index.html #splashName .ldab, first load only), big on the first stage, small later
+function wlAbout(sz='sm'){ return `<div class="wl-about ${sz}" dir="rtl"><p class="wl-tag">مذاكرة أولى ابتدائي بلعبة مسلية للأطفال</p><ul class="wl-pts"><li>شرح الدرس</li><li>تحفيظ الكلمات</li><li>تدريب الأسئلة</li></ul></div>`; }
+function wlHead(ar,en){ return `<h2 class="wl-h"><span>${ar}</span><small>${en}</small></h2>`; }
+// autofocus (Ahmed 2026-11-07): a form opens with the cursor in its first EMPTY required field; Enter moves to the next empty one, the last one submits
+function wlFocus(f){ if(!f) return; const ins=[...f.querySelectorAll('input[required]')], first=ins.find(i=>!i.value.trim());
+  ins.forEach(i=>i.addEventListener('keydown',e=>{ if(e.key!=='Enter') return; const nx=ins.slice(ins.indexOf(i)+1).find(x=>!x.value.trim()); if(nx){ e.preventDefault(); nx.focus(); } }));
+  if(first) setTimeout(()=>{ try{ first.focus({preventScroll:true}); const n=first.value.length; first.setSelectionRange&&first.type!=='email'&&first.setSelectionRange(n,n); }catch(_){} },120); }
+function wlGo(step){ WL.step=step; wlDraw(); }
+// a child's round picture: its first letter on a colour (same child = same colour)
+const AVC=['#F27A0C','#2DAE8A','#3F8FE0','#E0508A','#8A5CD6','#D9A400'];
+const wlAv=k=>{ let h=0; for(const c of String(k.id||k.name)) h=(h*31+c.charCodeAt(0))%997; return `<i class="wl-av" style="--av:${AVC[h%AVC.length]}">${wlEsc([...String(k.name||'?')][0])}</i>`; };
+const wlTypeOn=t=>!((typeof ESET!=='undefined'&&ESET&&ESET.currOff)||{})[t.id];   // admin switch (dashboard > إعدادات التطبيق > المناهج)
+const wlTypeLabel=t=>t.id==='private'?'لغات':t.ar;
+function wlDraw(){
+  const b=$('#wlBody'); $('#wlBack').hidden=!(WL.adding||WL.step==='code'); $('#welcome').dataset.step=WL.step==='main'&&!WL.adding&&WL.stage===1?'curr':'form';   // big logo on the first stage, smaller later (css/welcome.css)
+  if(WL.step==='code') syDrawCode(b);
+  else if(WL.step==='pick') wlPicker(b);
+  else wlMain(b);
+  pop('#wlBody > *, #wlBody form > *',{y:16});
+}
+function wlMain(b){
+  const ed=WL.edit&&kids().find(k=>k.id===WL.edit), onlyKid=WL.adding||!!ed, L=WL.login||(WL.login={email:'',phone:''}), reg=WL.stage>1;
+  let h=onlyKid?'':wlAbout(reg?'sm':'');
+  if(!onlyKid){
+    h+=wlHead('دخول ولي الأمر','Parent login')+(reg?`<div class="wl-sum"><span dir="ltr">${wlEsc([L.email,L.phone].filter(Boolean).join('  ·  '))}</span><button type="button" class="pill cream wl-chip wl-chg">تعديل</button></div>`:
+    `<form class="wl-form wl-login" novalidate><p class="wl-note2">اكتبي الإيميل أو رقم الموبايل (واحد منهم على الأقل)</p>
+      <label><span>البريد الإلكتروني <small>Email</small></span><input name="email" type="email" dir="ltr" autocomplete="email" inputmode="email" value="${wlEsc(L.email)}"></label>
+      <label><span>رقم الموبايل <small>Mobile</small></span><input name="phone" type="tel" dir="ltr" autocomplete="tel" inputmode="tel" value="${wlEsc(L.phone)}"></label>
+      <p class="wl-err" hidden></p>
+      <button class="pill wl-big wl-go" type="submit"><span class="wl-ar">دخول</span><small>Continue</small></button></form>`);
+  }
+  if(onlyKid||reg) h+=wlStudentHTML(ed);
+  b.innerHTML=h;
+  if(!onlyKid&&!reg){
+    const f=$('.wl-login',b); f.addEventListener('submit',e=>{ e.preventDefault(); const v=n=>f[n].value.trim(), er=$('.wl-err',b);
+      const bad=!v('email')&&!v('phone')?['email','اكتبي الإيميل أو رقم الموبايل (واحد على الأقل)']:v('email')&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v('email'))?['email','البريد الإلكتروني مش مكتوب صح']:v('phone')&&!/^[+0-9٠-٩ ]{8,16}$/.test(v('phone'))?['phone','رقم الموبايل مش مكتوب صح']:null;
+      if(bad) return wlBad(f,...bad);
+      const go=$('.wl-go',b); go.disabled=true, id={email:v('email'),phone:v('phone')};
+      wlLogin(id,t=>{ er.textContent=t; er.hidden=false; go.disabled=false; }); });
+    wlFocus(f);
+  } else { const c=$('.wl-chg',b); if(c) c.addEventListener('click',()=>{ WL.stage=1; wlDraw(); }); wlStudentBind(b,ed); }
+}
+// the parent's login: known on this device -> in; server on + email -> a code (js/sync.js); otherwise the student stage opens below
+function wlLogin(id,err){
+  WL.login=id; const ex=acct();
+  if(ex&&wlSameId(ex,id)&&kids().length) return wlEnter();
+  acctSubmit(id,err);
+}
+// a known parent: one child = straight into the app, more = the child picker
+function wlEnter(){ const K=kids(); if(K.length>1){ WL.stage=1; wlGo('pick'); return; } const k=K[0]; if(!k) return;
+  const cur=kidNow(); if(cur&&cur.id===k.id){ WL.adding=false; openSubjects(); pop('#subjects .top > *',{y:-20}); } else kidSwitch(k.id); }
+function wlPicker(b){ const K=kids();
+  b.innerHTML=wlHead('مين اللي هيتعلم ويلعب؟','Who\'s learning and playing?')+`<div class="wl-card wl-pick">${K.map(k=>`<button class="wl-who" data-kid="${k.id}">${wlAv(k)}<b>${wlEsc(k.name)}</b></button>`).join('')}</div>`;
+  $$('[data-kid]',b).forEach(x=>x.addEventListener('click',()=>{ const id=x.dataset.kid, cur=kidNow(); if(cur&&cur.id===id){ openSubjects(); pop('#subjects .top > *',{y:-20}); } else kidSwitch(id); })); }
+// the student form (stage 2, add a child, edit a child): name, grade, curriculum; لغات -> the school list
+function wlSchoolName(id){ const s=id&&CURR&&CURR.schools.find(x=>x.id===id); return s?s.ar:''; }
+// "اختر مدرسة": one button -> a popup list of the schools; "إضافة مدرسة" at the end only at registration (canAdd)
+function wlSchoolList(btn,canAdd){
+  let o=$('#schList'); if(!o){ o=el('div','overlay','<div class="rays"></div><div class="popup kidpop" role="dialog" aria-label="Choose school"></div>'); o.id='schList'; document.body.append(o); o.addEventListener('click',e=>{ if(e.target===o) o.hidden=true; }); }
+  const p=$('.kidpop',o), C=CURR||{schools:[]}, cur=(WL.pick||{}).school;
+  p.innerHTML=`<button class="rb popx" aria-label="Close">${ICON.close}</button>${wlHead('اختر مدرسة','Choose a school')}<div class="wl-chips col">${C.schools.map(s=>`<button type="button" class="pill cream wl-chip${cur===s.id?' on':''}" data-school="${s.id}">${s.ar}</button>`).join('')}${canAdd?`<button type="button" class="pill yellow wl-chip wl-addsch">${ICON.plus} إضافة مدرسة</button>`:''}</div>`;
+  $('.popx',p).addEventListener('click',()=>o.hidden=true);
+  $$('[data-school]',p).forEach(x=>x.addEventListener('click',()=>{ WL.pick={type:'private',school:x.dataset.school}; btn.textContent=wlSchoolName(x.dataset.school); btn.classList.add('on'); o.hidden=true; }));
+  const ad=$('.wl-addsch',p); if(ad) ad.addEventListener('click',()=>{ o.hidden=true; wlSchoolPop(); });
+  o.hidden=false; }
+function wlStudentHTML(ed){
+  const G=(CURR&&CURR.grades)||[{id:'p1',ar:'الصف الأول الابتدائي',open:true}], C=CURR||{types:[],schools:[]}, gr=WL.grade||(ed&&ed.grade)||G[0].id, pk=WL.pick||{}, priv=pk.type==='private';
+  if(WL.draft==null&&ed) WL.draft=ed.name;
+  return wlHead(ed?'تعديل حساب الطفل':'تسجيل الطالب',ed?'Edit child':'Student')+`<form class="wl-form wl-stu" novalidate>
+    <label><span>اسم الطالب <small>Student's name</small></span><input name="kid" autocomplete="off" value="${wlEsc(WL.draft||'')}" required></label>
+    <div class="wl-field"><span>السنة الدراسية <small>Grade</small></span><div class="wl-chips">${G.map(g=>`<button type="button" class="pill cream wl-chip${g.id===gr?' on':''}" data-grade="${g.id}"${g.open?'':' disabled'}>${g.ar}</button>`).join('')}</div></div>
+    <div class="wl-field"><span>المنهج <small>Curriculum</small></span><div class="wl-chips">${C.types.map(t=>`<button type="button" class="pill cream wl-chip${pk.type===t.id?' on':''}" data-type="${t.id}"${wlTypeOn(t)||pk.type===t.id?'':' disabled'}>${wlTypeLabel(t)}${wlTypeOn(t)?'':' <small>قريبًا</small>'}</button>`).join('')}</div></div>
+    ${priv?`<div class="wl-field wl-schools2"><span class="wl-sh">المدرسة <small>لتوافق كتب المستوى الرفيع AL</small></span><div class="wl-chips col"><button type="button" class="pill cream wl-chip wl-pickschool${pk.school?' on':''}">${wlSchoolName(pk.school)||'اختر مدرسة'}</button></div></div>`:''}
+    <p class="wl-err" hidden></p>
+    <button class="pill wl-big wl-go green" type="submit">${ed?'<span class="wl-ar">حفظ</span><small>Save</small>':'<span class="wl-ar">يلا نبدأ</span><small>Let\'s go</small>'}</button></form>`; }
+function wlStudentBind(b,ed){
+  const G=(CURR&&CURR.grades)||[{id:'p1'}], f=$('.wl-stu',b);
+  $('input[name=kid]',b).addEventListener('input',e=>WL.draft=e.target.value);
+  $$('[data-grade]',b).forEach(x=>x.addEventListener('click',()=>{ WL.grade=x.dataset.grade; $$('[data-grade]',b).forEach(y=>y.classList.toggle('on',y===x)); }));
+  $$('[data-type]',b).forEach(x=>x.addEventListener('click',()=>{ WL.pick={type:x.dataset.type}; WL.draft=f.kid.value; wlDraw(); }));
+  const ps=$('.wl-pickschool',b); if(ps) ps.addEventListener('click',()=>wlSchoolList(ps,!ed));
+  f.addEventListener('submit',e=>{ e.preventDefault(); const n=f.kid.value.trim(), pk=WL.pick;
+    if(!n) return wlBad(f,'kid','اكتب اسم الطالب');
+    if(!pk) return wlBad(f,null,'اختار المنهج');
+    if(pk.type==='private'&&!pk.school) return wlBad(f,null,'اختار المدرسة (أو اطلب إضافة مدرستك)');
+    const gr=WL.grade||(ed&&ed.grade)||G[0].id;
+    if(ed){ kidSave(ed.id,{name:n,grade:gr,curr:pk}); return; }
+    // a different parent than the one kept on this device: that device list starts again (the server brings its own children back)
+    const A=acct(); if(!WL.adding&&A&&!wlSameId(A,WL.login)){ wlSet('es.kids',[]); wlSet('es.kid',null); }
+    if(!WL.adding&&!(acct()&&wlSameId(acct(),WL.login))) wlSet('es.account',{email:WL.login.email,phone:WL.login.phone,created:new Date().toISOString(),...(WL.pending?{pending:true}:{})});
+    const K=kids(), first=!K.length, kd={id:'k'+Date.now().toString(36),name:n,grade:gr,curr:pk,created:new Date().toISOString()};
+    K.push(kd); wlSet('es.kids',K); syPushKids();
+    if(first){ wlSet('es.kid',kd.id); currSave(kd.curr); currApply(kd.curr); WL.adding=false; WL.stage=1; kidPaint(); openSubjects(); pop('#subjects .top > *',{y:-20}); }   // the first child keeps the progress already on this device
+    else kidSwitch(kd.id); });
+  wlFocus(f);
+}
+// "إضافة مدرسة": 4 fields -> a WhatsApp message to the administration (settings "whatsapp" = their number, set in admin.html; none = the parent picks the contact)
+function wlSchoolPop(){
+  let o=$('#schPop'); if(!o){ o=el('div','overlay','<div class="rays"></div><div class="popup kidpop" role="dialog" aria-label="Add school"></div>'); o.id='schPop'; document.body.append(o); o.addEventListener('click',e=>{ if(e.target===o) o.hidden=true; }); }
+  const p=$('.kidpop',o);
+  p.innerHTML=`<button class="rb popx" aria-label="Close">${ICON.close}</button>${wlHead('إضافة مدرسة','Add a school')}<form class="wl-form" novalidate>
+    <label><span>اسم المدرسة</span><input name="school" autocomplete="off" required></label>
+    <label><span>اسم المسؤول</span><input name="who" autocomplete="off" required></label>
+    <label><span>وظيفة المسؤول</span><input name="job" autocomplete="off" required></label>
+    <label><span>رقم المسؤول</span><input name="tel" type="tel" dir="ltr" inputmode="tel" required></label>
+    <p class="wl-err" hidden></p>
+    <button class="pill wl-big wl-go green" type="submit"><span class="wl-ar">إرسال على واتساب</span><small>Send on WhatsApp</small></button></form>`;
+  $('.popx',p).addEventListener('click',()=>o.hidden=true);
+  const f=$('form',p); f.addEventListener('submit',e=>{ e.preventDefault(); const v=n=>f[n].value.trim();
+    const bad=!v('school')?['school','اكتب اسم المدرسة']:!v('who')?['who','اكتب اسم المسؤول']:!v('job')?['job','اكتب وظيفة المسؤول']:!v('tel')?['tel','اكتب رقم المسؤول']:null;
+    if(bad) return wlBad(f,...bad);
+    const msg='طلب إضافة مدرسة لتطبيق easy study\n\nاسم المدرسة: '+v('school')+'\nاسم المسؤول: '+v('who')+'\nوظيفة المسؤول: '+v('job')+'\nرقم المسؤول: '+v('tel'),
+      num=wlDigits((typeof ESET!=='undefined'&&ESET&&ESET.whatsapp)||'');
+    window.open('https://wa.me/'+num+'?text='+encodeURIComponent(msg),'_blank'); o.hidden=true; });
+  o.hidden=false; if(typeof spinRays==='function') spinRays(o); wlFocus(f);
+}
+$('#wlBack').addEventListener('click',()=>{ if(WL.step==='code'){ WL.stage=1; wlGo('main'); } else if(WL.adding){ WL.adding=false; WL.edit=null; openSubjects(); } });
+function openWelcome(adding){ WL.adding=!!adding; WL.edit=null; WL.draft=null; WL.grade=null; WL.stage=1; WL.login=null; WL.pending=false; WL.pick=null; WL.step='main'; show('welcome'); wlDraw(); }
+// edit a child (name, grade, curriculum / school): the student form filled in
+function openKidEdit(id){ const k=kids().find(x=>x.id===id); if(!k) return; WL.adding=true; WL.edit=id; WL.draft=null; WL.grade=null; WL.pick=k.curr; WL.step='main'; show('welcome'); wlDraw(); }
+// save an edited child: progress stays (it belongs to the child, not to the curriculum); the active child's subjects / tabs follow the new curriculum
+function kidSave(id,ch){ const K=kids(), k=K.find(x=>x.id===id); if(!k) return; Object.assign(k,ch); wlSet('es.kids',K); if(typeof syPushKids==='function') syPushKids();
+  WL.edit=null; WL.adding=false; const cur=kidNow(); if(cur&&cur.id===id){ currSave(k.curr); setTimeout(()=>location.reload(),300); } else { kidPaint(); openSubjects(); } }
+
+/* ---------- profile button (home, bottom right) -> parent gate -> the account page ---------- */
+function kidPaint(){ const k=kidNow(), b=$('#kidBtn'); if(!b) return; b.hidden=!k; if(k) $('#kidName').textContent=k.name; }
+const ACH={ user:'<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.5 3.6-7 8-7s8 2.5 8 7"/></svg>', card:'<svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M3 10.5h18M7 15h3"/></svg>',
+  coin:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M9.5 10.5c0-1 1-1.5 2.5-1.5s2.5.6 2.5 1.6-1 1.4-2.5 1.8-2.5.8-2.5 1.8 1 1.5 2.5 1.5 2.5-.5 2.5-1.5"/></svg>', out:'<svg viewBox="0 0 24 24"><path d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/></svg>' };
+const wlRow=(cls,ic,ar,note)=>`<button class="arow ${cls}"><i>${ic}</i><b>${ar}</b>${note?`<em>${note}</em>`:''}<s></s></button>`;
+function kidMenu(){
+  let o=$('#acctPage'); if(!o){ o=el('div','acctpage',''); o.id='acctPage'; o.setAttribute('role','dialog'); o.setAttribute('aria-label','Account'); document.body.append(o); }
+  const a=acct()||{}, cur=kidNow();
+  o.innerHTML=`<div class="ac-top"><button class="rb ac-back" aria-label="Back">${ICON.back}</button><h2>حسابي</h2></div>
+    <div class="ac-in"><section class="ac-card"><h3>أولادي</h3><div class="ac-kids">${kids().map(k=>`<div class="ac-kid${cur&&k.id===cur.id?' on':''}"><button class="ac-pic" data-kid="${k.id}" aria-label="${wlEsc(k.name)}">${wlAv(k)}</button><button class="ac-pen" data-edit="${k.id}" aria-label="Edit ${wlEsc(k.name)}">${ICON.pencil}</button><b>${wlEsc(k.name)}</b><small>${wlEsc(gradeLabel(k.grade))}</small></div>`).join('')}
+      <div class="ac-kid"><button class="ac-pic ac-add" aria-label="Add a child">${ICON.plus}</button><b>إضافة طفل</b></div></div></section>
+    <div class="arows">${wlRow('ac-prof',ACH.user,'الملف الشخصي','')}${typeof coinsOn==='function'&&coinsOn()?wlRow('wl-cred',ACH.coin,'رصيدي',CRED(coinBal())):''}${wlRow('ac-subs',ACH.card,'اشتراكاتي',subNews().length?'جديد':'')}${typeof acctExtraRows==='function'?acctExtraRows():''}</div></div>`;
+  $('.ac-back',o).addEventListener('click',()=>o.hidden=true);
+  $$('[data-kid]',o).forEach(b=>b.addEventListener('click',()=>{ o.hidden=true; kidSwitch(b.dataset.kid); }));
+  $$('[data-edit]',o).forEach(b=>b.addEventListener('click',()=>{ o.hidden=true; openKidEdit(b.dataset.edit); }));
+  $('.ac-add',o).addEventListener('click',()=>{ o.hidden=true; openWelcome(true); });
+  $('.ac-prof',o).addEventListener('click',()=>coinPop(`<h2 class="outline">الملف الشخصي</h2><p class="msg-text" dir="ltr">${wlEsc(a.email||'—')}</p><p class="msg-text" dir="ltr">${wlEsc(a.phone||'—')}</p>`));
+  $('.ac-subs',o).addEventListener('click',subsPage);
+  if(typeof acctExtraBind==='function') acctExtraBind(o);   // the other app's own rows (Easy Words: the report)
+  const cb=$('.wl-cred',o); if(cb) cb.addEventListener('click',()=>{ creditsPage(); });   // the parent's credits (js/coins.js)
+  syMenuButtons(o,()=>o.hidden=true);   // confirm the email / sign out (server only, js/sync.js)
+  o.hidden=false; pop('.ac-card, .arow',{y:14});
+}
+$('#kidBtn').addEventListener('click',()=>parentGate(kidMenu));
+// hooks for other parts (coins.js reads window.ACCOUNT / window.CHILD): {id,...} of the parent and the active child
+// signed in to the server (js/sync.js es.session): id = the server's parent id (share links carry it), token for the API calls
+window.ACCOUNT=(()=>{ const a=acct(), s=wlGet('es.session',null); return a?{...a,id:(s&&s.id)||a.id||a.email||'local',...(s&&s.token?{token:s.token}:{})}:null; })(); window.CHILD=kidNow();
+;
+/* ===== js/sync.js ===== */
+/* ACCOUNT SERVER SYNC (Marwa 2026-11-05: the parent's account is confirmed with a code sent to the email, no password; the code is asked
+   only on a new device or after sign-out). Server = easystudy/server (Cloudflare Worker + D1), API contract in server/README.md.
+   It is ON only when the settings have "api" (e.g. "/api", js/coins.js API()). No api, or the server can't be reached = the local
+   version exactly as before (js/welcome.js keeps everything on this device). Kept on this device:
+     es.session = {token, id, ref}  (the signed-in parent; window.ACCOUNT.token for js/coins.js)
+     es.device  = a random id for this device (a referral pays only for a new device)
+     es.progAt.<kid> = when this device last sent that child's progress (the newest copy wins) */
+const SY={};
+const syDevice=()=>{ let d=wlGet('es.device',null); if(!d){ d='d'+Date.now().toString(36)+Math.random().toString(36).slice(2,10); wlSet('es.device',d); } return d; };
+const sySession=()=>wlGet('es.session',null);
+async function syApi(){ try{ await ESET_P; }catch(e){} return API(); }
+// one call; answer = {s: status, j: json} or null when the server can't be reached
+async function syCall(path,body,method){ const base=await syApi(); if(!base) return null;
+  const h={'Content-Type':'application/json'}, s=sySession(); if(s&&s.token) h.Authorization='Bearer '+s.token;
+  try{ const r=await fetch(base+path,{method:method||(body?'POST':'GET'),headers:h,body:body?JSON.stringify(body):undefined}); let j={}; try{ j=await r.json(); }catch(e){}
+    if(r.status===401&&s&&path.indexOf('/auth/')!==0){ syForget(); }   // the session ended (signed out elsewhere / blocked)
+    return {s:r.status,j}; }catch(e){ return null; } }
+function syForget(){ try{ localStorage.removeItem('es.session'); }catch(e){} if(window.ACCOUNT) delete ACCOUNT.token; }
+const SYERR={'bad-email':'البريد الإلكتروني مش مكتوب صح','wait':'استني دقيقة وبعدين اطلبي كود جديد','too-many':'محاولات كتير. جربي تاني بكرة',
+  'code-wrong':'الكود مش صح','code-expired':'الكود انتهى. اطلبي كود جديد','blocked':'الحساب ده موقوف','mail-not-set':'إرسال الإيميل لسه مش متجهز','mail-failed':'الإيميل ما اتبعتش. جربي تاني'};
+
+/* ---------- parent login (stage 1): a code to the email (server on) or the student stage opens below (server off / phone only / can't be reached) ---------- */
+async function acctSubmit(a,err){
+  WL.login=a; WL.pending=false;
+  if(!(await syApi())||!a.email){ WL.stage=2; return wlGo('main'); }   // no server yet (or phone only: server login by phone needs an SMS service, later): kept on this device
+  const r=await syCall('/auth/start',{email:a.email});
+  if(!r){ WL.pending=true; WL.stage=2; return wlGo('main'); }   // offline: go on locally, confirm the email later (account page)
+  if(!r.j.ok){ err(SYERR[r.j.error]||'حصلت مشكلة. جربي تاني'); return; }
+  SY.a=a; SY.dev=r.j.devCode||''; SY.known=r.j.known; wlGo('code');
+}
+// the code step (drawn by wlDraw in js/welcome.js)
+function syDrawCode(b){
+  const a=SY.a||acct()||{};
+  b.innerHTML=wlHead('كود التأكيد','Confirmation code')+`<form class="wl-form" novalidate>
+    <p class="wl-note">بعتنا كود من ٦ أرقام على <b dir="ltr">${wlEsc(a.email)}</b>${SY.dev?` <small dir="ltr">(dev: ${SY.dev})</small>`:''}</p>
+    <label><span>الكود <small>Code</small></span><input name="code" class="wl-code" dir="ltr" inputmode="numeric" autocomplete="one-time-code" maxlength="6" required></label>
+    <p class="wl-err" hidden></p>
+    <button class="pill wl-big wl-go green" type="submit"><span class="wl-ar">تأكيد</span><small>Confirm</small></button>
+    <button class="pill cream wl-resend" type="button"><span class="wl-ar">ابعت كود تاني</span></button></form>`;
+  const f=$('form',b), er=$('.wl-err',b), say=t=>{ er.textContent=t; er.hidden=false; };
+  setTimeout(()=>f.code.focus(),60);
+  $('.wl-resend',b).addEventListener('click',async()=>{ const r=await syCall('/auth/start',{email:a.email}); if(!r) return say('مفيش إنترنت دلوقتي');
+    if(!r.j.ok) return say(SYERR[r.j.error]||'حصلت مشكلة'); SY.dev=r.j.devCode||''; say('اتبعت كود جديد'); });
+  f.addEventListener('submit',async e=>{ e.preventDefault(); const code=f.code.value.trim();
+    if(!/^[0-9٠-٩]{6}$/.test(code)) return wlBad(f,'code','اكتبي الـ ٦ أرقام');
+    const ref=typeof refCode==='function'?refCode():null;
+    const r=await syCall('/auth/verify',{email:a.email,code,phone:a.phone,curr:WL.pick||currPick()||{},ref,device:syDevice()});
+    if(!r) return say('مفيش إنترنت دلوقتي');
+    if(!r.j.ok) return wlBad(f,r.j.error==='code-wrong'?'code':'',(SYERR[r.j.error]||'حصلت مشكلة')+(r.j.error==='code-wrong'&&r.j.left>=0?` (باقي ${r.j.left} محاولات)`:''));
+    syTake(r.j.token,r.j.me);
+    if(r.j.me.kids.length&&!WL.adding&&!WL.after){ syRestore(r.j.me); return; }   // a registered parent: their children come back, straight into the app (child picker when more than one)
+    syPushKids(); if(WL.after){ const go=WL.after; WL.after=null; go(); } else { WL.stage=2; wlGo('main'); } });   // a new parent: the student stage opens
+}
+// keep the signed-in parent on this device
+function syTake(token,me){ const old=acct()||{};
+  wlSet('es.session',{token,id:me.id,ref:me.ref});
+  wlSet('es.account',{email:me.email,phone:me.phone||old.phone||'',created:me.created||old.created,id:me.id,ref:me.ref});
+  window.ACCOUNT={...acct(),id:me.id,token}; if(me.wallet&&typeof walletSave==='function') walletSave(me.wallet); }
+// the server's children replace this device's: each child's progress goes to its own keys, the first child becomes the active one
+function syRestore(me){
+  const K=me.kids.map(k=>({id:k.id,name:k.name,grade:k.grade,curr:k.curr,created:k.created}));
+  try{ me.kids.forEach(k=>{ const P={...(k.progress||{}),'es.unlocked':JSON.stringify(k.unlocked||[]),'es.freeused':JSON.stringify(k.freeused||[])};
+    KID_KEYS.forEach(x=>{ if(P[x]!=null) localStorage.setItem(`es.kid.${k.id}.${x}`,P[x]); else localStorage.removeItem(`es.kid.${k.id}.${x}`); });
+    wlSet('es.progAt.'+k.id,k.progressAt||0); });
+    const f=K[0]; KID_KEYS.forEach(x=>{ const v=localStorage.getItem(`es.kid.${f.id}.${x}`); if(v==null) localStorage.removeItem(x); else localStorage.setItem(x,v); }); }catch(e){}
+  wlSet('es.kids',K); wlSet('es.kid',K[0].id); currSave(K[0].curr); if(K.length>1){ try{ sessionStorage.setItem('es.pick','1'); }catch(e){} } location.reload();
+}
+// send this device's children (name, grade, curriculum) to the server
+function syPushKids(){ if(!sySession()) return; kids().forEach(k=>syCall('/kids/'+k.id,{name:k.name,grade:k.grade,curr:k.curr},'PUT')); }
+// send the active child's progress (stars, map place, opened lessons, words); unlocks / free picks go through js/coins.js
+function syPushProgress(){ const k=kidNow(); if(!k||!sySession()) return; const P={}, at=Date.now();
+  ['zoom-stars','zoom-opened','zoom-last','zoom-vocab'].forEach(x=>{ const v=localStorage.getItem(x); if(v!=null) P[x]=v; });
+  const key=JSON.stringify(P); if(SY.lastProg===key) return; SY.lastProg=key;
+  syCall('/kids/'+k.id+'/progress',{progress:P,at},'PUT').then(r=>{ if(r&&r.j.ok) wlSet('es.progAt.'+k.id,at); else SY.lastProg=null; }); }
+document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='hidden') syPushProgress(); });
+setInterval(syPushProgress,120e3);
+
+/* ---------- on app open: refresh from the server (children, newer progress from another device) ---------- */
+async function syBoot(){
+  const s=sySession(); if(!s||!s.token) return;
+  const r=await syCall('/me'); if(!r||!r.j.ok) return;
+  const me=r.j.me, local=kids(), ids=new Set(me.kids.map(k=>k.id)); let changed=false;
+  local.filter(k=>!ids.has(k.id)).forEach(k=>syCall('/kids/'+k.id,{name:k.name,grade:k.grade,curr:k.curr},'PUT'));   // made offline
+  me.kids.filter(k=>!local.some(x=>x.id===k.id)).forEach(k=>{ local.push({id:k.id,name:k.name,grade:k.grade,curr:k.curr,created:k.created}); changed=true;
+    try{ Object.entries(k.progress||{}).forEach(([x,v])=>localStorage.setItem(`es.kid.${k.id}.${x}`,v)); }catch(e){} wlSet('es.progAt.'+k.id,k.progressAt||0); });
+  if(changed){ wlSet('es.kids',local); kidPaint(); }
+  // the active child played on another device later than this one sent: take that copy
+  const cur=kidNow(), sk=cur&&me.kids.find(k=>k.id===cur.id);
+  if(sk&&sk.progressAt>(wlGet('es.progAt.'+cur.id,0)||0)&&Object.keys(sk.progress||{}).length){
+    try{ Object.entries(sk.progress).forEach(([x,v])=>localStorage.setItem(x,v)); }catch(e){} wlSet('es.progAt.'+cur.id,sk.progressAt); location.reload(); }
+}
+syBoot();
+
+/* ---------- account page: confirm the email (made offline) / sign out ---------- */
+async function syMenuButtons(p,close){
+  if(!(await syApi())) return; const s=sySession(), a=acct()||{}, list=$('.arows',p); if(!list) return;
+  const b=el('button','arow wl-acct',`<i>${ACH.out}</i><b>${s?'تسجيل الخروج':'تأكيد الحساب بالإيميل'}</b><s></s>`);
+  list.append(b);
+  b.addEventListener('click',async()=>{ close();
+    if(s){ if(!confirm('تسجيل الخروج من الجهاز ده؟ هيتطلب كود جديد على الإيميل للدخول تاني.')) return; syPushProgress(); await syCall('/auth/signout',{}); syForget();
+      ['es.account','es.kids','es.kid'].forEach(k=>{ try{ localStorage.removeItem(k); }catch(e){} }); location.reload(); return; }
+    if(!a.email) return;
+    WL.adding=false; WL.after=()=>{ openSubjects(); }; WL.login={email:a.email,phone:a.phone||''}; show('welcome');
+    const r=await syCall('/auth/start',{email:a.email}); if(!r||!r.j.ok){ WL.step='main'; WL.stage=1; wlDraw(); return; }
+    SY.a=a; SY.dev=r.j.devCode||''; WL.step='code'; wlDraw(); });
+}
+;
+/* ===== js/subs.js ===== */
+/* TERM SUBSCRIPTIONS (Ahmed 2026-11-11, spec: docs/subscriptions-spec.md). Per CHILD, per TERM, all subjects; price per school year + term from the
+   dashboard (settings.subs.prices["p1:t1"] = {price, discOn, disc}); manual InstaPay: the parent pays on the InstaPay link, uploads a compressed
+   receipt picture + the reference number. The upload opens THAT child's term for 24 hours ONCE (per child per term); the admin then confirms
+   (open until 31 Aug) or rejects (closed at once). Everything ends on 31 Aug. No device data is stored anywhere.
+   Records live in es.subs = {childId:{"p1:t1":{st,at,trial,until,price,ref,seen}}}: st = pending | active | rejected | closed; trial = ms the 24 h run to.
+   With the server (settings "api") the server is the truth: GET /subs fills es.subs, POST /subs sends the receipt (server/src/index.js subs). */
+const SUBT=[['t1','الترم الأول'],['t2','الترم التاني']];
+const subKey=(k,t)=>(k&&k.grade||'p1')+':'+t;
+const subTermNow=()=>/2/.test((window.COURSE&&COURSE.term)||'')?'t2':'t1';   // the term this app's lessons belong to
+const subAll=()=>cGet('es.subs',{});
+const subRec=(kid,t)=>{ const k=typeof kid==='string'?kids().find(x=>x.id===kid):kid; return k?((subAll()[k.id]||{})[subKey(k,t)]||null):null; };
+function subSave(kidId,key,rec){ const A=subAll(); A[kidId]=A[kidId]||{}; if(rec) A[kidId][key]=rec; else delete A[kidId][key]; cSet('es.subs',A); }
+// 31 August: the next one after t (school year end; the "ends" date of every purchase)
+function subEnd(t){ const d=new Date(t||Date.now()), y=d.getFullYear(), e=new Date(y,7,31,23,59,59); return (d>e?new Date(y+1,7,31,23,59,59):e).getTime(); }
+// is this child's term open right now (paid + confirmed, or inside the one-time 24 h after the receipt)
+function subOpen(){ const k=kidNow(); if(!k) return false; const r=subRec(k,subTermNow()), t=Date.now(); if(!r||t>=(r.until||0)) return false;
+  return r.st==='active'||(r.st==='pending'&&t<(r.trial||0)); }
+function subPrice(grade,t){ const p=((ESET.subs||{}).prices||{})[grade+':'+t]||{}, fin=p.discOn&&+p.disc>0?+p.disc:(+p.price||0); return {price:+p.price||0,fin,disc:!!(p.discOn&&+p.disc>0)}; }
+const subDate=t=>{ try{ return new Date(t).toLocaleDateString('ar-EG',{day:'numeric',month:'long',year:'numeric'}); }catch(e){ return ''; } };
+// the end of a term: expired records are removed and that child's opened lessons + progress start again (Ahmed: everything ends 31 Aug, progress not kept)
+const SUB_PROG=['zoom-stars','zoom-opened','zoom-last','zoom-vocab','es.unlocked','es.freeused'];
+function subExpire(){ const A=subAll(), now=Date.now(); let ch=false, cur=kidNow(), reload=false;
+  Object.keys(A).forEach(id=>Object.keys(A[id]).forEach(key=>{ const r=A[id][key]; if(r.until&&now>=r.until){ delete A[id][key]; ch=true;
+    try{ SUB_PROG.forEach(x=>{ if(cur&&cur.id===id){ localStorage.removeItem(x); reload=true; } localStorage.removeItem(`es.kid.${id}.${x}`); }); }catch(e){} } }));
+  if(ch){ cSet('es.subs',A); if(reload) setTimeout(()=>location.reload(),50); } }
+// credit / promo unlocks end on 31 Aug as well (Ahmed): a 'credit' record {st:'credit',until} per child marks the season of the opened lessons; subExpire wipes it with the rest
+function subSeason(kidId){ const k=kidId?kids().find(x=>x.id===kidId):kidNow(); if(!k) return; const A=subAll(); A[k.id]=A[k.id]||{}; const r=A[k.id].credit;
+  if(!r||!r.until||Date.now()>=r.until){ A[k.id].credit={st:'credit',at:Date.now(),until:subEnd(Date.now()),seen:true}; cSet('es.subs',A); } }
+function subLegacy(){ try{ kids().forEach(k=>{ const cur=kidNow(), v=cur&&cur.id===k.id?localStorage.getItem('es.unlocked'):localStorage.getItem(`es.kid.${k.id}.es.unlocked`);
+  let n=[]; try{ n=JSON.parse(v||'[]'); }catch(e){} if(n.length) subSeason(k.id); }); }catch(e){} }
+subExpire(); subLegacy();
+
+/* ---------- the server copy: GET /subs; a change to active / rejected / closed shows ONE message (and the account row shows a dot until then) ---------- */
+async function subSync(){ const s=typeof sySession==='function'&&sySession(); if(!s||!s.token||!API()) return;
+  const r=await syCall('/subs'); if(!r||!r.j.ok) return; const A={}, old=subAll(), mine=new Set(kids().map(k=>k.id));
+  r.j.subs.forEach(x=>{ if(!mine.has(x.child)) return; const o=((old[x.child]||{})[x.term])||{};
+    (A[x.child]=A[x.child]||{})[x.term]={st:x.st,at:x.at,trial:x.trial,until:x.until,price:x.price,ref:x.ref,seen:o.st===x.st?o.seen:(x.st==='pending')}; });
+  Object.keys(old).forEach(id=>{ if(!mine.has(id)) A[id]=old[id]; else Object.keys(old[id]).forEach(key=>{ if(old[id][key].st==='credit') (A[id]=A[id]||{})[key]=old[id][key]; else if(!(A[id]||{})[key]&&old[id][key].st==='pending'&&!r.j.subs.length) (A[id]=A[id]||{})[key]=old[id][key]; }); });
+  cSet('es.subs',A); subNotice(); const o=$('#acctPage'); if(o&&!o.hidden) subDot(o); }
+function subNews(){ const out=[]; const A=subAll(); kids().forEach(k=>Object.entries(A[k.id]||{}).forEach(([key,r])=>{ if(!r.seen&&(r.st==='active'||r.st==='rejected'||r.st==='closed')) out.push({k,key,r}); })); return out; }
+function subNotice(){ const n=subNews()[0]; if(!n||$('#coinPop')&&!$('#coinPop').hidden) return;
+  const t=n.key.split(':')[1], tn=(SUBT.find(x=>x[0]===t)||[])[1]||'', ok=n.r.st==='active';
+  const A=subAll(); A[n.k.id][n.key].seen=true; cSet('es.subs',A);
+  coinPop(`<h2 class="outline">${ok?'تم تفعيل الاشتراك':n.r.st==='closed'?'الاشتراك اتقفل':'الاشتراك ما اتفعلش'}</h2>
+    <p class="msg-text">${ok?`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتفعل ويفضل مفتوح لحد ${subDate(n.r.until)}.`:n.r.st==='closed'?`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتقفل.`:`مقدرناش نتأكد من الدفع لاشتراك <b>${wlEsc(n.k.name)}</b> في ${tn}، فالدروس اتقفلت. ممكن تبعتي الإيصال تاني.`}</p>
+    <button class="pill green" data-ok>تمام</button>`, p=>$('[data-ok]',p).addEventListener('click',()=>{ coinClose(); if(typeof drawSubjects==='function'&&!$('#subjects').hidden) drawSubjects(); subNotice(); })); }
+function subDot(o){ const b=$('.ac-subs em',o); if(b) b.textContent=subNews().length?'جديد':''; }
+setTimeout(subSync,1500); document.addEventListener('visibilitychange',()=>{ if(!document.hidden) subSync(); });
+
+/* ---------- the receipt picture: made small in the browser (about 100 KB) before it is sent ---------- */
+function subShrink(file){ return new Promise((ok,no)=>{ const im=new Image(), u=URL.createObjectURL(file);
+  im.onload=()=>{ URL.revokeObjectURL(u); let w=im.naturalWidth, h=im.naturalHeight, side=1100, out='';
+    for(let round=0;round<4;round++){ const f=Math.min(1,side/Math.max(w,h)), c=document.createElement('canvas'); c.width=Math.round(w*f); c.height=Math.round(h*f);
+      c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+      for(const q of [.72,.6,.48,.36]){ out=c.toDataURL('image/jpeg',q); if(out.length<=137000) return ok(out); }
+      side=Math.round(side*.75); }
+    ok(out); };
+  im.onerror=()=>{ URL.revokeObjectURL(u); no(new Error('img')); }; im.src=u; }); }
+
+/* ---------- screens (the account page row "اشتراكاتي") ---------- */
+const subIsOn=()=>!!((ESET.subs||{}).on);
+function subStat(r,t){ const now=Date.now(); if(!r) return {c:'none',t:'مفيش اشتراك'};
+  if(r.until&&now>=r.until) return {c:'none',t:'مفيش اشتراك'};
+  if(r.st==='active') return {c:'on',t:'مفعّل لحد '+subDate(r.until)};
+  if(r.st==='pending') return {c:'wait',t:now<(r.trial||0)?'مفتوح ٢٤ ساعة لحد ما نتأكد من الدفع':'بنراجع الإيصال'};
+  if(r.st==='rejected') return {c:'bad',t:'الدفع ما اتأكدش'};
+  return {c:'none',t:'اتقفل'}; }
+function subsPage(){ parentGate(()=>{ const K=kids(); const on=subIsOn();
+  coinPop(`<h2 class="outline">اشتراكاتي</h2><div class="subscroll">${on?'':'<p class="msg-text">الاشتراك هيتفتح قريبًا.</p>'}
+    <div class="subk">${K.map(k=>`<div class="subkid"><b class="sn">${wlEsc(k.name)}</b>${SUBT.map(([t,tn])=>{ const r=subRec(k,t), s=subStat(r,t), pr=subPrice(k.grade||'p1',t);
+      return `<button class="subrow ${s.c}" data-k="${k.id}" data-t="${t}"${on&&pr.fin?'':' disabled'}><span class="st">${tn}</span><em>${s.t}</em>${pr.fin?`<strong>${num(pr.fin)} جنيه</strong>`:''}</button>`; }).join('')}</div>`).join('')}</div></div>`,
+    p=>$$('.subrow',p).forEach(b=>b.addEventListener('click',()=>subBuy(b.dataset.k,b.dataset.t)))); }); }
+function subBuy(kidId,t){ const k=kids().find(x=>x.id===kidId); if(!k) return; const key=subKey(k,t), r=subRec(k,t), pr=subPrice(k.grade||'p1',t), S=ESET.subs||{}, tn=(SUBT.find(x=>x[0]===t)||[])[1];
+  const live=r&&(!r.until||Date.now()<r.until)&&(r.st==='active'||r.st==='pending');
+  if(live&&r.st==='active'||live&&r.st==='pending'&&Date.now()>=(r.trial||0)){   // paid, or the receipt is waiting for the admin: only the state
+    const s=subStat(r,t); return coinPop(`<h2 class="outline">${wlEsc(k.name)} · ${tn}</h2><p class="msg-text">${s.t}</p><button class="pill green" data-ok>تمام</button>`,p=>$('[data-ok]',p).addEventListener('click',subsPage)); }
+  const link=S.link||'', who=S.name||'', pro=ESET.promoOn!==false&&((ESET.promos&&ESET.promos.length)||API());
+  coinPop(`<h2 class="outline">${wlEsc(k.name)} · ${tn}</h2>
+    <div class="subscroll"><p class="subprice">${pr.disc?`<s>${num(pr.price)}</s> `:''}<b>${num(pr.fin)}</b> جنيه</p>
+    <ol class="substeps"><li>ادفعي على إنستا باي${who?` لحساب <b>${wlEsc(who)}</b>`:''}.${link?`<br><a class="pill yellow subpay" href="${wlEsc(link)}" target="_blank" rel="noopener">افتحي إنستا باي</a>`:''}</li>
+      <li>اكتبي رقم العملية وارفعي صورة الإيصال.</li></ol>
+    <form class="subf" autocomplete="off" novalidate>
+      <label><span>رقم العملية</span><input name="ref" dir="ltr" inputmode="text" maxlength="40" required></label>
+      <label class="subfile"><span>صورة الإيصال</span><input type="file" name="img" accept="image/*" required></label>
+      <p class="subimg" hidden></p><p class="wl-err" hidden></p>
+      <button class="pill green wl-big" type="submit"><span class="wl-ar">ابعتي الإيصال</span></button></form>
+    <p class="subnote">بعد الإرسال الدروس بتتفتح ٢٤ ساعة لحد ما نتأكد من الدفع.<br>الاشتراك لحد ${subDate(subEnd())}، وبعدها الدروس بتتقفل والتقدم بيبدأ من الأول.<br>مفيش استرجاع للفلوس.</p>${pro?promoLine():''}</div>`,
+    p=>{ promoWire(p,()=>{ subsPage(); });
+      const f=$('.subf',p), er=$('.wl-err',p), im=$('.subimg',p); let pic='';
+      const say=m=>{ er.textContent=m; er.hidden=false; };
+      f.img.addEventListener('change',async()=>{ pic=''; im.hidden=true; const file=f.img.files[0]; if(!file) return;
+        try{ pic=await subShrink(file); im.textContent='الصورة جاهزة ('+num(Math.round(pic.length*.75/1024))+' ك.ب)'; im.hidden=false; er.hidden=true; }catch(e){ say('الصورة دي مش بتفتح. جربي صورة تانية'); } });
+      f.addEventListener('submit',async e=>{ e.preventDefault(); const ref=f.ref.value.trim();
+        if(!ref) return wlBad(f,'ref','اكتبي رقم العملية'); if(!pic) return wlBad(f,'img','ارفعي صورة الإيصال');
+        const go=$('button[type=submit]',f); go.disabled=true; const t0=Date.now();
+        let rec; const has=subRec(k,t);
+        if(API()&&typeof sySession==='function'&&sySession()){ const x=await syCall('/subs',{child:k.id,term:key,ref,receipt:pic});
+          if(!x){ go.disabled=false; return say('مفيش إنترنت دلوقتي'); }
+          if(!x.j.ok){ go.disabled=false; return say({'already':'الاشتراك ده شغال','pending':'الإيصال متبعت وبنراجعه','no-price':'السعر لسه متحددش','big':'الصورة كبيرة','bad-receipt':'الصورة مش مظبوطة','off':'الاشتراك لسه مش شغال'}[x.j.error]||'حصلت مشكلة. جربي تاني'); }
+          rec={st:'pending',at:x.j.at,trial:x.j.trial,until:x.j.until,price:pr.fin,ref,seen:true}; }
+        else rec={st:'pending',at:t0,trial:has&&has.trialUsed?0:t0+864e5,until:subEnd(t0),price:pr.fin,ref,seen:true,trialUsed:true,local:true};   // no server: kept on this device (admin cannot see it)
+        subSave(k.id,key,rec); coinClose(); if(typeof chime==='function') chime(3);
+        coinPop(`<h2 class="outline">وصلنا الإيصال</h2><p class="msg-text">دروس <b>${wlEsc(k.name)}</b> مفتوحة ٢٤ ساعة لحد ما نتأكد من الدفع.</p><button class="pill green" data-ok>تمام</button>`,
+          p2=>$('[data-ok]',p2).addEventListener('click',()=>{ coinClose(); if(typeof drawSubjects==='function'&&!$('#subjects').hidden) drawSubjects(); })); }); }); }
+;
+/* ===== js/report.js ===== */
+/* REPORT A PROBLEM (2026-11-06, Ahmed). One small flag button, the same in every subject, so a parent / teacher who finds a mistake can tell the admin.
+   WHERE: lesson screens = in the row above the tabs, right next to the book-page tag (#lmeta .lm-l, so it always sits beside the page number it belongs to);
+   exam papers = the end of the exam header. Lessons supply nothing: the place is read from the app's own state (SUBJECT, LESSON, tab, qz, rd, vs, X).
+   WHAT is sent: subject, unit, lesson, tab, book, book page, question number (and its position), the word / reading page, the comment and a quick reason.
+   WHERE it goes: POST {api}/report (server/README.md). No server / no internet = kept on this device (es.reports) and sent later; admin.html shows both.
+   Looks: css/report.css. Never add a per-screen report button: this file puts it in both places. */
+const RP={open:false};
+const RPT={
+  ar:{title:'بلّغ عن مشكلة',kinds:[['answer','الإجابة غلط'],['picture','الصورة غلط'],['sound','الصوت غلط'],['text','كلمة مكتوبة غلط'],['other','حاجة تانية']],
+    ph:'اكتب المشكلة (اختياري)',send:'ابعت',cancel:'إلغاء',thanks:'شكرًا! وصل البلاغ',kept:'اتحفظ وهيتبعت لما النت يرجع',unit:'الوحدة',lesson:'الدرس',page:'صفحة',q:'سؤال',word:'كلمة',
+    tab:{read:'الدرس',words:'الكلمات',quiz:'أسئلة الكتاب',booklet:'الكُتيب',workbook:'كتاب التقييمات',grammar:'القواعد',exam:'ورقة تقييم'}},
+  en:{title:'Report a problem',kinds:[['answer','Wrong answer'],['picture','Wrong picture'],['sound','Wrong sound'],['text','Spelling mistake'],['other','Something else']],
+    ph:'Tell us what is wrong (optional)',send:'Send',cancel:'Cancel',thanks:'Thank you! Report sent',kept:'Saved. It will be sent when the internet is back',unit:'Unit',lesson:'Lesson',page:'Page',q:'Question',word:'Word',
+    tab:{read:'Lesson',words:'Vocabulary',quiz:'Book questions',booklet:'Booklet',workbook:'Assessments',grammar:'Grammar',exam:'Exam paper'}}};
+const rpT=()=>RPT[isAr()?'ar':'en'];
+const RPFLAG='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 21V4M6 5h11l-2.5 4L17 13H6"/></svg>';
+
+// the place the child / parent is looking at, read from the app's state
+function rpCtx(){
+  const c={subject:SUBJECT?SUBJECT.id:'',subjectName:SUBJECT?SUBJECT.name:'',build:typeof APP_BUILD==='string'?APP_BUILD:'',view:innerWidth+'x'+innerHeight};
+  if(!$('#exam').hidden){ c.tab='exam'; c.title=X.title||''; const g=X.groups&&X.groups[X.cur]; if(g) c.part=g.label;
+    const m=X.lesson; if(m){ c.lesson=m.folder||m.id; c.unit=m.unit; } return c; }
+  if(!LESSON) return c;
+  const m=SUBJECT&&SUBJECT.lessons.find(l=>l.id===LESSON.id)||{};
+  c.lesson=m.folder||LESSON.id; c.unit=m.unit; c.lessonNo=m.lesson; c.lessonTitle=m.title||LESSON.title||''; c.tab=tab;
+  if(inQ()&&typeof qz!=='undefined'&&qz.list[qz.i]){ const s=qz.list[qz.i].set; c.book=qz.src; c.page=s.page; c.ex=s.ex; c.part=s.part||s.model||''; c.qi=qz.i+1; c.qn=qz.list.length; c.qtype=s.type; c.task=String(s.task||'').slice(0,120); }
+  else if(tab==='words'&&LESSON.vocab&&LESSON.vocab[vs.i]){ c.wordNo=vs.i+1; c.word=LESSON.vocab[vs.i].word; const ps=m.pages&&[].concat(m.pages.words||[]); if(ps&&ps.length) c.page=ps[0]; }
+  else if(tab==='read'){ const ps=m.pages&&[].concat(m.pages.read||[]); if(ps&&ps.length){ const pn=LESSON.pageNums||ps; c.page=nPages()>1?pn[Math.min(rd.page-1,pn.length-1)]:ps[0]; } if(nPages()>1) c.readPage=rd.page; }
+  return c;
+}
+// a short human line for the popup, e.g. "الوحدة ١ · الدرس ٣ · أسئلة الكتاب · صفحة ١٤ · سؤال ٢"
+function rpLine(c){ const t=rpT(), n=v=>isAr()?num(v):v, out=[];
+  if(c.subjectName) out.push(c.subjectName);
+  if(c.unit!=null&&c.unit!=='') out.push(t.unit+' '+n(c.unit)); if(c.lessonNo!=null&&c.lessonNo!=='') out.push(t.lesson+' '+n(c.lessonNo));
+  if(c.tab) out.push(t.tab[c.tab]||c.tab);
+  if(c.title) out.push(c.title);
+  if(c.page!=null&&c.page!=='') out.push(t.page+' '+n(c.page));
+  if(c.ex!=null&&c.ex!=='') out.push(t.q+' '+n(c.ex)); else if(c.qi) out.push(t.q+' #'+n(c.qi));
+  if(c.word) out.push(t.word+' '+c.word);
+  if(c.part&&c.tab==='exam') out.push(c.part);
+  return out.join(' — '); }
+
+// ---------- sending: server when there is one, else (or when it can't be reached) kept on this device ----------
+const rpQueue=()=>wlGet('es.reports',[]);
+const rpSave=q=>{ try{ localStorage.setItem('es.reports',JSON.stringify(q.slice(-100))); }catch(e){} };
+async function rpPost(r){
+  try{ await ESET_P; }catch(e){}
+  const base=API(); if(!base) return false;
+  const h={'Content-Type':'application/json'}, s=typeof sySession==='function'?sySession():null; if(s&&s.token) h.Authorization='Bearer '+s.token;
+  try{ const x=await fetch(base+'/report',{method:'POST',headers:h,body:JSON.stringify({id:r.id,at:r.at,ctx:r.ctx,kind:r.kind,comment:r.comment,device:typeof syDevice==='function'?syDevice():''})});
+    return x.ok||x.status===400; }catch(e){ return false; }   // 400 = the server will never accept it: don't keep trying
+}
+async function rpSend(r){ const q=rpQueue(); q.push(r); rpSave(q); if(await rpPost(r)){ r.sent=1; rpSave(q); return true; } return false; }
+async function rpRetry(){ const q=rpQueue(), todo=q.filter(r=>!r.sent); for(const r of todo){ if(!(await rpPost(r))) break; r.sent=1; } if(todo.length) rpSave(q); }
+
+// ---------- the popup ----------
+function rpOpen(){
+  if(RP.open) return; RP.open=true; hideHint(); if(typeof stopVoice==='function') stopVoice();
+  const t=rpT(), c=rpCtx(), o=el('div','overlay rp-ov','<div class="rays"></div>'); o.dir=isAr()?'rtl':'ltr';
+  let kind='';
+  o.insertAdjacentHTML('beforeend',`<div class="popup rp-pop" role="dialog" aria-label="${t.title}"><h2 class="outline">${t.title}</h2>
+    <p class="rp-where">${rpLine(c)}</p>
+    <div class="rp-kinds">${t.kinds.map(([k,l])=>`<button type="button" class="pill cream rp-k" data-k="${k}">${l}</button>`).join('')}</div>
+    <textarea class="rp-txt" rows="3" maxlength="600" placeholder="${t.ph}"></textarea>
+    <div class="btns"><button type="button" class="pill green rp-go">${t.send}</button><button type="button" class="pill cream rp-no">${t.cancel}</button></div></div>`);
+  document.body.append(o);
+  const close=()=>{ RP.open=false; o.remove(); };
+  o.addEventListener('click',e=>{ if(e.target===o) close(); });
+  $('.rp-no',o).onclick=close;
+  $$('.rp-k',o).forEach(b=>b.onclick=()=>{ kind=kind===b.dataset.k?'':b.dataset.k; $$('.rp-k',o).forEach(x=>x.classList.toggle('on',x.dataset.k===kind)); });
+  $('.rp-go',o).onclick=async()=>{ const go=$('.rp-go',o); go.disabled=true;
+    const r={id:'r_'+Date.now().toString(36)+Math.random().toString(36).slice(2,8),at:Date.now(),ctx:c,kind,comment:$('.rp-txt',o).value.trim()};
+    const sent=await rpSend(r); $('.rp-pop',o).innerHTML=`<span class="car rp-car">${CAR('happy')}</span><p class="rp-where">${sent?t.thanks:t.kept}</p>`; setTimeout(close,1600); };   // a thank-you in the same popup, then it closes by itself
+  if(typeof anim!=='undefined'&&anim) G.from($('.rp-pop',o),{scale:.9,opacity:0,duration:.2,ease:'power2.out',clearProps:'transform,opacity'});
+}
+
+// ---------- the button: lesson row (beside the page tag) and the exam header ----------
+function rpButton(){ const b=el('button','rpbtn',RPFLAG); b.type='button'; b.setAttribute('aria-label','Report a problem'); b.addEventListener('click',e=>{ e.stopPropagation(); rpOpen(); }); return b; }
+(function(){
+  const sg=$('#lesson .sign'); if(sg) sg.append(rpButton());   // end of the subject·term line (2026-11-14), no longer beside the page tag
+  const xh=$('#exam > header'); if(xh) xh.append(rpButton());
+  rpRetry(); addEventListener('online',rpRetry); document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible') rpRetry(); });
+})();
+;
 /* ===== js/lesson.js ===== */
 /* LESSON screen — header, reading tab (dialog + recording), tab bar and side buttons. */
 /* ---------- Lesson ---------- */
@@ -547,6 +1411,7 @@ function chipDrag(b,target,ok){
 function fixPaths(L,file){
   const base=file.slice(0,file.lastIndexOf('/')+1), R=p=>p&&!/^(https?:|\/|data:)/.test(p)?base+p:p;
   L.base=base; L.scene=R(L.scene); L.picture=R(L.picture); L.pictureTall=R(L.pictureTall); L.pagePictures=(L.pagePictures||[]).map(R); L.pagePicturesTall=(L.pagePicturesTall||[]).map(R); (L.pageAudio||[]).forEach(a=>{ a.normal=R(a.normal); a.slow=R(a.slow); }); if(L.audio){ L.audio.normal=R(L.audio.normal); L.audio.slow=R(L.audio.slow); }
+  if(L.vocab&&typeof vocabFor==='function') L.vocab=vocabFor(L.vocab);   // school-only words (js/curriculum.js)
   (L.vocab||[]).forEach(v=>{ v.img=R(v.img); if(v.audio){ v.audio.word=R(v.audio.word); v.audio.again=R(v.audio.again); v.audio.ar=R(v.audio.ar); } if(v.rel){ v.rel.labelAudio=R(v.rel.labelAudio); v.rel.audio=R(v.rel.audio); } (v.parts||[]).forEach(p=>{ p.audio=R(p.audio); p.blend=R(p.blend); }); });
   (L.lines||[]).forEach(l=>{ l.pic=R(l.pic); });
   Object.values(L.bk||{}).forEach(b=>{ b.img=R(b.img); });
@@ -1463,6 +2328,7 @@ async function qLoad(){
       if(s.type==='circle') s.items.forEach((it,k)=>{ if(!it.pos){ const n=s.items.length, cols=3, rows=Math.ceil(n/cols), r=Math.floor(k/cols), c=k%cols, inRow=Math.min(cols,n-r*cols);
         it.pos=[(c+.5+(cols-inRow)/2)*100/cols,(r+.5)*100/rows]; } });   // no "pos": spread them in rows of 3
       s.items.filter(it=>it.answer).forEach((it,k)=>qz.all.push({set:s,si,k,word:s.center||''})); return; }
+    if(s.type==='colour'&&s.table){ qz.all.push({set:s,si,k:0,table:1,items:s.items}); return; }   // "table": ONE question, the whole table to colour
     if(s.type==='sound'){ qz.all.push({set:s,si,k:0,items:s.items}); return; }   // "sound": all the pictures of the exercise on ONE page
     if(s.type==='qa'&&s.together){ qz.all.push({set:s,si,k:0,together:1,items:s.items.map(it=>({...it,audio:R(it.audio),ansAudio:it.ansAudio,pic:R(it.pic)}))}); return; }   // "together": all the question+answer pairs on one page
     s.items.forEach((it,k)=>{
@@ -1851,7 +2717,9 @@ const EW_SUBJ={
   'en-ol': { name:'English OL words', small:'ENGLISH', big:'OL', sub:'WORDS', lang:'en' },
   'en-al': { name:'English AL words', small:'ENGLISH', big:'AL', sub:'WORDS', lang:'en' }
 };
-try{ EW.curr=localStorage.getItem('ew.curr')||null; }catch(e){}
+// the curriculum is the child's (set in the account / student settings, js/welcome.js); nothing here picks it any more
+try{ const k=kidNow(); EW.curr=k&&k.curr?(k.curr.school||k.curr.type):null; }catch(e){}
+KID_KEYS.push('ew.stats','ew.log');   // each child keeps their own word statistics (switching child reloads the page, js/welcome.js)
 try{ EW.stats=JSON.parse(localStorage.getItem('ew.stats')||'{}')||{}; EW.log=JSON.parse(localStorage.getItem('ew.log')||'[]')||[]; }catch(e){}
 const ewSave=()=>{ try{ localStorage.setItem('ew.stats',JSON.stringify(EW.stats)); localStorage.setItem('ew.log',JSON.stringify(EW.log.slice(-200))); }catch(e){} };
 const ewN=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);   // the words app speaks Arabic to the parent and child: numbers in Arabic digits
@@ -1859,7 +2727,7 @@ const ewN=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);   // the wor
 async function ewLoad(){
   let CURR0;
   [COURSE,CURR0,EW.cfg]=await Promise.all([get('data/course.json'),get('data/curriculum.json'),get('data/words/words.json').catch(()=>({open:[]}))]);
-  EW.CURR=CURR0;
+  EW.CURR=CURR0; CURR=CURR0;   // CURR = what the shared welcome / account code reads
   await Promise.all(Object.keys(EW_SUBJ).map(async id=>{
     const s=COURSE.subjects.find(x=>x.id===id); if(!s||!s.file) return;
     const d=await get(s.file), base=s.file.slice(0,s.file.lastIndexOf('/')+1);
@@ -1880,10 +2748,11 @@ function ewSubjects(){
 function ewUnits(s){
   const by={}; (s.lessons||[]).forEach(l=>{ if(l.tabs&&!l.tabs.includes('words')) return; if(/^(test|تقييم|اختبار)/i.test(l.title||l.planned||'')) return; (by[l.unit]=by[l.unit]||[]).push(l); });
   return Object.keys(by).map(u=>{ const un=(s.units||[]).find(x=>x.unit==u)||{};
-    return { unit:+u, name:s.id==='arabic'?`الوحدة ${ewN(u)}${un.title?' · '+un.title:''}`:`Unit ${u}`, lessons:by[u].map(l=>({...l,name:l.title||l.planned||'',open:!!l.file&&ewOpen(l.id)})) }; })
+    return { unit:+u, name:s.id==='arabic'?`الوحدة ${ewN(u)}${un.title?' · '+un.title:''}`:`Unit ${u}`, lessons:by[u].map((l,i)=>{ const built=!!l.file&&ewOpen(l.id), st=built?coinAccess(l,true,'l:'+l.id,i,'lesson').st:'soon';   // open | locked | soon: the dashboard's state, a paid term, credits and the free trial (js/coins.js)
+      return {...l,name:l.title||l.planned||'',built,st,open:st==='open',locked:st==='locked'}; }) }; })
     .filter(u=>u.lessons.length&&(s.id!=='arabic'||u.unit<=5||u.lessons.some(l=>l.open)));
 }
-const ewOpen=id=>!!(EW.cfg&&(EW.cfg.all||(EW.cfg.open||[]).includes(id)));
+const ewOpen=id=>!!(EW.cfg&&!(EW.cfg.skip||[]).includes(id)&&(EW.cfg.all||(EW.cfg.open||[]).includes(id)));
 const ewSubjOf=id=>COURSE.subjects.find(s=>id.startsWith(s.id+'-'));
 // one open lesson with its words (loaded once; paths already resolved by the curriculum app's own fixPaths)
 async function ewLesson(id){
@@ -1902,6 +2771,19 @@ function ewClass(v){ const o=EW.stats[v.key||v.word]; if(!o||!o.a) return 'new';
 // every word of the open lessons of the chosen curriculum (the test builder, the report and "learn my weak words" read this)
 async function ewAllWords(){ const out=[]; for(const s of ewSubjects()) for(const u of ewUnits(s)) for(const l of u.lessons){ if(!l.open) continue; const L=await ewLesson(l.id); if(L) L.vocab.forEach(v=>out.push(v)); } return out; }
 ;
+/* ===== js/words-account.js ===== */
+/* EASY WORDS — accounts. The parent login, the children, the account page, subscriptions, credits and the bell are the SHARED code of the curriculum app
+   (js/welcome.js, sync.js, subs.js, coins.js, push.js); this file only tells it what is different here: the words and the report. Own data (users, subscriptions, credits)
+   lives on the Easy Words Worker + database, so the two apps never mix. The child's curriculum (and grade) is the one chosen in the student settings. */
+wlAbout=()=>`<div class="wl-about" dir="rtl"><p class="wl-tag">اتعلّم كلمات المنهج بلعبة مسلية للأطفال</p><ul class="wl-pts"><li>حفظ الكلمات</li><li>كتابة وتهجئة</li><li>تدريبات وصور</li></ul></div>`;
+// the shared code re-applies the child's pick after a change: here it only means "this is the curriculum now"
+currApply=p=>{ EW.curr=p?(p.school||p.type):null; };
+ACH.rep='<svg viewBox="0 0 24 24"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>';
+acctExtraRows=()=>wlRow('ac-rep',ACH.rep,'تقرير الكلمات','');
+acctExtraBind=o=>{ const b=$('.ac-rep',o); if(b) b.addEventListener('click',()=>{ o.hidden=true; ewReportOpen(); }); };
+// the line under the logo: the child's school year and the term of the lessons
+function ewGradeLine(){ const k=kidNow(); return `${(k&&gradeLabel(k.grade))||'الصف الأول الابتدائي'} · ${subTermNow()==='t2'?'الترم الثاني':'الترم الأول'}`; }
+;
 /* ===== js/words-ui.js ===== */
 /* EASY WORDS — screens: curriculum picker, home (subject icons), subject map (unit files > lesson squares > word squares). No road, no page numbers, no Arabic progress.
    Every look is in css/words.css (theme tokens + parts); this file only builds the same parts again and again from data. */
@@ -1917,19 +2799,20 @@ show=function(id){
 const EW_STAR=(()=>{ const p=[]; for(let i=0;i<10;i++){ const a=-Math.PI/2+i*Math.PI/5, r=i%2?13:30; p.push((r*Math.cos(a)).toFixed(1)+','+(r*Math.sin(a)).toFixed(1)); } return 'M'+p.join('L')+'Z'; })();
 function ewDefs(){
   let hatch=''; for(let i=0;i<18;i++) hatch+=`<line x1="${-60+i*7}" y1="40" x2="${-60+i*7+60}" y2="-40"/>`;
-  $('#ewDefs').innerHTML=`<linearGradient id="ewg" x1="0" y1="0" x2="0" y2="1"><stop offset=".25" stop-color="#fff"/><stop offset="1" stop-color="#d6e4e6"/></linearGradient>
+  $('#ewDefs').innerHTML=`<linearGradient id="ewg" x1="0" y1="0" x2="0" y2="1"><stop offset=".3" stop-color="#fff"/><stop offset="1" stop-color="#d4e6fb"/></linearGradient>
   <filter id="ews" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-opacity=".3"/></filter>
-  <clipPath id="ewsc"><path d="${EW_STAR}"/></clipPath>
-  <g id="ewstar"><path d="${EW_STAR}" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round" transform="rotate(12)"/><g transform="rotate(12)"><path d="${EW_STAR}" fill="#2f7a86"/><g clip-path="url(#ewsc)" stroke="#1f5f6b" stroke-width="2" opacity=".8">${hatch}</g></g></g>`;
+  <linearGradient id="ewsg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe680"/><stop offset="1" stop-color="#f5a81c"/></linearGradient><clipPath id="ewsc"><path d="${EW_STAR}"/></clipPath>
+  <g id="ewstar"><path d="${EW_STAR}" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round" transform="rotate(12)"/><g transform="rotate(12)"><path d="${EW_STAR}" fill="url(#ewsg)" stroke="#1c58b8" stroke-width="2.5" stroke-linejoin="round"/><path d="M-8,-14 L-2,-24 L4,-14" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" opacity=".85"/></g></g>`;
 }
-const ewT=(t,x,y,fs,sw,rot,ar)=>`<text x="${x}" y="${y}" text-anchor="middle" class="ewt${ar?' ewa':''}" fill="url(#ewg)" stroke="#1d4f57" font-size="${fs}" stroke-width="${sw}" transform="rotate(${rot} ${x} ${y})">${t}</text>`;
+const ewT=(t,x,y,fs,sw,rot,ar)=>{ const a=`x="${x}" y="${y}" text-anchor="middle" class="ewt${ar?' ewa':''}" font-size="${fs}"`; const d=Math.max(3,Math.round(fs/10));   /* the logo look: white letters, a blue edge, a deeper blue extrusion below (3D) */
+  return `<g transform="rotate(${rot} ${x} ${y})"><text ${a} fill="#1c4fa8" stroke="#1c4fa8" stroke-width="${sw+2}" transform="translate(0,${d})">${t}</text><text ${a} fill="url(#ewg)" stroke="#2b6bd2" stroke-width="${sw}">${t}</text></g>`; };
 const ewStar=(x,y,s)=>`<g filter="url(#ews)" transform="translate(${x},${y}) scale(${s})"><use href="#ewstar"/></g>`;
 // kind: 'app' | a subject id. Same layout as the Easy Study logo: small word on top, big word below, a big sticker where the star is.
 function ewIcon(kind){
   if(kind==='app') return `<svg viewBox="0 0 240 240" aria-hidden="true"><g transform="translate(0,-4)">${ewT('EASY',100,112,46,8,-5)}${ewT('WORDS',120,178,66,11,2)}${ewStar(196,88,1.2)}${ewStar(34,82,.5)}</g></svg>`;
-  const d=EW_SUBJ[kind]; if(!d) return '';
-  if(d.lang==='ar') return `<svg viewBox="0 0 240 240" aria-hidden="true">${ewT(d.small,120,86,60,9,-3,1)}${ewT(d.big,120,188,84,11,2,1)}</svg>`;
-  return `<svg viewBox="0 0 240 240" aria-hidden="true">${ewT(d.small,88,92,35,8,-5)}${ewT(d.sub,120,178,66,11,2)}${ewT(d.big,176,134,66,9,8)}</svg>`;
+  const d=EW_SUBJ[kind]; if(!d) return ''; const sm='<g transform="translate(120 120) scale(.76) translate(-120 -120)">', e='</g></svg>';   // (the writing stays well inside the square)
+  if(d.lang==='ar') return `<svg viewBox="0 0 240 240" aria-hidden="true">${sm}${ewT(d.small,120,86,60,9,-3,1)}${ewT(d.big,120,188,84,11,2,1)}${e}`;
+  return `<svg viewBox="0 0 240 240" aria-hidden="true">${sm}${ewT(d.small,88,92,35,8,-5)}${ewT(d.sub,120,178,66,11,2)}${ewT(d.big,176,134,66,9,8)}${e}`;
 }
 
 // ---- the first screen: which curriculum ----
@@ -1942,17 +2825,18 @@ function ewPick(){
 
 // ---- home: the subjects as icons ----
 function openSubjects(){
-  if(!EW.curr) return ewPick();
+  if(!EW.curr) return openWelcome();
   SUBJECT=null; EW.cur=null; show('subjects'); ewHome();
 }
 function ewHome(){
   $('#ewHomeLogo').innerHTML=ewIcon('app'); paintHud();
-  $('#ewGrade').textContent='الصف الأول الابتدائي · الترم الأول';
+  $('#ewGrade').textContent=ewGradeLine();
   const subs=ewSubjects(); const box=$('#ewHome'); box.dataset.n=subs.length;
   box.innerHTML=subs.map(s=>`<button class="ew-subj" data-id="${s.id}" aria-label="${EW_SUBJ[s.id].name}"><span class="ew-icon">${ewIcon(s.id)}</span></button>`).join('')||'<p class="ew-empty">قريبًا</p>';
   $$('#ewHome .ew-subj').forEach(b=>b.addEventListener('click',()=>{ blip(600); EW.cur=COURSE.subjects.find(s=>s.id===b.dataset.id); openMap(); }));
 }
 
+const EW_LOCK='<svg class="ewlock" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg>';
 // ---- subject map ----
 async function openMap(){
   const s=EW.cur; if(!s||!EW_SUBJ[s.id]) return openSubjects();
@@ -1965,9 +2849,10 @@ function ewDrawMap(s){
   const ar=EW_SUBJ[s.id].lang==='ar', body=$('#ewMapBody'); body.scrollTop=0;
   body.innerHTML=ewUnits(s).map(u=>`<section class="ew-unit"><div class="ew-utab" dir="${ar?'rtl':'ltr'}"><span>${u.name}</span></div><div class="ew-ubody">`+u.lessons.map(l=>{
     const L=l.open&&EW.les[l.id], num=ar?ewN(l.lesson):l.lesson;
-    return `<div class="ew-lrow${L?'':' solo'}"><button class="ew-lsq${l.open?'':' soon'}" data-id="${l.id}" ${l.open?'':'disabled'}><b class="ew-lnum">${num}</b><span class="ew-lname" dir="${ar?'rtl':'ltr'}">${l.name}</span>${l.open?'':'<i>قريبًا</i>'}</button>`+
+    return `<div class="ew-lrow${L?'':' solo'}"><button class="ew-lsq${l.open?'':l.locked?' soon locked':' soon'}" data-id="${l.id}" ${l.open||l.locked?'':'disabled'}><b class="ew-lnum">${num}</b><span class="ew-lname" dir="${ar?'rtl':'ltr'}">${l.name}</span>${l.open?'':l.locked?`<i class="lk">${EW_LOCK} مقفول</i>`:'<i>قريبًا</i>'}</button>`+
       (L?`<div class="ew-words">${L.vocab.map((v,i)=>`<button class="ew-wsq" data-id="${l.id}" data-i="${i}" aria-label="${v.word}"><span class="ew-wimg">${v.img?`<img src="${v.img}" alt=""${/\.png$/i.test(v.img)?' class="cut"':''}>`:''}</span><b dir="${ar?'rtl':'ltr'}">${v.word}</b>${(VDONE[l.id]||[]).includes(v.word)?`<span class="vst">${STAR(true)}</span>`:''}</button>`).join('')}</div>`:'')+`</div>`; }).join('')+`</div></section>`).join('');
   $$('#ewMapBody .ew-lsq:not(.soon)').forEach(b=>b.addEventListener('click',()=>{ blip(600); ewOpenLesson(b.dataset.id,0); }));
+  $$('#ewMapBody .ew-lsq.locked').forEach(b=>b.addEventListener('click',()=>{ blip(600); const l=ewUnits(s).flatMap(u=>u.lessons).find(x=>x.id===b.dataset.id); if(l) lockTap('lesson',l,coinAccess(l,true,'l:'+l.id,0,'lesson').coins,`<span class="jlockbig">${EW_LOCK}</span>`,()=>openMap()); }));   // js/coins.js: open with credits or a subscription
   $$('#ewMapBody .ew-wsq').forEach(b=>b.addEventListener('click',()=>{ blip(600); ewOpenLesson(b.dataset.id,+b.dataset.i,true); }));
 }
 ;
@@ -2002,7 +2887,7 @@ function ewTitle(L,s){
 // open a prepared lesson object (a real lesson, or a made-up one of words picked from many lessons)
 function ewEnter(L,at){
   stopVoice(); LESSON=L; player.bufs={}; player.ready=null; rd.page=1; rd.done={}; rd.halted=false; rd.hold=false; vs.i=Math.max(0,Math.min(at||0,L.vocab.length-1));
-  const s=ewSubjOf(L.vocab[0]?L.vocab[0].lid:L.id)||SUBJECT; SUBJECT=s; show('lesson');
+  const s=ewSubjOf(L.vocab[0]?L.vocab[0].lid:L.id)||SUBJECT; SUBJECT=s; show('lesson'); $('#lesson').classList.toggle('ewtest',L.epSrc==='test');   // a test has no tabs
   $('#lessonMeta').textContent=L.virtual?'Easy Words':EW_SUBJ[s.id].name; $('#lessonTitle').textContent=ewTitle(L,s);
   $('#lessonTitle').dir=L.virtual||EW_SUBJ[s.id].lang==='ar'?'rtl':'ltr';
   switchTab(L.startTab||'words'); fitTitle(); pop('.l-head > *',{y:-20}); pop('.tabs .tab',{y:30,delay:.1});
@@ -2042,10 +2927,11 @@ const EP_CAN={
 // never the same word twice in a row. The dots under the question are the groups; the stars above it are the questions of the group on screen.
 function epBuild(pool,per,types){
   const out=[]; let last=null; ep.groups=[];
-  types.forEach(t=>{
+  types.forEach((t,ti)=>{
+    const per_=Array.isArray(per)?per[ti]:per; if(!per_) return;   // (a test: the number asked for is shared out between the kinds, so it is exact)
     const ok=pool.filter(v=>EP_CAN[t](v,pool)); if(!ok.length) return;
     const g=ep.groups.length, start=out.length; let bag=[];
-    for(let k=0;k<per;k++){
+    for(let k=0;k<per_;k++){
       if(!bag.length) bag=epShuffle(ok);
       let v=bag.pop(); if(ok.length>1&&v===last&&bag.length){ const w=bag.pop(); bag.push(v); v=w; }
       last=v; const q={t,v,g};
@@ -2053,7 +2939,7 @@ function epBuild(pool,per,types){
       if(t==='match'){ const others=epShuffle(pool.filter(x=>x.img&&x!==v&&x.word!==v.word)); q.set=epShuffle([v,...others.slice(0,Math.min(3,others.length))]); }
       out.push(q);
     }
-    ep.groups.push({t,start,n:per});
+    ep.groups.push({t,start,n:per_});
   });
   return out;
 }
@@ -2065,13 +2951,17 @@ function epStart(o){
   ep.src=o.src||LESSON.epSrc||'lesson'; ep.i=0; ep.bad=0; ep.busy=false; ep.lastG=-1;
   if(!ep.pool.length){ $('#stage').innerHTML='<div class="ew-empty">مفيش كلمات للتدريب</div>'; return; }
   if(!ep.types.length) ep.types=['order'];
-  const total=!!(o.n||(LESSON.ep&&LESSON.ep.n)); ep.qs=epBuild(ep.pool,total?Math.max(1,Math.ceil(ep.n/ep.types.length)):ep.n,ep.types); epLayout(); epShow();
+  const total=!!(o.n||(LESSON.ep&&LESSON.ep.n)); let per=ep.n; if(total){ const k=ep.types.length, b=Math.floor(ep.n/k), r=ep.n%k; ep.types=epShuffle(ep.types); per=ep.types.map((_,i)=>b+(i<r?1:0)); }
+  ep.qs=epBuild(ep.pool,per,ep.types); epLayout(); epShow();
 }
 function epLayout(){ const L=$('#lesson'), land=innerWidth>innerHeight*1.1; L.classList.toggle('q-land',land); L.classList.toggle('q-port',!land); }
 addEventListener('resize',()=>{ if(tab==='practice') epLayout(); });
 function epGrp(){ return ep.groups[ep.qs[ep.i].g]; }
 function epDots(){ const g=epGrp(); return Array.from({length:g.n},(_,k)=>`<i data-i="${g.start+k}">${STAR(false)}</i>`).join(''); }
-function epHelpBtn(fn){ const r=$('#lmeta .lm-r'); if(!r) return; r.replaceChildren(); if(!fn) return; const hb=el('button','qhelpb',ICON.hint); hb.setAttribute('aria-label','ساعدني'); hb.onclick=()=>{ if(!ep.busy) fn(); }; r.append(hb); }
+function epHelpBtn(fn){   // the Help bulb always stands right beside the speaker (in the word row; the link question has no word row, so it stands in the header row): the page never moves
+  const r=$('#lmeta .lm-r'); if(r) r.replaceChildren(); const w=$('#stage .quiz.ep'); if(!w) return;
+  let hb=$('.qhelpb',w); if(!hb){ hb=el('button','qhelpb',ICON.hint); hb.setAttribute('aria-label','ساعدني'); const wd=$('.qword',w); (wd&&!wd.hidden?wd:$('.qhead',w)).append(hb); }
+  hb.classList.toggle('off',!fn); hb.disabled=!fn; hb.onclick=fn?()=>{ if(!ep.busy) fn(); }:null; }
 function epShow(){
   const q=ep.qs[ep.i], st=$('#stage'); stopVoice(); const run=ep.run; ep.busy=false; hideHint();   // (stopVoice makes a new run number: the question before can no longer act)
   const s=ewSubjOf(q.v.lid||'')||SUBJECT; if(s&&SUBJECT!==s){ SUBJECT=s; subjDir(); }
@@ -2141,7 +3031,6 @@ function epOrder(q,w,run){
       else { tone(170,'square',.06,.18); q.bad=1; b.classList.remove('shake'); void b.offsetWidth; b.classList.add('shake'); setTimeout(()=>b.classList.remove('shake'),450); } });
     ans.append(b); });
   epHelpBtn(()=>{ const want=gl[ix[k]]; const hit=$$('.eptile:not(.used)',ans).find(b=>{ const g=gl[+b.dataset.i]; return ar?sameLetter(g,want):g.toLowerCase()===want.toLowerCase(); }); if(hit){ hit.classList.add('glow'); setTimeout(()=>hit.classList.remove('glow'),tokMs('--help-pick-ms',2000)); } });
-  setTimeout(()=>{ if(run===ep.run) epSay(q.v); },500);
 }
 // 4) link every word to its picture: the curriculum app's own link board (classes, line drawing, layout), drag a line or tap the word then the picture
 function epMatch(q,w,run){
@@ -2197,7 +3086,7 @@ function epGo(i){ if(ep.busy||i<0||i>=ep.qs.length||i===ep.i) return; blip(600);
    and which kinds; the questions then run one by one in the practice tab's own templates (not one test page). Units / lessons / words are collapsed:
    a tap opens one, the next tap closes it (the map itself keeps everything open). */
 const et={ sel:new Set(), n:10, types:new Set(['missing','order','picture','match']), open:new Set() };
-const ET_TYPES=[['missing','حرف ناقص'],['order','ترتيب الحروف'],['picture','صورة واكتب'],['match','توصيل']];
+const ET_TYPES=[['missing','حرف ناقص'],['order','ترتيب الحروف'],['picture','إملاء الكلمة'],['match','توصيل']];
 async function ewTestOpen(){
   const s=EW.cur; if(!s) return;
   busy(true); try{ for(const u of ewUnits(s)) for(const l of u.lessons) if(l.open) await ewLesson(l.id); }catch(e){} busy(false);
@@ -2205,37 +3094,42 @@ async function ewTestOpen(){
 }
 function ewtDraw(s){
   const ar=EW_SUBJ[s.id].lang==='ar', body=$('#ewTestBody'); body.scrollTop=0; $('#ewTestTitle').textContent='اختبار';
-  const units=ewUnits(s);
-  body.innerHTML=`<p class="ewt-help">علّم الوحدات أو الدروس أو الكلمات اللي عايز تختبره فيها</p>
-  <div class="ewt-tree">${units.map(u=>{ const ls=u.lessons;
-    return `<div class="ewt-node ewt-unit${ls.some(l=>l.open)?'':' soon'}" data-k="u${u.unit}"><div class="ewt-row"><button class="ewt-chk" aria-label="تحديد"></button><button class="ewt-name" dir="${ar?'rtl':'ltr'}"><span>${u.name}</span><small class="ewt-cnt"></small></button><i class="ewt-chev"></i></div>
-      <div class="ewt-kids">${ls.map(l=>{ const L=l.open&&EW.les[l.id];
-        return `<div class="ewt-node ewt-lesson${L?'':' soon'}" data-k="l${l.id}"><div class="ewt-row"><button class="ewt-chk" aria-label="تحديد"></button><button class="ewt-name" dir="${ar?'rtl':'ltr'}"><span>${ar?ewN(l.lesson):l.lesson} · ${l.name}</span><small class="ewt-cnt">${L?'':'قريبًا'}</small></button><i class="ewt-chev"></i></div>
-          <div class="ewt-kids">${L?L.vocab.map(v=>`<div class="ewt-node ewt-word" data-k="w${v.key}"><div class="ewt-row"><button class="ewt-chk" aria-label="تحديد"></button><span class="ewt-wimg">${v.img?`<img src="${v.img}" alt="">`:''}</span><b dir="${v.lang==='ar'?'rtl':'ltr'}">${v.word}</b></div></div>`).join(''):''}</div></div>`; }).join('')}</div></div>`; }).join('')}</div>
-  <div class="ewt-opts">
+  const units=ewUnits(s), dir=ar?'rtl':'ltr';
+  // the choices first (how many, which kinds, weak words only, start), then the lessons / words in the map's own look (smaller squares); not chosen = faded, chosen = full colour
+  body.innerHTML=`<div class="ewt-opts">
     <div class="ewt-grp"><b>عدد الأسئلة</b><div class="ewt-chips" data-g="n">${[5,10,15,20].map(n=>`<button class="ewt-chip${n===et.n?' on':''}" data-n="${n}">${ewN(n)}</button>`).join('')}</div></div>
     <div class="ewt-grp"><b>نوع الأسئلة</b><div class="ewt-chips" data-g="t">${ET_TYPES.map(([k,l])=>`<button class="ewt-chip${et.types.has(k)?' on':''}" data-t="${k}">${l}</button>`).join('')}</div></div>
-    <div class="ewt-go"><button class="ewt-weak">اختار الكلمات الضعيفة</button><button class="ewt-all">اختار الكل</button><span class="ewt-sum"></span><button class="ewt-start pill green">ابدأ الاختبار</button></div>
-  </div>`;
+  </div>
+  <p class="ewt-help">اختار الوحدات أو الدروس أو الكلمات اللي عايز تختبره فيها</p>
+  <button class="ewt-weak">الكلمات الضعيفة فقط</button>
+  <div class="ewt-tree">${units.map(u=>`<section class="ew-unit ewt-unit" data-k="u${u.unit}"><div class="ew-utab ewt-pick" data-k="u${u.unit}" dir="${dir}"><span>${u.name}</span></div><div class="ew-ubody">`+u.lessons.map(l=>{
+    const L=l.open&&EW.les[l.id], num=ar?ewN(l.lesson):l.lesson;
+    return `<div class="ew-lrow${L?'':' solo'}"><button class="ew-lsq ewt-pick${L?'':' soon'}" data-k="l${l.id}" ${L?'':'disabled'}><b class="ew-lnum">${num}</b><span class="ew-lname" dir="${dir}">${l.name}</span>${L?'':'<i>قريبًا</i>'}</button>`+
+      (L?`<div class="ew-words">${L.vocab.map(v=>`<button class="ew-wsq ewt-pick" data-k="w${v.key}" aria-label="${v.word}"><span class="ew-wimg">${v.img?`<img src="${v.img}" alt=""${/\.png$/i.test(v.img)?' class="cut"':''}>`:''}</span><b dir="${dir}">${v.word}</b></button>`).join('')}</div>`:'')+`</div>`; }).join('')+`</div></section>`).join('')}</div>
+  <div class="ewt-go"><span class="ewt-sum"></span><button class="ewt-start pill green">ابدأ الاختبار</button></div>`;
+  body.classList.toggle('ewt-ar',ar);
   ewtPaint();
 }
-const ewtWords=node=>{ const k=node.dataset.k; if(k[0]==='w') return [k.slice(1)]; return $$('.ewt-word',node).map(w=>w.dataset.k.slice(1)); };
+// the words under a unit tab / lesson square / word square
+const ewtWords=node=>{ const k=node.dataset.k;
+  if(k[0]==='w') return [k.slice(1)];
+  if(k[0]==='l') return $$('.ew-wsq',node.closest('.ew-lrow')).map(w=>w.dataset.k.slice(1));
+  return $$('.ew-wsq',node.closest('.ew-unit')).map(w=>w.dataset.k.slice(1)); };
+const ewtWeak=()=>$$('.ew-wsq',$('#ewTestBody')).map(w=>w.dataset.k.slice(1)).filter(key=>ewClass({key})==='weak');   // the weak words shown in the lists
 function ewtPaint(){
   const body=$('#ewTestBody'), t=$('.ewt-start',body), n=et.sel.size;
-  $$('.ewt-node',body).forEach(nd=>{ const all=ewtWords(nd), c=all.filter(k=>et.sel.has(k)).length;
-    nd.classList.toggle('all',all.length>0&&c===all.length); nd.classList.toggle('some',c>0&&c<all.length); nd.classList.toggle('open',et.open.has(nd.dataset.k));
-    const cnt=$('.ewt-cnt',nd); if(cnt&&!nd.classList.contains('soon')) cnt.textContent=all.length?`${ewN(c)}/${ewN(all.length)}`:''; });
+  $$('.ewt-pick',body).forEach(nd=>{ if(nd.classList.contains('soon')) return; const all=ewtWords(nd), c=all.filter(k=>et.sel.has(k)).length;
+    nd.classList.toggle('all',all.length>0&&c===all.length); nd.classList.toggle('some',c>0&&c<all.length); });
+  const wk=ewtWeak(); $('.ewt-weak',body).classList.toggle('on',wk.length>0&&wk.every(k=>et.sel.has(k)));
   $('.ewt-sum',body).textContent=n?`${ewN(n)} كلمة مختارة`:'ما اخترتش كلمات'; t.disabled=!n||!et.types.size;
 }
 $('#ewTestBody').addEventListener('click',e=>{
-  const body=$('#ewTestBody'), nd=e.target.closest('.ewt-node'), chip=e.target.closest('.ewt-chip');
+  const body=$('#ewTestBody'), nd=e.target.closest('.ewt-pick'), chip=e.target.closest('.ewt-chip');
   if(chip){ if(chip.dataset.n){ et.n=+chip.dataset.n; $$('[data-g="n"] .ewt-chip',body).forEach(c=>c.classList.toggle('on',c===chip)); } else { const k=chip.dataset.t; if(et.types.has(k)&&et.types.size>1) et.types.delete(k); else et.types.add(k); chip.classList.toggle('on',et.types.has(k)); ewtPaint(); } return; }
-  if(e.target.closest('.ewt-all')){ $$('.ewt-word',body).forEach(w=>et.sel.add(w.dataset.k.slice(1))); ewtPaint(); return; }
-  if(e.target.closest('.ewt-weak')){ et.sel=new Set(); $$('.ewt-word',body).forEach(w=>{ const key=w.dataset.k.slice(1); if(ewClass({key})==='weak') et.sel.add(key); }); ewtPaint(); return; }
+  if(e.target.closest('.ewt-weak')){ const wk=ewtWeak(), on=wk.length>0&&wk.every(k=>et.sel.has(k)); wk.forEach(k=>{ if(on) et.sel.delete(k); else et.sel.add(k); }); ewtPaint(); return; }   // marks every weak word in the lists (again = unmarks)
   if(e.target.closest('.ewt-start')){ ewtStart(); return; }
-  if(!nd||nd.classList.contains('soon')) return;
-  if(e.target.closest('.ewt-chk')||(nd.classList.contains('ewt-word')&&e.target.closest('.ewt-row'))){ const all=ewtWords(nd), full=all.every(k=>et.sel.has(k)); all.forEach(k=>full?et.sel.delete(k):et.sel.add(k)); ewtPaint(); return; }
-  if(e.target.closest('.ewt-row')){ const k=nd.dataset.k; if(et.open.has(k)) et.open.delete(k); else et.open.add(k); ewtPaint(); }   // a tap opens it, the next tap closes it
+  if(!nd||nd.classList.contains('soon')) return; blip(600);
+  const all=ewtWords(nd), full=all.length>0&&all.every(k=>et.sel.has(k)); all.forEach(k=>{ if(full) et.sel.delete(k); else et.sel.add(k); }); ewtPaint();
 });
 function ewtStart(){
   const pool=[]; Object.values(EW.les).forEach(L=>L.vocab.forEach(v=>{ if(et.sel.has(v.key)) pool.push(v); }));
@@ -2312,8 +3206,9 @@ async function ewStart(){
   try{ await ewLoad(); }catch(e){ busy(false); message('أوبس!','التطبيق ما اتحملش. اتأكد من النت وجرب تاني.'); $('#msgOk').onclick=()=>location.reload(); return; }
   ewDefs(); await cssReady;
   if(document.fonts&&document.fonts.ready) await Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,2500))]);
-  paintHud(); busy(false);
-  if(!EW.curr||!ewChoices().some(c=>c.id===EW.curr)){ EW.curr=null; ewPick(); } else openSubjects();
+  $('#ewWlLogo').innerHTML=ewIcon('app'); paintHud(); kidPaint(); busy(false);
+  if(!kidNow()||!EW.curr||!ewChoices().some(c=>c.id===EW.curr)){ openWelcome(); } else openSubjects();
 }
 ewStart();
+if('serviceWorker' in navigator&&/^https?:/.test(location.protocol)) navigator.serviceWorker.register('sw.js').catch(()=>{});   // keeps the app on the device (and the bell works): same file as the curriculum app
 ;

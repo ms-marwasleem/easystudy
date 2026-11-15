@@ -23,6 +23,9 @@
   background:var(--btn-bg)!important;border:var(--btn-border)!important;box-shadow:var(--btn-shadow)!important;
   color:var(--btn-ink)!important;font:700 calc(var(--q-choice)*.5)/1 var(--btn-font);text-align:center;overflow:visible;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .qch::before{display:none!important}
+/* the button's white gloss (.rb::after in base.css) lay OVER the first letters and washed them out = the "shadow" on the first characters (Ahmed 2026-11-14): put it UNDER the text */
+.qch:not(.ringed)::after{z-index:0}
+.qch>span{position:relative;z-index:1}
 .qch>span{display:block!important;margin:0!important;padding:0!important;transform:none!important;font:inherit!important;line-height:1!important;color:inherit!important;text-align:center;white-space:nowrap}
 .qch.two{font-size:calc(var(--q-choice)*.42)}
 /* THE word pill (Marwa 2026-11-06: the look of the "This is my ___ / father" choices, the same everywhere: cloze, choose, reorder pieces, explainer pieces).
@@ -43,7 +46,7 @@
 .qch.dim{opacity:.35}
 .qch.bad{background:var(--c-bad-bg)!important;border-color:var(--c-bad-dk)!important}
 .qch.used{opacity:.28;pointer-events:none}
-.qch.ringed::after{content:"";position:absolute;inset:-.32rem;border:.22rem solid var(--c-pink);border-radius:50%;transform:rotate(-4deg) scale(var(--ring,1));pointer-events:none}
+.qch.ringed::after{content:"";position:absolute;inset:-.32rem;width:auto;height:auto;background:none;z-index:2;border:.22rem solid var(--c-pink);border-radius:50%;transform:rotate(-4deg) scale(var(--ring,1));pointer-events:none}
 .qch.wd.ringed::after{inset:-.3rem -.45rem;border-radius:62rem}
 /* tick and cross: the same family and size as the other choices (they were twice as big) */
 .quiz .qans .qbtn.yes,.quiz .qans .qbtn.no,#lesson.q-short .quiz .qans .qbtn{width:calc(var(--q-choice)*1.1)!important;height:calc(var(--q-choice)*1.1)!important}
@@ -131,3 +134,20 @@
 #lesson.ar .qxtile span{font-family:var(--f-ar)!important}
 .qxtile.wide{width:auto!important;min-width:calc(var(--th)*1.4);height:auto!important;min-height:calc(var(--th)*.86);padding:.12em .68em!important;border-radius:62rem!important}
 .qxtile.wide span{font-size:calc(var(--th)*.42)!important}
+
+/* clock questions (math u8, English + Arabic): the picture is the thing to see, so the time choices are smaller and sit in a wrapping row; the clock gets the room (Ahmed 2026-11-14) */
+.almcq.clockq .alopts{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:.35rem .45rem}
+.almcq.clockq .alopts .qch.wd{--q-word:clamp(2.1rem,min(4.6vh,10vw),2.7rem)}
+.almcq.clockq .alpics{display:flex;align-items:center;justify-content:center}
+.almcq.clockq .alpics img{max-height:100%;max-width:100%;width:auto;height:100%;object-fit:contain}
+.alfig:has(.clkdraw){position:relative}
+.alfig .clkdraw{position:absolute;inset:var(--pf-border);width:calc(100% - 2*var(--pf-border));height:calc(100% - 2*var(--pf-border));pointer-events:none}
+/* a hidden number sentence keeps its room (nothing jumps when Help shows it); the blank stays */
+.altx.eqhid .alw{visibility:hidden}
+
+/* chart / table questions (math 6-2, 6-3, English + Arabic): the chart is tall, so it takes ALL the free room and the choices are smaller (Ahmed 2026-11-14) */
+.almcq.chartq .alopts{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:.3rem .4rem}
+.almcq.chartq .alopts .qch.wd{--q-word:clamp(1.8rem,min(3.8vh,9vw),2.3rem)}
+.almcq.chartq .alpics{display:flex;align-items:center;justify-content:center}
+.almcq.chartq .alfig{height:100%;max-height:100%}
+.almcq.chartq .alpics img{max-height:100%;max-width:100%;width:auto;height:100%;object-fit:contain}

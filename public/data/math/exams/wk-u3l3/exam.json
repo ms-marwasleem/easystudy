@@ -1,0 +1,141 @@
+{
+ "title": "Weekly Assessment",
+ "ratio": 0.707,
+ "pages": [
+  {
+   "title": "Model A",
+   "chip": "A",
+   "group": "A",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "5 + 0 = .........",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "zero",
+        "5",
+        "6",
+        "10"
+       ],
+       "answer": 1,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "6 + 3 = [[9:wide]]....",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "Rana picked 6 red flowers and 3 yellow flowers. How many flowers did Rana pick? [[9:wide]]",
+     "body": []
+    }
+   ]
+  },
+  {
+   "title": "Model B",
+   "chip": "B",
+   "group": "B",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "7 + 0 = .........",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "zero",
+        "7",
+        "8",
+        "10"
+       ],
+       "answer": 1,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "6 + 2 = [[8:wide]]....",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "Rahaf bought 5 pieces of cake, then bought 2 more pieces. How many pieces did Rahaf buy? [[7:wide]]",
+     "body": []
+    }
+   ]
+  },
+  {
+   "title": "Model C",
+   "chip": "C",
+   "group": "C",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "7 + 1 = .........",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "zero",
+        "7",
+        "8",
+        "10"
+       ],
+       "answer": 2,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "6 + 0 = [[6:wide]]....",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "5",
+     "text": "Habiba bought 5 pieces of candy, then bought 3 more pieces. How many pieces did she buy? [[8:wide]]",
+     "body": []
+    }
+   ]
+  }
+ ]
+}

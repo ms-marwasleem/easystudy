@@ -1,0 +1,159 @@
+{
+ "title": "Weekly Assessment",
+ "ratio": 0.707,
+ "pages": [
+  {
+   "title": "Model A",
+   "chip": "A",
+   "group": "A",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "5 - 5 = ......",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "5",
+        "zero",
+        "9",
+        "10"
+       ],
+       "answer": 1,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "6 - 0 = [[6:wide]]...",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "9 - 5 = [[4:wide]].",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "8 - 3 = [[5:wide]].",
+     "body": []
+    }
+   ]
+  },
+  {
+   "title": "Model B",
+   "chip": "B",
+   "group": "B",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "6 - 6 = ......",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "zero",
+        "6",
+        "8",
+        "10"
+       ],
+       "answer": 0,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "10 - 0 = [[10:wide]]...",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "4 - 3 = [[1:wide]].",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "5 - 1 = [[4:wide]].",
+     "body": []
+    }
+   ]
+  },
+  {
+   "title": "Model C",
+   "chip": "C",
+   "group": "C",
+   "blocks": [
+    {
+     "t": "section",
+     "text": "First: Choose the correct answer:"
+    },
+    {
+     "t": "q",
+     "n": "1",
+     "text": "2 - 0 = ......",
+     "body": [
+      {
+       "t": "mcq",
+       "opts": [
+        "8",
+        "zero",
+        "2",
+        "10"
+       ],
+       "answer": 2,
+       "labels": "lower"
+      }
+     ]
+    },
+    {
+     "t": "section",
+     "text": "Second: Answer the following:"
+    },
+    {
+     "t": "q",
+     "n": "2",
+     "text": "4 - 4 = [[0:wide]]...",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "3",
+     "text": "6 - 1 = [[5:wide]].",
+     "body": []
+    },
+    {
+     "t": "q",
+     "n": "4",
+     "text": "7 - 6 = [[1:wide]].",
+     "body": []
+    }
+   ]
+  }
+ ]
+}

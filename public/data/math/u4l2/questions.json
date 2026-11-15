@@ -160,169 +160,120 @@
    ]
   },
   {
-   "type": "mwrite",
-   "ex": 1,
-   "page": 47,
-   "task": "Write the subtraction sentence and the answer.",
-   "taskAudio": "q/task-1.mp3",
-   "items": [
-    {
-     "pics": [
-      "story-4.png"
-     ],
-     "ask": "There are 9 candies. You eat 3. How many are left?",
-     "lead": "Subtraction sentence:",
-     "word": "9 − 3 = 6",
-     "keys": "1234567890+−=",
-     "askSay": "There are nine candies. You eat three. How many are left? Write the subtraction sentence.",
-     "askAudio": "q/p1-s-q.mp3",
-     "audio": "q/p1-s.mp3",
-     "picsTall": [
-      "story-4-tall.png"
-     ]
-    }
-   ],
-   "book": "booklet"
-  },
-  {
    "type": "mcq",
-   "ex": 1,
-   "page": 47,
-   "task": "Write the subtraction sentence and the answer.",
-   "taskAudio": "q/task-1.mp3",
+   "page": 36,
+   "task": "Find the result of subtracting.",
+   "taskAudio": "q/task-bk-find-the-result-of-subtracting.mp3",
    "items": [
     {
-     "pics": [
-      "story-4.png"
-     ],
-     "ask": "How many are left?",
-     "stem": "Answer: ___",
+     "stem": "8 − 1 = ___",
      "options": [
-      "3 candies",
-      "6 candies",
-      "6"
+      "6",
+      "7",
+      "8"
      ],
      "answer": 1,
-     "askSay": "How many are left? What is the answer?",
-     "askAudio": "q/p1-a-q.mp3",
-     "audio": "q/p1-a.mp3",
-     "word": "Answer: 6 candies",
-     "picsTall": [
-      "story-4-tall.png"
-     ]
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mwrite",
-   "ex": 1,
-   "page": 47,
-   "task": "Write the subtraction sentence and the answer.",
-   "taskAudio": "q/task-1.mp3",
-   "items": [
+     "askAudio": "q/wb-8-m-1-q.mp3",
+     "audio": "q/wb-8-m-1.mp3",
+     "word": "8 − 1 = 7"
+    },
     {
-     "pics": [
-      "story-5.png"
-     ],
-     "ask": "There are 4 fish. 2 swim away. How many are left?",
-     "lead": "Subtraction sentence:",
-     "word": "4 − 2 = 2",
-     "keys": "1234567890+−=",
-     "askSay": "There are four fish. two swim away. How many are left? Write the subtraction sentence.",
-     "askAudio": "q/p2-s-q.mp3",
-     "audio": "q/p2-s.mp3",
-     "picsTall": [
-      "story-5-tall.png"
-     ]
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mcq",
-   "ex": 1,
-   "page": 47,
-   "task": "Write the subtraction sentence and the answer.",
-   "taskAudio": "q/task-1.mp3",
-   "items": [
-    {
-     "pics": [
-      "story-5.png"
-     ],
-     "ask": "How many are left?",
-     "stem": "Answer: ___",
+     "stem": "6 − 2 = ___",
      "options": [
-      "2 fish",
+      "3",
+      "4",
+      "5"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-6-m-2-q.mp3",
+     "audio": "q/wb-6-m-2.mp3",
+     "word": "6 − 2 = 4"
+    },
+    {
+     "stem": "9 − 5 = ___",
+     "options": [
+      "3",
+      "4",
+      "5"
+     ],
+     "answer": 1,
+     "askAudio": "q/wb-9-m-5-q.mp3",
+     "audio": "q/wb-9-m-5.mp3",
+     "word": "9 − 5 = 4"
+    },
+    {
+     "stem": "10 − 7 = ___",
+     "options": [
       "2",
-      "3 fish"
+      "3",
+      "4"
      ],
-     "answer": 0,
-     "askSay": "How many are left? What is the answer?",
-     "askAudio": "q/p2-a-q.mp3",
-     "audio": "q/p2-a.mp3",
-     "word": "Answer: 2 fish",
-     "picsTall": [
-      "story-5-tall.png"
-     ]
-    }
-   ],
-   "book": "booklet"
-  },
-  {
-   "type": "mwrite",
-   "ex": 1,
-   "page": 47,
-   "task": "Write the subtraction sentence and the answer.",
-   "taskAudio": "q/task-1.mp3",
-   "items": [
+     "answer": 1,
+     "askAudio": "q/wb-10-m-7-q.mp3",
+     "audio": "q/wb-10-m-7.mp3",
+     "word": "10 − 7 = 3"
+    },
     {
-     "pics": [
-      "story-6.png"
+     "stem": "6 − 2 = ___",
+     "options": [
+      "3",
+      "4",
+      "5"
      ],
-     "ask": "There are 10 flowers. You give away 2. How many are left?",
-     "lead": "Subtraction sentence:",
-     "word": "10 − 2 = 8",
-     "keys": "1234567890+−=",
-     "askSay": "There are ten flowers. You give away two. How many are left? Write the subtraction sentence.",
-     "askAudio": "q/p3-s-q.mp3",
-     "audio": "q/p3-s.mp3",
-     "picsTall": [
-      "story-6-tall.png"
-     ]
+     "answer": 1,
+     "askAudio": "q/wb-6-m-2-q.mp3",
+     "audio": "q/wb-6-m-2.mp3",
+     "word": "6 − 2 = 4"
     }
    ],
-   "book": "booklet"
+   "book": "workbook",
+   "ex": 7
   },
   {
    "type": "mcq",
-   "ex": 1,
    "page": 47,
-   "task": "Write the subtraction sentence and the answer.",
-   "taskAudio": "q/task-1.mp3",
+   "task": "Read the story. How many are left?",
+   "taskAudio": "q/task-bk-read-the-story-how-many-are-left.mp3",
    "items": [
     {
-     "pics": [
-      "story-6.png"
-     ],
-     "ask": "How many are left?",
-     "stem": "Answer: ___",
+     "stem": "You have 5 pencils. You give away 3. How many are left?",
      "options": [
-      "8",
-      "2 flowers",
-      "8 flowers"
+      "1",
+      "2",
+      "3"
      ],
-     "answer": 2,
-     "askSay": "How many are left? What is the answer?",
-     "askAudio": "q/p3-a-q.mp3",
-     "audio": "q/p3-a.mp3",
-     "word": "Answer: 8 flowers",
-     "picsTall": [
-      "story-6-tall.png"
-     ]
+     "answer": 1,
+     "askAudio": "q/bk-you-have-pencils-you-give-away-q.mp3",
+     "audio": "q/bk-you-have-pencils-you-give-away.mp3",
+     "word": "2"
+    },
+    {
+     "stem": "There are 6 butterflies. 2 fly away. How many are left?",
+     "options": [
+      "3",
+      "4",
+      "5"
+     ],
+     "answer": 1,
+     "askAudio": "q/bk-there-are-butterflies-fly-away-q.mp3",
+     "audio": "q/bk-there-are-butterflies-fly-away.mp3",
+     "word": "4"
+    },
+    {
+     "stem": "You have 7 tomatoes. You eat 4. How many are left?",
+     "options": [
+      "2",
+      "3",
+      "4"
+     ],
+     "answer": 1,
+     "askAudio": "q/bk-you-have-tomatoes-you-eat-q.mp3",
+     "audio": "q/bk-you-have-tomatoes-you-eat.mp3",
+     "word": "3"
     }
    ],
-   "book": "booklet"
+   "book": "booklet",
+   "ex": 8
   }
  ]
 }

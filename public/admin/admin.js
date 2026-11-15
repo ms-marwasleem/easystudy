@@ -12,7 +12,7 @@ const toast=t=>{ const o=$('#toast'); o.textContent=t; o.hidden=false; clearTime
 const mark=()=>{ dirty=true; $('#save').textContent='حفظ •'; };
 
 async function boot(){
-  FILE=await get('data/settings.json').catch(()=>({coins:{},access:{free:{mode:'first',count:1}},items:{}}));
+  FILE=await get(window.ADMIN_WORDS?'data/words/settings.json':'data/settings.json').catch(()=>({coins:{},access:{free:{mode:'first',count:1}},items:{}}));
   const API=FILE.api||'/api'; S={api:API};
   const live=await api('/admin/settings');   // THE real settings, kept on the server; nothing is kept on this device
   LOCKED=!(live&&live.coins);
@@ -24,9 +24,15 @@ async function boot(){
   S.subs=S.subs||{}; S.subs.prices=S.subs.prices||{}; S.currOff=S.currOff||{}; S.promos=S.promos||[]; if(S.promoOn==null) S.promoOn=true;
   Object.keys(S.items).forEach(k=>{ if(S.items[k].st!=='soon') delete S.items[k]; else S.items[k]={st:'soon'}; });   // old open/locked/price options removed: only "soon" is kept
   COURSE=await get('data/course.json');
-  const CJ=await get('data/curriculum.json').catch(()=>({grades:[],types:[]})); GRADES=CJ.grades.filter(g=>g.open!==false); CTYPES=CJ.types||[];
+  const CJ=await get('data/curriculum.json').catch(()=>({grades:[],types:[]})); GRADES=CJ.grades.filter(g=>g.open!==false); CTYPES=CJ.types||[]; window.CSCH=CJ.schools||[];
   await Promise.all(COURSE.subjects.filter(s=>s.file).map(async s=>{ const d=await get(s.file).catch(()=>null); if(!d) return;
     s.units=d.units||[]; s.lessons=(d.lessons||[]).map(l=>({...l,id:`${s.id}-${l.folder}`,built:!!l.title})); }));
+  if(window.ADMIN_WORDS){   // EASY WORDS dashboard: only the subjects that have words, only the lessons that have a words tab, "built" = open in data/words/words.json
+    const W=await get('data/words/words.json').catch(()=>({})), WS=['arabic','en-ol','en-al'];
+    COURSE.subjects=COURSE.subjects.filter(s=>WS.includes(s.id));
+    COURSE.subjects.forEach(s=>{ s.lessons=(s.lessons||[]).filter(l=>!(l.tabs&&!l.tabs.includes('words'))&&!/^(test|تقييم|اختبار)/i.test(l.title||l.planned||''))
+      .map(l=>({...l,built:!!l.built&&!(W.skip||[]).includes(l.id)&&!!(W.all||(W.open||[]).includes(l.id))})); });
+  }
   $('#where').textContent=LOCKED?'مش قادرين نجيب الإعدادات الحالية دلوقتي، فالحفظ متوقف عشان ما يتمسحش حاجة. اتأكدي من الإنترنت ومن كلمة السر (زرار «كلمة السر») وافتحي الصفحة تاني.':'';
   drawSettings(); drawTree(); drawPromos(); drawUsers(); drawStats(); drawReports();
   if(S.api){ const [ac,st]=await Promise.all([api('/admin/accounts'),api('/admin/stats')]); if(ac&&ac.accounts){ SRV.accounts=ac.accounts; drawUsers(); loadSubs(); } if(st&&st.hist){ SRV.stats=st; drawStats(); }
@@ -94,9 +100,13 @@ function stOf(kind,s,u,ls,l){
   if(own||!n) return 'soon'; return n===L.length?'open':'mixed'; }
 const STLBL={open:'مفتوح',soon:'قريبًا',mixed:'مختلط'};
 function row(cls,id,name,built,st,par){ return `<div class="it ${cls}" data-id="${id}"${par?` data-par="${par}"`:''}><input type="checkbox" class="sel"${SEL.has(id)?' checked':''} aria-label="تعليم">${cls==='les'?'':'<b class="car">◂</b>'}<i class="dot${built?' b':''}"></i><span class="nm" title="${esc(name)}">${esc(name)}</span><span class="stb ${st}">${STLBL[st]}</span></div>`; }
+// the subjects of one curriculum: its type's list (+ English AL for the experimental one); لغات = the base book of every private school + the school's own subjects
+function currSubjects(id){ const ty=CTYPES.find(c=>c.id===id)||{}; if(id!=='private'&&ty.subjects) return ty.subjects.concat(id==='tajribi'?['en-al']:[]);
+  const out=[]; (window.CSCH||[]).forEach(sc=>{ const b=CTYPES.find(c=>c.id===sc.base)||{}; out.push(...(b.subjects||[]),...(sc.subjects||[])); }); return out; }
 function drawTree(){
-  const sel=$('#l-subj'), cur=sel.value; sel.innerHTML='<option value="">كل المواد</option>'+COURSE.subjects.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join(''); sel.value=cur;
-  $('#tree').innerHTML=COURSE.subjects.filter(s=>!sel.value||s.id===sel.value).map(s=>{
+  const sel=$('#l-subj'), cur=sel.value; sel.innerHTML='<option value="">كل المواد</option>'+(window.ADMIN_WORDS?`<optgroup label="حسب المنهج">${(CTYPES||[]).map(c=>`<option value="c:${c.id}">${esc(c.id==='private'?'لغات':c.ar||c.id)}</option>`).join('')}</optgroup>`:'')+COURSE.subjects.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join(''); sel.value=cur;
+  const inSel=s=>!sel.value||s.id===sel.value||(sel.value.startsWith('c:')&&currSubjects(sel.value.slice(2)).includes(s.id));   // a curriculum (عام / تجريبي) shows its subjects
+  $('#tree').innerHTML=COURSE.subjects.filter(inSel).map(s=>{
     let h=row('subj','s:'+s.id,s.name,!!s.lessons,s.lessons?stOf('subj',s):'soon');
     kidsOf(s).forEach(({u,ls})=>{ h+=row('unit',`u:${s.id}:${u.unit}`,u.label||`الوحدة ${ar(u.unit)}`,ls.some(l=>l.built),stOf('unit',s,u,ls),'s:'+s.id);
       ls.forEach(l=>h+=row('les','l:'+l.id,`${ar(l.lesson)}. ${l.title||l.planned||'—'}`,l.built,stOf('les',s,u,ls,l),`u:${s.id}:${u.unit}`)); });

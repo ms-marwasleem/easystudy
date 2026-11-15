@@ -16,6 +16,9 @@ function currPlan(p){
   return {type:ty, school:sc||null, subjects:[...ty.subjects,...((sc&&sc.subjects)||[])], books:new Set([...ty.books,...((sc&&sc.books)||[])])};
 }
 let PLAN=null;
+// the private school of the child (null for general / experimental). A vocab word tagged "school":"<id>" (a word that exists only in that school's booklet, Ahmed 2026-11-15) shows only for a child of that school; untagged words = the ministry curriculum, for everyone.
+function currSchoolId(){ try{ if(PLAN&&PLAN.school) return PLAN.school.id; const k=typeof kidNow==='function'&&kidNow(), c=(k&&k.curr)||currPick(); return (c&&c.school)||null; }catch(e){ return null; } }
+const vocabFor=list=>(list||[]).filter(v=>v&&(!v.school||v.school===currSchoolId()));
 const bookOn=k=>!PLAN||PLAN.books.has(k);
 const tabOn=t=>bookOn(TAB_BOOK[t]||'school');
 const currTabs=ts=>ts&&ts.filter(tabOn);

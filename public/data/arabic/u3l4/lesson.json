@@ -163,6 +163,46 @@
    "har": "fatha"
   },
   {
+   "word": "مَلْعَب",
+   "img": "../../pics/ar-stadium.png",
+   "audio": {
+    "word": "../u1l5/words/malab.mp3"
+   },
+   "parts": [
+    {
+     "t": "مَلْ",
+     "audio": "../../syl-ar/645-64e-644-652.mp3"
+    },
+    {
+     "t": "عَ",
+     "audio": "../../syl-ar/639-64e.mp3"
+    },
+    {
+     "t": "ب",
+     "audio": "../../syl-ar/628-652.mp3"
+    }
+   ],
+   "har": "fatha"
+  },
+  {
+   "word": "عَظْم",
+   "img": "../../pics/ar-bones.png",
+   "audio": {
+    "word": "../u3l9/words/adhm.mp3"
+   },
+   "parts": [
+    {
+     "t": "عَظْ",
+     "audio": "../../syl-ar/639-64e-638-652.mp3"
+    },
+    {
+     "t": "م",
+     "audio": "../../syl-ar/645-652.mp3"
+    }
+   ],
+   "har": "fatha"
+  },
+  {
    "word": "عُصْفُور",
    "img": "../../pics/bird.png",
    "audio": {
@@ -200,7 +240,8 @@
      "audio": "../../syl-ar/628-652.mp3"
     }
    ],
-   "har": "damma"
+   "har": "damma",
+   "school": "nour-el-ilm"
   },
   {
    "word": "عُطُور",
@@ -222,7 +263,8 @@
      "audio": "../../syl-ar/631-652.mp3"
     }
    ],
-   "har": "damma"
+   "har": "damma",
+   "school": "nour-el-ilm"
   },
   {
    "word": "عِنَب",
@@ -262,7 +304,8 @@
      "audio": "../../syl-ar/62f-652.mp3"
     }
    ],
-   "har": "kasra"
+   "har": "kasra",
+   "school": "nour-el-ilm"
   },
   {
    "word": "عِظَام",
@@ -284,7 +327,8 @@
      "audio": "../../syl-ar/645-652.mp3"
     }
    ],
-   "har": "kasra"
+   "har": "kasra",
+   "school": "nour-el-ilm"
   },
   {
    "word": "ثَعْلَب",
@@ -344,6 +388,29 @@
     {
      "t": "ر",
      "audio": "../../syl-ar/631-652.mp3"
+    }
+   ],
+   "har": "sukoon",
+   "school": "nour-el-ilm"
+  },
+  {
+   "word": "شُعْلَة",
+   "img": "../../pics/ar-torch.png",
+   "audio": {
+    "word": "../u3l5/words/shula.mp3"
+   },
+   "parts": [
+    {
+     "t": "شُعْ",
+     "audio": "../../syl-ar/634-64f-639-652.mp3"
+    },
+    {
+     "t": "لَ",
+     "audio": "../../syl-ar/644-64e.mp3"
+    },
+    {
+     "t": "ة",
+     "audio": "../../syl-ar/629.mp3"
     }
    ],
    "har": "sukoon"

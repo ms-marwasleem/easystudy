@@ -1,0 +1,138 @@
+CREATE TABLE IF NOT EXISTS parents (
+  id TEXT PRIMARY KEY,
+  email TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL DEFAULT '',
+  phone TEXT NOT NULL DEFAULT '',
+  curr TEXT NOT NULL DEFAULT '{}',
+  ref_code TEXT NOT NULL UNIQUE,
+  ref_by TEXT,
+  bal INTEGER NOT NULL DEFAULT 0,
+  blocked INTEGER NOT NULL DEFAULT 0,
+  created INTEGER NOT NULL,
+  last_seen INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS children (
+  id TEXT PRIMARY KEY,
+  parent_id TEXT NOT NULL,
+  name TEXT NOT NULL,
+  grade TEXT NOT NULL DEFAULT 'p1',
+  curr TEXT NOT NULL DEFAULT '{}',
+  progress TEXT NOT NULL DEFAULT '{}',
+  progress_at INTEGER NOT NULL DEFAULT 0,
+  created INTEGER NOT NULL,
+  deleted INTEGER NOT NULL DEFAULT 0
+);
+CREATE INDEX IF NOT EXISTS children_parent ON children(parent_id);
+CREATE TABLE IF NOT EXISTS codes (
+  email TEXT PRIMARY KEY,
+  hash TEXT NOT NULL,
+  expires INTEGER NOT NULL,
+  tries INTEGER NOT NULL DEFAULT 0,
+  sent INTEGER NOT NULL,
+  sends_today INTEGER NOT NULL DEFAULT 1,
+  day TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS sessions (
+  hash TEXT PRIMARY KEY,
+  parent_id TEXT NOT NULL,
+  device TEXT NOT NULL DEFAULT '',
+  created INTEGER NOT NULL,
+  last_seen INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS sessions_parent ON sessions(parent_id);
+CREATE TABLE IF NOT EXISTS devices (
+  id TEXT PRIMARY KEY,
+  first_parent TEXT,
+  created INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS coin_events (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  parent_id TEXT NOT NULL,
+  kind TEXT NOT NULL,
+  ref TEXT NOT NULL DEFAULT '',
+  child_id TEXT NOT NULL DEFAULT '',
+  amount INTEGER NOT NULL,
+  at INTEGER NOT NULL,
+  day TEXT NOT NULL,
+  device TEXT NOT NULL DEFAULT '',
+  ip TEXT NOT NULL DEFAULT ''
+);
+CREATE INDEX IF NOT EXISTS ev_parent ON coin_events(parent_id, at);
+CREATE INDEX IF NOT EXISTS ev_day ON coin_events(day, kind);
+CREATE INDEX IF NOT EXISTS ev_ip ON coin_events(ip, day, kind);
+CREATE TABLE IF NOT EXISTS unlocks (
+  child_id TEXT NOT NULL,
+  item TEXT NOT NULL,
+  subject TEXT NOT NULL DEFAULT '',
+  how TEXT NOT NULL,
+  coins INTEGER NOT NULL DEFAULT 0,
+  at INTEGER NOT NULL,
+  PRIMARY KEY (child_id, item)
+);
+CREATE TABLE IF NOT EXISTS settings (
+  key TEXT PRIMARY KEY,
+  json TEXT NOT NULL,
+  updated INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS limits (
+  key TEXT PRIMARY KEY,
+  n INTEGER NOT NULL DEFAULT 0,
+  day TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS promo_uses (
+  code TEXT NOT NULL,
+  parent_id TEXT NOT NULL,
+  child_id TEXT NOT NULL,
+  item TEXT NOT NULL,
+  at INTEGER NOT NULL,
+  PRIMARY KEY (code, child_id)
+);
+CREATE TABLE IF NOT EXISTS reports (
+  id TEXT PRIMARY KEY,
+  at INTEGER NOT NULL,
+  status TEXT NOT NULL DEFAULT 'open',
+  subject TEXT NOT NULL DEFAULT '',
+  unit TEXT NOT NULL DEFAULT '',
+  lesson TEXT NOT NULL DEFAULT '',
+  tab TEXT NOT NULL DEFAULT '',
+  page TEXT NOT NULL DEFAULT '',
+  ex TEXT NOT NULL DEFAULT '',
+  kind TEXT NOT NULL DEFAULT '',
+  comment TEXT NOT NULL DEFAULT '',
+  ctx TEXT NOT NULL DEFAULT '{}',
+  parent_id TEXT NOT NULL DEFAULT '',
+  device TEXT NOT NULL DEFAULT '',
+  done_at INTEGER NOT NULL DEFAULT 0
+);
+CREATE INDEX IF NOT EXISTS rep_status ON reports(status, at);
+CREATE TABLE IF NOT EXISTS push_subs (
+  endpoint TEXT PRIMARY KEY,
+  created INTEGER NOT NULL,
+  last_msg INTEGER NOT NULL DEFAULT 0
+);
+CREATE TABLE IF NOT EXISTS push_msgs (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  at INTEGER NOT NULL,
+  title TEXT NOT NULL,
+  body TEXT NOT NULL,
+  url TEXT NOT NULL DEFAULT '',
+  sent INTEGER NOT NULL DEFAULT 0,
+  gone INTEGER NOT NULL DEFAULT 0
+);
+CREATE TABLE IF NOT EXISTS subs (
+  child_id TEXT NOT NULL,
+  term TEXT NOT NULL,
+  parent_id TEXT NOT NULL,
+  st TEXT NOT NULL,
+  price INTEGER NOT NULL DEFAULT 0,
+  ref TEXT NOT NULL DEFAULT '',
+  receipt TEXT NOT NULL DEFAULT '',
+  at INTEGER NOT NULL,
+  trial INTEGER NOT NULL DEFAULT 0,
+  until INTEGER NOT NULL,
+  decided INTEGER NOT NULL DEFAULT 0,
+  by TEXT NOT NULL DEFAULT '',
+  PRIMARY KEY (child_id, term)
+);
+CREATE INDEX IF NOT EXISTS subs_st ON subs(st, at);
+CREATE INDEX IF NOT EXISTS subs_parent ON subs(parent_id);

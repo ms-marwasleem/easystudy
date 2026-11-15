@@ -1161,6 +1161,16 @@ button.qpic{cursor:pointer}
 .qmp.tx{display:flex;align-items:center;justify-content:center;gap:.15em}
 .qmp.tx .qmsay{display:grid;place-items:center;flex:none;width:2rem;height:2rem;color:var(--icon-on-color)}
 .qmp.tx .qmsay svg{width:1.4rem;height:1.4rem}
+
+/* colour the table (qxColourTable): picture beside the table, boxes coloured from the bottom up */
+.qxct{flex-direction:row;align-items:center;justify-content:center;gap:2vw;--cs:clamp(1.5rem,min(8.2vw,4.4vh),3.2rem)}
+.qxct.rtl{flex-direction:row-reverse}
+.qxct .qxctp{max-height:62vh;max-width:34%;width:auto;align-self:center}
+.qxtb{display:grid;grid-template-columns:repeat(var(--n),auto);border:3px solid #fff;border-radius:1rem;overflow:hidden;background:rgba(255,255,255,.14)}
+.qxtc{display:flex;flex-direction:column;align-items:center;border-inline-start:2px solid rgba(255,255,255,.7)}
+.qxtc:first-child{border-inline-start:0}
+.qxtc .qxcs.qxtcell{width:var(--cs);height:var(--cs);padding:.12rem;border-bottom:2px solid rgba(255,255,255,.55);box-sizing:border-box}
+.qxtl{font:700 clamp(.42rem,1.8vw,.8rem)/1.1 var(--f-read);color:#fff;text-transform:uppercase;padding:.35rem .1rem;text-align:center;white-space:nowrap}
 /* ===== css/arabic.css ===== */
 /* ---------- Arabic subject (#lesson.ar, set in lesson.js) ----------
    Text runs right to left in a naskh font (shows the vowel marks well). Letters of a word are plain inline text,
@@ -1704,11 +1714,8 @@ button.qpic{cursor:pointer}
 .mline.mlrtl .mlthings img{transform:scaleX(-1)}
 .mline.mlrtl .mlthings.strip>img{transform:scaleX(-1)}
 .mline.mlrtl .mlframe{left:auto;right:calc(.6rem + (100% - 1.2rem) * var(--a) / var(--n))}
-/* colorn (math-ar 1-1): a 2x5 frame of circles to colour */
-.qmcirc{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(.375rem,1.6cqw,.75rem);width:min(62cqw,20rem);padding:.5rem;border:.1875rem solid var(--c-brown-dk);border-radius:.5rem;background:#fff;margin-top:.75rem}
-#lesson.ar .qmcirc{direction:rtl}
-.qmcc{aspect-ratio:1;border-radius:50%;border:.1875rem solid var(--c-brown-dk);background:#fff;padding:0;cursor:pointer;transition:background .15s,transform .15s}
-.qmcc.on{background:#E0412C}.qmcc.peek{box-shadow:0 0 0 .25rem rgba(42,127,216,.55)}.qmcc:active{transform:scale(.92)}
+/* shade in math-ar: the circles fill from the right */
+#lesson.ar .qmcirc{direction:rtl;width:min(94%,24rem)}   /* 10 circles = the book's 2 rows of 5 */
 /* math-ar explain (RTL as the book): rows flow from the right (dots, number, word, speaker at the left); bond rows: dots, "1 و 4", "يكوّنان 5"; number line: 1 at the right, arrow drawn right -> left */
 #lesson.ar .mxrow{direction:rtl}
 #lesson.ar .mxrow.mxbond{grid-template-columns:minmax(0,1fr) auto auto auto;grid-template-areas:"d e m s"}
@@ -1727,6 +1734,12 @@ button.qpic{cursor:pointer}
 .clkask{margin:0;font-weight:800;font-size:clamp(1.2rem,4.2cqh,2.2rem);color:var(--c-on-bg,#fff);text-align:center}
 .clkw{display:flex;flex-direction:column;align-items:center;gap:min(1.4cqh,.7rem);min-height:0}
 .clkface{width:min(27vh,64vw,20rem);height:auto;touch-action:manipulation;cursor:pointer}
+/* in a question the clock takes only the room that is LEFT after the question line and the time choices, so the choices are never cut off (Ahmed 2026-11-14) */
+.mclock .clkw{flex:1 1 0;min-height:0;width:100%}
+.mclock .clkface{flex:1 1 0;min-height:0;width:auto;height:auto;max-width:min(64vw,20rem);aspect-ratio:1/1}
+.mclock .clkchips,.mclock .clkopts{flex:none}
+.clkask .clkspk{display:inline-grid;vertical-align:middle;margin-inline-start:.5rem;width:1.9rem;height:1.9rem;background:none;border:0;padding:0}
+.clkask .clkspk svg{width:100%;height:100%}
 .clkw.clk-read .clkface,.clkw.clkdone .clkface{cursor:default}
 .clkchips,.clkopts{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
 .clkchip{font:inherit;font-weight:800;font-size:clamp(.95rem,2.6cqh,1.3rem);padding:.45em .9em;border-radius:1.2em;border:.18em solid #8a4a1a;background:#fff8e8;color:#3a2a1a;cursor:pointer}
@@ -1738,6 +1751,12 @@ button.qpic{cursor:pointer}
 /* Arabic math: number sentences / answer line right to left, bigger numbers (Ahmed 2026-11-14) */
 .alstem .altx.mrtl{direction:rtl;font-size:calc(var(--q-sentence-size) * 1.05)}
 #lesson.ar .mwline .lt,#lesson.ar .mwline .mwlead{font-size:clamp(1.6rem,min(7cqw,7cqh),3rem)}
+
+/* colour (performance book "color the same number"): a row of empty circles to tap */
+.qmcirc{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(0.5rem,2.4cqw,1rem);width:min(94%,36rem);margin-top:clamp(0.5rem,2cqh,1.25rem)}
+.qcirc{width:clamp(2.2rem,9cqw,3.4rem);aspect-ratio:1;border-radius:50%;border:0.2rem solid #5a3b1a;background:#fff;padding:0;cursor:pointer;transition:background .15s,transform .15s}
+.qcirc.on{background:#ffb21e;transform:scale(1.06)}
+.qmbignum{font-size:clamp(3rem,16cqw,6rem);font-weight:800;line-height:1;color:#5a3b1a;text-align:center;grid-column:1/-1}
 /* ===== css/frame.css ===== */
 /* ONE picture frame for the whole app: white border, soft shadow, rounded corners (same look on every screen and subject).
    Only pictures; the dots / numbers drawn by the app (data: images) and the lesson's book scene keep their own look. */
@@ -1753,6 +1772,10 @@ button.qpic{cursor:pointer}
 :is(.qpic,.qxpic,.qmp,.qcp,.qlkp,.pkpic,.vimgwrap,.lcard,.wlet,.wpic,.lpic,.qarpic,.qcenter.pic,.qmcount,.mxend,.qplay,.bpic) img[src^="data:image/png;cpic"],   /* count picture (ONE unit repeated, js/core.js cpicMake) = a cut-out too */
 .vimg.cut:not(.pf):not([src^="data:"]){background:none;border:0;border-radius:0;box-shadow:none;filter:var(--cut-shadow);transform:none}
 .qmp.done img[src$=".png" i]:not(.pf){box-shadow:none;filter:var(--cut-ring) var(--cut-shadow)}
+
+
+/* clock pictures (math u8: clock-*.svg, hand-*.svg) are see-through: no white card behind the clock (Ahmed 2026-11-14) */
+img[src*="/clock-"][src$=".svg"]:not([src^="data:"]),img[src*="/hand-"][src$=".svg"]:not([src^="data:"]){background:none!important;border-color:transparent!important;box-shadow:none!important}
 /* ===== css/exam.css ===== */
 /* EXAM PAPERS (Models / تقييمات) — the sheet looks like the school's printed paper, not like the game.
    Every size on the sheet is in em of the sheet itself (1em = 1/50 of its width), so a sheet scales whole with the screen. */
@@ -2581,7 +2604,7 @@ button.qpic{cursor:pointer}
 .scene.xhost::before,.scene.xhost::after{display:none}
 .xpl{display:grid;grid-template-columns:minmax(0,60fr) minmax(0,40fr);justify-content:stretch;grid-template-rows:minmax(0,1fr);gap:clamp(.2rem,1cqh,.6rem);height:100%;min-height:0;user-select:none;-webkit-user-select:none}
 /* landscape: picture + number sentence on the left, the writing on the right; portrait: writing under the picture */
-@media (orientation:portrait){.xpl{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,58fr) minmax(0,42fr)}.xpl-cap{--xfs:min(15cqh,6.8cqw,2.5rem)}}
+@media (orientation:portrait){.xpl{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,58fr) minmax(0,42fr)}.xpl-cap{--xfs:min(18cqh,9cqw,3.2rem)}}
 /* FIXED zones: the picture + number sentence zone and the writing zone never change size, so nothing moves when text is added.
    No plain background: the app's coloured page shows; the picture has its own white frame (drawn in the SVG). */
 .xpl-stage{position:relative;min-height:0;overflow:visible}
@@ -2602,8 +2625,8 @@ button.qpic{cursor:pointer}
 .xpl .xeq.lit text{fill:#fff;stroke:rgba(0,0,0,.25);stroke-width:4;paint-order:stroke}
 /* the writing zone (.fit = size container): the line being said, then the story written like normal text */
 .xpl-cap{container-type:size;min-height:0;overflow:hidden;display:flex;align-items:center;justify-content:flex-start;flex-direction:column;padding:0 .5rem;
-  --xfs:min(8.5cqh,8cqw,2.7rem)}
-.xpl-capt{margin:auto 0;font:700 var(--xfs)/1.35 var(--f-read);color:var(--c-on-bg);text-align:center;unicode-bidi:plaintext}
+  --xfs:min(11cqh,10cqw,3.4rem);--xf:calc(var(--xfs)*var(--xk,1))}
+.xpl-capt{margin:auto 0;font:700 var(--xf)/1.35 var(--f-read);color:var(--c-on-bg);text-align:center;unicode-bidi:plaintext}
 .xpl-capt[dir="rtl"]{font-family:var(--f-ar)}
 .xpl-cap.asking .xpl-capt{display:none}
 .xpl-ask{display:none;gap:clamp(.8rem,4cqw,1.6rem)}
@@ -2615,7 +2638,7 @@ button.qpic{cursor:pointer}
 .xpl-opt.no{animation:xshake .45s;background:var(--c-bad);color:#fff}
 @keyframes xshake{20%,60%{transform:translateX(-.5rem)}40%,80%{transform:translateX(.5rem)}}
 /* the story sentence: written on the page like story text (no boxes); group words in their colour; read-aloud word lights up */
-.xpl-line{display:none;margin:auto 0;text-align:center;font:700 var(--xfs)/1.45 var(--f-read);color:var(--c-on-bg)}
+.xpl-line{display:none;margin:auto 0;text-align:center;font:700 var(--xf)/1.45 var(--f-read);color:var(--c-on-bg)}
 .xpl-cap.built .xpl-line{display:block}
 .xpl-cap.built .xpl-capt{display:none}
 .xpl-cap.asking.built .xpl-line{margin:0;min-height:2.9em}
@@ -2629,7 +2652,7 @@ button.qpic{cursor:pointer}
 .xpl-cap.asking.built .xpl-ask{min-height:0;overflow-y:auto;gap:.3rem .4rem}
 .xpl-cap.asking.built .xpl-ask .qch.wd{--q-word:clamp(2rem,min(4.6vh,9vw),2.6rem)}
 .xpl-cap.asking.built .xpl-ask .qch.wd>span{padding-inline:.1rem}
-.xpl-cap.asking.built .xpl-line{font-size:calc(var(--xfs)*1.2);flex:none}
+.xpl-cap.asking.built .xpl-line{font-size:calc(var(--xf)*1.2);flex:none}
 .xpl-ask .xpick{cursor:pointer}   /* look + size = THE choice button (css/qlayout.css), Marwa 2026-11-06 */
 .xpl-ask .xpick.used{opacity:0;pointer-events:none}
 .xpl-ask .xpick.no{animation:xshake .45s}
@@ -2651,8 +2674,18 @@ button.qpic{cursor:pointer}
 
 /* wide = a LINE lesson (data explain.wide): the picture takes the whole width, the answer is written under it, in landscape too */
 .xpl.xwide{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,76fr) minmax(0,24fr)}
-.xpl.xwide .xpl-cap{--xfs:min(15cqh,6.8cqw,2.5rem)}
-.xpl.xwide .xtw.xcard{font-size:calc(var(--xfs)*1.7);padding:.1em .6em}
+.xpl.xwide .xpl-cap{--xfs:min(18cqh,9cqw,3.2rem)}
+.xpl.xwide .xtw.xcard{font-size:calc(var(--xf)*1.7);padding:.1em .6em}
+
+/* clock lesson: the answer card ("الساعة ٨ ونصف" / "half past 8") is bigger so it reads clearly in Arabic and English (Ahmed 2026-11-14) */
+.xpl.xclockl .xtw.xcard{font-size:calc(var(--xf)*1.6);padding:.1em .6em}
+
+/* the number sentence is written under the picture in LARGE type, part by part, as it is said (Ahmed 2026-11-14) */
+.xpl-line .xtw.xbig{font:400 calc(var(--xf)*2.3)/1.1 var(--f-title);margin:0 .1em;color:var(--c-on-bg)}
+.xpl-line .xtw.xbig.xcard{padding:.02em .4em}
+.xpl-line .xtw.xbig.xcard{color:var(--c-text)}
+.xpl .xhead text{font:400 118px var(--f-title);fill:#fff;stroke:var(--ol);stroke-width:8;paint-order:stroke;stroke-linejoin:round}
+@media (orientation:portrait){.xpl.xtall{grid-template-rows:minmax(0,76fr) minmax(0,24fr)}.xpl.xtall .xpl-cap{--xfs:min(22cqh,9cqw,2.6rem)}}
 /* ===== css/nahw.css ===== */
 /* NAHW template (js/nahw.js): animated grammar lessons. FIXED zones (board + sentence), relative units only; colours from theme.css. */
 .scene.nhhost{background:none;border:0;box-shadow:none;overflow:visible;justify-content:flex-start;align-items:stretch;padding:0}
@@ -3004,6 +3037,9 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
   background:var(--btn-bg)!important;border:var(--btn-border)!important;box-shadow:var(--btn-shadow)!important;
   color:var(--btn-ink)!important;font:700 calc(var(--q-choice)*.5)/1 var(--btn-font);text-align:center;overflow:visible;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .qch::before{display:none!important}
+/* the button's white gloss (.rb::after in base.css) lay OVER the first letters and washed them out = the "shadow" on the first characters (Ahmed 2026-11-14): put it UNDER the text */
+.qch:not(.ringed)::after{z-index:0}
+.qch>span{position:relative;z-index:1}
 .qch>span{display:block!important;margin:0!important;padding:0!important;transform:none!important;font:inherit!important;line-height:1!important;color:inherit!important;text-align:center;white-space:nowrap}
 .qch.two{font-size:calc(var(--q-choice)*.42)}
 /* THE word pill (Marwa 2026-11-06: the look of the "This is my ___ / father" choices, the same everywhere: cloze, choose, reorder pieces, explainer pieces).
@@ -3024,7 +3060,7 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .qch.dim{opacity:.35}
 .qch.bad{background:var(--c-bad-bg)!important;border-color:var(--c-bad-dk)!important}
 .qch.used{opacity:.28;pointer-events:none}
-.qch.ringed::after{content:"";position:absolute;inset:-.32rem;border:.22rem solid var(--c-pink);border-radius:50%;transform:rotate(-4deg) scale(var(--ring,1));pointer-events:none}
+.qch.ringed::after{content:"";position:absolute;inset:-.32rem;width:auto;height:auto;background:none;z-index:2;border:.22rem solid var(--c-pink);border-radius:50%;transform:rotate(-4deg) scale(var(--ring,1));pointer-events:none}
 .qch.wd.ringed::after{inset:-.3rem -.45rem;border-radius:62rem}
 /* tick and cross: the same family and size as the other choices (they were twice as big) */
 .quiz .qans .qbtn.yes,.quiz .qans .qbtn.no,#lesson.q-short .quiz .qans .qbtn{width:calc(var(--q-choice)*1.1)!important;height:calc(var(--q-choice)*1.1)!important}
@@ -3112,6 +3148,23 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 #lesson.ar .qxtile span{font-family:var(--f-ar)!important}
 .qxtile.wide{width:auto!important;min-width:calc(var(--th)*1.4);height:auto!important;min-height:calc(var(--th)*.86);padding:.12em .68em!important;border-radius:62rem!important}
 .qxtile.wide span{font-size:calc(var(--th)*.42)!important}
+
+/* clock questions (math u8, English + Arabic): the picture is the thing to see, so the time choices are smaller and sit in a wrapping row; the clock gets the room (Ahmed 2026-11-14) */
+.almcq.clockq .alopts{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:.35rem .45rem}
+.almcq.clockq .alopts .qch.wd{--q-word:clamp(2.1rem,min(4.6vh,10vw),2.7rem)}
+.almcq.clockq .alpics{display:flex;align-items:center;justify-content:center}
+.almcq.clockq .alpics img{max-height:100%;max-width:100%;width:auto;height:100%;object-fit:contain}
+.alfig:has(.clkdraw){position:relative}
+.alfig .clkdraw{position:absolute;inset:var(--pf-border);width:calc(100% - 2*var(--pf-border));height:calc(100% - 2*var(--pf-border));pointer-events:none}
+/* a hidden number sentence keeps its room (nothing jumps when Help shows it); the blank stays */
+.altx.eqhid .alw{visibility:hidden}
+
+/* chart / table questions (math 6-2, 6-3, English + Arabic): the chart is tall, so it takes ALL the free room and the choices are smaller (Ahmed 2026-11-14) */
+.almcq.chartq .alopts{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:.3rem .4rem}
+.almcq.chartq .alopts .qch.wd{--q-word:clamp(1.8rem,min(3.8vh,9vw),2.3rem)}
+.almcq.chartq .alpics{display:flex;align-items:center;justify-content:center}
+.almcq.chartq .alfig{height:100%;max-height:100%}
+.almcq.chartq .alpics img{max-height:100%;max-width:100%;width:auto;height:100%;object-fit:contain}
 /* ===== css/coins.css ===== */
 /* COINS — the coin chip beside the star counter, the share sheet and the unlock popup (js/coins.js). Same popup look as the app's messages. */
 .coinhud{position:relative;display:flex;align-items:center;height:2.2rem;padding:0 .9rem 0 2.3rem;margin-left:1.6rem;border-radius:62.4375rem;border:0;cursor:pointer;
@@ -3233,4 +3286,4 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .subf input.bad{border-color:#D32F2F}
 .subimg{margin:0;color:#2E7D32;font-size:.9rem}
 .subnote{font-size:.8rem;opacity:.85;margin:0;line-height:1.5}
-:root{--app-build:"9e7709686f"}
+:root{--app-build:"0789611b29"}

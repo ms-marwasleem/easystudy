@@ -390,6 +390,55 @@
    ],
    "book": "booklet",
    "ex": 4
+  },
+  {
+   "type": "bigger",
+   "page": 23,
+   "task": "Color the bigger number.",
+   "taskAudio": "q/task-bk-color-the-bigger-number.mp3",
+   "items": [
+    {
+     "nums": [
+      4,
+      3
+     ],
+     "find": "bigger",
+     "audio": "words/four.mp3"
+    },
+    {
+     "nums": [
+      9,
+      10
+     ],
+     "find": "bigger",
+     "audio": "words/ten.mp3"
+    },
+    {
+     "nums": [
+      5,
+      6
+     ],
+     "find": "bigger",
+     "audio": "words/six.mp3"
+    },
+    {
+     "nums": [
+      8,
+      6
+     ],
+     "find": "bigger",
+     "audio": "words/eight.mp3"
+    },
+    {
+     "nums": [
+      7,
+      10
+     ],
+     "find": "bigger",
+     "audio": "words/ten.mp3"
+    }
+   ],
+   "book": "workbook"
   }
  ]
 }

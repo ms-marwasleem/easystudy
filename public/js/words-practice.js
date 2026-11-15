@@ -19,10 +19,11 @@ const EP_CAN={
 // never the same word twice in a row. The dots under the question are the groups; the stars above it are the questions of the group on screen.
 function epBuild(pool,per,types){
   const out=[]; let last=null; ep.groups=[];
-  types.forEach(t=>{
+  types.forEach((t,ti)=>{
+    const per_=Array.isArray(per)?per[ti]:per; if(!per_) return;   // (a test: the number asked for is shared out between the kinds, so it is exact)
     const ok=pool.filter(v=>EP_CAN[t](v,pool)); if(!ok.length) return;
     const g=ep.groups.length, start=out.length; let bag=[];
-    for(let k=0;k<per;k++){
+    for(let k=0;k<per_;k++){
       if(!bag.length) bag=epShuffle(ok);
       let v=bag.pop(); if(ok.length>1&&v===last&&bag.length){ const w=bag.pop(); bag.push(v); v=w; }
       last=v; const q={t,v,g};
@@ -30,7 +31,7 @@ function epBuild(pool,per,types){
       if(t==='match'){ const others=epShuffle(pool.filter(x=>x.img&&x!==v&&x.word!==v.word)); q.set=epShuffle([v,...others.slice(0,Math.min(3,others.length))]); }
       out.push(q);
     }
-    ep.groups.push({t,start,n:per});
+    ep.groups.push({t,start,n:per_});
   });
   return out;
 }
@@ -42,13 +43,17 @@ function epStart(o){
   ep.src=o.src||LESSON.epSrc||'lesson'; ep.i=0; ep.bad=0; ep.busy=false; ep.lastG=-1;
   if(!ep.pool.length){ $('#stage').innerHTML='<div class="ew-empty">مفيش كلمات للتدريب</div>'; return; }
   if(!ep.types.length) ep.types=['order'];
-  const total=!!(o.n||(LESSON.ep&&LESSON.ep.n)); ep.qs=epBuild(ep.pool,total?Math.max(1,Math.ceil(ep.n/ep.types.length)):ep.n,ep.types); epLayout(); epShow();
+  const total=!!(o.n||(LESSON.ep&&LESSON.ep.n)); let per=ep.n; if(total){ const k=ep.types.length, b=Math.floor(ep.n/k), r=ep.n%k; ep.types=epShuffle(ep.types); per=ep.types.map((_,i)=>b+(i<r?1:0)); }
+  ep.qs=epBuild(ep.pool,per,ep.types); epLayout(); epShow();
 }
 function epLayout(){ const L=$('#lesson'), land=innerWidth>innerHeight*1.1; L.classList.toggle('q-land',land); L.classList.toggle('q-port',!land); }
 addEventListener('resize',()=>{ if(tab==='practice') epLayout(); });
 function epGrp(){ return ep.groups[ep.qs[ep.i].g]; }
 function epDots(){ const g=epGrp(); return Array.from({length:g.n},(_,k)=>`<i data-i="${g.start+k}">${STAR(false)}</i>`).join(''); }
-function epHelpBtn(fn){ const r=$('#lmeta .lm-r'); if(!r) return; r.replaceChildren(); if(!fn) return; const hb=el('button','qhelpb',ICON.hint); hb.setAttribute('aria-label','ساعدني'); hb.onclick=()=>{ if(!ep.busy) fn(); }; r.append(hb); }
+function epHelpBtn(fn){   // the Help bulb always stands right beside the speaker (in the word row; the link question has no word row, so it stands in the header row): the page never moves
+  const r=$('#lmeta .lm-r'); if(r) r.replaceChildren(); const w=$('#stage .quiz.ep'); if(!w) return;
+  let hb=$('.qhelpb',w); if(!hb){ hb=el('button','qhelpb',ICON.hint); hb.setAttribute('aria-label','ساعدني'); const wd=$('.qword',w); (wd&&!wd.hidden?wd:$('.qhead',w)).append(hb); }
+  hb.classList.toggle('off',!fn); hb.disabled=!fn; hb.onclick=fn?()=>{ if(!ep.busy) fn(); }:null; }
 function epShow(){
   const q=ep.qs[ep.i], st=$('#stage'); stopVoice(); const run=ep.run; ep.busy=false; hideHint();   // (stopVoice makes a new run number: the question before can no longer act)
   const s=ewSubjOf(q.v.lid||'')||SUBJECT; if(s&&SUBJECT!==s){ SUBJECT=s; subjDir(); }
@@ -118,7 +123,6 @@ function epOrder(q,w,run){
       else { tone(170,'square',.06,.18); q.bad=1; b.classList.remove('shake'); void b.offsetWidth; b.classList.add('shake'); setTimeout(()=>b.classList.remove('shake'),450); } });
     ans.append(b); });
   epHelpBtn(()=>{ const want=gl[ix[k]]; const hit=$$('.eptile:not(.used)',ans).find(b=>{ const g=gl[+b.dataset.i]; return ar?sameLetter(g,want):g.toLowerCase()===want.toLowerCase(); }); if(hit){ hit.classList.add('glow'); setTimeout(()=>hit.classList.remove('glow'),tokMs('--help-pick-ms',2000)); } });
-  setTimeout(()=>{ if(run===ep.run) epSay(q.v); },500);
 }
 // 4) link every word to its picture: the curriculum app's own link board (classes, line drawing, layout), drag a line or tap the word then the picture
 function epMatch(q,w,run){

@@ -19,9 +19,11 @@
      ],
      "answer": 2,
      "askSay": "كم الساعة؟",
-     "word": "الساعة 1."
+     "word": "الساعة 1.",
+     "askAudio": "../../math-ar-audio/3999a6dfe1.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/4b5936f060.mp3"
   },
   {
    "type": "mcq",
@@ -42,9 +44,11 @@
      ],
      "answer": 1,
      "askSay": "كم الساعة؟",
-     "word": "الساعة 5 ونصف."
+     "word": "الساعة 5 ونصف.",
+     "askAudio": "../../math-ar-audio/3999a6dfe1.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/4b5936f060.mp3"
   },
   {
    "type": "mcq",
@@ -65,9 +69,12 @@
      ],
      "answer": 0,
      "askSay": "كم الساعة؟",
-     "word": "الساعة 4."
+     "word": "الساعة 4.",
+     "askAudio": "../../math-ar-audio/3999a6dfe1.mp3",
+     "audio": "../../math-ar-audio/04d0ebeeb5.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/4b5936f060.mp3"
   },
   {
    "type": "mcq",
@@ -88,9 +95,12 @@
      ],
      "answer": 2,
      "askSay": "كم الساعة؟",
-     "word": "الساعة 2 ونصف."
+     "word": "الساعة 2 ونصف.",
+     "audio": "../../math-ar-audio/fe20b768eb.mp3",
+     "askAudio": "../../math-ar-audio/3999a6dfe1.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/4b5936f060.mp3"
   },
   {
    "type": "mcq",
@@ -111,9 +121,12 @@
      ],
      "answer": 1,
      "askSay": "كم الساعة؟",
-     "word": "الساعة 9."
+     "word": "الساعة 9.",
+     "audio": "../../math-ar-audio/5f38abc76c.mp3",
+     "askAudio": "../../math-ar-audio/3999a6dfe1.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/4b5936f060.mp3"
   },
   {
    "type": "mcq",
@@ -134,9 +147,12 @@
      ],
      "answer": 0,
      "askSay": "كم الساعة؟",
-     "word": "الساعة 7."
+     "word": "الساعة 7.",
+     "audio": "../../math-ar-audio/701f300e7a.mp3",
+     "askAudio": "../../math-ar-audio/3999a6dfe1.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/4b5936f060.mp3"
   },
   {
    "type": "mcq",
@@ -157,9 +173,12 @@
      ],
      "answer": 2,
      "askSay": "كم الساعة؟",
-     "word": "الساعة 9 ونصف."
+     "word": "الساعة 9 ونصف.",
+     "audio": "../../math-ar-audio/a808af2e44.mp3",
+     "askAudio": "../../math-ar-audio/3999a6dfe1.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/4b5936f060.mp3"
   },
   {
    "type": "mcq",
@@ -180,147 +199,114 @@
      ],
      "answer": 1,
      "askSay": "كم الساعة؟",
-     "word": "الساعة 2."
+     "word": "الساعة 2.",
+     "audio": "../../math-ar-audio/a46b2dad97.mp3",
+     "askAudio": "../../math-ar-audio/3999a6dfe1.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/4b5936f060.mp3"
   },
   {
-   "type": "mcq",
+   "type": "clock",
    "ex": 9,
    "page": 87,
    "task": "نرسم العقرب الطويل.",
    "items": [
     {
-     "pics": [
-      "hand-3-0.svg"
-     ],
+     "h": 3,
+     "m": 0,
+     "mode": "long",
      "ask": "الساعة 3. أين يشير العقرب الطويل؟",
-     "stem": "العقرب الطويل يشير إلى __",
-     "options": [
-      "12",
-      "3",
-      "6"
-     ],
-     "answer": 0,
-     "askSay": "الساعة 3. أين يشير العقرب الطويل؟",
-     "word": "العقرب الطويل يشير إلى 12."
+     "word": "العقرب الطويل يشير إلى 12.",
+     "askAudio": "../../math-ar-audio/900dbeace6.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/536aec4bdc.mp3"
   },
   {
-   "type": "mcq",
+   "type": "clock",
    "ex": 10,
    "page": 87,
    "task": "نرسم العقرب الطويل.",
    "items": [
     {
-     "pics": [
-      "hand-1-1.svg"
-     ],
+     "h": 1,
+     "m": 30,
+     "mode": "long",
      "ask": "الساعة 1 ونصف. أين يشير العقرب الطويل؟",
-     "stem": "العقرب الطويل يشير إلى __",
-     "options": [
-      "12",
-      "3",
-      "6"
-     ],
-     "answer": 2,
-     "askSay": "الساعة 1 ونصف. أين يشير العقرب الطويل؟",
-     "word": "العقرب الطويل يشير إلى 6."
+     "word": "العقرب الطويل يشير إلى 6.",
+     "askAudio": "../../math-ar-audio/a23bb417aa.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/536aec4bdc.mp3"
   },
   {
-   "type": "mcq",
+   "type": "clock",
    "ex": 11,
    "page": 87,
    "task": "نرسم العقرب الطويل.",
    "items": [
     {
-     "pics": [
-      "hand-6-1.svg"
-     ],
+     "h": 6,
+     "m": 30,
+     "mode": "long",
      "ask": "الساعة 6 ونصف. أين يشير العقرب الطويل؟",
-     "stem": "العقرب الطويل يشير إلى __",
-     "options": [
-      "12",
-      "3",
-      "6"
-     ],
-     "answer": 2,
-     "askSay": "الساعة 6 ونصف. أين يشير العقرب الطويل؟",
-     "word": "العقرب الطويل يشير إلى 6."
+     "word": "العقرب الطويل يشير إلى 6.",
+     "askAudio": "../../math-ar-audio/a7f7e12aea.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/536aec4bdc.mp3"
   },
   {
-   "type": "mcq",
+   "type": "clock",
    "ex": 12,
    "page": 87,
    "task": "نرسم العقرب الطويل.",
    "items": [
     {
-     "pics": [
-      "hand-5-0.svg"
-     ],
+     "h": 5,
+     "m": 0,
+     "mode": "long",
      "ask": "الساعة 5. أين يشير العقرب الطويل؟",
-     "stem": "العقرب الطويل يشير إلى __",
-     "options": [
-      "12",
-      "3",
-      "6"
-     ],
-     "answer": 0,
-     "askSay": "الساعة 5. أين يشير العقرب الطويل؟",
-     "word": "العقرب الطويل يشير إلى 12."
+     "word": "العقرب الطويل يشير إلى 12.",
+     "askAudio": "../../math-ar-audio/74161fb1c6.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/536aec4bdc.mp3"
   },
   {
-   "type": "mcq",
+   "type": "clock",
    "ex": 13,
    "page": 87,
    "task": "نرسم العقرب الطويل.",
    "items": [
     {
-     "pics": [
-      "hand-11-1.svg"
-     ],
+     "h": 11,
+     "m": 30,
+     "mode": "long",
      "ask": "الساعة 11 ونصف. أين يشير العقرب الطويل؟",
-     "stem": "العقرب الطويل يشير إلى __",
-     "options": [
-      "12",
-      "3",
-      "6"
-     ],
-     "answer": 2,
-     "askSay": "الساعة 11 ونصف. أين يشير العقرب الطويل؟",
-     "word": "العقرب الطويل يشير إلى 6."
+     "word": "العقرب الطويل يشير إلى 6.",
+     "askAudio": "../../math-ar-audio/50e2179279.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/536aec4bdc.mp3"
   },
   {
-   "type": "mcq",
+   "type": "clock",
    "ex": 14,
    "page": 87,
    "task": "نرسم العقرب الطويل.",
    "items": [
     {
-     "pics": [
-      "hand-4-1.svg"
-     ],
+     "h": 4,
+     "m": 30,
+     "mode": "long",
      "ask": "الساعة 4 ونصف. أين يشير العقرب الطويل؟",
-     "stem": "العقرب الطويل يشير إلى __",
-     "options": [
-      "12",
-      "3",
-      "6"
-     ],
-     "answer": 2,
-     "askSay": "الساعة 4 ونصف. أين يشير العقرب الطويل؟",
-     "word": "العقرب الطويل يشير إلى 6."
+     "word": "العقرب الطويل يشير إلى 6.",
+     "askAudio": "../../math-ar-audio/2a3ae6ca19.mp3"
     }
-   ]
+   ],
+   "taskAudio": "../../math-ar-audio/536aec4bdc.mp3"
   },
   {
    "type": "clock",
@@ -332,10 +318,12 @@
      "h": 3,
      "m": 0,
      "mode": "long",
-     "ask": "الساعة 3"
+     "ask": "الساعة 3",
+     "askAudio": "../../math-ar-audio/a50a1de867.mp3"
     }
    ],
-   "book": "workbook"
+   "book": "workbook",
+   "taskAudio": "../../math-ar-audio/536aec4bdc.mp3"
   },
   {
    "type": "clock",
@@ -347,10 +335,12 @@
      "h": 1,
      "m": 30,
      "mode": "long",
-     "ask": "الساعة 1 ونصف"
+     "ask": "الساعة 1 ونصف",
+     "askAudio": "../../math-ar-audio/a3ebfc9ec8.mp3"
     }
    ],
-   "book": "workbook"
+   "book": "workbook",
+   "taskAudio": "../../math-ar-audio/536aec4bdc.mp3"
   },
   {
    "type": "clock",
@@ -362,10 +352,12 @@
      "h": 6,
      "m": 30,
      "mode": "long",
-     "ask": "الساعة 6 ونصف"
+     "ask": "الساعة 6 ونصف",
+     "askAudio": "../../math-ar-audio/dc86889b1e.mp3"
     }
    ],
-   "book": "workbook"
+   "book": "workbook",
+   "taskAudio": "../../math-ar-audio/536aec4bdc.mp3"
   },
   {
    "type": "clock",
@@ -377,10 +369,12 @@
      "h": 9,
      "m": 30,
      "mode": "read",
-     "ask": "كم الوقت؟"
+     "ask": "كم الوقت؟",
+     "askAudio": "../../math-ar-audio/2184a20d6e.mp3"
     }
    ],
-   "book": "workbook"
+   "book": "workbook",
+   "taskAudio": "../../math-ar-audio/c5e5b03178.mp3"
   },
   {
    "type": "clock",
@@ -392,10 +386,12 @@
      "h": 7,
      "m": 0,
      "mode": "read",
-     "ask": "كم الوقت؟"
+     "ask": "كم الوقت؟",
+     "askAudio": "../../math-ar-audio/2184a20d6e.mp3"
     }
    ],
-   "book": "workbook"
+   "book": "workbook",
+   "taskAudio": "../../math-ar-audio/c5e5b03178.mp3"
   }
  ]
 }

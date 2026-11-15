@@ -250,6 +250,39 @@
    ],
    "book": "booklet",
    "ex": 5
+  },
+  {
+   "type": "count",
+   "page": 24,
+   "task": "Complete by writing the number of circles.",
+   "taskAudio": "q/task-bk-complete-by-writing-the-number-of-circles.mp3",
+   "items": [
+    {
+     "img": "../../pics/circle-blue.png#2",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    },
+    {
+     "img": "../../pics/circle-blue.png#3",
+     "n": 3,
+     "group": true,
+     "audio": "words/three.mp3"
+    },
+    {
+     "img": "../../pics/circle-blue.png#5",
+     "n": 5,
+     "group": true,
+     "audio": "words/five.mp3"
+    },
+    {
+     "img": "../../pics/circle-blue.png#4",
+     "n": 4,
+     "group": true,
+     "audio": "words/four.mp3"
+    }
+   ],
+   "book": "workbook"
   }
  ]
 }

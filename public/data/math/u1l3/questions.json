@@ -260,48 +260,6 @@
   },
   {
    "type": "bond",
-   "page": 10,
-   "task": "What two numbers make 5? Write the missing number in the square.",
-   "taskAudio": "q/task-bk-what-two-numbers-make-write-the-missing-number-in-the-square.mp3",
-   "items": [
-    {
-     "whole": 5,
-     "parts": [
-      2,
-      null
-     ],
-     "audio": "words/two-and-three-make-five.mp3"
-    },
-    {
-     "whole": 5,
-     "parts": [
-      1,
-      null
-     ],
-     "audio": "words/one-and-four-make-five.mp3"
-    },
-    {
-     "whole": 5,
-     "parts": [
-      null,
-      4
-     ],
-     "audio": "words/one-and-four-make-five.mp3"
-    },
-    {
-     "whole": 5,
-     "parts": [
-      3,
-      null
-     ],
-     "audio": "words/three-and-two-make-five.mp3"
-    }
-   ],
-   "book": "workbook",
-   "ex": 7
-  },
-  {
-   "type": "bond",
    "ex": 1,
    "page": 6,
    "task": "Write the missing number in the box.",
@@ -574,6 +532,61 @@
     }
    ],
    "book": "booklet"
+  },
+  {
+   "type": "bond",
+   "page": 10,
+   "task": "What two numbers make 5? Write the missing number in the square.",
+   "taskAudio": "q/task-bk-what-two-numbers-make-write-the-missing-number-in-the-square.mp3",
+   "items": [
+    {
+     "whole": 5,
+     "parts": [
+      2,
+      null
+     ],
+     "audio": "words/two-and-three-make-five.mp3"
+    },
+    {
+     "whole": 5,
+     "parts": [
+      1,
+      null
+     ],
+     "audio": "words/one-and-four-make-five.mp3"
+    },
+    {
+     "whole": 5,
+     "parts": [
+      null,
+      4
+     ],
+     "audio": "words/one-and-four-make-five.mp3"
+    },
+    {
+     "whole": 5,
+     "parts": [
+      3,
+      null
+     ],
+     "audio": "words/three-and-two-make-five.mp3"
+    }
+   ],
+   "book": "workbook"
+  },
+  {
+   "type": "shade",
+   "page": 10,
+   "task": "Color the given number of circles.",
+   "taskAudio": "q/task-bk-color-the-given-number-of-circles.mp3",
+   "items": [
+    {
+     "n": 3,
+     "slots": 5,
+     "audio": "words/three.mp3"
+    }
+   ],
+   "book": "workbook"
   }
  ]
 }
