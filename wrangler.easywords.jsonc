@@ -3,6 +3,6 @@
   "main": "src/index.js",
   "compatibility_date": "2026-10-17",
   "vars": { "APP_NAME": "Easy Words", "ROOT_PAGE": "/words.html", "ADMIN_PAGE": "/admin-words.html", "SETTINGS_PATH": "data/words/settings.json" },
-  "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": ["/", "/index.html", "/admin.html", "/api/*"] },
+  "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": ["/", "/index.html", "/admin.html", "/admin", "/admin/", "/api/*"] },
   "d1_databases": [{ "binding": "DB", "database_name": "easywords", "database_id": "946ec279-7baf-469a-87e4-f67f8a90009a" }]
 }

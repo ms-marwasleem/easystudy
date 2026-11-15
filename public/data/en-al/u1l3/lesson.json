@@ -5,8 +5,7 @@
  "sceneAlt": "Families together",
  "tabs": [
   "read",
-  "words",
-  "grammar"
+  "words"
  ],
  "type": "al",
  "scene": "../../pics/park.jpg",
@@ -457,5 +456,8 @@
     ]
    }
   }
- ]
+ ],
+ "tabLabels": {
+  "quiz": "Book's Questions"
+ }
 }

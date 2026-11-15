@@ -17,7 +17,7 @@
   {
    "word": "dad",
    "ar": "بابا",
-   "img": "../../pics/dad.png",
+   "img": "../../pics/tb-dad.jpg",
    "parts": [
     {
      "t": "d",
@@ -43,7 +43,7 @@
   {
    "word": "mom",
    "ar": "ماما",
-   "img": "../../pics/mom.jpg",
+   "img": "../../pics/tb-mom.jpg",
    "parts": [
     {
      "t": "m",
@@ -69,7 +69,7 @@
   {
    "word": "brother",
    "ar": "أخ",
-   "img": "../../pics/rv-brother.jpg",
+   "img": "../../pics/tb-brother.jpg",
    "parts": [
     {
      "t": "b",
@@ -105,7 +105,7 @@
   {
    "word": "sister",
    "ar": "أخت",
-   "img": "../../pics/sister.png",
+   "img": "../../pics/tb-sister.jpg",
    "parts": [
     {
      "t": "s",
@@ -141,7 +141,7 @@
   {
    "word": "grandma",
    "ar": "جدة",
-   "img": "../../pics/grandma.jpg",
+   "img": "../../pics/tb-grandma.jpg",
    "parts": [
     {
      "t": "g",
@@ -187,7 +187,7 @@
   {
    "word": "grandpa",
    "ar": "جد",
-   "img": "../../pics/grandpa.jpg",
+   "img": "../../pics/tb-grandpa.jpg",
    "parts": [
     {
      "t": "g",
@@ -233,7 +233,7 @@
   {
    "word": "baby",
    "ar": "طفل رضيع",
-   "img": "../../pics/baby.png",
+   "img": "../../pics/tb-baby.jpg",
    "parts": [
     {
      "t": "b",
@@ -264,7 +264,7 @@
   {
    "word": "uncle",
    "ar": "عم / خال",
-   "img": "../../pics/uncle.jpg",
+   "img": "../../pics/tb-uncle.jpg",
    "parts": [
     {
      "t": "u",
@@ -301,7 +301,7 @@
   {
    "word": "aunt",
    "ar": "عمة / خالة",
-   "img": "../../pics/aunt.jpg",
+   "img": "../../pics/tb-aunt.jpg",
    "parts": [
     {
      "t": "au",
@@ -327,7 +327,7 @@
   {
    "word": "cousin",
    "ar": "ابن / بنت العم",
-   "img": "../../pics/cousin.jpg",
+   "img": "../../pics/tb-cousin.jpg",
    "parts": [
     {
      "t": "c",
@@ -367,32 +367,89 @@
   "read",
   "words",
   "booklet",
-  "grammar"
+  "grammar",
+  "quiz"
  ],
  "grammar": [
   {
-   "title": "Verb to be: am, is, are",
-   "note": "We use am, is or are after these words.",
+   "title": "Listen and read",
+   "note": null,
    "rows": [
     [
      {
-      "t": "I am.",
-      "a": "data/en-shared/q/i-am.mp3",
-      "cls": "b"
+      "t": "Hi! I'm Isabel. Look at me.",
+      "a": "data/en-shared/q/hi-i-m-isabel-look-at-me.mp3"
      }
     ],
     [
      {
-      "t": "He is. She is. It is.",
-      "a": "data/en-shared/q/he-is-she-is-it-is.mp3",
-      "cls": "b"
+      "t": "I like to play with my family.",
+      "a": "data/en-shared/q/i-like-to-play-with-my-family.mp3"
      }
     ],
     [
      {
-      "t": "We are. You are. They are.",
-      "a": "data/en-shared/q/we-are-you-are-they-are.mp3",
-      "cls": "b"
+      "t": "She's my mom.",
+      "a": "data/en-shared/q/she-s-my-mom.mp3"
+     }
+    ],
+    [
+     {
+      "t": "He's my dad.",
+      "a": "data/en-shared/q/he-s-my-dad.mp3"
+     }
+    ],
+    [
+     {
+      "t": "They're happy.",
+      "a": "data/en-shared/q/they-re-happy.mp3"
+     }
+    ],
+    [
+     {
+      "t": "We aren't sad.",
+      "a": "data/en-shared/q/we-aren-t-sad.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "text",
+    "lines": [
+     {
+      "t": "Hi! I'm Isabel. Look at me.",
+      "a": "data/en-shared/q/hi-i-m-isabel-look-at-me.mp3"
+     },
+     {
+      "t": "I like to play with my family.",
+      "a": "data/en-shared/q/i-like-to-play-with-my-family.mp3"
+     },
+     {
+      "t": "She's my mom.",
+      "a": "data/en-shared/q/she-s-my-mom.mp3"
+     },
+     {
+      "t": "He's my dad.",
+      "a": "data/en-shared/q/he-s-my-dad.mp3"
+     },
+     {
+      "t": "They're happy.",
+      "a": "data/en-shared/q/they-re-happy.mp3"
+     },
+     {
+      "t": "We aren't sad.",
+      "a": "data/en-shared/q/we-aren-t-sad.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "Who goes with am, is, are?",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "Who goes with am, is, are?",
+      "a": "data/en-shared/q/who-goes-with-am-is-are.mp3"
      }
     ]
    ],
@@ -406,8 +463,7 @@
     "items": [
      {
       "t": "I",
-      "bin": 0,
-      "a": "data/en-shared/q/i-am.mp3"
+      "bin": 0
      },
      {
       "t": "He",
@@ -419,8 +475,7 @@
      },
      {
       "t": "It",
-      "bin": 1,
-      "a": "data/en-shared/q/he-is-she-is-it-is.mp3"
+      "bin": 1
      },
      {
       "t": "We",
@@ -432,14 +487,13 @@
      },
      {
       "t": "They",
-      "bin": 2,
-      "a": "data/en-shared/q/we-are-you-are-they-are.mp3"
+      "bin": 2
      }
     ]
    }
   },
   {
-   "title": "Long form and short form",
+   "title": "I am  →  I'm",
    "note": null,
    "rows": [
     [
@@ -454,62 +508,12 @@
     ],
     [
      {
-      "t": "You are my friend.",
-      "a": "data/en-shared/q/you-are-my-friend.mp3"
+      "t": "I am seven years old.",
+      "a": "data/en-shared/q/i-am-seven-years-old.mp3"
      },
      {
-      "t": "You're my friend.",
-      "a": "data/en-shared/q/you-re-my-friend.mp3"
-     }
-    ],
-    [
-     {
-      "t": "He is my brother.",
-      "a": "data/en-shared/q/he-is-my-brother.mp3"
-     },
-     {
-      "t": "He's my brother.",
-      "a": "data/en-shared/q/he-s-my-brother.mp3"
-     }
-    ],
-    [
-     {
-      "t": "She is not my sister.",
-      "a": "data/en-shared/q/she-is-not-my-sister.mp3"
-     },
-     {
-      "t": "She isn't my sister.",
-      "a": "data/en-shared/q/she-isn-t-my-sister.mp3"
-     }
-    ],
-    [
-     {
-      "t": "It is a dog.",
-      "a": "data/en-shared/q/it-is-a-dog.mp3"
-     },
-     {
-      "t": "It's a dog.",
-      "a": "data/en-shared/q/it-s-a-dog.mp3"
-     }
-    ],
-    [
-     {
-      "t": "We are friends.",
-      "a": "data/en-shared/q/we-are-friends.mp3"
-     },
-     {
-      "t": "We're friends.",
-      "a": "data/en-shared/q/we-re-friends.mp3"
-     }
-    ],
-    [
-     {
-      "t": "They are not teachers.",
-      "a": "data/en-shared/q/they-are-not-teachers.mp3"
-     },
-     {
-      "t": "They aren't teachers.",
-      "a": "data/en-shared/q/they-aren-t-teachers.mp3"
+      "t": "I'm seven years old.",
+      "a": "data/en-shared/q/i-m-seven-years-old.mp3"
      }
     ]
    ],
@@ -535,6 +539,68 @@
       "ta": "data/en-shared/q/i-m-a-child.mp3"
      },
      {
+      "from": "I am seven years old.",
+      "to": "I'm seven years old.",
+      "map": [
+       [
+        0,
+        1
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ],
+       [
+        4
+       ]
+      ],
+      "fa": "data/en-shared/q/i-am-seven-years-old.mp3",
+      "ta": "data/en-shared/q/i-m-seven-years-old.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "He is, She is, It is  →  He's, She's, It's",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "He is my brother.",
+      "a": "data/en-shared/q/he-is-my-brother.mp3"
+     },
+     {
+      "t": "He's my brother.",
+      "a": "data/en-shared/q/he-s-my-brother.mp3"
+     }
+    ],
+    [
+     {
+      "t": "She is my mom.",
+      "a": "data/en-shared/q/she-is-my-mom.mp3"
+     },
+     {
+      "t": "She's my mom.",
+      "a": "data/en-shared/q/she-s-my-mom.mp3"
+     }
+    ],
+    [
+     {
+      "t": "It is a dog.",
+      "a": "data/en-shared/q/it-is-a-dog.mp3"
+     },
+     {
+      "t": "It's a dog.",
+      "a": "data/en-shared/q/it-s-a-dog.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "morph",
+    "steps": [
+     {
       "from": "He is my brother.",
       "to": "He's my brother.",
       "map": [
@@ -553,46 +619,135 @@
       "ta": "data/en-shared/q/he-s-my-brother.mp3"
      },
      {
-      "from": "She is not my sister.",
-      "to": "She isn't my sister.",
+      "from": "She is my mom.",
+      "to": "She's my mom.",
       "map": [
        [
-        0
+        0,
+        1
        ],
        [
-        1,
         2
        ],
        [
         3
-       ],
-       [
-        4
        ]
       ],
-      "fa": "data/en-shared/q/she-is-not-my-sister.mp3",
-      "ta": "data/en-shared/q/she-isn-t-my-sister.mp3"
+      "fa": "data/en-shared/q/she-is-my-mom.mp3",
+      "ta": "data/en-shared/q/she-s-my-mom.mp3"
      },
      {
-      "from": "They are not teachers.",
-      "to": "They aren't teachers.",
+      "from": "It is a dog.",
+      "to": "It's a dog.",
       "map": [
        [
-        0
+        0,
+        1
        ],
        [
-        1,
         2
        ],
        [
         3
        ]
       ],
-      "fa": "data/en-shared/q/they-are-not-teachers.mp3",
-      "ta": "data/en-shared/q/they-aren-t-teachers.mp3"
+      "fa": "data/en-shared/q/it-is-a-dog.mp3",
+      "ta": "data/en-shared/q/it-s-a-dog.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "We are, You are, They are  →  We're, You're, They're",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "We are friends.",
+      "a": "data/en-shared/q/we-are-friends.mp3"
+     },
+     {
+      "t": "We're friends.",
+      "a": "data/en-shared/q/we-re-friends.mp3"
+     }
+    ],
+    [
+     {
+      "t": "You are my friend.",
+      "a": "data/en-shared/q/you-are-my-friend.mp3"
+     },
+     {
+      "t": "You're my friend.",
+      "a": "data/en-shared/q/you-re-my-friend.mp3"
+     }
+    ],
+    [
+     {
+      "t": "They are happy.",
+      "a": "data/en-shared/q/they-are-happy.mp3"
+     },
+     {
+      "t": "They're happy.",
+      "a": "data/en-shared/q/they-re-happy.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "morph",
+    "steps": [
+     {
+      "from": "We are friends.",
+      "to": "We're friends.",
+      "map": [
+       [
+        0,
+        1
+       ],
+       [
+        2
+       ]
+      ],
+      "fa": "data/en-shared/q/we-are-friends.mp3",
+      "ta": "data/en-shared/q/we-re-friends.mp3"
+     },
+     {
+      "from": "You are my friend.",
+      "to": "You're my friend.",
+      "map": [
+       [
+        0,
+        1
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ]
+      ],
+      "fa": "data/en-shared/q/you-are-my-friend.mp3",
+      "ta": "data/en-shared/q/you-re-my-friend.mp3"
+     },
+     {
+      "from": "They are happy.",
+      "to": "They're happy.",
+      "map": [
+       [
+        0,
+        1
+       ],
+       [
+        2
+       ]
+      ],
+      "fa": "data/en-shared/q/they-are-happy.mp3",
+      "ta": "data/en-shared/q/they-re-happy.mp3"
      }
     ]
    }
   }
- ]
+ ],
+ "tabLabels": {
+  "quiz": "Book's Questions"
+ }
 }

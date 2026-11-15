@@ -2739,7 +2739,7 @@ img[src*="/clock-"][src$=".svg"]:not([src^="data:"]),img[src*="/hand-"][src$=".s
 @media (orientation:landscape){.nh-board.scene .nh-stage{height:50cqh;width:60cqw}.nh-board.scene .nh-line{position:absolute;bottom:4cqh;left:2cqw;width:60cqw}}
 /* ===== css/gramanim.css ===== */
 /* GRAMMAR ANIMATION template (js/gramanim.js): one animated page per grammar card. Relative units only; white text on colour. */
-.gan{display:grid;grid-template-rows:auto minmax(0,1fr) auto;height:100%;padding:.5rem 1rem 4.2rem;gap:.4rem;container-type:size;overflow:hidden}
+.gan{display:grid;grid-template-areas:none;grid-template-rows:auto minmax(0,1fr) auto;height:100%;padding:.5rem 1rem 4.2rem;gap:.4rem;container-type:size;overflow:hidden}
 .gan-title{margin:0;text-align:center;font:400 clamp(1.1rem,4cqw,1.8rem)/1.2 var(--f-title);color:var(--c-hint)}
 .gan-box{position:relative;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;container-type:size;background:#2F6B4A;border-radius:1.2rem;box-shadow:0 .25rem 0 rgba(90,52,24,.3);padding:.6rem;color:var(--c-white);overflow:hidden}
 .gan-dots{display:flex;justify-content:center;gap:.7rem}
@@ -2777,6 +2777,18 @@ img[src*="/clock-"][src$=".svg"]:not([src^="data:"]),img[src*="/hand-"][src$=".s
 .gp-row{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:2cqw}
 .gp-w{font:400 min(14cqh,9cqw)/1.1 var(--f-title);text-align:center;color:#fff;background:var(--bc);border-radius:1rem;padding:.8rem .4rem}
 .gp-m{width:min(14cqw,16cqh)}.gp-m svg{width:100%}
+
+/* kind "text": the book's example lines on the app background (Ahmed 2026-11-15: never the book's green box) */
+.gan .gt-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;width:100%;padding:.5rem 1rem}
+.gan .gt-pic{width:auto;max-width:92%;max-height:30vh;object-fit:contain;border-radius:.8rem;flex:none}
+.gan .gt-list{display:flex;flex-direction:column;gap:.35rem;align-items:flex-start;background:rgba(255,255,255,.9);border-radius:1rem;padding:.8rem 1.2rem;color:#3a2410;font:700 min(1.5rem,4.6vw)/1.4 var(--f-read);max-width:94%}
+.gan .gt-line{padding:.1rem .3rem;border-radius:.5rem;transition:background .2s}
+.gan .gt-line.on{background:#FFE08A}
+.gan .gr-hl{color:#E5352B}
+.gan-box.gt{background:none;box-shadow:none}
+.gan .gt-wrap{overflow:auto;justify-content:safe center}
+@media (min-aspect-ratio:1/1){.gan .gt-wrap{flex-direction:row;height:100%;gap:1.2rem}.gan .gt-pic{max-width:50%;max-height:100%}.gan .gt-list{max-width:48%}}
+#lesson[class][class] .quiz.gan{grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto;grid-template-areas:none}   /* beats the question sheet grids (#lesson.q-short .quiz ...) */
 /* ===== css/hug.css ===== */
 /* HUG RULE (Marwa 2026-11-01): a picture frame is exactly as big as its picture, never a white bar round it, in EVERY question / lesson type.
    How: the picture is sized by its OWN shape (--ar = width / height, set in core.js when it loads) inside the room its place gives; aspect-ratio keeps the box that shape.
@@ -3294,4 +3306,4 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .subf input.bad{border-color:#D32F2F}
 .subimg{margin:0;color:#2E7D32;font-size:.9rem}
 .subnote{font-size:.8rem;opacity:.85;margin:0;line-height:1.5}
-:root{--app-build:"6678b10eb3"}
+:root{--app-build:"1c1983c8e8"}

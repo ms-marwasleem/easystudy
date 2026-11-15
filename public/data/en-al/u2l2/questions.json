@@ -1,6 +1,575 @@
 {
  "sets": [
   {
+   "type": "explain",
+   "task": "Listen and read. I'm Not Good at That... Right Now",
+   "taskAudio": "../../en-shared/q/listen-and-read-i-m-not-good-at-that-right-now.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/s1.jpg"
+     ],
+     "lines": [
+      {
+       "t": "1  I'm Luiz. That's my teacher.",
+       "a": "../../en-shared/q/i-m-luiz-that-s-my-teacher.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 36
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/s2.jpg"
+     ],
+     "lines": [
+      {
+       "t": "2  Me, draw? I don't know how to draw. Claudia's picture is funny. Is it a dog?",
+       "a": "../../en-shared/q/me-draw-i-don-t-know-how-to-draw-claudia-s-picture-bd68b3d2.mp3"
+      },
+      {
+       "t": "3  Write? Oh, no! I don't write well. But look at Bruno write!",
+       "a": "../../en-shared/q/write-oh-no-i-don-t-write-well-but-look-at-bruno-write.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 36
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/s3.jpg"
+     ],
+     "lines": [
+      {
+       "t": "4  Kenji is slow. Very slow! I'm slow, too.",
+       "a": "../../en-shared/q/kenji-is-slow-very-slow-i-m-slow-too.mp3"
+      },
+      {
+       "t": "5  Oh, no! Kenji isn't good at spelling yet.",
+       "a": "../../en-shared/q/oh-no-kenji-isn-t-good-at-spelling-yet.mp3"
+      },
+      {
+       "t": "6  Now, we ask and answer questions about our families. I don't know what to say.",
+       "a": "../../en-shared/q/now-we-ask-and-answer-questions-about-our-families-e85768bf.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 37
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/s4.jpg"
+     ],
+     "lines": []
+    }
+   ],
+   "page": 37
+  },
+  {
+   "type": "link",
+   "task": "Match.",
+   "taskAudio": "../../en-shared/q/match.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "word": "say",
+     "pic": "img/m1.jpg",
+     "audio": "../../en-shared/q/say.mp3"
+    },
+    {
+     "word": "close",
+     "pic": "img/m2.jpg",
+     "audio": "../../en-shared/q/close.mp3"
+    },
+    {
+     "word": "write",
+     "pic": "img/m3.jpg",
+     "audio": "../../en-shared/q/write.mp3"
+    },
+    {
+     "word": "point",
+     "pic": "img/m4.jpg",
+     "audio": "../../en-shared/q/point.mp3"
+    },
+    {
+     "word": "ask",
+     "pic": "img/m5.jpg",
+     "audio": "../../en-shared/q/ask.mp3"
+    }
+   ],
+   "page": 34,
+   "ex": "B"
+  },
+  {
+   "type": "cloze",
+   "task": "Complete the sentences with words from A.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences-with-words-from-a.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "text": "I [[stand up]] and go to the playground.",
+     "bank": [
+      "point",
+      "read",
+      "say",
+      "answer",
+      "ask",
+      "write",
+      "sit down",
+      "stand up",
+      "open",
+      "close"
+     ],
+     "audio": "../../en-shared/q/i-stand-up-and-go-to-the-playground.mp3"
+    },
+    {
+     "text": "I [[sit down]] on my chair.",
+     "bank": [
+      "point",
+      "read",
+      "say",
+      "answer",
+      "ask",
+      "write",
+      "sit down",
+      "stand up",
+      "open",
+      "close"
+     ],
+     "audio": "../../en-shared/q/i-sit-down-on-my-chair.mp3"
+    },
+    {
+     "text": "I [[read]] stories and books.",
+     "bank": [
+      "point",
+      "read",
+      "say",
+      "answer",
+      "ask",
+      "write",
+      "sit down",
+      "stand up",
+      "open",
+      "close"
+     ],
+     "audio": "../../en-shared/q/i-read-stories-and-books.mp3"
+    },
+    {
+     "text": "I [[open]] and close the door.",
+     "bank": [
+      "point",
+      "read",
+      "say",
+      "answer",
+      "ask",
+      "write",
+      "sit down",
+      "stand up",
+      "open",
+      "close"
+     ],
+     "audio": "../../en-shared/q/i-open-and-close-the-door.mp3"
+    },
+    {
+     "text": "I ask and [[answer]] questions.",
+     "bank": [
+      "point",
+      "read",
+      "say",
+      "answer",
+      "ask",
+      "write",
+      "sit down",
+      "stand up",
+      "open",
+      "close"
+     ],
+     "audio": "../../en-shared/q/i-ask-and-answer-questions.mp3"
+    }
+   ],
+   "page": 34,
+   "ex": "C"
+  },
+  {
+   "type": "mcq",
+   "task": "Listen. Circle the letters that make the long a sound.",
+   "taskAudio": "../../en-shared/q/listen-circle-the-letters-that-make-the-long-a-sound.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "play",
+     "options": [
+      "ai",
+      "ay"
+     ],
+     "answer": 1,
+     "word": "play",
+     "audio": "../../en-shared/q/play.mp3"
+    },
+    {
+     "stem": "paint",
+     "options": [
+      "ai",
+      "ay"
+     ],
+     "answer": 0,
+     "word": "paint",
+     "audio": "../../en-shared/q/paint.mp3"
+    },
+    {
+     "stem": "train",
+     "options": [
+      "ai",
+      "ay"
+     ],
+     "answer": 0,
+     "word": "train",
+     "audio": "../../en-shared/q/train.mp3"
+    },
+    {
+     "stem": "say",
+     "options": [
+      "ai",
+      "ay"
+     ],
+     "answer": 1,
+     "word": "say",
+     "audio": "../../en-shared/q/say.mp3"
+    }
+   ],
+   "page": 35,
+   "ex": "F"
+  },
+  {
+   "type": "mcq",
+   "task": "Look at the picture. Where are the students? Check the correct place.",
+   "taskAudio": "../../en-shared/q/look-at-the-picture-where-are-the-students-check-t-8efa1216.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "Where are the students?",
+     "options": [
+      "in school",
+      "at home",
+      "on the playground"
+     ],
+     "answer": 0,
+     "word": "The students are in school.",
+     "audio": "../../en-shared/q/the-students-are-in-school.mp3",
+     "pics": [
+      "img/pl.jpg"
+     ]
+    }
+   ],
+   "page": 35,
+   "ex": "G"
+  },
+  {
+   "type": "mcq",
+   "task": "Read the story again. Circle the correct answers.",
+   "taskAudio": "../../en-shared/q/read-the-story-again-circle-the-correct-answers.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "Miss Elena is a ____.",
+     "options": [
+      "teacher",
+      "student"
+     ],
+     "answer": 0,
+     "word": "Miss Elena is a teacher.",
+     "audio": "../../en-shared/q/miss-elena-is-a-teacher.mp3",
+     "parts": [
+      "../../en-shared/q/miss-elena-is-a.mp3"
+     ]
+    },
+    {
+     "stem": "The students draw a ____.",
+     "options": [
+      "desk",
+      "family"
+     ],
+     "answer": 1,
+     "word": "The students draw a family.",
+     "audio": "../../en-shared/q/the-students-draw-a-family.mp3",
+     "parts": [
+      "../../en-shared/q/the-students-draw-a.mp3"
+     ]
+    },
+    {
+     "stem": "Claudia's picture is ____.",
+     "options": [
+      "funny",
+      "boring"
+     ],
+     "answer": 0,
+     "word": "Claudia's picture is funny.",
+     "audio": "../../en-shared/q/claudia-s-picture-is-funny.mp3",
+     "parts": [
+      "../../en-shared/q/claudia-s-picture-is.mp3"
+     ]
+    },
+    {
+     "stem": "Kenji ____ good at spelling yet.",
+     "options": [
+      "is",
+      "isn't"
+     ],
+     "answer": 1,
+     "word": "Kenji isn't good at spelling yet.",
+     "audio": "../../en-shared/q/kenji-isn-t-good-at-spelling-yet.mp3",
+     "parts": [
+      "../../en-shared/q/kenji.mp3",
+      "../../en-shared/q/good-at-spelling-yet.mp3"
+     ]
+    },
+    {
+     "stem": "Yudi is Kenji's ____.",
+     "options": [
+      "friend",
+      "brother"
+     ],
+     "answer": 1,
+     "word": "Yudi is Kenji's brother.",
+     "audio": "../../en-shared/q/yudi-is-kenji-s-brother.mp3",
+     "parts": [
+      "../../en-shared/q/yudi-is-kenji-s.mp3"
+     ]
+    }
+   ],
+   "page": 38,
+   "ex": "B"
+  },
+  {
+   "type": "choice",
+   "task": "Identify Things in a Picture. What can you see in the pictures? Write.",
+   "taskAudio": "../../en-shared/q/identify-things-in-a-picture-what-can-you-see-in-t-c13bbfde.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "word": "chair",
+     "pic": "img/c1.jpg",
+     "options": [
+      "chair",
+      "table",
+      "teacher",
+      "board"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/chair.mp3"
+    },
+    {
+     "word": "table",
+     "pic": "img/c2.jpg",
+     "options": [
+      "chair",
+      "table",
+      "teacher",
+      "board"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/table.mp3"
+    },
+    {
+     "word": "teacher",
+     "pic": "img/c3.jpg",
+     "options": [
+      "chair",
+      "table",
+      "teacher",
+      "board"
+     ],
+     "answer": 2,
+     "audio": "../../en-shared/q/teacher.mp3"
+    },
+    {
+     "word": "board",
+     "pic": "img/c4.jpg",
+     "options": [
+      "chair",
+      "table",
+      "teacher",
+      "board"
+     ],
+     "answer": 3,
+     "audio": "../../en-shared/q/board.mp3"
+    }
+   ],
+   "page": 38,
+   "ex": "C"
+  },
+  {
+   "type": "mcq",
+   "task": "Read. Circle the correct answer.",
+   "taskAudio": "../../en-shared/q/read-circle-the-correct-answer.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "Realistic fiction stories are about things that ____ happen in real life.",
+     "options": [
+      "can",
+      "can't"
+     ],
+     "answer": 0,
+     "word": "Realistic fiction stories are about things that can happen in real life.",
+     "audio": "../../en-shared/q/realistic-fiction-stories-are-about-things-that-ca-93662964.mp3",
+     "parts": [
+      "../../en-shared/q/realistic-fiction-stories-are-about-things-that.mp3",
+      "../../en-shared/q/happen-in-real-life.mp3"
+     ]
+    }
+   ],
+   "page": 38,
+   "ex": "D"
+  },
+  {
+   "type": "check",
+   "task": "What can Luiz do to draw, read, and write well? Check.",
+   "taskAudio": "../../en-shared/q/what-can-luiz-do-to-draw-read-and-write-well-check.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "words": [
+      "He can try to learn how.",
+      "He can be quiet."
+     ],
+     "n": 1,
+     "audios": [
+      "../../en-shared/q/he-can-try-to-learn-how.mp3",
+      "../../en-shared/q/he-can-be-quiet.mp3"
+     ],
+     "ok": [
+      0
+     ]
+    }
+   ],
+   "page": 38,
+   "ex": "E"
+  },
+  {
+   "type": "order",
+   "task": "Write the opposite instructions.",
+   "taskAudio": "../../en-shared/q/write-the-opposite-instructions.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "chunks": [
+      "Don't",
+      "stand",
+      "up"
+     ],
+     "end": ".",
+     "word": "Don't stand up.",
+     "audio": "../../en-shared/q/don-t-stand-up.mp3"
+    },
+    {
+     "chunks": [
+      "Open",
+      "the",
+      "door"
+     ],
+     "end": ".",
+     "word": "Open the door.",
+     "audio": "../../en-shared/q/open-the-door.mp3"
+    },
+    {
+     "chunks": [
+      "Don't",
+      "read",
+      "the",
+      "book"
+     ],
+     "end": ".",
+     "word": "Don't read the book.",
+     "audio": "../../en-shared/q/don-t-read-the-book.mp3"
+    },
+    {
+     "chunks": [
+      "Sit",
+      "down"
+     ],
+     "end": ".",
+     "word": "Sit down.",
+     "audio": "../../en-shared/q/sit-down.mp3"
+    },
+    {
+     "chunks": [
+      "Don't",
+      "answer",
+      "the",
+      "question"
+     ],
+     "end": ".",
+     "word": "Don't answer the question.",
+     "audio": "../../en-shared/q/don-t-answer-the-question.mp3"
+    }
+   ],
+   "page": 39,
+   "ex": "B"
+  },
+  {
+   "type": "check",
+   "task": "Use Instructions. Read the how-to text. Circle the instruction words.",
+   "taskAudio": "../../en-shared/q/use-instructions-read-the-how-to-text-circle-the-i-fb801fc5.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "words": [
+      "Listen",
+      "books",
+      "Read",
+      "eraser",
+      "Write",
+      "mistakes",
+      "Use",
+      "Make"
+     ],
+     "n": 5,
+     "audios": [
+      "../../en-shared/q/listen.mp3",
+      "../../en-shared/q/books.mp3",
+      "../../en-shared/q/read.mp3",
+      "../../en-shared/q/eraser.mp3",
+      "../../en-shared/q/write.mp3",
+      "../../en-shared/q/mistakes.mp3",
+      "../../en-shared/q/use.mp3",
+      "../../en-shared/q/make.mp3"
+     ],
+     "ok": [
+      0,
+      2,
+      4,
+      6,
+      7
+     ]
+    }
+   ],
+   "page": 41,
+   "ex": "B"
+  },
+  {
    "type": "type",
    "task": "Read and complete the missing letters.",
    "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",

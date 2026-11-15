@@ -17,7 +17,7 @@
   {
    "word": "boring",
    "ar": "ممل",
-   "img": "../../pics/boring.jpg",
+   "img": "../../pics/tb-boring.jpg",
    "parts": [
     {
      "t": "b",
@@ -48,7 +48,7 @@
   {
    "word": "busy",
    "ar": "مشغول",
-   "img": "../../pics/busy.png",
+   "img": "../../pics/tb-busy.jpg",
    "parts": [
     {
      "t": "b",
@@ -79,7 +79,7 @@
   {
    "word": "fast",
    "ar": "سريع",
-   "img": "../../pics/fast.jpg",
+   "img": "../../pics/tb-fast.jpg",
    "parts": [
     {
      "t": "f",
@@ -110,7 +110,7 @@
   {
    "word": "awake",
    "ar": "مستيقظ",
-   "img": "../../pics/awake.jpg",
+   "img": "../../pics/tb-awake.jpg",
    "parts": [
     {
      "t": "a",
@@ -147,7 +147,7 @@
   {
    "word": "asleep",
    "ar": "نائم",
-   "img": "../../pics/asleep.jpg",
+   "img": "../../pics/tb-asleep.jpg",
    "parts": [
     {
      "t": "a",
@@ -183,7 +183,7 @@
   {
    "word": "fun",
    "ar": "ممتع",
-   "img": "../../pics/fun.jpg",
+   "img": "../../pics/tb-fun.jpg",
    "parts": [
     {
      "t": "f",
@@ -209,7 +209,7 @@
   {
    "word": "lazy",
    "ar": "كسول",
-   "img": "../../pics/lazy.jpg",
+   "img": "../../pics/tb-lazy.jpg",
    "parts": [
     {
      "t": "l",
@@ -240,7 +240,7 @@
   {
    "word": "slow",
    "ar": "بطيء",
-   "img": "../../pics/slow.jpg",
+   "img": "../../pics/tb-slow.jpg",
    "parts": [
     {
      "t": "s",
@@ -266,7 +266,7 @@
   {
    "word": "loud",
    "ar": "عالي الصوت",
-   "img": "../../pics/loud.jpg",
+   "img": "../../pics/tb-loud.jpg",
    "parts": [
     {
      "t": "l",
@@ -292,7 +292,7 @@
   {
    "word": "quiet",
    "ar": "هادئ",
-   "img": "../../pics/quiet.jpg",
+   "img": "../../pics/tb-quiet.jpg",
    "parts": [
     {
      "t": "qu",
@@ -321,9 +321,34 @@
    }
   },
   {
+   "word": "doll",
+   "ar": "دمية",
+   "img": "../../pics/tb-doll.jpg",
+   "parts": [
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    },
+    {
+     "t": "ll",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/doll.mp3"
+   }
+  },
+  {
    "word": "music",
    "ar": "موسيقى",
-   "img": "../../pics/music-boy.jpg",
+   "img": "../../pics/tb-music.jpg",
    "parts": [
     {
      "t": "m",
@@ -359,7 +384,7 @@
   {
    "word": "sports",
    "ar": "رياضة",
-   "img": "../../pics/grammar-girls.jpg",
+   "img": "../../pics/tb-sports.jpg",
    "parts": [
     {
      "t": "s",
@@ -399,71 +424,114 @@
   "read",
   "words",
   "booklet",
-  "grammar"
+  "grammar",
+  "quiz"
  ],
  "grammar": [
   {
-   "title": "Questions with Am, Is, and Are",
-   "note": "We ask a question with am, is or are first.",
+   "title": "Listen and read",
+   "note": null,
    "rows": [
     [
      {
-      "t": "Am I sad?",
-      "a": "data/en-shared/q/am-i-sad.mp3"
-     },
-     {
-      "t": "Yes, I am. / No, I'm not.",
-      "a": "data/en-shared/q/yes-i-am-no-i-m-not.mp3"
+      "t": "Guess my pets!",
+      "a": "data/en-shared/q/guess-my-pets.mp3"
      }
     ],
     [
+     {
+      "t": "Okay. Are they boring?",
+      "a": "data/en-shared/q/okay-are-they-boring.mp3"
+     }
+    ],
+    [
+     {
+      "t": "No, they aren't. They're fun!",
+      "a": "data/en-shared/q/no-they-aren-t-they-re-fun.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Are they quiet?",
+      "a": "data/en-shared/q/are-they-quiet.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Yes, they are.",
+      "a": "data/en-shared/q/yes-they-are.mp3"
+     }
+    ],
+    [
+     {
+      "t": "When they're asleep!",
+      "a": "data/en-shared/q/when-they-re-asleep.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Oh!",
+      "a": "data/en-shared/q/oh.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "text",
+    "pic": "data/en-al/u1l2/img/g1.jpg",
+    "lines": [
+     {
+      "t": "Guess my pets!",
+      "a": "data/en-shared/q/guess-my-pets.mp3"
+     },
+     {
+      "t": "Okay. Are they boring?",
+      "a": "data/en-shared/q/okay-are-they-boring.mp3"
+     },
+     {
+      "t": "No, they aren't. They're fun!",
+      "a": "data/en-shared/q/no-they-aren-t-they-re-fun.mp3"
+     },
+     {
+      "t": "Are they quiet?",
+      "a": "data/en-shared/q/are-they-quiet.mp3"
+     },
+     {
+      "t": "Yes, they are.",
+      "a": "data/en-shared/q/yes-they-are.mp3"
+     },
+     {
+      "t": "When they're asleep!",
+      "a": "data/en-shared/q/when-they-re-asleep.mp3"
+     },
+     {
+      "t": "Oh!",
+      "a": "data/en-shared/q/oh.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "Am I...?  Are you...?",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "I am sad.",
+      "a": "data/en-shared/q/i-am-sad.mp3"
+     },
+     {
+      "t": "Am I sad?",
+      "a": "data/en-shared/q/am-i-sad.mp3"
+     }
+    ],
+    [
+     {
+      "t": "You are lazy.",
+      "a": "data/en-shared/q/you-are-lazy.mp3"
+     },
      {
       "t": "Are you lazy?",
       "a": "data/en-shared/q/are-you-lazy.mp3"
-     },
-     {
-      "t": "Yes, you are. / No, you aren't.",
-      "a": "data/en-shared/q/yes-you-are-no-you-aren-t.mp3"
-     }
-    ],
-    [
-     {
-      "t": "Is he/she happy?",
-      "a": "data/en-shared/q/is-he-she-happy.mp3"
-     },
-     {
-      "t": "Yes, he/she is. / No, he/she isn't.",
-      "a": "data/en-shared/q/yes-he-she-is-no-he-she-isn-t.mp3"
-     }
-    ],
-    [
-     {
-      "t": "Are they sad?",
-      "a": "data/en-shared/q/are-they-sad.mp3"
-     },
-     {
-      "t": "Yes, they are. / No, they aren't.",
-      "a": "data/en-shared/q/yes-they-are-no-they-aren-t.mp3"
-     }
-    ],
-    [
-     {
-      "t": "Are we happy?",
-      "a": "data/en-shared/q/are-we-happy.mp3"
-     },
-     {
-      "t": "Yes, we are. / No, we aren't.",
-      "a": "data/en-shared/q/yes-we-are-no-we-aren-t.mp3"
-     }
-    ],
-    [
-     {
-      "t": "Is it fast?",
-      "a": "data/en-shared/q/is-it-fast.mp3"
-     },
-     {
-      "t": "Yes, it is. / No, it isn't.",
-      "a": "data/en-shared/q/yes-it-is-no-it-isn-t.mp3"
      }
     ]
    ],
@@ -484,15 +552,12 @@
         2
        ]
       ],
-      "hl": [
-       0,
-       1
-      ],
-      "ta": "data/en-shared/q/am-i-sad.mp3",
       "ans": {
        "t": "Yes, I am. / No, I'm not.",
        "a": "data/en-shared/q/yes-i-am-no-i-m-not.mp3"
-      }
+      },
+      "fa": "data/en-shared/q/i-am-sad.mp3",
+      "ta": "data/en-shared/q/am-i-sad.mp3"
      },
      {
       "from": "You are lazy.",
@@ -508,19 +573,57 @@
         2
        ]
       ],
-      "hl": [
-       0,
-       1
-      ],
-      "ta": "data/en-shared/q/are-you-lazy.mp3",
       "ans": {
        "t": "Yes, you are. / No, you aren't.",
        "a": "data/en-shared/q/yes-you-are-no-you-aren-t.mp3"
-      }
+      },
+      "fa": "data/en-shared/q/you-are-lazy.mp3",
+      "ta": "data/en-shared/q/are-you-lazy.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "Is he...?  Is she...?  Is it...?",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "He is happy.",
+      "a": "data/en-shared/q/he-is-happy.mp3"
      },
      {
-      "from": "He/she is happy.",
-      "to": "Is he/she happy?",
+      "t": "Is he happy?",
+      "a": "data/en-shared/q/is-he-happy.mp3"
+     }
+    ],
+    [
+     {
+      "t": "She is loud.",
+      "a": "data/en-shared/q/she-is-loud.mp3"
+     },
+     {
+      "t": "Is she loud?",
+      "a": "data/en-shared/q/is-she-loud.mp3"
+     }
+    ],
+    [
+     {
+      "t": "It is fast.",
+      "a": "data/en-shared/q/it-is-fast.mp3"
+     },
+     {
+      "t": "Is it fast?",
+      "a": "data/en-shared/q/is-it-fast.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "morph",
+    "steps": [
+     {
+      "from": "He is happy.",
+      "to": "Is he happy?",
       "map": [
        [
         1
@@ -532,185 +635,133 @@
         2
        ]
       ],
-      "hl": [
-       0,
-       1
-      ],
-      "ta": "data/en-shared/q/is-he-she-happy.mp3",
       "ans": {
-       "t": "Yes, he/she is. / No, he/she isn't.",
-       "a": "data/en-shared/q/yes-he-she-is-no-he-she-isn-t.mp3"
-      }
+       "t": "Yes, he is. / No, he isn't.",
+       "a": "data/en-shared/q/yes-he-is-no-he-isn-t.mp3"
+      },
+      "fa": "data/en-shared/q/he-is-happy.mp3",
+      "ta": "data/en-shared/q/is-he-happy.mp3"
+     },
+     {
+      "from": "She is loud.",
+      "to": "Is she loud?",
+      "map": [
+       [
+        1
+       ],
+       [
+        0
+       ],
+       [
+        2
+       ]
+      ],
+      "ans": {
+       "t": "Yes, she is. / No, she isn't.",
+       "a": "data/en-shared/q/yes-she-is-no-she-isn-t.mp3"
+      },
+      "fa": "data/en-shared/q/she-is-loud.mp3",
+      "ta": "data/en-shared/q/is-she-loud.mp3"
+     },
+     {
+      "from": "It is fast.",
+      "to": "Is it fast?",
+      "map": [
+       [
+        1
+       ],
+       [
+        0
+       ],
+       [
+        2
+       ]
+      ],
+      "ans": {
+       "t": "Yes, it is. / No, it isn't.",
+       "a": "data/en-shared/q/yes-it-is-no-it-isn-t.mp3"
+      },
+      "fa": "data/en-shared/q/it-is-fast.mp3",
+      "ta": "data/en-shared/q/is-it-fast.mp3"
      }
     ]
    }
   },
   {
-   "title": "Opposites",
-   "note": "Opposites have the opposite meaning.",
+   "title": "Are they...?  Are we...?",
+   "note": null,
    "rows": [
     [
      {
-      "t": "fast",
-      "a": "data/en-shared/q/fast.mp3"
+      "t": "They are sad.",
+      "a": "data/en-shared/q/they-are-sad.mp3"
      },
      {
-      "t": "slow",
-      "a": "data/en-shared/q/slow.mp3"
+      "t": "Are they sad?",
+      "a": "data/en-shared/q/are-they-sad.mp3"
      }
     ],
     [
      {
-      "t": "loud",
-      "a": "data/en-shared/q/loud.mp3"
+      "t": "We are happy.",
+      "a": "data/en-shared/q/we-are-happy.mp3"
      },
      {
-      "t": "quiet",
-      "a": "data/en-shared/q/quiet.mp3"
-     }
-    ],
-    [
-     {
-      "t": "awake",
-      "a": "data/en-shared/q/awake.mp3"
-     },
-     {
-      "t": "asleep",
-      "a": "data/en-shared/q/asleep.mp3"
-     }
-    ],
-    [
-     {
-      "t": "busy",
-      "a": "data/en-shared/q/busy.mp3"
-     },
-     {
-      "t": "lazy",
-      "a": "data/en-shared/q/lazy.mp3"
-     }
-    ],
-    [
-     {
-      "t": "fun",
-      "a": "data/en-shared/q/fun.mp3"
-     },
-     {
-      "t": "boring",
-      "a": "data/en-shared/q/boring.mp3"
+      "t": "Are we happy?",
+      "a": "data/en-shared/q/are-we-happy.mp3"
      }
     ]
    ],
    "anim": {
-    "kind": "pair",
-    "items": [
+    "kind": "morph",
+    "steps": [
      {
-      "l": {
-       "t": "fast",
-       "a": "data/en-shared/q/fast.mp3"
+      "from": "They are sad.",
+      "to": "Are they sad?",
+      "map": [
+       [
+        1
+       ],
+       [
+        0
+       ],
+       [
+        2
+       ]
+      ],
+      "ans": {
+       "t": "Yes, they are. / No, they aren't.",
+       "a": "data/en-shared/q/yes-they-are-no-they-aren-t.mp3"
       },
-      "r": {
-       "t": "slow",
-       "a": "data/en-shared/q/slow.mp3"
-      }
+      "fa": "data/en-shared/q/they-are-sad.mp3",
+      "ta": "data/en-shared/q/are-they-sad.mp3"
      },
      {
-      "l": {
-       "t": "loud",
-       "a": "data/en-shared/q/loud.mp3"
+      "from": "We are happy.",
+      "to": "Are we happy?",
+      "map": [
+       [
+        1
+       ],
+       [
+        0
+       ],
+       [
+        2
+       ]
+      ],
+      "ans": {
+       "t": "Yes, we are. / No, we aren't.",
+       "a": "data/en-shared/q/yes-we-are-no-we-aren-t.mp3"
       },
-      "r": {
-       "t": "quiet",
-       "a": "data/en-shared/q/quiet.mp3"
-      }
-     },
-     {
-      "l": {
-       "t": "awake",
-       "a": "data/en-shared/q/awake.mp3"
-      },
-      "r": {
-       "t": "asleep",
-       "a": "data/en-shared/q/asleep.mp3"
-      }
-     },
-     {
-      "l": {
-       "t": "busy",
-       "a": "data/en-shared/q/busy.mp3"
-      },
-      "r": {
-       "t": "lazy",
-       "a": "data/en-shared/q/lazy.mp3"
-      }
-     },
-     {
-      "l": {
-       "t": "fun",
-       "a": "data/en-shared/q/fun.mp3"
-      },
-      "r": {
-       "t": "boring",
-       "a": "data/en-shared/q/boring.mp3"
-      }
-     }
-    ]
-   }
-  },
-  {
-   "title": "Describing words",
-   "note": "We use am, is or are with a describing word.",
-   "rows": [
-    [
-     {
-      "t": "I am fast.",
-      "a": "data/en-shared/q/i-am-fast.mp3"
-     }
-    ],
-    [
-     {
-      "t": "My friend is slow.",
-      "a": "data/en-shared/q/my-friend-is-slow.mp3"
-     }
-    ],
-    [
-     {
-      "t": "We are busy.",
-      "a": "data/en-shared/q/we-are-busy.mp3"
-     }
-    ],
-    [
-     {
-      "t": "The birds are loud.",
-      "a": "data/en-shared/q/the-birds-are-loud.mp3"
-     }
-    ]
-   ],
-   "anim": {
-    "kind": "reveal",
-    "one": false,
-    "items": [
-     {
-      "t": "I am fast.",
-      "a": "data/en-shared/q/i-am-fast.mp3",
-      "hl": "am"
-     },
-     {
-      "t": "My friend is slow.",
-      "a": "data/en-shared/q/my-friend-is-slow.mp3",
-      "hl": "is"
-     },
-     {
-      "t": "We are busy.",
-      "a": "data/en-shared/q/we-are-busy.mp3",
-      "hl": "are"
-     },
-     {
-      "t": "The birds are loud.",
-      "a": "data/en-shared/q/the-birds-are-loud.mp3",
-      "hl": "are"
+      "fa": "data/en-shared/q/we-are-happy.mp3",
+      "ta": "data/en-shared/q/are-we-happy.mp3"
      }
     ]
    }
   }
- ]
+ ],
+ "tabLabels": {
+  "quiz": "Book's Questions"
+ }
 }

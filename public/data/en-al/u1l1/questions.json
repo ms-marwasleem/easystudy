@@ -2,93 +2,201 @@
  "sets": [
   {
    "type": "explain",
-   "task": "Listen and look.",
-   "taskAudio": "../../en-shared/q/listen-and-look.mp3",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
    "book": "lesson",
-   "page": 4,
-   "ex": "A",
+   "page": 6,
+   "grp": "article",
    "items": [
     {
      "pics": [
-      "../../pics/family-a.jpg",
-      "../../pics/family-b.png"
+      "img/s1.jpg"
      ],
-     "labels": [
+     "lines": [
       {
-       "w": "dad",
-       "at": [
-        54,
-        45
-       ]
+       "t": "Social Studies Article",
+       "a": "../../en-shared/q/social-studies-article.mp3",
+       "cls": "note"
       },
       {
-       "w": "brother",
-       "at": [
-        44,
-        88
-       ]
+       "t": "As you read, think about how the families are the same and different.",
+       "a": "../../en-shared/q/as-you-read-think-about-how-the-families-are-the-s-3c2c9304.mp3",
+       "cls": "note"
       },
       {
-       "w": "grandma",
-       "at": [
-        28,
-        66
-       ]
+       "t": "We are a family!",
+       "a": "../../en-shared/q/we-are-a-family.mp3",
+       "cls": "head"
       },
       {
-       "w": "grandpa",
-       "at": [
-        13,
-        66
-       ]
+       "t": "What is a family?",
+       "a": "../../en-shared/q/what-is-a-family.mp3"
       },
       {
-       "w": "sister",
-       "at": [
-        84,
-        88
-       ]
+       "t": "A family is a group of people who live together.",
+       "a": "../../en-shared/q/a-family-is-a-group-of-people-who-live-together.mp3"
       },
       {
-       "w": "mom",
-       "at": [
-        76,
-        56
-       ]
-      },
-      {
-       "w": "baby",
-       "at": [
-        62,
-        84
-       ]
-      },
-      {
-       "w": "uncle",
-       "p": 1,
-       "at": [
-        28,
-        66
-       ]
-      },
-      {
-       "w": "cousin",
-       "p": 1,
-       "at": [
-        50,
-        82
-       ]
-      },
-      {
-       "w": "aunt",
-       "p": 1,
-       "at": [
-        78,
-        66
-       ]
+       "t": "Not all families are the same!",
+       "a": "../../en-shared/q/not-all-families-are-the-same.mp3"
       }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "page": 6,
+   "grp": "article",
+   "items": [
+    {
+     "pics": [
+      "img/s2.jpg"
      ],
-     "lines": []
+     "lines": [
+      {
+       "t": "Some families are small.",
+       "a": "../../en-shared/q/some-families-are-small.mp3"
+      },
+      {
+       "t": "There's a new baby in this family.",
+       "a": "../../en-shared/q/there-s-a-new-baby-in-this-family.mp3"
+      },
+      {
+       "t": "That is his grandma.",
+       "a": "../../en-shared/q/that-is-his-grandma.mp3"
+      },
+      {
+       "t": "She hugs the baby.",
+       "a": "../../en-shared/q/she-hugs-the-baby.mp3"
+      },
+      {
+       "t": "That is his sister.",
+       "a": "../../en-shared/q/that-is-his-sister.mp3"
+      },
+      {
+       "t": "She helps when the baby is sad.",
+       "a": "../../en-shared/q/she-helps-when-the-baby-is-sad.mp3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "page": 6,
+   "grp": "article",
+   "items": [
+    {
+     "pics": [
+      "img/s3.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Some families are big.",
+       "a": "../../en-shared/q/some-families-are-big.mp3"
+      },
+      {
+       "t": "There are six children in this family.",
+       "a": "../../en-shared/q/there-are-six-children-in-this-family.mp3"
+      },
+      {
+       "t": "There are three boys and three girls.",
+       "a": "../../en-shared/q/there-are-three-boys-and-three-girls.mp3"
+      },
+      {
+       "t": "They aren't brothers and sisters.",
+       "a": "../../en-shared/q/they-aren-t-brothers-and-sisters.mp3"
+      },
+      {
+       "t": "They're cousins.",
+       "a": "../../en-shared/q/they-re-cousins.mp3"
+      },
+      {
+       "t": "Can you see the girl with her uncle and two aunts?",
+       "a": "../../en-shared/q/can-you-see-the-girl-with-her-uncle-and-two-aunts.mp3"
+      },
+      {
+       "t": "Her mom has two sisters.",
+       "a": "../../en-shared/q/her-mom-has-two-sisters.mp3"
+      },
+      {
+       "t": "The girl's dad is with her brother.",
+       "a": "../../en-shared/q/the-girl-s-dad-is-with-her-brother.mp3"
+      },
+      {
+       "t": "They're happy!",
+       "a": "../../en-shared/q/they-re-happy.mp3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "page": 7,
+   "grp": "article",
+   "items": [
+    {
+     "pics": [
+      "img/s4.jpg"
+     ],
+     "lines": [
+      {
+       "t": "There are four children in this family.",
+       "a": "../../en-shared/q/there-are-four-children-in-this-family.mp3"
+      },
+      {
+       "t": "This boy has one brother and two sisters.",
+       "a": "../../en-shared/q/this-boy-has-one-brother-and-two-sisters.mp3"
+      },
+      {
+       "t": "They like to walk in the park.",
+       "a": "../../en-shared/q/they-like-to-walk-in-the-park.mp3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "page": 7,
+   "grp": "article",
+   "items": [
+    {
+     "pics": [
+      "img/s5.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Families like to do things together.",
+       "a": "../../en-shared/q/families-like-to-do-things-together.mp3"
+      },
+      {
+       "t": "This girl is at home with her grandpa.",
+       "a": "../../en-shared/q/this-girl-is-at-home-with-her-grandpa.mp3"
+      },
+      {
+       "t": "Her grandpa is happy.",
+       "a": "../../en-shared/q/her-grandpa-is-happy.mp3"
+      },
+      {
+       "t": "He isn't sad.",
+       "a": "../../en-shared/q/he-isn-t-sad.mp3"
+      }
+     ]
     }
    ]
   },
@@ -96,13 +204,13 @@
    "type": "choice",
    "task": "Look and circle.",
    "taskAudio": "../../en-shared/q/look-and-circle.mp3",
-   "book": "lesson",
+   "book": "bq",
    "page": 4,
    "ex": "B",
    "items": [
     {
      "word": "dad",
-     "pic": "../../pics/dad.png",
+     "pic": "img/b1.jpg",
      "options": [
       "dad",
       "mom"
@@ -113,7 +221,7 @@
     },
     {
      "word": "sister",
-     "pic": "../../pics/sister.png",
+     "pic": "img/b2.jpg",
      "options": [
       "grandma",
       "sister"
@@ -124,7 +232,7 @@
     },
     {
      "word": "baby",
-     "pic": "../../pics/baby.png",
+     "pic": "img/b3.jpg",
      "options": [
       "uncle",
       "baby"
@@ -135,7 +243,7 @@
     },
     {
      "word": "grandpa",
-     "pic": "../../pics/grandpa.jpg",
+     "pic": "img/b4.jpg",
      "options": [
       "grandpa",
       "aunt"
@@ -150,7 +258,7 @@
    "type": "mcq",
    "task": "Look at the chart. Complete the words.",
    "taskAudio": "../../en-shared/q/look-at-the-chart-complete-the-words.mp3",
-   "book": "lesson",
+   "book": "bq",
    "page": 4,
    "ex": "C",
    "items": [
@@ -285,34 +393,10 @@
    ]
   },
   {
-   "type": "explain",
-   "task": "Listen and say.",
-   "taskAudio": "../../en-shared/q/listen-and-say.mp3",
-   "book": "lesson",
-   "page": 5,
-   "ex": "E",
-   "grp": "EF",
-   "items": [
-    {
-     "pics": [
-      "../../pics/dad-girls.png",
-      "../../pics/pen.png",
-      "../../pics/sister.png"
-     ],
-     "caps": [
-      "dad",
-      "pen",
-      "sister"
-     ],
-     "lines": []
-    }
-   ]
-  },
-  {
    "type": "link",
    "task": "Look and say. Match the words with the same sound.",
    "taskAudio": "../../en-shared/q/look-and-say-match-the-words-with-the-same-sound.mp3",
-   "book": "lesson",
+   "book": "bq",
    "page": 5,
    "ex": "F",
    "grp": "EF",
@@ -338,253 +422,10 @@
    ]
   },
   {
-   "type": "explain",
-   "task": "Read. How are the families the same? How are they different? Tell a friend.",
-   "taskAudio": "../../en-shared/q/read-how-are-the-families-the-same-how-are-they-di-0da7fbba.mp3",
-   "book": "lesson",
-   "page": 5,
-   "ex": "G",
-   "items": [
-    {
-     "pics": [
-      "../../pics/family-b.png",
-      "../../pics/big-family.png"
-     ],
-     "lines": [
-      {
-       "t": "Reading Strategy: Compare and Contrast",
-       "a": "../../en-shared/q/reading-strategy-compare-and-contrast.mp3",
-       "cls": "head"
-      },
-      {
-       "t": "To compare things, look for what is the same.",
-       "a": "../../en-shared/q/to-compare-things-look-for-what-is-the-same.mp3",
-       "cls": "note"
-      },
-      {
-       "t": "To contrast things, look for what is different.",
-       "a": "../../en-shared/q/to-contrast-things-look-for-what-is-different.mp3",
-       "cls": "note"
-      },
-      {
-       "t": "I'm seven years old. My family is small. This is my mom, and this is my dad.",
-       "a": "../../en-shared/q/i-m-seven-years-old-my-family-is-small-this-is-my-2f8ea204.mp3",
-       "cls": "yellow"
-      },
-      {
-       "t": "I'm ten years old. My family is big. I have a grandma and a grandpa. This is my mom and dad. I have two sisters.",
-       "a": "../../en-shared/q/i-m-ten-years-old-my-family-is-big-i-have-a-grandm-7f219cd4.mp3",
-       "cls": "green"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "type": "explain",
-   "task": "Listen and read.",
-   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
-   "book": "lesson",
-   "page": 6,
-   "grp": "article",
-   "items": [
-    {
-     "pics": [
-      "../../pics/art-family.jpg"
-     ],
-     "lines": [
-      {
-       "t": "Social Studies Article",
-       "a": "../../en-shared/q/social-studies-article.mp3",
-       "cls": "note"
-      },
-      {
-       "t": "As you read, think about how the families are the same and different.",
-       "a": "../../en-shared/q/as-you-read-think-about-how-the-families-are-the-s-3c2c9304.mp3",
-       "cls": "note"
-      },
-      {
-       "t": "We are a family!",
-       "a": "../../en-shared/q/we-are-a-family.mp3",
-       "cls": "head"
-      },
-      {
-       "t": "What is a family?",
-       "a": "../../en-shared/q/what-is-a-family.mp3"
-      },
-      {
-       "t": "A family is a group of people who live together.",
-       "a": "../../en-shared/q/a-family-is-a-group-of-people-who-live-together.mp3"
-      },
-      {
-       "t": "Not all families are the same!",
-       "a": "../../en-shared/q/not-all-families-are-the-same.mp3"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "type": "explain",
-   "task": "Listen and read.",
-   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
-   "book": "lesson",
-   "page": 6,
-   "grp": "article",
-   "items": [
-    {
-     "pics": [
-      "../../pics/art-grandma.jpg"
-     ],
-     "lines": [
-      {
-       "t": "Some families are small.",
-       "a": "../../en-shared/q/some-families-are-small.mp3"
-      },
-      {
-       "t": "There's a new baby in this family.",
-       "a": "../../en-shared/q/there-s-a-new-baby-in-this-family.mp3"
-      },
-      {
-       "t": "That is his grandma.",
-       "a": "../../en-shared/q/that-is-his-grandma.mp3"
-      },
-      {
-       "t": "She hugs the baby.",
-       "a": "../../en-shared/q/she-hugs-the-baby.mp3"
-      },
-      {
-       "t": "That is his sister.",
-       "a": "../../en-shared/q/that-is-his-sister.mp3"
-      },
-      {
-       "t": "She helps when the baby is sad.",
-       "a": "../../en-shared/q/she-helps-when-the-baby-is-sad.mp3"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "type": "explain",
-   "task": "Listen and read.",
-   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
-   "book": "lesson",
-   "page": 6,
-   "grp": "article",
-   "items": [
-    {
-     "pics": [
-      "../../pics/art-big.jpg"
-     ],
-     "lines": [
-      {
-       "t": "Some families are big.",
-       "a": "../../en-shared/q/some-families-are-big.mp3"
-      },
-      {
-       "t": "There are six children in this family.",
-       "a": "../../en-shared/q/there-are-six-children-in-this-family.mp3"
-      },
-      {
-       "t": "There are three boys and three girls.",
-       "a": "../../en-shared/q/there-are-three-boys-and-three-girls.mp3"
-      },
-      {
-       "t": "They aren't brothers and sisters.",
-       "a": "../../en-shared/q/they-aren-t-brothers-and-sisters.mp3"
-      },
-      {
-       "t": "They're cousins.",
-       "a": "../../en-shared/q/they-re-cousins.mp3"
-      },
-      {
-       "t": "Can you see the girl with her uncle and two aunts?",
-       "a": "../../en-shared/q/can-you-see-the-girl-with-her-uncle-and-two-aunts.mp3"
-      },
-      {
-       "t": "Her mom has two sisters.",
-       "a": "../../en-shared/q/her-mom-has-two-sisters.mp3"
-      },
-      {
-       "t": "The girl's dad is with her brother.",
-       "a": "../../en-shared/q/the-girl-s-dad-is-with-her-brother.mp3"
-      },
-      {
-       "t": "They're happy!",
-       "a": "../../en-shared/q/they-re-happy.mp3"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "type": "explain",
-   "task": "Listen and read.",
-   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
-   "book": "lesson",
-   "page": 7,
-   "grp": "article",
-   "items": [
-    {
-     "pics": [
-      "../../pics/art-park.jpg"
-     ],
-     "lines": [
-      {
-       "t": "There are four children in this family.",
-       "a": "../../en-shared/q/there-are-four-children-in-this-family.mp3"
-      },
-      {
-       "t": "This boy has one brother and two sisters.",
-       "a": "../../en-shared/q/this-boy-has-one-brother-and-two-sisters.mp3"
-      },
-      {
-       "t": "They like to walk in the park.",
-       "a": "../../en-shared/q/they-like-to-walk-in-the-park.mp3"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "type": "explain",
-   "task": "Listen and read.",
-   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
-   "book": "lesson",
-   "page": 7,
-   "grp": "article",
-   "items": [
-    {
-     "pics": [
-      "../../pics/art-grandpa.jpg"
-     ],
-     "lines": [
-      {
-       "t": "Families like to do things together.",
-       "a": "../../en-shared/q/families-like-to-do-things-together.mp3"
-      },
-      {
-       "t": "This girl is at home with her grandpa.",
-       "a": "../../en-shared/q/this-girl-is-at-home-with-her-grandpa.mp3"
-      },
-      {
-       "t": "Her grandpa is happy.",
-       "a": "../../en-shared/q/her-grandpa-is-happy.mp3"
-      },
-      {
-       "t": "He isn't sad.",
-       "a": "../../en-shared/q/he-isn-t-sad.mp3"
-      }
-     ]
-    }
-   ]
-  },
-  {
    "type": "mcq",
    "task": "Read. Circle Family A or Family B.",
    "taskAudio": "../../en-shared/q/read-circle-family-a-or-family-b.mp3",
-   "book": "lesson",
+   "book": "bq",
    "page": 8,
    "ex": "B",
    "items": [
@@ -598,8 +439,8 @@
      "answer": 0,
      "audio": "../../en-shared/q/there-are-four-children-in-this-family-family-a.mp3",
      "pics": [
-      "../../pics/art-park.jpg",
-      "../../pics/art-grandma.jpg"
+      "img/fam-a.jpg",
+      "img/fam-b.jpg"
      ],
      "caps": [
       "Family A",
@@ -617,8 +458,8 @@
      "answer": 0,
      "audio": "../../en-shared/q/the-boy-has-two-sisters-family-a.mp3",
      "pics": [
-      "../../pics/art-park.jpg",
-      "../../pics/art-grandma.jpg"
+      "img/fam-a.jpg",
+      "img/fam-b.jpg"
      ],
      "caps": [
       "Family A",
@@ -636,8 +477,8 @@
      "answer": 1,
      "audio": "../../en-shared/q/there-is-a-baby-family-b.mp3",
      "pics": [
-      "../../pics/art-park.jpg",
-      "../../pics/art-grandma.jpg"
+      "img/fam-a.jpg",
+      "img/fam-b.jpg"
      ],
      "caps": [
       "Family A",
@@ -655,8 +496,8 @@
      "answer": 1,
      "audio": "../../en-shared/q/there-is-a-grandma-family-b.mp3",
      "pics": [
-      "../../pics/art-park.jpg",
-      "../../pics/art-grandma.jpg"
+      "img/fam-a.jpg",
+      "img/fam-b.jpg"
      ],
      "caps": [
       "Family A",
@@ -674,8 +515,8 @@
      "answer": 0,
      "audio": "../../en-shared/q/they-walk-in-the-park-family-a.mp3",
      "pics": [
-      "../../pics/art-park.jpg",
-      "../../pics/art-grandma.jpg"
+      "img/fam-a.jpg",
+      "img/fam-b.jpg"
      ],
      "caps": [
       "Family A",
@@ -689,7 +530,7 @@
    "type": "mcq",
    "task": "Read. Circle the correct answer.",
    "taskAudio": "../../en-shared/q/read-circle-the-correct-answer.mp3",
-   "book": "lesson",
+   "book": "bq",
    "page": 8,
    "ex": "D",
    "items": [
@@ -705,171 +546,15 @@
      "parts": [
       "../../en-shared/q/a-social-studies-article-is-about.mp3"
      ],
-     "askAudio": "../../en-shared/q/askc-708a355a89.mp3"
-    }
-   ]
-  },
-  {
-   "type": "explain",
-   "task": "How are families different? Share with the class.",
-   "taskAudio": "../../en-shared/q/how-are-families-different-share-with-the-class.mp3",
-   "book": "lesson",
-   "page": 8,
-   "ex": "E",
-   "items": [
-    {
-     "lines": [
-      {
-       "t": "How are families different?",
-       "a": "../../en-shared/q/how-are-families-different.mp3",
-       "cls": "red"
-      },
-      {
-       "t": "Some families are small and some families are big.",
-       "a": "../../en-shared/q/some-families-are-small-and-some-families-are-big.mp3",
-       "cls": "blue"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "type": "explain",
-   "task": "What can you say about your family? Tell a friend.",
-   "taskAudio": "../../en-shared/q/what-can-you-say-about-your-family-tell-a-friend.mp3",
-   "book": "lesson",
-   "page": 8,
-   "ex": "F",
-   "items": [
-    {
-     "lines": [
-      {
-       "t": "What can you say about your family?",
-       "a": "../../en-shared/q/what-can-you-say-about-your-family.mp3",
-       "cls": "red"
-      },
-      {
-       "t": "My family is big.",
-       "a": "../../en-shared/q/my-family-is-big.mp3",
-       "cls": "blue"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "type": "explain",
-   "task": "Listen and read. Circle the words that join together like I'm.",
-   "taskAudio": "../../en-shared/q/listen-and-read-circle-the-words-that-join-together-like-i-m.mp3",
-   "book": "lesson",
-   "page": 9,
-   "ex": "A",
-   "items": [
-    {
+     "askAudio": "../../en-shared/q/askc-708a355a89.mp3",
      "pics": [
-      "../../pics/grammar-girls.jpg"
+      "img/fam-a.jpg",
+      "img/fam-b.jpg"
      ],
-     "lines": [
-      {
-       "t": "Hi! I'm Isabel. Look at me.",
-       "a": "../../en-shared/q/hi-i-m-isabel-look-at-me.mp3"
-      },
-      {
-       "t": "I like to play with my family.",
-       "a": "../../en-shared/q/i-like-to-play-with-my-family.mp3"
-      },
-      {
-       "t": "She's my mom.",
-       "a": "../../en-shared/q/she-s-my-mom.mp3"
-      },
-      {
-       "t": "He's my dad.",
-       "a": "../../en-shared/q/he-s-my-dad.mp3"
-      },
-      {
-       "t": "They're happy.",
-       "a": "../../en-shared/q/they-re-happy.mp3"
-      },
-      {
-       "t": "We aren't sad.",
-       "a": "../../en-shared/q/we-aren-t-sad.mp3"
-      }
-     ],
-     "table": {
-      "title": "Am, Is, and Are",
-      "rows": [
-       [
-        {
-         "t": "I am a child.",
-         "a": "../../en-shared/q/i-am-a-child.mp3"
-        },
-        {
-         "t": "I'm a child.",
-         "a": "../../en-shared/q/i-m-a-child.mp3"
-        }
-       ],
-       [
-        {
-         "t": "You are my friend.",
-         "a": "../../en-shared/q/you-are-my-friend.mp3"
-        },
-        {
-         "t": "You're my friend.",
-         "a": "../../en-shared/q/you-re-my-friend.mp3"
-        }
-       ],
-       [
-        {
-         "t": "He is my brother.",
-         "a": "../../en-shared/q/he-is-my-brother.mp3"
-        },
-        {
-         "t": "He's my brother.",
-         "a": "../../en-shared/q/he-s-my-brother.mp3"
-        }
-       ],
-       [
-        {
-         "t": "She is not my sister.",
-         "a": "../../en-shared/q/she-is-not-my-sister.mp3"
-        },
-        {
-         "t": "She isn't my sister.",
-         "a": "../../en-shared/q/she-isn-t-my-sister.mp3"
-        }
-       ],
-       [
-        {
-         "t": "It is a dog.",
-         "a": "../../en-shared/q/it-is-a-dog.mp3"
-        },
-        {
-         "t": "It's a dog.",
-         "a": "../../en-shared/q/it-s-a-dog.mp3"
-        }
-       ],
-       [
-        {
-         "t": "They are friends.",
-         "a": "../../en-shared/q/they-are-friends.mp3"
-        },
-        {
-         "t": "They're friends.",
-         "a": "../../en-shared/q/they-re-friends.mp3"
-        }
-       ],
-       [
-        {
-         "t": "We are not teachers.",
-         "a": "../../en-shared/q/we-are-not-teachers.mp3"
-        },
-        {
-         "t": "We aren't teachers.",
-         "a": "../../en-shared/q/we-aren-t-teachers.mp3"
-        }
-       ]
-      ]
-     }
+     "caps": [
+      "Family A",
+      "Family B"
+     ]
     }
    ]
   },
@@ -877,7 +562,7 @@
    "type": "mcq",
    "task": "Complete the sentences.",
    "taskAudio": "../../en-shared/q/complete-the-sentences.mp3",
-   "book": "lesson",
+   "book": "bq",
    "page": 9,
    "ex": "B",
    "items": [
@@ -960,135 +645,6 @@
       "../../en-shared/q/happy.mp3"
      ],
      "askAudio": "../../en-shared/q/askc-f2d1818b04.mp3"
-    }
-   ]
-  },
-  {
-   "type": "explain",
-   "task": "Write the names of people in your family. Tell a friend about them.",
-   "taskAudio": "../../en-shared/q/write-the-names-of-people-in-your-family-tell-a-fr-dc4c9930.mp3",
-   "book": "lesson",
-   "page": 9,
-   "ex": "C",
-   "items": [
-    {
-     "lines": [
-      {
-       "t": "Maria. She's my grandma.",
-       "a": "../../en-shared/q/maria-she-s-my-grandma.mp3",
-       "cls": "blue"
-      },
-      {
-       "t": "Hassan and Murat. They're my brothers.",
-       "a": "../../en-shared/q/hassan-and-murat-they-re-my-brothers.mp3",
-       "cls": "blue"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "type": "explain",
-   "task": "Listen and read.",
-   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
-   "book": "lesson",
-   "page": 11,
-   "ex": "A",
-   "grp": "speak",
-   "items": [
-    {
-     "pics": [
-      "../../pics/friends.jpg"
-     ],
-     "lines": [
-      {
-       "t": "Speaking Tip",
-       "a": "../../en-shared/q/speaking-tip.mp3",
-       "cls": "head"
-      },
-      {
-       "t": "Use this is and these are to talk about your family.",
-       "a": "../../en-shared/q/use-this-is-and-these-are-to-talk-about-your-family.mp3",
-       "cls": "note"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "task": "Make introductions. Listen and complete. Write this or these.",
-   "taskAudio": "../../en-shared/q/make-introductions-listen-and-complete-write-this-or-these.mp3",
-   "book": "lesson",
-   "page": 11,
-   "ex": "A",
-   "grp": "speak",
-   "items": [
-    {
-     "word": "This is my friend, Isabel.",
-     "stem": "____ is my friend, Isabel.",
-     "options": [
-      "This",
-      "These"
-     ],
-     "answer": 0,
-     "audio": "../../en-shared/q/this-is-my-friend-isabel.mp3",
-     "parts": [
-      "../../en-shared/q/is-my-friend-isabel.mp3"
-     ],
-     "askAudio": "../../en-shared/q/askc-1919a25706.mp3"
-    },
-    {
-     "word": "These are my friends, Li and Barasa.",
-     "stem": "____ are my friends, Li and Barasa.",
-     "options": [
-      "This",
-      "These"
-     ],
-     "answer": 1,
-     "audio": "../../en-shared/q/these-are-my-friends-li-and-barasa.mp3",
-     "parts": [
-      "../../en-shared/q/are-my-friends-li-and-barasa.mp3"
-     ],
-     "askAudio": "../../en-shared/q/askc-2ca19d9287.mp3"
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "task": "Circle the correct answers. Then complete the sentences about your family members.",
-   "taskAudio": "../../en-shared/q/circle-the-correct-answers-then-complete-the-sente-0f710a67.mp3",
-   "book": "lesson",
-   "page": 11,
-   "ex": "B",
-   "items": [
-    {
-     "word": "This is my dad.",
-     "stem": "____ is my dad.",
-     "options": [
-      "This",
-      "These"
-     ],
-     "answer": 0,
-     "audio": "../../en-shared/q/this-is-my-dad.mp3",
-     "parts": [
-      "../../en-shared/q/is-my-dad.mp3"
-     ],
-     "askAudio": "../../en-shared/q/askc-9160403ca8.mp3"
-    },
-    {
-     "word": "These are my grandpa and my grandma.",
-     "stem": "____ are my grandpa and my grandma.",
-     "options": [
-      "This",
-      "These"
-     ],
-     "answer": 1,
-     "audio": "../../en-shared/q/these-are-my-grandpa-and-my-grandma.mp3",
-     "parts": [
-      "../../en-shared/q/are-my-grandpa-and-my-grandma.mp3"
-     ],
-     "askAudio": "../../en-shared/q/askc-eeb53c4cc8.mp3"
     }
    ]
   },

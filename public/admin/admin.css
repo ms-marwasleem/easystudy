@@ -158,3 +158,30 @@ input[disabled]{opacity:.5}
 
 .stabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}.stabs button{border:1px solid #e6c98a;background:#fff;color:#3b2a14;font-weight:700;border-radius:999px;padding:6px 14px;font:inherit;cursor:pointer}.stabs button.on{background:#ff9f1c;color:#fff;border-color:#ff9f1c}
 .utbl td:nth-child(2) .u-in{min-width:14rem}
+
+/* users tab (2026-11-15): own add card, one column per fact, search row, edit window, ON/OFF switch */
+.u-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.5rem}
+.u-addrow{margin-top:.7rem;display:flex;gap:.7rem;align-items:center;flex-wrap:wrap}
+.utbl{min-width:70rem}
+.utbl .u-srch th{padding:.2rem .3rem;background:transparent}
+.utbl .u-srch input{width:100%;min-width:4.5rem;box-sizing:border-box;border:.06rem solid var(--line);border-radius:.4rem;padding:.2rem .4rem;font:inherit;font-size:.85rem;background:#fff}
+.utbl td small{display:block;color:var(--mut);font-size:.75rem}
+.utbl .u-dt{white-space:nowrap;font-size:.85rem}
+.utbl .u-tx{word-break:break-all;min-width:9rem}
+.utbl .u-act{white-space:nowrap}.utbl .u-act button{display:block;margin:.2rem 0;width:100%}
+.utbl .trm{min-height:2.2rem;flex-wrap:nowrap}
+.utbl .trm .sw{margin:0}
+.utbl .trm button{border:.1rem solid var(--acc-dk);background:#fff;color:var(--acc-dk);padding:.1rem .7rem;border-radius:.6rem;font-weight:700;cursor:pointer}
+.utbl .stb.open{background:#DDF2DE;color:var(--ok)}
+.u-modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:50;padding:1rem}
+.u-modal[hidden]{display:none}
+.u-modal-in{background:#fff;border-radius:1rem;padding:1.1rem;max-width:34rem;width:100%;max-height:90vh;overflow:auto;box-sizing:border-box}
+.u-modal-in.big{max-width:46rem}.u-modal-in.sm{max-width:24rem}
+.u-modal-in h3,.u-modal-in h4{margin:.2rem 0 .5rem}
+.u-modal-in label{display:block;font-weight:700;margin:.4rem 0}
+.u-modal-in input,.u-modal-in select{width:100%;box-sizing:border-box;font:inherit;padding:.35rem .5rem;border:.06rem solid var(--line);border-radius:.5rem;margin-top:.2rem}
+.u-kid{display:grid;grid-template-columns:1fr 9rem;gap:.4rem;margin:.3rem 0}.u-kid input,.u-kid select{margin:0}
+.u-btns{display:flex;gap:.6rem;margin-top:.9rem}
+.u-rc{max-width:100%;max-height:75vh;border-radius:.5rem;display:block;margin:0 auto}
+.u-q{font-weight:700;line-height:1.7}.u-err{color:#b3261e;font-weight:700}
+.utbl .stb{white-space:nowrap}.utbl .trm .nm{min-width:4.5rem;white-space:nowrap}

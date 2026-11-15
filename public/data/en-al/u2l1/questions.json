@@ -1,6 +1,495 @@
 {
  "sets": [
   {
+   "type": "explain",
+   "task": "Listen and read. Welcome to school!",
+   "taskAudio": "../../en-shared/q/listen-and-read-welcome-to-school.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/s1.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Welcome to school!",
+       "a": "../../en-shared/q/welcome-to-school.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "Hello! Welcome to elementary school. We love our school. We're happy you are here!",
+       "a": "../../en-shared/q/hello-welcome-to-elementary-school-we-love-our-sch-a5b7d8f4.mp3"
+      },
+      {
+       "t": "Find your backpack and pens. Find your books and crayons. It's time to see a classroom!",
+       "a": "../../en-shared/q/find-your-backpack-and-pens-find-your-books-and-cr-cb297e3b.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 28
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/s2.jpg"
+     ],
+     "lines": [
+      {
+       "t": "This is a big classroom at our school. The wall is yellow. This is the board. It's white.",
+       "a": "../../en-shared/q/this-is-a-big-classroom-at-our-school-the-wall-is-cbefee89.mp3"
+      },
+      {
+       "t": "That is the door. There is the teacher. There are the children. How many children? That's right! There are ten children.",
+       "a": "../../en-shared/q/that-is-the-door-there-is-the-teacher-there-are-th-0ef44a66.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 28
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/s3.jpg"
+     ],
+     "lines": [
+      {
+       "t": "This is another classroom. There are two big windows. The children play and have fun in this classroom.",
+       "a": "../../en-shared/q/this-is-another-classroom-there-are-two-big-window-1bba35c6.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 29
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/s4.jpg"
+     ],
+     "lines": [
+      {
+       "t": "This is the computer room. These are the computers. All the computers have a mouse.",
+       "a": "../../en-shared/q/this-is-the-computer-room-these-are-the-computers-1b75a9b5.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 29
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/s5.jpg"
+     ],
+     "lines": [
+      {
+       "t": "This is your bookcase. Those are your storybooks. You can read them all.",
+       "a": "../../en-shared/q/this-is-your-bookcase-those-are-your-storybooks-yo-e6bceb16.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 29
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/s6.jpg"
+     ],
+     "lines": [
+      {
+       "t": "This is her desk and chair. There is a desk and a chair for you, too.",
+       "a": "../../en-shared/q/this-is-her-desk-and-chair-there-is-a-desk-and-a-c-a4125b6f.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 29
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/s7.jpg"
+     ],
+     "lines": [
+      {
+       "t": "This is the playground. Those are students. They share the slide and the swings! They are your new friends at school. They're kind and fun!",
+       "a": "../../en-shared/q/this-is-the-playground-those-are-students-they-sha-761c5ef0.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 29
+  },
+  {
+   "type": "choice",
+   "task": "Look and circle.",
+   "taskAudio": "../../en-shared/q/look-and-circle.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "word": "computer",
+     "pic": "img/b1.jpg",
+     "options": [
+      "computer",
+      "mouse"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/computer.mp3"
+    },
+    {
+     "word": "window",
+     "pic": "img/b2.jpg",
+     "options": [
+      "board",
+      "window"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/window.mp3"
+    },
+    {
+     "word": "door",
+     "pic": "img/b3.jpg",
+     "options": [
+      "door",
+      "board"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/door.mp3"
+    },
+    {
+     "word": "chair",
+     "pic": "img/b4.jpg",
+     "options": [
+      "desk",
+      "chair"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/chair.mp3"
+    }
+   ],
+   "page": 26,
+   "ex": "B"
+  },
+  {
+   "type": "cloze",
+   "task": "Complete the sentences.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "text": "The children sit in the [[classroom]] and wait for the teacher.",
+     "bank": [
+      "board",
+      "bookcase",
+      "classroom",
+      "desk",
+      "mouse",
+      "wall"
+     ],
+     "audio": "../../en-shared/q/the-children-sit-in-the-classroom-and-wait-for-the-teacher.mp3"
+    },
+    {
+     "text": "The teacher writes on the [[board]].",
+     "bank": [
+      "board",
+      "bookcase",
+      "classroom",
+      "desk",
+      "mouse",
+      "wall"
+     ],
+     "audio": "../../en-shared/q/the-teacher-writes-on-the-board.mp3"
+    },
+    {
+     "text": "There are lots of pictures on the [[wall]].",
+     "bank": [
+      "board",
+      "bookcase",
+      "classroom",
+      "desk",
+      "mouse",
+      "wall"
+     ],
+     "audio": "../../en-shared/q/there-are-lots-of-pictures-on-the-wall.mp3"
+    },
+    {
+     "text": "All of my favorite books are in the [[bookcase]].",
+     "bank": [
+      "board",
+      "bookcase",
+      "classroom",
+      "desk",
+      "mouse",
+      "wall"
+     ],
+     "audio": "../../en-shared/q/all-of-my-favorite-books-are-in-the-bookcase.mp3"
+    },
+    {
+     "text": "The girl sits at her [[desk]].",
+     "bank": [
+      "board",
+      "bookcase",
+      "classroom",
+      "desk",
+      "mouse",
+      "wall"
+     ],
+     "audio": "../../en-shared/q/the-girl-sits-at-her-desk.mp3"
+    },
+    {
+     "text": "The boy uses the [[mouse]] to draw on the computer.",
+     "bank": [
+      "board",
+      "bookcase",
+      "classroom",
+      "desk",
+      "mouse",
+      "wall"
+     ],
+     "audio": "../../en-shared/q/the-boy-uses-the-mouse-to-draw-on-the-computer.mp3"
+    }
+   ],
+   "page": 26,
+   "ex": "C"
+  },
+  {
+   "type": "mcq",
+   "task": "Read the lesson again. Circle Yes or No.",
+   "taskAudio": "../../en-shared/q/read-the-lesson-again-circle-yes-or-no.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "The board is green.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 1,
+     "word": "The board is green. No.",
+     "audio": "../../en-shared/q/the-board-is-green-no.mp3"
+    },
+    {
+     "stem": "There is a teacher in the classroom with two big windows.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 1,
+     "word": "There is a teacher in the classroom with two big windows. No.",
+     "audio": "../../en-shared/q/there-is-a-teacher-in-the-classroom-with-two-big-windows-no.mp3"
+    },
+    {
+     "stem": "You can find books to read in the bookcase.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 0,
+     "word": "You can find books to read in the bookcase. Yes.",
+     "audio": "../../en-shared/q/you-can-find-books-to-read-in-the-bookcase-yes.mp3"
+    },
+    {
+     "stem": "The computers are for students.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 0,
+     "word": "The computers are for students. Yes.",
+     "audio": "../../en-shared/q/the-computers-are-for-students-yes.mp3"
+    },
+    {
+     "stem": "The school has a playground.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 0,
+     "word": "The school has a playground. Yes.",
+     "audio": "../../en-shared/q/the-school-has-a-playground-yes.mp3"
+    }
+   ],
+   "page": 30,
+   "ex": "B"
+  },
+  {
+   "type": "mcq",
+   "task": "Use Words to Identify Place. Read the words. Write the places.",
+   "taskAudio": "../../en-shared/q/use-words-to-identify-place-read-the-words-write-the-places.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "mouse, computer",
+     "options": [
+      "classroom",
+      "computer room",
+      "playground"
+     ],
+     "answer": 1,
+     "word": "mouse, computer. computer room.",
+     "audio": "../../en-shared/q/mouse-computer-computer-room.mp3"
+    },
+    {
+     "stem": "desk, chair",
+     "options": [
+      "classroom",
+      "computer room",
+      "playground"
+     ],
+     "answer": 0,
+     "word": "desk, chair. classroom.",
+     "audio": "../../en-shared/q/desk-chair-classroom.mp3"
+    },
+    {
+     "stem": "slide, swings",
+     "options": [
+      "classroom",
+      "computer room",
+      "playground"
+     ],
+     "answer": 2,
+     "word": "slide, swings. playground.",
+     "audio": "../../en-shared/q/slide-swings-playground.mp3"
+    }
+   ],
+   "page": 30,
+   "ex": "C"
+  },
+  {
+   "type": "mcq",
+   "task": "Circle the correct words.",
+   "taskAudio": "../../en-shared/q/circle-the-correct-words.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "____ are my friends.",
+     "options": [
+      "These",
+      "This"
+     ],
+     "answer": 0,
+     "word": "These are my friends.",
+     "audio": "../../en-shared/q/these-are-my-friends.mp3",
+     "parts": [
+      "../../en-shared/q/are-my-friends.mp3"
+     ]
+    },
+    {
+     "stem": "____ is my teacher.",
+     "options": [
+      "This",
+      "These"
+     ],
+     "answer": 0,
+     "word": "This is my teacher.",
+     "audio": "../../en-shared/q/this-is-my-teacher.mp3",
+     "parts": [
+      "../../en-shared/q/is-my-teacher.mp3"
+     ]
+    },
+    {
+     "stem": "____ is her desk.",
+     "options": [
+      "Those",
+      "That"
+     ],
+     "answer": 1,
+     "word": "That is her desk.",
+     "audio": "../../en-shared/q/that-is-her-desk.mp3",
+     "parts": [
+      "../../en-shared/q/is-her-desk.mp3"
+     ]
+    },
+    {
+     "stem": "____ are the boys from my class.",
+     "options": [
+      "Those",
+      "That"
+     ],
+     "answer": 0,
+     "word": "Those are the boys from my class.",
+     "audio": "../../en-shared/q/those-are-the-boys-from-my-class.mp3",
+     "parts": [
+      "../../en-shared/q/are-the-boys-from-my-class.mp3"
+     ]
+    },
+    {
+     "stem": "____ is the boy's computer.",
+     "options": [
+      "This",
+      "Those"
+     ],
+     "answer": 0,
+     "word": "This is the boy's computer.",
+     "audio": "../../en-shared/q/this-is-the-boy-s-computer.mp3",
+     "parts": [
+      "../../en-shared/q/is-the-boy-s-computer.mp3"
+     ]
+    }
+   ],
+   "page": 31,
+   "ex": "B"
+  },
+  {
+   "type": "cloze",
+   "task": "Make requests. Listen and complete.",
+   "taskAudio": "../../en-shared/q/make-requests-listen-and-complete.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "text": "Can I have that [[book]], please?",
+     "bank": [
+      "book",
+      "pencils"
+     ],
+     "audio": "../../en-shared/q/can-i-have-that-book-please.mp3"
+    },
+    {
+     "text": "Can I have those [[pencils]], please?",
+     "bank": [
+      "book",
+      "pencils"
+     ],
+     "audio": "../../en-shared/q/can-i-have-those-pencils-please.mp3"
+    }
+   ],
+   "page": 33,
+   "ex": "A"
+  },
+  {
    "type": "type",
    "task": "Read and complete the missing letters.",
    "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",

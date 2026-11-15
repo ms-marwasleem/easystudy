@@ -123,6 +123,7 @@ self.addEventListener('fetch', e => {
   if (!u.pathname.startsWith(SCOPE)) return;
   const rel = decodeURIComponent(u.pathname.slice(SCOPE.length));
   if (/^(version\.json|media\.json|sw\.js)$/.test(rel)) return;   // always asked fresh
+  if (/^api\//.test(rel)) return;   // server answers (settings, accounts, stats...) are never kept: a kept copy showed OLD dashboard settings after a save + refresh
   const m = /^data\/(.+\.(?:png|jpe?g|webp))$/i.exec(rel);
   if (m) e.respondWith(answer(r, m[1]).catch(() => fetch(r)));
   else if (r.mode === 'navigate') e.respondWith((rel === '' || rel === 'index.html' ? openApp() : keep(APP, r)).catch(() => fetch(r)));

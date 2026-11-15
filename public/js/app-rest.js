@@ -325,14 +325,14 @@ const stage=$('#stage'), rail=$('#rail'); let tab='read';
 const TABAR={Lesson:'الدرس',Vocab:'كلمات',Q:'أسئلة',Vocabulary:'كلمات',Questions:'أسئلة',Assignments:'كتاب التقييمات','Book Questions':'أسئلة الكتاب','Assessment Book':'كتاب التقييمات',Booklet:'كُتيب',PTS:'كتاب التقييمات',Grammar:'القواعد'};   // the bottom tabs in Arabic lessons
 const TABS={read:['Lesson','book'],words:['Vocabulary','abc'],quiz:['Questions','quiz'],booklet:['Booklet','quiz'],workbook:['Assignments','quiz'],grammar:['Grammar','hint']};
 // English AL: the Lesson tab (book parts) and the Booklet tab both run on the questions engine (quiz.js); inQ() = a questions-style sheet is on screen
-const isAL=()=>!!(LESSON&&LESSON.type==='al'), inQ=()=>tab==='quiz'||tab==='workbook'||tab==='booklet'||(isAL()&&tab==='read'), alSrc=()=>tab==='booklet'?'booklet':'lesson', qKey=()=>isAL()||tab==='booklet'||tab==='workbook'?tab:'quiz';
+const isAL=()=>!!(LESSON&&LESSON.type==='al'), inQ=()=>tab==='quiz'||tab==='workbook'||tab==='booklet'||(isAL()&&tab==='read'), alSrc=()=>tab==='booklet'?'booklet':tab==='quiz'?'bq':'lesson', qKey=()=>isAL()||tab==='booklet'||tab==='workbook'?tab:'quiz';
 const KEYTAB={read:'book',quiz:'book',grammar:'book',booklet:'bk',workbook:'pts'};   // the map-key colour each tab belongs to (Words has none)
 function paintTabs(){ $$('.tab').forEach(b=>{ const [l0,ic]=TABS[b.dataset.tab], l=(LESSON&&LESSON.tabLabels&&LESSON.tabLabels[b.dataset.tab])||l0, got=LESSON&&STARS[LESSON.id]&&STARS[LESSON.id][b.dataset.tab];
-  b.dataset.book=KEYTAB[b.dataset.tab]||''; b.innerHTML=ICON[ic]+`<span>${isAr()&&TABAR[l]||tr(l)}</span>`+(b.dataset.book?'<i class="kd"></i>':'')+(got?`<span class="st">${STAR(true)}</span>`:''); b.hidden=LESSON&&LESSON.tabs?!LESSON.tabs.includes(b.dataset.tab):['booklet','workbook'].includes(b.dataset.tab)?!hasBook(b.dataset.tab):b.dataset.tab==='grammar'||(b.dataset.tab==='quiz'&&SUBJECT&&SUBJECT.id==='arabic'&&!hasBook('quiz')); b.setAttribute('aria-selected',b.dataset.tab===tab); }); const tb=$('.tabs'); if(tb){ const nt=$$('.tab:not([hidden])').length; tb.classList.toggle('many',nt>3); tb.classList.toggle('many5',nt>4); const on=$('.tab[aria-selected="true"]',tb); if(on) tb.scrollTo({left:on.offsetLeft-tb.clientWidth/2+on.offsetWidth/2,behavior:'auto'}); } }   // optional "tabs": ["read","quiz"] in lesson.json shows only those tabs (Math: explanation + questions, or questions only)
+  b.dataset.book=KEYTAB[b.dataset.tab]||''; b.innerHTML=ICON[ic]+`<span>${isAr()&&TABAR[l]||tr(l)}</span>`+(b.dataset.book?'<i class="kd"></i>':'')+(got?`<span class="st">${STAR(true)}</span>`:''); b.hidden=LESSON&&LESSON.tabs?!LESSON.tabs.includes(b.dataset.tab):['booklet','workbook'].includes(b.dataset.tab)?!hasBook(b.dataset.tab):b.dataset.tab==='grammar'||(b.dataset.tab==='quiz'&&SUBJECT&&SUBJECT.id==='arabic'&&!hasBook('quiz')); b.setAttribute('aria-selected',b.dataset.tab===tab); b.style.order=(isAL()&&LESSON.tabs)?LESSON.tabs.indexOf(b.dataset.tab):''; }); const tb=$('.tabs'); if(tb){ const nt=$$('.tab:not([hidden])').length; tb.classList.toggle('many',nt>3); tb.classList.toggle('many5',nt>4); const on=$('.tab[aria-selected="true"]',tb); if(on) tb.scrollTo({left:on.offsetLeft-tb.clientWidth/2+on.offsetWidth/2,behavior:'auto'}); } }   // optional "tabs": ["read","quiz"] in lesson.json shows only those tabs (Math: explanation + questions, or questions only)
 // a default lesson shows Booklet / PTS only when it has that book (its pages in subject.json, or questions of that book)
 function hasBook(k){ const m=SUBJECT&&LESSON&&SUBJECT.lessons.find(l=>l.id===LESSON.id); return !!(m&&m.pages&&[].concat(m.pages[k]||[]).length)||!!(qz.sets&&qz.file&&LESSON&&qz.file.includes('/'+(m&&m.folder)+'/')&&qz.all.some(q=>qSrcOf(q.set)===k)); }
 function setRail(items){ rail.innerHTML=''; items.forEach(it=>{ const b=el('button','dash '+it.kind+(it.on?' on':'')+(it.icon==='restart'?' ln':''),`<span class="rb${it.kind==='tool'?' tgear':''}">${it.kind==='tool'?toolLabel(LESSON.tool):ICON[it.icon]}</span><span>${it.label}</span>`); b.addEventListener('click',it.click); rail.append(b); }); }
-function switchTab(t,at){ setLook(t); if(typeof WP!=='undefined'&&WP.saved) wpClose(); stopVoice(); { const r=$('#lmeta .lm-r'); if(r) r.innerHTML=''; } hideHint(); $('#lesson').classList.remove('vtab','qtab','story','poem'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); lnavPaint(); carAt(0); (t==='booklet'||t==='workbook'||t==='read'&&isAL())?showQuiz(at):t==='grammar'?showGrammar():t==='read'?showRead():t==='words'&&LESSON.vocab?showWords():t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); if(t==='read') readAuto(); }
+function switchTab(t,at){ setLook(t); if(typeof WP!=='undefined'&&WP.saved) wpClose(); stopVoice(); { const r=$('#lmeta .lm-r'); if(r) r.innerHTML=''; } hideHint(); $('#lesson').classList.remove('vtab','qtab','story','poem'); document.body.classList.remove('typing','kb'); tab=t; paintTabs(); lnavPaint(); carAt(0); (t==='booklet'||t==='workbook'||(t==='read'||t==='quiz')&&isAL())?showQuiz(at):t==='grammar'?showGrammar():t==='read'?showRead():t==='words'&&LESSON.vocab?showWords():t==='quiz'&&typeof showQuiz==='function'?showQuiz(at):showGarage(); if(typeof bookTag==='function') bookTag(); pop('#stage > *',{scale:.85,y:10}); pop('#rail .dash',{x:30,y:0}); if(t==='read') readAuto(); }
 $$('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
 
 // default speed: always normal; a child's own choice per page wins
@@ -2713,7 +2713,7 @@ async function bookGo(n,k){
 // open a lesson at the part that matches a book page (Questions: at the first question from that page)
 async function bookOpen(lesson,t,page){
   await openLesson(lesson); if($('#lesson').hidden) return; if(page) setLast(lesson.id,page);
-  if(isAL()&&(t==='read'||t==='booklet')){ await qLoad(); qPick(t==='read'?'lesson':'booklet'); const i=qz.list.findIndex(q=>q.set.page===page); switchTab(t,i<0?0:i); return; }   // English AL: a book / booklet page opens at its first part
+  if(isAL()&&(t==='read'||t==='booklet'||t==='quiz')){ await qLoad(); qPick(t==='read'?'lesson':t==='quiz'?'bq':'booklet'); const i=qz.list.findIndex(q=>q.set.page===page); switchTab(t,i<0?0:i); return; }   // English AL: a book / booklet page opens at its first part
   if(BOOKOF(t)!=='book'||t==='quiz'){ const k=BOOKOF(t); await qLoad(); const has=k==='book'||qz.all.some(q=>qSrcOf(q.set)===k); switchTab(has&&['workbook','booklet'].includes(k)?k:'quiz',has?qFirstOnPage(page,k):0);
     if(!has) message('Soon!',`${BOOKNAME(k)} questions are coming soon!`,`<span class="car">${CAR('sad')}</span>`); }
   else if(t!==tab) switchTab(t);
@@ -3927,14 +3927,23 @@ window.gramAnim=function(cards){
       await an(m,[{transform:'scale(0)'},{transform:'scale(1.2)'},{transform:'scale(1)'}],{duration:350}); await say(it.l.a,it.l.t,g); an(l,[{transform:'scale(1)'},{transform:'scale(1.2)'},{transform:'scale(1)'}],{duration:350});
       await say(it.r.a,it.r.t,g); an(r,[{transform:'scale(1)'},{transform:'scale(1.2)'},{transform:'scale(1)'}],{duration:350}); await wait(700,g); }
   }
-  const KINDS={sort:kSort,morph:kMorph,reveal:kReveal,pair:kPair};
+  /* kind "text" = the book's own example (the part BEFORE the green box) as plain lines on the app background (never green): the lines show and are read one by one, then the next page starts by itself.
+     a: {kind:"text", lines:[{t, a?, hl?}], pic?:"path"} */
+  async function kText(a,g){
+    box.innerHTML=''; const wr=el('div','gt-wrap'); if(a.pic){ const im=el('img','gt-pic'); im.src=a.pic; im.alt=''; wr.append(im); } const list=el('div','gt-list'); wr.append(list); box.append(wr);
+    for(const it of a.lines){ const row=el('div','gt-line'); rich(row,it.t,it.hl); list.append(row);
+      await an(row,[{opacity:0,transform:'translateY(.8rem)'},{opacity:1,transform:'none'}],{duration:350}); live(g);
+      row.classList.add('on'); await say(it.a,it.t,g); row.classList.remove('on'); await wait(250,g); }
+    await wait(600,g);
+  }
+  const KINDS={sort:kSort,morph:kMorph,reveal:kReveal,pair:kPair,text:kText};
 
   const rail=on=>{ if(!wrap.isConnected||tab!=='grammar') return; setRail([
     on?{kind:'stop',icon:'stop',label:tr('Stop'),click:()=>{ ++gen; vStop(); playing=false; rail(false); }}:{kind:'go',icon:'play',label:tr('Read'),click:()=>run(cur,true)},
     {kind:'again',icon:'restart',label:tr('Restart'),click:()=>run(cur,true)}]); };
   const paint=()=>{ dots.innerHTML=''; cards.forEach((c,k)=>{ const d=el('button','gan-dot'+(k===cur?' on':'')+(done.has(k)?' ok':'')); d.setAttribute('aria-label',String(k+1)); d.addEventListener('click',()=>run(k,true)); dots.append(d); }); title.textContent=cards[cur].title||''; };
   async function run(i,auto){
-    const g=++gen; vStop(); cur=i; paint(); playing=true; rail(true); carFrac(i/cards.length);
+    const g=++gen; vStop(); cur=i; box.className='gan-box'+(cards[i].anim.kind==='text'?' gt':''); paint(); playing=true; rail(true); carFrac(i/cards.length);
     try{ const a=cards[i].anim; await KINDS[a.kind](a,g); done.add(i); paint(); carFrac((i+1)/cards.length);
       if(done.size>=cards.length&&!showGrammar.done){ showGrammar.done=1; award(LESSON.id,'grammar'); }
       live(g); playing=false; rail(false); if(auto&&i<cards.length-1){ await wait(900,g); run(i+1,true); }

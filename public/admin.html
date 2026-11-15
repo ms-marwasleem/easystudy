@@ -119,18 +119,25 @@
 
   <section id="p-users" class="page" hidden>
     <div class="card">
+      <h2>إضافة مستخدم جديد</h2>
+      <form id="u-form" class="u-addform" autocomplete="off" novalidate>
+        <div class="u-fields">
+          <input name="email" type="email" dir="ltr" placeholder="إيميل ولي الأمر"><input name="phone" type="tel" dir="ltr" placeholder="موبايل (اختياري لو فيه إيميل)">
+          <input name="kid" type="text" placeholder="اسم الطالب"><select name="grade" id="u-grade"></select>
+        </div>
+        <div class="u-addrow"><button type="submit" id="u-add-go" class="pri" disabled>+ إضافة مستخدم</button><span class="u-err wl-err" hidden style="color:#b3261e"></span></div>
+      </form>
+    </div>
+    <div class="card">
       <h2>المستخدمين</h2>
       <p class="hint" id="u-where"></p>
-      <div class="filters"><input type="text" id="u-q" placeholder="بحث بالإيميل أو التليفون أو اسم الطالب"><span class="legend" id="u-count"></span></div>
-      <div class="filters"><button class="ghost" id="u-add" type="button" disabled>+ إضافة مستخدم</button></div>
-      <form id="u-form" class="filters" hidden autocomplete="off" novalidate>
-        <input name="email" type="email" dir="ltr" placeholder="إيميل ولي الأمر"><input name="phone" type="tel" dir="ltr" placeholder="موبايل (اختياري لو فيه إيميل)">
-        <input name="kid" type="text" placeholder="اسم الطالب"><select name="grade" id="u-grade"></select>
-        <label class="sw"><input type="checkbox" name="act"><span></span> تفعيل بدون إيصال</label>
-        <select name="term"><option value="t1">الترم الأول</option><option value="t2">الترم التاني</option></select>
-        <button type="submit">حفظ</button><span class="u-err wl-err" hidden style="color:#b3261e"></span></form>
-      <div class="utwrap"><table class="utbl"><thead><tr><th>المستخدم</th><th>الإيميل</th><th>الموبايل</th><th>الطالب</th><th>الاشتراك</th></tr></thead><tbody id="users"></tbody></table></div>
+      <div class="filters"><input type="text" id="u-q" placeholder="بحث في كل الجدول"><span class="legend" id="u-count"></span></div>
+      <div class="utwrap"><table class="utbl"><thead>
+        <tr><th>م</th><th>تاريخ التسجيل</th><th>الإيميل</th><th>الموبايل</th><th>الطالب</th><th>تاريخ تسجيل الطالب</th><th>الاشتراك</th><th>تاريخ الاشتراك</th><th>الإيصال</th><th></th></tr>
+        <tr class="u-srch"><th><input class="u-f" data-c="num" placeholder="بحث"></th><th><input class="u-f" data-c="date" placeholder="بحث"></th><th><input class="u-f" data-c="email" dir="ltr" placeholder="بحث"></th><th><input class="u-f" data-c="phone" dir="ltr" placeholder="بحث"></th><th><input class="u-f" data-c="kid" placeholder="بحث"></th><th><input class="u-f" data-c="kdate" placeholder="بحث"></th><th><input class="u-f" data-c="sub" placeholder="بحث"></th><th><input class="u-f" data-c="sdate" placeholder="بحث"></th><th></th><th></th></tr>
+      </thead><tbody id="users"></tbody></table></div>
     </div>
+    <div id="u-modal" class="u-modal" hidden><div id="u-modal-in" class="u-modal-in"></div></div>
   </section>
 
   <section id="p-reports" class="page" hidden>

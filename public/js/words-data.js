@@ -32,7 +32,7 @@ function ewSubjects(){
   const C=EW.CURR; if(!C||!EW.curr) return [];
   let ids=[]; const t=C.types.find(x=>x.id===EW.curr), sc=(C.schools||[]).find(x=>x.id===EW.curr);
   if(t) ids=t.subjects||[]; else if(sc){ const b=C.types.find(x=>x.id===sc.base); ids=[...(b?b.subjects:[]),...(sc.subjects||[])]; }
-  if(t&&t.id==='tajribi'&&!ids.includes('en-al')) ids=[...ids,'en-al'];   // Ahmed 2026-11-14: English AL is in the experimental curriculum too
+   // English AL = each language school's own curriculum, not ministry (Ahmed 2026-11-15): only a languages-school child gets it (the school's subjects in data/curriculum.json)
   return Object.keys(EW_SUBJ).filter(id=>ids.includes(id)).map(id=>COURSE.subjects.find(s=>s.id===id)).filter(s=>s&&s.lessons);
 }
 // the units of a subject as the words app shows them: only lessons that have a Words tab; unit name from the book's own unit names

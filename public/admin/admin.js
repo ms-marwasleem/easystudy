@@ -8,7 +8,7 @@ const lsGet=(k,d)=>{ try{ const v=JSON.parse(localStorage.getItem(k)||'null'); r
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const ar=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
 let LOCKED=false, S=null, FILE=null, COURSE=null, GRADES=[], dirty=false;
-const toast=t=>{ const o=$('#toast'); o.textContent=t; o.hidden=false; clearTimeout(toast.t); toast.t=setTimeout(()=>o.hidden=true,1800); };
+const toast=t=>{ const o=$('#toast'); o.textContent=t; o.hidden=false; clearTimeout(toast.t); toast.t=setTimeout(()=>o.hidden=true,/^ما اتحفظش/.test(t)?6000:1800); };
 const mark=()=>{ dirty=true; $('#save').textContent='حفظ •'; };
 
 async function boot(){
@@ -178,32 +178,75 @@ const fmt=t=>{ try{ return new Date(t).toLocaleString('ar-EG',{dateStyle:'medium
 // with a server (settings "api"): the real lists come from GET api/admin/accounts and api/admin/stats (same shapes as the local ones below)
 const tokGet=()=>{ try{ return localStorage.getItem('es.adminToken')||''; }catch(e){ return ''; } };
 const hdr=()=>{ const t=tokGet(), h={'Content-Type':'application/json'}; if(t) h.Authorization='Bearer '+t; return h; }; // no-domain admin: ADMIN_TOKEN as Bearer
-const api=(path,body)=>S.api?fetch(S.api+path,{method:body?'PUT':'GET',credentials:'include',headers:hdr(),body:body?JSON.stringify(body):undefined}).then(r=>r.ok?r.json():null).catch(()=>null):Promise.resolve(null);
+const api=(path,body)=>S.api?fetch(S.api+path+(body?'':(path.includes('?')?'&':'?')+'_='+Date.now()),{method:body?'PUT':'GET',cache:'no-store',credentials:'include',headers:hdr(),body:body?JSON.stringify(body):undefined}).then(r=>r.ok?r.json():null).catch(()=>null):Promise.resolve(null);
 let SRV={subs:null,accounts:null,stats:null,promoUses:null,reports:null};
 function accounts(){ if(SRV.accounts) return SRV.accounts; const a=lsGet('es.account',null); if(!a) return []; return [{...a,kids:lsGet('es.kids',[])}]; }
 const subRow=(kid,t)=>(SRV.subs||[]).find(x=>x.child===kid&&x.term.split(':')[1]===t);
-function drawUsers(){ const A=accounts(), box=$('#users'), q=$('#u-q').value.trim().toLowerCase(), srv=!!SRV.accounts;
-  $('#u-where').textContent=srv?'عدّلي أي خانة (إيميل / موبايل / اسم الطالب) وهتتحفظ لوحدها أول ما تخرجي منها.':'قائمة المستخدمين مش ظاهرة دلوقتي. اتأكدي من الإنترنت وكلمة السر وافتحي الصفحة تاني.';
-  const L=A.filter(a=>!q||[a.email,a.phone,...(a.kids||[]).map(k=>k.name)].join(' ').toLowerCase().includes(q)); $('#u-count').textContent=ar(L.length)+' مستخدم';
-  $('#u-add').disabled=!srv; $('#u-add').title=srv?'':'مش متاح دلوقتي';
-  if(!L.length){ box.innerHTML='<tr><td colspan="5"><p class="empty">'+(A.length?'مفيش نتيجة.':'مفيش حسابات مسجلة لسه.')+'</p></td></tr>'; return; }
-  const dis=srv?'':' disabled title="مش متاح دلوقتي"', ro=srv?'':' readonly';
-  const mail=a=>a.email&&!/@phone\.local$/.test(a.email)?a.email:'';
-  box.innerHTML=L.map((a,i)=>{ const K=(a.kids||[]).length?a.kids:[null], n=K.length;
-    return K.map((k,j)=>`<tr data-p="${esc(a.id||'')}">`+(j?'':`<td rowspan="${n}" class="u-who"><b>${ar(i+1)}</b><small>${a.created?esc(fmt(a.created)):''}</small><button type="button" class="u-del" data-a="del"${dis} title="حذف المستخدم">حذف</button></td>
-      <td rowspan="${n}"><input class="u-in" data-f="email" dir="ltr" type="email" value="${esc(mail(a))}" placeholder="—"${ro}></td>
-      <td rowspan="${n}"><input class="u-in" data-f="phone" dir="ltr" type="tel" value="${esc(a.phone||'')}" placeholder="—"${ro}></td>`)+
-      (k?`<td data-k="${esc(k.id)}"><input class="u-in" data-f="kid" value="${esc(k.name)}"${ro}>${k.school?'<small>'+esc(k.school)+'</small>':''}</td>
-      <td>${['t1','t2'].map(t=>{ const r=subRow(k.id,t), live=r&&r.st==='active'&&r.until>Date.now(), g=k.grade||'p1';
-        return `<div class="trm" data-k="${esc(k.id)}" data-g="${esc(g)}" data-t="${t}"><span class="nm">${TNAME[t]}</span><span class="stb ${live?'on':'none'}">${r?(live?'مفعّل لحد '+new Date(r.until).toLocaleDateString('ar-EG',{day:'numeric',month:'long'}):STN[r.st]||r.st):'بدون اشتراك'}</span>${r&&r.ref?`<span dir="ltr" class="rep-at">${esc(r.ref)}</span>`:''}
-          ${r&&r.receipt?`<button data-a="rc"${dis}>الإيصال</button>`:''}${live?'':`<button data-a="grant"${dis}>${r&&r.st==='pending'?'تفعيل':'تفعيل بدون إيصال'}</button>`}${r&&(r.st==='active'||r.st==='pending')?`<button data-a="close"${dis}>${live?'وقف الاشتراك':'إلغاء'}</button>`:''}<div class="sb-img"></div></div>`; }).join('')}</td>`
-      :'<td><span class="empty">مفيش طالب</span></td><td></td>')+'</tr>').join(''); }).join(''); }
-$('#users').addEventListener('change',async e=>{ const i=e.target.closest('.u-in'); if(!i||i.readOnly) return; const tr=i.closest('tr'), f=i.dataset.f, v=i.value.trim(); let x;
-  if(f==='kid'){ if(!v){ toast('اكتبي اسم الطالب'); return drawUsers(); } x=await post('/admin/kid/'+i.closest('td').dataset.k,{name:v}); }
-  else { const p=tr.dataset.p, row=tr.parentNode.querySelector(`tr[data-p="${p}"]`), g=n=>row.querySelector(`[data-f="${n}"]`).value.trim(); x=await post('/admin/user/'+p,{email:g('email'),phone:g('phone')}); }
-  if(x&&x.ok){ toast('اتحفظ'); const ac=await api('/admin/accounts'); if(ac&&ac.accounts){ SRV.accounts=ac.accounts; drawUsers(); } }
-  else { toast({'bad-email':'الإيميل مش مظبوط','need-contact':'لازم إيميل أو موبايل','email-taken':'الإيميل ده لحساب تاني'}[x&&x.error]||'ما اتحفظش'); const ac=await api('/admin/accounts'); if(ac&&ac.accounts) SRV.accounts=ac.accounts; drawUsers(); } });
+/* ---------- users tab (2026-11-15): one column per fact, a live search under each column, edit window, ON/OFF switch per student and term ---------- */
+const nrm=t=>String(t==null?'':t).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').toLowerCase().replace(/\s+/g,' ').trim();
+const fmtD=t=>{ if(!t) return ''; const d=new Date(t); if(isNaN(d)) return ''; const p=n=>String(n).padStart(2,'0'); return ar(p(d.getDate())+'/'+p(d.getMonth()+1)+'/'+d.getFullYear()); };
+const gradeName=id=>{ const g=GRADES.find(x=>x.id===id); return g?g.ar:(id||''); };
+const gradeOpts=sel=>GRADES.map(g=>`<option value="${esc(g.id)}"${g.id===sel?' selected':''}>${esc(g.ar)}</option>`).join('');
+const mailOf=a=>a.email&&!/@phone\.local$/.test(a.email)?a.email:'';
+const UF={};   // the text typed under each column
+function subState(r){ const t=Date.now(); if(r&&r.st==='active'&&r.until>t) return 'on'; if(r&&r.st==='pending'&&r.until>t) return 'wait'; return 'off'; }
+function drawUsers(){ const A=accounts(), box=$('#users'), srv=!!SRV.accounts, all=nrm($('#u-q').value);
+  $('#u-where').textContent=srv?'':'قائمة المستخدمين مش ظاهرة دلوقتي. اتأكدي من الإنترنت وكلمة السر وافتحي الصفحة تاني.';
+  const rows=[];   // one entry per parent with the text of every column
+  A.forEach(a=>{ const kids=(a.kids||[]).map(k=>{ const sub=['t1','t2'].map(t=>{ const r=subRow(k.id,t), st=subState(r); return {t,r,st}; });
+      return {k,sub,txt:{kid:nrm(k.name+' '+gradeName(k.grade)),kdate:nrm(fmtD(k.created)),sub:nrm(sub.map(x=>TNAME[x.t]+' '+(x.st==='on'?'مفعل':x.st==='wait'?'منتظر':'غير مفعل')).join(' ')),sdate:nrm(sub.map(x=>fmtD(x.r&&x.r.at)).join(' '))}}; });
+    rows.push({a,kids,txt:{num:'',date:nrm(fmtD(a.created)),email:nrm(mailOf(a)),phone:nrm(a.phone)}}); });
+  rows.forEach((o,i)=>o.txt.num=nrm(i+1));
+  const L=rows.filter(o=>{ const pf=['num','date','email','phone'].every(c=>!UF[c]||o.txt[c].includes(UF[c]));
+    if(!pf) return false; const kf=['kid','kdate','sub','sdate'].some(c=>UF[c]); o.show=o.kids.filter(x=>['kid','kdate','sub','sdate'].every(c=>!UF[c]||x.txt[c].includes(UF[c])));
+    if(all){ const hay=o.txt.num+' '+o.txt.date+' '+o.txt.email+' '+o.txt.phone+' '+o.kids.map(x=>x.txt.kid+' '+x.txt.kdate+' '+x.txt.sub+' '+x.txt.sdate).join(' '); if(!hay.includes(all)) return false; }
+    return kf?o.show.length>0:true; });
+  $('#u-count').textContent=ar(L.length)+' مستخدم';
+  $('#u-add-go').disabled=!srv;
+  if(!L.length){ box.innerHTML='<tr><td colspan="10"><p class="empty">'+(A.length?'مفيش نتيجة.':'مفيش حسابات مسجلة لسه.')+'</p></td></tr>'; return; }
+  const dis=srv?'':' disabled';
+  const kidsOf=o=>{ const kf=['kid','kdate','sub','sdate'].some(c=>UF[c]); return kf?o.show:o.kids; };
+  box.innerHTML=L.map(o=>{ const a=o.a, K=kidsOf(o), n=Math.max(1,K.length), idx=rows.indexOf(o)+1, P=a.id||'';
+    const first=`<td rowspan="${n}" class="u-n"><b>${ar(idx)}</b></td><td rowspan="${n}" class="u-dt">${fmtD(a.created)||'—'}</td><td rowspan="${n}" dir="ltr" class="u-tx">${esc(mailOf(a))||'—'}</td><td rowspan="${n}" dir="ltr" class="u-tx">${esc(a.phone||'')||'—'}</td>`;
+    const last=`<td rowspan="${n}" class="u-act"><button type="button" class="ghost" data-a="edit"${dis}>تعديل</button><button type="button" class="u-del" data-a="del"${dis}>حذف</button></td>`;
+    if(!K.length) return `<tr data-p="${esc(P)}">${first}<td><span class="empty">مفيش طالب</span></td><td>—</td><td>—</td><td>—</td><td>—</td>${last}</tr>`;
+    return K.map((x,j)=>{ const k=x.k, g=k.grade||'p1', blk=f=>x.sub.map(s=>`<div class="trm" data-k="${esc(k.id)}" data-g="${esc(g)}" data-t="${s.t}">${f(s)}</div>`).join('');
+      return `<tr data-p="${esc(P)}">`+(j?'':first)+`<td><b>${esc(k.name)}</b><small>${esc(gradeName(g))}${k.school?' · '+esc(k.school):''}</small></td><td class="u-dt">${fmtD(k.created)||'—'}</td>`+
+        `<td>${blk(s=>`<label class="sw"><input type="checkbox" data-a="tog"${s.st==='on'?' checked':''}${dis}><span></span></label><span class="nm">${TNAME[s.t]}</span><span class="stb ${s.st==='on'?'open':''}">${s.st==='on'?'مفعّل':s.st==='wait'?'منتظر':'غير مفعّل'}</span>`)}</td>`+
+        `<td class="u-dt">${blk(s=>fmtD(s.r&&s.r.at)||'—')}</td>`+
+        `<td>${blk(s=>s.r&&s.r.receipt?`<button type="button" class="ghost" data-a="rc">عرض الإيصال</button>`:'—')}</td>`+(j?'':last)+'</tr>'; }).join(''); }).join(''); }
+const refreshUsers=async()=>{ const ac=await api('/admin/accounts'); if(ac&&ac.accounts) SRV.accounts=ac.accounts; await loadSubs(); };
 $('#u-q').addEventListener('input',drawUsers);
+$$('.u-f').forEach(i=>i.addEventListener('input',()=>{ UF[i.dataset.c]=nrm(i.value); drawUsers(); }));
+/* a small window (receipt picture, edit user, confirm): no browser pop-ups, which some phones and browsers block */
+function uModal(html,cls){ const m=$('#u-modal'); $('#u-modal-in').className='u-modal-in '+(cls||''); $('#u-modal-in').innerHTML=html; m.hidden=false; return m; }
+const uClose=()=>{ $('#u-modal').hidden=true; $('#u-modal-in').innerHTML=''; };
+$('#u-modal').addEventListener('click',e=>{ if(e.target.id==='u-modal'||e.target.closest('[data-m="x"]')) uClose(); });
+const ask=(msg,yes)=>new Promise(res=>{ uModal(`<p class="u-q">${esc(msg)}</p><div class="u-btns"><button type="button" class="pri" data-m="y">${esc(yes||'أيوه')}</button><button type="button" class="ghost" data-m="x">لأ</button></div>`,'sm');
+  $('#u-modal-in').querySelector('[data-m=y]').onclick=()=>{ uClose(); res(true); }; const o=new MutationObserver(()=>{ if($('#u-modal').hidden){ o.disconnect(); res(false); } }); o.observe($('#u-modal'),{attributes:true,attributeFilter:['hidden']}); });
+const U_ERR={'bad-email':'الإيميل مش مظبوط','need-contact':'لازم إيميل أو موبايل','email-taken':'الإيميل ده لحساب تاني','bad-name':'اكتبي اسم الطالب'};
+function editUser(pid){ const a=accounts().find(x=>x.id===pid); if(!a) return;
+  uModal(`<h3>تعديل المستخدم</h3><label>الإيميل<input data-f="email" dir="ltr" type="email" value="${esc(mailOf(a))}"></label><label>الموبايل<input data-f="phone" dir="ltr" type="tel" value="${esc(a.phone||'')}"></label>
+    <h4>الطلاب</h4>${(a.kids||[]).map(k=>`<div class="u-kid" data-k="${esc(k.id)}"><input data-f="kn" value="${esc(k.name)}"><select data-f="kg">${gradeOpts(k.grade||'p1')}</select></div>`).join('')||'<p class="empty">مفيش طالب لسه.</p>'}
+    <h4>إضافة طالب</h4><div class="u-kid"><input data-f="nn" placeholder="اسم الطالب"><select data-f="ng">${gradeOpts('p1')}</select></div>
+    <p class="u-err" hidden></p><div class="u-btns"><button type="button" class="pri" data-m="save">حفظ</button><button type="button" class="ghost" data-m="x">إلغاء</button></div>`);
+  const M=$('#u-modal-in'), er=M.querySelector('.u-err'), bad=t=>{ er.textContent=t; er.hidden=false; };
+  M.querySelector('[data-m=save]').onclick=async()=>{ er.hidden=true; const g=f=>M.querySelector(`[data-f="${f}"]`).value.trim(); let x;
+    if(g('email')!==mailOf(a)||g('phone')!==(a.phone||'')){ x=await post('/admin/user/'+pid,{email:g('email'),phone:g('phone')}); if(!x||!x.ok) return bad(U_ERR[x&&x.error]||'ما اتحفظش، جربي تاني'); }
+    for(const d of M.querySelectorAll('.u-kid[data-k]')){ const k=a.kids.find(q=>q.id===d.dataset.k), n=d.querySelector('[data-f=kn]').value.trim(), gr=d.querySelector('[data-f=kg]').value;
+      if(k&&(n!==k.name||gr!==(k.grade||'p1'))){ if(!n) return bad('اكتبي اسم الطالب'); x=await post('/admin/kid/'+k.id,{name:n,grade:gr}); if(!x||!x.ok) return bad(U_ERR[x&&x.error]||'ما اتحفظش، جربي تاني'); } }
+    if(g('nn')){ x=await post('/admin/user/'+pid+'/kid',{name:g('nn'),grade:g('ng')}); if(!x||!x.ok) return bad(U_ERR[x&&x.error]||'ما اتضافش الطالب، جربي تاني'); }
+    uClose(); toast('اتحفظ'); await refreshUsers(); }; }
+$('#users').addEventListener('click',async e=>{ const b=e.target.closest('[data-a]'); if(!b||b.disabled||b.dataset.a==='tog') return; const tr=b.closest('tr'), pid=tr.dataset.p;
+  if(b.dataset.a==='edit') return editUser(pid);
+  if(b.dataset.a==='del'){ if(!(await ask('حذف المستخدم ده نهائيًا؟ هيتمسح معاه الطلاب والاشتراكات والإيصالات والكريدتس، ومفيش رجوع.','احذف'))) return; const x=await post('/admin/user/'+pid+'/delete',{}); if(x&&x.ok){ toast('اتحذف'); await refreshUsers(); } else toast('ما اتحذفش، جربي تاني'); return; }
+  if(b.dataset.a==='rc'){ const r=b.closest('.trm'), x=await post(`/admin/sub/${r.dataset.k}/${r.dataset.g}:${r.dataset.t}/receipt`);
+    uModal(x&&x.receipt?`<img src="${x.receipt}" alt="" class="u-rc"><div class="u-btns"><button type="button" class="ghost" data-m="x">إغلاق</button></div>`:`<p class="empty">الإيصال مش متاح.</p><div class="u-btns"><button type="button" class="ghost" data-m="x">إغلاق</button></div>`,'big'); } });
+// the ON / OFF switch: ON opens the term for the student (no receipt needed), OFF closes it; the app sees it the next time it syncs
+$('#users').addEventListener('change',async e=>{ const i=e.target.closest('[data-a=tog]'); if(!i) return; const r=i.closest('.trm'), on=i.checked; i.disabled=true;
+  const x=on?await post('/admin/sub/grant',{child:r.dataset.k,term:r.dataset.g+':'+r.dataset.t}):await post('/admin/sub',{child:r.dataset.k,term:r.dataset.g+':'+r.dataset.t,action:'close'});
+  if(x&&x.ok) toast(on?'الاشتراك اتفعّل':'الاشتراك اتوقف'); else toast(x&&x.error==='admin-only'?'كلمة السر مش مظبوطة':on?'ما اتفعّلش، جربي تاني':'ما اتوقفش، جربي تاني');
+  await loadSubs(); });
 /* ---------- term subscriptions (server only; docs/subscriptions-spec.md): pending receipts first, activate / reject / close, grant with no receipt ---------- */
 const termNow=()=>/2/.test((COURSE&&COURSE.term)||'')?'t2':'t1', TNAME={t1:'الترم الأول',t2:'الترم التاني'};
 const STN={pending:'منتظر المراجعة',active:'مفعّل',rejected:'مرفوض',closed:'مقفول'};
@@ -221,19 +264,11 @@ function drawSubs(){ const box=$('#subsList'), all=$('#sb-all').checked, L=(SRV.
     const x=await post('/admin/sub',{child:c,term:t,action:act}); if(!x||!x.ok) alert('ما نفعش. جربي تاني'); loadSubs(); })));
 }
 $('#sb-all').addEventListener('change',drawSubs);
-$('#users').addEventListener('click',async e=>{ const b=e.target.closest('[data-a]'); if(!b||b.disabled) return;
-  if(b.dataset.a==='del'){ const p=b.closest('tr').dataset.p; if(!confirm('حذف المستخدم ده نهائيًا؟ هيتمسح معاه الأطفال والاشتراكات والإيصالات والكريدتس، ومفيش رجوع.')) return; const x=await post('/admin/user/'+p+'/delete',{}); if(x&&x.ok){ toast('اتحذف'); const ac=await api('/admin/accounts'); if(ac&&ac.accounts) SRV.accounts=ac.accounts; await loadSubs(); } else toast('ما نفعش'); return; }
-  const r=b.closest('.trm'), id=r.dataset.k, term=r.dataset.g+':'+r.dataset.t, tn=TNAME[r.dataset.t], a=b.dataset.a;
-  if(a==='rc'){ const x=await post(`/admin/sub/${id}/${term}/receipt`); $('.sb-img',r).innerHTML=x&&x.receipt?`<img src="${x.receipt}" alt="receipt" style="max-width:100%;max-height:70vh;border-radius:.5rem">`:'<p class="empty">الإيصال مش متاح.</p>'; return; }
-  if(a==='grant'){ if(!confirm('تفعيل '+tn+' بدون مراجعة إيصال؟')) return; const x=await post('/admin/sub/grant',{child:id,term}); if(!x||!x.ok) alert('ما نفعش'); }
-  else { if(!confirm('إلغاء اشتراك '+tn+'؟ الدروس هتتقفل فورًا.')) return; const x=await post('/admin/sub',{child:id,term,action:'close'}); if(!x||!x.ok) alert('مفيش اشتراك ليه أو ما نفعش'); }
-  loadSubs(); });
-$('#u-add').addEventListener('click',()=>{ const f=$('#u-form'); f.hidden=!f.hidden; });
 $('#u-form').addEventListener('submit',async e=>{ e.preventDefault(); const f=e.target, er=$('.u-err',f), v=n=>f.elements[n].value.trim(); er.hidden=true;
-  const body={email:v('email'),phone:v('phone'),kid:v('kid'),grade:v('grade'),activate:f.elements.act.checked?v('grade')+':'+v('term'):''};
-  if(!body.kid){ er.textContent='اكتبي اسم الطفل'; er.hidden=false; return; } if(!body.email&&!body.phone){ er.textContent='اكتبي الإيميل أو الموبايل'; er.hidden=false; return; }
-  const x=await post('/admin/user',body); if(!x||!x.ok){ er.textContent={'bad-email':'الإيميل مش مظبوط','need-contact':'اكتبي الإيميل أو الموبايل','bad-name':'اكتبي اسم الطفل'}[x&&x.error]||'ما نفعش. جربي تاني'; er.hidden=false; return; }
-  f.reset(); f.hidden=true; const ac=await api('/admin/accounts'); if(ac&&ac.accounts) SRV.accounts=ac.accounts; loadSubs(); });
+  const body={email:v('email'),phone:v('phone'),kid:v('kid'),grade:v('grade')};
+  if(!body.email&&!body.phone){ er.textContent='اكتبي الإيميل أو الموبايل'; er.hidden=false; return; } if(!body.kid){ er.textContent='اكتبي اسم الطالب'; er.hidden=false; return; }
+  const x=await post('/admin/user',body); if(!x||!x.ok){ er.textContent=U_ERR[x&&x.error]||'ما اتضافش، جربي تاني'; er.hidden=false; return; }
+  f.reset(); toast('اتضاف المستخدم'); await refreshUsers(); });
 
 function wallets(){ const out=[]; try{ for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k.startsWith('es.wallet.')) out.push(lsGet(k,{bal:0,hist:[]})); } }catch(e){} return out; }
 const KIND={promo:'برومو كود',share:'مشاركة',gift:'هدية',referral:'تسجيل من رابطه','unlock-lesson':'فتح درس','unlock-unit':'فتح وحدة'};
@@ -318,8 +353,17 @@ $('#pu-send').addEventListener('click',async()=>{
   finally{ btn.disabled=false; btn.textContent='ابعت لكل الأجهزة'; loadPush(); } });
 
 /* ---------- tabs + save / download / reset ---------- */
-$$('#tabs button').forEach(b=>b.addEventListener('click',()=>{ $$('#tabs button').forEach(x=>x.classList.toggle('on',x===b)); $$('.page').forEach(p=>p.hidden=p.id!=='p-'+b.dataset.p); if(b.dataset.p==='stats') drawStats(); if(b.dataset.p==='users') drawUsers(); if(b.dataset.p==='subs') drawSubs(); if(b.dataset.p==='push'){ puInit(); loadPush(); } }));
-$('#save').addEventListener('click',async()=>{ if(LOCKED) return toast('الحفظ متوقف دلوقتي'); const r=await api('/admin/settings',S); if(r&&r.ok){ dirty=false; $('#save').textContent='حفظ'; toast('اتحفظ لكل المستخدمين'); } else toast('ما اتحفظش، اتأكدي من الإنترنت وكلمة السر وحاولي تاني'); });
+function showTab(p,keep){ const b=$('#tabs button[data-p="'+p+'"]'); if(!b) return; $$('#tabs button').forEach(x=>x.classList.toggle('on',x===b)); $$('.page').forEach(q=>q.hidden=q.id!=='p-'+p); if(!keep){ try{ localStorage.setItem('es.adminTab',p); }catch(e){} try{ history.replaceState(null,'','#'+p); }catch(e){} }
+  if(keep) return; if(p==='stats') drawStats(); if(p==='users') drawUsers(); if(p==='subs') drawSubs(); if(p==='push'){ puInit(); loadPush(); } }
+$$('#tabs button').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.p)));
+{ let t=location.hash.replace('#',''); if(!t){ try{ t=localStorage.getItem('es.adminTab')||''; }catch(e){} } if(t) showTab(t,true); }   // a refresh stays on the same tab
+$('#save').addEventListener('click',async()=>{ if(LOCKED) return toast('الحفظ متوقف دلوقتي'); const btn=$('#save'); btn.disabled=true;
+  try{ let st=0,r=null; try{ const x=await fetch(S.api+'/admin/settings',{method:'PUT',cache:'no-store',credentials:'include',headers:hdr(),body:JSON.stringify(S)}); st=x.status; r=await x.json().catch(()=>null); }catch(e){ st=-1; }
+    if(!(st===200&&r&&r.ok)) return toast(st===-1?'ما اتحفظش: مفيش اتصال بالسيرفر. اتأكدي من الإنترنت وحاولي تاني':(st===401||st===403)?'ما اتحفظش: كلمة السر مش مظبوطة (زرار «كلمة السر»)':'ما اتحفظش: السيرفر رجّع خطأ ('+st+(r&&r.error?' '+r.error:'')+'). حاولي تاني');
+    const back=await api('/admin/settings');   // read it back from the server: success is shown only if it is really there
+    if(!(back&&back.coins&&JSON.stringify(back.coins)===JSON.stringify(S.coins)&&JSON.stringify(back.subs||{})===JSON.stringify(S.subs||{}))) return toast('ما اتحفظش بشكل مؤكد: السيرفر ما رجّعش اللي اتكتب. حاولي تاني');
+    dirty=false; btn.textContent='حفظ'; toast('اتحفظ على السيرفر وتأكدنا منه'); }
+  finally{ btn.disabled=false; } });
 
 $$('#stabs button').forEach(b=>b.addEventListener('click',()=>{ $$('#stabs button').forEach(x=>x.classList.toggle('on',x===b)); $$('#p-settings [data-st]').forEach(c=>c.hidden=c.dataset.st!==b.dataset.s); }));
 $$('#p-settings [data-st]').forEach(c=>c.hidden=c.dataset.st!=='contact');

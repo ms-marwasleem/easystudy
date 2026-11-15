@@ -1,6 +1,22 @@
 {
  "sets": [
   {
+   "type": "explain",
+   "task": "Look at the picture. What do these families do together?",
+   "taskAudio": "../../en-shared/q/look-at-the-picture-what-do-these-families-do-together.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "img/s1.jpg"
+     ],
+     "lines": []
+    }
+   ],
+   "page": 20,
+   "ex": "B"
+  },
+  {
    "type": "check",
    "task": "Critical Thinking. Check the things you do with your family. Tell a friend.",
    "taskAudio": "../../en-shared/q/critical-thinking-check-the-things-you-do-with-you-ef64ecaf.mp3",
@@ -21,28 +37,12 @@
       "../../en-shared/q/watch-tv.mp3"
      ],
      "pics": [
-      "../../pics/families-together.jpg"
+      "img/s1.jpg"
      ]
     }
    ],
    "page": 20,
    "ex": "A"
-  },
-  {
-   "type": "explain",
-   "task": "Look at the picture. What do these families do together?",
-   "taskAudio": "../../en-shared/q/look-at-the-picture-what-do-these-families-do-together.mp3",
-   "book": "lesson",
-   "items": [
-    {
-     "pics": [
-      "../../pics/families-together.jpg"
-     ],
-     "lines": []
-    }
-   ],
-   "page": 20,
-   "ex": "B"
   },
   {
    "type": "mcq",
@@ -63,35 +63,14 @@
       "../../en-shared/q/families-have-fun-together-in.mp3",
       "../../en-shared/q/ways.mp3"
      ],
-     "askAudio": "../../en-shared/q/askc-887ce0fffb.mp3"
-    }
-   ],
-   "page": 20,
-   "ex": "C"
-  },
-  {
-   "type": "explain",
-   "task": "NEW WORDS. Listen and read. Listen and say.",
-   "taskAudio": "../../en-shared/q/new-words-listen-and-read-listen-and-say.mp3",
-   "book": "lesson",
-   "items": [
-    {
-     "lines": [
-      {
-       "t": "go shopping",
-       "a": "../../en-shared/q/go-shopping.mp3",
-       "cls": "blue"
-      },
-      {
-       "t": "pick up",
-       "a": "../../en-shared/q/pick-up.mp3",
-       "cls": "blue"
-      }
+     "askAudio": "../../en-shared/q/askc-887ce0fffb.mp3",
+     "pics": [
+      "img/s1.jpg"
      ]
     }
    ],
    "page": 20,
-   "ex": "D"
+   "ex": "C"
   }
  ]
 }

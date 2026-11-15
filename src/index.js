@@ -380,20 +380,30 @@ async function adminUserEdit(req, env, id) {
 async function adminUserDelete(env, id) {
   const p = await env.DB.prepare('SELECT id FROM parents WHERE id=?').bind(id).first(); if (!p) return ERR('not-found', 404);
   const kids = `(SELECT id FROM children WHERE parent_id=?)`;
-  await env.DB.batch([
-    env.DB.prepare(`DELETE FROM subs WHERE parent_id=? OR child_id IN ${kids}`).bind(id, id),
-    env.DB.prepare(`DELETE FROM unlocks WHERE child_id IN ${kids}`).bind(id),
-    env.DB.prepare(`DELETE FROM promo_uses WHERE parent_id=? OR child_id IN ${kids}`).bind(id, id),
-    env.DB.prepare('DELETE FROM coin_events WHERE parent_id=?').bind(id),
-    env.DB.prepare('DELETE FROM sessions WHERE parent_id=?').bind(id),
-    env.DB.prepare('DELETE FROM children WHERE parent_id=?').bind(id),
-    env.DB.prepare('DELETE FROM parents WHERE id=?').bind(id)]);
-  return J({ ok: true });
+  // one statement at a time: a table that is missing in this app's database (older schema) must not stop the delete (a batch is all-or-nothing)
+  const st = [
+    [`DELETE FROM subs WHERE parent_id=? OR child_id IN ${kids}`, [id, id]],
+    [`DELETE FROM unlocks WHERE child_id IN ${kids}`, [id]],
+    [`DELETE FROM promo_uses WHERE parent_id=? OR child_id IN ${kids}`, [id, id]],
+    ['DELETE FROM coin_events WHERE parent_id=?', [id]],
+    ['DELETE FROM sessions WHERE parent_id=?', [id]],
+    ['DELETE FROM children WHERE parent_id=?', [id]]];
+  const miss = [];
+  for (const [q, a] of st) { try { await env.DB.prepare(q).bind(...a).run(); } catch (e) { miss.push(String(e && e.message || e).slice(0, 120)); } }
+  try { await env.DB.prepare('DELETE FROM parents WHERE id=?').bind(id).run(); } catch (e) { return ERR('delete-failed: ' + String(e && e.message || e).slice(0, 160), 500); }
+  return J({ ok: true, skipped: miss });
 }
 async function adminKidEdit(req, env, id) {
-  const b = await body(req); if (!b) return ERR('bad-body'); const name = clip(b.name, 40); if (!name) return ERR('bad-name');
-  const r = await env.DB.prepare('UPDATE children SET name=? WHERE id=? AND deleted=0').bind(name, id).run();
+  const b = await body(req); if (!b) return ERR('bad-body'); const name = clip(b.name, 40), grade = clip(b.grade, 10); if (!name) return ERR('bad-name');
+  const r = await env.DB.prepare('UPDATE children SET name=?, grade=COALESCE(NULLIF(?,\'\'),grade) WHERE id=? AND deleted=0').bind(name, grade, id).run();
   return r.meta && r.meta.changes ? J({ ok: true }) : ERR('not-found', 404);
+}
+// POST /api/admin/user/<id>/kid {name, grade?}: add another student to an existing parent.
+async function adminKidAdd(req, env, pid) {
+  const b = await body(req); if (!b) return ERR('bad-body'); const name = clip(b.name, 40), grade = clip(b.grade, 10) || 'p1'; if (!name) return ERR('bad-name');
+  if (!(await env.DB.prepare('SELECT 1 FROM parents WHERE id=?').bind(pid).first())) return ERR('not-found', 404);
+  const t = now(), cid = 'k' + t.toString(36) + rnd(3);
+  await env.DB.prepare('INSERT INTO children(id,parent_id,name,grade,curr,created) VALUES(?,?,?,?,?,?)').bind(cid, pid, name, grade, '{}', t).run(); return J({ ok: true, child: cid });
 }
 
 async function adminSub(req, env, path) {
@@ -492,10 +502,10 @@ async function adminAccounts(env, url) {
       (SELECT COUNT(*) FROM coin_events e WHERE e.parent_id=p.id AND e.kind='referral') referred_paid
     FROM parents p WHERE p.created>=? AND (?='' OR p.email LIKE ? OR p.name LIKE ? OR p.phone LIKE ?) ORDER BY p.created DESC LIMIT ?`)
     .bind(since, q, '%' + q + '%', '%' + q + '%', '%' + q + '%', lim).all()).results;
-  const kids = rows.length ? (await env.DB.prepare(`SELECT id,parent_id,name,grade FROM children WHERE deleted=0 AND parent_id IN (${rows.map(() => '?').join(',')}) ORDER BY created`).bind(...rows.map(r => r.id)).all()).results : [];
+  const kids = rows.length ? (await env.DB.prepare(`SELECT id,parent_id,name,grade,created FROM children WHERE deleted=0 AND parent_id IN (${rows.map(() => '?').join(',')}) ORDER BY created`).bind(...rows.map(r => r.id)).all()).results : [];
   const pj = s => { try { return JSON.parse(s); } catch (e) { return {}; } };
   return J({ ok: true, accounts: rows.map(r => ({ ...r, curr: pj(r.curr), created: new Date(r.created).toISOString(), last_seen: new Date(r.last_seen).toISOString(),
-    kids: kids.filter(k => k.parent_id === r.id).map(k => ({ id: k.id, name: k.name, grade: k.grade })) })) });
+    kids: kids.filter(k => k.parent_id === r.id).map(k => ({ id: k.id, name: k.name, grade: k.grade, created: new Date(k.created).toISOString() })) })) });
 }
 // GET /api/admin/stats -> {hist:[{k,t,id,n,at,parent}] latest 500, totals, byDay (last 14 days)}
 async function adminStats(env) {
@@ -619,7 +629,7 @@ export default {
       if (!env.ASSETS) return new Response('Not found', { status: 404 });
       // Easy Words Worker (ROOT_PAGE=/words.html): the home address opens that page; everything else is served as it is
       if (env.ROOT_PAGE && (path === '/' || path === '/index.html')) return env.ASSETS.fetch(new URL(env.ROOT_PAGE, req.url).toString());
-      if (env.ADMIN_PAGE && path === '/admin.html') return env.ASSETS.fetch(new URL(env.ADMIN_PAGE, req.url).toString());   // Easy Words: its own dashboard page at the same address
+      if (env.ADMIN_PAGE && (path === '/admin.html' || path === '/admin' || path === '/admin/')) return env.ASSETS.fetch(new URL(env.ADMIN_PAGE, req.url).toString());   // Easy Words: its own dashboard page at the same address
       return env.ASSETS.fetch(req);
     }
     if (m === 'POST' || m === 'PUT') { const o = req.headers.get('origin'); if (o && o !== url.origin && !(env.DEV_CODES === '1')) return ERR('origin', 403); }
@@ -650,6 +660,7 @@ export default {
         if (path === '/api/admin/push/send' && m === 'POST') return await adminPushSend(req, env);
         const pd = path.match(/^\/api\/admin\/push\/deliver\/(\d{1,12})$/); if (pd && m === 'POST') return await adminPushDeliver(env, +pd[1]);
         const rp = path.match(/^\/api\/admin\/report\/(r_[\w-]+)$/); if (rp && m === 'POST') return await adminReport(req, env, rp[1]);
+        const ka = path.match(/^\/api\/admin\/user\/(p_\w+)\/kid$/); if (ka && m === 'POST') return await adminKidAdd(req, env, ka[1]);
         const ue = path.match(/^\/api\/admin\/user\/(p_\w+)(\/delete)?$/); if (ue && m === 'POST') return ue[2] ? await adminUserDelete(env, ue[1]) : await adminUserEdit(req, env, ue[1]);
         const ke = path.match(/^\/api\/admin\/kid\/(k\w+)$/); if (ke && m === 'POST') return await adminKidEdit(req, env, ke[1]);
         const ap = path.match(/^\/api\/admin\/parent\/(p_\w+)$/); if (ap && m === 'POST') return await adminParent(req, env, ap[1]);

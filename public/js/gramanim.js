@@ -98,14 +98,23 @@ window.gramAnim=function(cards){
       await an(m,[{transform:'scale(0)'},{transform:'scale(1.2)'},{transform:'scale(1)'}],{duration:350}); await say(it.l.a,it.l.t,g); an(l,[{transform:'scale(1)'},{transform:'scale(1.2)'},{transform:'scale(1)'}],{duration:350});
       await say(it.r.a,it.r.t,g); an(r,[{transform:'scale(1)'},{transform:'scale(1.2)'},{transform:'scale(1)'}],{duration:350}); await wait(700,g); }
   }
-  const KINDS={sort:kSort,morph:kMorph,reveal:kReveal,pair:kPair};
+  /* kind "text" = the book's own example (the part BEFORE the green box) as plain lines on the app background (never green): the lines show and are read one by one, then the next page starts by itself.
+     a: {kind:"text", lines:[{t, a?, hl?}], pic?:"path"} */
+  async function kText(a,g){
+    box.innerHTML=''; const wr=el('div','gt-wrap'); if(a.pic){ const im=el('img','gt-pic'); im.src=a.pic; im.alt=''; wr.append(im); } const list=el('div','gt-list'); wr.append(list); box.append(wr);
+    for(const it of a.lines){ const row=el('div','gt-line'); rich(row,it.t,it.hl); list.append(row);
+      await an(row,[{opacity:0,transform:'translateY(.8rem)'},{opacity:1,transform:'none'}],{duration:350}); live(g);
+      row.classList.add('on'); await say(it.a,it.t,g); row.classList.remove('on'); await wait(250,g); }
+    await wait(600,g);
+  }
+  const KINDS={sort:kSort,morph:kMorph,reveal:kReveal,pair:kPair,text:kText};
 
   const rail=on=>{ if(!wrap.isConnected||tab!=='grammar') return; setRail([
     on?{kind:'stop',icon:'stop',label:tr('Stop'),click:()=>{ ++gen; vStop(); playing=false; rail(false); }}:{kind:'go',icon:'play',label:tr('Read'),click:()=>run(cur,true)},
     {kind:'again',icon:'restart',label:tr('Restart'),click:()=>run(cur,true)}]); };
   const paint=()=>{ dots.innerHTML=''; cards.forEach((c,k)=>{ const d=el('button','gan-dot'+(k===cur?' on':'')+(done.has(k)?' ok':'')); d.setAttribute('aria-label',String(k+1)); d.addEventListener('click',()=>run(k,true)); dots.append(d); }); title.textContent=cards[cur].title||''; };
   async function run(i,auto){
-    const g=++gen; vStop(); cur=i; paint(); playing=true; rail(true); carFrac(i/cards.length);
+    const g=++gen; vStop(); cur=i; box.className='gan-box'+(cards[i].anim.kind==='text'?' gt':''); paint(); playing=true; rail(true); carFrac(i/cards.length);
     try{ const a=cards[i].anim; await KINDS[a.kind](a,g); done.add(i); paint(); carFrac((i+1)/cards.length);
       if(done.size>=cards.length&&!showGrammar.done){ showGrammar.done=1; award(LESSON.id,'grammar'); }
       live(g); playing=false; rail(false); if(auto&&i<cards.length-1){ await wait(900,g); run(i+1,true); }

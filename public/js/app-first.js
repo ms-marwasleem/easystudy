@@ -1,4 +1,4 @@
-const APP_BUILD='6678b10eb3';
+const APP_BUILD='1c1983c8e8';
 /* MADE BY tools/build-app.py from the files named below. Do not edit here: edit those files, then run the script again. */
 /* ===== js/core.js ===== */
 // Arabic-Indic (٠-٩) and Eastern Persian (۰-۹) digits typed anywhere count as Western digits: one helper, applied to every text box before any answer check
@@ -548,7 +548,7 @@ function chipDrag(b,target,ok){
    (currSets) and lesson.json tabs in openLesson (currTabs). Never test for a school or subject anywhere else. */
 let CURR=null, CURR_ALL=null;
 const TAB_BOOK={read:'school',words:'school',quiz:'school',grammar:'school',workbook:'workbook',booklet:'booklet'};
-const SET_BOOK={book:'school',workbook:'workbook',booklet:'booklet'};
+const SET_BOOK={book:'school',lesson:'school',bq:'school',workbook:'workbook',booklet:'booklet'};   // English AL sets: lesson = the Lesson tab, bq = Book's questions (both the school's own curriculum)
 function currPick(){ try{ const p=JSON.parse(localStorage.getItem('es.curr')||'null'); return p&&p.type?p:null; }catch(e){ return null; } }
 function currSave(p){ try{ localStorage.setItem('es.curr',JSON.stringify(p)); }catch(e){} }
 // the plan of a pick: {subjects:[ids], books:Set}. A private school = its base type + its own subjects and books.

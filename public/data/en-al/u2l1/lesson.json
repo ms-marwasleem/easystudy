@@ -4,9 +4,11 @@
  "title": "Our Classroom",
  "sceneAlt": "A classroom",
  "tabs": [
+  "read",
   "words",
   "booklet",
-  "grammar"
+  "grammar",
+  "quiz"
  ],
  "type": "al",
  "scene": "img/scene.jpg",
@@ -22,7 +24,7 @@
   {
    "word": "bookcase",
    "ar": "مكتبة كتب",
-   "img": "../../pics/bookcase.png",
+   "img": "../../pics/tb-bookcase.jpg",
    "parts": [
     {
      "t": "b",
@@ -63,7 +65,7 @@
   {
    "word": "chair",
    "ar": "كرسي",
-   "img": "../../pics/chair.png",
+   "img": "../../pics/tb-chair.jpg",
    "parts": [
     {
      "t": "ch",
@@ -84,7 +86,7 @@
   {
    "word": "computer",
    "ar": "حاسوب",
-   "img": "../../pics/computer.png",
+   "img": "../../pics/tb-computer.jpg",
    "parts": [
     {
      "t": "c",
@@ -130,7 +132,7 @@
   {
    "word": "classroom",
    "ar": "فصل",
-   "img": "../../pics/classroom-u2.jpg",
+   "img": "../../pics/tb-classroom.jpg",
    "parts": [
     {
      "t": "c",
@@ -176,7 +178,7 @@
   {
    "word": "board",
    "ar": "سبورة",
-   "img": "../../pics/board-u2.png",
+   "img": "../../pics/tb-board.jpg",
    "parts": [
     {
      "t": "b",
@@ -202,7 +204,7 @@
   {
    "word": "desk",
    "ar": "مكتب",
-   "img": "../../pics/desk-u2.png",
+   "img": "../../pics/tb-desk.jpg",
    "parts": [
     {
      "t": "d",
@@ -233,7 +235,7 @@
   {
    "word": "door",
    "ar": "باب",
-   "img": "../../pics/door-u3l4.png",
+   "img": "../../pics/tb-door.jpg",
    "parts": [
     {
      "t": "d",
@@ -254,7 +256,7 @@
   {
    "word": "mouse",
    "ar": "فأرة الحاسوب",
-   "img": "../../pics/mouse.png",
+   "img": "../../pics/tb-mouse.jpg",
    "parts": [
     {
      "t": "m",
@@ -280,7 +282,7 @@
   {
    "word": "wall",
    "ar": "حائط",
-   "img": "../../pics/wall.png",
+   "img": "../../pics/tb-wall.jpg",
    "parts": [
     {
      "t": "w",
@@ -306,7 +308,7 @@
   {
    "word": "window",
    "ar": "نافذة",
-   "img": "../../pics/window.png",
+   "img": "../../pics/tb-window.jpg",
    "parts": [
     {
      "t": "w",
@@ -338,53 +340,199 @@
     "word": "words/window.mp3",
     "ar": "../../ar-meanings/3e41d82f33.mp3"
    }
+  },
+  {
+   "word": "boat",
+   "ar": "قارب",
+   "img": "../../pics/tb-boat.jpg",
+   "parts": [
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "oa",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/boat.mp3"
+   }
+  },
+  {
+   "word": "canteen",
+   "ar": "كافتيريا",
+   "img": "../../pics/tb-canteen.jpg",
+   "parts": [
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "ee",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/canteen.mp3"
+   }
+  },
+  {
+   "word": "library",
+   "ar": "مكتبة",
+   "img": "../../pics/tb-library.jpg",
+   "parts": [
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "igh",
+     "audio": "../../phonics/igh.mp3"
+    },
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "air",
+     "audio": "../../phonics/air.mp3"
+    },
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "y",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/library.mp3"
+   }
   }
  ],
  "lines": [],
  "end": 1,
  "grammar": [
   {
-   "title": "This, That, These and Those",
-   "note": "We point at things with this, that, these and those.",
+   "title": "Listen and read",
+   "note": null,
    "rows": [
     [
      {
-      "t": "This is a unicorn.",
-      "a": "data/en-shared/q/this-is-a-unicorn.mp3"
-     },
-     {
-      "t": "one, near",
-      "a": "data/en-shared/q/one-near.mp3"
+      "t": "This is a desk.",
+      "a": "data/en-shared/q/this-is-a-desk.mp3"
      }
     ],
     [
      {
-      "t": "That is a unicorn.",
-      "a": "data/en-shared/q/that-is-a-unicorn.mp3"
-     },
-     {
-      "t": "one, far away",
-      "a": "data/en-shared/q/one-far-away.mp3"
+      "t": "That is a board.",
+      "a": "data/en-shared/q/that-is-a-board.mp3"
      }
     ],
     [
      {
-      "t": "These are unicorns.",
-      "a": "data/en-shared/q/these-are-unicorns.mp3"
-     },
-     {
-      "t": "many, near",
-      "a": "data/en-shared/q/many-near.mp3"
+      "t": "These are the windows.",
+      "a": "data/en-shared/q/these-are-the-windows.mp3"
      }
     ],
     [
      {
-      "t": "Those are unicorns.",
-      "a": "data/en-shared/q/those-are-unicorns.mp3"
+      "t": "Those are the doors!",
+      "a": "data/en-shared/q/those-are-the-doors.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "text",
+    "pic": "data/en-al/u2l1/img/g1.jpg",
+    "lines": [
+     {
+      "t": "This is a desk.",
+      "a": "data/en-shared/q/this-is-a-desk.mp3"
      },
      {
-      "t": "many, far away",
-      "a": "data/en-shared/q/many-far-away.mp3"
+      "t": "That is a board.",
+      "a": "data/en-shared/q/that-is-a-board.mp3"
+     },
+     {
+      "t": "These are the windows.",
+      "a": "data/en-shared/q/these-are-the-windows.mp3"
+     },
+     {
+      "t": "Those are the doors!",
+      "a": "data/en-shared/q/those-are-the-doors.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "Near and far",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "This is a desk.",
+      "a": "data/en-shared/q/this-is-a-desk.mp3"
+     }
+    ],
+    [
+     {
+      "t": "That is a board.",
+      "a": "data/en-shared/q/that-is-a-board.mp3"
+     }
+    ],
+    [
+     {
+      "t": "These are the windows.",
+      "a": "data/en-shared/q/these-are-the-windows.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Those are the doors!",
+      "a": "data/en-shared/q/those-are-the-doors.mp3"
      }
     ]
    ],
@@ -393,43 +541,83 @@
     "one": true,
     "items": [
      {
-      "t": "This is a unicorn.",
-      "a": "data/en-shared/q/this-is-a-unicorn.mp3",
+      "t": "This is a desk.",
       "hl": "This",
       "fig": {
        "dist": "near",
        "n": 1
-      }
+      },
+      "a": "data/en-shared/q/this-is-a-desk.mp3"
      },
      {
-      "t": "That is a unicorn.",
-      "a": "data/en-shared/q/that-is-a-unicorn.mp3",
+      "t": "That is a board.",
       "hl": "That",
       "fig": {
        "dist": "far",
        "n": 1
-      }
+      },
+      "a": "data/en-shared/q/that-is-a-board.mp3"
      },
      {
-      "t": "These are unicorns.",
-      "a": "data/en-shared/q/these-are-unicorns.mp3",
+      "t": "These are the windows.",
       "hl": "These",
       "fig": {
        "dist": "near",
        "n": 3
-      }
+      },
+      "a": "data/en-shared/q/these-are-the-windows.mp3"
      },
      {
-      "t": "Those are unicorns.",
-      "a": "data/en-shared/q/those-are-unicorns.mp3",
+      "t": "Those are the doors!",
       "hl": "Those",
       "fig": {
        "dist": "far",
        "n": 3
+      },
+      "a": "data/en-shared/q/those-are-the-doors.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "One or many?",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "One or many?",
+      "a": "data/en-shared/q/one-or-many.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "pair",
+    "items": [
+     {
+      "l": {
+       "t": "This",
+       "a": "data/en-shared/q/this.mp3"
+      },
+      "r": {
+       "t": "These",
+       "a": "data/en-shared/q/these.mp3"
+      }
+     },
+     {
+      "l": {
+       "t": "That",
+       "a": "data/en-shared/q/that.mp3"
+      },
+      "r": {
+       "t": "Those",
+       "a": "data/en-shared/q/those.mp3"
       }
      }
     ]
    }
   }
- ]
+ ],
+ "tabLabels": {
+  "quiz": "Book's Questions"
+ }
 }
