@@ -1,0 +1,14 @@
+/* EASY WORDS dashboard theme: blue (same blue as the Easy Words logo/skin), loaded AFTER admin.css by admin-words.html only.
+   The EasyStudy dashboard (admin.html) keeps the orange look untouched. */
+:root{--bg:#EAF4FD;--ink:#16346B;--mut:#5B7AA6;--line:#D5E6F7;--acc:#2F80E6;--acc-dk:#1C58B8}
+.top{background:linear-gradient(#7FD0FF,#2B74DC);box-shadow:0 .1rem .4rem rgba(22,52,107,.25)}
+input[type=number],input[type=url],input[type=text],input[type=date],select,textarea,.pr-card,.rep,.usr,.utbl{background:#F7FBFF}
+.sw span{background:#C3D6EC}
+.row{background:#F1F8FF}
+.legend i.n,.it .dot{background:#B9CDE4}
+.it.subj,.bulk,.utbl th{background:#DCEBFB}
+.stb{background:#E1ECF8}
+.stb.mixed,.rep-kind{background:#CFE6FB}
+.stabs button{border-color:#A9CCF2}
+.stabs button.on{background:#2F80E6;border-color:#1C58B8}
+.stabs button{color:#16346b}.stabs button.on{color:#fff}

@@ -5,7 +5,7 @@ async function ewStart(){
   busy(true);
   try{ await ewLoad(); }catch(e){ busy(false); message('أوبس!','التطبيق ما اتحملش. اتأكد من النت وجرب تاني.'); $('#msgOk').onclick=()=>location.reload(); return; }
   ewDefs(); await cssReady;
-  if(document.fonts&&document.fonts.ready) await Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,2500))]);
+  if(document.fonts&&document.fonts.ready) await Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,700))]);
   $('#ewWlLogo').innerHTML=ewIcon('app'); paintHud(); kidPaint(); busy(false);
   if(!kidNow()||!EW.curr||!ewChoices().some(c=>c.id===EW.curr)){ openWelcome(); } else openSubjects();
 }

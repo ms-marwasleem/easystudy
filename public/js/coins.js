@@ -229,7 +229,7 @@ function lockTap(kind,item,cost,art,onOpen){
 
 /* ---------- PROMO CODES (Marwa 2026-11-05) ----------
    The admin makes codes in admin.html (page "البرومو كود"); settings.promos = [{code, what, target, uses, max, until, on, note}]
-     what   = lesson | unit | subject | all         target = l:<subject>-<folder> | u:<subject>:<unit> | <subject id> | ''
+     what   = lesson | unit | subject | all | any (the user picks ONE built lesson, then it opens; one use) | percent (pct = 1-99 % off a subscription price; used when the receipt is sent)         target = l:<subject>-<folder> | u:<subject>:<unit> | <subject id> | ''
      uses   = once (one use in total) | many (each child once; max = most uses in total, 0 = no limit)    until = 'YYYY-MM-DD' (last day) or ''
    A small underlined line under "اجمع كريدتس" in the lock popup opens the code field. A good code opens its target for THIS child
    (stored with the unlocks: the item id, 's:<subject>' or '*'), costs no credits, and adds a 0-credit "promo" row to the history.
@@ -240,6 +240,7 @@ const promoNorm=c=>String(c||'').toUpperCase().replace(/[\s\-_]/g,'').replace(/[
 function promoWhat(p){ if(!p) return ''; if(typeof p==='string') p={what:p==='*'?'all':p[0]==='s'?'subject':p[0]==='u'?'unit':'lesson',target:p[0]==='s'?p.slice(2):p};
   const t=p.target||'';
   if(p.what==='all') return CT('كل المواد','All subjects');
+  if(p.what==='any') return CT('أي درس تختاره','Any lesson you choose');
   if(p.what==='subject'){ const s=COURSE.subjects.find(x=>x.id===t); return CT('مادة ','Subject ')+(s?s.name:t); }
   if(p.what==='unit'){ const s=subjOf(t), u=t.split(':')[2]; return (s?s.name+' · ':'')+CT('الوحدة ','Unit ')+num(u||''); }
   const l=lessonOf(t), s=subjOf(t); return l?(s?s.name+' · ':'')+(l.title||''):t; }
@@ -248,7 +249,7 @@ function promoCheck(code){   // local check -> {p} or {err}
   const c=promoNorm(code); if(!c) return {err:'empty'};
   const p=(ESET.promos||[]).find(x=>promoNorm(x.code)===c); if(ESET.promoOn===false||!p||p.on===false) return {err:'bad'};
   if(p.until&&new Date().toISOString().slice(0,10)>p.until) return {err:'old'};
-  if(p.what!=='all'&&!p.target) return {err:'bad'};
+  if(p.what!=='all'&&p.what!=='any'&&p.what!=='percent'&&!p.target) return {err:'bad'};
   const U=cGet('es.promoUses',{}), mine=cGet(freeKey()+'.promo',[]), n=U[c]||0;
   if(mine.includes(c)) return {err:'used'};
   if(p.uses!=='many'&&n>=1) return {err:'used'};
@@ -263,7 +264,7 @@ const PROMO_ERR={empty:['اكتب الكود الأول','Type the code first'],
 function promoLine(){ if(ESET.promoOn===false) return ''; return `<button type="button" class="cpromo" data-promo>${CT('عندك برومو كود؟','Have a promo code?')}</button>
   <form class="cpromof" hidden autocomplete="off"><input class="cpromoin" name="code" dir="ltr" inputmode="latin" autocapitalize="characters" spellcheck="false" maxlength="32" placeholder="${CT('اكتب الكود','Type the code')}" aria-label="${CT('البرومو كود','Promo code')}">
   <button class="pill green cpromogo">${CT('فعّل','Use')}</button><p class="cpromoerr" role="alert" hidden></p></form>`; }
-function promoWire(pp,onOpen){
+function promoWire(pp,onOpen,ctx){
   const b=$('[data-promo]',pp), f=$('.cpromof',pp); if(!b||!f) return; const inp=$('input',f), er=$('.cpromoerr',f);
   b.addEventListener('click',()=>{ b.hidden=true; f.hidden=false; pp.classList.add('promo-on'); inp.focus(); });   // the padlock picture hides: room for the field on short screens
   const bad=k=>{ er.textContent=CT(...PROMO_ERR[k]||PROMO_ERR.bad); er.hidden=false; inp.classList.add('bad'); inp.focus();   // same as every form (welcome.js wlBad): red, shake, focus
@@ -274,10 +275,51 @@ function promoWire(pp,onOpen){
       <p class="msg-text">${CT('الكود فتح لك:','The code opened:')}<br><b>${promoWhat(p)}</b></p><button class="pill green" data-pgo>${CT('يلا نذاكر','Let\'s go')}</button>`,
       q=>{ const go=()=>{ coinClose(); onOpen&&onOpen(); }; $('[data-pgo]',q).addEventListener('click',go); $('.popx',q).addEventListener('click',()=>onOpen&&onOpen()); }); };
   f.addEventListener('submit',async e=>{ e.preventDefault(); const code=inp.value; if(!promoNorm(code)) return bad('empty');
-    if(API()){ const go=$('.cpromogo',f); go.disabled=true;
-      const r=await fetch(API()+'/promo',{method:'POST',headers:{'Content-Type':'application/json',...(window.ACCOUNT&&ACCOUNT.token?{Authorization:'Bearer '+ACCOUNT.token}:{})},body:JSON.stringify({child:coinChild(),code})})
-        .then(x=>x.json()).catch(()=>({error:'net'})); go.disabled=false;
-      if(!r||!r.ok) return bad(r&&PROMO_ERR[r.error]?r.error:r&&r.error==='net'?'net':'bad');
-      apiTake(r); return ok(r.promo); }
-    const x=promoCheck(code); if(x.err) return bad(x.err); promoApply(x.p,x.c); ok(x.p); });
+    const go=$('.cpromogo',f); go.disabled=true; const r=await promoGo(code); go.disabled=false;
+    if(r.err) return bad(r.err);
+    if(r.pick) return promoPick(code,ok,onOpen);
+    if(r.pct){   // a percent-off code: it works on the subscription price (subs.js hands us ctx.pct); anywhere else it only tells what it is, nothing is used
+      if(ctx&&ctx.pct) return ctx.pct(r.pct,code);
+      return coinPop(`<h2 class="outline">${CT('كود خصم','Discount code')}</h2><p class="msg-text">${CT('الكود ده خصم ','This code gives ')}<b>${num(r.pct)}%</b>${CT(' على الاشتراك. بتكتبه في صفحة الاشتراك وقت الدفع.',' off a subscription. Type it on the subscription page when you pay.')}</p><button class="pill green" data-pgo>${CT('تمام','OK')}</button>`,
+        q=>{ $('[data-pgo]',q).addEventListener('click',coinClose); }); }
+    ok(r.p); });
 }
+// one try of a code: {err} | {pick:true} (an "any lesson" code: the user must choose the lesson, nothing is used yet) | {pct:N} (percent off a subscription, nothing used yet) | {p} (opened)
+async function promoGo(code,id){
+  if(API()){
+    const r=await fetch(API()+'/promo',{method:'POST',headers:{'Content-Type':'application/json',...(window.ACCOUNT&&ACCOUNT.token?{Authorization:'Bearer '+ACCOUNT.token}:{})},body:JSON.stringify({child:coinChild(),code,...(id?{id}:{})})})
+      .then(x=>x.json()).catch(()=>({error:'net'}));
+    if(!r||!r.ok) return {err:r&&PROMO_ERR[r.error]?r.error:r&&r.error==='net'?'net':'bad'};
+    if(r.pick) return {pick:true};
+    if(r.percent) return {pct:+r.percent};
+    apiTake(r); return {p:r.promo}; }
+  const x=promoCheck(code); if(x.err) return x;
+  if(x.p.what==='percent') return +x.p.pct>0&&+x.p.pct<100?{pct:+x.p.pct}:{err:'bad'};
+  if(x.p.what==='any'){ if(!id) return {pick:true}; if(!promoPickable().some(g=>g.ls.some(l=>'l:'+l.id===id))) return {err:'bad'};
+    const q={what:'lesson',target:id}; promoApply(q,x.c); return {p:q}; }
+  promoApply(x.p,x.c); return {p:x.p}; }
+// a percent code was used on a subscription without a server: count the use on this device (with a server, POST /subs counts it)
+function promoSpend(code){ const c=promoNorm(code), U=cGet('es.promoUses',{}); U[c]=(U[c]||0)+1; cSet('es.promoUses',U);
+  const mine=cGet(freeKey()+'.promo',[]); mine.push(c); cSet(freeKey()+'.promo',mine); }
+// the lessons an "any lesson" code can open: built, shown, and not open for this child already
+function promoPickable(){ const un=new Set(cGet(unlockKey(),[])), out=[];
+  COURSE.subjects.forEach(s=>{ if(!s.lessons) return;
+    const ls=s.lessons.filter(l=>l.file&&!l.hidden&&!promoOpen(un,'l:'+l.id)&&accessOf({},true,'l:'+l.id,0,'lesson').st!=='open'&&((ESET.items||{})['l:'+l.id]||{}).st!=='soon');
+    if(ls.length) out.push({s,ls}); }); return out; }
+function promoPick(code,ok,onOpen){
+  const G2=promoPickable();
+  if(!G2.length){ coinPop(`<h2 class="outline">${CT('كل الدروس مفتوحة','All lessons are open')}</h2><p class="msg-text">${CT('مفيش درس مقفول تفتحه بالكود ده دلوقتي.','There is no locked lesson left to open.')}</p><button class="pill green" data-pgo>${CT('تمام','OK')}</button>`,
+      q=>{ $('[data-pgo]',q).addEventListener('click',coinClose); }); return; }
+  let cur=G2[0].s.id, chosen='';
+  coinPop(`<h2 class="outline">${CT('اختاري الدرس','Choose a lesson')}</h2>
+    ${G2.length>1?`<select class="cpick-s" aria-label="${CT('المادة','Subject')}">${G2.map(g=>`<option value="${g.s.id}">${g.s.name}</option>`).join('')}</select>`:''}
+    <div class="cpick-l" role="listbox"></div><p class="cpromoerr" role="alert" hidden></p>
+    <button class="pill green" data-pgo disabled>${CT('افتح الدرس','Open the lesson')}</button>`,
+    q=>{ const box=$('.cpick-l',q), btn=$('[data-pgo]',q), er=$('.cpromoerr',q), sel=$('.cpick-s',q);
+      const draw=()=>{ const g=G2.find(x=>x.s.id===cur); let u=null; box.innerHTML=g.ls.map(l=>{ const h=l.unit!==u?(u=l.unit,`<b class="cpick-u">${CT('الوحدة ','Unit ')}${num(l.unit)}</b>`):'';
+          return h+`<button type="button" class="cpick-i${chosen==='l:'+l.id?' on':''}" role="option" data-id="l:${l.id}">${num(l.lesson)}. ${l.title||''}</button>`; }).join(''); };
+      draw(); if(sel) sel.addEventListener('change',()=>{ cur=sel.value; chosen=''; btn.disabled=true; draw(); });
+      box.addEventListener('click',e=>{ const b=e.target.closest('.cpick-i'); if(!b) return; chosen=b.dataset.id; btn.disabled=false; er.hidden=true; $$('.cpick-i',box).forEach(x=>x.classList.toggle('on',x===b)); });
+      btn.addEventListener('click',async()=>{ if(!chosen) return; btn.disabled=true; const r=await promoGo(code,chosen);
+        if(r.err){ er.textContent=CT(...PROMO_ERR[r.err]||PROMO_ERR.bad); er.hidden=false; btn.disabled=false; return; }
+        ok(r.p); }); }); }

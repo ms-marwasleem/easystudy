@@ -74,9 +74,10 @@ function subBuy(kidId,t){ const k=kids().find(x=>x.id===kidId); if(!k) return; c
   const live=r&&(!r.until||Date.now()<r.until)&&(r.st==='active'||r.st==='pending');
   if(live&&r.st==='active'||live&&r.st==='pending'&&Date.now()>=(r.trial||0)){   // paid, or the receipt is waiting for the admin: only the state
     const s=subStat(r,t); return coinPop(`<h2 class="outline">${wlEsc(k.name)} · ${tn}</h2><p class="msg-text">${s.t}</p><button class="pill green" data-ok>تمام</button>`,p=>$('[data-ok]',p).addEventListener('click',subsPage)); }
+  let disc=null;   // a percent promo code typed on this page: {pct, code}
   const link=S.link||'', who=S.name||'', pro=ESET.promoOn!==false&&((ESET.promos&&ESET.promos.length)||API());
   coinPop(`<h2 class="outline">${wlEsc(k.name)} · ${tn}</h2>
-    <div class="subscroll"><p class="subprice">${pr.disc?`<s>${num(pr.price)}</s> `:''}<b>${num(pr.fin)}</b> جنيه</p>
+    <div class="subscroll"><p class="subprice" data-sp>${pr.disc?`<s>${num(pr.price)}</s> `:''}<b>${num(pr.fin)}</b> جنيه</p>
     <ol class="substeps"><li>ادفعي على إنستا باي${who?` لحساب <b>${wlEsc(who)}</b>`:''}.${link?`<br><a class="pill yellow subpay" href="${wlEsc(link)}" target="_blank" rel="noopener">افتحي إنستا باي</a>`:''}</li>
       <li>اكتبي رقم العملية وارفعي صورة الإيصال.</li></ol>
     <form class="subf" autocomplete="off" novalidate>
@@ -85,7 +86,10 @@ function subBuy(kidId,t){ const k=kids().find(x=>x.id===kidId); if(!k) return; c
       <p class="subimg" hidden></p><p class="wl-err" hidden></p>
       <button class="pill green wl-big" type="submit"><span class="wl-ar">ابعتي الإيصال</span></button></form>
     <p class="subnote">بعد الإرسال الدروس بتتفتح ٢٤ ساعة لحد ما نتأكد من الدفع.<br>الاشتراك لحد ${subDate(subEnd())}، وبعدها الدروس بتتقفل والتقدم بيبدأ من الأول.<br>مفيش استرجاع للفلوس.</p>${pro?promoLine():''}</div>`,
-    p=>{ promoWire(p,()=>{ subsPage(); });
+    p=>{ const fin=()=>disc?Math.max(1,Math.round(pr.fin*(100-disc.pct)/100)):pr.fin;
+      promoWire(p,()=>{ subsPage(); },{pct:(n,code)=>{ disc={pct:n,code};
+        $('[data-sp]',p).innerHTML=`<s>${num(pr.fin)}</s> <b>${num(fin())}</b> جنيه<small class="subpct">خصم ${num(n)}%</small>`;
+        const b=$('[data-promo]',p), pf=$('.cpromof',p); if(b) b.hidden=true; if(pf) pf.hidden=true; p.classList.remove('promo-on'); }});
       const f=$('.subf',p), er=$('.wl-err',p), im=$('.subimg',p); let pic='';
       const say=m=>{ er.textContent=m; er.hidden=false; };
       f.img.addEventListener('change',async()=>{ pic=''; im.hidden=true; const file=f.img.files[0]; if(!file) return;
@@ -94,11 +98,11 @@ function subBuy(kidId,t){ const k=kids().find(x=>x.id===kidId); if(!k) return; c
         if(!ref) return wlBad(f,'ref','اكتبي رقم العملية'); if(!pic) return wlBad(f,'img','ارفعي صورة الإيصال');
         const go=$('button[type=submit]',f); go.disabled=true; const t0=Date.now();
         let rec; const has=subRec(k,t);
-        if(API()&&typeof sySession==='function'&&sySession()){ const x=await syCall('/subs',{child:k.id,term:key,ref,receipt:pic});
+        if(API()&&typeof sySession==='function'&&sySession()){ const x=await syCall('/subs',{child:k.id,term:key,ref,receipt:pic,...(disc?{promo:disc.code}:{})});
           if(!x){ go.disabled=false; return say('مفيش إنترنت دلوقتي'); }
-          if(!x.j.ok){ go.disabled=false; return say({'already':'الاشتراك ده شغال','pending':'الإيصال متبعت وبنراجعه','no-price':'السعر لسه متحددش','big':'الصورة كبيرة','bad-receipt':'الصورة مش مظبوطة','off':'الاشتراك لسه مش شغال'}[x.j.error]||'حصلت مشكلة. جربي تاني'); }
-          rec={st:'pending',at:x.j.at,trial:x.j.trial,until:x.j.until,price:pr.fin,ref,seen:true}; }
-        else rec={st:'pending',at:t0,trial:has&&has.trialUsed?0:t0+864e5,until:subEnd(t0),price:pr.fin,ref,seen:true,trialUsed:true,local:true};   // no server: kept on this device (admin cannot see it)
+          if(!x.j.ok){ go.disabled=false; return say({'already':'الاشتراك ده شغال','pending':'الإيصال متبعت وبنراجعه','no-price':'السعر لسه متحددش','big':'الصورة كبيرة','bad-receipt':'الصورة مش مظبوطة','off':'الاشتراك لسه مش شغال','bad':'الكود ده مش صحيح','old':'الكود ده انتهى','used':'الكود ده اتستخدم قبل كده','full':'الكود ده خلص عدد مرات استخدامه'}[x.j.error]||'حصلت مشكلة. جربي تاني'); }
+          rec={st:'pending',at:x.j.at,trial:x.j.trial,until:x.j.until,price:fin(),ref,seen:true}; }
+        else rec={st:'pending',at:t0,trial:has&&has.trialUsed?0:t0+864e5,until:subEnd(t0),price:fin(),ref,seen:true,trialUsed:true,local:true}; if(disc) promoSpend(disc.code);   // no server: kept on this device (admin cannot see it)
         subSave(k.id,key,rec); coinClose(); if(typeof chime==='function') chime(3);
         coinPop(`<h2 class="outline">وصلنا الإيصال</h2><p class="msg-text">دروس <b>${wlEsc(k.name)}</b> مفتوحة ٢٤ ساعة لحد ما نتأكد من الدفع.</p><button class="pill green" data-ok>تمام</button>`,
           p2=>$('[data-ok]',p2).addEventListener('click',()=>{ coinClose(); if(typeof drawSubjects==='function'&&!$('#subjects').hidden) drawSubjects(); })); }); }); }

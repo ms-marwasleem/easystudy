@@ -391,3 +391,11 @@ html[data-theme="words"],html[data-theme="words"] body{background:radial-gradien
 .ewlock{width:1em;height:1em;fill:#f5b61c;stroke:#8a5a00;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
 .jlockbig .ewlock{width:4.5rem;height:4.5rem}
 .rpbtn{color:#16346b}
+
+/* ROUND 10: text on the light-blue screens is thin and dark (was thick white with an outline); white stays only on coloured buttons / tiles */
+.wl-h,.wl-form label > span,.wl-field > span,.wl-note,.wl-note2,.wl-sum,.wl-tag,.wl-pts,.wl-pts li,.wl-who,.wl-about,.wl-about p,.wl-form,.wl-chip{color:#16346b;-webkit-text-stroke:0;text-shadow:none;paint-order:normal;font-weight:500}
+.wl-about .wl-tag{color:#16346b;text-shadow:none;font-weight:500}
+.wl-form label > span small,.wl-field > span small,.wl-h small{color:#16346b;font-weight:500}
+.wl-form input{font-weight:500;color:#16346b}
+.pill.wl-chip{font-weight:500}
+.pill.wl-big,.pill.wl-big small{font-weight:600}

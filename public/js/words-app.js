@@ -1,4 +1,4 @@
-const EW_BUILD='5f28c9ed9a';
+const EW_BUILD='eed219d2dc';
 /* MADE BY tools/build-words.py from the files named below. Do not edit here. */
 /* ===== js/words-boot.js ===== */
 /* EASY WORDS — first file of the bundle: tells the shared accounts / credits code (welcome, sync, subs, coins, push) which settings file and server to use. */
@@ -827,7 +827,7 @@ function lockTap(kind,item,cost,art,onOpen){
 
 /* ---------- PROMO CODES (Marwa 2026-11-05) ----------
    The admin makes codes in admin.html (page "البرومو كود"); settings.promos = [{code, what, target, uses, max, until, on, note}]
-     what   = lesson | unit | subject | all         target = l:<subject>-<folder> | u:<subject>:<unit> | <subject id> | ''
+     what   = lesson | unit | subject | all | any (the user picks ONE built lesson, then it opens; one use) | percent (pct = 1-99 % off a subscription price; used when the receipt is sent)         target = l:<subject>-<folder> | u:<subject>:<unit> | <subject id> | ''
      uses   = once (one use in total) | many (each child once; max = most uses in total, 0 = no limit)    until = 'YYYY-MM-DD' (last day) or ''
    A small underlined line under "اجمع كريدتس" in the lock popup opens the code field. A good code opens its target for THIS child
    (stored with the unlocks: the item id, 's:<subject>' or '*'), costs no credits, and adds a 0-credit "promo" row to the history.
@@ -838,6 +838,7 @@ const promoNorm=c=>String(c||'').toUpperCase().replace(/[\s\-_]/g,'').replace(/[
 function promoWhat(p){ if(!p) return ''; if(typeof p==='string') p={what:p==='*'?'all':p[0]==='s'?'subject':p[0]==='u'?'unit':'lesson',target:p[0]==='s'?p.slice(2):p};
   const t=p.target||'';
   if(p.what==='all') return CT('كل المواد','All subjects');
+  if(p.what==='any') return CT('أي درس تختاره','Any lesson you choose');
   if(p.what==='subject'){ const s=COURSE.subjects.find(x=>x.id===t); return CT('مادة ','Subject ')+(s?s.name:t); }
   if(p.what==='unit'){ const s=subjOf(t), u=t.split(':')[2]; return (s?s.name+' · ':'')+CT('الوحدة ','Unit ')+num(u||''); }
   const l=lessonOf(t), s=subjOf(t); return l?(s?s.name+' · ':'')+(l.title||''):t; }
@@ -846,7 +847,7 @@ function promoCheck(code){   // local check -> {p} or {err}
   const c=promoNorm(code); if(!c) return {err:'empty'};
   const p=(ESET.promos||[]).find(x=>promoNorm(x.code)===c); if(ESET.promoOn===false||!p||p.on===false) return {err:'bad'};
   if(p.until&&new Date().toISOString().slice(0,10)>p.until) return {err:'old'};
-  if(p.what!=='all'&&!p.target) return {err:'bad'};
+  if(p.what!=='all'&&p.what!=='any'&&p.what!=='percent'&&!p.target) return {err:'bad'};
   const U=cGet('es.promoUses',{}), mine=cGet(freeKey()+'.promo',[]), n=U[c]||0;
   if(mine.includes(c)) return {err:'used'};
   if(p.uses!=='many'&&n>=1) return {err:'used'};
@@ -861,7 +862,7 @@ const PROMO_ERR={empty:['اكتب الكود الأول','Type the code first'],
 function promoLine(){ if(ESET.promoOn===false) return ''; return `<button type="button" class="cpromo" data-promo>${CT('عندك برومو كود؟','Have a promo code?')}</button>
   <form class="cpromof" hidden autocomplete="off"><input class="cpromoin" name="code" dir="ltr" inputmode="latin" autocapitalize="characters" spellcheck="false" maxlength="32" placeholder="${CT('اكتب الكود','Type the code')}" aria-label="${CT('البرومو كود','Promo code')}">
   <button class="pill green cpromogo">${CT('فعّل','Use')}</button><p class="cpromoerr" role="alert" hidden></p></form>`; }
-function promoWire(pp,onOpen){
+function promoWire(pp,onOpen,ctx){
   const b=$('[data-promo]',pp), f=$('.cpromof',pp); if(!b||!f) return; const inp=$('input',f), er=$('.cpromoerr',f);
   b.addEventListener('click',()=>{ b.hidden=true; f.hidden=false; pp.classList.add('promo-on'); inp.focus(); });   // the padlock picture hides: room for the field on short screens
   const bad=k=>{ er.textContent=CT(...PROMO_ERR[k]||PROMO_ERR.bad); er.hidden=false; inp.classList.add('bad'); inp.focus();   // same as every form (welcome.js wlBad): red, shake, focus
@@ -872,13 +873,54 @@ function promoWire(pp,onOpen){
       <p class="msg-text">${CT('الكود فتح لك:','The code opened:')}<br><b>${promoWhat(p)}</b></p><button class="pill green" data-pgo>${CT('يلا نذاكر','Let\'s go')}</button>`,
       q=>{ const go=()=>{ coinClose(); onOpen&&onOpen(); }; $('[data-pgo]',q).addEventListener('click',go); $('.popx',q).addEventListener('click',()=>onOpen&&onOpen()); }); };
   f.addEventListener('submit',async e=>{ e.preventDefault(); const code=inp.value; if(!promoNorm(code)) return bad('empty');
-    if(API()){ const go=$('.cpromogo',f); go.disabled=true;
-      const r=await fetch(API()+'/promo',{method:'POST',headers:{'Content-Type':'application/json',...(window.ACCOUNT&&ACCOUNT.token?{Authorization:'Bearer '+ACCOUNT.token}:{})},body:JSON.stringify({child:coinChild(),code})})
-        .then(x=>x.json()).catch(()=>({error:'net'})); go.disabled=false;
-      if(!r||!r.ok) return bad(r&&PROMO_ERR[r.error]?r.error:r&&r.error==='net'?'net':'bad');
-      apiTake(r); return ok(r.promo); }
-    const x=promoCheck(code); if(x.err) return bad(x.err); promoApply(x.p,x.c); ok(x.p); });
+    const go=$('.cpromogo',f); go.disabled=true; const r=await promoGo(code); go.disabled=false;
+    if(r.err) return bad(r.err);
+    if(r.pick) return promoPick(code,ok,onOpen);
+    if(r.pct){   // a percent-off code: it works on the subscription price (subs.js hands us ctx.pct); anywhere else it only tells what it is, nothing is used
+      if(ctx&&ctx.pct) return ctx.pct(r.pct,code);
+      return coinPop(`<h2 class="outline">${CT('كود خصم','Discount code')}</h2><p class="msg-text">${CT('الكود ده خصم ','This code gives ')}<b>${num(r.pct)}%</b>${CT(' على الاشتراك. بتكتبه في صفحة الاشتراك وقت الدفع.',' off a subscription. Type it on the subscription page when you pay.')}</p><button class="pill green" data-pgo>${CT('تمام','OK')}</button>`,
+        q=>{ $('[data-pgo]',q).addEventListener('click',coinClose); }); }
+    ok(r.p); });
 }
+// one try of a code: {err} | {pick:true} (an "any lesson" code: the user must choose the lesson, nothing is used yet) | {pct:N} (percent off a subscription, nothing used yet) | {p} (opened)
+async function promoGo(code,id){
+  if(API()){
+    const r=await fetch(API()+'/promo',{method:'POST',headers:{'Content-Type':'application/json',...(window.ACCOUNT&&ACCOUNT.token?{Authorization:'Bearer '+ACCOUNT.token}:{})},body:JSON.stringify({child:coinChild(),code,...(id?{id}:{})})})
+      .then(x=>x.json()).catch(()=>({error:'net'}));
+    if(!r||!r.ok) return {err:r&&PROMO_ERR[r.error]?r.error:r&&r.error==='net'?'net':'bad'};
+    if(r.pick) return {pick:true};
+    if(r.percent) return {pct:+r.percent};
+    apiTake(r); return {p:r.promo}; }
+  const x=promoCheck(code); if(x.err) return x;
+  if(x.p.what==='percent') return +x.p.pct>0&&+x.p.pct<100?{pct:+x.p.pct}:{err:'bad'};
+  if(x.p.what==='any'){ if(!id) return {pick:true}; if(!promoPickable().some(g=>g.ls.some(l=>'l:'+l.id===id))) return {err:'bad'};
+    const q={what:'lesson',target:id}; promoApply(q,x.c); return {p:q}; }
+  promoApply(x.p,x.c); return {p:x.p}; }
+// a percent code was used on a subscription without a server: count the use on this device (with a server, POST /subs counts it)
+function promoSpend(code){ const c=promoNorm(code), U=cGet('es.promoUses',{}); U[c]=(U[c]||0)+1; cSet('es.promoUses',U);
+  const mine=cGet(freeKey()+'.promo',[]); mine.push(c); cSet(freeKey()+'.promo',mine); }
+// the lessons an "any lesson" code can open: built, shown, and not open for this child already
+function promoPickable(){ const un=new Set(cGet(unlockKey(),[])), out=[];
+  COURSE.subjects.forEach(s=>{ if(!s.lessons) return;
+    const ls=s.lessons.filter(l=>l.file&&!l.hidden&&!promoOpen(un,'l:'+l.id)&&accessOf({},true,'l:'+l.id,0,'lesson').st!=='open'&&((ESET.items||{})['l:'+l.id]||{}).st!=='soon');
+    if(ls.length) out.push({s,ls}); }); return out; }
+function promoPick(code,ok,onOpen){
+  const G2=promoPickable();
+  if(!G2.length){ coinPop(`<h2 class="outline">${CT('كل الدروس مفتوحة','All lessons are open')}</h2><p class="msg-text">${CT('مفيش درس مقفول تفتحه بالكود ده دلوقتي.','There is no locked lesson left to open.')}</p><button class="pill green" data-pgo>${CT('تمام','OK')}</button>`,
+      q=>{ $('[data-pgo]',q).addEventListener('click',coinClose); }); return; }
+  let cur=G2[0].s.id, chosen='';
+  coinPop(`<h2 class="outline">${CT('اختار الدرس','Choose a lesson')}</h2>
+    ${G2.length>1?`<select class="cpick-s" aria-label="${CT('المادة','Subject')}">${G2.map(g=>`<option value="${g.s.id}">${g.s.name}</option>`).join('')}</select>`:''}
+    <div class="cpick-l" role="listbox"></div><p class="cpromoerr" role="alert" hidden></p>
+    <button class="pill green" data-pgo disabled>${CT('افتح الدرس','Open the lesson')}</button>`,
+    q=>{ const box=$('.cpick-l',q), btn=$('[data-pgo]',q), er=$('.cpromoerr',q), sel=$('.cpick-s',q);
+      const draw=()=>{ const g=G2.find(x=>x.s.id===cur); let u=null; box.innerHTML=g.ls.map(l=>{ const h=l.unit!==u?(u=l.unit,`<b class="cpick-u">${CT('الوحدة ','Unit ')}${num(l.unit)}</b>`):'';
+          return h+`<button type="button" class="cpick-i${chosen==='l:'+l.id?' on':''}" role="option" data-id="l:${l.id}">${num(l.lesson)}. ${l.title||''}</button>`; }).join(''); };
+      draw(); if(sel) sel.addEventListener('change',()=>{ cur=sel.value; chosen=''; btn.disabled=true; draw(); });
+      box.addEventListener('click',e=>{ const b=e.target.closest('.cpick-i'); if(!b) return; chosen=b.dataset.id; btn.disabled=false; er.hidden=true; $$('.cpick-i',box).forEach(x=>x.classList.toggle('on',x===b)); });
+      btn.addEventListener('click',async()=>{ if(!chosen) return; btn.disabled=true; const r=await promoGo(code,chosen);
+        if(r.err){ er.textContent=CT(...PROMO_ERR[r.err]||PROMO_ERR.bad); er.hidden=false; btn.disabled=false; return; }
+        ok(r.p); }); }); }
 ;
 /* ===== js/push.js ===== */
 /* NOTIFICATIONS (2026-11-09, Ahmed): a small bell on the subjects page lets a parent allow notifications on this device.
@@ -978,7 +1020,7 @@ function wlMain(b){
   let h=onlyKid?'':wlAbout(reg?'sm':'');
   if(!onlyKid){
     h+=wlHead('دخول ولي الأمر','Parent login')+(reg?`<div class="wl-sum"><span dir="ltr">${wlEsc([L.email,L.phone].filter(Boolean).join('  ·  '))}</span><button type="button" class="pill cream wl-chip wl-chg">تعديل</button></div>`:
-    `<form class="wl-form wl-login" novalidate><p class="wl-note2">اكتبي الإيميل أو رقم الموبايل (واحد منهم على الأقل)</p>
+    `<form class="wl-form wl-login" novalidate><p class="wl-note2">اكتب الإيميل أو رقم الموبايل (واحد منهم على الأقل)</p>
       <label><span>البريد الإلكتروني <small>Email</small></span><input name="email" type="email" dir="ltr" autocomplete="email" inputmode="email" value="${wlEsc(L.email)}"></label>
       <label><span>رقم الموبايل <small>Mobile</small></span><input name="phone" type="tel" dir="ltr" autocomplete="tel" inputmode="tel" value="${wlEsc(L.phone)}"></label>
       <p class="wl-err" hidden></p>
@@ -988,7 +1030,7 @@ function wlMain(b){
   b.innerHTML=h;
   if(!onlyKid&&!reg){
     const f=$('.wl-login',b); f.addEventListener('submit',e=>{ e.preventDefault(); const v=n=>f[n].value.trim(), er=$('.wl-err',b);
-      const bad=!v('email')&&!v('phone')?['email','اكتبي الإيميل أو رقم الموبايل (واحد على الأقل)']:v('email')&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v('email'))?['email','البريد الإلكتروني مش مكتوب صح']:v('phone')&&!/^[+0-9٠-٩ ]{8,16}$/.test(v('phone'))?['phone','رقم الموبايل مش مكتوب صح']:null;
+      const bad=!v('email')&&!v('phone')?['email','اكتب الإيميل أو رقم الموبايل (واحد على الأقل)']:v('email')&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v('email'))?['email','البريد الإلكتروني مش مكتوب صح']:v('phone')&&!/^[+0-9٠-٩ ]{8,16}$/.test(v('phone'))?['phone','رقم الموبايل مش مكتوب صح']:null;
       if(bad) return wlBad(f,...bad);
       const go=$('.wl-go',b); go.disabled=true, id={email:v('email'),phone:v('phone')};
       wlLogin(id,t=>{ er.textContent=t; er.hidden=false; go.disabled=false; }); });
@@ -1124,18 +1166,20 @@ async function syCall(path,body,method){ const base=await syApi(); if(!base) ret
     if(r.status===401&&s&&path.indexOf('/auth/')!==0){ syForget(); }   // the session ended (signed out elsewhere / blocked)
     return {s:r.status,j}; }catch(e){ return null; } }
 function syForget(){ try{ localStorage.removeItem('es.session'); }catch(e){} if(window.ACCOUNT) delete ACCOUNT.token; }
-const SYERR={'bad-email':'البريد الإلكتروني مش مكتوب صح','wait':'استني دقيقة وبعدين اطلبي كود جديد','too-many':'محاولات كتير. جربي تاني بكرة',
-  'code-wrong':'الكود مش صح','code-expired':'الكود انتهى. اطلبي كود جديد','blocked':'الحساب ده موقوف','mail-not-set':'إرسال الإيميل لسه مش متجهز','mail-failed':'الإيميل ما اتبعتش. جربي تاني'};
+const SYERR={'bad-email':'البريد الإلكتروني مش مكتوب صح','wait':'استنى دقيقة وبعدين اطلب كود جديد','too-many':'محاولات كتير. جرب تاني بكرة',
+  'code-wrong':'الكود مش صح','code-expired':'الكود انتهى. اطلب كود جديد','blocked':'الحساب ده موقوف','mail-not-set':'إرسال الإيميل لسه مش متجهز','mail-failed':'الإيميل ما اتبعتش. جرب تاني'};
 
 /* ---------- parent login (stage 1): a code to the email (server on) or the student stage opens below (server off / phone only / can't be reached) ---------- */
 async function acctSubmit(a,err){
   WL.login=a; WL.pending=false;
-  if(!(await syApi())||!a.email){ WL.stage=2; return wlGo('main'); }   // no server yet (or phone only: server login by phone needs an SMS service, later): kept on this device
-  const r=await syCall('/auth/start',{email:a.email});
-  if(!r){ WL.pending=true; WL.stage=2; return wlGo('main'); }   // offline: go on locally, confirm the email later (account page)
-  if(!r.j.ok&&(r.j.error==='mail-not-set'||r.j.error==='mail-failed')){ WL.pending=true; WL.stage=2; return wlGo('main'); }   // the email can't be sent (not set up / not allowed yet): register anyway, confirm later; never show a server message to the parent
-  if(!r.j.ok){ err(SYERR[r.j.error]||'حصلت مشكلة. جربي تاني'); return; }
-  SY.a=a; SY.dev=r.j.devCode||''; SY.known=r.j.known; wlGo('code');
+  if(!(await syApi())||(!a.email&&!a.phone)){ WL.stage=2; return wlGo('main'); }   // no server yet: kept on this device
+  // for now no confirmation (Ahmed 2026-11-15): a stored email OR mobile signs straight in to that account; an unknown one registers a new parent (the code step below stays for later)
+  const ref=typeof refCode==='function'?refCode():null;
+  const r=await syCall('/auth/login',{email:a.email||'',phone:a.phone||'',curr:WL.pick||currPick()||{},ref,device:syDevice()});
+  if(!r||!r.j.ok){ if(r&&r.j.error==='blocked'){ err(SYERR.blocked); return; } if(r&&r.j.error==='too-many'){ err(SYERR['too-many']); return; } WL.pending=true; WL.stage=2; return wlGo('main'); }   // offline / server trouble: go on locally, never show a server message
+  syTake(r.j.token,r.j.me);
+  if(r.j.me.kids.length&&!WL.adding&&!WL.after){ syRestore(r.j.me); return; }   // a registered parent: the children come back, straight into the app (child picker when more than one)
+  syPushKids(); if(WL.after){ const go=WL.after; WL.after=null; go(); } else { WL.stage=2; wlGo('main'); }
 }
 // the code step (drawn by wlDraw in js/welcome.js)
 function syDrawCode(b){
@@ -1151,7 +1195,7 @@ function syDrawCode(b){
   $('.wl-resend',b).addEventListener('click',async()=>{ const r=await syCall('/auth/start',{email:a.email}); if(!r) return say('مفيش إنترنت دلوقتي');
     if(!r.j.ok) return say(SYERR[r.j.error]||'حصلت مشكلة'); SY.dev=r.j.devCode||''; say('اتبعت كود جديد'); });
   f.addEventListener('submit',async e=>{ e.preventDefault(); const code=f.code.value.trim();
-    if(!/^[0-9٠-٩]{6}$/.test(code)) return wlBad(f,'code','اكتبي الـ ٦ أرقام');
+    if(!/^[0-9٠-٩]{6}$/.test(code)) return wlBad(f,'code','اكتب الـ ٦ أرقام');
     const ref=typeof refCode==='function'?refCode():null;
     const r=await syCall('/auth/verify',{email:a.email,code,phone:a.phone,curr:WL.pick||currPick()||{},ref,device:syDevice()});
     if(!r) return say('مفيش إنترنت دلوقتي');
@@ -1259,7 +1303,7 @@ function subNotice(){ const n=subNews()[0]; if(!n||$('#coinPop')&&!$('#coinPop')
   const t=n.key.split(':')[1], tn=(SUBT.find(x=>x[0]===t)||[])[1]||'', ok=n.r.st==='active';
   const A=subAll(); A[n.k.id][n.key].seen=true; cSet('es.subs',A);
   coinPop(`<h2 class="outline">${ok?'تم تفعيل الاشتراك':n.r.st==='closed'?'الاشتراك اتقفل':'الاشتراك ما اتفعلش'}</h2>
-    <p class="msg-text">${ok?`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتفعل ويفضل مفتوح لحد ${subDate(n.r.until)}.`:n.r.st==='closed'?`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتقفل.`:`مقدرناش نتأكد من الدفع لاشتراك <b>${wlEsc(n.k.name)}</b> في ${tn}، فالدروس اتقفلت. ممكن تبعتي الإيصال تاني.`}</p>
+    <p class="msg-text">${ok?`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتفعل ويفضل مفتوح لحد ${subDate(n.r.until)}.`:n.r.st==='closed'?`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتقفل.`:`مقدرناش نتأكد من الدفع لاشتراك <b>${wlEsc(n.k.name)}</b> في ${tn}، فالدروس اتقفلت. ممكن تبعت الإيصال تاني.`}</p>
     <button class="pill green" data-ok>تمام</button>`, p=>$('[data-ok]',p).addEventListener('click',()=>{ coinClose(); if(typeof drawSubjects==='function'&&!$('#subjects').hidden) drawSubjects(); subNotice(); })); }
 function subDot(o){ const b=$('.ac-subs em',o); if(b) b.textContent=subNews().length?'جديد':''; }
 setTimeout(subSync,1500); document.addEventListener('visibilitychange',()=>{ if(!document.hidden) subSync(); });
@@ -1291,31 +1335,35 @@ function subBuy(kidId,t){ const k=kids().find(x=>x.id===kidId); if(!k) return; c
   const live=r&&(!r.until||Date.now()<r.until)&&(r.st==='active'||r.st==='pending');
   if(live&&r.st==='active'||live&&r.st==='pending'&&Date.now()>=(r.trial||0)){   // paid, or the receipt is waiting for the admin: only the state
     const s=subStat(r,t); return coinPop(`<h2 class="outline">${wlEsc(k.name)} · ${tn}</h2><p class="msg-text">${s.t}</p><button class="pill green" data-ok>تمام</button>`,p=>$('[data-ok]',p).addEventListener('click',subsPage)); }
+  let disc=null;   // a percent promo code typed on this page: {pct, code}
   const link=S.link||'', who=S.name||'', pro=ESET.promoOn!==false&&((ESET.promos&&ESET.promos.length)||API());
   coinPop(`<h2 class="outline">${wlEsc(k.name)} · ${tn}</h2>
-    <div class="subscroll"><p class="subprice">${pr.disc?`<s>${num(pr.price)}</s> `:''}<b>${num(pr.fin)}</b> جنيه</p>
-    <ol class="substeps"><li>ادفعي على إنستا باي${who?` لحساب <b>${wlEsc(who)}</b>`:''}.${link?`<br><a class="pill yellow subpay" href="${wlEsc(link)}" target="_blank" rel="noopener">افتحي إنستا باي</a>`:''}</li>
-      <li>اكتبي رقم العملية وارفعي صورة الإيصال.</li></ol>
+    <div class="subscroll"><p class="subprice" data-sp>${pr.disc?`<s>${num(pr.price)}</s> `:''}<b>${num(pr.fin)}</b> جنيه</p>
+    <ol class="substeps"><li>ادفع على إنستا باي${who?` لحساب <b>${wlEsc(who)}</b>`:''}.${link?`<br><a class="pill yellow subpay" href="${wlEsc(link)}" target="_blank" rel="noopener">افتح إنستا باي</a>`:''}</li>
+      <li>اكتب رقم العملية وارفع صورة الإيصال.</li></ol>
     <form class="subf" autocomplete="off" novalidate>
       <label><span>رقم العملية</span><input name="ref" dir="ltr" inputmode="text" maxlength="40" required></label>
       <label class="subfile"><span>صورة الإيصال</span><input type="file" name="img" accept="image/*" required></label>
       <p class="subimg" hidden></p><p class="wl-err" hidden></p>
-      <button class="pill green wl-big" type="submit"><span class="wl-ar">ابعتي الإيصال</span></button></form>
+      <button class="pill green wl-big" type="submit"><span class="wl-ar">ابعت الإيصال</span></button></form>
     <p class="subnote">بعد الإرسال الدروس بتتفتح ٢٤ ساعة لحد ما نتأكد من الدفع.<br>الاشتراك لحد ${subDate(subEnd())}، وبعدها الدروس بتتقفل والتقدم بيبدأ من الأول.<br>مفيش استرجاع للفلوس.</p>${pro?promoLine():''}</div>`,
-    p=>{ promoWire(p,()=>{ subsPage(); });
+    p=>{ const fin=()=>disc?Math.max(1,Math.round(pr.fin*(100-disc.pct)/100)):pr.fin;
+      promoWire(p,()=>{ subsPage(); },{pct:(n,code)=>{ disc={pct:n,code};
+        $('[data-sp]',p).innerHTML=`<s>${num(pr.fin)}</s> <b>${num(fin())}</b> جنيه<small class="subpct">خصم ${num(n)}%</small>`;
+        const b=$('[data-promo]',p), pf=$('.cpromof',p); if(b) b.hidden=true; if(pf) pf.hidden=true; p.classList.remove('promo-on'); }});
       const f=$('.subf',p), er=$('.wl-err',p), im=$('.subimg',p); let pic='';
       const say=m=>{ er.textContent=m; er.hidden=false; };
       f.img.addEventListener('change',async()=>{ pic=''; im.hidden=true; const file=f.img.files[0]; if(!file) return;
-        try{ pic=await subShrink(file); im.textContent='الصورة جاهزة ('+num(Math.round(pic.length*.75/1024))+' ك.ب)'; im.hidden=false; er.hidden=true; }catch(e){ say('الصورة دي مش بتفتح. جربي صورة تانية'); } });
+        try{ pic=await subShrink(file); im.textContent='الصورة جاهزة ('+num(Math.round(pic.length*.75/1024))+' ك.ب)'; im.hidden=false; er.hidden=true; }catch(e){ say('الصورة دي مش بتفتح. جرب صورة تانية'); } });
       f.addEventListener('submit',async e=>{ e.preventDefault(); const ref=f.ref.value.trim();
-        if(!ref) return wlBad(f,'ref','اكتبي رقم العملية'); if(!pic) return wlBad(f,'img','ارفعي صورة الإيصال');
+        if(!ref) return wlBad(f,'ref','اكتب رقم العملية'); if(!pic) return wlBad(f,'img','ارفع صورة الإيصال');
         const go=$('button[type=submit]',f); go.disabled=true; const t0=Date.now();
         let rec; const has=subRec(k,t);
-        if(API()&&typeof sySession==='function'&&sySession()){ const x=await syCall('/subs',{child:k.id,term:key,ref,receipt:pic});
+        if(API()&&typeof sySession==='function'&&sySession()){ const x=await syCall('/subs',{child:k.id,term:key,ref,receipt:pic,...(disc?{promo:disc.code}:{})});
           if(!x){ go.disabled=false; return say('مفيش إنترنت دلوقتي'); }
-          if(!x.j.ok){ go.disabled=false; return say({'already':'الاشتراك ده شغال','pending':'الإيصال متبعت وبنراجعه','no-price':'السعر لسه متحددش','big':'الصورة كبيرة','bad-receipt':'الصورة مش مظبوطة','off':'الاشتراك لسه مش شغال'}[x.j.error]||'حصلت مشكلة. جربي تاني'); }
-          rec={st:'pending',at:x.j.at,trial:x.j.trial,until:x.j.until,price:pr.fin,ref,seen:true}; }
-        else rec={st:'pending',at:t0,trial:has&&has.trialUsed?0:t0+864e5,until:subEnd(t0),price:pr.fin,ref,seen:true,trialUsed:true,local:true};   // no server: kept on this device (admin cannot see it)
+          if(!x.j.ok){ go.disabled=false; return say({'already':'الاشتراك ده شغال','pending':'الإيصال متبعت وبنراجعه','no-price':'السعر لسه متحددش','big':'الصورة كبيرة','bad-receipt':'الصورة مش مظبوطة','off':'الاشتراك لسه مش شغال','bad':'الكود ده مش صحيح','old':'الكود ده انتهى','used':'الكود ده اتستخدم قبل كده','full':'الكود ده خلص عدد مرات استخدامه'}[x.j.error]||'حصلت مشكلة. جرب تاني'); }
+          rec={st:'pending',at:x.j.at,trial:x.j.trial,until:x.j.until,price:fin(),ref,seen:true}; }
+        else rec={st:'pending',at:t0,trial:has&&has.trialUsed?0:t0+864e5,until:subEnd(t0),price:fin(),ref,seen:true,trialUsed:true,local:true}; if(disc) promoSpend(disc.code);   // no server: kept on this device (admin cannot see it)
         subSave(k.id,key,rec); coinClose(); if(typeof chime==='function') chime(3);
         coinPop(`<h2 class="outline">وصلنا الإيصال</h2><p class="msg-text">دروس <b>${wlEsc(k.name)}</b> مفتوحة ٢٤ ساعة لحد ما نتأكد من الدفع.</p><button class="pill green" data-ok>تمام</button>`,
           p2=>$('[data-ok]',p2).addEventListener('click',()=>{ coinClose(); if(typeof drawSubjects==='function'&&!$('#subjects').hidden) drawSubjects(); })); }); }); }
@@ -3206,7 +3254,7 @@ async function ewStart(){
   busy(true);
   try{ await ewLoad(); }catch(e){ busy(false); message('أوبس!','التطبيق ما اتحملش. اتأكد من النت وجرب تاني.'); $('#msgOk').onclick=()=>location.reload(); return; }
   ewDefs(); await cssReady;
-  if(document.fonts&&document.fonts.ready) await Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,2500))]);
+  if(document.fonts&&document.fonts.ready) await Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,700))]);
   $('#ewWlLogo').innerHTML=ewIcon('app'); paintHud(); kidPaint(); busy(false);
   if(!kidNow()||!EW.curr||!ewChoices().some(c=>c.id===EW.curr)){ openWelcome(); } else openSubjects();
 }

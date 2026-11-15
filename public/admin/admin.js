@@ -129,11 +129,11 @@ $$('#bulk button').forEach(b=>b.addEventListener('click',()=>{ const st=b.datase
 $('#l-subj').addEventListener('change',drawTree);
 
 /* ---------- promo codes (Marwa 2026-11-05): S.promos = [{code, what, target, uses, max, until, on, note}] — js/coins.js PROMO CODES ---------- */
-const WHAT=[['lesson','درس واحد'],['unit','وحدة كاملة'],['subject','مادة كاملة'],['all','كل المواد']];
+const WHAT=[['lesson','درس واحد'],['any','أي درس يختاره المستخدم'],['unit','وحدة كاملة'],['subject','مادة كاملة'],['all','كل المواد']];   // 'percent' (discount) is its own code TYPE, chosen in "نوع الكود"
 const promoNorm=c=>String(c||'').toUpperCase().replace(/[\s\-_]/g,'').replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
 const newCode=()=>{ const a='ABCDEFGHJKMNPQRSTUVWXYZ23456789', b=crypto.getRandomValues(new Uint8Array(8)); return [...b].map(x=>a[x%a.length]).join(''); };
 function targets(what,cur){   // the <option>s for "what it opens"
-  if(what==='all') return '<option value="">—</option>';
+  if(what==='all'||what==='any'||what==='percent') return '<option value="">—</option>';
   const S2=COURSE.subjects.filter(s=>s.lessons);
   if(what==='subject') return S2.map(s=>`<option value="${s.id}"${cur===s.id?' selected':''}>${esc(s.name)}</option>`).join('');
   return S2.map(s=>`<optgroup label="${esc(s.name)}">`+(what==='unit'
@@ -152,8 +152,10 @@ function drawPromos(){ const box=$('#promos'), P=S.promos;
         <button class="x" aria-label="حذف">×</button></div>
       ${dup?'<p class="pr-warn">الكود ده متكرر، غيّريه.</p>':''}
       <div class="grid pr-grid">
-        <label>بيفتح <select data-k="what">${WHAT.map(([v,l])=>`<option value="${v}"${p.what===v?' selected':''}>${l}</option>`).join('')}</select></label>
-        <label${p.what==='all'?' hidden':''}>${{lesson:'الدرس',unit:'الوحدة',subject:'المادة'}[p.what]||''} <select data-k="target">${targets(p.what,p.target)}</select></label>
+        <label>نوع الكود <select data-k="type"><option value="open"${p.what!=='percent'?' selected':''}>فتح دروس</option><option value="percent"${p.what==='percent'?' selected':''}>خصم على سعر الاشتراك</option></select></label>
+        ${p.what==='percent'?`<label>نسبة الخصم % <small>(من ١ لـ ٩٩)</small><input type="number" min="1" max="99" data-k="pct" value="${+p.pct>0?p.pct:''}" placeholder="مثلًا ٢٠"></label>`
+        :`<label>بيفتح <select data-k="what">${WHAT.map(([v,l])=>`<option value="${v}"${p.what===v?' selected':''}>${l}</option>`).join('')}</select></label>`}
+        <label${p.what==='all'||p.what==='any'||p.what==='percent'?' hidden':''}>${{lesson:'الدرس',unit:'الوحدة',subject:'المادة'}[p.what]||''} <select data-k="target">${targets(p.what,p.target)}</select></label>
         <label>الاستخدام <select data-k="uses"><option value="once"${p.uses!=='many'?' selected':''}>مرة واحدة بس</option><option value="many"${p.uses==='many'?' selected':''}>أكتر من مرة (كل طفل مرة)</option></select></label>
         <label${p.uses==='many'?'':' hidden'}>أقصى عدد <small>(فاضي = من غير حد)</small><input type="number" min="0" data-k="max" value="${+p.max>0?p.max:''}"></label>
         <label>آخر يوم <small>(فاضي = دايمًا)</small><span class="dwrap${p.until?'':' empty'}"><input type="date" data-k="until" value="${esc(p.until||'')}"><em>دايمًا</em>${p.until?'<button type="button" class="dclr" title="مسح التاريخ">×</button>':''}</span></label>
@@ -161,9 +163,10 @@ function drawPromos(){ const box=$('#promos'), P=S.promos;
       </div></div>`; }).join('');
   $$('.pr-card',box).forEach(r=>{ const p=S.promos[+r.dataset.i];
     $$('[data-k]',r).forEach(inp=>inp.addEventListener(inp.tagName==='SELECT'||inp.type==='checkbox'||inp.type==='date'?'change':'input',()=>{ const k=inp.dataset.k;
-      p[k]=k==='on'?inp.checked:k==='max'?(+inp.value||0):k==='code'?inp.value.toUpperCase().replace(/\s/g,''):inp.value;
+      if(k==='type'){ if(inp.value==='percent'){ p.what='percent'; p.target=''; p.pct=+p.pct>0?p.pct:10; } else { p.what='lesson'; p.target=firstTarget('lesson'); delete p.pct; } mark(); return drawPromos(); }
+      p[k]=k==='on'?inp.checked:k==='max'||k==='pct'?Math.min(k==='pct'?99:1e9,Math.max(0,+inp.value||0)):k==='code'?inp.value.toUpperCase().replace(/\s/g,''):inp.value;
       if(k==='code'&&inp.value!==p.code){ const at=inp.selectionStart; inp.value=p.code; try{ inp.setSelectionRange(at,at); }catch(e){} }
-      if(k==='what') p.target=p.what==='all'?'':firstTarget(p.what);
+      if(k==='what') p.target=p.what==='all'||p.what==='any'?'':firstTarget(p.what);
       mark(); if(['what','uses','on','until'].includes(k)) drawPromos(); else if(k==='code'){ const c=promoNorm(p.code), d=S.promos.filter(x=>promoNorm(x.code)===c).length>1; inp.classList.toggle('bad',d||!c); } }));
     const dc=$('.dclr',r); if(dc) dc.addEventListener('click',e=>{ e.preventDefault(); p.until=''; mark(); drawPromos(); });
     $('.x',r).addEventListener('click',()=>{ if(!confirm('تمسحي الكود '+p.code+'؟')) return; S.promos.splice(+r.dataset.i,1); mark(); drawPromos(); }); });

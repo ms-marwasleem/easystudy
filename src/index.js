@@ -57,10 +57,18 @@ async function sendCode(env, email, code, name) {
 }
 const escapeHtml = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-// POST /api/auth/start {email, name?} -> a 6-digit code to the email. Limits: 1 a minute, 6 a day per email, 30 a day per IP.
+const phoneDigits = v => { const d = String(v || '').replace(/[٠-٩]/g, x => '٠١٢٣٤٥٦٧٨٩'.indexOf(x)).replace(/\D/g, ''); return d.length >= 8 ? d : ''; };
+// POST /api/auth/start {email?, phone?, name?} -> a 6-digit code to the email. Limits: 1 a minute, 6 a day per email, 30 a day per IP.
 async function authStart(req, env, ip) {
   const b = await body(req); if (!b) return ERR('bad-body');
-  const email = clip(b.email, 254).toLowerCase(); if (!EMAIL.test(email)) return ERR('bad-email');
+  let email = clip(b.email, 254).toLowerCase(), viaPhone = false;
+  // login by mobile alone (or an email that is not stored): a known mobile sends the code to the email stored on that account
+  const ph = phoneDigits(b.phone);
+  if (ph && !(email && await env.DB.prepare('SELECT 1 FROM parents WHERE email=?').bind(email).first())) {
+    const q = await env.DB.prepare("SELECT email FROM parents WHERE phone!='' AND substr(replace(replace(replace(replace(phone,' ',''),'+',''),'-',''),'(',''),-9)=? AND email NOT LIKE '%@phone.local' ORDER BY created LIMIT 1").bind(ph.slice(-9)).first();
+    if (q) { email = q.email; viaPhone = true; }
+  }
+  if (!EMAIL.test(email)) return ERR('bad-email');
   const t = now(), d = day(t), old = await env.DB.prepare('SELECT * FROM codes WHERE email=?').bind(email).first();
   if (old && t - old.sent < 60e3) return ERR('wait', 429, { wait: Math.ceil((60e3 - (t - old.sent)) / 1000) });
   const sendsToday = old && old.day === d ? old.sends_today + 1 : 1;
@@ -75,7 +83,7 @@ async function authStart(req, env, ip) {
       .bind(email, await sha('c:' + email + ':' + code), t + 15 * 60e3, 0, t, sendsToday, d),
     env.DB.prepare('INSERT INTO limits(key,n,day) VALUES(?,1,?) ON CONFLICT(key) DO UPDATE SET n=n+1').bind('code:' + ip + ':' + d, d)]);
   const known = !!(await env.DB.prepare('SELECT 1 FROM parents WHERE email=?').bind(email).first());
-  return J({ ok: true, known, ...(out.dev ? { devCode: out.dev } : {}) });
+  return J({ ok: true, known, ...(viaPhone ? { email } : {}), ...(out.dev ? { devCode: out.dev } : {}) });
 }
 
 // POST /api/auth/verify {email, code, name, phone, curr, ref, device} -> {token, me}. A new email = a new parent (gift coins,
@@ -88,6 +96,25 @@ async function authVerify(req, env, ip) {
   if (c.tries >= 5) return ERR('too-many', 429);
   if (await sha('c:' + email + ':' + code) !== c.hash) { await env.DB.prepare('UPDATE codes SET tries=tries+1 WHERE email=?').bind(email).run(); return ERR('code-wrong', 400, { left: 4 - c.tries }); }
   await env.DB.prepare('DELETE FROM codes WHERE email=?').bind(email).run();
+  return await enterParent(env, b, ip, email, device);
+}
+// POST /api/auth/login {email?, phone?, name?, curr, ref, device} -> {token, isNew, me}. For now (Ahmed 2026-11-15) NO confirmation: a stored email or
+// mobile signs straight in to that account, and an unknown one registers a new parent. The code flow above stays for later.
+async function authLogin(req, env, ip) {
+  const b = await body(req); if (!b) return ERR('bad-body');
+  let email = clip(b.email, 254).toLowerCase(); const ph = phoneDigits(b.phone), device = clip(b.device, 40);
+  if (!email && !ph) return ERR('bad-email'); if (email && !EMAIL.test(email)) return ERR('bad-email');
+  const d = day(now()), lk = 'login:' + ip + ':' + d, lim = ip ? await env.DB.prepare('SELECT n FROM limits WHERE key=?').bind(lk).first() : null;
+  if (lim && lim.n >= 120) return ERR('too-many', 429);
+  if (ip) await env.DB.prepare('INSERT INTO limits(key,n,day) VALUES(?,1,?) ON CONFLICT(key) DO UPDATE SET n=n+1').bind(lk, d).run();
+  let q = email ? await env.DB.prepare('SELECT email FROM parents WHERE email=?').bind(email).first() : null;
+  if (!q && ph) q = await env.DB.prepare("SELECT email FROM parents WHERE phone!='' AND substr(replace(replace(replace(replace(phone,' ',''),'+',''),'-',''),'(',''),-9)=? ORDER BY created LIMIT 1").bind(ph.slice(-9)).first();
+  email = q ? q.email : (email || ph + '@phone.local');
+  return await enterParent(env, b, ip, email, device);
+}
+// a parent identified by email (known = sign in, unknown = register): the session, and the contact the account lacked
+async function enterParent(env, b, ip, email, device) {
+  const t = now();
   let p = await env.DB.prepare('SELECT * FROM parents WHERE email=?').bind(email).first(), isNew = false;
   if (p && p.blocked) return ERR('blocked', 403);
   const S = await settings(env), C = S.coins, d = day(t), stmts = [];
@@ -116,6 +143,9 @@ async function authVerify(req, env, ip) {
     if (!p.name && b.name) stmts.push(env.DB.prepare('UPDATE parents SET name=? WHERE id=?').bind(clip(b.name, 60), p.id));
     if (!p.phone && b.phone) stmts.push(env.DB.prepare('UPDATE parents SET phone=? WHERE id=?').bind(clip(b.phone, 20), p.id));
   }
+  { const be = clip(b.email, 254).toLowerCase();   // a mobile-only account that now gives an email: keep it on the account (if no other account has it)
+    if (p && /@phone\.local$/.test(p.email) && be && EMAIL.test(be) && !(await env.DB.prepare('SELECT 1 FROM parents WHERE email=?').bind(be).first()))
+      stmts.push(env.DB.prepare('UPDATE parents SET email=? WHERE id=?').bind(be, p.id)); }
   if (device) stmts.push(env.DB.prepare('INSERT OR IGNORE INTO devices(id,first_parent,created) VALUES(?,?,?)').bind(device, p.id, t));
   const tok = rnd(40, 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789');
   stmts.push(env.DB.prepare('INSERT INTO sessions(hash,parent_id,device,created,last_seen) VALUES(?,?,?,?,?)').bind(await sha('s:' + tok), p.id, device, t, t));
@@ -264,10 +294,21 @@ async function subsIn(req, env, p) {
   if (!/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(rc)) return ERR('bad-receipt');
   if (rc.length > 220000) return ERR('big');
   const S = await settings(env); if (!(S.subs && S.subs.on)) return ERR('off');
-  const pr = (S.subs.prices || {})[term] || {}, fin = pr.discOn && +pr.disc > 0 ? +pr.disc : (+pr.price || 0); if (!fin) return ERR('no-price');
+  const pr = (S.subs.prices || {})[term] || {}, fin0 = pr.discOn && +pr.disc > 0 ? +pr.disc : (+pr.price || 0); if (!fin0) return ERR('no-price');
+  let fin = fin0;
   const old = await env.DB.prepare('SELECT st,until,trial FROM subs WHERE child_id=? AND term=?').bind(child, term).first(), t = now();
   if (old && old.until > t && old.st === 'active') return ERR('already', 409);
   if (old && old.until > t && old.st === 'pending' && old.trial <= t) return ERR('pending', 409);   // waiting for the admin (the 24 h is over)
+  // a percent promo code (b.promo): checked again here (never trusted from the app), the price drops by its percent, and the use is counted now
+  if (b.promo) {
+    const c = promoNorm(clip(b.promo, 40)), P = S.promoOn === false ? null : (S.promos || []).find(x => promoNorm(x.code) === c);
+    if (!P || P.what !== 'percent') return ERR('bad', 409);
+    const pe = await promoProblem(env, S, P, c, child); if (pe) return ERR(pe, 409);
+    fin = Math.max(1, Math.round(fin0 * (100 - +P.pct) / 100));
+    const u = await env.DB.prepare("INSERT OR IGNORE INTO promo_uses(code,parent_id,child_id,item,at) SELECT ?,?,?,?,? WHERE (SELECT COUNT(*) FROM promo_uses WHERE code=?) < ?")
+      .bind(c, p.id, child, 'pct:' + term, t, c, promoCap(P)).run();
+    if (!u.meta.changes) return ERR(P.uses === 'many' ? 'full' : 'used', 409);
+  }
   const trial = old ? (old.until > t && old.st === 'pending' ? old.trial : 0) : t + 864e5, until = subEnd(t);   // 24 h only the first time ever for this child + term
   await env.DB.prepare(`INSERT INTO subs(child_id,term,parent_id,st,price,ref,receipt,at,trial,until) VALUES(?,?,?,'pending',?,?,?,?,?,?)
     ON CONFLICT(child_id,term) DO UPDATE SET st='pending',price=excluded.price,ref=excluded.ref,receipt=excluded.receipt,at=excluded.at,trial=excluded.trial,until=excluded.until,decided=0,by=''`)
@@ -374,6 +415,22 @@ async function adminSub(req, env, path) {
    once = one use in total (any parent); many = each child once, at most max in total (0 = no limit). until = last day (Cairo).
    Opens for the child: the lesson / unit id, 's:<subject>' or '*'. Costs nothing; a 0-credit 'promo' coin event keeps the history. */
 const promoNorm = c => String(c || '').toUpperCase().replace(/[\s\-_]/g, '').replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+// the checks every use of a code goes through (wrong tries are counted by the caller): null when fine, else the error name
+async function promoProblem(env, S, P, c, child) {
+  if (!P || P.on === false) return 'bad';
+  if (P.what === 'percent') { if (!(+P.pct > 0 && +P.pct < 100)) return 'bad'; }
+  else if (P.what !== 'all' && P.what !== 'any' && !P.target) return 'bad';
+  if (P.until && day() > P.until) return 'old';
+  if (await env.DB.prepare('SELECT 1 FROM promo_uses WHERE code=? AND child_id=?').bind(c, child).first()) return 'used';
+  const used = (await env.DB.prepare('SELECT COUNT(*) n FROM promo_uses WHERE code=?').bind(c).first()).n;
+  if (P.uses !== 'many' && used >= 1) return 'used';
+  if (P.uses === 'many' && +P.max > 0 && used >= +P.max) return 'full';
+  return null;
+}
+const promoCap = P => P.uses === 'many' ? (+P.max > 0 ? +P.max : 1e9) : 1;
+// POST /api/promo {child, code, id?}. Types: lesson | unit | subject | all open their target at once.
+// 'any' (the user picks ONE lesson): without id it only says {ok, pick:true} (nothing used); with id (a built lesson id, l:...) it opens that lesson and counts one use.
+// 'percent': says {ok, percent:N} and uses nothing; the use is counted when POST /subs arrives with {promo:code} (subsIn).
 async function promo(req, env, p, ip) {
   const b = await body(req); if (!b) return ERR('bad-body');
   const child = clip(b.child, 32), c = promoNorm(clip(b.code, 40));
@@ -384,23 +441,24 @@ async function promo(req, env, p, ip) {
   if (tries && tries.n >= 20) return ERR('slow', 429);
   const S = await settings(env), P = S.promoOn === false ? null : (S.promos || []).find(x => promoNorm(x.code) === c);
   const bad = async e => { await env.DB.prepare('INSERT INTO limits(key,n,day) VALUES(?,1,?) ON CONFLICT(key) DO UPDATE SET n=n+1').bind(lk, day()).run(); return ERR(e, 409); };
-  if (!P || P.on === false || (P.what !== 'all' && !P.target)) return bad('bad');
-  if (P.until && day() > P.until) return ERR('old', 409);
-  if (await env.DB.prepare('SELECT 1 FROM promo_uses WHERE code=? AND child_id=?').bind(c, child).first()) return ERR('used', 409);
-  const used = (await env.DB.prepare('SELECT COUNT(*) n FROM promo_uses WHERE code=?').bind(c).first()).n;
-  if (P.uses !== 'many' && used >= 1) return ERR('used', 409);
-  if (P.uses === 'many' && +P.max > 0 && used >= +P.max) return ERR('full', 409);
-  const item = P.what === 'all' ? '*' : P.what === 'subject' ? 's:' + P.target : P.target, t = now();
+  const pr = await promoProblem(env, S, P, c, child); if (pr) return pr === 'bad' ? bad('bad') : ERR(pr, 409);
+  if (P.what === 'percent') return J({ ok: true, percent: +P.pct });
+  let item = P.what === 'all' ? '*' : P.what === 'subject' ? 's:' + P.target : P.target;
+  if (P.what === 'any') {
+    if (!b.id) return J({ ok: true, pick: true });
+    item = clip(b.id, 80);
+    if (item[0] !== 'l' || (S.items[item] || {}).st === 'soon') return bad('bad');
+  }
+  const t = now();
   if (!/^(\*|s:[\w-]{1,40})$/.test(item) && !ITEM.test(item)) return bad('bad');
   const subject = item === '*' ? '' : item[0] === 's' ? item.slice(2) : subjectOf(item);
   // the INSERT itself checks the count (and the primary key code+child), so two uses at the same moment can't pass the limit
-  const cap = P.uses === 'many' ? (+P.max > 0 ? +P.max : 1e9) : 1;
   const r = await env.DB.prepare('INSERT OR IGNORE INTO promo_uses(code,parent_id,child_id,item,at) SELECT ?,?,?,?,? WHERE (SELECT COUNT(*) FROM promo_uses WHERE code=?) < ?')
-    .bind(c, p.id, child, item, t, c, cap).run();
+    .bind(c, p.id, child, item, t, c, promoCap(P)).run();
   if (!r.meta.changes) return ERR(P.uses === 'many' ? 'full' : 'used', 409);
   await env.DB.batch([env.DB.prepare("INSERT OR IGNORE INTO unlocks(child_id,item,subject,how,coins,at) VALUES(?,?,?,'promo',0,?)").bind(child, item, subject, t),
     ev(env, p.id, 'promo', item, child, 0, t, '', ip)]);
-  return J({ ok: true, promo: { what: P.what, target: P.target || '' }, ...(await walletOf(env, p.id, child)) });
+  return J({ ok: true, promo: { what: P.what === 'any' ? 'lesson' : P.what, target: P.what === 'any' ? item : (P.target || '') }, ...(await walletOf(env, p.id, child)) });
 }
 
 /* ---------- admin ----------
@@ -575,6 +633,7 @@ export default {
       if (path === '/api/push/unsub' && m === 'POST') return await pushSub(req, env, ip, false);
       if (path === '/api/auth/start' && m === 'POST') return await authStart(req, env, ip);
       if (path === '/api/auth/verify' && m === 'POST') return await authVerify(req, env, ip);
+      if (path === '/api/auth/login' && m === 'POST') return await authLogin(req, env, ip);
       if (path.startsWith('/api/admin/')) {
         if (!(await isAdmin(req, env))) return ERR('admin-only', 401);
         if (path === '/api/admin/settings' && m === 'GET') return J(await settings(env));   // full copy incl. promos, for the dashboard

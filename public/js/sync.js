@@ -22,12 +22,14 @@ const SYERR={'bad-email':'البريد الإلكتروني مش مكتوب صح
 /* ---------- parent login (stage 1): a code to the email (server on) or the student stage opens below (server off / phone only / can't be reached) ---------- */
 async function acctSubmit(a,err){
   WL.login=a; WL.pending=false;
-  if(!(await syApi())||!a.email){ WL.stage=2; return wlGo('main'); }   // no server yet (or phone only: server login by phone needs an SMS service, later): kept on this device
-  const r=await syCall('/auth/start',{email:a.email});
-  if(!r){ WL.pending=true; WL.stage=2; return wlGo('main'); }   // offline: go on locally, confirm the email later (account page)
-  if(!r.j.ok&&(r.j.error==='mail-not-set'||r.j.error==='mail-failed')){ WL.pending=true; WL.stage=2; return wlGo('main'); }   // the email can't be sent (not set up / not allowed yet): register anyway, confirm later; never show a server message to the parent
-  if(!r.j.ok){ err(SYERR[r.j.error]||'حصلت مشكلة. جربي تاني'); return; }
-  SY.a=a; SY.dev=r.j.devCode||''; SY.known=r.j.known; wlGo('code');
+  if(!(await syApi())||(!a.email&&!a.phone)){ WL.stage=2; return wlGo('main'); }   // no server yet: kept on this device
+  // for now no confirmation (Ahmed 2026-11-15): a stored email OR mobile signs straight in to that account; an unknown one registers a new parent (the code step below stays for later)
+  const ref=typeof refCode==='function'?refCode():null;
+  const r=await syCall('/auth/login',{email:a.email||'',phone:a.phone||'',curr:WL.pick||currPick()||{},ref,device:syDevice()});
+  if(!r||!r.j.ok){ if(r&&r.j.error==='blocked'){ err(SYERR.blocked); return; } if(r&&r.j.error==='too-many'){ err(SYERR['too-many']); return; } WL.pending=true; WL.stage=2; return wlGo('main'); }   // offline / server trouble: go on locally, never show a server message
+  syTake(r.j.token,r.j.me);
+  if(r.j.me.kids.length&&!WL.adding&&!WL.after){ syRestore(r.j.me); return; }   // a registered parent: the children come back, straight into the app (child picker when more than one)
+  syPushKids(); if(WL.after){ const go=WL.after; WL.after=null; go(); } else { WL.stage=2; wlGo('main'); }
 }
 // the code step (drawn by wlDraw in js/welcome.js)
 function syDrawCode(b){
