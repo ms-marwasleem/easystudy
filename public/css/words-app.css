@@ -3819,7 +3819,7 @@ html[data-theme="words"],html[data-theme="words"] body{background:radial-gradien
 .rp-sum{margin:0;max-width:none}
 
 /* map folding (Ahmed 2026-11-16): expand/collapse all (top right), arrow per unit and per lesson; a lesson's words flow right beside it */
-.ew-mapbar{display:flex;justify-content:flex-end;direction:ltr;position:sticky;top:0;z-index:5;padding:.2rem 0 .6rem;pointer-events:none}
+.ew-mapbar{display:flex;justify-content:space-between;align-items:center;gap:.5rem;direction:ltr;position:sticky;top:0;z-index:5;padding:.2rem 0 .6rem;pointer-events:none}
 .ew-foldall{pointer-events:auto;display:inline-flex;align-items:center;gap:.4rem;direction:rtl;font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:1rem;color:#fff;text-shadow:0 .08rem 0 rgba(22,52,107,.6);padding:.3rem .9rem .3rem .6rem;border:.16rem solid #fff;border-radius:62rem;background:linear-gradient(#a9f09a,#2fb04e);box-shadow:0 .2rem 0 #1f8238,0 .5rem .7rem rgba(22,52,107,.22);cursor:pointer;-webkit-tap-highlight-color:transparent}
 .ew-foldall:active{transform:translateY(.15rem)}
 .ew-chev{display:inline-grid;place-items:center;width:1.3rem;height:1.3rem;font-style:normal;transition:transform .2s}
@@ -3842,4 +3842,16 @@ html[data-theme="words"],html[data-theme="words"] body{background:radial-gradien
 /* test setup screen: the headings, chips and weak-words button are Arabic, so they all sit on the right in every subject */
 #ewTestBody .ewt-opts,#ewTestBody .ewt-help,#ewTestBody .ewt-weak,#ewTestBody .ewt-chips{direction:rtl;text-align:start}
 #ewTestBody .ewt-weak{margin-inline-start:0;margin-inline-end:auto}
-:root{--app-build:"7daccf4d30"}
+
+.ew-learnpick{pointer-events:auto;direction:rtl;font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:1rem;color:#fff;text-shadow:0 .08rem 0 rgba(22,52,107,.6);padding:.3rem .9rem;border:.16rem solid #fff;border-radius:62rem;background:linear-gradient(#ffe680,#f5b61c);box-shadow:0 .2rem 0 #b07d0a,0 .5rem .7rem rgba(22,52,107,.22);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ew-learnpick:active{transform:translateY(.15rem)}
+/* Arabic subject (Ahmed 2026-11-16): the map reads right to left and a lesson's words start on the line under the lesson square (map + test map) */
+#ewMapBody.ew-ar,.ewt-ar .ewt-tree{direction:rtl}
+#ewMapBody.ew-ar .ew-unit,#ewMapBody.ew-ar .ew-ubody{direction:rtl}
+#ewMapBody.ew-ar .ew-lrow:not(.solo)>.ew-lwrap{margin-inline-end:100%}   /* pushes the words onto the next line */
+.ewt-ar .ew-words{flex:1 1 100%}
+.ew-foldall{padding:.3rem .5rem;width:2.6rem;height:2.6rem;justify-content:center}
+.ewt-ar .ew-mapbar{direction:ltr}
+/* open/close arrow at the bottom-right corner of the lesson tile, near the thumb (Ahmed 2026-11-16) */
+.ew-lfold{top:auto;bottom:-.5rem;inset-inline-start:auto;left:auto;right:-.5rem}
+:root{--app-build:"b6b6d2aca5"}

@@ -36,11 +36,14 @@ function ewSubjects(){
   return Object.keys(EW_SUBJ).filter(id=>ids.includes(id)).map(id=>COURSE.subjects.find(s=>s.id===id)).filter(s=>s&&s.lessons);
 }
 // the units of a subject as the words app shows them: only lessons that have a Words tab; unit name from the book's own unit names
+// a letter lesson shows the letter itself ("حرف ل" instead of "حرف اللام"), same as the curriculum app's map (js/map.js mapName)
+const EW_LETTERS={'الباء':'ب','اللام':'ل','السين':'س','النون':'ن','الراء':'ر','الفاء':'ف','الكاف':'ك','القاف':'ق','الياء':'ي','العين':'ع','الشين':'ش','الواو':'و','الهاء':'ه','الذال':'ذ','الظاء':'ظ','الزاي':'ز','الطاء':'ط','الصاد':'ص','الضاد':'ض','الثاء':'ث','الغين':'غ'};
+function ewLetterName(t){ const m=/^حرف\s+(\S+)$/.exec((t||'').trim()); return m?'حرف '+(EW_LETTERS[m[1]]||m[1]):t; }
 function ewUnits(s){
   const by={}; (s.lessons||[]).forEach(l=>{ if(l.tabs&&!l.tabs.includes('words')) return; if(/^(test|تقييم|اختبار)/i.test(l.title||l.planned||'')) return; (by[l.unit]=by[l.unit]||[]).push(l); });
   return Object.keys(by).map(u=>{ const un=(s.units||[]).find(x=>x.unit==u)||{};
     return { unit:+u, name:s.id==='arabic'?`الوحدة ${ewN(u)}${un.title?' · '+un.title:''}`:`Unit ${u}`, lessons:by[u].map((l,i)=>{ const built=!!l.file&&ewOpen(l.id), st=built?coinAccess(l,true,'l:'+l.id,i,'lesson').st:'soon';   // open | locked | soon: the dashboard's state, a paid term, credits and the free trial (js/coins.js)
-      return {...l,name:l.title||l.planned||'',built,st,open:st==='open',locked:st==='locked'}; }) }; })
+      return {...l,name:(s.id==='arabic'?ewLetterName(l.title||l.planned||''):(l.title||l.planned||'')),built,st,open:st==='open',locked:st==='locked'}; }) }; })
     .filter(u=>u.lessons.length&&(s.id!=='arabic'||u.unit<=4));   // Arabic: no النحو (unit 5) and no final assessments here, they have no words (Ahmed 2026-11-16)
 }
 const ewOpen=id=>!!(EW.cfg&&!(EW.cfg.skip||[]).includes(id)&&(EW.cfg.all||(EW.cfg.open||[]).includes(id)));

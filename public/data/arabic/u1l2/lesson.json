@@ -143,7 +143,8 @@
     "text": "دَائِمًا",
     "labelAudio": "words/lbl-meaning.mp3",
     "audio": "words/m-dawman.mp3"
-   }
+   },
+   "school": "nour-el-ilm"
   },
   {
    "word": "الْقَلْبُ",
@@ -171,7 +172,8 @@
     "text": "الْقُلُوبُ",
     "labelAudio": "words/lbl-plural.mp3",
     "audio": "words/m-qalb.mp3"
-   }
+   },
+   "school": "nour-el-ilm"
   },
   {
    "word": "نُورٌ",
@@ -195,7 +197,59 @@
     "text": "أَنْوَارٌ",
     "labelAudio": "words/lbl-plural-f.mp3",
     "audio": "words/m-nur.mp3"
-   }
+   },
+   "school": "nour-el-ilm"
+  },
+  {
+   "word": "أُمِّي",
+   "img": "../../pics/fam-mum.jpg",
+   "audio": {
+    "word": "../u1l1/words/ummi-h.mp3"
+   },
+   "parts": [
+    {
+     "t": "أُ",
+     "audio": "../../syl-ar/623-64f.mp3"
+    },
+    {
+     "t": "مِّي",
+     "audio": "../../syl-ar/645-650-651-64a.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أَبِي",
+   "img": "../../pics/fam-dad.jpg",
+   "audio": {
+    "word": "../u4l1/q/h-abi.mp3"
+   },
+   "parts": [
+    {
+     "t": "أَ",
+     "audio": "../../syl-ar/623-64e.mp3"
+    },
+    {
+     "t": "بِي",
+     "audio": "../../syl-ar/628-650-64a.mp3"
+    }
+   ]
+  },
+  {
+   "word": "أَخِي",
+   "img": "../../pics/brother-1.png",
+   "audio": {
+    "word": "../u1l5/words/akhi.mp3"
+   },
+   "parts": [
+    {
+     "t": "أَ",
+     "audio": "../../syl-ar/623-64e.mp3"
+    },
+    {
+     "t": "خِي",
+     "audio": "../../syl-ar/62e-650-64a.mp3"
+    }
+   ]
   }
  ],
  "vocabRepeats": 3,

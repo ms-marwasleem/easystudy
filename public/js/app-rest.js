@@ -9,9 +9,9 @@ const LOCK=`<svg viewBox="0 0 60 68" aria-hidden="true">${PADLOCK}</svg>`;
 const CHAINLOCK=`<svg class="uchain" viewBox="0 0 100 100" aria-hidden="true">
   ${[0,1,2,3,4,5,6,7].map(k=>{ const h=k%2===0, x=9+k*11.7, w=h?15:8, hh=h?9:13; return `<rect x="${(x-w/2).toFixed(1)}" y="${(74-hh/2).toFixed(1)}" width="${w}" height="${hh}" rx="4" fill="none" stroke="var(--btn-ol)" stroke-width="6.500"/><rect x="${(x-w/2).toFixed(1)}" y="${(74-hh/2).toFixed(1)}" width="${w}" height="${hh}" rx="4" fill="none" stroke="var(--lock-metal)" stroke-width="3.200"/><path d="M${(x-w/2+2).toFixed(1)} ${(74-hh/2).toFixed(1)}h${(w*.4).toFixed(1)}" stroke="#fff" stroke-width="1.200" stroke-linecap="round" opacity=".9"/>`; }).join('')}
   <g transform="translate(26 44) scale(.8)">${PADLOCK}</g></svg>`;
-/* map label of an Arabic letter lesson: the letter itself ("ف" instead of "حرف الفاء"), for kids. Display only; the lesson title elsewhere is unchanged. */
+/* map label of an Arabic letter lesson: the letter itself ("حرف ف" instead of "حرف الفاء"), for kids. Display only; the lesson title elsewhere is unchanged. */
 const LETTER_NAMES={'الباء':'ب','اللام':'ل','السين':'س','النون':'ن','الراء':'ر','الفاء':'ف','الكاف':'ك','القاف':'ق','الياء':'ي','العين':'ع','الشين':'ش','الواو':'و','الهاء':'ه','الذال':'ذ','الظاء':'ظ','الزاي':'ز','الطاء':'ط','الصاد':'ص','الضاد':'ض','الثاء':'ث','الغين':'غ'};
-function mapName(t){ const m=/^حرف\s+(\S+)$/.exec((t||'').trim()); return m?(LETTER_NAMES[m[1]]||m[1]):t; }
+function mapName(t){ const m=/^حرف\s+(\S+)$/.exec((t||'').trim()); return m?'حرف '+(LETTER_NAMES[m[1]]||m[1]):t; }
 function unitBox(u,st){
   const b=(SUBJECT&&SUBJECT.book)||'blue';
   return `<div class="ubox ${st}"><img src="data/books/${b}.png" width="352" height="364" alt="" draggable="false">${u.label?`<b class="gt${/[\u0600-\u06FF]/.test(u.label)?' ar':''} lab"><span>${u.label}</span></b>`:`<b class="gt${isAr()?' ar':''}"><small>${GT(tr('Unit'))}</small><span class="n">${num(u.unit)}</span></b>`}${st==='locked'?CHAINLOCK:st==='soon'?`<span class="usoon">${tr('Soon')}</span>`:''}</div>`;
