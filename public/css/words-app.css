@@ -98,8 +98,8 @@
   --f-story:"Andika","Comic Neue",sans-serif;
   --f-story-ar:"Baloo Bhaijaan 2","Noto Naskh Arabic",sans-serif;   /* = the font of the subject name on the Arabic book (home screen) */
   --story-fs-ar:clamp(1.45rem,min(6.6vw,4.6vh),2.6rem);   /* THE Arabic story text size (largest); one size per lesson, shrinks only when a page would not fit */
-  --focus-word-size:clamp(2.05rem,min(8vw,6.2vh),3.9rem);   /* THE size of a word the child studies (reading page, question head word, Words tab): one size, whole app */
-  --q-sentence-size:clamp(1.7rem,min(7.4vw,5.6vh),3rem);   /* a sentence the child reads in a question (complete / circle): big, centred */
+  --focus-word-size:clamp(2rem,min(7.9vw,6vh),4.2rem);   /* THE size of a word the child studies (reading page, question head word, Words tab): one size, whole app */
+  --q-sentence-size:clamp(1.85rem,min(7.8vw,5.9vh),3.2rem);   /* a sentence the child reads in a question (complete / circle): big, centred */
   --pf-border:0.25rem; --pf-radius:0.75rem; --pf-shadow:0 0.1875rem 0.5rem rgba(90,52,24,.25);
   /* behaviour settings read by the components (numbers, milliseconds) — wired in step 4 */
   --help-letter-ms:1500;   /* write: the current letter shows in light colour this long */
@@ -1128,10 +1128,10 @@ button.qpic{cursor:pointer}
 .qxpslot{position:absolute;display:grid;place-items:center}   /* NO frame round the word: only the empty piece places, then the word itself */
 .qxpg{position:absolute}.qxpg svg,.qxpp svg{position:absolute;inset:0;width:100%;height:100%}
 .qxpslot.got .qxpg{display:none}
-.qxpword{display:none;direction:rtl;font-family:var(--f-read);font-weight:700;font-size:clamp(3rem,16vmin,6rem);line-height:1.4;color:var(--c-white);white-space:nowrap}
+.qxpword{display:none;direction:rtl;unicode-bidi:isolate;font-family:var(--f-ar);font-weight:700;letter-spacing:0;word-spacing:0;font-kerning:normal;font-feature-settings:'liga','calt','mark','mkmk';text-rendering:optimizeLegibility;font-size:clamp(3rem,16vmin,6rem);line-height:2;padding:.15em .1em;color:var(--c-white);white-space:nowrap}
 .qxpslot.got .qxpword{display:block}
 .qxpp{position:absolute;left:0;top:0;width:var(--pw,5rem);height:var(--pw,5rem);cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;transition:opacity .4s}
-.qxpp b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--f-ar);font-size:calc(var(--pw,5rem)*.5);line-height:1;color:#2b2b2b;pointer-events:none}
+.qxpp b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--f-ar);font-size:calc(var(--pw,5rem)*.5);line-height:2;overflow:visible;color:#2b2b2b;pointer-events:none}
 .qxpp.drag{z-index:5;filter:drop-shadow(0 .4rem .3rem rgba(0,0,0,.3))}
 .qxpp.in{cursor:default}.qxpp.gone{opacity:0}
 .quiz[data-type="puzzle"] .qx>.qxpb{flex:1 1 0;min-height:7rem}
@@ -1183,6 +1183,11 @@ button.qpic{cursor:pointer}
 .qxtc:first-child{border-inline-start:0}
 .qxtc .qxcs.qxtcell{width:var(--cs);height:var(--cs);padding:.12rem;border-bottom:2px solid rgba(255,255,255,.55);box-sizing:border-box}
 .qxtl{font:700 clamp(.42rem,1.8vw,.8rem)/1.1 var(--f-read);color:#fff;text-transform:uppercase;padding:.35rem .1rem;text-align:center;white-space:nowrap}
+
+/* the bracket words of a writing question: a fixed block above the question line */
+.qhead.hasbank{display:grid;grid-template-columns:auto minmax(0,1fr) auto;row-gap:.4rem;align-items:center}
+.qhead .qbank{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem .75rem;direction:rtl}
+.qhead .qbw{font-family:var(--f-ar);font-size:clamp(1.1rem,3.4vw,1.6rem);font-weight:700;color:var(--c-white);padding:.1rem .8rem;border-radius:62rem;background:rgba(255,255,255,.18);border:.12rem solid rgba(255,255,255,.55)}
 /* ===== css/arabic.css ===== */
 /* ---------- Arabic subject (#lesson.ar, set in lesson.js) ----------
    Text runs right to left in a naskh font (shows the vowel marks well). Letters of a word are plain inline text,
@@ -2061,7 +2066,7 @@ img[src*="/clock-"][src$=".svg"]:not([src^="data:"]),img[src*="/hand-"][src$=".s
 .jpm .jex.jtx,.gt.tl .jex{font-size:1em;letter-spacing:0}
 /* ===== css/en-al.css ===== */
 /* ---------- English AL: Lesson (book parts) and Booklet tabs, Grammar tab (js/quiz-al.js) ---------- */
-.quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"],[data-type="mwrite"]) :is(.qword,.qans){display:none}
+.quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"],[data-type="mwrite"],[data-type="check"]) :is(.qword,.qans){display:none}
 .quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"],[data-type="mwrite"]){grid-template-rows:auto auto minmax(0,1fr);grid-template-areas:"head" "dots" "play"}
 .qx-explain,.qx-mcq,.qx-cloze,.qx-order,.qx-mwrite{font-family:var(--f-read);align-items:stretch;justify-content:stretch;gap:0}
 .alw{cursor:pointer;border-radius:.3em;padding:0 .04em;transition:background .15s}
@@ -2279,6 +2284,11 @@ img[src*="/clock-"][src$=".svg"]:not([src^="data:"]),img[src*="/hand-"][src$=".s
 .almgo{width:2.4rem;height:2.4rem;border-radius:50%;border:.14rem solid #5A3418;background:#7ED957;font:700 1.3rem var(--f-ui);color:#2a5a10}
 .almdrag{background:#fff;color:#3a2410;border-radius:.6rem;padding:.2rem .6rem;font:700 1.6rem var(--f-read)}
 .almistake .almw{touch-action:none}
+/* a long tick list (8 sentences on a phone) scrolls inside its box instead of running over the heading and the bottom bar */
+.alcheck{overflow-y:auto;min-height:0;justify-content:flex-start;scrollbar-width:none}
+.alcheck::-webkit-scrollbar{display:none}
+.alcheck>:first-child{margin-top:auto}
+.alcheck>:last-child{margin-bottom:auto}
 /* ===== css/responsive.css ===== */
 /* ---------- Screen fit ----------
    All sizes are rem and the root font-size (base.css) follows the screen, so the whole design scales together.
@@ -2940,6 +2950,18 @@ body.ws-typing .ws-side{width:1.75rem!important;height:1.75rem!important;border-
 #lesson .qxw.ring{position:relative}
 #lesson .qxw.ring .lt.rung::after{display:none}
 .qxring{position:absolute;box-sizing:border-box;border:.07em solid var(--c-pink);border-radius:50%;pointer-events:none;z-index:3}
+
+/* keyboard open while typing (Ahmed 2026-11-16): nothing is pushed up or covered. The lesson page ends right above the keyboard (the same as the other screens),
+   so the picture shrinks inside its own room, the title / stars / road stay where they are and the word stands above the keyboard. The bottom bar steps aside (the keyboard covers it anyway). */
+body:is(.ws-typing,.kb-open) #lesson{height:calc(100% - var(--kb,0px))}
+body:is(.ws-typing,.kb-open) #lesson .foot{height:0;min-height:0;padding:0;margin:0;overflow:visible;visibility:hidden}   /* out of the way, but the fixed Help bulb inside it stays */
+body:is(.ws-typing,.kb-open) #lesson .foot .ws-side{visibility:visible}
+/* the question sheet stacks in plain order inside that room: the picture area takes what is left (its own fixed vh heights no longer apply), the rest keeps its size */
+body.ws-typing #lesson .quiz{display:flex;flex-direction:column;grid-template-rows:none}
+body.ws-typing #lesson .quiz>*{flex:none}
+body.ws-typing #lesson .quiz>.qplay{flex:1 1 0;min-height:0;height:auto!important}
+/* any other text box on a question (e.g. English AL "correct word"): the sheet scrolls inside its room, and js/core.js kbShow brings the box into sight */
+body.kb-open:not(.ws-typing) #lesson .quiz{overflow-y:auto;overscroll-behavior:contain}
 /* ===== css/welcome.css ===== */
 /* ---------- WELCOME (first launch: curriculum, parent account, child profile) + the child button on the home page ----------
    Look = the game's settings screen: orange/yellow swirl, big glossy orange buttons (.pill), white words with a dark outline. rem / vh / vw only. */
@@ -3151,7 +3173,8 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 
 /* ---------- 1. the question on top, big and centred ---------- */
 .qword b.qsent{display:block;white-space:normal;text-align:center;font-family:var(--f-read);font-weight:700;font-size:var(--q-sentence-size);line-height:1.3;color:var(--c-on-bg);max-width:100%}
-.qword b.qsent .qask{display:block;font-size:.8em}
+.qword b.qsent .qask{display:block;font-size:1.3em;margin-bottom:.15em}
+.qword b.qsent .qsen:has(>.qblank:only-child) .qblank:not(.got){border-bottom-color:transparent}
 .qword b.qsent .alw{cursor:pointer}
 .qblank{display:inline-block;min-width:2.6em;height:1.05em;vertical-align:baseline;border-bottom:.12em solid var(--c-on-bg);margin:0 .1em;text-align:center;line-height:1}
 .qblank.got{min-width:0;height:auto;border-bottom-color:var(--c-good);padding:0 .1em}
@@ -3269,6 +3292,7 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 /* ---------- ONE Help bulb size (Ahmed 2026-11-16): tokens --hlp-box / --hlp-icon in theme.css, same in every question place and both apps ---------- */
 .qhelpb,.qxhelp,#lmeta .qhelpb,#lmeta .qxhelp,.quiz>.qhelpb{width:var(--hlp-box)!important;height:var(--hlp-box)!important;min-width:0;border-width:.125rem!important}
 .qhelpb svg,.qxhelp svg{width:var(--hlp-icon)!important;height:var(--hlp-icon)!important}
+.quiz[data-type="pick"] .qword b{font-size:min(var(--focus-word-size),7.2vw)}   /* a long word (grandfather) must keep room for the speaker beside it */
 /* ===== css/coins.css ===== */
 /* COINS — the coin chip beside the star counter, the share sheet and the unlock popup (js/coins.js). Same popup look as the app's messages. */
 .coinhud{position:relative;display:flex;align-items:center;height:2.2rem;padding:0 .9rem 0 2.3rem;margin-left:1.6rem;border-radius:62.4375rem;border:0;cursor:pointer;
@@ -3886,4 +3910,17 @@ html[data-theme="words"],html[data-theme="words"] body{background:radial-gradien
 .ewt-ar .ew-mapbar{direction:ltr}
 /* open/close arrow at the bottom-right corner of the lesson tile, near the thumb (Ahmed 2026-11-16) */
 .ew-lfold{top:auto;bottom:-.5rem;inset-inline-start:auto;left:auto;right:-.5rem}
-:root{--app-build:"22cebc04f7"}
+
+/* puzzle practice (the merge board of js/puzzle.js in the words skin): picture on top, the two-piece frame, the loose pieces */
+#lesson .quiz.ep[data-type="puzzle"][data-ep]{grid-template-rows:auto auto minmax(0,1fr);grid-template-areas:"head" "dots" "play"}
+.quiz.ep[data-type="puzzle"] .qans{display:none}
+.quiz.ep[data-type="puzzle"] .qplay{display:flex;flex-direction:column;align-items:center;min-height:0;height:100%}
+.quiz.ep[data-type="puzzle"] .qplay .qpic{flex:0 0 28%;min-height:0;max-height:28%}
+.quiz.ep[data-type="puzzle"] .qplay .qpic img{max-height:100%;max-width:100%;object-fit:contain}
+.quiz.ep[data-type="puzzle"] .qxpb{flex:1 1 0;min-height:7rem}
+.quiz.ep .qxpword{color:var(--ew-ink);font-family:"Baloo Bhaijaan 2","Andika",sans-serif}
+.quiz.ep .qxpp.ltr b,.quiz.ep[lang="en"] .qxpword{font-family:"Andika",sans-serif;font-weight:800}
+.quiz.ep .qxpp.glow{animation:ewglow .5s ease-in-out 4 alternate}
+.quiz.ep[data-type="puzzle"] .qword{display:none}
+.quiz.ep[data-type="puzzle"] .qplay{padding-inline:.5rem}
+:root{--app-build:"ab6d2a45f5"}

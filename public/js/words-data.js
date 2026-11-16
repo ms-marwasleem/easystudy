@@ -41,11 +41,15 @@ const EW_LETTERS={'الباء':'ب','اللام':'ل','السين':'س','الن�
 function ewLetterName(t){ const m=/^حرف\s+(\S+)$/.exec((t||'').trim()); return m?'حرف '+(EW_LETTERS[m[1]]||m[1]):t; }
 function ewUnits(s){
   const by={}; (s.lessons||[]).forEach(l=>{ if(l.tabs&&!l.tabs.includes('words')) return; if(/^(test|تقييم|اختبار)/i.test(l.title||l.planned||'')) return; (by[l.unit]=by[l.unit]||[]).push(l); });
+  // display filter only (no lesson data is touched): a lesson with no word for this child is not shown, and a unit left empty goes with it
+  Object.keys(by).forEach(u=>{ by[u]=by[u].filter(l=>{ if(!l.file||!ewOpen(l.id)) return false; const L=EW.les[l.id]; return !(L&&!L.vocab.length); }); });
   return Object.keys(by).map(u=>{ const un=(s.units||[]).find(x=>x.unit==u)||{};
     return { unit:+u, name:s.id==='arabic'?`الوحدة ${ewN(u)}${un.title?' · '+un.title:''}`:`Unit ${u}`, lessons:by[u].map((l,i)=>{ const built=!!l.file&&ewOpen(l.id), st=built?coinAccess(l,true,'l:'+l.id,i,'lesson').st:'soon';   // open | locked | soon: the dashboard's state, a paid term, credits and the free trial (js/coins.js)
       return {...l,name:(s.id==='arabic'?ewLetterName(l.title||l.planned||''):(l.title||l.planned||'')),built,st,open:st==='open',locked:st==='locked'}; }) }; })
     .filter(u=>u.lessons.length&&(s.id!=='arabic'||u.unit<=4));   // Arabic: no النحو (unit 5) and no final assessments here, they have no words (Ahmed 2026-11-16)
 }
+// load every built lesson of the subject (open or locked) so the lists know which ones have words
+async function ewPreload(s){ await Promise.all((s.lessons||[]).filter(l=>l.file&&ewOpen(l.id)&&!(l.tabs&&!l.tabs.includes('words'))).map(l=>ewLesson(l.id).catch(()=>null))); }
 const ewOpen=id=>!!(EW.cfg&&!(EW.cfg.skip||[]).includes(id)&&(EW.cfg.all||(EW.cfg.open||[]).includes(id)));
 const ewSubjOf=id=>COURSE.subjects.find(s=>id.startsWith(s.id+'-'));
 // one open lesson with its words (loaded once; paths already resolved by the curriculum app's own fixPaths)

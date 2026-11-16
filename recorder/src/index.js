@@ -105,7 +105,7 @@ export default {
     if (kind === 'migrate-done' && req.method === 'POST') { const pre = url.searchParams.get('pre'); if (!'mscgj'.includes(pre) || pre.length !== 1) return J({ error: 'pre' }, 400); await kv.put('idxdone:' + pre, '1'); return J({ ok: true }); }
     const idxAll = async pre => { if (!(await kv.get('idxdone:' + pre))) throw new Error('not-migrated'); return Object.values((await kv.get('idx:' + pre, 'json')) || {}); };
     if (kind === 'list') {
-      try { return J({ rec: await idxAll('m'), splits: await idxAll('s'), custom: await idxAll('c'), regen: await idxAll('g'), pics: await idxAll('j'), picreq: Object.values((await kv.get('idx:q', 'json')) || {}) }); }
+      try { return J({ rec: await idxAll('m'), splits: await idxAll('s'), custom: await idxAll('c'), regen: await idxAll('g'), pics: await idxAll('j'), picreq: Object.values((await kv.get('idx:q', 'json')) || {}), picdel: Object.values((await kv.get('idx:x', 'json')) || {}) }); }
       catch (e) { return J({ error: String(e && e.message || e) }, 503); }
     }
     if (kind === 'export') { // everything in the format tools/ar-library/import_recordings.py reads; ?offset=&limit= to take it in pieces (default 40 recordings)
@@ -116,6 +116,10 @@ export default {
       } catch (e) { return J({ error: String(e && e.message || e) }, 503); }
     }
     if (!id || !safe(id)) return J({ error: 'bad id' }, 400);
+    if (kind === 'picdel') { // Ahmed 2026-11-16: the red bin on the picture library page only MARKS a picture for removal (list of ids, nothing is served differently); the removal itself is done in the project files
+      if (req.method === 'PUT') { const m = { id, path: url.searchParams.get('path') || id, ts: Date.now() }; await idxSet(kv, 'x', id, m); return J({ ok: true }); }
+      if (req.method === 'DELETE') { await idxSet(kv, 'x', id, null); return J({ ok: true }); }
+    }
     if (kind === 'pic') { // PUT body = the image (meta in ?meta=), PUT with ?meta alias only = point this picture at another one, DELETE = back to the shipped picture
       if (req.method === 'GET') { const buf = await kv.get('i:' + id, 'arrayBuffer'), m = await kv.get('j:' + id, 'json'); return buf ? new Response(buf, { headers: { 'content-type': (m && m.mime) || 'image/png', 'cache-control': 'no-store' } }) : J({ error: 'none' }, 404); }
       if (req.method === 'PUT') try {

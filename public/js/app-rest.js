@@ -697,7 +697,7 @@ function wsLift(P,R){
   const over=Math.max(P.bottom.getBoundingClientRect().bottom,w.bottom+hh)+pad-R.bottom;
   let sh=over>0?Math.min(Math.max(0,w.top-top),over):0;
   if(over<=0&&w.top<top) sh=w.top-top;   // the phone scrolled the page: bring the word back down into sight
-  if(P.pic){ const o2=P.pic.getBoundingClientRect().bottom+pad-R.bottom; if(o2>0) sh=Math.max(sh,Math.min(Math.max(0,w.top-top),o2)); }   // the picture under the word rises with it (as far as the room above allows) so more of it shows above the keyboard
+  // the picture no longer rises with the word: the lesson page ends above the keyboard (css/wordslots.css), so the picture shrinks in its own room and covers nothing
   if(sh) P.movers.forEach(m=>{ m.style.translate='0 '+(-Math.round(sh))+'px'; m.classList.add('ws-mv'); });
   return {P,short:over-sh>1,undo:()=>P.movers.forEach(m=>{ m.style.translate=''; m.classList.remove('ws-mv'); })};
 }
@@ -1114,7 +1114,7 @@ async function qLoad(){
   if(qz.file===file&&qz.sets) return true;
   const base=file.slice(0,file.lastIndexOf('/')+1), R=p=>p&&!/^(https?:|\/|data:)/.test(p)?base+p:p;
   try{ const d=await get(file); qz.sets=currSets(d.sets); qz.file=file; }catch(e){ qz.sets=null; qz.file=null; return false; }
-  qz.all=[]; qz.sets.forEach((s,si)=>{ s.taskSrc=Array.isArray(s.taskAudio)?s.taskAudio.map(R):R(s.taskAudio);   // taskAudio: one file, or a list played in order (prompt + letter name)
+  qz.all=[]; qz.sets.forEach((s,si)=>{ s.taskSrc=Array.isArray(s.taskAudio)?s.taskAudio.map(R):R(s.taskAudioShort&&qBank(s).words.length?s.taskAudioShort:s.taskAudio);   // taskAudio: one file, or a list played in order (prompt + letter name)
    
     if(s.type==='link') s.items.forEach(it=>{ it.answer=true; it.fullSrc=[].concat(it.full||[]).map(R); });
     if((QM[s.type]||{}).sheet==='board'){ s.centerSrc=R(s.centerAudio); s.items.forEach(it=>{ it.src=Array.isArray(it.audio)?it.audio.map(R):R(it.audio); it.src2=it.audio2?R(it.audio2):it.src; it.psrc=it.paudio?R(it.paudio):''; it.picSrc=R(it.pic); it.wpicSrc=it.wpic?R(it.wpic):''; if(it.dots&&typeof mDots==='function') it.picSrc=mDots(it.dots); });
@@ -1178,7 +1178,8 @@ function qGo(i){
   q.solved=false;   // every visit draws the question unsolved, so its speaker reads the question again (never the answer)
   w.dataset.type=s.type;
   { const old=$('.qmodel',w); if(old) old.remove(); }   // the paper's heading (Classroom / Homework / Weekly C) is no longer shown on any question
-  $('.qex',w).textContent=s.ex?num(s.ex):'?'; $('.qex',w).hidden=false; $('.qtask',w).textContent=s.task; qFitTask();   // RULE (Marwa 2026-11-05): every question header shows its number, or '?' when the book has none
+  $('.qex',w).textContent=s.ex?num(s.ex):'?'; $('.qex',w).hidden=false; { const bk=qBank(s); $('.qtask',w).textContent=bk.task; $$('.qbank',w).forEach(x=>x.remove()); const hd=$('.qhead',w); hd.classList.toggle('hasbank',!!bk.words.length);
+    if(bk.words.length){ const bx=el('div','qbank'); bk.words.forEach(t=>bx.append(el('b','qbw',t))); hd.prepend(bx); } } qFitTask();   // RULE (Marwa 2026-11-05): every question header shows its number, or '?' when the book has none
   footPage(s.page); lnavPaint();
   qCur(i);
   if($('#lesson').classList.contains('qrail')){ $('#lesson').classList.remove('qrail'); setRail([]); }   // the side Listen / Stop button belongs to the 'together' page only
@@ -1344,7 +1345,7 @@ addEventListener('keydown',e=>{ if(!inQ()||e.ctrlKey||e.metaKey||e.altKey||e.key
 // Never two sounds: qGo/stopVoice stop everything first, every play starts with vStop(), and each auto start checks run===qz.run&&inQ() so nothing starts after the child left.
 const qAuto=q=>q.autoSay!==false&&!q.solved&&!qWriteQ(q);
 // Ahmed 2026-11-16: writing questions ("read then write" / اقرأ ثم اكتب, writing on dots, typing the word) stay manual: the child reads the word herself and writes it; only the speaker reads it on a tap
-const qWriteQ=q=>/^(write|type|mwrite)$/.test(q.set.type)||/^\s*(read\s*(and|then)\s*write|اقرأ\s*ثم\s*اكتب|نقرأ\s*ثم\s*نكتب|أقرأ\s*ثم\s*أكتب)/i.test(String(q.set.task||''));
+const qWriteQ=q=>{ const k=String(q.set.task||''); return /^(write|type|mwrite)$/.test(q.set.type)||(/write|اكتب|أكتب|نكتب|نكتب/i.test(k)&&!/^\s*listen/i.test(k)); };   // "Listen and write" keeps its autoplay: the sound is the question
 const qHdrOnly=q=>q.askTask||(q.set.type==='choice'&&!q.askAudio&&!q.ask);   // that speaker only re-reads the header, which a new exercise just read
 function qSay(){ const q=qz.list[qz.i]; if(!q) return; vStop(); const w=$('.qword'); w.classList.add('lit');
   if(q.sayFn&&!q.solved) return q.sayFn();   // English AL: the question read with a pause where the blank is
@@ -1354,6 +1355,10 @@ function qSay(){ const q=qz.list[qz.i]; if(!q) return; vStop(); const w=$('.qwor
   if(q.ask&&!q.solved) return tts(q.ask,'en',.75).then(done,done);   // "q.ask": the question read without its answer (the full sentence is said once it is solved)
   return (q.audio?playFile(q.audio).catch(()=>tts(q.word,isAr()?'ar':'en',.75)):tts(q.word,isAr()?'ar':'en',.75)).then(done,done); }
 // read the exercise instruction aloud (its line lights up while it plays)
+/* the keyboard-writing question with its words in brackets ("... ثم أكتبها: ( أمي - أبي )"): the words stand in their own fixed block ABOVE the question, the question line itself stays short (Ahmed 2026-11-16).
+   Its recording: "taskAudioShort" (the question without the bracket words) when the lesson has it, else the old "taskAudio". */
+function qBank(s){ const t=String(s.task||''), m=['write','type'].includes(s.type)&&t.match(/\s*[:：]?\s*[\(（]([^()（）]+)[\)）]\s*$/);
+  if(!m) return {task:t,words:[]}; const words=m[1].split(/\s+[-–—]\s+/).map(x=>x.trim()).filter(Boolean); return words.length>1?{task:t.slice(0,m.index).trim(),words}:{task:t,words:[]}; }
 function qTask(){ const q=qz.list[qz.i]; if(!q) return Promise.resolve(); vStop(); const t=$('.qtask'); if(t) t.classList.add('lit');
   const done=()=>{ const x=$('.qtask'); if(x) x.classList.remove('lit'); };
   const ts=q.set.taskSrc, fb=()=>tts(q.set.task,isAr()?'ar':'en',.85);
@@ -1514,6 +1519,41 @@ function qPicFit(im,tall){ if(!tall) return; const wide=im.src, d={}, t=new Imag
     const W=f.clientWidth, H=f.clientHeight, sc=(w,h)=>Math.min(W/w,H/h), want=sc(t.naturalWidth,t.naturalHeight)>sc(...d.w)*1.08?t.src:wide;
     if(im.src!==want) im.src=want; };
   im.addEventListener('load',pick); t.onload=pick; t.src=tall; addEventListener('resize',pick); }
+;
+/* ===== js/puzzle.js ===== */
+/* PUZZLE BOARD — the ONE merge-the-pieces engine (Easy Study's puzzle question and Easy Words' practice puzzle both use it; only the data and the hooks differ).
+   A word frame with faint empty pieces on top, the loose pieces lie scattered below. The child drags each piece to ITS place (it snaps; a wrong place goes back),
+   tapping a piece says it. When all are placed the pieces disappear, the whole word shows in the frame (written joined) and is said as ONE clip.
+   puzzleBoard(box, o): o = {pieces:[text, FIRST piece = the first read], word, rtl (default true: first piece rightmost), say(i) -> promise (a piece's sound),
+   whole() -> promise (the whole word's sound), alive() -> false when the question is gone, done() (everything finished, e.g. the star)} */
+const PZ_COL=[['#8CCB3C','#5E9A1E'],['#F27CA8','#C4467A']];
+function puzzlePieceSvg(i,n,ghost,rtl){ const c=PZ_COL[i%2], knob=i<n-1, sock=i>0;   // the knob goes toward the NEXT piece, the socket takes the previous piece's knob; a left-to-right word mirrors the shape
+  const d='M0,0 H100 V'+(sock?'35 a15,15 0 0,0 0,30 V':'')+'100 H0 V'+(knob?'65 a15,15 0 1,1 0,-30 V':'')+'0 Z';
+  return `<svg viewBox="0 0 100 100" style="overflow:visible${rtl?'':';transform:scaleX(-1)'}" aria-hidden="true"><path d="${d}" fill="${ghost?'rgba(255,255,255,.16)':c[0]}" stroke="${ghost?'rgba(255,255,255,.7)':c[1]}" stroke-width="${ghost?3:4}" ${ghost?'stroke-dasharray="7 6"':''} stroke-linejoin="round"/></svg>`; }
+function puzzleBoard(box,o){
+  const rtl=o.rtl!==false, n=o.pieces.length, bd=el('div','qxpb'), slot=el('div','qxpslot'); bd.dataset.noswipe=1; bd.dir=rtl?'rtl':'ltr'; bd.style.direction='ltr'; box.append(bd); bd.append(slot);
+  const ghosts=o.pieces.map((t,i)=>{ const g=el('div','qxpg',puzzlePieceSvg(i,n,1,rtl)); slot.append(g); return g; });
+  const wordEl=el('b','qxpword',o.word); wordEl.style.direction=rtl?'rtl':'ltr'; slot.append(wordEl);
+  const P=o.pieces.map((t,i)=>{ const e=el('div','qxpp'+(rtl?'':' ltr'),puzzlePieceSvg(i,n,0,rtl)+`<b>${t}</b>`); e.style.setProperty('--fs',Math.min(.5,1.6/Math.max(1,t.replace(/[\u064B-\u065F\u0670]/g,'').length)).toFixed(3)); bd.append(e); return {e,i,x:0,y:0,tx:0,ty:0,in:false}; });
+  let pw=0,done=false; const put=p=>{ p.e.style.transform=`translate(${p.x}px,${p.y}px)`; };
+  const layout=()=>{ const W=bd.clientWidth,H=bd.clientHeight; if(!W||!H||done) return; pw=Math.max(40,Math.min(W/(n+.5),H*.38,170)); bd.style.setProperty('--pw',pw+'px');
+    const sw=n*pw, sh=pw, sl=(W-sw)/2, st=H*.03; Object.assign(slot.style,{left:sl+'px',top:st+'px',width:sw+'px',height:sh+'px'});
+    P.forEach(p=>{ p.tx=sl+(rtl?n-1-p.i:p.i)*pw; p.ty=st; const g=ghosts[p.i]; g.style.cssText=`left:${p.tx-sl}px;top:${p.ty-st}px;width:${pw}px;height:${pw}px`; });
+    const order=P.map((_,i)=>i).sort((a,b)=>((a*7+3)%5)-((b*7+3)%5)); if(n>1&&order.every((v,i)=>v===i)) order.reverse();
+    const y0=st+sh+pw*.35, y1=Math.max(y0,H-pw*1.1);
+    P.forEach(p=>{ const k=order.indexOf(p.i); if(p.in){ p.x=p.tx; p.y=p.ty; } else { p.x=(W-pw*1.2)*(n>1?k/(n-1):.5)+pw*.1; p.y=y0+(y1-y0)*(k%2?.9:.15); } put(p); }); };
+  const say=i=>o.say?o.say(i):Promise.resolve();
+  async function finish(last){ if(done) return; done=true; try{ await Promise.race([Promise.resolve(last),new Promise(r=>setTimeout(r,2500))]); }catch(e){}   // the last piece's sound ends first, then the WHOLE word is said as one clip
+    if(!o.alive()) return; P.forEach(p=>p.e.classList.add('gone')); slot.classList.add('got'); await new Promise(r=>setTimeout(r,400)); if(!o.alive()) return; try{ await (o.whole&&o.whole()); }catch(e){} if(!o.alive()) return; if(o.done) o.done(); }
+  P.forEach(p=>{ let sx,sy,x0,y0,moved=false,on=false;
+    p.e.addEventListener('pointerdown',ev=>{ if(done) return; ev.preventDefault(); ev.stopPropagation(); p.e.setPointerCapture(ev.pointerId); sx=ev.clientX; sy=ev.clientY; x0=p.x; y0=p.y; moved=false; on=!p.in; if(on) p.e.classList.add('drag'); });
+    p.e.addEventListener('pointermove',ev=>{ if(!on) return; const dx=ev.clientX-sx,dy=ev.clientY-sy; if(!moved&&Math.hypot(dx,dy)<6) return; moved=true; p.x=Math.min(Math.max(0,x0+dx),bd.clientWidth-pw); p.y=Math.min(Math.max(0,y0+dy),bd.clientHeight-pw); put(p); });
+    const up=ev=>{ ev.stopPropagation(); p.e.classList.remove('drag'); if(!moved){ if(!done) say(p.i); on=false; return; } if(!on) return; on=false;
+      if(Math.hypot(p.x-p.tx,p.y-p.ty)<pw*.85){ p.in=true; p.x=p.tx; p.y=p.ty; p.e.classList.add('in'); put(p); const sp=say(p.i); if(P.every(z=>z.in)) finish(sp); } else if(o.wrong) o.wrong(p.e); };
+    p.e.addEventListener('pointerup',up); p.e.addEventListener('pointercancel',up); });
+  box._after=()=>layout(); requestAnimationFrame(layout); new ResizeObserver(layout).observe(bd);
+  return {board:bd,slot,pieces:P};
+}
 ;
 /* ===== js/letter.js ===== */
 /* LETTER lesson tab (lesson.json "type": "letter", "pages": 2) — ONLY these two pages (no syllable merging here), with the page arrows:
@@ -1878,13 +1918,13 @@ function qxPuzzle(box,q,s,run){
     const y0=st+sh+pw*.35, y1=Math.max(y0,H-pw*1.1);
     P.forEach(p=>{ const k=order.indexOf(p.i); if(p.in){ p.x=p.tx; p.y=p.ty; } else { p.x=(W-pw*1.2)*(n>1?k/(n-1):.5)+pw*.1; p.y=y0+(y1-y0)*(k%2?.9:.15); } put(p); }); };
   const say=i=>qSound(q.pieceAudio&&q.pieceAudio[i]?R_Q(q.pieceAudio[i]):null,'');
-  async function finish(last){ if(done) return; done=true; try{ await Promise.race([Promise.resolve(last),new Promise(r=>setTimeout(r,2500))]); }catch(e){}   // the last piece's sound ends first, then the WHOLE word is said (Marwa 2026-11-09)
-    if(run!==qz.run||!inQ()) return; q.solved=true; P.forEach(p=>p.e.classList.add('gone')); slot.classList.add('got'); await new Promise(r=>setTimeout(r,400)); if(run!==qz.run||!inQ()) return; await qSound(R_Q(q.audio),q.word); if(run!==qz.run||!inQ()) return; qStar(); }
+  async function finish(){ if(done) return; done=true;   // when the last piece lands, only the WHOLE word is said, as one clip (no piece sounds after each other); it is written joined
+    vStop(); if(run!==qz.run||!inQ()) return; q.solved=true; P.forEach(p=>p.e.classList.add('gone')); slot.classList.add('got'); await new Promise(r=>setTimeout(r,400)); if(run!==qz.run||!inQ()) return; await qSound(R_Q(q.audio),q.word); if(run!==qz.run||!inQ()) return; qStar(); }
   P.forEach(p=>{ let sx,sy,x0,y0,moved=false,on=false;
     p.e.addEventListener('pointerdown',ev=>{ if(done) return; ev.preventDefault(); ev.stopPropagation(); p.e.setPointerCapture(ev.pointerId); sx=ev.clientX; sy=ev.clientY; x0=p.x; y0=p.y; moved=false; on=!p.in; if(on) p.e.classList.add('drag'); });
     p.e.addEventListener('pointermove',ev=>{ if(!on) return; const dx=ev.clientX-sx,dy=ev.clientY-sy; if(!moved&&Math.hypot(dx,dy)<6) return; moved=true; p.x=Math.min(Math.max(0,x0+dx),bd.clientWidth-pw); p.y=Math.min(Math.max(0,y0+dy),bd.clientHeight-pw); put(p); });
     const up=ev=>{ ev.stopPropagation(); p.e.classList.remove('drag'); if(!moved){ if(!done) say(p.i); on=false; return; } if(!on) return; on=false;
-      if(Math.hypot(p.x-p.tx,p.y-p.ty)<pw*.85){ p.in=true; p.x=p.tx; p.y=p.ty; p.e.classList.add('in'); put(p); const sp=say(p.i); if(P.every(z=>z.in)) finish(sp); } };
+      if(Math.hypot(p.x-p.tx,p.y-p.ty)<pw*.85){ p.in=true; p.x=p.tx; p.y=p.ty; p.e.classList.add('in'); put(p); if(P.every(z=>z.in)) finish(); else say(p.i); } };
     p.e.addEventListener('pointerup',up); p.e.addEventListener('pointercancel',up); });
   box._after=()=>layout(); requestAnimationFrame(layout); new ResizeObserver(layout).observe(bd);
 }
@@ -1910,8 +1950,8 @@ function qxFace(box,q,s,run){
       const st=P[p.s].t; p.cx=fx+st.x/100*fw; p.cy=fy+st.y/100*fh; p.tx=p.cx-p.tw/2; p.ty=p.cy-p.th/2;   // p.s = the place (slot) this part belongs in
       if(p.in){ p.x=p.tx; p.y=p.ty; } put(p); });
     const cols=[P.filter((_,k)=>k%2===0).reverse(),P.filter((_,k)=>k%2===1)]; cols.forEach((c,ci)=>c.forEach((p,j)=>{ if(p.in) return; const step=fh/c.length; p.x=trX+(trW-p.w)*(ci?.78:.22); p.y=fy+step*(j+.5)-p.h/2; put(p); })); };   // two columns, one slot of the height each: loose parts never overlap
-  async function finish(last){ if(done) return; done=true; try{ await Promise.race([Promise.resolve(last),new Promise(r=>setTimeout(r,2500))]); }catch(e){}   // the last piece's sound ends first, then the WHOLE word is said (Marwa 2026-11-09)
-    if(run!==qz.run||!inQ()) return; q.solved=true; await new Promise(r=>setTimeout(r,350)); if(run!==qz.run||!inQ()) return; qStar(); }
+  async function finish(){ if(done) return; done=true;   // when the last piece lands, only the WHOLE word is said, as one clip (no piece sounds after each other); it is written joined
+    vStop(); if(run!==qz.run||!inQ()) return; q.solved=true; await new Promise(r=>setTimeout(r,350)); if(run!==qz.run||!inQ()) return; qStar(); }
   // Forgiving drag (Ahmed 2026-11-10, shared look: touch grabs the NEAREST loose part within a wide margin, a drop near the right place snaps, an identical twin place also counts):
   const grab=ev=>{ const r=bd.getBoundingClientRect(), px=ev.clientX-r.left, py=ev.clientY-r.top; let best=null,bd2=1e9;
     P.forEach(p=>{ if(p.in) return; const m=Math.max(16,Math.min(p.w,p.h)*.5), cx=p.x+p.w/2, cy=p.y+p.h/2;
@@ -1956,8 +1996,8 @@ function qxColour(box,q,s,run){
   const row=el('div','qxcr'); bd.append(row); let on=0, done=false;
   const cells=[]; for(let i=0;i<q.total;i++){ const im=el('img','qxcs'); im.alt=''; im.draggable=false; im.src=R_Q(q.off); im.dataset.on=0; row.append(im); cells.push(im); }
   const cnt=()=>cells.filter(c=>c.dataset.on==='1').length;
-  async function finish(last){ if(done) return; done=true; try{ await Promise.race([Promise.resolve(last),new Promise(r=>setTimeout(r,2500))]); }catch(e){}   // the last piece's sound ends first, then the WHOLE word is said (Marwa 2026-11-09)
-    if(run!==qz.run||!inQ()) return; q.solved=true; await new Promise(r=>setTimeout(r,450)); if(run!==qz.run||!inQ()) return; qStar(); }
+  async function finish(){ if(done) return; done=true;   // when the last piece lands, only the WHOLE word is said, as one clip (no piece sounds after each other); it is written joined
+    vStop(); if(run!==qz.run||!inQ()) return; q.solved=true; await new Promise(r=>setTimeout(r,450)); if(run!==qz.run||!inQ()) return; qStar(); }
   cells.forEach(c=>c.addEventListener('click',ev=>{ ev.stopPropagation(); if(done) return;
     if(c.dataset.on==='1'){ c.dataset.on=0; c.src=R_Q(q.off); return; }
     if(cnt()>=q.num){ c.classList.remove('no'); void c.offsetWidth; c.classList.add('no'); return; }
@@ -2040,10 +2080,14 @@ QM.build={sheet:'box', noword:1, bulb:0, draw:qxBuild};
 /* ring     = "listen and CIRCLE THE LETTER inside the word" (booklet ex 11): the word stands whole (joined letters, THE word component); the child taps a letter of it, and a right one gets a circle drawn round it. Every place of the letter must be circled (a word with the letter twice needs both). A wrong letter shakes.
    (Circle the WHOLE word that has the letter = type `circle`; circle the LETTER inside one word = this one.)
    item: {word:"تُوت", letter:"ت" (marks ignored), audio} */
+/* the pink circle round a tapped letter: measured from the letter's real glyph box (diacritics included), drawn on top and centred on it */
+function qxRingMark(wd,l){ const tn=l.firstChild; if(!tn) return; const r=document.createRange(); r.selectNodeContents(l); const rs=[...r.getClientRects()].filter(x=>x.width>0); if(!rs.length) return;
+  const b=wd.getBoundingClientRect(), x=rs[0], fs=parseFloat(getComputedStyle(l).fontSize)||40, d=Math.max(x.width,fs*.9)+fs*.35, cx=x.left+x.width/2-b.left, cy=x.top+x.height/2-b.top;
+  const c=el('i','qxring'); c.style.cssText=`left:${cx-d/2}px;top:${cy-d/2}px;width:${d}px;height:${d}px;font-size:${fs}px`; wd.append(c); }
 function qxRing(box,q,s,run){
   const wd=wsFill(el('b','qxw'),q.word,{letters:true}), L=$$('.lt',wd), want=l=>sameLetter(arBase(l.textContent),q.letter); wd.classList.add('ring'); box.append(wd);
   L.forEach(l=>l.addEventListener('click',()=>{ if(qz.busy||l.classList.contains('rung')) return; if(!want(l)) return qxBad(l);
-    l.classList.add('rung'); blip(560+$$('.rung',wd).length*60,.05); if(L.every(x=>!want(x)||x.classList.contains('rung'))) qxWin(wd,q,1500); }));
+    l.classList.add('rung'); qxRingMark(wd,l); blip(560+$$('.rung',wd).length*60,.05); if(L.every(x=>!want(x)||x.classList.contains('rung'))) qxWin(wd,q,1500); }));
 }
 QM.ring={sheet:'box', noword:1, draw:qxRing, help:(q,w)=>$$('.qxw.ring .lt',w).filter(l=>sameLetter(arBase(l.textContent),q.letter)&&!l.classList.contains('rung')).slice(0,1)};
 

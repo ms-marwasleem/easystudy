@@ -448,3 +448,16 @@ html[data-theme="words"],html[data-theme="words"] body{background:radial-gradien
 .ewt-ar .ew-mapbar{direction:ltr}
 /* open/close arrow at the bottom-right corner of the lesson tile, near the thumb (Ahmed 2026-11-16) */
 .ew-lfold{top:auto;bottom:-.5rem;inset-inline-start:auto;left:auto;right:-.5rem}
+
+/* puzzle practice (the merge board of js/puzzle.js in the words skin): picture on top, the two-piece frame, the loose pieces */
+#lesson .quiz.ep[data-type="puzzle"][data-ep]{grid-template-rows:auto auto minmax(0,1fr);grid-template-areas:"head" "dots" "play"}
+.quiz.ep[data-type="puzzle"] .qans{display:none}
+.quiz.ep[data-type="puzzle"] .qplay{display:flex;flex-direction:column;align-items:center;min-height:0;height:100%}
+.quiz.ep[data-type="puzzle"] .qplay .qpic{flex:0 0 28%;min-height:0;max-height:28%}
+.quiz.ep[data-type="puzzle"] .qplay .qpic img{max-height:100%;max-width:100%;object-fit:contain}
+.quiz.ep[data-type="puzzle"] .qxpb{flex:1 1 0;min-height:7rem}
+.quiz.ep .qxpword{color:var(--ew-ink);font-family:"Baloo Bhaijaan 2","Andika",sans-serif}
+.quiz.ep .qxpp.ltr b,.quiz.ep[lang="en"] .qxpword{font-family:"Andika",sans-serif;font-weight:800}
+.quiz.ep .qxpp.glow{animation:ewglow .5s ease-in-out 4 alternate}
+.quiz.ep[data-type="puzzle"] .qword{display:none}
+.quiz.ep[data-type="puzzle"] .qplay{padding-inline:.5rem}

@@ -41,7 +41,7 @@ async function qLoad(){
   if(qz.file===file&&qz.sets) return true;
   const base=file.slice(0,file.lastIndexOf('/')+1), R=p=>p&&!/^(https?:|\/|data:)/.test(p)?base+p:p;
   try{ const d=await get(file); qz.sets=currSets(d.sets); qz.file=file; }catch(e){ qz.sets=null; qz.file=null; return false; }
-  qz.all=[]; qz.sets.forEach((s,si)=>{ s.taskSrc=Array.isArray(s.taskAudio)?s.taskAudio.map(R):R(s.taskAudio);   // taskAudio: one file, or a list played in order (prompt + letter name)
+  qz.all=[]; qz.sets.forEach((s,si)=>{ s.taskSrc=Array.isArray(s.taskAudio)?s.taskAudio.map(R):R(s.taskAudioShort&&qBank(s).words.length?s.taskAudioShort:s.taskAudio);   // taskAudio: one file, or a list played in order (prompt + letter name)
    
     if(s.type==='link') s.items.forEach(it=>{ it.answer=true; it.fullSrc=[].concat(it.full||[]).map(R); });
     if((QM[s.type]||{}).sheet==='board'){ s.centerSrc=R(s.centerAudio); s.items.forEach(it=>{ it.src=Array.isArray(it.audio)?it.audio.map(R):R(it.audio); it.src2=it.audio2?R(it.audio2):it.src; it.psrc=it.paudio?R(it.paudio):''; it.picSrc=R(it.pic); it.wpicSrc=it.wpic?R(it.wpic):''; if(it.dots&&typeof mDots==='function') it.picSrc=mDots(it.dots); });
@@ -105,7 +105,8 @@ function qGo(i){
   q.solved=false;   // every visit draws the question unsolved, so its speaker reads the question again (never the answer)
   w.dataset.type=s.type;
   { const old=$('.qmodel',w); if(old) old.remove(); }   // the paper's heading (Classroom / Homework / Weekly C) is no longer shown on any question
-  $('.qex',w).textContent=s.ex?num(s.ex):'?'; $('.qex',w).hidden=false; $('.qtask',w).textContent=s.task; qFitTask();   // RULE (Marwa 2026-11-05): every question header shows its number, or '?' when the book has none
+  $('.qex',w).textContent=s.ex?num(s.ex):'?'; $('.qex',w).hidden=false; { const bk=qBank(s); $('.qtask',w).textContent=bk.task; $$('.qbank',w).forEach(x=>x.remove()); const hd=$('.qhead',w); hd.classList.toggle('hasbank',!!bk.words.length);
+    if(bk.words.length){ const bx=el('div','qbank'); bk.words.forEach(t=>bx.append(el('b','qbw',t))); hd.prepend(bx); } } qFitTask();   // RULE (Marwa 2026-11-05): every question header shows its number, or '?' when the book has none
   footPage(s.page); lnavPaint();
   qCur(i);
   if($('#lesson').classList.contains('qrail')){ $('#lesson').classList.remove('qrail'); setRail([]); }   // the side Listen / Stop button belongs to the 'together' page only
@@ -271,7 +272,7 @@ addEventListener('keydown',e=>{ if(!inQ()||e.ctrlKey||e.metaKey||e.altKey||e.key
 // Never two sounds: qGo/stopVoice stop everything first, every play starts with vStop(), and each auto start checks run===qz.run&&inQ() so nothing starts after the child left.
 const qAuto=q=>q.autoSay!==false&&!q.solved&&!qWriteQ(q);
 // Ahmed 2026-11-16: writing questions ("read then write" / اقرأ ثم اكتب, writing on dots, typing the word) stay manual: the child reads the word herself and writes it; only the speaker reads it on a tap
-const qWriteQ=q=>/^(write|type|mwrite)$/.test(q.set.type)||/^\s*(read\s*(and|then)\s*write|اقرأ\s*ثم\s*اكتب|نقرأ\s*ثم\s*نكتب|أقرأ\s*ثم\s*أكتب)/i.test(String(q.set.task||''));
+const qWriteQ=q=>{ const k=String(q.set.task||''); return /^(write|type|mwrite)$/.test(q.set.type)||(/write|اكتب|أكتب|نكتب|نكتب/i.test(k)&&!/^\s*listen/i.test(k)); };   // "Listen and write" keeps its autoplay: the sound is the question
 const qHdrOnly=q=>q.askTask||(q.set.type==='choice'&&!q.askAudio&&!q.ask);   // that speaker only re-reads the header, which a new exercise just read
 function qSay(){ const q=qz.list[qz.i]; if(!q) return; vStop(); const w=$('.qword'); w.classList.add('lit');
   if(q.sayFn&&!q.solved) return q.sayFn();   // English AL: the question read with a pause where the blank is
@@ -281,6 +282,10 @@ function qSay(){ const q=qz.list[qz.i]; if(!q) return; vStop(); const w=$('.qwor
   if(q.ask&&!q.solved) return tts(q.ask,'en',.75).then(done,done);   // "q.ask": the question read without its answer (the full sentence is said once it is solved)
   return (q.audio?playFile(q.audio).catch(()=>tts(q.word,isAr()?'ar':'en',.75)):tts(q.word,isAr()?'ar':'en',.75)).then(done,done); }
 // read the exercise instruction aloud (its line lights up while it plays)
+/* the keyboard-writing question with its words in brackets ("... ثم أكتبها: ( أمي - أبي )"): the words stand in their own fixed block ABOVE the question, the question line itself stays short (Ahmed 2026-11-16).
+   Its recording: "taskAudioShort" (the question without the bracket words) when the lesson has it, else the old "taskAudio". */
+function qBank(s){ const t=String(s.task||''), m=['write','type'].includes(s.type)&&t.match(/\s*[:：]?\s*[\(（]([^()（）]+)[\)）]\s*$/);
+  if(!m) return {task:t,words:[]}; const words=m[1].split(/\s+[-–—]\s+/).map(x=>x.trim()).filter(Boolean); return words.length>1?{task:t.slice(0,m.index).trim(),words}:{task:t,words:[]}; }
 function qTask(){ const q=qz.list[qz.i]; if(!q) return Promise.resolve(); vStop(); const t=$('.qtask'); if(t) t.classList.add('lit');
   const done=()=>{ const x=$('.qtask'); if(x) x.classList.remove('lit'); };
   const ts=q.set.taskSrc, fb=()=>tts(q.set.task,isAr()?'ar':'en',.85);

@@ -67,3 +67,15 @@ body.ws-typing .ws-side{width:1.75rem!important;height:1.75rem!important;border-
 #lesson .qxw.ring{position:relative}
 #lesson .qxw.ring .lt.rung::after{display:none}
 .qxring{position:absolute;box-sizing:border-box;border:.07em solid var(--c-pink);border-radius:50%;pointer-events:none;z-index:3}
+
+/* keyboard open while typing (Ahmed 2026-11-16): nothing is pushed up or covered. The lesson page ends right above the keyboard (the same as the other screens),
+   so the picture shrinks inside its own room, the title / stars / road stay where they are and the word stands above the keyboard. The bottom bar steps aside (the keyboard covers it anyway). */
+body:is(.ws-typing,.kb-open) #lesson{height:calc(100% - var(--kb,0px))}
+body:is(.ws-typing,.kb-open) #lesson .foot{height:0;min-height:0;padding:0;margin:0;overflow:visible;visibility:hidden}   /* out of the way, but the fixed Help bulb inside it stays */
+body:is(.ws-typing,.kb-open) #lesson .foot .ws-side{visibility:visible}
+/* the question sheet stacks in plain order inside that room: the picture area takes what is left (its own fixed vh heights no longer apply), the rest keeps its size */
+body.ws-typing #lesson .quiz{display:flex;flex-direction:column;grid-template-rows:none}
+body.ws-typing #lesson .quiz>*{flex:none}
+body.ws-typing #lesson .quiz>.qplay{flex:1 1 0;min-height:0;height:auto!important}
+/* any other text box on a question (e.g. English AL "correct word"): the sheet scrolls inside its room, and js/core.js kbShow brings the box into sight */
+body.kb-open:not(.ws-typing) #lesson .quiz{overflow-y:auto;overscroll-behavior:contain}

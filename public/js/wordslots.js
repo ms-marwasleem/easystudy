@@ -75,7 +75,7 @@ function wsLift(P,R){
   const over=Math.max(P.bottom.getBoundingClientRect().bottom,w.bottom+hh)+pad-R.bottom;
   let sh=over>0?Math.min(Math.max(0,w.top-top),over):0;
   if(over<=0&&w.top<top) sh=w.top-top;   // the phone scrolled the page: bring the word back down into sight
-  if(P.pic){ const o2=P.pic.getBoundingClientRect().bottom+pad-R.bottom; if(o2>0) sh=Math.max(sh,Math.min(Math.max(0,w.top-top),o2)); }   // the picture under the word rises with it (as far as the room above allows) so more of it shows above the keyboard
+  // the picture no longer rises with the word: the lesson page ends above the keyboard (css/wordslots.css), so the picture shrinks in its own room and covers nothing
   if(sh) P.movers.forEach(m=>{ m.style.translate='0 '+(-Math.round(sh))+'px'; m.classList.add('ws-mv'); });
   return {P,short:over-sh>1,undo:()=>P.movers.forEach(m=>{ m.style.translate=''; m.classList.remove('ws-mv'); })};
 }

@@ -1,11 +1,11 @@
 /* EASY WORDS — the test builder (the ? button on a subject). The parent marks whole units, single lessons, single words, or any mix; chooses how many questions
    and which kinds; the questions then run one by one in the practice tab's own templates (not one test page). Units / lessons / words are collapsed:
    a tap opens one, the next tap closes it (the map itself keeps everything open). */
-const et={ sel:new Set(), n:10, types:new Set(['missing','order','picture','match']), open:new Set() };
-const ET_TYPES=[['missing','حرف ناقص'],['order','ترتيب الحروف'],['picture','إملاء الكلمة'],['match','توصيل']];
+const et={ sel:new Set(), n:10, types:new Set(['missing','order','picture','match','puzzle']), open:new Set() };
+const ET_TYPES=[['missing','حرف ناقص'],['order','ترتيب الحروف'],['picture','إملاء الكلمة'],['match','توصيل'],['puzzle','تركيب الكلمة']];
 async function ewTestOpen(mode){
   const s=EW.cur; if(!s) return;
-  busy(true); try{ for(const u of ewUnits(s)) for(const l of u.lessons) if(l.open) await ewLesson(l.id); }catch(e){} busy(false);
+  busy(true); try{ await ewPreload(s); }catch(e){} busy(false);
   et.mode=mode==='learn'?'learn':'test'; et.sel=new Set(); et.open=new Set(); show('ewTest'); ewtDraw(s);
 }
 function ewtDraw(s){

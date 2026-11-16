@@ -3,16 +3,21 @@
    are different on every round. Template list (Ahmed 2026-11-13): missing letter(s) · put the letters in order · picture, write the whole word · link words to pictures.
    Words are shown with the curriculum app's ONE word component (wsFill, js/wordslots.js); the picture/head/dots parts reuse the curriculum app's question layout (.quiz). */
 const ep={ run:0, qs:[], i:0, bad:0, pool:[], n:5, types:[], src:'lesson', busy:false, held:null };
-const EP_TASK={ ar:{ missing:'اكتب الحرف الناقص', missing2:'اكتب الحروف الناقصة', order:'رتّب الحروف علشان تكوّن الكلمة', picture:'اكتب اسم الصورة', match:'وصّل كل كلمة بصورتها' },
-  en:{ missing:'Write the missing letter', missing2:'Write the missing letters', order:'Put the letters in order to make the word', picture:'Write the name of the picture', match:'Match each word with its picture' } };
+const EP_TASK={ ar:{ puzzle:'ركّب الكلمة', missing:'اكتب الحرف الناقص', missing2:'اكتب الحروف الناقصة', order:'رتّب الحروف علشان تكوّن الكلمة', picture:'اكتب اسم الصورة', match:'وصّل كل كلمة بصورتها' },
+  en:{ puzzle:'Put the pieces together to make the word', missing:'Write the missing letter', missing2:'Write the missing letters', order:'Put the letters in order to make the word', picture:'Write the name of the picture', match:'Match each word with its picture' } };
 const epShuffle=a=>{ const b=a.slice(); for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; };
 const epGl=w=>glyphs(String(w)), epIdx=w=>epGl(w).map((g,i)=>g===' '?-1:i).filter(i=>i>=0);   // glyph numbers that are letters (not spaces)
 const epWait=(ms,run)=>new Promise((ok,no)=>setTimeout(()=>run===ep.run?ok():no('stop'),ms));
 const epSay=v=>Promise.race([sayWord(v).catch(()=>0),new Promise(r=>setTimeout(r,2600))]);
+// puzzle: a word with 2 or more syllables (its book "parts") becomes TWO pieces: 2 parts = one each, 3 = 2+1, 4 = 2+2 ...; a piece is said as its parts one after the other
+function epPuz(v){ const P=(v.parts||[]).filter(x=>x&&x.t); if(P.length<2) return null; const k=Math.ceil(P.length/2), g=[P.slice(0,k),P.slice(k)];
+  if(!g.every(a=>a.length&&a.every(x=>x.audio))) return null;
+  return g.map(a=>({t:a.map(x=>x.t).join(''),audio:a.map(x=>x.audio)})); }
 const EP_CAN={
   missing:(v)=>epIdx(v.word).length>=3,
   order:(v)=>epIdx(v.word).length>=3,
   picture:(v)=>!!v.img,
+  puzzle:(v)=>!!v.img&&epPuz(v)!==null,
   match:(v,pool)=>!!v.img&&pool.filter(x=>x.img).length>=3
 };
 // the round is made of GROUPS, one per question template (like the exercise groups of the curriculum app); each group has `per` questions, the words at random,
@@ -58,7 +63,7 @@ function epShow(){
   const q=ep.qs[ep.i], st=$('#stage'); stopVoice(); const run=ep.run; ep.busy=false; hideHint();   // (stopVoice makes a new run number: the question before can no longer act)
   const s=ewSubjOf(q.v.lid||'')||SUBJECT; if(s&&SUBJECT!==s){ SUBJECT=s; subjDir(); }
   st.innerHTML=''; const w=el('div','quiz ep'), say=typeof SAY_LN==='string'?SAY_LN:ICON.sound, task=q.t==='missing'&&q.hide.length>1?'missing2':q.t, lg=EW_SUBJ[(ewSubjOf(q.v.lid||'')||{}).id]?.lang==='ar'?'ar':'en';
-  w.dataset.type=q.t==='match'?'link':'type'; w.dataset.ep=q.t; w.lang=EW_SUBJ[(ewSubjOf(q.v.lid||'')||{}).id]?.lang==='ar'?'ar':'en';
+  w.dataset.type=q.t==='match'?'link':q.t==='puzzle'?'puzzle':'type'; w.dataset.ep=q.t; w.lang=EW_SUBJ[(ewSubjOf(q.v.lid||'')||{}).id]?.lang==='ar'?'ar':'en';
   w.innerHTML=`<div class="qhead"><span class="qtask">${EP_TASK[lg][task]}</span></div><div class="qdots"></div>
     <div class="qword" dir="ltr"><b></b><button class="qsay" aria-label="اسمع">${say}</button></div><div class="qplay"></div><div class="qans"></div>`;
   st.append(w); const dots=$('.qdots',w); dots.style.setProperty('--n',epGrp().n); dots.innerHTML=epDots();
@@ -68,7 +73,7 @@ function epShow(){
   // the header is read once when a new group (exercise) starts, and again when it is tapped (same as the curriculum app's qTask)
   const tk=$('.qtask',w), say_task=()=>{ tk.classList.add('lit'); const dn=()=>tk.classList.remove('lit'); return tts(EP_TASK[lg][task],lg,.85).then(dn,dn); };
   ep.taskP=ep.lastG!==q.g?say_task():Promise.resolve(); ep.lastG=q.g; tk.addEventListener('click',()=>{ if(!ep.busy) say_task(); });
-  ({missing:epMissing,order:epOrder,picture:epPicture,match:epMatch})[q.t](q,w,run); lnavPaint();
+  ({missing:epMissing,order:epOrder,picture:epPicture,match:epMatch,puzzle:epPuzzle})[q.t](q,w,run); lnavPaint();
   if(anim) G.fromTo(w,{opacity:0,y:14},{opacity:1,y:0,duration:.25});
 }
 // the right answer: celebrate, say the word, record it for the report, next question
@@ -77,8 +82,8 @@ async function epRight(q,w,run,wordsOk){
   const bad=q.t==='match'?(wordsOk.some(x=>!x.ok)):q.bad; if(bad) ep.bad++;
   if(q.t==='match') wordsOk.forEach(x=>ewRec(x.v,x.ok)); else ewRec(q.v,!q.bad);
   q.done=1; const d=$(`.qdots i[data-i="${ep.i}"]`,w); if(d){ d.innerHTML=STAR(true); d.classList.add('got'); if(anim) G.fromTo(d,{scale:1.8},{scale:1,duration:.6,ease:'elastic.out(1.2,.4)'}); }
-  celebrate(q.t==='match'?$('.epm',w):($('.qword b',w)||w));
-  try{ const ip=$('#qin'); if(ip) ip.blur(); if(q.t!=='match') await epSay(q.v); await epWait(900,run); }catch(e){ return; }
+  celebrate(q.t==='match'?$('.epm',w):q.t==='puzzle'?($('.qxpword',w)||w):($('.qword b',w)||w));
+  try{ const ip=$('#qin'); if(ip) ip.blur(); if(q.t!=='match'&&q.t!=='puzzle') await epSay(q.v); await epWait(900,run); }catch(e){ return; }
   if(run!==ep.run) return;
   if(ep.i<ep.qs.length-1){ ep.i++; epShow(); } else epFinish();
 }
@@ -123,6 +128,13 @@ function epOrder(q,w,run){
       else { tone(170,'square',.06,.18); q.bad=1; b.classList.remove('shake'); void b.offsetWidth; b.classList.add('shake'); setTimeout(()=>b.classList.remove('shake'),450); } });
     ans.append(b); });
   epHelpBtn(()=>{ const want=gl[ix[k]]; const hit=$$('.eptile:not(.used)',ans).find(b=>{ const g=gl[+b.dataset.i]; return ar?sameLetter(g,want):g.toLowerCase()===want.toLowerCase(); }); if(hit){ hit.classList.add('glow'); setTimeout(()=>hit.classList.remove('glow'),tokMs('--help-pick-ms',2000)); } });
+}
+// 5) puzzle: the picture on top, an empty two-piece frame, two pieces to drag in (the curriculum app's own merge puzzle board, js/puzzle.js); the whole word is said as ONE clip when it is complete
+function epPuzzle(q,w,run){
+  const ar=!!(SUBJECT&&SUBJECT.rtl), pz=epPuz(q.v), qp=$('.qplay',w); $('.qword',w).hidden=true; epPic(q,w);
+  const seq=async fs=>{ const vr=vs.run; for(const f of fs){ if(vr!==vs.run||run!==ep.run) return; await playFile(f); } };
+  const b=puzzleBoard(qp,{pieces:pz.map(x=>x.t),word:q.v.word,rtl:ar,say:i=>{ vStop(); return seq(pz[i].audio); },whole:()=>epSay(q.v),alive:()=>run===ep.run&&tab==='practice',done:()=>epRight(q,w,run)});
+  epHelpBtn(()=>{ const p=b.pieces.find(x=>!x.in); if(!p) return; p.e.classList.add('glow'); setTimeout(()=>p.e.classList.remove('glow'),tokMs('--help-pick-ms',2000)); });
 }
 // 4) link every word to its picture: the curriculum app's own link board (classes, line drawing, layout), drag a line or tap the word then the picture
 function epMatch(q,w,run){

@@ -1,4 +1,4 @@
-const EW_BUILD='22cebc04f7';
+const EW_BUILD='ab6d2a45f5';
 /* MADE BY tools/build-words.py from the files named below. Do not edit here. */
 /* ===== js/words-boot.js ===== */
 /* EASY WORDS — first file of the bundle: tells the shared accounts / credits code (welcome, sync, subs, coins, push) which settings file and server to use. */
@@ -1998,7 +1998,7 @@ function wsLift(P,R){
   const over=Math.max(P.bottom.getBoundingClientRect().bottom,w.bottom+hh)+pad-R.bottom;
   let sh=over>0?Math.min(Math.max(0,w.top-top),over):0;
   if(over<=0&&w.top<top) sh=w.top-top;   // the phone scrolled the page: bring the word back down into sight
-  if(P.pic){ const o2=P.pic.getBoundingClientRect().bottom+pad-R.bottom; if(o2>0) sh=Math.max(sh,Math.min(Math.max(0,w.top-top),o2)); }   // the picture under the word rises with it (as far as the room above allows) so more of it shows above the keyboard
+  // the picture no longer rises with the word: the lesson page ends above the keyboard (css/wordslots.css), so the picture shrinks in its own room and covers nothing
   if(sh) P.movers.forEach(m=>{ m.style.translate='0 '+(-Math.round(sh))+'px'; m.classList.add('ws-mv'); });
   return {P,short:over-sh>1,undo:()=>P.movers.forEach(m=>{ m.style.translate=''; m.classList.remove('ws-mv'); })};
 }
@@ -2415,7 +2415,7 @@ async function qLoad(){
   if(qz.file===file&&qz.sets) return true;
   const base=file.slice(0,file.lastIndexOf('/')+1), R=p=>p&&!/^(https?:|\/|data:)/.test(p)?base+p:p;
   try{ const d=await get(file); qz.sets=currSets(d.sets); qz.file=file; }catch(e){ qz.sets=null; qz.file=null; return false; }
-  qz.all=[]; qz.sets.forEach((s,si)=>{ s.taskSrc=Array.isArray(s.taskAudio)?s.taskAudio.map(R):R(s.taskAudio);   // taskAudio: one file, or a list played in order (prompt + letter name)
+  qz.all=[]; qz.sets.forEach((s,si)=>{ s.taskSrc=Array.isArray(s.taskAudio)?s.taskAudio.map(R):R(s.taskAudioShort&&qBank(s).words.length?s.taskAudioShort:s.taskAudio);   // taskAudio: one file, or a list played in order (prompt + letter name)
    
     if(s.type==='link') s.items.forEach(it=>{ it.answer=true; it.fullSrc=[].concat(it.full||[]).map(R); });
     if((QM[s.type]||{}).sheet==='board'){ s.centerSrc=R(s.centerAudio); s.items.forEach(it=>{ it.src=Array.isArray(it.audio)?it.audio.map(R):R(it.audio); it.src2=it.audio2?R(it.audio2):it.src; it.psrc=it.paudio?R(it.paudio):''; it.picSrc=R(it.pic); it.wpicSrc=it.wpic?R(it.wpic):''; if(it.dots&&typeof mDots==='function') it.picSrc=mDots(it.dots); });
@@ -2479,7 +2479,8 @@ function qGo(i){
   q.solved=false;   // every visit draws the question unsolved, so its speaker reads the question again (never the answer)
   w.dataset.type=s.type;
   { const old=$('.qmodel',w); if(old) old.remove(); }   // the paper's heading (Classroom / Homework / Weekly C) is no longer shown on any question
-  $('.qex',w).textContent=s.ex?num(s.ex):'?'; $('.qex',w).hidden=false; $('.qtask',w).textContent=s.task; qFitTask();   // RULE (Marwa 2026-11-05): every question header shows its number, or '?' when the book has none
+  $('.qex',w).textContent=s.ex?num(s.ex):'?'; $('.qex',w).hidden=false; { const bk=qBank(s); $('.qtask',w).textContent=bk.task; $$('.qbank',w).forEach(x=>x.remove()); const hd=$('.qhead',w); hd.classList.toggle('hasbank',!!bk.words.length);
+    if(bk.words.length){ const bx=el('div','qbank'); bk.words.forEach(t=>bx.append(el('b','qbw',t))); hd.prepend(bx); } } qFitTask();   // RULE (Marwa 2026-11-05): every question header shows its number, or '?' when the book has none
   footPage(s.page); lnavPaint();
   qCur(i);
   if($('#lesson').classList.contains('qrail')){ $('#lesson').classList.remove('qrail'); setRail([]); }   // the side Listen / Stop button belongs to the 'together' page only
@@ -2645,7 +2646,7 @@ addEventListener('keydown',e=>{ if(!inQ()||e.ctrlKey||e.metaKey||e.altKey||e.key
 // Never two sounds: qGo/stopVoice stop everything first, every play starts with vStop(), and each auto start checks run===qz.run&&inQ() so nothing starts after the child left.
 const qAuto=q=>q.autoSay!==false&&!q.solved&&!qWriteQ(q);
 // Ahmed 2026-11-16: writing questions ("read then write" / اقرأ ثم اكتب, writing on dots, typing the word) stay manual: the child reads the word herself and writes it; only the speaker reads it on a tap
-const qWriteQ=q=>/^(write|type|mwrite)$/.test(q.set.type)||/^\s*(read\s*(and|then)\s*write|اقرأ\s*ثم\s*اكتب|نقرأ\s*ثم\s*نكتب|أقرأ\s*ثم\s*أكتب)/i.test(String(q.set.task||''));
+const qWriteQ=q=>{ const k=String(q.set.task||''); return /^(write|type|mwrite)$/.test(q.set.type)||(/write|اكتب|أكتب|نكتب|نكتب/i.test(k)&&!/^\s*listen/i.test(k)); };   // "Listen and write" keeps its autoplay: the sound is the question
 const qHdrOnly=q=>q.askTask||(q.set.type==='choice'&&!q.askAudio&&!q.ask);   // that speaker only re-reads the header, which a new exercise just read
 function qSay(){ const q=qz.list[qz.i]; if(!q) return; vStop(); const w=$('.qword'); w.classList.add('lit');
   if(q.sayFn&&!q.solved) return q.sayFn();   // English AL: the question read with a pause where the blank is
@@ -2655,6 +2656,10 @@ function qSay(){ const q=qz.list[qz.i]; if(!q) return; vStop(); const w=$('.qwor
   if(q.ask&&!q.solved) return tts(q.ask,'en',.75).then(done,done);   // "q.ask": the question read without its answer (the full sentence is said once it is solved)
   return (q.audio?playFile(q.audio).catch(()=>tts(q.word,isAr()?'ar':'en',.75)):tts(q.word,isAr()?'ar':'en',.75)).then(done,done); }
 // read the exercise instruction aloud (its line lights up while it plays)
+/* the keyboard-writing question with its words in brackets ("... ثم أكتبها: ( أمي - أبي )"): the words stand in their own fixed block ABOVE the question, the question line itself stays short (Ahmed 2026-11-16).
+   Its recording: "taskAudioShort" (the question without the bracket words) when the lesson has it, else the old "taskAudio". */
+function qBank(s){ const t=String(s.task||''), m=['write','type'].includes(s.type)&&t.match(/\s*[:：]?\s*[\(（]([^()（）]+)[\)）]\s*$/);
+  if(!m) return {task:t,words:[]}; const words=m[1].split(/\s+[-–—]\s+/).map(x=>x.trim()).filter(Boolean); return words.length>1?{task:t.slice(0,m.index).trim(),words}:{task:t,words:[]}; }
 function qTask(){ const q=qz.list[qz.i]; if(!q) return Promise.resolve(); vStop(); const t=$('.qtask'); if(t) t.classList.add('lit');
   const done=()=>{ const x=$('.qtask'); if(x) x.classList.remove('lit'); };
   const ts=q.set.taskSrc, fb=()=>tts(q.set.task,isAr()?'ar':'en',.85);
@@ -2816,6 +2821,41 @@ function qPicFit(im,tall){ if(!tall) return; const wide=im.src, d={}, t=new Imag
     if(im.src!==want) im.src=want; };
   im.addEventListener('load',pick); t.onload=pick; t.src=tall; addEventListener('resize',pick); }
 ;
+/* ===== js/puzzle.js ===== */
+/* PUZZLE BOARD — the ONE merge-the-pieces engine (Easy Study's puzzle question and Easy Words' practice puzzle both use it; only the data and the hooks differ).
+   A word frame with faint empty pieces on top, the loose pieces lie scattered below. The child drags each piece to ITS place (it snaps; a wrong place goes back),
+   tapping a piece says it. When all are placed the pieces disappear, the whole word shows in the frame (written joined) and is said as ONE clip.
+   puzzleBoard(box, o): o = {pieces:[text, FIRST piece = the first read], word, rtl (default true: first piece rightmost), say(i) -> promise (a piece's sound),
+   whole() -> promise (the whole word's sound), alive() -> false when the question is gone, done() (everything finished, e.g. the star)} */
+const PZ_COL=[['#8CCB3C','#5E9A1E'],['#F27CA8','#C4467A']];
+function puzzlePieceSvg(i,n,ghost,rtl){ const c=PZ_COL[i%2], knob=i<n-1, sock=i>0;   // the knob goes toward the NEXT piece, the socket takes the previous piece's knob; a left-to-right word mirrors the shape
+  const d='M0,0 H100 V'+(sock?'35 a15,15 0 0,0 0,30 V':'')+'100 H0 V'+(knob?'65 a15,15 0 1,1 0,-30 V':'')+'0 Z';
+  return `<svg viewBox="0 0 100 100" style="overflow:visible${rtl?'':';transform:scaleX(-1)'}" aria-hidden="true"><path d="${d}" fill="${ghost?'rgba(255,255,255,.16)':c[0]}" stroke="${ghost?'rgba(255,255,255,.7)':c[1]}" stroke-width="${ghost?3:4}" ${ghost?'stroke-dasharray="7 6"':''} stroke-linejoin="round"/></svg>`; }
+function puzzleBoard(box,o){
+  const rtl=o.rtl!==false, n=o.pieces.length, bd=el('div','qxpb'), slot=el('div','qxpslot'); bd.dataset.noswipe=1; bd.dir=rtl?'rtl':'ltr'; bd.style.direction='ltr'; box.append(bd); bd.append(slot);
+  const ghosts=o.pieces.map((t,i)=>{ const g=el('div','qxpg',puzzlePieceSvg(i,n,1,rtl)); slot.append(g); return g; });
+  const wordEl=el('b','qxpword',o.word); wordEl.style.direction=rtl?'rtl':'ltr'; slot.append(wordEl);
+  const P=o.pieces.map((t,i)=>{ const e=el('div','qxpp'+(rtl?'':' ltr'),puzzlePieceSvg(i,n,0,rtl)+`<b>${t}</b>`); e.style.setProperty('--fs',Math.min(.5,1.6/Math.max(1,t.replace(/[\u064B-\u065F\u0670]/g,'').length)).toFixed(3)); bd.append(e); return {e,i,x:0,y:0,tx:0,ty:0,in:false}; });
+  let pw=0,done=false; const put=p=>{ p.e.style.transform=`translate(${p.x}px,${p.y}px)`; };
+  const layout=()=>{ const W=bd.clientWidth,H=bd.clientHeight; if(!W||!H||done) return; pw=Math.max(40,Math.min(W/(n+.5),H*.38,170)); bd.style.setProperty('--pw',pw+'px');
+    const sw=n*pw, sh=pw, sl=(W-sw)/2, st=H*.03; Object.assign(slot.style,{left:sl+'px',top:st+'px',width:sw+'px',height:sh+'px'});
+    P.forEach(p=>{ p.tx=sl+(rtl?n-1-p.i:p.i)*pw; p.ty=st; const g=ghosts[p.i]; g.style.cssText=`left:${p.tx-sl}px;top:${p.ty-st}px;width:${pw}px;height:${pw}px`; });
+    const order=P.map((_,i)=>i).sort((a,b)=>((a*7+3)%5)-((b*7+3)%5)); if(n>1&&order.every((v,i)=>v===i)) order.reverse();
+    const y0=st+sh+pw*.35, y1=Math.max(y0,H-pw*1.1);
+    P.forEach(p=>{ const k=order.indexOf(p.i); if(p.in){ p.x=p.tx; p.y=p.ty; } else { p.x=(W-pw*1.2)*(n>1?k/(n-1):.5)+pw*.1; p.y=y0+(y1-y0)*(k%2?.9:.15); } put(p); }); };
+  const say=i=>o.say?o.say(i):Promise.resolve();
+  async function finish(last){ if(done) return; done=true; try{ await Promise.race([Promise.resolve(last),new Promise(r=>setTimeout(r,2500))]); }catch(e){}   // the last piece's sound ends first, then the WHOLE word is said as one clip
+    if(!o.alive()) return; P.forEach(p=>p.e.classList.add('gone')); slot.classList.add('got'); await new Promise(r=>setTimeout(r,400)); if(!o.alive()) return; try{ await (o.whole&&o.whole()); }catch(e){} if(!o.alive()) return; if(o.done) o.done(); }
+  P.forEach(p=>{ let sx,sy,x0,y0,moved=false,on=false;
+    p.e.addEventListener('pointerdown',ev=>{ if(done) return; ev.preventDefault(); ev.stopPropagation(); p.e.setPointerCapture(ev.pointerId); sx=ev.clientX; sy=ev.clientY; x0=p.x; y0=p.y; moved=false; on=!p.in; if(on) p.e.classList.add('drag'); });
+    p.e.addEventListener('pointermove',ev=>{ if(!on) return; const dx=ev.clientX-sx,dy=ev.clientY-sy; if(!moved&&Math.hypot(dx,dy)<6) return; moved=true; p.x=Math.min(Math.max(0,x0+dx),bd.clientWidth-pw); p.y=Math.min(Math.max(0,y0+dy),bd.clientHeight-pw); put(p); });
+    const up=ev=>{ ev.stopPropagation(); p.e.classList.remove('drag'); if(!moved){ if(!done) say(p.i); on=false; return; } if(!on) return; on=false;
+      if(Math.hypot(p.x-p.tx,p.y-p.ty)<pw*.85){ p.in=true; p.x=p.tx; p.y=p.ty; p.e.classList.add('in'); put(p); const sp=say(p.i); if(P.every(z=>z.in)) finish(sp); } else if(o.wrong) o.wrong(p.e); };
+    p.e.addEventListener('pointerup',up); p.e.addEventListener('pointercancel',up); });
+  box._after=()=>layout(); requestAnimationFrame(layout); new ResizeObserver(layout).observe(bd);
+  return {board:bd,slot,pieces:P};
+}
+;
 /* ===== js/words-data.js ===== */
 /* EASY WORDS — data. The words app owns NO words: a word, its picture, syllables and sounds come BY REFERENCE from the curriculum app's own files
    (data/<subject>/subject.json = units and lessons, lesson.json "vocab" = the words), so one change there shows in both apps.
@@ -2860,11 +2900,15 @@ const EW_LETTERS={'الباء':'ب','اللام':'ل','السين':'س','الن�
 function ewLetterName(t){ const m=/^حرف\s+(\S+)$/.exec((t||'').trim()); return m?'حرف '+(EW_LETTERS[m[1]]||m[1]):t; }
 function ewUnits(s){
   const by={}; (s.lessons||[]).forEach(l=>{ if(l.tabs&&!l.tabs.includes('words')) return; if(/^(test|تقييم|اختبار)/i.test(l.title||l.planned||'')) return; (by[l.unit]=by[l.unit]||[]).push(l); });
+  // display filter only (no lesson data is touched): a lesson with no word for this child is not shown, and a unit left empty goes with it
+  Object.keys(by).forEach(u=>{ by[u]=by[u].filter(l=>{ if(!l.file||!ewOpen(l.id)) return false; const L=EW.les[l.id]; return !(L&&!L.vocab.length); }); });
   return Object.keys(by).map(u=>{ const un=(s.units||[]).find(x=>x.unit==u)||{};
     return { unit:+u, name:s.id==='arabic'?`الوحدة ${ewN(u)}${un.title?' · '+un.title:''}`:`Unit ${u}`, lessons:by[u].map((l,i)=>{ const built=!!l.file&&ewOpen(l.id), st=built?coinAccess(l,true,'l:'+l.id,i,'lesson').st:'soon';   // open | locked | soon: the dashboard's state, a paid term, credits and the free trial (js/coins.js)
       return {...l,name:(s.id==='arabic'?ewLetterName(l.title||l.planned||''):(l.title||l.planned||'')),built,st,open:st==='open',locked:st==='locked'}; }) }; })
     .filter(u=>u.lessons.length&&(s.id!=='arabic'||u.unit<=4));   // Arabic: no النحو (unit 5) and no final assessments here, they have no words (Ahmed 2026-11-16)
 }
+// load every built lesson of the subject (open or locked) so the lists know which ones have words
+async function ewPreload(s){ await Promise.all((s.lessons||[]).filter(l=>l.file&&ewOpen(l.id)&&!(l.tabs&&!l.tabs.includes('words'))).map(l=>ewLesson(l.id).catch(()=>null))); }
 const ewOpen=id=>!!(EW.cfg&&!(EW.cfg.skip||[]).includes(id)&&(EW.cfg.all||(EW.cfg.open||[]).includes(id)));
 const ewSubjOf=id=>COURSE.subjects.find(s=>id.startsWith(s.id+'-'));
 // one open lesson with its words (loaded once; paths already resolved by the curriculum app's own fixPaths)
@@ -2954,7 +2998,7 @@ const EW_LOCK='<svg class="ewlock" viewBox="0 0 24 24" aria-hidden="true"><rect 
 async function openMap(){
   const s=EW.cur; if(!s||!EW_SUBJ[s.id]) return openSubjects();
   SUBJECT=s; busy(true);
-  try{ for(const u of ewUnits(s)) for(const l of u.lessons) if(l.open) await ewLesson(l.id); }catch(e){}
+  try{ await ewPreload(s); }catch(e){}
   busy(false); show('map'); ewDrawMap(s);
 }
 function ewDrawMap(s){
@@ -3034,16 +3078,21 @@ $('#lvlMap').textContent='الدروس'; $('#lvlAgain').textContent='تاني';
    are different on every round. Template list (Ahmed 2026-11-13): missing letter(s) · put the letters in order · picture, write the whole word · link words to pictures.
    Words are shown with the curriculum app's ONE word component (wsFill, js/wordslots.js); the picture/head/dots parts reuse the curriculum app's question layout (.quiz). */
 const ep={ run:0, qs:[], i:0, bad:0, pool:[], n:5, types:[], src:'lesson', busy:false, held:null };
-const EP_TASK={ ar:{ missing:'اكتب الحرف الناقص', missing2:'اكتب الحروف الناقصة', order:'رتّب الحروف علشان تكوّن الكلمة', picture:'اكتب اسم الصورة', match:'وصّل كل كلمة بصورتها' },
-  en:{ missing:'Write the missing letter', missing2:'Write the missing letters', order:'Put the letters in order to make the word', picture:'Write the name of the picture', match:'Match each word with its picture' } };
+const EP_TASK={ ar:{ puzzle:'ركّب الكلمة', missing:'اكتب الحرف الناقص', missing2:'اكتب الحروف الناقصة', order:'رتّب الحروف علشان تكوّن الكلمة', picture:'اكتب اسم الصورة', match:'وصّل كل كلمة بصورتها' },
+  en:{ puzzle:'Put the pieces together to make the word', missing:'Write the missing letter', missing2:'Write the missing letters', order:'Put the letters in order to make the word', picture:'Write the name of the picture', match:'Match each word with its picture' } };
 const epShuffle=a=>{ const b=a.slice(); for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; };
 const epGl=w=>glyphs(String(w)), epIdx=w=>epGl(w).map((g,i)=>g===' '?-1:i).filter(i=>i>=0);   // glyph numbers that are letters (not spaces)
 const epWait=(ms,run)=>new Promise((ok,no)=>setTimeout(()=>run===ep.run?ok():no('stop'),ms));
 const epSay=v=>Promise.race([sayWord(v).catch(()=>0),new Promise(r=>setTimeout(r,2600))]);
+// puzzle: a word with 2 or more syllables (its book "parts") becomes TWO pieces: 2 parts = one each, 3 = 2+1, 4 = 2+2 ...; a piece is said as its parts one after the other
+function epPuz(v){ const P=(v.parts||[]).filter(x=>x&&x.t); if(P.length<2) return null; const k=Math.ceil(P.length/2), g=[P.slice(0,k),P.slice(k)];
+  if(!g.every(a=>a.length&&a.every(x=>x.audio))) return null;
+  return g.map(a=>({t:a.map(x=>x.t).join(''),audio:a.map(x=>x.audio)})); }
 const EP_CAN={
   missing:(v)=>epIdx(v.word).length>=3,
   order:(v)=>epIdx(v.word).length>=3,
   picture:(v)=>!!v.img,
+  puzzle:(v)=>!!v.img&&epPuz(v)!==null,
   match:(v,pool)=>!!v.img&&pool.filter(x=>x.img).length>=3
 };
 // the round is made of GROUPS, one per question template (like the exercise groups of the curriculum app); each group has `per` questions, the words at random,
@@ -3089,7 +3138,7 @@ function epShow(){
   const q=ep.qs[ep.i], st=$('#stage'); stopVoice(); const run=ep.run; ep.busy=false; hideHint();   // (stopVoice makes a new run number: the question before can no longer act)
   const s=ewSubjOf(q.v.lid||'')||SUBJECT; if(s&&SUBJECT!==s){ SUBJECT=s; subjDir(); }
   st.innerHTML=''; const w=el('div','quiz ep'), say=typeof SAY_LN==='string'?SAY_LN:ICON.sound, task=q.t==='missing'&&q.hide.length>1?'missing2':q.t, lg=EW_SUBJ[(ewSubjOf(q.v.lid||'')||{}).id]?.lang==='ar'?'ar':'en';
-  w.dataset.type=q.t==='match'?'link':'type'; w.dataset.ep=q.t; w.lang=EW_SUBJ[(ewSubjOf(q.v.lid||'')||{}).id]?.lang==='ar'?'ar':'en';
+  w.dataset.type=q.t==='match'?'link':q.t==='puzzle'?'puzzle':'type'; w.dataset.ep=q.t; w.lang=EW_SUBJ[(ewSubjOf(q.v.lid||'')||{}).id]?.lang==='ar'?'ar':'en';
   w.innerHTML=`<div class="qhead"><span class="qtask">${EP_TASK[lg][task]}</span></div><div class="qdots"></div>
     <div class="qword" dir="ltr"><b></b><button class="qsay" aria-label="اسمع">${say}</button></div><div class="qplay"></div><div class="qans"></div>`;
   st.append(w); const dots=$('.qdots',w); dots.style.setProperty('--n',epGrp().n); dots.innerHTML=epDots();
@@ -3099,7 +3148,7 @@ function epShow(){
   // the header is read once when a new group (exercise) starts, and again when it is tapped (same as the curriculum app's qTask)
   const tk=$('.qtask',w), say_task=()=>{ tk.classList.add('lit'); const dn=()=>tk.classList.remove('lit'); return tts(EP_TASK[lg][task],lg,.85).then(dn,dn); };
   ep.taskP=ep.lastG!==q.g?say_task():Promise.resolve(); ep.lastG=q.g; tk.addEventListener('click',()=>{ if(!ep.busy) say_task(); });
-  ({missing:epMissing,order:epOrder,picture:epPicture,match:epMatch})[q.t](q,w,run); lnavPaint();
+  ({missing:epMissing,order:epOrder,picture:epPicture,match:epMatch,puzzle:epPuzzle})[q.t](q,w,run); lnavPaint();
   if(anim) G.fromTo(w,{opacity:0,y:14},{opacity:1,y:0,duration:.25});
 }
 // the right answer: celebrate, say the word, record it for the report, next question
@@ -3108,8 +3157,8 @@ async function epRight(q,w,run,wordsOk){
   const bad=q.t==='match'?(wordsOk.some(x=>!x.ok)):q.bad; if(bad) ep.bad++;
   if(q.t==='match') wordsOk.forEach(x=>ewRec(x.v,x.ok)); else ewRec(q.v,!q.bad);
   q.done=1; const d=$(`.qdots i[data-i="${ep.i}"]`,w); if(d){ d.innerHTML=STAR(true); d.classList.add('got'); if(anim) G.fromTo(d,{scale:1.8},{scale:1,duration:.6,ease:'elastic.out(1.2,.4)'}); }
-  celebrate(q.t==='match'?$('.epm',w):($('.qword b',w)||w));
-  try{ const ip=$('#qin'); if(ip) ip.blur(); if(q.t!=='match') await epSay(q.v); await epWait(900,run); }catch(e){ return; }
+  celebrate(q.t==='match'?$('.epm',w):q.t==='puzzle'?($('.qxpword',w)||w):($('.qword b',w)||w));
+  try{ const ip=$('#qin'); if(ip) ip.blur(); if(q.t!=='match'&&q.t!=='puzzle') await epSay(q.v); await epWait(900,run); }catch(e){ return; }
   if(run!==ep.run) return;
   if(ep.i<ep.qs.length-1){ ep.i++; epShow(); } else epFinish();
 }
@@ -3154,6 +3203,13 @@ function epOrder(q,w,run){
       else { tone(170,'square',.06,.18); q.bad=1; b.classList.remove('shake'); void b.offsetWidth; b.classList.add('shake'); setTimeout(()=>b.classList.remove('shake'),450); } });
     ans.append(b); });
   epHelpBtn(()=>{ const want=gl[ix[k]]; const hit=$$('.eptile:not(.used)',ans).find(b=>{ const g=gl[+b.dataset.i]; return ar?sameLetter(g,want):g.toLowerCase()===want.toLowerCase(); }); if(hit){ hit.classList.add('glow'); setTimeout(()=>hit.classList.remove('glow'),tokMs('--help-pick-ms',2000)); } });
+}
+// 5) puzzle: the picture on top, an empty two-piece frame, two pieces to drag in (the curriculum app's own merge puzzle board, js/puzzle.js); the whole word is said as ONE clip when it is complete
+function epPuzzle(q,w,run){
+  const ar=!!(SUBJECT&&SUBJECT.rtl), pz=epPuz(q.v), qp=$('.qplay',w); $('.qword',w).hidden=true; epPic(q,w);
+  const seq=async fs=>{ const vr=vs.run; for(const f of fs){ if(vr!==vs.run||run!==ep.run) return; await playFile(f); } };
+  const b=puzzleBoard(qp,{pieces:pz.map(x=>x.t),word:q.v.word,rtl:ar,say:i=>{ vStop(); return seq(pz[i].audio); },whole:()=>epSay(q.v),alive:()=>run===ep.run&&tab==='practice',done:()=>epRight(q,w,run)});
+  epHelpBtn(()=>{ const p=b.pieces.find(x=>!x.in); if(!p) return; p.e.classList.add('glow'); setTimeout(()=>p.e.classList.remove('glow'),tokMs('--help-pick-ms',2000)); });
 }
 // 4) link every word to its picture: the curriculum app's own link board (classes, line drawing, layout), drag a line or tap the word then the picture
 function epMatch(q,w,run){
@@ -3208,11 +3264,11 @@ function epGo(i){ if(ep.busy||i<0||i>=ep.qs.length||i===ep.i) return; blip(600);
 /* EASY WORDS — the test builder (the ? button on a subject). The parent marks whole units, single lessons, single words, or any mix; chooses how many questions
    and which kinds; the questions then run one by one in the practice tab's own templates (not one test page). Units / lessons / words are collapsed:
    a tap opens one, the next tap closes it (the map itself keeps everything open). */
-const et={ sel:new Set(), n:10, types:new Set(['missing','order','picture','match']), open:new Set() };
-const ET_TYPES=[['missing','حرف ناقص'],['order','ترتيب الحروف'],['picture','إملاء الكلمة'],['match','توصيل']];
+const et={ sel:new Set(), n:10, types:new Set(['missing','order','picture','match','puzzle']), open:new Set() };
+const ET_TYPES=[['missing','حرف ناقص'],['order','ترتيب الحروف'],['picture','إملاء الكلمة'],['match','توصيل'],['puzzle','تركيب الكلمة']];
 async function ewTestOpen(mode){
   const s=EW.cur; if(!s) return;
-  busy(true); try{ for(const u of ewUnits(s)) for(const l of u.lessons) if(l.open) await ewLesson(l.id); }catch(e){} busy(false);
+  busy(true); try{ await ewPreload(s); }catch(e){} busy(false);
   et.mode=mode==='learn'?'learn':'test'; et.sel=new Set(); et.open=new Set(); show('ewTest'); ewtDraw(s);
 }
 function ewtDraw(s){

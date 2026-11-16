@@ -1,5 +1,5 @@
 /* ---------- English AL: Lesson (book parts) and Booklet tabs, Grammar tab (js/quiz-al.js) ---------- */
-.quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"],[data-type="mwrite"]) :is(.qword,.qans){display:none}
+.quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"],[data-type="mwrite"],[data-type="check"]) :is(.qword,.qans){display:none}
 .quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"],[data-type="mwrite"]){grid-template-rows:auto auto minmax(0,1fr);grid-template-areas:"head" "dots" "play"}
 .qx-explain,.qx-mcq,.qx-cloze,.qx-order,.qx-mwrite{font-family:var(--f-read);align-items:stretch;justify-content:stretch;gap:0}
 .alw{cursor:pointer;border-radius:.3em;padding:0 .04em;transition:background .15s}
@@ -217,3 +217,8 @@
 .almgo{width:2.4rem;height:2.4rem;border-radius:50%;border:.14rem solid #5A3418;background:#7ED957;font:700 1.3rem var(--f-ui);color:#2a5a10}
 .almdrag{background:#fff;color:#3a2410;border-radius:.6rem;padding:.2rem .6rem;font:700 1.6rem var(--f-read)}
 .almistake .almw{touch-action:none}
+/* a long tick list (8 sentences on a phone) scrolls inside its box instead of running over the heading and the bottom bar */
+.alcheck{overflow-y:auto;min-height:0;justify-content:flex-start;scrollbar-width:none}
+.alcheck::-webkit-scrollbar{display:none}
+.alcheck>:first-child{margin-top:auto}
+.alcheck>:last-child{margin-bottom:auto}

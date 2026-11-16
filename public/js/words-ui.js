@@ -54,7 +54,7 @@ const EW_LOCK='<svg class="ewlock" viewBox="0 0 24 24" aria-hidden="true"><rect 
 async function openMap(){
   const s=EW.cur; if(!s||!EW_SUBJ[s.id]) return openSubjects();
   SUBJECT=s; busy(true);
-  try{ for(const u of ewUnits(s)) for(const l of u.lessons) if(l.open) await ewLesson(l.id); }catch(e){}
+  try{ await ewPreload(s); }catch(e){}
   busy(false); show('map'); ewDrawMap(s);
 }
 function ewDrawMap(s){
