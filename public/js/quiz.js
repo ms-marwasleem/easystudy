@@ -169,7 +169,7 @@ QM.type={sheet:'word', word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q));
   peek(q,w){ const g=$('.qword .qgap:not(.got)',w); if(!g) return; const gi=g.dataset.i!=null&&q.gaps?+g.dataset.i:null, ch=gi!=null?q.word[gi]:q.answer; if(!ch) return;
     wsPeek(g); qFocus(); }};
 QM.yesno={sheet:'word', draw(play,ans,q){ play.append(qOnePic(q));
-    const fc=q.faces?'<img src="data/pics/ar-smiley.png" alt="">':'', sd=q.faces?'<img src="data/pics/ar-sad-face.png" alt="">':'';   // faces:true = a happy and a sad face in place of the tick and the cross (Arabic u2l1 ex 2, Marwa 2026-11-06)
+    const fc=q.faces?'<img src="data/pics/smiley.png" alt="">':'', sd=q.faces?'<img src="data/pics/sad-face.png" alt="">':'';   // faces:true = a happy and a sad face in place of the tick and the cross (Arabic u2l1 ex 2, Marwa 2026-11-06)
     [[true,'yes',q.faces?fc:Q_TICK,'It matches'],[false,'no',q.faces?sd:Q_CROSS,'It does not match']].forEach(([v,c,ic,l])=>{
       const b=el('button','rb qbtn '+c+(q.faces?' qface':''),ic); b.setAttribute('aria-label',l); b.addEventListener('click',()=>qAnswer(b,v===q.answer,v)); ans.append(b); }); },
   help:(q,w)=>[$(q.answer?'.qans .qbtn.yes':'.qans .qbtn.no',w)].filter(Boolean)};

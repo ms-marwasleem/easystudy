@@ -75,7 +75,7 @@
     {
      "word": "يَد",
      "audio": "words/yad.mp3",
-     "pic": "../../pics/ar-hand.jpg",
+     "pic": "../../pics/hand.png",
      "answer": true,
      "pos": [
       86,
@@ -89,7 +89,7 @@
     {
      "word": "عَيْن",
      "audio": "words/ayn.mp3",
-     "pic": "../../pics/ar-eye.png",
+     "pic": "../../pics/eye-u4l1.png",
      "answer": true,
      "pos": [
       76,
@@ -103,7 +103,7 @@
     {
      "word": "يَمَامَة",
      "audio": "words/yamama.mp3",
-     "pic": "../../pics/ar-dove.jpg",
+     "pic": "../../pics/dove.png",
      "answer": true,
      "pos": [
       24,
@@ -143,15 +143,15 @@
     {
      "word": "يُ",
      "pics": [
-      "../../pics/ar-tangerine.jpg",
-      "../../pics/ar-swords.png"
+      "../../pics/tangerine.png",
+      "../../pics/swords.png"
      ],
      "answer": 0
     },
     {
      "word": "يِ",
      "pics": [
-      "../../pics/ar-cat.png",
+      "../../pics/cat.png",
       "../../pics/coin-yen.png"
      ],
      "answer": 1
@@ -160,15 +160,15 @@
      "word": "يَ",
      "pics": [
       "../../pics/house-u3l4.png",
-      "../../pics/ar-hand.jpg"
+      "../../pics/hand.png"
      ],
      "answer": 1
     },
     {
      "word": "يْ",
      "pics": [
-      "../../pics/ar-eye.png",
-      "../../pics/ar-tangerine.jpg"
+      "../../pics/eye-u4l1.png",
+      "../../pics/tangerine.png"
      ],
      "answer": 0
     }
@@ -203,7 +203,7 @@
     {
      "word": "يُوسُفِي",
      "audio": "words/yusufi.mp3",
-     "pic": "../../pics/ar-tangerine.jpg",
+     "pic": "../../pics/tangerine.png",
      "answer": "يُ",
      "choices": [
       "يَ",
@@ -225,7 +225,7 @@
     {
      "word": "يَد",
      "audio": "words/yad.mp3",
-     "pic": "../../pics/ar-hand.jpg",
+     "pic": "../../pics/hand.png",
      "answer": "يَ",
      "choices": [
       "يَ",
@@ -271,7 +271,7 @@
    "items": [
     {
      "word": "يَد",
-     "pic": "../../pics/ar-hand.jpg",
+     "pic": "../../pics/hand.png",
      "audio": "words/yad.mp3"
     }
    ]
@@ -288,8 +288,8 @@
      "word": "أُمْسِكُ يَدَ أُمِّي.",
      "audio": "q/s11.mp3",
      "pics": [
-      "../../pics/ar-hold-hand-mother.jpg",
-      "../../pics/ar-hold-hand-father.jpg"
+      "../../pics/hold-hand-mother.jpg",
+      "../../pics/hold-hand-father.jpg"
      ],
      "answer": 0
     }
@@ -304,7 +304,7 @@
    "hint": "اسمع القصة، وصفّق لما تسمع كلمة فيها ياء",
    "items": [
     {
-     "scene": "../../pics/ar-story-u3l3-cut.png",
+     "scene": "../../pics/story-u3l3-cut.png",
      "text": "تُحِبُّ يَاسِمِينُ الرَّسْمَ. فِي صَبَاحِ يَوْمٍ مِنَ الْأَيَّامِ، أَمْسَكَتِ الْفُرْشَاةَ بِيَدِهَا الصَّغِيرَةِ وَبَدَأَتْ تَرْسُمُ عَيْنًا جَمِيلَةً، جَاءَ أَخُوهَا يَاسِينُ يَحْمِلُ بَعْضَ الْيُوسُفِي، وَأَعْطَاهَا وَاحِدَةً، وَنَظَرَ إِلَى اللَّوْحَةِ، وَقَالَ: «رَسْمُكِ رَائِعٌ!». ابْتَسَمَتْ يَاسِمِينُ، وَقَالَتْ: «شُكْرًا».",
      "audio": "q/story.mp3",
      "ask": "مَاذَا رَسَمَتْ يَاسِمِينُ؟ وَمَاذَا كَانَ يَحْمِلُ أَخُوهَا؟",
@@ -508,12 +508,12 @@
    "items": [
     {
      "word": "eye",
-     "pic": "../../pics/ar-eye.png",
+     "pic": "../../pics/eye-u4l1.png",
      "answer": true
     },
     {
      "word": "strawberry",
-     "pic": "../../pics/ar-strawberry.png",
+     "pic": "../../pics/strawberry-u4l3.png",
      "answer": false
     },
     {
@@ -523,17 +523,17 @@
     },
     {
      "word": "swords",
-     "pic": "../../pics/ar-swords.png",
+     "pic": "../../pics/swords.png",
      "answer": true
     },
     {
      "word": "lion",
-     "pic": "../../pics/ar-lion.png",
+     "pic": "../../pics/lion.png",
      "answer": false
     },
     {
      "word": "pumpkin",
-     "pic": "../../pics/ar-pumpkin.png",
+     "pic": "../../pics/pumpkin.png",
      "answer": true
     },
     {
@@ -543,12 +543,12 @@
     },
     {
      "word": "tangerine",
-     "pic": "../../pics/ar-tangerine.jpg",
+     "pic": "../../pics/tangerine.png",
      "answer": true
     },
     {
      "word": "hand",
-     "pic": "../../pics/ar-hand.jpg",
+     "pic": "../../pics/hand.png",
      "answer": true
     },
     {
@@ -570,31 +570,31 @@
    "items": [
     {
      "word": "عَيْن",
-     "pic": "../../pics/ar-eye.png",
+     "pic": "../../pics/eye-u4l1.png",
      "audio": "words/ayn.mp3",
      "at": 1
     },
     {
      "word": "ذَيْل",
-     "pic": "../../pics/ar-tail.png",
+     "pic": "../../pics/tail.png",
      "audio": "words/dhayl.mp3",
      "at": 1
     },
     {
      "word": "يَد",
-     "pic": "../../pics/ar-hand.jpg",
+     "pic": "../../pics/hand.png",
      "audio": "words/yad.mp3",
      "at": 0
     },
     {
      "word": "يُوسُفِي",
-     "pic": "../../pics/ar-tangerine.jpg",
+     "pic": "../../pics/tangerine.png",
      "audio": "words/yusufi.mp3",
      "at": 0
     },
     {
      "word": "يَمَامَة",
-     "pic": "../../pics/ar-dove.jpg",
+     "pic": "../../pics/dove.png",
      "audio": "words/yamama.mp3",
      "at": 0
     },
@@ -618,12 +618,12 @@
     {
      "word": "يَ",
      "audio": "words/yamama.mp3",
-     "pic": "../../pics/ar-dove.jpg"
+     "pic": "../../pics/dove.png"
     },
     {
      "word": "يُ",
      "audio": "words/yusufi.mp3",
-     "pic": "../../pics/ar-tangerine.jpg"
+     "pic": "../../pics/tangerine.png"
     },
     {
      "word": "يِ",
@@ -633,7 +633,7 @@
     {
      "word": "يْ",
      "audio": "words/dhayl.mp3",
-     "pic": "../../pics/ar-tail.png"
+     "pic": "../../pics/tail.png"
     }
    ]
   },
@@ -661,7 +661,7 @@
     {
      "word": "خَيْمَة",
      "audio": "words/khayma.mp3",
-     "pic": "../../pics/ar-tent.png",
+     "pic": "../../pics/tent.png",
      "answer": "يْ",
      "at": 1
     },
@@ -674,7 +674,7 @@
     {
      "word": "ذُيُول",
      "audio": "words/thuyul.mp3",
-     "pic": "../../pics/ar-tail.png",
+     "pic": "../../pics/tail.png",
      "answer": "يُ",
      "at": 1
     }
@@ -742,17 +742,17 @@
     },
     {
      "word": "خِيَار",
-     "pic": "../../pics/ar-cucumber.png",
+     "pic": "../../pics/cucumber.png",
      "audio": "../u1l9/words/khiyar.mp3"
     },
     {
      "word": "سَيْف",
-     "pic": "../../pics/ar-swords.png",
+     "pic": "../../pics/swords.png",
      "audio": "q/w-sayf.mp3"
     },
     {
      "word": "زَيْت",
-     "pic": "../../pics/ar-oil.png",
+     "pic": "../../pics/oil.png",
      "audio": "words/zayt.mp3"
     }
    ]
@@ -769,17 +769,17 @@
     {
      "word": "زَيْت",
      "audio": "words/zayt.mp3",
-     "pic": "../../pics/ar-oil.png"
+     "pic": "../../pics/oil.png"
     },
     {
      "word": "مَصَايِف",
      "audio": "words/masayif.mp3",
-     "pic": "../../pics/ar-beach.jpg"
+     "pic": "../../pics/beach.png"
     },
     {
      "word": "مَصَايِد",
      "audio": "words/masayid.mp3",
-     "pic": "../../pics/ar-traps.jpg"
+     "pic": "../../pics/traps.png"
     },
     {
      "word": "يَخْت",
@@ -799,22 +799,22 @@
    "items": [
     {
      "word": "شَيْخ",
-     "pic": "../../pics/ar-sheikh.jpg",
+     "pic": "../../pics/sheikh.png",
      "audio": "words/shaykh.mp3"
     },
     {
      "word": "سُيُوف",
-     "pic": "../../pics/ar-swords.png",
+     "pic": "../../pics/swords.png",
      "audio": "words/suyuf.mp3"
     },
     {
      "word": "يَمَامَة",
-     "pic": "../../pics/ar-dove.jpg",
+     "pic": "../../pics/dove.png",
      "audio": "words/yamama.mp3"
     },
     {
      "word": "ظَبْي",
-     "pic": "../../pics/ar-deer.png",
+     "pic": "../../pics/deer.png",
      "audio": "words/zabi.mp3"
     }
    ]

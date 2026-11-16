@@ -4,12 +4,14 @@
  "title": "Home and Furniture",
  "sceneAlt": "Home",
  "tabs": [
+  "read",
   "words",
   "booklet",
-  "grammar"
+  "grammar",
+  "quiz"
  ],
  "type": "al",
- "scene": "img/scene.jpg",
+ "scene": "../../pics/al-u4l1-scene.jpg",
  "hints": {
   "read": "Tap Read and listen!",
   "word": "Tap a word to hear it again.",
@@ -22,7 +24,7 @@
   {
    "word": "armchair",
    "ar": "كرسي بذراعين",
-   "img": "../../pics/u4-armchair.png",
+   "img": "../../pics/armchair.png",
    "parts": [
     {
      "t": "ar",
@@ -53,7 +55,7 @@
   {
    "word": "closet",
    "ar": "خزانة ملابس",
-   "img": "../../pics/u4-closet.png",
+   "img": "../../pics/closet.png",
    "parts": [
     {
      "t": "c",
@@ -94,7 +96,7 @@
   {
    "word": "elevator",
    "ar": "مصعد",
-   "img": "../../pics/u4-elevator.png",
+   "img": "../../pics/elevator.png",
    "parts": [
     {
      "t": "e",
@@ -140,7 +142,7 @@
   {
    "word": "upstairs",
    "ar": "في الطابق العلوي",
-   "img": "../../pics/u4-upstairs.png",
+   "img": "../../pics/upstairs.png",
    "parts": [
     {
      "t": "u",
@@ -181,7 +183,7 @@
   {
    "word": "downstairs",
    "ar": "في الطابق السفلي",
-   "img": "../../pics/u4-downstairs.png",
+   "img": "../../pics/downstairs.png",
    "parts": [
     {
      "t": "d",
@@ -227,7 +229,7 @@
   {
    "word": "floor",
    "ar": "أرضية",
-   "img": "../../pics/u4-floor.png",
+   "img": "../../pics/floor.png",
    "parts": [
     {
      "t": "f",
@@ -253,7 +255,7 @@
   {
    "word": "garden",
    "ar": "حديقة",
-   "img": "../../pics/u4-garden.png",
+   "img": "../../pics/garden.png",
    "parts": [
     {
      "t": "g",
@@ -289,7 +291,7 @@
   {
    "word": "painting",
    "ar": "لوحة",
-   "img": "../../pics/u4-painting.png",
+   "img": "../../pics/painting.png",
    "parts": [
     {
      "t": "p",
@@ -330,7 +332,7 @@
   {
    "word": "room",
    "ar": "غرفة",
-   "img": "../../pics/u4-room.png",
+   "img": "../../pics/room.png",
    "parts": [
     {
      "t": "r",
@@ -356,7 +358,7 @@
   {
    "word": "stairs",
    "ar": "سلالم",
-   "img": "../../pics/u4-stairs.png",
+   "img": "../../pics/stairs.png",
    "parts": [
     {
      "t": "s",
@@ -383,33 +385,285 @@
     "word": "words/stairs.mp3",
     "ar": "../../ar-meanings/85129018e8.mp3"
    }
+  },
+  {
+   "word": "blue",
+   "ar": "أزرق",
+   "img": "../../pics/blue.png",
+   "parts": [
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "ue",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/blue.mp3"
+   }
+  },
+  {
+   "word": "scooter",
+   "ar": "سكوتر",
+   "img": "../../pics/scooter.jpg",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "oo",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/scooter.mp3"
+   }
+  },
+  {
+   "word": "glue",
+   "ar": "غراء",
+   "img": "../../pics/glue.png",
+   "parts": [
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "ue",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/glue.mp3"
+   }
+  },
+  {
+   "word": "do a craft",
+   "ar": "يعمل مشغولة يدوية",
+   "img": "../../pics/do-a-craft.jpg",
+   "parts": [
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "f",
+     "ph": "f",
+     "audio": "../../phonics/f.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/do a craft.mp3"
+   }
+  },
+  {
+   "word": "take photos",
+   "ar": "يلتقط صورًا",
+   "img": "../../pics/photos.png",
+   "parts": [
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "ai",
+     "audio": "../../phonics/ai.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3",
+     "spell": true
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "ph",
+     "ph": "f",
+     "audio": "../../phonics/f.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/take photos.mp3"
+   }
   }
  ],
  "lines": [],
  "end": 1,
  "grammar": [
   {
-   "title": "Is there and Are there",
-   "note": "We say Is there for one thing and Are there for many things. Answer: Yes, there is. / No, there isn't. Yes, there are. / No, there aren't.",
+   "title": "Listen and read",
+   "note": null,
    "rows": [
     [
      {
-      "t": "Is there a tree in the garden?",
-      "a": "data/en-shared/q/is-there-a-tree-in-the-garden.mp3"
-     },
-     {
-      "t": "Yes, there is. / No, there isn't.",
-      "a": "data/en-shared/q/yes-there-is-no-there-isn-t.mp3"
+      "t": "Look! This is my tree house!",
+      "a": "data/en-shared/q/look-this-is-my-tree-house.mp3"
      }
     ],
     [
      {
-      "t": "Are there bedrooms upstairs?",
-      "a": "data/en-shared/q/are-there-bedrooms-upstairs.mp3"
+      "t": "Wow! Is there an elevator?",
+      "a": "data/en-shared/q/wow-is-there-an-elevator.mp3"
+     }
+    ],
+    [
+     {
+      "t": "No, there isn't.",
+      "a": "data/en-shared/q/no-there-isn-t.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Are there stairs?",
+      "a": "data/en-shared/q/are-there-stairs.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Yes, there are. Look!",
+      "a": "data/en-shared/q/yes-there-are-look.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "text",
+    "pic": "data/pics/al-u4l1-g1.jpg",
+    "lines": [
+     {
+      "t": "Look! This is my tree house!",
+      "a": "data/en-shared/q/look-this-is-my-tree-house.mp3"
      },
      {
-      "t": "Yes, there are. / No, there aren't.",
-      "a": "data/en-shared/q/yes-there-are-no-there-aren-t.mp3"
+      "t": "Wow! Is there an elevator?",
+      "a": "data/en-shared/q/wow-is-there-an-elevator.mp3"
+     },
+     {
+      "t": "No, there isn't.",
+      "a": "data/en-shared/q/no-there-isn-t.mp3"
+     },
+     {
+      "t": "Are there stairs?",
+      "a": "data/en-shared/q/are-there-stairs.mp3"
+     },
+     {
+      "t": "Yes, there are. Look!",
+      "a": "data/en-shared/q/yes-there-are-look.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "There is  →  Is there?",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "There is an armchair.",
+      "a": "data/en-shared/q/there-is-an-armchair.mp3"
+     },
+     {
+      "t": "Is there an armchair?",
+      "a": "data/en-shared/q/is-there-an-armchair.mp3"
      }
     ]
    ],
@@ -417,8 +671,8 @@
     "kind": "morph",
     "steps": [
      {
-      "from": "There is a tree in the garden.",
-      "to": "Is there a tree in the garden?",
+      "from": "There is an armchair.",
+      "to": "Is there an armchair?",
       "map": [
        [
         1
@@ -431,30 +685,39 @@
        ],
        [
         3
-       ],
-       [
-        4
-       ],
-       [
-        5
-       ],
-       [
-        6
        ]
       ],
-      "hl": [
-       0,
-       1
-      ],
-      "ta": "data/en-shared/q/is-there-a-tree-in-the-garden.mp3",
       "ans": {
        "t": "Yes, there is. / No, there isn't.",
        "a": "data/en-shared/q/yes-there-is-no-there-isn-t.mp3"
-      }
+      },
+      "fa": "data/en-shared/q/there-is-an-armchair.mp3",
+      "ta": "data/en-shared/q/is-there-an-armchair.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "There are  →  Are there?",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "There are armchairs.",
+      "a": "data/en-shared/q/there-are-armchairs.mp3"
      },
      {
-      "from": "There are bedrooms upstairs.",
-      "to": "Are there bedrooms upstairs?",
+      "t": "Are there armchairs?",
+      "a": "data/en-shared/q/are-there-armchairs.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "morph",
+    "steps": [
+     {
+      "from": "There are armchairs.",
+      "to": "Are there armchairs?",
       "map": [
        [
         1
@@ -464,23 +727,20 @@
        ],
        [
         2
-       ],
-       [
-        3
        ]
       ],
-      "hl": [
-       0,
-       1
-      ],
-      "ta": "data/en-shared/q/are-there-bedrooms-upstairs.mp3",
       "ans": {
        "t": "Yes, there are. / No, there aren't.",
        "a": "data/en-shared/q/yes-there-are-no-there-aren-t.mp3"
-      }
+      },
+      "fa": "data/en-shared/q/there-are-armchairs.mp3",
+      "ta": "data/en-shared/q/are-there-armchairs.mp3"
      }
     ]
    }
   }
- ]
+ ],
+ "tabLabels": {
+  "quiz": "Book's Questions"
+ }
 }

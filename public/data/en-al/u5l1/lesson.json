@@ -4,12 +4,14 @@
  "title": "In My Town",
  "sceneAlt": "A town",
  "tabs": [
+  "read",
   "words",
   "booklet",
-  "grammar"
+  "grammar",
+  "quiz"
  ],
  "type": "al",
- "scene": "img/scene.jpg",
+ "scene": "../../pics/al-u5l1-scene.jpg",
  "hints": {
   "read": "Tap Read and listen!",
   "word": "Tap a word to hear it again.",
@@ -22,7 +24,7 @@
   {
    "word": "department store",
    "ar": "متجر متعدد الأقسام",
-   "img": "../../pics/u5-dept-store.jpg",
+   "img": "../../pics/department-store.jpg",
    "parts": [
     {
      "t": "d",
@@ -97,7 +99,7 @@
   {
    "word": "movie theater",
    "ar": "سينما",
-   "img": "../../pics/u5-movie-theater.jpg",
+   "img": "../../pics/movie-theater.jpg",
    "parts": [
     {
      "t": "m",
@@ -157,7 +159,7 @@
   {
    "word": "neighborhood",
    "ar": "حي",
-   "img": "../../pics/u5-neighborhood.jpg",
+   "img": "../../pics/neighborhood.jpg",
    "parts": [
     {
      "t": "n",
@@ -203,7 +205,7 @@
   {
    "word": "bus",
    "ar": "حافلة",
-   "img": "../../pics/u5-bus.jpg",
+   "img": "../../pics/bus-u5l1.png",
    "parts": [
     {
      "t": "b",
@@ -229,7 +231,7 @@
   {
    "word": "taxi",
    "ar": "سيارة أجرة",
-   "img": "../../pics/u5-taxi.jpg",
+   "img": "../../pics/taxi.jpg",
    "parts": [
     {
      "t": "t",
@@ -260,7 +262,7 @@
   {
    "word": "recreation center",
    "ar": "مركز ترفيهي",
-   "img": "../../pics/u5-recreation-center.jpg",
+   "img": "../../pics/recreation-center.jpg",
    "parts": [
     {
      "t": "r",
@@ -340,7 +342,7 @@
   {
    "word": "street",
    "ar": "شارع",
-   "img": "../../pics/u5-street.jpg",
+   "img": "../../pics/street.jpg",
    "parts": [
     {
      "t": "s",
@@ -376,7 +378,7 @@
   {
    "word": "supermarket",
    "ar": "سوبر ماركت",
-   "img": "../../pics/u5-supermarket.jpg",
+   "img": "../../pics/supermarket.jpg",
    "parts": [
     {
      "t": "s",
@@ -432,7 +434,7 @@
   {
    "word": "swimming pool",
    "ar": "حمام سباحة",
-   "img": "../../pics/u5-swimming-pool.jpg",
+   "img": "../../pics/swimming-pool.jpg",
    "parts": [
     {
      "t": "s",
@@ -492,7 +494,7 @@
   {
    "word": "toy store",
    "ar": "متجر ألعاب",
-   "img": "../../pics/u5-toy-store.jpg",
+   "img": "../../pics/toy-store.jpg",
    "parts": [
     {
      "t": "t",
@@ -528,56 +530,249 @@
     "word": "words/toy store.mp3",
     "ar": "../../ar-meanings/c87c0458d0.mp3"
    }
+  },
+  {
+   "word": "point",
+   "ar": "يشير",
+   "img": "../../pics/point.png",
+   "parts": [
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "oi",
+     "ph": "oi",
+     "audio": "../../phonics/oi.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/point.mp3"
+   }
+  },
+  {
+   "word": "address",
+   "ar": "عنوان",
+   "img": "../../pics/address.jpg",
+   "parts": [
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": "dd",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "ss",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/address.mp3"
+   }
+  },
+  {
+   "word": "number",
+   "ar": "رقم",
+   "img": "../../pics/numcard-7-u5l3.jpg",
+   "parts": [
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "u",
+     "ph": "u",
+     "audio": "../../phonics/u.mp3"
+    },
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/number.mp3"
+   }
   }
  ],
  "lines": [],
  "end": 1,
  "grammar": [
   {
-   "title": "Directions",
-   "note": "We use these words to say where to go.",
+   "title": "Listen and read",
+   "note": null,
    "rows": [
     [
      {
-      "t": "turn left",
+      "t": "Where's the department store?",
+      "a": "data/en-shared/q/where-s-the-department-store.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Go straight on First Street. Turn left on Second Street. It's on the right. It's next to the toy store.",
+      "a": "data/en-shared/q/go-straight-on-first-street-turn-left-on-second-st-5d5b82e1.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Thank you!",
+      "a": "data/en-shared/q/thank-you.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "text",
+    "pic": "data/pics/al-u5l1-g1.jpg",
+    "lines": [
+     {
+      "t": "Where's the department store?",
+      "a": "data/en-shared/q/where-s-the-department-store.mp3"
+     },
+     {
+      "t": "Go straight on First Street. Turn left on Second Street. It's on the right. It's next to the toy store.",
+      "a": "data/en-shared/q/go-straight-on-first-street-turn-left-on-second-st-5d5b82e1.mp3"
+     },
+     {
+      "t": "Thank you!",
+      "a": "data/en-shared/q/thank-you.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "Go straight.  Turn left.  Turn right.",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "Go straight.",
+      "a": "data/en-shared/q/go-straight.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Turn left.",
+      "a": "data/en-shared/q/turn-left.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Turn right.",
+      "a": "data/en-shared/q/turn-right.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "reveal",
+    "one": true,
+    "items": [
+     {
+      "t": "Go straight.",
+      "hl": "Go straight",
+      "fig": {
+       "arrow": "straight"
+      },
+      "a": "data/en-shared/q/go-straight.mp3"
+     },
+     {
+      "t": "Turn left.",
+      "hl": "Turn left",
+      "fig": {
+       "arrow": "left"
+      },
       "a": "data/en-shared/q/turn-left.mp3"
      },
      {
-      "t": "Turn left at the corner.",
-      "a": "data/en-shared/q/turn-left-at-the-corner.mp3"
-     }
-    ],
-    [
-     {
-      "t": "turn right",
+      "t": "Turn right.",
+      "hl": "Turn right",
+      "fig": {
+       "arrow": "right"
+      },
       "a": "data/en-shared/q/turn-right.mp3"
-     },
-     {
-      "t": "Turn right at the corner.",
-      "a": "data/en-shared/q/turn-right-at-the-corner.mp3"
-     }
-    ],
-    [
-     {
-      "t": "go straight ahead",
-      "a": "data/en-shared/q/go-straight-ahead.mp3"
-     },
-     {
-      "t": "Go straight ahead.",
-      "a": "data/en-shared/q/go-straight-ahead.mp3"
-     }
-    ],
-    [
-     {
-      "t": "stop",
-      "a": "data/en-shared/q/stop.mp3"
-     },
-     {
-      "t": "Stop at the red sign.",
-      "a": "data/en-shared/q/stop-at-the-red-sign.mp3"
      }
     ]
-   ]
+   }
+  },
+  {
+   "title": "It's on the left.  It's on the right.",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "It's on the left.",
+      "a": "data/en-shared/q/it-s-on-the-left.mp3"
+     }
+    ],
+    [
+     {
+      "t": "It's on the right.",
+      "a": "data/en-shared/q/it-s-on-the-right.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "reveal",
+    "one": true,
+    "items": [
+     {
+      "t": "It's on the left.",
+      "hl": "on the left",
+      "fig": {
+       "arrow": "left"
+      },
+      "a": "data/en-shared/q/it-s-on-the-left.mp3"
+     },
+     {
+      "t": "It's on the right.",
+      "hl": "on the right",
+      "fig": {
+       "arrow": "right"
+      },
+      "a": "data/en-shared/q/it-s-on-the-right.mp3"
+     }
+    ]
+   }
   }
- ]
+ ],
+ "tabLabels": {
+  "quiz": "Book's Questions"
+ }
 }

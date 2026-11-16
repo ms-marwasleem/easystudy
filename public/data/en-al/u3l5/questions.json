@@ -22,7 +22,7 @@
       "l",
       "l"
      ],
-     "img": "../../pics/u3-ball.png"
+     "img": "../../pics/ball.png"
     },
     {
      "chunks": [
@@ -38,7 +38,7 @@
       "a",
       "r"
      ],
-     "img": "../../pics/u3-car.png"
+     "img": "../../pics/car.png"
     },
     {
      "chunks": [
@@ -62,7 +62,7 @@
       "e",
       "r"
      ],
-     "img": "../../pics/u3-monster.png"
+     "img": "../../pics/monster.png"
     },
     {
      "chunks": [
@@ -82,7 +82,7 @@
       "i",
       "n"
      ],
-     "img": "../../pics/ar-train.png"
+     "img": "../../pics/train.png"
     },
     {
      "chunks": [
@@ -104,7 +104,7 @@
       "e",
       "t"
      ],
-     "img": "../../pics/u3-puppet.png"
+     "img": "../../pics/puppet.png"
     }
    ],
    "page": 75,
@@ -133,106 +133,35 @@
    "ex": 2
   },
   {
-   "type": "mcq",
+   "type": "mistake",
    "task": "Grammar. Correct the mistakes.",
    "taskAudio": "../../en-shared/q/grammar-correct-the-mistakes.mp3",
    "book": "booklet",
    "items": [
     {
-     "stem": "____ you want to play a game?",
-     "options": [
-      "Do",
-      "Does"
-     ],
-     "answer": 0,
      "word": "Do you want to play a game?",
      "audio": "../../en-shared/q/do-you-want-to-play-a-game.mp3",
-     "parts": [
-      "../../en-shared/q/you-want-to-play-a-game.mp3"
-     ],
-     "optSay": [
-      "Do",
-      "Does"
-     ],
-     "ask": "Does you want to play a game?",
-     "askAudio": "../../en-shared/q/askc-7c4fd61ed3.mp3"
+     "ask": "Does you want to play a game?"
     },
     {
-     "stem": "Do you ____ a new toy?",
-     "options": [
-      "have",
-      "has"
-     ],
-     "answer": 0,
      "word": "Do you have a new toy?",
      "audio": "../../en-shared/q/do-you-have-a-new-toy.mp3",
-     "parts": [
-      "../../en-shared/q/do-you.mp3",
-      "../../en-shared/q/a-new-toy.mp3"
-     ],
-     "optSay": [
-      "have",
-      "has"
-     ],
-     "ask": "Do you has a new toy?",
-     "askAudio": "../../en-shared/q/askc-6d26881219.mp3"
+     "ask": "Do you has a new toy?"
     },
     {
-     "stem": "Yes, I ____.",
-     "options": [
-      "do",
-      "does"
-     ],
-     "answer": 0,
      "word": "Yes, I do.",
      "audio": "../../en-shared/q/yes-i-do.mp3",
-     "parts": [
-      "../../en-shared/q/yes-i.mp3"
-     ],
-     "optSay": [
-      "do",
-      "does"
-     ],
-     "ask": "Yes, I doesn't.",
-     "askAudio": "../../en-shared/q/askc-dc7e8de130.mp3"
+     "ask": "Yes, I doesn't."
     },
     {
-     "stem": "____ she have any blocks?",
-     "options": [
-      "Do",
-      "Does"
-     ],
-     "answer": 1,
      "word": "Does she have any blocks?",
      "audio": "../../en-shared/q/does-she-have-any-blocks.mp3",
-     "parts": [
-      "../../en-shared/q/she-have-any-blocks.mp3"
-     ],
-     "optSay": [
-      "Do",
-      "Does"
-     ],
-     "ask": "Do she have any blocks?",
-     "askAudio": "../../en-shared/q/askc-93eed2338f.mp3"
+     "ask": "Do she have any blocks?"
     },
     {
-     "stem": "Yes, he ____.",
-     "options": [
-      "do",
-      "does"
-     ],
-     "answer": 1,
      "word": "Yes, he does.",
      "audio": "../../en-shared/q/yes-he-does.mp3",
-     "parts": [
-      "../../en-shared/q/yes-he.mp3"
-     ],
-     "optSay": [
-      "do",
-      "does"
-     ],
-     "ask": "Yes, he don't.",
-     "askAudio": "../../en-shared/q/askc-265b2a52d7.mp3"
+     "ask": "Yes, he don't."
     }
    ],
    "page": 76,

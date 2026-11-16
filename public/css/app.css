@@ -496,12 +496,19 @@ body.kb-open .screen:not(#lesson){height:calc(100% - var(--kb,0px))}
 .gc:active{transform:scale(.93)}
 /* a grid lesson = the road's own stars (.js / .jsoon) + circle (.jcard .jn .jlock), copied by buildGrid; no styling of its own (Marwa 2026-11-05) */
 .gl.cur .jcard{box-shadow:var(--btn-shadow),0 0 0 .25rem var(--c-glow)}
+/* grid: each lesson's stars stay inside their own cell, directly above their circle, smaller and closer so they never touch the next lesson's stars (Ahmed 2026-11-16) */
+.gl .js{max-width:100%;gap:0;margin-bottom:-.35em}
+.gl .js span{flex:0 1 auto;min-width:0;width:.85rem;height:auto;aspect-ratio:1}
+.gl .js span:nth-child(2){width:1.05rem;height:auto;transform:translateY(-.15em)}
+.gl .js svg{display:block}
+.gl .jsoon{max-width:100%;white-space:nowrap}
 /* the lesson's name, small, under its circle (Marwa 2026-11-04) */
 .gname{display:block;max-width:100%;margin-top:.2rem;font-family:var(--f-title);font-size:.58rem;line-height:1.12;color:var(--c-white);text-shadow:0 .06rem .12rem rgba(0,0,0,.35);text-align:center;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow-wrap:anywhere}
 .gl.soon .gname{opacity:.55}
 /* tests / reviews / tools: the red sign (or the tool's name) with its label, straight after their lesson */
-.gt{gap:.1rem}
-.gc.gt small{font-family:var(--f-title);font-size:.62rem;color:var(--c-white);white-space:nowrap}   /* only the grid's test label: the unit book's word 'Unit' (.ubox b.gt small) stays white (Marwa 2026-11-04) */
+.gt{gap:.2rem}
+.gc.gt{flex-direction:column-reverse;justify-content:flex-end;padding-top:1.05rem}   /* the test's name sits UNDER its icon, like the lesson names (Ahmed 2026-11-16) */
+.gc.gt small{font-family:var(--f-title);font-size:.58rem;line-height:1.12;color:var(--c-white);white-space:normal;max-width:100%;text-align:center;overflow-wrap:anywhere;text-shadow:0 .06rem .12rem rgba(0,0,0,.35)}   /* only the grid's test label: the unit book's word 'Unit' (.ubox b.gt small) stays white (Marwa 2026-11-04) */
 .gt .jex{display:block;width:2.2rem;height:2.2rem;padding:.35rem;box-sizing:border-box;border-radius:.7rem;border:2px solid var(--sign-ex);background:linear-gradient(var(--c-paper2),var(--sign-ex-bg));color:var(--sign-ex);box-shadow:0 .15rem 0 rgba(90,52,24,.3)}
 .gt .jex svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .gt.tl small{display:none}.gt.tl .jex{background:var(--gear-img) center/100% 100% no-repeat;border:0;border-radius:0;box-shadow:none;color:var(--c-tool-ink);font-size:.78rem;font-weight:700;letter-spacing:.03em;line-height:1;white-space:nowrap;display:grid;place-items:center;width:3rem;height:3rem;padding:0}
@@ -2066,6 +2073,7 @@ img[src*="/clock-"][src$=".svg"]:not([src^="data:"]),img[src*="/hand-"][src$=".s
 .alpage{position:relative;width:100%;height:100%;min-height:0;display:grid;gap:min(2cqw,1.6cqh);grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,.9fr) minmax(0,1.1fr);padding-bottom:3.5rem}
 .alpage:not(.haspic){grid-template-rows:minmax(0,1fr)}
 #lesson.q-land .alpage.haspic{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);grid-template-rows:minmax(0,1fr)}
+#lesson.q-land .alpage.haspic.stack{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto}
 .alpage.notext{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr)!important}
 .alpics{min-height:0;min-width:0;display:flex;gap:min(1.5cqw,1.2cqh);justify-content:center;align-items:center}
 .alpage.multi .alpics{flex-wrap:wrap}
@@ -2229,6 +2237,48 @@ img[src*="/clock-"][src$=".svg"]:not([src^="data:"]),img[src*="/hand-"][src$=".s
 .alunder .alpics{flex:none;max-height:34%;width:100%}
 .alunder .alans.help{box-shadow:0 0 0 .25rem rgba(255,226,120,.8);border-radius:.3em}
 .alstem .altx .alsp{display:inline-grid;vertical-align:middle}   /* the speaker straight after the question text (Marwa 2026-11-04) */
+
+/* fixed passage over a reading-comprehension question */
+.almcq.haspass{display:flex;flex-direction:column;justify-content:flex-start;gap:.5rem;min-height:0;padding-top:1.4rem}
+.alpassage{position:relative;display:flex;gap:.8rem;align-items:flex-start;max-height:30vh;overflow:auto;background:rgba(255,255,255,.92);color:#3a2410;border-radius:1rem;padding:.6rem 3.2rem .6rem .8rem;flex:none}
+.alpassage .alpimg{height:min(24vh,9rem);width:auto;max-width:34%;object-fit:contain;border-radius:.6rem;flex:none}
+.alpassage .alptext{display:flex;flex-direction:column;gap:.2rem;font:700 min(1rem,3.5vw)/1.3 var(--f-read)}
+.alpassage .alptext *{color:#3a2410;text-shadow:none}
+.alpassage .alptext p{margin:0}.alpassage .alphead{font-size:1.15em;color:#b34a00}
+.alpassage .alptext p.on{background:#FFE08A;border-radius:.4rem}
+.alpassage .alpplay{position:absolute;right:.5rem;top:.5rem}
+.almcq.haspass{height:100%;align-self:stretch}
+.alpassage .altx,.alpassage .altx .alw,.alpassage .alptext p{color:#3a2410!important;text-shadow:none!important}
+.alpassage .alphead,.alpassage .alphead .alw{color:#b34a00!important}
+.almcq.haspass{margin-top:-3.2rem;padding-top:0}
+.alpassage{max-height:27vh}
+.almcq.haspass .alstem{margin-top:0}
+.almcq.haspass{margin-top:-1.8rem}
+@media (max-width:600px){.alpassage{max-height:21vh}.almcq.haspass{margin-top:-.6rem}}
+
+/* cloze: dotted blanks, drag a word from the bank */
+.alcloze .alblank{border-bottom-style:dotted}
+.alblank.over{background:rgba(255,226,120,.85);transform:scale(1.08)}
+.alchip{touch-action:none}.alchip.lifted{opacity:.35}
+.aldrag{position:fixed!important;margin:0!important;z-index:9999;pointer-events:none;transform:translate(-50%,-60%) scale(1.08);box-shadow:0 .5rem 1rem rgba(0,0,0,.3)}
+
+.almistake{display:flex;flex-direction:column;align-items:center;gap:.8rem}
+.almhint{font:700 1.1rem var(--f-ui);color:#FFE08A;text-align:center;min-height:1.4em}
+.almistake .almsent .almw{cursor:pointer}
+.almistake .almw.wrong{background:rgba(229,53,43,.35);border-radius:.4rem;text-decoration:underline wavy #E5352B}
+.almistake .almw.bad{animation:qxshake .4s}
+.almistake .alw.fixed{background:var(--c-good-bg);color:#1D6B12;border-radius:.4rem;padding:0 .2em}
+.almistake .almsent{font:700 min(2.1rem,6.4vw)/1.35 var(--f-read);color:#fff;text-align:center}
+
+.almslots{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;align-items:flex-end;margin-top:.4rem}
+.almslot{position:relative;min-width:min(42vw,15rem);min-height:3.2rem;padding:.9rem .8rem .3rem;background:rgba(255,255,255,.2);border:.18rem dotted rgba(255,255,255,.8);border-radius:1rem;display:flex;align-items:center;justify-content:center;gap:.4rem}
+.almslot small{position:absolute;left:.7rem;top:-.75rem;background:#6B3FC4;border-radius:.5rem;padding:0 .5rem;font:700 .8rem var(--f-ui);color:#FFE08A}
+.almslot.off{opacity:.5}.almslot.over{background:rgba(255,226,120,.6)}.almslot.no{animation:qxshake .4s}.almslot.got{border-style:solid;border-color:#7ED957}
+.almval{font:700 1.5rem var(--f-read);color:#fff}
+.almin{font:700 1.5rem var(--f-read);background:transparent;border:0;border-bottom:.15rem solid #fff;color:#fff;width:9rem;text-align:center;outline:none}
+.almgo{width:2.4rem;height:2.4rem;border-radius:50%;border:.14rem solid #5A3418;background:#7ED957;font:700 1.3rem var(--f-ui);color:#2a5a10}
+.almdrag{background:#fff;color:#3a2410;border-radius:.6rem;padding:.2rem .6rem;font:700 1.6rem var(--f-read)}
+.almistake .almw{touch-action:none}
 /* ===== css/responsive.css ===== */
 /* ---------- Screen fit ----------
    All sizes are rem and the root font-size (base.css) follows the screen, so the whole design scales together.
@@ -2741,7 +2791,7 @@ img[src*="/clock-"][src$=".svg"]:not([src^="data:"]),img[src*="/hand-"][src$=".s
 /* GRAMMAR ANIMATION template (js/gramanim.js): one animated page per grammar card. Relative units only; white text on colour. */
 .gan{display:grid;grid-template-areas:none;grid-template-rows:auto minmax(0,1fr) auto;height:100%;padding:.5rem 1rem 4.2rem;gap:.4rem;container-type:size;overflow:hidden}
 .gan-title{margin:0;text-align:center;font:400 clamp(1.1rem,4cqw,1.8rem)/1.2 var(--f-title);color:var(--c-hint)}
-.gan-box{position:relative;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;container-type:size;background:#2F6B4A;border-radius:1.2rem;box-shadow:0 .25rem 0 rgba(90,52,24,.3);padding:.6rem;color:var(--c-white);overflow:hidden}
+.gan-box{position:relative;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;container-type:size;background:rgba(255,255,255,.18);border:.15rem solid rgba(255,255,255,.35);border-radius:1.2rem;box-shadow:0 .25rem 0 rgba(90,52,24,.3);padding:.6rem;color:var(--c-white);overflow:hidden}
 .gan-dots{display:flex;justify-content:center;gap:.7rem}
 .gan-dot{width:.9rem;height:.9rem;border-radius:50%;border:.14rem solid #fff;background:transparent;padding:0}
 .gan-dot.ok{background:rgba(255,255,255,.55)}.gan-dot.on{background:var(--c-hint);border-color:var(--c-hint);transform:scale(1.3)}
@@ -2989,9 +3039,10 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .acctpage[hidden]{display:none}
 .ac-top{position:sticky;top:0;display:flex;align-items:center;justify-content:center;padding:.8rem 1rem;background:#FFF7E3;z-index:1}
 .ac-top h2{margin:0;font-weight:800;font-size:1.5rem}
-.rb.ac-back{position:absolute;left:max(.8rem,env(safe-area-inset-left,0px));width:3.2rem;height:3.2rem}
-.rb.ac-back svg{width:1.7rem;height:1.7rem}
-.ac-in{width:min(92vw,34rem);margin:0 auto;display:flex;flex-direction:column;gap:1rem;padding:.5rem 0 3rem}
+.rb.ac-back,.rb.pf-back,.rb.sp-back,.rb.rp-back{position:fixed;z-index:16;left:max(1rem,env(safe-area-inset-left,0px));right:auto;top:auto;bottom:max(1rem,env(safe-area-inset-bottom,0px));width:4rem;height:4rem}   /* one place for every back button of the account / student pages: bottom-left (Ahmed 2026-11-16) */
+.rb.ac-back svg,.rb.pf-back svg,.rb.sp-back svg,.rb.rp-back svg{width:2rem;height:2rem}
+.ac-in{padding-bottom:6rem}
+.ac-in{width:min(92vw,34rem);margin:0 auto;display:flex;flex-direction:column;gap:1rem;padding:.5rem 0 6rem}
 .ac-card{background:#fff;border:.15rem solid #F2C27A;border-radius:1.8rem;padding:1.1rem 1.2rem 1.3rem}
 .ac-card h3{margin:0 0 .9rem;font-size:1.6rem;font-weight:800}
 .ac-kids{display:flex;flex-wrap:wrap;gap:1.2rem}
@@ -3023,6 +3074,15 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 @media (max-height:560px){ .gate-pad{width:min(40vh,15rem);grid-template-columns:repeat(5,1fr)} .gate-k{font-size:1.3rem} }
 .pill.wl-chip[disabled]{opacity:.5;filter:none;cursor:not-allowed}
 .pill.wl-chip small{font-size:.65em;margin-inline-start:.3em}
+
+/* profile page */
+.pf-form .pf-sw{flex-direction:row;align-items:center;gap:.7rem;cursor:pointer}
+.pf-form .pf-sw input{position:absolute;opacity:0;width:0;height:0}
+.pf-form .pf-sw i{flex:none;position:relative;width:3.2rem;height:1.8rem;border-radius:99rem;background:#C9B89B;transition:background .15s}
+.pf-form .pf-sw i::after{content:"";position:absolute;top:.2rem;right:.2rem;width:1.4rem;height:1.4rem;border-radius:50%;background:#fff;transition:right .15s}
+.pf-form .pf-sw input:checked+i{background:#3FA650}.pf-form .pf-sw input:checked+i::after{right:1.6rem}
+.pf-form .pf-ok{font-family:var(--f-ui);font-weight:800;color:#2E8B3F;text-align:center;margin:0}
+.pf-form .pf-save{align-self:center;min-width:55%}
 /* ===== css/qlayout.css ===== */
 /* ===== THE QUESTION LAYOUT + THE CHOICE BUTTON (Marwa 2026-11-04, every subject, every screen) =====
    This file is loaded LAST: it is the one place that decides WHERE the parts of a question sit and HOW BIG the choices are.
@@ -3306,4 +3366,41 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .subf input.bad{border-color:#D32F2F}
 .subimg{margin:0;color:#2E7D32;font-size:.9rem}
 .subnote{font-size:.8rem;opacity:.85;margin:0;line-height:1.5}
-:root{--app-build:"1c1983c8e8"}
+/* the subscriptions page (js/subs.js subsOpen): tabs, a table per child, the notices */
+.sp-tabs{display:flex;gap:.5rem;background:#fff;border:.15rem solid #F2C27A;border-radius:99rem;padding:.3rem}
+.sp-tab-b{flex:1;position:relative;border:0;background:none;border-radius:99rem;padding:.65rem .5rem;font:inherit;font-weight:800;font-size:1.15rem;color:var(--ol);cursor:pointer}
+.sp-tab-b.on{background:#FFB21F;box-shadow:inset 0 -.2rem 0 rgba(0,0,0,.15)}
+.sp-dot{display:inline-block;min-width:1.4rem;height:1.4rem;line-height:1.4rem;margin-inline-start:.4rem;border-radius:99rem;background:#D8432F;color:#fff;font-style:normal;font-size:.85rem;padding:0 .35rem}
+.sp-soon,.sp-empty{margin:0;text-align:center;font-weight:800;font-size:1.1rem}
+.sp-kid h3{font-size:1.4rem;margin-bottom:.6rem}
+.sp-tbl{display:flex;flex-direction:column;gap:.5rem}
+.sp-hd,.sp-r{display:grid;grid-template-columns:5.2rem 1fr auto;gap:.6rem;align-items:center}
+.sp-hd{font-size:.85rem;font-weight:800;opacity:.65;padding:0 .4rem}
+.sp-r{border-radius:1rem;padding:.55rem .6rem;border:.12rem solid rgba(0,0,0,.12)}
+.sp-r>b{font-size:1.05rem}
+.sp-s{display:flex;align-items:center;gap:.4rem;font-weight:800;font-size:.95rem;line-height:1.35}
+.sp-ic{flex:none;display:inline-flex;align-items:center;justify-content:center;width:1.6rem;height:1.6rem;border-radius:50%;background:rgba(255,255,255,.3);font-style:normal;font-weight:800}
+.sp-r.on{background:#2E9E4F;border-color:#23803E;color:#fff}
+.sp-r.wait{background:#FFC94D;border-color:#E0A21A;color:#4A3300}
+.sp-r.bad{background:#D8432F;border-color:#B23422;color:#fff}
+.sp-r.none{background:#F1E7D0;border-color:#D9C7A0;color:#4A3B22}
+.sp-r.none .sp-ic{background:rgba(0,0,0,.12)}
+.sp-buy{display:flex;flex-direction:column;align-items:center;line-height:1.15;padding:.4rem .9rem;font-size:1rem}
+.sp-buy small{font-size:.75rem;opacity:.85}
+.sp-np{font-weight:800;opacity:.7}
+.sp-news{display:flex;flex-direction:column;gap:.8rem}
+.sp-n{display:flex;flex-direction:column;gap:.5rem;border-inline-start-width:.6rem}
+.sp-n p{margin:0;font-size:1rem}
+.sp-n.active{border-color:#2E9E4F}.sp-n.rejected{border-color:#D8432F}.sp-n.pending{border-color:#E0A21A}.sp-n.closed{border-color:#9A8B6E}
+.sp-nh{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem}.sp-nh b{font-size:1.2rem}.sp-nh small{opacity:.65}
+.sp-why{background:#FFE9E4;border-radius:.8rem;padding:.6rem .8rem}.sp-why span{display:block;font-weight:800;font-size:.85rem;color:#B23422}
+.sp-n .sp-buy{align-self:flex-start}
+.sp-hd,.sp-r{grid-template-columns:5rem 1fr 7.6rem}
+.sp-buy.pill{width:7.6rem;min-width:0;height:auto;min-height:0;aspect-ratio:auto;border-radius:1rem;padding:.4rem .3rem}
+.sp-n .sp-buy.pill{width:auto;padding:.4rem 1.2rem}
+.sp-hd{display:none}
+.sp-r{grid-template-columns:5rem 1fr;row-gap:.5rem}
+.sp-a{grid-column:1/-1}.sp-a:empty{display:none}
+.sp-buy.pill{width:100%;flex-direction:row;justify-content:center;gap:.6rem;padding:.5rem}
+.sp-n .sp-buy.pill{width:auto}
+:root{--app-build:"9fce3a0d9c"}

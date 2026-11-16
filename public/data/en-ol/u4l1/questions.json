@@ -14,8 +14,8 @@
      "word": "I have 2 eyes.",
      "audio": "../../en-shared/q/i-have-2-eyes.mp3",
      "pics": [
-      "../../pics/ears-u4q.png",
-      "../../pics/eyes-u4q.png"
+      "../../pics/ears-pink-u4q.png",
+      "../../pics/eyes.png"
      ],
      "answer": 1
     },
@@ -24,7 +24,7 @@
      "audio": "../../en-shared/q/i-have-1-nose.mp3",
      "pics": [
       "../../pics/nose-6.png",
-      "../../pics/eyes-u4q.png"
+      "../../pics/eyes.png"
      ],
      "answer": 0
     },
@@ -33,7 +33,7 @@
      "audio": "../../en-shared/q/i-have-2-legs.mp3",
      "pics": [
       "../../pics/lips-u4q.png",
-      "../../pics/legs-u4q.png"
+      "../../pics/legs-u4l1.png"
      ],
      "answer": 1
     },
@@ -41,7 +41,7 @@
      "word": "I have 1 mouth.",
      "audio": "../../en-shared/q/i-have-1-mouth.mp3",
      "pics": [
-      "../../pics/eyes-u4q.png",
+      "../../pics/eyes.png",
       "../../pics/lips-u4q.png"
      ],
      "answer": 1
@@ -51,7 +51,7 @@
      "audio": "../../en-shared/q/i-have-2-feet.mp3",
      "pics": [
       "../../pics/soles-u4q.png",
-      "../../pics/ar-foot.png"
+      "../../pics/foot.png"
      ],
      "answer": 0
     }
@@ -99,7 +99,7 @@
       "2"
      ],
      "answer": 0,
-     "pic": "../../pics/head-kid-u4q.png",
+     "pic": "../../pics/head-u4l1.png",
      "tail": "head.",
      "audio": "../../en-shared/q/i-have-1-head.mp3",
      "askAudio": "../../en-shared/q/askc-4e93422b84.mp3"
@@ -112,7 +112,7 @@
       "2"
      ],
      "answer": 1,
-     "pic": "../../pics/hands-u4q.png",
+     "pic": "../../pics/hands-u3l4.png",
      "tail": "hands.",
      "audio": "../../en-shared/q/i-have-2-hands.mp3",
      "askAudio": "../../en-shared/q/askc-00e38c6f78.mp3"
@@ -130,7 +130,7 @@
     {
      "word": "eyes",
      "audio": "words/eyes.mp3",
-     "pic": "../../pics/eyes-green-u4q.png"
+     "pic": "../../pics/eyes.png"
     },
     {
      "word": "ears",
@@ -160,7 +160,7 @@
     {
      "word": "foot",
      "audio": "words/foot.mp3",
-     "pic": "../../pics/ar-foot.png",
+     "pic": "../../pics/foot.png",
      "answer": true
     },
     {
@@ -178,7 +178,7 @@
     {
      "word": "eyes",
      "audio": "words/eyes.mp3",
-     "pic": "../../pics/eyes-u4q.png",
+     "pic": "../../pics/eyes.png",
      "answer": true
     }
    ]
@@ -336,13 +336,13 @@
      "word": "mouth",
      "scr": "otmhu",
      "audio": "words/mouth.mp3",
-     "pic": "../../pics/ar-mouth.png"
+     "pic": "../../pics/mouth.png"
     },
     {
      "word": "ear",
      "scr": "era",
      "audio": "words/ear.mp3",
-     "pic": "../../pics/ar-ear.png"
+     "pic": "../../pics/ear.png"
     },
     {
      "word": "legs",
@@ -354,7 +354,7 @@
      "word": "hand",
      "scr": "nadh",
      "audio": "words/hand.mp3",
-     "pic": "../../pics/ar-hand.png"
+     "pic": "../../pics/hand.png"
     }
    ]
   },
@@ -377,7 +377,7 @@
       "2"
      ],
      "answer": 1,
-     "pic": "../../pics/eyes-u4q.png",
+     "pic": "../../pics/eyes.png",
      "tail": "eyes.",
      "audio": "../../en-shared/q/i-have-2-eyes.mp3",
      "askAudio": "../../en-shared/q/askc-2304e047dc.mp3"
@@ -458,7 +458,7 @@
     {
      "word": "mouth",
      "audio": "words/mouth.mp3",
-     "pic": "../../pics/ar-mouth.png",
+     "pic": "../../pics/mouth.png",
      "gaps": [
       0,
       1,
@@ -470,7 +470,7 @@
     {
      "word": "ear",
      "audio": "words/ear.mp3",
-     "pic": "../../pics/ar-ear.png",
+     "pic": "../../pics/ear.png",
      "gaps": [
       0,
       1,

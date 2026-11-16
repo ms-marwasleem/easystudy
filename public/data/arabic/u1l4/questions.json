@@ -7,7 +7,7 @@
    "task": "أُسَاعِدُ الصَّيَّادَ، وَأَضَعُ دَائِرَةً حَوْلَ أَشْكَالِ حَرْفِ الْبَاءِ",
    "taskAudio": "q/task-2.mp3",
    "hint": "اضغط على الأسماك اللي عليها شكل الباء",
-   "centerPic": "../../pics/ar-fisherman-school.png",
+   "centerPic": "../../pics/fisherman-school.png",
    "centerAt": [
     16,
     36
@@ -22,7 +22,7 @@
     {
      "word": "ـب",
      "text": "ـب",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": true,
      "pos": [
       88,
@@ -36,7 +36,7 @@
     {
      "word": "س",
      "text": "س",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": false,
      "pos": [
       70,
@@ -50,7 +50,7 @@
     {
      "word": "ـبـ",
      "text": "ـبـ",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": true,
      "pos": [
       54,
@@ -64,7 +64,7 @@
     {
      "word": "أ",
      "text": "أ",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": false,
      "pos": [
       41,
@@ -78,7 +78,7 @@
     {
      "word": "د",
      "text": "د",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": false,
      "pos": [
       89,
@@ -92,7 +92,7 @@
     {
      "word": "و",
      "text": "و",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": false,
      "pos": [
       71,
@@ -106,7 +106,7 @@
     {
      "word": "ب",
      "text": "ب",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": true,
      "pos": [
       53,
@@ -120,7 +120,7 @@
     {
      "word": "ـب",
      "text": "ـب",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": true,
      "pos": [
       36,
@@ -201,7 +201,7 @@
     },
     {
      "word": "بُرْتُقَال",
-     "pic": "../../pics/ar-oranges-3.png",
+     "pic": "../../pics/oranges-3.png",
      "audio": "../u2l6/words/burtuqal.mp3",
      "answer": "بُ",
      "choices": [
@@ -212,7 +212,7 @@
     },
     {
      "word": "بِنْت",
-     "pic": "../../pics/ar-girl-brown.png",
+     "pic": "../../pics/girl-brown.png",
      "audio": "words/bint.mp3",
      "answer": "بِ",
      "choices": [
@@ -263,13 +263,13 @@
     },
     {
      "word": "بِنْت",
-     "pic": "../../pics/ar-girl-brown.png",
+     "pic": "../../pics/girl-brown.png",
      "audio": "words/bint.mp3",
      "answer": "بِ"
     },
     {
      "word": "بُرْتُقَال",
-     "pic": "../../pics/ar-oranges-3.png",
+     "pic": "../../pics/oranges-3.png",
      "audio": "../u2l6/words/burtuqal.mp3",
      "answer": "بُ"
     }
@@ -308,7 +308,7 @@
    "letter": "ب",
    "items": [
     {
-     "scene": "../../pics/ar-story-baa-cut.png",
+     "scene": "../../pics/story-baa-cut.png",
      "text": "بَسَنْتُ بِنْتٌ صَغِيرَةٌ، تَعِيشُ فِي بَيْتٍ قَرِيبٍ مِنْ بَيْتِ جَدَّتِهَا، بَسَنْتُ تُحِبُّ أَنْ تُسَاعِدَ أُمَّهَا وَجَدَّتَهَا دَائِمًا؛ لِذَلِكَ سَاعَدَتْ أُمُّهَا فِي صِنَاعَةِ الْخُبْزِ، ثُمَّ حَمَلَتْهُ إِلَى بَيْتِ جَدَّتِهَا، وَفِي الطَّرِيقِ رَأَتْ بُرْجًا قَدِيمًا، وَعِنْدَمَا وَصَلَتْ إِلَى جَدَّتِهَا، حَكَتْ لَهَا الْجَدَّةُ حِكَايَةَ الْبُرْجِ الْقَدِيمِ.",
      "audio": "q/story.mp3",
      "ask": "مَاذَا حَمَلَتِ الْبِنْتُ لِجَدَّتِهَا؟ مَا طَعَامُكَ الْمُفَضَّلُ؟",
@@ -563,7 +563,7 @@
     },
     {
      "word": "مَوْز",
-     "pic": "../../pics/ar-banana.png",
+     "pic": "../../pics/banana.png",
      "audio": "../u1l5/words/mawz.mp3",
      "answer": false,
      "pos": [
@@ -577,7 +577,7 @@
     },
     {
      "word": "قِطَّة",
-     "pic": "../../pics/ar-cat.png",
+     "pic": "../../pics/cat.png",
      "audio": "../u2l9/words/qitta.mp3",
      "answer": false,
      "pos": [
@@ -607,7 +607,7 @@
     },
     {
      "word": "بِ",
-     "pic": "../../pics/girl-u5l2.png",
+     "pic": "../../pics/girl.png",
      "audio": "../../syl-ar/628-650.mp3"
     },
     {
@@ -644,7 +644,7 @@
     },
     {
      "word": "إِبْرِيق",
-     "pic": "../../pics/ar-teapot.png",
+     "pic": "../../pics/teapot.png",
      "audio": "../u1l3/words/ibriq.mp3",
      "answer": "بْ",
      "at": 1,
@@ -1090,7 +1090,7 @@
     },
     {
      "word": "بِ",
-     "pic": "../../pics/girl-u5l2.png",
+     "pic": "../../pics/girl.png",
      "audio": "../../syl-ar/628-650.mp3"
     }
    ]

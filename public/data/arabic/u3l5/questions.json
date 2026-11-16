@@ -75,7 +75,7 @@
     {
      "word": "مَوْز",
      "audio": "../u1l5/words/mawz.mp3",
-     "pic": "../../pics/ar-banana.png",
+     "pic": "../../pics/banana.png",
      "answer": false,
      "pos": [
       84,
@@ -89,7 +89,7 @@
     {
      "word": "شُمُوع",
      "audio": "words/shumuu.mp3",
-     "pic": "../../pics/ar-candles.png",
+     "pic": "../../pics/candles.png",
      "answer": true,
      "pos": [
       72,
@@ -103,7 +103,7 @@
     {
      "word": "مِشْط",
      "audio": "words/mishT.mp3",
-     "pic": "../../pics/ar-comb.png",
+     "pic": "../../pics/comb.png",
      "answer": true,
      "pos": [
       28,
@@ -154,7 +154,7 @@
     {
      "ask": "شُ",
      "word": "شُعْلَة",
-     "pic": "../../pics/ar-torch.png",
+     "pic": "../../pics/torch.png",
      "audio": [
       "../letters/634/name.mp3",
       "../shared/h-damma.mp3",
@@ -165,7 +165,7 @@
     {
      "ask": "شِ",
      "word": "شِرَاع",
-     "pic": "../../pics/ar-sail.png",
+     "pic": "../../pics/sail.png",
      "audio": [
       "../letters/634/name.mp3",
       "../shared/h-kasra.mp3",
@@ -176,7 +176,7 @@
     {
      "ask": "شْ",
      "word": "مِشْبَك",
-     "pic": "../../pics/ar-clothespin.png",
+     "pic": "../../pics/clothespin.png",
      "audio": [
       "../letters/634/name.mp3",
       "../shared/h-sukoon.mp3",
@@ -198,8 +198,8 @@
      "word": "شْ",
      "audio": "../../syl-ar/634-652.mp3",
      "pics": [
-      "../../pics/ar-candle.png",
-      "../../pics/ar-clothespin.png"
+      "../../pics/candle.png",
+      "../../pics/clothespin.png"
      ],
      "answer": 1
     },
@@ -208,7 +208,7 @@
      "audio": "../../syl-ar/634-650.mp3",
      "pics": [
       "../../pics/fork-u4l2.png",
-      "../../pics/ar-sail.png"
+      "../../pics/sail.png"
      ],
      "answer": 1
     },
@@ -216,7 +216,7 @@
      "word": "شَ",
      "audio": "../../syl-ar/634-64e.mp3",
      "pics": [
-      "../../pics/ar-hair.png",
+      "../../pics/hair.png",
       "../../pics/window.png"
      ],
      "answer": 0
@@ -226,7 +226,7 @@
      "audio": "../../syl-ar/634-64f.mp3",
      "pics": [
       "../../pics/sun.png",
-      "../../pics/ar-police.png"
+      "../../pics/police.png"
      ],
      "answer": 1
     }
@@ -249,7 +249,7 @@
     {
      "word": "مِشْط",
      "audio": "words/mishT.mp3",
-     "pic": "../../pics/ar-comb.png",
+     "pic": "../../pics/comb.png",
      "answer": "شْ",
      "choices": [
       "شَ",
@@ -262,7 +262,7 @@
     {
      "word": "شِرَاع",
      "audio": "words/shiraa.mp3",
-     "pic": "../../pics/ar-sail.png",
+     "pic": "../../pics/sail.png",
      "answer": "شِ",
      "choices": [
       "شَ",
@@ -345,7 +345,7 @@
      "need": 1,
      "cells": 3,
      "pics": [
-      "../../pics/ar-hair.png"
+      "../../pics/hair.png"
      ],
      "picWords": [
       [
@@ -367,8 +367,8 @@
      "word": "رَأَتِ الْبِنْتُ الْعُشْبَ.",
      "audio": "q/s12-1.mp3",
      "pics": [
-      "../../pics/ar-girl-bird.jpg",
-      "../../pics/ar-girl-grass.jpg"
+      "../../pics/girl-bird.jpg",
+      "../../pics/girl-grass.jpg"
      ],
      "answer": 1
     }
@@ -383,7 +383,7 @@
    "hint": "اسمع القصة، واقفز لما تسمع كلمة فيها شين",
    "items": [
     {
-     "scene": "../../pics/ar-story-u3l5-cut.png",
+     "scene": "../../pics/story-u3l5-cut.png",
      "text": "ذَهَبَتْ شَهْدٌ مَعَ أُسْرَتِهَا فِي رِحْلَةٍ إِلَى نَهْرِ النِّيلِ، رَكِبُوا الْمَرْكَبَ الشِّرَاعِيَّ وَاسْتَمْتَعُوا بِالْمَشَاهِدِ الْجَمِيلَةِ، وَعَلَى جَانِبِ النِّيلِ كَانَ الشَّجَرُ فِي كُلِّ مَكَانٍ، وَالْعُشْبُ الْأَخْضَرُ يُغَطِّي الْأَرْضَ. وَقَالَتْ شَهْدٌ لِأَبِيهَا: «أَنَا سَعِيدَةٌ جِدًّا بِمُشَاهَدَةِ النِّيلِ وَبِالْمَرْكَبِ الشِّرَاعِيِّ».",
      "audio": "q/story.mp3",
      "ask": "مَاذَا شَاهَدَتْ شَهْدٌ فِي الرِّحْلَةِ النِّيلِيَّةِ؟",
@@ -599,7 +599,7 @@
    "items": [
     {
      "word": "lion",
-     "pic": "../../pics/ar-lion.png",
+     "pic": "../../pics/lion.png",
      "answer": true
     },
     {
@@ -614,22 +614,22 @@
     },
     {
      "word": "sail",
-     "pic": "../../pics/ar-sail.png",
+     "pic": "../../pics/sail.png",
      "answer": true
     },
     {
      "word": "banana",
-     "pic": "../../pics/ar-banana.png",
+     "pic": "../../pics/banana.png",
      "answer": false
     },
     {
      "word": "candle",
-     "pic": "../../pics/ar-candle.png",
+     "pic": "../../pics/candle.png",
      "answer": true
     },
     {
      "word": "lemon",
-     "pic": "../../pics/ar-lemon.png",
+     "pic": "../../pics/lemon.png",
      "answer": false
     },
     {
@@ -650,19 +650,19 @@
    "items": [
     {
      "word": "شَيْخ",
-     "pic": "../../pics/ar-sheikh.jpg",
+     "pic": "../../pics/sheikh.png",
      "audio": "../u3l3/words/shaykh.mp3",
      "at": 0
     },
     {
      "word": "خَشَب",
-     "pic": "../../pics/ar-wood.png",
+     "pic": "../../pics/wood.png",
      "audio": "../u1l9/words/khashab.mp3",
      "at": 1
     },
     {
      "word": "دُشّ",
-     "pic": "../../pics/ar-shower.png",
+     "pic": "../../pics/shower.png",
      "audio": "../u1l8/words/dush.mp3",
      "at": 1
     },
@@ -680,7 +680,7 @@
     },
     {
      "word": "عُشّ",
-     "pic": "../../pics/ar-nest.jpg",
+     "pic": "../../pics/nest.png",
      "audio": "words/ush.mp3",
      "at": 1
     }
@@ -734,25 +734,25 @@
    "items": [
     {
      "word": "شُمُوع",
-     "pic": "../../pics/ar-candles.png",
+     "pic": "../../pics/candles.png",
      "audio": "words/shumuu.mp3",
      "answer": "شُ"
     },
     {
      "word": "شِتَاء",
-     "pic": "../../pics/ar-winter.png",
+     "pic": "../../pics/winter.png",
      "audio": "words/shita.mp3",
      "answer": "شِ"
     },
     {
      "word": "شَيْخ",
-     "pic": "../../pics/ar-sheikh.jpg",
+     "pic": "../../pics/sheikh.png",
      "audio": "../u3l3/words/shaykh.mp3",
      "answer": "شَ"
     },
     {
      "word": "مِشْمِش",
-     "pic": "../../pics/ar-apricot.png",
+     "pic": "../../pics/apricot.png",
      "audio": "../u1l5/words/mishmish.mp3",
      "answer": "شْ",
      "at": 1
@@ -816,12 +816,12 @@
    "items": [
     {
      "word": "شُرْطِيّ",
-     "pic": "../../pics/ar-police.png",
+     "pic": "../../pics/police.png",
      "audio": "words/shurti.mp3"
     },
     {
      "word": "مِشْط",
-     "pic": "../../pics/ar-comb.png",
+     "pic": "../../pics/comb.png",
      "audio": "words/mishT.mp3"
     },
     {
@@ -831,7 +831,7 @@
     },
     {
      "word": "عُشّ",
-     "pic": "../../pics/ar-nest.jpg",
+     "pic": "../../pics/nest.png",
      "audio": "words/ush.mp3"
     }
    ]
@@ -888,12 +888,12 @@
    "items": [
     {
      "word": "خُفَّاش",
-     "pic": "../../pics/ar-bat.png",
+     "pic": "../../pics/bat.png",
      "audio": "../u1l9/words/khuffash.mp3"
     },
     {
      "word": "شِبْل",
-     "pic": "../../pics/ar-cub.png",
+     "pic": "../../pics/cub.png",
      "audio": "words/shibl.mp3"
     },
     {
@@ -926,7 +926,7 @@
    "items": [
     {
      "word": "قِرْش",
-     "pic": "../../pics/ar-shark.png",
+     "pic": "../../pics/shark.png",
      "audio": "../u2l9/words/qirsh.mp3",
      "answer": "ش",
      "at": 2,
@@ -965,7 +965,7 @@
     },
     {
      "word": "مِشْرَط",
-     "pic": "../../pics/ar-cutter.png",
+     "pic": "../../pics/cutter.png",
      "audio": "words/mishrat.mp3",
      "answer": "شْ",
      "at": 1,

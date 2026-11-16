@@ -66,25 +66,25 @@
     {
      "word": "ذَهَب",
      "audio": "../u3l7/words/dhahab.mp3",
-     "pic": "../../pics/ar-gold.jpg",
+     "pic": "../../pics/gold.png",
      "answer": false
     },
     {
      "word": "ظُفْر",
      "audio": "words/dhufr.mp3",
-     "pic": "../../pics/ar-zufr.png",
+     "pic": "../../pics/zufr.png",
      "answer": true
     },
     {
      "word": "ظِلّ",
      "audio": "words/dhill.mp3",
-     "pic": "../../pics/ar-shadow.png",
+     "pic": "../../pics/shadow.png",
      "answer": true
     },
     {
      "word": "عَظْمَة",
      "audio": "words/adhma.mp3",
-     "pic": "../../pics/ar-bone.png",
+     "pic": "../../pics/bone.png",
      "answer": true
     },
     {
@@ -110,17 +110,17 @@
     {
      "word": "ظُ",
      "audio": "words/dhufr.mp3",
-     "pic": "../../pics/ar-zufr.png"
+     "pic": "../../pics/zufr.png"
     },
     {
      "word": "ظِ",
      "audio": "words/dhill.mp3",
-     "pic": "../../pics/ar-shadow.png"
+     "pic": "../../pics/shadow.png"
     },
     {
      "word": "ظْ",
      "audio": "words/adhm.mp3",
-     "pic": "../../pics/ar-bones.png"
+     "pic": "../../pics/bones.png"
     }
    ]
   },
@@ -135,15 +135,15 @@
      "word": "ظُ",
      "pics": [
       "../../pics/umbrella-u6l4.png",
-      "../../pics/ar-zufr.png"
+      "../../pics/zufr.png"
      ],
      "answer": 1
     },
     {
      "word": "ظِ",
      "pics": [
-      "../../pics/ar-bone.png",
-      "../../pics/ar-shadow.png"
+      "../../pics/bone.png",
+      "../../pics/shadow.png"
      ],
      "answer": 1
     },
@@ -151,7 +151,7 @@
      "word": "ظَ",
      "pics": [
       "../../pics/message.png",
-      "../../pics/ar-zufr.png"
+      "../../pics/zufr.png"
      ],
      "answer": 0
     },
@@ -159,7 +159,7 @@
      "word": "ظْ",
      "pics": [
       "../../pics/umbrella-u6l4.png",
-      "../../pics/ar-bone.png"
+      "../../pics/bone.png"
      ],
      "answer": 1
     }
@@ -182,7 +182,7 @@
     {
      "word": "ظُفْر",
      "audio": "words/dhufr.mp3",
-     "pic": "../../pics/ar-zufr.png",
+     "pic": "../../pics/zufr.png",
      "answer": "ظُ",
      "choices": [
       "ظَ",
@@ -205,7 +205,7 @@
     {
      "word": "عَظْم",
      "audio": "words/adhm.mp3",
-     "pic": "../../pics/ar-bone.png",
+     "pic": "../../pics/bone.png",
      "answer": "ظْ",
      "choices": [
       "ظَ",
@@ -217,7 +217,7 @@
     {
      "word": "ظِلّ",
      "audio": "words/dhill.mp3",
-     "pic": "../../pics/ar-trees.png",
+     "pic": "../../pics/trees.png",
      "answer": "ظِ",
      "choices": [
       "ظَ",
@@ -273,7 +273,7 @@
      "need": 2,
      "cells": 3,
      "pics": [
-      "../../pics/ar-zufr.png",
+      "../../pics/zufr.png",
       "../../pics/message.png"
      ],
      "picWords": [
@@ -297,8 +297,8 @@
     {
      "word": "هَذَا ظِلُّ الْوَلَدِ.",
      "pics": [
-      "../../pics/ar-shadow-girl.jpg",
-      "../../pics/ar-shadow-boy.jpg"
+      "../../pics/shadow-girl.jpg",
+      "../../pics/shadow-boy.jpg"
      ],
      "answer": 1
     }
@@ -313,7 +313,7 @@
    "hint": "اسمع القصة، واقفز لما تسمع كلمة فيها ظاء",
    "items": [
     {
-     "scene": "../../pics/ar-story-u3l9-cut.png",
+     "scene": "../../pics/story-u3l9-cut.png",
      "text": "فِي وَقْتِ الظُّهْرِ كَانَ سَاعِي الْبَرِيدِ يَسِيرُ تَحْتَ ظِلِّ الْأَشْجَارِ، وَمَعَهُ ظَرْفٌ. عِنْدَمَا وَصَلَ إِلَى بَيْتِ الْجَدِّ وَجَدَهُ جَالِسًا تَحْتَ مِظَلَّةٍ، فَفَتَحَ الْجَدُّ الظَّرْفَ. ابْتَسَمَ حِينَ قَرَأَ رِسَالَةً مِنْ حَفِيدَتِهِ تُخْبِرُهُ بِأَنَّهَا سَتَزُورُهُ قَرِيبًا. احْتَفَظَ الْجَدُّ بِالظَّرْفِ، وَجَهَّزَ حَفْلَةً لِاسْتِقْبَالِ حَفِيدَتِهِ.",
      "audio": "q/story.mp3",
      "ask": "مَا الشَّيْءُ الَّذِي كَانَ يَحْمِلُهُ سَاعِي الْبَرِيدِ؟ وَلِمَنْ أَعْطَاهُ؟",
@@ -544,7 +544,7 @@
    "items": [
     {
      "word": "fish",
-     "pic": "../../pics/ar-fish.png",
+     "pic": "../../pics/fish.png",
      "answer": false
     },
     {
@@ -554,12 +554,12 @@
     },
     {
      "word": "gazelles",
-     "pic": "../../pics/ar-gazelles.png",
+     "pic": "../../pics/gazelles.png",
      "answer": true
     },
     {
      "word": "nail",
-     "pic": "../../pics/ar-zufr.png",
+     "pic": "../../pics/zufr.png",
      "answer": true
     },
     {
@@ -569,7 +569,7 @@
     },
     {
      "word": "crown",
-     "pic": "../../pics/ar-crown.png",
+     "pic": "../../pics/crown.png",
      "answer": false
     },
     {
@@ -584,7 +584,7 @@
     },
     {
      "word": "bones",
-     "pic": "../../pics/ar-bones.png",
+     "pic": "../../pics/bones.png",
      "answer": true
     },
     {
@@ -611,13 +611,13 @@
     },
     {
      "word": "ظَهْر",
-     "pic": "../../pics/ar-back.png",
+     "pic": "../../pics/back.png",
      "audio": "words/dhahr.mp3",
      "at": 0
     },
     {
      "word": "ظِلّ",
-     "pic": "../../pics/ar-hen-shadow.jpg",
+     "pic": "../../pics/hen-shadow.jpg",
      "audio": "words/dhill.mp3",
      "at": 0
     },
@@ -629,7 +629,7 @@
     },
     {
      "word": "عَظْم",
-     "pic": "../../pics/ar-bone.png",
+     "pic": "../../pics/bone.png",
      "audio": "words/adhm.mp3",
      "at": 1
     },
@@ -658,7 +658,7 @@
    "items": [
     {
      "word": "ظِبَاء",
-     "pic": "../../pics/ar-gazelles.png",
+     "pic": "../../pics/gazelles.png",
      "audio": "words/dhiba.mp3",
      "answer": "ظِ"
     },
@@ -671,25 +671,25 @@
     },
     {
      "word": "ظُهْر",
-     "pic": "../../pics/ar-clock.png",
+     "pic": "../../pics/clock.png",
      "answer": "ظُ"
     },
     {
      "word": "يَنْظُر",
-     "pic": "../../pics/ar-looker.png",
+     "pic": "../../pics/looker.png",
      "audio": "words/yandhur.mp3",
      "answer": "ظُ",
      "at": 2
     },
     {
      "word": "ظُرُوف",
-     "pic": "../../pics/ar-envelopes.png",
+     "pic": "../../pics/envelopes.png",
      "audio": "words/dhuruf.mp3",
      "answer": "ظُ"
     },
     {
      "word": "حَظِيرَة",
-     "pic": "../../pics/ar-barn.png",
+     "pic": "../../pics/barn.png",
      "audio": "words/hazira.mp3",
      "answer": "ظِ",
      "at": 1
@@ -753,22 +753,22 @@
    "items": [
     {
      "word": "ظَهْر",
-     "pic": "../../pics/ar-back.png",
+     "pic": "../../pics/back.png",
      "audio": "words/dhahr.mp3"
     },
     {
      "word": "مِنْظَار",
-     "pic": "../../pics/ar-binoculars.jpg",
+     "pic": "../../pics/binoculars.png",
      "audio": "words/mindhar.mp3"
     },
     {
      "word": "ظُرُوف",
-     "pic": "../../pics/ar-envelopes.png",
+     "pic": "../../pics/envelopes.png",
      "audio": "words/dhuruf.mp3"
     },
     {
      "word": "ظِلّ",
-     "pic": "../../pics/ar-shadow.png",
+     "pic": "../../pics/shadow.png",
      "audio": "words/dhill.mp3"
     }
    ]
@@ -782,7 +782,7 @@
    "items": [
     {
      "word": "حَظِيرَة",
-     "pic": "../../pics/ar-barn.png",
+     "pic": "../../pics/barn.png",
      "audio": "words/hazira.mp3"
     },
     {
@@ -797,7 +797,7 @@
     },
     {
      "word": "مِنْظَار",
-     "pic": "../../pics/ar-binoculars.jpg",
+     "pic": "../../pics/binoculars.png",
      "audio": "words/mindhar.mp3"
     }
    ],
@@ -814,22 +814,22 @@
    "items": [
     {
      "word": "ظُرُوف",
-     "pic": "../../pics/ar-envelopes.png",
+     "pic": "../../pics/envelopes.png",
      "audio": "words/dhuruf.mp3"
     },
     {
      "word": "ظَبْي",
-     "pic": "../../pics/ar-gazelle.png",
+     "pic": "../../pics/gazelle.png",
      "audio": "words/dhabi.mp3"
     },
     {
      "word": "عَظْمَة",
-     "pic": "../../pics/ar-bone.png",
+     "pic": "../../pics/bone.png",
      "audio": "words/adhma.mp3"
     },
     {
      "word": "ظُفْر",
-     "pic": "../../pics/ar-zufr.png",
+     "pic": "../../pics/zufr.png",
      "audio": "words/dhufr.mp3"
     }
    ]
@@ -876,7 +876,7 @@
      "word": "عَظْم",
      "audio": "words/adhm.mp3",
      "at": 1,
-     "pic": "../../pics/ar-bone.png"
+     "pic": "../../pics/bone.png"
     },
     {
      "word": "ظَرْف",
@@ -888,7 +888,7 @@
      "word": "ظَبْي",
      "audio": "words/dhabi.mp3",
      "at": 0,
-     "pic": "../../pics/ar-gazelle.png"
+     "pic": "../../pics/gazelle.png"
     }
    ]
   },

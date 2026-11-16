@@ -62,7 +62,7 @@
     {
      "word": "ثَلْج",
      "audio": "words/thalj.mp3",
-     "pic": "../../pics/ar-ice.png",
+     "pic": "../../pics/ice.png",
      "answer": "ثَ",
      "choices": [
       "ثَ",
@@ -73,7 +73,7 @@
     {
      "word": "ثِيَاب",
      "audio": "q/w-thiyab.mp3",
-     "pic": "../../pics/ar-clothes.jpg",
+     "pic": "../../pics/clothes.png",
      "answer": "ثِ",
      "choices": [
       "ثَ",
@@ -95,7 +95,7 @@
     {
      "word": "اثْنَان",
      "audio": "words/ithnan.mp3",
-     "pic": "../../pics/ar-two.png",
+     "pic": "../../pics/two.png",
      "answer": "ثْ",
      "choices": [
       "ثَ",
@@ -147,7 +147,7 @@
     {
      "word": "ثِيَاب",
      "audio": "q/w-thiyab.mp3",
-     "pic": "../../pics/ar-clothes.jpg",
+     "pic": "../../pics/clothes.png",
      "answer": "ثِ",
      "choices": [
       "ثَ",
@@ -158,7 +158,7 @@
     {
      "word": "ثَلْج",
      "audio": "words/thalj.mp3",
-     "pic": "../../pics/ar-ice.png",
+     "pic": "../../pics/ice.png",
      "answer": "ثَ",
      "choices": [
       "ثَ",
@@ -179,7 +179,7 @@
     {
      "word": "ثَلْج",
      "audio": "words/thalj.mp3",
-     "pic": "../../pics/ar-ice.png",
+     "pic": "../../pics/ice.png",
      "chips": [
       "ث",
       "ل",
@@ -211,8 +211,8 @@
      "word": "رَسَمَتِ الْبِنْتُ الْمُثَلَّثَ.",
      "audio": "q/s10.mp3",
      "pics": [
-      "../../pics/ar-girl-draw.png",
-      "../../pics/ar-girl-mirror.png"
+      "../../pics/girl-draw.png",
+      "../../pics/girl-mirror.png"
      ],
      "answer": 0
     }
@@ -227,7 +227,7 @@
    "hint": "اسمع القصة، واقفز لما تسمع كلمة فيها ثاء",
    "items": [
     {
-     "scene": "../../pics/ar-story-u4l7-cut.png",
+     "scene": "../../pics/story-u4l7-cut.png",
      "text": "شَعَرَ الثَّعْلَبُ بِالْجُوعِ، فَوَجَدَ شَجَرَةَ كُمَّثْرَى مَلِيئَةً بِالثِّمَارِ؛ فَاقْتَرَبَ مِنْهَا، لَكِنَّ ثُعْبَانًا كَبِيرًا مَنَعَهُ قَائِلًا: «هَذِهِ الشَّجَرَةُ لِي». جَاءَ الْفَلَّاحُ مُسْرِعًا، وَقَالَ بِغَضَبٍ: «هَذِهِ أَرْضِي وَثِمَارِي». هَرَبَ الثَّعْلَبُ وَالثُّعْبَانُ بِسُرْعَةٍ، وَذَهَبَا لِلْبَحْثِ عَنْ طَعَامٍ فِي مَكَانٍ آخَرَ.",
      "audio": "q/story.mp3",
      "ask": "مَاذَا حَدَثَ عِنْدَمَا ظَهَرَ الْفَلَّاحُ؟ وَلِمَاذَا؟",
@@ -448,17 +448,17 @@
     },
     {
      "word": "bull",
-     "pic": "../../pics/ar-bull.png",
+     "pic": "../../pics/bull.png",
      "answer": true
     },
     {
      "word": "lion",
-     "pic": "../../pics/ar-lion.png",
+     "pic": "../../pics/lion.png",
      "answer": false
     },
     {
      "word": "fridge",
-     "pic": "../../pics/ar-fridge.png",
+     "pic": "../../pics/fridge.png",
      "answer": true
     },
     {
@@ -468,12 +468,12 @@
     },
     {
      "word": "clothes",
-     "pic": "../../pics/ar-clothes.jpg",
+     "pic": "../../pics/clothes.png",
      "answer": true
     },
     {
      "word": "gloves",
-     "pic": "../../pics/ar-gloves.png",
+     "pic": "../../pics/gloves.png",
      "answer": false
     },
     {
@@ -483,12 +483,12 @@
     },
     {
      "word": "two",
-     "pic": "../../pics/ar-two.png",
+     "pic": "../../pics/two.png",
      "answer": true
     },
     {
      "word": "fish",
-     "pic": "../../pics/ar-fish.png",
+     "pic": "../../pics/fish.png",
      "answer": false
     }
    ]
@@ -504,13 +504,13 @@
    "items": [
     {
      "word": "ثَلْج",
-     "pic": "../../pics/ar-ice.png",
+     "pic": "../../pics/ice.png",
      "audio": "words/thalj.mp3",
      "at": 0
     },
     {
      "word": "ثَوْم",
-     "pic": "../../pics/ar-garlic.jpg",
+     "pic": "../../pics/garlic.png",
      "audio": "words/thawm.mp3",
      "at": 0
     },
@@ -642,7 +642,7 @@
     },
     {
      "word": "ثَوْب",
-     "pic": "../../pics/ar-dress.png",
+     "pic": "../../pics/dress.png",
      "audio": "words/thawb.mp3"
     },
     {
@@ -652,7 +652,7 @@
     },
     {
      "word": "مِحْرَاث",
-     "pic": "../../pics/ar-tractor.png",
+     "pic": "../../pics/tractor.png",
      "audio": "words/mihrath.mp3"
     }
    ]
@@ -668,17 +668,17 @@
    "items": [
     {
      "word": "حَرَث",
-     "pic": "../../pics/ar-tractor.png",
+     "pic": "../../pics/tractor.png",
      "audio": "words/harath.mp3"
     },
     {
      "word": "وَثَب",
-     "pic": "../../pics/ar-jumper.png",
+     "pic": "../../pics/jumper.png",
      "audio": "words/wathab.mp3"
     },
     {
      "word": "بَحَث",
-     "pic": "../../pics/ar-search.png",
+     "pic": "../../pics/search.png",
      "audio": "words/bahath.mp3"
     }
    ]

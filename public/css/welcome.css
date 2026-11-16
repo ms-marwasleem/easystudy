@@ -104,9 +104,10 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .acctpage[hidden]{display:none}
 .ac-top{position:sticky;top:0;display:flex;align-items:center;justify-content:center;padding:.8rem 1rem;background:#FFF7E3;z-index:1}
 .ac-top h2{margin:0;font-weight:800;font-size:1.5rem}
-.rb.ac-back{position:absolute;left:max(.8rem,env(safe-area-inset-left,0px));width:3.2rem;height:3.2rem}
-.rb.ac-back svg{width:1.7rem;height:1.7rem}
-.ac-in{width:min(92vw,34rem);margin:0 auto;display:flex;flex-direction:column;gap:1rem;padding:.5rem 0 3rem}
+.rb.ac-back,.rb.pf-back,.rb.sp-back,.rb.rp-back{position:fixed;z-index:16;left:max(1rem,env(safe-area-inset-left,0px));right:auto;top:auto;bottom:max(1rem,env(safe-area-inset-bottom,0px));width:4rem;height:4rem}   /* one place for every back button of the account / student pages: bottom-left (Ahmed 2026-11-16) */
+.rb.ac-back svg,.rb.pf-back svg,.rb.sp-back svg,.rb.rp-back svg{width:2rem;height:2rem}
+.ac-in{padding-bottom:6rem}
+.ac-in{width:min(92vw,34rem);margin:0 auto;display:flex;flex-direction:column;gap:1rem;padding:.5rem 0 6rem}
 .ac-card{background:#fff;border:.15rem solid #F2C27A;border-radius:1.8rem;padding:1.1rem 1.2rem 1.3rem}
 .ac-card h3{margin:0 0 .9rem;font-size:1.6rem;font-weight:800}
 .ac-kids{display:flex;flex-wrap:wrap;gap:1.2rem}
@@ -138,3 +139,12 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 @media (max-height:560px){ .gate-pad{width:min(40vh,15rem);grid-template-columns:repeat(5,1fr)} .gate-k{font-size:1.3rem} }
 .pill.wl-chip[disabled]{opacity:.5;filter:none;cursor:not-allowed}
 .pill.wl-chip small{font-size:.65em;margin-inline-start:.3em}
+
+/* profile page */
+.pf-form .pf-sw{flex-direction:row;align-items:center;gap:.7rem;cursor:pointer}
+.pf-form .pf-sw input{position:absolute;opacity:0;width:0;height:0}
+.pf-form .pf-sw i{flex:none;position:relative;width:3.2rem;height:1.8rem;border-radius:99rem;background:#C9B89B;transition:background .15s}
+.pf-form .pf-sw i::after{content:"";position:absolute;top:.2rem;right:.2rem;width:1.4rem;height:1.4rem;border-radius:50%;background:#fff;transition:right .15s}
+.pf-form .pf-sw input:checked+i{background:#3FA650}.pf-form .pf-sw input:checked+i::after{right:1.6rem}
+.pf-form .pf-ok{font-family:var(--f-ui);font-weight:800;color:#2E8B3F;text-align:center;margin:0}
+.pf-form .pf-save{align-self:center;min-width:55%}

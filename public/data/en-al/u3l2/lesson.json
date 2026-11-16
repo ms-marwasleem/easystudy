@@ -4,12 +4,14 @@
  "title": "Teams",
  "sceneAlt": "A race",
  "tabs": [
+  "read",
   "words",
   "booklet",
-  "grammar"
+  "grammar",
+  "quiz"
  ],
  "type": "al",
- "scene": "img/scene.jpg",
+ "scene": "../../pics/team.jpg",
  "hints": {
   "read": "Tap Read and listen!",
   "word": "Tap a word to hear it again.",
@@ -22,7 +24,7 @@
   {
    "word": "bounce",
    "ar": "يرتد",
-   "img": "../../pics/u3-bounce.png",
+   "img": "../../pics/bounce.png",
    "parts": [
     {
      "t": "b",
@@ -53,7 +55,7 @@
   {
    "word": "catch",
    "ar": "يلتقط",
-   "img": "../../pics/u3-catch.png",
+   "img": "../../pics/catch.png",
    "parts": [
     {
      "t": "c",
@@ -79,7 +81,7 @@
   {
    "word": "hit",
    "ar": "يضرب",
-   "img": "../../pics/u3-hit.png",
+   "img": "../../pics/hit.png",
    "parts": [
     {
      "t": "h",
@@ -105,7 +107,7 @@
   {
    "word": "team",
    "ar": "فريق",
-   "img": "../../pics/u3-team.jpg",
+   "img": "../../pics/team.jpg",
    "parts": [
     {
      "t": "t",
@@ -131,7 +133,7 @@
   {
    "word": "run",
    "ar": "يجري",
-   "img": "../../pics/u3-run.png",
+   "img": "../../pics/run.png",
    "parts": [
     {
      "t": "r",
@@ -157,7 +159,7 @@
   {
    "word": "hop",
    "ar": "يقفز على قدم واحدة",
-   "img": "../../pics/u3-hop.png",
+   "img": "../../pics/hop.png",
    "parts": [
     {
      "t": "h",
@@ -183,7 +185,7 @@
   {
    "word": "jump",
    "ar": "يقفز",
-   "img": "../../pics/u3-jump.png",
+   "img": "../../pics/jump.jpg",
    "parts": [
     {
      "t": "j",
@@ -214,7 +216,7 @@
   {
    "word": "kick",
    "ar": "يركل",
-   "img": "../../pics/u3-kick.png",
+   "img": "../../pics/kick.png",
    "parts": [
     {
      "t": "k",
@@ -240,7 +242,7 @@
   {
    "word": "race",
    "ar": "سباق",
-   "img": "../../pics/u3-race.jpg",
+   "img": "../../pics/race.jpg",
    "parts": [
     {
      "t": "r",
@@ -266,7 +268,7 @@
   {
    "word": "throw",
    "ar": "يرمي",
-   "img": "../../pics/u3-throw.jpg",
+   "img": "../../pics/throw.jpg",
    "parts": [
     {
      "t": "th",
@@ -288,57 +290,157 @@
     "word": "words/throw.mp3",
     "ar": "../../ar-meanings/5278b1e7e6.mp3"
    }
+  },
+  {
+   "word": "teeth",
+   "ar": "أسنان",
+   "img": "../../pics/teeth.png",
+   "parts": [
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "ee",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    },
+    {
+     "t": "th",
+     "ph": "th",
+     "audio": "../../phonics/th.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/teeth.mp3"
+   }
+  },
+  {
+   "word": "goal",
+   "ar": "هدف / مرمى",
+   "img": "../../pics/goal.png",
+   "parts": [
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "oa",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/goal.mp3"
+   }
+  },
+  {
+   "word": "soccer",
+   "ar": "كرة القدم",
+   "img": "../../pics/boys-football.jpg",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    },
+    {
+     "t": "cc",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/soccer.mp3"
+   }
   }
  ],
  "lines": [],
  "end": 1,
  "grammar": [
   {
-   "title": "Can and Can't",
-   "note": "We use can for things we are able to do and can't for things we are not able to do.",
+   "title": "Listen and read",
+   "note": null,
    "rows": [
     [
      {
-      "t": "I can run.",
-      "a": "data/en-shared/q/i-can-run.mp3"
+      "t": "Can you hit?",
+      "a": "data/en-shared/q/can-you-hit.mp3"
      }
     ],
     [
      {
-      "t": "I can jump.",
-      "a": "data/en-shared/q/i-can-jump.mp3"
+      "t": "No, I can't. I can't hit.",
+      "a": "data/en-shared/q/no-i-can-t-i-can-t-hit.mp3"
      }
     ],
     [
      {
-      "t": "I can't swim.",
-      "a": "data/en-shared/q/i-can-t-swim.mp3"
+      "t": "Can you run?",
+      "a": "data/en-shared/q/can-you-run.mp3"
      }
     ],
     [
      {
-      "t": "I can't fly.",
-      "a": "data/en-shared/q/i-can-t-fly.mp3"
+      "t": "Yes, I can. I can run. And I can catch!",
+      "a": "data/en-shared/q/yes-i-can-i-can-run-and-i-can-catch.mp3"
      }
-    ],
-    [
+    ]
+   ],
+   "anim": {
+    "kind": "text",
+    "pic": "data/pics/al-u3l2-g1.jpg",
+    "lines": [
      {
-      "t": "Can you dance?",
-      "a": "data/en-shared/q/can-you-dance.mp3"
+      "t": "Can you hit?",
+      "a": "data/en-shared/q/can-you-hit.mp3"
      },
      {
-      "t": "Yes, I can.",
-      "a": "data/en-shared/q/yes-i-can.mp3"
+      "t": "No, I can't. I can't hit.",
+      "a": "data/en-shared/q/no-i-can-t-i-can-t-hit.mp3"
+     },
+     {
+      "t": "Can you run?",
+      "a": "data/en-shared/q/can-you-run.mp3"
+     },
+     {
+      "t": "Yes, I can. I can run. And I can catch!",
+      "a": "data/en-shared/q/yes-i-can-i-can-run-and-i-can-catch.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "can  and  can't",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "We can run.",
+      "a": "data/en-shared/q/we-can-run.mp3"
      }
     ],
     [
      {
-      "t": "Can you climb a tree?",
-      "a": "data/en-shared/q/can-you-climb-a-tree.mp3"
-     },
-     {
-      "t": "No, I can't.",
-      "a": "data/en-shared/q/no-i-can-t.mp3"
+      "t": "We can't jump.",
+      "a": "data/en-shared/q/we-can-t-jump.mp3"
      }
     ]
    ],
@@ -347,43 +449,99 @@
     "one": true,
     "items": [
      {
-      "t": "I can run.",
-      "a": "data/en-shared/q/i-can-run.mp3",
+      "t": "We can run.",
       "hl": "can",
       "fig": {
        "mark": "yes"
-      }
+      },
+      "a": "data/en-shared/q/we-can-run.mp3"
      },
      {
-      "t": "I can't swim.",
-      "a": "data/en-shared/q/i-can-t-swim.mp3",
+      "t": "We can't jump.",
       "hl": "can't",
       "fig": {
        "mark": "no"
-      }
+      },
+      "a": "data/en-shared/q/we-can-t-jump.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "Can he...?  Can they...?",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "He can sing.",
+      "a": "data/en-shared/q/he-can-sing.mp3"
      },
      {
-      "t": "Can you dance?",
-      "a": "data/en-shared/q/can-you-dance.mp3"
+      "t": "Can he sing?",
+      "a": "data/en-shared/q/can-he-sing.mp3"
+     }
+    ],
+    [
+     {
+      "t": "They can draw.",
+      "a": "data/en-shared/q/they-can-draw.mp3"
      },
      {
-      "t": "Yes, I can.",
-      "a": "data/en-shared/q/yes-i-can.mp3",
-      "hl": "can",
-      "fig": {
-       "mark": "yes"
-      }
+      "t": "Can they draw?",
+      "a": "data/en-shared/q/can-they-draw.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "morph",
+    "steps": [
+     {
+      "from": "He can sing.",
+      "to": "Can he sing?",
+      "map": [
+       [
+        1
+       ],
+       [
+        0
+       ],
+       [
+        2
+       ]
+      ],
+      "ans": {
+       "t": "Yes, he can. / No, he can't.",
+       "a": "data/en-shared/q/yes-he-can-no-he-can-t.mp3"
+      },
+      "fa": "data/en-shared/q/he-can-sing.mp3",
+      "ta": "data/en-shared/q/can-he-sing.mp3"
      },
      {
-      "t": "No, I can't.",
-      "a": "data/en-shared/q/no-i-can-t.mp3",
-      "hl": "can't",
-      "fig": {
-       "mark": "no"
-      }
+      "from": "They can draw.",
+      "to": "Can they draw?",
+      "map": [
+       [
+        1
+       ],
+       [
+        0
+       ],
+       [
+        2
+       ]
+      ],
+      "ans": {
+       "t": "Yes, they can. / No, they can't.",
+       "a": "data/en-shared/q/yes-they-can-no-they-can-t.mp3"
+      },
+      "fa": "data/en-shared/q/they-can-draw.mp3",
+      "ta": "data/en-shared/q/can-they-draw.mp3"
      }
     ]
    }
   }
- ]
+ ],
+ "tabLabels": {
+  "quiz": "Book's Questions"
+ }
 }

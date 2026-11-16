@@ -169,13 +169,35 @@ function kidMenu(){
   $$('[data-kid]',o).forEach(b=>b.addEventListener('click',()=>{ o.hidden=true; kidSwitch(b.dataset.kid); }));
   $$('[data-edit]',o).forEach(b=>b.addEventListener('click',()=>{ o.hidden=true; openKidEdit(b.dataset.edit); }));
   $('.ac-add',o).addEventListener('click',()=>{ o.hidden=true; openWelcome(true); });
-  $('.ac-prof',o).addEventListener('click',()=>coinPop(`<h2 class="outline">الملف الشخصي</h2><p class="msg-text" dir="ltr">${wlEsc(a.email||'—')}</p><p class="msg-text" dir="ltr">${wlEsc(a.phone||'—')}</p>`));
+  $('.ac-prof',o).addEventListener('click',profilePage);
   $('.ac-subs',o).addEventListener('click',subsPage);
   if(typeof acctExtraBind==='function') acctExtraBind(o);   // the other app's own rows (Easy Words: the report)
   const cb=$('.wl-cred',o); if(cb) cb.addEventListener('click',()=>{ creditsPage(); });   // the parent's credits (js/coins.js)
   syMenuButtons(o,()=>o.hidden=true);   // confirm the email / sign out (server only, js/sync.js)
   o.hidden=false; pop('.ac-card, .arow',{y:14});
 }
+/* ---------- the profile page (Ahmed 2026-11-16): the parent's email and mobile, both editable, and the notices on / off. Saved to the account on the server (PUT /me) and on this device ---------- */
+const PROF_ERR={'bad-email':'الإيميل مش مكتوب صح','need-contact':'لازم إيميل أو موبايل واحد على الأقل','email-taken':'الإيميل ده مسجل لحساب تاني','phone-taken':'الموبايل ده مسجل لحساب تاني','blocked':'الحساب ده موقوف'};
+function profilePage(){
+  let o=$('#profPage'); if(!o){ o=el('div','acctpage',''); o.id='profPage'; o.setAttribute('role','dialog'); document.body.append(o); }
+  const a=acct()||{}, on=a.notify!==false;
+  o.innerHTML=`<div class="ac-top"><button class="rb pf-back" aria-label="Back">${ICON.back}</button><h2>الملف الشخصي</h2></div>
+    <div class="ac-in"><section class="ac-card"><form class="wl-form pf-form" autocomplete="off" novalidate>
+      <label><span>الإيميل</span><input name="email" type="email" dir="ltr" inputmode="email" value="${wlEsc((a.email&&!/@phone\.local$/.test(a.email))?a.email:'')}"></label>
+      <label><span>رقم الموبايل</span><input name="phone" type="tel" dir="ltr" inputmode="tel" value="${wlEsc(a.phone||'')}"></label>
+      <label class="pf-sw"><input name="notify" type="checkbox"${on?' checked':''}><i></i><span>استقبال الإشعارات (على التطبيق وعلى الإيميل)</span></label>
+      <p class="wl-err pf-err" hidden></p><p class="pf-ok" hidden>اتحفظ</p>
+      <button class="pill green pf-save" type="submit">حفظ</button></form></section></div>`;
+  $('.pf-back',o).addEventListener('click',()=>o.hidden=true);
+  const f=$('.pf-form',o), er=$('.pf-err',o), ok=$('.pf-ok',o), bad=t=>{ er.textContent=t; er.hidden=false; ok.hidden=true; };
+  f.addEventListener('submit',async e=>{ e.preventDefault(); er.hidden=true; ok.hidden=true;
+    const email=f.elements.email.value.trim(), phone=f.elements.phone.value.trim(), notify=f.elements.notify.checked;
+    if(!email&&!phone) return bad(PROF_ERR['need-contact']); if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return bad(PROF_ERR['bad-email']);
+    const s=typeof sySession==='function'&&sySession();
+    if(s&&s.token){ const r=await syCall('/me',{email,phone,notify},'PUT'); if(!r) return bad('مفيش اتصال بالإنترنت، جربي تاني'); if(!r.j.ok) return bad(PROF_ERR[r.j.error]||'ما اتحفظش، جربي تاني'); }
+    wlSet('es.account',{...(acct()||{}),email,phone,notify}); window.ACCOUNT={...acct(),id:(s&&s.id)||(acct()||{}).id,...(s&&s.token?{token:s.token}:{})};
+    ok.hidden=false; });
+  o.hidden=false; pop('.ac-card',{y:14}); }
 $('#kidBtn').addEventListener('click',()=>parentGate(kidMenu));
 // hooks for other parts (coins.js reads window.ACCOUNT / window.CHILD): {id,...} of the parent and the active child
 // signed in to the server (js/sync.js es.session): id = the server's parent id (share links carry it), token for the API calls

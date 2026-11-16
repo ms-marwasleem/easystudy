@@ -10,7 +10,7 @@
   99,
   100
  ],
- "scene": "../../pics/ar-wolf.png",
+ "scene": "../../pics/wolf.png",
  "sceneAlt": "ذَال",
  "lines": [],
  "end": 1,
@@ -19,7 +19,7 @@
   "ch": "ذ",
   "name": "ذَال",
   "nameAudio": "../letters/630/name.mp3",
-  "pic": "../../pics/ar-wolf.png",
+  "pic": "../../pics/wolf.png",
   "forms": [
    {
     "label": "أول الكلمة",
@@ -46,28 +46,28 @@
    {
     "label": "الفتحة",
     "t": "ذَ",
-    "pic": "../../pics/ar-boy-fatha.png",
+    "pic": "../../pics/boy-fatha.png",
     "audio": "../../syl-ar/630-64e.mp3",
     "har": "fatha"
    },
    {
     "label": "الضمة",
     "t": "ذُ",
-    "pic": "../../pics/ar-boy-damma.png",
+    "pic": "../../pics/boy-damma.png",
     "audio": "../../syl-ar/630-64f.mp3",
     "har": "damma"
    },
    {
     "label": "الكسرة",
     "t": "ذِ",
-    "pic": "../../pics/ar-boy-kasra.png",
+    "pic": "../../pics/boy-kasra.png",
     "audio": "../../syl-ar/630-650.mp3",
     "har": "kasra"
    },
    {
     "label": "السكون",
     "t": "ذْ",
-    "pic": "../../pics/ar-boy-sukoon.png",
+    "pic": "../../pics/boy-sukoon.png",
     "audio": "../../syl-ar/630-652.mp3",
     "har": "sukoon"
    }
@@ -102,7 +102,7 @@
  "vocab": [
   {
    "word": "ذَيْل",
-   "img": "../../pics/ar-tail.png",
+   "img": "../../pics/tail.png",
    "audio": {
     "word": "../u3l3/words/dhayl.mp3"
    },
@@ -120,7 +120,7 @@
   },
   {
    "word": "ذَهَب",
-   "img": "../../pics/ar-gold.jpg",
+   "img": "../../pics/gold.png",
    "audio": {
     "word": "../u3l7/words/dhahab.mp3"
    },
@@ -142,7 +142,7 @@
   },
   {
    "word": "ذَقْن",
-   "img": "../../pics/ar-chin.png",
+   "img": "../../pics/chin.png",
    "audio": {
     "word": "words/dhaqn.mp3"
    },
@@ -161,7 +161,7 @@
   },
   {
    "word": "ذُرَة",
-   "img": "../../pics/ar-corn.png",
+   "img": "../../pics/corn-cob.png",
    "audio": {
     "word": "words/dhura.mp3"
    },
@@ -183,7 +183,7 @@
   },
   {
    "word": "ذُبَابَة",
-   "img": "../../pics/ar-fly.png",
+   "img": "../../pics/fly.png",
    "audio": {
     "word": "words/dhubaba.mp3"
    },
@@ -210,7 +210,7 @@
   },
   {
    "word": "أُذُن",
-   "img": "../../pics/ar-ear.png",
+   "img": "../../pics/ear.png",
    "audio": {
     "word": "../u1l3/words/udhun.mp3"
    },
@@ -232,7 +232,7 @@
   },
   {
    "word": "ذِئْب",
-   "img": "../../pics/ar-wolf.png",
+   "img": "../../pics/wolf.png",
    "audio": {
     "word": "words/dhib.mp3"
    },
@@ -250,7 +250,7 @@
   },
   {
    "word": "بَاذِنْجَان",
-   "img": "../../pics/ar-eggplant.png",
+   "img": "../../pics/eggplant.png",
    "audio": {
     "word": "words/badhinjan.mp3"
    },
@@ -277,7 +277,7 @@
   },
   {
    "word": "ذِرَاع",
-   "img": "../../pics/ar-arm.png",
+   "img": "../../pics/arm.png",
    "audio": {
     "word": "words/dhira.mp3"
    },
@@ -299,7 +299,7 @@
   },
   {
    "word": "جِذْر",
-   "img": "../../pics/ar-roots.png",
+   "img": "../../pics/roots.png",
    "audio": {
     "word": "../u1l7/words/jidhr.mp3"
    },
@@ -317,7 +317,7 @@
   },
   {
    "word": "بَذْر",
-   "img": "../../pics/ar-seeds.png",
+   "img": "../../pics/seeds.png",
    "audio": {
     "word": "words/badhr.mp3"
    },
@@ -336,7 +336,7 @@
   },
   {
    "word": "جِذْع",
-   "img": "../../pics/ar-trunk.png",
+   "img": "../../pics/trunk.png",
    "audio": {
     "word": "words/jidha.mp3"
    },

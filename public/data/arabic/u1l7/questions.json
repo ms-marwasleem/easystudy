@@ -7,7 +7,7 @@
    "task": "أُسَاعِدُ الصَّيَّادَ، وَأَضَعُ دَائِرَةً حَوْلَ أَشْكَالِ حَرْفِ الْجِيمِ",
    "taskAudio": "q/task-2.mp3",
    "hint": "اضغط على الأسماك اللي عليها شكل الجيم",
-   "centerPic": "../../pics/ar-fisherman-school.png",
+   "centerPic": "../../pics/fisherman-school.png",
    "centerAt": [
     16,
     36
@@ -22,7 +22,7 @@
     {
      "word": "ـج",
      "text": "ـج",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": true,
      "pos": [
       88,
@@ -36,7 +36,7 @@
     {
      "word": "س",
      "text": "س",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": false,
      "pos": [
       70,
@@ -50,7 +50,7 @@
     {
      "word": "ا",
      "text": "ا",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": false,
      "pos": [
       54,
@@ -64,7 +64,7 @@
     {
      "word": "ـجـ",
      "text": "ـجـ",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": true,
      "pos": [
       41,
@@ -78,7 +78,7 @@
     {
      "word": "ب",
      "text": "ب",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": false,
      "pos": [
       89,
@@ -92,7 +92,7 @@
     {
      "word": "جـ",
      "text": "جـ",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": true,
      "pos": [
       71,
@@ -106,7 +106,7 @@
     {
      "word": "ح",
      "text": "ح",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": false,
      "pos": [
       53,
@@ -120,7 +120,7 @@
     {
      "word": "ج",
      "text": "ج",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": true,
      "pos": [
       36,
@@ -206,7 +206,7 @@
     {
      "word": "جَبَل",
      "audio": "words/jabal.mp3",
-     "pic": "../../pics/ar-mountain.png",
+     "pic": "../../pics/mountain.png",
      "answer": "جَ",
      "choices": [
       "جُ",
@@ -217,7 +217,7 @@
     {
      "word": "جِمَال",
      "audio": "words/jimal.mp3",
-     "pic": "../../pics/ar-camels.png",
+     "pic": "../../pics/camels.png",
      "answer": "جِ",
      "choices": [
       "جْ",
@@ -228,7 +228,7 @@
     {
      "word": "وَجْه",
      "audio": "words/wajh.mp3",
-     "pic": "../../pics/ar-face.png",
+     "pic": "../../pics/face.png",
      "answer": "جْ",
      "choices": [
       "جِ",
@@ -268,7 +268,7 @@
     {
      "word": "جِسْر",
      "audio": "words/jisr.mp3",
-     "pic": "../../pics/ar-bridge.png",
+     "pic": "../../pics/bridge.png",
      "answer": "جِ"
     },
     {
@@ -314,7 +314,7 @@
    "hint": "اسمع القصة، وارفع إيدك لما تسمع كلمة فيها الجيم",
    "items": [
     {
-     "scene": "../../pics/ar-story-jeem-cut.jpg",
+     "scene": "../../pics/story-jeem-cut.jpg",
      "text": "خَرَجَ رَجُلٌ يَرْكَبُ جَمَلًا فِي رِحْلَةٍ إِلَى الصَّحْرَاءِ لِلْبَحْثِ عَنْ كَنْزٍ ثَمِينٍ، تَاهَ الرَّجُلُ، وَشَرِبَ الْمَاءَ كُلَّهُ الَّذِي كَانَ يَحْمِلُهُ الْجَمَلُ. وَبَعْدَ مَسَافَةٍ بَعِيدَةٍ وَجَدَ بِئْرًا فِيهَا مَاءٌ، شَرِبَ مِنْهَا وَسَقَى جَمَلَهُ، ثُمَّ قَالَ لِنَفْسِهِ: «الْكَنْزُ الْحَقِيقِيُّ هُوَ الْمَاءُ وَلَيْسَ الْجَوَاهِرُ».",
      "audio": "q/story.mp3",
      "ask": "مَا الْكَنْزُ الَّذِي اكْتَشَفَهُ الرَّجُلُ وَالْجَمَلُ؟",
@@ -679,25 +679,25 @@
     {
      "word": "رِجْل",
      "audio": "words/rijl.mp3",
-     "pic": "../../pics/ar-foot.png",
+     "pic": "../../pics/foot.png",
      "answer": true
     },
     {
      "word": "جَمَل",
      "audio": "words/jamal.mp3",
-     "pic": "../../pics/ar-fa-camel2.png",
+     "pic": "../../pics/fa-camel2.png",
      "answer": true
     },
     {
      "word": "أَسَد",
      "audio": "../u1l3/words/asad.mp3",
-     "pic": "../../pics/ar-lion.png",
+     "pic": "../../pics/lion.png",
      "answer": false
     },
     {
      "word": "جُنْدِيّ",
      "audio": "words/jundi.mp3",
-     "pic": "../../pics/ar-soldier.png",
+     "pic": "../../pics/soldier.png",
      "answer": true
     },
     {
@@ -744,7 +744,7 @@
     {
      "word": "جَزَر",
      "audio": "../u4l3/words/jazar.mp3",
-     "pic": "../../pics/ar-carrot.png",
+     "pic": "../../pics/carrot.png",
      "answer": "جَ"
     },
     {
@@ -757,14 +757,14 @@
     {
      "word": "فُجْل",
      "audio": "words/fujl.mp3",
-     "pic": "../../pics/ar-fa-radish.png",
+     "pic": "../../pics/fa-radish.png",
      "answer": "جْ",
      "at": 1
     },
     {
      "word": "جَوْرَب",
      "audio": "words/jawrab.mp3",
-     "pic": "../../pics/ar-socks.png",
+     "pic": "../../pics/socks.png",
      "answer": "جَ"
     }
    ]
@@ -786,7 +786,7 @@
     },
     {
      "word": "جِسْر",
-     "pic": "../../pics/ar-bridge.png",
+     "pic": "../../pics/bridge.png",
      "audio": "words/jisr.mp3",
      "at": 0
     },
@@ -798,13 +798,13 @@
     },
     {
      "word": "شَجَر",
-     "pic": "../../pics/ar-trees.png",
+     "pic": "../../pics/trees.png",
      "audio": "words/shajar.mp3",
      "at": 1
     },
     {
      "word": "جِذْر",
-     "pic": "../../pics/ar-roots.png",
+     "pic": "../../pics/roots.png",
      "audio": "words/jidhr.mp3",
      "at": 0
     }
@@ -867,7 +867,7 @@
     {
      "word": "جِسْر",
      "audio": "words/jisr.mp3",
-     "pic": "../../pics/ar-bridge.png"
+     "pic": "../../pics/bridge.png"
     },
     {
      "word": "نَجْم",
@@ -877,12 +877,12 @@
     {
      "word": "جُنْدِيّ",
      "audio": "words/jundi.mp3",
-     "pic": "../../pics/ar-soldier.png"
+     "pic": "../../pics/soldier.png"
     },
     {
      "word": "رِجْل",
      "audio": "words/rijl.mp3",
-     "pic": "../../pics/ar-foot.png"
+     "pic": "../../pics/foot.png"
     }
    ]
   },
@@ -901,7 +901,7 @@
      "hush": true,
      "parts": [
       {
-       "pic": "../../pics/ar-carrot.png",
+       "pic": "../../pics/carrot.png",
        "first": "ج"
       },
       {
@@ -909,7 +909,7 @@
        "first": "ر"
       },
       {
-       "pic": "../../pics/ar-clock.png",
+       "pic": "../../pics/clock.png",
        "first": "س"
       }
      ]
@@ -927,12 +927,12 @@
    "items": [
     {
      "word": "فُجْل",
-     "pic": "../../pics/ar-fa-radish.png",
+     "pic": "../../pics/fa-radish.png",
      "audio": "words/fujl.mp3"
     },
     {
      "word": "سَرْج",
-     "pic": "../../pics/ar-saddle.png",
+     "pic": "../../pics/saddle.png",
      "audio": "../u2l4/words/saraj.mp3"
     },
     {
@@ -942,7 +942,7 @@
     },
     {
      "word": "جِسْر",
-     "pic": "../../pics/ar-bridge.png",
+     "pic": "../../pics/bridge.png",
      "audio": "words/jisr.mp3"
     }
    ]
@@ -1014,7 +1014,7 @@
     },
     {
      "word": "جِ",
-     "pic": "../../pics/ar-bridge.png",
+     "pic": "../../pics/bridge.png",
      "audio": "../../syl-ar/62c-650.mp3"
     }
    ]
@@ -1037,7 +1037,7 @@
     {
      "word": "جَبَل",
      "audio": "../u1l4/q/jabal.mp3",
-     "pic": "../../pics/ar-mountain.png",
+     "pic": "../../pics/mountain.png",
      "answer": "جَ"
     },
     {
@@ -1049,7 +1049,7 @@
     {
      "word": "جِسْر",
      "audio": "words/jisr.mp3",
-     "pic": "../../pics/ar-bridge.png",
+     "pic": "../../pics/bridge.png",
      "answer": "جِ"
     },
     {

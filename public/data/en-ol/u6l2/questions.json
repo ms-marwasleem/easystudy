@@ -34,7 +34,7 @@
     {
      "word": "bike",
      "audio": "words/bike.mp3",
-     "pic": "../../pics/bike-u6l2.png",
+     "pic": "../../pics/bike.png",
      "answer": true,
      "pos": [
       88,
@@ -64,7 +64,7 @@
     {
      "word": "banana",
      "audio": "../u4l2/words/banana.mp3",
-     "pic": "../../pics/banana-u4l2.png",
+     "pic": "../../pics/banana.png",
      "answer": true,
      "pos": [
       40,
@@ -116,7 +116,7 @@
     {
      "word": "lamp",
      "audio": "words/lamp.mp3",
-     "pic": "../../pics/lamp-u6l2.png",
+     "pic": "../../pics/bulb.png",
      "answer": true,
      "pos": [
       90,
@@ -126,7 +126,7 @@
     {
      "word": "fish",
      "audio": "../u4l2/words/fish.mp3",
-     "pic": "../../pics/fish-u4l2.png",
+     "pic": "../../pics/fish.png",
      "answer": false,
      "pos": [
       10,
@@ -146,7 +146,7 @@
     {
      "word": "lemon",
      "audio": "words/lemon.mp3",
-     "pic": "../../pics/ar-lemon.png",
+     "pic": "../../pics/lemon.png",
      "answer": true,
      "pos": [
       28,
@@ -156,7 +156,7 @@
     {
      "word": "lion",
      "audio": "../u6l1/words/lion.mp3",
-     "pic": "../../pics/ar-lion.png",
+     "pic": "../../pics/lion.png",
      "answer": true,
      "pos": [
       72,
@@ -208,7 +208,7 @@
     {
      "word": "boy",
      "audio": "words/boy.mp3",
-     "pic": "../../pics/boy-u6l2.png",
+     "pic": "../../pics/boy-u1l2.png",
      "answer": true,
      "pos": [
       88,
@@ -218,7 +218,7 @@
     {
      "word": "banana",
      "audio": "../u4l2/words/banana.mp3",
-     "pic": "../../pics/banana-u4l2.png",
+     "pic": "../../pics/banana.png",
      "answer": true,
      "pos": [
       20,
@@ -228,7 +228,7 @@
     {
      "word": "bike",
      "audio": "words/bike.mp3",
-     "pic": "../../pics/bike-u6l2.png",
+     "pic": "../../pics/bike.png",
      "answer": true,
      "pos": [
       40,
@@ -268,21 +268,21 @@
     {
      "word": "bike",
      "audio": "words/bike.mp3",
-     "pic": "../../pics/bike-u6l2.png",
+     "pic": "../../pics/bike.png",
      "missing": 0,
      "answer": "b"
     },
     {
      "word": "boy",
      "audio": "words/boy.mp3",
-     "pic": "../../pics/boy-u6l2.png",
+     "pic": "../../pics/boy-u1l2.png",
      "missing": 0,
      "answer": "b"
     },
     {
      "word": "banana",
      "audio": "../u4l2/words/banana.mp3",
-     "pic": "../../pics/banana-u4l2.png",
+     "pic": "../../pics/banana.png",
      "missing": 0,
      "answer": "b"
     },
@@ -306,7 +306,7 @@
     {
      "word": "lion",
      "audio": "../u6l1/words/lion.mp3",
-     "pic": "../../pics/ar-lion.png",
+     "pic": "../../pics/lion.png",
      "missing": 0,
      "answer": "l"
     },
@@ -320,14 +320,14 @@
     {
      "word": "lamp",
      "audio": "words/lamp.mp3",
-     "pic": "../../pics/lamp-u6l2.png",
+     "pic": "../../pics/bulb.png",
      "missing": 0,
      "answer": "l"
     },
     {
      "word": "lemon",
      "audio": "words/lemon.mp3",
-     "pic": "../../pics/ar-lemon.png",
+     "pic": "../../pics/lemon.png",
      "missing": 0,
      "answer": "l"
     },
@@ -354,7 +354,7 @@
     {
      "word": "bike",
      "audio": "words/bike.mp3",
-     "pic": "../../pics/bike-u6l2.png",
+     "pic": "../../pics/bike.png",
      "missing": 0,
      "answer": "b"
     },
@@ -375,7 +375,7 @@
     {
      "word": "lamp",
      "audio": "words/lamp.mp3",
-     "pic": "../../pics/lamp-u6l2.png",
+     "pic": "../../pics/bulb.png",
      "missing": 0,
      "answer": "l"
     }
@@ -400,7 +400,7 @@
       "bike"
      ],
      "answer": 0,
-     "pic": "../../pics/boy-u6l2.png",
+     "pic": "../../pics/boy-u1l2.png",
      "audio": "../../en-shared/q/i-can-see-a-boy.mp3",
      "askAudio": "../../en-shared/q/askc-47c7b6a20d.mp3"
     },
@@ -412,7 +412,7 @@
       "lion"
      ],
      "answer": 0,
-     "pic": "../../pics/lamp-u6l2.png",
+     "pic": "../../pics/bulb.png",
      "audio": "../../en-shared/q/there-is-a-lamp.mp3",
      "askAudio": "../../en-shared/q/askc-70f897e552.mp3"
     },
@@ -449,7 +449,7 @@
       "banana"
      ],
      "answer": 1,
-     "pic": "../../pics/banana-u4l2.png",
+     "pic": "../../pics/banana.png",
      "tail": "is yellow.",
      "audio": "../../en-shared/q/thing-colour-banana-yellow.mp3",
      "askAudio": "../../en-shared/q/askc-d9cb9429a4.mp3"
@@ -470,7 +470,7 @@
     {
      "word": "boy",
      "audio": "words/boy.mp3",
-     "pic": "../../pics/boy-u6l2.png",
+     "pic": "../../pics/boy-u1l2.png",
      "gaps": [
       0,
       1,
@@ -480,7 +480,7 @@
     {
      "word": "lemon",
      "audio": "words/lemon.mp3",
-     "pic": "../../pics/ar-lemon.png",
+     "pic": "../../pics/lemon.png",
      "gaps": [
       0,
       1,
@@ -503,7 +503,7 @@
     {
      "word": "banana",
      "audio": "../u4l2/words/banana.mp3",
-     "pic": "../../pics/banana-u4l2.png",
+     "pic": "../../pics/banana.png",
      "gaps": [
       0,
       1,
@@ -541,7 +541,7 @@
     {
      "word": "bike",
      "audio": "words/bike.mp3",
-     "pic": "../../pics/bike-u6l2.png",
+     "pic": "../../pics/bike.png",
      "gaps": [
       0,
       1,
@@ -552,7 +552,7 @@
     {
      "word": "lamp",
      "audio": "words/lamp.mp3",
-     "pic": "../../pics/lamp-u6l2.png",
+     "pic": "../../pics/bulb.png",
      "gaps": [
       0,
       1,
@@ -610,7 +610,7 @@
     {
      "word": "lion",
      "audio": "../u6l1/words/lion.mp3",
-     "pic": "../../pics/ar-lion.png",
+     "pic": "../../pics/lion.png",
      "gaps": [
       0,
       1,
@@ -621,7 +621,7 @@
     {
      "word": "lemon",
      "audio": "words/lemon.mp3",
-     "pic": "../../pics/ar-lemon.png",
+     "pic": "../../pics/lemon.png",
      "gaps": [
       0,
       1,

@@ -1,0 +1,98 @@
+{
+ "unit": 3,
+ "lesson": 3,
+ "title": "Games",
+ "sceneAlt": "A game",
+ "type": "al",
+ "scene": "../../pics/al-u3l3-scene.jpg",
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "points",
+   "ar": "نقاط",
+   "img": "../../pics/trophy.png",
+   "parts": [
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "oi",
+     "ph": "oi",
+     "audio": "../../phonics/oi.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/points.mp3"
+   }
+  },
+  {
+   "word": "rules",
+   "ar": "قواعد",
+   "img": "../../pics/board.png",
+   "parts": [
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "u",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3",
+     "spell": true
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/rules.mp3"
+   }
+  }
+ ],
+ "lines": [],
+ "end": 1,
+ "tabs": [
+  "read",
+  "words"
+ ],
+ "tabLabels": {
+  "quiz": "Book's Questions"
+ }
+}

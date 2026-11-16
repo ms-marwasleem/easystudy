@@ -1,0 +1,108 @@
+{
+ "unit": 5,
+ "lesson": 3,
+ "title": "Getting Around",
+ "sceneAlt": "Getting Around",
+ "type": "al",
+ "scene": "../../pics/al-u5l3-s1.jpg",
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "motorbike",
+   "ar": "دراجة نارية",
+   "img": "../../pics/motorbike.jpg",
+   "parts": [
+    {
+     "t": "m",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "or",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    },
+    {
+     "t": "b",
+     "ph": "b",
+     "audio": "../../phonics/b.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "igh",
+     "audio": "../../phonics/igh.mp3"
+    },
+    {
+     "t": "ke",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/motorbike.mp3"
+   }
+  },
+  {
+   "word": "plane",
+   "ar": "طائرة",
+   "img": "../../pics/airplane.png",
+   "parts": [
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "ai",
+     "audio": "../../phonics/ai.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3",
+     "spell": true
+    }
+   ],
+   "audio": {
+    "word": "words/plane.mp3"
+   }
+  }
+ ],
+ "lines": [],
+ "end": 1,
+ "tabs": [
+  "read",
+  "words"
+ ],
+ "tabLabels": {
+  "quiz": "Book's Questions"
+ }
+}

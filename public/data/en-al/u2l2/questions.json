@@ -8,7 +8,7 @@
    "items": [
     {
      "pics": [
-      "img/s1.jpg"
+      "../../pics/al-u2l2-s1.jpg"
      ],
      "lines": [
       {
@@ -28,7 +28,7 @@
    "items": [
     {
      "pics": [
-      "img/s2.jpg"
+      "../../pics/al-u2l2-s2.jpg"
      ],
      "lines": [
       {
@@ -52,7 +52,7 @@
    "items": [
     {
      "pics": [
-      "img/s3.jpg"
+      "../../pics/al-u2l2-s3.jpg"
      ],
      "lines": [
       {
@@ -80,7 +80,7 @@
    "items": [
     {
      "pics": [
-      "img/s4.jpg"
+      "../../pics/al-u2l2-s4.jpg"
      ],
      "lines": []
     }
@@ -95,27 +95,27 @@
    "items": [
     {
      "word": "say",
-     "pic": "img/m1.jpg",
+     "pic": "../../pics/say.png",
      "audio": "../../en-shared/q/say.mp3"
     },
     {
      "word": "close",
-     "pic": "img/m2.jpg",
+     "pic": "../../pics/close.png",
      "audio": "../../en-shared/q/close.mp3"
     },
     {
      "word": "write",
-     "pic": "img/m3.jpg",
+     "pic": "../../pics/write.png",
      "audio": "../../en-shared/q/write.mp3"
     },
     {
      "word": "point",
-     "pic": "img/m4.jpg",
+     "pic": "../../pics/point.png",
      "audio": "../../en-shared/q/point.mp3"
     },
     {
      "word": "ask",
-     "pic": "img/m5.jpg",
+     "pic": "../../pics/ask.png",
      "audio": "../../en-shared/q/ask.mp3"
     }
    ],
@@ -142,7 +142,8 @@
       "open",
       "close"
      ],
-     "audio": "../../en-shared/q/i-stand-up-and-go-to-the-playground.mp3"
+     "audio": "../../en-shared/q/i-stand-up-and-go-to-the-playground.mp3",
+     "askAudio": "../../en-shared/q/askz-d12cab0ae0.mp3"
     },
     {
      "text": "I [[sit down]] on my chair.",
@@ -158,7 +159,8 @@
       "open",
       "close"
      ],
-     "audio": "../../en-shared/q/i-sit-down-on-my-chair.mp3"
+     "audio": "../../en-shared/q/i-sit-down-on-my-chair.mp3",
+     "askAudio": "../../en-shared/q/askz-0e4b473086.mp3"
     },
     {
      "text": "I [[read]] stories and books.",
@@ -174,7 +176,8 @@
       "open",
       "close"
      ],
-     "audio": "../../en-shared/q/i-read-stories-and-books.mp3"
+     "audio": "../../en-shared/q/i-read-stories-and-books.mp3",
+     "askAudio": "../../en-shared/q/askz-15c33aa304.mp3"
     },
     {
      "text": "I [[open]] and close the door.",
@@ -190,7 +193,8 @@
       "open",
       "close"
      ],
-     "audio": "../../en-shared/q/i-open-and-close-the-door.mp3"
+     "audio": "../../en-shared/q/i-open-and-close-the-door.mp3",
+     "askAudio": "../../en-shared/q/askz-851d1bc745.mp3"
     },
     {
      "text": "I ask and [[answer]] questions.",
@@ -206,7 +210,8 @@
       "open",
       "close"
      ],
-     "audio": "../../en-shared/q/i-ask-and-answer-questions.mp3"
+     "audio": "../../en-shared/q/i-ask-and-answer-questions.mp3",
+     "askAudio": "../../en-shared/q/askz-4872b2d590.mp3"
     }
    ],
    "page": 34,
@@ -279,7 +284,7 @@
      "word": "The students are in school.",
      "audio": "../../en-shared/q/the-students-are-in-school.mp3",
      "pics": [
-      "img/pl.jpg"
+      "../../pics/al-u2l2-pl.jpg"
      ]
     }
    ],
@@ -370,7 +375,7 @@
    "items": [
     {
      "word": "chair",
-     "pic": "img/c1.jpg",
+     "pic": "../../pics/chair.png",
      "options": [
       "chair",
       "table",
@@ -378,11 +383,12 @@
       "board"
      ],
      "answer": 0,
-     "audio": "../../en-shared/q/chair.mp3"
+     "audio": "../../en-shared/q/chair.mp3",
+     "askAudio": "../../en-shared/q/askc-1a8c441582.mp3"
     },
     {
      "word": "table",
-     "pic": "img/c2.jpg",
+     "pic": "../../pics/table.png",
      "options": [
       "chair",
       "table",
@@ -390,11 +396,12 @@
       "board"
      ],
      "answer": 1,
-     "audio": "../../en-shared/q/table.mp3"
+     "audio": "../../en-shared/q/table.mp3",
+     "askAudio": "../../en-shared/q/askc-1a8c441582.mp3"
     },
     {
      "word": "teacher",
-     "pic": "img/c3.jpg",
+     "pic": "../../pics/9-teacher.png",
      "options": [
       "chair",
       "table",
@@ -402,11 +409,12 @@
       "board"
      ],
      "answer": 2,
-     "audio": "../../en-shared/q/teacher.mp3"
+     "audio": "../../en-shared/q/teacher.mp3",
+     "askAudio": "../../en-shared/q/askc-1a8c441582.mp3"
     },
     {
      "word": "board",
-     "pic": "img/c4.jpg",
+     "pic": "../../pics/board.png",
      "options": [
       "chair",
       "table",
@@ -414,7 +422,8 @@
       "board"
      ],
      "answer": 3,
-     "audio": "../../en-shared/q/board.mp3"
+     "audio": "../../en-shared/q/board.mp3",
+     "askAudio": "../../en-shared/q/askc-1a8c441582.mp3"
     }
    ],
    "page": 38,

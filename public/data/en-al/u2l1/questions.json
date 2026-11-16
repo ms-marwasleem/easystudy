@@ -8,7 +8,7 @@
    "items": [
     {
      "pics": [
-      "img/s1.jpg"
+      "../../pics/al-u2l1-s1.jpg"
      ],
      "lines": [
       {
@@ -37,7 +37,7 @@
    "items": [
     {
      "pics": [
-      "img/s2.jpg"
+      "../../pics/al-u2l1-s2.jpg"
      ],
      "lines": [
       {
@@ -61,7 +61,7 @@
    "items": [
     {
      "pics": [
-      "img/s3.jpg"
+      "../../pics/al-u2l1-s3.jpg"
      ],
      "lines": [
       {
@@ -81,7 +81,7 @@
    "items": [
     {
      "pics": [
-      "img/s4.jpg"
+      "../../pics/al-u2l1-s4.jpg"
      ],
      "lines": [
       {
@@ -101,7 +101,7 @@
    "items": [
     {
      "pics": [
-      "img/s5.jpg"
+      "../../pics/al-u2l1-s5.jpg"
      ],
      "lines": [
       {
@@ -121,7 +121,7 @@
    "items": [
     {
      "pics": [
-      "img/s6.jpg"
+      "../../pics/al-u2l1-s6.jpg"
      ],
      "lines": [
       {
@@ -141,7 +141,7 @@
    "items": [
     {
      "pics": [
-      "img/s7.jpg"
+      "../../pics/al-u2l1-s7.jpg"
      ],
      "lines": [
       {
@@ -161,43 +161,47 @@
    "items": [
     {
      "word": "computer",
-     "pic": "img/b1.jpg",
+     "pic": "../../pics/computer.png",
      "options": [
       "computer",
       "mouse"
      ],
      "answer": 0,
-     "audio": "../../en-shared/q/computer.mp3"
+     "audio": "../../en-shared/q/computer.mp3",
+     "askAudio": "../../en-shared/q/askc-fbd5257bc6.mp3"
     },
     {
      "word": "window",
-     "pic": "img/b2.jpg",
+     "pic": "../../pics/window.png",
      "options": [
       "board",
       "window"
      ],
      "answer": 1,
-     "audio": "../../en-shared/q/window.mp3"
+     "audio": "../../en-shared/q/window.mp3",
+     "askAudio": "../../en-shared/q/askc-6302124a75.mp3"
     },
     {
      "word": "door",
-     "pic": "img/b3.jpg",
+     "pic": "../../pics/door-u3l4.png",
      "options": [
       "door",
       "board"
      ],
      "answer": 0,
-     "audio": "../../en-shared/q/door.mp3"
+     "audio": "../../en-shared/q/door.mp3",
+     "askAudio": "../../en-shared/q/askc-50ecd8e619.mp3"
     },
     {
      "word": "chair",
-     "pic": "img/b4.jpg",
+     "pic": "../../pics/chair.png",
      "options": [
       "desk",
       "chair"
      ],
      "answer": 1,
-     "audio": "../../en-shared/q/chair.mp3"
+     "audio": "../../en-shared/q/chair.mp3",
+     "askAudio": "../../en-shared/q/askc-678936d466.mp3"
     }
    ],
    "page": 26,
@@ -219,7 +223,8 @@
       "mouse",
       "wall"
      ],
-     "audio": "../../en-shared/q/the-children-sit-in-the-classroom-and-wait-for-the-teacher.mp3"
+     "audio": "../../en-shared/q/the-children-sit-in-the-classroom-and-wait-for-the-teacher.mp3",
+     "askAudio": "../../en-shared/q/askz-e7c789b829.mp3"
     },
     {
      "text": "The teacher writes on the [[board]].",
@@ -231,7 +236,8 @@
       "mouse",
       "wall"
      ],
-     "audio": "../../en-shared/q/the-teacher-writes-on-the-board.mp3"
+     "audio": "../../en-shared/q/the-teacher-writes-on-the-board.mp3",
+     "askAudio": "../../en-shared/q/askz-e91817e49d.mp3"
     },
     {
      "text": "There are lots of pictures on the [[wall]].",
@@ -243,7 +249,8 @@
       "mouse",
       "wall"
      ],
-     "audio": "../../en-shared/q/there-are-lots-of-pictures-on-the-wall.mp3"
+     "audio": "../../en-shared/q/there-are-lots-of-pictures-on-the-wall.mp3",
+     "askAudio": "../../en-shared/q/askz-8721d4fb0a.mp3"
     },
     {
      "text": "All of my favorite books are in the [[bookcase]].",
@@ -255,7 +262,8 @@
       "mouse",
       "wall"
      ],
-     "audio": "../../en-shared/q/all-of-my-favorite-books-are-in-the-bookcase.mp3"
+     "audio": "../../en-shared/q/all-of-my-favorite-books-are-in-the-bookcase.mp3",
+     "askAudio": "../../en-shared/q/askz-98e0af5ec2.mp3"
     },
     {
      "text": "The girl sits at her [[desk]].",
@@ -267,7 +275,8 @@
       "mouse",
       "wall"
      ],
-     "audio": "../../en-shared/q/the-girl-sits-at-her-desk.mp3"
+     "audio": "../../en-shared/q/the-girl-sits-at-her-desk.mp3",
+     "askAudio": "../../en-shared/q/askz-b147cd609b.mp3"
     },
     {
      "text": "The boy uses the [[mouse]] to draw on the computer.",
@@ -279,7 +288,8 @@
       "mouse",
       "wall"
      ],
-     "audio": "../../en-shared/q/the-boy-uses-the-mouse-to-draw-on-the-computer.mp3"
+     "audio": "../../en-shared/q/the-boy-uses-the-mouse-to-draw-on-the-computer.mp3",
+     "askAudio": "../../en-shared/q/askz-8aa8695fb7.mp3"
     }
    ],
    "page": 26,
@@ -475,7 +485,8 @@
       "book",
       "pencils"
      ],
-     "audio": "../../en-shared/q/can-i-have-that-book-please.mp3"
+     "audio": "../../en-shared/q/can-i-have-that-book-please.mp3",
+     "askAudio": "../../en-shared/q/askz-d7c20b3a70.mp3"
     },
     {
      "text": "Can I have those [[pencils]], please?",
@@ -483,7 +494,8 @@
       "book",
       "pencils"
      ],
-     "audio": "../../en-shared/q/can-i-have-those-pencils-please.mp3"
+     "audio": "../../en-shared/q/can-i-have-those-pencils-please.mp3",
+     "askAudio": "../../en-shared/q/askz-89fc5f660e.mp3"
     }
    ],
    "page": 33,
@@ -552,17 +564,17 @@
     },
     {
      "word": "board",
-     "pic": "../../pics/board-u2.png",
+     "pic": "../../pics/board.png",
      "audio": "../../en-shared/q/board.mp3"
     },
     {
      "word": "desk",
-     "pic": "../../pics/desk-u2.png",
+     "pic": "../../pics/desk.png",
      "audio": "../../en-shared/q/desk.mp3"
     },
     {
      "word": "classroom",
-     "pic": "../../pics/classroom-u2.jpg",
+     "pic": "../../pics/classroom.jpg",
      "audio": "../../en-shared/q/classroom.mp3"
     }
    ],
@@ -1303,105 +1315,35 @@
    "ex": 2
   },
   {
-   "type": "mcq",
+   "type": "mistake",
    "task": "Correct the mistake in each sentence.",
    "taskAudio": "../../en-shared/q/correct-the-mistake-in-each-sentence.mp3",
    "book": "booklet",
    "items": [
     {
-     "stem": "____ classrooms are big.",
-     "options": [
-      "This",
-      "These"
-     ],
-     "answer": 1,
      "word": "These classrooms are big.",
      "audio": "../../en-shared/q/these-classrooms-are-big.mp3",
-     "parts": [
-      "../../en-shared/q/classrooms-are-big.mp3"
-     ],
-     "optSay": [
-      "This",
-      "These"
-     ],
-     "ask": "This classrooms are big.",
-     "askAudio": "../../en-shared/q/askc-dfa8fb92b4.mp3"
+     "ask": "This classrooms are big."
     },
     {
-     "stem": "____ is a friendly friend.",
-     "options": [
-      "This",
-      "These"
-     ],
-     "answer": 0,
      "word": "This is a friendly friend.",
      "audio": "../../en-shared/q/this-is-a-friendly-friend.mp3",
-     "parts": [
-      "../../en-shared/q/is-a-friendly-friend.mp3"
-     ],
-     "optSay": [
-      "This",
-      "These"
-     ],
-     "ask": "These is a friendly friend.",
-     "askAudio": "../../en-shared/q/askc-095e70cf8d.mp3"
+     "ask": "These is a friendly friend."
     },
     {
-     "stem": "____ are blue pencils.",
-     "options": [
-      "That",
-      "Those"
-     ],
-     "answer": 1,
      "word": "Those are blue pencils.",
      "audio": "../../en-shared/q/those-are-blue-pencils.mp3",
-     "parts": [
-      "../../en-shared/q/are-blue-pencils.mp3"
-     ],
-     "optSay": [
-      "That",
-      "Those"
-     ],
-     "ask": "That are blue pencils.",
-     "askAudio": "../../en-shared/q/askc-83a21c569a.mp3"
+     "ask": "That are blue pencils."
     },
     {
-     "stem": "____ bag is mine.",
-     "options": [
-      "That",
-      "Those"
-     ],
-     "answer": 0,
      "word": "That bag is mine.",
      "audio": "../../en-shared/q/that-bag-is-mine.mp3",
-     "parts": [
-      "../../en-shared/q/bag-is-mine.mp3"
-     ],
-     "optSay": [
-      "That",
-      "Those"
-     ],
-     "ask": "Those bag is mine.",
-     "askAudio": "../../en-shared/q/askc-a081230c6d.mp3"
+     "ask": "Those bag is mine."
     },
     {
-     "stem": "____ drawings are beautiful.",
-     "options": [
-      "This",
-      "These"
-     ],
-     "answer": 1,
      "word": "These drawings are beautiful.",
      "audio": "../../en-shared/q/these-drawings-are-beautiful.mp3",
-     "parts": [
-      "../../en-shared/q/drawings-are-beautiful.mp3"
-     ],
-     "optSay": [
-      "This",
-      "These"
-     ],
-     "ask": "This drawings are beautiful.",
-     "askAudio": "../../en-shared/q/askc-f4832b57e7.mp3"
+     "ask": "This drawings are beautiful."
     }
    ],
    "page": 38,

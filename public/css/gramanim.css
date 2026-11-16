@@ -1,7 +1,7 @@
 /* GRAMMAR ANIMATION template (js/gramanim.js): one animated page per grammar card. Relative units only; white text on colour. */
 .gan{display:grid;grid-template-areas:none;grid-template-rows:auto minmax(0,1fr) auto;height:100%;padding:.5rem 1rem 4.2rem;gap:.4rem;container-type:size;overflow:hidden}
 .gan-title{margin:0;text-align:center;font:400 clamp(1.1rem,4cqw,1.8rem)/1.2 var(--f-title);color:var(--c-hint)}
-.gan-box{position:relative;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;container-type:size;background:#2F6B4A;border-radius:1.2rem;box-shadow:0 .25rem 0 rgba(90,52,24,.3);padding:.6rem;color:var(--c-white);overflow:hidden}
+.gan-box{position:relative;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;container-type:size;background:rgba(255,255,255,.18);border:.15rem solid rgba(255,255,255,.35);border-radius:1.2rem;box-shadow:0 .25rem 0 rgba(90,52,24,.3);padding:.6rem;color:var(--c-white);overflow:hidden}
 .gan-dots{display:flex;justify-content:center;gap:.7rem}
 .gan-dot{width:.9rem;height:.9rem;border-radius:50%;border:.14rem solid #fff;background:transparent;padding:0}
 .gan-dot.ok{background:rgba(255,255,255,.55)}.gan-dot.on{background:var(--c-hint);border-color:var(--c-hint);transform:scale(1.3)}

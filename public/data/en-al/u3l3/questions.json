@@ -1,0 +1,63 @@
+{
+ "sets": [
+  {
+   "type": "explain",
+   "task": "Critical Thinking. Do you play team games? Why? Talk with a friend.",
+   "taskAudio": "../../en-shared/q/critical-thinking-do-you-play-team-games-why-talk-1f6f1d8b.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u3l3-s1.jpg"
+     ],
+     "lines": [
+      {
+       "t": "I play soccer. I can kick a ball far!",
+       "a": "../../en-shared/q/i-play-soccer-i-can-kick-a-ball-far.mp3"
+      },
+      {
+       "t": "I don't play in a team. I run in races.",
+       "a": "../../en-shared/q/i-don-t-play-in-a-team-i-run-in-races.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 66,
+   "ex": "A"
+  },
+  {
+   "type": "check",
+   "task": "What can you learn about this game from the photo? Check. Tell a friend.",
+   "taskAudio": "../../en-shared/q/what-can-you-learn-about-this-game-from-the-photo-eafe77ee.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "words": [
+      "You play this game with a big ball.",
+      "You hit the ball.",
+      "You throw, catch, jump, and run in this game.",
+      "Boys and girls can play."
+     ],
+     "n": 4,
+     "audios": [
+      "../../en-shared/q/you-play-this-game-with-a-big-ball.mp3",
+      "../../en-shared/q/you-hit-the-ball.mp3",
+      "../../en-shared/q/you-throw-catch-jump-and-run-in-this-game.mp3",
+      "../../en-shared/q/boys-and-girls-can-play.mp3"
+     ],
+     "ok": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "pics": [
+      "../../pics/al-u3l3-s1.jpg"
+     ]
+    }
+   ],
+   "page": 66,
+   "ex": "B"
+  }
+ ]
+}

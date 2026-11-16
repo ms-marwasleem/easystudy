@@ -403,3 +403,36 @@ html[data-theme="words"],html[data-theme="words"] body{background:radial-gradien
 .wl-form input{font-weight:500;color:#16346b}
 .pill.wl-chip{font-weight:500}
 .pill.wl-big,.pill.wl-big small{font-weight:600}
+/* the report as a page in the account area (js/words-report.js) */
+.rp-kids{display:flex;flex-wrap:wrap;gap:.5rem}
+.rp-kid{border:.15rem solid #F2C27A;background:#fff;border-radius:99rem;padding:.5rem 1.1rem;font:inherit;font-weight:800;font-size:1.05rem;color:var(--ol);cursor:pointer}
+.rp-kid.on{background:#FFB21F}
+.rp-one{margin:0;font-size:1.4rem}
+.rp-body{display:flex;flex-direction:column;gap:1rem}
+.rp-sec{margin:0}.rp-sec.weak{border-color:#D8432F}.rp-sec.good{border-color:#2E9E4F}.rp-sec.review{border-color:#E0A21A}
+.rp-sum{margin:0;max-width:none}
+
+/* map folding (Ahmed 2026-11-16): expand/collapse all (top right), arrow per unit and per lesson; a lesson's words flow right beside it */
+.ew-mapbar{display:flex;justify-content:flex-end;direction:ltr;position:sticky;top:0;z-index:5;padding:.2rem 0 .6rem;pointer-events:none}
+.ew-foldall{pointer-events:auto;display:inline-flex;align-items:center;gap:.4rem;direction:rtl;font-family:"Baloo Bhaijaan 2",sans-serif;font-weight:800;font-size:1rem;color:#fff;text-shadow:0 .08rem 0 rgba(22,52,107,.6);padding:.3rem .9rem .3rem .6rem;border:.16rem solid #fff;border-radius:62rem;background:linear-gradient(#a9f09a,#2fb04e);box-shadow:0 .2rem 0 #1f8238,0 .5rem .7rem rgba(22,52,107,.22);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ew-foldall:active{transform:translateY(.15rem)}
+.ew-chev{display:inline-grid;place-items:center;width:1.3rem;height:1.3rem;font-style:normal;transition:transform .2s}
+.ew-chev svg,.ew-lfold svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round}
+.ew-foldall[data-mode=open] .ew-chev{transform:rotate(-90deg)}
+.ew-utab{display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;user-select:none}
+.ew-utab .ew-chev{position:relative;z-index:1}
+.ew-unit.closed .ew-utab .ew-chev{transform:rotate(90deg)}
+.ew-unit.closed .ew-ubody{display:none}
+.ew-unit.closed .ew-utab{border-bottom:.16rem solid #fff;border-radius:.9rem}
+.ew-lwrap{position:relative;flex:none}
+.ew-lfold{position:absolute;z-index:3;top:-.5rem;inset-inline-start:-.5rem;width:1.8rem;height:1.8rem;padding:.25rem;border-radius:50%;border:.14rem solid #fff;background:linear-gradient(#ffe680,#f5b61c);color:var(--ew-ink);box-shadow:0 .1rem .25rem rgba(22,52,107,.3);cursor:pointer}
+.ew-lfold svg{transition:transform .2s}
+.ew-lrow.closed .ew-lfold svg{transform:rotate(90deg)}
+#ewMapBody .ew-words{display:contents}
+.ew-lrow.closed .ew-wsq{display:none}
+#ewMapBody .ew-lrow{align-items:flex-start}
+#ewMapBody .ew-lrow:not(.solo){flex:1 1 100%}
+
+/* test setup screen: the headings, chips and weak-words button are Arabic, so they all sit on the right in every subject */
+#ewTestBody .ewt-opts,#ewTestBody .ewt-help,#ewTestBody .ewt-weak,#ewTestBody .ewt-chips{direction:rtl;text-align:start}
+#ewTestBody .ewt-weak{margin-inline-start:0;margin-inline-end:auto}

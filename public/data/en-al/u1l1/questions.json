@@ -10,7 +10,7 @@
    "items": [
     {
      "pics": [
-      "img/s1.jpg"
+      "../../pics/al-u1l1-s1.jpg"
      ],
      "lines": [
       {
@@ -54,7 +54,7 @@
    "items": [
     {
      "pics": [
-      "img/s2.jpg"
+      "../../pics/al-u1l1-s2.jpg"
      ],
      "lines": [
       {
@@ -95,7 +95,7 @@
    "items": [
     {
      "pics": [
-      "img/s3.jpg"
+      "../../pics/al-u1l1-s3.jpg"
      ],
      "lines": [
       {
@@ -148,7 +148,7 @@
    "items": [
     {
      "pics": [
-      "img/s4.jpg"
+      "../../pics/al-u1l1-s1.jpg"
      ],
      "lines": [
       {
@@ -177,7 +177,7 @@
    "items": [
     {
      "pics": [
-      "img/s5.jpg"
+      "../../pics/al-u1l1-s5.jpg"
      ],
      "lines": [
       {
@@ -210,7 +210,7 @@
    "items": [
     {
      "word": "dad",
-     "pic": "img/b1.jpg",
+     "pic": "../../pics/dad.png",
      "options": [
       "dad",
       "mom"
@@ -221,7 +221,7 @@
     },
     {
      "word": "sister",
-     "pic": "img/b2.jpg",
+     "pic": "../../pics/sister.png",
      "options": [
       "grandma",
       "sister"
@@ -232,7 +232,7 @@
     },
     {
      "word": "baby",
-     "pic": "img/b3.jpg",
+     "pic": "../../pics/baby.png",
      "options": [
       "uncle",
       "baby"
@@ -243,7 +243,7 @@
     },
     {
      "word": "grandpa",
-     "pic": "img/b4.jpg",
+     "pic": "../../pics/al-u1l1-b4.jpg",
      "options": [
       "grandpa",
       "aunt"
@@ -439,8 +439,8 @@
      "answer": 0,
      "audio": "../../en-shared/q/there-are-four-children-in-this-family-family-a.mp3",
      "pics": [
-      "img/fam-a.jpg",
-      "img/fam-b.jpg"
+      "../../pics/al-u1l1-fam-a.jpg",
+      "../../pics/al-u1l1-fam-b.jpg"
      ],
      "caps": [
       "Family A",
@@ -458,8 +458,8 @@
      "answer": 0,
      "audio": "../../en-shared/q/the-boy-has-two-sisters-family-a.mp3",
      "pics": [
-      "img/fam-a.jpg",
-      "img/fam-b.jpg"
+      "../../pics/al-u1l1-fam-a.jpg",
+      "../../pics/al-u1l1-fam-b.jpg"
      ],
      "caps": [
       "Family A",
@@ -477,8 +477,8 @@
      "answer": 1,
      "audio": "../../en-shared/q/there-is-a-baby-family-b.mp3",
      "pics": [
-      "img/fam-a.jpg",
-      "img/fam-b.jpg"
+      "../../pics/al-u1l1-fam-a.jpg",
+      "../../pics/al-u1l1-fam-b.jpg"
      ],
      "caps": [
       "Family A",
@@ -496,8 +496,8 @@
      "answer": 1,
      "audio": "../../en-shared/q/there-is-a-grandma-family-b.mp3",
      "pics": [
-      "img/fam-a.jpg",
-      "img/fam-b.jpg"
+      "../../pics/al-u1l1-fam-a.jpg",
+      "../../pics/al-u1l1-fam-b.jpg"
      ],
      "caps": [
       "Family A",
@@ -515,8 +515,8 @@
      "answer": 0,
      "audio": "../../en-shared/q/they-walk-in-the-park-family-a.mp3",
      "pics": [
-      "img/fam-a.jpg",
-      "img/fam-b.jpg"
+      "../../pics/al-u1l1-fam-a.jpg",
+      "../../pics/al-u1l1-fam-b.jpg"
      ],
      "caps": [
       "Family A",
@@ -548,8 +548,8 @@
      ],
      "askAudio": "../../en-shared/q/askc-708a355a89.mp3",
      "pics": [
-      "img/fam-a.jpg",
-      "img/fam-b.jpg"
+      "../../pics/al-u1l1-fam-a.jpg",
+      "../../pics/al-u1l1-fam-b.jpg"
      ],
      "caps": [
       "Family A",
@@ -660,7 +660,7 @@
      "word": "uncle",
      "missing": 1,
      "answer": "n",
-     "pic": "../../pics/uncle.jpg",
+     "pic": "../../pics/uncle.png",
      "audio": "../../en-shared/q/uncle.mp3"
     },
     {
@@ -681,7 +681,7 @@
      "word": "grandpa",
      "missing": 5,
      "answer": "p",
-     "pic": "../../pics/grandpa.jpg",
+     "pic": "../../pics/grandfather.png",
      "audio": "../../en-shared/q/grandpa.mp3"
     },
     {
@@ -703,17 +703,17 @@
    "items": [
     {
      "word": "brother",
-     "pic": "../../pics/rv-brother.jpg",
+     "pic": "../../pics/brother-1.png",
      "audio": "../../en-shared/q/brother.mp3"
     },
     {
      "word": "mom",
-     "pic": "../../pics/mom.jpg",
+     "pic": "../../pics/mother.png",
      "audio": "../../en-shared/q/mom.mp3"
     },
     {
      "word": "grandma",
-     "pic": "../../pics/grandma.jpg",
+     "pic": "../../pics/grandmother.png",
      "audio": "../../en-shared/q/grandma.mp3"
     },
     {
@@ -1541,7 +1541,7 @@
    ]
   },
   {
-   "type": "mcq",
+   "type": "mistake",
    "task": "Correct the mistake in each sentence.",
    "taskAudio": "../../en-shared/q/correct-the-mistake-in-each-sentence.mp3",
    "book": "booklet",
@@ -1550,54 +1550,18 @@
    "items": [
     {
      "word": "My dog is very playful.",
-     "stem": "My dog ____ very playful.",
-     "options": [
-      "am",
-      "is",
-      "are"
-     ],
-     "answer": 1,
      "audio": "../../en-shared/q/my-dog-is-very-playful.mp3",
-     "parts": [
-      "../../en-shared/q/my-dog.mp3",
-      "../../en-shared/q/very-playful.mp3"
-     ],
-     "ask": "My dog are very playful.",
-     "askAudio": "../../en-shared/q/askc-04547cca96.mp3"
+     "ask": "My dog are very playful."
     },
     {
      "word": "You are a good friend.",
-     "stem": "You ____ a good friend.",
-     "options": [
-      "am",
-      "is",
-      "are"
-     ],
-     "answer": 2,
      "audio": "../../en-shared/q/you-are-a-good-friend.mp3",
-     "parts": [
-      "../../en-shared/q/you.mp3",
-      "../../en-shared/q/a-good-friend.mp3"
-     ],
-     "ask": "You is a good friend.",
-     "askAudio": "../../en-shared/q/askc-5698989701.mp3"
+     "ask": "You is a good friend."
     },
     {
      "word": "I am happy to see you.",
-     "stem": "I ____ happy to see you.",
-     "options": [
-      "am",
-      "is",
-      "are"
-     ],
-     "answer": 0,
      "audio": "../../en-shared/q/i-am-happy-to-see-you.mp3",
-     "parts": [
-      "../../en-shared/q/i.mp3",
-      "../../en-shared/q/happy-to-see-you.mp3"
-     ],
-     "ask": "I is happy to see you.",
-     "askAudio": "../../en-shared/q/askc-184d3ef69b.mp3"
+     "ask": "I is happy to see you."
     }
    ]
   }

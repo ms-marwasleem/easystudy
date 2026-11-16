@@ -1,0 +1,75 @@
+{
+ "sets": [
+  {
+   "type": "explain",
+   "task": "Critical Thinking. What do schools look like? Talk with a friend.",
+   "taskAudio": "../../en-shared/q/critical-thinking-what-do-schools-look-like-talk-w-47b15e85.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/class.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Schools are big.",
+       "a": "../../en-shared/q/schools-are-big.mp3"
+      },
+      {
+       "t": "Some schools are small.",
+       "a": "../../en-shared/q/some-schools-are-small.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 42,
+   "ex": "A"
+  },
+  {
+   "type": "check",
+   "task": "Look at the photo. Check the things you see.",
+   "taskAudio": "../../en-shared/q/look-at-the-photo-check-the-things-you-see.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "words": [
+      "classroom",
+      "desk",
+      "bookcase",
+      "door",
+      "teacher",
+      "student",
+      "board",
+      "eraser",
+      "playground",
+      "computer"
+     ],
+     "n": 4,
+     "audios": [
+      "../../en-shared/q/classroom.mp3",
+      "../../en-shared/q/desk.mp3",
+      "../../en-shared/q/bookcase.mp3",
+      "../../en-shared/q/door.mp3",
+      "../../en-shared/q/teacher.mp3",
+      "../../en-shared/q/student.mp3",
+      "../../en-shared/q/board.mp3",
+      "../../en-shared/q/eraser.mp3",
+      "../../en-shared/q/playground.mp3",
+      "../../en-shared/q/computer.mp3"
+     ],
+     "ok": [
+      0,
+      1,
+      4,
+      5
+     ],
+     "pics": [
+      "../../pics/class.jpg"
+     ]
+    }
+   ],
+   "page": 42,
+   "ex": "B"
+  }
+ ]
+}

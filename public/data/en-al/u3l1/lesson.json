@@ -4,12 +4,14 @@
  "title": "Toys",
  "sceneAlt": "Toys",
  "tabs": [
+  "read",
   "words",
   "booklet",
-  "grammar"
+  "grammar",
+  "quiz"
  ],
  "type": "al",
- "scene": "img/scene.jpg",
+ "scene": "../../pics/al-u3l1-scene.jpg",
  "hints": {
   "read": "Tap Read and listen!",
   "word": "Tap a word to hear it again.",
@@ -22,7 +24,7 @@
   {
    "word": "ball",
    "ar": "كرة",
-   "img": "../../pics/u3-ball.png",
+   "img": "../../pics/ball.png",
    "parts": [
     {
      "t": "b",
@@ -48,7 +50,7 @@
   {
    "word": "monster",
    "ar": "وحش",
-   "img": "../../pics/u3-monster.png",
+   "img": "../../pics/monster.png",
    "parts": [
     {
      "t": "m",
@@ -89,7 +91,7 @@
   {
    "word": "puppet",
    "ar": "دمية متحركة",
-   "img": "../../pics/u3-puppet.png",
+   "img": "../../pics/puppet.png",
    "parts": [
     {
      "t": "p",
@@ -125,7 +127,7 @@
   {
    "word": "car",
    "ar": "سيارة",
-   "img": "../../pics/u3-car.png",
+   "img": "../../pics/car.png",
    "parts": [
     {
      "t": "c",
@@ -146,7 +148,7 @@
   {
    "word": "train",
    "ar": "قطار",
-   "img": "../../pics/ar-train.png",
+   "img": "../../pics/train.png",
    "parts": [
     {
      "t": "t",
@@ -177,7 +179,7 @@
   {
    "word": "puzzle",
    "ar": "أحجية",
-   "img": "../../pics/u3-puzzle.jpg",
+   "img": "../../pics/puzzle.jpg",
    "parts": [
     {
      "t": "p",
@@ -214,7 +216,7 @@
   {
    "word": "new",
    "ar": "جديد",
-   "img": "../../pics/u3-newtoy.jpg",
+   "img": "../../pics/new.jpg",
    "parts": [
     {
      "t": "n",
@@ -235,7 +237,7 @@
   {
    "word": "old",
    "ar": "قديم",
-   "img": "../../pics/u3-oldcar.jpg",
+   "img": "../../pics/old.jpg",
    "parts": [
     {
      "t": "o",
@@ -261,7 +263,7 @@
   {
    "word": "pretty",
    "ar": "جميل",
-   "img": "../../pics/u3-pretty.png",
+   "img": "../../pics/pretty.png",
    "parts": [
     {
      "t": "p",
@@ -297,7 +299,7 @@
   {
    "word": "ugly",
    "ar": "قبيح",
-   "img": "../../pics/u3-ugly.png",
+   "img": "../../pics/ugly.png",
    "parts": [
     {
      "t": "u",
@@ -324,53 +326,221 @@
     "word": "words/ugly.mp3",
     "ar": "../../ar-meanings/78d4d2408f.mp3"
    }
+  },
+  {
+   "word": "teddy",
+   "ar": "دب دمية",
+   "img": "../../pics/teddy.jpg",
+   "parts": [
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "dd",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "y",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/teddy.mp3"
+   }
+  },
+  {
+   "word": "glue",
+   "ar": "غراء",
+   "img": "../../pics/glue.png",
+   "parts": [
+    {
+     "t": "g",
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "ue",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/glue.mp3"
+   }
+  },
+  {
+   "word": "paper",
+   "ar": "ورق",
+   "img": "../../pics/paper.png",
+   "parts": [
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "ai",
+     "audio": "../../phonics/ai.mp3"
+    },
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/paper.mp3"
+   }
+  },
+  {
+   "word": "scissors",
+   "ar": "مقص",
+   "img": "../../pics/scissors.png",
+   "parts": [
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "c",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3",
+     "spell": true
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "ss",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    },
+    {
+     "t": "or",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    },
+    {
+     "t": "s",
+     "ph": "z",
+     "audio": "../../phonics/z.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/scissors.mp3"
+   }
   }
  ],
  "lines": [],
  "end": 1,
  "grammar": [
   {
-   "title": "Questions with Have and Want",
-   "note": "With I, you, we, they we ask with Do. With he, she, it we ask with Does.",
+   "title": "Listen and read",
+   "note": null,
    "rows": [
     [
      {
-      "t": "Do you have a monster?",
-      "a": "data/en-shared/q/do-you-have-a-monster.mp3"
-     },
-     {
-      "t": "Yes, I do. / No, I don't.",
-      "a": "data/en-shared/q/yes-i-do-no-i-don-t.mp3"
+      "t": "I want a monster! Do you have a toy monster?",
+      "a": "data/en-shared/q/i-want-a-monster-do-you-have-a-toy-monster.mp3"
      }
     ],
     [
+     {
+      "t": "No, I don't. I have a puzzle.",
+      "a": "data/en-shared/q/no-i-don-t-i-have-a-puzzle.mp3"
+     }
+    ],
+    [
+     {
+      "t": "I don't want a puzzle.",
+      "a": "data/en-shared/q/i-don-t-want-a-puzzle.mp3"
+     }
+    ],
+    [
+     {
+      "t": "It's a monster puzzle! Do you want it?",
+      "a": "data/en-shared/q/it-s-a-monster-puzzle-do-you-want-it.mp3"
+     }
+    ],
+    [
+     {
+      "t": "Oh! Yes, I do!",
+      "a": "data/en-shared/q/oh-yes-i-do.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "text",
+    "pic": "data/pics/al-u3l1-g1.jpg",
+    "lines": [
+     {
+      "t": "I want a monster! Do you have a toy monster?",
+      "a": "data/en-shared/q/i-want-a-monster-do-you-have-a-toy-monster.mp3"
+     },
+     {
+      "t": "No, I don't. I have a puzzle.",
+      "a": "data/en-shared/q/no-i-don-t-i-have-a-puzzle.mp3"
+     },
+     {
+      "t": "I don't want a puzzle.",
+      "a": "data/en-shared/q/i-don-t-want-a-puzzle.mp3"
+     },
+     {
+      "t": "It's a monster puzzle! Do you want it?",
+      "a": "data/en-shared/q/it-s-a-monster-puzzle-do-you-want-it.mp3"
+     },
+     {
+      "t": "Oh! Yes, I do!",
+      "a": "data/en-shared/q/oh-yes-i-do.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "Do you have...?  Do you want...?",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "You have a monster.",
+      "a": "data/en-shared/q/you-have-a-monster.mp3"
+     },
+     {
+      "t": "Do you have a monster?",
+      "a": "data/en-shared/q/do-you-have-a-monster.mp3"
+     }
+    ],
+    [
+     {
+      "t": "You want a monster.",
+      "a": "data/en-shared/q/you-want-a-monster.mp3"
+     },
      {
       "t": "Do you want a monster?",
       "a": "data/en-shared/q/do-you-want-a-monster.mp3"
-     },
-     {
-      "t": "Yes, I do. / No, I don't.",
-      "a": "data/en-shared/q/yes-i-do-no-i-don-t.mp3"
-     }
-    ],
-    [
-     {
-      "t": "Does she have a monster?",
-      "a": "data/en-shared/q/does-she-have-a-monster.mp3"
-     },
-     {
-      "t": "Yes, she does. / No, she doesn't.",
-      "a": "data/en-shared/q/yes-she-does-no-she-doesn-t.mp3"
-     }
-    ],
-    [
-     {
-      "t": "Does she want a monster?",
-      "a": "data/en-shared/q/does-she-want-a-monster.mp3"
-     },
-     {
-      "t": "Yes, she does. / No, she doesn't.",
-      "a": "data/en-shared/q/yes-she-does-no-she-doesn-t.mp3"
      }
     ]
    ],
@@ -395,15 +565,69 @@
         3
        ]
       ],
-      "hl": [
-       0
-      ],
-      "ta": "data/en-shared/q/do-you-have-a-monster.mp3",
       "ans": {
        "t": "Yes, I do. / No, I don't.",
        "a": "data/en-shared/q/yes-i-do-no-i-don-t.mp3"
-      }
+      },
+      "fa": "data/en-shared/q/you-have-a-monster.mp3",
+      "ta": "data/en-shared/q/do-you-have-a-monster.mp3"
      },
+     {
+      "from": "You want a monster.",
+      "to": "Do you want a monster?",
+      "map": [
+       [],
+       [
+        0
+       ],
+       [
+        1
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ]
+      ],
+      "ans": {
+       "t": "Yes, I do. / No, I don't.",
+       "a": "data/en-shared/q/yes-i-do-no-i-don-t.mp3"
+      },
+      "fa": "data/en-shared/q/you-want-a-monster.mp3",
+      "ta": "data/en-shared/q/do-you-want-a-monster.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "Does she have...?  Does she want...?",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "She has a monster.",
+      "a": "data/en-shared/q/she-has-a-monster.mp3"
+     },
+     {
+      "t": "Does she have a monster?",
+      "a": "data/en-shared/q/does-she-have-a-monster.mp3"
+     }
+    ],
+    [
+     {
+      "t": "She wants a monster.",
+      "a": "data/en-shared/q/she-wants-a-monster.mp3"
+     },
+     {
+      "t": "Does she want a monster?",
+      "a": "data/en-shared/q/does-she-want-a-monster.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "morph",
+    "steps": [
      {
       "from": "She has a monster.",
       "to": "Does she have a monster?",
@@ -422,17 +646,43 @@
         3
        ]
       ],
-      "hl": [
-       0
-      ],
-      "ta": "data/en-shared/q/does-she-have-a-monster.mp3",
       "ans": {
        "t": "Yes, she does. / No, she doesn't.",
        "a": "data/en-shared/q/yes-she-does-no-she-doesn-t.mp3"
-      }
+      },
+      "fa": "data/en-shared/q/she-has-a-monster.mp3",
+      "ta": "data/en-shared/q/does-she-have-a-monster.mp3"
+     },
+     {
+      "from": "She wants a monster.",
+      "to": "Does she want a monster?",
+      "map": [
+       [],
+       [
+        0
+       ],
+       [
+        1
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ]
+      ],
+      "ans": {
+       "t": "Yes, she does. / No, she doesn't.",
+       "a": "data/en-shared/q/yes-she-does-no-she-doesn-t.mp3"
+      },
+      "fa": "data/en-shared/q/she-wants-a-monster.mp3",
+      "ta": "data/en-shared/q/does-she-want-a-monster.mp3"
      }
     ]
    }
   }
- ]
+ ],
+ "tabLabels": {
+  "quiz": "Book's Questions"
+ }
 }

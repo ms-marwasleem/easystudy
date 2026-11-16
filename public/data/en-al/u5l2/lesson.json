@@ -4,12 +4,14 @@
  "title": "Cities of the World",
  "sceneAlt": "A town",
  "tabs": [
+  "read",
   "words",
   "booklet",
-  "grammar"
+  "grammar",
+  "quiz"
  ],
  "type": "al",
- "scene": "img/scene.jpg",
+ "scene": "../../pics/monument.jpg",
  "hints": {
   "read": "Tap Read and listen!",
   "word": "Tap a word to hear it again.",
@@ -22,7 +24,7 @@
   {
    "word": "amusement park",
    "ar": "مدينة ملاهي",
-   "img": "../../pics/u5-amusement-park.jpg",
+   "img": "../../pics/amusement-park.jpg",
    "parts": [
     {
      "t": "a",
@@ -92,7 +94,7 @@
   {
    "word": "coffee shop",
    "ar": "مقهى",
-   "img": "../../pics/u5-coffee-shop.jpg",
+   "img": "../../pics/coffee-shop.jpg",
    "parts": [
     {
      "t": "c",
@@ -142,7 +144,7 @@
   {
    "word": "market",
    "ar": "سوق",
-   "img": "../../pics/u5-market.jpg",
+   "img": "../../pics/market.jpg",
    "parts": [
     {
      "t": "m",
@@ -178,7 +180,7 @@
   {
    "word": "monument",
    "ar": "نصب تذكاري",
-   "img": "../../pics/u5-monument.jpg",
+   "img": "../../pics/monument.jpg",
    "parts": [
     {
      "t": "m",
@@ -229,7 +231,7 @@
   {
    "word": "square",
    "ar": "ميدان",
-   "img": "../../pics/u5-square.jpg",
+   "img": "../../pics/square.jpg",
    "parts": [
     {
      "t": "s",
@@ -255,7 +257,7 @@
   {
    "word": "park",
    "ar": "حديقة",
-   "img": "../../pics/u5-park.jpg",
+   "img": "../../pics/park.jpg",
    "parts": [
     {
      "t": "p",
@@ -281,7 +283,7 @@
   {
    "word": "station",
    "ar": "محطة",
-   "img": "../../pics/u5-station.jpg",
+   "img": "../../pics/station.jpg",
    "parts": [
     {
      "t": "s",
@@ -317,7 +319,7 @@
   {
    "word": "city",
    "ar": "مدينة",
-   "img": "../../pics/u5-city.jpg",
+   "img": "../../pics/city.jpg",
    "parts": [
     {
      "t": "c",
@@ -348,7 +350,7 @@
   {
    "word": "country",
    "ar": "بلد",
-   "img": "../../pics/u5-country.jpg",
+   "img": "../../pics/country.jpg",
    "parts": [
     {
      "t": "c",
@@ -389,7 +391,7 @@
   {
    "word": "world",
    "ar": "عالم",
-   "img": "../../pics/u5-world.jpg",
+   "img": "../../pics/world.jpg",
    "parts": [
     {
      "t": "w",
@@ -416,34 +418,288 @@
     "word": "words/world.mp3",
     "ar": "../../ar-meanings/4eb2f02e53.mp3"
    }
+  },
+  {
+   "word": "homework",
+   "ar": "واجب منزلي",
+   "img": "../../pics/homework.jpg",
+   "parts": [
+    {
+     "t": "h",
+     "ph": "h",
+     "audio": "../../phonics/h.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    },
+    {
+     "t": "me",
+     "ph": "m",
+     "audio": "../../phonics/m.mp3"
+    },
+    {
+     "t": "w",
+     "ph": "w",
+     "audio": "../../phonics/w.mp3"
+    },
+    {
+     "t": "or",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/homework.mp3"
+   }
+  },
+  {
+   "word": "shark",
+   "ar": "قرش",
+   "img": "../../pics/shark.png",
+   "parts": [
+    {
+     "t": "sh",
+     "ph": "sh",
+     "audio": "../../phonics/sh.mp3"
+    },
+    {
+     "t": "ar",
+     "ph": "ar",
+     "audio": "../../phonics/ar.mp3"
+    },
+    {
+     "t": "k",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/shark.mp3"
+   }
+  },
+  {
+   "word": "ride a scooter",
+   "ar": "يركب سكوتر",
+   "img": "../../pics/ride-a-scooter.jpg",
+   "parts": [
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "igh",
+     "audio": "../../phonics/igh.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3",
+     "spell": true
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "a",
+     "ph": "a",
+     "audio": "../../phonics/a.mp3"
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "oo",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/ride a scooter.mp3"
+   }
+  },
+  {
+   "word": "walk",
+   "ar": "يمشي",
+   "img": "../../pics/tiger.png",
+   "parts": [
+    {
+     "t": "w",
+     "ph": "w",
+     "audio": "../../phonics/w.mp3"
+    },
+    {
+     "t": "a",
+     "ph": "or",
+     "audio": "../../phonics/or.mp3"
+    },
+    {
+     "t": "lk",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/walk.mp3"
+   }
   }
  ],
  "lines": [],
  "end": 1,
  "grammar": [
   {
-   "title": "Prepositions of place",
-   "note": "We use in front of, behind and opposite to say where things are.",
+   "title": "Listen and read",
+   "note": null,
    "rows": [
     [
      {
-      "t": "The tree is in front of the dog.",
-      "a": "data/en-shared/q/the-tree-is-in-front-of-the-dog.mp3"
+      "t": "We're at a playground. I'm Li! I'm behind Barasa!",
+      "a": "data/en-shared/q/we-re-at-a-playground-i-m-li-i-m-behind-barasa.mp3"
      }
     ],
     [
      {
-      "t": "The dog is behind the car.",
-      "a": "data/en-shared/q/the-dog-is-behind-the-car.mp3"
+      "t": "I'm Sofia. I'm in front of Barasa!",
+      "a": "data/en-shared/q/i-m-sofia-i-m-in-front-of-barasa.mp3"
      }
     ],
     [
      {
-      "t": "The owls are opposite each other.",
-      "a": "data/en-shared/q/the-owls-are-opposite-each-other.mp3"
+      "t": "I'm Hassan. Can you see me? I'm opposite Isabel.",
+      "a": "data/en-shared/q/i-m-hassan-can-you-see-me-i-m-opposite-isabel.mp3"
+     }
+    ],
+    [
+     {
+      "t": "I'm Isabel. I'm opposite Hassan!",
+      "a": "data/en-shared/q/i-m-isabel-i-m-opposite-hassan.mp3"
      }
     ]
-   ]
+   ],
+   "anim": {
+    "kind": "text",
+    "pic": "data/pics/al-u5l2-g1.jpg",
+    "lines": [
+     {
+      "t": "We're at a playground. I'm Li! I'm behind Barasa!",
+      "a": "data/en-shared/q/we-re-at-a-playground-i-m-li-i-m-behind-barasa.mp3"
+     },
+     {
+      "t": "I'm Sofia. I'm in front of Barasa!",
+      "a": "data/en-shared/q/i-m-sofia-i-m-in-front-of-barasa.mp3"
+     },
+     {
+      "t": "I'm Hassan. Can you see me? I'm opposite Isabel.",
+      "a": "data/en-shared/q/i-m-hassan-can-you-see-me-i-m-opposite-isabel.mp3"
+     },
+     {
+      "t": "I'm Isabel. I'm opposite Hassan!",
+      "a": "data/en-shared/q/i-m-isabel-i-m-opposite-hassan.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "in front of  and  behind",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "I'm in front of the movie theater.",
+      "a": "data/en-shared/q/i-m-in-front-of-the-movie-theater.mp3"
+     }
+    ],
+    [
+     {
+      "t": "She's behind her desk.",
+      "a": "data/en-shared/q/she-s-behind-her-desk.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "reveal",
+    "one": true,
+    "items": [
+     {
+      "t": "I'm in front of the movie theater.",
+      "hl": "in front of",
+      "fig": {
+       "place": "in front of"
+      },
+      "a": "data/en-shared/q/i-m-in-front-of-the-movie-theater.mp3"
+     },
+     {
+      "t": "She's behind her desk.",
+      "hl": "behind",
+      "fig": {
+       "place": "behind"
+      },
+      "a": "data/en-shared/q/she-s-behind-her-desk.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "opposite",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "He's opposite the monument.",
+      "a": "data/en-shared/q/he-s-opposite-the-monument.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "reveal",
+    "one": true,
+    "items": [
+     {
+      "t": "He's opposite the monument.",
+      "hl": "opposite",
+      "fig": {
+       "place": "opposite"
+      },
+      "a": "data/en-shared/q/he-s-opposite-the-monument.mp3"
+     }
+    ]
+   }
   }
- ]
+ ],
+ "tabLabels": {
+  "quiz": "Book's Questions"
+ }
 }

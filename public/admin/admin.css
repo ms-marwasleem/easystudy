@@ -13,7 +13,7 @@ nav button.on{background:#fff;color:var(--acc-dk)}
 .acts .pri{background:var(--acc-dk);color:#fff;border-color:#fff}
 .acts .ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
 .card .ghost{border-style:dashed}
-main{max-width:62rem;margin:0 auto;padding:1rem}
+main{max-width:none;margin:0;padding:1rem .8rem}
 .note{margin:0 0 .8rem;color:var(--mut);font-size:.9rem}
 .card{background:var(--card);border-radius:1rem;padding:1rem 1.1rem;margin-bottom:1rem;box-shadow:0 .1rem 0 var(--line)}
 .card h2{margin:0 0 .6rem;font-size:1.2rem}
@@ -51,6 +51,7 @@ input:focus,select:focus,textarea:focus{outline:.15rem solid var(--acc);outline-
 .it .fr[hidden]{display:none}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.7rem;margin-bottom:1rem}
 .kpi{background:#fff;border-radius:1rem;padding:.8rem 1rem;box-shadow:0 .1rem 0 var(--line)}
+.button.kpi,.kpi{font:inherit;text-align:inherit}button.kpi{border:0;cursor:pointer;transition:transform .12s,box-shadow .12s}button.kpi:hover{transform:translateY(-.1rem);box-shadow:0 .2rem 0 var(--acc-dk)}button.kpi:active{transform:none}
 .kpi b{display:block;font-size:1.9rem;line-height:1.1;color:var(--acc-dk)}.kpi span{color:var(--mut);font-size:.88rem;font-weight:700}
 .bar{display:grid;grid-template-columns:8rem minmax(0,1fr) 3rem;gap:.6rem;align-items:center;margin:.3rem 0}
 .bar i{display:block;height:.8rem;border-radius:999rem;background:var(--acc)}
@@ -157,7 +158,7 @@ input[disabled]{opacity:.5}
 .utbl .sb-img{flex-basis:100%}
 
 .stabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}.stabs button{border:1px solid #e6c98a;background:#fff;color:#3b2a14;font-weight:700;border-radius:999px;padding:6px 14px;font:inherit;cursor:pointer}.stabs button.on{background:#ff9f1c;color:#fff;border-color:#ff9f1c}
-.utbl td:nth-child(2) .u-in{min-width:14rem}
+.utbl td:nth-child(3) .u-in{min-width:13rem}
 
 /* users tab (2026-11-15): own add card, one column per fact, search row, edit window, ON/OFF switch */
 .u-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.5rem}
@@ -185,3 +186,18 @@ input[disabled]{opacity:.5}
 .u-rc{max-width:100%;max-height:75vh;border-radius:.5rem;display:block;margin:0 auto}
 .u-q{font-weight:700;line-height:1.7}.u-err{color:#b3261e;font-weight:700}
 .utbl .stb{white-space:nowrap}.utbl .trm .nm{min-width:4.5rem;white-space:nowrap}
+
+/* 2026-11-16: full width, in-cell editing, date pickers */
+.utbl{min-width:0;table-layout:auto}
+.utbl .u-in{min-width:7rem}
+.utbl .u-kc{min-width:11rem}.utbl .u-kc .u-in{margin-bottom:.2rem}
+.u-dr{display:flex;flex-direction:column;gap:.15rem;font-weight:600;font-size:.75rem}
+.u-dr label{display:flex;align-items:center;gap:.25rem}
+.u-dr input[type=date]{min-width:0;width:100%;font-size:.78rem;padding:.1rem .2rem}
+.u-dclr{border:0;background:none;color:#b3261e;font-size:1rem;cursor:pointer;align-self:flex-start;padding:0}
+.utbl .u-srch select{width:100%;font:inherit;font-size:.85rem;padding:.2rem;border-radius:.4rem;border:.06rem solid var(--line);background:#fff}
+.u-akc{white-space:nowrap}.u-akc .u-in{display:inline-block;width:auto;margin:0 .2rem}.u-akc button{margin:0 .2rem}
+.u-addk td{background:rgba(0,0,0,.015)}
+.sbtbl .sb-act{white-space:nowrap}.sbtbl .sb-act button{margin:.1rem}
+.sbtbl small{display:block;color:var(--mut);max-width:16rem}
+#u-rmsg{width:100%;box-sizing:border-box;font:inherit;padding:.5rem;border:.06rem solid var(--line);border-radius:.5rem;margin-top:.4rem}

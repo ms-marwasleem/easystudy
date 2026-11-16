@@ -4,12 +4,14 @@
  "title": "Things I Have at Home",
  "sceneAlt": "A bedroom",
  "tabs": [
+  "read",
   "words",
   "booklet",
-  "grammar"
+  "grammar",
+  "quiz"
  ],
  "type": "al",
- "scene": "img/scene.jpg",
+ "scene": "../../pics/al-u4l2-scene.jpg",
  "hints": {
   "read": "Tap Read and listen!",
   "word": "Tap a word to hear it again.",
@@ -22,7 +24,7 @@
   {
    "word": "alarm clock",
    "ar": "منبه",
-   "img": "../../pics/u4-alarmclock.png",
+   "img": "../../pics/alarm-clock.jpg",
    "parts": [
     {
      "t": "a",
@@ -76,7 +78,7 @@
   {
    "word": "blanket",
    "ar": "بطانية",
-   "img": "../../pics/u4-blanket.png",
+   "img": "../../pics/blanket.png",
    "parts": [
     {
      "t": "b",
@@ -117,7 +119,7 @@
   {
    "word": "ceiling",
    "ar": "سقف",
-   "img": "../../pics/u4-ceiling.png",
+   "img": "../../pics/ceiling.png",
    "parts": [
     {
      "t": "ce",
@@ -153,7 +155,7 @@
   {
    "word": "nightstand",
    "ar": "كومودينو",
-   "img": "../../pics/u4-nightstand.png",
+   "img": "../../pics/nightstand.png",
    "parts": [
     {
      "t": "n",
@@ -204,7 +206,7 @@
   {
    "word": "lamp",
    "ar": "مصباح",
-   "img": "../../pics/lamp-u6l2.png",
+   "img": "../../pics/lamp.png",
    "parts": [
     {
      "t": "l",
@@ -235,7 +237,7 @@
   {
    "word": "cushion",
    "ar": "وسادة",
-   "img": "../../pics/u4-cushion.png",
+   "img": "../../pics/cushion.png",
    "parts": [
     {
      "t": "c",
@@ -271,7 +273,7 @@
   {
    "word": "drawers",
    "ar": "أدراج",
-   "img": "../../pics/u4-drawers.png",
+   "img": "../../pics/drawers.png",
    "parts": [
     {
      "t": "d",
@@ -307,7 +309,7 @@
   {
    "word": "mirror",
    "ar": "مرآة",
-   "img": "../../pics/u4-mirror.png",
+   "img": "../../pics/mirror.png",
    "parts": [
     {
      "t": "m",
@@ -338,7 +340,7 @@
   {
    "word": "shampoo",
    "ar": "شامبو",
-   "img": "../../pics/u4-shampoo.png",
+   "img": "../../pics/shampoo.png",
    "parts": [
     {
      "t": "sh",
@@ -374,7 +376,7 @@
   {
    "word": "towel",
    "ar": "منشفة",
-   "img": "../../pics/u4-towel.png",
+   "img": "../../pics/towel.png",
    "parts": [
     {
      "t": "t",
@@ -401,43 +403,158 @@
     "word": "words/towel.mp3",
     "ar": "../../ar-meanings/20ed449427.mp3"
    }
+  },
+  {
+   "word": "tie",
+   "ar": "يربط",
+   "img": "../../pics/tie.jpg",
+   "parts": [
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "ie",
+     "ph": "igh",
+     "audio": "../../phonics/igh.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/tie.mp3"
+   }
+  },
+  {
+   "word": "find",
+   "ar": "يجد",
+   "img": "../../pics/search.png",
+   "parts": [
+    {
+     "t": "f",
+     "ph": "f",
+     "audio": "../../phonics/f.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "igh",
+     "audio": "../../phonics/igh.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/find.mp3"
+   }
+  },
+  {
+   "word": "put",
+   "ar": "يضع",
+   "img": "../../pics/put.jpg",
+   "parts": [
+    {
+     "t": "p",
+     "ph": "p",
+     "audio": "../../phonics/p.mp3"
+    },
+    {
+     "t": "u",
+     "ph": "oo-short",
+     "audio": "../../phonics/oo-short.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/put.mp3"
+   }
   }
  ],
  "lines": [],
  "end": 1,
  "grammar": [
   {
-   "title": "Prepositions of place",
-   "note": "These small words tell us where something is.",
+   "title": "Listen and read",
+   "note": null,
    "rows": [
     [
      {
-      "t": "The dog is in the box.",
-      "a": "data/en-shared/q/the-dog-is-in-the-box.mp3"
+      "t": "Where's your bed?",
+      "a": "data/en-shared/q/where-s-your-bed.mp3"
      }
     ],
     [
      {
-      "t": "The man is on the chair.",
-      "a": "data/en-shared/q/the-man-is-on-the-chair.mp3"
+      "t": "It's under the window, between the closet and the nightstand.",
+      "a": "data/en-shared/q/it-s-under-the-window-between-the-closet-and-the-nightstand.mp3"
      }
     ],
     [
      {
-      "t": "The boy is next to the tree.",
-      "a": "data/en-shared/q/the-boy-is-next-to-the-tree.mp3"
+      "t": "Do you have a teddy bear?",
+      "a": "data/en-shared/q/do-you-have-a-teddy-bear.mp3"
      }
     ],
     [
      {
-      "t": "The cat is under the table.",
-      "a": "data/en-shared/q/the-cat-is-under-the-table.mp3"
+      "t": "Yes, I do. It's next to my cushion, under my blanket, in my bed!",
+      "a": "data/en-shared/q/yes-i-do-it-s-next-to-my-cushion-under-my-blanket-in-my-bed.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "text",
+    "pic": "data/pics/al-u4l2-g1.jpg",
+    "lines": [
+     {
+      "t": "Where's your bed?",
+      "a": "data/en-shared/q/where-s-your-bed.mp3"
+     },
+     {
+      "t": "It's under the window, between the closet and the nightstand.",
+      "a": "data/en-shared/q/it-s-under-the-window-between-the-closet-and-the-nightstand.mp3"
+     },
+     {
+      "t": "Do you have a teddy bear?",
+      "a": "data/en-shared/q/do-you-have-a-teddy-bear.mp3"
+     },
+     {
+      "t": "Yes, I do. It's next to my cushion, under my blanket, in my bed!",
+      "a": "data/en-shared/q/yes-i-do-it-s-next-to-my-cushion-under-my-blanket-in-my-bed.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "Where's the ball?  in, on, under",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "It's in the box.",
+      "a": "data/en-shared/q/it-s-in-the-box.mp3"
      }
     ],
     [
      {
-      "t": "The dog is between the chairs.",
-      "a": "data/en-shared/q/the-dog-is-between-the-chairs.mp3"
+      "t": "It's on the box.",
+      "a": "data/en-shared/q/it-s-on-the-box.mp3"
+     }
+    ],
+    [
+     {
+      "t": "It's under the box.",
+      "a": "data/en-shared/q/it-s-under-the-box.mp3"
      }
     ]
    ],
@@ -446,47 +563,74 @@
     "one": true,
     "items": [
      {
-      "t": "The dog is in the box.",
-      "a": "data/en-shared/q/the-dog-is-in-the-box.mp3",
+      "t": "It's in the box.",
       "hl": "in",
       "fig": {
        "place": "in"
-      }
+      },
+      "a": "data/en-shared/q/it-s-in-the-box.mp3"
      },
      {
-      "t": "The man is on the chair.",
-      "a": "data/en-shared/q/the-man-is-on-the-chair.mp3",
+      "t": "It's on the box.",
       "hl": "on",
       "fig": {
        "place": "on"
-      }
+      },
+      "a": "data/en-shared/q/it-s-on-the-box.mp3"
      },
      {
-      "t": "The boy is next to the tree.",
-      "a": "data/en-shared/q/the-boy-is-next-to-the-tree.mp3",
-      "hl": "next to",
-      "fig": {
-       "place": "next to"
-      }
-     },
-     {
-      "t": "The cat is under the table.",
-      "a": "data/en-shared/q/the-cat-is-under-the-table.mp3",
+      "t": "It's under the box.",
       "hl": "under",
       "fig": {
        "place": "under"
-      }
+      },
+      "a": "data/en-shared/q/it-s-under-the-box.mp3"
+     }
+    ]
+   }
+  },
+  {
+   "title": "Where's the ball?  next to, between",
+   "note": null,
+   "rows": [
+    [
+     {
+      "t": "It's next to the box.",
+      "a": "data/en-shared/q/it-s-next-to-the-box.mp3"
+     }
+    ],
+    [
+     {
+      "t": "It's between the boxes.",
+      "a": "data/en-shared/q/it-s-between-the-boxes.mp3"
+     }
+    ]
+   ],
+   "anim": {
+    "kind": "reveal",
+    "one": true,
+    "items": [
+     {
+      "t": "It's next to the box.",
+      "hl": "next to",
+      "fig": {
+       "place": "next to"
+      },
+      "a": "data/en-shared/q/it-s-next-to-the-box.mp3"
      },
      {
-      "t": "The dog is between the chairs.",
-      "a": "data/en-shared/q/the-dog-is-between-the-chairs.mp3",
+      "t": "It's between the boxes.",
       "hl": "between",
       "fig": {
        "place": "between"
-      }
+      },
+      "a": "data/en-shared/q/it-s-between-the-boxes.mp3"
      }
     ]
    }
   }
- ]
+ ],
+ "tabLabels": {
+  "quiz": "Book's Questions"
+ }
 }

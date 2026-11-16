@@ -57,7 +57,7 @@ function syDrawCode(b){
 // keep the signed-in parent on this device
 function syTake(token,me){ const old=acct()||{};
   wlSet('es.session',{token,id:me.id,ref:me.ref});
-  wlSet('es.account',{email:me.email,phone:me.phone||old.phone||'',created:me.created||old.created,id:me.id,ref:me.ref});
+  wlSet('es.account',{email:me.email,phone:me.phone||old.phone||'',created:me.created||old.created,id:me.id,ref:me.ref,notify:me.notify!==false});
   window.ACCOUNT={...acct(),id:me.id,token}; if(me.wallet&&typeof walletSave==='function') walletSave(me.wallet); }
 // the server's children replace this device's: each child's progress goes to its own keys, the first child becomes the active one
 function syRestore(me){
@@ -94,16 +94,12 @@ async function syBoot(){
 }
 syBoot();
 
-/* ---------- account page: confirm the email (made offline) / sign out ---------- */
+/* ---------- account page: sign out (no email confirmation any more, Ahmed 2026-11-16) ---------- */
 async function syMenuButtons(p,close){
-  if(!(await syApi())) return; const s=sySession(), a=acct()||{}, list=$('.arows',p); if(!list) return;
-  const b=el('button','arow wl-acct',`<i>${ACH.out}</i><b>${s?'تسجيل الخروج':'تأكيد الحساب بالإيميل'}</b><s></s>`);
+  const list=$('.arows',p); if(!list||$('.wl-acct',list)) return;
+  const b=el('button','arow wl-acct',`<i>${ACH.out}</i><b>تسجيل الخروج</b><s></s>`);
   list.append(b);
-  b.addEventListener('click',async()=>{ close();
-    if(s){ if(!confirm('تسجيل الخروج من الجهاز ده؟ هيتطلب كود جديد على الإيميل للدخول تاني.')) return; syPushProgress(); await syCall('/auth/signout',{}); syForget();
-      ['es.account','es.kids','es.kid'].forEach(k=>{ try{ localStorage.removeItem(k); }catch(e){} }); location.reload(); return; }
-    if(!a.email) return;
-    WL.adding=false; WL.after=()=>{ openSubjects(); }; WL.login={email:a.email,phone:a.phone||''}; show('welcome');
-    const r=await syCall('/auth/start',{email:a.email}); if(!r||!r.j.ok){ WL.step='main'; WL.stage=1; wlDraw(); return; }
-    SY.a=a; SY.dev=r.j.devCode||''; WL.step='code'; wlDraw(); });
+  b.addEventListener('click',async()=>{ close(); if(!confirm('تسجيل الخروج من الجهاز ده؟')) return;
+    const s=sySession(); if(s){ syPushProgress(); await syCall('/auth/signout',{}); syForget(); }
+    ['es.account','es.kids','es.kid'].forEach(k=>{ try{ localStorage.removeItem(k); }catch(e){} }); location.reload(); });
 }

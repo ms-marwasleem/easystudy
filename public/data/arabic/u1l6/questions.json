@@ -7,7 +7,7 @@
    "task": "أُسَاعِدُ الصَّيَّادَ، وَأَضَعُ دَائِرَةً حَوْلَ أَشْكَالِ حَرْفِ الْحَاءِ",
    "taskAudio": "q/task-2.mp3",
    "hint": "اضغط على الأسماك اللي عليها شكل الحاء",
-   "centerPic": "../../pics/ar-fisherman-school.png",
+   "centerPic": "../../pics/fisherman-school.png",
    "centerAt": [
     16,
     36
@@ -22,7 +22,7 @@
     {
      "word": "ـح",
      "text": "ـح",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": true,
      "pos": [
       88,
@@ -36,7 +36,7 @@
     {
      "word": "س",
      "text": "س",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": false,
      "pos": [
       70,
@@ -50,7 +50,7 @@
     {
      "word": "د",
      "text": "د",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": false,
      "pos": [
       54,
@@ -64,7 +64,7 @@
     {
      "word": "ـحـ",
      "text": "ـحـ",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": true,
      "pos": [
       41,
@@ -78,7 +78,7 @@
     {
      "word": "ب",
      "text": "ب",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": false,
      "pos": [
       89,
@@ -92,7 +92,7 @@
     {
      "word": "حـ",
      "text": "حـ",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": true,
      "pos": [
       71,
@@ -106,7 +106,7 @@
     {
      "word": "ج",
      "text": "ج",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": false,
      "pos": [
       53,
@@ -120,7 +120,7 @@
     {
      "word": "ح",
      "text": "ح",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": true,
      "pos": [
       36,
@@ -206,7 +206,7 @@
     {
      "word": "حِبْر",
      "audio": "words/hibr.mp3",
-     "pic": "../../pics/ar-ink.png",
+     "pic": "../../pics/ink.png",
      "answer": "حِ",
      "choices": [
       "حِ",
@@ -217,7 +217,7 @@
     {
      "word": "حِزَام",
      "audio": "words/hizam.mp3",
-     "pic": "../../pics/ar-belt.png",
+     "pic": "../../pics/belt.png",
      "answer": "حِ",
      "choices": [
       "حُ",
@@ -228,7 +228,7 @@
     {
      "word": "حُوت",
      "audio": "words/hut.mp3",
-     "pic": "../../pics/ar-whale.png",
+     "pic": "../../pics/whale.png",
      "answer": "حُ",
      "choices": [
       "حْ",
@@ -255,7 +255,7 @@
     {
      "word": "حُجْرَة",
      "audio": "words/hujra.mp3",
-     "pic": "../../pics/ar-bedroom.png",
+     "pic": "../../pics/bedroom.png",
      "answer": "حُ"
     },
     {
@@ -274,7 +274,7 @@
     {
      "word": "حِمَار",
      "audio": "words/himar.mp3",
-     "pic": "../../pics/ar-donkey.png",
+     "pic": "../../pics/donkey.png",
      "answer": "حِ"
     }
    ]
@@ -300,7 +300,7 @@
       "../../syl-ar/628-651.mp3"
      ],
      "audio": "words/uhibb.mp3",
-     "pic": "../../pics/ar-heart.png"
+     "pic": "../../pics/heart.png"
     }
    ]
   },
@@ -313,7 +313,7 @@
    "hint": "اسمع القصة، وصفّق لما تسمع كلمة فيها الحاء",
    "items": [
     {
-     "scene": "../../pics/ar-story-haa-cut.png",
+     "scene": "../../pics/story-haa-cut.png",
      "text": "خَرَجَ حُسَامٌ مَعَ وَالِدِهِ إِلَى الْحَقْلِ، لِيُسَاعِدَهُ فِي حَصْدِ الْقَمْحِ. كَانَ حُسَامٌ يَحْصُدُ، وَالْوَالِدُ يَحْمِلُ الْحُبُوبَ إِلَى الْعَرَبَةِ، وَالْحِصَانُ يَجُرُّ الْعَرَبَةَ. رَأَى حُسَامٌ خَلِيَّةَ نَحْلٍ عَلَى الشَّجَرَةِ، فَابْتَسَمَ وَقَالَ لِأَبِيهِ: «الْجَمِيعُ يَعْمَلُ: أَنَا، وَأَنْتَ، وَالْحِصَانُ، حَتَّى النَّحْلُ يَعْمَلُ مِثْلَنَا!».",
      "audio": "q/story.mp3",
      "ask": "مَاذَا فَعَلَ الْحِصَانُ وَالنَّحْلُ فِي الْقِصَّةِ؟",
@@ -491,7 +491,7 @@
     {
      "word": "حِصَان",
      "audio": "words/hisan.mp3",
-     "pic": "../../pics/ar-horse.png",
+     "pic": "../../pics/horse.png",
      "answer": true
     },
     {
@@ -503,19 +503,19 @@
     {
      "word": "سُلَحْفَاة",
      "audio": "words/sulahfa.mp3",
-     "pic": "../../pics/ar-turtle.png",
+     "pic": "../../pics/turtle.png",
      "answer": true
     },
     {
      "word": "كَلْب",
      "audio": "../u2l3/words/kalb.mp3",
-     "pic": "../../pics/dog-happy.png",
+     "pic": "../../pics/dog.png",
      "answer": false
     },
     {
      "word": "حَمَامَة",
      "audio": "words/hamama.mp3",
-     "pic": "../../pics/ar-pigeon.png",
+     "pic": "../../pics/pigeon.png",
      "answer": true
     }
    ]
@@ -536,17 +536,17 @@
     },
     {
      "word": "حِ",
-     "pic": "../../pics/ar-horse.png",
+     "pic": "../../pics/horse.png",
      "audio": "../../syl-ar/62d-650.mp3"
     },
     {
      "word": "حُ",
-     "pic": "../../pics/ar-grains.png",
+     "pic": "../../pics/grains.png",
      "audio": "../../syl-ar/62d-64f.mp3"
     },
     {
      "word": "حْ",
-     "pic": "../../pics/ar-turtle.png",
+     "pic": "../../pics/turtle.png",
      "audio": "../../syl-ar/62d-652.mp3"
     }
    ]
@@ -575,19 +575,19 @@
     {
      "word": "حِزَام",
      "audio": "words/hizam.mp3",
-     "pic": "../../pics/ar-belt.png",
+     "pic": "../../pics/belt.png",
      "answer": "حِ"
     },
     {
      "word": "حُرُوف",
      "audio": "words/huruf.mp3",
-     "pic": "../../pics/ar-letters-cloud.png",
+     "pic": "../../pics/letters-cloud.png",
      "answer": "حُ"
     },
     {
      "word": "حُجْرَة",
      "audio": "words/hujra.mp3",
-     "pic": "../../pics/ar-bedroom.png",
+     "pic": "../../pics/bedroom.png",
      "answer": "حُ"
     },
     {
@@ -599,7 +599,7 @@
     {
      "word": "بَحْر",
      "audio": "words/bahr.mp3",
-     "pic": "../../pics/ar-sea.png",
+     "pic": "../../pics/sea.png",
      "answer": "حْ",
      "at": 1
     }
@@ -617,7 +617,7 @@
     {
      "word": "تِمْسَاح",
      "audio": "../u1l10/words/timsah.mp3",
-     "pic": "../../pics/ar-crocodile.png",
+     "pic": "../../pics/crocodile.png",
      "at": 4
     },
     {
@@ -629,7 +629,7 @@
     {
      "word": "حَوْض",
      "audio": "words/hawd.mp3",
-     "pic": "../../pics/ar-sink.png",
+     "pic": "../../pics/sink.png",
      "at": 0
     }
    ]
@@ -652,26 +652,26 @@
     {
      "word": "حِصَان",
      "audio": "words/hisan.mp3",
-     "pic": "../../pics/ar-horse.png",
+     "pic": "../../pics/horse.png",
      "answer": "حِ"
     },
     {
      "word": "حَمَامَة",
      "audio": "words/hamama.mp3",
-     "pic": "../../pics/ar-pigeon.png",
+     "pic": "../../pics/pigeon.png",
      "answer": "حَ"
     },
     {
      "word": "سُلَحْفَاة",
      "audio": "words/sulahfa.mp3",
-     "pic": "../../pics/ar-turtle.png",
+     "pic": "../../pics/turtle.png",
      "answer": "حْ",
      "at": 2
     },
     {
      "word": "حُبُوب",
      "audio": "words/hubub.mp3",
-     "pic": "../../pics/ar-grains.png",
+     "pic": "../../pics/grains.png",
      "answer": "حُ"
     }
    ]
@@ -733,17 +733,17 @@
     {
      "word": "حِمَار",
      "audio": "words/himar.mp3",
-     "pic": "../../pics/ar-donkey.png"
+     "pic": "../../pics/donkey.png"
     },
     {
      "word": "بَحْر",
      "audio": "words/bahr.mp3",
-     "pic": "../../pics/ar-sea.png"
+     "pic": "../../pics/sea.png"
     },
     {
      "word": "حُوت",
      "audio": "words/hut.mp3",
-     "pic": "../../pics/ar-whale.png"
+     "pic": "../../pics/whale.png"
     },
     {
      "word": "مِحْفَظَة",
@@ -804,7 +804,7 @@
    "items": [
     {
      "word": "بَلَح",
-     "pic": "../../pics/ar-dates.png",
+     "pic": "../../pics/dates.png",
      "audio": "words/balah.mp3"
     },
     {
@@ -819,7 +819,7 @@
     },
     {
      "word": "لَحْم",
-     "pic": "../../pics/ar-meat.png",
+     "pic": "../../pics/meat.png",
      "audio": "words/lahm.mp3"
     }
    ]
@@ -983,20 +983,20 @@
     {
      "word": "حِصَان",
      "audio": "words/hisan.mp3",
-     "pic": "../../pics/ar-horse.png",
+     "pic": "../../pics/horse.png",
      "answer": "حِ"
     },
     {
      "word": "لَحْم",
      "audio": "words/lahm.mp3",
-     "pic": "../../pics/ar-meat.png",
+     "pic": "../../pics/meat.png",
      "answer": "حْ",
      "at": 1
     },
     {
      "word": "حَمَامَة",
      "audio": "words/hamama.mp3",
-     "pic": "../../pics/ar-pigeon.png",
+     "pic": "../../pics/pigeon.png",
      "answer": "حَ"
     }
    ]
@@ -1019,7 +1019,7 @@
     {
      "word": "حُوت",
      "audio": "words/hut.mp3",
-     "pic": "../../pics/ar-whale.png",
+     "pic": "../../pics/whale.png",
      "answer": "حُ"
     },
     {
@@ -1032,13 +1032,13 @@
     {
      "word": "حَمَامَة",
      "audio": "words/hamama.mp3",
-     "pic": "../../pics/ar-pigeon.png",
+     "pic": "../../pics/pigeon.png",
      "answer": "حَ"
     },
     {
      "word": "حِصَان",
      "audio": "words/hisan.mp3",
-     "pic": "../../pics/ar-horse.png",
+     "pic": "../../pics/horse.png",
      "answer": "حِ"
     }
    ]

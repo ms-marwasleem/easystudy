@@ -765,7 +765,10 @@
      80,
      81
     ]
-   }
+   },
+   "tabs": [
+    "read"
+   ]
   },
   {
    "unit": 3,
@@ -1043,9 +1046,6 @@
     "read": [
      107
     ],
-    "words": [
-     107
-    ],
     "quiz": [
      113,
      115
@@ -1069,6 +1069,9 @@
      "file": "data/arabic/exams/u3r/exam.json",
      "page": 56
     }
+   ],
+   "tabs": [
+    "read"
    ]
   },
   {
@@ -1305,12 +1308,6 @@
     "read": [
      139
     ],
-    "words": [
-     139
-    ],
-    "quiz": [
-     138
-    ],
     "workbook": [
      68
     ]
@@ -1323,21 +1320,25 @@
      "file": "data/arabic/exams/wk15/exam.json",
      "page": 69
     }
+   ],
+   "tabs": [
+    "read",
+    "workbook"
    ]
   },
   {
    "unit": 4,
-   "lesson": 9,
+   "lesson": 10,
    "folder": "u4l10",
    "title": "السلحفاة الحكيمة",
    "pages": {
     "read": [
      137
-    ],
-    "words": [
-     137
     ]
-   }
+   },
+   "tabs": [
+    "read"
+   ]
   },
   {
    "unit": 5,

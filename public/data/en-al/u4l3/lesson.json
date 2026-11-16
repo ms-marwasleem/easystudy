@@ -1,0 +1,82 @@
+{
+ "unit": 4,
+ "lesson": 3,
+ "title": "Moving Homes",
+ "sceneAlt": "Moving homes",
+ "type": "al",
+ "scene": "../../pics/al-u4l3-scene.jpg",
+ "hints": {
+  "read": "Tap Read and listen!",
+  "word": "Tap a word to hear it again.",
+  "vocabPick": "Pick a picture!",
+  "vocabTeach": "Watch and listen!",
+  "vocabWrite": "Now you write it!"
+ },
+ "vocabRepeats": 3,
+ "vocab": [
+  {
+   "word": "cloth",
+   "ar": "قماش",
+   "img": "../../pics/tent.png",
+   "parts": [
+    {
+     "t": "c",
+     "ph": "k",
+     "audio": "../../phonics/k.mp3"
+    },
+    {
+     "t": "l",
+     "ph": "l",
+     "audio": "../../phonics/l.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "o",
+     "audio": "../../phonics/o.mp3"
+    },
+    {
+     "t": "th",
+     "ph": "th",
+     "audio": "../../phonics/th.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/cloth.mp3"
+   }
+  },
+  {
+   "word": "road",
+   "ar": "طريق",
+   "img": "../../pics/road.png",
+   "parts": [
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "oa",
+     "ph": "oa",
+     "audio": "../../phonics/oa.mp3"
+    },
+    {
+     "t": "d",
+     "ph": "d",
+     "audio": "../../phonics/d.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/road.mp3"
+   }
+  }
+ ],
+ "lines": [],
+ "end": 1,
+ "tabs": [
+  "read",
+  "words"
+ ],
+ "tabLabels": {
+  "quiz": "Book's Questions"
+ }
+}

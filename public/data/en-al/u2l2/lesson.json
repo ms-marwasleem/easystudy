@@ -11,7 +11,7 @@
   "quiz"
  ],
  "type": "al",
- "scene": "img/scene.jpg",
+ "scene": "../../pics/al-u2l2-s1.jpg",
  "hints": {
   "read": "Tap Read and listen!",
   "word": "Tap a word to hear it again.",
@@ -24,7 +24,7 @@
   {
    "word": "point",
    "ar": "يشير",
-   "img": "../../pics/tb-point.jpg",
+   "img": "../../pics/point.png",
    "parts": [
     {
      "t": "p",
@@ -55,7 +55,7 @@
   {
    "word": "read",
    "ar": "يقرأ",
-   "img": "../../pics/tb-read.jpg",
+   "img": "../../pics/read.png",
    "parts": [
     {
      "t": "r",
@@ -81,7 +81,7 @@
   {
    "word": "say",
    "ar": "يقول",
-   "img": "../../pics/tb-say.jpg",
+   "img": "../../pics/say.png",
    "parts": [
     {
      "t": "s",
@@ -102,7 +102,7 @@
   {
    "word": "answer",
    "ar": "يجيب",
-   "img": "../../pics/tb-answer.jpg",
+   "img": "../../pics/answer.png",
    "parts": [
     {
      "t": "a",
@@ -139,7 +139,7 @@
   {
    "word": "ask",
    "ar": "يسأل",
-   "img": "../../pics/tb-ask.jpg",
+   "img": "../../pics/ask.png",
    "parts": [
     {
      "t": "a",
@@ -165,7 +165,7 @@
   {
    "word": "write",
    "ar": "يكتب",
-   "img": "../../pics/tb-write.jpg",
+   "img": "../../pics/write.png",
    "parts": [
     {
      "t": "wr",
@@ -197,7 +197,7 @@
   {
    "word": "sit down",
    "ar": "يجلس",
-   "img": "../../pics/tb-sit-down.jpg",
+   "img": "../../pics/sit-down.png",
    "parts": [
     {
      "t": "s",
@@ -242,7 +242,7 @@
   {
    "word": "stand up",
    "ar": "يقف",
-   "img": "../../pics/tb-stand-up.jpg",
+   "img": "../../pics/stand-up.png",
    "parts": [
     {
      "t": "s",
@@ -292,7 +292,7 @@
   {
    "word": "open",
    "ar": "يفتح",
-   "img": "../../pics/tb-open.jpg",
+   "img": "../../pics/open.jpg",
    "parts": [
     {
      "t": "o",
@@ -323,7 +323,7 @@
   {
    "word": "close",
    "ar": "يغلق",
-   "img": "../../pics/tb-close.jpg",
+   "img": "../../pics/close.png",
    "parts": [
     {
      "t": "c",
@@ -354,7 +354,7 @@
   {
    "word": "train",
    "ar": "قطار",
-   "img": "../../pics/tb-train.jpg",
+   "img": "../../pics/train.png",
    "parts": [
     {
      "t": "t",
@@ -384,7 +384,7 @@
   {
    "word": "eraser",
    "ar": "ممحاة",
-   "img": "../../pics/ar-eraser.png",
+   "img": "../../pics/eraser.png",
    "parts": [
     {
      "t": "e",
@@ -419,7 +419,7 @@
   {
    "word": "mistake",
    "ar": "خطأ",
-   "img": "../../pics/tb-mistake.jpg",
+   "img": "../../pics/mistake.jpg",
    "parts": [
     {
      "t": "m",
@@ -509,7 +509,7 @@
    ],
    "anim": {
     "kind": "text",
-    "pic": "data/en-al/u2l2/img/g1.jpg",
+    "pic": "data/pics/al-u2l2-g1.jpg",
     "lines": [
      {
       "t": "Welcome! Sit down, please.",

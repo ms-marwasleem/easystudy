@@ -7,7 +7,7 @@
    "task": "أُسَاعِدُ الصَّيَّادَ، وَأَضَعُ دَائِرَةً حَوْلَ أَشْكَالِ حَرْفِ الْمِيمِ",
    "taskAudio": "q/task-2.mp3",
    "hint": "اضغط على الأسماك اللي عليها شكل الميم",
-   "centerPic": "../../pics/ar-fisherman-school.png",
+   "centerPic": "../../pics/fisherman-school.png",
    "centerAt": [
     16,
     36
@@ -22,7 +22,7 @@
     {
      "word": "ل",
      "text": "ل",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": false,
      "pos": [
       88,
@@ -36,7 +36,7 @@
     {
      "word": "ج",
      "text": "ج",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": false,
      "pos": [
       70,
@@ -50,7 +50,7 @@
     {
      "word": "م",
      "text": "م",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": true,
      "pos": [
       54,
@@ -64,7 +64,7 @@
     {
      "word": "ن",
      "text": "ن",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": false,
      "pos": [
       41,
@@ -78,7 +78,7 @@
     {
      "word": "مـ",
      "text": "مـ",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": true,
      "pos": [
       89,
@@ -92,7 +92,7 @@
     {
      "word": "ـمـ",
      "text": "ـمـ",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": true,
      "pos": [
       71,
@@ -106,7 +106,7 @@
     {
      "word": "ف",
      "text": "ف",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": false,
      "pos": [
       53,
@@ -120,7 +120,7 @@
     {
      "word": "ـم",
      "text": "ـم",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": true,
      "pos": [
       36,
@@ -201,7 +201,7 @@
     {
      "word": "مِكْوَاة",
      "audio": "words/mikwat.mp3",
-     "pic": "../../pics/ar-iron.png",
+     "pic": "../../pics/iron.png",
      "answer": "مِ",
      "choices": [
       "مِ",
@@ -212,7 +212,7 @@
     {
      "word": "مَطَر",
      "audio": "words/matar.mp3",
-     "pic": "../../pics/ar-rain-cloud.png",
+     "pic": "../../pics/rain-cloud.png",
      "answer": "مَ",
      "choices": [
       "مِ",
@@ -223,7 +223,7 @@
     {
      "word": "شَمْعَة",
      "audio": "../u3l5/words/shamaa.mp3",
-     "pic": "../../pics/ar-candle.png",
+     "pic": "../../pics/candle.png",
      "answer": "مْ",
      "at": 1,
      "choices": [
@@ -251,13 +251,13 @@
     {
      "word": "مَوْز",
      "audio": "words/mawz.mp3",
-     "pic": "../../pics/ar-banana.png",
+     "pic": "../../pics/banana.png",
      "answer": "مَ"
     },
     {
      "word": "مِقَصّ",
      "audio": "words/miqass.mp3",
-     "pic": "../../pics/ar-scissors.png",
+     "pic": "../../pics/scissors.png",
      "answer": "مِ"
     },
     {
@@ -294,7 +294,7 @@
       "../../syl-ar/645-652.mp3"
      ],
      "audio": "../u1l3/words/umm.mp3",
-     "pic": "../../pics/ar-mother-baby.png"
+     "pic": "../../pics/mother-baby.png"
     }
    ]
   },
@@ -307,7 +307,7 @@
    "hint": "اسمع القصة، ولوّح بإيدك لما تسمع كلمة فيها الميم",
    "items": [
     {
-     "scene": "../../pics/ar-story-meem-cut.png",
+     "scene": "../../pics/story-meem-cut.png",
      "text": "فِي يَوْمٍ مُشْمِسٍ، ذَهَبَ الْمُهَنْدِسُ مُنِيرٌ مَعَ ابْنِهِ مُحَمَّدٍ إِلَى الْمَلْعَبِ لِلَعِبِ لُعْبَةِ (تِنِس الطَّاوِلَةِ)، أَحْضَرَ مُنِيرٌ مِضْرَبَهُ الْمُفَضَّلَ، وَلَعِبَ مَعَ ابْنِهِ مُحَمَّدٍ، اسْتَمْتَعَ الْأَبُ وَالِابْنُ بِيَوْمٍ جَمِيلٍ مُمْتِعٍ.",
      "audio": "q/story.mp3",
      "ask": "مَاذَا فَعَلَ الْمُهَنْدِسُ مُنِيرٌ وَابْنُهُ مُحَمَّدٌ؟ مَا لُعْبَتُكَ الْمُفَضَّلَةُ؟",
@@ -457,7 +457,7 @@
     {
      "word": "مِقَصّ",
      "audio": "words/miqass.mp3",
-     "pic": "../../pics/ar-scissors.png",
+     "pic": "../../pics/scissors.png",
      "answer": true
     },
     {
@@ -542,7 +542,7 @@
     {
      "word": "مِقَصّ",
      "audio": "words/miqass.mp3",
-     "pic": "../../pics/ar-scissors.png",
+     "pic": "../../pics/scissors.png",
      "answer": false,
      "pos": [
       82,
@@ -569,7 +569,7 @@
     {
      "word": "مِفَكّ",
      "audio": "words/mifakk.mp3",
-     "pic": "../../pics/ar-screwdriver.png",
+     "pic": "../../pics/screwdriver.png",
      "answer": true,
      "pos": [
       18,
@@ -583,7 +583,7 @@
     {
      "word": "شَمْعَة",
      "audio": "../u3l5/words/shamaa.mp3",
-     "pic": "../../pics/ar-candle.png",
+     "pic": "../../pics/candle.png",
      "answer": false,
      "pos": [
       82,
@@ -610,7 +610,7 @@
     {
      "word": "مُهَنْدِس",
      "audio": "words/muhandis.mp3",
-     "pic": "../../pics/ar-engineer.png",
+     "pic": "../../pics/engineer.png",
      "answer": true,
      "pos": [
       18,
@@ -624,7 +624,7 @@
     {
      "word": "جَمَل",
      "audio": "../u1l7/words/jamal.mp3",
-     "pic": "../../pics/ar-fa-camel2.png",
+     "pic": "../../pics/fa-camel2.png",
      "answer": false,
      "pos": [
       82,
@@ -665,7 +665,7 @@
     {
      "word": "مُشْمُش",
      "audio": "words/mishmish.mp3",
-     "pic": "../../pics/ar-apricot.png",
+     "pic": "../../pics/apricot.png",
      "answer": false,
      "pos": [
       82,
@@ -696,7 +696,7 @@
     {
      "word": "مُشْمُش",
      "audio": "words/mishmish.mp3",
-     "pic": "../../pics/ar-apricot.png",
+     "pic": "../../pics/apricot.png",
      "at": 0,
      "also": [
       2
@@ -711,7 +711,7 @@
     {
      "word": "مِقَصّ",
      "audio": "words/miqass.mp3",
-     "pic": "../../pics/ar-scissors.png",
+     "pic": "../../pics/scissors.png",
      "at": 0
     },
     {
@@ -739,17 +739,17 @@
    "items": [
     {
      "word": "مَ",
-     "pic": "../../pics/ar-banana.png",
+     "pic": "../../pics/banana.png",
      "audio": "../../syl-ar/645-64e.mp3"
     },
     {
      "word": "مِ",
-     "pic": "../../pics/ar-scissors.png",
+     "pic": "../../pics/scissors.png",
      "audio": "../../syl-ar/645-650.mp3"
     },
     {
      "word": "مِ",
-     "pic": "../../pics/ar-iron.png",
+     "pic": "../../pics/iron.png",
      "audio": "../../syl-ar/645-650.mp3"
     },
     {
@@ -759,7 +759,7 @@
     },
     {
      "word": "مُ",
-     "pic": "../../pics/ar-apricot.png",
+     "pic": "../../pics/apricot.png",
      "audio": "../../syl-ar/645-64f.mp3"
     },
     {
@@ -838,7 +838,7 @@
     {
      "word": "قَمَر",
      "audio": "../u4l4/words/qamar.mp3",
-     "pic": "../../pics/ar-moon.jpg"
+     "pic": "../../pics/moon.png"
     },
     {
      "word": "مِلْح",
@@ -916,19 +916,19 @@
     {
      "word": "مِفَكّ",
      "audio": "words/mifakk.mp3",
-     "pic": "../../pics/ar-screwdriver.png",
+     "pic": "../../pics/screwdriver.png",
      "answer": "مِ"
     },
     {
      "word": "مُهَنْدِس",
      "audio": "words/muhandis.mp3",
-     "pic": "../../pics/ar-engineer.png",
+     "pic": "../../pics/engineer.png",
      "answer": "مُ"
     },
     {
      "word": "مَلْعَب",
      "audio": "words/malab.mp3",
-     "pic": "../../pics/ar-stadium.png",
+     "pic": "../../pics/stadium.png",
      "answer": "مَ"
     },
     {
@@ -955,7 +955,7 @@
       "أُ",
       "م"
      ],
-     "pic": "../../pics/ar-mother-baby.png",
+     "pic": "../../pics/mother-baby.png",
      "audio": "../u1l3/words/umm.mp3"
     }
    ]
@@ -1126,19 +1126,19 @@
     {
      "word": "مِقَصّ",
      "audio": "words/miqass.mp3",
-     "pic": "../../pics/ar-scissors.png",
+     "pic": "../../pics/scissors.png",
      "answer": "مِ"
     },
     {
      "word": "مَوْز",
      "audio": "words/mawz.mp3",
-     "pic": "../../pics/ar-banana.png",
+     "pic": "../../pics/banana.png",
      "answer": "مَ"
     },
     {
      "word": "شَمْعَة",
      "audio": "../u3l5/words/shamaa.mp3",
-     "pic": "../../pics/ar-candle.png",
+     "pic": "../../pics/candle.png",
      "answer": "مْ",
      "at": 1
     },

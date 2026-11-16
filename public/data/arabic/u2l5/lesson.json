@@ -10,7 +10,7 @@
   52,
   53
  ],
- "scene": "../../pics/ar-tiger.png",
+ "scene": "../../pics/tiger.png",
  "sceneAlt": "نُون",
  "lines": [],
  "end": 1,
@@ -19,7 +19,7 @@
   "ch": "ن",
   "name": "نُون",
   "nameAudio": "../letters/646/name.mp3",
-  "pic": "../../pics/ar-tiger.png",
+  "pic": "../../pics/tiger.png",
   "forms": [
    {
     "label": "أول الكلمة",
@@ -46,28 +46,28 @@
    {
     "label": "الفتحة",
     "t": "نَ",
-    "pic": "../../pics/ar-boy-fatha.png",
+    "pic": "../../pics/boy-fatha.png",
     "audio": "../../syl-ar/646-64e.mp3",
     "har": "fatha"
    },
    {
     "label": "الضمة",
     "t": "نُ",
-    "pic": "../../pics/ar-boy-damma.png",
+    "pic": "../../pics/boy-damma.png",
     "audio": "../../syl-ar/646-64f.mp3",
     "har": "damma"
    },
    {
     "label": "الكسرة",
     "t": "نِ",
-    "pic": "../../pics/ar-boy-kasra.png",
+    "pic": "../../pics/boy-kasra.png",
     "audio": "../../syl-ar/646-650.mp3",
     "har": "kasra"
    },
    {
     "label": "السكون",
     "t": "نْ",
-    "pic": "../../pics/ar-boy-sukoon.png",
+    "pic": "../../pics/boy-sukoon.png",
     "audio": "../../syl-ar/646-652.mp3",
     "har": "sukoon"
    }
@@ -102,7 +102,7 @@
  "vocab": [
   {
    "word": "نَمِر",
-   "img": "../../pics/ar-tiger.png",
+   "img": "../../pics/tiger.png",
    "audio": {
     "word": "words/nimr.mp3"
    },
@@ -147,7 +147,7 @@
   },
   {
    "word": "نَار",
-   "img": "../../pics/ar-fire.png",
+   "img": "../../pics/fire.png",
    "audio": {
     "word": "words/nar.mp3"
    },
@@ -166,7 +166,7 @@
   },
   {
    "word": "نَمْل",
-   "img": "../../pics/ar-ants.png",
+   "img": "../../pics/ants.png",
    "audio": {
     "word": "../u2l1/words/namla.mp3"
    },
@@ -227,7 +227,7 @@
   },
   {
    "word": "أَرْنَب",
-   "img": "../../pics/ar-rabbit.png",
+   "img": "../../pics/rabbit.png",
    "audio": {
     "word": "../u1l3/words/arnab.mp3"
    },
@@ -249,7 +249,7 @@
   },
   {
    "word": "نُجُوم",
-   "img": "../../pics/ar-stars.png",
+   "img": "../../pics/stars.png",
    "audio": {
     "word": "words/nujum.mp3"
    },
@@ -271,7 +271,7 @@
   },
   {
    "word": "نُسُور",
-   "img": "../../pics/ar-eagles.png",
+   "img": "../../pics/eagles.png",
    "audio": {
     "word": "words/nusur.mp3"
    },
@@ -293,7 +293,7 @@
   },
   {
    "word": "نُقُود",
-   "img": "../../pics/ar-money.png",
+   "img": "../../pics/money.png",
    "audio": {
     "word": "words/nuqud.mp3"
    },
@@ -339,7 +339,7 @@
   },
   {
    "word": "نِصْف",
-   "img": "../../pics/ar-half.png",
+   "img": "../../pics/half.png",
    "audio": {
     "word": "words/nisf.mp3"
    },
@@ -357,7 +357,7 @@
   },
   {
    "word": "نِيل",
-   "img": "../../pics/ar-nile.png",
+   "img": "../../pics/nile.png",
    "audio": {
     "word": "../u2l3/words/nil.mp3"
    },
@@ -376,7 +376,7 @@
   },
   {
    "word": "بِنْت",
-   "img": "../../pics/ar-girl.png",
+   "img": "../../pics/girl.png",
    "audio": {
     "word": "../u1l4/words/bint.mp3"
    },
@@ -394,7 +394,7 @@
   },
   {
    "word": "مُهَنْدِس",
-   "img": "../../pics/ar-engineer.png",
+   "img": "../../pics/engineer.png",
    "audio": {
     "word": "../u1l5/words/muhandis.mp3"
    },
@@ -462,7 +462,7 @@
   },
   {
    "word": "حِصَان",
-   "img": "../../pics/ar-horse.png",
+   "img": "../../pics/horse.png",
    "audio": {
     "word": "../u1l6/words/hisan.mp3"
    },
@@ -484,7 +484,7 @@
   },
   {
    "word": "جُنْدِيّ",
-   "img": "../../pics/ar-soldier.png",
+   "img": "../../pics/soldier.png",
    "audio": {
     "word": "../u1l7/words/jundi.mp3"
    },

@@ -4,7 +4,7 @@
    (open until 31 Aug) or rejects (closed at once). Everything ends on 31 Aug. No device data is stored anywhere.
    Records live in es.subs = {childId:{"p1:t1":{st,at,trial,until,price,ref,seen}}}: st = pending | active | rejected | closed; trial = ms the 24 h run to.
    With the server (settings "api") the server is the truth: GET /subs fills es.subs, POST /subs sends the receipt (server/src/index.js subs). */
-const SUBT=[['t1','الترم الأول'],['t2','الترم التاني']];
+const SUBT_ALL=[['t1','الترم الأول'],['t2','الترم التاني']], SUBT=SUBT_ALL.filter(x=>x[0]==='t1');   // الترم التاني مخفي لحد ما يتبني (ضيفي 't2' في الفلتر يرجع)
 const subKey=(k,t)=>(k&&k.grade||'p1')+':'+t;
 const subTermNow=()=>/2/.test((window.COURSE&&COURSE.term)||'')?'t2':'t1';   // the term this app's lessons belong to
 const subAll=()=>cGet('es.subs',{});
@@ -34,15 +34,15 @@ subExpire(); subLegacy();
 async function subSync(){ const s=typeof sySession==='function'&&sySession(); if(!s||!s.token||!API()) return;
   const r=await syCall('/subs'); if(!r||!r.j.ok) return; const A={}, old=subAll(), mine=new Set(kids().map(k=>k.id));
   r.j.subs.forEach(x=>{ if(!mine.has(x.child)) return; const o=((old[x.child]||{})[x.term])||{};
-    (A[x.child]=A[x.child]||{})[x.term]={st:x.st,at:x.at,trial:x.trial,until:x.until,price:x.price,ref:x.ref,seen:o.st===x.st?o.seen:(x.st==='pending')}; });
+    (A[x.child]=A[x.child]||{})[x.term]={st:x.st,at:x.at,trial:x.trial,until:x.until,price:x.price,ref:x.ref,note:x.note||'',dec:x.dec||0,seen:o.st===x.st?o.seen:(x.st==='pending')}; });
   Object.keys(old).forEach(id=>{ if(!mine.has(id)) A[id]=old[id]; else Object.keys(old[id]).forEach(key=>{ if(old[id][key].st==='credit') (A[id]=A[id]||{})[key]=old[id][key]; else if(!(A[id]||{})[key]&&old[id][key].st==='pending'&&!r.j.subs.length) (A[id]=A[id]||{})[key]=old[id][key]; }); });
-  cSet('es.subs',A); subNotice(); const o=$('#acctPage'); if(o&&!o.hidden) subDot(o); }
+  cSet('es.subs',A); subNotice(); const o=$('#acctPage'); if(o&&!o.hidden) subDot(o); const sp=$('#subsPage'); if(sp&&!sp.hidden) subsOpen(); }
 function subNews(){ const out=[]; const A=subAll(); kids().forEach(k=>Object.entries(A[k.id]||{}).forEach(([key,r])=>{ if(!r.seen&&(r.st==='active'||r.st==='rejected'||r.st==='closed')) out.push({k,key,r}); })); return out; }
 function subNotice(){ const n=subNews()[0]; if(!n||$('#coinPop')&&!$('#coinPop').hidden) return;
-  const t=n.key.split(':')[1], tn=(SUBT.find(x=>x[0]===t)||[])[1]||'', ok=n.r.st==='active';
+  const t=n.key.split(':')[1], tn=(SUBT_ALL.find(x=>x[0]===t)||[])[1]||'', ok=n.r.st==='active';
   const A=subAll(); A[n.k.id][n.key].seen=true; cSet('es.subs',A);
   coinPop(`<h2 class="outline">${ok?'تم تفعيل الاشتراك':n.r.st==='closed'?'الاشتراك اتقفل':'الاشتراك ما اتفعلش'}</h2>
-    <p class="msg-text">${ok?`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتفعل ويفضل مفتوح لحد ${subDate(n.r.until)}.`:n.r.st==='closed'?`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتقفل.`:`مقدرناش نتأكد من الدفع لاشتراك <b>${wlEsc(n.k.name)}</b> في ${tn}، فالدروس اتقفلت. ممكن تبعتي الإيصال تاني.`}</p>
+    <p class="msg-text">${ok?`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتفعل ويفضل مفتوح لحد ${subDate(n.r.until)}.`:n.r.st==='closed'?`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتقفل.`:`مقدرناش نتأكد من الدفع لاشتراك <b>${wlEsc(n.k.name)}</b> في ${tn}، فالدروس اتقفلت. ممكن تبعتي الإيصال تاني.`}</p>${!ok&&n.r.st==='rejected'&&n.r.note?`<p class="msg-text">${wlEsc(n.r.note).replace(/\n/g,'<br>')}</p>`:''}
     <button class="pill green" data-ok>تمام</button>`, p=>$('[data-ok]',p).addEventListener('click',()=>{ coinClose(); if(typeof drawSubjects==='function'&&!$('#subjects').hidden) drawSubjects(); subNotice(); })); }
 function subDot(o){ const b=$('.ac-subs em',o); if(b) b.textContent=subNews().length?'جديد':''; }
 setTimeout(subSync,1500); document.addEventListener('visibilitychange',()=>{ if(!document.hidden) subSync(); });
@@ -65,15 +65,41 @@ function subStat(r,t){ const now=Date.now(); if(!r) return {c:'none',t:'مفيش
   if(r.st==='pending') return {c:'wait',t:now<(r.trial||0)?'مفتوح ٢٤ ساعة لحد ما نتأكد من الدفع':'بنراجع الإيصال'};
   if(r.st==='rejected') return {c:'bad',t:'الدفع ما اتأكدش'};
   return {c:'none',t:'اتقفل'}; }
-function subsPage(){ parentGate(()=>{ const K=kids(); const on=subIsOn();
-  coinPop(`<h2 class="outline">اشتراكاتي</h2><div class="subscroll">${on?'':'<p class="msg-text">الاشتراك هيتفتح قريبًا.</p>'}
-    <div class="subk">${K.map(k=>`<div class="subkid"><b class="sn">${wlEsc(k.name)}</b>${SUBT.map(([t,tn])=>{ const r=subRec(k,t), s=subStat(r,t), pr=subPrice(k.grade||'p1',t);
-      return `<button class="subrow ${s.c}" data-k="${k.id}" data-t="${t}"${on&&pr.fin?'':' disabled'}><span class="st">${tn}</span><em>${s.t}</em>${pr.fin?`<strong>${num(pr.fin)} جنيه</strong>`:''}</button>`; }).join('')}</div>`).join('')}</div></div>`,
-    p=>$$('.subrow',p).forEach(b=>b.addEventListener('click',()=>subBuy(b.dataset.k,b.dataset.t)))); }); }
-function subBuy(kidId,t){ const k=kids().find(x=>x.id===kidId); if(!k) return; const key=subKey(k,t), r=subRec(k,t), pr=subPrice(k.grade||'p1',t), S=ESET.subs||{}, tn=(SUBT.find(x=>x[0]===t)||[])[1];
+/* the subscriptions PAGE (Ahmed 2026-11-16): a page in the account area (same look as the profile page), two tabs: الاشتراكات = a table per child, one row per term with a strong
+   state (active until / not subscribed / waiting / rejected) and the button to subscribe; الإشعارات = what happened to each receipt (confirmed, rejected + the admin's reason, closed).
+   The notices are read from the same subscription records (server GET /subs: st, note, dec = the day the admin decided), so there is one data shape and nothing else to keep in step. */
+const SUB_TAB={t:'subs'};
+function subsPage(){ parentGate(()=>subsOpen()); }
+function subNotices(){ const out=[]; const A=subAll(); kids().forEach(k=>Object.entries(A[k.id]||{}).forEach(([key,r])=>{ if(r.st==='credit'||!r.st) return; out.push({k,key,r,t:r.dec||r.at||0}); })); return out.sort((a,b)=>b.t-a.t); }
+function subsOpen(tab){ if(tab) SUB_TAB.t=tab; const T=SUB_TAB.t, on=subIsOn();
+  let o=$('#subsPage'); if(!o){ o=el('div','acctpage',''); o.id='subsPage'; o.setAttribute('role','dialog'); o.setAttribute('aria-label','Subscriptions'); document.body.append(o); }
+  const K=kids(), nn=subNews().length;
+  const tabs=`<div class="sp-tabs" role="tablist"><button class="sp-tab-b${T==='subs'?' on':''}" data-tab="subs" role="tab">الاشتراكات</button><button class="sp-tab-b${T==='news'?' on':''}" data-tab="news" role="tab">الإشعارات${nn?`<i class="sp-dot">${num(nn)}</i>`:''}</button></div>`;
+  let body='';
+  if(T==='subs'){
+    body=(on?'':'<p class="sp-soon">الاشتراك هيتفتح قريبًا.</p>')+K.map(k=>`<section class="ac-card sp-kid"><h3>${wlEsc(k.name)}</h3><div class="sp-tbl" role="table">
+      <div class="sp-hd" role="row"><span>الترم</span><span>الحالة</span><span></span></div>${SUBT.map(([t,tn])=>{ const r=subRec(k,t), s=subStat(r,t), pr=subPrice(k.grade||'p1',t);
+        const can=on&&pr.fin&&(s.c==='none'||s.c==='bad'), ic=s.c==='on'?'✓':s.c==='wait'?'…':s.c==='bad'?'!':'✕';
+        return `<div class="sp-r ${s.c}" role="row"><b>${tn}</b><span class="sp-s"><i class="sp-ic">${ic}</i>${s.t}</span><span class="sp-a">${can?`<button class="pill green sp-buy" data-k="${k.id}" data-t="${t}">${s.c==='bad'?'ابعت الإيصال تاني':'اشترك'}<small>${num(pr.fin)} جنيه</small></button>`:(on&&!pr.fin&&s.c==='none'?'<small class="sp-np">السعر لسه متحددش</small>':'')}</span></div>`; }).join('')}</div></section>`).join('');
+  } else {
+    const L=subNotices();
+    body=L.length?`<div class="sp-news">${L.map(n=>{ const t=n.key.split(':')[1], tn=(SUBT_ALL.find(x=>x[0]===t)||[])[1]||'', st=n.r.st, expired=n.r.until&&Date.now()>=n.r.until;
+      const kind=expired||st==='closed'?'closed':st, ttl={active:'تم تفعيل الاشتراك',rejected:'الاشتراك ما اتفعلش',closed:'الاشتراك اتقفل',pending:'وصلنا الإيصال'}[kind]||'';
+      const txt={active:`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} مفعّل ومفتوح لحد ${subDate(n.r.until)}.`,
+        rejected:`مقدرناش نتأكد من الدفع لاشتراك <b>${wlEsc(n.k.name)}</b> في ${tn}، فالدروس اتقفلت.`,
+        closed:`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتقفل.`,
+        pending:`إيصال اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} وصلنا وبنراجعه.`}[kind]||'';
+      return `<article class="ac-card sp-n ${kind}"><div class="sp-nh"><b>${ttl}</b><small>${n.t?subDate(n.t):''}</small></div><p>${txt}</p>${kind==='rejected'?`<p class="sp-why"><span>السبب</span>${wlEsc(n.r.note||'مقدرناش نتأكد من الدفع').replace(/\n/g,'<br>')}</p>`:''}${kind==='rejected'&&on?`<button class="pill green sp-buy" data-k="${n.k.id}" data-t="${t}">ابعت الإيصال تاني</button>`:''}</article>`; }).join('')}</div>`
+      :'<section class="ac-card"><p class="sp-empty">مفيش إشعارات لسه.</p></section>'; }
+  o.innerHTML=`<div class="ac-top"><button class="rb ac-back sp-back" aria-label="Back">${ICON.back}</button><h2>اشتراكاتي</h2></div><div class="ac-in">${tabs}${body}</div>`;
+  $('.sp-back',o).addEventListener('click',()=>o.hidden=true);
+  $$('.sp-tab-b',o).forEach(b=>b.addEventListener('click',()=>{ if(b.dataset.tab==='news'){ const A=subAll(); let ch=false; Object.values(A).forEach(m=>Object.values(m).forEach(r=>{ if(r&&!r.seen){ r.seen=true; ch=true; } })); if(ch){ cSet('es.subs',A); const ap=$('#acctPage'); if(ap&&!ap.hidden) subDot(ap); } } subsOpen(b.dataset.tab); }));
+  $$('.sp-buy',o).forEach(b=>b.addEventListener('click',()=>subBuy(b.dataset.k,b.dataset.t)));
+  o.hidden=false; }
+function subBuy(kidId,t){ const k=kids().find(x=>x.id===kidId); if(!k) return; const key=subKey(k,t), r=subRec(k,t), pr=subPrice(k.grade||'p1',t), S=ESET.subs||{}, tn=(SUBT_ALL.find(x=>x[0]===t)||[])[1];
   const live=r&&(!r.until||Date.now()<r.until)&&(r.st==='active'||r.st==='pending');
   if(live&&r.st==='active'||live&&r.st==='pending'&&Date.now()>=(r.trial||0)){   // paid, or the receipt is waiting for the admin: only the state
-    const s=subStat(r,t); return coinPop(`<h2 class="outline">${wlEsc(k.name)} · ${tn}</h2><p class="msg-text">${s.t}</p><button class="pill green" data-ok>تمام</button>`,p=>$('[data-ok]',p).addEventListener('click',subsPage)); }
+    const s=subStat(r,t); return coinPop(`<h2 class="outline">${wlEsc(k.name)} · ${tn}</h2><p class="msg-text">${s.t}</p><button class="pill green" data-ok>تمام</button>`,p=>$('[data-ok]',p).addEventListener('click',()=>{ coinClose(); subsOpen(); })); }
   let disc=null;   // a percent promo code typed on this page: {pct, code}
   const link=S.link||'', who=S.name||'', pro=ESET.promoOn!==false&&((ESET.promos&&ESET.promos.length)||API());
   coinPop(`<h2 class="outline">${wlEsc(k.name)} · ${tn}</h2>
@@ -87,7 +113,7 @@ function subBuy(kidId,t){ const k=kids().find(x=>x.id===kidId); if(!k) return; c
       <button class="pill green wl-big" type="submit"><span class="wl-ar">ابعتي الإيصال</span></button></form>
     <p class="subnote">بعد الإرسال الدروس بتتفتح ٢٤ ساعة لحد ما نتأكد من الدفع.<br>الاشتراك لحد ${subDate(subEnd())}، وبعدها الدروس بتتقفل والتقدم بيبدأ من الأول.<br>مفيش استرجاع للفلوس.</p>${pro?promoLine():''}</div>`,
     p=>{ const fin=()=>disc?Math.max(1,Math.round(pr.fin*(100-disc.pct)/100)):pr.fin;
-      promoWire(p,()=>{ subsPage(); },{pct:(n,code)=>{ disc={pct:n,code};
+      promoWire(p,()=>{ subsOpen(); },{pct:(n,code)=>{ disc={pct:n,code};
         $('[data-sp]',p).innerHTML=`<s>${num(pr.fin)}</s> <b>${num(fin())}</b> جنيه<small class="subpct">خصم ${num(n)}%</small>`;
         const b=$('[data-promo]',p), pf=$('.cpromof',p); if(b) b.hidden=true; if(pf) pf.hidden=true; p.classList.remove('promo-on'); }});
       const f=$('.subf',p), er=$('.wl-err',p), im=$('.subimg',p); let pic='';
@@ -105,4 +131,4 @@ function subBuy(kidId,t){ const k=kids().find(x=>x.id===kidId); if(!k) return; c
         else rec={st:'pending',at:t0,trial:has&&has.trialUsed?0:t0+864e5,until:subEnd(t0),price:fin(),ref,seen:true,trialUsed:true,local:true}; if(disc) promoSpend(disc.code);   // no server: kept on this device (admin cannot see it)
         subSave(k.id,key,rec); coinClose(); if(typeof chime==='function') chime(3);
         coinPop(`<h2 class="outline">وصلنا الإيصال</h2><p class="msg-text">دروس <b>${wlEsc(k.name)}</b> مفتوحة ٢٤ ساعة لحد ما نتأكد من الدفع.</p><button class="pill green" data-ok>تمام</button>`,
-          p2=>$('[data-ok]',p2).addEventListener('click',()=>{ coinClose(); if(typeof drawSubjects==='function'&&!$('#subjects').hidden) drawSubjects(); })); }); }); }
+          p2=>$('[data-ok]',p2).addEventListener('click',()=>{ coinClose(); if(typeof drawSubjects==='function'&&!$('#subjects').hidden) drawSubjects(); const sp=$('#subsPage'); if(sp&&!sp.hidden) subsOpen(); })); }); }); }

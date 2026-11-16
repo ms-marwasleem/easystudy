@@ -147,17 +147,17 @@
     {
      "word": "سَ",
      "audio": "../../syl-ar/633-64e.mp3",
-     "pic": "../../pics/ar-car.png"
+     "pic": "../../pics/car.png"
     },
     {
      "word": "سُ",
      "audio": "../../syl-ar/633-64f.mp3",
-     "pic": "../../pics/ar-ladder.png"
+     "pic": "../../pics/ladder.png"
     },
     {
      "word": "سْ",
      "audio": "../../syl-ar/633-652.mp3",
-     "pic": "../../pics/ar-eagle.jpg"
+     "pic": "../../pics/eagle.png"
     },
     {
      "word": "سِ",
@@ -183,7 +183,7 @@
     {
      "word": "سُلَحْفَاة",
      "audio": "../u1l6/words/sulahfa.mp3",
-     "pic": "../../pics/ar-turtle.png",
+     "pic": "../../pics/turtle.png",
      "answer": "سُ",
      "choices": [
       "سَ",
@@ -194,7 +194,7 @@
     {
      "word": "سِتَارَة",
      "audio": "words/sitara.mp3",
-     "pic": "../../pics/ar-curtain.png",
+     "pic": "../../pics/curtain.png",
      "answer": "سِ",
      "choices": [
       "سَ",
@@ -218,7 +218,7 @@
     {
      "word": "سَيَّارَة",
      "audio": "words/sayyara.mp3",
-     "pic": "../../pics/ar-car.png",
+     "pic": "../../pics/car.png",
      "answer": "سَ",
      "choices": [
       "سَ",
@@ -245,7 +245,7 @@
     {
      "word": "نَسْر",
      "audio": "../u2l2/words/nasr.mp3",
-     "pic": "../../pics/ar-eagle.jpg",
+     "pic": "../../pics/eagle.png",
      "answer": "سْ",
      "choices": [
       "سَ",
@@ -282,7 +282,7 @@
     {
      "word": "سُلَّم",
      "audio": "words/sullam.mp3",
-     "pic": "../../pics/ar-ladder.png",
+     "pic": "../../pics/ladder.png",
      "answer": "سُ",
      "choices": [
       "سَ",
@@ -346,7 +346,7 @@
      "need": 2,
      "cells": 3,
      "pics": [
-      "../../pics/ar-lion.png",
+      "../../pics/lion.png",
       "../../pics/clouds.png"
      ],
      "picWords": [
@@ -370,7 +370,7 @@
    "hint": "اسمع القصة، وارفع إيدك لما تسمع كلمة فيها سين",
    "items": [
     {
-     "scene": "../../pics/ar-story-u2l4-cut.png",
+     "scene": "../../pics/story-u2l4-cut.png",
      "text": "تُحِبُّ سَارَةُ الرَّسْمَ، وَبَعْدَ أَنْ عَادَتْ مِنَ الْمَدْرَسَةِ جَلَسَتْ عَلَى الْكُرْسِيِّ وَرَسَمَتْ ثَلَاثَةَ رُسُومٍ، رَسَمَتْ بُسْتَانًا جَمِيلًا، ثُمَّ رَسَمَتْ سُلَحْفَاةً تَسِيرُ بِبُطْءٍ، وَبَعْدَ ذَلِكَ رَسَمَتْ سَمَكَةً جَمِيلَةً لَوْنُهَا ذَهَبِيٌّ، كَانَتْ سَارَةُ سَعِيدَةً وَهِيَ تُلَوِّنُ مَا رَسَمَتْهُ بِأَلْوَانٍ جَمِيلَةٍ.",
      "audio": "q/story.mp3",
      "ask": "مَاذَا رَسَمَتْ سَارَةُ؟",
@@ -561,7 +561,7 @@
     {
      "word": "مِقَصّ",
      "audio": "../u1l5/words/miqass.mp3",
-     "pic": "../../pics/ar-scissors.png",
+     "pic": "../../pics/scissors.png",
      "answer": "مِ",
      "choices": [
       "مَ",
@@ -572,7 +572,7 @@
     {
      "word": "نُجُوم",
      "audio": "../u2l5/words/nujum.mp3",
-     "pic": "../../pics/ar-stars.png",
+     "pic": "../../pics/stars.png",
      "answer": "نُ",
      "choices": [
       "نَ",
@@ -605,17 +605,17 @@
    "items": [
     {
      "word": "clock",
-     "pic": "../../pics/ar-clock.png",
+     "pic": "../../pics/clock.png",
      "answer": true
     },
     {
      "word": "apple",
-     "pic": "../../pics/ar-apple.png",
+     "pic": "../../pics/apple-toon.png",
      "answer": false
     },
     {
      "word": "turtle",
-     "pic": "../../pics/ar-turtle.png",
+     "pic": "../../pics/turtle.png",
      "answer": true
     },
     {
@@ -625,12 +625,12 @@
     },
     {
      "word": "lion",
-     "pic": "../../pics/ar-lion.png",
+     "pic": "../../pics/lion.png",
      "answer": true
     },
     {
      "word": "lettuce",
-     "pic": "../../pics/ar-lettuce.png",
+     "pic": "../../pics/lettuce.png",
      "answer": true
     }
    ]
@@ -652,14 +652,14 @@
    "items": [
     {
      "word": "جِسْر",
-     "pic": "../../pics/ar-bridge.png",
+     "pic": "../../pics/bridge.png",
      "audio": "../u1l7/words/jisr.mp3",
      "answer": "سْ",
      "at": 1
     },
     {
      "word": "سَيَّارَة",
-     "pic": "../../pics/ar-car.png",
+     "pic": "../../pics/car.png",
      "audio": "words/sayyara.mp3",
      "answer": "سَ"
     },
@@ -671,7 +671,7 @@
     },
     {
      "word": "سُور",
-     "pic": "../../pics/ar-fence.png",
+     "pic": "../../pics/fence.png",
      "audio": "words/sur.mp3",
      "answer": "سُ"
     }
@@ -688,19 +688,19 @@
    "items": [
     {
      "word": "خَسّ",
-     "pic": "../../pics/ar-lettuce.png",
+     "pic": "../../pics/lettuce.png",
      "audio": "../u1l9/words/khass.mp3",
      "at": 1
     },
     {
      "word": "قَوْس",
-     "pic": "../../pics/ar-bow.png",
+     "pic": "../../pics/bow.png",
      "audio": "words/qaws.mp3",
      "at": 2
     },
     {
      "word": "أَسَد",
-     "pic": "../../pics/ar-lion.png",
+     "pic": "../../pics/lion.png",
      "audio": "../u1l3/words/asad.mp3",
      "at": 1
     },
@@ -712,13 +712,13 @@
     },
     {
      "word": "لِسَان",
-     "pic": "../../pics/ar-tongue.png",
+     "pic": "../../pics/tongue.png",
      "audio": "../u2l3/words/lisan.mp3",
      "at": 1
     },
     {
      "word": "سَحَاب",
-     "pic": "../../pics/ar-cloud.jpg",
+     "pic": "../../pics/cloud.png",
      "audio": "words/sahab.mp3",
      "at": 0
     }
@@ -742,26 +742,26 @@
     {
      "word": "سُلَحْفَاة",
      "audio": "../u1l6/words/sulahfa.mp3",
-     "pic": "../../pics/ar-turtle.png",
+     "pic": "../../pics/turtle.png",
      "answer": "سُ"
     },
     {
      "word": "مِسْمَار",
      "audio": "words/mismar.mp3",
-     "pic": "../../pics/ar-mismar.png",
+     "pic": "../../pics/mismar.png",
      "answer": "سْ",
      "at": 1
     },
     {
      "word": "سِتَارَة",
      "audio": "words/sitara.mp3",
-     "pic": "../../pics/ar-curtain.png",
+     "pic": "../../pics/curtain.png",
      "answer": "سِ"
     },
     {
      "word": "سَرْج",
      "audio": "words/saraj.mp3",
-     "pic": "../../pics/ar-saddle.png",
+     "pic": "../../pics/saddle.png",
      "answer": "سَ"
     }
    ]
@@ -831,7 +831,7 @@
     },
     {
      "word": "سَمَكَة",
-     "pic": "../../pics/ar-fish.png",
+     "pic": "../../pics/fish.png",
      "audio": "words/samaka.mp3"
     },
     {
@@ -841,7 +841,7 @@
     },
     {
      "word": "سَاعَة",
-     "pic": "../../pics/ar-clock.png",
+     "pic": "../../pics/clock.png",
      "audio": "words/saa.mp3"
     }
    ]
@@ -864,26 +864,26 @@
     {
      "word": "أَسْنَان",
      "audio": "words/asnan.mp3",
-     "pic": "../../pics/ar-teeth.png",
+     "pic": "../../pics/teeth.png",
      "answer": "سْ",
      "at": 1
     },
     {
      "word": "سِكِّين",
      "audio": "words/sikkin.mp3",
-     "pic": "../../pics/ar-knife.png",
+     "pic": "../../pics/knife.png",
      "answer": "سِ"
     },
     {
      "word": "سُحُب",
      "audio": "words/suhub.mp3",
-     "pic": "../../pics/ar-cloud.jpg",
+     "pic": "../../pics/cloud.png",
      "answer": "سُ"
     },
     {
      "word": "مَسْجِد",
      "audio": "words/masjid.mp3",
-     "pic": "../../pics/ar-mosque.png",
+     "pic": "../../pics/mosque.png",
      "answer": "سْ",
      "at": 1
     }
@@ -902,8 +902,8 @@
      "word": "تَسْبَحُ الْبِنْتُ فِي الْبَحْرِ.",
      "audio": "q/s14-1.mp3",
      "pics": [
-      "../../pics/ar-swim-boy.jpg",
-      "../../pics/ar-swim-girl.jpg"
+      "../../pics/swim-boy.jpg",
+      "../../pics/swim-girl.jpg"
      ],
      "answer": 1
     },
@@ -911,8 +911,8 @@
      "word": "حَمَلَ النَّمْلُ التُّرْمُسَ.",
      "audio": "q/s14-2.mp3",
      "pics": [
-      "../../pics/ar-ants-carry.jpg",
-      "../../pics/ar-ants-apple.jpg"
+      "../../pics/ants-carry.jpg",
+      "../../pics/ants-apple.jpg"
      ],
      "answer": 0
     }
@@ -936,7 +936,7 @@
     {
      "word": "سَاعَة",
      "audio": "words/saa.mp3",
-     "pic": "../../pics/ar-clock.png",
+     "pic": "../../pics/clock.png",
      "answer": "سَ",
      "choices": [
       "سَ",
@@ -947,7 +947,7 @@
     {
      "word": "سِتَارَة",
      "audio": "words/sitara.mp3",
-     "pic": "../../pics/ar-curtain.png",
+     "pic": "../../pics/curtain.png",
      "answer": "سِ",
      "choices": [
       "سَ",
@@ -958,7 +958,7 @@
     {
      "word": "نَسْر",
      "audio": "../u2l2/words/nasr.mp3",
-     "pic": "../../pics/ar-eagle.jpg",
+     "pic": "../../pics/eagle.png",
      "answer": "سْ",
      "choices": [
       "سَ",
@@ -987,7 +987,7 @@
     {
      "word": "جِسْر",
      "audio": "../u1l7/words/jisr.mp3",
-     "pic": "../../pics/ar-bridge.png",
+     "pic": "../../pics/bridge.png",
      "answer": "سْ",
      "choices": [
       "سَ",
@@ -999,7 +999,7 @@
     {
      "word": "سِتَارَة",
      "audio": "words/sitara.mp3",
-     "pic": "../../pics/ar-curtain.png",
+     "pic": "../../pics/curtain.png",
      "answer": "سِ",
      "choices": [
       "سَ",
@@ -1010,7 +1010,7 @@
     {
      "word": "سُلَحْفَاة",
      "audio": "../u1l6/words/sulahfa.mp3",
-     "pic": "../../pics/ar-turtle.png",
+     "pic": "../../pics/turtle.png",
      "answer": "سُ",
      "choices": [
       "سَ",

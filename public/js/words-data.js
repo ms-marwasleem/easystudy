@@ -41,7 +41,7 @@ function ewUnits(s){
   return Object.keys(by).map(u=>{ const un=(s.units||[]).find(x=>x.unit==u)||{};
     return { unit:+u, name:s.id==='arabic'?`الوحدة ${ewN(u)}${un.title?' · '+un.title:''}`:`Unit ${u}`, lessons:by[u].map((l,i)=>{ const built=!!l.file&&ewOpen(l.id), st=built?coinAccess(l,true,'l:'+l.id,i,'lesson').st:'soon';   // open | locked | soon: the dashboard's state, a paid term, credits and the free trial (js/coins.js)
       return {...l,name:l.title||l.planned||'',built,st,open:st==='open',locked:st==='locked'}; }) }; })
-    .filter(u=>u.lessons.length&&(s.id!=='arabic'||u.unit<=5||u.lessons.some(l=>l.open)));
+    .filter(u=>u.lessons.length&&(s.id!=='arabic'||u.unit<=4));   // Arabic: no النحو (unit 5) and no final assessments here, they have no words (Ahmed 2026-11-16)
 }
 const ewOpen=id=>!!(EW.cfg&&!(EW.cfg.skip||[]).includes(id)&&(EW.cfg.all||(EW.cfg.open||[]).includes(id)));
 const ewSubjOf=id=>COURSE.subjects.find(s=>id.startsWith(s.id+'-'));

@@ -15,6 +15,7 @@
     <button data-p="lessons">الدروس</button>
     <button data-p="users">المستخدمين</button>
     <button data-p="subs">الاشتراكات</button>
+    <button data-p="shares">المشاركات</button>
     <button data-p="push">الإشعارات</button>
     <button data-p="reports">البلاغات <b id="repBadge" hidden></b></button>
   </nav>
@@ -26,6 +27,15 @@
   <section id="p-stats" class="page">
     <div class="kpis" id="kpis"></div>
     <div class="card"><h2>آخر الحركات</h2><div class="tbl" id="hist"></div></div>
+  </section>
+
+  <section id="p-shares" class="page" hidden>
+    <div class="card"><h2>المشاركات والكريدتس</h2>
+      <p class="note" id="sh-where"></p>
+      <nav class="stabs" id="sh-tabs"><button data-h="acc" class="on">كريدتس كل حساب</button><button data-h="shares">المشاركات</button><button data-h="spend">الصرف وفتح الدروس</button></nav>
+      <div class="row" style="gap:.6rem;margin:.6rem 0;align-items:center"><input id="sh-q" type="search" placeholder="دوري بالإيميل أو الموبايل أو اسم الطفل" style="flex:1"><b id="sh-count"></b></div>
+      <div class="utwrap"><table class="utbl" id="sh-tbl"><thead id="sh-head"></thead><tbody id="sh-body"></tbody></table></div>
+    </div>
   </section>
 
   <section id="p-settings" class="page" hidden>
@@ -135,10 +145,9 @@
       <div class="filters"><input type="text" id="u-q" placeholder="بحث في كل الجدول"><span class="legend" id="u-count"></span></div>
       <div class="utwrap"><table class="utbl"><thead>
         <tr><th>م</th><th>تاريخ التسجيل</th><th>الإيميل</th><th>الموبايل</th><th>الطالب</th><th>تاريخ تسجيل الطالب</th><th>الاشتراك</th><th>تاريخ الاشتراك</th><th>الإيصال</th><th></th></tr>
-        <tr class="u-srch"><th><input class="u-f" data-c="num" placeholder="بحث"></th><th><input class="u-f" data-c="date" placeholder="بحث"></th><th><input class="u-f" data-c="email" dir="ltr" placeholder="بحث"></th><th><input class="u-f" data-c="phone" dir="ltr" placeholder="بحث"></th><th><input class="u-f" data-c="kid" placeholder="بحث"></th><th><input class="u-f" data-c="kdate" placeholder="بحث"></th><th><input class="u-f" data-c="sub" placeholder="بحث"></th><th><input class="u-f" data-c="sdate" placeholder="بحث"></th><th></th><th></th></tr>
+        <tr class="u-srch"><th><input class="u-f" data-c="num" placeholder="بحث"></th><th><div class="u-dr"><label>من <input type="date" class="u-d" data-c="date" data-e="from"></label><label>إلى <input type="date" class="u-d" data-c="date" data-e="to"></label><button type="button" class="u-dclr" data-c="date" title="مسح">×</button></div></th><th><input class="u-f" data-c="email" dir="ltr" placeholder="بحث"></th><th><input class="u-f" data-c="phone" dir="ltr" placeholder="بحث"></th><th><input class="u-f" data-c="kid" placeholder="بحث"></th><th><div class="u-dr"><label>من <input type="date" class="u-d" data-c="kdate" data-e="from"></label><label>إلى <input type="date" class="u-d" data-c="kdate" data-e="to"></label><button type="button" class="u-dclr" data-c="kdate" title="مسح">×</button></div></th><th><select class="u-f" data-c="sub"><option value="">الكل</option><option value="on">مفعل</option><option value="off">غير مفعل</option></select></th><th><div class="u-dr"><label>من <input type="date" class="u-d" data-c="sdate" data-e="from"></label><label>إلى <input type="date" class="u-d" data-c="sdate" data-e="to"></label><button type="button" class="u-dclr" data-c="sdate" title="مسح">×</button></div></th><th></th><th></th></tr>
       </thead><tbody id="users"></tbody></table></div>
     </div>
-    <div id="u-modal" class="u-modal" hidden><div id="u-modal-in" class="u-modal-in"></div></div>
   </section>
 
   <section id="p-reports" class="page" hidden>
@@ -174,7 +183,8 @@
 
 </main>
 <div id="toast" hidden></div>
-<script>window.ADMIN_WORDS=1</script>
 <script src="admin/gate.js"></script>
+<div id="u-modal" class="u-modal" hidden><div id="u-modal-in" class="u-modal-in"></div></div>
+<script>window.ADMIN_WORDS=1</script>
 <script src="admin/admin.js"></script>
 </body></html>

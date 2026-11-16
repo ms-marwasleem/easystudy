@@ -142,7 +142,7 @@
      "word": "grass",
      "audio": "words/grass.mp3",
      "pics": [
-      "../../pics/book-pink.png",
+      "../../pics/book.png",
       "../../pics/grass.png"
      ],
      "answer": 1
@@ -152,7 +152,7 @@
      "audio": "words/flower.mp3",
      "pics": [
       "../../pics/bag.png",
-      "../../pics/flower-pink.png"
+      "../../pics/flower.png"
      ],
      "answer": 1
     },
@@ -187,7 +187,7 @@
      "word": "bird",
      "audio": "words/bird.mp3",
      "pics": [
-      "../../pics/flower-pink.png",
+      "../../pics/flower.png",
       "../../pics/bird.png"
      ],
      "answer": 1
@@ -212,13 +212,13 @@
     {
      "word": "This is a bird.",
      "audio": "../../en-shared/q/this-is-a-bird.mp3",
-     "pic": "../../pics/flower-pink.png",
+     "pic": "../../pics/flower.png",
      "answer": false
     },
     {
      "word": "I can see the sky.",
      "audio": "../../en-shared/q/i-can-see-the-sky.mp3",
-     "pic": "../../pics/butterfly-pink.png",
+     "pic": "../../pics/butterfly.png",
      "answer": false
     },
     {
@@ -236,7 +236,7 @@
     {
      "word": "This is a flower.",
      "audio": "../../en-shared/q/this-is-a-flower.mp3",
-     "pic": "../../pics/flower-red.png",
+     "pic": "../../pics/flower.png",
      "answer": true
     }
    ]
@@ -257,7 +257,7 @@
     {
      "word": "flower",
      "audio": "words/flower.mp3",
-     "pic": "../../pics/flower-red.png"
+     "pic": "../../pics/flower.png"
     },
     {
      "word": "sky",
@@ -272,7 +272,7 @@
     {
      "word": "butterfly",
      "audio": "words/butterfly.mp3",
-     "pic": "../../pics/butterfly-pink.png"
+     "pic": "../../pics/butterfly.png"
     },
     {
      "word": "bird",
@@ -362,7 +362,7 @@
       "flower"
      ],
      "answer": 0,
-     "pic": "../../pics/butterfly-pink.png",
+     "pic": "../../pics/butterfly.png",
      "audio": "../../en-shared/q/this-is-a-butterfly.mp3",
      "word": "This is a butterfly.",
      "askAudio": "../../en-shared/q/askc-9ec184ed79.mp3"
@@ -375,7 +375,7 @@
       "flower"
      ],
      "answer": 1,
-     "pic": "../../pics/flower-pink.png",
+     "pic": "../../pics/flower.png",
      "audio": "../../en-shared/q/this-is-a-flower.mp3",
      "word": "This is a flower.",
      "askAudio": "../../en-shared/q/askc-6bc1e165af.mp3"

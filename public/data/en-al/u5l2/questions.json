@@ -1,6 +1,481 @@
 {
  "sets": [
   {
+   "type": "explain",
+   "task": "Listen and read. See the World in a Day",
+   "taskAudio": "../../en-shared/q/listen-and-read-see-the-world-in-a-day.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u5l2-s1.jpg"
+     ],
+     "lines": [
+      {
+       "t": "See the World in a Day",
+       "a": "../../en-shared/q/see-the-world-in-a-day.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "Do you want to see the world? There are a lot of amazing places to see, but the world is big!",
+       "a": "../../en-shared/q/do-you-want-to-see-the-world-there-are-a-lot-of-am-ab1bb0de.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 106
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u5l2-s1.jpg"
+     ],
+     "lines": [
+      {
+       "t": "At Miniature World, in New York, US, you can see 40 different countries in one day. It isn't an amusement park, it's a model world. Each model shows a place or a neighborhood in a town or city.",
+       "a": "../../en-shared/q/at-miniature-world-in-new-york-us-you-can-see-40-d-ba745737.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 106
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u5l2-s1.jpg"
+     ],
+     "lines": [
+      {
+       "t": "This is Berlin, in Germany. The tall building is the TV Tower. It's behind the houses.",
+       "a": "../../en-shared/q/this-is-berlin-in-germany-the-tall-building-is-the-a9a57920.mp3"
+      },
+      {
+       "t": "On the right, there is another monument called the Brandenburg Gate. In front of the TV Tower is a big wheel. It's in a pretty square.",
+       "a": "../../en-shared/q/on-the-right-there-is-another-monument-called-the-b2c7ae85.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 106
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u5l2-s2.jpg"
+     ],
+     "lines": [
+      {
+       "t": "This place is called the Taj Mahal. It's in Agra, India. There are four gardens in front of the Taj Mahal. The gardens are between two walls. The walls are opposite each other.",
+       "a": "../../en-shared/q/this-place-is-called-the-taj-mahal-it-s-in-agra-in-349dd011.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 107
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u5l2-s3.jpg"
+     ],
+     "lines": [
+      {
+       "t": "You can see people everywhere at Miniature World! Find them in coffee shops, stations, and markets. Or see them sit and play games in the park. Look at the people in a big station in New York City, US. Look at the people in the park in Paris, France.",
+       "a": "../../en-shared/q/you-can-see-people-everywhere-at-miniature-world-f-db989f45.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 107
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u5l2-s3.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Many of the places and monuments are real. There are also fun things to look for and do! You can find your favorite characters from TV. Then you can make a model of yourself. You can put yourself in a place you want to be!",
+       "a": "../../en-shared/q/many-of-the-places-and-monuments-are-real-there-ar-287c7e83.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 107
+  },
+  {
+   "type": "mcq",
+   "task": "Look and circle.",
+   "taskAudio": "../../en-shared/q/look-and-circle.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "What is it?",
+     "options": [
+      "country",
+      "world"
+     ],
+     "answer": 0,
+     "word": "What is it?",
+     "audio": "../../en-shared/q/what-is-it.mp3",
+     "pics": [
+      "../../pics/al-u5l2-b1.jpg"
+     ]
+    },
+    {
+     "stem": "What is it?",
+     "options": [
+      "monument",
+      "park"
+     ],
+     "answer": 0,
+     "word": "What is it?",
+     "audio": "../../en-shared/q/what-is-it.mp3",
+     "pics": [
+      "../../pics/al-u5l2-b2.jpg"
+     ]
+    },
+    {
+     "stem": "What is it?",
+     "options": [
+      "coffee shop",
+      "market"
+     ],
+     "answer": 0,
+     "word": "What is it?",
+     "audio": "../../en-shared/q/what-is-it.mp3",
+     "pics": [
+      "../../pics/al-u5l2-b3.jpg"
+     ]
+    },
+    {
+     "stem": "What is it?",
+     "options": [
+      "city",
+      "station"
+     ],
+     "answer": 1,
+     "word": "What is it?",
+     "audio": "../../en-shared/q/what-is-it.mp3",
+     "pics": [
+      "../../pics/al-u5l2-b4.jpg"
+     ]
+    }
+   ],
+   "page": 104,
+   "ex": "B"
+  },
+  {
+   "type": "cloze",
+   "task": "Complete the sentences.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "text": "There are a lot of countries in the [[world]].",
+     "bank": [
+      "amusement park",
+      "city",
+      "market",
+      "park",
+      "square",
+      "world"
+     ],
+     "audio": "../../en-shared/q/there-are-a-lot-of-countries-in-the-world.mp3",
+     "askAudio": "../../en-shared/q/askz-417f2441ac.mp3"
+    },
+    {
+     "text": "We play soccer in the [[park]].",
+     "bank": [
+      "amusement park",
+      "city",
+      "market",
+      "park",
+      "square",
+      "world"
+     ],
+     "audio": "../../en-shared/q/we-play-soccer-in-the-park.mp3",
+     "askAudio": "../../en-shared/q/askz-3023224ff3.mp3"
+    },
+    {
+     "text": "Shanghai is a big [[city]].",
+     "bank": [
+      "amusement park",
+      "city",
+      "market",
+      "park",
+      "square",
+      "world"
+     ],
+     "audio": "../../en-shared/q/shanghai-is-a-big-city.mp3",
+     "askAudio": "../../en-shared/q/askz-4a00226a5d.mp3"
+    },
+    {
+     "text": "I buy fruit at the [[market]] near my house.",
+     "bank": [
+      "amusement park",
+      "city",
+      "market",
+      "park",
+      "square",
+      "world"
+     ],
+     "audio": "../../en-shared/q/i-buy-fruit-at-the-market-near-my-house.mp3",
+     "askAudio": "../../en-shared/q/askz-8d341e0f6b.mp3"
+    },
+    {
+     "text": "There is a monument in the [[square]].",
+     "bank": [
+      "amusement park",
+      "city",
+      "market",
+      "park",
+      "square",
+      "world"
+     ],
+     "audio": "../../en-shared/q/there-is-a-monument-in-the-square.mp3",
+     "askAudio": "../../en-shared/q/askz-1c7ae0c6bf.mp3"
+    },
+    {
+     "text": "The rides are fun at the [[amusement park]].",
+     "bank": [
+      "amusement park",
+      "city",
+      "market",
+      "park",
+      "square",
+      "world"
+     ],
+     "audio": "../../en-shared/q/the-rides-are-fun-at-the-amusement-park.mp3",
+     "askAudio": "../../en-shared/q/askz-9a57aa4b36.mp3"
+    }
+   ],
+   "page": 104,
+   "ex": "C"
+  },
+  {
+   "type": "cloze",
+   "task": "Read the lesson again. Complete the sentences.",
+   "taskAudio": "../../en-shared/q/read-the-lesson-again-complete-the-sentences.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "text": "There are [[forty]] countries at Miniature World.",
+     "bank": [
+      "forty",
+      "four",
+      "one",
+      "two"
+     ],
+     "audio": "../../en-shared/q/there-are-forty-countries-at-miniature-world.mp3",
+     "askAudio": "../../en-shared/q/askz-ad8cde5d55.mp3"
+    },
+    {
+     "text": "You can see all the countries in [[one]] day.",
+     "bank": [
+      "forty",
+      "four",
+      "one",
+      "two"
+     ],
+     "audio": "../../en-shared/q/you-can-see-all-the-countries-in-one-day.mp3",
+     "askAudio": "../../en-shared/q/askz-e5a18cda64.mp3"
+    },
+    {
+     "text": "There are [[two]] monuments in the Berlin model.",
+     "bank": [
+      "forty",
+      "four",
+      "one",
+      "two"
+     ],
+     "audio": "../../en-shared/q/there-are-two-monuments-in-the-berlin-model.mp3",
+     "askAudio": "../../en-shared/q/askz-d8d620666f.mp3"
+    },
+    {
+     "text": "The Taj Mahal has [[four]] gardens.",
+     "bank": [
+      "forty",
+      "four",
+      "one",
+      "two"
+     ],
+     "audio": "../../en-shared/q/the-taj-mahal-has-four-gardens.mp3",
+     "askAudio": "../../en-shared/q/askz-7e561ba55e.mp3"
+    }
+   ],
+   "page": 108,
+   "ex": "B"
+  },
+  {
+   "type": "order",
+   "task": "Write the places in order from big to small.",
+   "taskAudio": "../../en-shared/q/write-the-places-in-order-from-big-to-small.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "chunks": [
+      "world",
+      "country",
+      "city",
+      "neighborhood",
+      "street"
+     ],
+     "end": "",
+     "word": "world, country, city, neighborhood, street",
+     "audio": "../../en-shared/q/world-country-city-neighborhood-street.mp3"
+    }
+   ],
+   "page": 108,
+   "ex": "E"
+  },
+  {
+   "type": "cloze",
+   "task": "Look at the picture. Write the locations.",
+   "taskAudio": "../../en-shared/q/look-at-the-picture-write-the-locations.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "text": "Barasa is [[behind]] Sofia.",
+     "bank": [
+      "behind",
+      "in front of",
+      "opposite"
+     ],
+     "audio": "../../en-shared/q/barasa-is-behind-sofia.mp3",
+     "reuse": true,
+     "askAudio": "../../en-shared/q/askz-ad72c4c100.mp3"
+    },
+    {
+     "text": "Barasa is [[in front of]] Li.",
+     "bank": [
+      "behind",
+      "in front of",
+      "opposite"
+     ],
+     "audio": "../../en-shared/q/barasa-is-in-front-of-li.mp3",
+     "reuse": true,
+     "askAudio": "../../en-shared/q/askz-6254057dbc.mp3"
+    },
+    {
+     "text": "Isabel is [[opposite]] Hassan.",
+     "bank": [
+      "behind",
+      "in front of",
+      "opposite"
+     ],
+     "audio": "../../en-shared/q/isabel-is-opposite-hassan.mp3",
+     "reuse": true,
+     "askAudio": "../../en-shared/q/askz-172b770d5f.mp3"
+    },
+    {
+     "text": "Hassan is [[opposite]] Isabel.",
+     "bank": [
+      "behind",
+      "in front of",
+      "opposite"
+     ],
+     "audio": "../../en-shared/q/hassan-is-opposite-isabel.mp3",
+     "reuse": true,
+     "askAudio": "../../en-shared/q/askz-9d3c91fb8d.mp3"
+    }
+   ],
+   "page": 109,
+   "ex": "B"
+  },
+  {
+   "type": "check",
+   "task": "Use Capital Letters. Read the description. Circle the places with capital letters.",
+   "taskAudio": "../../en-shared/q/use-capital-letters-read-the-description-circle-th-e503885a.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "words": [
+      "Mexico City",
+      "Mexico",
+      "Coyoacán",
+      "Jardín Centenario",
+      "neighborhood",
+      "park",
+      "city"
+     ],
+     "n": 4,
+     "audios": [
+      "../../en-shared/q/mexico-city.mp3",
+      "../../en-shared/q/mexico.mp3",
+      "../../en-shared/q/coyoac-n.mp3",
+      "../../en-shared/q/jard-n-centenario.mp3",
+      "../../en-shared/q/neighborhood.mp3",
+      "../../en-shared/q/park.mp3",
+      "../../en-shared/q/city.mp3"
+     ],
+     "ok": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "pics": [
+      "../../pics/al-u5l2-p111.jpg"
+     ]
+    }
+   ],
+   "page": 111,
+   "ex": "B"
+  },
+  {
+   "type": "check",
+   "task": "Read the description again. What does the writer say is close to their home? Check.",
+   "taskAudio": "../../en-shared/q/read-the-description-again-what-does-the-writer-sa-0ed55be4.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "words": [
+      "a neighborhood",
+      "a park",
+      "a country"
+     ],
+     "n": 1,
+     "audios": [
+      "../../en-shared/q/a-neighborhood.mp3",
+      "../../en-shared/q/a-park.mp3",
+      "../../en-shared/q/a-country.mp3"
+     ],
+     "ok": [
+      1
+     ]
+    }
+   ],
+   "page": 111,
+   "ex": "C"
+  },
+  {
    "type": "type",
    "task": "Read and complete the missing letters.",
    "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",
@@ -12,35 +487,35 @@
       2,
       11
      ],
-     "pic": "../../pics/u5-amusement-park.jpg",
+     "pic": "../../pics/amusement-park.jpg",
      "audio": "../../en-shared/q/amusement-park.mp3"
     },
     {
      "word": "coffee shop",
      "missing": 9,
      "answer": "o",
-     "pic": "../../pics/u5-coffee-shop.jpg",
+     "pic": "../../pics/coffee-shop.jpg",
      "audio": "../../en-shared/q/coffee-shop.mp3"
     },
     {
      "word": "market",
      "missing": 3,
      "answer": "k",
-     "pic": "../../pics/u5-market.jpg",
+     "pic": "../../pics/market.jpg",
      "audio": "../../en-shared/q/market.mp3"
     },
     {
      "word": "monument",
      "missing": 4,
      "answer": "m",
-     "pic": "../../pics/u5-monument.jpg",
+     "pic": "../../pics/monument.jpg",
      "audio": "../../en-shared/q/monument.mp3"
     },
     {
      "word": "square",
      "missing": 1,
      "answer": "q",
-     "pic": "../../pics/u5-square.jpg",
+     "pic": "../../pics/square.jpg",
      "audio": "../../en-shared/q/square.mp3"
     }
    ],
@@ -55,27 +530,27 @@
    "items": [
     {
      "word": "park",
-     "pic": "../../pics/u5-park.jpg",
+     "pic": "../../pics/park.jpg",
      "audio": "../../en-shared/q/park.mp3"
     },
     {
      "word": "station",
-     "pic": "../../pics/u5-station.jpg",
+     "pic": "../../pics/station.jpg",
      "audio": "../../en-shared/q/station.mp3"
     },
     {
      "word": "city",
-     "pic": "../../pics/u5-city.jpg",
+     "pic": "../../pics/city.jpg",
      "audio": "../../en-shared/q/city.mp3"
     },
     {
      "word": "country",
-     "pic": "../../pics/u5-country.jpg",
+     "pic": "../../pics/country.jpg",
      "audio": "../../en-shared/q/country.mp3"
     },
     {
      "word": "world",
-     "pic": "../../pics/u5-world.jpg",
+     "pic": "../../pics/world.jpg",
      "audio": "../../en-shared/q/world.mp3"
     }
    ],
@@ -593,7 +1068,7 @@
       "../../en-shared/q/the-red-car.mp3"
      ],
      "pics": [
-      "../../pics/u5-cars.jpg"
+      "../../pics/cars.jpg"
      ],
      "askAudio": "../../en-shared/q/askc-254415845b.mp3"
     },
@@ -612,7 +1087,7 @@
       "../../en-shared/q/the-red-car.mp3"
      ],
      "pics": [
-      "../../pics/u5-cars.jpg"
+      "../../pics/cars.jpg"
      ],
      "askAudio": "../../en-shared/q/askc-c9e8a63f8c.mp3"
     },
@@ -631,7 +1106,7 @@
       "../../en-shared/q/the-yellow-car.mp3"
      ],
      "pics": [
-      "../../pics/u5-cars.jpg"
+      "../../pics/cars.jpg"
      ],
      "askAudio": "../../en-shared/q/askc-b1d9f3d45c.mp3"
     },
@@ -650,7 +1125,7 @@
       "../../en-shared/q/the-blue-car.mp3"
      ],
      "pics": [
-      "../../pics/u5-cars.jpg"
+      "../../pics/cars.jpg"
      ],
      "askAudio": "../../en-shared/q/askc-1726f0bd6a.mp3"
     },
@@ -669,7 +1144,7 @@
       "../../en-shared/q/the-blue-car.mp3"
      ],
      "pics": [
-      "../../pics/u5-cars.jpg"
+      "../../pics/cars.jpg"
      ],
      "askAudio": "../../en-shared/q/askc-8bb2424a01.mp3"
     }
@@ -699,7 +1174,7 @@
       "../../en-shared/q/the-bird-cage.mp3"
      ],
      "pics": [
-      "../../pics/u5-catdog.jpg"
+      "../../pics/catdog.jpg"
      ],
      "askAudio": "../../en-shared/q/askc-afd144f260.mp3"
     },
@@ -718,7 +1193,7 @@
       "../../en-shared/q/the-cat.mp3"
      ],
      "pics": [
-      "../../pics/u5-catdog.jpg"
+      "../../pics/catdog.jpg"
      ],
      "askAudio": "../../en-shared/q/askc-f806d384de.mp3"
     },
@@ -737,7 +1212,7 @@
       "../../en-shared/q/the-bird-cage.mp3"
      ],
      "pics": [
-      "../../pics/u5-catdog.jpg"
+      "../../pics/catdog.jpg"
      ],
      "askAudio": "../../en-shared/q/askc-452d272d06.mp3"
     },
@@ -756,7 +1231,7 @@
       "../../en-shared/q/the-cat.mp3"
      ],
      "pics": [
-      "../../pics/u5-catdog.jpg"
+      "../../pics/catdog.jpg"
      ],
      "askAudio": "../../en-shared/q/askc-18f28c5fc1.mp3"
     },
@@ -775,7 +1250,7 @@
       "../../en-shared/q/the-dog.mp3"
      ],
      "pics": [
-      "../../pics/u5-catdog.jpg"
+      "../../pics/catdog.jpg"
      ],
      "askAudio": "../../en-shared/q/askc-6035e36e5a.mp3"
     }

@@ -1,6 +1,435 @@
 {
  "sets": [
   {
+   "type": "explain",
+   "task": "Listen and read. A Very Special Dollhouse",
+   "taskAudio": "../../en-shared/q/listen-and-read-a-very-special-dollhouse.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u4l1-s1.jpg"
+     ],
+     "lines": [
+      {
+       "t": "A Very Special Dollhouse",
+       "a": "../../en-shared/q/a-very-special-dollhouse.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "What is it? It isn't a real house, and there aren't any people in it. It's a dollhouse! You can see it in Windsor Castle, in the UK.",
+       "a": "../../en-shared/q/what-is-it-it-isn-t-a-real-house-and-there-aren-t-5d560bbc.mp3"
+      },
+      {
+       "t": "The dollhouse is very big. It has seven floors and lots of rooms. There are stairs and two elevators. You can see the elevators go up and down!",
+       "a": "../../en-shared/q/the-dollhouse-is-very-big-it-has-seven-floors-and-b512a597.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 75
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u4l1-s2a.jpg",
+      "../../pics/al-u4l1-s2b.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Downstairs, there is a dining room with a long table and a lot of chairs. There is a kitchen. There is a living room. Look! There are paintings on the walls. There are armchairs and other chairs, too.",
+       "a": "../../en-shared/q/downstairs-there-is-a-dining-room-with-a-long-tabl-2bcfc95c.mp3"
+      },
+      {
+       "t": "There is also a library. You can read all the books in the bookcases!",
+       "a": "../../en-shared/q/there-is-also-a-library-you-can-read-all-the-books-8cca68f4.mp3"
+      },
+      {
+       "t": "All of the things in the dollhouse are real, but they are very, very small!",
+       "a": "../../en-shared/q/all-of-the-things-in-the-dollhouse-are-real-but-th-604a34f6.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 75
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u4l1-s3.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Upstairs, there are a lot of bathrooms. Are there bedrooms? Yes, there are! There are lots of bedrooms. In this bedroom there is a bed and a closet. Is there a TV in the bedroom? No, there isn't. The dollhouse is very old.",
+       "a": "../../en-shared/q/upstairs-there-are-a-lot-of-bathrooms-are-there-be-7f5ae7c8.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 75
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u4l1-s4.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Is there a garden? Yes, there is! It is very pretty, and there are a lot of flowers. You can't play soccer here!",
+       "a": "../../en-shared/q/is-there-a-garden-yes-there-is-it-is-very-pretty-a-6cfed7bd.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 75
+  },
+  {
+   "type": "choice",
+   "task": "Look and circle.",
+   "taskAudio": "../../en-shared/q/look-and-circle.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "word": "elevator",
+     "pic": "../../pics/elevator.png",
+     "options": [
+      "elevator",
+      "floor"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/elevator.mp3",
+     "askAudio": "../../en-shared/q/askc-a8715441db.mp3"
+    },
+    {
+     "word": "painting",
+     "pic": "../../pics/painting.png",
+     "options": [
+      "painting",
+      "room"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/painting.mp3",
+     "askAudio": "../../en-shared/q/askc-f9f8f0c38b.mp3"
+    },
+    {
+     "word": "armchair",
+     "pic": "../../pics/armchair.png",
+     "options": [
+      "closet",
+      "armchair"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/armchair.mp3",
+     "askAudio": "../../en-shared/q/askc-449a43a0fc.mp3"
+    },
+    {
+     "word": "stairs",
+     "pic": "../../pics/stairs.png",
+     "options": [
+      "stairs",
+      "garden"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/stairs.mp3",
+     "askAudio": "../../en-shared/q/askc-b1f1755948.mp3"
+    }
+   ],
+   "page": 72,
+   "ex": "B"
+  },
+  {
+   "type": "cloze",
+   "task": "Complete the paragraph.",
+   "taskAudio": "../../en-shared/q/complete-the-paragraph.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "text": "My home has one [[floor]]. It's an apartment. I have a small bedroom. My [[closet]] is small. I don't have many clothes. My friend's house is big! It has six [[rooms]]. There are pretty flowers in the [[garden]]. Her bedroom is [[upstairs]], on the second floor. Her kitchen is [[downstairs]], on the first floor.",
+     "bank": [
+      "closet",
+      "downstairs",
+      "floor",
+      "garden",
+      "rooms",
+      "upstairs"
+     ],
+     "audio": "../../en-shared/q/my-home-has-one-floor-it-s-an-apartment-i-have-a-s-136d70a0.mp3",
+     "askAudio": "../../en-shared/q/askz-bd985e91c3.mp3"
+    }
+   ],
+   "page": 72,
+   "ex": "C"
+  },
+  {
+   "type": "mcq",
+   "task": "Predict from Titles. Look at the title of the book. What do you think the story is about? Check.",
+   "taskAudio": "../../en-shared/q/predict-from-titles-look-at-the-title-of-the-book-21258a67.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "What do you think the story is about?",
+     "options": [
+      "friends",
+      "toys",
+      "family"
+     ],
+     "answer": 1,
+     "word": "The story is about toys.",
+     "audio": "../../en-shared/q/the-story-is-about-toys.mp3",
+     "pics": [
+      "../../pics/al-u4l1-bk.png"
+     ]
+    }
+   ],
+   "page": 73,
+   "ex": "G"
+  },
+  {
+   "type": "mcq",
+   "task": "Read the lesson again. Circle True or False.",
+   "taskAudio": "../../en-shared/q/read-the-lesson-again-circle-true-or-false.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "The dollhouse has a lot of floors.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 0,
+     "word": "The dollhouse has a lot of floors. True.",
+     "audio": "../../en-shared/q/the-dollhouse-has-a-lot-of-floors-true.mp3"
+    },
+    {
+     "stem": "It doesn't have stairs.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 1,
+     "word": "It doesn't have stairs. False.",
+     "audio": "../../en-shared/q/it-doesn-t-have-stairs-false.mp3"
+    },
+    {
+     "stem": "You can't read the books in the library.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 1,
+     "word": "You can't read the books in the library. False.",
+     "audio": "../../en-shared/q/you-can-t-read-the-books-in-the-library-false.mp3"
+    },
+    {
+     "stem": "Things in the dollhouse are small.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answer": 0,
+     "word": "Things in the dollhouse are small. True.",
+     "audio": "../../en-shared/q/things-in-the-dollhouse-are-small-true.mp3"
+    }
+   ],
+   "page": 76,
+   "ex": "B"
+  },
+  {
+   "type": "check",
+   "task": "Predict from Titles. Check the ideas you can predict from the title of the text.",
+   "taskAudio": "../../en-shared/q/predict-from-titles-check-the-ideas-you-can-predic-e653a37e.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "words": [
+      "It's a toy house.",
+      "It has two elevators.",
+      "It has rooms.",
+      "It has a library.",
+      "It has a garden.",
+      "It is not a normal house."
+     ],
+     "n": 3,
+     "audios": [
+      "../../en-shared/q/it-s-a-toy-house.mp3",
+      "../../en-shared/q/it-has-two-elevators.mp3",
+      "../../en-shared/q/it-has-rooms.mp3",
+      "../../en-shared/q/it-has-a-library.mp3",
+      "../../en-shared/q/it-has-a-garden.mp3",
+      "../../en-shared/q/it-is-not-a-normal-house.mp3"
+     ],
+     "ok": [
+      0,
+      2,
+      5
+     ]
+    }
+   ],
+   "page": 76,
+   "ex": "C"
+  },
+  {
+   "type": "mcq",
+   "task": "Complete the questions and answers.",
+   "taskAudio": "../../en-shared/q/complete-the-questions-and-answers.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "A: ____ there beds?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 1,
+     "word": "A: Are there beds?",
+     "audio": "../../en-shared/q/a-are-there-beds.mp3",
+     "parts": [
+      "../../en-shared/q/a.mp3",
+      "../../en-shared/q/there-beds.mp3"
+     ]
+    },
+    {
+     "stem": "B: Yes, ____.",
+     "options": [
+      "there is",
+      "there are"
+     ],
+     "answer": 1,
+     "word": "B: Yes, there are.",
+     "audio": "../../en-shared/q/b-yes-there-are.mp3",
+     "parts": [
+      "../../en-shared/q/b-yes.mp3"
+     ]
+    },
+    {
+     "stem": "A: ____ there a closet?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "A: Is there a closet?",
+     "audio": "../../en-shared/q/a-is-there-a-closet.mp3",
+     "parts": [
+      "../../en-shared/q/a.mp3",
+      "../../en-shared/q/there-a-closet.mp3"
+     ]
+    },
+    {
+     "stem": "B: No, ____.",
+     "options": [
+      "there isn't",
+      "there aren't"
+     ],
+     "answer": 0,
+     "word": "B: No, there isn't.",
+     "audio": "../../en-shared/q/b-no-there-isn-t.mp3",
+     "parts": [
+      "../../en-shared/q/b-no.mp3"
+     ]
+    },
+    {
+     "stem": "A: ____ there an elevator?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 0,
+     "word": "A: Is there an elevator?",
+     "audio": "../../en-shared/q/a-is-there-an-elevator.mp3",
+     "parts": [
+      "../../en-shared/q/a.mp3",
+      "../../en-shared/q/there-an-elevator.mp3"
+     ]
+    },
+    {
+     "stem": "B: Yes, ____.",
+     "options": [
+      "there is",
+      "there are"
+     ],
+     "answer": 0,
+     "word": "B: Yes, there is.",
+     "audio": "../../en-shared/q/b-yes-there-is.mp3",
+     "parts": [
+      "../../en-shared/q/b-yes.mp3"
+     ]
+    },
+    {
+     "stem": "A: ____ there paintings?",
+     "options": [
+      "Is",
+      "Are"
+     ],
+     "answer": 1,
+     "word": "A: Are there paintings?",
+     "audio": "../../en-shared/q/a-are-there-paintings.mp3",
+     "parts": [
+      "../../en-shared/q/a.mp3",
+      "../../en-shared/q/there-paintings.mp3"
+     ]
+    },
+    {
+     "stem": "B: No, ____.",
+     "options": [
+      "there isn't",
+      "there aren't"
+     ],
+     "answer": 1,
+     "word": "B: No, there aren't.",
+     "audio": "../../en-shared/q/b-no-there-aren-t.mp3",
+     "parts": [
+      "../../en-shared/q/b-no.mp3"
+     ]
+    }
+   ],
+   "page": 77,
+   "ex": "B"
+  },
+  {
+   "type": "cloze",
+   "task": "Ask for and give reasons. Listen and read. Complete the sentences.",
+   "taskAudio": "../../en-shared/q/ask-for-and-give-reasons-listen-and-read-complete-c5558d30.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "text": "[[Why]]?",
+     "bank": [
+      "because",
+      "Why"
+     ],
+     "audio": "../../en-shared/q/why.mp3",
+     "askAudio": "../../en-shared/q/askz-2908c9c5d7.mp3"
+    },
+    {
+     "text": "It's my favorite place [[because]] that's where I eat with my family.",
+     "bank": [
+      "because",
+      "Why"
+     ],
+     "audio": "../../en-shared/q/it-s-my-favorite-place-because-that-s-where-i-eat-789610cc.mp3",
+     "askAudio": "../../en-shared/q/askz-447773deaf.mp3"
+    }
+   ],
+   "page": 79,
+   "ex": "A"
+  },
+  {
    "type": "type",
    "task": "Read and complete the missing letters.",
    "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",
@@ -8,35 +437,35 @@
    "items": [
     {
      "word": "floor",
-     "pic": "../../pics/u4-floor.png",
+     "pic": "../../pics/floor.png",
      "audio": "../../en-shared/q/floor.mp3",
      "answer": "o",
      "missing": 3
     },
     {
      "word": "painting",
-     "pic": "../../pics/u4-painting.png",
+     "pic": "../../pics/painting.png",
      "audio": "../../en-shared/q/painting.mp3",
      "answer": "a",
      "missing": 1
     },
     {
      "word": "room",
-     "pic": "../../pics/u4-room.png",
+     "pic": "../../pics/room.png",
      "audio": "../../en-shared/q/room.mp3",
      "answer": "o",
      "missing": 2
     },
     {
      "word": "stairs",
-     "pic": "../../pics/u4-stairs.png",
+     "pic": "../../pics/stairs.png",
      "audio": "../../en-shared/q/stairs.mp3",
      "answer": "i",
      "missing": 3
     },
     {
      "word": "garden",
-     "pic": "../../pics/u4-garden.png",
+     "pic": "../../pics/garden.png",
      "audio": "../../en-shared/q/garden.mp3",
      "answer": "r",
      "gaps": [
@@ -56,27 +485,27 @@
    "items": [
     {
      "word": "upstairs",
-     "pic": "../../pics/u4-upstairs.png",
+     "pic": "../../pics/upstairs.png",
      "audio": "../../en-shared/q/upstairs.mp3"
     },
     {
      "word": "elevator",
-     "pic": "../../pics/u4-elevator.png",
+     "pic": "../../pics/elevator.png",
      "audio": "../../en-shared/q/elevator.mp3"
     },
     {
      "word": "armchair",
-     "pic": "../../pics/u4-armchair.png",
+     "pic": "../../pics/armchair.png",
      "audio": "../../en-shared/q/armchair.mp3"
     },
     {
      "word": "closet",
-     "pic": "../../pics/u4-closet.png",
+     "pic": "../../pics/closet.png",
      "audio": "../../en-shared/q/closet.mp3"
     },
     {
      "word": "downstairs",
-     "pic": "../../pics/u4-downstairs.png",
+     "pic": "../../pics/downstairs.png",
      "audio": "../../en-shared/q/downstairs.mp3"
     }
    ],
@@ -901,107 +1330,35 @@
    "ex": 3
   },
   {
-   "type": "mcq",
+   "type": "mistake",
    "task": "Correct the mistake in each sentence.",
    "taskAudio": "../../en-shared/q/correct-the-mistake-in-each-sentence.mp3",
    "book": "booklet",
    "items": [
     {
-     "stem": "There ____ four chairs at the table.",
-     "options": [
-      "is",
-      "are"
-     ],
-     "answer": 1,
      "word": "There are four chairs at the table.",
      "audio": "../../en-shared/q/there-are-four-chairs-at-the-table.mp3",
-     "parts": [
-      "../../en-shared/q/there.mp3",
-      "../../en-shared/q/four-chairs-at-the-table.mp3"
-     ],
-     "optSay": [
-      "is",
-      "are"
-     ],
-     "ask": "There is four chairs at the table.",
-     "askAudio": "../../en-shared/q/askc-67a11484de.mp3"
+     "ask": "There is four chairs at the table."
     },
     {
-     "stem": "____ there a big sofa in the living room?",
-     "options": [
-      "Is",
-      "Are"
-     ],
-     "answer": 0,
      "word": "Is there a big sofa in the living room?",
      "audio": "../../en-shared/q/is-there-a-big-sofa-in-the-living-room.mp3",
-     "parts": [
-      "../../en-shared/q/there-a-big-sofa-in-the-living-room.mp3"
-     ],
-     "optSay": [
-      "Is",
-      "Are"
-     ],
-     "ask": "Are there a big sofa in the living room?",
-     "askAudio": "../../en-shared/q/askc-157cb318be.mp3"
+     "ask": "Are there a big sofa in the living room?"
     },
     {
-     "stem": "____ there three windows in the kitchen?",
-     "options": [
-      "Is",
-      "Are"
-     ],
-     "answer": 1,
      "word": "Are there three windows in the kitchen?",
      "audio": "../../en-shared/q/are-there-three-windows-in-the-kitchen.mp3",
-     "parts": [
-      "../../en-shared/q/there-three-windows-in-the-kitchen.mp3"
-     ],
-     "optSay": [
-      "Is",
-      "Are"
-     ],
-     "ask": "Is there three windows in the kitchen?",
-     "askAudio": "../../en-shared/q/askc-85e0ac557b.mp3"
+     "ask": "Is there three windows in the kitchen?"
     },
     {
-     "stem": "There ____ two cats sleeping.",
-     "options": [
-      "is",
-      "are"
-     ],
-     "answer": 1,
      "word": "There are two cats sleeping.",
      "audio": "../../en-shared/q/there-are-two-cats-sleeping.mp3",
-     "parts": [
-      "../../en-shared/q/there.mp3",
-      "../../en-shared/q/two-cats-sleeping.mp3"
-     ],
-     "optSay": [
-      "is",
-      "are"
-     ],
-     "ask": "There is two cats sleeping.",
-     "askAudio": "../../en-shared/q/askc-5748f0fa86.mp3"
+     "ask": "There is two cats sleeping."
     },
     {
-     "stem": "____ there one TV in the room?",
-     "options": [
-      "Is",
-      "Are"
-     ],
-     "answer": 0,
      "word": "Is there one TV in the room?",
      "audio": "../../en-shared/q/is-there-one-tv-in-the-room.mp3",
-     "parts": [
-      "../../en-shared/q/there-one-tv-in-the-room.mp3"
-     ],
-     "optSay": [
-      "Is",
-      "Are"
-     ],
-     "ask": "Are there one TV in the room?",
-     "askAudio": "../../en-shared/q/askc-c33e7f230d.mp3"
+     "ask": "Are there one TV in the room?"
     }
    ],
    "page": 89,

@@ -6,6 +6,6 @@ wlAbout=()=>`<div class="wl-about" dir="rtl"><p class="wl-tag">اتعلّم كل
 currApply=p=>{ EW.curr=p?(p.school||p.type):null; };
 ACH.rep='<svg viewBox="0 0 24 24"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>';
 acctExtraRows=()=>wlRow('ac-rep',ACH.rep,'تقرير الكلمات','');
-acctExtraBind=o=>{ const b=$('.ac-rep',o); if(b) b.addEventListener('click',()=>{ o.hidden=true; ewReportOpen(); }); };
+acctExtraBind=o=>{ const b=$('.ac-rep',o); if(b) b.addEventListener('click',()=>ewReportPage(kidNow()&&kidNow().id)); };
 // the line under the logo: the child's school year and the term of the lessons
 function ewGradeLine(){ const k=kidNow(); return `${(k&&gradeLabel(k.grade))||'الصف الأول الابتدائي'} · ${subTermNow()==='t2'?'الترم الثاني':'الترم الأول'}`; }

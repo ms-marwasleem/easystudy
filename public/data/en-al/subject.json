@@ -15,21 +15,6 @@
   },
   {
    "unit": 5
-  },
-  {
-   "unit": 6
-  },
-  {
-   "unit": 7
-  },
-  {
-   "unit": 8
-  },
-  {
-   "unit": 9
-  },
-  {
-   "unit": 10
   }
  ],
  "lessons": [
@@ -220,7 +205,20 @@
    "unit": 2,
    "lesson": 3,
    "folder": "u2l3",
-   "planned": "A Different School"
+   "title": "A Different School",
+   "tabs": [
+    "read",
+    "words"
+   ],
+   "pages": {
+    "read": [
+     42
+    ],
+    "words": [
+     42
+    ],
+    "booklet": []
+   }
   },
   {
    "unit": 2,
@@ -249,9 +247,6 @@
    "folder": "u3l1",
    "title": "Toys",
    "pages": {
-    "words": [
-     54
-    ],
     "booklet": [
      55,
      56,
@@ -261,12 +256,21 @@
      60,
      61,
      62
+    ],
+    "read": [
+     52,
+     53
+    ],
+    "words": [
+     50
     ]
    },
    "tabs": [
+    "read",
     "words",
     "booklet",
-    "grammar"
+    "grammar",
+    "quiz"
    ]
   },
   {
@@ -275,9 +279,6 @@
    "folder": "u3l2",
    "title": "Teams",
    "pages": {
-    "words": [
-     64
-    ],
     "booklet": [
      65,
      66,
@@ -288,19 +289,41 @@
      71,
      72,
      73
+    ],
+    "read": [
+     60,
+     61
+    ],
+    "words": [
+     58
     ]
    },
    "tabs": [
+    "read",
     "words",
     "booklet",
-    "grammar"
+    "grammar",
+    "quiz"
    ]
   },
   {
    "unit": 3,
    "lesson": 3,
    "folder": "u3l3",
-   "planned": "Games"
+   "title": "Games",
+   "tabs": [
+    "read",
+    "words"
+   ],
+   "pages": {
+    "read": [
+     66
+    ],
+    "words": [
+     66
+    ],
+    "booklet": []
+   }
   },
   {
    "unit": 3,
@@ -323,9 +346,6 @@
    "folder": "u4l1",
    "title": "Home and Furniture",
    "pages": {
-    "words": [
-     79
-    ],
     "booklet": [
      79,
      80,
@@ -339,12 +359,21 @@
      88,
      89,
      90
+    ],
+    "read": [
+     74,
+     75
+    ],
+    "words": [
+     72
     ]
    },
    "tabs": [
+    "read",
     "words",
     "booklet",
-    "grammar"
+    "grammar",
+    "quiz"
    ]
   },
   {
@@ -353,9 +382,6 @@
    "folder": "u4l2",
    "title": "Things I Have at Home",
    "pages": {
-    "words": [
-     92
-    ],
     "booklet": [
      92,
      93,
@@ -366,19 +392,41 @@
      98,
      99,
      100
+    ],
+    "read": [
+     82,
+     83
+    ],
+    "words": [
+     80
     ]
    },
    "tabs": [
+    "read",
     "words",
     "booklet",
-    "grammar"
+    "grammar",
+    "quiz"
    ]
   },
   {
    "unit": 4,
    "lesson": 3,
    "folder": "u4l3",
-   "planned": "Moving Homes"
+   "title": "Moving Homes",
+   "tabs": [
+    "read",
+    "words"
+   ],
+   "pages": {
+    "read": [
+     88
+    ],
+    "words": [
+     88
+    ],
+    "booklet": []
+   }
   },
   {
    "unit": 4,
@@ -407,9 +455,6 @@
    "folder": "u5l1",
    "title": "In My Town",
    "pages": {
-    "words": [
-     107
-    ],
     "booklet": [
      108,
      109,
@@ -419,12 +464,21 @@
      113,
      115,
      116
+    ],
+    "read": [
+     98,
+     99
+    ],
+    "words": [
+     96
     ]
    },
    "tabs": [
+    "read",
     "words",
     "booklet",
-    "grammar"
+    "grammar",
+    "quiz"
    ]
   },
   {
@@ -433,9 +487,6 @@
    "folder": "u5l2",
    "title": "Cities of the World",
    "pages": {
-    "words": [
-     118
-    ],
     "booklet": [
      119,
      120,
@@ -445,19 +496,42 @@
      124,
      125,
      126
+    ],
+    "read": [
+     106,
+     107
+    ],
+    "words": [
+     104
     ]
    },
    "tabs": [
+    "read",
     "words",
     "booklet",
-    "grammar"
+    "grammar",
+    "quiz"
    ]
   },
   {
    "unit": 5,
    "lesson": 3,
    "folder": "u5l3",
-   "planned": "Getting Around"
+   "title": "Getting Around",
+   "tabs": [
+    "read",
+    "words"
+   ],
+   "pages": {
+    "booklet": [],
+    "read": [
+     112,
+     113
+    ],
+    "words": [
+     112
+    ]
+   }
   },
   {
    "unit": 5,
@@ -473,114 +547,6 @@
    "tabs": [
     "booklet"
    ]
-  },
-  {
-   "unit": 6,
-   "lesson": 1,
-   "folder": "u6l1",
-   "planned": "Food We Like"
-  },
-  {
-   "unit": 6,
-   "lesson": 2,
-   "folder": "u6l2",
-   "planned": "Where Food Comes From"
-  },
-  {
-   "unit": 6,
-   "lesson": 3,
-   "folder": "u6l3",
-   "planned": "Smart Snacks"
-  },
-  {
-   "unit": 6,
-   "lesson": 4,
-   "folder": "sr3",
-   "planned": "Skills Review 5 and 6"
-  },
-  {
-   "unit": 7,
-   "lesson": 1,
-   "folder": "u7l1",
-   "planned": "What Living Things Need"
-  },
-  {
-   "unit": 7,
-   "lesson": 2,
-   "folder": "u7l2",
-   "planned": "Forest Life"
-  },
-  {
-   "unit": 7,
-   "lesson": 3,
-   "folder": "u7l3",
-   "planned": "Exploring Rainforests"
-  },
-  {
-   "unit": 8,
-   "lesson": 1,
-   "folder": "u8l1",
-   "planned": "All Kinds of Weather"
-  },
-  {
-   "unit": 8,
-   "lesson": 2,
-   "folder": "u8l2",
-   "planned": "What We Wear"
-  },
-  {
-   "unit": 8,
-   "lesson": 3,
-   "folder": "u8l3",
-   "planned": "Weather Stories"
-  },
-  {
-   "unit": 8,
-   "lesson": 4,
-   "folder": "sr4",
-   "planned": "Skills Review 7 and 8"
-  },
-  {
-   "unit": 9,
-   "lesson": 1,
-   "folder": "u9l1",
-   "planned": "I Don't Feel Well"
-  },
-  {
-   "unit": 9,
-   "lesson": 2,
-   "folder": "u9l2",
-   "planned": "Our Bodies and Play"
-  },
-  {
-   "unit": 9,
-   "lesson": 3,
-   "folder": "u9l3",
-   "planned": "Sun Safety"
-  },
-  {
-   "unit": 10,
-   "lesson": 1,
-   "folder": "u10l1",
-   "planned": "My Activities"
-  },
-  {
-   "unit": 10,
-   "lesson": 2,
-   "folder": "u10l2",
-   "planned": "Interesting Activities"
-  },
-  {
-   "unit": 10,
-   "lesson": 3,
-   "folder": "u10l3",
-   "planned": "New Activities"
-  },
-  {
-   "unit": 10,
-   "lesson": 4,
-   "folder": "sr5",
-   "planned": "Skills Review 9 and 10"
   }
  ]
 }

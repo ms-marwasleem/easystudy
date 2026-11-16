@@ -8,8 +8,8 @@
    "items": [
     {
      "pics": [
-      "img/s1a.jpg",
-      "img/s1b.jpg"
+      "../../pics/al-u1l2-s1a.jpg",
+      "../../pics/al-u1l2-s1b.jpg"
      ],
      "lines": [
       {
@@ -61,7 +61,7 @@
    "items": [
     {
      "pics": [
-      "img/s2.jpg"
+      "../../pics/al-u1l2-s2.jpg"
      ],
      "lines": [
       {
@@ -102,7 +102,7 @@
    "items": [
     {
      "pics": [
-      "img/s3.jpg"
+      "../../pics/al-u1l2-s3.jpg"
      ],
      "lines": [
       {
@@ -147,7 +147,7 @@
    "items": [
     {
      "pics": [
-      "img/s4.jpg"
+      "../../pics/al-u1l2-s4.jpg"
      ],
      "lines": [
       {
@@ -281,9 +281,9 @@
      "word": "Circle the characters from the story.",
      "audio": "../../en-shared/q/circle-the-characters-from-the-story.mp3",
      "pics": [
-      "img/c1.jpg",
-      "img/c2.jpg",
-      "img/c3.jpg"
+      "../../pics/al-u1l2-c1.jpg",
+      "../../pics/al-u1l2-c2.jpg",
+      "../../pics/al-u1l2-c3.jpg"
      ],
      "answer": 0
     }
@@ -500,7 +500,7 @@
    "items": [
     {
      "pics": [
-      "img/guitar-a.jpg"
+      "../../pics/al-u1l2-guitar-a.jpg"
      ],
      "lines": [
       {
@@ -522,7 +522,7 @@
    "items": [
     {
      "pics": [
-      "img/guitar.jpg"
+      "../../pics/al-u1l2-guitar.jpg"
      ],
      "lines": [
       {
@@ -579,7 +579,7 @@
      ],
      "askAudio": "../../en-shared/q/askc-a9389c8828.mp3",
      "pics": [
-      "img/guitar.jpg"
+      "../../pics/al-u1l2-guitar.jpg"
      ]
     },
     {
@@ -600,7 +600,7 @@
      ],
      "askAudio": "../../en-shared/q/askc-ded667cddb.mp3",
      "pics": [
-      "img/guitar.jpg"
+      "../../pics/al-u1l2-guitar.jpg"
      ]
     },
     {
@@ -621,7 +621,7 @@
      ],
      "askAudio": "../../en-shared/q/askc-16d4a7d04c.mp3",
      "pics": [
-      "img/guitar.jpg"
+      "../../pics/al-u1l2-guitar.jpg"
      ]
     },
     {
@@ -642,7 +642,7 @@
      ],
      "askAudio": "../../en-shared/q/askc-f0ff101d73.mp3",
      "pics": [
-      "img/guitar.jpg"
+      "../../pics/al-u1l2-guitar.jpg"
      ]
     }
    ],
@@ -659,7 +659,7 @@
      "word": "loud",
      "missing": 1,
      "answer": "o",
-     "pic": "../../pics/loud.jpg",
+     "pic": "../../pics/loud.png",
      "audio": "../../en-shared/q/loud.mp3"
     },
     {
@@ -673,7 +673,7 @@
      "word": "fast",
      "missing": 1,
      "answer": "a",
-     "pic": "../../pics/fast.jpg",
+     "pic": "../../pics/fast.png",
      "audio": "../../en-shared/q/fast.mp3"
     },
     {
@@ -687,7 +687,7 @@
      "word": "boring",
      "missing": 4,
      "answer": "n",
-     "pic": "../../pics/boring.jpg",
+     "pic": "../../pics/boring.png",
      "audio": "../../en-shared/q/boring.mp3"
     }
    ],
@@ -1512,107 +1512,35 @@
    "ex": 3
   },
   {
-   "type": "mcq",
+   "type": "mistake",
    "task": "Circle and correct the mistake.",
    "taskAudio": "../../en-shared/q/circle-and-correct-the-mistake.mp3",
    "book": "booklet",
    "items": [
     {
-     "stem": "____ he cool?",
-     "options": [
-      "Is",
-      "Are"
-     ],
-     "answer": 0,
      "word": "Is he cool?",
      "audio": "../../en-shared/q/is-he-cool.mp3",
-     "parts": [
-      "../../en-shared/q/he-cool.mp3"
-     ],
-     "optSay": [
-      "Is",
-      "Are"
-     ],
-     "ask": "Are he cool?",
-     "askAudio": "../../en-shared/q/askc-00555bbbd3.mp3"
+     "ask": "Are he cool?"
     },
     {
-     "stem": "____ we ready?",
-     "options": [
-      "Is",
-      "Are"
-     ],
-     "answer": 1,
      "word": "Are we ready?",
      "audio": "../../en-shared/q/are-we-ready.mp3",
-     "parts": [
-      "../../en-shared/q/we-ready.mp3"
-     ],
-     "optSay": [
-      "Is",
-      "Are"
-     ],
-     "ask": "Is we ready?",
-     "askAudio": "../../en-shared/q/askc-79c908cf46.mp3"
+     "ask": "Is we ready?"
     },
     {
-     "stem": "____ they hungry?",
-     "options": [
-      "Is",
-      "Are"
-     ],
-     "answer": 1,
      "word": "Are they hungry?",
      "audio": "../../en-shared/q/are-they-hungry.mp3",
-     "parts": [
-      "../../en-shared/q/they-hungry.mp3"
-     ],
-     "optSay": [
-      "Is",
-      "Are"
-     ],
-     "ask": "Is they hungry?",
-     "askAudio": "../../en-shared/q/askc-1c27d2c05f.mp3"
+     "ask": "Is they hungry?"
     },
     {
-     "stem": "Yes, it ____.",
-     "options": [
-      "is",
-      "are"
-     ],
-     "answer": 0,
      "word": "Yes, it is.",
      "audio": "../../en-shared/q/yes-it-is.mp3",
-     "parts": [
-      "../../en-shared/q/yes-it.mp3"
-     ],
-     "optSay": [
-      "is",
-      "are"
-     ],
-     "ask": "Yes, it are.",
-     "askAudio": "../../en-shared/q/askc-d480947ef1.mp3"
+     "ask": "Yes, it are."
     },
     {
-     "stem": "No, ____.",
-     "options": [
-      "I'm not",
-      "I isn't",
-      "I are not"
-     ],
-     "answer": 0,
      "word": "No, I'm not.",
      "audio": "../../en-shared/q/no-i-m-not.mp3",
-     "parts": [
-      "../../en-shared/q/no.mp3"
-     ],
-     "optSay": [
-      "I'm not",
-      "I isn't",
-      "I are not"
-     ],
-     "ask": "No, I isn't.",
-     "askAudio": "../../en-shared/q/askc-49b4a86a42.mp3"
+     "ask": "No, I isn't."
     }
    ],
    "page": 22,

@@ -147,7 +147,7 @@
     {
      "word": "رُ",
      "audio": "words/rukba.mp3",
-     "pic": "../../pics/ar-knee.png"
+     "pic": "../../pics/knee.png"
     },
     {
      "word": "رْ",
@@ -157,12 +157,12 @@
     {
      "word": "رِ",
      "audio": "words/ribat.mp3",
-     "pic": "../../pics/ar-shoes.png"
+     "pic": "../../pics/shoes.png"
     },
     {
      "word": "رَ",
      "audio": "words/raff.mp3",
-     "pic": "../../pics/ar-shelf.png"
+     "pic": "../../pics/shelf.png"
     }
    ]
   },
@@ -183,7 +183,7 @@
     {
      "word": "رِجَال",
      "audio": "q/w-rijal.mp3",
-     "pic": "../../pics/ar-men.png",
+     "pic": "../../pics/men.png",
      "answer": "رِ",
      "choices": [
       "رَ",
@@ -194,7 +194,7 @@
     {
      "word": "رَفّ",
      "audio": "words/raff.mp3",
-     "pic": "../../pics/ar-shelf.png",
+     "pic": "../../pics/shelf.png",
      "answer": "رَ",
      "choices": [
       "رَ",
@@ -205,7 +205,7 @@
     {
      "word": "أَرْنَب",
      "audio": "../u1l3/words/arnab.mp3",
-     "pic": "../../pics/ar-rabbit.png",
+     "pic": "../../pics/rabbit.png",
      "answer": "رْ",
      "choices": [
       "رَ",
@@ -217,7 +217,7 @@
     {
      "word": "رُمَّان",
      "audio": "words/rumman.mp3",
-     "pic": "../../pics/ar-pomegranate.png",
+     "pic": "../../pics/pomegranate.png",
      "answer": "رُ",
      "choices": [
       "رَ",
@@ -244,7 +244,7 @@
     {
      "word": "رِجَال",
      "audio": "q/w-rijal.mp3",
-     "pic": "../../pics/ar-men.png",
+     "pic": "../../pics/men.png",
      "answer": "رِ",
      "choices": [
       "رَ",
@@ -255,7 +255,7 @@
     {
      "word": "رُكْبَة",
      "audio": "words/rukba.mp3",
-     "pic": "../../pics/ar-knee.png",
+     "pic": "../../pics/knee.png",
      "answer": "رُ",
      "choices": [
       "رَ",
@@ -266,7 +266,7 @@
     {
      "word": "رَفّ",
      "audio": "words/raff.mp3",
-     "pic": "../../pics/ar-shelf.png",
+     "pic": "../../pics/shelf.png",
      "answer": "رَ",
      "choices": [
       "رَ",
@@ -277,7 +277,7 @@
     {
      "word": "دُرْج",
      "audio": "../u1l8/words/durj.mp3",
-     "pic": "../../pics/ar-drawer.png",
+     "pic": "../../pics/drawer.png",
      "answer": "رْ",
      "choices": [
       "رَ",
@@ -338,8 +338,8 @@
      "need": 2,
      "cells": 3,
      "pics": [
-      "../../pics/ar-eagle.jpg",
-      "../../pics/ar-tiger.png"
+      "../../pics/eagle.png",
+      "../../pics/tiger.png"
      ],
      "picWords": [
       [
@@ -361,7 +361,7 @@
    "hint": "اسمع القصة، وارفع إيدك لما تسمع كلمة فيها راء",
    "items": [
     {
-     "scene": "../../pics/ar-story-u2l6-cut.png",
+     "scene": "../../pics/story-u2l6-cut.png",
      "text": "فِي الْحَدِيقَةِ زَرَعَ طَارِقٌ شَجَرَةَ رُمَّانٍ، وَكَانَ كُلَّ يَوْمٍ يَنْظُرُ إِلَى الشَّجَرَةِ وَلَكِنَّهَا لَمْ تُثْمِرْ، وَفِي أَحَدِ الْأَيَّامِ رَأَى طَارِقٌ ثِمَارَ الرُّمَّانِ عَلَى الشَّجَرَةِ؛ شَعَرَ بِالسَّعَادَةِ، ثُمَّ مَدَّ يَدَهُ وَقَطَفَ ثَمَرَةَ رُمَّانٍ، وَجَلَسَ تَحْتَ الشَّجَرَةِ يَأْكُلُهَا وَيَتَذَوَّقُ طَعْمَهَا اللَّذِيذَ.",
      "audio": "q/story.mp3",
      "ask": "مَاذَا رَأَى طَارِقٌ فِي الْحَدِيقَةِ؟",
@@ -720,8 +720,8 @@
      "word": "رَ",
      "audio": "../../syl-ar/631-64e.mp3",
      "pics": [
-      "../../pics/ar-baby.png",
-      "../../pics/ar-sheep.png"
+      "../../pics/baby.png",
+      "../../pics/sheep.png"
      ],
      "answer": 0
     },
@@ -730,7 +730,7 @@
      "audio": "../../syl-ar/631-650.mp3",
      "pics": [
       "../../pics/pyramid.png",
-      "../../pics/ar-men.png"
+      "../../pics/men.png"
      ],
      "answer": 1
     },
@@ -738,7 +738,7 @@
      "word": "رُ",
      "audio": "../../syl-ar/631-64f.mp3",
      "pics": [
-      "../../pics/ar-knee.png",
+      "../../pics/knee.png",
       "../../pics/tower.png"
      ],
      "answer": 0
@@ -771,19 +771,19 @@
     },
     {
      "word": "جِسْر",
-     "pic": "../../pics/ar-bridge.png",
+     "pic": "../../pics/bridge.png",
      "audio": "../u1l7/words/jisr.mp3",
      "at": 2
     },
     {
      "word": "زِرّ",
-     "pic": "../../pics/ar-button.png",
+     "pic": "../../pics/button.png",
      "audio": "../u4l3/words/zirr.mp3",
      "at": 1
     },
     {
      "word": "رُمَّان",
-     "pic": "../../pics/ar-pomegranate.png",
+     "pic": "../../pics/pomegranate.png",
      "audio": "words/rumman.mp3",
      "at": 0
     },
@@ -795,7 +795,7 @@
     },
     {
      "word": "أَرْنَب",
-     "pic": "../../pics/ar-rabbit.png",
+     "pic": "../../pics/rabbit.png",
      "audio": "../u1l3/words/arnab.mp3",
      "at": 1
     }
@@ -923,7 +923,7 @@
     },
     {
      "word": "ذُرَة",
-     "pic": "../../pics/ar-corn.png",
+     "pic": "../../pics/corn-cob.png",
      "audio": "../u3l8/words/dhura.mp3"
     }
    ]
@@ -986,12 +986,12 @@
     {
      "word": "بَحْر",
      "audio": "../u1l6/words/bahr.mp3",
-     "pic": "../../pics/ar-beach.jpg"
+     "pic": "../../pics/beach.png"
     },
     {
      "word": "أَرْنَب",
      "audio": "../u1l3/words/arnab.mp3",
-     "pic": "../../pics/ar-rabbit.png"
+     "pic": "../../pics/rabbit.png"
     },
     {
      "word": "بُرْج",
@@ -1113,7 +1113,7 @@
     {
      "word": "رِجْل",
      "audio": "../u1l7/words/rijl.mp3",
-     "pic": "../../pics/ar-shoes.png",
+     "pic": "../../pics/shoes.png",
      "answer": "رِ",
      "choices": [
       "رَ",
@@ -1124,7 +1124,7 @@
     {
      "word": "رُمَّان",
      "audio": "words/rumman.mp3",
-     "pic": "../../pics/ar-pomegranate.png",
+     "pic": "../../pics/pomegranate.png",
      "answer": "رُ",
      "choices": [
       "رَ",
@@ -1204,8 +1204,8 @@
      "need": 2,
      "cells": 3,
      "pics": [
-      "../../pics/ar-palm.png",
-      "../../pics/ar-fa-bees.jpg"
+      "../../pics/palm.png",
+      "../../pics/fa-bees.jpg"
      ],
      "picWords": [
       [

@@ -1,6 +1,520 @@
 {
  "sets": [
   {
+   "type": "explain",
+   "task": "Listen and read. Playing Together",
+   "taskAudio": "../../en-shared/q/listen-and-read-playing-together.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u3l2-s1a.jpg",
+      "../../pics/al-u3l2-s1b.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Playing Together",
+       "a": "../../en-shared/q/playing-together.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "Can you throw? Can you catch? Bounce a ball in one place? Can you hop, hop, hop, For your team in a race?",
+       "a": "../../en-shared/q/can-you-throw-can-you-catch-bounce-a-ball-in-one-p-c30133a1.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 60
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u3l2-s2.jpg"
+     ],
+     "lines": [
+      {
+       "t": "No, I can't! I can't hop, For my team in a race, And I can't bounce a ball, In only one place. I can't catch a ball!",
+       "a": "../../en-shared/q/no-i-can-t-i-can-t-hop-for-my-team-in-a-race-and-i-ef929867.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 60
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u3l2-s3.jpg"
+     ],
+     "lines": [
+      {
+       "t": "And I can't throw! But it's okay, you know.",
+       "a": "../../en-shared/q/and-i-can-t-throw-but-it-s-okay-you-know.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 60
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u3l2-s4.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Can you jump? Can you kick? Hit a ball very far? Can you run, run, run, As fast as a car?",
+       "a": "../../en-shared/q/can-you-jump-can-you-kick-hit-a-ball-very-far-can-feeadd0c.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 61
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u3l2-s5.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Yes, I can! Yes, I can! I can jump in a sack! I can kick a ball, And catch it on my back!",
+       "a": "../../en-shared/q/yes-i-can-yes-i-can-i-can-jump-in-a-sack-i-can-kic-30584595.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 61
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u3l2-s6.jpg"
+     ],
+     "lines": [
+      {
+       "t": "I can hit a ball very, very far! I can run as fast as a car!",
+       "a": "../../en-shared/q/i-can-hit-a-ball-very-very-far-i-can-run-as-fast-as-a-car.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 61
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u3l2-s7.jpg"
+     ],
+     "lines": [
+      {
+       "t": "In a very good team, We can't all do the same! We can all do different things, And play a good game!",
+       "a": "../../en-shared/q/in-a-very-good-team-we-can-t-all-do-the-same-we-ca-b30bfda1.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 61
+  },
+  {
+   "type": "link",
+   "task": "Match.",
+   "taskAudio": "../../en-shared/q/match.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "word": "run",
+     "pic": "../../pics/run.png",
+     "audio": "../../en-shared/q/run.mp3"
+    },
+    {
+     "word": "team",
+     "pic": "../../pics/team.jpg",
+     "audio": "../../en-shared/q/team.mp3"
+    },
+    {
+     "word": "jump",
+     "pic": "../../pics/jump.jpg",
+     "audio": "../../en-shared/q/jump.mp3"
+    },
+    {
+     "word": "race",
+     "pic": "../../pics/race.jpg",
+     "audio": "../../en-shared/q/race.mp3"
+    },
+    {
+     "word": "hop",
+     "pic": "../../pics/hop.png",
+     "audio": "../../en-shared/q/hop.mp3"
+    }
+   ],
+   "page": 58,
+   "ex": "B"
+  },
+  {
+   "type": "mcq",
+   "task": "Look. Circle the correct words.",
+   "taskAudio": "../../en-shared/q/look-circle-the-correct-words.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "She can ____ high!",
+     "options": [
+      "jump",
+      "throw"
+     ],
+     "answer": 0,
+     "word": "She can jump high!",
+     "audio": "../../en-shared/q/she-can-jump-high.mp3",
+     "parts": [
+      "../../en-shared/q/she-can.mp3",
+      "../../en-shared/q/high.mp3"
+     ],
+     "pics": [
+      "../../pics/al-u3l2-c1.jpg"
+     ]
+    },
+    {
+     "stem": "My brother can ____ the ball.",
+     "options": [
+      "hit",
+      "catch"
+     ],
+     "answer": 0,
+     "word": "My brother can hit the ball.",
+     "audio": "../../en-shared/q/my-brother-can-hit-the-ball.mp3",
+     "parts": [
+      "../../en-shared/q/my-brother-can.mp3",
+      "../../en-shared/q/the-ball.mp3"
+     ],
+     "pics": [
+      "../../pics/al-u3l2-c2.jpg"
+     ]
+    },
+    {
+     "stem": "My friends can ____ the ball.",
+     "options": [
+      "kick",
+      "bounce"
+     ],
+     "answer": 0,
+     "word": "My friends can kick the ball.",
+     "audio": "../../en-shared/q/my-friends-can-kick-the-ball.mp3",
+     "parts": [
+      "../../en-shared/q/my-friends-can.mp3",
+      "../../en-shared/q/the-ball.mp3"
+     ],
+     "pics": [
+      "../../pics/al-u3l2-c3.jpg"
+     ]
+    },
+    {
+     "stem": "My cousin can ____ fast.",
+     "options": [
+      "run",
+      "hop"
+     ],
+     "answer": 0,
+     "word": "My cousin can run fast.",
+     "audio": "../../en-shared/q/my-cousin-can-run-fast.mp3",
+     "parts": [
+      "../../en-shared/q/my-cousin-can.mp3",
+      "../../en-shared/q/fast.mp3"
+     ],
+     "pics": [
+      "../../pics/al-u3l2-c4.jpg"
+     ]
+    }
+   ],
+   "page": 58,
+   "ex": "C"
+  },
+  {
+   "type": "mcq",
+   "task": "Read the lesson again. Circle Yes or No.",
+   "taskAudio": "../../en-shared/q/read-the-lesson-again-circle-yes-or-no.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "I can't hop.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 0,
+     "word": "I can't hop. Yes.",
+     "audio": "../../en-shared/q/i-can-t-hop-yes.mp3",
+     "pics": [
+      "../../pics/al-u3l2-s1a.jpg"
+     ]
+    },
+    {
+     "stem": "I can throw.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 1,
+     "word": "I can throw. No.",
+     "audio": "../../en-shared/q/i-can-throw-no.mp3",
+     "pics": [
+      "../../pics/al-u3l2-s3.jpg"
+     ]
+    },
+    {
+     "stem": "I can catch.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 1,
+     "word": "I can catch. No.",
+     "audio": "../../en-shared/q/i-can-catch-no.mp3",
+     "pics": [
+      "../../pics/al-u3l2-s2.jpg"
+     ]
+    },
+    {
+     "stem": "I can jump.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 0,
+     "word": "I can jump. Yes.",
+     "audio": "../../en-shared/q/i-can-jump-yes.mp3",
+     "pics": [
+      "../../pics/al-u3l2-y4.jpg"
+     ]
+    },
+    {
+     "stem": "I can run fast.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 0,
+     "word": "I can run fast. Yes.",
+     "audio": "../../en-shared/q/i-can-run-fast-yes.mp3",
+     "pics": [
+      "../../pics/al-u3l2-y5.jpg"
+     ]
+    }
+   ],
+   "page": 62,
+   "ex": "B"
+  },
+  {
+   "type": "mcq",
+   "task": "Identify Rhyme. Write the words from the poem that rhyme.",
+   "taskAudio": "../../en-shared/q/identify-rhyme-write-the-words-from-the-poem-that-rhyme.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "place and ____",
+     "options": [
+      "race",
+      "team",
+      "ball"
+     ],
+     "answer": 0,
+     "word": "place and race",
+     "audio": "../../en-shared/q/place-and-race.mp3",
+     "parts": [
+      "../../en-shared/q/place-and.mp3"
+     ]
+    },
+    {
+     "stem": "____ and car",
+     "options": [
+      "ball",
+      "far",
+      "team"
+     ],
+     "answer": 1,
+     "word": "far and car",
+     "audio": "../../en-shared/q/far-and-car.mp3",
+     "parts": [
+      "../../en-shared/q/and-car.mp3"
+     ]
+    },
+    {
+     "stem": "throw and ____",
+     "options": [
+      "jump",
+      "hop",
+      "know"
+     ],
+     "answer": 2,
+     "word": "throw and know",
+     "audio": "../../en-shared/q/throw-and-know.mp3",
+     "parts": [
+      "../../en-shared/q/throw-and.mp3"
+     ]
+    },
+    {
+     "stem": "sack and ____",
+     "options": [
+      "race",
+      "back",
+      "catch"
+     ],
+     "answer": 1,
+     "word": "sack and back",
+     "audio": "../../en-shared/q/sack-and-back.mp3",
+     "parts": [
+      "../../en-shared/q/sack-and.mp3"
+     ]
+    },
+    {
+     "stem": "____ and game",
+     "options": [
+      "same",
+      "ball",
+      "hop"
+     ],
+     "answer": 0,
+     "word": "same and game",
+     "audio": "../../en-shared/q/same-and-game.mp3",
+     "parts": [
+      "../../en-shared/q/and-game.mp3"
+     ]
+    }
+   ],
+   "page": 62,
+   "ex": "C"
+  },
+  {
+   "type": "mcq",
+   "task": "Read. Circle the correct word.",
+   "taskAudio": "../../en-shared/q/read-circle-the-correct-word.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "Rhyming words in poetry are words that sound ____.",
+     "options": [
+      "similar",
+      "different"
+     ],
+     "answer": 0,
+     "word": "Rhyming words in poetry are words that sound similar.",
+     "audio": "../../en-shared/q/rhyming-words-in-poetry-are-words-that-sound-similar.mp3",
+     "parts": [
+      "../../en-shared/q/rhyming-words-in-poetry-are-words-that-sound.mp3"
+     ]
+    }
+   ],
+   "page": 62,
+   "ex": "D"
+  },
+  {
+   "type": "mcq",
+   "task": "Complete the sentences with can or can't.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences-with-can-or-can-t.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "____ you kick?",
+     "options": [
+      "Can",
+      "Can't"
+     ],
+     "answer": 0,
+     "word": "Can you kick?",
+     "audio": "../../en-shared/q/can-you-kick.mp3",
+     "parts": [
+      "../../en-shared/q/you-kick.mp3"
+     ]
+    },
+    {
+     "stem": "No, I ____.",
+     "options": [
+      "can",
+      "can't"
+     ],
+     "answer": 1,
+     "word": "No, I can't.",
+     "audio": "../../en-shared/q/no-i-can-t.mp3",
+     "parts": [
+      "../../en-shared/q/no-i.mp3"
+     ]
+    },
+    {
+     "stem": "I ____ run. I'm slow!",
+     "options": [
+      "can",
+      "can't"
+     ],
+     "answer": 1,
+     "word": "I can't run. I'm slow!",
+     "audio": "../../en-shared/q/i-can-t-run-i-m-slow.mp3",
+     "parts": [
+      "../../en-shared/q/i.mp3",
+      "../../en-shared/q/run-i-m-slow.mp3"
+     ]
+    },
+    {
+     "stem": "I ____ hop! I'm fast!",
+     "options": [
+      "can",
+      "can't"
+     ],
+     "answer": 0,
+     "word": "I can hop! I'm fast!",
+     "audio": "../../en-shared/q/i-can-hop-i-m-fast.mp3",
+     "parts": [
+      "../../en-shared/q/i.mp3",
+      "../../en-shared/q/hop-i-m-fast.mp3"
+     ]
+    },
+    {
+     "stem": "Can you jump? Yes, I ____.",
+     "options": [
+      "can",
+      "can't"
+     ],
+     "answer": 0,
+     "word": "Can you jump? Yes, I can.",
+     "audio": "../../en-shared/q/can-you-jump-yes-i-can.mp3",
+     "parts": [
+      "../../en-shared/q/can-you-jump-yes-i.mp3"
+     ]
+    }
+   ],
+   "page": 63,
+   "ex": "B"
+  },
+  {
    "type": "type",
    "task": "Read and complete the missing letters.",
    "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",
@@ -10,35 +524,35 @@
      "word": "catch",
      "missing": 3,
      "answer": "c",
-     "pic": "../../pics/u3-catch.png",
+     "pic": "../../pics/catch.png",
      "audio": "../../en-shared/q/catch.mp3"
     },
     {
      "word": "kick",
      "missing": 2,
      "answer": "c",
-     "pic": "../../pics/u3-kick.png",
+     "pic": "../../pics/kick.png",
      "audio": "../../en-shared/q/kick.mp3"
     },
     {
      "word": "run",
      "missing": 1,
      "answer": "u",
-     "pic": "../../pics/u3-run.png",
+     "pic": "../../pics/run.png",
      "audio": "../../en-shared/q/run.mp3"
     },
     {
      "word": "bounce",
      "missing": 2,
      "answer": "u",
-     "pic": "../../pics/u3-bounce.png",
+     "pic": "../../pics/bounce.png",
      "audio": "../../en-shared/q/bounce.mp3"
     },
     {
      "word": "team",
      "missing": 2,
      "answer": "a",
-     "pic": "../../pics/u3-team.jpg",
+     "pic": "../../pics/team.jpg",
      "audio": "../../en-shared/q/team.mp3"
     }
    ],
@@ -53,27 +567,27 @@
    "items": [
     {
      "word": "race",
-     "pic": "../../pics/u3-race.jpg",
+     "pic": "../../pics/race.jpg",
      "audio": "../../en-shared/q/race.mp3"
     },
     {
      "word": "throw",
-     "pic": "../../pics/u3-throw.jpg",
+     "pic": "../../pics/throw.jpg",
      "audio": "../../en-shared/q/throw.mp3"
     },
     {
      "word": "hop",
-     "pic": "../../pics/u3-hop.png",
+     "pic": "../../pics/hop.png",
      "audio": "../../en-shared/q/hop.mp3"
     },
     {
      "word": "hit",
-     "pic": "../../pics/u3-hit.png",
+     "pic": "../../pics/hit.png",
      "audio": "../../en-shared/q/hit.mp3"
     },
     {
      "word": "kick",
-     "pic": "../../pics/u3-kick.png",
+     "pic": "../../pics/kick.png",
      "audio": "../../en-shared/q/kick.mp3"
     }
    ],

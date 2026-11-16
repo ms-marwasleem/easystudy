@@ -1,6 +1,454 @@
 {
  "sets": [
   {
+   "type": "explain",
+   "task": "Listen and read. Old for me, new for you!",
+   "taskAudio": "../../en-shared/q/listen-and-read-old-for-me-new-for-you.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u3l1-s1.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Old for me, new for you!",
+       "a": "../../en-shared/q/old-for-me-new-for-you.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "Lots of children have old toys, games, and puzzles at home. What about you? Do you have an old and ugly puppet? Do you want a new, green monster? Let's swap!",
+       "a": "../../en-shared/q/lots-of-children-have-old-toys-games-and-puzzles-a-ac939222.mp3"
+      },
+      {
+       "t": "At a toy swap, children swap old toys for new toys. Toy swaps are great places to see friends, and make new friends, too!",
+       "a": "../../en-shared/q/at-a-toy-swap-children-swap-old-toys-for-new-toys-41fee506.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 52
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u3l1-s2a.jpg",
+      "../../pics/al-u3l1-s2b.jpg"
+     ],
+     "lines": [
+      {
+       "t": "He has a train. It's white and red. It's fun, but it's slow! He wants a fast car! Whoosh!",
+       "a": "../../en-shared/q/he-has-a-train-it-s-white-and-red-it-s-fun-but-it-dde308ed.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 53
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u3l1-s3a.jpg",
+      "../../pics/al-u3l1-s3b.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Does she have a car to swap? No, she doesn't. She has a pretty doll. She wants a ball to play a game with her friends!",
+       "a": "../../en-shared/q/does-she-have-a-car-to-swap-no-she-doesn-t-she-has-fd75e6d9.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 53
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u3l1-s4a.jpg",
+      "../../pics/al-u3l1-s4b.jpg"
+     ],
+     "lines": [
+      {
+       "t": "He has a puzzle. It's too big! It's not fun. He doesn't want a doll. He wants a bike!",
+       "a": "../../en-shared/q/he-has-a-puzzle-it-s-too-big-it-s-not-fun-he-doesn-cf0091f7.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 53
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u3l1-s5.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Do you have a fun toy to swap? What is it? Maybe a friend wants it!",
+       "a": "../../en-shared/q/do-you-have-a-fun-toy-to-swap-what-is-it-maybe-a-f-518bdc84.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 53
+  },
+  {
+   "type": "choice",
+   "task": "Look and match.",
+   "taskAudio": "../../en-shared/q/look-and-match.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "word": "puppet",
+     "pic": "../../pics/puppet.png",
+     "options": [
+      "pretty",
+      "new",
+      "puppet",
+      "ugly"
+     ],
+     "answer": 2,
+     "audio": "../../en-shared/q/puppet.mp3",
+     "askAudio": "../../en-shared/q/askc-7c9c57fb82.mp3"
+    },
+    {
+     "word": "car",
+     "pic": "../../pics/car.png",
+     "options": [
+      "car",
+      "puzzle",
+      "new",
+      "pretty"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/car.mp3",
+     "askAudio": "../../en-shared/q/askc-87d5781729.mp3"
+    },
+    {
+     "word": "puzzle",
+     "pic": "../../pics/puzzle.jpg",
+     "options": [
+      "puzzle",
+      "car",
+      "ugly",
+      "new"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/puzzle.mp3",
+     "askAudio": "../../en-shared/q/askc-fd8cb40dac.mp3"
+    }
+   ],
+   "page": 50,
+   "ex": "B"
+  },
+  {
+   "type": "cloze",
+   "task": "Complete the sentences.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "text": "It's fun to play with my [[doll]]. Look, she has a new dress!",
+     "bank": [
+      "ball",
+      "doll",
+      "monster",
+      "train"
+     ],
+     "audio": "../../en-shared/q/it-s-fun-to-play-with-my-doll-look-she-has-a-new-dress.mp3",
+     "askAudio": "../../en-shared/q/askz-8108f8030e.mp3"
+    },
+    {
+     "text": "My [[monster]] has big teeth and looks scary.",
+     "bank": [
+      "ball",
+      "doll",
+      "monster",
+      "train"
+     ],
+     "audio": "../../en-shared/q/my-monster-has-big-teeth-and-looks-scary.mp3",
+     "askAudio": "../../en-shared/q/askz-1765c4565f.mp3"
+    },
+    {
+     "text": "I want a new [[train]]. This one is slow!",
+     "bank": [
+      "ball",
+      "doll",
+      "monster",
+      "train"
+     ],
+     "audio": "../../en-shared/q/i-want-a-new-train-this-one-is-slow.mp3",
+     "askAudio": "../../en-shared/q/askz-65b8628b4a.mp3"
+    },
+    {
+     "text": "I play with my [[ball]] in the playground.",
+     "bank": [
+      "ball",
+      "doll",
+      "monster",
+      "train"
+     ],
+     "audio": "../../en-shared/q/i-play-with-my-ball-in-the-playground.mp3",
+     "askAudio": "../../en-shared/q/askz-be1ed01b00.mp3"
+    }
+   ],
+   "page": 50,
+   "ex": "C"
+  },
+  {
+   "type": "mcq",
+   "task": "Read the lesson again. Check.",
+   "taskAudio": "../../en-shared/q/read-the-lesson-again-check.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "Who has a train?",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 2,
+     "word": "Who has a train? Number 3.",
+     "audio": "../../en-shared/q/who-has-a-train-number-3.mp3",
+     "pics": [
+      "../../pics/al-u3l1-f1.png",
+      "../../pics/al-u3l1-f2.png",
+      "../../pics/al-u3l1-f3.png"
+     ],
+     "caps": [
+      "1",
+      "2",
+      "3"
+     ]
+    },
+    {
+     "stem": "Who doesn't want a doll?",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 1,
+     "word": "Who doesn't want a doll? Number 2.",
+     "audio": "../../en-shared/q/who-doesn-t-want-a-doll-number-2.mp3",
+     "pics": [
+      "../../pics/al-u3l1-f1.png",
+      "../../pics/al-u3l1-f2.png",
+      "../../pics/al-u3l1-f3.png"
+     ],
+     "caps": [
+      "1",
+      "2",
+      "3"
+     ]
+    },
+    {
+     "stem": "Who has a puzzle?",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 1,
+     "word": "Who has a puzzle? Number 2.",
+     "audio": "../../en-shared/q/who-has-a-puzzle-number-2.mp3",
+     "pics": [
+      "../../pics/al-u3l1-f1.png",
+      "../../pics/al-u3l1-f2.png",
+      "../../pics/al-u3l1-f3.png"
+     ],
+     "caps": [
+      "1",
+      "2",
+      "3"
+     ]
+    },
+    {
+     "stem": "Who wants a ball?",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 0,
+     "word": "Who wants a ball? Number 1.",
+     "audio": "../../en-shared/q/who-wants-a-ball-number-1.mp3",
+     "pics": [
+      "../../pics/al-u3l1-f1.png",
+      "../../pics/al-u3l1-f2.png",
+      "../../pics/al-u3l1-f3.png"
+     ],
+     "caps": [
+      "1",
+      "2",
+      "3"
+     ]
+    },
+    {
+     "stem": "Who has a slow toy?",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 2,
+     "word": "Who has a slow toy? Number 3.",
+     "audio": "../../en-shared/q/who-has-a-slow-toy-number-3.mp3",
+     "pics": [
+      "../../pics/al-u3l1-f1.png",
+      "../../pics/al-u3l1-f2.png",
+      "../../pics/al-u3l1-f3.png"
+     ],
+     "caps": [
+      "1",
+      "2",
+      "3"
+     ]
+    }
+   ],
+   "page": 54,
+   "ex": "B"
+  },
+  {
+   "type": "mcq",
+   "task": "Complete the questions and answers.",
+   "taskAudio": "../../en-shared/q/complete-the-questions-and-answers.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "A: ____ he have a puppet?",
+     "options": [
+      "Do",
+      "Does"
+     ],
+     "answer": 1,
+     "word": "A: Does he have a puppet?",
+     "audio": "../../en-shared/q/a-does-he-have-a-puppet.mp3",
+     "parts": [
+      "../../en-shared/q/a.mp3",
+      "../../en-shared/q/he-have-a-puppet.mp3"
+     ]
+    },
+    {
+     "stem": "B: Yes, he ____.",
+     "options": [
+      "do",
+      "does"
+     ],
+     "answer": 1,
+     "word": "B: Yes, he does.",
+     "audio": "../../en-shared/q/b-yes-he-does.mp3",
+     "parts": [
+      "../../en-shared/q/b-yes-he.mp3"
+     ]
+    },
+    {
+     "stem": "A: ____ you want a ball?",
+     "options": [
+      "Do",
+      "Does"
+     ],
+     "answer": 0,
+     "word": "A: Do you want a ball?",
+     "audio": "../../en-shared/q/a-do-you-want-a-ball.mp3",
+     "parts": [
+      "../../en-shared/q/a.mp3",
+      "../../en-shared/q/you-want-a-ball.mp3"
+     ]
+    },
+    {
+     "stem": "B: No, I ____.",
+     "options": [
+      "don't",
+      "doesn't"
+     ],
+     "answer": 0,
+     "word": "B: No, I don't.",
+     "audio": "../../en-shared/q/b-no-i-don-t.mp3",
+     "parts": [
+      "../../en-shared/q/b-no-i.mp3"
+     ]
+    },
+    {
+     "stem": "A: ____ she have a car?",
+     "options": [
+      "Do",
+      "Does"
+     ],
+     "answer": 1,
+     "word": "A: Does she have a car?",
+     "audio": "../../en-shared/q/a-does-she-have-a-car.mp3",
+     "parts": [
+      "../../en-shared/q/a.mp3",
+      "../../en-shared/q/she-have-a-car.mp3"
+     ]
+    },
+    {
+     "stem": "B: No, she ____.",
+     "options": [
+      "don't",
+      "doesn't"
+     ],
+     "answer": 1,
+     "word": "B: No, she doesn't.",
+     "audio": "../../en-shared/q/b-no-she-doesn-t.mp3",
+     "parts": [
+      "../../en-shared/q/b-no-she.mp3"
+     ]
+    },
+    {
+     "stem": "A: ____ you want a train?",
+     "options": [
+      "Do",
+      "Does"
+     ],
+     "answer": 0,
+     "word": "A: Do you want a train?",
+     "audio": "../../en-shared/q/a-do-you-want-a-train.mp3",
+     "parts": [
+      "../../en-shared/q/a.mp3",
+      "../../en-shared/q/you-want-a-train.mp3"
+     ]
+    },
+    {
+     "stem": "B: Yes, I ____.",
+     "options": [
+      "do",
+      "does"
+     ],
+     "answer": 0,
+     "word": "B: Yes, I do.",
+     "audio": "../../en-shared/q/b-yes-i-do.mp3",
+     "parts": [
+      "../../en-shared/q/b-yes-i.mp3"
+     ]
+    }
+   ],
+   "page": 55,
+   "ex": "B"
+  },
+  {
    "type": "type",
    "task": "Read and complete the missing letters.",
    "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",
@@ -10,35 +458,35 @@
      "word": "puppet",
      "missing": 4,
      "answer": "e",
-     "pic": "../../pics/u3-puppet.png",
+     "pic": "../../pics/puppet.png",
      "audio": "../../en-shared/q/puppet.mp3"
     },
     {
      "word": "car",
      "missing": 1,
      "answer": "a",
-     "pic": "../../pics/u3-car.png",
+     "pic": "../../pics/car.png",
      "audio": "../../en-shared/q/car.mp3"
     },
     {
      "word": "old",
      "missing": 1,
      "answer": "l",
-     "pic": "../../pics/u3-oldcar.jpg",
+     "pic": "../../pics/oldcar.jpg",
      "audio": "../../en-shared/q/old.mp3"
     },
     {
      "word": "monster",
      "missing": 1,
      "answer": "o",
-     "pic": "../../pics/u3-monster.png",
+     "pic": "../../pics/monster.png",
      "audio": "../../en-shared/q/monster.mp3"
     },
     {
      "word": "train",
      "missing": 3,
      "answer": "i",
-     "pic": "../../pics/ar-train.png",
+     "pic": "../../pics/train.png",
      "audio": "../../en-shared/q/train.mp3"
     }
    ],
@@ -53,27 +501,27 @@
    "items": [
     {
      "word": "ball",
-     "pic": "../../pics/u3-ball.png",
+     "pic": "../../pics/ball.png",
      "audio": "../../en-shared/q/ball.mp3"
     },
     {
      "word": "new",
-     "pic": "../../pics/u3-newtoy.jpg",
+     "pic": "../../pics/newtoy.jpg",
      "audio": "../../en-shared/q/new.mp3"
     },
     {
      "word": "puzzle",
-     "pic": "../../pics/u3-puzzle.jpg",
+     "pic": "../../pics/puzzle.jpg",
      "audio": "../../en-shared/q/puzzle.mp3"
     },
     {
      "word": "pretty",
-     "pic": "../../pics/u3-pretty.png",
+     "pic": "../../pics/pretty.png",
      "audio": "../../en-shared/q/pretty.mp3"
     },
     {
      "word": "ugly",
-     "pic": "../../pics/u3-ugly.png",
+     "pic": "../../pics/ugly.png",
      "audio": "../../en-shared/q/ugly.mp3"
     }
    ],
@@ -744,107 +1192,35 @@
    "ex": 3
   },
   {
-   "type": "mcq",
+   "type": "mistake",
    "task": "Correct the mistake in each sentence.",
    "taskAudio": "../../en-shared/q/correct-the-mistake-in-each-sentence.mp3",
    "book": "booklet",
    "items": [
     {
-     "stem": "____ you have a blue crayon?",
-     "options": [
-      "Do",
-      "Does"
-     ],
-     "answer": 0,
      "word": "Do you have a blue crayon?",
      "audio": "../../en-shared/q/do-you-have-a-blue-crayon.mp3",
-     "parts": [
-      "../../en-shared/q/you-have-a-blue-crayon.mp3"
-     ],
-     "optSay": [
-      "Do",
-      "Does"
-     ],
-     "ask": "Does you have a blue crayon?",
-     "askAudio": "../../en-shared/q/askc-e1923c4744.mp3"
+     "ask": "Does you have a blue crayon?"
     },
     {
-     "stem": "Yes, I ____ a new toy.",
-     "options": [
-      "have",
-      "has"
-     ],
-     "answer": 0,
      "word": "Yes, I have a new toy.",
      "audio": "../../en-shared/q/yes-i-have-a-new-toy.mp3",
-     "parts": [
-      "../../en-shared/q/yes-i.mp3",
-      "../../en-shared/q/a-new-toy.mp3"
-     ],
-     "optSay": [
-      "have",
-      "has"
-     ],
-     "ask": "Yes, I has a new toy.",
-     "askAudio": "../../en-shared/q/askc-36915162b2.mp3"
+     "ask": "Yes, I has a new toy."
     },
     {
-     "stem": "____ he have a red car?",
-     "options": [
-      "Do",
-      "Does"
-     ],
-     "answer": 1,
      "word": "Does he have a red car?",
      "audio": "../../en-shared/q/does-he-have-a-red-car.mp3",
-     "parts": [
-      "../../en-shared/q/he-have-a-red-car.mp3"
-     ],
-     "optSay": [
-      "Do",
-      "Does"
-     ],
-     "ask": "Do he have a red car?",
-     "askAudio": "../../en-shared/q/askc-ce66365386.mp3"
+     "ask": "Do he have a red car?"
     },
     {
-     "stem": "No, he ____ have a teddy bear.",
-     "options": [
-      "don't",
-      "doesn't"
-     ],
-     "answer": 1,
      "word": "No, he doesn't have a teddy bear.",
      "audio": "../../en-shared/q/no-he-doesn-t-have-a-teddy-bear.mp3",
-     "parts": [
-      "../../en-shared/q/no-he.mp3",
-      "../../en-shared/q/have-a-teddy-bear.mp3"
-     ],
-     "optSay": [
-      "don't",
-      "doesn't"
-     ],
-     "ask": "No, he don't have a teddy bear.",
-     "askAudio": "../../en-shared/q/askc-b57c1080ec.mp3"
+     "ask": "No, he don't have a teddy bear."
     },
     {
-     "stem": "____ you have a pet?",
-     "options": [
-      "Do",
-      "Does"
-     ],
-     "answer": 0,
      "word": "Do you have a pet?",
      "audio": "../../en-shared/q/do-you-have-a-pet.mp3",
-     "parts": [
-      "../../en-shared/q/you-have-a-pet.mp3"
-     ],
-     "optSay": [
-      "Do",
-      "Does"
-     ],
-     "ask": "Does you have a pet?",
-     "askAudio": "../../en-shared/q/askc-c57a0c1818.mp3"
+     "ask": "Does you have a pet?"
     }
    ],
    "page": 62,

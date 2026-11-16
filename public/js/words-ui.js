@@ -60,10 +60,19 @@ async function openMap(){
 function ewDrawMap(s){
   $('#ewMapTitle').textContent=EW_SUBJ[s.id].name; $('#ewMapTitle').dir=EW_SUBJ[s.id].lang==='ar'?'rtl':'ltr'; paintHud();
   const ar=EW_SUBJ[s.id].lang==='ar', body=$('#ewMapBody'); body.scrollTop=0;
-  body.innerHTML=ewUnits(s).map(u=>`<section class="ew-unit"><div class="ew-utab" dir="${ar?'rtl':'ltr'}"><span>${u.name}</span></div><div class="ew-ubody">`+u.lessons.map(l=>{
-    const L=l.open&&EW.les[l.id], num=ar?ewN(l.lesson):l.lesson;
-    return `<div class="ew-lrow${L?'':' solo'}"><button class="ew-lsq${l.open?'':l.locked?' soon locked':' soon'}" data-id="${l.id}" ${l.open||l.locked?'':'disabled'}><b class="ew-lnum">${num}</b><span class="ew-lname" dir="${ar?'rtl':'ltr'}">${l.name}</span>${l.open?'':l.locked?`<i class="lk">${EW_LOCK} مقفول</i>`:'<i>قريبًا</i>'}</button>`+
+  const F=EW.fold||(EW.fold={}), CHEV='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+  body.innerHTML=`<div class="ew-mapbar"><button class="ew-foldall" id="ewFoldAll" type="button"></button></div>`+ewUnits(s).map(u=>`<section class="ew-unit${F['u'+s.id+u.unit]?' closed':''}" data-k="u${s.id}${u.unit}"><div class="ew-utab" role="button" tabindex="0" aria-expanded="${F['u'+s.id+u.unit]?'false':'true'}" dir="${ar?'rtl':'ltr'}"><span>${u.name}</span><i class="ew-chev">${CHEV}</i></div><div class="ew-ubody">`+u.lessons.map(l=>{
+    const L=l.open&&EW.les[l.id], num=ar?ewN(l.lesson):l.lesson, fk='l'+l.id;
+    return `<div class="ew-lrow${L?'':' solo'}${F[fk]?' closed':''}" data-k="${fk}"><div class="ew-lwrap"><button class="ew-lsq${l.open?'':l.locked?' soon locked':' soon'}" data-id="${l.id}" ${l.open||l.locked?'':'disabled'}><b class="ew-lnum">${num}</b><span class="ew-lname" dir="${ar?'rtl':'ltr'}">${l.name}</span>${l.open?'':l.locked?`<i class="lk">${EW_LOCK} مقفول</i>`:'<i>قريبًا</i>'}</button>${L?`<button class="ew-lfold" type="button" aria-label="${l.name}" aria-expanded="${F[fk]?'false':'true'}">${CHEV}</button>`:''}</div>`+
       (L?`<div class="ew-words">${L.vocab.map((v,i)=>`<button class="ew-wsq" data-id="${l.id}" data-i="${i}" aria-label="${v.word}"><span class="ew-wimg">${v.img?`<img src="${v.img}" alt=""${/\.png$/i.test(v.img)?' class="cut"':''}>`:''}</span><b dir="${ar?'rtl':'ltr'}">${v.word}</b>${(VDONE[l.id]||[]).includes(v.word)?`<span class="vst">${STAR(true)}</span>`:''}</button>`).join('')}</div>`:'')+`</div>`; }).join('')+`</div></section>`).join('');
+  // expand / collapse: whole map (button, top right), one unit (arrow on its tab), one lesson's words (arrow on the lesson)
+  const fa=$('#ewFoldAll'), sync=()=>{ const any=$$('#ewMapBody .ew-unit:not(.closed)').length||$$('#ewMapBody .ew-lrow:not(.solo):not(.closed)').length; fa.dataset.mode=any?'close':'open'; fa.innerHTML=`<i class="ew-chev">${CHEV}</i><span>${any?'إغلاق الكل':'فتح الكل'}</span>`; };
+  const setU=(e,c)=>{ e.classList.toggle('closed',c); F[e.dataset.k]=c; e.querySelector('.ew-utab').setAttribute('aria-expanded',c?'false':'true'); };
+  const setL=(e,c)=>{ e.classList.toggle('closed',c); F[e.dataset.k]=c; const b=e.querySelector('.ew-lfold'); if(b) b.setAttribute('aria-expanded',c?'false':'true'); };
+  $$('#ewMapBody .ew-utab').forEach(h=>{ const go=()=>{ blip(600); const e=h.parentNode; setU(e,!e.classList.contains('closed')); sync(); }; h.addEventListener('click',go); h.addEventListener('keydown',ev=>{ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); go(); } }); });
+  $$('#ewMapBody .ew-lfold').forEach(b=>b.addEventListener('click',()=>{ blip(600); const e=b.closest('.ew-lrow'); setL(e,!e.classList.contains('closed')); sync(); }));
+  fa.addEventListener('click',()=>{ blip(600); const c=fa.dataset.mode==='close'; $$('#ewMapBody .ew-unit').forEach(e=>setU(e,c)); $$('#ewMapBody .ew-lrow:not(.solo)').forEach(e=>setL(e,c)); sync(); });
+  sync();
   $$('#ewMapBody .ew-lsq:not(.soon)').forEach(b=>b.addEventListener('click',()=>{ blip(600); ewOpenLesson(b.dataset.id,0); }));
   $$('#ewMapBody .ew-lsq.locked').forEach(b=>b.addEventListener('click',()=>{ blip(600); const l=ewUnits(s).flatMap(u=>u.lessons).find(x=>x.id===b.dataset.id); if(l) lockTap('lesson',l,coinAccess(l,true,'l:'+l.id,0,'lesson').coins,`<span class="jlockbig">${EW_LOCK}</span>`,()=>openMap()); }));   // js/coins.js: open with credits or a subscription
   $$('#ewMapBody .ew-wsq').forEach(b=>b.addEventListener('click',()=>{ blip(600); ewOpenLesson(b.dataset.id,+b.dataset.i,true); }));

@@ -1,4 +1,4 @@
-const EW_BUILD='7d97a3fdcb';
+const EW_BUILD='67cdbb3353';
 /* MADE BY tools/build-words.py from the files named below. Do not edit here. */
 /* ===== js/words-boot.js ===== */
 /* EASY WORDS — first file of the bundle: tells the shared accounts / credits code (welcome, sync, subs, coins, push) which settings file and server to use. */
@@ -1135,13 +1135,35 @@ function kidMenu(){
   $$('[data-kid]',o).forEach(b=>b.addEventListener('click',()=>{ o.hidden=true; kidSwitch(b.dataset.kid); }));
   $$('[data-edit]',o).forEach(b=>b.addEventListener('click',()=>{ o.hidden=true; openKidEdit(b.dataset.edit); }));
   $('.ac-add',o).addEventListener('click',()=>{ o.hidden=true; openWelcome(true); });
-  $('.ac-prof',o).addEventListener('click',()=>coinPop(`<h2 class="outline">الملف الشخصي</h2><p class="msg-text" dir="ltr">${wlEsc(a.email||'—')}</p><p class="msg-text" dir="ltr">${wlEsc(a.phone||'—')}</p>`));
+  $('.ac-prof',o).addEventListener('click',profilePage);
   $('.ac-subs',o).addEventListener('click',subsPage);
   if(typeof acctExtraBind==='function') acctExtraBind(o);   // the other app's own rows (Easy Words: the report)
   const cb=$('.wl-cred',o); if(cb) cb.addEventListener('click',()=>{ creditsPage(); });   // the parent's credits (js/coins.js)
   syMenuButtons(o,()=>o.hidden=true);   // confirm the email / sign out (server only, js/sync.js)
   o.hidden=false; pop('.ac-card, .arow',{y:14});
 }
+/* ---------- the profile page (Ahmed 2026-11-16): the parent's email and mobile, both editable, and the notices on / off. Saved to the account on the server (PUT /me) and on this device ---------- */
+const PROF_ERR={'bad-email':'الإيميل مش مكتوب صح','need-contact':'لازم إيميل أو موبايل واحد على الأقل','email-taken':'الإيميل ده مسجل لحساب تاني','phone-taken':'الموبايل ده مسجل لحساب تاني','blocked':'الحساب ده موقوف'};
+function profilePage(){
+  let o=$('#profPage'); if(!o){ o=el('div','acctpage',''); o.id='profPage'; o.setAttribute('role','dialog'); document.body.append(o); }
+  const a=acct()||{}, on=a.notify!==false;
+  o.innerHTML=`<div class="ac-top"><button class="rb pf-back" aria-label="Back">${ICON.back}</button><h2>الملف الشخصي</h2></div>
+    <div class="ac-in"><section class="ac-card"><form class="wl-form pf-form" autocomplete="off" novalidate>
+      <label><span>الإيميل</span><input name="email" type="email" dir="ltr" inputmode="email" value="${wlEsc((a.email&&!/@phone\.local$/.test(a.email))?a.email:'')}"></label>
+      <label><span>رقم الموبايل</span><input name="phone" type="tel" dir="ltr" inputmode="tel" value="${wlEsc(a.phone||'')}"></label>
+      <label class="pf-sw"><input name="notify" type="checkbox"${on?' checked':''}><i></i><span>استقبال الإشعارات (على التطبيق وعلى الإيميل)</span></label>
+      <p class="wl-err pf-err" hidden></p><p class="pf-ok" hidden>اتحفظ</p>
+      <button class="pill green pf-save" type="submit">حفظ</button></form></section></div>`;
+  $('.pf-back',o).addEventListener('click',()=>o.hidden=true);
+  const f=$('.pf-form',o), er=$('.pf-err',o), ok=$('.pf-ok',o), bad=t=>{ er.textContent=t; er.hidden=false; ok.hidden=true; };
+  f.addEventListener('submit',async e=>{ e.preventDefault(); er.hidden=true; ok.hidden=true;
+    const email=f.elements.email.value.trim(), phone=f.elements.phone.value.trim(), notify=f.elements.notify.checked;
+    if(!email&&!phone) return bad(PROF_ERR['need-contact']); if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return bad(PROF_ERR['bad-email']);
+    const s=typeof sySession==='function'&&sySession();
+    if(s&&s.token){ const r=await syCall('/me',{email,phone,notify},'PUT'); if(!r) return bad('مفيش اتصال بالإنترنت، جرب تاني'); if(!r.j.ok) return bad(PROF_ERR[r.j.error]||'ما اتحفظش، جرب تاني'); }
+    wlSet('es.account',{...(acct()||{}),email,phone,notify}); window.ACCOUNT={...acct(),id:(s&&s.id)||(acct()||{}).id,...(s&&s.token?{token:s.token}:{})};
+    ok.hidden=false; });
+  o.hidden=false; pop('.ac-card',{y:14}); }
 $('#kidBtn').addEventListener('click',()=>parentGate(kidMenu));
 // hooks for other parts (coins.js reads window.ACCOUNT / window.CHILD): {id,...} of the parent and the active child
 // signed in to the server (js/sync.js es.session): id = the server's parent id (share links carry it), token for the API calls
@@ -1207,7 +1229,7 @@ function syDrawCode(b){
 // keep the signed-in parent on this device
 function syTake(token,me){ const old=acct()||{};
   wlSet('es.session',{token,id:me.id,ref:me.ref});
-  wlSet('es.account',{email:me.email,phone:me.phone||old.phone||'',created:me.created||old.created,id:me.id,ref:me.ref});
+  wlSet('es.account',{email:me.email,phone:me.phone||old.phone||'',created:me.created||old.created,id:me.id,ref:me.ref,notify:me.notify!==false});
   window.ACCOUNT={...acct(),id:me.id,token}; if(me.wallet&&typeof walletSave==='function') walletSave(me.wallet); }
 // the server's children replace this device's: each child's progress goes to its own keys, the first child becomes the active one
 function syRestore(me){
@@ -1244,18 +1266,14 @@ async function syBoot(){
 }
 syBoot();
 
-/* ---------- account page: confirm the email (made offline) / sign out ---------- */
+/* ---------- account page: sign out (no email confirmation any more, Ahmed 2026-11-16) ---------- */
 async function syMenuButtons(p,close){
-  if(!(await syApi())) return; const s=sySession(), a=acct()||{}, list=$('.arows',p); if(!list) return;
-  const b=el('button','arow wl-acct',`<i>${ACH.out}</i><b>${s?'تسجيل الخروج':'تأكيد الحساب بالإيميل'}</b><s></s>`);
+  const list=$('.arows',p); if(!list||$('.wl-acct',list)) return;
+  const b=el('button','arow wl-acct',`<i>${ACH.out}</i><b>تسجيل الخروج</b><s></s>`);
   list.append(b);
-  b.addEventListener('click',async()=>{ close();
-    if(s){ if(!confirm('تسجيل الخروج من الجهاز ده؟ هيتطلب كود جديد على الإيميل للدخول تاني.')) return; syPushProgress(); await syCall('/auth/signout',{}); syForget();
-      ['es.account','es.kids','es.kid'].forEach(k=>{ try{ localStorage.removeItem(k); }catch(e){} }); location.reload(); return; }
-    if(!a.email) return;
-    WL.adding=false; WL.after=()=>{ openSubjects(); }; WL.login={email:a.email,phone:a.phone||''}; show('welcome');
-    const r=await syCall('/auth/start',{email:a.email}); if(!r||!r.j.ok){ WL.step='main'; WL.stage=1; wlDraw(); return; }
-    SY.a=a; SY.dev=r.j.devCode||''; WL.step='code'; wlDraw(); });
+  b.addEventListener('click',async()=>{ close(); if(!confirm('تسجيل الخروج من الجهاز ده؟')) return;
+    const s=sySession(); if(s){ syPushProgress(); await syCall('/auth/signout',{}); syForget(); }
+    ['es.account','es.kids','es.kid'].forEach(k=>{ try{ localStorage.removeItem(k); }catch(e){} }); location.reload(); });
 }
 ;
 /* ===== js/subs.js ===== */
@@ -1265,7 +1283,7 @@ async function syMenuButtons(p,close){
    (open until 31 Aug) or rejects (closed at once). Everything ends on 31 Aug. No device data is stored anywhere.
    Records live in es.subs = {childId:{"p1:t1":{st,at,trial,until,price,ref,seen}}}: st = pending | active | rejected | closed; trial = ms the 24 h run to.
    With the server (settings "api") the server is the truth: GET /subs fills es.subs, POST /subs sends the receipt (server/src/index.js subs). */
-const SUBT=[['t1','الترم الأول'],['t2','الترم التاني']];
+const SUBT_ALL=[['t1','الترم الأول'],['t2','الترم التاني']], SUBT=SUBT_ALL.filter(x=>x[0]==='t1');   // الترم التاني مخفي لحد ما يتبني (ضيفي 't2' في الفلتر يرجع)
 const subKey=(k,t)=>(k&&k.grade||'p1')+':'+t;
 const subTermNow=()=>/2/.test((window.COURSE&&COURSE.term)||'')?'t2':'t1';   // the term this app's lessons belong to
 const subAll=()=>cGet('es.subs',{});
@@ -1295,15 +1313,15 @@ subExpire(); subLegacy();
 async function subSync(){ const s=typeof sySession==='function'&&sySession(); if(!s||!s.token||!API()) return;
   const r=await syCall('/subs'); if(!r||!r.j.ok) return; const A={}, old=subAll(), mine=new Set(kids().map(k=>k.id));
   r.j.subs.forEach(x=>{ if(!mine.has(x.child)) return; const o=((old[x.child]||{})[x.term])||{};
-    (A[x.child]=A[x.child]||{})[x.term]={st:x.st,at:x.at,trial:x.trial,until:x.until,price:x.price,ref:x.ref,seen:o.st===x.st?o.seen:(x.st==='pending')}; });
+    (A[x.child]=A[x.child]||{})[x.term]={st:x.st,at:x.at,trial:x.trial,until:x.until,price:x.price,ref:x.ref,note:x.note||'',dec:x.dec||0,seen:o.st===x.st?o.seen:(x.st==='pending')}; });
   Object.keys(old).forEach(id=>{ if(!mine.has(id)) A[id]=old[id]; else Object.keys(old[id]).forEach(key=>{ if(old[id][key].st==='credit') (A[id]=A[id]||{})[key]=old[id][key]; else if(!(A[id]||{})[key]&&old[id][key].st==='pending'&&!r.j.subs.length) (A[id]=A[id]||{})[key]=old[id][key]; }); });
-  cSet('es.subs',A); subNotice(); const o=$('#acctPage'); if(o&&!o.hidden) subDot(o); }
+  cSet('es.subs',A); subNotice(); const o=$('#acctPage'); if(o&&!o.hidden) subDot(o); const sp=$('#subsPage'); if(sp&&!sp.hidden) subsOpen(); }
 function subNews(){ const out=[]; const A=subAll(); kids().forEach(k=>Object.entries(A[k.id]||{}).forEach(([key,r])=>{ if(!r.seen&&(r.st==='active'||r.st==='rejected'||r.st==='closed')) out.push({k,key,r}); })); return out; }
 function subNotice(){ const n=subNews()[0]; if(!n||$('#coinPop')&&!$('#coinPop').hidden) return;
-  const t=n.key.split(':')[1], tn=(SUBT.find(x=>x[0]===t)||[])[1]||'', ok=n.r.st==='active';
+  const t=n.key.split(':')[1], tn=(SUBT_ALL.find(x=>x[0]===t)||[])[1]||'', ok=n.r.st==='active';
   const A=subAll(); A[n.k.id][n.key].seen=true; cSet('es.subs',A);
   coinPop(`<h2 class="outline">${ok?'تم تفعيل الاشتراك':n.r.st==='closed'?'الاشتراك اتقفل':'الاشتراك ما اتفعلش'}</h2>
-    <p class="msg-text">${ok?`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتفعل ويفضل مفتوح لحد ${subDate(n.r.until)}.`:n.r.st==='closed'?`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتقفل.`:`مقدرناش نتأكد من الدفع لاشتراك <b>${wlEsc(n.k.name)}</b> في ${tn}، فالدروس اتقفلت. ممكن تبعت الإيصال تاني.`}</p>
+    <p class="msg-text">${ok?`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتفعل ويفضل مفتوح لحد ${subDate(n.r.until)}.`:n.r.st==='closed'?`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتقفل.`:`مقدرناش نتأكد من الدفع لاشتراك <b>${wlEsc(n.k.name)}</b> في ${tn}، فالدروس اتقفلت. ممكن تبعت الإيصال تاني.`}</p>${!ok&&n.r.st==='rejected'&&n.r.note?`<p class="msg-text">${wlEsc(n.r.note).replace(/\n/g,'<br>')}</p>`:''}
     <button class="pill green" data-ok>تمام</button>`, p=>$('[data-ok]',p).addEventListener('click',()=>{ coinClose(); if(typeof drawSubjects==='function'&&!$('#subjects').hidden) drawSubjects(); subNotice(); })); }
 function subDot(o){ const b=$('.ac-subs em',o); if(b) b.textContent=subNews().length?'جديد':''; }
 setTimeout(subSync,1500); document.addEventListener('visibilitychange',()=>{ if(!document.hidden) subSync(); });
@@ -1326,15 +1344,41 @@ function subStat(r,t){ const now=Date.now(); if(!r) return {c:'none',t:'مفيش
   if(r.st==='pending') return {c:'wait',t:now<(r.trial||0)?'مفتوح ٢٤ ساعة لحد ما نتأكد من الدفع':'بنراجع الإيصال'};
   if(r.st==='rejected') return {c:'bad',t:'الدفع ما اتأكدش'};
   return {c:'none',t:'اتقفل'}; }
-function subsPage(){ parentGate(()=>{ const K=kids(); const on=subIsOn();
-  coinPop(`<h2 class="outline">اشتراكاتي</h2><div class="subscroll">${on?'':'<p class="msg-text">الاشتراك هيتفتح قريبًا.</p>'}
-    <div class="subk">${K.map(k=>`<div class="subkid"><b class="sn">${wlEsc(k.name)}</b>${SUBT.map(([t,tn])=>{ const r=subRec(k,t), s=subStat(r,t), pr=subPrice(k.grade||'p1',t);
-      return `<button class="subrow ${s.c}" data-k="${k.id}" data-t="${t}"${on&&pr.fin?'':' disabled'}><span class="st">${tn}</span><em>${s.t}</em>${pr.fin?`<strong>${num(pr.fin)} جنيه</strong>`:''}</button>`; }).join('')}</div>`).join('')}</div></div>`,
-    p=>$$('.subrow',p).forEach(b=>b.addEventListener('click',()=>subBuy(b.dataset.k,b.dataset.t)))); }); }
-function subBuy(kidId,t){ const k=kids().find(x=>x.id===kidId); if(!k) return; const key=subKey(k,t), r=subRec(k,t), pr=subPrice(k.grade||'p1',t), S=ESET.subs||{}, tn=(SUBT.find(x=>x[0]===t)||[])[1];
+/* the subscriptions PAGE (Ahmed 2026-11-16): a page in the account area (same look as the profile page), two tabs: الاشتراكات = a table per child, one row per term with a strong
+   state (active until / not subscribed / waiting / rejected) and the button to subscribe; الإشعارات = what happened to each receipt (confirmed, rejected + the admin's reason, closed).
+   The notices are read from the same subscription records (server GET /subs: st, note, dec = the day the admin decided), so there is one data shape and nothing else to keep in step. */
+const SUB_TAB={t:'subs'};
+function subsPage(){ parentGate(()=>subsOpen()); }
+function subNotices(){ const out=[]; const A=subAll(); kids().forEach(k=>Object.entries(A[k.id]||{}).forEach(([key,r])=>{ if(r.st==='credit'||!r.st) return; out.push({k,key,r,t:r.dec||r.at||0}); })); return out.sort((a,b)=>b.t-a.t); }
+function subsOpen(tab){ if(tab) SUB_TAB.t=tab; const T=SUB_TAB.t, on=subIsOn();
+  let o=$('#subsPage'); if(!o){ o=el('div','acctpage',''); o.id='subsPage'; o.setAttribute('role','dialog'); o.setAttribute('aria-label','Subscriptions'); document.body.append(o); }
+  const K=kids(), nn=subNews().length;
+  const tabs=`<div class="sp-tabs" role="tablist"><button class="sp-tab-b${T==='subs'?' on':''}" data-tab="subs" role="tab">الاشتراكات</button><button class="sp-tab-b${T==='news'?' on':''}" data-tab="news" role="tab">الإشعارات${nn?`<i class="sp-dot">${num(nn)}</i>`:''}</button></div>`;
+  let body='';
+  if(T==='subs'){
+    body=(on?'':'<p class="sp-soon">الاشتراك هيتفتح قريبًا.</p>')+K.map(k=>`<section class="ac-card sp-kid"><h3>${wlEsc(k.name)}</h3><div class="sp-tbl" role="table">
+      <div class="sp-hd" role="row"><span>الترم</span><span>الحالة</span><span></span></div>${SUBT.map(([t,tn])=>{ const r=subRec(k,t), s=subStat(r,t), pr=subPrice(k.grade||'p1',t);
+        const can=on&&pr.fin&&(s.c==='none'||s.c==='bad'), ic=s.c==='on'?'✓':s.c==='wait'?'…':s.c==='bad'?'!':'✕';
+        return `<div class="sp-r ${s.c}" role="row"><b>${tn}</b><span class="sp-s"><i class="sp-ic">${ic}</i>${s.t}</span><span class="sp-a">${can?`<button class="pill green sp-buy" data-k="${k.id}" data-t="${t}">${s.c==='bad'?'ابعت الإيصال تاني':'اشترك'}<small>${num(pr.fin)} جنيه</small></button>`:(on&&!pr.fin&&s.c==='none'?'<small class="sp-np">السعر لسه متحددش</small>':'')}</span></div>`; }).join('')}</div></section>`).join('');
+  } else {
+    const L=subNotices();
+    body=L.length?`<div class="sp-news">${L.map(n=>{ const t=n.key.split(':')[1], tn=(SUBT_ALL.find(x=>x[0]===t)||[])[1]||'', st=n.r.st, expired=n.r.until&&Date.now()>=n.r.until;
+      const kind=expired||st==='closed'?'closed':st, ttl={active:'تم تفعيل الاشتراك',rejected:'الاشتراك ما اتفعلش',closed:'الاشتراك اتقفل',pending:'وصلنا الإيصال'}[kind]||'';
+      const txt={active:`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} مفعّل ومفتوح لحد ${subDate(n.r.until)}.`,
+        rejected:`مقدرناش نتأكد من الدفع لاشتراك <b>${wlEsc(n.k.name)}</b> في ${tn}، فالدروس اتقفلت.`,
+        closed:`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتقفل.`,
+        pending:`إيصال اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} وصلنا وبنراجعه.`}[kind]||'';
+      return `<article class="ac-card sp-n ${kind}"><div class="sp-nh"><b>${ttl}</b><small>${n.t?subDate(n.t):''}</small></div><p>${txt}</p>${kind==='rejected'?`<p class="sp-why"><span>السبب</span>${wlEsc(n.r.note||'مقدرناش نتأكد من الدفع').replace(/\n/g,'<br>')}</p>`:''}${kind==='rejected'&&on?`<button class="pill green sp-buy" data-k="${n.k.id}" data-t="${t}">ابعت الإيصال تاني</button>`:''}</article>`; }).join('')}</div>`
+      :'<section class="ac-card"><p class="sp-empty">مفيش إشعارات لسه.</p></section>'; }
+  o.innerHTML=`<div class="ac-top"><button class="rb ac-back sp-back" aria-label="Back">${ICON.back}</button><h2>اشتراكاتي</h2></div><div class="ac-in">${tabs}${body}</div>`;
+  $('.sp-back',o).addEventListener('click',()=>o.hidden=true);
+  $$('.sp-tab-b',o).forEach(b=>b.addEventListener('click',()=>{ if(b.dataset.tab==='news'){ const A=subAll(); let ch=false; Object.values(A).forEach(m=>Object.values(m).forEach(r=>{ if(r&&!r.seen){ r.seen=true; ch=true; } })); if(ch){ cSet('es.subs',A); const ap=$('#acctPage'); if(ap&&!ap.hidden) subDot(ap); } } subsOpen(b.dataset.tab); }));
+  $$('.sp-buy',o).forEach(b=>b.addEventListener('click',()=>subBuy(b.dataset.k,b.dataset.t)));
+  o.hidden=false; }
+function subBuy(kidId,t){ const k=kids().find(x=>x.id===kidId); if(!k) return; const key=subKey(k,t), r=subRec(k,t), pr=subPrice(k.grade||'p1',t), S=ESET.subs||{}, tn=(SUBT_ALL.find(x=>x[0]===t)||[])[1];
   const live=r&&(!r.until||Date.now()<r.until)&&(r.st==='active'||r.st==='pending');
   if(live&&r.st==='active'||live&&r.st==='pending'&&Date.now()>=(r.trial||0)){   // paid, or the receipt is waiting for the admin: only the state
-    const s=subStat(r,t); return coinPop(`<h2 class="outline">${wlEsc(k.name)} · ${tn}</h2><p class="msg-text">${s.t}</p><button class="pill green" data-ok>تمام</button>`,p=>$('[data-ok]',p).addEventListener('click',subsPage)); }
+    const s=subStat(r,t); return coinPop(`<h2 class="outline">${wlEsc(k.name)} · ${tn}</h2><p class="msg-text">${s.t}</p><button class="pill green" data-ok>تمام</button>`,p=>$('[data-ok]',p).addEventListener('click',()=>{ coinClose(); subsOpen(); })); }
   let disc=null;   // a percent promo code typed on this page: {pct, code}
   const link=S.link||'', who=S.name||'', pro=ESET.promoOn!==false&&((ESET.promos&&ESET.promos.length)||API());
   coinPop(`<h2 class="outline">${wlEsc(k.name)} · ${tn}</h2>
@@ -1348,7 +1392,7 @@ function subBuy(kidId,t){ const k=kids().find(x=>x.id===kidId); if(!k) return; c
       <button class="pill green wl-big" type="submit"><span class="wl-ar">ابعت الإيصال</span></button></form>
     <p class="subnote">بعد الإرسال الدروس بتتفتح ٢٤ ساعة لحد ما نتأكد من الدفع.<br>الاشتراك لحد ${subDate(subEnd())}، وبعدها الدروس بتتقفل والتقدم بيبدأ من الأول.<br>مفيش استرجاع للفلوس.</p>${pro?promoLine():''}</div>`,
     p=>{ const fin=()=>disc?Math.max(1,Math.round(pr.fin*(100-disc.pct)/100)):pr.fin;
-      promoWire(p,()=>{ subsPage(); },{pct:(n,code)=>{ disc={pct:n,code};
+      promoWire(p,()=>{ subsOpen(); },{pct:(n,code)=>{ disc={pct:n,code};
         $('[data-sp]',p).innerHTML=`<s>${num(pr.fin)}</s> <b>${num(fin())}</b> جنيه<small class="subpct">خصم ${num(n)}%</small>`;
         const b=$('[data-promo]',p), pf=$('.cpromof',p); if(b) b.hidden=true; if(pf) pf.hidden=true; p.classList.remove('promo-on'); }});
       const f=$('.subf',p), er=$('.wl-err',p), im=$('.subimg',p); let pic='';
@@ -1366,7 +1410,7 @@ function subBuy(kidId,t){ const k=kids().find(x=>x.id===kidId); if(!k) return; c
         else rec={st:'pending',at:t0,trial:has&&has.trialUsed?0:t0+864e5,until:subEnd(t0),price:fin(),ref,seen:true,trialUsed:true,local:true}; if(disc) promoSpend(disc.code);   // no server: kept on this device (admin cannot see it)
         subSave(k.id,key,rec); coinClose(); if(typeof chime==='function') chime(3);
         coinPop(`<h2 class="outline">وصلنا الإيصال</h2><p class="msg-text">دروس <b>${wlEsc(k.name)}</b> مفتوحة ٢٤ ساعة لحد ما نتأكد من الدفع.</p><button class="pill green" data-ok>تمام</button>`,
-          p2=>$('[data-ok]',p2).addEventListener('click',()=>{ coinClose(); if(typeof drawSubjects==='function'&&!$('#subjects').hidden) drawSubjects(); })); }); }); }
+          p2=>$('[data-ok]',p2).addEventListener('click',()=>{ coinClose(); if(typeof drawSubjects==='function'&&!$('#subjects').hidden) drawSubjects(); const sp=$('#subsPage'); if(sp&&!sp.hidden) subsOpen(); })); }); }); }
 ;
 /* ===== js/report.js ===== */
 /* REPORT A PROBLEM (2026-11-06, Ahmed). One small flag button, the same in every subject, so a parent / teacher who finds a mistake can tell the admin.
@@ -2496,7 +2540,7 @@ QM.type={sheet:'word', word:qGapWord, draw(play,ans,q){ play.append(qOnePic(q));
   peek(q,w){ const g=$('.qword .qgap:not(.got)',w); if(!g) return; const gi=g.dataset.i!=null&&q.gaps?+g.dataset.i:null, ch=gi!=null?q.word[gi]:q.answer; if(!ch) return;
     wsPeek(g); qFocus(); }};
 QM.yesno={sheet:'word', draw(play,ans,q){ play.append(qOnePic(q));
-    const fc=q.faces?'<img src="data/pics/ar-smiley.png" alt="">':'', sd=q.faces?'<img src="data/pics/ar-sad-face.png" alt="">':'';   // faces:true = a happy and a sad face in place of the tick and the cross (Arabic u2l1 ex 2, Marwa 2026-11-06)
+    const fc=q.faces?'<img src="data/pics/smiley.png" alt="">':'', sd=q.faces?'<img src="data/pics/sad-face.png" alt="">':'';   // faces:true = a happy and a sad face in place of the tick and the cross (Arabic u2l1 ex 2, Marwa 2026-11-06)
     [[true,'yes',q.faces?fc:Q_TICK,'It matches'],[false,'no',q.faces?sd:Q_CROSS,'It does not match']].forEach(([v,c,ic,l])=>{
       const b=el('button','rb qbtn '+c+(q.faces?' qface':''),ic); b.setAttribute('aria-label',l); b.addEventListener('click',()=>qAnswer(b,v===q.answer,v)); ans.append(b); }); },
   help:(q,w)=>[$(q.answer?'.qans .qbtn.yes':'.qans .qbtn.no',w)].filter(Boolean)};
@@ -2799,7 +2843,7 @@ function ewUnits(s){
   return Object.keys(by).map(u=>{ const un=(s.units||[]).find(x=>x.unit==u)||{};
     return { unit:+u, name:s.id==='arabic'?`الوحدة ${ewN(u)}${un.title?' · '+un.title:''}`:`Unit ${u}`, lessons:by[u].map((l,i)=>{ const built=!!l.file&&ewOpen(l.id), st=built?coinAccess(l,true,'l:'+l.id,i,'lesson').st:'soon';   // open | locked | soon: the dashboard's state, a paid term, credits and the free trial (js/coins.js)
       return {...l,name:l.title||l.planned||'',built,st,open:st==='open',locked:st==='locked'}; }) }; })
-    .filter(u=>u.lessons.length&&(s.id!=='arabic'||u.unit<=5||u.lessons.some(l=>l.open)));
+    .filter(u=>u.lessons.length&&(s.id!=='arabic'||u.unit<=4));   // Arabic: no النحو (unit 5) and no final assessments here, they have no words (Ahmed 2026-11-16)
 }
 const ewOpen=id=>!!(EW.cfg&&!(EW.cfg.skip||[]).includes(id)&&(EW.cfg.all||(EW.cfg.open||[]).includes(id)));
 const ewSubjOf=id=>COURSE.subjects.find(s=>id.startsWith(s.id+'-'));
@@ -2829,7 +2873,7 @@ wlAbout=()=>`<div class="wl-about" dir="rtl"><p class="wl-tag">اتعلّم كل
 currApply=p=>{ EW.curr=p?(p.school||p.type):null; };
 ACH.rep='<svg viewBox="0 0 24 24"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>';
 acctExtraRows=()=>wlRow('ac-rep',ACH.rep,'تقرير الكلمات','');
-acctExtraBind=o=>{ const b=$('.ac-rep',o); if(b) b.addEventListener('click',()=>{ o.hidden=true; ewReportOpen(); }); };
+acctExtraBind=o=>{ const b=$('.ac-rep',o); if(b) b.addEventListener('click',()=>ewReportPage(kidNow()&&kidNow().id)); };
 // the line under the logo: the child's school year and the term of the lessons
 function ewGradeLine(){ const k=kidNow(); return `${(k&&gradeLabel(k.grade))||'الصف الأول الابتدائي'} · ${subTermNow()==='t2'?'الترم الثاني':'الترم الأول'}`; }
 ;
@@ -2896,10 +2940,19 @@ async function openMap(){
 function ewDrawMap(s){
   $('#ewMapTitle').textContent=EW_SUBJ[s.id].name; $('#ewMapTitle').dir=EW_SUBJ[s.id].lang==='ar'?'rtl':'ltr'; paintHud();
   const ar=EW_SUBJ[s.id].lang==='ar', body=$('#ewMapBody'); body.scrollTop=0;
-  body.innerHTML=ewUnits(s).map(u=>`<section class="ew-unit"><div class="ew-utab" dir="${ar?'rtl':'ltr'}"><span>${u.name}</span></div><div class="ew-ubody">`+u.lessons.map(l=>{
-    const L=l.open&&EW.les[l.id], num=ar?ewN(l.lesson):l.lesson;
-    return `<div class="ew-lrow${L?'':' solo'}"><button class="ew-lsq${l.open?'':l.locked?' soon locked':' soon'}" data-id="${l.id}" ${l.open||l.locked?'':'disabled'}><b class="ew-lnum">${num}</b><span class="ew-lname" dir="${ar?'rtl':'ltr'}">${l.name}</span>${l.open?'':l.locked?`<i class="lk">${EW_LOCK} مقفول</i>`:'<i>قريبًا</i>'}</button>`+
+  const F=EW.fold||(EW.fold={}), CHEV='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+  body.innerHTML=`<div class="ew-mapbar"><button class="ew-foldall" id="ewFoldAll" type="button"></button></div>`+ewUnits(s).map(u=>`<section class="ew-unit${F['u'+s.id+u.unit]?' closed':''}" data-k="u${s.id}${u.unit}"><div class="ew-utab" role="button" tabindex="0" aria-expanded="${F['u'+s.id+u.unit]?'false':'true'}" dir="${ar?'rtl':'ltr'}"><span>${u.name}</span><i class="ew-chev">${CHEV}</i></div><div class="ew-ubody">`+u.lessons.map(l=>{
+    const L=l.open&&EW.les[l.id], num=ar?ewN(l.lesson):l.lesson, fk='l'+l.id;
+    return `<div class="ew-lrow${L?'':' solo'}${F[fk]?' closed':''}" data-k="${fk}"><div class="ew-lwrap"><button class="ew-lsq${l.open?'':l.locked?' soon locked':' soon'}" data-id="${l.id}" ${l.open||l.locked?'':'disabled'}><b class="ew-lnum">${num}</b><span class="ew-lname" dir="${ar?'rtl':'ltr'}">${l.name}</span>${l.open?'':l.locked?`<i class="lk">${EW_LOCK} مقفول</i>`:'<i>قريبًا</i>'}</button>${L?`<button class="ew-lfold" type="button" aria-label="${l.name}" aria-expanded="${F[fk]?'false':'true'}">${CHEV}</button>`:''}</div>`+
       (L?`<div class="ew-words">${L.vocab.map((v,i)=>`<button class="ew-wsq" data-id="${l.id}" data-i="${i}" aria-label="${v.word}"><span class="ew-wimg">${v.img?`<img src="${v.img}" alt=""${/\.png$/i.test(v.img)?' class="cut"':''}>`:''}</span><b dir="${ar?'rtl':'ltr'}">${v.word}</b>${(VDONE[l.id]||[]).includes(v.word)?`<span class="vst">${STAR(true)}</span>`:''}</button>`).join('')}</div>`:'')+`</div>`; }).join('')+`</div></section>`).join('');
+  // expand / collapse: whole map (button, top right), one unit (arrow on its tab), one lesson's words (arrow on the lesson)
+  const fa=$('#ewFoldAll'), sync=()=>{ const any=$$('#ewMapBody .ew-unit:not(.closed)').length||$$('#ewMapBody .ew-lrow:not(.solo):not(.closed)').length; fa.dataset.mode=any?'close':'open'; fa.innerHTML=`<i class="ew-chev">${CHEV}</i><span>${any?'إغلاق الكل':'فتح الكل'}</span>`; };
+  const setU=(e,c)=>{ e.classList.toggle('closed',c); F[e.dataset.k]=c; e.querySelector('.ew-utab').setAttribute('aria-expanded',c?'false':'true'); };
+  const setL=(e,c)=>{ e.classList.toggle('closed',c); F[e.dataset.k]=c; const b=e.querySelector('.ew-lfold'); if(b) b.setAttribute('aria-expanded',c?'false':'true'); };
+  $$('#ewMapBody .ew-utab').forEach(h=>{ const go=()=>{ blip(600); const e=h.parentNode; setU(e,!e.classList.contains('closed')); sync(); }; h.addEventListener('click',go); h.addEventListener('keydown',ev=>{ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); go(); } }); });
+  $$('#ewMapBody .ew-lfold').forEach(b=>b.addEventListener('click',()=>{ blip(600); const e=b.closest('.ew-lrow'); setL(e,!e.classList.contains('closed')); sync(); }));
+  fa.addEventListener('click',()=>{ blip(600); const c=fa.dataset.mode==='close'; $$('#ewMapBody .ew-unit').forEach(e=>setU(e,c)); $$('#ewMapBody .ew-lrow:not(.solo)').forEach(e=>setL(e,c)); sync(); });
+  sync();
   $$('#ewMapBody .ew-lsq:not(.soon)').forEach(b=>b.addEventListener('click',()=>{ blip(600); ewOpenLesson(b.dataset.id,0); }));
   $$('#ewMapBody .ew-lsq.locked').forEach(b=>b.addEventListener('click',()=>{ blip(600); const l=ewUnits(s).flatMap(u=>u.lessons).find(x=>x.id===b.dataset.id); if(l) lockTap('lesson',l,coinAccess(l,true,'l:'+l.id,0,'lesson').coins,`<span class="jlockbig">${EW_LOCK}</span>`,()=>openMap()); }));   // js/coins.js: open with credits or a subscription
   $$('#ewMapBody .ew-wsq').forEach(b=>b.addEventListener('click',()=>{ blip(600); ewOpenLesson(b.dataset.id,+b.dataset.i,true); }));
@@ -3191,18 +3244,49 @@ $('#ewTestBack').addEventListener('click',()=>openMap());
 ;
 /* ===== js/words-report.js ===== */
 /* EASY WORDS — a simple report for the parent: the words known well, the words to review, the weak words, tests taken and the average of the answers.
+   2026-11-16: it is a page INSIDE the account area (one tab per child) and opens at once: only the lessons the child has practised are loaded first (in a pool of 6 at a time,
+   they were read one after the other before = the slowness); the rest of the lessons only fill in the "not asked yet" count in the background.
    "Learn my weak words" opens the usual words template (and practice) on those words only, whatever lesson they come from. */
-async function ewReportOpen(){
-  busy(true); let words=[]; try{ words=await ewAllWords(); }catch(e){} busy(false);
-  show('ewReport'); const body=$('#ewRepBody'); body.scrollTop=0;
-  const by={good:[],review:[],weak:[],new:[]}; words.forEach(v=>by[ewClass(v)].push(v));
-  const tests=EW.log.filter(x=>x.src==='test').length, rounds=EW.log.length, qn=EW.log.reduce((a,x)=>a+x.n,0), qr=EW.log.reduce((a,x)=>a+x.right,0);
-  const chips=l=>l.length?`<div class="ew-words rep">${l.map(v=>`<span class="ew-wsq"><span class="ew-wimg">${v.img?`<img src="${v.img}" alt="">`:''}</span><b dir="${v.lang==='ar'?'rtl':'ltr'}">${v.word}</b></span>`).join('')}</div>`:'<p class="ewt-help">—</p>';
-  const sec=(k,title,l,extra)=>`<section class="ew-rsec ${k}"><div class="ew-rhead"><h3>${title} <em>${ewN(l.length)}</em></h3>${extra||''}</div>${chips(l)}</section>`;
-  body.innerHTML=`<div class="ew-rsum"><div><b>${ewN(rounds)}</b><span>تدريبات واختبارات</span></div><div><b>${ewN(tests)}</b><span>اختبارات</span></div><div><b>${qn?ewN(Math.round(qr*100/qn))+'٪':'—'}</b><span>معدل الإجابات الصح</span></div></div>`+
-    sec('weak','كلمات ضعيفة',by.weak,by.weak.length?'<button class="pill green ew-learnweak">اتعلم الكلمات الضعيفة</button>':'')+
-    sec('review','محتاجة مراجعة',by.review)+sec('good','حافظها كويس',by.good)+sec('new','لسه ما اتسألتش',by.new);
-  const b=$('.ew-learnweak',body); if(b) b.addEventListener('click',()=>{ const L=ewVirtual('ew-weak','الكلمات الضعيفة',by.weak); ewEnter(L,0); });
+// the child's own word statistics: the active child's are the live ones, the others are kept under es.kid.<id>.* (js/welcome.js KID_KEYS)
+function ewKidStats(k){ const cur=kidNow(), pre=cur&&cur.id===k.id?'':`es.kid.${k.id}.`, rd=(n,d)=>{ try{ return JSON.parse(localStorage.getItem(pre+n)||'null')||d; }catch(e){ return d; } };
+  return {stats:rd('ew.stats',{}),log:rd('ew.log',[])}; }
+const ewKidCurr=k=>{ const c=k&&k.curr; return c?(c.school||c.type):null; };
+async function ewPool(ids,each){ let n=0; await Promise.all(Array.from({length:6},async()=>{ while(n<ids.length){ const id=ids[n++]; try{ const L=await ewLesson(id); if(L) each(L); }catch(e){} } })); }
+// the lessons whose words count for this child: the open ones for the active child, the built ones for the others
+function ewKidLessons(k){ const cur=kidNow(), same=cur&&cur.id===k.id, old=EW.curr; EW.curr=ewKidCurr(k);
+  try{ return ewSubjects().flatMap(s=>ewUnits(s).flatMap(u=>u.lessons)).filter(l=>same?l.open:l.built&&l.st!=='soon'); }finally{ EW.curr=old; } }
+const REP={kid:null,seq:0};
+function ewReportOpen(id){ parentGate(()=>ewReportPage(id)); }
+async function ewReportPage(id){
+  const K=kids(); if(!K.length) return; const cur=kidNow(), k=K.find(x=>x.id===(id||REP.kid))||cur||K[0]; REP.kid=k.id; const seq=++REP.seq;
+  let o=$('#repPage'); if(!o){ o=el('div','acctpage',''); o.id='repPage'; o.setAttribute('role','dialog'); o.setAttribute('aria-label','Report'); document.body.append(o); }
+  const same=!!(cur&&cur.id===k.id), D=ewKidStats(k);
+  o.innerHTML=`<div class="ac-top"><button class="rb ac-back rp-back" aria-label="Back">${ICON.back}</button><h2>تقرير الكلمات</h2></div><div class="ac-in">
+    ${K.length>1?`<div class="rp-kids">${K.map(x=>`<button class="rp-kid${x.id===k.id?' on':''}" data-kid="${x.id}">${wlEsc(x.name)}</button>`).join('')}</div>`:`<h3 class="rp-one">${wlEsc(k.name)}</h3>`}
+    <div class="rp-body"><p class="ewt-help">ثواني...</p></div></div>`;
+  $('.rp-back',o).addEventListener('click',()=>o.hidden=true);
+  $$('.rp-kid',o).forEach(b=>b.addEventListener('click',()=>ewReportPage(b.dataset.kid)));
+  o.hidden=false;
+  // 1) only the lessons that have statistics: the page is drawn from these at once
+  const lids=[...new Set(Object.keys(D.stats).map(x=>x.split('|')[0]))], words=[];
+  await ewPool(lids,L=>L.vocab.forEach(v=>words.push(v))); if(seq!==REP.seq) return;
+  const by={good:[],review:[],weak:[]}, cls=v=>{ const s=D.stats[v.key||v.word]; if(!s||!s.a) return null; const last=s.l[s.l.length-1], two=s.l.slice(-2), r=s.c/s.a;
+    if(last===0||r<.5) return 'weak'; if(two.length>=2&&two.every(x=>x===1)&&r>=.7) return 'good'; return 'review'; };
+  words.forEach(v=>{ const c=cls(v); if(c) by[c].push(v); });
+  const tests=D.log.filter(x=>x.src==='test').length, rounds=D.log.length, qn=D.log.reduce((a,x)=>a+x.n,0), qr=D.log.reduce((a,x)=>a+x.right,0);
+  const chips=(l,max)=>{ max=max||60; return l.length?`<div class="ew-words rep">${l.slice(0,max).map(v=>`<span class="ew-wsq"><span class="ew-wimg">${v.img?`<img src="${v.img}" alt="" loading="lazy">`:''}</span><b dir="${v.lang==='ar'?'rtl':'ltr'}">${v.word}</b></span>`).join('')}</div>${l.length>max?`<p class="ewt-help">و ${ewN(l.length-max)} كلمة كمان</p>`:''}`:'<p class="ewt-help">—</p>'; };
+  const sec=(c,title,l,extra)=>`<section class="ac-card rp-sec ${c}"><div class="ew-rhead"><h3>${title} <em>${ewN(l.length)}</em></h3>${extra||''}</div>${chips(l)}</section>`;
+  const body=$('.rp-body',o);
+  body.innerHTML=`<div class="ew-rsum rp-sum"><div><b>${ewN(rounds)}</b><span>تدريبات واختبارات</span></div><div><b>${ewN(tests)}</b><span>اختبارات</span></div><div><b>${qn?ewN(Math.round(qr*100/qn))+'٪':'—'}</b><span>معدل الإجابات الصح</span></div></div>`+
+    sec('weak','كلمات ضعيفة',by.weak,same&&by.weak.length?'<button class="pill green ew-learnweak">اتعلم الكلمات الضعيفة</button>':'')+
+    sec('review','محتاجة مراجعة',by.review)+sec('good','حافظها كويس',by.good)+
+    `<section class="ac-card rp-sec new"><div class="ew-rhead"><h3>لسه ما اتسألتش <em class="rp-newn">…</em></h3></div></section>`;
+  const b=$('.ew-learnweak',body); if(b) b.addEventListener('click',()=>{ o.hidden=true; const a=$('#acctPage'); if(a) a.hidden=true; const L=ewVirtual('ew-weak','الكلمات الضعيفة',by.weak); ewEnter(L,0); });
+  // 2) the rest of the lessons, in the background: only the count and a few examples
+  const seen=new Set(lids), rest=ewKidLessons(k).filter(l=>!seen.has(l.id)).map(l=>l.id), fresh=[];
+  await ewPool(rest,L=>L.vocab.forEach(v=>fresh.push(v))); if(seq!==REP.seq) return;
+  const nw=words.filter(v=>!cls(v)).concat(fresh), n=$('.rp-newn',body); if(n) n.textContent=ewN(nw.length);
+  const sc=$('.rp-sec.new',body); if(sc) sc.insertAdjacentHTML('beforeend',chips(nw,24));
 }
 { const b=$('#ewRepBtn'); if(b) b.addEventListener('click',()=>{ blip(600); ewReportOpen(); }); }
 ;

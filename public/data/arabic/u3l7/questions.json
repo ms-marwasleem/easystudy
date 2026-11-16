@@ -61,7 +61,7 @@
     {
      "word": "حِمَار",
      "audio": "../u1l6/words/himar.mp3",
-     "pic": "../../pics/ar-donkey.png",
+     "pic": "../../pics/donkey.png",
      "answer": false,
      "pos": [
       12,
@@ -75,7 +75,7 @@
     {
      "word": "سَهْم",
      "audio": "words/sahm.mp3",
-     "pic": "../../pics/ar-arrow.png",
+     "pic": "../../pics/arrow.png",
      "answer": true,
      "pos": [
       32,
@@ -89,7 +89,7 @@
     {
      "word": "هُدْهُد",
      "audio": "../u1l8/words/hudhud.mp3",
-     "pic": "../../pics/ar-hoopoe.png",
+     "pic": "../../pics/hoopoe.png",
      "answer": true,
      "pos": [
       68,
@@ -117,7 +117,7 @@
     {
      "word": "هَدِيَّة",
      "audio": "words/hadiya.mp3",
-     "pic": "../../pics/ar-gift.png",
+     "pic": "../../pics/gift.png",
      "answer": true,
      "pos": [
       50,
@@ -152,7 +152,7 @@
      "word": "هُ",
      "audio": "../../syl-ar/647-64f.mp3",
      "pics": [
-      "../../pics/ar-hoopoe.png",
+      "../../pics/hoopoe.png",
       "../../pics/cheetah.png"
      ],
      "answer": 0
@@ -161,7 +161,7 @@
      "word": "هِ",
      "audio": "../../syl-ar/647-650.mp3",
      "pics": [
-      "../../pics/ar-crescent.jpg",
+      "../../pics/crescent.png",
       "../../pics/pyramid.png"
      ],
      "answer": 0
@@ -170,8 +170,8 @@
      "word": "هَ",
      "audio": "../../syl-ar/647-64e.mp3",
      "pics": [
-      "../../pics/ar-gift.png",
-      "../../pics/ar-hoopoe.png"
+      "../../pics/gift.png",
+      "../../pics/hoopoe.png"
      ],
      "answer": 0
     },
@@ -179,8 +179,8 @@
      "word": "هْ",
      "audio": "../../syl-ar/647-652.mp3",
      "pics": [
-      "../../pics/ar-leopards.jpg",
-      "../../pics/ar-pyramids.png"
+      "../../pics/leopards.png",
+      "../../pics/pyramids.png"
      ],
      "answer": 1
     }
@@ -203,7 +203,7 @@
     {
      "word": "هَدِيَّة",
      "audio": "words/hadiya.mp3",
-     "pic": "../../pics/ar-gift.png",
+     "pic": "../../pics/gift.png",
      "answer": "هَ",
      "choices": [
       "هَ",
@@ -228,7 +228,7 @@
     {
      "word": "هِلَال",
      "audio": "words/hilal.mp3",
-     "pic": "../../pics/ar-crescent.jpg",
+     "pic": "../../pics/crescent.png",
      "answer": "هِ",
      "choices": [
       "هَ",
@@ -240,7 +240,7 @@
     {
      "word": "هُدْهُد",
      "audio": "../u1l8/words/hudhud.mp3",
-     "pic": "../../pics/ar-hoopoe.png",
+     "pic": "../../pics/hoopoe.png",
      "answer": "هُ",
      "choices": [
       "هَ",
@@ -304,7 +304,7 @@
      "need": 2,
      "cells": 3,
      "pics": [
-      "../../pics/ar-face.png",
+      "../../pics/face.png",
       "../../pics/cheetah.png"
      ],
      "picWords": [
@@ -330,8 +330,8 @@
      "word": "رَسَمَ الْوَلَدُ وَجْهَ الْفَهْدِ.",
      "audio": "q/s11.mp3",
      "pics": [
-      "../../pics/ar-draw-rabbit.jpg",
-      "../../pics/ar-draw-cheetah.jpg"
+      "../../pics/draw-rabbit.jpg",
+      "../../pics/draw-cheetah.jpg"
      ],
      "answer": 1
     }
@@ -346,7 +346,7 @@
    "hint": "اسمع القصة، واقفز لما تسمع كلمة فيها هاء",
    "items": [
     {
-     "scene": "../../pics/ar-story-u3l7-cut.png",
+     "scene": "../../pics/story-u3l7-cut.png",
      "text": "كَانَ هُنَاكَ هُدْهُدٌ صَغِيرٌ يَعِيشُ بِالْقُرْبِ مِنْ نَهْرِ النِّيلِ، يَشْرَبُ مِنْ مَائِهِ الْجَمِيلِ، وَكَانَ الْهُدْهُدُ يُشَاهِدُ الْهَرَمَ وَهُوَ وَاقِفٌ فِي عُشِّهِ، وَفِي اللَّيْلِ يَظْهَرُ الْهِلَالُ فِي السَّمَاءِ فَوْقَ الْهَرَمِ، عَاشَ الْهُدْهُدُ حَيَاةً هَادِئَةً سَعِيدَةً؛ لِأَنَّهُ يَسْتَمْتِعُ بِمَنْظَرِ النِّيلِ وَالْهَرَمِ وَالْهِلَالِ.",
      "audio": "q/story.mp3",
      "ask": "أَيْنَ كَانَ يَعِيشُ الْهُدْهُدُ؟",
@@ -584,22 +584,22 @@
    "items": [
     {
      "word": "gold",
-     "pic": "../../pics/ar-gold.jpg",
+     "pic": "../../pics/gold.png",
      "answer": true
     },
     {
      "word": "clock",
-     "pic": "../../pics/ar-clock.png",
+     "pic": "../../pics/clock.png",
      "answer": false
     },
     {
      "word": "hoopoe",
-     "pic": "../../pics/ar-hoopoe.png",
+     "pic": "../../pics/hoopoe.png",
      "answer": true
     },
     {
      "word": "camel",
-     "pic": "../../pics/ar-fa-camel2.png",
+     "pic": "../../pics/fa-camel2.png",
      "answer": false
     },
     {
@@ -609,7 +609,7 @@
     },
     {
      "word": "crescent",
-     "pic": "../../pics/ar-crescent.jpg",
+     "pic": "../../pics/crescent.png",
      "answer": true
     },
     {
@@ -619,7 +619,7 @@
     },
     {
      "word": "gift",
-     "pic": "../../pics/ar-gift.png",
+     "pic": "../../pics/gift.png",
      "answer": true
     },
     {
@@ -629,7 +629,7 @@
     },
     {
      "word": "phone",
-     "pic": "../../pics/ar-phone.png",
+     "pic": "../../pics/phone.png",
      "answer": true
     }
    ]
@@ -651,7 +651,7 @@
     },
     {
      "word": "ذَهَب",
-     "pic": "../../pics/ar-gold.jpg",
+     "pic": "../../pics/gold.png",
      "audio": "words/dhahab.mp3",
      "at": 1
     },
@@ -663,13 +663,13 @@
     },
     {
      "word": "هَدِيَّة",
-     "pic": "../../pics/ar-gift.png",
+     "pic": "../../pics/gift.png",
      "audio": "words/hadiya.mp3",
      "at": 0
     },
     {
      "word": "زُهُور",
-     "pic": "../../pics/ar-flowers.png",
+     "pic": "../../pics/flowers.png",
      "audio": "words/zuhur.mp3",
      "at": 1
     },
@@ -705,34 +705,34 @@
     },
     {
      "word": "كُهُوف",
-     "pic": "../../pics/ar-cave.jpg",
+     "pic": "../../pics/cave.png",
      "audio": "words/kuhuf.mp3",
      "answer": "هُ",
      "at": 1
     },
     {
      "word": "جَوْزُ الهِنْد",
-     "pic": "../../pics/ar-coconut.png",
+     "pic": "../../pics/coconut.png",
      "audio": "words/jawzhind.mp3",
      "answer": "هِ",
      "at": 6
     },
     {
      "word": "هَدَف",
-     "pic": "../../pics/ar-goal.jpg",
+     "pic": "../../pics/goal.png",
      "audio": "words/hadaf.mp3",
      "answer": "هَ"
     },
     {
      "word": "مُهْر",
-     "pic": "../../pics/ar-foal.png",
+     "pic": "../../pics/foal.png",
      "audio": "words/muhr.mp3",
      "answer": "هْ",
      "at": 1
     },
     {
      "word": "فُهُود",
-     "pic": "../../pics/ar-leopards.jpg",
+     "pic": "../../pics/leopards.png",
      "audio": "words/fuhud.mp3",
      "answer": "هُ",
      "at": 1
@@ -757,27 +757,27 @@
     {
      "word": "لَهِيب",
      "audio": "words/lahib.mp3",
-     "pic": "../../pics/ar-fire.png",
+     "pic": "../../pics/fire.png",
      "answer": "هِ",
      "at": 1
     },
     {
      "word": "سَهْم",
      "audio": "words/sahm.mp3",
-     "pic": "../../pics/ar-arrow.png",
+     "pic": "../../pics/arrow.png",
      "answer": "هْ",
      "at": 1
     },
     {
      "word": "هَاتِف",
-     "pic": "../../pics/ar-phone.png",
+     "pic": "../../pics/phone.png",
      "audio": "words/hatif.mp3",
      "answer": "هَ"
     },
     {
      "word": "زُهُور",
      "audio": "words/zuhur.mp3",
-     "pic": "../../pics/ar-flowers.png",
+     "pic": "../../pics/flowers.png",
      "answer": "هُ",
      "at": 1
     }
@@ -840,22 +840,22 @@
    "items": [
     {
      "word": "هَاتِف",
-     "pic": "../../pics/ar-phone.png",
+     "pic": "../../pics/phone.png",
      "audio": "words/hatif.mp3"
     },
     {
      "word": "هِلَال",
-     "pic": "../../pics/ar-crescent.jpg",
+     "pic": "../../pics/crescent.png",
      "audio": "words/hilal.mp3"
     },
     {
      "word": "ذَهَب",
-     "pic": "../../pics/ar-gold.jpg",
+     "pic": "../../pics/gold.png",
      "audio": "words/dhahab.mp3"
     },
     {
      "word": "هَدَف",
-     "pic": "../../pics/ar-goal.jpg",
+     "pic": "../../pics/goal.png",
      "audio": "words/hadaf.mp3"
     }
    ]
@@ -871,7 +871,7 @@
    "items": [
     {
      "word": "جَوْزُ الهِنْد",
-     "pic": "../../pics/ar-coconut.png",
+     "pic": "../../pics/coconut.png",
      "audio": "words/jawzhind.mp3"
     },
     {
@@ -881,12 +881,12 @@
     },
     {
      "word": "نَهْر",
-     "pic": "../../pics/ar-nile.png",
+     "pic": "../../pics/nile.png",
      "audio": "words/nahr.mp3"
     },
     {
      "word": "ذَهَب",
-     "pic": "../../pics/ar-gold.jpg",
+     "pic": "../../pics/gold.png",
      "audio": "words/dhahab.mp3"
     }
    ]
@@ -902,7 +902,7 @@
    "items": [
     {
      "word": "هَرَبَ الْهِرُّ مِنَ الْفَهْدِ.",
-     "pic": "../../pics/ar-cheetah-chase.jpg",
+     "pic": "../../pics/cheetah-chase.jpg",
      "lead": "",
      "options": [
       "يَشْرَبُ الْفَهْدُ مِنَ النَّهْرِ.",
@@ -914,7 +914,7 @@
     },
     {
      "word": "ذَهَبَتْ هِنْدُ إِلَى الْهَرَمِ.",
-     "pic": "../../pics/ar-girl-pyramid.jpg",
+     "pic": "../../pics/girl-pyramid.jpg",
      "lead": "",
      "options": [
       "ذَهَبَتْ هِنْدُ إِلَى الْهَرَمِ.",
@@ -1018,7 +1018,7 @@
    "items": [
     {
      "word": "هَاتِف",
-     "pic": "../../pics/ar-phone.png",
+     "pic": "../../pics/phone.png",
      "audio": "words/hatif.mp3",
      "answer": "هَ",
      "choices": [
@@ -1029,7 +1029,7 @@
     },
     {
      "word": "كَهْف",
-     "pic": "../../pics/ar-cave.png",
+     "pic": "../../pics/cave.png",
      "audio": "words/kahf.mp3",
      "answer": "هْ",
      "choices": [

@@ -7,7 +7,7 @@
    "task": "أُسَاعِدُ الصَّيَّادَ، وَأَضَعُ دَائِرَةً حَوْلَ أَشْكَالِ حَرْفِ التَّاءِ",
    "taskAudio": "q/task-2.mp3",
    "hint": "اضغط على الأسماك اللي عليها شكل التاء",
-   "centerPic": "../../pics/ar-fisherman-school.png",
+   "centerPic": "../../pics/fisherman-school.png",
    "centerAt": [
     16,
     36
@@ -22,7 +22,7 @@
     {
      "word": "ج",
      "text": "ج",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": false,
      "pos": [
       88,
@@ -36,7 +36,7 @@
     {
      "word": "ـتـ",
      "text": "ـتـ",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": true,
      "pos": [
       70,
@@ -50,7 +50,7 @@
     {
      "word": "أ",
      "text": "أ",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": false,
      "pos": [
       54,
@@ -64,7 +64,7 @@
     {
      "word": "تـ",
      "text": "تـ",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": true,
      "pos": [
       41,
@@ -78,7 +78,7 @@
     {
      "word": "ن",
      "text": "ن",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": false,
      "pos": [
       89,
@@ -92,7 +92,7 @@
     {
      "word": "ب",
      "text": "ب",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": false,
      "pos": [
       71,
@@ -106,7 +106,7 @@
     {
      "word": "ـت",
      "text": "ـت",
-     "pic": "../../pics/ar-fish-purple.png",
+     "pic": "../../pics/fish-purple.png",
      "answer": true,
      "pos": [
       53,
@@ -120,7 +120,7 @@
     {
      "word": "ت",
      "text": "ت",
-     "pic": "../../pics/ar-fish-yellow.png",
+     "pic": "../../pics/fish-yellow.png",
      "answer": true,
      "pos": [
       36,
@@ -190,7 +190,7 @@
     {
      "word": "تِلْفَاز",
      "audio": "words/tilfaz.mp3",
-     "pic": "../../pics/ar-tv.png",
+     "pic": "../../pics/tv.png",
      "answer": "تِ",
      "choices": [
       "تَ",
@@ -201,7 +201,7 @@
     {
      "word": "تَمْر",
      "audio": "../u1l5/words/tamr.mp3",
-     "pic": "../../pics/ar-dates.png",
+     "pic": "../../pics/dates.png",
      "answer": "تَ",
      "choices": [
       "تَ",
@@ -223,7 +223,7 @@
     {
      "word": "مِتْر",
      "audio": "words/mitr.mp3",
-     "pic": "../../pics/ar-tape.png",
+     "pic": "../../pics/tape.png",
      "answer": "تْ",
      "choices": [
       "تَ",
@@ -251,7 +251,7 @@
     {
      "word": "تِمْسَاح",
      "audio": "words/timsah.mp3",
-     "pic": "../../pics/ar-crocodile.png",
+     "pic": "../../pics/crocodile.png",
      "answer": "تِ",
      "choices": [
       "تَ",
@@ -262,7 +262,7 @@
     {
      "word": "تَمْر",
      "audio": "../u1l5/words/tamr.mp3",
-     "pic": "../../pics/ar-dates.png",
+     "pic": "../../pics/dates.png",
      "answer": "تَ",
      "choices": [
       "تَ",
@@ -284,7 +284,7 @@
     {
      "word": "كَتْكُوت",
      "audio": "words/katkut.mp3",
-     "pic": "../../pics/ar-chick.png",
+     "pic": "../../pics/chick.png",
      "answer": "تْ",
      "choices": [
       "تَ",
@@ -327,7 +327,7 @@
    "hint": "اسمع القصة، واقفز لما تسمع كلمة فيها التاء",
    "items": [
     {
-     "scene": "../../pics/ar-story-taa-cut.jpg",
+     "scene": "../../pics/story-taa-cut.jpg",
      "text": "رَأَى التِّمْسَاحُ الْبِنْتَ وَهِيَ تَأْكُلُ التُّوتَ وَبِجِوَارِهَا الْكُتْكُوتُ. قَالَتِ الْبِنْتُ لِلتِّمْسَاحِ: «هَلْ تُرِيدُ أَنْ تَأْكُلَ التُّوتَ؟». فَرَدَّ التِّمْسَاحُ: «لَا آكُلُ التُّوتَ، أَنَا أُرِيدُ التَّاجَ فَقَطْ!». ضَحِكَتِ الْبِنْتُ وَأَعْطَتْهُ التَّاجَ؛ فَفَرِحَ بِهِ، وَفَرِحَتِ الْبِنْتُ وَالْكُتْكُوتُ بِطَعْمِ التُّوتِ اللَّذِيذِ.",
      "audio": "q/story.mp3",
      "ask": "مَنْ كَانَ سَعِيدًا فِي نِهَايَةِ الْقِصَّةِ؟ وَلِمَاذَا؟",
@@ -497,13 +497,13 @@
     {
      "word": "تَاج",
      "audio": "words/taj.mp3",
-     "pic": "../../pics/ar-crown.png",
+     "pic": "../../pics/crown.png",
      "answer": true
     },
     {
      "word": "تُوت",
      "audio": "words/tut.mp3",
-     "pic": "../../pics/ar-mulberry.png",
+     "pic": "../../pics/mulberry.png",
      "answer": true
     },
     {
@@ -515,13 +515,13 @@
     {
      "word": "جَمَل",
      "audio": "../u1l7/words/jamal.mp3",
-     "pic": "../../pics/ar-fa-camel2.png",
+     "pic": "../../pics/fa-camel2.png",
      "answer": false
     },
     {
      "word": "بِنْت",
      "audio": "../u1l4/words/bint.mp3",
-     "pic": "../../pics/ar-girl.png",
+     "pic": "../../pics/girl.png",
      "answer": true
     },
     {
@@ -533,13 +533,13 @@
     {
      "word": "تِين",
      "audio": "words/tin.mp3",
-     "pic": "../../pics/ar-fig.png",
+     "pic": "../../pics/fig.png",
      "answer": true
     },
     {
      "word": "تِمْسَاح",
      "audio": "words/timsah.mp3",
-     "pic": "../../pics/ar-crocodile.png",
+     "pic": "../../pics/crocodile.png",
      "answer": true
     }
    ]
@@ -560,17 +560,17 @@
     },
     {
      "word": "تِ",
-     "pic": "../../pics/ar-fig.png",
+     "pic": "../../pics/fig.png",
      "audio": "../../syl-ar/62a-650.mp3"
     },
     {
      "word": "تَ",
-     "pic": "../../pics/ar-crown.png",
+     "pic": "../../pics/crown.png",
      "audio": "../../syl-ar/62a-64e.mp3"
     },
     {
      "word": "تْ",
-     "pic": "../../pics/ar-chick.png",
+     "pic": "../../pics/chick.png",
      "audio": "../../syl-ar/62a-652.mp3"
     }
    ]
@@ -587,25 +587,25 @@
     {
      "word": "تَاج",
      "audio": "words/taj.mp3",
-     "pic": "../../pics/ar-crown.png",
+     "pic": "../../pics/crown.png",
      "at": 0
     },
     {
      "word": "مِتْر",
      "audio": "words/mitr.mp3",
-     "pic": "../../pics/ar-tape.png",
+     "pic": "../../pics/tape.png",
      "at": 1
     },
     {
      "word": "بِنْت",
      "audio": "../u1l4/words/bint.mp3",
-     "pic": "../../pics/ar-girl.png",
+     "pic": "../../pics/girl.png",
      "at": 2
     },
     {
      "word": "حُوت",
      "audio": "../u1l6/words/hut.mp3",
-     "pic": "../../pics/ar-whale.png",
+     "pic": "../../pics/whale.png",
      "at": 2
     },
     {
@@ -617,7 +617,7 @@
     {
      "word": "مَكْتَب",
      "audio": "../u2l8/words/maktab.mp3",
-     "pic": "../../pics/ar-desk.png",
+     "pic": "../../pics/desk.png",
      "at": 2
     }
    ]
@@ -684,7 +684,7 @@
     {
      "word": "تِين",
      "audio": "words/tin.mp3",
-     "pic": "../../pics/ar-fig.png",
+     "pic": "../../pics/fig.png",
      "chips": [
       "تِي",
       "ن"
@@ -693,7 +693,7 @@
     {
      "word": "تَاج",
      "audio": "words/taj.mp3",
-     "pic": "../../pics/ar-crown.png",
+     "pic": "../../pics/crown.png",
      "chips": [
       "تَا",
       "ج"
@@ -702,7 +702,7 @@
     {
      "word": "تُوت",
      "audio": "words/tut.mp3",
-     "pic": "../../pics/ar-mulberry.png",
+     "pic": "../../pics/mulberry.png",
      "chips": [
       "تُو",
       "ت"
@@ -737,19 +737,19 @@
     {
      "word": "مِتْر",
      "audio": "words/mitr.mp3",
-     "pic": "../../pics/ar-tape.png",
+     "pic": "../../pics/tape.png",
      "scr": "تْمِر"
     },
     {
      "word": "خَتْم",
      "audio": "words/khatm.mp3",
-     "pic": "../../pics/ar-stamp.png",
+     "pic": "../../pics/stamp.png",
      "scr": "تْخَم"
     },
     {
      "word": "تِين",
      "audio": "words/tin.mp3",
-     "pic": "../../pics/ar-fig.png",
+     "pic": "../../pics/fig.png",
      "scr": "نيتِ"
     }
    ]
@@ -807,22 +807,22 @@
     {
      "word": "تُوت",
      "audio": "words/tut.mp3",
-     "pic": "../../pics/ar-mulberry.png"
+     "pic": "../../pics/mulberry.png"
     },
     {
      "word": "مِتْر",
      "audio": "words/mitr.mp3",
-     "pic": "../../pics/ar-tape.png"
+     "pic": "../../pics/tape.png"
     },
     {
      "word": "تِمْسَاح",
      "audio": "words/timsah.mp3",
-     "pic": "../../pics/ar-crocodile.png"
+     "pic": "../../pics/crocodile.png"
     },
     {
      "word": "مَكْتَب",
      "audio": "../u2l8/words/maktab.mp3",
-     "pic": "../../pics/ar-desk.png"
+     "pic": "../../pics/desk.png"
     }
    ]
   },
@@ -859,7 +859,7 @@
     {
      "word": "حُوت",
      "audio": "../u1l6/words/hut.mp3",
-     "pic": "../../pics/ar-whale.png",
+     "pic": "../../pics/whale.png",
      "answer": "ت",
      "choices": [
       "ت",
@@ -871,7 +871,7 @@
     {
      "word": "تَاج",
      "audio": "words/taj.mp3",
-     "pic": "../../pics/ar-crown.png",
+     "pic": "../../pics/crown.png",
      "answer": "ا",
      "choices": [
       "ا",
@@ -883,7 +883,7 @@
     {
      "word": "بِنْت",
      "audio": "../u1l4/words/bint.mp3",
-     "pic": "../../pics/ar-girl.png",
+     "pic": "../../pics/girl.png",
      "answer": "ت",
      "choices": [
       "ت",
@@ -907,8 +907,8 @@
      "word": "رَتَّبْتُ الرَّفَّ الْأَحْمَرَ.",
      "audio": "q/s14-1.mp3",
      "pics": [
-      "../../pics/ar-p37-toys-red-shelf.png",
-      "../../pics/ar-p37-toys-blue-shelf.png"
+      "../../pics/p37-toys-red-shelf.png",
+      "../../pics/p37-toys-blue-shelf.png"
      ],
      "answer": 0
     },
@@ -916,8 +916,8 @@
      "word": "أُحِبُّ التَّمْرَ وَاللِّفْتَ.",
      "audio": "q/s14-2.mp3",
      "pics": [
-      "../../pics/ar-p37-carrot-tomato.png",
-      "../../pics/ar-p37-turnip-dates.png"
+      "../../pics/p37-carrot-tomato.png",
+      "../../pics/p37-turnip-dates.png"
      ],
      "answer": 1
     }
@@ -985,7 +985,7 @@
    "items": [
     {
      "word": "تَ",
-     "pic": "../../pics/ar-dates.png",
+     "pic": "../../pics/dates.png",
      "audio": "../../syl-ar/62a-64e.mp3"
     },
     {
@@ -995,12 +995,12 @@
     },
     {
      "word": "تِ",
-     "pic": "../../pics/ar-crocodile.png",
+     "pic": "../../pics/crocodile.png",
      "audio": "../../syl-ar/62a-650.mp3"
     },
     {
      "word": "تْ",
-     "pic": "../../pics/ar-tape.png",
+     "pic": "../../pics/tape.png",
      "audio": "../../syl-ar/62a-652.mp3"
     }
    ]
@@ -1034,7 +1034,7 @@
     {
      "word": "كَتْكُوت",
      "audio": "words/katkut.mp3",
-     "pic": "../../pics/ar-chick.png",
+     "pic": "../../pics/chick.png",
      "answer": "تْ",
      "choices": [
       "تَ",
@@ -1046,7 +1046,7 @@
     {
      "word": "تَاج",
      "audio": "words/taj.mp3",
-     "pic": "../../pics/ar-crown.png",
+     "pic": "../../pics/crown.png",
      "answer": "تَ",
      "choices": [
       "تَ",
@@ -1057,7 +1057,7 @@
     {
      "word": "تِلْفَاز",
      "audio": "words/tilfaz.mp3",
-     "pic": "../../pics/ar-tv.png",
+     "pic": "../../pics/tv.png",
      "answer": "تِ",
      "choices": [
       "تَ",

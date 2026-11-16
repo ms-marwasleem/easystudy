@@ -24,6 +24,7 @@ async function boot(){
   S.subs=S.subs||{}; S.subs.prices=S.subs.prices||{}; S.currOff=S.currOff||{}; S.promos=S.promos||[]; if(S.promoOn==null) S.promoOn=true;
   Object.keys(S.items).forEach(k=>{ if(S.items[k].st!=='soon') delete S.items[k]; else S.items[k]={st:'soon'}; });   // old open/locked/price options removed: only "soon" is kept
   COURSE=await get('data/course.json');
+    COURSE.subjects=COURSE.subjects.filter(s=>!s.hidden);   // hidden:true in data/course.json = subject switched off for now (German, Science); remove the flag to restore
   const CJ=await get('data/curriculum.json').catch(()=>({grades:[],types:[]})); GRADES=CJ.grades.filter(g=>g.open!==false); CTYPES=CJ.types||[]; window.CSCH=CJ.schools||[];
   await Promise.all(COURSE.subjects.filter(s=>s.file).map(async s=>{ const d=await get(s.file).catch(()=>null); if(!d) return;
     s.units=d.units||[]; s.lessons=(d.lessons||[]).map(l=>({...l,id:`${s.id}-${l.folder}`,built:!!l.title})); }));
@@ -31,7 +32,9 @@ async function boot(){
     const W=await get('data/words/words.json').catch(()=>({})), WS=['arabic','en-ol','en-al'];
     COURSE.subjects=COURSE.subjects.filter(s=>WS.includes(s.id));
     COURSE.subjects.forEach(s=>{ s.lessons=(s.lessons||[]).filter(l=>!(l.tabs&&!l.tabs.includes('words'))&&!/^(test|تقييم|اختبار)/i.test(l.title||l.planned||''))
-      .map(l=>({...l,built:!!l.built&&!(W.skip||[]).includes(l.id)&&!!(W.all||(W.open||[]).includes(l.id))})); });
+      .map(l=>({...l,built:!!l.built&&!(W.skip||[]).includes(l.id)&&!!(W.all||(W.open||[]).includes(l.id))}));
+      if(s.id==='arabic') s.lessons=s.lessons.filter(l=>l.unit<=4);   // no النحو / final assessments in Easy Words (they have no words)
+      s.units=(s.units||[]).filter(u=>s.lessons.some(l=>l.unit===u.unit)); });
   }
   $('#where').textContent=LOCKED?'مش قادرين نجيب الإعدادات الحالية دلوقتي، فالحفظ متوقف عشان ما يتمسحش حاجة. اتأكدي من الإنترنت ومن كلمة السر (زرار «كلمة السر») وافتحي الصفحة تاني.':'';
   drawSettings(); drawTree(); drawPromos(); drawUsers(); drawStats(); drawReports();
@@ -44,7 +47,7 @@ async function boot(){
 /* ---------- settings page ---------- */
 let CTYPES=[];
 const NUMS=['shareCoins','lessonCost','dailyCap'];
-const TERMS=[['t1','الترم الأول'],['t2','الترم الثاني']];
+const TERMS_ALL=[['t1','الترم الأول'],['t2','الترم الثاني']], TERMS=TERMS_ALL.filter(x=>x[0]==='t1');   // الترم الثاني مخفي لحد ما يتبني: ضيفي 't2' هنا ويرجع
 function drawSettings(){ $('#u-grade').innerHTML=GRADES.map(g=>`<option value="${esc(g.id)}">${esc(g.ar)}</option>`).join('');
   const C=S.coins, B=S.subs;
   $('#c-enabled').checked=!!C.enabled; $('#c-parentGate').checked=C.parentGate!==false;
@@ -182,87 +185,99 @@ const api=(path,body)=>S.api?fetch(S.api+path+(body?'':(path.includes('?')?'&':'
 let SRV={subs:null,accounts:null,stats:null,promoUses:null,reports:null};
 function accounts(){ if(SRV.accounts) return SRV.accounts; const a=lsGet('es.account',null); if(!a) return []; return [{...a,kids:lsGet('es.kids',[])}]; }
 const subRow=(kid,t)=>(SRV.subs||[]).find(x=>x.child===kid&&x.term.split(':')[1]===t);
-/* ---------- users tab (2026-11-15): one column per fact, a live search under each column, edit window, ON/OFF switch per student and term ---------- */
+/* ---------- users tab (2026-11-16): one column per fact, every cell edits in place and saves at once, a live search / picker under each column, ON/OFF switch per student and term ---------- */
 const nrm=t=>String(t==null?'':t).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').toLowerCase().replace(/\s+/g,' ').trim();
 const fmtD=t=>{ if(!t) return ''; const d=new Date(t); if(isNaN(d)) return ''; const p=n=>String(n).padStart(2,'0'); return ar(p(d.getDate())+'/'+p(d.getMonth()+1)+'/'+d.getFullYear()); };
 const gradeName=id=>{ const g=GRADES.find(x=>x.id===id); return g?g.ar:(id||''); };
 const gradeOpts=sel=>GRADES.map(g=>`<option value="${esc(g.id)}"${g.id===sel?' selected':''}>${esc(g.ar)}</option>`).join('');
 const mailOf=a=>a.email&&!/@phone\.local$/.test(a.email)?a.email:'';
-const UF={};   // the text typed under each column
+const UF={}, UD={date:{},kdate:{},sdate:{}};   // UF = text typed under a column; UD = from / to days picked under a date column
 function subState(r){ const t=Date.now(); if(r&&r.st==='active'&&r.until>t) return 'on'; if(r&&r.st==='pending'&&r.until>t) return 'wait'; return 'off'; }
+const dayMs=(v,end)=>{ if(!v) return 0; const d=new Date(v+'T00:00:00'); return d.getTime()+(end?864e5-1:0); };
+const inRange=(t,c)=>{ const f=dayMs(UD[c].from), e=dayMs(UD[c].to,true); if(!f&&!e) return true; if(!t) return false; const x=new Date(t).getTime(); return (!f||x>=f)&&(!e||x<=e); };
+const hasKF=()=>UF.kid||UF.kdate||UD.kdate.from||UD.kdate.to||UF.sub||UD.sdate.from||UD.sdate.to;
 function drawUsers(){ const A=accounts(), box=$('#users'), srv=!!SRV.accounts, all=nrm($('#u-q').value);
-  $('#u-where').textContent=srv?'':'قائمة المستخدمين مش ظاهرة دلوقتي. اتأكدي من الإنترنت وكلمة السر وافتحي الصفحة تاني.';
-  const rows=[];   // one entry per parent with the text of every column
-  A.forEach(a=>{ const kids=(a.kids||[]).map(k=>{ const sub=['t1','t2'].map(t=>{ const r=subRow(k.id,t), st=subState(r); return {t,r,st}; });
-      return {k,sub,txt:{kid:nrm(k.name+' '+gradeName(k.grade)),kdate:nrm(fmtD(k.created)),sub:nrm(sub.map(x=>TNAME[x.t]+' '+(x.st==='on'?'مفعل':x.st==='wait'?'منتظر':'غير مفعل')).join(' ')),sdate:nrm(sub.map(x=>fmtD(x.r&&x.r.at)).join(' '))}}; });
-    rows.push({a,kids,txt:{num:'',date:nrm(fmtD(a.created)),email:nrm(mailOf(a)),phone:nrm(a.phone)}}); });
-  rows.forEach((o,i)=>o.txt.num=nrm(i+1));
-  const L=rows.filter(o=>{ const pf=['num','date','email','phone'].every(c=>!UF[c]||o.txt[c].includes(UF[c]));
-    if(!pf) return false; const kf=['kid','kdate','sub','sdate'].some(c=>UF[c]); o.show=o.kids.filter(x=>['kid','kdate','sub','sdate'].every(c=>!UF[c]||x.txt[c].includes(UF[c])));
-    if(all){ const hay=o.txt.num+' '+o.txt.date+' '+o.txt.email+' '+o.txt.phone+' '+o.kids.map(x=>x.txt.kid+' '+x.txt.kdate+' '+x.txt.sub+' '+x.txt.sdate).join(' '); if(!hay.includes(all)) return false; }
-    return kf?o.show.length>0:true; });
+  $('#u-where').textContent=srv?'اكتبي في أي خانة وهتتحفظ على طول.':'قائمة المستخدمين مش ظاهرة دلوقتي. اتأكدي من الإنترنت وكلمة السر وافتحي الصفحة تاني.';
+  const rows=A.map((a,i)=>({a,idx:i+1,kids:(a.kids||[]).map(k=>({k,sub:TERMS.map(x=>x[0]).map(t=>{ const r=subRow(k.id,t); return {t,r,st:subState(r)}; })}))}));
+  const L=rows.filter(o=>{ const a=o.a;
+    if(UF.num&&!nrm(o.idx).includes(UF.num)) return false; if(UF.email&&!nrm(mailOf(a)).includes(UF.email)) return false; if(UF.phone&&!nrm(a.phone).includes(UF.phone)) return false; if(!inRange(a.created,'date')) return false;
+    o.show=o.kids.filter(x=>(!UF.kid||nrm(x.k.name+' '+gradeName(x.k.grade)).includes(UF.kid))&&inRange(x.k.created,'kdate')
+      &&(!UF.sub||(UF.sub==='on'?x.sub.some(s=>s.st==='on'):!x.sub.some(s=>s.st==='on')))&&((!UD.sdate.from&&!UD.sdate.to)||x.sub.some(s=>inRange(s.r&&s.r.at,'sdate'))));
+    if(all){ const hay=nrm(o.idx+' '+fmtD(a.created)+' '+mailOf(a)+' '+a.phone+' '+o.kids.map(x=>x.k.name+' '+gradeName(x.k.grade)).join(' ')); if(!hay.includes(all)) return false; }
+    return hasKF()?o.show.length>0:true; });
   $('#u-count').textContent=ar(L.length)+' مستخدم';
   $('#u-add-go').disabled=!srv;
   if(!L.length){ box.innerHTML='<tr><td colspan="10"><p class="empty">'+(A.length?'مفيش نتيجة.':'مفيش حسابات مسجلة لسه.')+'</p></td></tr>'; return; }
   const dis=srv?'':' disabled';
-  const kidsOf=o=>{ const kf=['kid','kdate','sub','sdate'].some(c=>UF[c]); return kf?o.show:o.kids; };
-  box.innerHTML=L.map(o=>{ const a=o.a, K=kidsOf(o), n=Math.max(1,K.length), idx=rows.indexOf(o)+1, P=a.id||'';
-    const first=`<td rowspan="${n}" class="u-n"><b>${ar(idx)}</b></td><td rowspan="${n}" class="u-dt">${fmtD(a.created)||'—'}</td><td rowspan="${n}" dir="ltr" class="u-tx">${esc(mailOf(a))||'—'}</td><td rowspan="${n}" dir="ltr" class="u-tx">${esc(a.phone||'')||'—'}</td>`;
-    const last=`<td rowspan="${n}" class="u-act"><button type="button" class="ghost" data-a="edit"${dis}>تعديل</button><button type="button" class="u-del" data-a="del"${dis}>حذف</button></td>`;
-    if(!K.length) return `<tr data-p="${esc(P)}">${first}<td><span class="empty">مفيش طالب</span></td><td>—</td><td>—</td><td>—</td><td>—</td>${last}</tr>`;
-    return K.map((x,j)=>{ const k=x.k, g=k.grade||'p1', blk=f=>x.sub.map(s=>`<div class="trm" data-k="${esc(k.id)}" data-g="${esc(g)}" data-t="${s.t}">${f(s)}</div>`).join('');
-      return `<tr data-p="${esc(P)}">`+(j?'':first)+`<td><b>${esc(k.name)}</b><small>${esc(gradeName(g))}${k.school?' · '+esc(k.school):''}</small></td><td class="u-dt">${fmtD(k.created)||'—'}</td>`+
-        `<td>${blk(s=>`<label class="sw"><input type="checkbox" data-a="tog"${s.st==='on'?' checked':''}${dis}><span></span></label><span class="nm">${TNAME[s.t]}</span><span class="stb ${s.st==='on'?'open':''}">${s.st==='on'?'مفعّل':s.st==='wait'?'منتظر':'غير مفعّل'}</span>`)}</td>`+
+  box.innerHTML=L.map(o=>{ const a=o.a, K=hasKF()?o.show:o.kids, n=K.length+1, P=a.id||'';
+    const first=`<td rowspan="${n}" class="u-n"><b>${ar(o.idx)}</b></td><td rowspan="${n}" class="u-dt">${fmtD(a.created)||'—'}</td>
+      <td rowspan="${n}"><input class="u-in" data-f="email" dir="ltr" type="email" value="${esc(mailOf(a))}" placeholder="—"${dis}></td>
+      <td rowspan="${n}"><input class="u-in" data-f="phone" dir="ltr" type="tel" value="${esc(a.phone||'')}" placeholder="—"${dis}></td>`;
+    const last=`<td rowspan="${n}" class="u-act"><button type="button" class="u-del" data-a="del"${dis}>حذف</button></td>`;
+    const rowsK=K.map((x,j)=>{ const k=x.k, g=k.grade||'p1', blk=f=>x.sub.map(s=>`<div class="trm" data-k="${esc(k.id)}" data-g="${esc(g)}" data-t="${s.t}">${f(s)}</div>`).join('');
+      return `<tr data-p="${esc(P)}" data-k="${esc(k.id)}">`+(j?'':first)+`<td class="u-kc"><input class="u-in" data-f="kid" value="${esc(k.name)}"${dis}><select class="u-in" data-f="grade"${dis}>${gradeOpts(g)}</select>${k.school?'<small>'+esc(k.school)+'</small>':''}</td><td class="u-dt">${fmtD(k.created)||'—'}</td>`+
+        `<td>${blk(s=>`<label class="sw"><input type="checkbox" data-a="tog"${s.st==='on'?' checked':''}${dis}><span></span></label><span class="nm">${TNAME[s.t]}</span><span class="stb ${s.st==='on'?'open':''}">${s.st==='on'?'مشترك':s.st==='wait'?'منتظر':'غير مشترك'}</span>`)}</td>`+
         `<td class="u-dt">${blk(s=>fmtD(s.r&&s.r.at)||'—')}</td>`+
-        `<td>${blk(s=>s.r&&s.r.receipt?`<button type="button" class="ghost" data-a="rc">عرض الإيصال</button>`:'—')}</td>`+(j?'':last)+'</tr>'; }).join(''); }).join(''); }
+        `<td>${blk(s=>s.r&&s.r.receipt?`<button type="button" class="ghost" data-a="rc">عرض الإيصال</button>`:'—')}</td>`+(j?'':last)+'</tr>'; }).join('');
+    const addRow=`<tr data-p="${esc(P)}" class="u-addk">`+(K.length?'':first)+`<td colspan="5" class="u-akc"><button type="button" class="ghost" data-a="addk"${dis}>+ إضافة طالب</button></td>`+(K.length?'':last)+'</tr>';
+    return rowsK+addRow; }).join(''); }
 const refreshUsers=async()=>{ const ac=await api('/admin/accounts'); if(ac&&ac.accounts) SRV.accounts=ac.accounts; await loadSubs(); };
 $('#u-q').addEventListener('input',drawUsers);
-$$('.u-f').forEach(i=>i.addEventListener('input',()=>{ UF[i.dataset.c]=nrm(i.value); drawUsers(); }));
-/* a small window (receipt picture, edit user, confirm): no browser pop-ups, which some phones and browsers block */
+$$('.u-f').forEach(i=>i.addEventListener('input',()=>{ UF[i.dataset.c]=i.tagName==='SELECT'?i.value:nrm(i.value); drawUsers(); }));
+$$('.u-d').forEach(i=>i.addEventListener('input',()=>{ UD[i.dataset.c][i.dataset.e]=i.value; drawUsers(); }));
+$$('.u-dclr').forEach(b=>b.addEventListener('click',()=>{ const c=b.dataset.c; UD[c]={}; $$(`.u-d[data-c="${c}"]`).forEach(i=>i.value=''); drawUsers(); }));
+/* a small window (receipt picture, rejection message, confirm): no browser pop-ups, which some phones and browsers block */
 function uModal(html,cls){ const m=$('#u-modal'); $('#u-modal-in').className='u-modal-in '+(cls||''); $('#u-modal-in').innerHTML=html; m.hidden=false; return m; }
 const uClose=()=>{ $('#u-modal').hidden=true; $('#u-modal-in').innerHTML=''; };
 $('#u-modal').addEventListener('click',e=>{ if(e.target.id==='u-modal'||e.target.closest('[data-m="x"]')) uClose(); });
-const ask=(msg,yes)=>new Promise(res=>{ uModal(`<p class="u-q">${esc(msg)}</p><div class="u-btns"><button type="button" class="pri" data-m="y">${esc(yes||'أيوه')}</button><button type="button" class="ghost" data-m="x">لأ</button></div>`,'sm');
-  $('#u-modal-in').querySelector('[data-m=y]').onclick=()=>{ uClose(); res(true); }; const o=new MutationObserver(()=>{ if($('#u-modal').hidden){ o.disconnect(); res(false); } }); o.observe($('#u-modal'),{attributes:true,attributeFilter:['hidden']}); });
-const U_ERR={'bad-email':'الإيميل مش مظبوط','need-contact':'لازم إيميل أو موبايل','email-taken':'الإيميل ده لحساب تاني','bad-name':'اكتبي اسم الطالب'};
-function editUser(pid){ const a=accounts().find(x=>x.id===pid); if(!a) return;
-  uModal(`<h3>تعديل المستخدم</h3><label>الإيميل<input data-f="email" dir="ltr" type="email" value="${esc(mailOf(a))}"></label><label>الموبايل<input data-f="phone" dir="ltr" type="tel" value="${esc(a.phone||'')}"></label>
-    <h4>الطلاب</h4>${(a.kids||[]).map(k=>`<div class="u-kid" data-k="${esc(k.id)}"><input data-f="kn" value="${esc(k.name)}"><select data-f="kg">${gradeOpts(k.grade||'p1')}</select></div>`).join('')||'<p class="empty">مفيش طالب لسه.</p>'}
-    <h4>إضافة طالب</h4><div class="u-kid"><input data-f="nn" placeholder="اسم الطالب"><select data-f="ng">${gradeOpts('p1')}</select></div>
-    <p class="u-err" hidden></p><div class="u-btns"><button type="button" class="pri" data-m="save">حفظ</button><button type="button" class="ghost" data-m="x">إلغاء</button></div>`);
-  const M=$('#u-modal-in'), er=M.querySelector('.u-err'), bad=t=>{ er.textContent=t; er.hidden=false; };
-  M.querySelector('[data-m=save]').onclick=async()=>{ er.hidden=true; const g=f=>M.querySelector(`[data-f="${f}"]`).value.trim(); let x;
-    if(g('email')!==mailOf(a)||g('phone')!==(a.phone||'')){ x=await post('/admin/user/'+pid,{email:g('email'),phone:g('phone')}); if(!x||!x.ok) return bad(U_ERR[x&&x.error]||'ما اتحفظش، جربي تاني'); }
-    for(const d of M.querySelectorAll('.u-kid[data-k]')){ const k=a.kids.find(q=>q.id===d.dataset.k), n=d.querySelector('[data-f=kn]').value.trim(), gr=d.querySelector('[data-f=kg]').value;
-      if(k&&(n!==k.name||gr!==(k.grade||'p1'))){ if(!n) return bad('اكتبي اسم الطالب'); x=await post('/admin/kid/'+k.id,{name:n,grade:gr}); if(!x||!x.ok) return bad(U_ERR[x&&x.error]||'ما اتحفظش، جربي تاني'); } }
-    if(g('nn')){ x=await post('/admin/user/'+pid+'/kid',{name:g('nn'),grade:g('ng')}); if(!x||!x.ok) return bad(U_ERR[x&&x.error]||'ما اتضافش الطالب، جربي تاني'); }
-    uClose(); toast('اتحفظ'); await refreshUsers(); }; }
+const ask=(msg,yes)=>new Promise(res=>{ uModal(`<p class="u-q">${esc(msg)}</p><div class="u-btns"><button type="button" class="pri" data-m="y">${esc(yes||'أيوه')}</button><button type="button" class="ghost" data-m="x">لأ</button></div>`,'sm'); let done=false;
+  $('#u-modal-in').querySelector('[data-m=y]').onclick=()=>{ done=true; uClose(); res(true); }; const o=new MutationObserver(()=>{ if($('#u-modal').hidden){ o.disconnect(); if(!done) res(false); } }); o.observe($('#u-modal'),{attributes:true,attributeFilter:['hidden']}); });
+const U_ERR={'bad-email':'الإيميل مش مظبوط','need-contact':'لازم إيميل أو موبايل','email-taken':'الإيميل ده لحساب تاني','phone-taken':'الموبايل ده لحساب تاني','bad-name':'اكتبي اسم الطالب'};
+const showReceipt=async(child,term)=>{ const x=await post(`/admin/sub/${child}/${term}/receipt`);
+  uModal(x&&x.receipt?`<img src="${x.receipt}" alt="" class="u-rc"><div class="u-btns"><button type="button" class="ghost" data-m="x">إغلاق</button></div>`:`<p class="empty">الإيصال مش متاح.</p><div class="u-btns"><button type="button" class="ghost" data-m="x">إغلاق</button></div>`,'big'); };
+// every cell saves the moment it changes (email, mobile, student name, grade)
+$('#users').addEventListener('change',async e=>{ const i=e.target.closest('.u-in'), tg=e.target.closest('[data-a=tog]');
+  if(tg){ const r=tg.closest('.trm'), on=tg.checked; tg.disabled=true;
+    const x=on?await post('/admin/sub/grant',{child:r.dataset.k,term:r.dataset.g+':'+r.dataset.t}):await post('/admin/sub',{child:r.dataset.k,term:r.dataset.g+':'+r.dataset.t,action:'close'});
+    if(x&&x.ok) toast(on?'الاشتراك اتفعّل':'الاشتراك اتوقف'); else toast(x&&x.error==='admin-only'?'كلمة السر مش مظبوطة':on?'ما اتفعّلش، جربي تاني':'ما اتوقفش، جربي تاني');
+    await loadSubs(); return; }
+  if(!i||i.disabled) return; const tr=i.closest('tr'), f=i.dataset.f, pid=tr.dataset.p, a=accounts().find(x=>x.id===pid); let x;
+  if(f==='kid'||f==='grade'){ const k=a&&a.kids.find(q=>q.id===tr.dataset.k), nm=tr.querySelector('[data-f=kid]').value.trim(), gr=tr.querySelector('[data-f=grade]').value;
+    if(!nm){ toast('اكتبي اسم الطالب'); return drawUsers(); } x=await post('/admin/kid/'+tr.dataset.k,{name:nm,grade:gr}); if(x&&x.ok&&k){ k.name=nm; k.grade=gr; if(f==='grade') drawUsers(); } }
+  else { const row=tr.parentNode.querySelector(`tr[data-p="${pid}"]`), g=n=>row.querySelector(`[data-f="${n}"]`).value.trim(); x=await post('/admin/user/'+pid,{email:g('email'),phone:g('phone')}); if(x&&x.ok&&a){ a.email=g('email'); a.phone=g('phone'); } }
+  if(x&&x.ok) toast('اتحفظ'); else { toast(U_ERR[x&&x.error]||'ما اتحفظش، جربي تاني'); await refreshUsers(); drawUsers(); } });
 $('#users').addEventListener('click',async e=>{ const b=e.target.closest('[data-a]'); if(!b||b.disabled||b.dataset.a==='tog') return; const tr=b.closest('tr'), pid=tr.dataset.p;
-  if(b.dataset.a==='edit') return editUser(pid);
   if(b.dataset.a==='del'){ if(!(await ask('حذف المستخدم ده نهائيًا؟ هيتمسح معاه الطلاب والاشتراكات والإيصالات والكريدتس، ومفيش رجوع.','احذف'))) return; const x=await post('/admin/user/'+pid+'/delete',{}); if(x&&x.ok){ toast('اتحذف'); await refreshUsers(); } else toast('ما اتحذفش، جربي تاني'); return; }
-  if(b.dataset.a==='rc'){ const r=b.closest('.trm'), x=await post(`/admin/sub/${r.dataset.k}/${r.dataset.g}:${r.dataset.t}/receipt`);
-    uModal(x&&x.receipt?`<img src="${x.receipt}" alt="" class="u-rc"><div class="u-btns"><button type="button" class="ghost" data-m="x">إغلاق</button></div>`:`<p class="empty">الإيصال مش متاح.</p><div class="u-btns"><button type="button" class="ghost" data-m="x">إغلاق</button></div>`,'big'); } });
-// the ON / OFF switch: ON opens the term for the student (no receipt needed), OFF closes it; the app sees it the next time it syncs
-$('#users').addEventListener('change',async e=>{ const i=e.target.closest('[data-a=tog]'); if(!i) return; const r=i.closest('.trm'), on=i.checked; i.disabled=true;
-  const x=on?await post('/admin/sub/grant',{child:r.dataset.k,term:r.dataset.g+':'+r.dataset.t}):await post('/admin/sub',{child:r.dataset.k,term:r.dataset.g+':'+r.dataset.t,action:'close'});
-  if(x&&x.ok) toast(on?'الاشتراك اتفعّل':'الاشتراك اتوقف'); else toast(x&&x.error==='admin-only'?'كلمة السر مش مظبوطة':on?'ما اتفعّلش، جربي تاني':'ما اتوقفش، جربي تاني');
-  await loadSubs(); });
+  if(b.dataset.a==='rc'){ const r=b.closest('.trm'); return showReceipt(r.dataset.k,r.dataset.g+':'+r.dataset.t); }
+  if(b.dataset.a==='addk'){ const c=b.parentNode; c.innerHTML=`<input class="u-in" data-f="nn" placeholder="اسم الطالب الجديد"><select class="u-in" data-f="ng">${gradeOpts('p1')}</select><button type="button" class="pri" data-a="addk-go">إضافة</button><button type="button" class="ghost" data-a="addk-x">إلغاء</button>`; c.querySelector('input').focus(); return; }
+  if(b.dataset.a==='addk-x') return drawUsers();
+  if(b.dataset.a==='addk-go'){ const c=b.parentNode, nm=c.querySelector('[data-f=nn]').value.trim(), gr=c.querySelector('[data-f=ng]').value; if(!nm) return toast('اكتبي اسم الطالب');
+    b.disabled=true; const x=await post('/admin/user/'+pid+'/kid',{name:nm,grade:gr}); if(x&&x.ok){ toast('اتضاف الطالب'); await refreshUsers(); } else { b.disabled=false; toast(U_ERR[x&&x.error]||'ما اتضافش، جربي تاني'); } } });
+$('#u-form').addEventListener('submit',async e=>{ e.preventDefault(); const f=e.target, er=$('.u-err',f), v=n=>f.elements[n].value.trim(); er.hidden=true;
+  const body={email:v('email'),phone:v('phone'),kid:v('kid'),grade:v('grade')};
+  if(!body.email&&!body.phone){ er.textContent='اكتبي الإيميل أو الموبايل'; er.hidden=false; return; } if(!body.kid){ er.textContent='اكتبي اسم الطالب'; er.hidden=false; return; }
+  const x=await post('/admin/user',body); if(!x||!x.ok){ er.textContent=U_ERR[x&&x.error]||'ما اتضافش، جربي تاني'; er.hidden=false; return; }
+  f.reset(); toast('اتضاف المستخدم'); await refreshUsers(); });
 /* ---------- term subscriptions (server only; docs/subscriptions-spec.md): pending receipts first, activate / reject / close, grant with no receipt ---------- */
 const termNow=()=>/2/.test((COURSE&&COURSE.term)||'')?'t2':'t1', TNAME={t1:'الترم الأول',t2:'الترم التاني'};
 const STN={pending:'منتظر المراجعة',active:'مفعّل',rejected:'مرفوض',closed:'مقفول'};
 const post=(path,body)=>fetch(S.api+path,{method:body?'POST':'GET',credentials:'include',headers:hdr(),body:body?JSON.stringify(body):undefined}).then(r=>r.json()).catch(()=>null);
 const subOf=id=>{ const r=(SRV.subs||[]).filter(x=>x.child===id&&x.st==='active'&&x.until>Date.now()); return r.length?'مفعّل: '+r.map(x=>TNAME[x.term.split(':')[1]]).join('، '):'بدون اشتراك'; };
 async function loadSubs(){ if(!S.api){ drawSubs(); return; } const r=await post('/admin/subs?st=all'); if(r&&r.subs){ SRV.subs=r.subs; } drawSubs(); drawUsers(); }
+const SB_MSG='مقدرناش نتأكد من الدفع. ابعتي صورة الإيصال تاني من صفحة اشتراكاتي.';
 function drawSubs(){ const box=$('#subsList'), all=$('#sb-all').checked, L=(SRV.subs||[]).filter(x=>all||x.st==='pending');
-  $('#sb-where').textContent=SRV.subs?'الإيصالات المرفوعة من التطبيق. التأكيد بيفضل لحد ٣١ أغسطس، والرفض بيقفل الدروس فورًا.':'الاشتراكات مش ظاهرة دلوقتي. اتأكدي من الإنترنت وكلمة السر.';
-  box.innerHTML=L.length?L.map(x=>`<div class="usr sb" data-c="${esc(x.child)}" data-t="${esc(x.term)}"><div class="usr-top"><b>${esc(x.name)} — ${TNAME[x.term.split(':')[1]]||esc(x.term)}</b><span dir="ltr">${esc(x.email||'')} ${esc(x.phone||'')}</span><span class="rep-at">${fmt(x.at)}</span></div>
-    <div class="kid"><span class="nm">${ar(x.price)} جنيه · رقم العملية <b dir="ltr">${esc(x.ref||'—')}</b></span><span class="stb ${x.st==='active'?'on':'none'}">${STN[x.st]||x.st}</span>
-      ${x.receipt?'<button data-act="rc">الإيصال</button>':''}${x.st!=='active'?'<button data-act="activate">تفعيل</button>':''}${x.st==='pending'?'<button data-act="reject">رفض</button>':''}${x.st==='active'?'<button data-act="close">إلغاء</button>':''}</div><div class="sb-img"></div></div>`).join(''):'<p class="empty">مفيش اشتراكات هنا.</p>';
-  $$('.sb',box).forEach(r=>$$('[data-act]',r).forEach(b=>b.addEventListener('click',async()=>{ const c=r.dataset.c, t=r.dataset.t, act=b.dataset.act;
-    if(act==='rc'){ const x=await post(`/admin/sub/${c}/${t}/receipt`); $('.sb-img',r).innerHTML=x&&x.receipt?`<img src="${x.receipt}" alt="receipt" style="max-width:100%;max-height:70vh;border-radius:.5rem">`:'<p class="empty">الإيصال مش متاح.</p>'; return; }
-    if(act==='reject'&&!confirm('رفض الإيصال بيقفل الدروس فورًا. متأكدة؟')) return; if(act==='close'&&!confirm('إلغاء الاشتراك؟')) return;
-    const x=await post('/admin/sub',{child:c,term:t,action:act}); if(!x||!x.ok) alert('ما نفعش. جربي تاني'); loadSubs(); })));
-}
+  $('#sb-where').textContent=SRV.subs?'الإيصالات المرفوعة من التطبيق. التفعيل بيفضل لحد ٣١ أغسطس، والرفض بيقفل الدروس فورًا وبيبعت رسالتك لولي الأمر.':'الاشتراكات مش ظاهرة دلوقتي. اتأكدي من الإنترنت وكلمة السر.';
+  box.innerHTML=L.length?`<div class="utwrap"><table class="utbl sbtbl"><thead><tr><th>المستخدم</th><th>الطالب</th><th>الترم</th><th>تاريخ الاشتراك</th><th>رقم العملية</th><th>الإيصال</th><th>الحالة</th><th>الإجراء</th></tr></thead><tbody>`+L.map(x=>`<tr data-c="${esc(x.child)}" data-t="${esc(x.term)}">
+    <td dir="ltr" class="u-tx">${esc(x.email||'')}${x.email&&x.phone?'<br>':''}${esc(x.phone||'')}</td><td><b>${esc(x.name)}</b></td><td>${TNAME[x.term.split(':')[1]]||esc(x.term)}${x.price?`<small>${ar(x.price)} جنيه</small>`:''}</td><td class="u-dt">${fmtD(x.at)||'—'}</td><td dir="ltr">${esc(x.ref||'—')}</td>
+    <td>${x.receipt?'<button type="button" class="ghost" data-act="rc">عرض الإيصال</button>':'—'}</td><td><span class="stb ${x.st==='active'?'open':''}">${STN[x.st]||x.st}</span>${x.st==='rejected'&&x.note?`<small>${esc(x.note)}</small>`:''}</td>
+    <td class="sb-act">${x.st!=='active'?'<button type="button" class="pri" data-act="activate">تفعيل</button>':''}${x.st==='pending'||x.st==='active'?'<button type="button" class="u-del" data-act="reject">رفض</button>':''}</td></tr>`).join('')+'</tbody></table></div>':'<p class="empty">مفيش اشتراكات هنا.</p>'; }
+$('#subsList').addEventListener('click',async e=>{ const b=e.target.closest('[data-act]'); if(!b||b.disabled) return; const r=b.closest('tr'), c=r.dataset.c, t=r.dataset.t, act=b.dataset.act, row=(SRV.subs||[]).find(x=>x.child===c&&x.term===t)||{};
+  if(act==='rc') return showReceipt(c,t);
+  if(act==='activate'){ b.disabled=true; const x=await post('/admin/sub',{child:c,term:t,action:'activate'}); if(x&&x.ok) toast('الاشتراك اتفعّل'); else { const g=await post('/admin/sub/grant',{child:c,term:t}); toast(g&&g.ok?'الاشتراك اتفعّل':'ما اتفعّلش، جربي تاني'); } return loadSubs(); }
+  if(act==='reject'){ uModal(`<h3>رفض الاشتراك</h3><p class="u-q">اكتبي سبب الرفض لـ <b>${esc(row.name||'')}</b>. هتوصل لولي الأمر كإشعار في التطبيق وعلى الإيميل المسجل.</p><textarea id="u-rmsg" rows="4">${esc(SB_MSG)}</textarea>
+      <div class="u-btns"><button type="button" class="u-del" data-m="send">رفض وإرسال الرسالة</button><button type="button" class="ghost" data-m="x">إلغاء</button></div>`);
+    $('#u-modal-in [data-m=send]').onclick=async()=>{ const msg=$('#u-rmsg').value.trim()||SB_MSG; const x=await post('/admin/sub',{child:c,term:t,action:'reject',message:msg}); uClose();
+      toast(x&&x.ok?(x.mailed?'اترفض واتبعتت الرسالة في التطبيق وعلى الإيميل':'اترفض واتبعتت الرسالة في التطبيق'):'ما اترفضش، جربي تاني'); loadSubs(); }; } });
 $('#sb-all').addEventListener('change',drawSubs);
 $('#u-form').addEventListener('submit',async e=>{ e.preventDefault(); const f=e.target, er=$('.u-err',f), v=n=>f.elements[n].value.trim(); er.hidden=true;
   const body={email:v('email'),phone:v('phone'),kid:v('kid'),grade:v('grade')};
@@ -276,12 +291,41 @@ function drawStats(){
   const A=accounts(), W=wallets(), H=SRV.stats?SRV.stats.hist:W.flatMap(w=>w.hist||[]).sort((a,b)=>b.at-a.at);
   const earned=H.filter(h=>h.n>0).reduce((a,h)=>a+h.n,0), spent=-H.filter(h=>h.n<0).reduce((a,h)=>a+h.n,0), shares=H.filter(h=>h.k==='share');
   const today=new Date().toDateString(), newToday=A.filter(a=>a.created&&new Date(a.created).toDateString()===today).length;
-  const K=[['حسابات أولياء الأمور',A.length],['حسابات اليوم',newToday],['الأطفال',A.reduce((a,x)=>a+x.kids.length,0)],['المشاركات',shares.length],
-    ['كريدتس اتكسبت',earned],['كريدتس اتصرفت',spent],['دروس اتفتحت',H.filter(h=>h.k==='unlock-lesson').length]];
-  $('#kpis').innerHTML=K.map(([l,v])=>`<div class="kpi"><b>${ar(v)}</b><span>${l}</span></div>`).join('');
+  const K=[['حسابات أولياء الأمور',A.length,'users'],['حسابات اليوم',newToday,'users'],['الأطفال',A.reduce((a,x)=>a+x.kids.length,0),'users'],['المشاركات',shares.length,'shares','shares'],
+    ['كريدتس اتكسبت',earned,'shares','acc'],['كريدتس اتصرفت',spent,'shares','spend'],['دروس اتفتحت',H.filter(h=>h.k==='unlock-lesson').length,'shares','spend']];
+  $('#kpis').innerHTML=K.map(([l,v,p,h])=>`<button type="button" class="kpi" data-go="${p}" data-h="${h||''}"><b>${ar(v)}</b><span>${l}</span></button>`).join('');
+  $$('#kpis .kpi').forEach(b=>b.addEventListener('click',()=>{ if(b.dataset.h) SH.t=b.dataset.h; showTab(b.dataset.go); if(b.dataset.go==='shares') drawShares(); }));
+  drawShares();
   const name=id=>{ const t=(S.coins.shares||[]).find(x=>x.id===id); return t?t.ar:id||''; };
   $('#hist').innerHTML=H.length?`<div class="row hr h"><span>الوقت</span><span>النوع</span><span>التفاصيل</span><span>كريدتس</span></div>`+H.slice(0,40).map(h=>`<div class="row hr"><span>${fmt(h.at)}</span><span>${KIND[h.k]||h.k}</span><span>${esc(h.k==='share'?name(h.t):h.k==='promo'?(h.code?h.code+' · ':'')+(h.id||''):h.id||'')}</span><b dir="ltr">${h.n>0?'+':''}${h.n}</b></div>`).join(''):'<p class="empty">مفيش حركات كريدتس على الجهاز ده لسه.</p>';
 }
+
+/* ---------- the shares tab (Ahmed 2026-11-16): who shared, the credits each account earned / spent, what they bought with them and how many lessons were opened with credits.
+   Same data as the stats list (server: GET api/admin/stats hist, each row has the account's email / mobile and the child's name; no server: this device's wallets). ---------- */
+const SH={t:'acc'};
+function shHist(){ const A=accounts(); if(SRV.stats) return SRV.stats.hist.map(h=>({...h,acc:h.pid||h.parent||''}));
+  return wallets().flatMap(w=>(w.hist||[]).map(h=>({...h,acc:'device',email:(A[0]&&mailOf(A[0]))||'',phone:(A[0]&&A[0].phone)||''}))); }
+const shWho=h=>{ const m=h.email&&!/@phone\.local$/.test(h.email)?h.email:'', p=h.phone||''; return [m,p].filter(Boolean).join(' · ')||h.parent||'—'; };
+function shItem(id){ id=String(id||''); if(!id) return '—';
+  const lid=id.replace(/^l:/,''); for(const s of (COURSE&&COURSE.subjects)||[]){ const l=(s.lessons||[]).find(x=>x.id===lid); if(l) return s.name+' · الدرس '+ar(l.lesson)+' '+(l.title||l.planned||''); }
+  const u=id.match(/^u:([\w-]+):(\d+)$/); if(u){ const s=((COURSE&&COURSE.subjects)||[]).find(x=>x.id===u[1]); return (s?s.name+' · ':'')+'الوحدة '+ar(u[2]); }
+  return id; }
+function drawShares(){ const box=$('#sh-body'); if(!box) return; const H=shHist(), q=nrm($('#sh-q').value), T=SH.t;
+  $$('#sh-tabs button').forEach(b=>b.classList.toggle('on',b.dataset.h===T));
+  $('#sh-where').textContent=SRV.stats?'':'الأرقام دي من الجهاز ده بس لحد ما السيرفر يشتغل.';
+  const sharesName=id=>{ const t=(S.coins.shares||[]).find(x=>x.id===id); return t?t.ar:id||''; };
+  const hit=s=>!q||nrm(s).includes(q); let head='', rows=[];
+  if(T==='acc'){ const M={}; H.forEach(h=>{ const o=M[h.acc]=M[h.acc]||{who:shWho(h),earn:0,spent:0,sh:0,les:0,uni:0,bal:h.bal,last:0,items:[]};
+      if(h.n>0) o.earn+=h.n; else o.spent-=h.n; if(h.k==='share') o.sh++; if(h.k==='unlock-lesson'){ o.les++; o.items.push(shItem(h.id)); } if(h.k==='unlock-unit'){ o.uni++; o.items.push(shItem(h.id)); } o.last=Math.max(o.last,h.at||0); });
+    head='<tr><th>الحساب</th><th>مشاركات</th><th>كريدتس اتكسبت</th><th>كريدتس اتصرفت</th><th>الرصيد</th><th>دروس اتفتحت</th><th>وحدات اتفتحت</th><th>صرفها في</th></tr>';
+    rows=Object.values(M).sort((a,b)=>b.last-a.last).filter(o=>hit(o.who+' '+o.items.join(' '))).map(o=>`<tr><td dir="ltr" class="u-tx">${esc(o.who)}</td><td>${ar(o.sh)}</td><td>${ar(o.earn)}</td><td>${ar(o.spent)}</td><td>${o.bal==null?'—':ar(o.bal)}</td><td>${ar(o.les)}</td><td>${ar(o.uni)}</td><td>${o.items.length?o.items.map(esc).join('<br>'):'—'}</td></tr>`); }
+  else if(T==='shares'){ head='<tr><th>الوقت</th><th>الحساب</th><th>اتشارك عن طريق</th><th>كريدتس</th></tr>';
+    rows=H.filter(h=>h.k==='share'&&hit(shWho(h)+' '+sharesName(h.t))).map(h=>`<tr><td>${fmt(h.at)}</td><td dir="ltr" class="u-tx">${esc(shWho(h))}</td><td>${esc(sharesName(h.t))}</td><td>+${ar(h.n)}</td></tr>`); }
+  else { head='<tr><th>الوقت</th><th>الحساب</th><th>الطفل</th><th>اتفتح إيه</th><th>كريدتس</th></tr>';
+    rows=H.filter(h=>/^unlock/.test(h.k)&&hit(shWho(h)+' '+(h.kid||'')+' '+shItem(h.id))).map(h=>`<tr><td>${fmt(h.at)}</td><td dir="ltr" class="u-tx">${esc(shWho(h))}</td><td>${esc(h.kid||'—')}</td><td>${esc(shItem(h.id))}</td><td>${ar(-h.n)}</td></tr>`); }
+  $('#sh-head').innerHTML=head; $('#sh-count').textContent=ar(rows.length)+(T==='acc'?' حساب':' حركة');
+  box.innerHTML=rows.length?rows.join(''):'<tr><td colspan="8"><p class="empty">مفيش بيانات لسه.</p></td></tr>'; }
+$$('#sh-tabs button').forEach(b=>b.addEventListener('click',()=>{ SH.t=b.dataset.h; drawShares(); })); $('#sh-q').addEventListener('input',drawShares);
 
 /* ---------- reports (2026-11-06): "report a problem" flags from the app (js/report.js). Server: GET api/admin/reports, POST api/admin/report/<id>; no server: this device's es.reports ---------- */
 const RPTAB={read:'الدرس',words:'الكلمات',quiz:'أسئلة الكتاب',booklet:'الكُتيب',workbook:'كتاب التقييمات',grammar:'القواعد',exam:'ورقة تقييم'};

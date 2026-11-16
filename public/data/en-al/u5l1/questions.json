@@ -1,6 +1,501 @@
 {
  "sets": [
   {
+   "type": "explain",
+   "task": "Listen and read. Let's find Dad!",
+   "taskAudio": "../../en-shared/q/listen-and-read-let-s-find-dad.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u5l1-s1.jpg"
+     ],
+     "lines": [
+      {
+       "t": "Let's find Dad!",
+       "a": "../../en-shared/q/let-s-find-dad.mp3",
+       "cls": "head"
+      },
+      {
+       "t": "1  Grandpa and Chau take the bus to a new neighborhood. They want to find Dad, but they need help.",
+       "a": "../../en-shared/q/grandpa-and-chau-take-the-bus-to-a-new-neighborhoo-74c5f570.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 98
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u5l1-s2.jpg"
+     ],
+     "lines": [
+      {
+       "t": "2  Maybe Dad is hungry. Excuse me, where's the supermarket?",
+       "a": "../../en-shared/q/maybe-dad-is-hungry-excuse-me-where-s-the-supermarket.mp3"
+      },
+      {
+       "t": "Go straight. Turn right at the movie theater. It's between the recreation center and the school.",
+       "a": "../../en-shared/q/go-straight-turn-right-at-the-movie-theater-it-s-b-bcc23957.mp3"
+      },
+      {
+       "t": "Thank you!",
+       "a": "../../en-shared/q/thank-you.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 98
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u5l1-s3.jpg"
+     ],
+     "lines": [
+      {
+       "t": "3  Dad isn't here.",
+       "a": "../../en-shared/q/dad-isn-t-here.mp3"
+      },
+      {
+       "t": "No, he isn't. Let's go to the department store!",
+       "a": "../../en-shared/q/no-he-isn-t-let-s-go-to-the-department-store.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 99
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u5l1-s4.jpg"
+     ],
+     "lines": [
+      {
+       "t": "4  Excuse me, can you take us to the department store, please?",
+       "a": "../../en-shared/q/excuse-me-can-you-take-us-to-the-department-store-please.mp3"
+      },
+      {
+       "t": "You don't need a taxi! The department store is on that street. It's next to the swimming pool.",
+       "a": "../../en-shared/q/you-don-t-need-a-taxi-the-department-store-is-on-t-67fde704.mp3"
+      },
+      {
+       "t": "Thank you!",
+       "a": "../../en-shared/q/thank-you.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 99
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u5l1-s5.jpg"
+     ],
+     "lines": [
+      {
+       "t": "5  Dad isn't here.",
+       "a": "../../en-shared/q/dad-isn-t-here.mp3"
+      },
+      {
+       "t": "No, he isn't.",
+       "a": "../../en-shared/q/no-he-isn-t.mp3"
+      },
+      {
+       "t": "He's not in the toy store.",
+       "a": "../../en-shared/q/he-s-not-in-the-toy-store.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 99
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u5l1-s6.jpg"
+     ],
+     "lines": [
+      {
+       "t": "6  Look, Grandpa. Dad is in the furniture store!",
+       "a": "../../en-shared/q/look-grandpa-dad-is-in-the-furniture-store.mp3"
+      },
+      {
+       "t": "Hello! Look! Here's your new desk, Chau!",
+       "a": "../../en-shared/q/hello-look-here-s-your-new-desk-chau.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 99
+  },
+  {
+   "type": "link",
+   "task": "Match.",
+   "taskAudio": "../../en-shared/q/match.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "word": "You can watch movies here.",
+     "text2": "movie theater",
+     "audio": "../../en-shared/q/you-can-watch-movies-here.mp3",
+     "audio2": "../../en-shared/q/movie-theater.mp3"
+    },
+    {
+     "word": "The place where you live.",
+     "text2": "neighborhood",
+     "audio": "../../en-shared/q/the-place-where-you-live.mp3",
+     "audio2": "../../en-shared/q/neighborhood.mp3"
+    },
+    {
+     "word": "You can swim here.",
+     "text2": "swimming pool",
+     "audio": "../../en-shared/q/you-can-swim-here.mp3",
+     "audio2": "../../en-shared/q/swimming-pool.mp3"
+    },
+    {
+     "word": "You buy food here.",
+     "text2": "supermarket",
+     "audio": "../../en-shared/q/you-buy-food-here.mp3",
+     "audio2": "../../en-shared/q/supermarket.mp3"
+    },
+    {
+     "word": "A car to take you somewhere.",
+     "text2": "taxi",
+     "audio": "../../en-shared/q/a-car-to-take-you-somewhere.mp3",
+     "audio2": "../../en-shared/q/taxi.mp3"
+    }
+   ],
+   "page": 96,
+   "ex": "B"
+  },
+  {
+   "type": "cloze",
+   "task": "Complete the sentences.",
+   "taskAudio": "../../en-shared/q/complete-the-sentences.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "text": "I take the [[bus]] to school.",
+     "bank": [
+      "bus",
+      "department store",
+      "recreation center",
+      "street",
+      "toy store"
+     ],
+     "audio": "../../en-shared/q/i-take-the-bus-to-school.mp3",
+     "askAudio": "../../en-shared/q/askz-3d623a43bd.mp3"
+    },
+    {
+     "text": "I live on this [[street]].",
+     "bank": [
+      "bus",
+      "department store",
+      "recreation center",
+      "street",
+      "toy store"
+     ],
+     "audio": "../../en-shared/q/i-live-on-this-street.mp3",
+     "askAudio": "../../en-shared/q/askz-479b32c4f4.mp3"
+    },
+    {
+     "text": "This [[toy store]] has lots of puzzles and dolls!",
+     "bank": [
+      "bus",
+      "department store",
+      "recreation center",
+      "street",
+      "toy store"
+     ],
+     "audio": "../../en-shared/q/this-toy-store-has-lots-of-puzzles-and-dolls.mp3",
+     "askAudio": "../../en-shared/q/askz-18375bed2b.mp3"
+    },
+    {
+     "text": "I play soccer at the [[recreation center]].",
+     "bank": [
+      "bus",
+      "department store",
+      "recreation center",
+      "street",
+      "toy store"
+     ],
+     "audio": "../../en-shared/q/i-play-soccer-at-the-recreation-center.mp3",
+     "askAudio": "../../en-shared/q/askz-77a6200b4c.mp3"
+    },
+    {
+     "text": "You can buy clothes at the [[department store]].",
+     "bank": [
+      "bus",
+      "department store",
+      "recreation center",
+      "street",
+      "toy store"
+     ],
+     "audio": "../../en-shared/q/you-can-buy-clothes-at-the-department-store.mp3",
+     "askAudio": "../../en-shared/q/askz-885bc882a9.mp3"
+    }
+   ],
+   "page": 96,
+   "ex": "C"
+  },
+  {
+   "type": "mcq",
+   "task": "Read the story again. Circle the correct answers.",
+   "taskAudio": "../../en-shared/q/read-the-story-again-circle-the-correct-answers.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "Dad ____ at home.",
+     "options": [
+      "is",
+      "isn't"
+     ],
+     "answer": 1,
+     "word": "Dad isn't at home.",
+     "audio": "../../en-shared/q/dad-isn-t-at-home.mp3",
+     "parts": [
+      "../../en-shared/q/dad.mp3",
+      "../../en-shared/q/at-home.mp3"
+     ]
+    },
+    {
+     "stem": "Chau and Grandpa go to the neighborhood by ____.",
+     "options": [
+      "bus",
+      "train"
+     ],
+     "answer": 0,
+     "word": "Chau and Grandpa go to the neighborhood by bus.",
+     "audio": "../../en-shared/q/chau-and-grandpa-go-to-the-neighborhood-by-bus.mp3",
+     "parts": [
+      "../../en-shared/q/chau-and-grandpa-go-to-the-neighborhood-by.mp3"
+     ]
+    },
+    {
+     "stem": "The department store is ____ the swimming pool.",
+     "options": [
+      "near",
+      "far from"
+     ],
+     "answer": 0,
+     "word": "The department store is near the swimming pool.",
+     "audio": "../../en-shared/q/the-department-store-is-near-the-swimming-pool.mp3",
+     "parts": [
+      "../../en-shared/q/the-department-store-is.mp3",
+      "../../en-shared/q/the-swimming-pool.mp3"
+     ]
+    },
+    {
+     "stem": "Dad is in the ____ store.",
+     "options": [
+      "toy",
+      "furniture"
+     ],
+     "answer": 1,
+     "word": "Dad is in the furniture store.",
+     "audio": "../../en-shared/q/dad-is-in-the-furniture-store.mp3",
+     "parts": [
+      "../../en-shared/q/dad-is-in-the.mp3",
+      "../../en-shared/q/store.mp3"
+     ]
+    }
+   ],
+   "page": 100,
+   "ex": "B"
+  },
+  {
+   "type": "check",
+   "task": "Use Pictures to Identify Place. Where do Chau and Grandpa go? Check.",
+   "taskAudio": "../../en-shared/q/use-pictures-to-identify-place-where-do-chau-and-g-2e638a20.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "words": [
+      "movie theater",
+      "supermarket",
+      "department store",
+      "school"
+     ],
+     "n": 1,
+     "audios": [
+      "../../en-shared/q/movie-theater.mp3",
+      "../../en-shared/q/supermarket.mp3",
+      "../../en-shared/q/department-store.mp3",
+      "../../en-shared/q/school.mp3"
+     ],
+     "ok": [
+      2
+     ],
+     "pics": [
+      "../../pics/al-u5l1-c1.jpg",
+      "../../pics/al-u5l1-c2.jpg",
+      "../../pics/al-u5l1-c3.jpg",
+      "../../pics/al-u5l1-c4.jpg"
+     ]
+    }
+   ],
+   "page": 100,
+   "ex": "C"
+  },
+  {
+   "type": "mcq",
+   "task": "Read. Circle Yes or No.",
+   "taskAudio": "../../en-shared/q/read-circle-yes-or-no.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "In quests, people look for a person, place, or thing.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 0,
+     "word": "In quests, people look for a person, place, or thing. Yes.",
+     "audio": "../../en-shared/q/in-quests-people-look-for-a-person-place-or-thing-yes.mp3"
+    },
+    {
+     "stem": "In quests, people stay in the same place.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 1,
+     "word": "In quests, people stay in the same place. No.",
+     "audio": "../../en-shared/q/in-quests-people-stay-in-the-same-place-no.mp3"
+    }
+   ],
+   "page": 100,
+   "ex": "D"
+  },
+  {
+   "type": "check",
+   "task": "How do Chau and Grandpa find Dad? Check.",
+   "taskAudio": "../../en-shared/q/how-do-chau-and-grandpa-find-dad-check.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "words": [
+      "They ask people for help.",
+      "They buy some food."
+     ],
+     "n": 1,
+     "audios": [
+      "../../en-shared/q/they-ask-people-for-help.mp3",
+      "../../en-shared/q/they-buy-some-food.mp3"
+     ],
+     "ok": [
+      0
+     ]
+    }
+   ],
+   "page": 100,
+   "ex": "E"
+  },
+  {
+   "type": "mcq",
+   "task": "Look. Complete the directions.",
+   "taskAudio": "../../en-shared/q/look-complete-the-directions.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "Turn ____.",
+     "options": [
+      "right",
+      "left"
+     ],
+     "answer": 0,
+     "word": "Turn right.",
+     "audio": "../../en-shared/q/turn-right.mp3",
+     "parts": [
+      "../../en-shared/q/turn.mp3"
+     ],
+     "pics": [
+      "../../pics/sign-right.png"
+     ]
+    },
+    {
+     "stem": "Go ____.",
+     "options": [
+      "straight",
+      "left"
+     ],
+     "answer": 0,
+     "word": "Go straight.",
+     "audio": "../../en-shared/q/go-straight.mp3",
+     "parts": [
+      "../../en-shared/q/go.mp3"
+     ],
+     "pics": [
+      "../../pics/sign-straight.png"
+     ]
+    },
+    {
+     "stem": "____ left.",
+     "options": [
+      "Turn",
+      "Go"
+     ],
+     "answer": 0,
+     "word": "Turn left.",
+     "audio": "../../en-shared/q/turn-left.mp3",
+     "parts": [
+      "../../en-shared/q/left.mp3"
+     ],
+     "pics": [
+      "../../pics/sign-left.png"
+     ]
+    },
+    {
+     "stem": "It's ____ the left.",
+     "options": [
+      "on",
+      "in"
+     ],
+     "answer": 0,
+     "word": "It's on the left.",
+     "audio": "../../en-shared/q/it-s-on-the-left.mp3",
+     "parts": [
+      "../../en-shared/q/it-s.mp3",
+      "../../en-shared/q/the-left.mp3"
+     ],
+     "pics": [
+      "../../pics/al-u5l1-a4.jpg"
+     ]
+    }
+   ],
+   "page": 101,
+   "ex": "B"
+  },
+  {
    "type": "type",
    "task": "Read and complete the missing letters.",
    "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",
@@ -10,7 +505,7 @@
      "word": "taxi",
      "missing": 1,
      "answer": "a",
-     "pic": "../../pics/u5-taxi.jpg",
+     "pic": "../../pics/taxi.jpg",
      "audio": "../../en-shared/q/taxi.mp3"
     },
     {
@@ -19,7 +514,7 @@
       2,
       12
      ],
-     "pic": "../../pics/u5-dept-store.jpg",
+     "pic": "../../pics/dept-store.jpg",
      "audio": "../../en-shared/q/department-store.mp3"
     },
     {
@@ -28,21 +523,21 @@
       2,
       11
      ],
-     "pic": "../../pics/u5-movie-theater.jpg",
+     "pic": "../../pics/movie-theater.jpg",
      "audio": "../../en-shared/q/movie-theater.mp3"
     },
     {
      "word": "bus",
      "missing": 1,
      "answer": "u",
-     "pic": "../../pics/u5-bus.jpg",
+     "pic": "../../pics/bus-u5l1.png",
      "audio": "../../en-shared/q/bus.mp3"
     },
     {
      "word": "neighborhood",
      "missing": 3,
      "answer": "g",
-     "pic": "../../pics/u5-neighborhood.jpg",
+     "pic": "../../pics/neighborhood.jpg",
      "audio": "../../en-shared/q/neighborhood.mp3"
     }
    ],
@@ -57,27 +552,27 @@
    "items": [
     {
      "word": "toy store",
-     "pic": "../../pics/u5-toy-store.jpg",
+     "pic": "../../pics/toy-store.jpg",
      "audio": "../../en-shared/q/toy-store.mp3"
     },
     {
      "word": "swimming pool",
-     "pic": "../../pics/u5-swimming-pool.jpg",
+     "pic": "../../pics/swimming-pool.jpg",
      "audio": "../../en-shared/q/swimming-pool.mp3"
     },
     {
      "word": "street",
-     "pic": "../../pics/u5-street.jpg",
+     "pic": "../../pics/street.jpg",
      "audio": "../../en-shared/q/street.mp3"
     },
     {
      "word": "recreation center",
-     "pic": "../../pics/u5-recreation-center.jpg",
+     "pic": "../../pics/recreation-center.jpg",
      "audio": "../../en-shared/q/recreation-center.mp3"
     },
     {
      "word": "supermarket",
-     "pic": "../../pics/u5-supermarket.jpg",
+     "pic": "../../pics/supermarket.jpg",
      "audio": "../../en-shared/q/supermarket.mp3"
     }
    ],
@@ -546,109 +1041,35 @@
    "grp": "dir"
   },
   {
-   "type": "mcq",
+   "type": "mistake",
    "task": "Correct the mistake in each sentence.",
    "taskAudio": "../../en-shared/q/correct-the-mistake-in-each-sentence.mp3",
    "book": "booklet",
    "items": [
     {
-     "stem": "____ at the corner before you cross the street.",
-     "options": [
-      "Turn",
-      "Stop"
-     ],
-     "answer": 1,
      "word": "Stop at the corner before you cross the street.",
      "audio": "../../en-shared/q/stop-at-the-corner-before-you-cross-the-street.mp3",
-     "parts": [
-      "../../en-shared/q/at-the-corner-before-you-cross-the-street.mp3"
-     ],
-     "optSay": [
-      "Turn",
-      "Stop"
-     ],
-     "ask": "Turn at the corner before you cross the street.",
-     "askAudio": "../../en-shared/q/askc-ff4ee9a489.mp3"
+     "ask": "Turn at the corner before you cross the street."
     },
     {
-     "stem": "The school is ____ of the post office.",
-     "options": [
-      "turn right",
-      "on the right"
-     ],
-     "answer": 1,
      "word": "The school is on the right of the post office.",
      "audio": "../../en-shared/q/the-school-is-on-the-right-of-the-post-office.mp3",
-     "parts": [
-      "../../en-shared/q/the-school-is.mp3",
-      "../../en-shared/q/of-the-post-office.mp3"
-     ],
-     "optSay": [
-      "turn right",
-      "on the right"
-     ],
-     "ask": "The school is turn right of the post office.",
-     "askAudio": "../../en-shared/q/askc-9ceb004ae1.mp3"
+     "ask": "The school is turn right of the post office."
     },
     {
-     "stem": "You need to ____ at the big red building.",
-     "options": [
-      "turn straight",
-      "go straight"
-     ],
-     "answer": 1,
      "word": "You need to go straight at the big red building.",
      "audio": "../../en-shared/q/you-need-to-go-straight-at-the-big-red-building.mp3",
-     "parts": [
-      "../../en-shared/q/you-need-to.mp3",
-      "../../en-shared/q/at-the-big-red-building.mp3"
-     ],
-     "optSay": [
-      "turn straight",
-      "go straight"
-     ],
-     "ask": "You need to turn straight at the big red building.",
-     "askAudio": "../../en-shared/q/askc-90c58447d3.mp3"
+     "ask": "You need to turn straight at the big red building."
     },
     {
-     "stem": "My house is ____ of the bakery.",
-     "options": [
-      "go left",
-      "on the left"
-     ],
-     "answer": 1,
      "word": "My house is on the left of the bakery.",
      "audio": "../../en-shared/q/my-house-is-on-the-left-of-the-bakery.mp3",
-     "parts": [
-      "../../en-shared/q/my-house-is.mp3",
-      "../../en-shared/q/of-the-bakery.mp3"
-     ],
-     "optSay": [
-      "go left",
-      "on the left"
-     ],
-     "ask": "My house is go left of the bakery.",
-     "askAudio": "../../en-shared/q/askc-3ab5428231.mp3"
+     "ask": "My house is go left of the bakery."
     },
     {
-     "stem": "You ____ on the street for the supermarket.",
-     "options": [
-      "turn",
-      "go straight"
-     ],
-     "answer": 1,
      "word": "You go straight on the street for the supermarket.",
      "audio": "../../en-shared/q/you-go-straight-on-the-street-for-the-supermarket.mp3",
-     "parts": [
-      "../../en-shared/q/you.mp3",
-      "../../en-shared/q/on-the-street-for-the-supermarket.mp3"
-     ],
-     "optSay": [
-      "turn",
-      "go straight"
-     ],
-     "ask": "You turn on the street for the supermarket.",
-     "askAudio": "../../en-shared/q/askc-4355c8466f.mp3"
+     "ask": "You turn on the street for the supermarket."
     }
    ],
    "page": 116,

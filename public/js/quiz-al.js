@@ -15,7 +15,7 @@ function alExplain(box,q,s,run){
   const labs=[];   // word chips on the pictures (labels: {w, at:[x%,y%], p: picture index}) and captions under them (caps: [word..]); a tap reads that word
   const chip=(cls,w,host,at)=>{ const b=el('button',cls,w); if(at){ b.style.left=at[0]+'%'; b.style.top=at[1]+'%'; } host.append(b); const id='L:'+w+labs.length; labs.push({b,w,id});
     b.addEventListener('click',async e=>{ e.stopPropagation(); hideHint(); vStop(); tok++; b.classList.add('lit'); await qSound(alWordSrc(w),alClean(w)); b.classList.remove('lit'); heard(id); }); return b; };
-  if((q.pics||[]).length){ const pc=el('div','alpics'); q.pics.forEach((p,k)=>{ const f=el('div','alfig'); const im=el('img','',''); im.src=p; im.alt=''; f.append(im); pc.append(f);
+  if((q.pics||[]).length){ const pc=el('div','alpics'); q.pics.forEach((p,k)=>{ const f=el('div','alfig'); const im=el('img','',''); im.src=p; im.alt=''; if(q.pics.length===1&&(q.lines||[]).length) im.addEventListener('load',()=>{ if(im.naturalWidth/im.naturalHeight>1.7) pg.classList.add('stack'); }); /* a wide picture (a comic strip) gets the full width, the text goes under it */ f.append(im); pc.append(f);
     (q.labels||[]).filter(lb=>(lb.p||0)===k).forEach(lb=>{ const b=chip('allabel',lb.w,f,lb.at); b.dataset.x=lb.at[0]; b.dataset.y=lb.at[1]; });
     if((q.labels||[]).some(lb=>(lb.p||0)===k)){ f.classList.add('haslab');
       // words stand OUTSIDE the picture (left / right gutter, like the book); a thin line runs from each word to its spot and ends in a small dot
@@ -54,17 +54,73 @@ function alExplain(box,q,s,run){
         cell.addEventListener('click',async e=>{ if(e.target.closest('.alw')) return; const my=++tok; clearOn(); vStop(); cell.classList.add('on'); await qSound(it.src,c.t); if(my===tok){ cell.classList.remove('on'); heard(id); } });
         it.play=async()=>{ cell.classList.add('on'); await qSound(it.src,c.t); cell.classList.remove('on'); heard(id); }; rw.append(cell); }); grid.append(rw); }); tb.append(grid); tx.append(tb); }
   labs.forEach(l=>need.add(l.id));
-  setRail([{kind:'go',icon:'play',label:tr('Listen'),click:()=>{ hideHint(); all(); }}]); $('#lesson').classList.add('qrail');   // the shared Listen button, top right with the help buttons; the stars under the title move on
+  let playing=false, allGen=0; const setPl=on=>{ playing=on; const b=$('#rail .dash.go')||rail.firstElementChild; if(b){ const r=$('.rb',b), t=b.lastElementChild; if(r) r.innerHTML=on?ICON.stop:ICON.play; if(t) t.textContent=on?tr('Stop'):tr('Listen'); } };   // the Listen button is also Pause/Stop while the page is read (Ahmed 2026-11-15)
+  setRail([{kind:'go',icon:'play',label:tr('Listen'),click:()=>{ hideHint(); if(playing){ tok++; vStop(); clearOn(); setPl(false); } else all(); }}]); $('#lesson').classList.add('qrail');   // the shared Listen button, top right with the help buttons; the stars under the title move on
   function done(){ if(q._done) return; q._done=1; alStar(); }
-  const all=async()=>{ const my=++tok; clearOn(); vStop(); for(const r of rows){ if(my!==tok||qz.list[qz.i]!==q||!inQ()) return false; await r.play(); if(my!==tok) return false; await new Promise(z=>setTimeout(z,r.row.classList.contains('al-head')?300:450)); }
+  const all=async()=>{ const my=++tok; clearOn(); vStop(); const id=++allGen; setPl(true); try{ return await all0(my); } finally{ if(id===allGen) setPl(false); } };
+  const all0=async my=>{ for(const r of rows){ if(my!==tok||qz.list[qz.i]!==q||!inQ()) return false; await r.play(); if(my!==tok) return false; await new Promise(z=>setTimeout(z,r.row.classList.contains('al-head')?300:450)); }
     for(const l of labs){ if(my!==tok||qz.list[qz.i]!==q||!inQ()) return false; l.b.classList.add('lit'); await qSound(alWordSrc(l.w),alClean(l.w)); l.b.classList.remove('lit'); heard(l.id); if(my!==tok) return false; await new Promise(z=>setTimeout(z,350)); } return my===tok; };
   box._after=async()=>{ if(!q._done) await all(); };
+}
+
+/* ---------- fixed passage over a question (reading comprehension) ---------- */
+function alPassage(w,q){
+  if(!q.set||!q.set.grp||q.set.type==='explain') return;
+  const src=qz.list.find(x=>x.set&&x.set!==q.set&&x.set.type==='explain'&&x.set.grp===q.set.grp&&x.set.page===q.set.page); if(!src||!(src.lines||[]).length) return;
+  const ps=el('div','alpassage'); w.classList.add('haspass'); w.prepend(ps);
+  if((src.pics||[]).length){ const im=el('img','alpimg',''); im.src=src.pics[0]; im.alt=''; ps.append(im); }
+  const tx=el('div','alptext'); ps.append(tx); const rows=[];
+  src.lines.forEach(l=>{ const p=el('p','altx'+(l.cls==='head'?' alphead':'')); alToks(p,l.t); tx.append(p); rows.push({p,a:l.a?R_Q(l.a):null,t:l.t}); });
+  const bt=el('button','qsay alsp alpplay',SAY_LN); bt.setAttribute('aria-label','Listen'); ps.append(bt); let gen=0;
+  const stop=()=>{ gen++; vStop(); bt.classList.remove('on'); rows.forEach(r=>r.p.classList.remove('on')); };
+  bt.addEventListener('click',async e=>{ e.stopPropagation(); hideHint(); if(bt.classList.contains('on')){ stop(); return; } stop(); const my=gen; bt.classList.add('on');
+    for(const r of rows){ if(my!==gen) return; r.p.classList.add('on'); await qSound(r.a,r.t); r.p.classList.remove('on'); if(my!==gen) return; await new Promise(z=>setTimeout(z,350)); } if(my===gen) bt.classList.remove('on'); });
+  w.addEventListener('pointerdown',e=>{ if(bt.classList.contains('on')&&!e.target.closest('.alpplay')) stop(); },true);
+  const prev=qz.list[qz.i-1]; if(!(prev&&prev.set&&prev.set.grp===q.set.grp&&prev.set.type==='mcq')) q._passPlay=()=>{ if(!bt.classList.contains('on')) bt.click(); };   // the first question of the passage: the passage plays by itself, a pause button stops it
+}
+
+/* ---------- mistake: "Correct the mistake in each sentence." (Ahmed 2026-11-15) — the wrong sentence on top, under it two boxes: "Mistake" and "Correct word".
+   The child TAPS a word of the sentence, or DRAGS it, into the Mistake box (a wrong word shakes); then types the correct word with the keyboard in the Correct word box.
+   item {ask: "My dog are very playful.", word: "My dog is very playful." (the right sentence), audio: right sentence} — the wrong span is found by comparing ask and word. ---------- */
+function alMistake(box,q,s,run){
+  const w=el('div','almcq almistake'); box.append(w); q.solved=false;
+  const core=t=>String(t).toLowerCase().replace(/[^a-z0-9'’]+/g,''), A=String(q.ask).split(/\s+/).filter(Boolean), B=String(q.word).split(/\s+/).filter(Boolean);
+  let a0=0; while(a0<A.length&&a0<B.length&&core(A[a0])===core(B[a0])) a0++;
+  let ea=A.length, eb=B.length; while(ea>a0&&eb>a0&&core(A[ea-1])===core(B[eb-1])){ ea--; eb--; }
+  const wrongTxt=A.slice(a0,ea).join(' ').replace(/[.?!,]+$/,''), rightTxt=B.slice(a0,eb).join(' ').replace(/[.?!,]+$/,'');
+  const st=el('div','alstem'); w.append(st); const p=el('p','altx almsent'); st.append(p);
+  const slots=el('div','almslots'); w.append(slots);
+  const mk=el('div','almslot'); mk.innerHTML='<small>Mistake</small>'; const mkv=el('b','almval',''); mk.append(mkv);
+  const cw=el('div','almslot off'); cw.innerHTML='<small>Correct word</small>'; const inp=el('input','almin'); inp.type='text'; inp.autocomplete='off'; inp.autocapitalize='off'; inp.spellcheck=false; inp.disabled=true; cw.append(inp);
+  const go=el('button','almgo','✓'); go.type='button'; go.setAttribute('aria-label','Check'); cw.append(go); slots.append(mk,cw);
+  let found=false; const spans=[];
+  const pick=(k,sp)=>{ if(qz.busy||q.solved||found) return;
+    if(k<a0||k>=ea){ qxBad(sp); sp.classList.add('bad'); setTimeout(()=>sp.classList.remove('bad'),700); mk.classList.add('no'); setTimeout(()=>mk.classList.remove('no'),700); return; }
+    found=true; spans.slice(a0,ea).forEach(x=>x.classList.add('wrong')); mkv.textContent=wrongTxt; mk.classList.add('got'); cw.classList.remove('off'); inp.disabled=false; setTimeout(()=>inp.focus(),50); };
+  A.forEach((t,k)=>{ const sp=el('span','alw almw',t); spans.push(sp); p.append(k?' ':'',sp);
+    let d=null, mv=false;
+    sp.addEventListener('pointerdown',e=>{ if(qz.busy||q.solved||found||e.button>0) return; d={x:e.clientX,y:e.clientY,id:e.pointerId}; mv=false; });
+    sp.addEventListener('pointermove',e=>{ if(!d||e.pointerId!==d.id) return;
+      if(!mv&&Math.hypot(e.clientX-d.x,e.clientY-d.y)>8){ mv=true; try{ sp.setPointerCapture(e.pointerId); }catch(_){} d.g=el('span','aldrag almdrag',t); document.body.append(d.g); hideHint(); }
+      if(mv&&d.g){ d.g.style.left=e.clientX+'px'; d.g.style.top=e.clientY+'px'; const r=mk.getBoundingClientRect(); mk.classList.toggle('over',e.clientX>r.left-10&&e.clientX<r.right+10&&e.clientY>r.top-10&&e.clientY<r.bottom+10); } });
+    const end=e=>{ if(!d||e.pointerId!==d.id) return; const g=d.g, over=mk.classList.contains('over'); d=null; mk.classList.remove('over'); if(g){ g.remove(); if(over) pick(k,sp); } };
+    sp.addEventListener('pointerup',end); sp.addEventListener('pointercancel',e=>{ if(d&&d.g) d.g.remove(); mk.classList.remove('over'); d=null; });
+    sp.addEventListener('click',()=>{ if(mv){ mv=false; return; } hideHint(); vStop(); qSound(alWordSrc(t.replace(/[^\w']+/g,'')),alClean(t)); pick(k,sp); }); });
+  const check=async()=>{ if(qz.busy||q.solved||!found) return; const v=core(inp.value);
+    if(!v) return;
+    if(v!==core(rightTxt)){ qxBad(cw); cw.classList.add('no'); setTimeout(()=>cw.classList.remove('no'),700); return; }
+    inp.disabled=true; q.solved=true; document.body.classList.remove('typing','kb'); inp.blur(); cw.classList.add('got'); inp.value=rightTxt;
+    p.textContent=''; B.forEach((t,i)=>{ const sp=el('span','alw'+(i>=a0&&i<eb?' fixed':''),t); p.append(i?' ':'',sp); }); return qxWin(cw,q,q.winMs||2300); };
+  go.addEventListener('click',check); inp.addEventListener('keydown',e=>{ if(e.key==='Enter') check(); });
+  q.sayFn=async()=>{ vStop(); return qSound(q.solved?q.audio:null,q.solved?q.word:q.ask); };
+  box._after=()=>{};
 }
 
 /* ---------- mcq ---------- */
 function alMcq(box,q,s,run){
   const w=el('div','almcq'+(q.pics?' haspic':'')+(q.pics&&/(^|\/)(clock|hand)-/.test(String(q.pics[0]))?' clockq':'')); box.append(w);
   if(q.pics){ const pc=el('div','alpics'); q.pics.forEach((p,k)=>{ const f=el('div','alfig'); const im=el('img','',''); im.src=p; im.alt=''; qPicFit(im,(q.picsTall||[])[k]); im.addEventListener('load',()=>{ if(im.naturalHeight/im.naturalWidth>1.1) w.classList.add('chartq'); }); /* a tall picture = a chart/table: it gets the room, the choices get smaller (Ahmed 2026-11-14) */ f.append(im); if(q.caps&&q.caps[k]){ const c=el('button','alcap',q.caps[k]); c.onclick=()=>{ vStop(); c.classList.add('lit'); qSound(alWordSrc(q.caps[k]),q.caps[k]).then(()=>c.classList.remove('lit')); }; f.append(c); } pc.append(f); }); w.append(pc); }
+  alPassage(w,q);   // reading comprehension: the passage of the same "grp" stays fixed on top, one question at a time (Ahmed 2026-11-15)
   const st=el('div','alstem'); w.append(st); let blank=null;
   const sp=el('button','qsay alsp',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>{ if(!qz.busy) q.sayFn(); };
   if(q.ask){ const a=el('p','alask',''); alToks(a,q.ask); st.append(a); }
@@ -86,7 +142,7 @@ function alMcq(box,q,s,run){
     ops.append(b); });
   q.sayFn=async()=>{ vStop(); const ps=(q.parts||[]).map(R_Q); if(q.askAudio&&!q.solved) return qSound(R_Q(q.askAudio),q.stem);   // the question; once solved, audio = the sentence WITH its answer
     if(!ps.length) return qSound(q.audio,q.word); for(let i=0;i<ps.length;i++){ if(qz.list[qz.i]!==q||q.solved) return; await qSound(ps[i],''); if(i<ps.length-1) await new Promise(z=>setTimeout(z,350)); } };
-  box._after=()=>{ if(q.autoSay) return q.sayFn(); };   // the question is read only when the child taps the speaker
+  box._after=()=>{ if(q._passPlay) q._passPlay(); if(q.autoSay) return q.sayFn(); };   // the question is read only when the child taps the speaker; a fixed passage plays by itself when its first question opens
 }
 
 /* the passage is NOT read by itself (the child reads it, Marwa 2026-11-04); the small speaker AFTER the text reads it (tap while playing = stop).
@@ -112,16 +168,26 @@ function alCloze(box,q,s,run){
   const ans=[]; const txt=el('p','altx'); w.append(txt);
   const sentences=String(q.text).split(/(\[\[.+?\]\])/);
   let n=0; sentences.forEach(seg=>{ const m=/^\[\[(.+?)\]\]$/.exec(seg);
-    if(m){ ans.push(m[1]); const b=el('button','alblank',`<small>(${++n})</small><i></i>`); b.dataset.n=n-1; txt.append(b); }
+    if(m){ ans.push(m[1]); const b=el('button','alblank',`<i></i>`); ++n; b.dataset.n=n-1; txt.append(b); }
     else seg.split(/(\s+)/).forEach(t=>{ if(!t) return; if(/^\s+$/.test(t)) return txt.append(' '); const sp=el('span','alw',t); sp.addEventListener('click',()=>{ hideHint(); vStop(); sp.classList.add('lit'); qSound(alWordSrc(t),alClean(t)).then(()=>sp.classList.remove('lit')); }); txt.append(sp); }); });
   const bank=el('div','albank'); const one=ans.length===1&&String(q.text).replace(/\[\[|\]\]/g,'').length<=90;   // Marwa 2026-11-04: ONLY a passage keeps the word choices pinned on top (text slides under them)
   if(one){ w.classList.add('one'); $$('.alblank small',txt).forEach(x=>x.remove()); w.append(bank); } else w.prepend(bank); let cur=0; const blanks=$$('.alblank',txt);
-  const mark=()=>{ blanks.forEach((b,k)=>b.classList.toggle('cur',k===cur)); };
+  const filled=new Set(); const firstOpen=()=>blanks.findIndex((b,k)=>!filled.has(k));
+  const mark=()=>{ cur=firstOpen(); blanks.forEach((b,k)=>b.classList.toggle('cur',k===cur)); };
+  // a chip fills a blank by a TAP (the first open blank) or by DRAGGING it onto any blank (Ahmed 2026-11-15)
+  const tryFill=async(b,o,sy,idx)=>{ if(qz.busy||q.solved||b.classList.contains('used')||filled.has(idx)) return;
+    if(o.toLowerCase()!==String(ans[idx]).toLowerCase()){ qxBad(b); b.classList.add('bad'); setTimeout(()=>b.classList.remove('bad'),700); qSound(alWordSrc(sy),sy); return; }
+    const bl=blanks[idx]; filled.add(idx); bl.classList.add('got'); bl.innerHTML=''; bl.textContent=ans[idx]; if(!q.reuse) b.classList.add('used'); celebrate(bl); qSound(alWordSrc(sy),sy); mark();
+    if(filled.size>=ans.length){ q.solved=true; qz.busy=true; q.word=String(q.text).replace(/\[\[(.+?)\]\]/g,'$1'); const run0=qz.run; celebrate(txt); await qIdle(run0,4000); if(run0!==qz.run) return; await qSound(q.audio,q.word); return qAdvance(run0,600); } };
   q.bank.forEach((o,bk)=>{ const sy=(q.bankSay||q.bank)[bk]; const b=qChBtn(o,qWords(q.bank)); b.classList.add('alopt','alchip'); bank.append(b);   // THE choice button
-    b.addEventListener('click',async()=>{ if(qz.busy||q.solved||b.classList.contains('used')) return; hideHint();
-      if(o.toLowerCase()!==String(ans[cur]).toLowerCase()){ qxBad(b); b.classList.add('bad'); setTimeout(()=>b.classList.remove('bad'),700); qSound(alWordSrc(sy),sy); return; }
-      const bl=blanks[cur]; bl.classList.add('got'); bl.innerHTML=''; bl.textContent=ans[cur]; if(!q.reuse) b.classList.add('used'); celebrate(bl); qSound(alWordSrc(sy),sy); cur++; mark();
-      if(cur>=ans.length){ q.solved=true; qz.busy=true; q.word=String(q.text).replace(/\[\[(.+?)\]\]/g,'$1'); const run0=qz.run; celebrate(txt); await qIdle(run0,4000); if(run0!==qz.run) return; await qSound(q.audio,q.word); return qAdvance(run0,600); } }); });
+    let drag=null, moved=false;
+    b.addEventListener('pointerdown',e=>{ if(qz.busy||q.solved||b.classList.contains('used')||e.button>0) return; drag={x:e.clientX,y:e.clientY,id:e.pointerId}; moved=false; });
+    b.addEventListener('pointermove',e=>{ if(!drag||e.pointerId!==drag.id) return;
+      if(!moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){ moved=true; try{ b.setPointerCapture(e.pointerId); }catch(_){} drag.g=b.cloneNode(true); drag.g.classList.add('aldrag'); { const cs=getComputedStyle(b); Object.assign(drag.g.style,{width:b.offsetWidth+'px',height:b.offsetHeight+'px',fontSize:cs.fontSize,fontFamily:cs.fontFamily,background:'#fff',border:'.14rem solid #5A3418',borderRadius:'999px',display:'grid',placeItems:'center',color:'#3a2410',margin:'0'}); } document.body.append(drag.g); b.classList.add('lifted'); hideHint(); }
+      if(moved&&drag.g){ drag.g.style.left=e.clientX+'px'; drag.g.style.top=e.clientY+'px'; blanks.forEach(x=>{ const r=x.getBoundingClientRect(); x.classList.toggle('over',!x.classList.contains('got')&&e.clientX>r.left-10&&e.clientX<r.right+10&&e.clientY>r.top-14&&e.clientY<r.bottom+14); }); } });
+    const end=e=>{ if(!drag||e.pointerId!==drag.id) return; const g=drag.g; drag=null; if(g){ g.remove(); b.classList.remove('lifted'); const hit=blanks.findIndex(x=>x.classList.contains('over')); blanks.forEach(x=>x.classList.remove('over')); if(hit>=0) tryFill(b,o,sy,hit); else if(moved) return; } };
+    b.addEventListener('pointerup',end); b.addEventListener('pointercancel',e=>{ if(drag&&drag.g) drag.g.remove(); b.classList.remove('lifted'); blanks.forEach(x=>x.classList.remove('over')); drag=null; });
+    b.addEventListener('click',()=>{ if(moved){ moved=false; return; } hideHint(); tryFill(b,o,sy,firstOpen()); }); });
   mark();
   // the passage reads itself when the question opens (whole text, no title, no gap); the small speaker AFTER the text reads it again.
   // Any tap elsewhere, a slide change or a question change stops it, so two sounds never overlap.
@@ -178,6 +244,7 @@ function alCheck(box,q,s,run){
 }
 
 QM.explain={sheet:'box', own:1, draw:alExplain};
+QM.mistake={sheet:'box', own:1, draw:alMistake, help:(q,w)=>q.solved?[]:($('.almw.wrong',w)?[$('.almin',w)]:(()=>{ const A=String(q.ask).split(/\s+/),B=String(q.word).split(/\s+/); const k=A.findIndex((t,i)=>String(t).toLowerCase()!==String(B[i]||'').toLowerCase()); return k>=0?[$$('.almw',w)[k]]:[]; })())};
 QM.mcq={sheet:'box', own:1, draw:alMcq, help:(q,w)=>[$$('.alopt',w)[q.answer]],
   // a hidden number sentence (word problem): the first Help shows it; the next Help lights the right answer as usual
   peek:(q,w)=>{ const t=$('.altx.eqhid',w); if(t){ t.classList.remove('eqhid'); q.eqHidden=false; return; }

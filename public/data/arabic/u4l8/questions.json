@@ -157,7 +157,7 @@
     {
      "word": "غِطَاء",
      "audio": "words/ghita.mp3",
-     "pic": "../../pics/ar-pot.png",
+     "pic": "../../pics/pot.png",
      "answer": "غِ",
      "choices": [
       "غَ",
@@ -168,7 +168,7 @@
     {
      "word": "مِغْرَفَة",
      "audio": "words/mighrafa.mp3",
-     "pic": "../../pics/ar-ladle.jpg",
+     "pic": "../../pics/ladle.png",
      "answer": "غْ",
      "choices": [
       "غَ",
@@ -181,7 +181,7 @@
     {
      "word": "غُصْن",
      "audio": "words/ghusn.mp3",
-     "pic": "../../pics/ar-branch.png",
+     "pic": "../../pics/branch.png",
      "answer": "غُ",
      "choices": [
       "غَ",
@@ -192,7 +192,7 @@
     {
      "word": "غَسَّالَة",
      "audio": "words/ghassala.mp3",
-     "pic": "../../pics/ar-washer.png",
+     "pic": "../../pics/washer.png",
      "answer": "غَ",
      "choices": [
       "غَ",
@@ -219,7 +219,7 @@
     {
      "word": "غِطَاء",
      "audio": "words/ghita.mp3",
-     "pic": "../../pics/ar-pot.png",
+     "pic": "../../pics/pot.png",
      "answer": "غِ",
      "choices": [
       "غَ",
@@ -230,7 +230,7 @@
     {
      "word": "مِغْرَفَة",
      "audio": "words/mighrafa.mp3",
-     "pic": "../../pics/ar-ladle.jpg",
+     "pic": "../../pics/ladle.png",
      "answer": "غْ",
      "choices": [
       "غَ",
@@ -243,7 +243,7 @@
     {
      "word": "غُرَاب",
      "audio": "words/ghurab.mp3",
-     "pic": "../../pics/ar-crow.jpg",
+     "pic": "../../pics/crow.png",
      "answer": "غُ",
      "choices": [
       "غَ",
@@ -254,7 +254,7 @@
     {
      "word": "غَزَالَة",
      "audio": "words/ghazala.mp3",
-     "pic": "../../pics/ar-gazelle-f.png",
+     "pic": "../../pics/gazelle-f.png",
      "answer": "غَ",
      "choices": [
       "غَ",
@@ -287,8 +287,8 @@
      "need": 2,
      "cells": 3,
      "pics": [
-      "../../pics/ar-glue.jpg",
-      "../../pics/ar-branch.png"
+      "../../pics/glue.png",
+      "../../pics/branch.png"
      ],
      "picWords": [
       [
@@ -313,8 +313,8 @@
      "word": "لَصَقَتِ الْبِنْتُ الْوَرَقَ بِالصَّمْغِ.",
      "audio": "q/s-ex10.mp3",
      "pics": [
-      "../../pics/ar-girl-glue.jpg",
-      "../../pics/ar-girl-paint.jpg"
+      "../../pics/girl-glue.jpg",
+      "../../pics/girl-paint.jpg"
      ],
      "answer": 0
     }
@@ -329,7 +329,7 @@
    "hint": "اسمع القصة، وصفّق لما تسمع كلمة فيها غين",
    "items": [
     {
-     "scene": "../../pics/ar-story-u4l8-cut.png",
+     "scene": "../../pics/story-u4l8-cut.png",
      "text": "وَقَفَ الْغَزَالُ قُرْبَ النَّهْرِ يَبْحَثُ عَنِ الْغِذَاءِ، فَوَجَدَ بَعْضَ الْأَوْرَاقِ اللَّذِيذَةِ عَلَى غُصْنِ الشَّجَرَةِ، وَقَبْلَ أَنْ يَأْكُلَهَا غَسَلَ فَمَهُ بِمَاءِ النَّهْرِ، وَبَعْدَ أَنْ تَنَاوَلَ الْغَزَالُ غِذَاءَهُ، ذَهَبَ مَرَّةً أُخْرَى لِيَغْسِلَ فَمَهُ؛ لِيَبْقَى نَظِيفًا دَائِمًا.",
      "audio": "q/story.mp3",
      "ask": "الْآنَ أُخْبِرُ زُمَلَائِي، كَيْفَ نَهْتَمُّ بِنَظَافَتِنَا قَبْلَ الْأَكْلِ وَبَعْدَهُ؟",
@@ -533,52 +533,52 @@
    "items": [
     {
      "word": "crow",
-     "pic": "../../pics/ar-crow.jpg",
+     "pic": "../../pics/crow.png",
      "answer": true
     },
     {
      "word": "tomatoes",
-     "pic": "../../pics/ar-tomatoes.png",
+     "pic": "../../pics/tomato.png",
      "answer": false
     },
     {
      "word": "branch",
-     "pic": "../../pics/ar-branch.png",
+     "pic": "../../pics/branch.png",
      "answer": true
     },
     {
      "word": "flag",
-     "pic": "../../pics/ar-flag.png",
+     "pic": "../../pics/flag.png",
      "answer": false
     },
     {
      "word": "washer",
-     "pic": "../../pics/ar-washer.png",
+     "pic": "../../pics/washer.png",
      "answer": true
     },
     {
      "word": "banana",
-     "pic": "../../pics/ar-banana.png",
+     "pic": "../../pics/banana.png",
      "answer": false
     },
     {
      "word": "gorilla",
-     "pic": "../../pics/ar-gorilla.png",
+     "pic": "../../pics/gorilla.png",
      "answer": true
     },
     {
      "word": "oven",
-     "pic": "../../pics/ar-oven.png",
+     "pic": "../../pics/oven.png",
      "answer": false
     },
     {
      "word": "gazelle",
-     "pic": "../../pics/ar-gazelle.png",
+     "pic": "../../pics/gazelle.png",
      "answer": true
     },
     {
      "word": "submarine",
-     "pic": "../../pics/ar-submarine.png",
+     "pic": "../../pics/submarine.png",
      "answer": true
     }
    ]
@@ -594,19 +594,19 @@
    "items": [
     {
      "word": "غِرَاء",
-     "pic": "../../pics/ar-glue.jpg",
+     "pic": "../../pics/glue.png",
      "audio": "words/ghira.mp3",
      "at": 0
     },
     {
      "word": "غَزَالَة",
-     "pic": "../../pics/ar-gazelle-f.png",
+     "pic": "../../pics/gazelle-f.png",
      "audio": "words/ghazala.mp3",
      "at": 0
     },
     {
      "word": "مِغْرَفَة",
-     "pic": "../../pics/ar-ladle.jpg",
+     "pic": "../../pics/ladle.png",
      "audio": "words/mighrafa.mp3",
      "at": 1
     },
@@ -618,7 +618,7 @@
     },
     {
      "word": "غِذَاء",
-     "pic": "../../pics/ar-food.jpg",
+     "pic": "../../pics/food.png",
      "audio": "words/ghidha.mp3",
      "at": 0
     }
@@ -641,7 +641,7 @@
     {
      "word": "مِغْرَفَة",
      "audio": "words/mighrafa.mp3",
-     "pic": "../../pics/ar-ladle.jpg",
+     "pic": "../../pics/ladle.png",
      "answer": "غْ",
      "choices": [
       "غَ",
@@ -667,7 +667,7 @@
     {
      "word": "غُورِيلَّا",
      "audio": "words/ghurilla.mp3",
-     "pic": "../../pics/ar-gorilla.png",
+     "pic": "../../pics/gorilla.png",
      "answer": "غُ",
      "choices": [
       "غَ",
@@ -678,7 +678,7 @@
     {
      "word": "غِرْبَان",
      "audio": "words/ghirban.mp3",
-     "pic": "../../pics/ar-crows.jpg",
+     "pic": "../../pics/crows.png",
      "answer": "غِ",
      "choices": [
       "غَ",
@@ -748,17 +748,17 @@
    "items": [
     {
      "word": "صَمْغ",
-     "pic": "../../pics/ar-glue.jpg",
+     "pic": "../../pics/glue.png",
      "audio": "words/samgh.mp3"
     },
     {
      "word": "غُصْن",
-     "pic": "../../pics/ar-branch.png",
+     "pic": "../../pics/branch.png",
      "audio": "words/ghusn.mp3"
     },
     {
      "word": "غِذَاء",
-     "pic": "../../pics/ar-food.jpg",
+     "pic": "../../pics/food.png",
      "audio": "words/ghidha.mp3"
     },
     {
@@ -778,12 +778,12 @@
    "items": [
     {
      "word": "هَذِهِ غَزَالَةٌ سَرِيعَةٌ",
-     "pic": "../../pics/ar-gazelle.png",
+     "pic": "../../pics/gazelle.png",
      "audio": "q/s-b12-1.mp3"
     },
     {
      "word": "أَنَا أُحِبُّ الْأَغْنَامَ",
-     "pic": "../../pics/ar-sheep.png",
+     "pic": "../../pics/sheep.png",
      "audio": "q/s-b12-2.mp3"
     }
    ],
@@ -840,22 +840,22 @@
    "items": [
     {
      "word": "غَوَّاصَة",
-     "pic": "../../pics/ar-submarine.png",
+     "pic": "../../pics/submarine.png",
      "audio": "words/ghawwasa.mp3"
     },
     {
      "word": "غُرَاب",
-     "pic": "../../pics/ar-crow.jpg",
+     "pic": "../../pics/crow.png",
      "audio": "words/ghurab.mp3"
     },
     {
      "word": "غَزَالَة",
-     "pic": "../../pics/ar-gazelle-f.png",
+     "pic": "../../pics/gazelle-f.png",
      "audio": "words/ghazala.mp3"
     },
     {
      "word": "مِغْزَل",
-     "pic": "../../pics/ar-spinning.png",
+     "pic": "../../pics/spinning.png",
      "audio": "words/mighzal.mp3"
     }
    ],
@@ -878,25 +878,25 @@
    "items": [
     {
      "word": "غِذَاء",
-     "pic": "../../pics/ar-food.jpg",
+     "pic": "../../pics/food.png",
      "audio": "words/ghidha.mp3",
      "answer": "غِ"
     },
     {
      "word": "غَسَّالَة",
-     "pic": "../../pics/ar-washer.png",
+     "pic": "../../pics/washer.png",
      "audio": "words/ghassala.mp3",
      "answer": "غَ"
     },
     {
      "word": "غُصْن",
-     "pic": "../../pics/ar-branch.png",
+     "pic": "../../pics/branch.png",
      "audio": "words/ghusn.mp3",
      "answer": "غُ"
     },
     {
      "word": "أَغْنَام",
-     "pic": "../../pics/ar-sheep.png",
+     "pic": "../../pics/sheep.png",
      "audio": "words/aghnam.mp3",
      "answer": "غْ",
      "at": 1

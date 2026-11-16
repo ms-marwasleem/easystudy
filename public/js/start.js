@@ -26,6 +26,7 @@ async function start(){
   busy(true);
   try{
     [COURSE,CURR]=await Promise.all([get('data/course.json'),get('data/curriculum.json').catch(()=>null)]);
+    COURSE.subjects=COURSE.subjects.filter(s=>!s.hidden);   // hidden:true in data/course.json = subject switched off for now (German, Science); remove the flag to restore
     await Promise.all(COURSE.subjects.filter(s=>s.file).map(async s=>{
       const d=await get(s.file), base=s.file.slice(0,s.file.lastIndexOf('/')+1);
       s.units=d.units; s.labels=d.labels; s.lessons=d.lessons.map(l=>({...l, id:`${s.id}-${l.folder}`, file:l.title?base+l.folder+'/lesson.json':null}));

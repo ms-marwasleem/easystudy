@@ -11,7 +11,7 @@
   "quiz"
  ],
  "type": "al",
- "scene": "img/scene.jpg",
+ "scene": "../../pics/classroom.jpg",
  "hints": {
   "read": "Tap Read and listen!",
   "word": "Tap a word to hear it again.",
@@ -24,7 +24,7 @@
   {
    "word": "bookcase",
    "ar": "مكتبة كتب",
-   "img": "../../pics/tb-bookcase.jpg",
+   "img": "../../pics/bookcase.png",
    "parts": [
     {
      "t": "b",
@@ -65,7 +65,7 @@
   {
    "word": "chair",
    "ar": "كرسي",
-   "img": "../../pics/tb-chair.jpg",
+   "img": "../../pics/chair.png",
    "parts": [
     {
      "t": "ch",
@@ -86,7 +86,7 @@
   {
    "word": "computer",
    "ar": "حاسوب",
-   "img": "../../pics/tb-computer.jpg",
+   "img": "../../pics/computer.png",
    "parts": [
     {
      "t": "c",
@@ -132,7 +132,7 @@
   {
    "word": "classroom",
    "ar": "فصل",
-   "img": "../../pics/tb-classroom.jpg",
+   "img": "../../pics/classroom.jpg",
    "parts": [
     {
      "t": "c",
@@ -178,7 +178,7 @@
   {
    "word": "board",
    "ar": "سبورة",
-   "img": "../../pics/tb-board.jpg",
+   "img": "../../pics/board.png",
    "parts": [
     {
      "t": "b",
@@ -204,7 +204,7 @@
   {
    "word": "desk",
    "ar": "مكتب",
-   "img": "../../pics/tb-desk.jpg",
+   "img": "../../pics/desk.png",
    "parts": [
     {
      "t": "d",
@@ -235,7 +235,7 @@
   {
    "word": "door",
    "ar": "باب",
-   "img": "../../pics/tb-door.jpg",
+   "img": "../../pics/door-u3l4.png",
    "parts": [
     {
      "t": "d",
@@ -256,7 +256,7 @@
   {
    "word": "mouse",
    "ar": "فأرة الحاسوب",
-   "img": "../../pics/tb-mouse.jpg",
+   "img": "../../pics/mouse.png",
    "parts": [
     {
      "t": "m",
@@ -282,7 +282,7 @@
   {
    "word": "wall",
    "ar": "حائط",
-   "img": "../../pics/tb-wall.jpg",
+   "img": "../../pics/wall.png",
    "parts": [
     {
      "t": "w",
@@ -308,7 +308,7 @@
   {
    "word": "window",
    "ar": "نافذة",
-   "img": "../../pics/tb-window.jpg",
+   "img": "../../pics/window.png",
    "parts": [
     {
      "t": "w",
@@ -344,7 +344,7 @@
   {
    "word": "boat",
    "ar": "قارب",
-   "img": "../../pics/tb-boat.jpg",
+   "img": "../../pics/boat.png",
    "parts": [
     {
      "t": "b",
@@ -369,7 +369,7 @@
   {
    "word": "canteen",
    "ar": "كافتيريا",
-   "img": "../../pics/tb-canteen.jpg",
+   "img": "../../pics/canteen.jpg",
    "parts": [
     {
      "t": "c",
@@ -409,7 +409,7 @@
   {
    "word": "library",
    "ar": "مكتبة",
-   "img": "../../pics/tb-library.jpg",
+   "img": "../../pics/library.jpg",
    "parts": [
     {
      "t": "l",
@@ -486,7 +486,7 @@
    ],
    "anim": {
     "kind": "text",
-    "pic": "data/en-al/u2l1/img/g1.jpg",
+    "pic": "data/pics/al-u2l1-g1.jpg",
     "lines": [
      {
       "t": "This is a desk.",

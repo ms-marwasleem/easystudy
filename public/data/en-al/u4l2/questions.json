@@ -1,6 +1,565 @@
 {
  "sets": [
   {
+   "type": "explain",
+   "task": "Listen and read. Belen's Ball",
+   "taskAudio": "../../en-shared/q/listen-and-read-belen-s-ball.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u4l2-s1.jpg"
+     ],
+     "lines": [
+      {
+       "t": "1  Belen is in her bedroom. She's sad.",
+       "a": "../../en-shared/q/belen-is-in-her-bedroom-she-s-sad.mp3"
+      },
+      {
+       "t": "2  Belen's bedroom is small. The ball isn't on her bed.",
+       "a": "../../en-shared/q/belen-s-bedroom-is-small-the-ball-isn-t-on-her-bed.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 82
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u4l2-s2.jpg"
+     ],
+     "lines": [
+      {
+       "t": "3  Belen's ball isn't between the bed and the nightstand. It isn't next to the lamp, or the alarm clock.",
+       "a": "../../en-shared/q/belen-s-ball-isn-t-between-the-bed-and-the-nightst-89fa998c.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 82
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u4l2-s3.jpg"
+     ],
+     "lines": [
+      {
+       "t": "4  Belen's ball isn't under the nightstand. And it isn't in the drawers.",
+       "a": "../../en-shared/q/belen-s-ball-isn-t-under-the-nightstand-and-it-isn-43ff2be0.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 83
+  },
+  {
+   "type": "explain",
+   "task": "Listen and read.",
+   "taskAudio": "../../en-shared/q/listen-and-read.mp3",
+   "book": "lesson",
+   "items": [
+    {
+     "pics": [
+      "../../pics/al-u4l2-s4.jpg"
+     ],
+     "lines": [
+      {
+       "t": "5  In the bathroom, there's shampoo and a towel. But there isn't a ball. Or is there?",
+       "a": "../../en-shared/q/in-the-bathroom-there-s-shampoo-and-a-towel-but-th-e42a7d4e.mp3"
+      }
+     ]
+    }
+   ],
+   "page": 83
+  },
+  {
+   "type": "choice",
+   "task": "Look and circle.",
+   "taskAudio": "../../en-shared/q/look-and-circle.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "word": "towel",
+     "pic": "../../pics/towel.png",
+     "options": [
+      "towel",
+      "nightstand"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/towel.mp3",
+     "askAudio": "../../en-shared/q/askc-c22296cb7c.mp3"
+    },
+    {
+     "word": "lamp",
+     "pic": "../../pics/lamp.png",
+     "options": [
+      "drawers",
+      "lamp"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/lamp.mp3",
+     "askAudio": "../../en-shared/q/askc-8472b8704e.mp3"
+    },
+    {
+     "word": "mirror",
+     "pic": "../../pics/mirror.png",
+     "options": [
+      "cushion",
+      "mirror"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/mirror.mp3",
+     "askAudio": "../../en-shared/q/askc-f1c290c2ce.mp3"
+    },
+    {
+     "word": "alarm clock",
+     "pic": "../../pics/alarmclock.png",
+     "options": [
+      "alarm clock",
+      "ceiling"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/alarm-clock.mp3",
+     "askAudio": "../../en-shared/q/askc-db218fec5b.mp3"
+    },
+    {
+     "word": "shampoo",
+     "pic": "../../pics/shampoo.png",
+     "options": [
+      "blanket",
+      "shampoo"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/shampoo.mp3",
+     "askAudio": "../../en-shared/q/askc-048816f6ea.mp3"
+    }
+   ],
+   "page": 80,
+   "ex": "B"
+  },
+  {
+   "type": "mcq",
+   "task": "Look at the picture. Write the words.",
+   "taskAudio": "../../en-shared/q/look-at-the-picture-write-the-words.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "It's white.",
+     "options": [
+      "ceiling",
+      "nightstand",
+      "blanket",
+      "cushion",
+      "drawers"
+     ],
+     "answer": 0,
+     "word": "It's white. Ceiling.",
+     "audio": "../../en-shared/q/it-s-white-ceiling.mp3",
+     "pics": [
+      "../../pics/al-u4l2-rm.jpg"
+     ]
+    },
+    {
+     "stem": "It's green.",
+     "options": [
+      "ceiling",
+      "nightstand",
+      "blanket",
+      "cushion",
+      "drawers"
+     ],
+     "answer": 1,
+     "word": "It's green. Nightstand.",
+     "audio": "../../en-shared/q/it-s-green-nightstand.mp3",
+     "pics": [
+      "../../pics/al-u4l2-rm.jpg"
+     ]
+    },
+    {
+     "stem": "It's pink.",
+     "options": [
+      "ceiling",
+      "nightstand",
+      "blanket",
+      "cushion",
+      "drawers"
+     ],
+     "answer": 2,
+     "word": "It's pink. Blanket.",
+     "audio": "../../en-shared/q/it-s-pink-blanket.mp3",
+     "pics": [
+      "../../pics/al-u4l2-rm.jpg"
+     ]
+    },
+    {
+     "stem": "It's orange and yellow.",
+     "options": [
+      "ceiling",
+      "nightstand",
+      "blanket",
+      "cushion",
+      "drawers"
+     ],
+     "answer": 3,
+     "word": "It's orange and yellow. Cushion.",
+     "audio": "../../en-shared/q/it-s-orange-and-yellow-cushion.mp3",
+     "pics": [
+      "../../pics/al-u4l2-rm.jpg"
+     ]
+    },
+    {
+     "stem": "They're brown.",
+     "options": [
+      "ceiling",
+      "nightstand",
+      "blanket",
+      "cushion",
+      "drawers"
+     ],
+     "answer": 4,
+     "word": "They're brown. Drawers.",
+     "audio": "../../en-shared/q/they-re-brown-drawers.mp3",
+     "pics": [
+      "../../pics/al-u4l2-rm.jpg"
+     ]
+    }
+   ],
+   "page": 80,
+   "ex": "C"
+  },
+  {
+   "type": "mcq",
+   "task": "Read. Write Problem or Solution.",
+   "taskAudio": "../../en-shared/q/read-write-problem-or-solution.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "Tom is sad. His balloon is on the ceiling.",
+     "options": [
+      "Problem",
+      "Solution"
+     ],
+     "answer": 0,
+     "word": "Tom is sad. His balloon is on the ceiling.",
+     "audio": "../../en-shared/q/tom-is-sad-his-balloon-is-on-the-ceiling.mp3",
+     "pics": [
+      "../../pics/al-u4l2-p1.jpg"
+     ]
+    },
+    {
+     "stem": "\"It's okay, Tom,\" says Millie. \"I can stand on the bed and get it!\"",
+     "options": [
+      "Problem",
+      "Solution"
+     ],
+     "answer": 1,
+     "word": "\"It's okay, Tom,\" says Millie. \"I can stand on the bed and get it!\"",
+     "audio": "../../en-shared/q/it-s-okay-tom-says-millie-i-can-stand-on-the-bed-and-get-it.mp3",
+     "pics": [
+      "../../pics/al-u4l2-p2.jpg"
+     ]
+    }
+   ],
+   "page": 81,
+   "ex": "G"
+  },
+  {
+   "type": "mcq",
+   "task": "Read the story again. Circle Yes or No.",
+   "taskAudio": "../../en-shared/q/read-the-story-again-circle-yes-or-no.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "Belen wants her ball.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 0,
+     "word": "Belen wants her ball. Yes.",
+     "audio": "../../en-shared/q/belen-wants-her-ball-yes.mp3"
+    },
+    {
+     "stem": "She's angry.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 1,
+     "word": "She's angry. No.",
+     "audio": "../../en-shared/q/she-s-angry-no.mp3"
+    },
+    {
+     "stem": "The ball is in the bathroom.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 1,
+     "word": "The ball is in the bathroom. No.",
+     "audio": "../../en-shared/q/the-ball-is-in-the-bathroom-no.mp3"
+    },
+    {
+     "stem": "The ball is in Belen's bedroom.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 0,
+     "word": "The ball is in Belen's bedroom. Yes.",
+     "audio": "../../en-shared/q/the-ball-is-in-belen-s-bedroom-yes.mp3"
+    },
+    {
+     "stem": "Grandma can get the ball.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 0,
+     "word": "Grandma can get the ball. Yes.",
+     "audio": "../../en-shared/q/grandma-can-get-the-ball-yes.mp3"
+    }
+   ],
+   "page": 84,
+   "ex": "B"
+  },
+  {
+   "type": "mcq",
+   "task": "Problem and Solution. Read. Write P for Problem or S for Solution.",
+   "taskAudio": "../../en-shared/q/problem-and-solution-read-write-p-for-problem-or-s-14e9b869.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "Belen wants her ball.",
+     "options": [
+      "P",
+      "S"
+     ],
+     "answer": 0,
+     "word": "Belen wants her ball. P.",
+     "audio": "../../en-shared/q/belen-wants-her-ball-p.mp3"
+    },
+    {
+     "stem": "The family look for the ball.",
+     "options": [
+      "P",
+      "S"
+     ],
+     "answer": 1,
+     "word": "The family look for the ball. S.",
+     "audio": "../../en-shared/q/the-family-look-for-the-ball-s.mp3"
+    },
+    {
+     "stem": "The ball is very high up, on the closet.",
+     "options": [
+      "P",
+      "S"
+     ],
+     "answer": 0,
+     "word": "The ball is very high up, on the closet. P.",
+     "audio": "../../en-shared/q/the-ball-is-very-high-up-on-the-closet-p.mp3"
+    },
+    {
+     "stem": "Grandma can get the ball.",
+     "options": [
+      "P",
+      "S"
+     ],
+     "answer": 1,
+     "word": "Grandma can get the ball. S.",
+     "audio": "../../en-shared/q/grandma-can-get-the-ball-s.mp3"
+    }
+   ],
+   "page": 84,
+   "ex": "C"
+  },
+  {
+   "type": "check",
+   "task": "How does Belen get her ball? Check.",
+   "taskAudio": "../../en-shared/q/how-does-belen-get-her-ball-check.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "words": [
+      "She looks in a lot of different places.",
+      "She looks outside the house.",
+      "Her family help her look for the ball."
+     ],
+     "n": 2,
+     "audios": [
+      "../../en-shared/q/she-looks-in-a-lot-of-different-places.mp3",
+      "../../en-shared/q/she-looks-outside-the-house.mp3",
+      "../../en-shared/q/her-family-help-her-look-for-the-ball.mp3"
+     ],
+     "ok": [
+      0,
+      2
+     ]
+    }
+   ],
+   "page": 84,
+   "ex": "E"
+  },
+  {
+   "type": "choice",
+   "task": "Where's the ball? Look and write.",
+   "taskAudio": "../../en-shared/q/where-s-the-ball-look-and-write.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "word": "next to",
+     "pic": "../../pics/al-u4l2-w1.jpg",
+     "options": [
+      "in",
+      "on",
+      "under",
+      "next to",
+      "between"
+     ],
+     "answer": 3,
+     "audio": "../../en-shared/q/next-to.mp3",
+     "askAudio": "../../en-shared/q/askc-3a42b3bb4f.mp3"
+    },
+    {
+     "word": "under",
+     "pic": "../../pics/al-u4l2-w2.jpg",
+     "options": [
+      "in",
+      "on",
+      "under",
+      "next to",
+      "between"
+     ],
+     "answer": 2,
+     "audio": "../../en-shared/q/under.mp3",
+     "askAudio": "../../en-shared/q/askc-3a42b3bb4f.mp3"
+    },
+    {
+     "word": "on",
+     "pic": "../../pics/al-u4l2-w3.jpg",
+     "options": [
+      "in",
+      "on",
+      "under",
+      "next to",
+      "between"
+     ],
+     "answer": 1,
+     "audio": "../../en-shared/q/on.mp3",
+     "askAudio": "../../en-shared/q/askc-3a42b3bb4f.mp3"
+    },
+    {
+     "word": "between",
+     "pic": "../../pics/al-u4l2-w4.jpg",
+     "options": [
+      "in",
+      "on",
+      "under",
+      "next to",
+      "between"
+     ],
+     "answer": 4,
+     "audio": "../../en-shared/q/between.mp3",
+     "askAudio": "../../en-shared/q/askc-3a42b3bb4f.mp3"
+    },
+    {
+     "word": "in",
+     "pic": "../../pics/al-u4l2-w5.jpg",
+     "options": [
+      "in",
+      "on",
+      "under",
+      "next to",
+      "between"
+     ],
+     "answer": 0,
+     "audio": "../../en-shared/q/in.mp3",
+     "askAudio": "../../en-shared/q/askc-3a42b3bb4f.mp3"
+    }
+   ],
+   "page": 85,
+   "ex": "B"
+  },
+  {
+   "type": "check",
+   "task": "Use Exclamation Points. Read. Circle the sentences with an exclamation point.",
+   "taskAudio": "../../en-shared/q/use-exclamation-points-read-circle-the-sentences-w-958f3c6b.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "words": [
+      "My favorite room is the living room.",
+      "It's upstairs!",
+      "There's a blue sofa.",
+      "There are red cushions on it.",
+      "There are two lamps and a bookcase.",
+      "But there aren't any books on the bookcase!",
+      "There are pictures of my family.",
+      "I make models with my mom on the table next to the sofa."
+     ],
+     "n": 2,
+     "audios": [
+      "../../en-shared/q/my-favorite-room-is-the-living-room.mp3",
+      "../../en-shared/q/it-s-upstairs.mp3",
+      "../../en-shared/q/there-s-a-blue-sofa.mp3",
+      "../../en-shared/q/there-are-red-cushions-on-it.mp3",
+      "../../en-shared/q/there-are-two-lamps-and-a-bookcase.mp3",
+      "../../en-shared/q/but-there-aren-t-any-books-on-the-bookcase.mp3",
+      "../../en-shared/q/there-are-pictures-of-my-family.mp3",
+      "../../en-shared/q/i-make-models-with-my-mom-on-the-table-next-to-the-sofa.mp3"
+     ],
+     "ok": [
+      1,
+      5
+     ]
+    }
+   ],
+   "page": 87,
+   "ex": "B"
+  },
+  {
+   "type": "mcq",
+   "task": "Read the description again. Circle Yes or No.",
+   "taskAudio": "../../en-shared/q/read-the-description-again-circle-yes-or-no.mp3",
+   "book": "bq",
+   "items": [
+    {
+     "stem": "A description describes what you can see in a place.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 0,
+     "word": "A description describes what you can see in a place. Yes.",
+     "audio": "../../en-shared/q/a-description-describes-what-you-can-see-in-a-place-yes.mp3"
+    },
+    {
+     "stem": "A description is a funny story.",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": 1,
+     "word": "A description is a funny story. No.",
+     "audio": "../../en-shared/q/a-description-is-a-funny-story-no.mp3"
+    }
+   ],
+   "page": 87,
+   "ex": "C"
+  },
+  {
    "type": "type",
    "task": "Read and complete the missing letters.",
    "taskAudio": "../../en-shared/q/read-and-complete-the-missing-letters.mp3",
@@ -8,14 +567,14 @@
    "items": [
     {
      "word": "blanket",
-     "pic": "../../pics/u4-blanket.png",
+     "pic": "../../pics/blanket.png",
      "audio": "../../en-shared/q/blanket.mp3",
      "answer": "a",
      "missing": 2
     },
     {
      "word": "alarm clock",
-     "pic": "../../pics/u4-alarmclock.png",
+     "pic": "../../pics/alarmclock.png",
      "audio": "../../en-shared/q/alarm-clock.mp3",
      "answer": "a",
      "gaps": [
@@ -25,21 +584,21 @@
     },
     {
      "word": "nightstand",
-     "pic": "../../pics/u4-nightstand.png",
+     "pic": "../../pics/nightstand.png",
      "audio": "../../en-shared/q/nightstand.mp3",
      "answer": "g",
      "missing": 2
     },
     {
      "word": "lamp",
-     "pic": "../../pics/lamp-u6l2.png",
+     "pic": "../../pics/bulb.png",
      "audio": "../../en-shared/q/lamp.mp3",
      "answer": "m",
      "missing": 2
     },
     {
      "word": "cushion",
-     "pic": "../../pics/u4-cushion.png",
+     "pic": "../../pics/cushion.png",
      "audio": "../../en-shared/q/cushion.mp3",
      "answer": "u",
      "missing": 1
@@ -56,27 +615,27 @@
    "items": [
     {
      "word": "drawers",
-     "pic": "../../pics/u4-drawers.png",
+     "pic": "../../pics/drawers.png",
      "audio": "../../en-shared/q/drawers.mp3"
     },
     {
      "word": "towel",
-     "pic": "../../pics/u4-towel.png",
+     "pic": "../../pics/towel.png",
      "audio": "../../en-shared/q/towel.mp3"
     },
     {
      "word": "shampoo",
-     "pic": "../../pics/u4-shampoo.png",
+     "pic": "../../pics/shampoo.png",
      "audio": "../../en-shared/q/shampoo.mp3"
     },
     {
      "word": "ceiling",
-     "pic": "../../pics/u4-ceiling.png",
+     "pic": "../../pics/ceiling.png",
      "audio": "../../en-shared/q/ceiling.mp3"
     },
     {
      "word": "mirror",
-     "pic": "../../pics/u4-mirror.png",
+     "pic": "../../pics/mirror.png",
      "audio": "../../en-shared/q/mirror.mp3"
     }
    ],
@@ -678,54 +1237,20 @@
    "ex": 2
   },
   {
-   "type": "mcq",
+   "type": "mistake",
    "task": "Correct the mistake in each sentence.",
    "taskAudio": "../../en-shared/q/correct-the-mistake-in-each-sentence.mp3",
    "book": "booklet",
    "items": [
     {
-     "stem": "The lamp is ____ the bed.",
-     "options": [
-      "in",
-      "on",
-      "under"
-     ],
-     "answer": 1,
      "word": "The lamp is on the bed.",
      "audio": "../../en-shared/q/the-lamp-is-on-the-bed.mp3",
-     "parts": [
-      "../../en-shared/q/the-lamp-is.mp3",
-      "../../en-shared/q/the-bed.mp3"
-     ],
-     "optSay": [
-      "in",
-      "on",
-      "under"
-     ],
-     "ask": "The lamp is in the bed.",
-     "askAudio": "../../en-shared/q/askc-6858d337f7.mp3"
+     "ask": "The lamp is in the bed."
     },
     {
-     "stem": "The book is ____ the chair.",
-     "options": [
-      "in",
-      "on",
-      "under"
-     ],
-     "answer": 1,
      "word": "The book is on the chair.",
      "audio": "../../en-shared/q/the-book-is-on-the-chair.mp3",
-     "parts": [
-      "../../en-shared/q/the-book-is.mp3",
-      "../../en-shared/q/the-chair.mp3"
-     ],
-     "optSay": [
-      "in",
-      "on",
-      "under"
-     ],
-     "ask": "The book is in the chair.",
-     "askAudio": "../../en-shared/q/askc-334e3ee671.mp3"
+     "ask": "The book is in the chair."
     }
    ],
    "page": 100,
