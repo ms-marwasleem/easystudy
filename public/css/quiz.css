@@ -198,12 +198,16 @@ button.qpic{cursor:pointer}
 .qlsvg line{stroke:var(--c-accent);stroke-width:5;stroke-linecap:round}
 .qlsvg .qtmp{stroke:#6AA9E8;stroke-dasharray:2 9}
 .qlsvg .qlj.bad{stroke:var(--c-bad-dk)}
-.qlink.cols{grid-template-rows:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,12cqw,9rem)}
+.qlink.cols{grid-template-rows:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,16cqw,9rem)}
+/* two sides at the two far edges (rows: words top, pictures bottom; columns: words at the left edge, pictures at the right edge): the middle is free for the lines */
+.qlink:not(.cols) .qlp{align-self:end}
+.qlink:not(.cols) .qlkp img{max-height:30cqh}
+.qlink.cols .qlkp:not(.tx){justify-self:end;max-width:100%}
 .qlink.cols :is(.qlw,.qlp){grid-template-columns:none;grid-template-rows:repeat(var(--n),minmax(0,1fr));gap:clamp(0.25rem,1.6cqh,0.875rem)}
 .qlink.cols .qlkw{justify-self:start;align-self:center}
 .qlink.cols .qlkw::after{left:auto;right:-0.5rem;bottom:auto;top:50%;transform:translateY(-50%)}
 .qlink.cols .qlkp::before{left:-0.5rem;top:50%;transform:translateY(-50%)}
-.qlink.cols .qlkp{justify-content:flex-start;align-items:center}
+.qlink.cols .qlkp{justify-content:flex-end;align-items:center}
 .qlink.cols .qlkp img{max-height:96%;max-width:100%}
 
 /* choice: the picture, the question beside it and the answer under it with two words to choose from; the right word is circled */
@@ -366,7 +370,7 @@ button.qpic{cursor:pointer}
 /* colour the table (qxColourTable): picture beside the table, boxes coloured from the bottom up */
 .qxct{flex-direction:row;align-items:center;justify-content:center;gap:2vw;--cs:clamp(1.5rem,min(8.2vw,4.4vh),3.2rem)}
 .qxct.rtl{flex-direction:row-reverse}
-.qxct .qxctp{max-height:62vh;max-width:34%;width:auto;align-self:center}
+.qxct .qxctp{max-height:48vh;max-width:34%;width:auto;align-self:center}
 .qxtb{display:grid;grid-template-columns:repeat(var(--n),auto);border:3px solid #fff;border-radius:1rem;overflow:hidden;background:rgba(255,255,255,.14)}
 .qxtc{display:flex;flex-direction:column;align-items:center;border-inline-start:2px solid rgba(255,255,255,.7)}
 .qxtc:first-child{border-inline-start:0}

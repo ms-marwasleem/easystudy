@@ -19,7 +19,7 @@ function mDots(n,img){ if(n===0) return 'data:image/svg+xml,'+encodeURIComponent
 function mPad(box,values,onPick){ const row=el('div','qmpad'); values.forEach(v=>{ const b=el('button','rb qbtn qlet qmn',`<span>${v}</span>`); b.setAttribute('aria-label',String(v));
   b.addEventListener('click',()=>{ if(qz.busy) return; if(onPick(v,b)){ b.classList.add('on'); } else qxBad(b); }); row.append(b); }); box.append(row); return row; }
 // Help: the answer shows faintly in the empty box for a moment, then is wiped; the question never says the answer on its own
-function mHelp(box,getCell,getVal){ const h=el('button','qxhelp qmhelp',ICON.hint); h.setAttribute('aria-label','Help');
+function mHelp(box,getCell,getVal){ const h=helpBtn('qxhelp qmhelp');
   h.onclick=()=>{ if(qz.busy) return; const c=getCell(); if(!c) return; const b=$('b',c); b.textContent=getVal(); c.classList.add('peek'); setTimeout(()=>{ if(c.classList.contains('peek')){ c.classList.remove('peek'); if(c.classList.contains('gap')) b.textContent=''; } },1500); }; qHelpHost(h); }
 const mKeys=(max=10)=>Array.from({length:max+1},(_,k)=>k);
 const mShuffle=a=>{ a=a.slice(); for(let t=0;t<30;t++){ const b=a.slice().sort(()=>Math.random()-.5); if(b.some((v,k)=>v!==a[k])||a.length<2){ a=b; break; } } return a; };
@@ -83,7 +83,7 @@ function mWrite(box,q,s,run){
       if(k===arDb(n.textContent)){ qxReveal(wd); blip(560+$$('.lt.got',wd).length*40,.05); cur(); if(qxDone(wd)) qxWin(wd,q,1700); }
       else { wsBad(n); qxBad(line); } }); pad.append(b); });
   q.sayFn=async()=>{ vStop(); if(q.askAudio&&!q.solved) return qSound(R_Q(q.askAudio),q.ask||''); return qSound(q.audio,q.word); };
-  box._after=()=>{ if(q.autoSay) return q.sayFn(); };
+  box._after=()=>{ if(qAuto(q)) return q.sayFn(); };
 }
 /* line = "Circle the answer" on a LINE of things (book 2-1 What's the Position?): item {unit | img, n (things, or equal slots of the strip), from:"front"|"back", at:k (the k-th thing from that end), group:true ("4 cats from the front") }.
    The child taps the k-th thing (for a group: its last one); right = the frame is drawn round it / round the group, wrong = shake. */
@@ -184,9 +184,9 @@ function mClockOptions(h,m){ const set=new Set([clockTime(h,m)]); [[h,m===30?0:3
 function mClock(box,q,s,run){
   q.hush=1; q.word=q.word||q.ask||s.task||''; const mode=q.mode||'set';
   const w=el('div','mclock'); box.append(w);
-  if(q.ask){ const p=el('p','clkask',''); p.append(document.createTextNode(q.ask)); if(q.askAudio||q.ask){ const sp=el('button','qsay clkspk',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>qSay(); p.append(sp); } w.append(p); }   // the question's own speaker sits INSIDE its line (it used to be a separate row above that took room and nobody knew what it was: Ahmed 2026-11-14)
+  if(q.ask){ const p=el('p','clkask',''); p.append(document.createTextNode(q.ask)); if(q.askAudio||q.ask){ const sp=el('button','qsay clkspk',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>qSay(); p.append(sp); box._after=()=>{ if(qAuto(q)) return qSay(); }; } w.append(p); }   // the question's own speaker sits INSIDE its line (it used to be a separate row above that took room and nobody knew what it was: Ahmed 2026-11-14)
   const opts=q.options||(mode==='read'?mClockOptions(q.h,q.m||0):null), ans=q.answer||clockTime(q.h,q.m||0);
   const cw=clockWidget({h:q.h,m:q.m||0,mode,options:opts,answer:ans,onWrong:t=>qxBad(t),onDone:()=>qxWin(w,q,1600)}); w.append(cw); q.clockEl=cw;
-  const hb=el('button','qxhelp qmhelp',ICON.hint); hb.setAttribute('aria-label','Help'); let undo=null; hb.onclick=()=>{ if(qz.busy||q.solved) return; if(undo) undo(); undo=cw.hint(); setTimeout(()=>{ if(undo){ undo(); undo=null; } },1800); }; qHelpHost(hb);
+  const hb=helpBtn('qxhelp qmhelp'); let undo=null; hb.onclick=()=>{ if(qz.busy||q.solved) return; if(undo) undo(); undo=cw.hint(); setTimeout(()=>{ if(undo){ undo(); undo=null; } },1800); }; qHelpHost(hb);
 }
 QM.clock={sheet:'box', noword:1, bulb:0, draw:mClock};

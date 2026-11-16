@@ -52,7 +52,7 @@ function epGrp(){ return ep.groups[ep.qs[ep.i].g]; }
 function epDots(){ const g=epGrp(); return Array.from({length:g.n},(_,k)=>`<i data-i="${g.start+k}">${STAR(false)}</i>`).join(''); }
 function epHelpBtn(fn){   // the Help bulb always stands right beside the speaker (in the word row; the link question has no word row, so it stands in the header row): the page never moves
   const r=$('#lmeta .lm-r'); if(r) r.replaceChildren(); const w=$('#stage .quiz.ep'); if(!w) return;
-  let hb=$('.qhelpb',w); if(!hb){ hb=el('button','qhelpb',ICON.hint); hb.setAttribute('aria-label','ساعدني'); const wd=$('.qword',w); (wd&&!wd.hidden?wd:$('.qhead',w)).append(hb); }
+  let hb=$('.qhelpb',w); if(!hb){ hb=helpBtn('qhelpb','ساعدني'); const wd=$('.qword',w); (wd&&!wd.hidden?wd:$('.qhead',w)).append(hb); }
   hb.classList.toggle('off',!fn); hb.disabled=!fn; hb.onclick=fn?()=>{ if(!ep.busy) fn(); }:null; }
 function epShow(){
   const q=ep.qs[ep.i], st=$('#stage'); stopVoice(); const run=ep.run; ep.busy=false; hideHint();   // (stopVoice makes a new run number: the question before can no longer act)

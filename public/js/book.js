@@ -59,12 +59,16 @@ function lnavModel(){
    the one in use is solid white, the others light white; tap a dot, drag the strip, or swipe the page to move between them. No numbers. */
 let LM={prev:null,next:null};
 function lnavPaint(){
-  const d=$('#lmDots'); if(!d) return; const md=lnavModel();
-  const items=inQ()?(()=>{ const out=[], cg=qz.list[qz.i]&&qGrp(qz.list[qz.i].set); qz.list.forEach((q,i)=>{ const g=qGrp(q.set); if(!out.some(x=>x.g===g)) out.push({g,i,on:g===cg}); }); return out.map(x=>({on:x.on,go:()=>{ hideHint(); blip(600); qz.busy=false; qGo(x.i); }})); })()
+  const d=$('#lmDots'); if(!d) return; const md=lnavModel(), q=inQ();
+  // questions: ONE dot per QUESTION (a gap between exercise groups, lit once answered right), same look as Easy Words (Ahmed 2026-11-16: the stars above the question are gone)
+  const items=q?qz.list.map((x,i)=>{ const s=$(`.qdots i[data-i="${i}"]`); return {on:i===qz.i,gs:i>0&&qGrp(x.set)!==qGrp(qz.list[i-1].set),done:!!(s&&s.classList.contains('got')),go:()=>{ hideHint(); blip(600); qz.busy=false; qGo(i); }}; })
     :(md.pages||[]);
-  LM.prev=md.sPrev||md.pPrev||null; LM.next=md.sNext||md.pNext||null;
+  if(q){ const cur=qz.list[qz.i], stepQ=k=>(k>0?qz.i<qz.list.length-1:qz.i>0)?()=>{ hideHint(); blip(600); qz.busy=false; qGo(qz.i+k); }:null;   // a swipe moves between single questions, never groups
+    LM.prev=cur&&cur.sl&&cur.sl.live()&&cur.sl.i()>0?()=>cur.sl.go(-1):stepQ(-1); LM.next=cur&&cur.sl&&cur.sl.live()&&cur.sl.i()<cur.sl.n-1?()=>cur.sl.go(1):stepQ(1); }
+  else { LM.prev=md.sPrev||md.pPrev||null; LM.next=md.sNext||md.pNext||null; }
+  d.classList.toggle('qd',!!q);
   d.hidden=items.length<2; if(d.hidden){ d.innerHTML=''; } else {
-    d.innerHTML=items.map((it,k)=>`<button class="ldot${it.on?' on':''}" aria-label="${k+1}"></button>`).join('');
+    d.innerHTML=items.map((it,k)=>`<button class="ldot${it.on?' on':''}${it.done?' done':''}${it.gs?' gs':''}" aria-label="${k+1}"></button>`).join('');
     $$('.ldot',d).forEach((b,k)=>b.addEventListener('click',()=>{ if(!items[k].on) items[k].go(); }));
     const on=$('.ldot.on',d); if(on) d.scrollLeft=on.offsetLeft-d.clientWidth/2+on.offsetWidth/2; }
   const hb=$('#lmeta .qhelpb'); if(hb&&!inQ()) hb.hidden=true;

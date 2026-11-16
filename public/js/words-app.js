@@ -1,4 +1,4 @@
-const EW_BUILD='b6b6d2aca5';
+const EW_BUILD='22cebc04f7';
 /* MADE BY tools/build-words.py from the files named below. Do not edit here. */
 /* ===== js/words-boot.js ===== */
 /* EASY WORDS — first file of the bundle: tells the shared accounts / credits code (welcome, sync, subs, coins, push) which settings file and server to use. */
@@ -403,6 +403,9 @@ document.addEventListener('touchstart',()=>{ KB.touch=true; },{passive:true,capt
 document.addEventListener('touchend',()=>{ KB.touch=false; setTimeout(kbPin,30); },{passive:true,capture:true});
 document.addEventListener('touchcancel',()=>{ KB.touch=false; },{passive:true,capture:true});
 document.addEventListener('focusin',e=>{ if(kbField(e.target)) [80,350,700].forEach(t=>setTimeout(()=>{ kbSync(); kbShow(); },t)); });
+
+/* ONE Help (lightbulb) button for the whole app (Ahmed 2026-11-16): every place builds it with helpBtn(); its size is the --hlp-box / --hlp-icon tokens in theme.css (one rule at the end of qlayout.css) */
+function helpBtn(cls,label){ const b=el('button',cls||'qhelpb',ICON.hint); b.setAttribute('aria-label',label||'Help'); return b; }
 ;
 /* ===== js/lib.js ===== */
 /* LIBRARY — plays the sounds Ahmed records/uploads in the audio library (Cloudflare Worker "easystudy-recorder") straight away.
@@ -2443,7 +2446,7 @@ async function showQuiz(start){
     <div class="qword" dir="ltr"><b></b><button class="qsay" aria-label="Listen again">${typeof SAY_LN==="string"?SAY_LN:ICON.sound}</button></div>
     <div class="qplay"></div><div class="qans"></div>`;
   stage.append(wrap);
-  { const hb=el('button','qhelpb',ICON.hint); hb.hidden=true; hb.setAttribute('aria-label',isAr()?'ساعدني':tr('Help')); $('#lmeta .lm-r').replaceChildren(hb); hb.onclick=()=>qHelp(); }   // the Help bulb stands at the right of the row above the tabs
+  { const hb=helpBtn('qhelpb',isAr()?'ساعدني':tr('Help')); hb.hidden=true; $('#lmeta .lm-r').replaceChildren(hb); hb.onclick=()=>qHelp(); }   // the Help bulb stands at the right of the row above the tabs
   $('.qword .qsay',wrap).addEventListener('click',()=>qSay());
   $('.qtsay',wrap).addEventListener('click',()=>qTask()); $('.qtask',wrap).addEventListener('click',()=>qTask());   // the header is read once by itself; no speaker icon (CSS hides .qtsay), a tap on the line reads it again
   $('.qword',wrap).addEventListener('click',e=>{ if(wrap.dataset.type==='type'&&!e.target.closest('.qsay')) qFocus(); });
@@ -2495,7 +2498,7 @@ function qGo(i){
   m.draw(play,ans,q,s);
   qLayout(); carFrac(i/qz.list.length);
   // the first question of each exercise: the instruction is read first, then the word
-  setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(qNewEx()) await qTask(); if(run===qz.run&&inQ()){ if(s.type==='type') qFocus(); if(q.autoSay) qSay(); } },350);   // Marwa 2026-11-04: the question itself is NOT read by itself (the child reads; the speaker beside it helps)
+  setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; const nw=qNewEx(); if(nw) await qTask(); if(run===qz.run&&inQ()){ if(s.type==='type') qFocus(); if(qAuto(q)&&!(nw&&qHdrOnly(q))) qSay(); } },350);   // Ahmed 2026-11-16: every Listen speaker plays by itself when its question appears (the header first on a new exercise); the speaker replays
 }
 // letter / type: the word with its gaps ("missing" = one letter, "gaps" = several, typed left to right), filled in when the child finds them
 const qGapWord=q=>{ const lw=q.letters&&q.letters[q.answer]!=null?String(q.letters[q.answer]):'', gps=q.gaps||(q.missing==null&&[...lw].length>1&&String(q.word).startsWith(lw)?[...lw].map((_,i)=>i):[q.missing||0]), w=wsWord(q.word,{hide:gps,ltr:!isAr()}); $$('.lt.hid',w).forEach(x=>x.classList.add('qgap')); wsCur(w);   // THE word component (js/wordslots.js); the gaps are its hidden letters
@@ -2577,7 +2580,7 @@ function qFitBoard(b){ b=b||$('.qboard'); if(!b||b.classList.contains('dense')||
   let w=Math.min(B.width,B.height)*.92; const cw=c?c.getBoundingClientRect().width:0; if(c&&c.classList.contains('pic')) return;
   for(let i=0;i<pts.length;i++){ for(let j=i+1;j<pts.length;j++){ w=Math.min(w,Math.max(Math.abs(pts[i][0]-pts[j][0]),Math.abs(pts[i][1]-pts[j][1]))*.94); }
     if(c){ const cr=c.getBoundingClientRect(), cx=cr.left+cr.width/2-B.left, cy=cr.top+cr.height/2-B.top; w=Math.min(w,(2*Math.max(Math.abs(pts[i][0]-cx),Math.abs(pts[i][1]-cy))-cw)*.94); } }
-  const lo=Math.min(B.width*.2,B.height*.3); b.style.setProperty('--wfit',Math.max(lo,w).toFixed(0)+'px'); }
+  const lo=Math.min(B.width*.2,B.height*.3)*.7; b.style.setProperty('--wfit',Math.max(lo,w).toFixed(0)+'px'); }
 // the lines of the joined pictures, worked out again when the screen changes size
 function qLines(fresh){ const bd=$('.qboard'); if(!bd||$('.quiz').dataset.type!=='match'||bd.classList.contains('ring')) return; const c=$('.qcenter span',bd); if(!c) return; const B=bd.getBoundingClientRect();
   const mid=e=>{ const r=e.getBoundingClientRect(); return [r.left+r.width/2-B.left,r.top+r.height/2-B.top]; }, [x2,y2]=mid(c);
@@ -2587,7 +2590,7 @@ function qLines(fresh){ const bd=$('.qboard'); if(!bd||$('.quiz').dataset.type!=
     if(p===fresh) requestAnimationFrame(()=>requestAnimationFrame(()=>{ ln.style.transform=`rotate(${Math.atan2(y2-y1,x2-x1)}rad) scaleX(1)`; })); });
 }
 // the same for every model: a right answer lights its progress star and moves the car on; a wrong one gives the soft alarm + a shake
-function qStar(){ const d=$(`.qdots i[data-i="${qz.i}"]`); if(d){ d.innerHTML=STAR(true); d.classList.add('got'); if(anim) G.fromTo(d,{scale:1.8},{scale:1,duration:.6,ease:'elastic.out(1.2,.4)'}); } carFrac((qz.i+1)/qz.list.length); }
+function qStar(){ const d=$(`.qdots i[data-i="${qz.i}"]`); if(d){ d.innerHTML=STAR(true); d.classList.add('got'); if(anim) G.fromTo(d,{scale:1.8},{scale:1,duration:.6,ease:'elastic.out(1.2,.4)'}); } carFrac((qz.i+1)/qz.list.length); lnavPaint(); }
 const qCross=b=>{ const m=$('.qmark',b); if(!m) return; m.className='qmark bad'; m.innerHTML=Q_CROSS; setTimeout(()=>{ m.className='qmark'; m.innerHTML=''; },700); };   // a wrong picture: a red cross for a moment
 function qBad(b){ tone(170,'square',.06,.18); if(anim) G.fromTo(b,{x:-9},{x:0,duration:.5,ease:'elastic.out(1.5,.25)'}); }
 function qSound(src,text){ vStop(); if(Array.isArray(src)){ const vr=vs.run; return src.reduce((p,f)=>p.then(()=>{ if(vr===vs.run) return playFile(f); }),Promise.resolve()).catch(()=>{}); } return (src?playFile(src).catch(()=>tts(text,isAr()?'ar':'en',.75)):tts(text,isAr()?'ar':'en',.75)).catch(()=>{}); }
@@ -2638,6 +2641,12 @@ function qTyped(ch){ const q=qz.list[qz.i]; if(!ch||qz.busy||!q||q.set.type!=='t
 // a computer keyboard works even when the text box lost focus (e.g. after tapping the speaker)
 addEventListener('keydown',e=>{ if(!inQ()||e.ctrlKey||e.metaKey||e.altKey||e.key.length!==1) return; const q=qz.list[qz.i];
   if(!q||q.set.type!=='type'||document.activeElement&&document.activeElement.id==='qin') return; e.preventDefault(); qTyped(normDigits(e.key)); });
+// Ahmed 2026-11-16 (all subjects): a question with a Listen speaker plays it by itself (after a tap anywhere iOS allows it); the speaker stays for replay; "autoSay":false in data opts one out.
+// Never two sounds: qGo/stopVoice stop everything first, every play starts with vStop(), and each auto start checks run===qz.run&&inQ() so nothing starts after the child left.
+const qAuto=q=>q.autoSay!==false&&!q.solved&&!qWriteQ(q);
+// Ahmed 2026-11-16: writing questions ("read then write" / اقرأ ثم اكتب, writing on dots, typing the word) stay manual: the child reads the word herself and writes it; only the speaker reads it on a tap
+const qWriteQ=q=>/^(write|type|mwrite)$/.test(q.set.type)||/^\s*(read\s*(and|then)\s*write|اقرأ\s*ثم\s*اكتب|نقرأ\s*ثم\s*نكتب|أقرأ\s*ثم\s*أكتب)/i.test(String(q.set.task||''));
+const qHdrOnly=q=>q.askTask||(q.set.type==='choice'&&!q.askAudio&&!q.ask);   // that speaker only re-reads the header, which a new exercise just read
 function qSay(){ const q=qz.list[qz.i]; if(!q) return; vStop(); const w=$('.qword'); w.classList.add('lit');
   if(q.sayFn&&!q.solved) return q.sayFn();   // English AL: the question read with a pause where the blank is
   const done=()=>{ const x=$('.qword'); if(x) x.classList.remove('lit'); };
@@ -2748,7 +2757,15 @@ function qLinkRefresh(land){ const bd=$('.qlink'); if(!bd) return; const s=bd._s
   bd.style.setProperty('--fs',fs+'px');
   // the WHOLE word must sit inside its rectangle: shrink until the widest text fits its box (never cut, never over the connector dot)
   for(let k=0;k<30&&fs>10;k++){ const bad=$$('.qlkw,.qlkp.tx',bd).some(bx=>{ const b=$('b',bx); return b&&(b.scrollWidth>bx.clientWidth-parseFloat(getComputedStyle(bx).paddingLeft)-parseFloat(getComputedStyle(bx).paddingRight)+1||b.getBoundingClientRect().bottom>bd.getBoundingClientRect().bottom+1||(sent&&bx.offsetHeight>B.height/n*.96)); }); if(!bad) break; fs-=1; bd.style.setProperty('--fs',fs+'px'); }
-  qLinkLines(); }
+  qLinkUnify(bd); qLinkLines(); }
+/* repeated pictures (counts, e.g. the ants of a count picture): every unit the SAME size = the one that fits the fullest picture; never one big and one small */
+function qLinkUnify(bd){ const ims=$$('.qlkp img,.qlkw img',bd).filter(i=>/cpic=1/.test(i.src)); if(ims.length<2) return;
+  if(ims.some(i=>!i.naturalWidth)){ Promise.all(ims.map(i=>i.decode?i.decode().catch(()=>0):0)).then(()=>{ if(bd.isConnected){ qLinkUnify(bd); qLinkLines(); } }); return; }
+  const cols=bd.classList.contains('cols'), n=bd._set.items.length, B=bd.getBoundingClientRect(), pc=$('.qlp',bd);
+  const aw=cols?pc.clientWidth:pc.clientWidth/n-12, ah=cols?pc.clientHeight/n-8:B.height*.3;
+  ims.forEach(i=>{ i.style.width=i.style.height=''; i.style.maxWidth=i.style.maxHeight=''; });
+  let k=1; ims.forEach(i=>{ k=Math.min(k,aw/i.naturalWidth,ah/i.naturalHeight); });
+  ims.forEach(i=>{ i.style.maxWidth=i.style.maxHeight='none'; i.style.width=Math.floor(i.naturalWidth*k)+'px'; i.style.height=Math.floor(i.naturalHeight*k)+'px'; }); }
 /* what a joined pair says: "full" (whole phrase) if given; else, when the partner has its own recording ("audio2"), the word then the partner; else the word */
 async function qLinkSay(it){ vStop(); const vr=vs.run; if(it.psrc){ for(const f of [it.src,it.psrc]){ if(vr!==vs.run) return; try{ await playFile(f); }catch(_){} } return; }   /* "paudio" = the picture's own word: a right join says the letter (with its harakah) then that word */ if(it.fullSrc&&it.fullSrc.length){ for(const f of it.fullSrc){ if(vr!==vs.run) return; try{ await playFile(f); }catch(_){} } return; } if(it.text2&&it.audio2&&it.src2&&it.src2!==it.src){ for(const f of [it.src,it.src2]){ if(vr!==vs.run) return; try{ await playFile(f); }catch(_){} } return; } return qSound(it.src,it.word); }
 async function qLinkTry(bd,s,a,b){
@@ -3066,7 +3083,7 @@ function epGrp(){ return ep.groups[ep.qs[ep.i].g]; }
 function epDots(){ const g=epGrp(); return Array.from({length:g.n},(_,k)=>`<i data-i="${g.start+k}">${STAR(false)}</i>`).join(''); }
 function epHelpBtn(fn){   // the Help bulb always stands right beside the speaker (in the word row; the link question has no word row, so it stands in the header row): the page never moves
   const r=$('#lmeta .lm-r'); if(r) r.replaceChildren(); const w=$('#stage .quiz.ep'); if(!w) return;
-  let hb=$('.qhelpb',w); if(!hb){ hb=el('button','qhelpb',ICON.hint); hb.setAttribute('aria-label','ساعدني'); const wd=$('.qword',w); (wd&&!wd.hidden?wd:$('.qhead',w)).append(hb); }
+  let hb=$('.qhelpb',w); if(!hb){ hb=helpBtn('qhelpb','ساعدني'); const wd=$('.qword',w); (wd&&!wd.hidden?wd:$('.qhead',w)).append(hb); }
   hb.classList.toggle('off',!fn); hb.disabled=!fn; hb.onclick=fn?()=>{ if(!ep.busy) fn(); }:null; }
 function epShow(){
   const q=ep.qs[ep.i], st=$('#stage'); stopVoice(); const run=ep.run; ep.busy=false; hideHint();   // (stopVoice makes a new run number: the question before can no longer act)

@@ -45,7 +45,7 @@
 .jcard::after{content:"";position:absolute;left:14%;top:7%;width:46%;height:20%;border-radius:62.4375rem;background:linear-gradient(90deg,rgba(255,255,255,.8),rgba(255,255,255,.1));transform:rotate(-12deg);pointer-events:none}
 .jn{font-family:var(--f-logo);font-weight:400;font-size:1.4em;color:var(--c-white);line-height:1;text-box:trim-both cap alphabetic;display:block;text-align:center;text-shadow:var(--btn-text-shadow);position:relative;z-index:1}
 .jn.two{font-size:1.05em;white-space:nowrap}
-.jt{position:absolute;z-index:3;margin-top:.45em;transform:translateX(-50%) rotate(-2deg);width:max-content;max-width:none;white-space:nowrap;text-align:center;font-size:1.05em;line-height:1.1;
+.jt{position:absolute;z-index:3;margin-top:.45em;transform:translateX(-50%) rotate(-2deg);width:max-content;max-width:min(12.5em,86vw);white-space:normal;text-align:center;font-size:1.05em;line-height:1.1;
   background:linear-gradient(var(--btn1),var(--btn2));border:var(--btn-edge) solid var(--btn-rim);border-radius:1em;padding:.18em .8em .26em;box-shadow:var(--btn-shadow);cursor:pointer}
 .jt.gt{font-family:var(--f-title);letter-spacing:.03em}
 .jt.ar{font-family:var(--f-ui);font-weight:800}

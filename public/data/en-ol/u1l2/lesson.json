@@ -4,7 +4,7 @@
  "lesson": 2,
  "title": "Phonics Tt",
  "task": "Listen to your teacher and repeat:",
- "scene": "scene.jpg",
+ "scene": "../../pics/sc-en-ol-u1l2-scene.jpg",
  "sceneAlt": "A smiling teacher",
  "audio": {
   "normal": "normal.mp3",
@@ -265,7 +265,7 @@
  "_note": "All paths in this file are relative to this lesson's folder.",
  "_recording": "Male voice made by Claude (Kokoro, am_michael). Words split the way Ahmed teaches them (ta.b.l.e, ti.ge.r, to.ma.to, tea.ch.er); parts play sounds from data/phonics/ (multi-sound chunks in data/phonics/chunks/). Silent letters say their letter sound (\"spell\": true). Reading tab = book p12 exercise 1 (listen and repeat: table, tiger, tomato, teacher, tree); scene = the teacher picture from p13.",
  "vocabRepeats": 3,
- "picture": "picture.jpg",
+ "picture": "../../pics/sc-en-ol-u1l2-picture.jpg",
  "_picture": "Book p12 picture (Ahmed's high-quality version, 896x1195). Each line's 'spot' = [left, top, width, height] in % of picture.jpg: the picture of that line's word, to be marked while it is read. Waiting for reading-tab support (lesson.js); until then the tab shows scene.jpg.",
  "layout": "pictures",
  "_layout": "Ahmed 2026-10-16: reading tab for this lesson = pictures spread over the stage (no separate text box). Each line: 'pic' (from the shared data/pics library) at 'pos' = [x, y] centre in % of the stage, its word written under it. While reading, the word being read is highlighted and its picture does a small pop-up; tapping a word reads it as usual. 'picture'/'spot' are the older full-page idea, superseded by this."

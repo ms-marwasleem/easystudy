@@ -395,3 +395,6 @@ document.addEventListener('touchstart',()=>{ KB.touch=true; },{passive:true,capt
 document.addEventListener('touchend',()=>{ KB.touch=false; setTimeout(kbPin,30); },{passive:true,capture:true});
 document.addEventListener('touchcancel',()=>{ KB.touch=false; },{passive:true,capture:true});
 document.addEventListener('focusin',e=>{ if(kbField(e.target)) [80,350,700].forEach(t=>setTimeout(()=>{ kbSync(); kbShow(); },t)); });
+
+/* ONE Help (lightbulb) button for the whole app (Ahmed 2026-11-16): every place builds it with helpBtn(); its size is the --hlp-box / --hlp-icon tokens in theme.css (one rule at the end of qlayout.css) */
+function helpBtn(cls,label){ const b=el('button',cls||'qhelpb',ICON.hint); b.setAttribute('aria-label',label||'Help'); return b; }

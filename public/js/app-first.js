@@ -1,4 +1,4 @@
-const APP_BUILD='505d2f579e';
+const APP_BUILD='d9cfd5b178';
 /* MADE BY tools/build-app.py from the files named below. Do not edit here: edit those files, then run the script again. */
 /* ===== js/core.js ===== */
 // Arabic-Indic (٠-٩) and Eastern Persian (۰-۹) digits typed anywhere count as Western digits: one helper, applied to every text box before any answer check
@@ -398,6 +398,9 @@ document.addEventListener('touchstart',()=>{ KB.touch=true; },{passive:true,capt
 document.addEventListener('touchend',()=>{ KB.touch=false; setTimeout(kbPin,30); },{passive:true,capture:true});
 document.addEventListener('touchcancel',()=>{ KB.touch=false; },{passive:true,capture:true});
 document.addEventListener('focusin',e=>{ if(kbField(e.target)) [80,350,700].forEach(t=>setTimeout(()=>{ kbSync(); kbShow(); },t)); });
+
+/* ONE Help (lightbulb) button for the whole app (Ahmed 2026-11-16): every place builds it with helpBtn(); its size is the --hlp-box / --hlp-icon tokens in theme.css (one rule at the end of qlayout.css) */
+function helpBtn(cls,label){ const b=el('button',cls||'qhelpb',ICON.hint); b.setAttribute('aria-label',label||'Help'); return b; }
 ;
 /* ===== js/lib.js ===== */
 /* LIBRARY — plays the sounds Ahmed records/uploads in the audio library (Cloudflare Worker "easystudy-recorder") straight away.

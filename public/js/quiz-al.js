@@ -142,7 +142,7 @@ function alMcq(box,q,s,run){
     ops.append(b); });
   q.sayFn=async()=>{ vStop(); const ps=(q.parts||[]).map(R_Q); if(q.askAudio&&!q.solved) return qSound(R_Q(q.askAudio),q.stem);   // the question; once solved, audio = the sentence WITH its answer
     if(!ps.length) return qSound(q.audio,q.word); for(let i=0;i<ps.length;i++){ if(qz.list[qz.i]!==q||q.solved) return; await qSound(ps[i],''); if(i<ps.length-1) await new Promise(z=>setTimeout(z,350)); } };
-  box._after=()=>{ if(q._passPlay) q._passPlay(); if(q.autoSay) return q.sayFn(); };   // the question is read only when the child taps the speaker; a fixed passage plays by itself when its first question opens
+  box._after=()=>{ if(q._passPlay) return q._passPlay(); if(qAuto(q)) return q.sayFn(); };   // the first question of a passage: the passage plays (never two sounds); later ones: the question itself plays   // the question is read only when the child taps the speaker; a fixed passage plays by itself when its first question opens
 }
 
 /* the passage is NOT read by itself (the child reads it, Marwa 2026-11-04); the small speaker AFTER the text reads it (tap while playing = stop).
@@ -159,7 +159,7 @@ function alReplay(box,txt,q){
   const playP=async()=>{ stopP(); const my=pt; rp.classList.add('on'); await qSound(!q.solved&&q.askAudio?R_Q(q.askAudio):q.audio,''); if(my===pt) rp.classList.remove('on'); };   // unsolved cloze: askAudio = the passage with a pause at each blank (never the answers; tools/lessons/cloze_ask_audio.py)
   rp.addEventListener('click',e=>{ e.stopPropagation(); hideHint(); rp.classList.contains('on')?stopP():playP(); });
   box.addEventListener('pointerdown',e=>{ if(rp.classList.contains('on')&&!e.target.closest('.alreplay')) stopP(); },true);
-  box._after=()=>{ if(q.autoSay) playP(); };   // the passage is the question: the child reads it; the small speaker after it helps
+  box._after=()=>{ if(qAuto(q)) playP(); };   // the passage is the question: the child reads it; the small speaker after it helps
 }
 
 /* ---------- cloze ---------- */

@@ -5,7 +5,7 @@
    plain white under the letter whose turn it is; a letter not written yet is see-through (keeps its place); a wrong letter is never written (the place shakes).
    No other file styles .ws / .lt. A place changes only its data, never this look. Language (not subject) picks the line: English = a line per letter,
    Arabic = one joined underline (the letters must stay joined). Size: one size; a long word shrinks only as much as it must. */
-:root{--ws-size:clamp(2.5rem,min(12vw,8.5vh),5rem);--ws-line:var(--c-on-bg-line);--ws-now:var(--c-on-bg);--ws-ink:var(--c-on-bg)}
+:root{--ws-size:clamp(2.9rem,min(13.5vw,9.5vh),6rem);--ws-line:var(--c-on-bg-line);--ws-now:var(--c-on-bg);--ws-ink:var(--c-on-bg)}
 
 /* one colour, weight, no glow / outline; reading along (lit) never changes the colour */
 #lesson .ws,#lesson .ws .lt,#lesson :is(.vword.lit,.qword.lit) .ws .lt,#lesson .wsg.on .lt,#lesson .qword.lit b,#lesson .qword .qscr{color:var(--ws-ink);font-weight:700;text-shadow:none;-webkit-text-stroke:0;background:none;transition:none}
@@ -59,3 +59,11 @@ body.ws-typing .ws-side{width:1.75rem!important;height:1.75rem!important;border-
 /* the question word line with a plain word or a sentence (not spelled): a sentence wraps inside the screen and takes the sentence size */
 #lesson .qword b:not(:has(.ws)){white-space:normal;text-align:center;max-width:100%;overflow-wrap:break-word}
 #lesson .qword b:has(.alw ~ .alw){font-size:min(var(--ws-size),var(--q-sentence-size))}
+
+/* no line under a word that is only read (Ahmed 2026-11-16): the lines stay only where letters are still to be written */
+#lesson .ws:not(:has(.lt.hid)):not(.ws-ar) .lt{border-bottom-color:transparent}
+#lesson .ws.ws-ar:not(:has(.lt.hid)) .lt{text-decoration:none}
+/* the circle round a letter (ring question) is drawn by qxRingMark in js/quiz-letters.js, on top, at the letter's real place */
+#lesson .qxw.ring{position:relative}
+#lesson .qxw.ring .lt.rung::after{display:none}
+.qxring{position:absolute;box-sizing:border-box;border:.07em solid var(--c-pink);border-radius:50%;pointer-events:none;z-index:3}

@@ -127,12 +127,13 @@
   --text-ol:0.04rem;        /* the thin outline of light text laid on a picture */
   --icon-on-color:#FFFFFF;  /* RULE: icon on a coloured background = white */
   --icon-on-white:#111111;  /* RULE: icon on a white / paper surface = black */
-  --spk-icon:clamp(1.375rem,3.4vh,1.75rem);  /* RULE: the speaker icon is ONE size everywhere (question speakers); box around it: */
-  --spk-box:2.2rem;
+  --hlp-box:1.9rem; --hlp-icon:1.15rem;  /* RULE (Ahmed 2026-11-16): the Help bulb is ONE size everywhere (helpBtn in core.js); change it here only */
+  --spk-icon:clamp(1.1rem,2.7vh,1.35rem);  /* RULE: the speaker icon is ONE size everywhere (question speakers); box around it: */
+  --spk-box:1.9rem;
   --pop-dim:rgba(8,20,48,.62); --pop-inset-x:min(5vw,3rem); --pop-inset-y:min(7vh,3rem); --pop-radius:1.5rem; --pop-border:.22rem; --pop-rim:rgba(255,255,255,.85); --pop-shadow:0 .75rem 2.5rem rgba(0,0,0,.55); --pop-x-size:3rem;   /* word popup card + its round X button */
   --q-star:0.65rem;          /* RULE: every progress star in every question is this one size (one third of the old 1.9rem, 2026-11-02); more stars than fit = next line */
   --q-choice:clamp(3.25rem,9vh,4rem);  /* RULE: every round choice button (letters, numbers) is this one size */
-  --icon-speaker:1.6rem;    /* RULE (Marwa 2026-11-04): EVERY speaker icon in the app is this one size (end of hug.css applies it) */
+  --icon-speaker:1.3rem;    /* RULE (Marwa 2026-11-04): EVERY speaker icon in the app is this one size (end of hug.css applies it) */
   --icon-sm:1.35rem;        /* small line icons (speaker, pencil) */
   --road-dash:var(--ol);    /* car road: dark dashes only */
 
@@ -434,7 +435,7 @@ body.kb-open .screen:not(#lesson){height:calc(100% - var(--kb,0px))}
 .jcard::after{content:"";position:absolute;left:14%;top:7%;width:46%;height:20%;border-radius:62.4375rem;background:linear-gradient(90deg,rgba(255,255,255,.8),rgba(255,255,255,.1));transform:rotate(-12deg);pointer-events:none}
 .jn{font-family:var(--f-logo);font-weight:400;font-size:1.4em;color:var(--c-white);line-height:1;text-box:trim-both cap alphabetic;display:block;text-align:center;text-shadow:var(--btn-text-shadow);position:relative;z-index:1}
 .jn.two{font-size:1.05em;white-space:nowrap}
-.jt{position:absolute;z-index:3;margin-top:.45em;transform:translateX(-50%) rotate(-2deg);width:max-content;max-width:none;white-space:nowrap;text-align:center;font-size:1.05em;line-height:1.1;
+.jt{position:absolute;z-index:3;margin-top:.45em;transform:translateX(-50%) rotate(-2deg);width:max-content;max-width:min(12.5em,86vw);white-space:normal;text-align:center;font-size:1.05em;line-height:1.1;
   background:linear-gradient(var(--btn1),var(--btn2));border:var(--btn-edge) solid var(--btn-rim);border-radius:1em;padding:.18em .8em .26em;box-shadow:var(--btn-shadow);cursor:pointer}
 .jt.gt{font-family:var(--f-title);letter-spacing:.03em}
 .jt.ar{font-family:var(--f-ui);font-weight:800}
@@ -1004,12 +1005,16 @@ button.qpic{cursor:pointer}
 .qlsvg line{stroke:var(--c-accent);stroke-width:5;stroke-linecap:round}
 .qlsvg .qtmp{stroke:#6AA9E8;stroke-dasharray:2 9}
 .qlsvg .qlj.bad{stroke:var(--c-bad-dk)}
-.qlink.cols{grid-template-rows:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,12cqw,9rem)}
+.qlink.cols{grid-template-rows:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,16cqw,9rem)}
+/* two sides at the two far edges (rows: words top, pictures bottom; columns: words at the left edge, pictures at the right edge): the middle is free for the lines */
+.qlink:not(.cols) .qlp{align-self:end}
+.qlink:not(.cols) .qlkp img{max-height:30cqh}
+.qlink.cols .qlkp:not(.tx){justify-self:end;max-width:100%}
 .qlink.cols :is(.qlw,.qlp){grid-template-columns:none;grid-template-rows:repeat(var(--n),minmax(0,1fr));gap:clamp(0.25rem,1.6cqh,0.875rem)}
 .qlink.cols .qlkw{justify-self:start;align-self:center}
 .qlink.cols .qlkw::after{left:auto;right:-0.5rem;bottom:auto;top:50%;transform:translateY(-50%)}
 .qlink.cols .qlkp::before{left:-0.5rem;top:50%;transform:translateY(-50%)}
-.qlink.cols .qlkp{justify-content:flex-start;align-items:center}
+.qlink.cols .qlkp{justify-content:flex-end;align-items:center}
 .qlink.cols .qlkp img{max-height:96%;max-width:100%}
 
 /* choice: the picture, the question beside it and the answer under it with two words to choose from; the right word is circled */
@@ -1172,7 +1177,7 @@ button.qpic{cursor:pointer}
 /* colour the table (qxColourTable): picture beside the table, boxes coloured from the bottom up */
 .qxct{flex-direction:row;align-items:center;justify-content:center;gap:2vw;--cs:clamp(1.5rem,min(8.2vw,4.4vh),3.2rem)}
 .qxct.rtl{flex-direction:row-reverse}
-.qxct .qxctp{max-height:62vh;max-width:34%;width:auto;align-self:center}
+.qxct .qxctp{max-height:48vh;max-width:34%;width:auto;align-self:center}
 .qxtb{display:grid;grid-template-columns:repeat(var(--n),auto);border:3px solid #fff;border-radius:1rem;overflow:hidden;background:rgba(255,255,255,.14)}
 .qxtc{display:flex;flex-direction:column;align-items:center;border-inline-start:2px solid rgba(255,255,255,.7)}
 .qxtc:first-child{border-inline-start:0}
@@ -1483,20 +1488,15 @@ button.qpic{cursor:pointer}
 /* build: all the letters on top (used again and again), places for 3-4 words below | first: a letter under each picture, then the merged word */
 .qxbank{margin-bottom:clamp(.6rem,2.4vh,1.2rem)}
 .qxbplaces{display:grid;grid-template-columns:1fr 1fr;gap:clamp(.4rem,1.6vh,.9rem) clamp(.5rem,3cqw,1.2rem);width:min(92%,38rem);margin-inline:auto}
-.qxbp{position:relative;display:flex;align-items:center;justify-content:center;min-height:clamp(2.8rem,9vh,4.4rem);border-bottom:.2rem solid var(--c-on-bg-line,rgba(255,255,255,.6))}   /* simple: no panel, just the letter boxes (or a line) */
+.qxbp{position:relative;display:flex;align-items:center;justify-content:center;min-height:clamp(2.8rem,9vh,4.4rem);border-bottom:.28rem solid var(--c-on-bg,#fff);border-radius:.14rem}   /* one writing line per place, the letters stand on it (no boxes) */
 .qxbp.got{border-bottom-color:var(--c-ok,#2e9e5b)}
-.qxbp.cells{border-bottom:0}
 .qxbcol{display:flex;flex-direction:column;align-items:center;gap:clamp(.3rem,1.2vh,.7rem);min-width:0}
 .qxbcol .qxfp2 img{max-height:clamp(3rem,15vh,8rem);max-width:min(40vw,14rem);height:auto}
-.qxbp.cells{padding:.3rem 0;min-width:0}
-.qxbp.cells .qxbx{top:0;transform:translateY(-40%);inset-inline-start:-.3rem;width:1.4rem;height:1.4rem;font-size:1rem}
-.qxbp.cells .qxbw{display:flex;gap:.12rem;font-size:clamp(.9rem,min(4.6vh,3.6vw),1.9rem);line-height:1}   /* 7-8 letter boxes in one half of a phone: the boxes shrink with the width */
 .qxbc{display:inline-flex;align-items:center;justify-content:center;width:1.5em;height:1.7em;border-radius:.5rem;border:.18rem solid var(--c-accent);background:#fff;line-height:1}
 .qxbp.got .qxbc{border-color:var(--c-ok,#2e9e5b)}
 .qxbw{font-family:var(--f-ar);font-weight:700;font-size:clamp(1.6rem,6.4vh,2.8rem);line-height:1.5;color:var(--c-text);direction:rtl}
 .qxbx{position:absolute;inset-inline-start:.4rem;top:50%;transform:translateY(-50%);width:1.8rem;height:1.8rem;border:0;border-radius:50%;background:rgba(0,0,0,.12);color:var(--c-text);font-size:1.2rem;line-height:1;padding:0;cursor:pointer}
 .qxbp:not(:has(.qxbw:not(:empty))) .qxbx,.qxbp.got .qxbx{display:none}
-.qxbp.cells:not(:has(.qxbc.on)) .qxbx{display:none}
 .qxfirsts{display:flex;max-width:100%;gap:clamp(.3rem,2vw,1.5rem);justify-content:center;align-items:flex-end;direction:rtl}
 .qxfi{margin:0;min-width:0;display:flex;flex-direction:column;align-items:center;gap:.4rem}
 .qxfp2 img{display:block;height:clamp(3rem,15vh,8rem);width:auto;max-width:min(22vw,9rem);object-fit:contain}
@@ -1515,7 +1515,7 @@ button.qpic{cursor:pointer}
 .qxtile.used{opacity:.25;pointer-events:none}
 
 /* ring = circle the letter inside the word (js/quiz-letters.js qxRing): the tapped right letter gets a circle round it */
-.qxw.ring{font-size:clamp(2.4rem,10vh,4.2rem)}
+.qxw.ring{font-size:clamp(3.2rem,13vh,5.6rem)}
 .qxw.ring .lt{cursor:pointer;position:relative}
 .qxw.ring .lt.rung::after{content:'';position:absolute;left:50%;top:56%;width:.78em;height:.78em;transform:translate(-50%,-50%);border:.05em solid var(--c-pink);border-radius:50%;pointer-events:none}
 
@@ -2878,7 +2878,7 @@ img[src*="/clock-"][src$=".svg"]:not([src^="data:"]),img[src*="/hand-"][src$=".s
    plain white under the letter whose turn it is; a letter not written yet is see-through (keeps its place); a wrong letter is never written (the place shakes).
    No other file styles .ws / .lt. A place changes only its data, never this look. Language (not subject) picks the line: English = a line per letter,
    Arabic = one joined underline (the letters must stay joined). Size: one size; a long word shrinks only as much as it must. */
-:root{--ws-size:clamp(2.5rem,min(12vw,8.5vh),5rem);--ws-line:var(--c-on-bg-line);--ws-now:var(--c-on-bg);--ws-ink:var(--c-on-bg)}
+:root{--ws-size:clamp(2.9rem,min(13.5vw,9.5vh),6rem);--ws-line:var(--c-on-bg-line);--ws-now:var(--c-on-bg);--ws-ink:var(--c-on-bg)}
 
 /* one colour, weight, no glow / outline; reading along (lit) never changes the colour */
 #lesson .ws,#lesson .ws .lt,#lesson :is(.vword.lit,.qword.lit) .ws .lt,#lesson .wsg.on .lt,#lesson .qword.lit b,#lesson .qword .qscr{color:var(--ws-ink);font-weight:700;text-shadow:none;-webkit-text-stroke:0;background:none;transition:none}
@@ -2932,6 +2932,14 @@ body.ws-typing .ws-side{width:1.75rem!important;height:1.75rem!important;border-
 /* the question word line with a plain word or a sentence (not spelled): a sentence wraps inside the screen and takes the sentence size */
 #lesson .qword b:not(:has(.ws)){white-space:normal;text-align:center;max-width:100%;overflow-wrap:break-word}
 #lesson .qword b:has(.alw ~ .alw){font-size:min(var(--ws-size),var(--q-sentence-size))}
+
+/* no line under a word that is only read (Ahmed 2026-11-16): the lines stay only where letters are still to be written */
+#lesson .ws:not(:has(.lt.hid)):not(.ws-ar) .lt{border-bottom-color:transparent}
+#lesson .ws.ws-ar:not(:has(.lt.hid)) .lt{text-decoration:none}
+/* the circle round a letter (ring question) is drawn by qxRingMark in js/quiz-letters.js, on top, at the letter's real place */
+#lesson .qxw.ring{position:relative}
+#lesson .qxw.ring .lt.rung::after{display:none}
+.qxring{position:absolute;box-sizing:border-box;border:.07em solid var(--c-pink);border-radius:50%;pointer-events:none;z-index:3}
 /* ===== css/welcome.css ===== */
 /* ---------- WELCOME (first launch: curriculum, parent account, child profile) + the child button on the home page ----------
    Look = the game's settings screen: orange/yellow swirl, big glossy orange buttons (.pill), white words with a dark outline. rem / vh / vw only. */
@@ -3237,6 +3245,30 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .almcq.chartq .alpics{display:flex;align-items:center;justify-content:center}
 .almcq.chartq .alfig{height:100%;max-height:100%}
 .almcq.chartq .alpics img{max-height:100%;max-width:100%;width:auto;height:100%;object-fit:contain}
+
+/* ---------- 6. progress = dots under the question (Ahmed 2026-11-16): the stars above the question are gone, the row they used is given to the question.
+   Same look as Easy Words (#lmDots, one dot per question, a gap between exercise groups). Easy Words' own .quiz.ep is untouched. ---------- */
+.quiz:not(.ep) .qdots{display:none}
+.quiz:not(.ep){grid-template-rows:auto auto minmax(0,1fr) auto;grid-template-areas:"head" "word" "play" "ans"}
+.quiz[data-type="pick"]:not(.ep){grid-template-rows:auto auto minmax(0,1fr) 0}
+#lesson.q-land .quiz:is([data-type="yesno"],[data-type="letter"],[data-type="type"]):not(.ep){grid-template-rows:auto auto minmax(0,1fr);grid-template-areas:"head" "word" "play"}
+#lesson.q-port .quiz:is([data-type="write"],[data-type="type"]):not(.ep){grid-template-rows:auto auto auto auto minmax(0,1fr);grid-template-areas:"head" "word" "play" "ans" "."}
+#lesson.ar.q-short .quiz:not(.ep){grid-template-rows:auto auto minmax(0,1fr);grid-template-areas:"head" "word" "play"}
+.quiz:is([data-type="explain"],[data-type="mcq"],[data-type="cloze"],[data-type="order"],[data-type="mwrite"]):not(.ep){grid-template-rows:auto minmax(0,1fr);grid-template-areas:"head" "play"}
+#lesson.q-land .quiz:not(.ep){grid-template-rows:auto auto minmax(0,1fr) auto;grid-template-areas:"head" "word" "play" "ans"}
+#lesson.q-short .quiz:not(.ep){grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr) auto;grid-template-areas:"head" "word" "play" "ans"}
+#lmDots.qd{max-width:min(80vw,30rem);gap:0}
+#lmDots.qd .ldot{width:.95rem;height:.95rem;padding:.24rem}
+#lmDots.qd .ldot.gs{margin-inline-start:.7rem}
+#lmDots.qd .ldot.done:not(.on){background-color:var(--c-gold);opacity:.8}
+@media (max-width:480px){#lmDots.qd{max-width:min(70vw,30rem)}#lmDots.qd .ldot{width:.85rem;height:.85rem;padding:.2rem}#lmDots.qd .ldot.gs{margin-inline-start:.5rem}}
+#lmeta .pgtag{white-space:nowrap}
+#lmDots.qd{max-width:min(calc(100vw - 9.5rem),30rem)}
+@media (max-width:480px){#lmDots.qd{max-width:min(calc(100vw - 9.5rem),30rem)}}
+
+/* ---------- ONE Help bulb size (Ahmed 2026-11-16): tokens --hlp-box / --hlp-icon in theme.css, same in every question place and both apps ---------- */
+.qhelpb,.qxhelp,#lmeta .qhelpb,#lmeta .qxhelp,.quiz>.qhelpb{width:var(--hlp-box)!important;height:var(--hlp-box)!important;min-width:0;border-width:.125rem!important}
+.qhelpb svg,.qxhelp svg{width:var(--hlp-icon)!important;height:var(--hlp-icon)!important}
 /* ===== css/coins.css ===== */
 /* COINS — the coin chip beside the star counter, the share sheet and the unlock popup (js/coins.js). Same popup look as the app's messages. */
 .coinhud{position:relative;display:flex;align-items:center;height:2.2rem;padding:0 .9rem 0 2.3rem;margin-left:1.6rem;border-radius:62.4375rem;border:0;cursor:pointer;
@@ -3403,4 +3435,4 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .sp-a{grid-column:1/-1}.sp-a:empty{display:none}
 .sp-buy.pill{width:100%;flex-direction:row;justify-content:center;gap:.6rem;padding:.5rem}
 .sp-n .sp-buy.pill{width:auto}
-:root{--app-build:"505d2f579e"}
+:root{--app-build:"d9cfd5b178"}

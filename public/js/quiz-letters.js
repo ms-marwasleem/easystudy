@@ -25,7 +25,7 @@ function qxGo(w,q,i,run){
   { const wi=$('#qxin'); if(wi&&s.type==='write') wi.focus({preventScroll:true}); }   // moving the line into the speaker row dropped the focus: the keyboard opens with the question
   if(!m.own){ requestAnimationFrame(()=>qxFit(box)); $$('img',box).forEach(im=>{ if(!im.complete) im.addEventListener('load',()=>qxFit(box),{once:true}); }); }
   qLayout(); carFrac(i/qz.list.length);
-  setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(qNewEx()) await qTask(); if(run===qz.run&&inQ()&&box._after) await box._after(); if(run===qz.run&&inQ()&&!quiet()&&q.autoSay) s.type==='qa'?qxQAPlay(q,run):qSay(); },350);
+  setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(qNewEx()) await qTask(); if(run===qz.run&&inQ()&&box._after) await box._after(); if(run===qz.run&&inQ()&&!quiet()&&qAuto(q)&&!(qNewEx()&&qHdrOnly(q))) s.type==='qa'?qxQAPlay(q,run):qSay(); },350);
 }
 const qxBad=b=>qBad(b);
 // a right answer: celebrate, say the word, on to the next
@@ -68,7 +68,7 @@ const qxDone=wd=>!qxNext(wd);
 function qxWrite(box,q,s,run,text,onDone){   // text: what to type (default the question's word); onDone: called instead of the win (math: number, then its word)
   text=text||q.word; $$('.qxhelp',box).forEach(x=>x.remove());
   if(q.chips&&text===q.word){ const c=el('div','qxchips'); c.innerHTML=q.chips.map(t=>`<i>${t}</i>`).join('<u>/</u>'); box.append(c); }
-  const wd=qxWordEl(text,text===q.word?q.chips:null,s.faint,s.lang==='en'||/^[\x00-\x7f]+$/.test(text),text===q.word&&q.gaps&&q.gaps.length?q.gaps:null), help=el('button','qxhelp',ICON.hint); help.setAttribute('aria-label','Help');
+  const wd=qxWordEl(text,text===q.word?q.chips:null,s.faint,s.lang==='en'||/^[\x00-\x7f]+$/.test(text),text===q.word&&q.gaps&&q.gaps.length?q.gaps:null), help=helpBtn('qxhelp');
   const line=el('div','qxline'); line.append(wd); const duo=$('.qxduo',box); (duo||box).append(line); qHelpHost(help);   // duo: number and its word side by side
   let inp=$('#qxin');
   if(!inp){ inp=el('input','qin'); Object.assign(inp,{type:'text',id:'qxin',autocomplete:'off',spellcheck:false,lang:s.lang||'ar'}); ['autocorrect','autocapitalize'].forEach(a=>inp.setAttribute(a,'off')); inp.setAttribute('enterkeyhint','done'); inp.setAttribute('aria-label','Type the word'); }
@@ -398,17 +398,13 @@ function qxBuild(box,q,s,run){
   const bank=el('div','qxtiles qxbank'); (q.letters||[]).forEach(g=>{ const t=el('button','qxtile',`<span>${g}</span>`); t.dataset.g=g; bank.append(t); });
   if(q.pics&&!q.picWords&&q.words&&q.words.length===q.pics.length) q.picWords=q.words.map(w=>[w]);   // pictures + one word per picture (same order): every place gets exactly the word's letter boxes, never fewer
   const places=el('div','qxbplaces'), P=[]; const PW=q.pics&&q.picWords;   // picWords (with pics): place i belongs to picture i and accepts ONLY that picture's name (list of spellings), with exactly as many letter boxes as the name has letters; a built word turns into one joined written word
-  for(let i=0;i<(PW?q.pics.length:(q.slots||4));i++){ const d=el('div','qxbp'+(q.cells?' cells':'')), w=el('b','qxbw'), c=el('button','qxbx','×'); c.setAttribute('aria-label','Clear'); d.append(w,c); places.append(d); P.push({d,w,c,l:[],done:false,i}); }
+  for(let i=0;i<(PW?q.pics.length:(q.slots||4));i++){ const d=el('div','qxbp'), w=el('b','qxbw'), c=el('button','qxbx','×'); c.setAttribute('aria-label','Clear'); d.append(w,c); places.append(d); P.push({d,w,c,l:[],done:false,i}); }
   if(PW){ const cols=[...places.children]; cols.forEach((d,i)=>{ const col=el('div','qxbcol'), f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${q.pics[i]}" alt="">`)); d.replaceWith(col); col.append(f,d); }); }   // pictures stand at the sides: each one right above its own place
   if(q.pics&&q.pics.length&&!PW){ const pr=el('div','qxfirsts qxbpics'); q.pics.forEach(u=>{ const f=el('figure','qxfi'); f.append(el('div','qxfp2',`<img src="${u}" alt="">`)); pr.append(f); }); box.append(pr); }   // "pics": the book's pictures of the words to make (shown above the letters; the answer is still ANY word the letters make)
   box.append(bank,places);
-  const MAXL=PW?6:6, need=P.length, pwN=p=>PW?(q.picWords[p.i][0].match(/[^ً-ْٰـ][ً-ْٰـ]*/g)||[]).length:0, act=()=>P.find(p=>!p.done&&p.l.length<MAXL), show=p=>{ if(!q.cells){ p.w.textContent=p.l.join(''); return; }
-    // q.cells = N: the place is split into N letter boxes so the child sees where each letter goes (one box per letter; a built word shows its marks)
-    // boxes do NOT tell how long the word is: as many boxes as letters placed plus one empty (at least 2, at most MAXL); a built word shows its letters with marks
-    if(PW&&p.done){ p.w.innerHTML=''; p.w.append(el('span','qxbjoin',p.wk)); return; }
-    const parts=p.done?(p.wk||'').match(/[^ً-ْٰـ][ً-ْٰـ]*/g)||[]:p.l, n=PW?pwN(p):p.done?parts.length:Math.min(MAXL,Math.max(2,p.l.length+1)); p.w.innerHTML=''; for(let i=0;i<n;i++){ const c=el('span','qxbc'+(parts[i]?' on':'')); c.textContent=parts[i]||''; p.w.append(c); } };
+  const MAXL=PW?6:6, need=P.length, pwN=p=>PW?(q.picWords[p.i][0].match(/[^ً-ْٰـ][ً-ْٰـ]*/g)||[]).length:0, act=()=>P.find(p=>!p.done&&p.l.length<MAXL), show=p=>{ p.w.textContent=p.l.join(''); };   // 2026-11-16 (Ahmed): ONE writing line per place, the chosen letters stand on it (never fixed boxes: the number of letters changes with the child's word)
   const put=(g,p)=>{ if(!p||p.done||p.l.length>=(PW?pwN(p):MAXL)||qz.busy) return false; p.l.push(g); show(p); blip(520+p.l.length*60,.05);
-    const lock=m=>{ p.done=true; p.k=m.k; p.wk=m.w; if(q.cells) show(p); else p.w.textContent=m.w; p.d.classList.add('got'); celebrate(p.d); if(P.filter(x=>x.done).length>=need) qxWin(places,q,1700); };
+    const lock=m=>{ p.done=true; p.k=m.k; p.wk=m.w; p.w.textContent=m.w; p.d.classList.add('got'); celebrate(p.d); if(P.filter(x=>x.done).length>=need) qxWin(places,q,1700); };
     if(PW){ const k=key(p.l.join('')), w=q.picWords[p.i].find(x=>key(x)===k); if(w) lock({k,w}); else if(p.l.length>=pwN(p)){ qxBad(p.d); setTimeout(()=>{ p.l=[]; show(p); },420); } return true; }
     const k=key(p.l.join('')), m=ok.find(o=>o.k===k&&!P.some(x=>x.done&&x.k===o.k));
     if(m) lock(m);
@@ -416,7 +412,6 @@ function qxBuild(box,q,s,run){
       const was=p.l.join(''); setTimeout(()=>{ if(!p.done&&p.l.join('')===was&&!P.some(x=>x.done&&x.k===k)) lock({k,w:was}); },p.l.length>=MAXL?0:900); }
     else if(p.l.length>=MAXL){ qxBad(p.d); setTimeout(()=>{ p.l=[]; show(p); },420); }
     return true; };
-  if(q.cells) P.forEach(show);
   P.forEach(p=>{ p.c.onclick=e=>{ e.stopPropagation(); if(p.done||qz.busy) return; p.l=[]; show(p); }; });
   let drag=null;
   bank.addEventListener('pointerdown',e=>{ const t=e.target.closest('.qxtile'); if(!t||qz.busy) return; e.preventDefault(); hideHint();

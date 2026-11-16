@@ -259,20 +259,15 @@
 /* build: all the letters on top (used again and again), places for 3-4 words below | first: a letter under each picture, then the merged word */
 .qxbank{margin-bottom:clamp(.6rem,2.4vh,1.2rem)}
 .qxbplaces{display:grid;grid-template-columns:1fr 1fr;gap:clamp(.4rem,1.6vh,.9rem) clamp(.5rem,3cqw,1.2rem);width:min(92%,38rem);margin-inline:auto}
-.qxbp{position:relative;display:flex;align-items:center;justify-content:center;min-height:clamp(2.8rem,9vh,4.4rem);border-bottom:.2rem solid var(--c-on-bg-line,rgba(255,255,255,.6))}   /* simple: no panel, just the letter boxes (or a line) */
+.qxbp{position:relative;display:flex;align-items:center;justify-content:center;min-height:clamp(2.8rem,9vh,4.4rem);border-bottom:.28rem solid var(--c-on-bg,#fff);border-radius:.14rem}   /* one writing line per place, the letters stand on it (no boxes) */
 .qxbp.got{border-bottom-color:var(--c-ok,#2e9e5b)}
-.qxbp.cells{border-bottom:0}
 .qxbcol{display:flex;flex-direction:column;align-items:center;gap:clamp(.3rem,1.2vh,.7rem);min-width:0}
 .qxbcol .qxfp2 img{max-height:clamp(3rem,15vh,8rem);max-width:min(40vw,14rem);height:auto}
-.qxbp.cells{padding:.3rem 0;min-width:0}
-.qxbp.cells .qxbx{top:0;transform:translateY(-40%);inset-inline-start:-.3rem;width:1.4rem;height:1.4rem;font-size:1rem}
-.qxbp.cells .qxbw{display:flex;gap:.12rem;font-size:clamp(.9rem,min(4.6vh,3.6vw),1.9rem);line-height:1}   /* 7-8 letter boxes in one half of a phone: the boxes shrink with the width */
 .qxbc{display:inline-flex;align-items:center;justify-content:center;width:1.5em;height:1.7em;border-radius:.5rem;border:.18rem solid var(--c-accent);background:#fff;line-height:1}
 .qxbp.got .qxbc{border-color:var(--c-ok,#2e9e5b)}
 .qxbw{font-family:var(--f-ar);font-weight:700;font-size:clamp(1.6rem,6.4vh,2.8rem);line-height:1.5;color:var(--c-text);direction:rtl}
 .qxbx{position:absolute;inset-inline-start:.4rem;top:50%;transform:translateY(-50%);width:1.8rem;height:1.8rem;border:0;border-radius:50%;background:rgba(0,0,0,.12);color:var(--c-text);font-size:1.2rem;line-height:1;padding:0;cursor:pointer}
 .qxbp:not(:has(.qxbw:not(:empty))) .qxbx,.qxbp.got .qxbx{display:none}
-.qxbp.cells:not(:has(.qxbc.on)) .qxbx{display:none}
 .qxfirsts{display:flex;max-width:100%;gap:clamp(.3rem,2vw,1.5rem);justify-content:center;align-items:flex-end;direction:rtl}
 .qxfi{margin:0;min-width:0;display:flex;flex-direction:column;align-items:center;gap:.4rem}
 .qxfp2 img{display:block;height:clamp(3rem,15vh,8rem);width:auto;max-width:min(22vw,9rem);object-fit:contain}
@@ -291,7 +286,7 @@
 .qxtile.used{opacity:.25;pointer-events:none}
 
 /* ring = circle the letter inside the word (js/quiz-letters.js qxRing): the tapped right letter gets a circle round it */
-.qxw.ring{font-size:clamp(2.4rem,10vh,4.2rem)}
+.qxw.ring{font-size:clamp(3.2rem,13vh,5.6rem)}
 .qxw.ring .lt{cursor:pointer;position:relative}
 .qxw.ring .lt.rung::after{content:'';position:absolute;left:50%;top:56%;width:.78em;height:.78em;transform:translate(-50%,-50%);border:.05em solid var(--c-pink);border-radius:50%;pointer-events:none}
 
