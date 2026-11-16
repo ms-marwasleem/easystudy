@@ -117,7 +117,7 @@ function vRender(fill){
   const v=LESSON.vocab[vs.i], img=$('.vimg');
   if(!img._fit){ img._fit=1; img.addEventListener('load',vFitImg); }
   if(v.img&&img.getAttribute('src')!==v.img){ img.src=v.img; if(anim){ G.set(img,{opacity:0}); const go=()=>G.to(img,{opacity:1,duration:.3}); img.decode?img.decode().then(go,go):go(); } }
-  const boy=$('.vboy'); if(boy){ boy.hidden=!v.har; if(v.har) boy.src=LESSON.base+'../../pics/ar-boy-'+v.har+'.png'; }
+  const boy=$('.vboy'); if(boy){ boy.hidden=!v.har; if(v.har) boy.src=LESSON.base+'../../pics/boy-'+v.har+'.png'; }
   img.alt=v.word; img.classList.toggle('cut',/\.png$/i.test(v.img||'')); if(vMode()&&v.rel) $('.vm-t').innerHTML=`<small>${v.rel.label}</small><span>${v.rel.text}</span>`; else $('.vm-t').textContent=v.ar||''; $('.vmeaning').hidden=!(v.ar||v.rel);   // library cut-outs are png
   $$('.vthumb').forEach((b,i)=>b.classList.toggle('on',i===vs.i));
   const pk=$('.vpick'), on=$('.vthumb.on'); if(pk&&on&&pk.scrollWidth>pk.clientWidth) pk.scrollTo({left:on.offsetLeft-pk.clientWidth/2+on.offsetWidth/2,behavior:'smooth'});   // keep the current word in view in the strip

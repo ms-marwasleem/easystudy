@@ -3842,4 +3842,4 @@ html[data-theme="words"],html[data-theme="words"] body{background:radial-gradien
 /* test setup screen: the headings, chips and weak-words button are Arabic, so they all sit on the right in every subject */
 #ewTestBody .ewt-opts,#ewTestBody .ewt-help,#ewTestBody .ewt-weak,#ewTestBody .ewt-chips{direction:rtl;text-align:start}
 #ewTestBody .ewt-weak{margin-inline-start:0;margin-inline-end:auto}
-:root{--app-build:"67cdbb3353"}
+:root{--app-build:"7daccf4d30"}
