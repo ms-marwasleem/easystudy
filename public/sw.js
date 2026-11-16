@@ -52,7 +52,9 @@ async function keep(name, req, key) {
   try {
     let r = await fetch(req, name === EXT ? undefined : { cache: 'no-cache' });
     if (r.redirected) r = new Response(await r.blob(), { status: r.status, statusText: r.statusText, headers: r.headers });   // a page may not be answered with a redirect
-    if (r.ok || r.type === 'opaque') c.put(k, r.clone()).catch(() => {});
+    // a .json answered with a web page (a missing file on the host) must never be kept: it would make a lesson fail to load for good
+    const bad = r.ok && /\.json(\?|$)/i.test(new URL(typeof req === 'string' ? req : req.url, self.location.href).pathname) && /text\/html/i.test(r.headers.get('content-type') || '');
+    if (!bad && (r.ok || r.type === 'opaque')) c.put(k, r.clone()).catch(() => {});
     return r;
   } catch (e) { const hit = await c.match(k); if (hit) return hit; throw e; }
 }
@@ -112,7 +114,8 @@ async function openApp() {
   return keep(APP, new Request(at_('./')), at_('index.html'));
 }
 self.addEventListener('install', e => { self.skipWaiting(); e.waitUntil(Promise.race([keepFirst().catch(() => {}), new Promise(r => setTimeout(r, 20000))])); });
-self.addEventListener('activate', e => e.waitUntil(self.clients.claim()));
+// a new version of this file starts from clean kept pages/lessons (2026-11-16: a lesson that did not load on a device that had kept an older or broken copy)
+self.addEventListener('activate', e => e.waitUntil(caches.delete(APP).catch(() => {}).then(() => self.clients.claim())));
 self.addEventListener('fetch', e => {
   const r = e.request; if (r.method !== 'GET' || r.headers.has('range')) return;
   const u = new URL(r.url);
