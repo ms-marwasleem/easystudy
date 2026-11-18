@@ -144,8 +144,14 @@ self.addEventListener('push', e => e.waitUntil((async () => {
 self.addEventListener('notificationclick', e => {
   e.notification.close();
   const to = new URL((e.notification.data && e.notification.data.url) || './', self.registration.scope).href;
-  e.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(cs => {
+  // an internal link: app closed -> opens straight on the link; app open -> focused and told to go to the link (no reload); if it does not answer, the window is sent there
+  const ours = to.startsWith(self.registration.scope);
+  e.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(async cs => {
     const c = cs.find(w => w.url.startsWith(self.registration.scope));
-    return c ? c.focus().then(w => w.navigate ? w.navigate(to).catch(() => {}) : null) : self.clients.openWindow(to);
+    if (!c) return self.clients.openWindow(to);
+    let w = c; try { w = (await c.focus()) || c; } catch (x) {}
+    if (!ours) return self.clients.openWindow(to);
+    const ok = await new Promise(res => { try { const ch = new MessageChannel(); ch.port1.onmessage = () => res(true); w.postMessage({ type: 'es-go', url: to }, [ch.port2]); setTimeout(() => res(false), 900); } catch (x) { res(false); } });
+    if (!ok && w.navigate) return w.navigate(to).catch(() => {});
   }));
 });

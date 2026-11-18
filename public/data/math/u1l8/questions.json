@@ -3,9 +3,11 @@
   {
    "type": "bond",
    "ex": 1,
-   "page": 19,
-   "task": "Write the missing number in the box.",
-   "taskAudio": "q/task-1.mp3",
+   "page": 26,
+   "typed": true,
+   "boxed": true,
+   "task": "What two numbers make 10? Write the missing number in the square.",
+   "taskAudio": "../u1l3/q/task-book-bond-10.mp3",
    "items": [
     {
      "whole": 10,
@@ -22,7 +24,18 @@
       4
      ],
      "audio": "words/six-and-four-make-ten.mp3"
-    },
+    }
+   ]
+  },
+  {
+   "type": "bond",
+   "ex": 2,
+   "page": 27,
+   "typed": true,
+   "boxed": true,
+   "task": "What two numbers make 10? Write the missing number in the square.",
+   "taskAudio": "../u1l3/q/task-book-bond-10.mp3",
+   "items": [
     {
      "whole": 10,
      "parts": [
@@ -59,6 +72,50 @@
   },
   {
    "type": "bond",
+   "ex": 3,
+   "page": 27,
+   "typed": true,
+   "boxed": true,
+   "task": "What two numbers make 10? Write the missing number in the square.",
+   "taskAudio": "../u1l3/q/task-book-bond-10.mp3",
+   "items": [
+    {
+     "whole": 10,
+     "parts": [
+      1,
+      null
+     ],
+     "audio": "words/one-and-nine-make-ten.mp3"
+    },
+    {
+     "whole": 10,
+     "parts": [
+      8,
+      null
+     ],
+     "audio": "words/eight-and-two-make-ten.mp3"
+    },
+    {
+     "whole": 10,
+     "parts": [
+      null,
+      3
+     ],
+     "audio": "words/seven-and-three-make-ten.mp3"
+    },
+    {
+     "whole": 10,
+     "parts": [
+      null,
+      7
+     ],
+     "audio": "words/three-and-seven-make-ten.mp3"
+    }
+   ]
+  },
+  {
+   "type": "bond",
+   "typed": true,
    "ex": 1,
    "page": 19,
    "task": "Write the missing number in the box.",
@@ -117,6 +174,50 @@
   },
   {
    "type": "bond",
+   "typed": true,
+   "page": 22,
+   "task": "Complete to make 10.",
+   "taskAudio": "q/task-bk-complete-to-make.mp3",
+   "items": [
+    {
+     "whole": 10,
+     "parts": [
+      4,
+      null
+     ],
+     "audio": "words/four-and-six-make-ten.mp3"
+    },
+    {
+     "whole": 10,
+     "parts": [
+      2,
+      null
+     ],
+     "audio": "words/two-and-eight-make-ten.mp3"
+    },
+    {
+     "whole": 10,
+     "parts": [
+      null,
+      7
+     ],
+     "audio": "words/three-and-seven-make-ten.mp3"
+    },
+    {
+     "whole": 10,
+     "parts": [
+      null,
+      1
+     ],
+     "audio": "words/nine-and-one-make-ten.mp3"
+    }
+   ],
+   "book": "workbook",
+   "act": "class"
+  },
+  {
+   "type": "bond",
+   "typed": true,
    "page": 22,
    "task": "Complete to make the number 10.",
    "taskAudio": "q/task-bk-complete-to-make-the-number.mp3",

@@ -36,15 +36,9 @@ async function subSync(){ const s=typeof sySession==='function'&&sySession(); if
   r.j.subs.forEach(x=>{ if(!mine.has(x.child)) return; const o=((old[x.child]||{})[x.term])||{};
     (A[x.child]=A[x.child]||{})[x.term]={st:x.st,at:x.at,trial:x.trial,until:x.until,price:x.price,ref:x.ref,note:x.note||'',dec:x.dec||0,seen:o.st===x.st?o.seen:(x.st==='pending')}; });
   Object.keys(old).forEach(id=>{ if(!mine.has(id)) A[id]=old[id]; else Object.keys(old[id]).forEach(key=>{ if(old[id][key].st==='credit') (A[id]=A[id]||{})[key]=old[id][key]; else if(!(A[id]||{})[key]&&old[id][key].st==='pending'&&!r.j.subs.length) (A[id]=A[id]||{})[key]=old[id][key]; }); });
-  cSet('es.subs',A); subNotice(); const o=$('#acctPage'); if(o&&!o.hidden) subDot(o); const sp=$('#subsPage'); if(sp&&!sp.hidden) subsOpen(); }
-function subNews(){ const out=[]; const A=subAll(); kids().forEach(k=>Object.entries(A[k.id]||{}).forEach(([key,r])=>{ if(!r.seen&&(r.st==='active'||r.st==='rejected'||r.st==='closed')) out.push({k,key,r}); })); return out; }
-function subNotice(){ const n=subNews()[0]; if(!n||$('#coinPop')&&!$('#coinPop').hidden) return;
-  const t=n.key.split(':')[1], tn=(SUBT_ALL.find(x=>x[0]===t)||[])[1]||'', ok=n.r.st==='active';
-  const A=subAll(); A[n.k.id][n.key].seen=true; cSet('es.subs',A);
-  coinPop(`<h2 class="outline">${ok?'تم تفعيل الاشتراك':n.r.st==='closed'?'الاشتراك اتقفل':'الاشتراك ما اتفعلش'}</h2>
-    <p class="msg-text">${ok?`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتفعل ويفضل مفتوح لحد ${subDate(n.r.until)}.`:n.r.st==='closed'?`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتقفل.`:`مقدرناش نتأكد من الدفع لاشتراك <b>${wlEsc(n.k.name)}</b> في ${tn}، فالدروس اتقفلت. ممكن تبعتي الإيصال تاني.`}</p>${!ok&&n.r.st==='rejected'&&n.r.note?`<p class="msg-text">${wlEsc(n.r.note).replace(/\n/g,'<br>')}</p>`:''}
-    <button class="pill green" data-ok>تمام</button>`, p=>$('[data-ok]',p).addEventListener('click',()=>{ coinClose(); if(typeof drawSubjects==='function'&&!$('#subjects').hidden) drawSubjects(); subNotice(); })); }
-function subDot(o){ const b=$('.ac-subs em',o); if(b) b.textContent=subNews().length?'جديد':''; }
+  cSet('es.subs',A); const o=$('#acctPage'); if(o&&!o.hidden) subDot(o); const sp=$('#subsPage'); if(sp&&!sp.hidden) subsOpen(); const np=$('#notifPage'); if(np&&!np.hidden) notifsOpen(); if(typeof puBadge==='function') puBadge(); }
+function subNews(){ const out=typeof refNotices==='function'?refNotices().filter(x=>!x.r.seen):[]; const A=subAll(); kids().forEach(k=>Object.entries(A[k.id]||{}).forEach(([key,r])=>{ if(!r.seen&&(r.st==='active'||r.st==='rejected'||r.st==='closed')) out.push({k,key,r}); })); return out; }
+function subDot(o){ const b=$('.ac-news em',o); const n=subNews().length; if(b) b.textContent=n?num(n)+' جديد':''; }
 setTimeout(subSync,1500); document.addEventListener('visibilitychange',()=>{ if(!document.hidden) subSync(); });
 
 /* ---------- the receipt picture: made small in the browser (about 100 KB) before it is sent ---------- */
@@ -68,34 +62,73 @@ function subStat(r,t){ const now=Date.now(); if(!r) return {c:'none',t:'مفيش
 /* the subscriptions PAGE (Ahmed 2026-11-16): a page in the account area (same look as the profile page), two tabs: الاشتراكات = a table per child, one row per term with a strong
    state (active until / not subscribed / waiting / rejected) and the button to subscribe; الإشعارات = what happened to each receipt (confirmed, rejected + the admin's reason, closed).
    The notices are read from the same subscription records (server GET /subs: st, note, dec = the day the admin decided), so there is one data shape and nothing else to keep in step. */
-const SUB_TAB={t:'subs'};
+const SUB_TAB={kid:null};
 function subsPage(){ parentGate(()=>subsOpen()); }
-function subNotices(){ const out=[]; const A=subAll(); kids().forEach(k=>Object.entries(A[k.id]||{}).forEach(([key,r])=>{ if(r.st==='credit'||!r.st) return; out.push({k,key,r,t:r.dec||r.at||0}); })); return out.sort((a,b)=>b.t-a.t); }
-function subsOpen(tab){ if(tab) SUB_TAB.t=tab; const T=SUB_TAB.t, on=subIsOn();
+// any subscription this account ever had (credit-unlock seasons are not subscriptions)
+function subHasAny(){ const A=subAll(); return kids().some(k=>Object.values(A[k.id]||{}).some(r=>r&&r.st&&r.st!=='credit')); }
+// the page shows only what exists: active subscriptions (and a receipt still being reviewed) of the student whose tab is open; buying starts from the "عمل اشتراك" button
+const subLive=r=>!!r&&(!r.until||Date.now()<r.until)&&(r.st==='active'||r.st==='pending');
+function subTermsFor(k){ return SUBT.filter(([t])=>!subLive(subRec(k,t))&&subPrice(k.grade||'p1',t).fin>0); }
+function subNew(){ const on=subIsOn(), K=kids(); if(!on||!K.length) return;
+  let kid=K.length===1?K[0].id:SUB_TAB.kid;
+  const draw=p=>{ const k=K.find(x=>x.id===kid), T=k?subTermsFor(k):[];
+    p.innerHTML=`<h2 class="outline">عمل اشتراك</h2><div class="subscroll">${K.length>1?`<p class="msg-text">اختار الطالب</p><div class="sp-pick">${K.map(x=>`<button class="pill ${x.id===kid?'green':'cream'} sp-pk" data-k="${x.id}">${wlEsc(x.name)}</button>`).join('')}</div>`:''}
+      ${k?(T.length?`<p class="msg-text">اختار الترم</p><div class="sp-pick">${T.map(([t,tn])=>`<button class="pill yellow sp-pt" data-t="${t}">${tn}<small>${num(subPrice(k.grade||'p1',t).fin)} جنيه</small></button>`).join('')}</div>`:'<p class="msg-text">مفيش ترمات متاحة للاشتراك دلوقتي.</p>'):''}
+      <button class="pill cream sp-pc">إلغاء</button></div>`;
+    $$('.sp-pk',p).forEach(b=>b.addEventListener('click',()=>{ kid=b.dataset.k; draw(p); }));
+    $$('.sp-pt',p).forEach(b=>b.addEventListener('click',()=>{ coinClose(); subBuy(kid,b.dataset.t); }));
+    $('.sp-pc',p).addEventListener('click',coinClose); };
+  coinPop('<div class="sp-pop"></div>',p=>draw($('.sp-pop',p))); }
+function subsOpen(tab){ if(tab) SUB_TAB.kid=tab; const on=subIsOn();
   let o=$('#subsPage'); if(!o){ o=el('div','acctpage',''); o.id='subsPage'; o.setAttribute('role','dialog'); o.setAttribute('aria-label','Subscriptions'); document.body.append(o); }
-  const K=kids(), nn=subNews().length;
-  const tabs=`<div class="sp-tabs" role="tablist"><button class="sp-tab-b${T==='subs'?' on':''}" data-tab="subs" role="tab">الاشتراكات</button><button class="sp-tab-b${T==='news'?' on':''}" data-tab="news" role="tab">الإشعارات${nn?`<i class="sp-dot">${num(nn)}</i>`:''}</button></div>`;
-  let body='';
-  if(T==='subs'){
-    body=(on?'':'<p class="sp-soon">الاشتراك هيتفتح قريبًا.</p>')+K.map(k=>`<section class="ac-card sp-kid"><h3>${wlEsc(k.name)}</h3><div class="sp-tbl" role="table">
-      <div class="sp-hd" role="row"><span>الترم</span><span>الحالة</span><span></span></div>${SUBT.map(([t,tn])=>{ const r=subRec(k,t), s=subStat(r,t), pr=subPrice(k.grade||'p1',t);
-        const can=on&&pr.fin&&(s.c==='none'||s.c==='bad'), ic=s.c==='on'?'✓':s.c==='wait'?'…':s.c==='bad'?'!':'✕';
-        return `<div class="sp-r ${s.c}" role="row"><b>${tn}</b><span class="sp-s"><i class="sp-ic">${ic}</i>${s.t}</span><span class="sp-a">${can?`<button class="pill green sp-buy" data-k="${k.id}" data-t="${t}">${s.c==='bad'?'ابعت الإيصال تاني':'اشترك'}<small>${num(pr.fin)} جنيه</small></button>`:(on&&!pr.fin&&s.c==='none'?'<small class="sp-np">السعر لسه متحددش</small>':'')}</span></div>`; }).join('')}</div></section>`).join('');
-  } else {
-    const L=subNotices();
-    body=L.length?`<div class="sp-news">${L.map(n=>{ const t=n.key.split(':')[1], tn=(SUBT_ALL.find(x=>x[0]===t)||[])[1]||'', st=n.r.st, expired=n.r.until&&Date.now()>=n.r.until;
+  const K=kids(), cur=kidNow(); if(!K.find(x=>x.id===SUB_TAB.kid)) SUB_TAB.kid=(cur&&cur.id)||(K[0]&&K[0].id);
+  const k=K.find(x=>x.id===SUB_TAB.kid);
+  const rows=k?SUBT.map(([t,tn])=>({t,tn,r:subRec(k,t)})).filter(x=>subLive(x.r)):[];
+  const tabs=K.length>1?`<div class="sp-tabs" role="tablist">${K.map(x=>`<button class="sp-tab-b${x.id===SUB_TAB.kid?' on':''}" data-tab="${x.id}" role="tab">${wlEsc(x.name)}</button>`).join('')}</div>`:'';
+  const body=(on?`<button class="pill green sp-new">عمل اشتراك</button>`:'<p class="sp-soon">الاشتراكات غير مفعلة حاليا</p>')+tabs+
+    `<section class="ac-card sp-kid">${K.length>1?'':`<h3>${k?wlEsc(k.name):''}</h3>`}${rows.length?`<div class="sp-tbl" role="table">${rows.map(({t,tn,r})=>{ const s=subStat(r,t), ic=s.c==='on'?'✓':'…';
+      return `<div class="sp-r ${s.c}" role="row"><b>${tn}</b><span class="sp-s"><i class="sp-ic">${ic}</i>${s.t}</span></div>`; }).join('')}</div>`:`<p class="sp-empty">مفيش اشتراكات مفعّلة${k?' لـ '+wlEsc(k.name):''}.</p>`}</section>`;
+  o.innerHTML=`<div class="ac-top"><button class="rb ac-back sp-back" aria-label="Back">${ICON.back}</button><h2>اشتراكاتي</h2></div><div class="ac-in">${body}</div>`;
+  $('.sp-back',o).addEventListener('click',()=>o.hidden=true);
+  $$('.sp-tab-b',o).forEach(b=>b.addEventListener('click',()=>subsOpen(b.dataset.tab)));
+  const nb=$('.sp-new',o); if(nb) nb.addEventListener('click',subNew);
+  o.hidden=false; }
+/* ---------- the NOTIFICATIONS page (Ahmed 2026-11-17): its own row in the account page ("الإشعارات") and the bell on the home page (with the unread count) both open it.
+   Inside: the on / off switch of the device notifications (js/push.js; before the first permission it is one button that asks), a filter all / unread only, "mark all as read",
+   and the list = what happened to each receipt (confirmed, rejected + the admin's reason, closed; read from the subscription records). A notice is unread until it is tapped or "mark all" is pressed; nothing ever pops up by itself. ---------- */
+const NF={f:'all'};
+const notifUnread=n=>!n.r.seen&&(n.r.st==='ref'||n.r.st==='active'||n.r.st==='rejected'||n.r.st==='closed');
+function subNotices(){ const out=[]; const A=subAll(); kids().forEach(k=>Object.entries(A[k.id]||{}).forEach(([key,r])=>{ if(r.st==='credit'||!r.st) return; out.push({k,key,r,t:r.dec||r.at||0}); })); if(typeof refNotices==='function') out.push(...refNotices()); return out.sort((a,b)=>b.t-a.t); }
+function notifRefresh(){ if(typeof puBadge==='function') puBadge(); const ap=$('#acctPage'); if(ap&&!ap.hidden) subDot(ap); }
+function notifMark(keys){ const A=subAll(); let ch=false; Object.entries(A).forEach(([kid,m])=>Object.entries(m).forEach(([key,r])=>{ if(r&&!r.seen&&(!keys||keys.includes(kid+'|'+key))){ r.seen=true; ch=true; } })); if(ch) cSet('es.subs',A); if(typeof refMark==='function') refMark(keys); notifRefresh(); notifsOpen(); }
+function notifsPage(){ notifsOpen(); }
+function notifPushRow(o){ const box=$('.nf-push',o); if(!box) return;
+  if(typeof puCan!=='function'||!puCan()){ box.hidden=true; return; }
+  const perm=typeof Notification!=='undefined'?Notification.permission:'default', on=!!PUSH.sub&&perm==='granted', first=!PUSH.sub&&perm==='default';
+  box.hidden=false;
+  box.innerHTML=first?`<span class="nf-ask-t">خلّي الإشعارات توصلك على الجهاز حتى لو التطبيق مقفول</span><button class="pill green nf-ask" type="button">فعّل الإشعارات</button>`
+    :`<label class="pf-sw"><input type="checkbox" class="nf-sw"${on?' checked':''}><i></i><span>إشعارات الجهاز</span></label>`;
+  const go=async()=>{ await puToggle(); notifPushRow(o); };
+  const a=$('.nf-ask',box), w=$('.nf-sw',box); if(a) a.addEventListener('click',go); if(w) w.addEventListener('click',e=>{ e.preventDefault(); go(); }); }
+function notifsOpen(){ const on=subIsOn();
+  let o=$('#notifPage'); if(!o){ o=el('div','acctpage',''); o.id='notifPage'; o.setAttribute('role','dialog'); o.setAttribute('aria-label','Notifications'); document.body.append(o); }
+  const all=subNotices(), nu=all.filter(notifUnread).length, L=NF.f==='unread'?all.filter(notifUnread):all;
+  const tabs=`<div class="sp-tabs" role="tablist"><button class="sp-tab-b${NF.f==='all'?' on':''}" data-f="all" role="tab">الكل</button><button class="sp-tab-b${NF.f==='unread'?' on':''}" data-f="unread" role="tab">غير المقروء${nu?`<i class="sp-dot">${num(nu)}</i>`:''}</button></div>`;
+  const list=L.length?`<div class="sp-news">${L.map(n=>{ if(n.r.st==='ref') return `<article class="ac-card sp-n active${notifUnread(n)?' unread':''}" data-nk="${n.k.id}|${n.key}"><div class="sp-nh"><b>دعوة صديق</b><small>${n.t?subDate(n.t):''}</small></div><p>${n.r.sub?'تم اشتراك':'تم تسجيل'} <b>${wlEsc(n.r.who||'صديق')}</b> ${n.r.sub?'':'كحساب جديد '}عن طريق لينك الدعوة بتاعك وخدتي <b>${num(n.r.n)}</b> كريدت.</p></article>`; const t=n.key.split(':')[1], tn=(SUBT_ALL.find(x=>x[0]===t)||[])[1]||'', st=n.r.st, expired=n.r.until&&Date.now()>=n.r.until;
       const kind=expired||st==='closed'?'closed':st, ttl={active:'تم تفعيل الاشتراك',rejected:'الاشتراك ما اتفعلش',closed:'الاشتراك اتقفل',pending:'وصلنا الإيصال'}[kind]||'';
       const txt={active:`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} مفعّل ومفتوح لحد ${subDate(n.r.until)}.`,
         rejected:`مقدرناش نتأكد من الدفع لاشتراك <b>${wlEsc(n.k.name)}</b> في ${tn}، فالدروس اتقفلت.`,
         closed:`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} اتقفل.`,
         pending:`إيصال اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} وصلنا وبنراجعه.`}[kind]||'';
-      return `<article class="ac-card sp-n ${kind}"><div class="sp-nh"><b>${ttl}</b><small>${n.t?subDate(n.t):''}</small></div><p>${txt}</p>${kind==='rejected'?`<p class="sp-why"><span>السبب</span>${wlEsc(n.r.note||'مقدرناش نتأكد من الدفع').replace(/\n/g,'<br>')}</p>`:''}${kind==='rejected'&&on?`<button class="pill green sp-buy" data-k="${n.k.id}" data-t="${t}">ابعت الإيصال تاني</button>`:''}</article>`; }).join('')}</div>`
-      :'<section class="ac-card"><p class="sp-empty">مفيش إشعارات لسه.</p></section>'; }
-  o.innerHTML=`<div class="ac-top"><button class="rb ac-back sp-back" aria-label="Back">${ICON.back}</button><h2>اشتراكاتي</h2></div><div class="ac-in">${tabs}${body}</div>`;
-  $('.sp-back',o).addEventListener('click',()=>o.hidden=true);
-  $$('.sp-tab-b',o).forEach(b=>b.addEventListener('click',()=>{ if(b.dataset.tab==='news'){ const A=subAll(); let ch=false; Object.values(A).forEach(m=>Object.values(m).forEach(r=>{ if(r&&!r.seen){ r.seen=true; ch=true; } })); if(ch){ cSet('es.subs',A); const ap=$('#acctPage'); if(ap&&!ap.hidden) subDot(ap); } } subsOpen(b.dataset.tab); }));
+      return `<article class="ac-card sp-n ${kind}${notifUnread(n)?' unread':''}" data-nk="${n.k.id}|${n.key}"><div class="sp-nh"><b>${ttl}</b><small>${n.t?subDate(n.t):''}</small></div><p>${txt}</p>${kind==='rejected'?`<p class="sp-why"><span>السبب</span>${wlEsc(n.r.note||'مقدرناش نتأكد من الدفع').replace(/\n/g,'<br>')}</p>`:''}${kind==='rejected'&&on?`<button class="pill green sp-buy" data-k="${n.k.id}" data-t="${t}">ابعت الإيصال تاني</button>`:''}</article>`; }).join('')}</div>`
+    :`<section class="ac-card"><p class="sp-empty">${NF.f==='unread'?'مفيش إشعارات غير مقروءة.':'مفيش إشعارات لسه.'}</p></section>`;
+  o.innerHTML=`<div class="ac-top"><button class="rb ac-back nf-back" aria-label="Back">${ICON.back}</button><h2>الإشعارات</h2></div><div class="ac-in"><section class="ac-card nf-push" hidden></section>${tabs}${nu?'<button class="pill yellow nf-all" type="button">تعليم الكل كمقروء</button>':''}${list}</div>`;
+  $('.nf-back',o).addEventListener('click',()=>{ o.hidden=true; notifRefresh(); });
+  $$('.sp-tab-b',o).forEach(b=>b.addEventListener('click',()=>{ NF.f=b.dataset.f; notifsOpen(); }));
+  const ba=$('.nf-all',o); if(ba) ba.addEventListener('click',()=>notifMark());
+  $$('.sp-n.unread',o).forEach(a=>a.addEventListener('click',e=>{ if(e.target.closest('.sp-buy')) return; notifMark([a.dataset.nk]); }));
   $$('.sp-buy',o).forEach(b=>b.addEventListener('click',()=>subBuy(b.dataset.k,b.dataset.t)));
-  o.hidden=false; }
+  notifPushRow(o); o.hidden=false; }
 function subBuy(kidId,t){ const k=kids().find(x=>x.id===kidId); if(!k) return; const key=subKey(k,t), r=subRec(k,t), pr=subPrice(k.grade||'p1',t), S=ESET.subs||{}, tn=(SUBT_ALL.find(x=>x[0]===t)||[])[1];
   const live=r&&(!r.until||Date.now()<r.until)&&(r.st==='active'||r.st==='pending');
   if(live&&r.st==='active'||live&&r.st==='pending'&&Date.now()>=(r.trial||0)){   // paid, or the receipt is waiting for the admin: only the state

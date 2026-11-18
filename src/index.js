@@ -18,7 +18,7 @@ const day = (t = now()) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Africa/
 let MIGRATED = false;
 async function migrate(env) {
   if (MIGRATED) return; MIGRATED = true;
-  for (const q of ["ALTER TABLE subs ADD COLUMN note TEXT NOT NULL DEFAULT ''", "ALTER TABLE parents ADD COLUMN notify INTEGER NOT NULL DEFAULT 1"]) { try { await env.DB.prepare(q).run(); } catch (e) { /* already there */ } }
+  for (const q of ["ALTER TABLE subs ADD COLUMN note TEXT NOT NULL DEFAULT ''", "ALTER TABLE parents ADD COLUMN notify INTEGER NOT NULL DEFAULT 1", "ALTER TABLE coin_events ADD COLUMN note TEXT NOT NULL DEFAULT ''", "ALTER TABLE parents ADD COLUMN pending_ref TEXT NOT NULL DEFAULT ''", "ALTER TABLE subs ADD COLUMN inv TEXT NOT NULL DEFAULT ''"]) { try { await env.DB.prepare(q).run(); } catch (e) { /* already there */ } }
 }
 const EMAIL = /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,}$/;
 const clip = (s, n) => String(s == null ? '' : s).trim().slice(0, n);
@@ -129,7 +129,7 @@ async function enterParent(env, b, ip, email, device) {
     const id = 'p_' + rnd(14); let ref = null;
     const sharer = b.ref ? await env.DB.prepare('SELECT id, blocked FROM parents WHERE ref_code=? OR id=?').bind(clip(b.ref, 24), clip(b.ref, 24)).first() : null;
     if (sharer && !sharer.blocked) ref = sharer.id;
-    p = { id, email, name: clip(b.name, 60), phone: clip(b.phone, 20), curr: JSON.stringify(b.curr || {}), ref_code: rnd(7), ref_by: ref, bal: 0, blocked: 0, created: t, last_seen: t };
+    p = { id, email, name: clip(b.name, 60), phone: clip(b.phone, 20), curr: JSON.stringify(b.curr || {}), ref_code: rnd(7), ref_by: null, bal: 0, blocked: 0, created: t, last_seen: t };
     const gift = Math.max(0, +C.startCoins || 0);
     p.bal = gift;
     stmts.push(env.DB.prepare('INSERT INTO parents(id,email,name,phone,curr,ref_code,ref_by,bal,blocked,created,last_seen) VALUES(?,?,?,?,?,?,?,?,0,?,?)')
@@ -142,9 +142,14 @@ async function enterParent(env, b, ip, email, device) {
         || (p.phone && await env.DB.prepare('SELECT 1 FROM parents WHERE phone=?').bind(p.phone).first());
       const todays = await env.DB.prepare("SELECT COUNT(*) n FROM coin_events WHERE parent_id=? AND kind='referral' AND day=?").bind(ref, d).first();
       if (!seen && (todays.n < (R.maxPerDay != null ? +R.maxPerDay : 10))) {
-        stmts.push(ev(env, ref, 'referral', p.id, '', rc, t, device, ip), env.DB.prepare('UPDATE parents SET bal=bal+? WHERE id=?').bind(rc, ref));
+        stmts.push(ev(env, ref, 'referral', p.id, '', rc, t, device, ip, clip((p.name || '').split(/\s+/)[0], 40)), env.DB.prepare('UPDATE parents SET bal=bal+? WHERE id=?').bind(rc, ref));
       }
     }
+  } else if (b.ref) {   // a known parent opens a link again: a fresh one-off pending referral (no lasting tie; consumed by the next credited action)
+    const sh = await env.DB.prepare('SELECT id, blocked FROM parents WHERE ref_code=? OR id=?').bind(clip(b.ref, 24), clip(b.ref, 24)).first();
+    if (sh && !sh.blocked && sh.id !== p.id) stmts.push(env.DB.prepare('UPDATE parents SET pending_ref=? WHERE id=?').bind(sh.id, p.id));
+    if (b.name || b.phone) { if (!p.name && b.name) stmts.push(env.DB.prepare('UPDATE parents SET name=? WHERE id=?').bind(clip(b.name, 60), p.id));
+      if (!p.phone && b.phone) stmts.push(env.DB.prepare('UPDATE parents SET phone=? WHERE id=?').bind(clip(b.phone, 20), p.id)); }
   } else if (b.name || b.phone) {   // a known parent signing in again: keep the stored name unless it was empty
     if (!p.name && b.name) stmts.push(env.DB.prepare('UPDATE parents SET name=? WHERE id=?').bind(clip(b.name, 60), p.id));
     if (!p.phone && b.phone) stmts.push(env.DB.prepare('UPDATE parents SET phone=? WHERE id=?').bind(clip(b.phone, 20), p.id));
@@ -158,8 +163,8 @@ async function enterParent(env, b, ip, email, device) {
   await env.DB.batch(stmts);
   return J({ ok: true, token: tok, isNew, me: await me(env, p.id) });
 }
-const ev = (env, pid, kind, ref, child, amount, t, device, ip) =>
-  env.DB.prepare('INSERT INTO coin_events(parent_id,kind,ref,child_id,amount,at,day,device,ip) VALUES(?,?,?,?,?,?,?,?,?)').bind(pid, kind, ref || '', child || '', amount, t, day(t), device || '', ip || '');
+const ev = (env, pid, kind, ref, child, amount, t, device, ip, note) =>
+  env.DB.prepare('INSERT INTO coin_events(parent_id,kind,ref,child_id,amount,at,day,device,ip,note) VALUES(?,?,?,?,?,?,?,?,?,?)').bind(pid, kind, ref || '', child || '', amount, t, day(t), device || '', ip || '', note || '');
 
 /* ---------- the parent's whole state (the app keeps a copy for offline) ---------- */
 async function me(env, pid) {
@@ -205,11 +210,11 @@ async function kidProgress(req, env, p, id) {
 async function walletOf(env, pid, child) {
   const [p, hist, un] = await Promise.all([
     env.DB.prepare('SELECT bal FROM parents WHERE id=?').bind(pid).first(),
-    env.DB.prepare('SELECT kind,ref,child_id,amount,at FROM coin_events WHERE parent_id=? ORDER BY at DESC LIMIT 200').bind(pid).all(),
+    env.DB.prepare('SELECT kind,ref,child_id,amount,at,note FROM coin_events WHERE parent_id=? ORDER BY at DESC LIMIT 200').bind(pid).all(),
     child ? env.DB.prepare('SELECT u.item,u.how FROM unlocks u JOIN children c ON c.id=u.child_id WHERE u.child_id=? AND c.parent_id=?').bind(child, pid).all() : { results: [] }]);
   const last = {}, H = hist.results.slice().reverse();
   H.forEach(h => { if (h.kind === 'share') last[h.ref] = h.at; });
-  return { wallet: { bal: p ? p.bal : 0, last, hist: H.map(h => ({ k: h.kind, n: h.amount, at: h.at, ...(h.kind === 'share' ? { t: h.ref } : h.ref ? { id: h.ref } : {}), ...(h.child_id ? { child: h.child_id } : {}) })) },
+  return { wallet: { bal: p ? p.bal : 0, last, hist: H.map(h => ({ k: h.kind, n: h.amount, at: h.at, ...(h.kind === 'share' ? { t: h.ref } : h.ref && h.kind !== 'refsub' ? { id: h.ref } : {}), ...(h.kind === 'refsub' || h.kind === 'referral' ? { who: h.note || '' } : {}), ...(h.child_id ? { child: h.child_id } : {}) })) },
     ...(child ? { unlocked: un.results.filter(u => u.how === 'coins' || u.how === 'promo').map(u => u.item), freeused: un.results.filter(u => u.how === 'free').map(u => u.item) } : {}) };
 }
 const childOk = async (env, p, child) => { const k = child && await env.DB.prepare('SELECT parent_id FROM children WHERE id=? AND deleted=0').bind(child).first(); return !!k && k.parent_id === p.id; };
@@ -361,9 +366,9 @@ async function mailRejectSub(env, child, term, note) {
 }
 async function adminSubs(env, url) {
   const all = url.searchParams.get('st') === 'all';
-  const rows = (await env.DB.prepare(`SELECT s.child_id,s.term,s.st,s.price,s.ref,s.at,s.trial,s.until,s.decided,s.by,s.note,c.name child,c.grade,p.email,p.phone,length(s.receipt)>0 has_receipt
-    FROM subs s JOIN children c ON c.id=s.child_id JOIN parents p ON p.id=s.parent_id WHERE (?=1 OR s.st='pending') ORDER BY s.at DESC LIMIT 500`).bind(all ? 1 : 0).all()).results;
-  return J({ ok: true, subs: rows.map(r => ({ ...subPub(r), name: r.child, grade: r.grade, email: /@phone\.local$/.test(r.email) ? '' : r.email, phone: r.phone, receipt: !!r.has_receipt, decided: r.decided, by: r.by })) });
+  const rows = (await env.DB.prepare(`SELECT s.child_id,s.term,s.st,s.price,s.ref,s.at,s.trial,s.until,s.decided,s.by,s.note,s.inv,c.name child,c.grade,p.email,p.phone,length(s.receipt)>0 has_receipt, rp.name inv_name, rp.email inv_email, rp.phone inv_phone
+    FROM subs s JOIN children c ON c.id=s.child_id JOIN parents p ON p.id=s.parent_id LEFT JOIN parents rp ON rp.id=p.pending_ref WHERE (?=1 OR s.st='pending') ORDER BY s.at DESC LIMIT 500`).bind(all ? 1 : 0).all()).results;
+  return J({ ok: true, subs: rows.map(r => ({ ...subPub(r), name: r.child, grade: r.grade, email: /@phone\.local$/.test(r.email) ? '' : r.email, phone: r.phone, receipt: !!r.has_receipt, decided: r.decided, by: r.by, inv: r.inv || r.inv_name || r.inv_email || r.inv_phone ? (r.inv_name || (/@phone\.local$/.test(r.inv_email || '') ? '' : r.inv_email) || r.inv_phone || '') : '' })) });
 }
 // POST /api/admin/user {email?, phone?, kid, grade?, curr?, activate?: 'p1:t1'} -> {ok, parent, child}: the admin makes a parent + one child (or adds a child to a known email / phone),
 // and may open a term with NO receipt. The parent signs in later with that email (code) like anyone; the child shows up on the device after sign-in.
@@ -428,6 +433,32 @@ async function adminKidAdd(req, env, pid) {
   await env.DB.prepare('INSERT INTO children(id,parent_id,name,grade,curr,created) VALUES(?,?,?,?,?,?)').bind(cid, pid, name, grade, '{}', t).run(); return J({ ok: true, child: cid });
 }
 
+/* ---------- invite a friend (Ahmed 2026-11-17): a parent whose PENDING referral (parents.pending_ref = the last link they opened; one-off, no lasting tie) earns the link owner credits when a SUBSCRIPTION of theirs is activated by the admin
+   (activate or grant). Credits = settings.coins.referral.subCoins (dashboard). One award per child+term (coin_events kind 'refsub', ref = child:term, never twice); never to oneself.
+   The referrer gets the credits, a notice in the app (the wallet history row carries the student's name in `note`) and an email when notices are on. ---------- */
+async function awardReferralSub(env, child, term) {
+  try {
+    const c = await env.DB.prepare('SELECT c.name, c.parent_id, p.pending_ref ref_by FROM children c JOIN parents p ON p.id=c.parent_id WHERE c.id=?').bind(child).first();
+    if (!c || !c.ref_by || c.ref_by === c.parent_id) return 0;
+    const S = await settings(env), R = (S.coins || {}).referral || {}, n = Math.max(0, Math.floor(+R.subCoins || 0));
+    if (!n) return 0;   // independent of the registration reward (referral.on / referral.coins)
+    const sharer = await env.DB.prepare('SELECT id,name,email,notify,blocked FROM parents WHERE id=?').bind(c.ref_by).first();
+    if (!sharer || sharer.blocked) return 0;
+    const t = now(), who = clip((c.name || '').split(/\s+/)[0], 40) || 'طالب', key = child + ':' + term;
+    const r = await env.DB.prepare(`INSERT INTO coin_events(parent_id,kind,ref,child_id,amount,at,day,device,ip,note) SELECT ?,?,?,?,?,?,?,?,?,? WHERE NOT EXISTS (SELECT 1 FROM coin_events WHERE parent_id=? AND kind='refsub' AND ref=?)`)
+      .bind(sharer.id, 'refsub', key, '', n, t, day(t), '', '', who, sharer.id, key).run();
+    if (!(r.meta && r.meta.changes)) return 0;   // already paid for this subscription
+    await env.DB.prepare('UPDATE parents SET bal=bal+? WHERE id=?').bind(n, sharer.id).run();
+    await env.DB.prepare("UPDATE parents SET pending_ref='' WHERE id=?").bind(c.parent_id).run();   // consumed: the next credited action needs a new link visit
+    await env.DB.prepare('UPDATE subs SET inv=? WHERE child_id=? AND term=?').bind(clip(sharer.name || '', 40), child, term).run().catch(() => {});
+    if (env.RESEND_API_KEY && sharer.notify !== 0 && sharer.email && !/@phone\.local$/.test(sharer.email)) {
+      const html = '<div dir="rtl" style="font-family:Tahoma,Arial,sans-serif;font-size:17px;color:#333"><p><b>تم اشتراك ' + escapeHtml(who) + ' عن طريق لينك الدعوة بتاعك</b></p><p>وخدت ' + n + ' كريدت.</p></div>';
+      await fetch('https://api.resend.com/emails', { method: 'POST', headers: { authorization: 'Bearer ' + env.RESEND_API_KEY, 'content-type': 'application/json' },
+        body: JSON.stringify({ from: env.MAIL_FROM || `${env.APP_NAME || 'EasyStudy'} <onboarding@resend.dev>`, to: [sharer.email], subject: 'خدت كريدتس من دعوة صديق - ' + (env.APP_NAME || 'EasyStudy'), html }), signal: AbortSignal.timeout(5000) }).catch(() => {});
+    }
+    return n;
+  } catch (e) { return 0; }   // the award never blocks the activation
+}
 async function adminSub(req, env, path) {
   const rc = path.match(/^\/api\/admin\/sub\/(k\w+)\/([\w-]+:t[12])\/receipt$/);
   if (rc) { const r = await env.DB.prepare('SELECT receipt FROM subs WHERE child_id=? AND term=?').bind(rc[1], rc[2]).first(); return r && r.receipt ? J({ ok: true, receipt: r.receipt }) : ERR('not-found', 404); }
@@ -436,11 +467,12 @@ async function adminSub(req, env, path) {
   if (path === '/api/admin/sub/grant') {   // open a child's term with NO receipt (cash, gift, a problem with the picture)
     const c = await env.DB.prepare('SELECT parent_id FROM children WHERE id=? AND deleted=0').bind(child).first(); if (!c) return ERR('not-found', 404);
     await env.DB.prepare(`INSERT INTO subs(child_id,term,parent_id,st,at,until,decided,by) VALUES(?,?,?,'active',?,?,?,'admin')
-      ON CONFLICT(child_id,term) DO UPDATE SET st='active',until=excluded.until,decided=excluded.decided,by='admin'`).bind(child, term, c.parent_id, t, subEnd(t), t).run(); return J({ ok: true }); }
+      ON CONFLICT(child_id,term) DO UPDATE SET st='active',until=excluded.until,decided=excluded.decided,by='admin'`).bind(child, term, c.parent_id, t, subEnd(t), t).run(); await awardReferralSub(env, child, term); return J({ ok: true }); }
   const st = { activate: 'active', reject: 'rejected', close: 'closed' }[b.action]; if (!st) return ERR('bad-body');
   const note = st === 'rejected' ? clip(b.message, 500) : '';
   const r = await env.DB.prepare('UPDATE subs SET st=?, decided=?, by=\'admin\', note=?, trial=CASE WHEN ?=\'active\' THEN trial ELSE 0 END WHERE child_id=? AND term=?').bind(st, t, note, st, child, term).run();
   if (!(r.meta && r.meta.changes)) return ERR('not-found', 404);
+  if (st === 'active') await awardReferralSub(env, child, term);
   let mailed = false; if (st === 'rejected') { try { mailed = await mailRejectSub(env, child, term, note); } catch (e) { /* the in-app notice still reaches the parent */ } }
   return J({ ok: true, mailed });
 }
@@ -694,6 +726,8 @@ export default {
       }
       const p = await who(req, env); if (!p) return ERR('signed-out', 401);
       if (p.blocked) return ERR('blocked', 403);
+      if (path === '/api/ref' && m === 'POST') { const b = await body(req); const sh = b && b.code ? await env.DB.prepare('SELECT id, blocked FROM parents WHERE ref_code=? OR id=?').bind(clip(b.code, 24), clip(b.code, 24)).first() : null;
+        if (sh && !sh.blocked && sh.id !== p.id) await env.DB.prepare('UPDATE parents SET pending_ref=? WHERE id=?').bind(sh.id, p.id).run(); return J({ ok: true }); }
       if (path === '/api/me' && m === 'GET') return J({ ok: true, me: await me(env, p.id) });
       if (path === '/api/me' && m === 'PUT') { const b = await body(req); if (!b) return ERR('bad-body');
         if (b.name) await env.DB.prepare('UPDATE parents SET name=? WHERE id=?').bind(clip(b.name, 60), p.id).run();

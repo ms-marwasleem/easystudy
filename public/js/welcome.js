@@ -133,7 +133,7 @@ function wlSchoolPop(){
     <label><span>اسم المدرسة</span><input name="school" autocomplete="off" required></label>
     <label><span>اسم المسؤول</span><input name="who" autocomplete="off" required></label>
     <label><span>وظيفة المسؤول</span><input name="job" autocomplete="off" required></label>
-    <label><span>رقم المسؤول</span><input name="tel" type="tel" dir="ltr" inputmode="tel" required></label>
+    <label><span>رقم المسؤول</span><input name="tel" type="tel" dir="ltr" autocomplete="tel" inputmode="tel" required></label>
     <p class="wl-err" hidden></p>
     <button class="pill wl-big wl-go green" type="submit"><span class="wl-ar">إرسال على واتساب</span><small>Send on WhatsApp</small></button></form>`;
   $('.popx',p).addEventListener('click',()=>o.hidden=true);
@@ -156,6 +156,8 @@ function kidSave(id,ch){ const K=kids(), k=K.find(x=>x.id===id); if(!k) return; 
 /* ---------- profile button (home, bottom right) -> parent gate -> the account page ---------- */
 function kidPaint(){ const k=kidNow(), b=$('#kidBtn'); if(!b) return; b.hidden=!k; if(k) $('#kidName').textContent=k.name; }
 const ACH={ user:'<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.5 3.6-7 8-7s8 2.5 8 7"/></svg>', card:'<svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M3 10.5h18M7 15h3"/></svg>',
+  inv:'<svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6M19 8v6M16 11h6"/></svg>',
+  bell:'<svg viewBox="0 0 24 24"><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 2h-15zM10 21a2 2 0 0 0 4 0"/></svg>',
   coin:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M9.5 10.5c0-1 1-1.5 2.5-1.5s2.5.6 2.5 1.6-1 1.4-2.5 1.8-2.5.8-2.5 1.8 1 1.5 2.5 1.5 2.5-.5 2.5-1.5"/></svg>', out:'<svg viewBox="0 0 24 24"><path d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/></svg>' };
 const wlRow=(cls,ic,ar,note)=>`<button class="arow ${cls}"><i>${ic}</i><b>${ar}</b>${note?`<em>${note}</em>`:''}<s></s></button>`;
 function kidMenu(){
@@ -164,13 +166,15 @@ function kidMenu(){
   o.innerHTML=`<div class="ac-top"><button class="rb ac-back" aria-label="Back">${ICON.back}</button><h2>حسابي</h2></div>
     <div class="ac-in"><section class="ac-card"><h3>أولادي</h3><div class="ac-kids">${kids().map(k=>`<div class="ac-kid${cur&&k.id===cur.id?' on':''}"><button class="ac-pic" data-kid="${k.id}" aria-label="${wlEsc(k.name)}">${wlAv(k)}</button><button class="ac-pen" data-edit="${k.id}" aria-label="Edit ${wlEsc(k.name)}">${ICON.pencil}</button><b>${wlEsc(k.name)}</b><small>${wlEsc(gradeLabel(k.grade))}</small></div>`).join('')}
       <div class="ac-kid"><button class="ac-pic ac-add" aria-label="Add a child">${ICON.plus}</button><b>إضافة طفل</b></div></div></section>
-    <div class="arows">${wlRow('ac-prof',ACH.user,'الملف الشخصي','')}${typeof coinsOn==='function'&&coinsOn()?wlRow('wl-cred',ACH.coin,'رصيدي',CRED(coinBal())):''}${wlRow('ac-subs',ACH.card,'اشتراكاتي',subNews().length?'جديد':'')}${typeof acctExtraRows==='function'?acctExtraRows():''}</div></div>`;
+    <div class="arows">${wlRow('ac-prof',ACH.user,'الملف الشخصي','')}${typeof coinsOn==='function'&&coinsOn()?wlRow('wl-cred',ACH.coin,'رصيدي',CRED(coinBal())):''}${typeof invitePage==='function'?wlRow('ac-inv',ACH.inv,'دعوة صديق',''):''}${(typeof subIsOn==='function'&&(subIsOn()||subHasAny()))?wlRow('ac-subs',ACH.card,'اشتراكاتي',''):''}${wlRow('ac-news',ACH.bell,'الإشعارات',subNews().length?num(subNews().length)+' جديد':'')}${typeof acctExtraRows==='function'?acctExtraRows():''}</div></div>`;
   $('.ac-back',o).addEventListener('click',()=>o.hidden=true);
   $$('[data-kid]',o).forEach(b=>b.addEventListener('click',()=>{ o.hidden=true; kidSwitch(b.dataset.kid); }));
   $$('[data-edit]',o).forEach(b=>b.addEventListener('click',()=>{ o.hidden=true; openKidEdit(b.dataset.edit); }));
   $('.ac-add',o).addEventListener('click',()=>{ o.hidden=true; openWelcome(true); });
   $('.ac-prof',o).addEventListener('click',profilePage);
-  $('.ac-subs',o).addEventListener('click',subsPage);
+  { const sb=$('.ac-subs',o); if(sb) sb.addEventListener('click',subsPage); }
+  $('.ac-news',o).addEventListener('click',notifsPage);
+  { const ib=$('.ac-inv',o); if(ib) ib.addEventListener('click',invitePage); }
   if(typeof acctExtraBind==='function') acctExtraBind(o);   // the other app's own rows (Easy Words: the report)
   const cb=$('.wl-cred',o); if(cb) cb.addEventListener('click',()=>{ creditsPage(); });   // the parent's credits (js/coins.js)
   syMenuButtons(o,()=>o.hidden=true);   // confirm the email / sign out (server only, js/sync.js)
@@ -183,8 +187,8 @@ function profilePage(){
   const a=acct()||{}, on=a.notify!==false;
   o.innerHTML=`<div class="ac-top"><button class="rb pf-back" aria-label="Back">${ICON.back}</button><h2>الملف الشخصي</h2></div>
     <div class="ac-in"><section class="ac-card"><form class="wl-form pf-form" autocomplete="off" novalidate>
-      <label><span>الإيميل</span><input name="email" type="email" dir="ltr" inputmode="email" value="${wlEsc((a.email&&!/@phone\.local$/.test(a.email))?a.email:'')}"></label>
-      <label><span>رقم الموبايل</span><input name="phone" type="tel" dir="ltr" inputmode="tel" value="${wlEsc(a.phone||'')}"></label>
+      <label><span>الإيميل</span><input name="email" type="email" dir="ltr" autocomplete="email" inputmode="email" value="${wlEsc((a.email&&!/@phone\.local$/.test(a.email))?a.email:'')}"></label>
+      <label><span>رقم الموبايل</span><input name="phone" type="tel" dir="ltr" autocomplete="tel" inputmode="tel" value="${wlEsc(a.phone||'')}"></label>
       <label class="pf-sw"><input name="notify" type="checkbox"${on?' checked':''}><i></i><span>استقبال الإشعارات (على التطبيق وعلى الإيميل)</span></label>
       <p class="wl-err pf-err" hidden></p><p class="pf-ok" hidden>اتحفظ</p>
       <button class="pill green pf-save" type="submit">حفظ</button></form></section></div>`;

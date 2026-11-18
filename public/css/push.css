@@ -4,3 +4,6 @@
 .pushbtn svg{width:2rem;height:2rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .pushbtn.on{opacity:1}
 .pushbtn.on svg{fill:currentColor}
+.pushbtn{overflow:visible}
+.pushbtn.unread{opacity:1}
+.pushdot{position:absolute;top:-.25rem;right:-.25rem;min-width:1.5rem;height:1.5rem;line-height:1.5rem;padding:0 .35rem;border-radius:99rem;background:#D8432F;color:#fff;font-style:normal;font-weight:800;font-size:.9rem;text-align:center;box-shadow:0 .1rem .25rem rgba(0,0,0,.35)}

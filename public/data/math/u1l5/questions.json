@@ -3,9 +3,11 @@
   {
    "type": "bond",
    "ex": 1,
-   "page": 13,
-   "task": "Write the missing number in the box.",
-   "taskAudio": "q/task-1.mp3",
+   "page": 18,
+   "typed": true,
+   "boxed": true,
+   "task": "What two numbers make 6? Write the missing number in the square.",
+   "taskAudio": "../u1l3/q/task-book-bond-6.mp3",
    "items": [
     {
      "whole": 6,
@@ -22,7 +24,18 @@
       5
      ],
      "audio": "words/one-and-five-make-six.mp3"
-    },
+    }
+   ]
+  },
+  {
+   "type": "bond",
+   "ex": 2,
+   "page": 19,
+   "typed": true,
+   "boxed": true,
+   "task": "What two numbers make 6? Write the missing number in the square.",
+   "taskAudio": "../u1l3/q/task-book-bond-6.mp3",
+   "items": [
     {
      "whole": 6,
      "parts": [
@@ -58,207 +71,13 @@
    ]
   },
   {
-   "type": "count",
-   "ex": 2,
-   "page": 14,
-   "task": "Write the number.",
-   "taskAudio": "q/task-2.mp3",
-   "items": [
-    {
-     "img": "../../pics/starfish.png#3",
-     "n": 3,
-     "group": true,
-     "audio": "words/three.mp3"
-    },
-    {
-     "img": "../../pics/bird-book-1.png",
-     "n": 1,
-     "group": true,
-     "audio": "words/one.mp3"
-    },
-    {
-     "img": "../../pics/duckling.png#2",
-     "n": 2,
-     "group": true,
-     "audio": "words/two.mp3"
-    },
-    {
-     "img": "../../pics/trophy.png#9",
-     "n": 9,
-     "group": true,
-     "audio": "words/nine.mp3"
-    },
-    {
-     "img": "../../pics/tomato.png#5",
-     "n": 5,
-     "group": true,
-     "audio": "words/five.mp3"
-    },
-    {
-     "img": "../../pics/apple-toon.png#7",
-     "n": 7,
-     "group": true,
-     "audio": "words/seven.mp3"
-    },
-    {
-     "img": "../../pics/almond.png#6",
-     "n": 6,
-     "group": true,
-     "audio": "words/six.mp3"
-    },
-    {
-     "img": "../../pics/book.png#8",
-     "n": 8,
-     "group": true,
-     "audio": "words/eight.mp3"
-    },
-    {
-     "img": "../../pics/carrot.png#4",
-     "n": 4,
-     "group": true,
-     "audio": "words/four.mp3"
-    },
-    {
-     "img": "../../pics/pencil.png#10",
-     "n": 10,
-     "group": true,
-     "audio": "words/ten.mp3"
-    },
-    {
-     "img": "../../pics/candle.png#6",
-     "n": 6,
-     "group": true,
-     "audio": "words/six.mp3"
-    },
-    {
-     "img": "../../pics/hands-2.png",
-     "n": 2,
-     "group": true,
-     "audio": "words/two.mp3"
-    }
-   ]
-  },
-  {
-   "type": "write",
-   "ex": 2,
-   "page": 14,
-   "task": "Write the word.",
-   "taskAudio": "q/task-3.mp3",
-   "lang": "en",
-   "items": [
-    {
-     "pic": "../../pics/starfish.png#3",
-     "word": "three",
-     "audio": "words/three.mp3"
-    },
-    {
-     "pic": "../../pics/bird-book-1.png",
-     "word": "one",
-     "audio": "words/one.mp3"
-    },
-    {
-     "pic": "../../pics/duckling.png#2",
-     "word": "two",
-     "audio": "words/two.mp3"
-    },
-    {
-     "pic": "../../pics/trophy.png#9",
-     "word": "nine",
-     "audio": "words/nine.mp3"
-    },
-    {
-     "pic": "../../pics/tomato.png#5",
-     "word": "five",
-     "audio": "words/five.mp3"
-    },
-    {
-     "pic": "../../pics/apple-toon.png#7",
-     "word": "seven",
-     "audio": "words/seven.mp3"
-    },
-    {
-     "pic": "../../pics/almond.png#6",
-     "word": "six",
-     "audio": "words/six.mp3"
-    },
-    {
-     "pic": "../../pics/book.png#8",
-     "word": "eight",
-     "audio": "words/eight.mp3"
-    },
-    {
-     "pic": "../../pics/carrot.png#4",
-     "word": "four",
-     "audio": "words/four.mp3"
-    },
-    {
-     "pic": "../../pics/pencil.png#10",
-     "word": "ten",
-     "audio": "words/ten.mp3"
-    },
-    {
-     "pic": "../../pics/candle.png#6",
-     "word": "six",
-     "audio": "words/six.mp3"
-    },
-    {
-     "pic": "../../pics/hands-2.png",
-     "word": "two",
-     "audio": "words/two.mp3"
-    }
-   ]
-  },
-  {
-   "type": "count",
-   "ex": 3,
-   "page": 15,
-   "task": "Write the number.",
-   "taskAudio": "q/task-2.mp3",
-   "items": [
-    {
-     "img": "../../pics/crab-red.png#10",
-     "n": 10,
-     "group": true,
-     "audio": "words/ten.mp3"
-    },
-    {
-     "img": "../../pics/bus-u5l1.png#9",
-     "n": 9,
-     "group": true,
-     "audio": "words/nine.mp3"
-    },
-    {
-     "img": "../../pics/balloon.png#7",
-     "n": 7,
-     "group": true,
-     "audio": "words/seven.mp3"
-    },
-    {
-     "img": "../../pics/butterfly.png#8",
-     "n": 8,
-     "group": true,
-     "audio": "words/eight.mp3"
-    },
-    {
-     "img": "../../pics/ice-cream.png#10",
-     "n": 10,
-     "group": true,
-     "audio": "words/ten.mp3"
-    },
-    {
-     "img": "../../pics/clownfish-orange.png#6",
-     "n": 6,
-     "group": true,
-     "audio": "words/six.mp3"
-    }
-   ]
-  },
-  {
    "type": "bond",
-   "ex": 4,
-   "page": 15,
-   "task": "Write the missing number in the box.",
-   "taskAudio": "q/task-1.mp3",
+   "ex": 3,
+   "page": 19,
+   "typed": true,
+   "boxed": true,
+   "task": "What two numbers make 6? Write the missing number in the square.",
+   "taskAudio": "../u1l3/q/task-book-bond-6.mp3",
    "items": [
     {
      "whole": 6,
@@ -283,11 +102,20 @@
       4
      ],
      "audio": "words/two-and-four-make-six.mp3"
+    },
+    {
+     "whole": 6,
+     "parts": [
+      null,
+      3
+     ],
+     "audio": "words/three-and-three-make-six.mp3"
     }
    ]
   },
   {
    "type": "bond",
+   "typed": true,
    "ex": 1,
    "page": 13,
    "task": "Write the missing number in the box.",
@@ -346,6 +174,7 @@
   },
   {
    "type": "count",
+   "typed": true,
    "ex": 2,
    "page": 14,
    "task": "Write the number.",
@@ -499,6 +328,7 @@
   },
   {
    "type": "count",
+   "typed": true,
    "ex": 3,
    "page": 15,
    "task": "Write the number.",
@@ -545,6 +375,7 @@
   },
   {
    "type": "bond",
+   "typed": true,
    "ex": 4,
    "page": 15,
    "task": "Write the missing number in the box.",
@@ -579,6 +410,7 @@
   },
   {
    "type": "bond",
+   "typed": true,
    "page": 15,
    "task": "What two numbers make 6? Write the missing numbers in the box.",
    "taskAudio": "q/task-bk-what-two-numbers-make-write-the-missing-numbers-in-the-box.mp3",

@@ -9,6 +9,7 @@
  "speakers": {},
  "vocab": [],
  "tabs": [
+  "read",
   "quiz",
   "workbook"
  ],
@@ -16,5 +17,261 @@
   "read": "الدرس",
   "quiz": "أسئلة الكتاب",
   "workbook": "كتاب التقييمات"
+ },
+ "layout": "explain",
+ "pages": 3,
+ "pageNums": [
+  16,
+  16,
+  16
+ ],
+ "explain": {
+  "caption": false,
+  "wide": true,
+  "nums": {
+   "1": "../../math-ar-audio/33307fa285.mp3",
+   "2": "../../math-ar-audio/d7287ea3a6.mp3",
+   "3": "../../math-ar-audio/eaf34ddbf8.mp3",
+   "4": "../../math-ar-audio/c6b58ddd38.mp3",
+   "5": "../../math-ar-audio/3704f61fe7.mp3",
+   "6": "../../math-ar-audio/aa58e3f451.mp3",
+   "7": "../../math-ar-audio/af472ea0bb.mp3",
+   "8": "../../math-ar-audio/9aa73bb6e5.mp3",
+   "9": "../../math-ar-audio/9ac1436afd.mp3",
+   "10": "../../math-ar-audio/00aaa8ea55.mp3"
+  },
+  "steps": [
+   {
+    "name": "Point!",
+    "beats": [
+     {
+      "do": [
+       {
+        "scene": "line",
+        "n": 7,
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "unit": "../../pics/bird.png",
+        "ends": [
+         "",
+         ""
+        ],
+        "mirror": true
+       }
+      ]
+     },
+     {
+      "say": "هيا نعد.",
+      "audio": "../../math-ar-audio/2f42da5622.mp3",
+      "do": [
+       {
+        "pts": [
+         [
+          826,
+          44
+         ],
+         [
+          717,
+          44
+         ],
+         [
+          609,
+          44
+         ],
+         [
+          500,
+          44
+         ],
+         [
+          391,
+          44
+         ],
+         [
+          283,
+          44
+         ],
+         [
+          174,
+          44
+         ]
+        ],
+        "color": "orange",
+        "count": []
+       }
+      ]
+     },
+     {
+      "say": "سبعة.",
+      "audio": "../../math-ar-audio/af472ea0bb.mp3",
+      "do": [
+       {
+        "add": "٧",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "Warm Up (1)",
+    "beats": [
+     {
+      "do": [
+       {
+        "scene": "line",
+        "n": 9,
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "unit": "../../pics/rabbit.png",
+        "ends": [
+         "",
+         ""
+        ],
+        "mirror": true
+       }
+      ]
+     },
+     {
+      "say": "هيا نعد.",
+      "audio": "../../math-ar-audio/2f42da5622.mp3",
+      "do": [
+       {
+        "pts": [
+         [
+          838,
+          44
+         ],
+         [
+          753,
+          44
+         ],
+         [
+          669,
+          44
+         ],
+         [
+          584,
+          44
+         ],
+         [
+          500,
+          44
+         ],
+         [
+          416,
+          44
+         ],
+         [
+          331,
+          44
+         ],
+         [
+          247,
+          44
+         ],
+         [
+          162,
+          44
+         ]
+        ],
+        "color": "orange",
+        "count": []
+       }
+      ]
+     },
+     {
+      "say": "تسعة.",
+      "audio": "../../math-ar-audio/9ac1436afd.mp3",
+      "do": [
+       {
+        "add": "٩",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "Warm Up (2)",
+    "beats": [
+     {
+      "do": [
+       {
+        "scene": "line",
+        "n": 6,
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "unit": "../../pics/ball.png",
+        "ends": [
+         "",
+         ""
+        ],
+        "mirror": true
+       }
+      ]
+     },
+     {
+      "say": "هيا نعد.",
+      "audio": "../../math-ar-audio/2f42da5622.mp3",
+      "do": [
+       {
+        "pts": [
+         [
+          817,
+          44
+         ],
+         [
+          690,
+          44
+         ],
+         [
+          563,
+          44
+         ],
+         [
+          437,
+          44
+         ],
+         [
+          310,
+          44
+         ],
+         [
+          183,
+          44
+         ]
+        ],
+        "color": "orange",
+        "count": []
+       }
+      ]
+     },
+     {
+      "say": "ستة.",
+      "audio": "../../math-ar-audio/aa58e3f451.mp3",
+      "do": [
+       {
+        "add": "٦",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   }
+  ],
+  "rtl": true,
+  "lang": "ar"
  }
 }

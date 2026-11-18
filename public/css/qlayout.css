@@ -177,3 +177,16 @@
 .qhelpb,.qxhelp,#lmeta .qhelpb,#lmeta .qxhelp,.quiz>.qhelpb{width:var(--hlp-box)!important;height:var(--hlp-box)!important;min-width:0;border-width:.125rem!important}
 .qhelpb svg,.qxhelp svg{width:var(--hlp-icon)!important;height:var(--hlp-icon)!important}
 .quiz[data-type="pick"] .qword b{font-size:min(var(--focus-word-size),7.2vw)}   /* a long word (grandfather) must keep room for the speaker beside it */
+/* link question: a safe gap between the task line above and the first row / column of cards (Ahmed 2026-11-16: tall number cards touched the task text) */
+.qlink{padding-top:clamp(1rem,5cqh,2.5rem)}
+
+/* ---------- 6. keypads are THE choice button too (Ahmed 2026-11-18): the math 0-10 pad / write keys use .qch (white), no cream .qmn look ---------- */
+.qmpad .qmn,.xkeys .qmn{--q-choice:inherit}
+.qmpad,.xpl-ask .xkeys{--q-choice:clamp(2.75rem,min(11cqw,9cqh),3.6rem)}
+.mwkeys{--q-choice:clamp(2.6rem,min(10.5cqw,9cqh),4.2rem)}
+.xpl-ask .xkeys{--q-choice:clamp(2.4rem,min(11cqw,13cqh),3.8rem)}
+.qmn.on{background:#E4F5D2!important;border-color:var(--c-good)!important;box-shadow:0 .22rem 0 var(--c-good)!important}
+/* many choices (7 or more in a row) = smaller buttons, so the question on top can be bigger */
+:is(.qans,.alopts,.albank,.qxchoices,.qmpad):has(>:nth-child(7)){--q-choice:clamp(2.4rem,6.2vh,3rem);gap:clamp(.4rem,1.6vw,.9rem)}
+.mwkeys:has(>:nth-child(9)),.xpl-ask .xkeys:has(>:nth-child(9)){--q-choice:clamp(2.2rem,min(8.5cqw,6.5cqh),2.9rem)}
+.alopts:has(.qch:nth-child(7)),.albank:has(.qch:nth-child(7)){--q-choice:clamp(2.4rem,6.2vh,3rem)}

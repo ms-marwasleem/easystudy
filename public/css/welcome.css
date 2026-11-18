@@ -148,3 +148,9 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .pf-form .pf-sw input:checked+i{background:#3FA650}.pf-form .pf-sw input:checked+i::after{right:1.6rem}
 .pf-form .pf-ok{font-family:var(--f-ui);font-weight:800;color:#2E8B3F;text-align:center;margin:0}
 .pf-form .pf-save{align-self:center;min-width:55%}
+/* invite a friend (account page row "دعوة صديق") */
+.inv-card{display:flex;flex-direction:column;gap:1rem}
+.inv-t{margin:0;font-family:var(--f-ui);font-weight:700;font-size:1.5rem;line-height:1.7}
+.inv-url{width:100%;box-sizing:border-box;padding:.9rem 1rem;border:.15rem solid #F2C27A;border-radius:1.2rem;background:#FFF8EC;font-size:1.3rem;direction:ltr;text-align:left}
+.inv-b{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
+.inv-card .cstats{margin:0}

@@ -2,10 +2,33 @@
  "sets": [
   {
    "type": "count",
-   "ex": 2,
-   "page": 22,
+   "ex": 1,
+   "page": 30,
+   "typed": true,
    "task": "Write the number.",
-   "taskAudio": "q/task-1.mp3",
+   "taskAudio": "../u1l10/../u1l10/q/task-1.mp3",
+   "items": [
+    {
+     "img": "../../pics/orange.png#4",
+     "n": 4,
+     "group": true,
+     "audio": "words/four.mp3"
+    },
+    {
+     "img": "../../pics/plate.png",
+     "n": 0,
+     "group": true,
+     "audio": "words/zero.mp3"
+    }
+   ]
+  },
+  {
+   "type": "count",
+   "ex": 2,
+   "page": 31,
+   "typed": true,
+   "task": "Write the number.",
+   "taskAudio": "../u1l10/../u1l10/q/task-1.mp3",
    "items": [
     {
      "img": "../../pics/pot-tulips-5.png",
@@ -29,6 +52,41 @@
   },
   {
    "type": "count",
+   "ex": 3,
+   "page": 31,
+   "typed": true,
+   "task": "Write the number.",
+   "taskAudio": "../u1l10/../u1l10/q/task-1.mp3",
+   "items": [
+    {
+     "img": "../../pics/frog.png",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3"
+    },
+    {
+     "img": "../../pics/frog.png#6",
+     "n": 6,
+     "group": true,
+     "audio": "words/six.mp3"
+    },
+    {
+     "img": "../../pics/lilypad-empty.png#1",
+     "n": 0,
+     "group": true,
+     "audio": "words/zero.mp3"
+    },
+    {
+     "img": "../../pics/frog.png#8",
+     "n": 8,
+     "group": true,
+     "audio": "words/eight.mp3"
+    }
+   ]
+  },
+  {
+   "type": "count",
+   "typed": true,
    "ex": 2,
    "page": 22,
    "task": "Write the number.",
@@ -57,6 +115,7 @@
   },
   {
    "type": "count",
+   "typed": true,
    "page": 23,
    "task": "Write the number.",
    "taskAudio": "q/task-bk-write-the-number.mp3",
@@ -133,6 +192,7 @@
   },
   {
    "type": "count",
+   "typed": true,
    "page": 25,
    "task": "Write the number.",
    "taskAudio": "q/task-bk-write-the-number.mp3",
@@ -253,6 +313,7 @@
   },
   {
    "type": "count",
+   "typed": true,
    "page": 24,
    "task": "Complete by writing the number of circles.",
    "taskAudio": "q/task-bk-complete-by-writing-the-number-of-circles.mp3",

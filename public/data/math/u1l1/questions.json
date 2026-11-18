@@ -1,99 +1,65 @@
 {
  "sets": [
   {
-   "type": "count",
+   "type": "shade",
    "ex": 1,
-   "page": 2,
-   "task": "Circle the correct number.",
-   "taskAudio": "q/task-1.mp3",
+   "page": 6,
+   "task": "Look at the picture and colour the same number of things.",
+   "taskAudio": "../u1l1/q/task-book-shade.mp3",
    "items": [
     {
-     "img": "../../pics/frog.png#2",
+     "img": "../../pics/dog.png#2",
      "n": 2,
      "group": true,
-     "audio": "words/two.mp3",
-     "options": [
-      1,
-      2,
-      3
-     ]
+     "audio": "words/two.mp3"
     },
     {
-     "img": "../../pics/strawberry-u4l3.png#3",
+     "img": "../../pics/cat.png#6",
+     "n": 6,
+     "group": true,
+     "audio": "../u1l10/words/six.mp3"
+    }
+   ]
+  },
+  {
+   "type": "shade",
+   "ex": 2,
+   "page": 7,
+   "task": "Look at the picture and colour the same number of things.",
+   "taskAudio": "../u1l1/q/task-book-shade.mp3",
+   "items": [
+    {
+     "img": "../../pics/fa-camel2.png#3",
      "n": 3,
      "group": true,
-     "audio": "words/three.mp3",
-     "options": [
-      1,
-      2,
-      3
-     ]
+     "audio": "words/three.mp3"
     },
     {
-     "img": "../../pics/dino.png",
-     "n": 1,
+     "img": "../../pics/tulip.png#8",
+     "n": 8,
      "group": true,
-     "audio": "words/one.mp3",
-     "options": [
-      1,
-      2,
-      3
-     ]
-    },
-    {
-     "img": "../../pics/hat-wizard.png#3",
-     "n": 3,
-     "group": true,
-     "audio": "words/three.mp3",
-     "options": [
-      1,
-      2,
-      3
-     ]
-    },
-    {
-     "img": "../../pics/cookie.png",
-     "n": 1,
-     "group": true,
-     "audio": "words/one.mp3",
-     "options": [
-      1,
-      2,
-      3
-     ]
-    },
-    {
-     "img": "../../pics/sunflower-glasses.png#2",
-     "n": 2,
-     "group": true,
-     "audio": "words/two.mp3",
-     "options": [
-      1,
-      2,
-      3
-     ]
-    },
-    {
-     "img": "../../pics/cactus.png#2",
-     "n": 2,
-     "group": true,
-     "audio": "words/two.mp3",
-     "options": [
-      1,
-      2,
-      3
-     ]
-    },
+     "audio": "../u1l10/words/eight.mp3"
+    }
+   ]
+  },
+  {
+   "type": "shade",
+   "ex": 3,
+   "page": 7,
+   "task": "Look at the picture and colour the same number of things.",
+   "taskAudio": "../u1l1/q/task-book-shade.mp3",
+   "items": [
     {
      "img": "../../pics/bee.png#4",
      "n": 4,
      "group": true,
-     "audio": "words/four.mp3",
-     "options": [
-      3,
-      4,
-      5
-     ]
+     "audio": "words/four.mp3"
+    },
+    {
+     "img": "../../pics/bike.png#6",
+     "n": 6,
+     "group": true,
+     "audio": "../u1l10/words/six.mp3"
     }
    ]
   },

@@ -9,8 +9,264 @@
  "speakers": {},
  "vocab": [],
  "tabs": [
+  "read",
   "quiz",
   "booklet",
   "workbook"
- ]
+ ],
+ "layout": "explain",
+ "pages": 3,
+ "pageNums": [
+  16,
+  16,
+  16
+ ],
+ "tabLabels": {
+  "read": "Lesson",
+  "quiz": "Book Questions"
+ },
+ "explain": {
+  "caption": false,
+  "wide": true,
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3",
+   "6": "../u1l4/words/six.mp3",
+   "7": "../u1l4/words/seven.mp3",
+   "8": "../u1l4/words/eight.mp3",
+   "9": "../u1l4/words/nine.mp3",
+   "10": "../u1l4/words/ten.mp3"
+  },
+  "steps": [
+   {
+    "name": "Point!",
+    "beats": [
+     {
+      "do": [
+       {
+        "scene": "line",
+        "n": 7,
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "unit": "../../pics/bird.png",
+        "ends": [
+         "",
+         ""
+        ]
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "../u2l1/explain/lets-count.mp3",
+      "do": [
+       {
+        "pts": [
+         [
+          174,
+          44
+         ],
+         [
+          283,
+          44
+         ],
+         [
+          391,
+          44
+         ],
+         [
+          500,
+          44
+         ],
+         [
+          609,
+          44
+         ],
+         [
+          717,
+          44
+         ],
+         [
+          826,
+          44
+         ]
+        ],
+        "color": "orange",
+        "count": []
+       }
+      ]
+     },
+     {
+      "say": "Seven.",
+      "audio": "../u1l4/words/seven.mp3",
+      "do": [
+       {
+        "add": "7",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "Warm Up (1)",
+    "beats": [
+     {
+      "do": [
+       {
+        "scene": "line",
+        "n": 9,
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "unit": "../../pics/rabbit.png",
+        "ends": [
+         "",
+         ""
+        ]
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "../u2l1/explain/lets-count.mp3",
+      "do": [
+       {
+        "pts": [
+         [
+          162,
+          44
+         ],
+         [
+          247,
+          44
+         ],
+         [
+          331,
+          44
+         ],
+         [
+          416,
+          44
+         ],
+         [
+          500,
+          44
+         ],
+         [
+          584,
+          44
+         ],
+         [
+          669,
+          44
+         ],
+         [
+          753,
+          44
+         ],
+         [
+          838,
+          44
+         ]
+        ],
+        "color": "orange",
+        "count": []
+       }
+      ]
+     },
+     {
+      "say": "Nine.",
+      "audio": "../u1l4/words/nine.mp3",
+      "do": [
+       {
+        "add": "9",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   },
+   {
+    "name": "Warm Up (2)",
+    "beats": [
+     {
+      "do": [
+       {
+        "scene": "line",
+        "n": 6,
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "unit": "../../pics/ball.png",
+        "ends": [
+         "",
+         ""
+        ]
+       }
+      ]
+     },
+     {
+      "say": "Let's count.",
+      "audio": "../u2l1/explain/lets-count.mp3",
+      "do": [
+       {
+        "pts": [
+         [
+          183,
+          44
+         ],
+         [
+          310,
+          44
+         ],
+         [
+          437,
+          44
+         ],
+         [
+          563,
+          44
+         ],
+         [
+          690,
+          44
+         ],
+         [
+          817,
+          44
+         ]
+        ],
+        "color": "orange",
+        "count": []
+       }
+      ]
+     },
+     {
+      "say": "Six.",
+      "audio": "../u1l4/words/six.mp3",
+      "do": [
+       {
+        "add": "6",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1400
+     }
+    ]
+   }
+  ]
+ }
 }

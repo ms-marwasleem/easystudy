@@ -13,7 +13,7 @@
      ],
      "find": "bigger",
      "word": "سبعة",
-     "audio": "../../math-ar-audio/num-seven.mp3"
+     "audio": "../../math-ar-audio/2aa605ccfe.mp3"
     }
    ]
   },
@@ -30,7 +30,7 @@
      ],
      "find": "bigger",
      "word": "ثلاثة",
-     "audio": "../../math-ar-audio/num-three.mp3"
+     "audio": "../../math-ar-audio/91ad537182.mp3"
     },
     {
      "nums": [
@@ -39,7 +39,7 @@
      ],
      "find": "bigger",
      "word": "خمسة",
-     "audio": "../../math-ar-audio/num-five.mp3"
+     "audio": "../../math-ar-audio/9e2e223b9d.mp3"
     }
    ]
   },
@@ -56,7 +56,7 @@
      ],
      "find": "smaller",
      "word": "أربعة",
-     "audio": "../../math-ar-audio/num-four.mp3"
+     "audio": "../../math-ar-audio/a28f76c6d2.mp3"
     },
     {
      "nums": [
@@ -65,7 +65,7 @@
      ],
      "find": "smaller",
      "word": "سبعة",
-     "audio": "../../math-ar-audio/num-seven.mp3"
+     "audio": "../../math-ar-audio/2aa605ccfe.mp3"
     }
    ]
   },
@@ -82,7 +82,7 @@
      ],
      "find": "bigger",
      "word": "عشرة",
-     "audio": "../../math-ar-audio/num-ten.mp3"
+     "audio": "../../math-ar-audio/00aaa8ea55.mp3"
     },
     {
      "nums": [
@@ -91,7 +91,7 @@
      ],
      "find": "bigger",
      "word": "سبعة",
-     "audio": "../../math-ar-audio/num-seven.mp3"
+     "audio": "../../math-ar-audio/2aa605ccfe.mp3"
     },
     {
      "nums": [
@@ -100,7 +100,7 @@
      ],
      "find": "bigger",
      "word": "أربعة",
-     "audio": "../../math-ar-audio/num-four.mp3"
+     "audio": "../../math-ar-audio/a28f76c6d2.mp3"
     },
     {
      "nums": [
@@ -109,7 +109,7 @@
      ],
      "find": "bigger",
      "word": "تسعة",
-     "audio": "../../math-ar-audio/num-nine.mp3"
+     "audio": "../../math-ar-audio/9ac1436afd.mp3"
     }
    ]
   },
@@ -126,7 +126,7 @@
      ],
      "find": "smaller",
      "word": "واحد",
-     "audio": "../../math-ar-audio/num-one.mp3"
+     "audio": "../../math-ar-audio/91bd5660dc.mp3"
     },
     {
      "nums": [
@@ -135,7 +135,7 @@
      ],
      "find": "smaller",
      "word": "ثلاثة",
-     "audio": "../../math-ar-audio/num-three.mp3"
+     "audio": "../../math-ar-audio/91ad537182.mp3"
     },
     {
      "nums": [
@@ -144,7 +144,7 @@
      ],
      "find": "smaller",
      "word": "خمسة",
-     "audio": "../../math-ar-audio/num-five.mp3"
+     "audio": "../../math-ar-audio/9e2e223b9d.mp3"
     },
     {
      "nums": [
@@ -153,13 +153,105 @@
      ],
      "find": "smaller",
      "word": "ستة",
-     "audio": "../../math-ar-audio/num-six.mp3"
+     "audio": "../../math-ar-audio/8e900d23cc.mp3"
     }
    ]
   },
   {
    "type": "bigger",
-   "ex": 1,
+   "page": 21,
+   "task": "نضع دائرة حول العدد الأكبر.",
+   "items": [
+    {
+     "nums": [
+      4,
+      3
+     ],
+     "find": "bigger",
+     "word": "أربعة",
+     "audio": "../../math-ar-audio/a28f76c6d2.mp3"
+    },
+    {
+     "nums": [
+      5,
+      6
+     ],
+     "find": "bigger",
+     "word": "ستة",
+     "audio": "../../math-ar-audio/8e900d23cc.mp3"
+    },
+    {
+     "nums": [
+      7,
+      4
+     ],
+     "find": "bigger",
+     "word": "سبعة",
+     "audio": "../../math-ar-audio/2aa605ccfe.mp3"
+    },
+    {
+     "nums": [
+      8,
+      10
+     ],
+     "find": "bigger",
+     "word": "عشرة",
+     "audio": "../../math-ar-audio/4854ee954a.mp3"
+    }
+   ],
+   "book": "workbook",
+   "act": "class",
+   "ex": 1
+  },
+  {
+   "type": "bigger",
+   "page": 22,
+   "task": "نضع دائرة حول العدد الأصغر.",
+   "items": [
+    {
+     "nums": [
+      9,
+      3
+     ],
+     "find": "smaller",
+     "word": "ثلاثة",
+     "audio": "../../math-ar-audio/91ad537182.mp3"
+    },
+    {
+     "nums": [
+      6,
+      4
+     ],
+     "find": "smaller",
+     "word": "أربعة",
+     "audio": "../../math-ar-audio/a28f76c6d2.mp3"
+    },
+    {
+     "nums": [
+      2,
+      5
+     ],
+     "find": "smaller",
+     "word": "اثنان",
+     "audio": "../../math-ar-audio/333cdc9321.mp3"
+    },
+    {
+     "nums": [
+      8,
+      10
+     ],
+     "find": "smaller",
+     "word": "ثمانية",
+     "audio": "../../math-ar-audio/8130f65cce.mp3"
+    }
+   ],
+   "book": "workbook",
+   "act": "class",
+   "ex": 2
+  },
+  {
+   "type": "bigger",
+   "ex": 3,
    "page": 21,
    "task": "نضع دائرة حول العدد الأكبر.",
    "items": [
@@ -170,7 +262,7 @@
      ],
      "find": "bigger",
      "word": "عشرة",
-     "audio": "../../math-ar-audio/num-ten.mp3"
+     "audio": "../../math-ar-audio/00aaa8ea55.mp3"
     },
     {
      "nums": [
@@ -179,7 +271,7 @@
      ],
      "find": "bigger",
      "word": "أربعة",
-     "audio": "../../math-ar-audio/num-four.mp3"
+     "audio": "../../math-ar-audio/a28f76c6d2.mp3"
     },
     {
      "nums": [
@@ -188,7 +280,7 @@
      ],
      "find": "bigger",
      "word": "ستة",
-     "audio": "../../math-ar-audio/num-six.mp3"
+     "audio": "../../math-ar-audio/8e900d23cc.mp3"
     },
     {
      "nums": [
@@ -197,7 +289,7 @@
      ],
      "find": "bigger",
      "word": "عشرة",
-     "audio": "../../math-ar-audio/num-ten.mp3"
+     "audio": "../../math-ar-audio/00aaa8ea55.mp3"
     },
     {
      "nums": [
@@ -206,7 +298,7 @@
      ],
      "find": "bigger",
      "word": "ثمانية",
-     "audio": "../../math-ar-audio/num-eight.mp3"
+     "audio": "../../math-ar-audio/8130f65cce.mp3"
     }
    ],
    "book": "workbook"

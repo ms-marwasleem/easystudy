@@ -210,7 +210,7 @@
 [data-subj="arabic"]{--page-tint:#BFF0DC; --bg-hi:#6FE3B8; --bg-mid:#1FB58F; --bg-lo:#0B7F68; --bg-pat:var(--pat-arabic); --bg-patp:var(--patp-arabic)}
 [data-subj="en-ol"]{--page-tint:#CBEBFF; --bg-hi:#8BE0FF; --bg-mid:#2E9BF0; --bg-lo:#1560C8; --bg-pat:var(--pat-en-ol); --bg-patp:var(--patp-en-ol)}
 [data-subj="en-al"]{--page-tint:#E0D2FF; --bg-hi:#C9A8FF; --bg-mid:#8A5BE0; --bg-lo:#5A32B0; --bg-pat:var(--pat-en-al); --bg-patp:var(--patp-en-al)}
-[data-subj="math"]{--page-tint:#FFD6E6; --bg-hi:#FFC4DE; --bg-mid:#FF7FB4; --bg-lo:#D8468A; --bg-pat:var(--pat-math); --bg-patp:var(--patp-math)}
+[data-subj="math"],[data-subj="math-ar"]{--page-tint:#FFD6E6; --bg-hi:#FFC4DE; --bg-mid:#FF7FB4; --bg-lo:#D8468A; --bg-pat:var(--pat-math); --bg-patp:var(--patp-math)}
 [data-subj="german"]{--page-tint:#FFD0DC; --bg-hi:#FFB3C6; --bg-mid:#F0568A; --bg-lo:#BE2E64; --bg-pat:var(--pat-german); --bg-patp:var(--patp-german)}
 [data-subj="science"]{--page-tint:#DDF3B5; --bg-hi:#C4EE7A; --bg-mid:#6CC23A; --bg-lo:#3C8C22; --bg-pat:var(--pat-science); --bg-patp:var(--patp-science)}
 
@@ -1769,6 +1769,19 @@ button.qpic{cursor:pointer}
 .qcirc{width:clamp(2.2rem,9cqw,3.4rem);aspect-ratio:1;border-radius:50%;border:0.2rem solid #5a3b1a;background:#fff;padding:0;cursor:pointer;transition:background .15s,transform .15s}
 .qcirc.on{background:#ffb21e;transform:scale(1.06)}
 .qmbignum{font-size:clamp(3rem,16cqw,6rem);font-weight:800;line-height:1;color:#5a3b1a;text-align:center;grid-column:1/-1}
+/* typed number bond: the question line with its own speaker above the tree; the writing line stays in the page (it holds the keyboard input) but is not shown */
+.qmask{display:flex;align-items:center;justify-content:center;gap:.75rem;margin:0 0 clamp(.5rem,2cqh,1.25rem)}.qmask .qmaskt{font-family:var(--f-read);font-weight:700;font-size:min(7cqh,6cqw);color:var(--c-text)}
+.qmask .qmaskb{display:grid;place-items:center;width:2.75rem;height:2.75rem;color:var(--speaker);background:none;border:0;flex:none}
+.qxline.qmhide{position:absolute;left:0;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}
+
+/* typed bond: the number is written in the square, so the hidden writing line brings no speaker of its own */
+.qxrow:has(.qxline.qmhide) .qxsay{display:none}
+
+/* "What makes N?" rows: the numbers and words always stay inside their own row (9 and 10 have 8-9 rows) */
+.mxbond .mxeq{align-items:center}.mxbond .mxeq b{font-size:min(calc(56cqh/max(var(--n),7)),11cqw)}.mxbond .mxeq i{font-size:min(calc(34cqh/max(var(--n),7)),7cqw)}.mxbond .mxmk{font-size:min(calc(34cqh/max(var(--n),7)),7cqw)}
+@media (max-aspect-ratio:5/4){.mxbond .mxeq b{font-size:min(calc(50cqh/max(var(--n),7)),10cqw)}.mxbond .mxeq i,.mxbond .mxmk{font-size:min(calc(32cqh/max(var(--n),7)),6.5cqw)}}
+.mxrow.mxbond{align-items:center}.mxbond .mxeq,.mxbond .mxmk{align-self:center;line-height:1.15;margin-top:-.12em}
+.mxrow.mxbond{padding-block:0;overflow:hidden}.mxrow.mxbond>*{align-self:center;max-height:100%}.mxbond .mxeq,.mxbond .mxmk{margin-top:0}
 /* ===== css/frame.css ===== */
 /* ONE picture frame for the whole app: white border, soft shadow, rounded corners (same look on every screen and subject).
    Only pictures; the dots / numbers drawn by the app (data: images) and the lesson's book scene keep their own look. */
@@ -3113,6 +3126,12 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .pf-form .pf-sw input:checked+i{background:#3FA650}.pf-form .pf-sw input:checked+i::after{right:1.6rem}
 .pf-form .pf-ok{font-family:var(--f-ui);font-weight:800;color:#2E8B3F;text-align:center;margin:0}
 .pf-form .pf-save{align-self:center;min-width:55%}
+/* invite a friend (account page row "دعوة صديق") */
+.inv-card{display:flex;flex-direction:column;gap:1rem}
+.inv-t{margin:0;font-family:var(--f-ui);font-weight:700;font-size:1.5rem;line-height:1.7}
+.inv-url{width:100%;box-sizing:border-box;padding:.9rem 1rem;border:.15rem solid #F2C27A;border-radius:1.2rem;background:#FFF8EC;font-size:1.3rem;direction:ltr;text-align:left}
+.inv-b{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
+.inv-card .cstats{margin:0}
 /* ===== css/qlayout.css ===== */
 /* ===== THE QUESTION LAYOUT + THE CHOICE BUTTON (Marwa 2026-11-04, every subject, every screen) =====
    This file is loaded LAST: it is the one place that decides WHERE the parts of a question sit and HOW BIG the choices are.
@@ -3293,6 +3312,19 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .qhelpb,.qxhelp,#lmeta .qhelpb,#lmeta .qxhelp,.quiz>.qhelpb{width:var(--hlp-box)!important;height:var(--hlp-box)!important;min-width:0;border-width:.125rem!important}
 .qhelpb svg,.qxhelp svg{width:var(--hlp-icon)!important;height:var(--hlp-icon)!important}
 .quiz[data-type="pick"] .qword b{font-size:min(var(--focus-word-size),7.2vw)}   /* a long word (grandfather) must keep room for the speaker beside it */
+/* link question: a safe gap between the task line above and the first row / column of cards (Ahmed 2026-11-16: tall number cards touched the task text) */
+.qlink{padding-top:clamp(1rem,5cqh,2.5rem)}
+
+/* ---------- 6. keypads are THE choice button too (Ahmed 2026-11-18): the math 0-10 pad / write keys use .qch (white), no cream .qmn look ---------- */
+.qmpad .qmn,.xkeys .qmn{--q-choice:inherit}
+.qmpad,.xpl-ask .xkeys{--q-choice:clamp(2.75rem,min(11cqw,9cqh),3.6rem)}
+.mwkeys{--q-choice:clamp(2.6rem,min(10.5cqw,9cqh),4.2rem)}
+.xpl-ask .xkeys{--q-choice:clamp(2.4rem,min(11cqw,13cqh),3.8rem)}
+.qmn.on{background:#E4F5D2!important;border-color:var(--c-good)!important;box-shadow:0 .22rem 0 var(--c-good)!important}
+/* many choices (7 or more in a row) = smaller buttons, so the question on top can be bigger */
+:is(.qans,.alopts,.albank,.qxchoices,.qmpad):has(>:nth-child(7)){--q-choice:clamp(2.4rem,6.2vh,3rem);gap:clamp(.4rem,1.6vw,.9rem)}
+.mwkeys:has(>:nth-child(9)),.xpl-ask .xkeys:has(>:nth-child(9)){--q-choice:clamp(2.2rem,min(8.5cqw,6.5cqh),2.9rem)}
+.alopts:has(.qch:nth-child(7)),.albank:has(.qch:nth-child(7)){--q-choice:clamp(2.4rem,6.2vh,3rem)}
 /* ===== css/coins.css ===== */
 /* COINS — the coin chip beside the star counter, the share sheet and the unlock popup (js/coins.js). Same popup look as the app's messages. */
 .coinhud{position:relative;display:flex;align-items:center;height:2.2rem;padding:0 .9rem 0 2.3rem;margin-left:1.6rem;border-radius:62.4375rem;border:0;cursor:pointer;
@@ -3404,6 +3436,9 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .pushbtn svg{width:2rem;height:2rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .pushbtn.on{opacity:1}
 .pushbtn.on svg{fill:currentColor}
+.pushbtn{overflow:visible}
+.pushbtn.unread{opacity:1}
+.pushdot{position:absolute;top:-.25rem;right:-.25rem;min-width:1.5rem;height:1.5rem;line-height:1.5rem;padding:0 .35rem;border-radius:99rem;background:#D8432F;color:#fff;font-style:normal;font-weight:800;font-size:.9rem;text-align:center;box-shadow:0 .1rem .25rem rgba(0,0,0,.35)}
 /* ===== css/subs.css ===== */
 /* term subscriptions screens (js/subs.js) — inside the shared coin popup */
 .subscroll{width:100%;max-height:68vh;overflow-y:auto;display:flex;flex-direction:column;gap:.6rem;align-items:center;padding:.1rem}
@@ -3459,4 +3494,24 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .sp-a{grid-column:1/-1}.sp-a:empty{display:none}
 .sp-buy.pill{width:100%;flex-direction:row;justify-content:center;gap:.6rem;padding:.5rem}
 .sp-n .sp-buy.pill{width:auto}
-:root{--app-build:"249fc8cf25"}
+/* student tabs + "عمل اشتراك" (Ahmed 2026-11-17) */
+.sp-tabs{overflow-x:auto;flex-wrap:nowrap}.sp-tab-b{flex:0 0 auto;min-width:6rem;white-space:nowrap}
+.sp-new.pill{align-self:stretch;font-size:1.2rem;padding:.7rem}
+.sp-pick{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+.sp-pt{display:flex;flex-direction:column;align-items:center;line-height:1.15}.sp-pt small{font-size:.8rem}
+/* the notifications page (js/subs.js notifsOpen, Ahmed 2026-11-17) */
+.nf-push{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 1.2rem}
+.nf-push[hidden]{display:none}
+.nf-ask-t{flex:1;font-weight:800;font-size:1rem}
+.nf-push .pill{width:auto;flex:none;padding:.5rem 1.2rem}
+.nf-push .pf-sw{display:flex;flex-direction:row;align-items:center;gap:.7rem;cursor:pointer;font-weight:800;font-size:1.15rem;width:100%}
+.nf-push .pf-sw input{position:absolute;opacity:0;width:0;height:0}
+.nf-push .pf-sw i{flex:none;position:relative;width:3.2rem;height:1.8rem;border-radius:99rem;background:#C9B89B;transition:background .15s}
+.nf-push .pf-sw i::after{content:"";position:absolute;top:.2rem;right:.2rem;width:1.4rem;height:1.4rem;border-radius:50%;background:#fff;transition:right .15s}
+.nf-push .pf-sw input:checked+i{background:#3FA650}.nf-push .pf-sw input:checked+i::after{right:1.6rem}
+.nf-all.pill{width:auto;align-self:flex-start;padding:.5rem 1.3rem}
+.sp-n.unread{box-shadow:0 0 0 .18rem #FFB21F;cursor:pointer}
+.sp-n.unread .sp-nh b::before{content:"";display:inline-block;width:.7rem;height:.7rem;margin-inline-end:.45rem;border-radius:50%;background:#D8432F}
+/* the account rows: every gap between the cards is the same one (a row never gets a margin of its own) */
+.arows>.arow{margin:0;flex:none}
+:root{--app-build:"f94c7acc0f"}

@@ -1098,7 +1098,7 @@ const qz={sets:null,all:[],list:[],src:'book',i:0,run:0,busy:false,file:null,sho
    A design change is made in the model, so every question of that type changes together. */
 const QM={};
 const Q_SRC={book:['Book',ICON.book],workbook:['PTS','<svg viewBox="0 0 24 24"><path d="M5 19l1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L9 18z"/><path d="M14.5 6.5l3 3"/><path d="M5 19h14"/></svg>']};
-const R_Q=p=>{ const f=qz.file||''; return p&&!/^(https?:|\/|data:)/.test(p)?f.slice(0,f.lastIndexOf('/')+1)+p:p; };
+const R_Q=p=>{ if(Array.isArray(p)) return p.map(R_Q); const f=qz.file||''; return p&&!/^(https?:|\/|data:)/.test(p)?f.slice(0,f.lastIndexOf('/')+1)+p:p; };
 const qSrcOf=s=>s.book||'book';
 const tabSrc=()=>({workbook:'workbook',booklet:'booklet'}[tab]||'book');   // the book a Questions-style tab shows: Q = Book, PTS = Workbook, Booklet
 // the books that really have questions in this lesson (a book with none yet shows no button); other books (booklet ...) can be added by a set's "book":"booklet"
@@ -1352,7 +1352,7 @@ function qSay(){ const q=qz.list[qz.i]; if(!q) return; vStop(); const w=$('.qwor
   const done=()=>{ const x=$('.qword'); if(x) x.classList.remove('lit'); };
   if((q.askTask||(q.set.type==='choice'&&!q.askAudio&&!q.ask))&&!q.solved) return qTask().then(done,done);   // a choice with no question text of its own ("choose the title of the nasheed"): the speaker reads the exercise header only, never the item's sound (the answer / the whole nasheed) (Marwa 2026-11-05)
   if(q.askAudio&&!q.solved) return qSound(R_Q(q.askAudio),'').then(done,done);   // the QUESTION (with all its choices), never the answer: tools/lessons/choice_ask_audio.py; Arabic = a library slot, silent until recorded
-  if(q.ask&&!q.solved) return tts(q.ask,'en',.75).then(done,done);   // "q.ask": the question read without its answer (the full sentence is said once it is solved)
+  if(q.ask&&!q.solved) return tts(q.ask,isAr()?'ar':'en',.75).then(done,done);   // "q.ask": the question read without its answer (the full sentence is said once it is solved)
   return (q.audio?playFile(q.audio).catch(()=>tts(q.word,isAr()?'ar':'en',.75)):tts(q.word,isAr()?'ar':'en',.75)).then(done,done); }
 // read the exercise instruction aloud (its line lights up while it plays)
 /* the keyboard-writing question with its words in brackets ("... ثم أكتبها: ( أمي - أبي )"): the words stand in their own fixed block ABOVE the question, the question line itself stays short (Ahmed 2026-11-16).
@@ -2427,7 +2427,7 @@ function mDots(n,img){ if(n===0) return 'data:image/svg+xml,'+encodeURIComponent
   const c=Array.from({length:n},(_,k)=>`<circle cx="${(k%R)*s+s/2+(Math.floor(k/R)===rows-1?(R-(n-(rows-1)*R))*s/2:0)}" cy="${Math.floor(k/R)*s+s/2}" r="14" fill="#E0412C" stroke="#5A3418" stroke-width="3"/>`).join('');
   return 'data:image/svg+xml,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}">${c}</svg>`); }
 // the keypad / options row; onPick(value, button) -> true when right
-function mPad(box,values,onPick){ const row=el('div','qmpad'); values.forEach(v=>{ const b=el('button','rb qbtn qlet qmn',`<span>${v}</span>`); b.setAttribute('aria-label',String(v));
+function mPad(box,values,onPick){ const row=el('div','qmpad'); values.forEach(v=>{ const b=qChBtn(v); b.classList.add('qmn'); b.setAttribute('aria-label',String(v));
   b.addEventListener('click',()=>{ if(qz.busy) return; if(onPick(v,b)){ b.classList.add('on'); } else qxBad(b); }); row.append(b); }); box.append(row); return row; }
 // Help: the answer shows faintly in the empty box for a moment, then is wiped; the question never says the answer on its own
 function mHelp(box,getCell,getVal){ const h=helpBtn('qxhelp qmhelp');
@@ -2456,7 +2456,17 @@ function mBond(box,q,s,run){
   const mk=(cls,v)=>{ const c=el('div','qmb '+cls+(v==null?' gap cur':''),`<b>${v==null?'':v}</b>`); t.append(c); return c; };
   const top=mk('top',q.whole), a=mk(isAr()?'r':'l',parts[0]), b=mk(isAr()?'l':'r',parts[1]), target=q.whole==null?top:miss===0?a:b;
   box.append(t);
-  if(/^write /i.test(s.task||'')||s.typed){ qxWrite(box,q,s,run,String(ans),()=>{ $('b',target).textContent=ans; target.classList.remove('cur','gap'); target.classList.add('got'); qxWin(t,q,1600); }); return; }
+  if(/^write /i.test(s.task||'')||s.typed){
+    // typed: the number is written straight into its own square (no writing line below, no word-line speaker); the speaker sits beside the question line and says the question (Ahmed 2026-11-16, both subjects)
+    const [x,y,w]=[parts[0],parts[1],q.whole].map(v=>v==null?'?':v), qa=isAr()?(miss===0?`كم و${y} يُكوّنان ${w}؟`:miss===1?`${x} و كم يُكوّنان ${w}؟`:`${x} و ${y} يُكوّنان كم؟`):(miss===0?`? and ${y} make ${w}`:miss===1?`${x} and ? make ${w}`:`${x} and ${y} make ?`);
+    const row=el('div','qmask'); row.dir=isAr()?'rtl':'ltr'; const sp=el('button','qsay qmaskb',typeof SAY_LN==='string'?SAY_LN:ICON.sound); sp.setAttribute('aria-label','Hear the question'); sp.onclick=()=>{ if(!qz.busy) qSay(); };
+    row.append(sp,el('span','qmaskt',qa)); box.insertBefore(row,t); const qw=$('.qword'); if(qw) qw.hidden=true;
+    qxWrite(box,q,s,run,String(ans),()=>{ $('b',target).textContent=ans; target.classList.remove('cur','gap'); target.classList.add('got'); qxWin(t,q,1600); });
+    hideHint(); $$('.qxsay',box).forEach(x=>{ x.hidden=true; x.style.display='none'; });   // no "write here" bubble and no second speaker: the number goes straight into the square
+    const line=$('.qxline',box); if(line){ line.classList.add('qmhide'); const wd=$('.qxw',line), tp=qxWrite.type;
+      qxWrite.type=ch=>{ const before=$$('.lt.got',wd).length; tp(ch); const g=$$('.lt.got',wd); if(g.length>before) $('b',target).textContent=g.map(l=>l.textContent).join(''); else if(ch&&!/\s/.test(ch)) qxBad(t); };
+      const inp=$('#qxin'); if(inp) inp.oninput=()=>{ const ch=inp.value.replace(/\s/g,'').slice(-1); inp.value=''; qxWrite.type(ch); }; }
+    return; }
   q.hush=1; mHelp(box,()=>target.classList.contains('gap')?target:null,()=>ans);
   mPad(box,(q.options?mShuffle(q.options):mKeys(q.max||10)),(v)=>{ if(v!==ans) return false; $('b',target).textContent=v; target.classList.remove('cur','gap'); target.classList.add('got'); qxWin(t,q,1600); return true; });
 }
@@ -2488,7 +2498,7 @@ function mWrite(box,q,s,run){
   let wd=qxWordEl(q.word,null,false,!isAr()); line.append(wd); if(q.tail) line.append(el('span','mwcard',q.tail)); st.append(line);
   const cur=()=>{ $$('.lt',wd).forEach(x=>x.classList.remove('cur')); const n=qxNext(wd); if(n) n.classList.add('cur'); }; cur();
   const pad=el('div','qmpad mwkeys'); w.append(pad);
-  [...(q.keys||s.keys||'1234567890')].forEach(k=>{ const b=el('button','rb qbtn qlet qmn',`<span>${k}</span>`); b.dataset.v=k; b.setAttribute('aria-label',k==='−'?'minus':k==='+'?'plus':k==='='?'equals':k);
+  [...(q.keys||s.keys||'1234567890')].forEach(k=>{ const b=qChBtn(k); b.classList.add('qmn'); b.dataset.v=k; b.setAttribute('aria-label',k==='−'?'minus':k==='+'?'plus':k==='='?'equals':k);
     b.addEventListener('click',()=>{ if(qz.busy||q.solved||qz.list[qz.i]!==q) return; hideHint(); let n=qxNext(wd); if(!n) return;
       if(k!==arDb(n.textContent)&&!$$('.lt.got',wd).length){ const sw=mSwapSum(q.word,k); if(sw){ q.word=sw; const nw=qxWordEl(sw,null,false,true); wd.replaceWith(nw); wd=nw; n=qxNext(wd); } }   // addition in either order is right: 4 + 3 = 7 as well as 3 + 4 = 7 (Marwa 2026-11-05)
       if(k===arDb(n.textContent)){ qxReveal(wd); blip(560+$$('.lt.got',wd).length*40,.05); cur(); if(qxDone(wd)) qxWin(wd,q,1700); }
@@ -2614,12 +2624,12 @@ function mxMark(i,row){ const h=mxHeard(); h[i]=1; row.classList.add('heard'); c
 function mxDone(){ if(Object.keys(mxHeard()).length>=(LESSON.math.bonds||LESSON.math.line||LESSON.math).rows.length) award(LESSON.id,'read'); }
 // "What makes N?" rows: while the sentence is said the dots pop in one by one (the CSS delay puts them at the word "make")
 function mxPop(btn,on){ $$('.mxbond.pop').forEach(x=>x.classList.remove('pop')); if(on&&btn.classList.contains('mxbond')){ void btn.offsetWidth; btn.classList.add('pop'); } }
-async function mxSay(r,btn){ vStop(); const run=++mx.run; btn.classList.add('on'); mxPop(btn,true); try{ await playFile(r.audio); }catch(e){} if(run===mx.run){ btn.classList.remove('on'); setTimeout(()=>{ if(run===mx.run) mxPop(btn,false); },400); mxDone(); } }
+async function mxSay(r,btn){ vStop(); const run=++mx.run; btn.classList.add('on'); mxPop(btn,true); try{ await playFile(r.audio); }catch(e){} if(run===mx.run){ btn.classList.remove('on'); setTimeout(()=>{ if(run===mx.run) mxPop(btn,false); },400); if(!btn.classList.contains('mxcap')) mxDone(); } }   // the sentence under the stones only says itself (it never ends the lesson / opens the star)
 // "What makes N?" table: M.bonds = {whole:8, rows:[{a:1,b:7,audio}]}: red + blue dots in a frame, "1 and 7 make 8" (tap = the sentence is said)
-function mxBondDots(a,b){ const R=5,s=40,n=a+b,rows=Math.ceil(n/R),st=Math.min(.14,.7/n);
-  const c=Array.from({length:n},(_,k)=>`<circle class="mxd" style="--dl:${(.9+k*st).toFixed(2)}s" cx="${(k%R)*s+s/2}" cy="${Math.floor(k/R)*s+s/2}" r="17" fill="${k<a?'#E0412C':'#2A7FD8'}" stroke="#5A3418" stroke-width="3"/>`).join('');
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${Math.min(n,R)*s} ${rows*s}" preserveAspectRatio="xMidYMid meet">${c}</svg>`; }
-function mxBondRow(r,whole){ return el('button','mxrow mxbond',`<span class="mxdots">${mxBondDots(r.a,r.b)}</span><span class="mxeq"><b class="r">${r.a}</b><i>${(LESSON.math.bonds||{}).and||'and'}</i><b class="b">${r.b}</b></span><span class="mxmk">${(LESSON.math.bonds||{}).mk||'make'} <b>${whole}</b></span><i class="mxsay">${SAY_LN}</i>`); }
+function mxBondDots(a,b,bAt){ const R=5,s=40,n=a+b,rows=Math.ceil(n/R),W=Math.min(n,R)*s, flip=typeof isAr==='function'&&isAr();   // the red dots (a) come WITH the first number and the blue dots (b) WITH the second: each colour appears together (--dl = when its number is said); Arabic is mirrored: red at the right (front), like the red number
+  const c=Array.from({length:n},(_,k)=>{ const x=(k%R)*s+s/2; return `<circle class="mxd" style="--dl:${k<a?0:(bAt||.6)}s" cx="${flip?W-x:x}" cy="${Math.floor(k/R)*s+s/2}" r="17" fill="${k<a?'#E0412C':'#2A7FD8'}" stroke="#5A3418" stroke-width="3"/>`; }).join('');
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${rows*s}" preserveAspectRatio="xMidYMid meet">${c}</svg>`; }
+function mxBondRow(r,whole){ return el('button','mxrow mxbond',`<span class="mxdots">${mxBondDots(r.a,r.b,r.bAt)}</span><span class="mxeq"><b class="r">${r.a}</b><i>${(LESSON.math.bonds||{}).and||'and'}</i><b class="b">${r.b}</b></span><span class="mxmk">${(LESSON.math.bonds||{}).mk||'make'} <b>${whole}</b></span><i class="mxsay">${SAY_LN}</i>`); }
 // number line (M.line = {rows:[{n,word,audio}], small:{img,word,audio}, big:{...}, text, textAudio}): coloured stones 1..10, mouse = Smallest, elephant = Biggest; tap = said
 const MX_STONE=['#E0412C','#2A7FD8','#F2B321','#2FA8A0','#8A5CC9','#F08A2C','#3FA34D','#D8396B','#E0412C','#8A5CC9'];
 function showMathLine(){
@@ -2629,7 +2639,7 @@ function showMathLine(){
   const stones=el('div','mxstones'); L.rows.forEach((r,i)=>{ const b=bind(el('button','mxstone'+(h[i]?' heard':''),`<b>${r.n}</b>`),r,i); b.style.background=MX_STONE[i]; b.style.setProperty('--k',i+1);   /* the stones grow from 1 to 10 (small -> big) */ b.setAttribute('aria-label',r.word); stones.append(b); });
   const cap=bind(el('button','mxcap',`<span>${L.text}</span><i class="mxsay">${SAY_LN}</i>`),{audio:L.textAudio});
   box.append(end('sm',L.small),stones,end('bg',L.big),cap); scene.append(box); stage.append(scene); carFrac(Object.keys(h).length/L.rows.length);
-  setRail([{kind:'go',icon:'play',label:tr('Listen'),click:()=>mxAnim()},...mxTool()]);
+  mxPlayRail(false,mxAnim);
   if(typeof bookTag==='function') bookTag();
 }
 
@@ -2644,6 +2654,7 @@ async function mxAnim(){
   box.classList.add('mxplay'); [sm,bg,...stones,cap].forEach(x=>x.classList.remove('show'));
   const live=()=>tok===mx.all, wait=ms=>new Promise(r=>setTimeout(r,ms));
   const say=async(a)=>{ try{ await playFile(a); }catch(e){} };
+  mxPlayRail(true,mxAnim);
   const stop=()=>{ box.classList.remove('mxplay'); clean(); };
   await wait(250); if(!live()) return stop();
   sm.classList.add('show'); await say(L.small.audio); if(!live()) return stop(); await wait(250);
@@ -2660,7 +2671,7 @@ async function mxAnim(){
     a.style.cssText=`left:${g.l-bb.left}px;width:${g.r-g.l}px;top:${g.top-bb.top-28}px;--d:${dur}ms`; box.append(a); return a; });
   for(const a of arrows){ if(!live()) break; void a.offsetWidth; a.classList.add('draw'); await wait(dur); }
   await done; if(!live()) return stop();
-  box.classList.remove('mxplay'); clean(); mxDone();
+  box.classList.remove('mxplay'); clean(); mxDone(); mxPlayRail(false,mxAnim);
 }
 function showMathExplain(){
   if(LESSON.math.line) return showMathLine();
@@ -2672,12 +2683,14 @@ function showMathExplain(){
     `<span class="mxdots"><img src="${mDots(r.n)}" alt=""></span><b class="mxnum">${r.n}</b><span class="mxword">${r.word}</span><i class="mxsay">${SAY_LN}</i>`);
     if(B&&h[i]) b.classList.add('heard'); b.setAttribute('aria-label',B?`${r.a} and ${r.b} make ${B.whole}`:r.word); b.addEventListener('click',e=>{ if(e.isTrusted) mx.all++; mxMark(i,b); mxSay(r,b); }); grid.append(b); });
   stage.append(scene); carFrac(Object.keys(h).length/ROWS.length);
-  setRail([{kind:'go',icon:'play',label:tr('Listen'),click:mxAll},...mxTool()]);
+  mxPlayRail(false,mxAll);
   if(typeof bookTag==='function') bookTag();
 }
 // Listen (the big green button): every row in order, each one after the last has finished; a tap on a row stops the sequence
 async function mxSeq(els){ vStop(); const tok=++mx.all; for(const r of els){ if(tok!==mx.all) return; r.click(); await new Promise(x=>setTimeout(x,120)); while(tok===mx.all&&r.classList.contains('on')) await new Promise(x=>setTimeout(x,80)); await new Promise(x=>setTimeout(x,200)); } }
-const mxAll=()=>mxSeq($$('.mxgrid .mxrow'));
+// the Listen button turns into Pause while the sound plays and back to Listen when it ends or is stopped (Ahmed 2026-11-16)
+function mxPlayRail(on,go){ setRail([on?{kind:'stop',icon:'pause',label:tr('Pause'),click:()=>{ mx.all++; mx.run++; vStop(); mxPlayRail(false,go); }}:{kind:'go',icon:'play',label:tr('Listen'),click:go},...mxTool()]); }
+const mxAll=async()=>{ mxPlayRail(true,mxAll); await mxSeq($$('.mxgrid .mxrow')); if($('.mxgrid')) mxPlayRail(false,mxAll); };
 
 const mxTool=()=>LESSON.tool?[{kind:'tool',icon:'arcs',label:toolName(LESSON.tool),click:()=>toolOpen(LESSON.toolN)}]:[];
 ;
@@ -2983,7 +2996,8 @@ async function openExam(lesson,ex){
   // one button per assessment, ONE assessment on screen at a time: pages that share a "group" (the assessment number) stack under its button; no group = a page is its own assessment
   // button text is short: the number if the assessment is numbered ("Model 2" -> 2, "تقييم نهائي ٣" -> ٣), else its name; "tab" on the page overrides
   X.groups=[]; (d.pages||[]).forEach((p,i)=>{ const g=p.group!=null?String(p.group):'p'+i, k=X.groups.find(x=>x.g===g); if(k) k.pages.push(i); else X.groups.push({g,label:xTabLabel(p),pages:[i]}); });
-  $('#xChips').innerHTML=X.groups.length>1?X.groups.map((g,i)=>`<button class="pill cream xchip" data-i="${i}">${g.label}</button>`).join(''):'';
+  X.stack=X.groups.length>1&&/\/data\/math(-ar)?\/exams\/wk-/.test(X.base);   // Math / الرياضيات weekly assessments with several models (A, B, C): the models follow each other on the page, no buttons (Ahmed 2026-11-16)
+  $('#xChips').innerHTML=X.groups.length>1&&!X.stack?X.groups.map((g,i)=>`<button class="pill cream xchip" data-i="${i}">${g.label}</button>`).join(''):'';
   $$('.xchip').forEach(b=>b.onclick=()=>xShow(+b.dataset.i));
   $$('img',root).forEach(i=>{ if(!i.complete) i.addEventListener('load',()=>{ clearTimeout(xFit.t2); xFit.t2=setTimeout(xFit,60); },{once:true}); });
   X.cur=0; xShow(0,true); show('exam'); busy(false); xFit(); $('#xScroll').scrollTop=0;
@@ -3176,7 +3190,7 @@ function xDrawLinks(L){
 // ---------- screen fit ----------
 function xTabLabel(p){ const t=p.tab||p.chip||p.title||'', m=String(t).match(/[0-9\u0660-\u0669]+\s*$/); return p.tab||(m?m[0].trim():t); }
 function xShow(gi,first){   // only the pages of assessment gi are on screen; the others wait behind their buttons
-  X.cur=gi; const on=X.groups[gi].pages; X.pages.forEach((p,i)=>p.hidden=!on.includes(i));
+  X.cur=gi; const on=X.stack?X.pages.map((_,i)=>i):X.groups[gi].pages; X.pages.forEach((p,i)=>p.hidden=!on.includes(i));
   $$('.xchip').forEach((b,i)=>b.classList.toggle('on',i===gi));
   if(!first){ stopAll(); vStop(); xFit(); $('#xScroll').scrollTop=0; }
 }
@@ -3622,7 +3636,7 @@ function mount(root, data, opt){
     askRow.innerHTML=''; cap.classList.add('asking'); const pad=hel('div','qmpad mwkeys xkeys'); askRow.append(pad);
     const cur=()=>{ wd.querySelectorAll('.lt').forEach(x=>x.classList.remove('cur')); const n=qxNext(wd); if(n) n.classList.add('cur'); }; cur();
     return new Promise((res,rej)=>{ X.rejAsk=rej;
-      [...(o.keys||'1234567890+\u2212=')].forEach(k=>{ const b=hel('button','rb qbtn qlet qmn',`<span>${k}</span>`); b.dataset.v=k;
+      [...(o.keys||'1234567890+\u2212=')].forEach(k=>{ const b=qChBtn(k); b.classList.add('qmn'); b.dataset.v=k;
         b.addEventListener('click',()=>{ if(g!==X.gen) return; const n=qxNext(wd); if(!n) return;
           if(k===(window.arDigitsBack?arDigitsBack(n.textContent):n.textContent)){ qxReveal(wd); if(typeof blip==='function') blip(560+wd.querySelectorAll('.lt.got').length*40,.05); cur();
             if(qxDone(wd)){ X.rejAsk=null; wd.querySelectorAll('.lt').forEach(x=>x.classList.remove('cur')); askRow.innerHTML=''; cap.classList.remove('asking'); res(); } }

@@ -3,9 +3,11 @@
   {
    "type": "bond",
    "ex": 1,
-   "page": 17,
-   "task": "Write the missing number in the box.",
-   "taskAudio": "q/task-1.mp3",
+   "page": 22,
+   "typed": true,
+   "boxed": true,
+   "task": "What two numbers make 8? Write the missing number in the square.",
+   "taskAudio": "../u1l3/q/task-book-bond-8.mp3",
    "items": [
     {
      "whole": 8,
@@ -22,7 +24,18 @@
       5
      ],
      "audio": "words/three-and-five-make-eight.mp3"
-    },
+    }
+   ]
+  },
+  {
+   "type": "bond",
+   "ex": 2,
+   "page": 23,
+   "typed": true,
+   "boxed": true,
+   "task": "What two numbers make 8? Write the missing number in the square.",
+   "taskAudio": "../u1l3/q/task-book-bond-8.mp3",
+   "items": [
     {
      "whole": 8,
      "parts": [
@@ -59,6 +72,50 @@
   },
   {
    "type": "bond",
+   "ex": 3,
+   "page": 23,
+   "typed": true,
+   "boxed": true,
+   "task": "What two numbers make 8? Write the missing number in the square.",
+   "taskAudio": "../u1l3/q/task-book-bond-8.mp3",
+   "items": [
+    {
+     "whole": 8,
+     "parts": [
+      4,
+      null
+     ],
+     "audio": "words/four-and-four-make-eight.mp3"
+    },
+    {
+     "whole": 8,
+     "parts": [
+      7,
+      null
+     ],
+     "audio": "words/seven-and-one-make-eight.mp3"
+    },
+    {
+     "whole": 8,
+     "parts": [
+      null,
+      6
+     ],
+     "audio": "words/two-and-six-make-eight.mp3"
+    },
+    {
+     "whole": 8,
+     "parts": [
+      null,
+      2
+     ],
+     "audio": "words/six-and-two-make-eight.mp3"
+    }
+   ]
+  },
+  {
+   "type": "bond",
+   "typed": true,
    "ex": 1,
    "page": 17,
    "task": "Write the missing number in the box.",
@@ -117,6 +174,77 @@
   },
   {
    "type": "bond",
+   "typed": true,
+   "page": 20,
+   "task": "Complete to make 8.",
+   "taskAudio": "q/task-bk-complete-to-make.mp3",
+   "items": [
+    {
+     "whole": 8,
+     "parts": [
+      3,
+      null
+     ],
+     "audio": "words/three-and-five-make-eight.mp3"
+    },
+    {
+     "whole": 8,
+     "parts": [
+      1,
+      null
+     ],
+     "audio": "words/one-and-seven-make-eight.mp3"
+    },
+    {
+     "whole": 8,
+     "parts": [
+      2,
+      null
+     ],
+     "audio": "words/two-and-six-make-eight.mp3"
+    },
+    {
+     "whole": 8,
+     "parts": [
+      4,
+      null
+     ],
+     "audio": "words/four-and-four-make-eight.mp3"
+    }
+   ],
+   "book": "workbook",
+   "act": "class"
+  },
+  {
+   "type": "bond",
+   "typed": true,
+   "page": 20,
+   "task": "Complete to make 8.",
+   "taskAudio": "q/task-bk-complete-to-make.mp3",
+   "items": [
+    {
+     "whole": 8,
+     "parts": [
+      null,
+      4
+     ],
+     "audio": "words/four-and-four-make-eight.mp3"
+    },
+    {
+     "whole": 8,
+     "parts": [
+      null,
+      6
+     ],
+     "audio": "words/two-and-six-make-eight.mp3"
+    }
+   ],
+   "book": "workbook",
+   "act": "class"
+  },
+  {
+   "type": "bond",
+   "typed": true,
    "page": 20,
    "task": "Complete to make 8.",
    "taskAudio": "q/task-bk-complete-to-make.mp3",

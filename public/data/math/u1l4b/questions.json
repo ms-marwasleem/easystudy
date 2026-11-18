@@ -3,108 +3,90 @@
   {
    "type": "count",
    "ex": 1,
-   "page": 12,
-   "task": "Circle the correct number.",
-   "taskAudio": "q/task-1.mp3",
+   "page": 16,
+   "typed": true,
+   "task": "Write the number.",
+   "taskAudio": "../u1l10/../u1l10/q/task-1.mp3",
    "items": [
     {
-     "img": "../../pics/balloon.png#7",
-     "n": 7,
+     "img": "../../pics/rabbit.png#9",
+     "n": 9,
      "group": true,
-     "audio": "words/seven.mp3",
-     "options": [
-      7,
-      8,
-      9
-     ]
+     "audio": "words/nine.mp3"
     },
     {
-     "img": "../../pics/caterpillar.png#8",
+     "img": "../../pics/ball.png#6",
+     "n": 6,
+     "group": true,
+     "audio": "words/six.mp3"
+    }
+   ]
+  },
+  {
+   "type": "count",
+   "ex": 2,
+   "page": 17,
+   "typed": true,
+   "task": "Write the number.",
+   "taskAudio": "../u1l10/../u1l10/q/task-1.mp3",
+   "items": [
+    {
+     "img": "../../pics/butterfly.png#8",
      "n": 8,
      "group": true,
-     "audio": "words/eight.mp3",
-     "options": [
-      7,
-      8,
-      9
-     ]
+     "audio": "words/eight.mp3"
     },
     {
-     "img": "../../pics/ice-cream.png#3",
+     "img": "../../pics/ice-cream.png#10",
+     "n": 10,
+     "group": true,
+     "audio": "../u1l10/words/ten.mp3"
+    },
+    {
+     "img": "../../pics/bike.png#3",
      "n": 3,
      "group": true,
-     "audio": "words/three.mp3",
-     "options": [
-      1,
-      2,
-      3
-     ]
-    },
+     "audio": "words/three.mp3"
+    }
+   ]
+  },
+  {
+   "type": "count",
+   "ex": 3,
+   "page": 17,
+   "typed": true,
+   "task": "Write the number.",
+   "taskAudio": "../u1l10/../u1l10/q/task-1.mp3",
+   "items": [
     {
-     "img": "../../pics/lego.png#9",
+     "img": "../../pics/bus-u5l1.png#9",
      "n": 9,
      "group": true,
-     "audio": "words/nine.mp3",
-     "options": [
-      7,
-      9,
-      10
-     ]
+     "audio": "words/nine.mp3"
     },
     {
-     "img": "../../pics/gummy-bear-green.png#7",
-     "n": 7,
-     "group": true,
-     "audio": "words/seven.mp3",
-     "options": [
-      6,
-      7,
-      8
-     ]
-    },
-    {
-     "img": "../../pics/key.png#6",
+     "img": "../../pics/clownfish-orange.png#6",
      "n": 6,
      "group": true,
-     "audio": "words/six.mp3",
-     "options": [
-      6,
-      7,
-      8
-     ]
+     "audio": "words/six.mp3"
     },
     {
-     "img": "../../pics/marble-glass.png#9",
-     "n": 9,
-     "group": true,
-     "audio": "words/nine.mp3",
-     "options": [
-      8,
-      10,
-      9
-     ]
-    },
-    {
-     "img": "../../pics/cactus.png#6",
-     "n": 6,
-     "group": true,
-     "audio": "words/six.mp3",
-     "options": [
-      7,
-      6,
-      4
-     ]
-    },
-    {
-     "img": "../../pics/sushi.png#5",
+     "img": "../../pics/bear.png#5",
      "n": 5,
      "group": true,
-     "audio": "words/five.mp3",
-     "options": [
-      6,
-      5,
-      4
-     ]
+     "audio": "words/five.mp3"
+    },
+    {
+     "img": "../../pics/horse.png#4",
+     "n": 4,
+     "group": true,
+     "audio": "../u1l1/words/four.mp3"
+    },
+    {
+     "img": "../../pics/ladybug.png#10",
+     "n": 10,
+     "group": true,
+     "audio": "../u1l10/words/ten.mp3"
     }
    ]
   },
@@ -219,6 +201,7 @@
   },
   {
    "type": "count",
+   "typed": true,
    "page": 14,
    "task": "Write the number of things you see.",
    "taskAudio": "q/task-bk-write-the-number-of-things-you-see.mp3",

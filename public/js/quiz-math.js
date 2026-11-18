@@ -16,7 +16,7 @@ function mDots(n,img){ if(n===0) return 'data:image/svg+xml,'+encodeURIComponent
   const c=Array.from({length:n},(_,k)=>`<circle cx="${(k%R)*s+s/2+(Math.floor(k/R)===rows-1?(R-(n-(rows-1)*R))*s/2:0)}" cy="${Math.floor(k/R)*s+s/2}" r="14" fill="#E0412C" stroke="#5A3418" stroke-width="3"/>`).join('');
   return 'data:image/svg+xml,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}">${c}</svg>`); }
 // the keypad / options row; onPick(value, button) -> true when right
-function mPad(box,values,onPick){ const row=el('div','qmpad'); values.forEach(v=>{ const b=el('button','rb qbtn qlet qmn',`<span>${v}</span>`); b.setAttribute('aria-label',String(v));
+function mPad(box,values,onPick){ const row=el('div','qmpad'); values.forEach(v=>{ const b=qChBtn(v); b.classList.add('qmn'); b.setAttribute('aria-label',String(v));
   b.addEventListener('click',()=>{ if(qz.busy) return; if(onPick(v,b)){ b.classList.add('on'); } else qxBad(b); }); row.append(b); }); box.append(row); return row; }
 // Help: the answer shows faintly in the empty box for a moment, then is wiped; the question never says the answer on its own
 function mHelp(box,getCell,getVal){ const h=helpBtn('qxhelp qmhelp');
@@ -45,7 +45,17 @@ function mBond(box,q,s,run){
   const mk=(cls,v)=>{ const c=el('div','qmb '+cls+(v==null?' gap cur':''),`<b>${v==null?'':v}</b>`); t.append(c); return c; };
   const top=mk('top',q.whole), a=mk(isAr()?'r':'l',parts[0]), b=mk(isAr()?'l':'r',parts[1]), target=q.whole==null?top:miss===0?a:b;
   box.append(t);
-  if(/^write /i.test(s.task||'')||s.typed){ qxWrite(box,q,s,run,String(ans),()=>{ $('b',target).textContent=ans; target.classList.remove('cur','gap'); target.classList.add('got'); qxWin(t,q,1600); }); return; }
+  if(/^write /i.test(s.task||'')||s.typed){
+    // typed: the number is written straight into its own square (no writing line below, no word-line speaker); the speaker sits beside the question line and says the question (Ahmed 2026-11-16, both subjects)
+    const [x,y,w]=[parts[0],parts[1],q.whole].map(v=>v==null?'?':v), qa=isAr()?(miss===0?`كم و${y} يُكوّنان ${w}؟`:miss===1?`${x} و كم يُكوّنان ${w}؟`:`${x} و ${y} يُكوّنان كم؟`):(miss===0?`? and ${y} make ${w}`:miss===1?`${x} and ? make ${w}`:`${x} and ${y} make ?`);
+    const row=el('div','qmask'); row.dir=isAr()?'rtl':'ltr'; const sp=el('button','qsay qmaskb',typeof SAY_LN==='string'?SAY_LN:ICON.sound); sp.setAttribute('aria-label','Hear the question'); sp.onclick=()=>{ if(!qz.busy) qSay(); };
+    row.append(sp,el('span','qmaskt',qa)); box.insertBefore(row,t); const qw=$('.qword'); if(qw) qw.hidden=true;
+    qxWrite(box,q,s,run,String(ans),()=>{ $('b',target).textContent=ans; target.classList.remove('cur','gap'); target.classList.add('got'); qxWin(t,q,1600); });
+    hideHint(); $$('.qxsay',box).forEach(x=>{ x.hidden=true; x.style.display='none'; });   // no "write here" bubble and no second speaker: the number goes straight into the square
+    const line=$('.qxline',box); if(line){ line.classList.add('qmhide'); const wd=$('.qxw',line), tp=qxWrite.type;
+      qxWrite.type=ch=>{ const before=$$('.lt.got',wd).length; tp(ch); const g=$$('.lt.got',wd); if(g.length>before) $('b',target).textContent=g.map(l=>l.textContent).join(''); else if(ch&&!/\s/.test(ch)) qxBad(t); };
+      const inp=$('#qxin'); if(inp) inp.oninput=()=>{ const ch=inp.value.replace(/\s/g,'').slice(-1); inp.value=''; qxWrite.type(ch); }; }
+    return; }
   q.hush=1; mHelp(box,()=>target.classList.contains('gap')?target:null,()=>ans);
   mPad(box,(q.options?mShuffle(q.options):mKeys(q.max||10)),(v)=>{ if(v!==ans) return false; $('b',target).textContent=v; target.classList.remove('cur','gap'); target.classList.add('got'); qxWin(t,q,1600); return true; });
 }
@@ -77,7 +87,7 @@ function mWrite(box,q,s,run){
   let wd=qxWordEl(q.word,null,false,!isAr()); line.append(wd); if(q.tail) line.append(el('span','mwcard',q.tail)); st.append(line);
   const cur=()=>{ $$('.lt',wd).forEach(x=>x.classList.remove('cur')); const n=qxNext(wd); if(n) n.classList.add('cur'); }; cur();
   const pad=el('div','qmpad mwkeys'); w.append(pad);
-  [...(q.keys||s.keys||'1234567890')].forEach(k=>{ const b=el('button','rb qbtn qlet qmn',`<span>${k}</span>`); b.dataset.v=k; b.setAttribute('aria-label',k==='−'?'minus':k==='+'?'plus':k==='='?'equals':k);
+  [...(q.keys||s.keys||'1234567890')].forEach(k=>{ const b=qChBtn(k); b.classList.add('qmn'); b.dataset.v=k; b.setAttribute('aria-label',k==='−'?'minus':k==='+'?'plus':k==='='?'equals':k);
     b.addEventListener('click',()=>{ if(qz.busy||q.solved||qz.list[qz.i]!==q) return; hideHint(); let n=qxNext(wd); if(!n) return;
       if(k!==arDb(n.textContent)&&!$$('.lt.got',wd).length){ const sw=mSwapSum(q.word,k); if(sw){ q.word=sw; const nw=qxWordEl(sw,null,false,true); wd.replaceWith(nw); wd=nw; n=qxNext(wd); } }   // addition in either order is right: 4 + 3 = 7 as well as 3 + 4 = 7 (Marwa 2026-11-05)
       if(k===arDb(n.textContent)){ qxReveal(wd); blip(560+$$('.lt.got',wd).length*40,.05); cur(); if(qxDone(wd)) qxWin(wd,q,1700); }

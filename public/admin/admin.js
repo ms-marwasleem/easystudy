@@ -54,7 +54,7 @@ function drawSettings(){ $('#u-grade').innerHTML=GRADES.map(g=>`<option value="$
   NUMS.forEach(k=>$('#c-'+k).value=C[k]!=null?C[k]:'');
   $('#c-wa').value=S.whatsapp||''; $('#c-email').value=S.adminEmail||''; $('#s-name').value=B.name||''; $('#s-link').value=B.link||'';
   $('#c-shareText').value=C.shareText||''; $('#c-shareUrl').value=C.shareUrl||'';
-  $('#r-on').checked=!!C.referral.on; $('#r-coins').value=C.referral.coins||0;
+  $('#r-on').checked=!!C.referral.on; $('#r-coins').value=C.referral.coins||0; $('#r-sub').value=C.referral.subCoins||0;
   $('#s-on').checked=!!B.on; $('#p-on').checked=S.promoOn!==false;
   $('#f-count').value=S.access.free.count; drawPrices(); drawFreePer(); drawCurr();
 }
@@ -89,6 +89,7 @@ $('#c-shareText').addEventListener('input',e=>{ S.coins.shareText=e.target.value
 $('#c-shareUrl').addEventListener('input',e=>{ S.coins.shareUrl=e.target.value; mark(); });
 $('#r-on').addEventListener('change',e=>{ S.coins.referral.on=e.target.checked; mark(); });
 $('#r-coins').addEventListener('input',e=>{ S.coins.referral.coins=+e.target.value||0; mark(); });
+$('#r-sub').addEventListener('input',e=>{ S.coins.referral.subCoins=Math.max(0,+e.target.value||0); mark(); });
 $('#f-count').addEventListener('input',e=>{ S.access.free.count=+e.target.value||0; mark(); drawFreePer(); });
 
 /* ---------- lessons page: tree subject > unit > lesson, multi-select, open | soon ----------
@@ -268,7 +269,7 @@ const SB_MSG='مقدرناش نتأكد من الدفع. ابعتي صورة ا�
 function drawSubs(){ const box=$('#subsList'), all=$('#sb-all').checked, L=(SRV.subs||[]).filter(x=>all||x.st==='pending');
   $('#sb-where').textContent=SRV.subs?'الإيصالات المرفوعة من التطبيق. التفعيل بيفضل لحد ٣١ أغسطس، والرفض بيقفل الدروس فورًا وبيبعت رسالتك لولي الأمر.':'الاشتراكات مش ظاهرة دلوقتي. اتأكدي من الإنترنت وكلمة السر.';
   box.innerHTML=L.length?`<div class="utwrap"><table class="utbl sbtbl"><thead><tr><th>المستخدم</th><th>الطالب</th><th>الترم</th><th>تاريخ الاشتراك</th><th>رقم العملية</th><th>الإيصال</th><th>الحالة</th><th>الإجراء</th></tr></thead><tbody>`+L.map(x=>`<tr data-c="${esc(x.child)}" data-t="${esc(x.term)}">
-    <td dir="ltr" class="u-tx">${esc(x.email||'')}${x.email&&x.phone?'<br>':''}${esc(x.phone||'')}</td><td><b>${esc(x.name)}</b></td><td>${TNAME[x.term.split(':')[1]]||esc(x.term)}${x.price?`<small>${ar(x.price)} جنيه</small>`:''}</td><td class="u-dt">${fmtD(x.at)||'—'}</td><td dir="ltr">${esc(x.ref||'—')}</td>
+    <td dir="ltr" class="u-tx">${esc(x.email||'')}${x.email&&x.phone?'<br>':''}${esc(x.phone||'')}</td><td><b>${esc(x.name)}</b>${x.inv?`<small>جاي من دعوة: ${esc(x.inv)}</small>`:''}</td><td>${TNAME[x.term.split(':')[1]]||esc(x.term)}${x.price?`<small>${ar(x.price)} جنيه</small>`:''}</td><td class="u-dt">${fmtD(x.at)||'—'}</td><td dir="ltr">${esc(x.ref||'—')}</td>
     <td>${x.receipt?'<button type="button" class="ghost" data-act="rc">عرض الإيصال</button>':'—'}</td><td><span class="stb ${x.st==='active'?'open':''}">${STN[x.st]||x.st}</span>${x.st==='rejected'&&x.note?`<small>${esc(x.note)}</small>`:''}</td>
     <td class="sb-act">${x.st!=='active'?'<button type="button" class="pri" data-act="activate">تفعيل</button>':''}${x.st==='pending'||x.st==='active'?'<button type="button" class="u-del" data-act="reject">رفض</button>':''}</td></tr>`).join('')+'</tbody></table></div>':'<p class="empty">مفيش اشتراكات هنا.</p>'; }
 $('#subsList').addEventListener('click',async e=>{ const b=e.target.closest('[data-act]'); if(!b||b.disabled) return; const r=b.closest('tr'), c=r.dataset.c, t=r.dataset.t, act=b.dataset.act, row=(SRV.subs||[]).find(x=>x.child===c&&x.term===t)||{};
@@ -286,7 +287,7 @@ $('#u-form').addEventListener('submit',async e=>{ e.preventDefault(); const f=e.
   f.reset(); toast('اتضاف المستخدم'); await refreshUsers(); });
 
 function wallets(){ const out=[]; try{ for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k.startsWith('es.wallet.')) out.push(lsGet(k,{bal:0,hist:[]})); } }catch(e){} return out; }
-const KIND={promo:'برومو كود',share:'مشاركة',gift:'هدية',referral:'تسجيل من رابطه','unlock-lesson':'فتح درس','unlock-unit':'فتح وحدة'};
+const KIND={promo:'برومو كود',share:'مشاركة',gift:'هدية',referral:'تسجيل من رابطه',refsub:'اشتراك من رابطه','unlock-lesson':'فتح درس','unlock-unit':'فتح وحدة'};
 function drawStats(){
   const A=accounts(), W=wallets(), H=SRV.stats?SRV.stats.hist:W.flatMap(w=>w.hist||[]).sort((a,b)=>b.at-a.at);
   const earned=H.filter(h=>h.n>0).reduce((a,h)=>a+h.n,0), spent=-H.filter(h=>h.n<0).reduce((a,h)=>a+h.n,0), shares=H.filter(h=>h.k==='share');

@@ -28,12 +28,26 @@ async function puToggle(){
     PUSH.sub=s; puPaint();
   }catch(e){ message('🔔',T.fail); }
 }
+/* the bell on the home page (Ahmed 2026-11-17): shows the unread count and opens the notifications page (js/subs.js); it is there even when device notifications are not possible.
+   The on / off switch moved into that page. */
+function puBadge(){ const b=$('#pushBtn'); if(!b) return; const n=typeof subNews==='function'?subNews().length:0; let d=$('.pushdot',b);
+  if(!n){ if(d) d.remove(); b.classList.remove('unread'); b.setAttribute('aria-label','الإشعارات'); return; }
+  if(!d){ d=document.createElement('i'); d.className='pushdot'; b.appendChild(d); }
+  d.textContent=n>99?'99+':(typeof num==='function'?num(n):n); b.classList.add('unread'); b.setAttribute('aria-label','الإشعارات ('+n+')'); }
 async function puInit(){
-  if(!puCan()||$('#pushBtn')) return;
-  const b=document.createElement('button'); b.id='pushBtn'; b.className='pushbtn rb'; b.type='button';
+  if($('#pushBtn')) return;
+  const b=document.createElement('button'); b.id='pushBtn'; b.className='pushbtn rb'; b.type='button'; b.setAttribute('aria-label','الإشعارات');
   b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 2h-15zM10 21a2 2 0 0 0 4 0"/></svg>';
-  b.addEventListener('click',puToggle); $('#subjects').appendChild(b);
-  PUSH.sub=await puCurrent(); puPaint();
+  b.addEventListener('click',()=>{ if(typeof notifsPage==='function') notifsPage(); }); $('#subjects').appendChild(b);
+  puBadge(); if(puCan()) PUSH.sub=await puCurrent();
 }
+/* a tap on a device notification while the app is open: the service worker (sw.js notificationclick) sends the link here and the app goes there without a reload.
+   The link is ?go=... (js/deeplink.js, EasyStudy) or another address of this app. It answers on the port so the worker knows it was handled. */
+if('serviceWorker' in navigator) navigator.serviceWorker.addEventListener('message',e=>{ const d=e.data; if(!d||d.type!=='es-go') return;
+  try{ if(e.ports&&e.ports[0]) e.ports[0].postMessage('ok'); }catch(x){}
+  try{ const u=new URL(d.url,location.href); if(u.origin!==location.origin) return;
+    $$('.acctpage').forEach(p=>p.hidden=true);
+    const go=u.searchParams.get('go');
+    if(go&&typeof deepGo==='function') deepGo(go); else if(u.pathname+u.search!==location.pathname+location.search) location.href=u.href; }catch(x){} });
 // the settings (api address) arrive a moment after the page opens
 if(typeof ESET_P!=='undefined') ESET_P.then(()=>puInit()).catch(()=>{}); else puInit();

@@ -21,7 +21,8 @@ async function openExam(lesson,ex){
   // one button per assessment, ONE assessment on screen at a time: pages that share a "group" (the assessment number) stack under its button; no group = a page is its own assessment
   // button text is short: the number if the assessment is numbered ("Model 2" -> 2, "تقييم نهائي ٣" -> ٣), else its name; "tab" on the page overrides
   X.groups=[]; (d.pages||[]).forEach((p,i)=>{ const g=p.group!=null?String(p.group):'p'+i, k=X.groups.find(x=>x.g===g); if(k) k.pages.push(i); else X.groups.push({g,label:xTabLabel(p),pages:[i]}); });
-  $('#xChips').innerHTML=X.groups.length>1?X.groups.map((g,i)=>`<button class="pill cream xchip" data-i="${i}">${g.label}</button>`).join(''):'';
+  X.stack=X.groups.length>1&&/\/data\/math(-ar)?\/exams\/wk-/.test(X.base);   // Math / الرياضيات weekly assessments with several models (A, B, C): the models follow each other on the page, no buttons (Ahmed 2026-11-16)
+  $('#xChips').innerHTML=X.groups.length>1&&!X.stack?X.groups.map((g,i)=>`<button class="pill cream xchip" data-i="${i}">${g.label}</button>`).join(''):'';
   $$('.xchip').forEach(b=>b.onclick=()=>xShow(+b.dataset.i));
   $$('img',root).forEach(i=>{ if(!i.complete) i.addEventListener('load',()=>{ clearTimeout(xFit.t2); xFit.t2=setTimeout(xFit,60); },{once:true}); });
   X.cur=0; xShow(0,true); show('exam'); busy(false); xFit(); $('#xScroll').scrollTop=0;
@@ -214,7 +215,7 @@ function xDrawLinks(L){
 // ---------- screen fit ----------
 function xTabLabel(p){ const t=p.tab||p.chip||p.title||'', m=String(t).match(/[0-9\u0660-\u0669]+\s*$/); return p.tab||(m?m[0].trim():t); }
 function xShow(gi,first){   // only the pages of assessment gi are on screen; the others wait behind their buttons
-  X.cur=gi; const on=X.groups[gi].pages; X.pages.forEach((p,i)=>p.hidden=!on.includes(i));
+  X.cur=gi; const on=X.stack?X.pages.map((_,i)=>i):X.groups[gi].pages; X.pages.forEach((p,i)=>p.hidden=!on.includes(i));
   $$('.xchip').forEach((b,i)=>b.classList.toggle('on',i===gi));
   if(!first){ stopAll(); vStop(); xFit(); $('#xScroll').scrollTop=0; }
 }

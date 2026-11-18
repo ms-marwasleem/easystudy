@@ -2,8 +2,8 @@
    (admin.html -> الإشعارات builds it from lists), and works from any shared link. place = a lesson folder (u1l3) | a unit (unit-5, opens that subject's map)
    | an exam paper (x-<exam id>, a lesson's or a unit's). tab = read | words | quiz | booklet | workbook | grammar.
    Safe by design: a place that does not exist, is not built yet, or is locked / "soon" just opens the subject's map; no child profile yet = normal first launch. */
-function deepGo(){
-  let go=''; try{ go=new URLSearchParams(location.search).get('go')||''; }catch(e){}
+function deepGo(g){   // g = the ?go= text when a tap on a notification arrives while the app is open (js/push.js); no argument = read it from the address (a fresh start)
+  let go=g||''; if(!go){ try{ go=new URLSearchParams(location.search).get('go')||''; }catch(e){} }
   if(!go) return;
   try{ const u=new URL(location.href); u.searchParams.delete('go'); history.replaceState(null,'',u.pathname+(u.search||'')+u.hash); }catch(e){}   // a reload does not repeat it
   const [sid,place,tabName]=go.split('/'), s=COURSE.subjects.find(x=>x.id===sid&&x.open&&x.lessons);

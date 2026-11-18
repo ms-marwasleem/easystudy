@@ -9,12 +9,12 @@ function mxMark(i,row){ const h=mxHeard(); h[i]=1; row.classList.add('heard'); c
 function mxDone(){ if(Object.keys(mxHeard()).length>=(LESSON.math.bonds||LESSON.math.line||LESSON.math).rows.length) award(LESSON.id,'read'); }
 // "What makes N?" rows: while the sentence is said the dots pop in one by one (the CSS delay puts them at the word "make")
 function mxPop(btn,on){ $$('.mxbond.pop').forEach(x=>x.classList.remove('pop')); if(on&&btn.classList.contains('mxbond')){ void btn.offsetWidth; btn.classList.add('pop'); } }
-async function mxSay(r,btn){ vStop(); const run=++mx.run; btn.classList.add('on'); mxPop(btn,true); try{ await playFile(r.audio); }catch(e){} if(run===mx.run){ btn.classList.remove('on'); setTimeout(()=>{ if(run===mx.run) mxPop(btn,false); },400); mxDone(); } }
+async function mxSay(r,btn){ vStop(); const run=++mx.run; btn.classList.add('on'); mxPop(btn,true); try{ await playFile(r.audio); }catch(e){} if(run===mx.run){ btn.classList.remove('on'); setTimeout(()=>{ if(run===mx.run) mxPop(btn,false); },400); if(!btn.classList.contains('mxcap')) mxDone(); } }   // the sentence under the stones only says itself (it never ends the lesson / opens the star)
 // "What makes N?" table: M.bonds = {whole:8, rows:[{a:1,b:7,audio}]}: red + blue dots in a frame, "1 and 7 make 8" (tap = the sentence is said)
-function mxBondDots(a,b){ const R=5,s=40,n=a+b,rows=Math.ceil(n/R),st=Math.min(.14,.7/n);
-  const c=Array.from({length:n},(_,k)=>`<circle class="mxd" style="--dl:${(.9+k*st).toFixed(2)}s" cx="${(k%R)*s+s/2}" cy="${Math.floor(k/R)*s+s/2}" r="17" fill="${k<a?'#E0412C':'#2A7FD8'}" stroke="#5A3418" stroke-width="3"/>`).join('');
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${Math.min(n,R)*s} ${rows*s}" preserveAspectRatio="xMidYMid meet">${c}</svg>`; }
-function mxBondRow(r,whole){ return el('button','mxrow mxbond',`<span class="mxdots">${mxBondDots(r.a,r.b)}</span><span class="mxeq"><b class="r">${r.a}</b><i>${(LESSON.math.bonds||{}).and||'and'}</i><b class="b">${r.b}</b></span><span class="mxmk">${(LESSON.math.bonds||{}).mk||'make'} <b>${whole}</b></span><i class="mxsay">${SAY_LN}</i>`); }
+function mxBondDots(a,b,bAt){ const R=5,s=40,n=a+b,rows=Math.ceil(n/R),W=Math.min(n,R)*s, flip=typeof isAr==='function'&&isAr();   // the red dots (a) come WITH the first number and the blue dots (b) WITH the second: each colour appears together (--dl = when its number is said); Arabic is mirrored: red at the right (front), like the red number
+  const c=Array.from({length:n},(_,k)=>{ const x=(k%R)*s+s/2; return `<circle class="mxd" style="--dl:${k<a?0:(bAt||.6)}s" cx="${flip?W-x:x}" cy="${Math.floor(k/R)*s+s/2}" r="17" fill="${k<a?'#E0412C':'#2A7FD8'}" stroke="#5A3418" stroke-width="3"/>`; }).join('');
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${rows*s}" preserveAspectRatio="xMidYMid meet">${c}</svg>`; }
+function mxBondRow(r,whole){ return el('button','mxrow mxbond',`<span class="mxdots">${mxBondDots(r.a,r.b,r.bAt)}</span><span class="mxeq"><b class="r">${r.a}</b><i>${(LESSON.math.bonds||{}).and||'and'}</i><b class="b">${r.b}</b></span><span class="mxmk">${(LESSON.math.bonds||{}).mk||'make'} <b>${whole}</b></span><i class="mxsay">${SAY_LN}</i>`); }
 // number line (M.line = {rows:[{n,word,audio}], small:{img,word,audio}, big:{...}, text, textAudio}): coloured stones 1..10, mouse = Smallest, elephant = Biggest; tap = said
 const MX_STONE=['#E0412C','#2A7FD8','#F2B321','#2FA8A0','#8A5CC9','#F08A2C','#3FA34D','#D8396B','#E0412C','#8A5CC9'];
 function showMathLine(){
@@ -24,7 +24,7 @@ function showMathLine(){
   const stones=el('div','mxstones'); L.rows.forEach((r,i)=>{ const b=bind(el('button','mxstone'+(h[i]?' heard':''),`<b>${r.n}</b>`),r,i); b.style.background=MX_STONE[i]; b.style.setProperty('--k',i+1);   /* the stones grow from 1 to 10 (small -> big) */ b.setAttribute('aria-label',r.word); stones.append(b); });
   const cap=bind(el('button','mxcap',`<span>${L.text}</span><i class="mxsay">${SAY_LN}</i>`),{audio:L.textAudio});
   box.append(end('sm',L.small),stones,end('bg',L.big),cap); scene.append(box); stage.append(scene); carFrac(Object.keys(h).length/L.rows.length);
-  setRail([{kind:'go',icon:'play',label:tr('Listen'),click:()=>mxAnim()},...mxTool()]);
+  mxPlayRail(false,mxAnim);
   if(typeof bookTag==='function') bookTag();
 }
 
@@ -39,6 +39,7 @@ async function mxAnim(){
   box.classList.add('mxplay'); [sm,bg,...stones,cap].forEach(x=>x.classList.remove('show'));
   const live=()=>tok===mx.all, wait=ms=>new Promise(r=>setTimeout(r,ms));
   const say=async(a)=>{ try{ await playFile(a); }catch(e){} };
+  mxPlayRail(true,mxAnim);
   const stop=()=>{ box.classList.remove('mxplay'); clean(); };
   await wait(250); if(!live()) return stop();
   sm.classList.add('show'); await say(L.small.audio); if(!live()) return stop(); await wait(250);
@@ -55,7 +56,7 @@ async function mxAnim(){
     a.style.cssText=`left:${g.l-bb.left}px;width:${g.r-g.l}px;top:${g.top-bb.top-28}px;--d:${dur}ms`; box.append(a); return a; });
   for(const a of arrows){ if(!live()) break; void a.offsetWidth; a.classList.add('draw'); await wait(dur); }
   await done; if(!live()) return stop();
-  box.classList.remove('mxplay'); clean(); mxDone();
+  box.classList.remove('mxplay'); clean(); mxDone(); mxPlayRail(false,mxAnim);
 }
 function showMathExplain(){
   if(LESSON.math.line) return showMathLine();
@@ -67,11 +68,13 @@ function showMathExplain(){
     `<span class="mxdots"><img src="${mDots(r.n)}" alt=""></span><b class="mxnum">${r.n}</b><span class="mxword">${r.word}</span><i class="mxsay">${SAY_LN}</i>`);
     if(B&&h[i]) b.classList.add('heard'); b.setAttribute('aria-label',B?`${r.a} and ${r.b} make ${B.whole}`:r.word); b.addEventListener('click',e=>{ if(e.isTrusted) mx.all++; mxMark(i,b); mxSay(r,b); }); grid.append(b); });
   stage.append(scene); carFrac(Object.keys(h).length/ROWS.length);
-  setRail([{kind:'go',icon:'play',label:tr('Listen'),click:mxAll},...mxTool()]);
+  mxPlayRail(false,mxAll);
   if(typeof bookTag==='function') bookTag();
 }
 // Listen (the big green button): every row in order, each one after the last has finished; a tap on a row stops the sequence
 async function mxSeq(els){ vStop(); const tok=++mx.all; for(const r of els){ if(tok!==mx.all) return; r.click(); await new Promise(x=>setTimeout(x,120)); while(tok===mx.all&&r.classList.contains('on')) await new Promise(x=>setTimeout(x,80)); await new Promise(x=>setTimeout(x,200)); } }
-const mxAll=()=>mxSeq($$('.mxgrid .mxrow'));
+// the Listen button turns into Pause while the sound plays and back to Listen when it ends or is stopped (Ahmed 2026-11-16)
+function mxPlayRail(on,go){ setRail([on?{kind:'stop',icon:'pause',label:tr('Pause'),click:()=>{ mx.all++; mx.run++; vStop(); mxPlayRail(false,go); }}:{kind:'go',icon:'play',label:tr('Listen'),click:go},...mxTool()]); }
+const mxAll=async()=>{ mxPlayRail(true,mxAll); await mxSeq($$('.mxgrid .mxrow')); if($('.mxgrid')) mxPlayRail(false,mxAll); };
 
 const mxTool=()=>LESSON.tool?[{kind:'tool',icon:'arcs',label:toolName(LESSON.tool),click:()=>toolOpen(LESSON.toolN)}]:[];

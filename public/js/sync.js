@@ -55,7 +55,7 @@ function syDrawCode(b){
     syPushKids(); if(WL.after){ const go=WL.after; WL.after=null; go(); } else { WL.stage=2; wlGo('main'); } });   // a new parent: the student stage opens
 }
 // keep the signed-in parent on this device
-function syTake(token,me){ const old=acct()||{};
+function syTake(token,me){ const old=acct()||{}; try{ localStorage.removeItem('es.ref'); }catch(e){}   // the link visit is used up by this sign-in / sign-up (no lasting tie)
   wlSet('es.session',{token,id:me.id,ref:me.ref});
   wlSet('es.account',{email:me.email,phone:me.phone||old.phone||'',created:me.created||old.created,id:me.id,ref:me.ref,notify:me.notify!==false});
   window.ACCOUNT={...acct(),id:me.id,token}; if(me.wallet&&typeof walletSave==='function') walletSave(me.wallet); }
@@ -103,3 +103,6 @@ async function syMenuButtons(p,close){
     const s=sySession(); if(s){ syPushProgress(); await syCall('/auth/signout',{}); syForget(); }
     ['es.account','es.kids','es.kid'].forEach(k=>{ try{ localStorage.removeItem(k); }catch(e){} }); location.reload(); });
 }
+
+// a link opened while already signed in: tell the server (a fresh one-off pending referral for this parent), then forget it on this device
+setTimeout(()=>{ const c=typeof refCode==='function'?refCode():null; if(c&&sySession()) syCall('/ref',{code:c},'POST').then(r=>{ if(r&&r.j&&r.j.ok) try{ localStorage.removeItem('es.ref'); }catch(e){} }); },1800);

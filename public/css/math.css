@@ -194,3 +194,16 @@
 .qcirc{width:clamp(2.2rem,9cqw,3.4rem);aspect-ratio:1;border-radius:50%;border:0.2rem solid #5a3b1a;background:#fff;padding:0;cursor:pointer;transition:background .15s,transform .15s}
 .qcirc.on{background:#ffb21e;transform:scale(1.06)}
 .qmbignum{font-size:clamp(3rem,16cqw,6rem);font-weight:800;line-height:1;color:#5a3b1a;text-align:center;grid-column:1/-1}
+/* typed number bond: the question line with its own speaker above the tree; the writing line stays in the page (it holds the keyboard input) but is not shown */
+.qmask{display:flex;align-items:center;justify-content:center;gap:.75rem;margin:0 0 clamp(.5rem,2cqh,1.25rem)}.qmask .qmaskt{font-family:var(--f-read);font-weight:700;font-size:min(7cqh,6cqw);color:var(--c-text)}
+.qmask .qmaskb{display:grid;place-items:center;width:2.75rem;height:2.75rem;color:var(--speaker);background:none;border:0;flex:none}
+.qxline.qmhide{position:absolute;left:0;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}
+
+/* typed bond: the number is written in the square, so the hidden writing line brings no speaker of its own */
+.qxrow:has(.qxline.qmhide) .qxsay{display:none}
+
+/* "What makes N?" rows: the numbers and words always stay inside their own row (9 and 10 have 8-9 rows) */
+.mxbond .mxeq{align-items:center}.mxbond .mxeq b{font-size:min(calc(56cqh/max(var(--n),7)),11cqw)}.mxbond .mxeq i{font-size:min(calc(34cqh/max(var(--n),7)),7cqw)}.mxbond .mxmk{font-size:min(calc(34cqh/max(var(--n),7)),7cqw)}
+@media (max-aspect-ratio:5/4){.mxbond .mxeq b{font-size:min(calc(50cqh/max(var(--n),7)),10cqw)}.mxbond .mxeq i,.mxbond .mxmk{font-size:min(calc(32cqh/max(var(--n),7)),6.5cqw)}}
+.mxrow.mxbond{align-items:center}.mxbond .mxeq,.mxbond .mxmk{align-self:center;line-height:1.15;margin-top:-.12em}
+.mxrow.mxbond{padding-block:0;overflow:hidden}.mxrow.mxbond>*{align-self:center;max-height:100%}.mxbond .mxeq,.mxbond .mxmk{margin-top:0}

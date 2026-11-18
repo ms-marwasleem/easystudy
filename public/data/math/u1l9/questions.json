@@ -3,25 +3,59 @@
   {
    "type": "bigger",
    "ex": 1,
-   "page": 21,
-   "task": "Circle the smaller number.",
-   "taskAudio": "q/task-1.mp3",
+   "page": 28,
+   "task": "Circle the bigger number.",
+   "taskAudio": "../u1l9/../u1l9/q/task-bk-circle-the-bigger-number.mp3",
    "items": [
     {
      "nums": [
       6,
       7
      ],
-     "find": "smaller",
-     "audio": "words/six.mp3"
+     "find": "bigger",
+     "audio": "words/seven.mp3"
+    }
+   ]
+  },
+  {
+   "type": "bigger",
+   "ex": 2,
+   "page": 29,
+   "task": "Circle the bigger number.",
+   "taskAudio": "../u1l9/../u1l9/q/task-bk-circle-the-bigger-number.mp3",
+   "items": [
+    {
+     "nums": [
+      1,
+      3
+     ],
+     "find": "bigger",
+     "audio": "words/three.mp3"
     },
     {
      "nums": [
       5,
       2
      ],
+     "find": "bigger",
+     "audio": "words/five.mp3"
+    }
+   ]
+  },
+  {
+   "type": "bigger",
+   "ex": 3,
+   "page": 29,
+   "task": "Circle the smaller number.",
+   "taskAudio": "../u1l9/../u1l9/q/task-1.mp3",
+   "items": [
+    {
+     "nums": [
+      8,
+      4
+     ],
      "find": "smaller",
-     "audio": "words/two.mp3"
+     "audio": "words/four.mp3"
     },
     {
      "nums": [
@@ -30,22 +64,64 @@
      ],
      "find": "smaller",
      "audio": "words/seven.mp3"
+    }
+   ]
+  },
+  {
+   "type": "bigger",
+   "ex": 4,
+   "page": 29,
+   "task": "Circle the bigger number.",
+   "taskAudio": "../u1l9/../u1l9/q/task-bk-circle-the-bigger-number.mp3",
+   "items": [
+    {
+     "nums": [
+      2,
+      10
+     ],
+     "find": "bigger",
+     "audio": "words/ten.mp3"
     },
     {
      "nums": [
       7,
       5
      ],
-     "find": "smaller",
-     "audio": "words/five.mp3"
+     "find": "bigger",
+     "audio": "words/seven.mp3"
+    },
+    {
+     "nums": [
+      4,
+      3
+     ],
+     "find": "bigger",
+     "audio": "words/four.mp3"
     },
     {
      "nums": [
       9,
       6
      ],
+     "find": "bigger",
+     "audio": "words/nine.mp3"
+    }
+   ]
+  },
+  {
+   "type": "bigger",
+   "ex": 5,
+   "page": 29,
+   "task": "Circle the smaller number.",
+   "taskAudio": "../u1l9/../u1l9/q/task-1.mp3",
+   "items": [
+    {
+     "nums": [
+      8,
+      1
+     ],
      "find": "smaller",
-     "audio": "words/six.mp3"
+     "audio": "words/one.mp3"
     },
     {
      "nums": [
@@ -57,51 +133,19 @@
     },
     {
      "nums": [
-      1,
-      3
-     ],
-     "find": "smaller",
-     "audio": "words/one.mp3"
-    },
-    {
-     "nums": [
-      8,
-      4
-     ],
-     "find": "smaller",
-     "audio": "words/four.mp3"
-    },
-    {
-     "nums": [
-      2,
-      10
-     ],
-     "find": "smaller",
-     "audio": "words/two.mp3"
-    },
-    {
-     "nums": [
-      4,
-      3
-     ],
-     "find": "smaller",
-     "audio": "words/three.mp3"
-    },
-    {
-     "nums": [
-      8,
-      1
-     ],
-     "find": "smaller",
-     "audio": "words/one.mp3"
-    },
-    {
-     "nums": [
       5,
       9
      ],
      "find": "smaller",
      "audio": "words/five.mp3"
+    },
+    {
+     "nums": [
+      8,
+      6
+     ],
+     "find": "smaller",
+     "audio": "words/six.mp3"
     }
    ]
   },
@@ -390,6 +434,90 @@
    ],
    "book": "booklet",
    "ex": 4
+  },
+  {
+   "type": "bigger",
+   "page": 23,
+   "task": "Color the bigger number.",
+   "taskAudio": "q/task-bk-color-the-bigger-number.mp3",
+   "items": [
+    {
+     "nums": [
+      4,
+      3
+     ],
+     "find": "bigger",
+     "audio": "words/four.mp3"
+    },
+    {
+     "nums": [
+      5,
+      6
+     ],
+     "find": "bigger",
+     "audio": "words/six.mp3"
+    },
+    {
+     "nums": [
+      7,
+      4
+     ],
+     "find": "bigger",
+     "audio": "words/seven.mp3"
+    },
+    {
+     "nums": [
+      8,
+      10
+     ],
+     "find": "bigger",
+     "audio": "words/ten.mp3"
+    }
+   ],
+   "book": "workbook",
+   "act": "class"
+  },
+  {
+   "type": "bigger",
+   "page": 23,
+   "task": "Color the smaller number.",
+   "taskAudio": "q/task-bk-color-the-smaller-number.mp3",
+   "items": [
+    {
+     "nums": [
+      9,
+      3
+     ],
+     "find": "smaller",
+     "audio": "words/three.mp3"
+    },
+    {
+     "nums": [
+      6,
+      4
+     ],
+     "find": "smaller",
+     "audio": "words/four.mp3"
+    },
+    {
+     "nums": [
+      2,
+      5
+     ],
+     "find": "smaller",
+     "audio": "words/two.mp3"
+    },
+    {
+     "nums": [
+      8,
+      10
+     ],
+     "find": "smaller",
+     "audio": "words/eight.mp3"
+    }
+   ],
+   "book": "workbook",
+   "act": "class"
   },
   {
    "type": "bigger",

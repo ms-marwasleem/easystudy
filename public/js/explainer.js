@@ -377,7 +377,7 @@ function mount(root, data, opt){
     askRow.innerHTML=''; cap.classList.add('asking'); const pad=hel('div','qmpad mwkeys xkeys'); askRow.append(pad);
     const cur=()=>{ wd.querySelectorAll('.lt').forEach(x=>x.classList.remove('cur')); const n=qxNext(wd); if(n) n.classList.add('cur'); }; cur();
     return new Promise((res,rej)=>{ X.rejAsk=rej;
-      [...(o.keys||'1234567890+\u2212=')].forEach(k=>{ const b=hel('button','rb qbtn qlet qmn',`<span>${k}</span>`); b.dataset.v=k;
+      [...(o.keys||'1234567890+\u2212=')].forEach(k=>{ const b=qChBtn(k); b.classList.add('qmn'); b.dataset.v=k;
         b.addEventListener('click',()=>{ if(g!==X.gen) return; const n=qxNext(wd); if(!n) return;
           if(k===(window.arDigitsBack?arDigitsBack(n.textContent):n.textContent)){ qxReveal(wd); if(typeof blip==='function') blip(560+wd.querySelectorAll('.lt.got').length*40,.05); cur();
             if(qxDone(wd)){ X.rejAsk=null; wd.querySelectorAll('.lt').forEach(x=>x.classList.remove('cur')); askRow.innerHTML=''; cap.classList.remove('asking'); res(); } }

@@ -52,3 +52,23 @@
 .sp-a{grid-column:1/-1}.sp-a:empty{display:none}
 .sp-buy.pill{width:100%;flex-direction:row;justify-content:center;gap:.6rem;padding:.5rem}
 .sp-n .sp-buy.pill{width:auto}
+/* student tabs + "عمل اشتراك" (Ahmed 2026-11-17) */
+.sp-tabs{overflow-x:auto;flex-wrap:nowrap}.sp-tab-b{flex:0 0 auto;min-width:6rem;white-space:nowrap}
+.sp-new.pill{align-self:stretch;font-size:1.2rem;padding:.7rem}
+.sp-pick{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+.sp-pt{display:flex;flex-direction:column;align-items:center;line-height:1.15}.sp-pt small{font-size:.8rem}
+/* the notifications page (js/subs.js notifsOpen, Ahmed 2026-11-17) */
+.nf-push{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 1.2rem}
+.nf-push[hidden]{display:none}
+.nf-ask-t{flex:1;font-weight:800;font-size:1rem}
+.nf-push .pill{width:auto;flex:none;padding:.5rem 1.2rem}
+.nf-push .pf-sw{display:flex;flex-direction:row;align-items:center;gap:.7rem;cursor:pointer;font-weight:800;font-size:1.15rem;width:100%}
+.nf-push .pf-sw input{position:absolute;opacity:0;width:0;height:0}
+.nf-push .pf-sw i{flex:none;position:relative;width:3.2rem;height:1.8rem;border-radius:99rem;background:#C9B89B;transition:background .15s}
+.nf-push .pf-sw i::after{content:"";position:absolute;top:.2rem;right:.2rem;width:1.4rem;height:1.4rem;border-radius:50%;background:#fff;transition:right .15s}
+.nf-push .pf-sw input:checked+i{background:#3FA650}.nf-push .pf-sw input:checked+i::after{right:1.6rem}
+.nf-all.pill{width:auto;align-self:flex-start;padding:.5rem 1.3rem}
+.sp-n.unread{box-shadow:0 0 0 .18rem #FFB21F;cursor:pointer}
+.sp-n.unread .sp-nh b::before{content:"";display:inline-block;width:.7rem;height:.7rem;margin-inline-end:.45rem;border-radius:50%;background:#D8432F}
+/* the account rows: every gap between the cards is the same one (a row never gets a margin of its own) */
+.arows>.arow{margin:0;flex:none}

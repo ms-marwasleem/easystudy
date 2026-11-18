@@ -20,7 +20,7 @@ function apiCall(path,body){ if(!API()) return Promise.resolve(null);
   return fetch(API()+path,{method:body?'POST':'GET',headers:h,body:body?JSON.stringify(body):undefined}).then(r=>r.ok?r.json():null).catch(()=>null); }
 function apiTake(r){ if(!r) return; if(r.wallet) walletSave(r.wallet); if(r.unlocked) cSet(unlockKey(),r.unlocked); if(r.freeused) cSet(freeKey(),r.freeused); paintHud(); }
 // the referral: a link shared by a parent ends in ?r=<code>; it is kept on this device (es.ref) and the accounts code sends it with the sign-up
-try{ const r=new URLSearchParams(location.search).get('r'); if(r&&!localStorage.getItem('es.ref')) localStorage.setItem('es.ref',JSON.stringify({code:r,at:Date.now()})); }catch(e){}
+try{ const r=new URLSearchParams(location.search).get('r'); if(r) localStorage.setItem('es.ref',JSON.stringify({code:r,at:Date.now()})); }catch(e){}
 const refCode=()=>(cGet('es.ref',null)||{}).code||null;
 const ESET_P=get(typeof SETTINGS_FILE!=='undefined'?SETTINGS_FILE:'data/settings.json').catch(()=>null).then(async d=>{
   ESET=d||ESET;   // no device copy: the real settings come from the server below
@@ -187,18 +187,43 @@ function coinSheet(after){ parentGate(()=>{
     if(after) $('.popx',pp).addEventListener('click',after);
   }); }); }
 
+/* ---------- INVITE A FRIEND (Ahmed 2026-11-17) — account page row "دعوة صديق" ----------
+   Every parent has ONE personal link (shareLink(): the app address + ?r=<their code>); a friend who registers from it is tied to that parent on the server (parents.ref_by).
+   When the admin activates a subscription of that friend, the server pays the parent settings.coins.referral.subCoins credits (once per subscription, never to oneself) and the wallet
+   history gets a 'refsub' row (who = the student's first name). That row is the notice: it shows on the notifications page (unread until tapped) and in the credits history. */
+const refSeen=()=>cGet('es.refSeen',[]);
+function refNotices(){ const S=new Set(refSeen()); return ((wallet().hist)||[]).filter(h=>h.k==='refsub'||h.k==='referral').map(h=>({k:{id:'ref',name:h.who||''},key:'ref:'+h.at,t:h.at,r:{st:'ref',sub:h.k==='refsub',n:h.n,who:h.who||'',seen:S.has(h.at)}})); }
+function refMark(keys){ const S=new Set(refSeen()); refNotices().forEach(x=>{ if(!keys||keys.includes('ref|'+x.key)) S.add(x.t); }); cSet('es.refSeen',[...S].slice(-300)); }
+function invitePage(){
+  let o=$('#invPage'); if(!o){ o=el('div','acctpage',''); o.id='invPage'; o.setAttribute('role','dialog'); o.setAttribute('aria-label','Invite a friend'); document.body.append(o); }
+  const A=window.ACCOUNT||{}, ok=!!(A.ref&&A.token), url=ok?shareLink():'', R=CS().referral||{}, n=Math.max(0,+R.subCoins||0), n0=R.on===false?0:Math.max(0,+R.coins||0), H=((wallet().hist)||[]).filter(h=>h.k==='refsub'), got=H.reduce((a,h)=>a+(+h.n||0),0);
+  o.innerHTML=`<div class="ac-top"><button class="rb inv-back" aria-label="Back">${ICON.back}</button><h2>دعوة صديق</h2></div>
+    <div class="ac-in"><section class="ac-card inv-card">
+      <p class="inv-t">ابعتي اللينك الخاص بيكي لصحابك.${n0?` كل ما حد يسجل حساب جديد من خلاله بتاخدي <b>${num(n0)}</b> كريدت.`:''}${n?` وكل ما حد يفتح اللينك ويشترك وتفعّل اشتراكه بتاخدي <b>${num(n)}</b> كريدت. كل مكافأة بتتحسب مرة واحدة على الفعل ده، ولو نفس الشخص اشترك تاني ابعتيله اللينك تاني.`:''}</p>
+      ${ok?`<input class="inv-url" type="text" readonly dir="ltr" value="${wlEsc(url)}" aria-label="Link">
+      <div class="inv-b"><button class="pill green inv-share" type="button">شارك اللينك</button><button class="pill cream inv-copy" type="button">نسخ اللينك</button></div><p class="pf-ok inv-ok" hidden>اتنسخ</p>`
+        :`<p class="wl-err">اللينك الخاص بيكي بيظهر بعد تسجيل الدخول بحسابك على الإنترنت.</p>`}
+      <div class="cstats"><div><b>${num(H.length)}</b><small>اشتراكات من دعوتك</small></div><div class="y"><b>${num(got)}</b><small>كريدتس من الاشتراكات</small></div></div>
+    </section></div>`;
+  $('.inv-back',o).addEventListener('click',()=>o.hidden=true);
+  const cp=$('.inv-copy',o), sh=$('.inv-share',o);
+  if(cp) cp.addEventListener('click',async()=>{ const f=$('.inv-url',o); try{ await navigator.clipboard.writeText(url); }catch(e){ f.select(); try{ document.execCommand('copy'); }catch(x){} } $('.inv-ok',o).hidden=false; });
+  if(sh) sh.addEventListener('click',()=>{ const text=CS().shareText||CS().appName||'EasyStudy'; if(navigator.share) navigator.share({title:CS().appName||'EasyStudy',text,url}).catch(()=>{}); else cp.click(); });
+  o.hidden=false; pop('.ac-card',{y:14}); }
+
 /* ---------- the parent's credits page (children popup -> "رصيدي") — total, from shares, from invites, then the history ---------- */
-const HK={gift:['هدية التسجيل','Sign-up gift'],share:['مشاركة','Share'],ref:['ولي أمر سجّل من رابطك','A parent joined from your link'],referral:['ولي أمر سجّل من رابطك','A parent joined from your link'],
+const HK={gift:['هدية التسجيل','Sign-up gift'],share:['مشاركة','Share'],ref:['ولي أمر سجّل من رابطك','A parent joined from your link'],refsub:['اشتراك من دعوتك','A friend subscribed from your link'],referral:['ولي أمر سجّل من رابطك','A parent joined from your link'],
   promo:['برومو كود','Promo code'],'unlock-lesson':['فتح درس','Unlocked a lesson'],'unlock-unit':['فتح وحدة','Unlocked a unit']};
 function histName(h){ const b=HK[h.k]||[h.k,h.k]; let x=CT(b[0],b[1]);
   if(h.k==='promo') x+=': '+promoWhat(h.id);
+  if(h.k==='refsub'&&h.who) x+=': '+h.who;
   if(h.id&&h.k==='unlock-lesson'){ const l=lessonOf(h.id), s=subjOf(h.id); if(l) x+=': '+(s?s.name+' · ':'')+(l.title||''); }
   if(h.id&&h.k==='unlock-unit'){ const p=h.id.split(':'), s=subjOf(h.id); x+=': '+(s?s.name+' · ':'')+CT('الوحدة ','Unit ')+num(p[2]||''); }
   return x; }
 function creditBtn(){ return coinsOn()?`<button class="pill yellow wl-big wl-cred"><span class="wl-ar">${CT('رصيدي:','My credits:')} ${CRED(coinBal())}</span><small>${CT('اجمع كريدتس وافتح دروس','Earn credits, open lessons')}</small></button>`:''; }
 function creditsPage(){ parentGate(()=>{
   const w=wallet(), H=w.hist||[], sum=f=>H.filter(f).reduce((a,h)=>a+(+h.n||0),0);
-  const sh=sum(h=>h.k==='share'), inv=sum(h=>h.k==='ref'||h.k==='referral'), R=CS().referral||{};
+  const sh=sum(h=>h.k==='share'), inv=sum(h=>h.k==='ref'||h.k==='referral'||h.k==='refsub'), R=CS().referral||{};
   const dt=at=>{ try{ return new Date(at).toLocaleDateString(isAr()?'ar-EG':'en-GB',{day:'numeric',month:'short'}); }catch(e){ return ''; } };
   coinPop(`<h2 class="outline">${CT('رصيدي','My credits')}</h2>
     <div class="cstats"><div><b>${num(w.bal)}</b><small>${CT('الرصيد','Balance')}</small></div><div class="g"><b>${num(sh)}</b><small>${CT('من المشاركة','From shares')}</small></div><div class="y"><b>${num(inv)}</b><small>${CT('من الدعوات','From invites')}</small></div></div>
