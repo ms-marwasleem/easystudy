@@ -3550,6 +3550,9 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .pushbtn{overflow:visible}
 .pushbtn.unread{opacity:1}
 .pushdot{position:absolute;top:-.25rem;right:-.25rem;min-width:1.5rem;height:1.5rem;line-height:1.5rem;padding:0 .35rem;border-radius:99rem;background:#D8432F;color:#fff;font-style:normal;font-weight:800;font-size:.9rem;text-align:center;box-shadow:0 .1rem .25rem rgba(0,0,0,.35)}
+/* sign-up popup asking for notifications (js/push.js puAsk); look = #coinPop.pro in css/account.css */
+.pu-ic{width:4rem;height:4rem;border-radius:50%;background:var(--pa-soft);color:var(--pa-dk);display:grid;place-items:center;margin:0 auto}
+.pu-ic svg{width:2.1rem;height:2.1rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 /* ===== css/subs.css ===== */
 /* term subscriptions screens (js/subs.js) — inside the shared coin popup */
 .subscroll{width:100%;max-height:68vh;overflow-y:auto;display:flex;flex-direction:column;gap:.6rem;align-items:center;padding:.1rem}
@@ -3828,6 +3831,18 @@ html[data-theme="words"] [data-view="welcome"],html[data-theme="words"] body[dat
 #coinPop.pro .subf input{border:1px solid #D5DAE3;border-radius:.8rem;background:#fff}
 #coinPop.pro .subnote{color:var(--pm);font-size:.85rem;font-weight:600;line-height:1.7}
 #coinPop.pro .popup{direction:rtl}#coinPop.pro .coinbig{direction:ltr}
+
+/* parent login: the app's own calm page colour also behind the status bar and under the home bar (the game gradient on <html> showed as a coloured strip) */
+html[data-view="welcome"]{background:var(--pbg)}
+html[data-view="welcome"] body{background:var(--pbg)}
+/* parent gate: the number grid sits in the middle of the popup */
+.gate-pad{margin-inline:auto}
+#coinPop .gate-dots,#coinPop .gate-pad{align-self:center;margin-inline:auto}
+/* school list: slim buttons at the bottom, with icons */
+.wl-dd .wl-ddbar{display:flex;gap:.5rem;padding-top:.5rem;margin-top:.2rem;border-top:1px solid var(--pb);position:sticky;bottom:-.5rem;background:#fff}
+.wl-dd .wl-ddbar .pill{flex:1 1 0;width:auto;align-self:auto;padding:.35em .5em;font-size:clamp(.8rem,3vw,.95rem);display:inline-flex;align-items:center;justify-content:center;gap:.35em;white-space:nowrap;border-radius:.7rem}
+.wl-dd .wl-ddbar .pill svg{width:1.1em;height:1.1em;flex:none;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.wl-dd .wl-ddbar .pill.wl-invsch svg{fill:currentColor;stroke:none}
 /* ===== css/install.css ===== */
 /* INSTALL-APP button + popup (js/install.js). Parent-area look: white card, soft shadow, flat buttons; accent --pa (orange / blue in Easy Words). */
 #instBtn{position:fixed;left:50%;bottom:max(.9rem,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:.2rem;max-width:calc(100vw - 1.6rem);background:#fff;border:1px solid var(--pb,#E6E9EF);border-radius:2rem;box-shadow:0 6px 22px rgba(16,24,40,.22);font-family:var(--f-ui,inherit);direction:rtl}
@@ -3852,4 +3867,4 @@ html[data-view="map"] #instBtn,html[data-view="lesson"] #instBtn,html[data-view=
 .inst-card .pill{display:block;width:100%;margin-top:.5rem;background:var(--pa);border:0;border-radius:.9rem;color:#fff;font:700 1.1rem var(--f-ui,inherit);padding:.7rem;min-height:3rem;box-shadow:none;text-shadow:none;-webkit-text-stroke:0;letter-spacing:0;transform:none}
 .inst-card .pill::before,.inst-card .pill::after{display:none}
 .inst-card .pill.cream{background:#fff;color:var(--pt,#1F2937);border:1px solid #D5DAE3}
-:root{--app-build:"7dfb88e296"}
+:root{--app-build:"c3f2abf841"}

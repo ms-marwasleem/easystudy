@@ -1,4 +1,4 @@
-const APP_BUILD='7dfb88e296';
+const APP_BUILD='c3f2abf841';
 /* MADE BY tools/build-app.py from the files named below. Do not edit here: edit those files, then run the script again. */
 /* ===== js/core.js ===== */
 // Arabic-Indic (٠-٩) and Eastern Persian (۰-۹) digits typed anywhere count as Western digits: one helper, applied to every text box before any answer check
@@ -1146,6 +1146,22 @@ if('serviceWorker' in navigator) navigator.serviceWorker.addEventListener('messa
     if(go&&typeof deepGo==='function') deepGo(go); else if(u.pathname+u.search!==location.pathname+location.search) location.href=u.href; }catch(x){} });
 // the settings (api address) arrive a moment after the page opens
 if(typeof ESET_P!=='undefined') ESET_P.then(()=>puInit()).catch(()=>{}); else puInit();
+
+/* after sign-up, in the INSTALLED app only (Ahmed 2026-11-20): one calm popup (parent-account look) asks to turn notifications on.
+   Not shown in a browser tab, nor when the permission is already granted / blocked, nor when the parent already answered (es.pushAsked). Both buttons count as an answer; closing with X / outside does not. */
+async function puAsk(){
+  try{
+    if(!puStandalone()||!puCan()||typeof coinPopPro!=='function') return;
+    if(wlGet('es.pushAsked',0)||!('Notification' in window)||Notification.permission!=='default') return;
+    if(await puCurrent()) return;
+    const done=()=>{ wlSet('es.pushAsked',1); coinClose(); };
+    coinPopPro(`<div class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 2h-15zM10 21a2 2 0 0 0 4 0"/></svg></div>
+      <h2 class="outline">فعّل الإشعارات</h2><p class="msg-text">لاستقبال الرسائل المهمة والمميزات الجديدة</p>
+      <button class="pill" data-en>فعّل الإشعارات</button><button class="pill cream" data-later>لاحقًا</button>`,p=>{
+      $('[data-en]',p).addEventListener('click',async()=>{ done(); await puToggle(); });
+      $('[data-later]',p).addEventListener('click',done); });
+  }catch(e){}
+}
 ;
 /* ===== js/deeplink.js ===== */
 /* DEEP LINK (2026-11-09, Ahmed): an address ending in ?go=<subject>[/<place>[/<tab>]] opens that place inside the app. Used by the notification link
@@ -1299,12 +1315,15 @@ function wlSchoolList(btn,canAdd){
   const host=btn.parentNode; host.classList.add('wl-ddhost');
   let d=$('.wl-dd',host); if(d){ d.hidden=!d.hidden; return; }
   const C=CURR||{schools:[]}, cur=(WL.pick||{}).school;
-  d=el('div','wl-dd',`${canAdd?`<button type="button" class="pill green wl-addsch">${ICON.plus} إضافة مدرسة</button>`:''}${C.schools.map(s=>`<button type="button" class="wl-ddi${cur===s.id?' on':''}" data-school="${s.id}">${s.ar}</button>`).join('')}`);
+  const WAI='<svg viewBox="0 0 24 24"><path d="M12 2.5a9.4 9.4 0 0 0-8 14.3L2.6 21.5l4.8-1.3A9.4 9.4 0 1 0 12 2.5zm4.200 11.500c-.2-.1-1.400-.7-1.600-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-1.300-.6-2.200-1.200-3-2.600-.2-.4.200-.4.600-1.200.1-.1 0-.3 0-.4l-.7-1.700c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.6.6-.9 1.300-.9 2.100 0 .9.4 1.800 1 2.500 1.100 1.500 2.500 2.600 4.300 3.300 1.600.6 2.200.5 3 .4.6-.1 1.500-.6 1.700-1.200.2-.6.2-1.100.1-1.200-.1-.1-.2-.2-.5-.3z"/></svg>';
+  d=el('div','wl-dd',`${C.schools.map(s=>`<button type="button" class="wl-ddi${cur===s.id?' on':''}" data-school="${s.id}">${s.ar}</button>`).join('')}${canAdd?`<div class="wl-ddbar"><button type="button" class="pill green wl-addsch">${ICON.plus} إضافة مدرسة</button><button type="button" class="pill yellow wl-invsch">${WAI} دعوة مدرسة للاشتراك</button></div>`:''}`);
   host.append(d);
   document.addEventListener('click',e=>{ if(!d.contains(e.target)&&e.target!==btn) d.hidden=true; });
   $$('[data-school]',d).forEach(x=>x.addEventListener('click',()=>{ WL.pick={type:'private',school:x.dataset.school}; btn.textContent=wlSchoolName(x.dataset.school); btn.classList.add('on'); $$('.wl-ddi',d).forEach(y=>y.classList.toggle('on',y===x)); d.hidden=true;
     const ek=WL.edit&&kids().find(k=>k.id===WL.edit), granted=!!(ek&&ek.curr&&ek.curr.school===x.dataset.school&&ek.curr.grant);
     if(typeof schoolNeedsPerm==='function'&&schoolNeedsPerm(x.dataset.school)&&!granted) wlPermPop(x.dataset.school); }));
+  const iv=$('.wl-invsch',d); if(iv) iv.addEventListener('click',()=>{ const S=typeof CS==='function'?CS():{}, link=S.shareUrl||location.origin+location.pathname.replace(/[^/]*$/,'');
+    location.href='https://wa.me/?text='+encodeURIComponent('اشتركوا لنا في التطبيق ده عشان الأولاد تستفيد\n'+link); });
   const ad=$('.wl-addsch',d); if(ad) ad.addEventListener('click',()=>{ d.hidden=true; wlSchoolPop(); });
 }
 /* a school that needs the school's permission (dashboard: المناهج والمدارس > محتاجة سماح): an OFFICIAL popup (a white card like the account pages, not the game popup) with one button that opens the parent's own
@@ -1345,7 +1364,7 @@ function wlStudentBind(b,ed){
     if(!WL.adding&&!(acct()&&wlSameId(acct(),WL.login))) wlSet('es.account',{email:WL.login.email,phone:WL.login.phone,created:new Date().toISOString(),...(WL.pending?{pending:true}:{})});
     const K=kids(), first=!K.length, kd={id:'k'+Date.now().toString(36),name:n,grade:gr,curr:pk,created:new Date().toISOString()};
     K.push(kd); wlSet('es.kids',K); syPushKids();
-    if(first){ wlSet('es.kid',kd.id); currSave(kd.curr); currApply(kd.curr); WL.adding=false; WL.stage=1; kidPaint(); openSubjects(); pop('#subjects .top > *',{y:-20}); }   // the first child keeps the progress already on this device
+    if(first){ wlSet('es.kid',kd.id); currSave(kd.curr); currApply(kd.curr); WL.adding=false; WL.stage=1; kidPaint(); openSubjects(); pop('#subjects .top > *',{y:-20}); if(typeof puAsk==='function') setTimeout(puAsk,700); }   // the first child keeps the progress already on this device
     else kidSwitch(kd.id); });
   wlFocus(f);
 }

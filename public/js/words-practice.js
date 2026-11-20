@@ -43,7 +43,7 @@ function epBuild(pool,per,types){
 function epStart(o){
   o=o||{}; ep.run++; ep.pool=(o.pool||(LESSON.ep&&LESSON.ep.pool)||LESSON.vocab).filter(v=>v&&v.word);
   ep.n=o.n||(LESSON.ep&&LESSON.ep.n)||(EW.cfg&&EW.cfg.questions)||5;
-  ep.types=(o.types||(LESSON.ep&&LESSON.ep.types)||(EW.cfg&&EW.cfg.types)||['missing','order','picture','match']).filter(t=>EP_CAN[t]&&ep.pool.some(v=>EP_CAN[t](v,ep.pool)));
+  ep.types=(o.types||(LESSON.ep&&LESSON.ep.types)||(EW.cfg&&EW.cfg.types)||['match','puzzle','missing','order','picture']).filter(t=>EP_CAN[t]&&ep.pool.some(v=>EP_CAN[t](v,ep.pool)));
   ep.src=o.src||LESSON.epSrc||'lesson'; ep.i=0; ep.bad=0; ep.busy=false; ep.lastG=-1;
   if(!ep.pool.length){ $('#stage').innerHTML='<div class="ew-empty">مفيش كلمات للتدريب</div>'; return; }
   if(!ep.types.length) ep.types=['order'];

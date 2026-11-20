@@ -200,3 +200,15 @@ html[data-theme="words"] [data-view="welcome"],html[data-theme="words"] body[dat
 #coinPop.pro .subf input{border:1px solid #D5DAE3;border-radius:.8rem;background:#fff}
 #coinPop.pro .subnote{color:var(--pm);font-size:.85rem;font-weight:600;line-height:1.7}
 #coinPop.pro .popup{direction:rtl}#coinPop.pro .coinbig{direction:ltr}
+
+/* parent login: the app's own calm page colour also behind the status bar and under the home bar (the game gradient on <html> showed as a coloured strip) */
+html[data-view="welcome"]{background:var(--pbg)}
+html[data-view="welcome"] body{background:var(--pbg)}
+/* parent gate: the number grid sits in the middle of the popup */
+.gate-pad{margin-inline:auto}
+#coinPop .gate-dots,#coinPop .gate-pad{align-self:center;margin-inline:auto}
+/* school list: slim buttons at the bottom, with icons */
+.wl-dd .wl-ddbar{display:flex;gap:.5rem;padding-top:.5rem;margin-top:.2rem;border-top:1px solid var(--pb);position:sticky;bottom:-.5rem;background:#fff}
+.wl-dd .wl-ddbar .pill{flex:1 1 0;width:auto;align-self:auto;padding:.35em .5em;font-size:clamp(.8rem,3vw,.95rem);display:inline-flex;align-items:center;justify-content:center;gap:.35em;white-space:nowrap;border-radius:.7rem}
+.wl-dd .wl-ddbar .pill svg{width:1.1em;height:1.1em;flex:none;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.wl-dd .wl-ddbar .pill.wl-invsch svg{fill:currentColor;stroke:none}

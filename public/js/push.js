@@ -51,3 +51,19 @@ if('serviceWorker' in navigator) navigator.serviceWorker.addEventListener('messa
     if(go&&typeof deepGo==='function') deepGo(go); else if(u.pathname+u.search!==location.pathname+location.search) location.href=u.href; }catch(x){} });
 // the settings (api address) arrive a moment after the page opens
 if(typeof ESET_P!=='undefined') ESET_P.then(()=>puInit()).catch(()=>{}); else puInit();
+
+/* after sign-up, in the INSTALLED app only (Ahmed 2026-11-20): one calm popup (parent-account look) asks to turn notifications on.
+   Not shown in a browser tab, nor when the permission is already granted / blocked, nor when the parent already answered (es.pushAsked). Both buttons count as an answer; closing with X / outside does not. */
+async function puAsk(){
+  try{
+    if(!puStandalone()||!puCan()||typeof coinPopPro!=='function') return;
+    if(wlGet('es.pushAsked',0)||!('Notification' in window)||Notification.permission!=='default') return;
+    if(await puCurrent()) return;
+    const done=()=>{ wlSet('es.pushAsked',1); coinClose(); };
+    coinPopPro(`<div class="pu-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 2h-15zM10 21a2 2 0 0 0 4 0"/></svg></div>
+      <h2 class="outline">فعّل الإشعارات</h2><p class="msg-text">لاستقبال الرسائل المهمة والمميزات الجديدة</p>
+      <button class="pill" data-en>فعّل الإشعارات</button><button class="pill cream" data-later>لاحقًا</button>`,p=>{
+      $('[data-en]',p).addEventListener('click',async()=>{ done(); await puToggle(); });
+      $('[data-later]',p).addEventListener('click',done); });
+  }catch(e){}
+}
