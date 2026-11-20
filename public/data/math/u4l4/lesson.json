@@ -16,7 +16,7 @@
  ],
  "tabLabels": {
   "read": "Lesson",
-  "quiz": "Book Questions"
+  "quiz": "Exercise"
  },
  "pages": 6,
  "pageNums": [
@@ -1172,6 +1172,22 @@
         ],
         "r": 24,
         "color": "blue"
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          793,
+          208
+         ],
+         [
+          911,
+          208
+         ]
+        ],
+        "r": 46,
+        "color": "green",
+        "id": "left"
        }
       ],
       "audio": "explain/s5-2.mp3"
@@ -1196,22 +1212,6 @@
      {
       "say": "Yes! Eight minus six equals two.",
       "do": [
-       {
-        "ring": true,
-        "pts": [
-         [
-          793,
-          208
-         ],
-         [
-          911,
-          208
-         ]
-        ],
-        "r": 30,
-        "color": "green",
-        "id": "left"
-       },
        {
         "lit": 4,
         "color": "green",
@@ -1331,6 +1331,22 @@
         ],
         "r": 0,
         "color": "blue"
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          266,
+          270
+         ],
+         [
+          919,
+          270
+         ]
+        ],
+        "r": 64,
+        "color": "green",
+        "id": "left"
        }
       ],
       "audio": "explain/s6-2.mp3"
@@ -1355,22 +1371,6 @@
      {
       "say": "Yes! Six minus four equals two.",
       "do": [
-       {
-        "ring": true,
-        "pts": [
-         [
-          266,
-          231
-         ],
-         [
-          919,
-          231
-         ]
-        ],
-        "r": 30,
-        "color": "green",
-        "id": "left"
-       },
        {
         "lit": 4,
         "color": "green",

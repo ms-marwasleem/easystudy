@@ -52,6 +52,81 @@
   },
   {
    "type": "mcq",
+   "page": 42,
+   "book": "workbook",
+   "act": "u5l1wb",
+   "items": [
+    {
+     "pics": [
+      "live:u5l1-palms-en"
+     ],
+     "ask": "Which of the two palm trees is longer?",
+     "stem": "Palm tree number ___ is longer.",
+     "options": [
+      "1",
+      "2"
+     ],
+     "answer": 0,
+     "askSay": "Which of the two palm trees is longer?",
+     "word": "Palm tree number 1 is longer.",
+     "askAudio": "q/wb5-palms-q.mp3",
+     "audio": "q/wb5-palms-a.mp3"
+    },
+    {
+     "pics": [
+      "live:u5l1-people"
+     ],
+     "ask": "Who is longer, the father or the son?",
+     "stem": "The ___ is longer.",
+     "options": [
+      "father",
+      "son"
+     ],
+     "answer": 0,
+     "askSay": "Who is longer, the father or the son?",
+     "word": "The father is longer.",
+     "askAudio": "q/wb5-people-q.mp3",
+     "audio": "q/wb5-people-a.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/sc-math-u5l1-wb-spoons.png"
+     ],
+     "ask": "Which of the two spoons is longer?",
+     "stem": "Spoon number ___ is longer.",
+     "options": [
+      "1",
+      "2"
+     ],
+     "answer": 0,
+     "askSay": "Which of the two spoons is longer?",
+     "word": "Spoon number 1 is longer.",
+     "askAudio": "q/wb5-spoons-q.mp3",
+     "audio": "q/wb5-spoons-a.mp3"
+    },
+    {
+     "pics": [
+      "live:u5l1-pens-en"
+     ],
+     "ask": "Which of the two pens is longer?",
+     "stem": "Pen number ___ is longer.",
+     "options": [
+      "1",
+      "2"
+     ],
+     "answer": 1,
+     "askSay": "Which of the two pens is longer?",
+     "word": "Pen number 2 is longer.",
+     "askAudio": "q/wb5-pens-q.mp3",
+     "audio": "q/wb5-pens-a.mp3"
+    }
+   ],
+   "task": "Which one is longer?",
+   "taskAudio": "q/task-1.mp3",
+   "ex": 1
+  },
+  {
+   "type": "mcq",
    "ex": 1,
    "page": 55,
    "task": "Which one is longer?",

@@ -13,7 +13,7 @@
      {ring:ids|pts, r, color, id} {unring:id|"all"}  hand-drawn ring round a group
      {hold:n, on:ringId, color}                      the number of a group 'in your head' (one badge, said); then {count:ids, start:n+1, keep:true} counts on
      {scene:'pic', frame:false}                      a picture made of framed parts: no big white frame behind it
-     {scene:'free', items:[{id,img,x,y,w,h}], ih, top}  separate pictures that move: {move:[{id,x,y}],ms} slides them together, {guide:{x0,y0,x1,y1,color}} draws a dotted line (Math 5-1)
+     {scene:'free', items:[{id,img,x,y,w,h}], ih, top, bg:'<svg shapes>', frame:false}  separate pictures that move: {move:[{id,x,y}],ms} slides them together, {guide:{x0,y0,x1,y1,color}} draws a dotted line (Math 5-1)
      {link:[[[x,y],[x,y]]..], color, r, id}         "What is the difference?": pairs joined by lines one by one; the ones left over are the difference
      {cross:true, pts, r, color}                     things that go away (subtraction) are crossed out one by one
      {head:{t:["17","-","3","="],slots:5}} {head:{t:["14"],more:true}}   the calculation written large at the top, then its answer
@@ -124,9 +124,16 @@ function mount(root, data, opt){
      d.ih = height of the white panel, d.top = gap above it (default 30). Actions {move:[{id,x,y}],ms} slide things together; {guide:{x0,y0,x1,y1,color,id}} draws a dotted line. */
   function freeScene(d){ PIC={k:1}; const ih=d.ih||420; VH=TOP+ih; const tag=[];
     if(d.frame!==false) tag.push(`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`);
-    (d.items||[]).forEach((o,i)=>tag.push(`<image data-i="${i}" href="${base+o.img}" x="${o.x}" y="${TOP+o.y}" width="${o.w}" height="${o.h}" preserveAspectRatio="none"/>`));
+    if(d.bg) tag.push(`<g transform="translate(0 ${TOP})">${d.bg}</g>`);   // a drawn backdrop (svg shapes in picture px: sky, grass, benches), under the pictures (Math 4-5 park)
+    (d.items||[]).forEach((o,i)=>tag.push(`<image data-i="${i}" href="${base+o.img}" x="${o.x}" y="${TOP+o.y}" width="${o.w}" height="${o.h}" preserveAspectRatio="none"${o.op!=null?` opacity="${o.op}"`:''}/>`));
+    (d.labels||[]).forEach(l=>tag.push(`<text x="${l.x}" y="${TOP+l.y}" font-size="${l.s||38}" font-weight="700" fill="#5a3418" text-anchor="middle" font-family="var(--f-title),sans-serif">${l.t}</text>`));   // A / B / C of a "which picture" choice
     Lbg.innerHTML=tag.join(''); IT={};   // (scene() empties the actors layer afterwards, so the things live in the background layer)
     (d.items||[]).forEach((o,i)=>{ IT[o.id]={e:Lbg.querySelector(`image[data-i="${i}"]`),x:o.x,y:o.y}; }); }
+  /* {eat:id, ghost:id2}: the thing is eaten in three bites (it shrinks), then the faded 'eaten' copy appears in its place (Math 4-2: the apple) */
+  async function eat(o){ const it=IT[o.eat]; if(!it) return; const e=it.e, x=+e.getAttribute('x'), y=+e.getAttribute('y'), w=+e.getAttribute('width'), h=+e.getAttribute('height'), cx=x+w/2, cy=y+h/2;
+    const set=k=>{ e.setAttribute('width',w*k); e.setAttribute('height',h*k); e.setAttribute('x',cx-w*k/2); e.setAttribute('y',cy-h*k/2); };
+    let prev=1; for(const k of [.74,.5,.26,0]){ const p0=prev; await tween(X.fast?1:420,v=>set(p0+(k-p0)*v)); prev=k; if(!X.fast) await wait(120); }
+    e.setAttribute('opacity',0); const gh=o.ghost&&IT[o.ghost]; if(gh) await tween(500,v=>gh.e.setAttribute('opacity',(o.op||.3)*v)); }
   async function move(list,ms){ const L=[].concat(list).map(m=>({...m,it:IT[m.id]})).filter(m=>m.it); const f=L.map(m=>({m,x0:m.it.x,y0:m.it.y}));
     await tween(X.fast?1:(ms||1500),v=>f.forEach(o=>{ const x=o.x0+(o.m.x-o.x0)*v, y=o.y0+(o.m.y-o.y0)*v; o.m.it.e.setAttribute('x',x); o.m.it.e.setAttribute('y',TOP+y); if(v>=1){ o.m.it.x=o.m.x; o.m.it.y=o.m.y; } })); }
   // a dotted line (the book's alignment line) drawn from its start to its end, over the pictures
@@ -142,11 +149,12 @@ function mount(root, data, opt){
       tag.push(`<text class="xl-end" id="xlf" x="500" y="${TOP+46}" text-anchor="middle">${ends[0]}</text><text class="xl-end" id="xlb" x="500" y="${TOP+60+110*n+52}" text-anchor="middle">${ends[1]}</text>`);
     } else {
       const ih=d.ih||230; PIC={k:1}; VH=TOP+ih; const n=items?items.length:d.n, x0=120, x1=880, sw=(x1-x0)/n, base0=TOP+(d.floor||200); SC={vert:false,n};
-      if(d.img) tag.push(card(ih));   // our own drawn/picture things sit straight on the page (no white box); only a pasted book strip keeps its card
+      const cardH=(top,h)=>`<rect x="${x0-14}" y="${top}" width="${x1-x0+28}" height="${h}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`;   // ONE style, like the questions: the things that are counted sit in a white card that fits them; Front/Back stand outside it (Ahmed 2026-11-18)
       const MI=!!d.mirror, flip=cx=>MI?` transform="translate(${2*cx} 0) scale(-1 1)"`:''; SC.mir=MI;   // Arabic: Front at the right, the pictures face the other way
-      if(d.img){ const w=x1-x0, h=Math.round(w*d.h/d.w); tag.push(`<image href="${base+d.img}" x="${x0}" y="${base0-h}" width="${w}" height="${h}" preserveAspectRatio="none"${flip(500)}/>`); }
-      else { const mw=Math.min(sw*.82,d.maxw||150), mh=d.maxh||150, sh=d.show==null?n:d.show; for(let i=0;i<n;i++){ tag.push(`<g class="xit" data-cx="${x0+sw*(i+.5)}" data-cy="${base0-mh/2}"${i>=sh?' style="opacity:0"':''}><image href="${base+(items?items[i]:d.unit)}" x="${x0+sw*(i+.5)-mw/2}" y="${base0-mh}" width="${mw}" height="${mh}" preserveAspectRatio="xMidYMax meet"${flip(x0+sw*(i+.5))}/></g>`); } }
-      tag.push(`<text class="xl-end" id="xlf" x="${MI?940:60}" y="${base0-30}" text-anchor="middle">${ends[0]}</text><text class="xl-end" id="xlb" x="${MI?60:940}" y="${base0-30}" text-anchor="middle">${ends[1]}</text>`);
+      if(d.img){ const w=x1-x0, h=Math.round(w*d.h/d.w); tag.push(cardH(base0-h-18,h+36)); tag.push(`<image href="${base+d.img}" x="${x0}" y="${base0-h}" width="${w}" height="${h}" preserveAspectRatio="none"${flip(500)}/>`); }
+      else { const mw=Math.min(sw*.82,d.maxw||150), mh=d.maxh||150, sh=d.show==null?n:d.show; tag.push(cardH(base0-mh-18,mh+36)); for(let i=0;i<n;i++){ tag.push(`<g class="xit" data-cx="${x0+sw*(i+.5)}" data-cy="${base0-mh/2}"${i>=sh?' style="opacity:0"':''}><image href="${base+(items?items[i]:d.unit)}" x="${x0+sw*(i+.5)-mw/2}" y="${base0-mh}" width="${mw}" height="${mh}" preserveAspectRatio="xMidYMax meet"${flip(x0+sw*(i+.5))}/></g>`); } }
+      VH=Math.max(VH,base0+105); const ly=base0+84;   // Front / Back stand UNDER the white card, at its two ends (like the questions on a phone)
+      tag.push(`<text class="xl-end" id="xlf" x="${MI?x1:x0}" y="${ly}" text-anchor="${MI?'end':'start'}">${ends[0]}</text><text class="xl-end" id="xlb" x="${MI?x0:x1}" y="${ly}" text-anchor="${MI?'start':'end'}">${ends[1]}</text>`);
     }
     Leq.innerHTML=''; eqT=[];
     Lbg.innerHTML=tag.join(''); LAB={f:Lbg.querySelector('#xlf'),b:Lbg.querySelector('#xlb')}; }
@@ -175,18 +183,18 @@ function mount(root, data, opt){
   const iconG=(k,x,y,sz,rot,card)=>{ const sc=sz/100, g=mk('g',{transform:`translate(${x} ${y}) rotate(${rot||0}) scale(${sc}) translate(-50 -50)`});
     g.innerHTML=(card?'<rect x="3" y="3" width="94" height="94" rx="10" fill="#fff" stroke="#333" stroke-width="3.5"/>':'')+`<g${card?' transform="translate(10 10) scale(.8)"':''}>${ICON[k]()}</g>`; return g; };
   const iconOutline=(k,x,y,sz,op)=>{ const sc=sz/100, g=mk('g',{transform:`translate(${x} ${y}) scale(${sc}) translate(-50 -50)`,opacity:op});
-    g.innerHTML=`<path d="${ICONLINE[k]}" fill="rgba(255,255,255,.14)" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>`; return g; };
+    g.innerHTML=`<path d="${ICONLINE[k]}" fill="rgba(0,0,0,.05)" stroke="#4a4a4a" stroke-width="4" stroke-linejoin="round"/>`; return g; };   // the hollow box shape: dark line on the white table (Ahmed 2026-11-18)
   let DS=null;
   function dataScene(d){ PIC={k:1}; TOP=0; const R=d.rows||10, tx=d.tx||430, tw=d.tw||550, nc=d.cols.length, cw=tw/nc, hh=84, rh=60, y0=22, rtl=data.lang==='ar'; VH=y0+hh+R*rh+30;
     Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=''; LAB={}; SC={}; Lact.innerHTML=''; Lring.innerHTML=''; Lbadge.innerHTML=''; badges=[]; rings={};
     const colX=i=>tx+cw*(rtl?nc-1-i:i)+cw/2, cellY=j=>y0+hh+(R-1-j)*rh+rh/2;   // j = 0 is the bottom row: the table is filled from the bottom up
     const g=mk('g'); Lbg.append(g);
-    g.append(mk('rect',{x:tx,y:y0,width:tw,height:hh+R*rh,rx:18,fill:'rgba(255,255,255,.12)',stroke:'#fff','stroke-width':4}));
-    for(let i=1;i<nc;i++) g.append(mk('path',{d:`M${tx+cw*i} ${y0} V${y0+hh+R*rh}`,stroke:'#fff','stroke-width':3,opacity:.7}));
-    for(let j=0;j<=R;j++) g.append(mk('path',{d:`M${tx} ${y0+hh+j*rh} H${tx+tw}`,stroke:'#fff','stroke-width':j===0?5:3,opacity:j===0?1:.7}));
-    d.cols.forEach((c,i)=>{ g.append(iconOutline(c.k,colX(i),y0+hh/2,70,1));
+    g.append(mk('rect',{x:tx,y:y0,width:tw,height:hh+R*rh,rx:18,fill:'#fff',stroke:'#4a4a4a','stroke-width':4}));
+    for(let i=1;i<nc;i++) g.append(mk('path',{d:`M${tx+cw*i} ${y0} V${y0+hh+R*rh}`,stroke:'#4a4a4a','stroke-width':3,opacity:.8}));
+    for(let j=0;j<=R;j++) g.append(mk('path',{d:`M${tx} ${y0+hh+j*rh} H${tx+tw}`,stroke:'#4a4a4a','stroke-width':j===0?5:3,opacity:j===0?1:.8}));
+    d.cols.forEach((c,i)=>{ g.append(iconG(c.k,colX(i),y0+hh/2,SHAPES[c.k]?72:70,0,!!SHAPES[c.k]));   // the head of a column = the very thing of the picture
       for(let j=0;j<R;j++) g.append(iconOutline(c.k,colX(i),cellY(j),54,.45)); });
-    const px=d.px||[20,400]; g.append(mk('rect',{x:px[0],y:y0,width:px[1]-px[0],height:hh+R*rh,rx:18,fill:'rgba(255,255,255,.12)',stroke:'#fff','stroke-width':4}));
+    const px=d.px||[20,400]; g.append(mk('rect',{x:px[0],y:y0,width:px[1]-px[0],height:hh+R*rh,rx:18,fill:'#fff',stroke:'#4a4a4a','stroke-width':4}));
     DS={cols:d.cols,colX,cellY,items:[]};
     (d.items||[]).forEach(([c,x,y],n)=>{ const k=d.cols[c].k, e=iconG(k,x,y,SHAPES[k]?84:78,SHAPES[k]?((n*37)%31)-15:0,!!SHAPES[k]); g.append(e); DS.items.push({c,x,y,e}); }); }
   /* the things of a line scene act in sync with the narration: {pop:{a,b,mode}} = things a..b-1 counted from the START end (Arabic: from the right):
@@ -371,7 +379,8 @@ function mount(root, data, opt){
   }
   /* the child WRITES the number sentence: a dash under each place, the app keypad 0-9 + − = (Marwa 2026-11-03; same as the Exercise model mwrite) */
   function write(o){
-    const g=X.gen; cap.classList.add('built'); const wd=qxWordEl(o.text,null,false,true); wd.classList.add('xwrite'); line.append(wd,' ');
+    const g=X.gen; cap.classList.add('built'); const wd=qxWordEl(o.text,null,false,data.lang!=='ar'); wd.classList.add('xwrite');   // Arabic: the sentence is written from the RIGHT (first number at the right), like the exercise (Ahmed 2026-11-18)
+    line.append(wd,' ');
     const all=()=>wd.querySelectorAll('.lt.hid').forEach(l=>{ l.classList.remove('hid'); l.classList.add('got'); });
     if(X.fast){ all(); return Promise.resolve(); }
     askRow.innerHTML=''; cap.classList.add('asking'); const pad=hel('div','qmpad mwkeys xkeys'); askRow.append(pad);
@@ -389,7 +398,10 @@ function mount(root, data, opt){
     if(card){ const sp=hel('span','xtw xcard'+(big?' xbig':'')); sp.textContent=t; line.append(sp,' '); out.push(sp); return out; }   // the answer + its word in one card
     String(t).split(/\s+/).filter(Boolean).forEach(w=>{ const sp=hel('span','xtw'+(big?' xbig':'')); sp.textContent=w; if(color){ sp.style.setProperty('--xc',col(color)); sp.classList.add('xcol'); } line.append(sp,' '); out.push(sp); });
     return out; }
-  async function add(t,color,card,big){ const ws=words(t,color,card,big); ws.forEach(w=>w.style.opacity=0); fitCap();   // big = a part of the number sentence, written LARGE under the picture as it is said
+  async function add(t,color,card,big,pop){ const ws=words(t,color,card,big); ws.forEach(w=>w.style.opacity=0);
+    if(pop){ ws.forEach(w=>w.classList.add('xeq')); fitCap(); const gap=pop===true?460:+pop;   // the number sentence: LARGER, each number / sign pops up while it is said (Ahmed 2026-11-18)
+      for(const w of ws){ w.style.opacity=1; w.classList.add('xpop'); await wait(gap); } return; }
+    fitCap();   // big = a part of the number sentence, written LARGE under the picture as it is said
     await tween(350,p=>ws.forEach(w=>w.style.opacity=p)); }
   /* the child builds the story: the pieces lie mixed under the line; tap them in order (the next piece is taken, any other one shakes and stays) */
   function order(o){
@@ -451,6 +463,7 @@ function mount(root, data, opt){
   async function act(d){
     if(d.scene) return scene(d.scene,d.actors,d);
     if(d.move) return move(d.move,d.ms);
+    if(d.eat) return eat(d);
     if(d.guide) return guide(d.guide);
     if(d.dir) return dir(d.dir,d.color);
     if(d.hand) return hand(d.hand);
@@ -463,7 +476,7 @@ function mount(root, data, opt){
     if(d.count) return count(d.count,d.start,d.color,d.pts,d.keep,d.r,d.out);
     if(d.hold) return hold(d.hold,d.on,d.color);
     if(d.ring) return ring(d.ring,d.color,d.id,d.box,d.pts,d.r);
-    if(d.add!=null) return add(d.add,d.color,d.card,d.big);
+    if(d.add!=null) return add(d.add,d.color,d.card,d.big,d.pop);
     if(d.line) return d.line==='break'?line.append(hel('br')):(line.innerHTML='',cap.classList.remove('built'));
     if(d.unring) return unring(d.unring);
     if(d.cross) return cross(d.pts,d.r,d.color);
@@ -502,16 +515,19 @@ function mount(root, data, opt){
   async function rebuild(i){ X.fast=true; scene('tree',{}); Leq.innerHTML=''; eqT=[];   // a step opened directly: earlier steps are laid out at once, silently
     try{ for(let k=0;k<i;k++) for(const b of steps[k].beats||[]) await beat(b); } finally{ X.fast=false; } }
   // show step i as it is when it starts (nothing plays)
-  async function show(i){ halt(); X.step=i; await rebuild(i); const b=(steps[i].beats||[])[0]; capT.textContent=data.caption===false?'':(b&&b.say||''); }
+  // "Try" / "Warm Up" label sign at the top corner of the stage, taken from the step name (Ahmed 2026-11-18)
+  const kindEl=hel('div','xkind'); kindEl.hidden=true; stageEl.append(kindEl);
+  function setKind(i){ const n=String((steps[i]&&steps[i].name)||''); const m=/^(Try|Warm Up|المحاولة|استعدوا|استعد)(?=[:\s]|$)/.exec(n); kindEl.hidden=!m; kindEl.textContent=m?(m[1]==='Try'||m[1]==='المحاولة'?(data.lang==='ar'?'وقت المحاولة':'Try'):(data.lang==='ar'?'استعدوا':'Warm Up')):''; }
+  async function show(i){ halt(); X.step=i; await rebuild(i); setKind(i); const b=(steps[i].beats||[])[0]; capT.textContent=data.caption===false?'':(b&&b.say||''); }
   // play step i from its start; onDone when its last line ended
   async function play1(i){
-    halt(); const g=X.gen; X.step=i; X.playing=true; if(opt.onState) opt.onState(true);
+    halt(); const g=X.gen; X.step=i; X.playing=true; setKind(i); if(opt.onState) opt.onState(true);
     try{ await rebuild(i); live(g); const bs=steps[i].beats||[]; for(let j=0;j<bs.length;j++){ if(opt.onBeat) opt.onBeat(i,j/bs.length); await beat(bs[j]); } live(g);
       X.playing=false; if(opt.onState) opt.onState(false); if(opt.onDone) opt.onDone(i);
     }catch(e){ if(e!==STOP) console.error(e); }
   }
   // phone held upright: the scene's sides are empty sky/grass, so show its middle bigger
-  function fit(){ const r=stageEl.getBoundingClientRect(); if(!r.height) return; svg.setAttribute('viewBox',PIC||r.width/r.height>=1.2?`0 0 ${W} ${VH}`:`185 0 630 ${H}`); }
+  function fit(){ root.classList.toggle('xar',!!PIC&&!root.classList.contains('xwide')&&!root.classList.contains('xtall')); root.style.setProperty('--xar',(1000/VH).toFixed(4)); const r=stageEl.getBoundingClientRect(); if(!r.height) return; svg.setAttribute('viewBox',PIC||r.width/r.height>=1.2?`0 0 ${W} ${VH}`:`185 0 630 ${H}`); }
   if(window.ResizeObserver) new ResizeObserver(fit).observe(stageEl); fit();
   return { play:play1, show, stop:halt, playing:()=>X.playing };
 }

@@ -23,7 +23,8 @@
      "askSay": "Which has the most?",
      "askAudio": "q/v1-q.mp3",
      "audio": "q/v1-a.mp3",
-     "word": "The cucumbers has the most."
+     "word": "The cucumbers has the most.",
+     "noStem": true
     }
    ]
   },
@@ -50,7 +51,8 @@
      "askSay": "Which has the least?",
      "askAudio": "q/v2-q.mp3",
      "audio": "q/v2-a.mp3",
-     "word": "The eggplants has the least."
+     "word": "The eggplants has the least.",
+     "noStem": true
     }
    ]
   },
@@ -76,7 +78,8 @@
      "askSay": "How many cucumbers are there?",
      "askAudio": "q/v3-q.mp3",
      "audio": "q/v3-a.mp3",
-     "word": "There are eight cucumbers."
+     "word": "There are eight cucumbers.",
+     "noStem": true
     }
    ]
   },
@@ -103,7 +106,8 @@
      "askSay": "Which has the most?",
      "askAudio": "q/a1-q.mp3",
      "audio": "q/a1-a.mp3",
-     "word": "The birds has the most."
+     "word": "The birds has the most.",
+     "noStem": true
     }
    ]
   },
@@ -130,7 +134,8 @@
      "askSay": "Which has the least?",
      "askAudio": "q/a2-q.mp3",
      "audio": "q/a2-a.mp3",
-     "word": "The lions has the least."
+     "word": "The lions has the least.",
+     "noStem": true
     }
    ]
   },
@@ -156,7 +161,8 @@
      "askSay": "How many camels are there?",
      "askAudio": "q/a3-q.mp3",
      "audio": "q/a3-a.mp3",
-     "word": "There are four camels."
+     "word": "There are four camels.",
+     "noStem": true
     }
    ]
   },
@@ -181,7 +187,8 @@
      "askSay": "Which animals have the same number?",
      "askAudio": "q/a4-q.mp3",
      "audio": "q/a4-a.mp3",
-     "word": "The giraffes and camels have the same number."
+     "word": "The giraffes and camels have the same number.",
+     "noStem": true
     }
    ]
   },
@@ -208,7 +215,8 @@
      "askSay": "Which has the most?",
      "askAudio": "q/v1-q.mp3",
      "audio": "q/v1-a.mp3",
-     "word": "The cucumbers has the most."
+     "word": "The cucumbers has the most.",
+     "noStem": true
     }
    ],
    "book": "booklet"
@@ -236,7 +244,8 @@
      "askSay": "Which has the least?",
      "askAudio": "q/v2-q.mp3",
      "audio": "q/v2-a.mp3",
-     "word": "The eggplants has the least."
+     "word": "The eggplants has the least.",
+     "noStem": true
     }
    ],
    "book": "booklet"
@@ -263,7 +272,8 @@
      "askSay": "How many cucumbers are there?",
      "askAudio": "q/v3-q.mp3",
      "audio": "q/v3-a.mp3",
-     "word": "There are eight cucumbers."
+     "word": "There are eight cucumbers.",
+     "noStem": true
     }
    ],
    "book": "booklet"
@@ -291,7 +301,8 @@
      "askSay": "Which has the most?",
      "askAudio": "q/a1-q.mp3",
      "audio": "q/a1-a.mp3",
-     "word": "The birds has the most."
+     "word": "The birds has the most.",
+     "noStem": true
     }
    ],
    "book": "booklet"
@@ -319,7 +330,8 @@
      "askSay": "Which has the least?",
      "askAudio": "q/a2-q.mp3",
      "audio": "q/a2-a.mp3",
-     "word": "The lions has the least."
+     "word": "The lions has the least.",
+     "noStem": true
     }
    ],
    "book": "booklet"
@@ -346,7 +358,8 @@
      "askSay": "How many camels are there?",
      "askAudio": "q/a3-q.mp3",
      "audio": "q/a3-a.mp3",
-     "word": "There are four camels."
+     "word": "There are four camels.",
+     "noStem": true
     }
    ],
    "book": "booklet"
@@ -372,7 +385,8 @@
      "askSay": "Which animals have the same number?",
      "askAudio": "q/a4-q.mp3",
      "audio": "q/a4-a.mp3",
-     "word": "The giraffes and camels have the same number."
+     "word": "The giraffes and camels have the same number.",
+     "noStem": true
     }
    ],
    "book": "booklet"

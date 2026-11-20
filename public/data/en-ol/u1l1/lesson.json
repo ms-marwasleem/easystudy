@@ -259,14 +259,9 @@
      "audio": "../../phonics/d.mp3"
     },
     {
-     "t": "b",
-     "ph": "b",
-     "audio": "../../phonics/b.mp3"
-    },
-    {
-     "t": "ye",
-     "ph": "igh",
-     "audio": "../../phonics/igh.mp3"
+     "t": "bye",
+     "ph": "b_igh",
+     "audio": "../../phonics/chunks/b_igh.mp3"
     }
    ],
    "audio": {
@@ -364,15 +359,14 @@
      "audio": "../../phonics/f.mp3"
     },
     {
-     "t": "ri",
-     "ph": "r_e",
-     "audio": "../../phonics/chunks/r_e.mp3"
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
     },
     {
-     "t": "e",
+     "t": "ie",
      "ph": "e",
-     "audio": "../../phonics/e.mp3",
-     "spell": true
+     "audio": "../../phonics/e.mp3"
     },
     {
      "t": "n",

@@ -222,6 +222,7 @@ async function openLesson(m){
   if(!LESSON || LESSON.id!==m.id){
     busy(true);
     try{ LESSON=fixPaths(await get(m.file), m.file); LESSON.id=m.id; if(LESSON.tabs) LESSON.tabs=currTabs(LESSON.tabs); }catch(e){ busy(false); message('Oops!','This lesson did not load. Check the internet and try again.'); return; }
+    if(typeof mVocabPics==='function'&&(LESSON.vocab||[]).some(v=>/^data:draw,/.test(v.img||''))) await mVocabPics(LESSON);   // maths WORDS tab: the pictures are drawn
     preloadImgs([LESSON.scene,LESSON.picture,...(LESSON.pagePictures||[]),...(LESSON.vocab||[]).map(v=>v.img),...(LESSON.lines||[]).map(l=>l.pic),...Object.values(LESSON.bk||{}).map(b=>b.img)]);
     player.bufs={}; player.ready=null; vs.i=0; rd.page=1; rd.done={}; ensureAudio().catch(()=>{}); busy(false);   // an Arabic story not recorded yet (requested slot) stays silent: no error
   }
@@ -322,12 +323,12 @@ function endPlay(full){
 
 /* ---------- Tabs + rail ---------- */
 const stage=$('#stage'), rail=$('#rail'); let tab='read';
-const TABAR={Lesson:'الدرس',Vocab:'كلمات',Q:'أسئلة',Vocabulary:'كلمات',Questions:'أسئلة',Assignments:'كتاب التقييمات','Book Questions':'أسئلة الكتاب','Assessment Book':'كتاب التقييمات',Booklet:'كُتيب',PTS:'كتاب التقييمات',Grammar:'القواعد'};   // the bottom tabs in Arabic lessons
+const TABAR={Lesson:'الدرس',Vocab:'كلمات',Q:'أسئلة',Vocabulary:'كلمات',Questions:'أسئلة',Exercise:'هيا نتدرب',Assignments:'كتاب التقييمات','Book Questions':'أسئلة الكتاب','Assessment Book':'كتاب التقييمات',Booklet:'كُتيب',PTS:'كتاب التقييمات',Grammar:'القواعد'};   // the bottom tabs in Arabic lessons
 const TABS={read:['Lesson','book'],words:['Vocabulary','abc'],quiz:['Questions','quiz'],booklet:['Booklet','quiz'],workbook:['Assignments','quiz'],grammar:['Grammar','hint']};
 // English AL: the Lesson tab (book parts) and the Booklet tab both run on the questions engine (quiz.js); inQ() = a questions-style sheet is on screen
 const isAL=()=>!!(LESSON&&LESSON.type==='al'), inQ=()=>tab==='quiz'||tab==='workbook'||tab==='booklet'||(isAL()&&tab==='read'), alSrc=()=>tab==='booklet'?'booklet':tab==='quiz'?'bq':'lesson', qKey=()=>isAL()||tab==='booklet'||tab==='workbook'?tab:'quiz';
 const KEYTAB={read:'book',quiz:'book',grammar:'book',booklet:'bk',workbook:'pts'};   // the map-key colour each tab belongs to (Words has none)
-function paintTabs(){ $$('.tab').forEach(b=>{ const [l0,ic]=TABS[b.dataset.tab], l=(LESSON&&LESSON.tabLabels&&LESSON.tabLabels[b.dataset.tab])||l0, got=LESSON&&STARS[LESSON.id]&&STARS[LESSON.id][b.dataset.tab];
+function paintTabs(){ $$('.tab').forEach(b=>{ const [l0,ic]=TABS[b.dataset.tab], l=(LESSON&&LESSON.tabLabels&&LESSON.tabLabels[b.dataset.tab])||(b.dataset.tab==='quiz'&&SUBJECT&&/^math/.test(SUBJECT.id)?'Exercise':l0), got=LESSON&&STARS[LESSON.id]&&STARS[LESSON.id][b.dataset.tab];
   b.dataset.book=KEYTAB[b.dataset.tab]||''; b.innerHTML=ICON[ic]+`<span>${isAr()&&TABAR[l]||tr(l)}</span>`+(b.dataset.book?'<i class="kd"></i>':'')+(got?`<span class="st">${STAR(true)}</span>`:''); b.hidden=LESSON&&LESSON.tabs?!LESSON.tabs.includes(b.dataset.tab):['booklet','workbook'].includes(b.dataset.tab)?!hasBook(b.dataset.tab):b.dataset.tab==='grammar'||(b.dataset.tab==='quiz'&&SUBJECT&&SUBJECT.id==='arabic'&&!hasBook('quiz')); b.setAttribute('aria-selected',b.dataset.tab===tab); b.style.order=(isAL()&&LESSON.tabs)?LESSON.tabs.indexOf(b.dataset.tab):''; }); const tb=$('.tabs'); if(tb){ const nt=$$('.tab:not([hidden])').length; tb.classList.toggle('many',nt>3); tb.classList.toggle('many5',nt>4); const on=$('.tab[aria-selected="true"]',tb); if(on) tb.scrollTo({left:on.offsetLeft-tb.clientWidth/2+on.offsetWidth/2,behavior:'auto'}); } }   // optional "tabs": ["read","quiz"] in lesson.json shows only those tabs (Math: explanation + questions, or questions only)
 // a default lesson shows Booklet / PTS only when it has that book (its pages in subject.json, or questions of that book)
 function hasBook(k){ const m=SUBJECT&&LESSON&&SUBJECT.lessons.find(l=>l.id===LESSON.id); return !!(m&&m.pages&&[].concat(m.pages[k]||[]).length)||!!(qz.sets&&qz.file&&LESSON&&qz.file.includes('/'+(m&&m.folder)+'/')&&qz.all.some(q=>qSrcOf(q.set)===k)); }
@@ -802,6 +803,7 @@ async function playFile(url){ await ensureCtx();
   return playBuf(buf); }
 // load + decode a sound BEFORE it is needed (the first play of a file waits for the network otherwise: Ahmed 2026-11-09 "the sound lags on the first join")
 async function warmFile(url){ try{ if(!url) return; await ensureCtx(); if(await libBuffer(url,player.ctx).catch(()=>null)) return;
+  const cp=await composeFiles(url).catch(()=>null); if(cp){ await Promise.all(cp.map(warmFile)); return; }
   if(!vs.files[url]) vs.files[url]=fetch(url).then(r=>{ if(!r.ok) throw new Error('missing'); return r.arrayBuffer(); }).then(b=>decodeSnd(player.ctx,b)).catch(()=>{ delete vs.files[url]; return null; }); await vs.files[url]; }catch(_){} }
 async function playClip([s,e]){ try{ await ensureAudio(); }catch(err){ return; } if(!player.bufs.n) return; return playBuf(player.bufs.n,Math.max(0,s-.03),e-s+.08); }   // single words: normal speed
 const sayWord=v=>v.audio&&v.audio.word?playFile(v.audio.word):v.clip?playClip(v.clip):tts(v.word,isAr()?'ar':'en',.75);
@@ -1976,7 +1978,13 @@ QM.face={sheet:'box', noword:1, bulb:0, draw:qxFace};
    Data: set {"type":"colour","table":true,"items":[{"word","num","total","off","on","pic"}]}. */
 function qxColourTable(box,q,s,run){
   const its=q.items, rtl=isAr(), bd=el('div','qxcb qxct'); bd.dataset.noswipe=1; if(rtl) bd.classList.add('rtl'); box.append(bd);
-  const pic=its.find(i=>i.pic); if(pic){ const pi=el('img','qxcp qxctp'); pi.alt=''; pi.draggable=false; pi.src=R_Q(pic.pic); bd.append(pi); }
+  const pic=its.find(i=>i.pic); if(pic){ const pw=el('div','qxpw'), pi=el('img','qxcp qxctp'); pi.alt=''; pi.draggable=false; pi.src=R_Q(pic.pic); pw.append(pi); bd.append(pw);
+    /* tap a thing of the picture = it is ringed and numbered (ring colour = its kind); tap it again = taken back. item.marks = [[cx,cy,r] fractions of the picture] (Ahmed 2026-11-18) */
+    const RC=['#E8443A','#2A7FD8','#2FA84F','#F29A1F']; const nums=its.map(()=>[]);
+    const renum=k=>nums[k].forEach((m,i)=>{ m.b.textContent=i+1; });
+    its.forEach((it,k)=>(it.marks||[]).forEach(([cx,cy,r])=>{ const m=el('button','qxmk'); m.type='button'; m.setAttribute('aria-label',it.word); m.style.cssText=`left:${cx*100}%;top:${cy*100}%;width:${r*200}%;--rc:${RC[k%4]}`;
+      m.dataset.ph=1; m.addEventListener('click',ev=>{ ev.stopPropagation(); if(done) return; const at=nums[k].findIndex(x=>x.m===m); if(at>=0){ nums[k].splice(at,1); m.classList.remove('on'); m.innerHTML=''; renum(k); return; }
+        const b=el('i','',''); m.innerHTML=''; m.append(b); m.classList.add('on'); nums[k].push({m,b}); renum(k); try{ blip(520+nums[k].length*40,.05); }catch(e){} }); pw.append(m); })); }
   const tb=el('div','qxtb'); tb.style.setProperty('--n',its.length); if(rtl) tb.dir='rtl'; bd.append(tb); let done=false;
   const cols=its.map(it=>{ const c=el('div','qxtc'), cells=[]; for(let j=0;j<it.total;j++){ const im=el('img','qxcs qxtcell'); im.alt=''; im.draggable=false; im.src=R_Q(it.off); im.dataset.on=0; c.append(im); cells.push(im); }
     c.append(el('b','qxtl',it.word)); tb.append(c); return {it,cells}; });   // the cells are drawn top to bottom; the first one in the array is the TOP one: index from the bottom = total-1-j
@@ -2254,21 +2262,29 @@ function alMistake(box,q,s,run){
 }
 
 /* ---------- mcq ---------- */
+/* tap the squares to count (Ahmed 2026-11-18): item.cells = [ [ [x,y,w,h] (fractions of the picture) in counting order ] per thing ]; tapping the next square of a thing numbers it 1, 2, 3 ...; the choices below still have to be answered */
+function alCells(f,im,q){ const G=q.cells; if(!G||!G.length) return; const ov=el('div','alcells'); f.append(ov); const n=G.map(()=>0);
+  const place=()=>{ ov.style.cssText=`left:${im.offsetLeft}px;top:${im.offsetTop}px;width:${im.offsetWidth}px;height:${im.offsetHeight}px`; };
+  if(window.ResizeObserver) new ResizeObserver(place).observe(im); im.addEventListener('load',place); place();
+  G.forEach((g,gi)=>g.forEach((c,ci)=>{ const b=el('button','alcell'); b.setAttribute('aria-label',String(ci+1)); b.style.cssText=`left:${c[0]*100}%;top:${c[1]*100}%;width:${c[2]*100}%;height:${c[3]*100}%`;
+    b.addEventListener('click',()=>{ if(qz.busy) return; hideHint(); if(b.dataset.n) return; if(ci!==n[gi]) return qxBad(b); n[gi]++; b.dataset.n=n[gi]; b.innerHTML='<i>'+n[gi]+'</i>'; try{ blip(520+n[gi]*40,.05); }catch(e){} }); ov.append(b); })); }
 function alMcq(box,q,s,run){
   const w=el('div','almcq'+(q.pics?' haspic':'')+(q.pics&&/(^|\/)(clock|hand)-/.test(String(q.pics[0]))?' clockq':'')); box.append(w);
-  if(q.pics){ const pc=el('div','alpics'); q.pics.forEach((p,k)=>{ const f=el('div','alfig'); const im=el('img','',''); im.src=p; im.alt=''; qPicFit(im,(q.picsTall||[])[k]); im.addEventListener('load',()=>{ if(im.naturalHeight/im.naturalWidth>1.1) w.classList.add('chartq'); }); /* a tall picture = a chart/table: it gets the room, the choices get smaller (Ahmed 2026-11-14) */ f.append(im); if(q.caps&&q.caps[k]){ const c=el('button','alcap',q.caps[k]); c.onclick=()=>{ vStop(); c.classList.add('lit'); qSound(alWordSrc(q.caps[k]),q.caps[k]).then(()=>c.classList.remove('lit')); }; f.append(c); } pc.append(f); }); w.append(pc); }
+  if(q.pics){ const pc=el('div','alpics'); q.pics.forEach((p,k)=>{ const f=el('div','alfig'); const im=el('img','',''); im.src=p; im.alt=''; qPicFit(im,(q.picsTall||[])[k]); im.addEventListener('load',()=>{ if(im.naturalHeight/im.naturalWidth>1.1) w.classList.add('chartq'); }); /* a tall picture = a chart/table: it gets the room, the choices get smaller (Ahmed 2026-11-14) */ f.append(im); if(k===0) alCells(f,im,q); if(q.caps&&q.caps[k]){ const c=el('button','alcap',q.caps[k]); c.onclick=()=>{ vStop(); c.classList.add('lit'); qSound(alWordSrc(q.caps[k]),q.caps[k]).then(()=>c.classList.remove('lit')); }; f.append(c); } pc.append(f); }); w.append(pc); }
   alPassage(w,q);   // reading comprehension: the passage of the same "grp" stays fixed on top, one question at a time (Ahmed 2026-11-15)
   const st=el('div','alstem'); w.append(st); let blank=null;
   const sp=el('button','qsay alsp',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>{ if(!qz.busy) q.sayFn(); };
-  if(q.ask){ const a=el('p','alask',''); alToks(a,q.ask); st.append(a); }
-  const p=el('p','altx'); st.append(p); if(isAr()&&/^math/.test(SUBJECT.id)){ p.dir='rtl'; p.classList.add('mrtl'); }   // Arabic math: the number sentence and "الإجابة: __" read from the right (Ahmed 2026-11-14)
+  let stemT=String(q.stem), askT=q.ask;
+  if(isAr()&&/^math/.test(SUBJECT.id)&&askT&&/^\s*[\d٠-٩]+\s*[+−\-]\s*[\d٠-٩]+\s*=\s*[؟?]\s*$/.test(askT)&&/^الإجابة:?\s*_{2,}\s*$/.test(stemT)){ stemT=askT.replace(/[؟?]\s*$/,'___').trim(); askT=null; }   // Arabic math: no big word "الإجابة", the number sentence itself is the big line (Ahmed 2026-11-18)
+  let askEl=null; if(askT){ const a=el('p','alask',''); alToks(a,askT); st.append(a); askEl=a; }
+  const p=el('p','altx'); if(!(q.noStem&&askEl)) st.append(p);   // noStem: the question is asked ONCE; the child answers with the choices straight away (Ahmed 2026-11-18) if(isAr()&&/^math/.test(SUBJECT.id)){ p.dir='rtl'; p.classList.add('mrtl'); }   // Arabic math: the number sentence and "الإجابة: __" read from the right (Ahmed 2026-11-14)
   /* word problems (task "Solve the problem." / "نحل المسائل."): the number sentence is HIDDEN until the Help bulb, so the child reads and understands the story first (Ahmed 2026-11-14). Same in English and Arabic math. */
   if(/^(Solve the problem|نحل المسائل)/.test(String(q.set.task||''))&&/\d\s*[+−\-]\s*\d\s*=/.test(String(q.stem))){ p.classList.add('eqhid'); q.eqHidden=true; }
   const word=(t,k)=>{ const sp=el('span','alw',t); sp.addEventListener('click',()=>{ hideHint(); vStop(); sp.classList.add('lit'); qSound(alWordSrc(t),alClean(t)).then(()=>sp.classList.remove('lit')); }); p.append(k?' ':'',sp); };
-  String(q.stem).split(/\s+/).filter(Boolean).forEach((t,k)=>{ const m=/^([^_]*)_{2,}([^_]*)$/.exec(t);
+  stemT.split(/\s+/).filter(Boolean).forEach((t,k)=>{ const m=/^([^_]*)_{2,}([^_]*)$/.exec(t);
     if(m&&!blank){ blank=el('button','alblank','<i></i>'); if(k) p.append(' '); if(m[1]) p.append(m[1]); p.append(blank); if(m[2]) p.append(m[2]); blank.addEventListener('click',()=>q.sayFn&&q.sayFn()); }
     else word(t,k); });
-  p.append(' ',sp);   // the small speaker straight AFTER the question text (reads the question only, never the answer)
+  (q.noStem&&askEl?askEl:p).append(' ',sp);   // the small speaker straight AFTER the question text (reads the question only, never the answer)
   const say=q.optSay||q.options;
   const ops=el('div','alopts'+(q.options.some(o=>o.length>14)?' long':'')); w.append(ops);
   q.options.forEach((o,k)=>{ const b=qChBtn(o,qWords(q.options)); b.classList.add('alopt'); b.dataset.k=k;   // THE choice button (quiz.js qChBtn, look in css/qlayout.css)
@@ -2488,6 +2504,14 @@ function mCount(box,q,s,run){
 }
 // an addition sentence written the other way round is right too: "3 + 4 = 7" -> "4 + 3 = 7" when the child starts with the second number (subtraction keeps its order)
 const mSwapSum=(w,k)=>{ const m=String(w).match(/^(\d+) \+ (\d+) = (\d+)$/); return m&&m[1]!==m[2]&&k===m[2][0]&&k!==m[1][0]?`${m[2]} + ${m[1]} = ${m[3]}`:null; };
+/* a word problem in ONE slide (Ahmed 2026-11-18): the child writes the sentence, then under it the answer choices appear ("Answer: ___") - item.then = {lead, options, answer, askAudio, askSay, audio, word} */
+async function mThen(w,st,pad,q,line){ const t=q.then; q.stage=2; qz.busy=true; const run=qz.run; $$('.lt',line).forEach(x=>x.classList.remove('cur')); try{ await qSound(q.audio,q.word); }catch(e){} if(run!==qz.run) return;
+  pad.hidden=true; const ans=el('div','qxline mwline mwans'); ans.append(el('span','mwlead',t.lead||'')); const blank=el('span','mwcard mwblank','\u00a0\u00a0\u00a0\u00a0'); ans.append(blank); st.append(ans);
+  const chips=el('div','qxchoices mwchips'); w.append(chips); const opts=t.options, wordy=opts.some(o=>[...String(o)].length>2);
+  opts.forEach((o,k)=>{ const b=qChBtn(o,wordy); b.dataset.k=k; b.addEventListener('click',()=>{ if(qz.busy||q.solved) return; hideHint(); if(k!==t.answer) return qxBad(b);
+      blank.textContent=o; blank.classList.add('got'); $$('.qch',chips).forEach(x=>x!==b&&x.classList.add('dim')); q.audio=t.audio||q.audio; q.word=t.word||q.word; qxWin(ans,q,1700); }); chips.append(b); });
+  qz.busy=false; q.sayFn=async()=>{ vStop(); if(q.solved) return qSound(q.audio,q.word); return t.askAudio?qSound(R_Q(t.askAudio),t.askSay||''):undefined; };
+  if(qAuto(q)) q.sayFn(); }
 function mWrite(box,q,s,run){
   const w=el('div','almcq mwrite'+(q.pics?' haspic':'')); box.append(w);
   if(q.pics){ const pc=el('div','alpics'); q.pics.forEach((p,k)=>{ const f=el('div','alfig'); const im=el('img','',''); im.src=p; im.alt=''; qPicFit(im,(q.picsTall||[])[k]); f.append(im); pc.append(f); }); w.append(pc); }
@@ -2501,7 +2525,7 @@ function mWrite(box,q,s,run){
   [...(q.keys||s.keys||'1234567890')].forEach(k=>{ const b=qChBtn(k); b.classList.add('qmn'); b.dataset.v=k; b.setAttribute('aria-label',k==='−'?'minus':k==='+'?'plus':k==='='?'equals':k);
     b.addEventListener('click',()=>{ if(qz.busy||q.solved||qz.list[qz.i]!==q) return; hideHint(); let n=qxNext(wd); if(!n) return;
       if(k!==arDb(n.textContent)&&!$$('.lt.got',wd).length){ const sw=mSwapSum(q.word,k); if(sw){ q.word=sw; const nw=qxWordEl(sw,null,false,true); wd.replaceWith(nw); wd=nw; n=qxNext(wd); } }   // addition in either order is right: 4 + 3 = 7 as well as 3 + 4 = 7 (Marwa 2026-11-05)
-      if(k===arDb(n.textContent)){ qxReveal(wd); blip(560+$$('.lt.got',wd).length*40,.05); cur(); if(qxDone(wd)) qxWin(wd,q,1700); }
+      if(k===arDb(n.textContent)){ qxReveal(wd); blip(560+$$('.lt.got',wd).length*40,.05); cur(); if(qxDone(wd)){ if(q.then) mThen(w,st,pad,q,line); else qxWin(wd,q,1700); } }
       else { wsBad(n); qxBad(line); } }); pad.append(b); });
   q.sayFn=async()=>{ vStop(); if(q.askAudio&&!q.solved) return qSound(R_Q(q.askAudio),q.ask||''); return qSound(q.audio,q.word); };
   box._after=()=>{ if(qAuto(q)) return q.sayFn(); };
@@ -2531,7 +2555,9 @@ function mLine(box,q,s,run){
   if(q.img&&!q.unit){ const im=new Image(); im.alt=''; im.src=R_Q(q.img); things.append(im); }
   for(let i=0;i<n;i++){ const b=el('button','mlt'); b.setAttribute('aria-label',String(i+1)); if(q.unit){ const im=new Image(); im.alt=''; im.src=R_Q(q.unit); b.append(im); } things.append(b); btns.push(b); }
   const target=fr?q.at-1:n-q.at;
-  btns.forEach((b,i)=>b.addEventListener('click',()=>{ if(qz.busy||q.solved) return; if(i!==target) return qxBad(b);
+  btns.forEach((b,i)=>b.addEventListener('click',()=>{ if(qz.busy||q.solved) return;
+    if(i!==target){ if(fr?i<target:i>target){ b.classList.add('cnt'); b.dataset.n=fr?i+1:n-i; return; } return qxBad(b); }   // counting on the way to the answer (1st, 2nd, 3rd...) is not a mistake; only a thing after it is
+   
     const sl=q.group?(fr?[0,target]:[target,n-1]):[target,target]; const fb=el('div','mlframe'); fb.style.setProperty('--a',sl[0]); fb.style.setProperty('--b',sl[1]+1); things.append(fb);
     (fr?lf:lb).classList.add('on'); qxWin(w,q,1600); }));
 }
@@ -2557,7 +2583,7 @@ function mShade(box,q,s,run){
   box.append(grid,row);
 }
 QM.shade={sheet:'box', draw:mShade, help:(q,w)=>$$('.qcirc',w).filter((b,i)=>i<q.n)};
-QM.mwrite={sheet:'box', own:1, draw:mWrite, help:(q,w)=>{ const n=qxNext($('.mwline .qxw',w)); return n?$$('.mwkeys .qmn',w).filter(b=>b.dataset.v===arDb(n.textContent)):[]; }};
+QM.mwrite={sheet:'box', own:1, draw:mWrite, help:(q,w)=>{ if(q.stage===2) return $$('.mwchips .qch',w).filter(b=>+b.dataset.k===q.then.answer); const n=qxNext($('.mwline .qxw',w)); return n?$$('.mwkeys .qmn',w).filter(b=>b.dataset.v===arDb(n.textContent)):[]; }};
 
 
 /* clock = the clock models (Arabic book unit 8, "قراءة الساعة"): ONE widget (clockWidget) used by the questions (QM.clock) and by the weekly papers (exam atom {t:"clock"}).
@@ -2611,6 +2637,23 @@ function mClock(box,q,s,run){
   const hb=helpBtn('qxhelp qmhelp'); let undo=null; hb.onclick=()=>{ if(qz.busy||q.solved) return; if(undo) undo(); undo=cw.hint(); setTimeout(()=>{ if(undo){ undo(); undo=null; } },1800); }; qHelpHost(hb);
 }
 QM.clock={sheet:'box', noword:1, bulb:0, draw:mClock};
+
+/* WORDS tab of the maths lessons (Ahmed 2026-11-18): the picture of a word is DRAWN here from its spec (no picture files):
+   img "data:draw,num,N,ar|en" = the numeral (Arabic or English digits) in a lesson colour; "data:draw,pos,K,N,ar|en" = N cats in a row with the K-th ringed (Arabic: the front is at the RIGHT, the cats face the other way).
+   Called once when a lesson with such words opens (lesson.js openLesson). */
+const M_DIG='٠١٢٣٤٥٦٧٨٩', M_NUMCOL=['#E0412C','#2A7FD8','#F2B321','#2FA8A0','#8A5CC9','#F08A2C','#3FA34D','#D8396B','#E0412C','#8A5CC9'];
+function mDrawLoad(src){ return new Promise(r=>{ const i=new Image(); i.onload=()=>r(i); i.onerror=()=>r(null); i.src=src; }); }
+async function mVocabPics(L){
+  const cat=await mDrawLoad(new URL((L.base||'')+'../../pics/cat.png',document.baseURI).href), ff=getComputedStyle(document.body).fontFamily||'sans-serif';
+  for(const v of L.vocab||[]){
+    const m=/^data:draw,(num|pos),(.*)$/.exec(v.img||''); if(!m) continue; const a=m[2].split(','), c=document.createElement('canvas'), x=c.getContext('2d');
+    if(m[1]==='num'){ const n=+a[0], ar=a[1]==='ar', t=ar?String(n).split('').map(d=>M_DIG[+d]).join(''):String(n); c.width=520; c.height=420; x.textAlign='center'; x.textBaseline='middle';
+      let fs=n>9?260:330; x.font=`700 ${fs}px ${ff}`; x.lineJoin='round'; x.lineWidth=26; x.strokeStyle='#fff'; x.strokeText(t,260,225); x.fillStyle=M_NUMCOL[(n-1)%10]; x.fillText(t,260,225); }
+    else { const k=+a[0], n=+a[1], ar=a[2]==='ar', W=900, H=300; c.width=W; c.height=H; x.fillStyle='#fff'; x.beginPath(); x.roundRect(0,40,W,H-80,36); x.fill();
+      const sw=(W-60)/n, ih=H-120; for(let i=0;i<n;i++){ const cx=30+sw*(i+.5); if(cat){ const w=Math.min(sw*.86,ih*cat.width/cat.height), h=w*cat.height/cat.width; x.save(); x.translate(cx,H-52); if(ar) x.scale(-1,1); x.drawImage(cat,-w/2,-h,w,h); x.restore(); } }
+      const i=ar?n-k:k-1, cx=30+sw*(i+.5); x.strokeStyle='#E8457A'; x.lineWidth=12; x.beginPath(); x.ellipse(cx,H/2,Math.min(sw*.52,70),ih/2+14,0,0,Math.PI*2); x.stroke(); }
+    v.img=c.toDataURL('image/png'); }
+}
 ;
 /* ===== js/math-explain.js ===== */
 /* MATH lesson EXPLAIN tab (lesson.json "type": "math", "math": {rows:[{n, word, audio}]}) — the book's number table: red dots, the number, its word.
@@ -3000,7 +3043,7 @@ async function openExam(lesson,ex){
   $('#xChips').innerHTML=X.groups.length>1&&!X.stack?X.groups.map((g,i)=>`<button class="pill cream xchip" data-i="${i}">${g.label}</button>`).join(''):'';
   $$('.xchip').forEach(b=>b.onclick=()=>xShow(+b.dataset.i));
   $$('img',root).forEach(i=>{ if(!i.complete) i.addEventListener('load',()=>{ clearTimeout(xFit.t2); xFit.t2=setTimeout(xFit,60); },{once:true}); });
-  X.cur=0; xShow(0,true); show('exam'); busy(false); xFit(); $('#xScroll').scrollTop=0;
+  X.cur=0; xShow(0,true); show('exam'); busy(false); xFit(); $('#xScroll').scrollTop=0; if(X.stack) xPackWhenReady(X.run);
   X.qs.forEach(q=>q.el.classList.toggle('done',q.atoms.every(a=>a.solved)));
 }
 function xPage(pg,pi,d){
@@ -3187,6 +3230,38 @@ function xDrawLinks(L){
   svg.innerHTML=`<svg viewBox="0 0 ${r.width} ${r.height}" width="${r.width}" height="${r.height}">${s}</svg>`;
 }
 
+
+// weekly assessments with several models: the models follow each other INSIDE the pages like in the book (no page per model, no empty rest of a page) (Ahmed 2026-11-18).
+// units = model heading, section bar, a picture with its question...; each goes in the page while it fits, else on the next page. Pages are renumbered.
+function xPackWhenReady(run){
+  const imgs=$$('img',$('#xPages')).filter(i=>!i.complete); let n=imgs.length, done=false;
+  const go=()=>{ if(done||run!==X.run) return; done=true; xPack(); xFit(); };
+  if(!n) return requestAnimationFrame(()=>requestAnimationFrame(go));
+  imgs.forEach(i=>{ const f=()=>{ if(--n<=0) go(); }; i.addEventListener('load',f,{once:true}); i.addEventListener('error',f,{once:true}); }); setTimeout(go,2500);
+}
+function xPack(){
+  const pgs=X.pages.slice(); if(pgs.length<2) return; const units=[];
+  pgs.forEach(pg=>{ const fl=$('.xflow',pg), h=$('.xmodel',pg); let cur=[];
+    if(h) units.push({keep:true,n:[h]});
+    [...fl.children].forEach(c=>{
+      if(c.classList.contains('xsec')){ units.push({keep:true,n:[c]}); cur=[]; }
+      else if(c.classList.contains('xq')){ cur.push(c); units.push({keep:false,n:cur}); cur=[]; }
+      else cur.push(c); });
+    if(cur.length) units.push({keep:false,n:cur}); });
+  const merged=[]; let carry=[];
+  units.forEach(u=>{ if(u.keep) carry=carry.concat(u.n); else { merged.push(carry.concat(u.n)); carry=[]; } });
+  if(carry.length) merged.push(carry);
+  const first=pgs[0], foot=$('.xfoot',first).cloneNode(true);
+  const mk=()=>{ const q=first.cloneNode(false); const fl=document.createElement('div'); fl.className='xflow'; q.append(fl); q.append(foot.cloneNode(true)); first.parentNode.append(q); return q; };
+  pgs.forEach((pg,i)=>{ const h=$('.xmodel',pg); if(h&&h.parentNode) h.parentNode.removeChild(h); if(i>0) pg.parentNode.removeChild(pg); });
+  X.pages=[first]; first.style.removeProperty('--fs'); X.d.pages[+first.dataset.i].fs=null; $('.xflow',first).innerHTML='';
+  const over=pg=>{ const fl=$('.xflow',pg), ft=$('.xfoot',pg), top=fl.getBoundingClientRect().top, last=fl.lastElementChild; return !!last&&last.getBoundingClientRect().bottom-top>ft.getBoundingClientRect().top-top-2; };
+  let cur=first;
+  merged.forEach(u=>{ const fl=$('.xflow',cur), had=fl.children.length; u.forEach(x=>fl.append(x));
+    if(had&&over(cur)){ cur=mk(); cur.dataset.i=first.dataset.i; X.pages.push(cur); u.forEach(x=>$('.xflow',cur).append(x)); } });
+  X.pages.forEach((pg,i)=>{ const c=$('.xcloud',pg); if(c) c.innerHTML=xArt('cloudnum:'+(i+1)); });
+}
+
 // ---------- screen fit ----------
 function xTabLabel(p){ const t=p.tab||p.chip||p.title||'', m=String(t).match(/[0-9\u0660-\u0669]+\s*$/); return p.tab||(m?m[0].trim():t); }
 function xShow(gi,first){   // only the pages of assessment gi are on screen; the others wait behind their buttons
@@ -3272,7 +3347,7 @@ async function toolPick(a){
      {ring:ids|pts, r, color, id} {unring:id|"all"}  hand-drawn ring round a group
      {hold:n, on:ringId, color}                      the number of a group 'in your head' (one badge, said); then {count:ids, start:n+1, keep:true} counts on
      {scene:'pic', frame:false}                      a picture made of framed parts: no big white frame behind it
-     {scene:'free', items:[{id,img,x,y,w,h}], ih, top}  separate pictures that move: {move:[{id,x,y}],ms} slides them together, {guide:{x0,y0,x1,y1,color}} draws a dotted line (Math 5-1)
+     {scene:'free', items:[{id,img,x,y,w,h}], ih, top, bg:'<svg shapes>', frame:false}  separate pictures that move: {move:[{id,x,y}],ms} slides them together, {guide:{x0,y0,x1,y1,color}} draws a dotted line (Math 5-1)
      {link:[[[x,y],[x,y]]..], color, r, id}         "What is the difference?": pairs joined by lines one by one; the ones left over are the difference
      {cross:true, pts, r, color}                     things that go away (subtraction) are crossed out one by one
      {head:{t:["17","-","3","="],slots:5}} {head:{t:["14"],more:true}}   the calculation written large at the top, then its answer
@@ -3383,9 +3458,16 @@ function mount(root, data, opt){
      d.ih = height of the white panel, d.top = gap above it (default 30). Actions {move:[{id,x,y}],ms} slide things together; {guide:{x0,y0,x1,y1,color,id}} draws a dotted line. */
   function freeScene(d){ PIC={k:1}; const ih=d.ih||420; VH=TOP+ih; const tag=[];
     if(d.frame!==false) tag.push(`<rect x="-9" y="${TOP-9}" width="1018" height="${ih+18}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`);
-    (d.items||[]).forEach((o,i)=>tag.push(`<image data-i="${i}" href="${base+o.img}" x="${o.x}" y="${TOP+o.y}" width="${o.w}" height="${o.h}" preserveAspectRatio="none"/>`));
+    if(d.bg) tag.push(`<g transform="translate(0 ${TOP})">${d.bg}</g>`);   // a drawn backdrop (svg shapes in picture px: sky, grass, benches), under the pictures (Math 4-5 park)
+    (d.items||[]).forEach((o,i)=>tag.push(`<image data-i="${i}" href="${base+o.img}" x="${o.x}" y="${TOP+o.y}" width="${o.w}" height="${o.h}" preserveAspectRatio="none"${o.op!=null?` opacity="${o.op}"`:''}/>`));
+    (d.labels||[]).forEach(l=>tag.push(`<text x="${l.x}" y="${TOP+l.y}" font-size="${l.s||38}" font-weight="700" fill="#5a3418" text-anchor="middle" font-family="var(--f-title),sans-serif">${l.t}</text>`));   // A / B / C of a "which picture" choice
     Lbg.innerHTML=tag.join(''); IT={};   // (scene() empties the actors layer afterwards, so the things live in the background layer)
     (d.items||[]).forEach((o,i)=>{ IT[o.id]={e:Lbg.querySelector(`image[data-i="${i}"]`),x:o.x,y:o.y}; }); }
+  /* {eat:id, ghost:id2}: the thing is eaten in three bites (it shrinks), then the faded 'eaten' copy appears in its place (Math 4-2: the apple) */
+  async function eat(o){ const it=IT[o.eat]; if(!it) return; const e=it.e, x=+e.getAttribute('x'), y=+e.getAttribute('y'), w=+e.getAttribute('width'), h=+e.getAttribute('height'), cx=x+w/2, cy=y+h/2;
+    const set=k=>{ e.setAttribute('width',w*k); e.setAttribute('height',h*k); e.setAttribute('x',cx-w*k/2); e.setAttribute('y',cy-h*k/2); };
+    let prev=1; for(const k of [.74,.5,.26,0]){ const p0=prev; await tween(X.fast?1:420,v=>set(p0+(k-p0)*v)); prev=k; if(!X.fast) await wait(120); }
+    e.setAttribute('opacity',0); const gh=o.ghost&&IT[o.ghost]; if(gh) await tween(500,v=>gh.e.setAttribute('opacity',(o.op||.3)*v)); }
   async function move(list,ms){ const L=[].concat(list).map(m=>({...m,it:IT[m.id]})).filter(m=>m.it); const f=L.map(m=>({m,x0:m.it.x,y0:m.it.y}));
     await tween(X.fast?1:(ms||1500),v=>f.forEach(o=>{ const x=o.x0+(o.m.x-o.x0)*v, y=o.y0+(o.m.y-o.y0)*v; o.m.it.e.setAttribute('x',x); o.m.it.e.setAttribute('y',TOP+y); if(v>=1){ o.m.it.x=o.m.x; o.m.it.y=o.m.y; } })); }
   // a dotted line (the book's alignment line) drawn from its start to its end, over the pictures
@@ -3401,11 +3483,12 @@ function mount(root, data, opt){
       tag.push(`<text class="xl-end" id="xlf" x="500" y="${TOP+46}" text-anchor="middle">${ends[0]}</text><text class="xl-end" id="xlb" x="500" y="${TOP+60+110*n+52}" text-anchor="middle">${ends[1]}</text>`);
     } else {
       const ih=d.ih||230; PIC={k:1}; VH=TOP+ih; const n=items?items.length:d.n, x0=120, x1=880, sw=(x1-x0)/n, base0=TOP+(d.floor||200); SC={vert:false,n};
-      if(d.img) tag.push(card(ih));   // our own drawn/picture things sit straight on the page (no white box); only a pasted book strip keeps its card
+      const cardH=(top,h)=>`<rect x="${x0-14}" y="${top}" width="${x1-x0+28}" height="${h}" rx="30" fill="#fff" style="filter:drop-shadow(0 6px 8px rgba(90,52,24,.3))"/>`;   // ONE style, like the questions: the things that are counted sit in a white card that fits them; Front/Back stand outside it (Ahmed 2026-11-18)
       const MI=!!d.mirror, flip=cx=>MI?` transform="translate(${2*cx} 0) scale(-1 1)"`:''; SC.mir=MI;   // Arabic: Front at the right, the pictures face the other way
-      if(d.img){ const w=x1-x0, h=Math.round(w*d.h/d.w); tag.push(`<image href="${base+d.img}" x="${x0}" y="${base0-h}" width="${w}" height="${h}" preserveAspectRatio="none"${flip(500)}/>`); }
-      else { const mw=Math.min(sw*.82,d.maxw||150), mh=d.maxh||150, sh=d.show==null?n:d.show; for(let i=0;i<n;i++){ tag.push(`<g class="xit" data-cx="${x0+sw*(i+.5)}" data-cy="${base0-mh/2}"${i>=sh?' style="opacity:0"':''}><image href="${base+(items?items[i]:d.unit)}" x="${x0+sw*(i+.5)-mw/2}" y="${base0-mh}" width="${mw}" height="${mh}" preserveAspectRatio="xMidYMax meet"${flip(x0+sw*(i+.5))}/></g>`); } }
-      tag.push(`<text class="xl-end" id="xlf" x="${MI?940:60}" y="${base0-30}" text-anchor="middle">${ends[0]}</text><text class="xl-end" id="xlb" x="${MI?60:940}" y="${base0-30}" text-anchor="middle">${ends[1]}</text>`);
+      if(d.img){ const w=x1-x0, h=Math.round(w*d.h/d.w); tag.push(cardH(base0-h-18,h+36)); tag.push(`<image href="${base+d.img}" x="${x0}" y="${base0-h}" width="${w}" height="${h}" preserveAspectRatio="none"${flip(500)}/>`); }
+      else { const mw=Math.min(sw*.82,d.maxw||150), mh=d.maxh||150, sh=d.show==null?n:d.show; tag.push(cardH(base0-mh-18,mh+36)); for(let i=0;i<n;i++){ tag.push(`<g class="xit" data-cx="${x0+sw*(i+.5)}" data-cy="${base0-mh/2}"${i>=sh?' style="opacity:0"':''}><image href="${base+(items?items[i]:d.unit)}" x="${x0+sw*(i+.5)-mw/2}" y="${base0-mh}" width="${mw}" height="${mh}" preserveAspectRatio="xMidYMax meet"${flip(x0+sw*(i+.5))}/></g>`); } }
+      VH=Math.max(VH,base0+105); const ly=base0+84;   // Front / Back stand UNDER the white card, at its two ends (like the questions on a phone)
+      tag.push(`<text class="xl-end" id="xlf" x="${MI?x1:x0}" y="${ly}" text-anchor="${MI?'end':'start'}">${ends[0]}</text><text class="xl-end" id="xlb" x="${MI?x0:x1}" y="${ly}" text-anchor="${MI?'start':'end'}">${ends[1]}</text>`);
     }
     Leq.innerHTML=''; eqT=[];
     Lbg.innerHTML=tag.join(''); LAB={f:Lbg.querySelector('#xlf'),b:Lbg.querySelector('#xlb')}; }
@@ -3434,18 +3517,18 @@ function mount(root, data, opt){
   const iconG=(k,x,y,sz,rot,card)=>{ const sc=sz/100, g=mk('g',{transform:`translate(${x} ${y}) rotate(${rot||0}) scale(${sc}) translate(-50 -50)`});
     g.innerHTML=(card?'<rect x="3" y="3" width="94" height="94" rx="10" fill="#fff" stroke="#333" stroke-width="3.5"/>':'')+`<g${card?' transform="translate(10 10) scale(.8)"':''}>${ICON[k]()}</g>`; return g; };
   const iconOutline=(k,x,y,sz,op)=>{ const sc=sz/100, g=mk('g',{transform:`translate(${x} ${y}) scale(${sc}) translate(-50 -50)`,opacity:op});
-    g.innerHTML=`<path d="${ICONLINE[k]}" fill="rgba(255,255,255,.14)" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>`; return g; };
+    g.innerHTML=`<path d="${ICONLINE[k]}" fill="rgba(0,0,0,.05)" stroke="#4a4a4a" stroke-width="4" stroke-linejoin="round"/>`; return g; };   // the hollow box shape: dark line on the white table (Ahmed 2026-11-18)
   let DS=null;
   function dataScene(d){ PIC={k:1}; TOP=0; const R=d.rows||10, tx=d.tx||430, tw=d.tw||550, nc=d.cols.length, cw=tw/nc, hh=84, rh=60, y0=22, rtl=data.lang==='ar'; VH=y0+hh+R*rh+30;
     Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=''; LAB={}; SC={}; Lact.innerHTML=''; Lring.innerHTML=''; Lbadge.innerHTML=''; badges=[]; rings={};
     const colX=i=>tx+cw*(rtl?nc-1-i:i)+cw/2, cellY=j=>y0+hh+(R-1-j)*rh+rh/2;   // j = 0 is the bottom row: the table is filled from the bottom up
     const g=mk('g'); Lbg.append(g);
-    g.append(mk('rect',{x:tx,y:y0,width:tw,height:hh+R*rh,rx:18,fill:'rgba(255,255,255,.12)',stroke:'#fff','stroke-width':4}));
-    for(let i=1;i<nc;i++) g.append(mk('path',{d:`M${tx+cw*i} ${y0} V${y0+hh+R*rh}`,stroke:'#fff','stroke-width':3,opacity:.7}));
-    for(let j=0;j<=R;j++) g.append(mk('path',{d:`M${tx} ${y0+hh+j*rh} H${tx+tw}`,stroke:'#fff','stroke-width':j===0?5:3,opacity:j===0?1:.7}));
-    d.cols.forEach((c,i)=>{ g.append(iconOutline(c.k,colX(i),y0+hh/2,70,1));
+    g.append(mk('rect',{x:tx,y:y0,width:tw,height:hh+R*rh,rx:18,fill:'#fff',stroke:'#4a4a4a','stroke-width':4}));
+    for(let i=1;i<nc;i++) g.append(mk('path',{d:`M${tx+cw*i} ${y0} V${y0+hh+R*rh}`,stroke:'#4a4a4a','stroke-width':3,opacity:.8}));
+    for(let j=0;j<=R;j++) g.append(mk('path',{d:`M${tx} ${y0+hh+j*rh} H${tx+tw}`,stroke:'#4a4a4a','stroke-width':j===0?5:3,opacity:j===0?1:.8}));
+    d.cols.forEach((c,i)=>{ g.append(iconG(c.k,colX(i),y0+hh/2,SHAPES[c.k]?72:70,0,!!SHAPES[c.k]));   // the head of a column = the very thing of the picture
       for(let j=0;j<R;j++) g.append(iconOutline(c.k,colX(i),cellY(j),54,.45)); });
-    const px=d.px||[20,400]; g.append(mk('rect',{x:px[0],y:y0,width:px[1]-px[0],height:hh+R*rh,rx:18,fill:'rgba(255,255,255,.12)',stroke:'#fff','stroke-width':4}));
+    const px=d.px||[20,400]; g.append(mk('rect',{x:px[0],y:y0,width:px[1]-px[0],height:hh+R*rh,rx:18,fill:'#fff',stroke:'#4a4a4a','stroke-width':4}));
     DS={cols:d.cols,colX,cellY,items:[]};
     (d.items||[]).forEach(([c,x,y],n)=>{ const k=d.cols[c].k, e=iconG(k,x,y,SHAPES[k]?84:78,SHAPES[k]?((n*37)%31)-15:0,!!SHAPES[k]); g.append(e); DS.items.push({c,x,y,e}); }); }
   /* the things of a line scene act in sync with the narration: {pop:{a,b,mode}} = things a..b-1 counted from the START end (Arabic: from the right):
@@ -3630,7 +3713,8 @@ function mount(root, data, opt){
   }
   /* the child WRITES the number sentence: a dash under each place, the app keypad 0-9 + − = (Marwa 2026-11-03; same as the Exercise model mwrite) */
   function write(o){
-    const g=X.gen; cap.classList.add('built'); const wd=qxWordEl(o.text,null,false,true); wd.classList.add('xwrite'); line.append(wd,' ');
+    const g=X.gen; cap.classList.add('built'); const wd=qxWordEl(o.text,null,false,data.lang!=='ar'); wd.classList.add('xwrite');   // Arabic: the sentence is written from the RIGHT (first number at the right), like the exercise (Ahmed 2026-11-18)
+    line.append(wd,' ');
     const all=()=>wd.querySelectorAll('.lt.hid').forEach(l=>{ l.classList.remove('hid'); l.classList.add('got'); });
     if(X.fast){ all(); return Promise.resolve(); }
     askRow.innerHTML=''; cap.classList.add('asking'); const pad=hel('div','qmpad mwkeys xkeys'); askRow.append(pad);
@@ -3648,7 +3732,10 @@ function mount(root, data, opt){
     if(card){ const sp=hel('span','xtw xcard'+(big?' xbig':'')); sp.textContent=t; line.append(sp,' '); out.push(sp); return out; }   // the answer + its word in one card
     String(t).split(/\s+/).filter(Boolean).forEach(w=>{ const sp=hel('span','xtw'+(big?' xbig':'')); sp.textContent=w; if(color){ sp.style.setProperty('--xc',col(color)); sp.classList.add('xcol'); } line.append(sp,' '); out.push(sp); });
     return out; }
-  async function add(t,color,card,big){ const ws=words(t,color,card,big); ws.forEach(w=>w.style.opacity=0); fitCap();   // big = a part of the number sentence, written LARGE under the picture as it is said
+  async function add(t,color,card,big,pop){ const ws=words(t,color,card,big); ws.forEach(w=>w.style.opacity=0);
+    if(pop){ ws.forEach(w=>w.classList.add('xeq')); fitCap(); const gap=pop===true?460:+pop;   // the number sentence: LARGER, each number / sign pops up while it is said (Ahmed 2026-11-18)
+      for(const w of ws){ w.style.opacity=1; w.classList.add('xpop'); await wait(gap); } return; }
+    fitCap();   // big = a part of the number sentence, written LARGE under the picture as it is said
     await tween(350,p=>ws.forEach(w=>w.style.opacity=p)); }
   /* the child builds the story: the pieces lie mixed under the line; tap them in order (the next piece is taken, any other one shakes and stays) */
   function order(o){
@@ -3710,6 +3797,7 @@ function mount(root, data, opt){
   async function act(d){
     if(d.scene) return scene(d.scene,d.actors,d);
     if(d.move) return move(d.move,d.ms);
+    if(d.eat) return eat(d);
     if(d.guide) return guide(d.guide);
     if(d.dir) return dir(d.dir,d.color);
     if(d.hand) return hand(d.hand);
@@ -3722,7 +3810,7 @@ function mount(root, data, opt){
     if(d.count) return count(d.count,d.start,d.color,d.pts,d.keep,d.r,d.out);
     if(d.hold) return hold(d.hold,d.on,d.color);
     if(d.ring) return ring(d.ring,d.color,d.id,d.box,d.pts,d.r);
-    if(d.add!=null) return add(d.add,d.color,d.card,d.big);
+    if(d.add!=null) return add(d.add,d.color,d.card,d.big,d.pop);
     if(d.line) return d.line==='break'?line.append(hel('br')):(line.innerHTML='',cap.classList.remove('built'));
     if(d.unring) return unring(d.unring);
     if(d.cross) return cross(d.pts,d.r,d.color);
@@ -3761,16 +3849,19 @@ function mount(root, data, opt){
   async function rebuild(i){ X.fast=true; scene('tree',{}); Leq.innerHTML=''; eqT=[];   // a step opened directly: earlier steps are laid out at once, silently
     try{ for(let k=0;k<i;k++) for(const b of steps[k].beats||[]) await beat(b); } finally{ X.fast=false; } }
   // show step i as it is when it starts (nothing plays)
-  async function show(i){ halt(); X.step=i; await rebuild(i); const b=(steps[i].beats||[])[0]; capT.textContent=data.caption===false?'':(b&&b.say||''); }
+  // "Try" / "Warm Up" label sign at the top corner of the stage, taken from the step name (Ahmed 2026-11-18)
+  const kindEl=hel('div','xkind'); kindEl.hidden=true; stageEl.append(kindEl);
+  function setKind(i){ const n=String((steps[i]&&steps[i].name)||''); const m=/^(Try|Warm Up|المحاولة|استعدوا|استعد)(?=[:\s]|$)/.exec(n); kindEl.hidden=!m; kindEl.textContent=m?(m[1]==='Try'||m[1]==='المحاولة'?(data.lang==='ar'?'وقت المحاولة':'Try'):(data.lang==='ar'?'استعدوا':'Warm Up')):''; }
+  async function show(i){ halt(); X.step=i; await rebuild(i); setKind(i); const b=(steps[i].beats||[])[0]; capT.textContent=data.caption===false?'':(b&&b.say||''); }
   // play step i from its start; onDone when its last line ended
   async function play1(i){
-    halt(); const g=X.gen; X.step=i; X.playing=true; if(opt.onState) opt.onState(true);
+    halt(); const g=X.gen; X.step=i; X.playing=true; setKind(i); if(opt.onState) opt.onState(true);
     try{ await rebuild(i); live(g); const bs=steps[i].beats||[]; for(let j=0;j<bs.length;j++){ if(opt.onBeat) opt.onBeat(i,j/bs.length); await beat(bs[j]); } live(g);
       X.playing=false; if(opt.onState) opt.onState(false); if(opt.onDone) opt.onDone(i);
     }catch(e){ if(e!==STOP) console.error(e); }
   }
   // phone held upright: the scene's sides are empty sky/grass, so show its middle bigger
-  function fit(){ const r=stageEl.getBoundingClientRect(); if(!r.height) return; svg.setAttribute('viewBox',PIC||r.width/r.height>=1.2?`0 0 ${W} ${VH}`:`185 0 630 ${H}`); }
+  function fit(){ root.classList.toggle('xar',!!PIC&&!root.classList.contains('xwide')&&!root.classList.contains('xtall')); root.style.setProperty('--xar',(1000/VH).toFixed(4)); const r=stageEl.getBoundingClientRect(); if(!r.height) return; svg.setAttribute('viewBox',PIC||r.width/r.height>=1.2?`0 0 ${W} ${VH}`:`185 0 630 ${H}`); }
   if(window.ResizeObserver) new ResizeObserver(fit).observe(stageEl); fit();
   return { play:play1, show, stop:halt, playing:()=>X.playing };
 }

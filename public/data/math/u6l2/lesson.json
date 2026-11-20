@@ -15,10 +15,11 @@
  ],
  "tabLabels": {
   "read": "Lesson",
-  "quiz": "Book Questions"
+  "quiz": "Exercise"
  },
- "pages": 8,
+ "pages": 9,
  "pageNums": [
+  64,
   64,
   64,
   64,
@@ -44,6 +45,68 @@
    "10": "../u1l4/words/ten.mp3"
   },
   "steps": [
+   {
+    "name": "Goal",
+    "beats": [
+     {
+      "say": "When we represent data, we can see what has the most and what has the least.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u6l2-story-1.jpg",
+        "w": 1000,
+        "h": 1352
+       }
+      ],
+      "audio": "explain/goal-1.mp3"
+     },
+     {
+      "say": "Here is the most.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          31,
+          141,
+          260,
+          1258
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "most",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/goal-2.mp3"
+     },
+     {
+      "say": "And here is the least.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          268,
+          757,
+          496,
+          1258
+         ],
+         "color": "red"
+        }
+       },
+       {
+        "add": "least",
+        "card": true,
+        "color": "red"
+       }
+      ],
+      "audio": "explain/goal-3.mp3",
+      "gap": 1200
+     }
+    ]
+   },
    {
     "name": "most: strawberries",
     "beats": [

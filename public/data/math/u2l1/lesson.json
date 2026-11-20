@@ -7,16 +7,159 @@
  "lines": [],
  "end": 1,
  "speakers": {},
- "vocab": [],
+ "vocab": [
+  {
+   "word": "1st",
+   "img": "data:draw,pos,1,10,en",
+   "parts": [
+    {
+     "t": "1st",
+     "audio": "words/first.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/first.mp3"
+   },
+   "ar": "first"
+  },
+  {
+   "word": "2nd",
+   "img": "data:draw,pos,2,10,en",
+   "parts": [
+    {
+     "t": "2nd",
+     "audio": "words/second.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/second.mp3"
+   },
+   "ar": "second"
+  },
+  {
+   "word": "3rd",
+   "img": "data:draw,pos,3,10,en",
+   "parts": [
+    {
+     "t": "3rd",
+     "audio": "words/third.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/third.mp3"
+   },
+   "ar": "third"
+  },
+  {
+   "word": "4th",
+   "img": "data:draw,pos,4,10,en",
+   "parts": [
+    {
+     "t": "4th",
+     "audio": "words/fourth.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/fourth.mp3"
+   },
+   "ar": "fourth"
+  },
+  {
+   "word": "5th",
+   "img": "data:draw,pos,5,10,en",
+   "parts": [
+    {
+     "t": "5th",
+     "audio": "words/fifth.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/fifth.mp3"
+   },
+   "ar": "fifth"
+  },
+  {
+   "word": "6th",
+   "img": "data:draw,pos,6,10,en",
+   "parts": [
+    {
+     "t": "6th",
+     "audio": "words/sixth.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/sixth.mp3"
+   },
+   "ar": "sixth"
+  },
+  {
+   "word": "7th",
+   "img": "data:draw,pos,7,10,en",
+   "parts": [
+    {
+     "t": "7th",
+     "audio": "words/seventh.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/seventh.mp3"
+   },
+   "ar": "seventh"
+  },
+  {
+   "word": "8th",
+   "img": "data:draw,pos,8,10,en",
+   "parts": [
+    {
+     "t": "8th",
+     "audio": "words/eighth.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/eighth.mp3"
+   },
+   "ar": "eighth"
+  },
+  {
+   "word": "9th",
+   "img": "data:draw,pos,9,10,en",
+   "parts": [
+    {
+     "t": "9th",
+     "audio": "words/ninth.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/ninth.mp3"
+   },
+   "ar": "ninth"
+  },
+  {
+   "word": "10th",
+   "img": "data:draw,pos,10,10,en",
+   "parts": [
+    {
+     "t": "10th",
+     "audio": "words/tenth.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/tenth.mp3"
+   },
+   "ar": "tenth"
+  }
+ ],
  "tabs": [
   "read",
+  "words",
   "quiz",
   "booklet",
   "workbook"
  ],
  "tabLabels": {
   "read": "Lesson",
-  "quiz": "Book Questions"
+  "quiz": "Exercise",
+  "words": "Words"
  },
  "pages": 7,
  "pageNums": [
@@ -649,5 +792,12 @@
     ]
    }
   ]
- }
+ },
+ "hints": {
+  "vocabPick": "Pick a word",
+  "vocabTeach": "Listen and repeat",
+  "vocabWrite": "Write the word letter by letter",
+  "word": "Tap any word you hear"
+ },
+ "vocabRepeats": 3
 }

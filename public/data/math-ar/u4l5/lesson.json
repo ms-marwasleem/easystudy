@@ -10,11 +10,13 @@
  "vocab": [],
  "tabs": [
   "read",
-  "quiz"
+  "quiz",
+  "workbook"
  ],
  "tabLabels": {
   "read": "الدرس",
-  "quiz": "أسئلة الكتاب"
+  "quiz": "هيا نتدرب",
+  "workbook": "كتاب التقييمات"
  },
  "pages": 7,
  "layout": "explain",
@@ -27,10 +29,148 @@
       "say": "هيا نحكي قصة.",
       "do": [
        {
-        "scene": "pic",
-        "img": "../../pics/sc-math-ar-u4l5-scene.png",
-        "w": 1000,
-        "h": 782
+        "scene": "free",
+        "frame": false,
+        "ih": 782,
+        "bg": "<defs><linearGradient id=\"pk-sky\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#8fd2ff\"/><stop offset=\"1\" stop-color=\"#e6f7ff\"/></linearGradient><linearGradient id=\"pk-gr\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#86d86b\"/><stop offset=\"1\" stop-color=\"#58b24a\"/></linearGradient></defs><rect x=\"-12\" y=\"-12\" width=\"1024\" height=\"800\" fill=\"url(#pk-sky)\"/><ellipse cx=\"300\" cy=\"46\" rx=\"74\" ry=\"26\" fill=\"#fff\" opacity=\".92\"/><ellipse cx=\"350\" cy=\"62\" rx=\"60\" ry=\"22\" fill=\"#fff\" opacity=\".92\"/><ellipse cx=\"760\" cy=\"40\" rx=\"70\" ry=\"24\" fill=\"#fff\" opacity=\".92\"/><path d=\"M-12 300 Q250 250 520 295 T1012 280 L1012 800 L-12 800Z\" fill=\"url(#pk-gr)\"/><path d=\"M380 800 Q470 560 560 330 L640 330 Q650 560 760 800Z\" fill=\"#f0dca8\" opacity=\".85\"/><g fill=\"#9b6a35\"><rect x=\"86\" y=\"250\" width=\"270\" height=\"16\" rx=\"6\"/><rect x=\"86\" y=\"296\" width=\"270\" height=\"22\" rx=\"6\"/><rect x=\"104\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"322\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"716\" y=\"250\" width=\"270\" height=\"16\" rx=\"6\"/><rect x=\"716\" y=\"296\" width=\"270\" height=\"22\" rx=\"6\"/><rect x=\"734\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"952\" y=\"318\" width=\"16\" height=\"44\"/></g>",
+        "items": [
+         {
+          "id": "t0",
+          "img": "../../pics/tree.png",
+          "x": 484,
+          "y": 0,
+          "w": 232,
+          "h": 300
+         },
+         {
+          "id": "t1",
+          "img": "../../pics/tree.png",
+          "x": 856,
+          "y": 35,
+          "w": 209,
+          "h": 270
+         },
+         {
+          "id": "p0",
+          "img": "../../pics/girl.png",
+          "x": 94,
+          "y": 108,
+          "w": 111,
+          "h": 215
+         },
+         {
+          "id": "p1",
+          "img": "../../pics/boy-waving.png",
+          "x": 174,
+          "y": 120,
+          "w": 171,
+          "h": 190
+         },
+         {
+          "id": "p2",
+          "img": "../../pics/man.png",
+          "x": 788,
+          "y": 88,
+          "w": 94,
+          "h": 235
+         },
+         {
+          "id": "p3",
+          "img": "../../pics/boy-sit.png",
+          "x": 209,
+          "y": 412,
+          "w": 122,
+          "h": 215
+         },
+         {
+          "id": "p4",
+          "img": "../../pics/boy-waving.png",
+          "x": 638,
+          "y": 445,
+          "w": 153,
+          "h": 190
+         },
+         {
+          "id": "c0",
+          "img": "../../pics/cat.png",
+          "x": 431,
+          "y": 322,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c1",
+          "img": "../../pics/cat.png",
+          "x": 501,
+          "y": 422,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c2",
+          "img": "../../pics/cat.png",
+          "x": 51,
+          "y": 498,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c3",
+          "img": "../../pics/cat.png",
+          "x": 871,
+          "y": 438,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c4",
+          "img": "../../pics/cat.png",
+          "x": 826,
+          "y": 562,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "b0",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 134,
+          "y": 14,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b1",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 344,
+          "y": 79,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b2",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 420,
+          "y": 24,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b3",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 720,
+          "y": 24,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b4",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 624,
+          "y": 124,
+          "w": 111,
+          "h": 72
+         }
+        ]
        },
        {
         "eq": [
@@ -84,10 +224,148 @@
       "say": "ننظر إلى القطط.",
       "do": [
        {
-        "scene": "pic",
-        "img": "../../pics/sc-math-ar-u4l5-scene.png",
-        "w": 1000,
-        "h": 782
+        "scene": "free",
+        "frame": false,
+        "ih": 782,
+        "bg": "<defs><linearGradient id=\"pk-sky\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#8fd2ff\"/><stop offset=\"1\" stop-color=\"#e6f7ff\"/></linearGradient><linearGradient id=\"pk-gr\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#86d86b\"/><stop offset=\"1\" stop-color=\"#58b24a\"/></linearGradient></defs><rect x=\"-12\" y=\"-12\" width=\"1024\" height=\"800\" fill=\"url(#pk-sky)\"/><ellipse cx=\"300\" cy=\"46\" rx=\"74\" ry=\"26\" fill=\"#fff\" opacity=\".92\"/><ellipse cx=\"350\" cy=\"62\" rx=\"60\" ry=\"22\" fill=\"#fff\" opacity=\".92\"/><ellipse cx=\"760\" cy=\"40\" rx=\"70\" ry=\"24\" fill=\"#fff\" opacity=\".92\"/><path d=\"M-12 300 Q250 250 520 295 T1012 280 L1012 800 L-12 800Z\" fill=\"url(#pk-gr)\"/><path d=\"M380 800 Q470 560 560 330 L640 330 Q650 560 760 800Z\" fill=\"#f0dca8\" opacity=\".85\"/><g fill=\"#9b6a35\"><rect x=\"86\" y=\"250\" width=\"270\" height=\"16\" rx=\"6\"/><rect x=\"86\" y=\"296\" width=\"270\" height=\"22\" rx=\"6\"/><rect x=\"104\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"322\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"716\" y=\"250\" width=\"270\" height=\"16\" rx=\"6\"/><rect x=\"716\" y=\"296\" width=\"270\" height=\"22\" rx=\"6\"/><rect x=\"734\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"952\" y=\"318\" width=\"16\" height=\"44\"/></g>",
+        "items": [
+         {
+          "id": "t0",
+          "img": "../../pics/tree.png",
+          "x": 484,
+          "y": 0,
+          "w": 232,
+          "h": 300
+         },
+         {
+          "id": "t1",
+          "img": "../../pics/tree.png",
+          "x": 856,
+          "y": 35,
+          "w": 209,
+          "h": 270
+         },
+         {
+          "id": "p0",
+          "img": "../../pics/girl.png",
+          "x": 94,
+          "y": 108,
+          "w": 111,
+          "h": 215
+         },
+         {
+          "id": "p1",
+          "img": "../../pics/boy-waving.png",
+          "x": 174,
+          "y": 120,
+          "w": 171,
+          "h": 190
+         },
+         {
+          "id": "p2",
+          "img": "../../pics/man.png",
+          "x": 788,
+          "y": 88,
+          "w": 94,
+          "h": 235
+         },
+         {
+          "id": "p3",
+          "img": "../../pics/boy-sit.png",
+          "x": 209,
+          "y": 412,
+          "w": 122,
+          "h": 215
+         },
+         {
+          "id": "p4",
+          "img": "../../pics/boy-waving.png",
+          "x": 638,
+          "y": 445,
+          "w": 153,
+          "h": 190
+         },
+         {
+          "id": "c0",
+          "img": "../../pics/cat.png",
+          "x": 431,
+          "y": 322,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c1",
+          "img": "../../pics/cat.png",
+          "x": 501,
+          "y": 422,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c2",
+          "img": "../../pics/cat.png",
+          "x": 51,
+          "y": 498,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c3",
+          "img": "../../pics/cat.png",
+          "x": 871,
+          "y": 438,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c4",
+          "img": "../../pics/cat.png",
+          "x": 826,
+          "y": 562,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "b0",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 134,
+          "y": 14,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b1",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 344,
+          "y": 79,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b2",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 420,
+          "y": 24,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b3",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 720,
+          "y": 24,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b4",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 624,
+          "y": 124,
+          "w": 111,
+          "h": 72
+         }
+        ]
        },
        {
         "eq": [
@@ -180,34 +458,34 @@
       "audio": "../../math-ar-audio/776e3ccecf.mp3"
      },
      {
-      "do": [
-       {
-        "cross": true,
-        "pts": [
-         [
-          100,
-          560
-         ],
-         [
-          920,
-          500
-         ],
-         [
-          875,
-          625
-         ]
-        ],
-        "r": 55,
-        "color": "red"
-       }
-      ]
-     },
-     {
       "say": "غادرت منهم 3 قطط.",
       "do": [
        {
         "add": "غادرت منهم 3 قطط.",
         "color": "red"
+       },
+       {
+        "move": [
+         {
+          "id": "c2",
+          "x": -220,
+          "y": 498
+         },
+         {
+          "id": "c3",
+          "x": 1120,
+          "y": 438
+         },
+         {
+          "id": "c4",
+          "x": 1120,
+          "y": 562
+         }
+        ],
+        "ms": 2400
+       },
+       {
+        "unring": "g1"
        },
        {
         "fly": "3",
@@ -260,6 +538,10 @@
       ]
      },
      {
+      "say": "قصة الطرح:",
+      "do": []
+     },
+     {
       "say": "توجد 5 قطط. غادرت منهم 3 قطط. كم عدد القطط المتبقية؟",
       "do": [],
       "audio": "../../math-ar-audio/3b2b557f77.mp3"
@@ -273,10 +555,148 @@
       "say": "ننظر إلى الطيور الرمادية.",
       "do": [
        {
-        "scene": "pic",
-        "img": "../../pics/sc-math-ar-u4l5-scene.png",
-        "w": 1000,
-        "h": 782
+        "scene": "free",
+        "frame": false,
+        "ih": 782,
+        "bg": "<defs><linearGradient id=\"pk-sky\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#8fd2ff\"/><stop offset=\"1\" stop-color=\"#e6f7ff\"/></linearGradient><linearGradient id=\"pk-gr\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#86d86b\"/><stop offset=\"1\" stop-color=\"#58b24a\"/></linearGradient></defs><rect x=\"-12\" y=\"-12\" width=\"1024\" height=\"800\" fill=\"url(#pk-sky)\"/><ellipse cx=\"300\" cy=\"46\" rx=\"74\" ry=\"26\" fill=\"#fff\" opacity=\".92\"/><ellipse cx=\"350\" cy=\"62\" rx=\"60\" ry=\"22\" fill=\"#fff\" opacity=\".92\"/><ellipse cx=\"760\" cy=\"40\" rx=\"70\" ry=\"24\" fill=\"#fff\" opacity=\".92\"/><path d=\"M-12 300 Q250 250 520 295 T1012 280 L1012 800 L-12 800Z\" fill=\"url(#pk-gr)\"/><path d=\"M380 800 Q470 560 560 330 L640 330 Q650 560 760 800Z\" fill=\"#f0dca8\" opacity=\".85\"/><g fill=\"#9b6a35\"><rect x=\"86\" y=\"250\" width=\"270\" height=\"16\" rx=\"6\"/><rect x=\"86\" y=\"296\" width=\"270\" height=\"22\" rx=\"6\"/><rect x=\"104\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"322\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"716\" y=\"250\" width=\"270\" height=\"16\" rx=\"6\"/><rect x=\"716\" y=\"296\" width=\"270\" height=\"22\" rx=\"6\"/><rect x=\"734\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"952\" y=\"318\" width=\"16\" height=\"44\"/></g>",
+        "items": [
+         {
+          "id": "t0",
+          "img": "../../pics/tree.png",
+          "x": 484,
+          "y": 0,
+          "w": 232,
+          "h": 300
+         },
+         {
+          "id": "t1",
+          "img": "../../pics/tree.png",
+          "x": 856,
+          "y": 35,
+          "w": 209,
+          "h": 270
+         },
+         {
+          "id": "p0",
+          "img": "../../pics/girl.png",
+          "x": 94,
+          "y": 108,
+          "w": 111,
+          "h": 215
+         },
+         {
+          "id": "p1",
+          "img": "../../pics/boy-waving.png",
+          "x": 174,
+          "y": 120,
+          "w": 171,
+          "h": 190
+         },
+         {
+          "id": "p2",
+          "img": "../../pics/man.png",
+          "x": 788,
+          "y": 88,
+          "w": 94,
+          "h": 235
+         },
+         {
+          "id": "p3",
+          "img": "../../pics/boy-sit.png",
+          "x": 209,
+          "y": 412,
+          "w": 122,
+          "h": 215
+         },
+         {
+          "id": "p4",
+          "img": "../../pics/boy-waving.png",
+          "x": 638,
+          "y": 445,
+          "w": 153,
+          "h": 190
+         },
+         {
+          "id": "c0",
+          "img": "../../pics/cat.png",
+          "x": 431,
+          "y": 322,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c1",
+          "img": "../../pics/cat.png",
+          "x": 501,
+          "y": 422,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c2",
+          "img": "../../pics/cat.png",
+          "x": 51,
+          "y": 498,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c3",
+          "img": "../../pics/cat.png",
+          "x": 871,
+          "y": 438,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c4",
+          "img": "../../pics/cat.png",
+          "x": 826,
+          "y": 562,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "b0",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 134,
+          "y": 14,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b1",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 344,
+          "y": 79,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b2",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 420,
+          "y": 24,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b3",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 720,
+          "y": 24,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b4",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 624,
+          "y": 124,
+          "w": 111,
+          "h": 72
+         }
+        ]
        },
        {
         "eq": [
@@ -369,34 +789,34 @@
       "audio": "../../math-ar-audio/9355f80ec8.mp3"
      },
      {
-      "do": [
-       {
-        "cross": true,
-        "pts": [
-         [
-          190,
-          50
-         ],
-         [
-          400,
-          115
-         ],
-         [
-          475,
-          60
-         ]
-        ],
-        "r": 45,
-        "color": "red"
-       }
-      ]
-     },
-     {
       "say": "طارت منها 3 طيور.",
       "do": [
        {
         "add": "طارت منها 3 طيور.",
         "color": "red"
+       },
+       {
+        "move": [
+         {
+          "id": "b0",
+          "x": -200,
+          "y": -140
+         },
+         {
+          "id": "b1",
+          "x": 300,
+          "y": -160
+         },
+         {
+          "id": "b2",
+          "x": 640,
+          "y": -160
+         }
+        ],
+        "ms": 2400
+       },
+       {
+        "unring": "g1"
        },
        {
         "fly": "3",
@@ -449,6 +869,10 @@
       ]
      },
      {
+      "say": "قصة الطرح:",
+      "do": []
+     },
+     {
       "say": "توجد 5 طيور رمادية. طارت منها 3 طيور. كم عدد الطيور الرمادية المتبقية؟",
       "do": [],
       "audio": "../../math-ar-audio/35870ff8a7.mp3"
@@ -462,10 +886,148 @@
       "say": "ننظر إلى الأشخاص.",
       "do": [
        {
-        "scene": "pic",
-        "img": "../../pics/sc-math-ar-u4l5-scene.png",
-        "w": 1000,
-        "h": 782
+        "scene": "free",
+        "frame": false,
+        "ih": 782,
+        "bg": "<defs><linearGradient id=\"pk-sky\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#8fd2ff\"/><stop offset=\"1\" stop-color=\"#e6f7ff\"/></linearGradient><linearGradient id=\"pk-gr\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#86d86b\"/><stop offset=\"1\" stop-color=\"#58b24a\"/></linearGradient></defs><rect x=\"-12\" y=\"-12\" width=\"1024\" height=\"800\" fill=\"url(#pk-sky)\"/><ellipse cx=\"300\" cy=\"46\" rx=\"74\" ry=\"26\" fill=\"#fff\" opacity=\".92\"/><ellipse cx=\"350\" cy=\"62\" rx=\"60\" ry=\"22\" fill=\"#fff\" opacity=\".92\"/><ellipse cx=\"760\" cy=\"40\" rx=\"70\" ry=\"24\" fill=\"#fff\" opacity=\".92\"/><path d=\"M-12 300 Q250 250 520 295 T1012 280 L1012 800 L-12 800Z\" fill=\"url(#pk-gr)\"/><path d=\"M380 800 Q470 560 560 330 L640 330 Q650 560 760 800Z\" fill=\"#f0dca8\" opacity=\".85\"/><g fill=\"#9b6a35\"><rect x=\"86\" y=\"250\" width=\"270\" height=\"16\" rx=\"6\"/><rect x=\"86\" y=\"296\" width=\"270\" height=\"22\" rx=\"6\"/><rect x=\"104\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"322\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"716\" y=\"250\" width=\"270\" height=\"16\" rx=\"6\"/><rect x=\"716\" y=\"296\" width=\"270\" height=\"22\" rx=\"6\"/><rect x=\"734\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"952\" y=\"318\" width=\"16\" height=\"44\"/></g>",
+        "items": [
+         {
+          "id": "t0",
+          "img": "../../pics/tree.png",
+          "x": 484,
+          "y": 0,
+          "w": 232,
+          "h": 300
+         },
+         {
+          "id": "t1",
+          "img": "../../pics/tree.png",
+          "x": 856,
+          "y": 35,
+          "w": 209,
+          "h": 270
+         },
+         {
+          "id": "p0",
+          "img": "../../pics/girl.png",
+          "x": 94,
+          "y": 108,
+          "w": 111,
+          "h": 215
+         },
+         {
+          "id": "p1",
+          "img": "../../pics/boy-waving.png",
+          "x": 174,
+          "y": 120,
+          "w": 171,
+          "h": 190
+         },
+         {
+          "id": "p2",
+          "img": "../../pics/man.png",
+          "x": 788,
+          "y": 88,
+          "w": 94,
+          "h": 235
+         },
+         {
+          "id": "p3",
+          "img": "../../pics/boy-sit.png",
+          "x": 209,
+          "y": 412,
+          "w": 122,
+          "h": 215
+         },
+         {
+          "id": "p4",
+          "img": "../../pics/boy-waving.png",
+          "x": 638,
+          "y": 445,
+          "w": 153,
+          "h": 190
+         },
+         {
+          "id": "c0",
+          "img": "../../pics/cat.png",
+          "x": 431,
+          "y": 322,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c1",
+          "img": "../../pics/cat.png",
+          "x": 501,
+          "y": 422,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c2",
+          "img": "../../pics/cat.png",
+          "x": 51,
+          "y": 498,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c3",
+          "img": "../../pics/cat.png",
+          "x": 871,
+          "y": 438,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c4",
+          "img": "../../pics/cat.png",
+          "x": 826,
+          "y": 562,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "b0",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 134,
+          "y": 14,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b1",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 344,
+          "y": 79,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b2",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 420,
+          "y": 24,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b3",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 720,
+          "y": 24,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b4",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 624,
+          "y": 124,
+          "w": 111,
+          "h": 72
+         }
+        ]
        },
        {
         "eq": [
@@ -558,34 +1120,34 @@
       "audio": "../../math-ar-audio/d8f0efe2a4.mp3"
      },
      {
-      "do": [
-       {
-        "cross": true,
-        "pts": [
-         [
-          150,
-          215
-         ],
-         [
-          260,
-          215
-         ],
-         [
-          835,
-          205
-         ]
-        ],
-        "r": 75,
-        "color": "red"
-       }
-      ]
-     },
-     {
       "say": "ذهب 3 منهم إلى المنزل.",
       "do": [
        {
         "add": "ذهب 3 منهم إلى المنزل.",
         "color": "red"
+       },
+       {
+        "move": [
+         {
+          "id": "p0",
+          "x": -260,
+          "y": 108
+         },
+         {
+          "id": "p1",
+          "x": -330,
+          "y": 120
+         },
+         {
+          "id": "p2",
+          "x": 1150,
+          "y": 88
+         }
+        ],
+        "ms": 2400
+       },
+       {
+        "unring": "g1"
        },
        {
         "fly": "3",
@@ -636,6 +1198,10 @@
         "value": "2"
        }
       ]
+     },
+     {
+      "say": "قصة الطرح:",
+      "do": []
      },
      {
       "say": "يوجد 5 أشخاص. ذهب 3 منهم إلى المنزل. كم عدد الأشخاص المتبقين؟",
@@ -758,6 +1324,10 @@
       "audio": "../../math-ar-audio/fc919ef5e2.mp3"
      },
      {
+      "say": "قصة الطرح:",
+      "do": []
+     },
+     {
       "say": "توجد 4 بطات. سبحت واحدة بعيدًا. كم عدد البطات المتبقية؟",
       "do": [
        {
@@ -866,7 +1436,7 @@
           "حمراء.",
           "طار",
           "منها",
-          "1.",
+          "1",
           "كم",
           "عدد",
           "الطيور",
@@ -891,6 +1461,10 @@
        }
       ],
       "audio": "../../math-ar-audio/fc919ef5e2.mp3"
+     },
+     {
+      "say": "قصة الطرح:",
+      "do": []
      },
      {
       "say": "توجد 4 طيور حمراء. طار منها طائر واحد. كم عدد الطيور الحمراء المتبقية؟",
@@ -1000,7 +1574,7 @@
           "زهور.",
           "تأخذ",
           "الفتاة",
-          "1.",
+          "1",
           "كم",
           "عدد",
           "الزهور",
@@ -1022,6 +1596,10 @@
        }
       ],
       "audio": "../../math-ar-audio/fc919ef5e2.mp3"
+     },
+     {
+      "say": "قصة الطرح:",
+      "do": []
      },
      {
       "say": "توجد 4 زهور. تأخذ الفتاة زهرة واحدة. كم عدد الزهور المتبقية؟",

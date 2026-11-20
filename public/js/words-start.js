@@ -4,6 +4,8 @@ levelUp=function(id,isNew){ ewPopup(tab==='practice'?'practice':'words'); };
 async function ewStart(){
   busy(true);
   try{ await ewLoad(); }catch(e){ busy(false); message('أوبس!','التطبيق ما اتحملش. اتأكد من النت وجرب تاني.'); $('#msgOk').onclick=()=>location.reload(); return; }
+  try{ await ESET_P; }catch(e){}   // the school permission (dashboard) decides the child's curriculum
+  try{ const k=kidNow(); EW.curr=k&&k.curr?currEff(k.curr):EW.curr; }catch(e){}
   ewDefs(); await cssReady;
   if(document.fonts&&document.fonts.ready) await Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,700))]);
   $('#ewWlLogo').innerHTML=ewIcon('app'); paintHud(); kidPaint(); busy(false);

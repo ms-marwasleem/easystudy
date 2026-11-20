@@ -7,16 +7,84 @@
  "lines": [],
  "end": 1,
  "speakers": {},
- "vocab": [],
+ "vocab": [
+  {
+   "word": "one",
+   "img": "data:draw,num,1,en",
+   "parts": [
+    {
+     "t": "one",
+     "audio": "../u1l2/words/one.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u1l2/words/one.mp3"
+   }
+  },
+  {
+   "word": "two",
+   "img": "data:draw,num,2,en",
+   "parts": [
+    {
+     "t": "two",
+     "audio": "../u1l2/words/two.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u1l2/words/two.mp3"
+   }
+  },
+  {
+   "word": "three",
+   "img": "data:draw,num,3,en",
+   "parts": [
+    {
+     "t": "three",
+     "audio": "../u1l2/words/three.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u1l2/words/three.mp3"
+   }
+  },
+  {
+   "word": "four",
+   "img": "data:draw,num,4,en",
+   "parts": [
+    {
+     "t": "four",
+     "audio": "../u1l2/words/four.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u1l2/words/four.mp3"
+   }
+  },
+  {
+   "word": "five",
+   "img": "data:draw,num,5,en",
+   "parts": [
+    {
+     "t": "five",
+     "audio": "../u1l2/words/five.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u1l2/words/five.mp3"
+   }
+  }
+ ],
  "tabs": [
   "read",
+  "words",
   "quiz",
   "booklet",
   "workbook"
  ],
  "tabLabels": {
   "read": "Explain",
-  "workbook": "Assessment Book"
+  "workbook": "Assessment Book",
+  "words": "Words"
  },
  "type": "math",
  "math": {
@@ -47,5 +115,12 @@
     "audio": "words/five.mp3"
    }
   ]
- }
+ },
+ "hints": {
+  "vocabPick": "Pick a word",
+  "vocabTeach": "Listen and repeat",
+  "vocabWrite": "Write the word letter by letter",
+  "word": "Tap any word you hear"
+ },
+ "vocabRepeats": 3
 }

@@ -172,6 +172,50 @@
    "ex": 3
   },
   {
+   "type": "pick",
+   "page": 46,
+   "task": "Which picture shows 3 - 1?",
+   "taskAudio": "q/task-bk-which-picture-shows.mp3",
+   "items": [
+    {
+     "word": "3 - 1",
+     "audio": "q/bk-which-3-m-1.mp3",
+     "pics": [
+      "../../pics/u6l1-bird-on.png#1|../../pics/u6l1-bird-on.png#3f",
+      "../../pics/u6l1-bird-on.png#3|../../pics/u6l1-bird-on.png#1f",
+      "../../pics/u6l1-bird-on.png#1|../../pics/u6l1-bird-on.png#1f"
+     ],
+     "answer": 1
+    }
+   ],
+   "mark": "ring",
+   "ex": 1,
+   "grp": "bk-46-which",
+   "book": "booklet"
+  },
+  {
+   "type": "pick",
+   "page": 46,
+   "task": "Which picture shows 5 - 3?",
+   "taskAudio": "q/task-bk-which-picture-shows.mp3",
+   "items": [
+    {
+     "word": "5 - 3",
+     "audio": "q/bk-which-5-m-3.mp3",
+     "pics": [
+      "../../pics/car.png#3|../../pics/car.png#2f",
+      "../../pics/car.png#2|../../pics/car.png#3f",
+      "../../pics/car.png#3|../../pics/car.png#1f"
+     ],
+     "answer": 1
+    }
+   ],
+   "mark": "ring",
+   "ex": 1,
+   "grp": "bk-46-which",
+   "book": "booklet"
+  },
+  {
    "type": "mcq",
    "page": 46,
    "task": "Subtract.",
@@ -287,7 +331,7 @@
     }
    ],
    "book": "booklet",
-   "ex": 4
+   "ex": 2
   },
   {
    "type": "mcq",
@@ -369,7 +413,7 @@
     }
    ],
    "book": "booklet",
-   "ex": 5
+   "ex": 3
   }
  ]
 }

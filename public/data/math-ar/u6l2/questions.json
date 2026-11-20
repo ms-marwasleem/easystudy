@@ -22,7 +22,8 @@
      "askSay": "أيها الأكثر عدداً؟",
      "word": "الأكثر عدداً هو الخيار.",
      "askAudio": "../../math-ar-audio/0992f76966.mp3",
-     "audio": "../../math-ar-audio/b057a0ad9a.mp3"
+     "audio": "../../math-ar-audio/b057a0ad9a.mp3",
+     "noStem": true
     }
    ],
    "taskAudio": "../../math-ar-audio/0cb4a62631.mp3"
@@ -49,7 +50,8 @@
      "askSay": "أيها الأقل عدداً؟",
      "word": "الأقل عدداً هو الباذنجان.",
      "askAudio": "../../math-ar-audio/b609fd0772.mp3",
-     "audio": "../../math-ar-audio/7eb0974f28.mp3"
+     "audio": "../../math-ar-audio/7eb0974f28.mp3",
+     "noStem": true
     }
    ],
    "taskAudio": "../../math-ar-audio/0cb4a62631.mp3"
@@ -75,7 +77,8 @@
      "askSay": "كم عدد ثمرات الخيار؟",
      "word": "عدد ثمرات الخيار ثمانية.",
      "askAudio": "../../math-ar-audio/a0eb594ff8.mp3",
-     "audio": "../../math-ar-audio/49f2978166.mp3"
+     "audio": "../../math-ar-audio/49f2978166.mp3",
+     "noStem": true
     }
    ],
    "taskAudio": "../../math-ar-audio/0cb4a62631.mp3"
@@ -102,7 +105,8 @@
      "askSay": "أيها الأكثر عدداً؟",
      "word": "الأكثر عدداً هو الطيور.",
      "audio": "../../math-ar-audio/62a516a2f1.mp3",
-     "askAudio": "../../math-ar-audio/0992f76966.mp3"
+     "askAudio": "../../math-ar-audio/0992f76966.mp3",
+     "noStem": true
     }
    ],
    "taskAudio": "../../math-ar-audio/0cb4a62631.mp3"
@@ -129,7 +133,8 @@
      "askSay": "أيها الأقل عدداً؟",
      "word": "الأقل عدداً هو الأسود.",
      "audio": "../../math-ar-audio/38138ff3ff.mp3",
-     "askAudio": "../../math-ar-audio/b609fd0772.mp3"
+     "askAudio": "../../math-ar-audio/b609fd0772.mp3",
+     "noStem": true
     }
    ],
    "taskAudio": "../../math-ar-audio/0cb4a62631.mp3"
@@ -155,7 +160,8 @@
      "askSay": "كم عدد الجمال؟",
      "word": "عدد الجمال أربعة.",
      "askAudio": "../../math-ar-audio/fea9b5bacb.mp3",
-     "audio": "../../math-ar-audio/6fbf82d881.mp3"
+     "audio": "../../math-ar-audio/6fbf82d881.mp3",
+     "noStem": true
     }
    ],
    "taskAudio": "../../math-ar-audio/0cb4a62631.mp3"
@@ -180,7 +186,8 @@
      "askSay": "أي الحيوانات لها نفس العدد؟",
      "word": "الزرافات والجمال لها نفس العدد.",
      "askAudio": "../../math-ar-audio/efab779b95.mp3",
-     "audio": "../../math-ar-audio/509ab44f07.mp3"
+     "audio": "../../math-ar-audio/509ab44f07.mp3",
+     "noStem": true
     }
    ],
    "taskAudio": "../../math-ar-audio/0cb4a62631.mp3"
@@ -193,7 +200,7 @@
    "items": [
     {
      "pics": [
-      "../../pics/hw6-fruit.jpg"
+      "live:hw6-fruit"
      ],
      "ask": "أي الفواكه أكثر عدداً؟",
      "stem": "الإجابة: __",
@@ -207,7 +214,8 @@
      "askSay": "أي الفواكه أكثر عدداً؟",
      "word": "الإجابة التفاح.",
      "askAudio": "../../math-ar-audio/98d72fc742.mp3",
-     "audio": "../../math-ar-audio/97ad118e8c.mp3"
+     "audio": "../../math-ar-audio/97ad118e8c.mp3",
+     "noStem": true
     }
    ],
    "book": "workbook",
@@ -221,7 +229,7 @@
    "items": [
     {
      "pics": [
-      "../../pics/hw6-fruit.jpg"
+      "live:hw6-fruit"
      ],
      "ask": "أي الفواكه أقل عدداً؟",
      "stem": "الإجابة: __",
@@ -235,7 +243,8 @@
      "askSay": "أي الفواكه أقل عدداً؟",
      "word": "الإجابة البرتقال.",
      "askAudio": "../../math-ar-audio/1e5b1c0ac8.mp3",
-     "audio": "../../math-ar-audio/6ebdd5dd56.mp3"
+     "audio": "../../math-ar-audio/6ebdd5dd56.mp3",
+     "noStem": true
     }
    ],
    "book": "workbook",
@@ -249,7 +258,7 @@
    "items": [
     {
      "pics": [
-      "../../pics/hw6-fruit.jpg"
+      "live:hw6-fruit"
      ],
      "ask": "كم تلميذاً يحب الموز؟",
      "stem": "الإجابة: __",
@@ -263,7 +272,8 @@
      "askSay": "كم تلميذاً يحب الموز؟",
      "word": "الإجابة 6.",
      "askAudio": "../../math-ar-audio/a81ffaa05b.mp3",
-     "audio": "../../math-ar-audio/367e26d719.mp3"
+     "audio": "../../math-ar-audio/367e26d719.mp3",
+     "noStem": true
     }
    ],
    "book": "workbook",
@@ -277,7 +287,7 @@
    "items": [
     {
      "pics": [
-      "../../pics/hw6-fruit.jpg"
+      "live:hw6-fruit"
      ],
      "ask": "كم تلميذاً يحب التفاح؟",
      "stem": "الإجابة: __",
@@ -291,7 +301,8 @@
      "askSay": "كم تلميذاً يحب التفاح؟",
      "word": "الإجابة 8.",
      "askAudio": "../../math-ar-audio/913ebb5b4f.mp3",
-     "audio": "../../math-ar-audio/d015823145.mp3"
+     "audio": "../../math-ar-audio/d015823145.mp3",
+     "noStem": true
     }
    ],
    "book": "workbook",
@@ -305,7 +316,7 @@
    "items": [
     {
      "pics": [
-      "../../pics/hw6-fruit.jpg"
+      "live:hw6-fruit"
      ],
      "ask": "كم تلميذاً يحب الفراولة؟",
      "stem": "الإجابة: __",
@@ -319,7 +330,8 @@
      "askSay": "كم تلميذاً يحب الفراولة؟",
      "word": "الإجابة 7.",
      "askAudio": "../../math-ar-audio/9c8f7c682d.mp3",
-     "audio": "../../math-ar-audio/6509dcf9a7.mp3"
+     "audio": "../../math-ar-audio/6509dcf9a7.mp3",
+     "noStem": true
     }
    ],
    "book": "workbook",

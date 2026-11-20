@@ -7,16 +7,84 @@
  "lines": [],
  "end": 1,
  "speakers": {},
- "vocab": [],
+ "vocab": [
+  {
+   "word": "واحد",
+   "img": "data:draw,num,1,ar",
+   "parts": [
+    {
+     "t": "واحد",
+     "audio": "../../math-ar-audio/33307fa285.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/33307fa285.mp3"
+   }
+  },
+  {
+   "word": "اثنان",
+   "img": "data:draw,num,2,ar",
+   "parts": [
+    {
+     "t": "اثنان",
+     "audio": "../../math-ar-audio/d7287ea3a6.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/d7287ea3a6.mp3"
+   }
+  },
+  {
+   "word": "ثلاثة",
+   "img": "data:draw,num,3,ar",
+   "parts": [
+    {
+     "t": "ثلاثة",
+     "audio": "../../math-ar-audio/eaf34ddbf8.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/eaf34ddbf8.mp3"
+   }
+  },
+  {
+   "word": "أربعة",
+   "img": "data:draw,num,4,ar",
+   "parts": [
+    {
+     "t": "أربعة",
+     "audio": "../../math-ar-audio/c6b58ddd38.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/c6b58ddd38.mp3"
+   }
+  },
+  {
+   "word": "خمسة",
+   "img": "data:draw,num,5,ar",
+   "parts": [
+    {
+     "t": "خمسة",
+     "audio": "../../math-ar-audio/3704f61fe7.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/3704f61fe7.mp3"
+   }
+  }
+ ],
  "tabs": [
   "read",
+  "words",
   "quiz",
   "workbook"
  ],
  "tabLabels": {
   "read": "الدرس",
-  "quiz": "أسئلة الكتاب",
-  "workbook": "كتاب التقييمات"
+  "quiz": "هيا نتدرب",
+  "workbook": "كتاب التقييمات",
+  "words": "الكلمات"
  },
  "type": "math",
  "math": {
@@ -42,5 +110,12 @@
     "word": "خمسة"
    }
   ]
- }
+ },
+ "hints": {
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف",
+  "word": "اضغط على أي كلمة تسمعها"
+ },
+ "vocabRepeats": 3
 }

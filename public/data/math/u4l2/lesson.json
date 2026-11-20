@@ -16,7 +16,7 @@
  ],
  "tabLabels": {
   "read": "Lesson",
-  "quiz": "Book Questions"
+  "quiz": "Exercise"
  },
  "pages": 6,
  "pageNums": [
@@ -49,11 +49,43 @@
       "say": "Use subtraction when you want to find out: How many are left?",
       "do": [
        {
-        "scene": "pic",
-        "img": "../../pics/sc-math-ar-u4l2-scene.png",
-        "w": 1000,
-        "h": 500,
-        "frame": false
+        "scene": "free",
+        "items": [
+         {
+          "id": "a0",
+          "img": "../../pics/apple-toon.png",
+          "x": 115,
+          "y": 80,
+          "w": 170,
+          "h": 190
+         },
+         {
+          "id": "a1",
+          "img": "../../pics/apple-toon.png",
+          "x": 415,
+          "y": 80,
+          "w": 170,
+          "h": 190
+         },
+         {
+          "id": "a2",
+          "img": "../../pics/apple-toon.png",
+          "x": 715,
+          "y": 80,
+          "w": 170,
+          "h": 190
+         },
+         {
+          "id": "gh",
+          "img": "../../pics/apple-toon.png",
+          "x": 715,
+          "y": 80,
+          "w": 170,
+          "h": 190,
+          "op": 0
+         }
+        ],
+        "ih": 350
        },
        {
         "eq": [
@@ -82,16 +114,16 @@
         "ring": true,
         "pts": [
          [
-          201,
-          267
+          200,
+          175
          ],
          [
-          450,
-          267
+          500,
+          175
          ],
          [
-          765,
-          267
+          800,
+          175
          ]
         ],
         "r": 32,
@@ -102,16 +134,16 @@
         "count": true,
         "pts": [
          [
-          201,
-          267
+          200,
+          175
          ],
          [
-          450,
-          267
+          500,
+          175
          ],
          [
-          765,
-          267
+          800,
+          175
          ]
         ],
         "color": "orange"
@@ -142,8 +174,8 @@
         "ring": true,
         "pts": [
          [
-          765,
-          267
+          800,
+          175
          ]
         ],
         "r": 32,
@@ -154,8 +186,8 @@
         "count": true,
         "pts": [
          [
-          765,
-          267
+          800,
+          175
          ]
         ],
         "color": "red"
@@ -175,15 +207,8 @@
         "unring": "g2"
        },
        {
-        "cross": true,
-        "pts": [
-         [
-          765,
-          267
-         ]
-        ],
-        "r": 32,
-        "color": "red"
+        "eat": "a2",
+        "ghost": "gh"
        },
        {
         "lit": 3
@@ -197,12 +222,12 @@
         "ring": true,
         "pts": [
          [
-          201,
-          267
+          200,
+          175
          ],
          [
-          450,
-          267
+          500,
+          175
          ]
         ],
         "r": 32,
@@ -213,12 +238,12 @@
         "count": true,
         "pts": [
          [
-          201,
-          267
+          200,
+          175
          ],
          [
-          450,
-          267
+          500,
+          175
          ]
         ],
         "color": "green"
@@ -236,7 +261,8 @@
         "color": "green"
        },
        {
-        "add": "3 − 1 = 2"
+        "add": "3 − 1 = 2",
+        "pop": true
        }
       ],
       "audio": "explain/s1-5.mp3"
@@ -250,11 +276,35 @@
       "say": "In a word problem, write both the subtraction sentence and the answer.",
       "do": [
        {
-        "scene": "pic",
-        "img": "../../pics/sc-math-ar-u4l2-scene.png",
-        "w": 1000,
-        "h": 500,
-        "frame": false
+        "scene": "free",
+        "items": [
+         {
+          "id": "a0",
+          "img": "../../pics/apple-toon.png",
+          "x": 115,
+          "y": 80,
+          "w": 170,
+          "h": 190
+         },
+         {
+          "id": "a1",
+          "img": "../../pics/apple-toon.png",
+          "x": 415,
+          "y": 80,
+          "w": 170,
+          "h": 190
+         },
+         {
+          "id": "gh",
+          "img": "../../pics/apple-toon.png",
+          "x": 715,
+          "y": 80,
+          "w": 170,
+          "h": 190,
+          "op": 0.3
+         }
+        ],
+        "ih": 350
        },
        {
         "eq": [
@@ -267,26 +317,15 @@
         "state": "show"
        },
        {
-        "cross": true,
-        "pts": [
-         [
-          765,
-          267
-         ]
-        ],
-        "r": 32,
-        "color": "red"
-       },
-       {
         "ring": true,
         "pts": [
          [
-          201,
-          267
+          200,
+          175
          ],
          [
-          450,
-          267
+          500,
+          175
          ]
         ],
         "r": 32,
@@ -306,7 +345,8 @@
         "line": "break"
        },
        {
-        "add": "3 − 1 = 2"
+        "add": "3 − 1 = 2",
+        "pop": true
        }
       ],
       "audio": "explain/s2-2.mp3"
@@ -568,7 +608,8 @@
         "line": "break"
        },
        {
-        "add": "5 − 3 = 2"
+        "add": "5 − 3 = 2",
+        "pop": true
        }
       ],
       "audio": "explain/s3-4.mp3"
@@ -833,7 +874,8 @@
         "line": "break"
        },
        {
-        "add": "6 − 2 = 4"
+        "add": "6 − 2 = 4",
+        "pop": true
        }
       ],
       "audio": "explain/s4-4.mp3"

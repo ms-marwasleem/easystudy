@@ -16,7 +16,7 @@
  ],
  "tabLabels": {
   "read": "Lesson",
-  "quiz": "Book Questions"
+  "quiz": "Exercise"
  },
  "pages": 12,
  "pageNums": [
@@ -1648,11 +1648,66 @@
       "say": "Try! You put zero balls in the basket the first time, and five balls the second time. How many balls did you put in total?",
       "do": [
        {
-        "scene": "pic",
-        "img": "../../pics/sc-math-ar-u3l3-story-0.png",
-        "w": 1000,
-        "h": 500,
-        "frame": false
+        "scene": "free",
+        "items": [
+         {
+          "id": "k1",
+          "img": "../../pics/basket-woven.png",
+          "x": 60,
+          "y": 130,
+          "w": 380,
+          "h": 275
+         },
+         {
+          "id": "k2",
+          "img": "../../pics/basket-woven.png",
+          "x": 560,
+          "y": 130,
+          "w": 380,
+          "h": 275
+         },
+         {
+          "id": "b1",
+          "img": "../../pics/volleyball-u6l2.png",
+          "x": 575,
+          "y": 0,
+          "w": 80,
+          "h": 80
+         },
+         {
+          "id": "b2",
+          "img": "../../pics/volleyball-u6l2.png",
+          "x": 660,
+          "y": 0,
+          "w": 80,
+          "h": 80
+         },
+         {
+          "id": "b3",
+          "img": "../../pics/volleyball-u6l2.png",
+          "x": 745,
+          "y": 0,
+          "w": 80,
+          "h": 80
+         },
+         {
+          "id": "b4",
+          "img": "../../pics/volleyball-u6l2.png",
+          "x": 830,
+          "y": 0,
+          "w": 80,
+          "h": 80
+         },
+         {
+          "id": "b5",
+          "img": "../../pics/volleyball-u6l2.png",
+          "x": 915,
+          "y": 0,
+          "w": 80,
+          "h": 80
+         }
+        ],
+        "ih": 430
        },
        {
         "eq": [
@@ -1674,36 +1729,86 @@
         "ring": true,
         "pts": [
          [
-          213,
-          244
+          250,
+          230
          ]
         ],
-        "r": 62,
+        "r": 70,
         "color": "orange",
         "id": "g1"
+       },
+       {
+        "move": [
+         {
+          "id": "b1",
+          "x": 610,
+          "y": 175
+         }
+        ],
+        "ms": 650
+       },
+       {
+        "move": [
+         {
+          "id": "b2",
+          "x": 700,
+          "y": 175
+         }
+        ],
+        "ms": 650
+       },
+       {
+        "move": [
+         {
+          "id": "b3",
+          "x": 790,
+          "y": 175
+         }
+        ],
+        "ms": 650
+       },
+       {
+        "move": [
+         {
+          "id": "b4",
+          "x": 655,
+          "y": 130
+         }
+        ],
+        "ms": 650
+       },
+       {
+        "move": [
+         {
+          "id": "b5",
+          "x": 745,
+          "y": 130
+         }
+        ],
+        "ms": 650
        },
        {
         "ring": true,
         "pts": [
          [
-          722,
-          208
+          650,
+          215
          ],
          [
-          838,
-          201
+          740,
+          215
          ],
          [
-          668,
-          310
+          830,
+          215
          ],
          [
-          775,
-          310
+          695,
+          170
          ],
          [
-          882,
-          310
+          785,
+          170
          ]
         ],
         "r": 24,

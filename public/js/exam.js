@@ -25,7 +25,7 @@ async function openExam(lesson,ex){
   $('#xChips').innerHTML=X.groups.length>1&&!X.stack?X.groups.map((g,i)=>`<button class="pill cream xchip" data-i="${i}">${g.label}</button>`).join(''):'';
   $$('.xchip').forEach(b=>b.onclick=()=>xShow(+b.dataset.i));
   $$('img',root).forEach(i=>{ if(!i.complete) i.addEventListener('load',()=>{ clearTimeout(xFit.t2); xFit.t2=setTimeout(xFit,60); },{once:true}); });
-  X.cur=0; xShow(0,true); show('exam'); busy(false); xFit(); $('#xScroll').scrollTop=0;
+  X.cur=0; xShow(0,true); show('exam'); busy(false); xFit(); $('#xScroll').scrollTop=0; if(X.stack) xPackWhenReady(X.run);
   X.qs.forEach(q=>q.el.classList.toggle('done',q.atoms.every(a=>a.solved)));
 }
 function xPage(pg,pi,d){
@@ -210,6 +210,38 @@ function xDrawLinks(L){
   L.links.forEach(l=>s+=line(P('a',l.i),P('b',l.j),l.ok?'xlok':'xlbad'));
   if(L.rub&&L.drag){ const f=anchor(L.drag.from); s+=line(f,L.rub,'xlrub'); }
   svg.innerHTML=`<svg viewBox="0 0 ${r.width} ${r.height}" width="${r.width}" height="${r.height}">${s}</svg>`;
+}
+
+
+// weekly assessments with several models: the models follow each other INSIDE the pages like in the book (no page per model, no empty rest of a page) (Ahmed 2026-11-18).
+// units = model heading, section bar, a picture with its question...; each goes in the page while it fits, else on the next page. Pages are renumbered.
+function xPackWhenReady(run){
+  const imgs=$$('img',$('#xPages')).filter(i=>!i.complete); let n=imgs.length, done=false;
+  const go=()=>{ if(done||run!==X.run) return; done=true; xPack(); xFit(); };
+  if(!n) return requestAnimationFrame(()=>requestAnimationFrame(go));
+  imgs.forEach(i=>{ const f=()=>{ if(--n<=0) go(); }; i.addEventListener('load',f,{once:true}); i.addEventListener('error',f,{once:true}); }); setTimeout(go,2500);
+}
+function xPack(){
+  const pgs=X.pages.slice(); if(pgs.length<2) return; const units=[];
+  pgs.forEach(pg=>{ const fl=$('.xflow',pg), h=$('.xmodel',pg); let cur=[];
+    if(h) units.push({keep:true,n:[h]});
+    [...fl.children].forEach(c=>{
+      if(c.classList.contains('xsec')){ units.push({keep:true,n:[c]}); cur=[]; }
+      else if(c.classList.contains('xq')){ cur.push(c); units.push({keep:false,n:cur}); cur=[]; }
+      else cur.push(c); });
+    if(cur.length) units.push({keep:false,n:cur}); });
+  const merged=[]; let carry=[];
+  units.forEach(u=>{ if(u.keep) carry=carry.concat(u.n); else { merged.push(carry.concat(u.n)); carry=[]; } });
+  if(carry.length) merged.push(carry);
+  const first=pgs[0], foot=$('.xfoot',first).cloneNode(true);
+  const mk=()=>{ const q=first.cloneNode(false); const fl=document.createElement('div'); fl.className='xflow'; q.append(fl); q.append(foot.cloneNode(true)); first.parentNode.append(q); return q; };
+  pgs.forEach((pg,i)=>{ const h=$('.xmodel',pg); if(h&&h.parentNode) h.parentNode.removeChild(h); if(i>0) pg.parentNode.removeChild(pg); });
+  X.pages=[first]; first.style.removeProperty('--fs'); X.d.pages[+first.dataset.i].fs=null; $('.xflow',first).innerHTML='';
+  const over=pg=>{ const fl=$('.xflow',pg), ft=$('.xfoot',pg), top=fl.getBoundingClientRect().top, last=fl.lastElementChild; return !!last&&last.getBoundingClientRect().bottom-top>ft.getBoundingClientRect().top-top-2; };
+  let cur=first;
+  merged.forEach(u=>{ const fl=$('.xflow',cur), had=fl.children.length; u.forEach(x=>fl.append(x));
+    if(had&&over(cur)){ cur=mk(); cur.dataset.i=first.dataset.i; X.pages.push(cur); u.forEach(x=>$('.xflow',cur).append(x)); } });
+  X.pages.forEach((pg,i)=>{ const c=$('.xcloud',pg); if(c) c.innerHTML=xArt('cloudnum:'+(i+1)); });
 }
 
 // ---------- screen fit ----------

@@ -660,15 +660,9 @@
      "audio": "../../phonics/l.mp3"
     },
     {
-     "t": "o",
+     "t": "ow",
      "ph": "oa",
      "audio": "../../phonics/oa.mp3"
-    },
-    {
-     "t": "w",
-     "spell": true,
-     "ph": "w",
-     "audio": "../../phonics/w.mp3"
     }
    ],
    "audio": {
@@ -724,9 +718,14 @@
      "audio": "../../phonics/s.mp3"
     },
     {
-     "t": "qua",
-     "ph": "qu_a",
-     "audio": "../../phonics/chunks/qu_a.mp3"
+     "t": "q",
+     "ph": "qu",
+     "audio": "../../phonics/qu.mp3"
+    },
+    {
+     "t": "ua",
+     "ph": "air",
+     "audio": "../../phonics/air.mp3"
     },
     {
      "t": "r",

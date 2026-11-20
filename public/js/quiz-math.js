@@ -77,6 +77,14 @@ function mCount(box,q,s,run){
 }
 // an addition sentence written the other way round is right too: "3 + 4 = 7" -> "4 + 3 = 7" when the child starts with the second number (subtraction keeps its order)
 const mSwapSum=(w,k)=>{ const m=String(w).match(/^(\d+) \+ (\d+) = (\d+)$/); return m&&m[1]!==m[2]&&k===m[2][0]&&k!==m[1][0]?`${m[2]} + ${m[1]} = ${m[3]}`:null; };
+/* a word problem in ONE slide (Ahmed 2026-11-18): the child writes the sentence, then under it the answer choices appear ("Answer: ___") - item.then = {lead, options, answer, askAudio, askSay, audio, word} */
+async function mThen(w,st,pad,q,line){ const t=q.then; q.stage=2; qz.busy=true; const run=qz.run; $$('.lt',line).forEach(x=>x.classList.remove('cur')); try{ await qSound(q.audio,q.word); }catch(e){} if(run!==qz.run) return;
+  pad.hidden=true; const ans=el('div','qxline mwline mwans'); ans.append(el('span','mwlead',t.lead||'')); const blank=el('span','mwcard mwblank','\u00a0\u00a0\u00a0\u00a0'); ans.append(blank); st.append(ans);
+  const chips=el('div','qxchoices mwchips'); w.append(chips); const opts=t.options, wordy=opts.some(o=>[...String(o)].length>2);
+  opts.forEach((o,k)=>{ const b=qChBtn(o,wordy); b.dataset.k=k; b.addEventListener('click',()=>{ if(qz.busy||q.solved) return; hideHint(); if(k!==t.answer) return qxBad(b);
+      blank.textContent=o; blank.classList.add('got'); $$('.qch',chips).forEach(x=>x!==b&&x.classList.add('dim')); q.audio=t.audio||q.audio; q.word=t.word||q.word; qxWin(ans,q,1700); }); chips.append(b); });
+  qz.busy=false; q.sayFn=async()=>{ vStop(); if(q.solved) return qSound(q.audio,q.word); return t.askAudio?qSound(R_Q(t.askAudio),t.askSay||''):undefined; };
+  if(qAuto(q)) q.sayFn(); }
 function mWrite(box,q,s,run){
   const w=el('div','almcq mwrite'+(q.pics?' haspic':'')); box.append(w);
   if(q.pics){ const pc=el('div','alpics'); q.pics.forEach((p,k)=>{ const f=el('div','alfig'); const im=el('img','',''); im.src=p; im.alt=''; qPicFit(im,(q.picsTall||[])[k]); f.append(im); pc.append(f); }); w.append(pc); }
@@ -90,7 +98,7 @@ function mWrite(box,q,s,run){
   [...(q.keys||s.keys||'1234567890')].forEach(k=>{ const b=qChBtn(k); b.classList.add('qmn'); b.dataset.v=k; b.setAttribute('aria-label',k==='−'?'minus':k==='+'?'plus':k==='='?'equals':k);
     b.addEventListener('click',()=>{ if(qz.busy||q.solved||qz.list[qz.i]!==q) return; hideHint(); let n=qxNext(wd); if(!n) return;
       if(k!==arDb(n.textContent)&&!$$('.lt.got',wd).length){ const sw=mSwapSum(q.word,k); if(sw){ q.word=sw; const nw=qxWordEl(sw,null,false,true); wd.replaceWith(nw); wd=nw; n=qxNext(wd); } }   // addition in either order is right: 4 + 3 = 7 as well as 3 + 4 = 7 (Marwa 2026-11-05)
-      if(k===arDb(n.textContent)){ qxReveal(wd); blip(560+$$('.lt.got',wd).length*40,.05); cur(); if(qxDone(wd)) qxWin(wd,q,1700); }
+      if(k===arDb(n.textContent)){ qxReveal(wd); blip(560+$$('.lt.got',wd).length*40,.05); cur(); if(qxDone(wd)){ if(q.then) mThen(w,st,pad,q,line); else qxWin(wd,q,1700); } }
       else { wsBad(n); qxBad(line); } }); pad.append(b); });
   q.sayFn=async()=>{ vStop(); if(q.askAudio&&!q.solved) return qSound(R_Q(q.askAudio),q.ask||''); return qSound(q.audio,q.word); };
   box._after=()=>{ if(qAuto(q)) return q.sayFn(); };
@@ -120,7 +128,9 @@ function mLine(box,q,s,run){
   if(q.img&&!q.unit){ const im=new Image(); im.alt=''; im.src=R_Q(q.img); things.append(im); }
   for(let i=0;i<n;i++){ const b=el('button','mlt'); b.setAttribute('aria-label',String(i+1)); if(q.unit){ const im=new Image(); im.alt=''; im.src=R_Q(q.unit); b.append(im); } things.append(b); btns.push(b); }
   const target=fr?q.at-1:n-q.at;
-  btns.forEach((b,i)=>b.addEventListener('click',()=>{ if(qz.busy||q.solved) return; if(i!==target) return qxBad(b);
+  btns.forEach((b,i)=>b.addEventListener('click',()=>{ if(qz.busy||q.solved) return;
+    if(i!==target){ if(fr?i<target:i>target){ b.classList.add('cnt'); b.dataset.n=fr?i+1:n-i; return; } return qxBad(b); }   // counting on the way to the answer (1st, 2nd, 3rd...) is not a mistake; only a thing after it is
+   
     const sl=q.group?(fr?[0,target]:[target,n-1]):[target,target]; const fb=el('div','mlframe'); fb.style.setProperty('--a',sl[0]); fb.style.setProperty('--b',sl[1]+1); things.append(fb);
     (fr?lf:lb).classList.add('on'); qxWin(w,q,1600); }));
 }
@@ -146,7 +156,7 @@ function mShade(box,q,s,run){
   box.append(grid,row);
 }
 QM.shade={sheet:'box', draw:mShade, help:(q,w)=>$$('.qcirc',w).filter((b,i)=>i<q.n)};
-QM.mwrite={sheet:'box', own:1, draw:mWrite, help:(q,w)=>{ const n=qxNext($('.mwline .qxw',w)); return n?$$('.mwkeys .qmn',w).filter(b=>b.dataset.v===arDb(n.textContent)):[]; }};
+QM.mwrite={sheet:'box', own:1, draw:mWrite, help:(q,w)=>{ if(q.stage===2) return $$('.mwchips .qch',w).filter(b=>+b.dataset.k===q.then.answer); const n=qxNext($('.mwline .qxw',w)); return n?$$('.mwkeys .qmn',w).filter(b=>b.dataset.v===arDb(n.textContent)):[]; }};
 
 
 /* clock = the clock models (Arabic book unit 8, "قراءة الساعة"): ONE widget (clockWidget) used by the questions (QM.clock) and by the weekly papers (exam atom {t:"clock"}).
@@ -200,3 +210,20 @@ function mClock(box,q,s,run){
   const hb=helpBtn('qxhelp qmhelp'); let undo=null; hb.onclick=()=>{ if(qz.busy||q.solved) return; if(undo) undo(); undo=cw.hint(); setTimeout(()=>{ if(undo){ undo(); undo=null; } },1800); }; qHelpHost(hb);
 }
 QM.clock={sheet:'box', noword:1, bulb:0, draw:mClock};
+
+/* WORDS tab of the maths lessons (Ahmed 2026-11-18): the picture of a word is DRAWN here from its spec (no picture files):
+   img "data:draw,num,N,ar|en" = the numeral (Arabic or English digits) in a lesson colour; "data:draw,pos,K,N,ar|en" = N cats in a row with the K-th ringed (Arabic: the front is at the RIGHT, the cats face the other way).
+   Called once when a lesson with such words opens (lesson.js openLesson). */
+const M_DIG='٠١٢٣٤٥٦٧٨٩', M_NUMCOL=['#E0412C','#2A7FD8','#F2B321','#2FA8A0','#8A5CC9','#F08A2C','#3FA34D','#D8396B','#E0412C','#8A5CC9'];
+function mDrawLoad(src){ return new Promise(r=>{ const i=new Image(); i.onload=()=>r(i); i.onerror=()=>r(null); i.src=src; }); }
+async function mVocabPics(L){
+  const cat=await mDrawLoad(new URL((L.base||'')+'../../pics/cat.png',document.baseURI).href), ff=getComputedStyle(document.body).fontFamily||'sans-serif';
+  for(const v of L.vocab||[]){
+    const m=/^data:draw,(num|pos),(.*)$/.exec(v.img||''); if(!m) continue; const a=m[2].split(','), c=document.createElement('canvas'), x=c.getContext('2d');
+    if(m[1]==='num'){ const n=+a[0], ar=a[1]==='ar', t=ar?String(n).split('').map(d=>M_DIG[+d]).join(''):String(n); c.width=520; c.height=420; x.textAlign='center'; x.textBaseline='middle';
+      let fs=n>9?260:330; x.font=`700 ${fs}px ${ff}`; x.lineJoin='round'; x.lineWidth=26; x.strokeStyle='#fff'; x.strokeText(t,260,225); x.fillStyle=M_NUMCOL[(n-1)%10]; x.fillText(t,260,225); }
+    else { const k=+a[0], n=+a[1], ar=a[2]==='ar', W=900, H=300; c.width=W; c.height=H; x.fillStyle='#fff'; x.beginPath(); x.roundRect(0,40,W,H-80,36); x.fill();
+      const sw=(W-60)/n, ih=H-120; for(let i=0;i<n;i++){ const cx=30+sw*(i+.5); if(cat){ const w=Math.min(sw*.86,ih*cat.width/cat.height), h=w*cat.height/cat.width; x.save(); x.translate(cx,H-52); if(ar) x.scale(-1,1); x.drawImage(cat,-w/2,-h,w,h); x.restore(); } }
+      const i=ar?n-k:k-1, cx=30+sw*(i+.5); x.strokeStyle='#E8457A'; x.lineWidth=12; x.beginPath(); x.ellipse(cx,H/2,Math.min(sw*.52,70),ih/2+14,0,0,Math.PI*2); x.stroke(); }
+    v.img=c.toDataURL('image/png'); }
+}

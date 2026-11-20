@@ -375,9 +375,21 @@ button.qpic{cursor:pointer}
 .qxtc{display:flex;flex-direction:column;align-items:center;border-inline-start:2px solid rgba(255,255,255,.7)}
 .qxtc:first-child{border-inline-start:0}
 .qxtc .qxcs.qxtcell{width:var(--cs);height:var(--cs);padding:.12rem;border-bottom:2px solid rgba(255,255,255,.55);box-sizing:border-box}
-.qxtl{font:700 clamp(.42rem,1.8vw,.8rem)/1.1 var(--f-read);color:#fff;text-transform:uppercase;padding:.35rem .1rem;text-align:center;white-space:nowrap}
+.qxtl{font:700 clamp(.38rem,1.45vw,.72rem)/1.1 var(--f-read);color:#fff;text-transform:uppercase;padding:.35rem .1rem;text-align:center;white-space:nowrap}
 
 /* the bracket words of a writing question: a fixed block above the question line */
 .qhead.hasbank{display:grid;grid-template-columns:auto minmax(0,1fr) auto;row-gap:.4rem;align-items:center}
 .qhead .qbank{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem .75rem;direction:rtl}
 .qhead .qbw{font-family:var(--f-ar);font-size:clamp(1.1rem,3.4vw,1.6rem);font-weight:700;color:var(--c-white);padding:.1rem .8rem;border-radius:62rem;background:rgba(255,255,255,.18);border:.12rem solid rgba(255,255,255,.55)}
+
+/* colour table of the data lesson (Math 6-1): the picture and the table are bigger, the table is white with dark lines like in the explanation; things of the picture can be ringed (Ahmed 2026-11-18) */
+.qxct{--cs:clamp(1.7rem,min(8.8vw,5.2vh),3.7rem);gap:1.2vw}
+.qxct .qxpw{position:relative;flex:0 1 47%;max-width:47%;align-self:center;line-height:0;border:3px solid #4a4a4a;border-radius:1rem;background:#fff;overflow:hidden}
+.qxct .qxpw .qxctp{max-height:68vh;max-width:100%;width:100%;height:auto;border:0;border-radius:0;display:block;object-fit:contain}
+.qxmk{position:absolute;transform:translate(-50%,-50%);aspect-ratio:1;border:0;border-radius:50%;background:transparent;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent;display:grid;place-items:center}
+.qxmk.on{border:.2rem solid var(--rc);box-shadow:0 0 0 .08rem #fff}
+.qxmk i{font-style:normal;font-weight:800;font-size:.7rem;line-height:1;color:#fff;background:var(--rc);border:.1rem solid #fff;border-radius:50%;min-width:1.15rem;aspect-ratio:1;display:grid;place-items:center;position:absolute;right:-.35rem;top:-.35rem;font-family:var(--f-read)}
+.qxct .qxtb{background:#fff;border:3px solid #4a4a4a}
+.qxct .qxtc{border-inline-start:2px solid #4a4a4a}
+.qxct .qxtc .qxcs.qxtcell{border-bottom:2px solid #6a6a6a}
+.qxct .qxtl{color:#333;font-weight:800}

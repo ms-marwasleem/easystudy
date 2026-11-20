@@ -20,36 +20,20 @@
      "audio": "q/p1-s.mp3",
      "picsTall": [
       "../../pics/sc-math-ar-u4l4-story-4-tall.png"
-     ]
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 1,
-   "page": 51,
-   "task": "Write the subtraction sentence and the answer.",
-   "taskAudio": "q/task-1.mp3",
-   "items": [
-    {
-     "pics": [
-      "../../pics/sc-math-ar-u4l4-story-4.png"
      ],
-     "ask": "What is the difference between the number of watermelons and melons?",
-     "stem": "Answer: ___",
-     "options": [
-      "15",
-      "6",
-      "5"
-     ],
-     "answer": 2,
-     "askSay": "What is the difference between the number of watermelons and melons? What is the answer?",
-     "askAudio": "q/p1-a-q.mp3",
-     "audio": "q/p1-a.mp3",
-     "word": "Answer: 5",
-     "picsTall": [
-      "../../pics/sc-math-ar-u4l4-story-4-tall.png"
-     ]
+     "then": {
+      "options": [
+       "15",
+       "6",
+       "5"
+      ],
+      "answer": 2,
+      "askSay": "What is the difference between the number of watermelons and melons? What is the answer?",
+      "askAudio": "q/p1-a-q.mp3",
+      "audio": "q/p1-a.mp3",
+      "word": "Answer: 5",
+      "lead": "Answer:"
+     }
     }
    ]
   },
@@ -73,96 +57,241 @@
      "audio": "q/p2-s.mp3",
      "picsTall": [
       "../../pics/sc-math-ar-u4l4-story-5-tall.png"
-     ]
+     ],
+     "then": {
+      "options": [
+       "12",
+       "2",
+       "5"
+      ],
+      "answer": 1,
+      "askSay": "What is the difference between the number of candies and cakes? What is the answer?",
+      "askAudio": "q/p2-a-q.mp3",
+      "audio": "q/p2-a.mp3",
+      "word": "Answer: 2",
+      "lead": "Answer:"
+     }
     }
    ]
   },
   {
-   "type": "mcq",
-   "ex": 2,
-   "page": 51,
-   "task": "Write the subtraction sentence and the answer.",
-   "taskAudio": "q/task-1.mp3",
+   "type": "mwrite",
+   "page": 39,
+   "task": "Write the subtraction sentence, then find the difference.",
+   "taskAudio": "q/task-wb4-write.mp3",
    "items": [
     {
      "pics": [
-      "../../pics/sc-math-ar-u4l4-story-5.png"
+      "live:u4l4-wb1"
      ],
-     "ask": "What is the difference between the number of candies and cakes?",
-     "stem": "Answer: ___",
-     "options": [
-      "12",
-      "2",
-      "5"
+     "ask": "What is the difference between the number of pencils and notebooks?",
+     "lead": "Subtraction sentence:",
+     "word": "6 − 3 = 3",
+     "keys": "1234567890+−=",
+     "askSay": "What is the difference between the number of pencils and notebooks? Write the subtraction sentence.",
+     "askAudio": "q/wb4-a1-q.mp3",
+     "audio": "q/wb4-a1-s.mp3",
+     "then": {
+      "options": [
+       "2",
+       "3",
+       "4"
+      ],
+      "answer": 1,
+      "lead": "The difference:",
+      "askSay": "What is the difference?",
+      "word": "The difference: 3",
+      "askAudio": "q/wb4-diff-q.mp3",
+      "audio": "q/wb4-a1-a.mp3"
+     }
+    },
+    {
+     "pics": [
+      "live:u4l4-wb2"
      ],
-     "answer": 1,
-     "askSay": "What is the difference between the number of candies and cakes? What is the answer?",
-     "askAudio": "q/p2-a-q.mp3",
-     "audio": "q/p2-a.mp3",
-     "word": "Answer: 2",
-     "picsTall": [
-      "../../pics/sc-math-ar-u4l4-story-5-tall.png"
-     ]
+     "ask": "What is the difference between the number of spoons and forks?",
+     "lead": "Subtraction sentence:",
+     "word": "5 − 3 = 2",
+     "keys": "1234567890+−=",
+     "askSay": "What is the difference between the number of spoons and forks? Write the subtraction sentence.",
+     "askAudio": "q/wb4-a2-q.mp3",
+     "audio": "q/wb4-a2-s.mp3",
+     "then": {
+      "options": [
+       "2",
+       "3",
+       "8"
+      ],
+      "answer": 0,
+      "lead": "The difference:",
+      "askSay": "What is the difference?",
+      "word": "The difference: 2",
+      "askAudio": "q/wb4-diff-q.mp3",
+      "audio": "q/wb4-a2-a.mp3"
+     }
     }
-   ]
+   ],
+   "book": "workbook",
+   "act": "u4l4wb",
+   "ex": 1
   },
   {
    "type": "mcq",
    "page": 40,
-   "task": "Write the sentence, then find the difference.",
-   "taskAudio": "q/task-bk-write-the-sentence-then-find-the-difference.mp3",
+   "task": "Which sentence shows the difference?",
+   "taskAudio": "q/task-wb4-pick.mp3",
    "items": [
     {
-     "stem": "7 − 5 = ___",
-     "options": [
-      "1",
-      "2",
-      "3"
+     "pics": [
+      "live:u4l4-wb3"
      ],
-     "answer": 1,
-     "askAudio": "q/wb-7-m-5-q.mp3",
-     "audio": "q/wb-7-m-5.mp3",
-     "word": "7 − 5 = 2"
+     "ask": "Samira has 7 flowers, and Mariam has 6 flowers. What is the mathematical sentence that represents the difference between the number of flowers they have?",
+     "stem": "___",
+     "options": [
+      "6 + 1 = 7",
+      "7 + 1 = 8",
+      "7 − 6 = 1",
+      "7 − 7 = 0"
+     ],
+     "answer": 2,
+     "askSay": "Samira has 7 flowers, and Mariam has 6 flowers. What is the mathematical sentence that represents the difference between the number of flowers they have?",
+     "word": "7 − 6 = 1",
+     "askAudio": "q/wb4-pick3-q.mp3",
+     "audio": "q/wb4-pick3-a.mp3"
     },
     {
-     "stem": "6 − 4 = ___",
-     "options": [
-      "1",
-      "2",
-      "3"
+     "pics": [
+      "live:u4l4-wb4"
      ],
-     "answer": 1,
-     "askAudio": "q/wb-6-m-4-q.mp3",
-     "audio": "q/wb-6-m-4.mp3",
-     "word": "6 − 4 = 2"
-    },
-    {
-     "stem": "3 − 1 = ___",
+     "ask": "Mahmoud has 8 tennis balls, and Tariq has 6 tennis balls. What is the mathematical sentence that represents the difference between the number of balls each has?",
+     "stem": "___",
      "options": [
-      "1",
-      "2",
-      "3"
+      "8 − 6 = 2",
+      "6 − 0 = 2",
+      "8 − 3 = 5",
+      "6 + 2 = 8"
      ],
-     "answer": 1,
-     "askAudio": "q/wb-3-m-1-q.mp3",
-     "audio": "q/wb-3-m-1.mp3",
-     "word": "3 − 1 = 2"
-    },
-    {
-     "stem": "6 − 4 = ___",
-     "options": [
-      "1",
-      "2",
-      "3"
-     ],
-     "answer": 1,
-     "askAudio": "q/wb-6-m-4-q.mp3",
-     "audio": "q/wb-6-m-4.mp3",
-     "word": "6 − 4 = 2"
+     "answer": 0,
+     "askSay": "Mahmoud has 8 tennis balls, and Tariq has 6 tennis balls. What is the mathematical sentence that represents the difference between the number of balls each has?",
+     "word": "8 − 6 = 2",
+     "askAudio": "q/wb4-pick4-q.mp3",
+     "audio": "q/wb4-pick4-a.mp3"
     }
    ],
    "book": "workbook",
-   "ex": 5
+   "act": "u4l4wb",
+   "ex": 2
+  },
+  {
+   "type": "mwrite",
+   "page": 40,
+   "task": "Write the subtraction sentence, then find the difference.",
+   "taskAudio": "q/task-wb4-write.mp3",
+   "items": [
+    {
+     "pics": [
+      "live:u4l4-wb5"
+     ],
+     "ask": "What is the difference between the number of apples and bananas?",
+     "lead": "Subtraction sentence:",
+     "word": "7 − 5 = 2",
+     "keys": "1234567890+−=",
+     "askSay": "What is the difference between the number of apples and bananas? Write the subtraction sentence.",
+     "askAudio": "q/wb4-h5-q.mp3",
+     "audio": "q/wb4-h5-s.mp3",
+     "then": {
+      "options": [
+       "3",
+       "2",
+       "12"
+      ],
+      "answer": 1,
+      "lead": "The difference:",
+      "askSay": "What is the difference?",
+      "word": "The difference: 2",
+      "askAudio": "q/wb4-diff-q.mp3",
+      "audio": "q/wb4-h5-a.mp3"
+     }
+    },
+    {
+     "pics": [
+      "live:u4l4-wb6"
+     ],
+     "ask": "What is the difference between the number of balls in the first row and in the second row?",
+     "lead": "Subtraction sentence:",
+     "word": "6 − 4 = 2",
+     "keys": "1234567890+−=",
+     "askSay": "What is the difference between the number of balls in the first row and in the second row? Write the subtraction sentence.",
+     "askAudio": "q/wb4-h6-q.mp3",
+     "audio": "q/wb4-h6-s.mp3",
+     "then": {
+      "options": [
+       "2",
+       "10",
+       "4"
+      ],
+      "answer": 0,
+      "lead": "The difference:",
+      "askSay": "What is the difference?",
+      "word": "The difference: 2",
+      "askAudio": "q/wb4-diff-q.mp3",
+      "audio": "q/wb4-h6-a.mp3"
+     }
+    },
+    {
+     "pics": [
+      "live:u4l4-wb7"
+     ],
+     "ask": "What is the difference between the number of birds in the blue row and in the other row?",
+     "lead": "Subtraction sentence:",
+     "word": "3 − 1 = 2",
+     "keys": "1234567890+−=",
+     "askSay": "What is the difference between the number of birds in the blue row and in the other row? Write the subtraction sentence.",
+     "askAudio": "q/wb4-h7-q.mp3",
+     "audio": "q/wb4-h7-s.mp3",
+     "then": {
+      "options": [
+       "3",
+       "1",
+       "2"
+      ],
+      "answer": 2,
+      "lead": "The difference:",
+      "askSay": "What is the difference?",
+      "word": "The difference: 2",
+      "askAudio": "q/wb4-diff-q.mp3",
+      "audio": "q/wb4-h7-a.mp3"
+     }
+    },
+    {
+     "pics": [
+      "live:u4l4-wb8"
+     ],
+     "ask": "What is the difference between the number of cars and bicycles?",
+     "lead": "Subtraction sentence:",
+     "word": "6 − 4 = 2",
+     "keys": "1234567890+−=",
+     "askSay": "What is the difference between the number of cars and bicycles? Write the subtraction sentence.",
+     "askAudio": "q/wb4-h8-q.mp3",
+     "audio": "q/wb4-h8-s.mp3",
+     "then": {
+      "options": [
+       "2",
+       "1",
+       "3"
+      ],
+      "answer": 0,
+      "lead": "The difference:",
+      "askSay": "What is the difference?",
+      "word": "The difference: 2",
+      "askAudio": "q/wb4-diff-q.mp3",
+      "audio": "q/wb4-h8-a.mp3"
+     }
+    }
+   ],
+   "book": "workbook",
+   "act": "u4l4wb",
+   "ex": 3
   },
   {
    "type": "mcq",
@@ -171,6 +300,10 @@
    "taskAudio": "q/task-bk-what-is-the-difference.mp3",
    "items": [
     {
+     "pics": [
+      "live:u4l4-bk1"
+     ],
+     "ask": "What is the difference between the number of apples and bananas?",
      "stem": "5 − 3 = ___",
      "options": [
       "1",
@@ -178,11 +311,25 @@
       "3"
      ],
      "answer": 1,
-     "askAudio": "q/wb-5-m-3-q.mp3",
-     "audio": "q/wb-5-m-3.mp3",
+     "askAudio": "q/bk-diff-5-3-q.mp3",
+     "audio": "q/bk-diff-5-3.mp3",
      "word": "5 − 3 = 2"
-    },
+    }
+   ],
+   "book": "booklet",
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "page": 50,
+   "task": "What is the difference?",
+   "taskAudio": "q/task-bk-what-is-the-difference.mp3",
+   "items": [
     {
+     "pics": [
+      "live:u4l4-bk2"
+     ],
+     "ask": "What is the difference between the number of potatoes and tomatoes?",
      "stem": "8 − 4 = ___",
      "options": [
       "3",
@@ -190,13 +337,13 @@
       "5"
      ],
      "answer": 1,
-     "askAudio": "q/wb-8-m-4-q.mp3",
-     "audio": "q/wb-8-m-4.mp3",
+     "askAudio": "q/bk-diff-8-4-q.mp3",
+     "audio": "q/bk-diff-8-4.mp3",
      "word": "8 − 4 = 4"
     }
    ],
    "book": "booklet",
-   "ex": 6
+   "ex": 2
   }
  ]
 }

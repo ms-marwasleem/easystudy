@@ -207,3 +207,25 @@
 @media (max-aspect-ratio:5/4){.mxbond .mxeq b{font-size:min(calc(50cqh/max(var(--n),7)),10cqw)}.mxbond .mxeq i,.mxbond .mxmk{font-size:min(calc(32cqh/max(var(--n),7)),6.5cqw)}}
 .mxrow.mxbond{align-items:center}.mxbond .mxeq,.mxbond .mxmk{align-self:center;line-height:1.15;margin-top:-.12em}
 .mxrow.mxbond{padding-block:0;overflow:hidden}.mxrow.mxbond>*{align-self:center;max-height:100%}.mxbond .mxeq,.mxbond .mxmk{margin-top:0}
+/* line questions: the card fits the things (no tall empty white), a tapped thing on the way shows its count, the labels sit under the card on phones */
+.mlt{min-height:0;align-items:center}.mlthings{align-items:center;padding:.6rem .6rem}.mlthings.strip{min-height:0}
+.mlt.cnt::after{content:attr(data-n);position:absolute;top:-.1rem;right:-.1rem;min-width:1.4rem;height:1.4rem;border-radius:50%;background:var(--c-pink);color:#fff;font:700 .9rem/1.4rem var(--f-title,inherit);text-align:center}
+@media (max-width:700px){.mline:not(.mlord) .mlrow,.mline.mlord:not(.mlv) .mlrow{display:grid;grid-template-columns:1fr 1fr;gap:.4rem .6rem}.mline:not(.mlv) .mlthings{grid-column:1/-1;grid-row:1;max-width:none}.mline:not(.mlv) .mlend:first-child{grid-row:2;grid-column:1;text-align:left}.mline:not(.mlv) .mlend:last-child{grid-row:2;grid-column:2;text-align:right}.mline.mlrtl .mlrow{direction:rtl}.mline.mlrtl .mlend:first-child{text-align:right}.mline.mlrtl .mlend:last-child{text-align:left}}
+/* column questions (top/bottom): the pictures use the free height above and below, big enough to see (Ahmed 2026-11-18) */
+.mlv .mlc img{max-height:min(5.4rem,calc(46vh/var(--n)))}.mlv .mlthings{grid-template-columns:minmax(0,11rem);padding:.7rem .8rem}.mlv .mlend{font-size:1.5rem}.mlv .mlc{padding:.15rem}
+@media (min-aspect-ratio:1/1){.mlv .mlc img{max-height:min(5.4rem,calc(30vh/var(--n)))}.mlv .mlend{font-size:1.2rem}}
+
+/* math questions: a transparent (png) picture sits on a white rounded card so the child sees where the picture is (Ahmed 2026-11-18); dots / numbers drawn by the app keep their look */
+:root[data-subj="math"] :is(.qmcount,.alpics,.mlthings,.qmp) img[src$=".png" i]:not(.pf):not([src^="data:image/svg"]),
+:root[data-subj="math-ar"] :is(.qmcount,.alpics,.mlthings,.qmp) img[src$=".png" i]:not(.pf):not([src^="data:image/svg"]),
+:root[data-subj="math"] :is(.qmcount,.qpic) img[src^="data:image/png;cpic"],:root[data-subj="math-ar"] :is(.qmcount,.qpic) img[src^="data:image/png;cpic"]{background:var(--c-white);border:var(--pf-border) solid var(--c-white);border-radius:var(--pf-radius);box-shadow:var(--pf-shadow);filter:none;box-sizing:border-box}
+
+/* one-slide word problem: the answer line + choices under the sentence (Ahmed 2026-11-18) */
+.mwans .mwblank{min-width:3.2em;text-align:center}
+.mwans .mwblank.got{background:var(--c-white,#fff)}
+.mwchips{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(.5rem,2cqw,1rem);margin:0 auto;max-width:min(100%,34rem)}
+
+/* tap the squares to count (item.cells, quiz-al.js alCells) (Ahmed 2026-11-18) */
+.alfig .alcells{position:absolute;pointer-events:none;z-index:2}
+.alcell{position:absolute;pointer-events:auto;background:transparent;border:0;padding:0;margin:0;cursor:pointer;display:grid;place-items:center;-webkit-tap-highlight-color:transparent}
+.alcell i{font-style:normal;font-weight:800;color:#fff;background:var(--c-orange,#ff8a1f);border:.08rem solid #fff;border-radius:50%;width:100%;max-width:1.5rem;aspect-ratio:1;display:grid;place-items:center;font-size:.55rem;line-height:1;box-shadow:0 .1rem .2rem rgba(90,52,24,.35)}

@@ -69,8 +69,8 @@
 .xpl-ask .xans.yes{background:var(--c-good);color:#fff}
 
 /* line scene (Front / Back ends; the end counting starts from lights up) */
-.xpl .xl-end{font:400 40px var(--f-title);fill:#9a8a7a;paint-order:stroke;stroke:none}
-.xpl .xl-end.on{fill:#FF8A1F;font-size:50px}
+.xpl .xl-end{font:400 40px var(--f-title);fill:rgba(255,255,255,.8);paint-order:stroke;stroke:none}
+.xpl .xl-end.on{fill:#fff;font-size:50px}
 
 /* wide = a LINE lesson (data explain.wide): the picture takes the whole width, the answer is written under it, in landscape too */
 .xpl.xwide{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,76fr) minmax(0,24fr)}
@@ -86,3 +86,19 @@
 .xpl-line .xtw.xbig.xcard{color:var(--c-text)}
 .xpl .xhead text{font:400 118px var(--f-title);fill:#fff;stroke:var(--ol);stroke-width:8;paint-order:stroke;stroke-linejoin:round}
 @media (orientation:portrait){.xpl.xtall{grid-template-rows:minmax(0,76fr) minmax(0,24fr)}.xpl.xtall .xpl-cap{--xfs:min(22cqh,9cqw,2.6rem)}}
+
+/* portrait: a book picture scene gets the zone height it needs for the FULL width (picture as wide as possible, number sentence as big as in the addition lesson); the writing takes the rest (Ahmed 2026-11-18) */
+@media (orientation:portrait){.xpl.xar{grid-template-rows:auto minmax(0,1fr)}.xpl.xar .xpl-stage{aspect-ratio:var(--xar);width:100%;max-height:74cqh}}
+@media (orientation:portrait){.xpl.xar .xpl-cap{--xfs:min(30cqh,9cqw,2.8rem)}}
+/* while the child answers (pieces to put in order, keypad, choices) the picture gives the room back: the answer pieces are never cut (Ahmed 2026-11-18) */
+@media (orientation:portrait){.xpl.xar:has(.xpl-cap.asking){grid-template-rows:minmax(0,56fr) minmax(0,44fr)}.xpl.xar:has(.xpl-cap.asking) .xpl-stage{aspect-ratio:auto;max-height:none}.xpl.xar:has(.xpl-cap.asking) .xpl-cap{--xfs:min(9cqh,8cqw,2.2rem)}}
+
+/* Try / Warm Up label sign (Ahmed 2026-11-18) */
+.xpl-stage{position:relative}
+.xkind{position:absolute;top:.5rem;inset-inline-end:.5rem;z-index:3;padding:.2rem .8rem;border-radius:999px;background:var(--c-accent-dk,#c0561b);color:#fff;font-weight:800;font-size:clamp(.8rem,2.8cqw,1.1rem);box-shadow:0 2px 0 rgba(0,0,0,.2);pointer-events:none}
+.xkind[hidden]{display:none}
+
+/* number sentence under the picture: larger + a light pop per number / sign (Ahmed 2026-11-18) */
+.xpl-line .xtw.xeq{font:400 calc(var(--xf)*1.7)/1.15 var(--f-title);margin:0 .12em;color:var(--c-on-bg)}
+@keyframes xpop{0%{transform:scale(.55)}60%{transform:scale(1.22)}100%{transform:scale(1)}}
+.xpl-line .xtw.xpop{animation:xpop .36s ease-out}

@@ -20,36 +20,20 @@
      "audio": "q/p1-s.mp3",
      "picsTall": [
       "../../pics/sc-math-ar-u4l2-story-4-tall.png"
-     ]
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 1,
-   "page": 47,
-   "task": "Write the subtraction sentence and the answer.",
-   "taskAudio": "q/task-1.mp3",
-   "items": [
-    {
-     "pics": [
-      "../../pics/sc-math-ar-u4l2-story-4.png"
      ],
-     "ask": "How many are left?",
-     "stem": "Answer: ___",
-     "options": [
-      "3 candies",
-      "6 candies",
-      "6"
-     ],
-     "answer": 1,
-     "askSay": "How many are left? What is the answer?",
-     "askAudio": "q/p1-a-q.mp3",
-     "audio": "q/p1-a.mp3",
-     "word": "Answer: 6 candies",
-     "picsTall": [
-      "../../pics/sc-math-ar-u4l2-story-4-tall.png"
-     ]
+     "then": {
+      "options": [
+       "3 candies",
+       "6 candies",
+       "6"
+      ],
+      "answer": 1,
+      "askSay": "How many are left? What is the answer?",
+      "askAudio": "q/p1-a-q.mp3",
+      "audio": "q/p1-a.mp3",
+      "word": "Answer: 6 candies",
+      "lead": "Answer:"
+     }
     }
    ]
   },
@@ -73,36 +57,20 @@
      "audio": "q/p2-s.mp3",
      "picsTall": [
       "../../pics/sc-math-ar-u4l2-story-5-tall.png"
-     ]
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 1,
-   "page": 47,
-   "task": "Write the subtraction sentence and the answer.",
-   "taskAudio": "q/task-1.mp3",
-   "items": [
-    {
-     "pics": [
-      "../../pics/sc-math-ar-u4l2-story-5.png"
      ],
-     "ask": "How many are left?",
-     "stem": "Answer: ___",
-     "options": [
-      "2 fish",
-      "2",
-      "3 fish"
-     ],
-     "answer": 0,
-     "askSay": "How many are left? What is the answer?",
-     "askAudio": "q/p2-a-q.mp3",
-     "audio": "q/p2-a.mp3",
-     "word": "Answer: 2 fish",
-     "picsTall": [
-      "../../pics/sc-math-ar-u4l2-story-5-tall.png"
-     ]
+     "then": {
+      "options": [
+       "2 fish",
+       "2",
+       "3 fish"
+      ],
+      "answer": 0,
+      "askSay": "How many are left? What is the answer?",
+      "askAudio": "q/p2-a-q.mp3",
+      "audio": "q/p2-a.mp3",
+      "word": "Answer: 2 fish",
+      "lead": "Answer:"
+     }
     }
    ]
   },
@@ -126,36 +94,20 @@
      "audio": "q/p3-s.mp3",
      "picsTall": [
       "../../pics/sc-math-ar-u4l2-story-6-tall.png"
-     ]
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 1,
-   "page": 47,
-   "task": "Write the subtraction sentence and the answer.",
-   "taskAudio": "q/task-1.mp3",
-   "items": [
-    {
-     "pics": [
-      "../../pics/sc-math-ar-u4l2-story-6.png"
      ],
-     "ask": "How many are left?",
-     "stem": "Answer: ___",
-     "options": [
-      "8",
-      "2 flowers",
-      "8 flowers"
-     ],
-     "answer": 2,
-     "askSay": "How many are left? What is the answer?",
-     "askAudio": "q/p3-a-q.mp3",
-     "audio": "q/p3-a.mp3",
-     "word": "Answer: 8 flowers",
-     "picsTall": [
-      "../../pics/sc-math-ar-u4l2-story-6-tall.png"
-     ]
+     "then": {
+      "options": [
+       "8",
+       "2 flowers",
+       "8 flowers"
+      ],
+      "answer": 2,
+      "askSay": "How many are left? What is the answer?",
+      "askAudio": "q/p3-a-q.mp3",
+      "audio": "q/p3-a.mp3",
+      "word": "Answer: 8 flowers",
+      "lead": "Answer:"
+     }
     }
    ]
   },
@@ -212,22 +164,96 @@
      "askAudio": "q/wb-10-m-7-q.mp3",
      "audio": "q/wb-10-m-7.mp3",
      "word": "10 − 7 = 3"
-    },
-    {
-     "stem": "6 − 2 = ___",
-     "options": [
-      "3",
-      "4",
-      "5"
-     ],
-     "answer": 1,
-     "askAudio": "q/wb-6-m-2-q.mp3",
-     "audio": "q/wb-6-m-2.mp3",
-     "word": "6 − 2 = 4"
     }
    ],
    "book": "workbook",
-   "ex": 7
+   "ex": 1
+  },
+  {
+   "type": "mwrite",
+   "page": 36,
+   "book": "workbook",
+   "act": "u4l2wb",
+   "task": "Write the subtraction sentence and the answer.",
+   "taskAudio": "q/task-1.mp3",
+   "items": [
+    {
+     "pics": [
+      "live:u4l2-birds"
+     ],
+     "ask": "6 birds on a tree, 3 birds flew away. How many birds are left on the tree?",
+     "lead": "Subtraction sentence:",
+     "word": "6 − 3 = 3",
+     "keys": "1234567890+−=",
+     "askSay": "Six birds on a tree, three birds flew away. How many birds are left on the tree? Write the subtraction sentence.",
+     "askAudio": "q/wb4-birds-s-q.mp3",
+     "audio": "q/wb4-birds-s.mp3",
+     "then": {
+      "options": [
+       "3",
+       "3 birds",
+       "4 birds"
+      ],
+      "answer": 1,
+      "askSay": "How many are left? What is the answer?",
+      "word": "Answer: 3 birds",
+      "lead": "Answer:",
+      "askAudio": "q/p1-a-q.mp3",
+      "audio": "q/wb4-birds-a.mp3"
+     }
+    },
+    {
+     "pics": [
+      "live:u4l2-candies"
+     ],
+     "ask": "There are 7 pieces of candy. You ate 3 of them. How many do you have left?",
+     "lead": "Subtraction sentence:",
+     "word": "7 − 3 = 4",
+     "keys": "1234567890+−=",
+     "askSay": "There are seven pieces of candy. You ate three of them. How many do you have left? Write the subtraction sentence.",
+     "askAudio": "q/wb4-candies-s-q.mp3",
+     "audio": "q/wb4-candies-s.mp3",
+     "then": {
+      "options": [
+       "4 pieces of candy",
+       "4",
+       "3 pieces of candy"
+      ],
+      "answer": 0,
+      "askSay": "How many are left? What is the answer?",
+      "word": "Answer: 4 pieces of candy",
+      "lead": "Answer:",
+      "askAudio": "q/p1-a-q.mp3",
+      "audio": "q/wb4-candies-a.mp3"
+     }
+    },
+    {
+     "pics": [
+      "live:u4l2-cars"
+     ],
+     "ask": "There are 6 cars. 2 cars left. How many cars are left?",
+     "lead": "Subtraction sentence:",
+     "word": "6 − 2 = 4",
+     "keys": "1234567890+−=",
+     "askSay": "There are six cars. Two cars left. How many cars are left? Write the subtraction sentence.",
+     "askAudio": "q/wb4-cars-s-q.mp3",
+     "audio": "q/wb4-cars-s.mp3",
+     "then": {
+      "options": [
+       "4 cars",
+       "4",
+       "2 cars"
+      ],
+      "answer": 0,
+      "askSay": "How many are left? What is the answer?",
+      "word": "Answer: 4 cars",
+      "lead": "Answer:",
+      "askAudio": "q/p1-a-q.mp3",
+      "audio": "q/wb4-cars-a.mp3"
+     }
+    }
+   ],
+   "ex": 2
   },
   {
    "type": "mcq",

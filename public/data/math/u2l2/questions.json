@@ -5,7 +5,11 @@
    "page": 35,
    "grp": "ex-1",
    "task": "The frog is the ___ from the bottom.",
-   "taskAudio": "q/task-1.mp3",
+   "taskAudio": [
+    "q/ord-the-frog-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-bottom.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -30,7 +34,11 @@
    "page": 35,
    "grp": "ex-2",
    "task": "The elephant is the ___ from the top.",
-   "taskAudio": "q/task-2.mp3",
+   "taskAudio": [
+    "q/ord-the-elephant-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-top.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -55,11 +63,15 @@
    "page": 35,
    "grp": "ex-3",
    "task": "The apple is the ___ from the left.",
-   "taskAudio": "q/task-3.mp3",
+   "taskAudio": [
+    "q/ord-the-apple-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-left.mp3"
+   ],
    "items": [
     {
      "items": [
-      "../../pics/banana.png",
+      "../../pics/banana-single.png",
       "../../pics/grapes.png",
       "../../pics/apple-toon.png",
       "../../pics/orange.png",
@@ -81,11 +93,15 @@
    "page": 35,
    "grp": "ex-4",
    "task": "The grapes is the ___ from the right.",
-   "taskAudio": "q/task-4.mp3",
+   "taskAudio": [
+    "q/ord-the-grapes-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-right.mp3"
+   ],
    "items": [
     {
      "items": [
-      "../../pics/banana.png",
+      "../../pics/banana-single.png",
       "../../pics/grapes.png",
       "../../pics/apple-toon.png",
       "../../pics/orange.png",
@@ -106,7 +122,11 @@
    "type": "line",
    "page": 27,
    "task": "The elephant is the ___ from the top.",
-   "taskAudio": "q/task-bk-the-elephant-is-the-from-the-top.mp3",
+   "taskAudio": [
+    "q/ord-the-elephant-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-top.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -132,7 +152,11 @@
    "type": "line",
    "page": 27,
    "task": "The cat is the ___ from the top.",
-   "taskAudio": "q/task-bk-the-cat-is-the-from-the-top.mp3",
+   "taskAudio": [
+    "q/ord-the-cat-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-top.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -158,7 +182,11 @@
    "type": "line",
    "page": 27,
    "task": "The frog is the ___ from the bottom.",
-   "taskAudio": "q/task-bk-the-frog-is-the-from-the-bottom.mp3",
+   "taskAudio": [
+    "q/ord-the-frog-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-bottom.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -184,7 +212,11 @@
    "type": "line",
    "page": 27,
    "task": "The cat is the ___ from the bottom.",
-   "taskAudio": "q/task-bk-the-cat-is-the-from-the-bottom.mp3",
+   "taskAudio": [
+    "q/ord-the-cat-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-bottom.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -210,7 +242,11 @@
    "type": "line",
    "page": 27,
    "task": "The horse is the ___ from the bottom.",
-   "taskAudio": "q/task-bk-the-horse-is-the-from-the-bottom.mp3",
+   "taskAudio": [
+    "q/ord-the-horse-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-bottom.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -236,7 +272,11 @@
    "type": "line",
    "page": 31,
    "task": "The cat is the ___ from the top.",
-   "taskAudio": "q/task-bk-the-cat-is-the-from-the-top.mp3",
+   "taskAudio": [
+    "q/ord-the-cat-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-top.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -262,7 +302,11 @@
    "type": "line",
    "page": 31,
    "task": "The cat is the ___ from the bottom.",
-   "taskAudio": "q/task-bk-the-cat-is-the-from-the-bottom.mp3",
+   "taskAudio": [
+    "q/ord-the-cat-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-bottom.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -288,7 +332,11 @@
    "type": "line",
    "page": 31,
    "task": "The rabbit is the ___ from the top.",
-   "taskAudio": "q/task-bk-the-rabbit-is-the-from-the-top.mp3",
+   "taskAudio": [
+    "q/ord-the-rabbit-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-top.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -314,7 +362,11 @@
    "type": "line",
    "page": 31,
    "task": "The rabbit is the ___ from the bottom.",
-   "taskAudio": "q/task-bk-the-rabbit-is-the-from-the-bottom.mp3",
+   "taskAudio": [
+    "q/ord-the-rabbit-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-bottom.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -340,7 +392,11 @@
    "type": "line",
    "page": 31,
    "task": "The frog is the ___ from the top.",
-   "taskAudio": "q/task-bk-the-frog-is-the-from-the-top.mp3",
+   "taskAudio": [
+    "q/ord-the-frog-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-top.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -366,7 +422,11 @@
    "type": "line",
    "page": 31,
    "task": "The frog is the ___ from the bottom.",
-   "taskAudio": "q/task-bk-the-frog-is-the-from-the-bottom.mp3",
+   "taskAudio": [
+    "q/ord-the-frog-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-bottom.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -392,7 +452,11 @@
    "type": "line",
    "page": 31,
    "task": "The turtle is the ___ from the top.",
-   "taskAudio": "q/task-bk-the-turtle-is-the-from-the-top.mp3",
+   "taskAudio": [
+    "q/ord-the-turtle-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-top.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -418,7 +482,11 @@
    "type": "line",
    "page": 31,
    "task": "The turtle is the ___ from the bottom.",
-   "taskAudio": "q/task-bk-the-turtle-is-the-from-the-bottom.mp3",
+   "taskAudio": [
+    "q/ord-the-turtle-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-bottom.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -444,13 +512,17 @@
    "type": "line",
    "page": 32,
    "task": "The tomato is the ___ from the top.",
-   "taskAudio": "q/task-bk-the-tomato-is-the-from-the-top.mp3",
+   "taskAudio": [
+    "q/ord-the-tomato-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-top.mp3"
+   ],
    "items": [
     {
      "items": [
       "../../pics/pepper-green-bell.png",
       "../../pics/tomato.png",
-      "../../pics/eggplant-on-u5l3.png",
+      "../../pics/eggplant.png",
       "../../pics/corn-cob.png"
      ],
      "target": 1,
@@ -470,13 +542,17 @@
    "type": "line",
    "page": 32,
    "task": "The corn is the ___ from the bottom.",
-   "taskAudio": "q/task-bk-the-corn-is-the-from-the-bottom.mp3",
+   "taskAudio": [
+    "q/ord-the-corn-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-bottom.mp3"
+   ],
    "items": [
     {
      "items": [
       "../../pics/pepper-green-bell.png",
       "../../pics/tomato.png",
-      "../../pics/eggplant-on-u5l3.png",
+      "../../pics/eggplant.png",
       "../../pics/corn-cob.png"
      ],
      "target": 3,
@@ -496,7 +572,11 @@
    "type": "line",
    "page": 32,
    "task": "The frog is the ___ from the right.",
-   "taskAudio": "q/task-bk-the-frog-is-the-from-the-right.mp3",
+   "taskAudio": [
+    "q/ord-the-frog-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-right.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -521,7 +601,11 @@
    "type": "line",
    "page": 32,
    "task": "The frog is the ___ from the bottom.",
-   "taskAudio": "q/task-bk-the-frog-is-the-from-the-bottom.mp3",
+   "taskAudio": [
+    "q/ord-the-frog-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-bottom.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -547,7 +631,11 @@
    "type": "line",
    "page": 32,
    "task": "The elephant is the ___ from the top.",
-   "taskAudio": "q/task-bk-the-elephant-is-the-from-the-top.mp3",
+   "taskAudio": [
+    "q/ord-the-elephant-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-top.mp3"
+   ],
    "items": [
     {
      "items": [
@@ -573,11 +661,15 @@
    "type": "line",
    "page": 32,
    "task": "The apple is the ___ from the left.",
-   "taskAudio": "q/task-bk-the-apple-is-the-from-the-left.mp3",
+   "taskAudio": [
+    "q/ord-the-apple-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-left.mp3"
+   ],
    "items": [
     {
      "items": [
-      "../../pics/banana.png",
+      "../../pics/banana-single.png",
       "../../pics/grapes.png",
       "../../pics/apple-toon.png",
       "../../pics/orange.png",
@@ -599,11 +691,15 @@
    "type": "line",
    "page": 32,
    "task": "The grapes is the ___ from the right.",
-   "taskAudio": "q/task-bk-the-grapes-is-the-from-the-right.mp3",
+   "taskAudio": [
+    "q/ord-the-grapes-is-the.mp3",
+    "../../math-ar-audio/silence-045.mp3",
+    "q/ord-from-the-right.mp3"
+   ],
    "items": [
     {
      "items": [
-      "../../pics/banana.png",
+      "../../pics/banana-single.png",
       "../../pics/grapes.png",
       "../../pics/apple-toon.png",
       "../../pics/orange.png",

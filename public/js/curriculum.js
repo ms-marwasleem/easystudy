@@ -9,15 +9,22 @@ const SET_BOOK={book:'school',lesson:'school',bq:'school',workbook:'workbook',bo
 function currPick(){ try{ const p=JSON.parse(localStorage.getItem('es.curr')||'null'); return p&&p.type?p:null; }catch(e){ return null; } }
 function currSave(p){ try{ localStorage.setItem('es.curr',JSON.stringify(p)); }catch(e){} }
 // the plan of a pick: {subjects:[ids], books:Set}. A private school = its base type + its own subjects and books.
+/* SCHOOLS THAT NEED PERMISSION (Ahmed 2026-11-19): the dashboard marks a school "needs permission" (settings schoolPerm[id], default = the school's own "perm" in curriculum.json).
+   A student of such a school sees only the base curriculum (its ministry books) until the admin grants THAT student (children.sgrant on the server -> curr.grant = 1 on the device). */
+function schoolNeedsPerm(id){ try{ const o=(typeof ESET!=='undefined'&&ESET&&ESET.schoolPerm)||{}; if(o[id]!=null) return !!o[id]; const s=CURR&&CURR.schools&&CURR.schools.find(x=>x.id===id); return !!(s&&s.perm); }catch(e){ return false; } }
+const schoolLocked=p=>!!(p&&p.school&&schoolNeedsPerm(p.school)&&!p.grant);
+// the id of the curriculum that really applies (the base type of a locked school) - Easy Words keeps its curriculum as one id
+const currEff=p=>p?(p.school?(schoolLocked(p)?((((CURR&&CURR.schools)||[]).find(s=>s.id===p.school)||{}).base||p.type):p.school):p.type):null;
+function currRefresh(p){ if(CURR_ALL||typeof EW!=='undefined') currApply(p); }
 function currPlan(p){
-  const C=CURR||{types:[],schools:[]}, sc=p&&p.school&&C.schools.find(s=>s.id===p.school),
-    ty=C.types.find(t=>t.id===(sc?sc.base:p&&p.type))||C.types.find(t=>t.subjects);
+  const C=CURR||{types:[],schools:[]}, sc0=p&&p.school&&C.schools.find(s=>s.id===p.school), sc=schoolLocked(p)?null:sc0,
+    ty=C.types.find(t=>t.id===(sc0?sc0.base:p&&p.type))||C.types.find(t=>t.subjects);
   if(!ty) return null;
   return {type:ty, school:sc||null, subjects:[...ty.subjects,...((sc&&sc.subjects)||[])], books:new Set([...ty.books,...((sc&&sc.books)||[])])};
 }
 let PLAN=null;
 // the private school of the child (null for general / experimental). A vocab word tagged "school":"<id>" (a word that exists only in that school's booklet, Ahmed 2026-11-15) shows only for a child of that school; untagged words = the ministry curriculum, for everyone.
-function currSchoolId(){ try{ if(PLAN&&PLAN.school) return PLAN.school.id; const k=typeof kidNow==='function'&&kidNow(), c=(k&&k.curr)||currPick(); return (c&&c.school)||null; }catch(e){ return null; } }
+function currSchoolId(){ try{ if(PLAN&&PLAN.school) return PLAN.school.id; const k=typeof kidNow==='function'&&kidNow(), c=(k&&k.curr)||currPick(); return (c&&c.school&&!schoolLocked(c))?c.school:null; }catch(e){ return null; } }
 const vocabFor=list=>(list||[]).filter(v=>v&&(!v.school||v.school===currSchoolId()));
 const bookOn=k=>!PLAN||PLAN.books.has(k);
 const tabOn=t=>bookOn(TAB_BOOK[t]||'school');

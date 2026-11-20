@@ -17,13 +17,171 @@
  "tabLabels": {
   "read": "Explain"
  },
- "type": "math",
- "math": {
-  "rows": [
+ "layout": "explain",
+ "pages": 2,
+ "pageNums": [
+  30,
+  30
+ ],
+ "explain": {
+  "caption": false,
+  "wide": true,
+  "nums": {
+   "1": "../u1l2/words/one.mp3",
+   "2": "../u1l2/words/two.mp3",
+   "3": "../u1l2/words/three.mp3",
+   "4": "../u1l2/words/four.mp3",
+   "5": "../u1l2/words/five.mp3",
+   "6": "../u1l4/words/six.mp3",
+   "7": "../u1l4/words/seven.mp3",
+   "8": "../u1l4/words/eight.mp3",
+   "9": "../u1l4/words/nine.mp3",
+   "10": "../u1l4/words/ten.mp3"
+  },
+  "steps": [
    {
-    "n": 0,
-    "word": "Zero",
-    "audio": "words/zero.mp3"
+    "name": "Zero",
+    "beats": [
+     {
+      "do": [
+       {
+        "scene": "line",
+        "n": 5,
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "unit": "../../pics/bird.png",
+        "ends": [
+         "",
+         ""
+        ]
+       }
+      ]
+     },
+     {
+      "say": "Look! Five birds.",
+      "audio": "../u3l3/explain/s3-2.mp3",
+      "do": [
+       {
+        "pts": [
+         [
+          196,
+          44
+         ],
+         [
+          348,
+          44
+         ],
+         [
+          500,
+          44
+         ],
+         [
+          652,
+          44
+         ],
+         [
+          804,
+          44
+         ]
+        ],
+        "color": "orange",
+        "count": []
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "pop": {
+         "a": 0,
+         "b": 5,
+         "mode": "out"
+        }
+       }
+      ],
+      "gap": 500
+     },
+     {
+      "say": "Look! Zero birds. There are no birds.",
+      "audio": "../u3l3/explain/s2-2.mp3",
+      "do": [
+       {
+        "add": "0",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1600
+     }
+    ]
+   },
+   {
+    "name": "Zero",
+    "beats": [
+     {
+      "do": [
+       {
+        "scene": "line",
+        "n": 2,
+        "ih": 240,
+        "floor": 215,
+        "maxh": 130,
+        "maxw": 130,
+        "unit": "../../pics/bird.png",
+        "ends": [
+         "",
+         ""
+        ]
+       }
+      ]
+     },
+     {
+      "say": "Look! Two birds.",
+      "audio": "../u3l3/explain/s1-2.mp3",
+      "do": [
+       {
+        "pts": [
+         [
+          310,
+          44
+         ],
+         [
+          690,
+          44
+         ]
+        ],
+        "color": "orange",
+        "count": []
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "pop": {
+         "a": 0,
+         "b": 2,
+         "mode": "out"
+        }
+       }
+      ],
+      "gap": 500
+     },
+     {
+      "say": "Look! Zero birds. There are no birds.",
+      "audio": "../u3l3/explain/s2-2.mp3",
+      "do": [
+       {
+        "add": "0",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 1600
+     }
+    ]
    }
   ]
  }

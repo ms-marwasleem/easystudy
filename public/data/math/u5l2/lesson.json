@@ -9,13 +9,19 @@
  "speakers": {},
  "vocab": [],
  "tabs": [
-  "read"
+  "read",
+  "workbook",
+  "booklet"
  ],
  "tabLabels": {
   "read": "Lesson"
  },
- "pages": 3,
+ "pages": 7,
  "pageNums": [
+  56,
+  56,
+  56,
+  56,
   56,
   56,
   57
@@ -36,6 +42,212 @@
    "10": "../u1l4/words/ten.mp3"
   },
   "steps": [
+   {
+    "name": "Look",
+    "beats": [
+     {
+      "say": "Look. We can't line up the ends of this desk. How should we measure?",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "d",
+          "img": "../../pics/desk.png",
+          "x": 260,
+          "y": 30,
+          "w": 480,
+          "h": 363
+         }
+        ],
+        "ih": 400,
+        "top": 24
+       }
+      ],
+      "audio": "explain/n0-1.mp3"
+     },
+     {
+      "say": "If you can't line up the ends, you can still compare lengths using objects.",
+      "do": [
+       {
+        "add": "Measure with objects.",
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/n0-2.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Tools",
+    "beats": [
+     {
+      "say": "A tape.",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "tape",
+          "img": "../../pics/tape.png",
+          "x": -600,
+          "y": 60,
+          "w": 210,
+          "h": 220
+         },
+         {
+          "id": "fingers",
+          "img": "../../pics/hand.png",
+          "x": -600,
+          "y": 60,
+          "w": 145,
+          "h": 220
+         },
+         {
+          "id": "pencil",
+          "img": "../../pics/len-pen-red.png",
+          "x": -600,
+          "y": 150,
+          "w": 230,
+          "h": 28
+         }
+        ],
+        "ih": 340,
+        "top": 24
+       },
+       {
+        "move": [
+         {
+          "id": "tape",
+          "x": 110,
+          "y": 60
+         }
+        ],
+        "ms": 700
+       }
+      ],
+      "audio": "explain/n1-1.mp3"
+     },
+     {
+      "say": "Your fingers.",
+      "do": [
+       {
+        "move": [
+         {
+          "id": "fingers",
+          "x": 410,
+          "y": 60
+         }
+        ],
+        "ms": 700
+       }
+      ],
+      "audio": "explain/n1-2.mp3"
+     },
+     {
+      "say": "A pencil.",
+      "do": [
+       {
+        "move": [
+         {
+          "id": "pencil",
+          "x": 680,
+          "y": 150
+         }
+        ],
+        "ms": 700
+       }
+      ],
+      "audio": "explain/n1-3.mp3"
+     },
+     {
+      "say": "We can measure with a tape, our fingers, or a pencil.",
+      "do": [
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/n1-4.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Fold the paper",
+    "beats": [
+     {
+      "say": "How can we compare the length and the width of this paper?",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "p",
+          "img": "../../pics/paper-sheet.png",
+          "x": 370,
+          "y": 30,
+          "w": 260,
+          "h": 360
+         },
+         {
+          "id": "f",
+          "img": "../../pics/paper-fold.png",
+          "x": 760,
+          "y": 130,
+          "w": 260,
+          "h": 260
+         }
+        ],
+        "ih": 430,
+        "top": 24
+       }
+      ],
+      "audio": "explain/n2-1.mp3"
+     },
+     {
+      "say": "Fold the paper like this, and stack it.",
+      "do": [
+       {
+        "move": [
+         {
+          "id": "f",
+          "x": 370,
+          "y": 130
+         }
+        ],
+        "ms": 1800
+       }
+      ],
+      "audio": "explain/n2-2.mp3"
+     },
+     {
+      "say": "The part that sticks out is longer. The length is longer than the width.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          360,
+          20,
+          640,
+          135
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "The length is longer.",
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/n2-3.mp3"
+     }
+    ]
+   },
    {
     "name": "5 pencils",
     "beats": [
@@ -426,8 +638,7 @@
     "name": "5 > 3",
     "beats": [
      {
-      "say": "Which ribbon is longer? Five pencils, or three pencils?",
-      "audio": "explain/s3-1.mp3",
+      "say": "Which ribbon is longer?",
       "do": [
        {
         "scene": "free",
@@ -436,7 +647,7 @@
           "id": "g",
           "img": "../../pics/len-rib-green.png",
           "x": 125,
-          "y": 60,
+          "y": 40,
           "w": 750,
           "h": 44
          },
@@ -444,39 +655,150 @@
           "id": "r",
           "img": "../../pics/len-rib-red.png",
           "x": 125,
-          "y": 150,
+          "y": 190,
           "w": 450,
           "h": 33
+         },
+         {
+          "id": "a0",
+          "img": "../../pics/len-pen-yellow.png",
+          "x": 125,
+          "y": 105,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "a1",
+          "img": "../../pics/len-pen-yellow.png",
+          "x": 275,
+          "y": 105,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "a2",
+          "img": "../../pics/len-pen-yellow.png",
+          "x": 425,
+          "y": 105,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "a3",
+          "img": "../../pics/len-pen-yellow.png",
+          "x": 575,
+          "y": 105,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "a4",
+          "img": "../../pics/len-pen-yellow.png",
+          "x": 725,
+          "y": 105,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "b0",
+          "img": "../../pics/len-pen-yellow.png",
+          "x": 125,
+          "y": 255,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "b1",
+          "img": "../../pics/len-pen-yellow.png",
+          "x": 275,
+          "y": 255,
+          "w": 150,
+          "h": 24
+         },
+         {
+          "id": "b2",
+          "img": "../../pics/len-pen-yellow.png",
+          "x": 425,
+          "y": 255,
+          "w": 150,
+          "h": 24
          }
         ],
-        "ih": 250,
+        "ih": 330,
         "top": 24
        },
        {
         "guide": {
          "x0": 115,
-         "y0": 30,
+         "y0": 20,
          "x1": 115,
-         "y1": 230,
+         "y1": 310,
          "color": "black"
         }
        }
-      ]
+      ],
+      "audio": "explain/n5-1.mp3"
      },
      {
-      "say": "Five is more than three. The green ribbon is longer.",
-      "audio": "explain/s3-2.mp3",
+      "say": "This ribbon is five pencils long.",
       "do": [
        {
         "frame": {
          "box": [
           117,
-          50,
+          30,
           883,
-          112
+          140
+         ],
+         "color": "orange"
+        }
+       },
+       {
+        "add": "5 pencils",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/n5-2.mp3"
+     },
+     {
+      "say": "This ribbon is three pencils long.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          117,
+          180,
+          583,
+          290
+         ],
+         "color": "orange"
+        }
+       },
+       {
+        "add": "3 pencils",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/n5-3.mp3"
+     },
+     {
+      "say": "Five is more than three. So the green ribbon is longer.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          117,
+          30,
+          883,
+          140
          ],
          "color": "green"
         }
+       },
+       {
+        "line": "break"
        },
        {
         "add": "5 > 3",
@@ -486,7 +808,307 @@
        {
         "cheer": true
        }
-      ]
+      ],
+      "audio": "explain/n5-4.mp3"
+     }
+    ]
+   },
+   {
+    "name": "Tapes",
+    "beats": [
+     {
+      "say": "Let us use a tape to measure the lengths of different things in the classroom.",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "chairi",
+          "img": "../../pics/chair.png",
+          "x": 97,
+          "y": 20,
+          "w": 57,
+          "h": 68
+         },
+         {
+          "id": "deskwi",
+          "img": "../../pics/desk.png",
+          "x": 80,
+          "y": 130,
+          "w": 90,
+          "h": 68
+         },
+         {
+          "id": "deskli",
+          "img": "../../pics/desk.png",
+          "x": 80,
+          "y": 240,
+          "w": 90,
+          "h": 68
+         },
+         {
+          "id": "doori",
+          "img": "../../pics/door-u3l4.png",
+          "x": 99,
+          "y": 350,
+          "w": 53,
+          "h": 68
+         },
+         {
+          "id": "umbi",
+          "img": "../../pics/len-umb-red.png",
+          "x": 117,
+          "y": 460,
+          "w": 16,
+          "h": 68
+         },
+         {
+          "id": "chair",
+          "img": "../../pics/len-rib-blue.png",
+          "x": -700,
+          "y": 37,
+          "w": 330,
+          "h": 30
+         },
+         {
+          "id": "deskw",
+          "img": "../../pics/len-rib-yellow.png",
+          "x": -700,
+          "y": 147,
+          "w": 250,
+          "h": 30
+         },
+         {
+          "id": "deskl",
+          "img": "../../pics/len-rib-blue.png",
+          "x": -700,
+          "y": 257,
+          "w": 470,
+          "h": 30
+         },
+         {
+          "id": "door",
+          "img": "../../pics/len-rib-yellow.png",
+          "x": -700,
+          "y": 367,
+          "w": 385,
+          "h": 30
+         },
+         {
+          "id": "umb",
+          "img": "../../pics/len-rib-red.png",
+          "x": -700,
+          "y": 477,
+          "w": 300,
+          "h": 30
+         }
+        ],
+        "labels": [
+         {
+          "x": 125,
+          "t": "Height of the chair",
+          "s": 21,
+          "y": 116
+         },
+         {
+          "x": 125,
+          "t": "Width of the desk",
+          "s": 21,
+          "y": 226
+         },
+         {
+          "x": 125,
+          "t": "Length of the desk",
+          "s": 21,
+          "y": 336
+         },
+         {
+          "x": 125,
+          "t": "Width of the door",
+          "s": 21,
+          "y": 446
+         },
+         {
+          "x": 125,
+          "t": "Length of the umbrella",
+          "s": 21,
+          "y": 556
+         }
+        ],
+        "ih": 590,
+        "top": 24
+       }
+      ],
+      "audio": "explain/n6-1.mp3"
+     },
+     {
+      "say": "Use a tape to measure the height of the chair.",
+      "do": [
+       {
+        "move": [
+         {
+          "id": "chair",
+          "x": 310,
+          "y": 37
+         }
+        ],
+        "ms": 900
+       }
+      ],
+      "audio": "explain/n6-2.mp3"
+     },
+     {
+      "say": "Now the width of the desk.",
+      "do": [
+       {
+        "move": [
+         {
+          "id": "deskw",
+          "x": 250,
+          "y": 147
+         }
+        ],
+        "ms": 900
+       }
+      ],
+      "audio": "explain/n6-3.mp3"
+     },
+     {
+      "say": "The length of the desk.",
+      "do": [
+       {
+        "move": [
+         {
+          "id": "deskl",
+          "x": 340,
+          "y": 257
+         }
+        ],
+        "ms": 900
+       }
+      ],
+      "audio": "explain/n6-4.mp3"
+     },
+     {
+      "say": "The width of the door.",
+      "do": [
+       {
+        "move": [
+         {
+          "id": "door",
+          "x": 280,
+          "y": 367
+         }
+        ],
+        "ms": 900
+       }
+      ],
+      "audio": "explain/n6-5.mp3"
+     },
+     {
+      "say": "And the length of the umbrella.",
+      "do": [
+       {
+        "move": [
+         {
+          "id": "umb",
+          "x": 370,
+          "y": 477
+         }
+        ],
+        "ms": 900
+       }
+      ],
+      "audio": "explain/n6-6.mp3"
+     },
+     {
+      "say": "Now put the tapes side by side, on one line.",
+      "do": [
+       {
+        "guide": {
+         "x0": 322,
+         "y0": 10,
+         "x1": 322,
+         "y1": 580,
+         "color": "black"
+        }
+       },
+       {
+        "move": [
+         {
+          "id": "chair",
+          "x": 330,
+          "y": 37
+         }
+        ],
+        "ms": 1500
+       },
+       {
+        "move": [
+         {
+          "id": "deskw",
+          "x": 330,
+          "y": 147
+         }
+        ],
+        "ms": 1500
+       },
+       {
+        "move": [
+         {
+          "id": "deskl",
+          "x": 330,
+          "y": 257
+         }
+        ],
+        "ms": 1500
+       },
+       {
+        "move": [
+         {
+          "id": "door",
+          "x": 330,
+          "y": 367
+         }
+        ],
+        "ms": 1500
+       },
+       {
+        "move": [
+         {
+          "id": "umb",
+          "x": 330,
+          "y": 477
+         }
+        ],
+        "ms": 1500
+       }
+      ],
+      "audio": "explain/n6-7.mp3"
+     },
+     {
+      "say": "The tape for the length of the desk goes the furthest. So the length of the desk is the longest.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          322,
+          232,
+          810,
+          282
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "The length of the desk is the longest.",
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/n6-8.mp3"
      }
     ]
    }

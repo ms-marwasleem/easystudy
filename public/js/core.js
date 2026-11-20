@@ -19,26 +19,90 @@ const _pre=[], PRE_MAX=80; function preloadImgs(list){ [...new Set((list||[]).fi
   const i=new Image(); i.decoding='async'; i._u=u; i.src=u; _pre.push(i); if(i.decode) i.decode().catch(()=>{}); });
   if(_pre.length>PRE_MAX) _pre.splice(0,_pre.length-PRE_MAX); }
 /* COUNT PICTURE — ONE component for every subject (Marwa 2026-11-06): the library keeps ONE unit picture (one banana, one bee) and
-   never one picture per count. Data writes the unit + the count after "#": "../../pics/banana-hat.png#5". Every json goes through
+   never one picture per count. Data writes the unit + the count after "#": "../../pics/banana-single.png#5". Every json goes through
    get(), so cpicFill draws the unit n times (rows of up to 5, the last row centred) into ONE transparent picture and puts it in the
    string's place (marked data:image/png;cpic=1 so css/frame.css shows it as a cut-out, no frame): every screen (count, choose, link, pick, yes/no, lesson pages, exams) shows it like any other picture. */
-const CPIC_RE=/\.(png|jpe?g|webp)#(\d+)(n?)$/i, _cpic={};
+const CPIC_RE=/\.(png|jpe?g|webp)#(\d+)([nf]*)$/i, _cpic={};   /* flags after the count: n = the number written above, f = faded (an "inactive" picture = the SAME library picture at low opacity, Ahmed 2026-11-19: no separate off pictures) */
 const cpicCols=n=>n<=4?n:Math.min(5,Math.ceil(n/2));
 /* NUMBER CARD: "#6n" = the same repeated unit with the digit 6 written big above it (transparent, no card), for any lesson that teaches a number (English OL u5l3). */
 const CPIC_COL={6:'#ffffff',7:'#ffe27a',8:'#ffb36b',9:'#9fe3ff',10:'#c9f7a5'};
-function cpicMake(src,n,dig){ const k=src+'#'+n+(dig?'n':''); if(_cpic[k]) return _cpic[k];
+function cpicMake(src,n,fl){ fl=fl===true?'n':(fl||''); const dig=/n/.test(fl), fad=/f/.test(fl), k=src+'#'+n+fl; if(_cpic[k]) return _cpic[k];
   return _cpic[k]=new Promise(ok=>{ const im=new Image(); im.onload=async()=>{ const s=Math.min(1,260/Math.max(im.naturalWidth,im.naturalHeight)), w=Math.round(im.naturalWidth*s), h=Math.round(im.naturalHeight*s), g=Math.round(Math.max(w,h)*.12), cols=cpicCols(n), rows=Math.ceil(n/cols), c=document.createElement('canvas');
     const gw=cols*w+(cols-1)*g, gh=rows*h+(rows-1)*g, th=dig?Math.round(h*1.25):0; c.width=Math.max(gw,dig?Math.round(th*1.1):0); c.height=gh+th+(dig?g:0); const x=c.getContext('2d'), ox=(c.width-gw)/2, oy=th+(dig?g:0);
     if(dig){ try{ await document.fonts.ready; }catch(e){} x.font='700 '+Math.round(th*.8)+'px '+(getComputedStyle(document.body).fontFamily||'sans-serif'); x.textAlign='center'; x.textBaseline='middle'; x.lineJoin='round'; x.lineWidth=Math.round(th*.14); x.strokeStyle='#6b2d12'; x.strokeText(String(n),c.width/2,th/2); x.fillStyle=CPIC_COL[n]||'#fff'; x.fillText(String(n),c.width/2,th/2); }
-    for(let i=0;i<n;i++){ const r=Math.floor(i/cols), inRow=Math.min(cols,n-r*cols), off=(cols-inRow)*(w+g)/2; x.drawImage(im,ox+off+(i%cols)*(w+g),oy+r*(h+g),w,h); }
+    for(let i=0;i<n;i++){ const r=Math.floor(i/cols), inRow=Math.min(cols,n-r*cols), off=(cols-inRow)*(w+g)/2; x.globalAlpha=fad?.3:1; x.drawImage(im,ox+off+(i%cols)*(w+g),oy+r*(h+g),w,h); }
     ok(c.toDataURL('image/png').replace('data:image/png;','data:image/png;cpic=1;')); }; im.onerror=()=>ok(src); im.src=src; }); }
+/* MIXED GROUPS (Marwa/Ahmed 2026-11-18, booklet "3 elephants + 1" / "which picture shows 2+4"): "unit-a#3 plus unit-b#1" = a group of 3 a, a plus sign, a group of 1 b; "unit-a#2 and unit-b#4" = the same without the plus sign (two kinds side by side in one picture, a gap between) */
+const CPIC_MIX=/^[^#+|]+\.(png|jpe?g|webp)#\d+f?([+|][^#+|]+\.(png|jpe?g|webp)#\d+f?)+$/i;
+function cpicMix(spec,base){ const k='mix:'+spec; if(_cpic[k]) return _cpic[k];
+  const parts=spec.split(/([+|])/), gs=[], seps=[]; parts.forEach((t,i)=>{ if(i%2) seps.push(t); else { const m=t.match(/^(.*)#(\d+)(f?)$/); gs.push({src:new URL(m[1],base).href,n:+m[2],f:!!m[3]}); } });
+  return _cpic[k]=Promise.all(gs.map(g=>new Promise(r=>{ const im=new Image(); im.onload=()=>r(im); im.onerror=()=>r(null); im.src=g.src; }))).then(ims=>{
+    if(ims.some(i=>!i)) return spec;
+    if(!seps.includes('+')){ /* kinds side by side in ONE compact block (the book's boxes): all things in a near-square grid, first kind first */ const U=140, G=14, all=[]; gs.forEach((g,i)=>{ for(let j=0;j<g.n;j++) all.push({im:ims[i],f:g.f}); }); const cols=Math.ceil(Math.sqrt(all.length*1.15)), rows=Math.ceil(all.length/cols), c=document.createElement('canvas'); c.width=cols*(U+G)-G; c.height=rows*(U+G)-G; const x=c.getContext('2d');
+      all.forEach((o,j)=>{ const im=o.im; x.globalAlpha=o.f?.3:1; const r=Math.floor(j/cols), inRow=Math.min(cols,all.length-r*cols), off=(cols-inRow)*(U+G)/2, sc=Math.min(U/im.naturalHeight,U/im.naturalWidth), w=im.naturalWidth*sc, h=im.naturalHeight*sc; x.drawImage(im,off+(j%cols)*(U+G)+(U-w)/2,r*(U+G)+(U-h)/2,w,h); });
+      return c.toDataURL('image/png').replace('data:image/png;','data:image/png;cpic=1;'); }
+    const U=150, G=26, pl=64, boxes=gs.map((g,i)=>{ const im=ims[i], s=Math.min(U/im.naturalHeight,U/im.naturalWidth), w=Math.round(im.naturalWidth*s), h=Math.round(im.naturalHeight*s), cols=cpicCols(g.n), rows=Math.ceil(g.n/cols); return {im,w,h,cols,rows,gw:cols*w+(cols-1)*G*.4,gh:rows*h+(rows-1)*G*.4}; });
+    const mh=Math.max(...boxes.map(b=>b.gh)), W=boxes.reduce((a,b,i)=>a+b.gw+(i?(seps[i-1]==='+'?pl+G:G*1.6):0),0), c=document.createElement('canvas'); c.width=Math.round(W); c.height=Math.round(mh); const x=c.getContext('2d'); let ox=0;
+    boxes.forEach((b,i)=>{ if(i){ if(seps[i-1]==='+'){ x.font='700 '+Math.round(pl*.9)+'px sans-serif'; x.textAlign='center'; x.textBaseline='middle'; x.lineJoin='round'; x.lineWidth=8; x.strokeStyle='#6b2d12'; x.strokeText('+',ox+(pl+G)/2,mh/2); x.fillStyle='#fff'; x.fillText('+',ox+(pl+G)/2,mh/2); ox+=pl+G; } else ox+=G*1.6; }
+      const oy=(mh-b.gh)/2; x.globalAlpha=gs[i].f?.3:1; for(let j=0;j<gs[i].n;j++){ const r=Math.floor(j/b.cols), inRow=Math.min(b.cols,gs[i].n-r*b.cols), off=(b.cols-inRow)*(b.w+G*.4)/2; x.drawImage(b.im,ox+off+(j%b.cols)*(b.w+G*.4),oy+r*(b.h+G*.4),b.w,b.h); } ox+=b.gw; });
+    return c.toDataURL('image/png').replace('data:image/png;','data:image/png;cpic=1;'); }); }
+
+/* LIVE SCENES (Ahmed 2026-11-19): a workbook picture made of repeated things / numbers / hands / tables is never stored as a picture. data/live-scenes.json
+   holds a tiny recipe per scene and a lesson / question writes "live:<scene id>" where the picture would be; every json goes through get(), so cpicFill draws the scene
+   from the LIBRARY pictures (one unit picture repeated, faded / crossed / boxed ones, dashed match lines, number badges, a baseline) into one picture in that place.
+   recipe: {u:unit px, gap, frame:true (thin white frame) , line:{color, badges:[..]} (floor line under the things, badge under each group),
+            rows:[{items:[{p:"candy",n:4,s:1,fade:0,cross:0,box:0,rot:0,badge:"1"}], sep:"−", gap}], link:true (dashed lines between the things of two rows)}
+   a table: {table:{head:["..",..], rows:[{label:"..", p:"id", n:6, off:2}], cell:70}}: a label column + cells with one picture each, the first `off` of a row faded. */
+const LIVE_RE=/^live:[A-Za-z0-9_-]+$/; let _live=null; const _livec={};
+const liveSpecs=()=>_live||(_live=fetch('data/live-scenes.json').then(r=>r.ok?r.json():{}).catch(()=>({})));
+const liveImg=(M,id)=>new Promise(ok=>{ const f=M.files[(M.merged&&M.merged[id])||id]||M.files[id]; if(!f) return ok(null); const im=new Image(); im.onload=()=>ok(im); im.onerror=()=>ok(null); im.src='data/pics/'+f; });
+function liveMake(id){ if(_livec[id]) return _livec[id];
+  return _livec[id]=Promise.all([liveSpecs(),picMap()]).then(async([S,M])=>{ const sp=S[id]; if(!sp) return 'live:'+id;
+    const ids=new Set(); (sp.rows||[]).forEach(r=>r.items.forEach(it=>ids.add(it.p))); ((sp.table&&Array.isArray(sp.table.rows)&&sp.table.rows)||[]).forEach(r=>{ if(r.p) ids.add(r.p); }); ((sp.table&&sp.table.cols)||[]).forEach(r=>{ if(r.p) ids.add(r.p); });
+    const IM={}; await Promise.all([...ids].map(async p=>{ IM[p]=await liveImg(M,p); })); if([...ids].some(p=>!IM[p])) return 'live:'+id;
+    try{ await document.fonts.ready; }catch(e){}
+    const c=sp.table?liveTable(sp,IM):liveRows(sp,IM); return c.toDataURL('image/png').replace('data:image/png;',sp.frame||sp.table?'data:image/png;scene=1;':'data:image/png;cpic=1;'); }); }
+function liveRows(sp,IM){ const U=sp.u||150, G=sp.gap==null?18:sp.gap, PAD=sp.frame?18:6, FONT=getComputedStyle(document.body).fontFamily||'sans-serif';
+  const fit=(it)=>{ const im=IM[it.p], bx=U*(it.s||1), sc=Math.min(bx/im.naturalWidth,bx/im.naturalHeight), r=!!(it.rot&&Math.abs(it.rot)===90); let w=im.naturalWidth*sc, h=im.naturalHeight*sc; if(r){ const t=w; w=h; h=t; } return {im,w,h,sc}; };
+  const rows=sp.rows.map(r=>({r,g:r.items.map(it=>({it,u:Array.from({length:it.n||1},()=>fit(it))}))}));
+  const cellW=sp.link?Math.max(...rows.flatMap(R=>R.g.flatMap(g=>g.u.map(u=>u.w)))):0;
+  rows.forEach(R=>{ R.gap=R.r.gap==null?G:R.r.gap; R.h=0; R.w=0; R.g.forEach((g,gi)=>{ g.x=R.w+(gi?(R.r.sep?60:G*1.6):0); g.w=g.u.reduce((a,u,i)=>a+(cellW||u.w)+(i?R.gap:0),0); g.h=Math.max(...g.u.map(u=>u.h)); R.w=g.x+g.w; R.h=Math.max(R.h,g.h); }); });
+  const lineH=sp.line?64:0, rowGap=sp.link?58:(sp.rowGap==null?24:sp.rowGap), vl=sp.vline?70:0;
+  const W=Math.max(...rows.map(R=>R.w))+PAD*2+vl, H=rows.reduce((a,R,i)=>a+R.h+(i?rowGap:0),0)+PAD*2+lineH+(sp.link?0:0), c=document.createElement('canvas'), S=2; c.width=Math.round(W*S); c.height=Math.round(H*S); const x=c.getContext('2d'); x.scale(S,S);
+  if(sp.frame){ x.fillStyle='#fff'; x.strokeStyle='rgba(60,60,80,.25)'; x.lineWidth=2; x.beginPath(); x.roundRect(1,1,W-2,H-2,16); x.fill(); x.stroke(); }
+  let y=PAD; const pos=[];
+  rows.forEach((R,ri)=>{ const ox=PAD+vl+(sp.align==='left'?0:(W-PAD*2-vl-R.w)/2); const rp=[]; pos.push(rp);
+    R.g.forEach((g,gi)=>{ const it=g.it; let ux=ox+g.x; g.u.forEach((u,i)=>{ const slot=cellW||u.w, px=ux+(slot-u.w)/2, py=y+R.h-u.h, last=g.u.length-i, faded=it.fade&&last<=it.fade, crossed=it.cross&&last<=it.cross;
+        x.save(); x.globalAlpha=faded?.3:1; if(it.rot){ x.translate(px+u.w/2,py+u.h/2); x.rotate(it.rot*Math.PI/180); x.drawImage(u.im,-u.sc*u.im.naturalWidth/2,-u.sc*u.im.naturalHeight/2,u.sc*u.im.naturalWidth,u.sc*u.im.naturalHeight); } else x.drawImage(u.im,px,py,u.w,u.h); x.restore();
+        if(crossed){ x.strokeStyle='#d32f2f'; x.lineWidth=5; x.lineCap='round'; x.beginPath(); x.moveTo(px,py); x.lineTo(px+u.w,py+u.h); x.moveTo(px+u.w,py); x.lineTo(px,py+u.h); x.stroke(); }
+        rp.push({x:px+u.w/2,t:py,b:py+u.h}); ux+=slot+R.gap; });
+      if(it.box){ const n=g.u.length, k=Math.min(it.box,n), x0=ox+g.x+(n-k)*((cellW||g.u[0].w)+R.gap)-8, x1=ox+g.x+g.w+8; x.strokeStyle='#444'; x.lineWidth=3; x.strokeRect(x0,y-8,x1-x0,R.h+16); }
+      if(R.r.sep&&gi<R.g.length-1){ x.font='700 54px '+FONT; x.textAlign='center'; x.textBaseline='middle'; x.fillStyle='#444'; x.fillText(R.r.sep,ox+g.x+g.w+30,y+R.h/2); }
+      if(it.badge!=null){ const bx=ox+g.x+g.w/2, by=y+R.h+(sp.line?42:0); liveBadge(x,bx,by,it.badge,FONT); } });
+    y+=R.h+rowGap; });
+  if(sp.link) for(let r=0;r+1<rows.length;r++) for(let i=0;i<Math.min(pos[r].length,pos[r+1].length);i++){ x.strokeStyle='#444'; x.lineWidth=2; x.setLineDash([5,5]); x.beginPath(); x.moveTo(pos[r][i].x,pos[r][i].b+4); x.lineTo(pos[r+1][i].x,pos[r+1][i].t-4); x.stroke(); x.setLineDash([]); }
+  if(sp.line){ const ly=PAD+rows.reduce((a,R,i)=>a+R.h+(i?rowGap:0),0)+6; x.strokeStyle=sp.line.color||'#d62e8f'; x.lineWidth=5; x.beginPath(); x.moveTo(PAD,ly); x.lineTo(W-PAD,ly); x.stroke(); }
+  if(sp.vline){ x.strokeStyle='#d32f2f'; x.lineWidth=6; x.beginPath(); x.moveTo(PAD+22,PAD); x.lineTo(PAD+22,H-PAD); x.stroke(); }
+  return c; }
+function liveBadge(x,bx,by,t,FONT){ x.fillStyle='#fb9b2a'; x.beginPath(); x.arc(bx,by,22,0,7); x.fill(); x.fillStyle='#fff'; x.font='700 26px '+FONT; x.textAlign='center'; x.textBaseline='middle'; x.fillText(String(t),bx,by+2); }
+function liveTableV(sp,IM){ const T=sp.table, cell=T.cell||64, FONT=getComputedStyle(document.body).fontFamily||'sans-serif', nrow=T.rows, nc=T.cols.length, lh=34, W=nc*cell+2, H=nrow*cell+lh+2, S=2, c=document.createElement('canvas'); c.width=W*S; c.height=H*S; const x=c.getContext('2d'); x.scale(S,S);
+  x.fillStyle='#fff'; x.fillRect(0,0,W,H); x.strokeStyle='#222'; x.lineWidth=2; x.font='700 20px '+FONT; x.textBaseline='middle'; x.textAlign='center';
+  T.cols.forEach((col,ci)=>{ const cx=1+(T.rtl!==false?nc-1-ci:ci)*cell; for(let r=0;r<nrow;r++){ const y=1+r*cell; x.strokeRect(cx,y,cell,cell); const k=nrow-1-r; if(col.p){ const im=IM[col.p], sc=Math.min((cell-12)/im.naturalWidth,(cell-12)/im.naturalHeight); x.globalAlpha=k<col.n?1:.28; x.drawImage(im,cx+(cell-im.naturalWidth*sc)/2,y+(cell-im.naturalHeight*sc)/2,im.naturalWidth*sc,im.naturalHeight*sc); x.globalAlpha=1; } }
+    x.strokeRect(cx,1+nrow*cell,cell,lh); x.fillStyle='#222'; x.fillText(col.label||'',cx+cell/2,1+nrow*cell+lh/2); });
+  return c; }
+function liveTable(sp,IM){ if(sp.table.cols) return liveTableV(sp,IM); const T=sp.table, cell=T.cell||64, FONT=getComputedStyle(document.body).fontFamily||'sans-serif', ncol=Math.max(...T.rows.map(r=>r.n)), lw=T.labelW||90, rtl=T.rtl!==false, hh=T.head?36:0, W=lw+ncol*cell+2, H=hh+T.rows.length*cell+2, S=2, c=document.createElement('canvas'); c.width=W*S; c.height=H*S; const x=c.getContext('2d'); x.scale(S,S);
+  x.fillStyle='#fff'; x.fillRect(0,0,W,H); x.strokeStyle='#222'; x.lineWidth=2; x.font='700 22px '+FONT; x.textBaseline='middle'; x.textAlign='center';
+  T.rows.forEach((r,ri)=>{ const y=hh+ri*cell+1, lx=rtl?1+ncol*cell:1, cx0=rtl?1:1+lw; x.strokeRect(lx,y,lw,cell); x.fillStyle='#222'; x.fillText(r.label||'',lx+lw/2,y+cell/2);
+    for(let i=0;i<ncol;i++){ const cx=cx0+i*cell; x.strokeRect(cx,y,cell,cell); if(i<r.n&&r.p){ const im=IM[r.p], sc=Math.min((cell-12)/im.naturalWidth,(cell-12)/im.naturalHeight); x.globalAlpha=(r.off&&i<r.off)?.28:1; x.drawImage(im,cx+(cell-im.naturalWidth*sc)/2,y+(cell-im.naturalHeight*sc)/2,im.naturalWidth*sc,im.naturalHeight*sc); x.globalAlpha=1; } } });
+  if(T.head){ x.fillStyle='#222'; (T.head||[]).forEach((t,i)=>{ x.fillText(t,(rtl?1:1+lw)+i*cell+cell/2,hh/2); }); }
+  return c; }
 function cpicFill(d,url){ const todo=[], base=new URL(url,location.href);
-  const walk=o=>{ if(o&&typeof o==='object') for(const k in o){ const v=o[k]; if(typeof v==='string'){ const m=v.match(CPIC_RE); if(m) todo.push(cpicMake(new URL(v.slice(0,v.lastIndexOf('#')),base).href,+m[2],!!m[3]).then(u=>{ o[k]=u; })); } else walk(v); } };
+  const walk=o=>{ if(o&&typeof o==='object') for(const k in o){ const v=o[k]; if(typeof v==='string'){ if(CPIC_MIX.test(v)){ todo.push(cpicMix(v,base).then(u=>{ o[k]=u; })); continue; } const m=v.match(CPIC_RE); if(m) todo.push(cpicMake(new URL(v.slice(0,v.lastIndexOf('#')),base).href,+m[2],m[3]).then(u=>{ o[k]=u; })); else if(LIVE_RE.test(v)) todo.push(liveMake(v.slice(5)).then(u=>{ o[k]=u; })); } else walk(v); } };
   walk(d); return Promise.all(todo).then(()=>d); }
 /* THE PICTURE KEY (Marwa 2026-11-08): a lesson / question / exam points at a picture by its library id (the name in ../../pics/<id>.png). data/pics/map.json
    (written by tools/pics/reindex.py) says which FILE an id has now (png / jpg / webp) and which weak ids were merged into which. Every json goes through get(),
    so picFix writes the CURRENT file of the id into the string: replace / add / merge a library picture and the whole app follows, no lesson json to edit. */
-const PIC_RE=/^(.*\/pics\/)([A-Za-z0-9_-]+)\.(png|jpe?g|webp)(#\d+n?)?$/i; let _picmap=null;
+const PIC_RE=/^(.*\/pics\/)([A-Za-z0-9_-]+)\.(png|jpe?g|webp)(#\d+[nf]*)?$/i; let _picmap=null;
 const picMap=()=>_picmap||(_picmap=fetch('data/pics/map.json').then(r=>r.ok?r.json():{files:{},merged:{}}).catch(()=>({files:{},merged:{}})));
 function picFix(d,url){ if(/\/pics\/(pics|map)\.json$/.test(url)) return d; return picMap().then(M=>{ const walk=o=>{ if(o&&typeof o==='object') for(const k in o){ const v=o[k]; if(typeof v==='string'){ const m=v.match(PIC_RE); if(m){ let id=m[2]; for(let n=0;n<4&&M.merged[id];n++) id=M.merged[id]; const f=M.files[id]; if(f&&f!==m[2]+'.'+m[3]) o[k]=m[1]+f+(m[4]||''); } } else walk(v); } }; walk(d); return d; }); }
 const get = url => fetch(url).then(r=>{ if(!r.ok) throw new Error(url); return r.json(); }).then(d=>picFix(d,url)).then(d=>cpicFill(d,url));

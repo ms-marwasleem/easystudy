@@ -5,7 +5,7 @@
 // the child's own word statistics: the active child's are the live ones, the others are kept under es.kid.<id>.* (js/welcome.js KID_KEYS)
 function ewKidStats(k){ const cur=kidNow(), pre=cur&&cur.id===k.id?'':`es.kid.${k.id}.`, rd=(n,d)=>{ try{ return JSON.parse(localStorage.getItem(pre+n)||'null')||d; }catch(e){ return d; } };
   return {stats:rd('ew.stats',{}),log:rd('ew.log',[])}; }
-const ewKidCurr=k=>{ const c=k&&k.curr; return c?(c.school||c.type):null; };
+const ewKidCurr=k=>{ const c=k&&k.curr; return c?currEff(c):null; };
 async function ewPool(ids,each){ let n=0; await Promise.all(Array.from({length:6},async()=>{ while(n<ids.length){ const id=ids[n++]; try{ const L=await ewLesson(id); if(L) each(L); }catch(e){} } })); }
 // the lessons whose words count for this child: the open ones for the active child, the built ones for the others
 function ewKidLessons(k){ const cur=kidNow(), same=cur&&cur.id===k.id, old=EW.curr; EW.curr=ewKidCurr(k);

@@ -19,36 +19,20 @@
       "../../pics/sc-math-ar-u4l2-story-4-tall.png"
      ],
      "askAudio": "../../math-ar-audio/14d553269d.mp3",
-     "audio": "../../math-ar-audio/22fe9c4d78.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 1,
-   "page": 47,
-   "task": "اكتب الجملة الرياضية والإجابة.",
-   "items": [
-    {
-     "pics": [
-      "../../pics/sc-math-ar-u4l2-story-4.png"
-     ],
-     "ask": "كم تبقى؟",
-     "stem": "الإجابة: ___",
-     "options": [
-      "3 قطع حلوى",
-      "6 قطع حلوى",
-      "6"
-     ],
-     "answer": 1,
-     "askSay": "كم تبقى؟ ما الإجابة؟",
-     "word": "الإجابة: 6 قطع حلوى",
-     "picsTall": [
-      "../../pics/sc-math-ar-u4l2-story-4-tall.png"
-     ],
-     "askAudio": "../../math-ar-audio/7143e3e95d.mp3",
-     "audio": "../../math-ar-audio/fb10f8ff39.mp3"
+     "audio": "../../math-ar-audio/22fe9c4d78.mp3",
+     "then": {
+      "options": [
+       "3 قطع حلوى",
+       "6 قطع حلوى",
+       "6"
+      ],
+      "answer": 1,
+      "askSay": "كم تبقى؟ ما الإجابة؟",
+      "askAudio": "../../math-ar-audio/7143e3e95d.mp3",
+      "audio": "../../math-ar-audio/fb10f8ff39.mp3",
+      "word": "الإجابة: 6 قطع حلوى",
+      "lead": "الإجابة:"
+     }
     }
    ],
    "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
@@ -72,36 +56,20 @@
       "../../pics/sc-math-ar-u4l2-story-5-tall.png"
      ],
      "askAudio": "../../math-ar-audio/0314253cf2.mp3",
-     "audio": "../../math-ar-audio/b87960d9ce.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 1,
-   "page": 47,
-   "task": "اكتب الجملة الرياضية والإجابة.",
-   "items": [
-    {
-     "pics": [
-      "../../pics/sc-math-ar-u4l2-story-5.png"
-     ],
-     "ask": "كم تبقى؟",
-     "stem": "الإجابة: ___",
-     "options": [
-      "2 سمكة",
-      "2",
-      "3 أسماك"
-     ],
-     "answer": 0,
-     "askSay": "كم تبقى؟ ما الإجابة؟",
-     "word": "الإجابة: 2 سمكة",
-     "picsTall": [
-      "../../pics/sc-math-ar-u4l2-story-5-tall.png"
-     ],
-     "audio": "../../math-ar-audio/0b3e58ebcc.mp3",
-     "askAudio": "../../math-ar-audio/7143e3e95d.mp3"
+     "audio": "../../math-ar-audio/b87960d9ce.mp3",
+     "then": {
+      "options": [
+       "2 سمكة",
+       "2",
+       "3 أسماك"
+      ],
+      "answer": 0,
+      "askSay": "كم تبقى؟ ما الإجابة؟",
+      "askAudio": "../../math-ar-audio/7143e3e95d.mp3",
+      "audio": "../../math-ar-audio/0b3e58ebcc.mp3",
+      "word": "الإجابة: 2 سمكة",
+      "lead": "الإجابة:"
+     }
     }
    ],
    "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
@@ -125,36 +93,20 @@
       "../../pics/sc-math-ar-u4l2-story-6-tall.png"
      ],
      "askAudio": "../../math-ar-audio/c926d1b62d.mp3",
-     "audio": "../../math-ar-audio/b71c89649f.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 1,
-   "page": 47,
-   "task": "اكتب الجملة الرياضية والإجابة.",
-   "items": [
-    {
-     "pics": [
-      "../../pics/sc-math-ar-u4l2-story-6.png"
-     ],
-     "ask": "كم تبقى؟",
-     "stem": "الإجابة: ___",
-     "options": [
-      "8",
-      "2 زهرة",
-      "8 زهور"
-     ],
-     "answer": 2,
-     "askSay": "كم تبقى؟ ما الإجابة؟",
-     "word": "الإجابة: 8 زهور",
-     "picsTall": [
-      "../../pics/sc-math-ar-u4l2-story-6-tall.png"
-     ],
-     "audio": "../../math-ar-audio/3089971a13.mp3",
-     "askAudio": "../../math-ar-audio/7143e3e95d.mp3"
+     "audio": "../../math-ar-audio/b71c89649f.mp3",
+     "then": {
+      "options": [
+       "8",
+       "2 زهرة",
+       "8 زهور"
+      ],
+      "answer": 2,
+      "askSay": "كم تبقى؟ ما الإجابة؟",
+      "askAudio": "../../math-ar-audio/7143e3e95d.mp3",
+      "audio": "../../math-ar-audio/3089971a13.mp3",
+      "word": "الإجابة: 8 زهور",
+      "lead": "الإجابة:"
+     }
     }
    ],
    "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
@@ -274,6 +226,59 @@
     }
    ],
    "book": "workbook"
+  },
+  {
+   "type": "mwrite",
+   "page": 33,
+   "book": "workbook",
+   "act": "u4l2wb",
+   "task": "اكتب الجملة الرياضية والإجابة.",
+   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3",
+   "items": [
+    {
+     "pics": [
+      "live:u4l2-birds"
+     ],
+     "ask": "يوجد 6 عصافير على الشجرة، طار منها 3. كم عصفورًا تبقى على الشجرة؟",
+     "lead": "جملة الطرح:",
+     "word": "6 − 3 = 3",
+     "keys": "1234567890+−=",
+     "askSay": "يوجد ستة عصافير على الشجرة، طار منها ثلاثة. كم عصفورًا تبقى على الشجرة؟ اكتب جملة الطرح.",
+     "then": {
+      "options": [
+       "3",
+       "3 عصافير",
+       "4 عصافير"
+      ],
+      "answer": 1,
+      "askSay": "كم تبقى؟ ما الإجابة؟",
+      "word": "الإجابة: 3 عصافير",
+      "lead": "الإجابة:"
+     }
+    },
+    {
+     "pics": [
+      "live:u4l2-candies"
+     ],
+     "ask": "يوجد 7 قطع حلوى، أكلت منها 3. كم قطعة حلوى تبقت لديك؟",
+     "lead": "جملة الطرح:",
+     "word": "7 − 3 = 4",
+     "keys": "1234567890+−=",
+     "askSay": "يوجد سبع قطع حلوى، أكلت منها ثلاثًا. كم قطعة حلوى تبقت لديك؟ اكتب جملة الطرح.",
+     "then": {
+      "options": [
+       "4",
+       "4 قطع حلوى",
+       "3 قطع حلوى"
+      ],
+      "answer": 1,
+      "askSay": "كم تبقى؟ ما الإجابة؟",
+      "word": "الإجابة: 4 قطع حلوى",
+      "lead": "الإجابة:"
+     }
+    }
+   ],
+   "ex": 6
   }
  ]
 }

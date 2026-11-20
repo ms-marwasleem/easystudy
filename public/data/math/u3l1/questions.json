@@ -172,6 +172,50 @@
    "ex": 3
   },
   {
+   "type": "pick",
+   "page": 34,
+   "task": "Which picture shows 2 + 4?",
+   "taskAudio": "q/task-bk-which-picture-shows.mp3",
+   "items": [
+    {
+     "word": "2 + 4",
+     "audio": "q/bk-which-2-p-4.mp3",
+     "pics": [
+      "../../pics/chick.png#2|../../pics/goose.png#3",
+      "../../pics/chick.png#2|../../pics/goose.png#4",
+      "../../pics/chick.png#3|../../pics/goose.png#1"
+     ],
+     "answer": 1
+    }
+   ],
+   "mark": "ring",
+   "ex": 1,
+   "grp": "bk-34-which",
+   "book": "booklet"
+  },
+  {
+   "type": "pick",
+   "page": 34,
+   "task": "Which picture shows 5 + 3?",
+   "taskAudio": "q/task-bk-which-picture-shows.mp3",
+   "items": [
+    {
+     "word": "5 + 3",
+     "audio": "q/bk-which-5-p-3.mp3",
+     "pics": [
+      "../../pics/len-pen-red.png#5|../../pics/len-pen-green.png#3",
+      "../../pics/len-pen-red.png#4|../../pics/len-pen-green.png#3",
+      "../../pics/len-pen-red.png#3|../../pics/len-pen-green.png#2"
+     ],
+     "answer": 0
+    }
+   ],
+   "mark": "ring",
+   "ex": 1,
+   "grp": "bk-34-which",
+   "book": "booklet"
+  },
+  {
    "type": "mcq",
    "page": 34,
    "task": "Add.",
@@ -275,7 +319,7 @@
     }
    ],
    "book": "booklet",
-   "ex": 4
+   "ex": 2
   },
   {
    "type": "mcq",
@@ -380,6 +424,116 @@
      "word": "6 + 3 = 9"
     }
    ],
+   "book": "booklet",
+   "ex": 3
+  },
+  {
+   "type": "count",
+   "page": 35,
+   "task": "Add.",
+   "taskAudio": "q/task-bk-add.mp3",
+   "items": [
+    {
+     "img": "../../pics/elephant.png#3+../../pics/elephant.png#1",
+     "n": 4,
+     "group": true,
+     "audio": "q/bk-three-p-one-eq.mp3"
+    },
+    {
+     "img": "../../pics/ladybug.png#3+../../pics/ladybug.png#4",
+     "n": 7,
+     "group": true,
+     "audio": "q/bk-three-p-four-eq.mp3"
+    },
+    {
+     "img": "../../pics/dog.png#6+../../pics/dog.png#4",
+     "n": 10,
+     "group": true,
+     "audio": "q/bk-six-p-four-eq.mp3"
+    },
+    {
+     "img": "../../pics/fish.png#6+../../pics/fish.png#4",
+     "n": 10,
+     "group": true,
+     "audio": "q/bk-six-p-four-eq.mp3"
+    },
+    {
+     "img": "../../pics/tiger.png#5+../../pics/tiger.png#2",
+     "n": 7,
+     "group": true,
+     "audio": "q/bk-five-p-two-eq.mp3"
+    },
+    {
+     "img": "../../pics/owl.png#2+../../pics/owl.png#2",
+     "n": 4,
+     "group": true,
+     "audio": "q/bk-two-p-two-eq.mp3"
+    },
+    {
+     "img": "../../pics/monkeys.png#2+../../pics/monkeys.png#2",
+     "n": 4,
+     "group": true,
+     "audio": "q/bk-two-p-two-eq.mp3"
+    },
+    {
+     "img": "../../pics/fish.png#1+../../pics/fish.png#2",
+     "n": 3,
+     "group": true,
+     "audio": "q/bk-one-p-two-eq.mp3"
+    }
+   ],
+   "typed": true,
+   "book": "booklet",
+   "ex": 4
+  },
+  {
+   "type": "mwrite",
+   "page": 36,
+   "task": "Complete the number sentence.",
+   "taskAudio": "q/task-bk-complete-the-number-sentence.mp3",
+   "items": [
+    {
+     "pics": [
+      "../../pics/star.png#4|../../pics/star.png#2"
+     ],
+     "word": "4 + 2 = 6",
+     "keys": "1234567890+=",
+     "audio": "q/bk-four-p-two-eq.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/chicken-u5l1.png#4|../../pics/chicken-u5l1.png#3"
+     ],
+     "word": "4 + 3 = 7",
+     "keys": "1234567890+=",
+     "audio": "q/bk-four-p-three-eq.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/flower.png#3|../../pics/flower-red.png#3"
+     ],
+     "word": "3 + 3 = 6",
+     "keys": "1234567890+=",
+     "audio": "q/bk-three-p-three-eq.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/lion.png#5|../../pics/lion.png#5"
+     ],
+     "word": "5 + 5 = 10",
+     "keys": "1234567890+=",
+     "audio": "q/bk-five-p-five-eq.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/ball-blue.png#6|../../pics/ball-blue.png#3"
+     ],
+     "word": "6 + 3 = 9",
+     "keys": "1234567890+=",
+     "audio": "q/bk-six-p-three-eq.mp3"
+    }
+   ],
+   "keys": "1234567890+=",
    "book": "booklet",
    "ex": 5
   }

@@ -21,7 +21,8 @@
      "askSay": "Which class has more dogs?",
      "askAudio": "q/a1-q.mp3",
      "audio": "q/a1-a.mp3",
-     "word": "Class 2 has more dogs."
+     "word": "Class 2 has more dogs.",
+     "noStem": true
     }
    ]
   },
@@ -46,7 +47,8 @@
      "askSay": "Which class has more camels?",
      "askAudio": "q/a2-q.mp3",
      "audio": "q/a2-a.mp3",
-     "word": "Class 1 has more camels."
+     "word": "Class 1 has more camels.",
+     "noStem": true
     }
    ]
   },
@@ -73,7 +75,8 @@
      "askSay": "Which animal is the most in Class 1?",
      "askAudio": "q/a3-q.mp3",
      "audio": "q/a3-a.mp3",
-     "word": "The most in Class 1 is the cats."
+     "word": "The most in Class 1 is the cats.",
+     "noStem": true
     }
    ]
   },
@@ -100,7 +103,8 @@
      "askSay": "Which animal has the same number in both classes?",
      "askAudio": "q/a4-q.mp3",
      "audio": "q/a4-a.mp3",
-     "word": "The giraffes have the same number."
+     "word": "The giraffes have the same number.",
+     "noStem": true
     }
    ]
   },
@@ -125,7 +129,8 @@
      "askSay": "Which group has more hearts?",
      "askAudio": "q/s1-q.mp3",
      "audio": "q/s1-a.mp3",
-     "word": "Group 1 has more hearts."
+     "word": "Group 1 has more hearts.",
+     "noStem": true
     }
    ]
   },
@@ -153,7 +158,8 @@
      "askSay": "Which card is the most in Group 1?",
      "askAudio": "q/s2-q.mp3",
      "audio": "q/s2-a.mp3",
-     "word": "The most in Group 1 is the square."
+     "word": "The most in Group 1 is the square.",
+     "noStem": true
     }
    ]
   },
@@ -178,7 +184,8 @@
      "askSay": "If the winning card is the circle, which group is the winner?",
      "askAudio": "q/s3-q.mp3",
      "audio": "q/s3-a.mp3",
-     "word": "Group 1 is the winner."
+     "word": "Group 1 is the winner.",
+     "noStem": true
     }
    ]
   },
@@ -203,9 +210,179 @@
      "askSay": "If the winning card is the triangle, which group is the winner?",
      "askAudio": "q/s4-q.mp3",
      "audio": "q/s4-a.mp3",
-     "word": "Group 2 is the winner."
+     "word": "Group 2 is the winner.",
+     "noStem": true
     }
    ]
+  },
+  {
+   "type": "mcq",
+   "page": 52,
+   "book": "workbook",
+   "act": "u6l3wb",
+   "items": [
+    {
+     "pics": [
+      "../../pics/sc-math-u6l3-wb-fruit.jpg"
+     ],
+     "ask": "Which group likes oranges the most?",
+     "stem": "The ___ likes oranges the most.",
+     "options": [
+      "Group 1",
+      "Group 2"
+     ],
+     "answer": 0,
+     "askSay": "Which group likes oranges the most?",
+     "word": "Group 1 likes oranges the most.",
+     "noStem": true,
+     "askAudio": "q/wb63-fruit1-q.mp3",
+     "audio": "q/wb63-fruit1-a.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/sc-math-u6l3-wb-fruit.jpg"
+     ],
+     "ask": "Which group likes strawberries the most?",
+     "stem": "The ___ likes strawberries the most.",
+     "options": [
+      "Group 1",
+      "Group 2"
+     ],
+     "answer": 1,
+     "askSay": "Which group likes strawberries the most?",
+     "word": "Group 2 likes strawberries the most.",
+     "noStem": true,
+     "askAudio": "q/wb63-fruit2-q.mp3",
+     "audio": "q/wb63-fruit2-a.mp3"
+    }
+   ],
+   "task": "Look at the fruit tables of the two groups.",
+   "taskAudio": "q/wb63-task-fruit.mp3",
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "page": 52,
+   "book": "workbook",
+   "act": "u6l3wb",
+   "items": [
+    {
+     "pics": [
+      "../../pics/sc-math-u6l3-wb-tools.jpg"
+     ],
+     "ask": "Which group has more notebooks?",
+     "stem": "The ___ has more notebooks.",
+     "options": [
+      "Group 1",
+      "Group 2"
+     ],
+     "answer": 0,
+     "askSay": "Which group has more notebooks?",
+     "word": "Group 1 has more notebooks.",
+     "noStem": true,
+     "askAudio": "q/wb63-tools1-q.mp3",
+     "audio": "q/wb63-tools1-a.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/sc-math-u6l3-wb-tools.jpg"
+     ],
+     "ask": "Which group has more sharpeners?",
+     "stem": "The ___ has more sharpeners.",
+     "options": [
+      "Group 1",
+      "Group 2"
+     ],
+     "answer": 1,
+     "askSay": "Which group has more sharpeners?",
+     "word": "Group 2 has more sharpeners.",
+     "noStem": true,
+     "askAudio": "q/wb63-tools2-q.mp3",
+     "audio": "q/wb63-tools2-a.mp3"
+    }
+   ],
+   "task": "Look at the school tools of the two groups.",
+   "taskAudio": "q/wb63-task-tools.mp3",
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "page": 53,
+   "book": "workbook",
+   "act": "u6l3wb",
+   "items": [
+    {
+     "pics": [
+      "../../pics/sc-math-u6l3-wb-prof.jpg"
+     ],
+     "ask": "Which class prefers the teacher profession the most?",
+     "stem": "The ___ prefers the teacher the most.",
+     "options": [
+      "Class 1",
+      "Class 2"
+     ],
+     "answer": 1,
+     "askSay": "Which class prefers the teacher profession the most?",
+     "word": "Class 2 prefers the teacher the most.",
+     "noStem": true,
+     "askAudio": "q/wb63-prof1-q.mp3",
+     "audio": "q/wb63-prof1-a.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/sc-math-u6l3-wb-prof.jpg"
+     ],
+     "ask": "Which class prefers the engineer profession the most?",
+     "stem": "The ___ prefers the engineer the most.",
+     "options": [
+      "Class 1",
+      "Class 2"
+     ],
+     "answer": 1,
+     "askSay": "Which class prefers the engineer profession the most?",
+     "word": "Class 2 prefers the engineer the most.",
+     "noStem": true,
+     "askAudio": "q/wb63-prof2-q.mp3",
+     "audio": "q/wb63-prof2-a.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/sc-math-u6l3-wb-prof.jpg"
+     ],
+     "ask": "Which class prefers the officer profession the most?",
+     "stem": "The ___ prefers the officer the most.",
+     "options": [
+      "Class 1",
+      "Class 2"
+     ],
+     "answer": 0,
+     "askSay": "Which class prefers the officer profession the most?",
+     "word": "Class 1 prefers the officer the most.",
+     "noStem": true,
+     "askAudio": "q/wb63-prof3-q.mp3",
+     "audio": "q/wb63-prof3-a.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/sc-math-u6l3-wb-prof.jpg"
+     ],
+     "ask": "Which class prefers the doctor profession the most?",
+     "stem": "The ___ prefers the doctor the most.",
+     "options": [
+      "Class 1",
+      "Class 2"
+     ],
+     "answer": 0,
+     "askSay": "Which class prefers the doctor profession the most?",
+     "word": "Class 1 prefers the doctor the most.",
+     "noStem": true,
+     "askAudio": "q/wb63-prof4-q.mp3",
+     "audio": "q/wb63-prof4-a.mp3"
+    }
+   ],
+   "task": "Notice the favorite professions, then answer.",
+   "taskAudio": "q/wb63-task-prof.mp3",
+   "ex": 3
   },
   {
    "type": "mcq",
@@ -228,7 +405,8 @@
      "askSay": "Which class has more dogs?",
      "askAudio": "q/a1-q.mp3",
      "audio": "q/a1-a.mp3",
-     "word": "Class 2 has more dogs."
+     "word": "Class 2 has more dogs.",
+     "noStem": true
     }
    ],
    "book": "booklet"
@@ -254,7 +432,8 @@
      "askSay": "Which class has more camels?",
      "askAudio": "q/a2-q.mp3",
      "audio": "q/a2-a.mp3",
-     "word": "Class 1 has more camels."
+     "word": "Class 1 has more camels.",
+     "noStem": true
     }
    ],
    "book": "booklet"
@@ -282,7 +461,8 @@
      "askSay": "Which animal is the most in Class 1?",
      "askAudio": "q/a3-q.mp3",
      "audio": "q/a3-a.mp3",
-     "word": "The most in Class 1 is the cats."
+     "word": "The most in Class 1 is the cats.",
+     "noStem": true
     }
    ],
    "book": "booklet"
@@ -310,7 +490,8 @@
      "askSay": "Which animal has the same number in both classes?",
      "askAudio": "q/a4-q.mp3",
      "audio": "q/a4-a.mp3",
-     "word": "The giraffes have the same number."
+     "word": "The giraffes have the same number.",
+     "noStem": true
     }
    ],
    "book": "booklet"
@@ -336,7 +517,8 @@
      "askSay": "Which group has more hearts?",
      "askAudio": "q/s1-q.mp3",
      "audio": "q/s1-a.mp3",
-     "word": "Group 1 has more hearts."
+     "word": "Group 1 has more hearts.",
+     "noStem": true
     }
    ],
    "book": "booklet"
@@ -365,7 +547,8 @@
      "askSay": "Which card is the most in Group 1?",
      "askAudio": "q/s2-q.mp3",
      "audio": "q/s2-a.mp3",
-     "word": "The most in Group 1 is the square."
+     "word": "The most in Group 1 is the square.",
+     "noStem": true
     }
    ],
    "book": "booklet"
@@ -391,7 +574,8 @@
      "askSay": "If the winning card is the circle, which group is the winner?",
      "askAudio": "q/s3-q.mp3",
      "audio": "q/s3-a.mp3",
-     "word": "Group 1 is the winner."
+     "word": "Group 1 is the winner.",
+     "noStem": true
     }
    ],
    "book": "booklet"
@@ -417,7 +601,8 @@
      "askSay": "If the winning card is the triangle, which group is the winner?",
      "askAudio": "q/s4-q.mp3",
      "audio": "q/s4-a.mp3",
-     "word": "Group 2 is the winner."
+     "word": "Group 2 is the winner.",
+     "noStem": true
     }
    ],
    "book": "booklet"

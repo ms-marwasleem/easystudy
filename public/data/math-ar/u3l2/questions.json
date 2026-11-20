@@ -152,6 +152,120 @@
     }
    ],
    "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
+  },
+  {
+   "type": "pick",
+   "page": 28,
+   "mark": "ring",
+   "task": "مع باسم 5 زهرات حمراء ومع زميله 4 زهرات أخرى. ما الصورة المناسبة للعدد الإجمالي للزهرات؟",
+   "items": [
+    {
+     "word": "5 + 4",
+     "pics": [
+      "../../pics/flower-red.png#3|../../pics/flower.png#5",
+      "../../pics/flower-red.png#4|../../pics/flower.png#5",
+      "../../pics/flower-red.png#4|../../pics/flower.png#4"
+     ],
+     "answer": 1
+    }
+   ],
+   "book": "workbook",
+   "act": "u3l2wb",
+   "ex": 1
+  },
+  {
+   "type": "mwrite",
+   "page": 28,
+   "keys": "1234567890+=",
+   "task": "اكتب جملة الجمع والإجابة.",
+   "items": [
+    {
+     "pics": [
+      "../../pics/box.png#4+../../pics/box.png#3"
+     ],
+     "lead": "جملة الجمع:",
+     "word": "4 + 3 = 7",
+     "keys": "1234567890+="
+    },
+    {
+     "pics": [
+      "../../pics/box.png#2+../../pics/box.png#7"
+     ],
+     "lead": "جملة الجمع:",
+     "word": "7 + 2 = 9",
+     "keys": "1234567890+="
+    },
+    {
+     "pics": [
+      "../../pics/box.png#3+../../pics/box.png#1"
+     ],
+     "lead": "جملة الجمع:",
+     "word": "3 + 1 = 4",
+     "keys": "1234567890+="
+    },
+    {
+     "pics": [
+      "../../pics/box.png#5+../../pics/box.png#2"
+     ],
+     "lead": "جملة الجمع:",
+     "word": "5 + 2 = 7",
+     "keys": "1234567890+="
+    }
+   ],
+   "book": "workbook",
+   "act": "u3l2wb",
+   "ex": 2
+  },
+  {
+   "type": "mwrite",
+   "page": 29,
+   "keys": "1234567890+=",
+   "task": "اكتب جملة الجمع والإجابة.",
+   "items": [
+    {
+     "pics": [
+      "../../pics/rabbit.png#1+../../pics/rabbit.png#1"
+     ],
+     "lead": "جملة الجمع:",
+     "word": "1 + 1 = 2",
+     "keys": "1234567890+="
+    },
+    {
+     "pics": [
+      "../../pics/guitar-u5l2.png#4+../../pics/guitar-u5l2.png#1"
+     ],
+     "lead": "جملة الجمع:",
+     "word": "1 + 4 = 5",
+     "keys": "1234567890+="
+    },
+    {
+     "pics": [
+      "../../pics/watermelon.png#3+../../pics/watermelon.png#1"
+     ],
+     "lead": "جملة الجمع:",
+     "word": "1 + 3 = 4",
+     "keys": "1234567890+="
+    },
+    {
+     "pics": [
+      "../../pics/pot.png#2+../../pics/pot.png#1"
+     ],
+     "lead": "جملة الجمع:",
+     "word": "1 + 2 = 3",
+     "keys": "1234567890+="
+    },
+    {
+     "pics": [
+      "../../pics/bike.png#1+../../pics/bike.png#3"
+     ],
+     "lead": "جملة الجمع:",
+     "word": "3 + 1 = 4",
+     "keys": "1234567890+="
+    }
+   ],
+   "book": "workbook",
+   "act": "u3l2wb",
+   "ex": 3
   }
  ]
 }

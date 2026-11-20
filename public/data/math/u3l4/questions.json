@@ -123,72 +123,116 @@
    "ex": 4
   },
   {
-   "type": "mcq",
-   "page": 43,
-   "task": "Read the story. Find the total.",
-   "taskAudio": "q/task-bk-read-the-story-find-the-total.mp3",
+   "type": "count",
+   "page": 41,
+   "task": "Add.",
+   "taskAudio": "q/task-bk-add.mp3",
    "items": [
     {
-     "stem": "There are 3 red bicycles and 4 blue bicycles. How many bicycles are there in total?",
-     "options": [
-      "6",
-      "7",
-      "8"
-     ],
-     "answer": 1,
-     "askAudio": "q/bk-there-are-red-bicycles-and-blue-bicycles-q.mp3",
-     "audio": "q/bk-there-are-red-bicycles-and-blue-bicycles.mp3",
-     "word": "7"
+     "img": "../../pics/elephant.png#4+../../pics/elephant.png#1",
+     "n": 5,
+     "group": true,
+     "audio": "q/bk-four-p-one-eq.mp3"
     },
     {
-     "stem": "There are 5 rabbits. Then 1 more rabbit comes. How many rabbits are there now?",
-     "options": [
-      "5",
-      "6",
-      "7"
-     ],
-     "answer": 1,
-     "askAudio": "q/bk-there-are-rabbits-then-more-rabbit-comes-q.mp3",
-     "audio": "q/bk-there-are-rabbits-then-more-rabbit-comes.mp3",
-     "word": "6"
+     "img": "../../pics/chicken-u5l1.png#3+../../pics/chicken-u5l1.png#2",
+     "n": 5,
+     "group": true,
+     "audio": "q/bk-three-p-two-eq.mp3"
     },
     {
-     "stem": "There are 4 bottles of water and 6 bottles of orange juice. How many bottles are there in total?",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askAudio": "q/bk-there-are-bottles-of-water-and-bottles-o-q.mp3",
-     "audio": "q/bk-there-are-bottles-of-water-and-bottles-o.mp3",
-     "word": "10"
+     "img": "../../pics/fish.png#6+../../pics/fish.png#2",
+     "n": 8,
+     "group": true,
+     "audio": "q/bk-six-p-two-eq.mp3"
+    },
+    {
+     "img": "../../pics/butterfly.png#1+../../pics/butterfly.png#2",
+     "n": 3,
+     "group": true,
+     "audio": "q/bk-one-p-two-eq.mp3"
+    },
+    {
+     "img": "../../pics/bird.png#5+../../pics/bird.png#4",
+     "n": 9,
+     "group": true,
+     "audio": "q/bk-five-p-four-eq.mp3"
+    },
+    {
+     "img": "../../pics/giraffe-u6l1.png#3+../../pics/giraffe-u6l1.png#2",
+     "n": 5,
+     "group": true,
+     "audio": "q/bk-three-p-two-eq.mp3"
     }
    ],
+   "typed": true,
    "book": "booklet",
-   "ex": 5
+   "ex": 1
   },
   {
-   "type": "mcq",
-   "page": 44,
-   "task": "Read the story. Find the total.",
-   "taskAudio": "q/task-bk-read-the-story-find-the-total.mp3",
+   "type": "mwrite",
+   "page": 41,
+   "task": "Complete the number sentence.",
+   "taskAudio": "q/task-bk-complete-the-number-sentence.mp3",
    "items": [
     {
-     "stem": "You caught 4 fish yesterday. Today, you caught 0 fish. How many fish did you catch in total?",
-     "options": [
-      "3",
-      "4",
-      "5"
+     "pics": [
+      "../../pics/pear.png#7|../../pics/pear.png#1"
      ],
-     "answer": 1,
-     "askAudio": "q/bk-you-caught-fish-yesterday-today-you-caug-q.mp3",
-     "audio": "q/bk-you-caught-fish-yesterday-today-you-caug.mp3",
-     "word": "4"
+     "word": "7 + 1 = 8",
+     "keys": "1234567890+=",
+     "audio": "q/bk-seven-p-one-eq.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/cat.png#4|../../pics/cat.png#2"
+     ],
+     "word": "4 + 2 = 6",
+     "keys": "1234567890+=",
+     "audio": "q/bk-four-p-two-eq.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/duck.png#2|../../pics/duck.png#3"
+     ],
+     "word": "2 + 3 = 5",
+     "keys": "1234567890+=",
+     "audio": "q/bk-two-p-three-eq.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/dog.png#5|../../pics/dog.png#3"
+     ],
+     "word": "5 + 3 = 8",
+     "keys": "1234567890+=",
+     "audio": "q/bk-five-p-three-eq.mp3"
     }
    ],
+   "keys": "1234567890+=",
    "book": "booklet",
-   "ex": 6
+   "ex": 2
+  },
+  {
+   "type": "pick",
+   "page": 42,
+   "task": "Which picture shows 3 + 6?",
+   "taskAudio": "q/task-bk-which-picture-shows.mp3",
+   "items": [
+    {
+     "word": "3 + 6",
+     "audio": "q/bk-which-3-p-6.mp3",
+     "pics": [
+      "../../pics/butterfly.png#4|../../pics/butterfly.png#4",
+      "../../pics/butterfly.png#4|../../pics/butterfly.png#2",
+      "../../pics/butterfly.png#3|../../pics/butterfly.png#6"
+     ],
+     "answer": 2
+    }
+   ],
+   "mark": "ring",
+   "ex": 1,
+   "grp": "bk-42-which",
+   "book": "booklet"
   },
   {
    "type": "mcq",
@@ -306,7 +350,7 @@
     }
    ],
    "book": "booklet",
-   "ex": 7
+   "ex": 2
   },
   {
    "type": "mcq",
@@ -388,7 +432,81 @@
     }
    ],
    "book": "booklet",
-   "ex": 8
+   "ex": 3
+  },
+  {
+   "type": "mwrite",
+   "page": 43,
+   "task": "Write the mathematical sentence and the answer.",
+   "taskAudio": "q/task-bk-write-the-mathematical-sentence-and-the-answer.mp3",
+   "items": [
+    {
+     "pics": [
+      "../../pics/bike.png#3+../../pics/bike.png#4"
+     ],
+     "ask": "There are 3 red bicycles and 4 blue bicycles. How many bicycles are there in total?",
+     "lead": "Mathematical sentence:",
+     "word": "3 + 4 = 7",
+     "keys": "1234567890+=",
+     "tail": "bicycles",
+     "askSay": "There are 3 red bicycles and 4 blue bicycles. How many bicycles are there in total? Write the mathematical sentence and the answer.",
+     "askAudio": "q/bk-sw-3-4-bicycles-q.mp3",
+     "audio": "q/bk-three-p-four-eq.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/rabbit.png#5+../../pics/rabbit.png#1"
+     ],
+     "ask": "There are 5 rabbits. Then 1 more rabbit comes. How many rabbits are there now?",
+     "lead": "Mathematical sentence:",
+     "word": "5 + 1 = 6",
+     "keys": "1234567890+=",
+     "tail": "rabbits",
+     "askSay": "There are 5 rabbits. Then 1 more rabbit comes. How many rabbits are there now? Write the mathematical sentence and the answer.",
+     "askAudio": "q/bk-sw-5-1-rabbits-q.mp3",
+     "audio": "q/bk-five-p-one-eq.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/bottle.png#4+../../pics/juice.png#6"
+     ],
+     "ask": "There are 4 bottles of water and 6 bottles of orange juice. How many bottles are there in total?",
+     "lead": "Mathematical sentence:",
+     "word": "4 + 6 = 10",
+     "keys": "1234567890+=",
+     "tail": "bottles",
+     "askSay": "There are 4 bottles of water and 6 bottles of orange juice. How many bottles are there in total? Write the mathematical sentence and the answer.",
+     "askAudio": "q/bk-sw-4-6-bottles-q.mp3",
+     "audio": "q/bk-four-p-six-eq.mp3"
+    }
+   ],
+   "keys": "1234567890+=",
+   "book": "booklet",
+   "ex": 4
+  },
+  {
+   "type": "mwrite",
+   "page": 44,
+   "task": "Write the mathematical sentence and the answer.",
+   "taskAudio": "q/task-bk-write-the-mathematical-sentence-and-the-answer.mp3",
+   "items": [
+    {
+     "pics": [
+      "../../pics/fish.png#4"
+     ],
+     "ask": "You went fishing yesterday. You caught 4 fish. Today, you caught 0 fish. How many fish did you catch in total?",
+     "lead": "Mathematical sentence:",
+     "word": "4 + 0 = 4",
+     "keys": "1234567890+=",
+     "tail": "fish",
+     "askSay": "You went fishing yesterday. You caught 4 fish. Today, you caught 0 fish. How many fish did you catch in total? Write the mathematical sentence and the answer.",
+     "askAudio": "q/bk-sw-4-0-fish-q.mp3",
+     "audio": "q/bk-four-p-zero-eq.mp3"
+    }
+   ],
+   "keys": "1234567890+=",
+   "book": "booklet",
+   "ex": 5
   }
  ]
 }

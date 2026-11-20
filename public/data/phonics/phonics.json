@@ -1,5 +1,5 @@
 {
- "_note": "Shared phonics sounds for every English lesson. A lesson part points here with \"audio\": \"../../phonics/<id>.mp3\". Made with Kokoro am_michael: each sound is cut from a whole syllable, not generated alone (see tools/phonics/README.md).",
+ "_note": "Shared phonics sounds for every English lesson. A lesson part points here with \"audio\": \"../../phonics/<id>.mp3\". Since 2026-11-18 every vowel sound and every chunk is spoken on its own by Kokoro am_michael from its IPA (tools/phonics/unit_gen.py), not cut from a word; single consonant sounds are the earlier cleaned ones (originals/en-syl-regen-2026-11-18 holds what was replaced).",
  "sounds": [
   {
    "id": "a",
@@ -517,24 +517,6 @@
    "first": "tiger"
   },
   {
-   "id": "g_er",
-   "ipa": "ɡɜːɹ",
-   "file": "chunks/g_er.mp3",
-   "first": "tiger"
-  },
-  {
-   "id": "t_o",
-   "ipa": "tɑ",
-   "file": "chunks/t_o.mp3",
-   "first": "tomato"
-  },
-  {
-   "id": "m_ai",
-   "ipa": "meɪ",
-   "file": "chunks/m_ai.mp3",
-   "first": "tomato"
-  },
-  {
    "id": "t_oa",
    "ipa": "toʊ",
    "file": "chunks/t_oa.mp3",
@@ -619,22 +601,10 @@
    "first": "tree"
   },
   {
-   "id": "i_n",
-   "ipa": "ɪn",
-   "file": "chunks/i_n.mp3",
-   "first": "in"
-  },
-  {
    "id": "k_igh",
    "ipa": "kaɪ",
    "file": "chunks/k_igh.mp3",
    "first": "sky"
-  },
-  {
-   "id": "b_er",
-   "ipa": "bɜːɹ",
-   "file": "chunks/b_er.mp3",
-   "first": "bird"
   },
   {
    "id": "b_u",
@@ -653,12 +623,6 @@
    "ipa": "ɹæ",
    "file": "chunks/r_a.mp3",
    "first": "grass"
-  },
-  {
-   "id": "l_ow",
-   "ipa": "laʊ",
-   "file": "chunks/l_ow.mp3",
-   "first": "flower"
   },
   {
    "id": "s_u",
@@ -691,18 +655,6 @@
    "first": "yellow"
   },
   {
-   "id": "s_er",
-   "ipa": "sɜːɹ",
-   "file": "chunks/s_er.mp3",
-   "first": "circle"
-  },
-  {
-   "id": "qu_air",
-   "ipa": "kwɛɹ",
-   "file": "chunks/qu_air.mp3",
-   "first": "square"
-  },
-  {
    "id": "r_igh",
    "ipa": "ɹaɪ",
    "file": "chunks/r_igh.mp3",
@@ -719,12 +671,6 @@
    "ipa": "tæŋ",
    "file": "chunks/t_a_ng.mp3",
    "first": "rectangle"
-  },
-  {
-   "id": "p_air",
-   "ipa": "pɛɹ",
-   "file": "chunks/p_air.mp3",
-   "first": "parents"
   },
   {
    "id": "f_o",
@@ -805,28 +751,10 @@
    "first": "pencil"
   },
   {
-   "id": "qu_a",
-   "ipa": "kwæ",
-   "file": "chunks/qu_a.mp3",
-   "first": "square"
-  },
-  {
    "id": "m_a",
    "ipa": "mæ",
    "file": "chunks/m_a.mp3",
    "first": "tomato"
-  },
-  {
-   "id": "h_or",
-   "ipa": "hɔːɹ",
-   "file": "chunks/h_or.mp3",
-   "first": "horse"
-  },
-  {
-   "id": "d_or",
-   "ipa": "dɔːɹ",
-   "file": "chunks/d_or.mp3",
-   "first": "door"
   },
   {
    "id": "d_o",
@@ -901,12 +829,6 @@
    "first": "elephant"
   },
   {
-   "id": "t_er",
-   "ipa": "tɜːɹ",
-   "file": "chunks/t_er.mp3",
-   "first": "enter"
-  },
-  {
    "id": "h_ear",
    "ipa": "hɪɹ",
    "file": "chunks/h_ear.mp3",
@@ -937,18 +859,6 @@
    "first": "cup"
   },
   {
-   "id": "k_ar",
-   "ipa": "kɑːɹ",
-   "file": "chunks/k_ar.mp3",
-   "first": "car"
-  },
-  {
-   "id": "k_ee",
-   "ipa": "kiː",
-   "file": "chunks/k_ee.mp3",
-   "first": "key"
-  },
-  {
    "id": "g_a",
    "ipa": "ɡæ",
    "file": "chunks/g_a.mp3",
@@ -973,12 +883,6 @@
    "first": "milk"
   },
   {
-   "id": "m_a_ng",
-   "ipa": "mæŋ",
-   "file": "chunks/m_a_ng.mp3",
-   "first": "mango"
-  },
-  {
    "id": "g_oa",
    "ipa": "ɡoʊ",
    "file": "chunks/g_oa.mp3",
@@ -989,12 +893,6 @@
    "ipa": "ɹeɪ",
    "file": "chunks/r_ai.mp3",
    "first": "grapes"
-  },
-  {
-   "id": "g_u",
-   "ipa": "ɡʌ",
-   "file": "chunks/g_u.mp3",
-   "first": "guitar"
   },
   {
    "id": "l_u",
@@ -1033,12 +931,6 @@
    "first": "octopus"
   },
   {
-   "id": "t_r_i",
-   "ipa": "tɹɪ",
-   "file": "chunks/t_r_i.mp3",
-   "first": "ostrich"
-  },
-  {
    "id": "f_a",
    "ipa": "fæ",
    "file": "chunks/f_a.mp3",
@@ -1049,18 +941,6 @@
    "ipa": "fɪ",
    "file": "chunks/f_i.mp3",
    "first": "fish"
-  },
-  {
-   "id": "f_or",
-   "ipa": "fɔːɹ",
-   "file": "chunks/f_or.mp3",
-   "first": "fork"
-  },
-  {
-   "id": "f_r_o",
-   "ipa": "fɹɑ",
-   "file": "chunks/f_r_o.mp3",
-   "first": "frog"
   },
   {
    "id": "igh_o",
@@ -1093,34 +973,16 @@
    "first": "bike"
   },
   {
-   "id": "d_er",
-   "ipa": "dɜːɹ",
-   "file": "chunks/d_er.mp3",
-   "first": "under"
-  },
-  {
    "id": "l_o",
    "ipa": "lɒ",
    "file": "chunks/l_o.mp3",
    "first": "unlock"
   },
   {
-   "id": "b_r_e",
-   "ipa": "bɹɛ",
-   "file": "chunks/b_r_e.mp3",
-   "first": "umbrella"
-  },
-  {
    "id": "j_a",
    "ipa": "dʒæ",
    "file": "chunks/j_a.mp3",
    "first": "jam"
-  },
-  {
-   "id": "j_ar",
-   "ipa": "dʒɑːɹ",
-   "file": "chunks/j_ar.mp3",
-   "first": "jar"
   },
   {
    "id": "j_e",
@@ -1133,12 +995,6 @@
    "ipa": "tˈɑː",
    "file": "chunks/t_ar0.mp3",
    "first": "star"
-  },
-  {
-   "id": "n_er0",
-   "ipa": "nˈɜː",
-   "file": "chunks/n_er0.mp3",
-   "first": "nurse"
   },
   {
    "id": "h_or0",
@@ -1199,6 +1055,48 @@
    "ipa": "nʌ",
    "file": "chunks/n_u.mp3",
    "first": "nurse"
+  },
+  {
+   "id": "n_oa",
+   "ipa": "noʊ",
+   "file": "chunks/n_oa.mp3",
+   "first": ""
+  },
+  {
+   "id": "n_e",
+   "ipa": "nɛ",
+   "file": "chunks/n_e.mp3",
+   "first": ""
+  },
+  {
+   "id": "i_t",
+   "ipa": "ɪt",
+   "file": "chunks/i_t.mp3",
+   "first": ""
+  },
+  {
+   "id": "u_i",
+   "ipa": "ʌɪ",
+   "file": "chunks/u_i.mp3",
+   "first": ""
+  },
+  {
+   "id": "o_s",
+   "ipa": "ɑs",
+   "file": "chunks/o_s.mp3",
+   "first": ""
+  },
+  {
+   "id": "u_n",
+   "ipa": "ʌn",
+   "file": "chunks/u_n.mp3",
+   "first": ""
+  },
+  {
+   "id": "u_m",
+   "ipa": "ʌm",
+   "file": "chunks/u_m.mp3",
+   "first": ""
   }
  ],
  "clean_v2": [

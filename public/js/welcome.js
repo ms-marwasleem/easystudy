@@ -47,15 +47,19 @@ function wlDraw(){
   if(WL.step==='code') syDrawCode(b);
   else if(WL.step==='pick') wlPicker(b);
   else wlMain(b);
+  b.insertAdjacentHTML('afterbegin',wlBrand());   // the app logo at the top of the soft card (Ahmed 2026-11-19)
   pop('#wlBody > *, #wlBody form > *',{y:16});
 }
+// the logo of the app (the same block that used to sit on the game background), now inside the white login card; hidden outside by css/account.css
+function wlBrand(){ const l=$('#welcome .wl-logo'); return l?`<div class="wl-brand" aria-hidden="true">${l.innerHTML.replace(/ id="[^"]*"/g,'')}</div>`:''; }
 function wlMain(b){
   const ed=WL.edit&&kids().find(k=>k.id===WL.edit), onlyKid=WL.adding||!!ed, L=WL.login||(WL.login={email:'',phone:''}), reg=WL.stage>1;
   let h=onlyKid?'':wlAbout(reg?'sm':'');
   if(!onlyKid){
     h+=wlHead('دخول ولي الأمر','Parent login')+(reg?`<div class="wl-sum"><span dir="ltr">${wlEsc([L.email,L.phone].filter(Boolean).join('  ·  '))}</span><button type="button" class="pill cream wl-chip wl-chg">تعديل</button></div>`:
-    `<form class="wl-form wl-login" novalidate><p class="wl-note2">اكتبي الإيميل أو رقم الموبايل (واحد منهم على الأقل)</p>
+    `<form class="wl-form wl-login" novalidate>
       <label><span>البريد الإلكتروني <small>Email</small></span><input name="email" type="email" dir="ltr" autocomplete="email" inputmode="email" value="${wlEsc(L.email)}"></label>
+      <div class="wl-or" aria-hidden="true"><span>أو</span></div>
       <label><span>رقم الموبايل <small>Mobile</small></span><input name="phone" type="tel" dir="ltr" autocomplete="tel" inputmode="tel" value="${wlEsc(L.phone)}"></label>
       <p class="wl-err" hidden></p>
       <button class="pill wl-big wl-go" type="submit"><span class="wl-ar">دخول</span><small>Continue</small></button></form>`);
@@ -64,7 +68,7 @@ function wlMain(b){
   b.innerHTML=h;
   if(!onlyKid&&!reg){
     const f=$('.wl-login',b); f.addEventListener('submit',e=>{ e.preventDefault(); const v=n=>f[n].value.trim(), er=$('.wl-err',b);
-      const bad=!v('email')&&!v('phone')?['email','اكتبي الإيميل أو رقم الموبايل (واحد على الأقل)']:v('email')&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v('email'))?['email','البريد الإلكتروني مش مكتوب صح']:v('phone')&&!/^[+0-9٠-٩ ]{8,16}$/.test(v('phone'))?['phone','رقم الموبايل مش مكتوب صح']:null;
+      const bad=!v('email')&&!v('phone')?['email','اكتب الإيميل أو رقم الموبايل (واحد على الأقل)']:v('email')&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v('email'))?['email','البريد الإلكتروني مش مكتوب صح']:v('phone')&&!/^[+0-9٠-٩ ]{8,16}$/.test(v('phone'))?['phone','رقم الموبايل مش مكتوب صح']:null;
       if(bad) return wlBad(f,...bad);
       const go=$('.wl-go',b); go.disabled=true, id={email:v('email'),phone:v('phone')};
       wlLogin(id,t=>{ er.textContent=t; er.hidden=false; go.disabled=false; }); });
@@ -78,21 +82,37 @@ function wlLogin(id,err){
   acctSubmit(id,err);
 }
 // a known parent: one child = straight into the app, more = the child picker
-function wlEnter(){ const K=kids(); if(K.length>1){ WL.stage=1; wlGo('pick'); return; } const k=K[0]; if(!k) return;
-  const cur=kidNow(); if(cur&&cur.id===k.id){ WL.adding=false; openSubjects(); pop('#subjects .top > *',{y:-20}); } else kidSwitch(k.id); }
+function wlEnter(){ const K=kids(); if(!K.length) return; WL.stage=1; WL.adding=false; wlGo('pick'); }   // an existing account: always the student chooser (name + picture, or add a new student)
 function wlPicker(b){ const K=kids();
-  b.innerHTML=wlHead('مين اللي هيتعلم ويلعب؟','Who\'s learning and playing?')+`<div class="wl-card wl-pick">${K.map(k=>`<button class="wl-who" data-kid="${k.id}">${wlAv(k)}<b>${wlEsc(k.name)}</b></button>`).join('')}</div>`;
-  $$('[data-kid]',b).forEach(x=>x.addEventListener('click',()=>{ const id=x.dataset.kid, cur=kidNow(); if(cur&&cur.id===id){ openSubjects(); pop('#subjects .top > *',{y:-20}); } else kidSwitch(id); })); }
+  b.innerHTML=wlHead('مين اللي هيتعلم؟','Who\'s learning?')+`<div class="wl-pick">${K.map(k=>`<button type="button" class="wl-who" data-kid="${k.id}">${wlAv(k)}<b>${wlEsc(k.name)}</b><small>${wlEsc(gradeLabel(k.grade))}</small></button>`).join('')}
+    <button type="button" class="wl-who wl-newkid"><i class="wl-av wl-plus">${ICON.plus}</i><b>إضافة طالب جديد</b></button></div>`;
+  $$('[data-kid]',b).forEach(x=>x.addEventListener('click',()=>{ const id=x.dataset.kid, cur=kidNow(); if(cur&&cur.id===id){ openSubjects(); pop('#subjects .top > *',{y:-20}); } else kidSwitch(id); }));
+  $('.wl-newkid',b).addEventListener('click',()=>{ WL.adding=true; WL.fromPick=true; WL.edit=null; WL.draft=null; WL.grade=null; WL.pick=null; WL.step='main'; wlDraw(); }); }
 // the student form (stage 2, add a child, edit a child): name, grade, curriculum; لغات -> the school list
 function wlSchoolName(id){ const s=id&&CURR&&CURR.schools.find(x=>x.id===id); return s?s.ar:''; }
 // "اختر مدرسة": one button -> a popup list of the schools; "إضافة مدرسة" at the end only at registration (canAdd)
 function wlSchoolList(btn,canAdd){
-  let o=$('#schList'); if(!o){ o=el('div','overlay','<div class="rays"></div><div class="popup kidpop" role="dialog" aria-label="Choose school"></div>'); o.id='schList'; document.body.append(o); o.addEventListener('click',e=>{ if(e.target===o) o.hidden=true; }); }
-  const p=$('.kidpop',o), C=CURR||{schools:[]}, cur=(WL.pick||{}).school;
-  p.innerHTML=`<button class="rb popx" aria-label="Close">${ICON.close}</button>${wlHead('اختر مدرسة','Choose a school')}<div class="wl-chips col">${C.schools.map(s=>`<button type="button" class="pill cream wl-chip${cur===s.id?' on':''}" data-school="${s.id}">${s.ar}</button>`).join('')}${canAdd?`<button type="button" class="pill yellow wl-chip wl-addsch">${ICON.plus} إضافة مدرسة</button>`:''}</div>`;
-  $('.popx',p).addEventListener('click',()=>o.hidden=true);
-  $$('[data-school]',p).forEach(x=>x.addEventListener('click',()=>{ WL.pick={type:'private',school:x.dataset.school}; btn.textContent=wlSchoolName(x.dataset.school); btn.classList.add('on'); o.hidden=true; }));
-  const ad=$('.wl-addsch',p); if(ad) ad.addEventListener('click',()=>{ o.hidden=true; wlSchoolPop(); });
+  const host=btn.parentNode; host.classList.add('wl-ddhost');
+  let d=$('.wl-dd',host); if(d){ d.hidden=!d.hidden; return; }
+  const C=CURR||{schools:[]}, cur=(WL.pick||{}).school;
+  d=el('div','wl-dd',`${canAdd?`<button type="button" class="pill green wl-addsch">${ICON.plus} إضافة مدرسة</button>`:''}${C.schools.map(s=>`<button type="button" class="wl-ddi${cur===s.id?' on':''}" data-school="${s.id}">${s.ar}</button>`).join('')}`);
+  host.append(d);
+  document.addEventListener('click',e=>{ if(!d.contains(e.target)&&e.target!==btn) d.hidden=true; });
+  $$('[data-school]',d).forEach(x=>x.addEventListener('click',()=>{ WL.pick={type:'private',school:x.dataset.school}; btn.textContent=wlSchoolName(x.dataset.school); btn.classList.add('on'); $$('.wl-ddi',d).forEach(y=>y.classList.toggle('on',y===x)); d.hidden=true;
+    const ek=WL.edit&&kids().find(k=>k.id===WL.edit), granted=!!(ek&&ek.curr&&ek.curr.school===x.dataset.school&&ek.curr.grant);
+    if(typeof schoolNeedsPerm==='function'&&schoolNeedsPerm(x.dataset.school)&&!granted) wlPermPop(x.dataset.school); }));
+  const ad=$('.wl-addsch',d); if(ad) ad.addEventListener('click',()=>{ d.hidden=true; wlSchoolPop(); });
+}
+/* a school that needs the school's permission (dashboard: المناهج والمدارس > محتاجة سماح): an OFFICIAL popup (a white card like the account pages, not the game popup) with one button that opens the parent's own
+   WhatsApp with the request already written; the parent picks the school's contact and sends. The pick stays; the school's own books open when the admin grants THIS student (users table). */
+function wlPermPop(id){
+  let o=$('#permPop'); if(!o){ o=el('div','offback',''); o.id='permPop'; o.setAttribute('role','dialog'); document.body.append(o); o.addEventListener('click',e=>{ if(e.target===o) o.hidden=true; }); }
+  const S=typeof CS==='function'?CS():{}, link=S.shareUrl||location.origin+location.pathname.replace(/[^/]*$/,''), name=S.appName||'EasyStudy';
+  const msg='برجاء السماح لى باستخدام المدرسة على '+name+' :\n'+link;
+  o.innerHTML=`<section class="ac-card offpop"><h3>${wlEsc(wlSchoolName(id))}</h3><p class="offt">اطلب من المدرسة السماح لك</p>
+    <button type="button" class="pill green off-wa">${typeof SHAPPS!=='undefined'?SHAPPS[0][4]:''}<span>إرسال على واتساب</span></button><button type="button" class="pill cream off-x">تمام</button></section>`;
+  $('.off-x',o).addEventListener('click',()=>o.hidden=true);
+  $('.off-wa',o).addEventListener('click',()=>{ if(typeof shareGo==='function') shareGo('wa',msg,''); else window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank'); });
   o.hidden=false; }
 function wlStudentHTML(ed){
   const G=(CURR&&CURR.grades)||[{id:'p1',ar:'الصف الأول الابتدائي',open:true}], C=CURR||{types:[],schools:[]}, gr=WL.grade||(ed&&ed.grade)||G[0].id, pk=WL.pick||{}, priv=pk.type==='private';
@@ -115,7 +135,7 @@ function wlStudentBind(b,ed){
     if(!pk) return wlBad(f,null,'اختار المنهج');
     if(pk.type==='private'&&!pk.school) return wlBad(f,null,'اختار المدرسة (أو اطلب إضافة مدرستك)');
     const gr=WL.grade||(ed&&ed.grade)||G[0].id;
-    if(ed){ kidSave(ed.id,{name:n,grade:gr,curr:pk}); return; }
+    if(ed){ kidSave(ed.id,{name:n,grade:gr,curr:(ed.curr&&ed.curr.grant&&pk.school&&ed.curr.school===pk.school)?{...pk,grant:1}:pk}); return; }
     // a different parent than the one kept on this device: that device list starts again (the server brings its own children back)
     const A=acct(); if(!WL.adding&&A&&!wlSameId(A,WL.login)){ wlSet('es.kids',[]); wlSet('es.kid',null); }
     if(!WL.adding&&!(acct()&&wlSameId(acct(),WL.login))) wlSet('es.account',{email:WL.login.email,phone:WL.login.phone,created:new Date().toISOString(),...(WL.pending?{pending:true}:{})});
@@ -145,8 +165,8 @@ function wlSchoolPop(){
     window.open('https://wa.me/'+num+'?text='+encodeURIComponent(msg),'_blank'); o.hidden=true; });
   o.hidden=false; if(typeof spinRays==='function') spinRays(o); wlFocus(f);
 }
-$('#wlBack').addEventListener('click',()=>{ if(WL.step==='code'){ WL.stage=1; wlGo('main'); } else if(WL.adding){ WL.adding=false; WL.edit=null; openSubjects(); } });
-function openWelcome(adding){ WL.adding=!!adding; WL.edit=null; WL.draft=null; WL.grade=null; WL.stage=1; WL.login=null; WL.pending=false; WL.pick=null; WL.step='main'; show('welcome'); wlDraw(); }
+$('#wlBack').addEventListener('click',()=>{ if(WL.fromPick&&WL.adding){ WL.fromPick=false; WL.adding=false; WL.edit=null; wlGo('pick'); } else if(WL.step==='code'){ WL.stage=1; wlGo('main'); } else if(WL.adding){ WL.adding=false; WL.edit=null; openSubjects(); } });
+function openWelcome(adding){ WL.fromPick=false; WL.adding=!!adding; WL.edit=null; WL.draft=null; WL.grade=null; WL.stage=1; WL.login=null; WL.pending=false; WL.pick=null; WL.step='main'; show('welcome'); wlDraw(); }
 // edit a child (name, grade, curriculum / school): the student form filled in
 function openKidEdit(id){ const k=kids().find(x=>x.id===id); if(!k) return; WL.adding=true; WL.edit=id; WL.draft=null; WL.grade=null; WL.pick=k.curr; WL.step='main'; show('welcome'); wlDraw(); }
 // save an edited child: progress stays (it belongs to the child, not to the curriculum); the active child's subjects / tabs follow the new curriculum
@@ -164,8 +184,9 @@ function kidMenu(){
   let o=$('#acctPage'); if(!o){ o=el('div','acctpage',''); o.id='acctPage'; o.setAttribute('role','dialog'); o.setAttribute('aria-label','Account'); document.body.append(o); }
   const a=acct()||{}, cur=kidNow();
   o.innerHTML=`<div class="ac-top"><button class="rb ac-back" aria-label="Back">${ICON.back}</button><h2>حسابي</h2></div>
-    <div class="ac-in"><section class="ac-card"><h3>أولادي</h3><div class="ac-kids">${kids().map(k=>`<div class="ac-kid${cur&&k.id===cur.id?' on':''}"><button class="ac-pic" data-kid="${k.id}" aria-label="${wlEsc(k.name)}">${wlAv(k)}</button><button class="ac-pen" data-edit="${k.id}" aria-label="Edit ${wlEsc(k.name)}">${ICON.pencil}</button><b>${wlEsc(k.name)}</b><small>${wlEsc(gradeLabel(k.grade))}</small></div>`).join('')}
-      <div class="ac-kid"><button class="ac-pic ac-add" aria-label="Add a child">${ICON.plus}</button><b>إضافة طفل</b></div></div></section>
+    <div class="ac-in"><section class="ac-card ac-me"><i class="ac-meic">${ACH.user}</i><div><b>ولي الأمر</b>${[(a.email&&!/@phone\.local$/.test(a.email))?a.email:'',a.phone].filter(Boolean).map(x=>`<small dir="ltr">${wlEsc(x)}</small>`).join('')}</div></section>
+    <section class="ac-card"><h3>الطلاب</h3><div class="ac-kids">${kids().map(k=>`<div class="ac-kid${cur&&k.id===cur.id?' on':''}"><button class="ac-pic" data-kid="${k.id}" aria-label="${wlEsc(k.name)}">${wlAv(k)}</button><button class="ac-pen" data-edit="${k.id}" aria-label="Edit ${wlEsc(k.name)}">${ICON.pencil}</button><b>${wlEsc(k.name)}</b><small>${wlEsc(gradeLabel(k.grade))}</small></div>`).join('')}
+      <div class="ac-kid"><button class="ac-pic ac-add" aria-label="Add a child">${ICON.plus}</button><b>إضافة طالب</b></div></div></section>
     <div class="arows">${wlRow('ac-prof',ACH.user,'الملف الشخصي','')}${typeof coinsOn==='function'&&coinsOn()?wlRow('wl-cred',ACH.coin,'رصيدي',CRED(coinBal())):''}${typeof invitePage==='function'?wlRow('ac-inv',ACH.inv,'دعوة صديق',''):''}${(typeof subIsOn==='function'&&(subIsOn()||subHasAny()))?wlRow('ac-subs',ACH.card,'اشتراكاتي',''):''}${wlRow('ac-news',ACH.bell,'الإشعارات',subNews().length?num(subNews().length)+' جديد':'')}${typeof acctExtraRows==='function'?acctExtraRows():''}</div></div>`;
   $('.ac-back',o).addEventListener('click',()=>o.hidden=true);
   $$('[data-kid]',o).forEach(b=>b.addEventListener('click',()=>{ o.hidden=true; kidSwitch(b.dataset.kid); }));
@@ -187,9 +208,9 @@ function profilePage(){
   const a=acct()||{}, on=a.notify!==false;
   o.innerHTML=`<div class="ac-top"><button class="rb pf-back" aria-label="Back">${ICON.back}</button><h2>الملف الشخصي</h2></div>
     <div class="ac-in"><section class="ac-card"><form class="wl-form pf-form" autocomplete="off" novalidate>
-      <label><span>الإيميل</span><input name="email" type="email" dir="ltr" autocomplete="email" inputmode="email" value="${wlEsc((a.email&&!/@phone\.local$/.test(a.email))?a.email:'')}"></label>
-      <label><span>رقم الموبايل</span><input name="phone" type="tel" dir="ltr" autocomplete="tel" inputmode="tel" value="${wlEsc(a.phone||'')}"></label>
-      <label class="pf-sw"><input name="notify" type="checkbox"${on?' checked':''}><i></i><span>استقبال الإشعارات (على التطبيق وعلى الإيميل)</span></label>
+      <label class="pf-f"><span>الإيميل</span><input name="email" type="email" dir="ltr" autocomplete="email" inputmode="email" value="${wlEsc((a.email&&!/@phone\.local$/.test(a.email))?a.email:'')}"></label>
+      <label class="pf-f"><span>رقم الموبايل</span><input name="phone" type="tel" dir="ltr" autocomplete="tel" inputmode="tel" value="${wlEsc(a.phone||'')}"></label>
+      <div class="pf-g"><span class="pf-l">الإشعارات</span><label class="pf-sw"><input name="notify" type="checkbox"${on?' checked':''}><i></i><span>استقبال الإشعارات على التطبيق والإيميل</span></label></div>
       <p class="wl-err pf-err" hidden></p><p class="pf-ok" hidden>اتحفظ</p>
       <button class="pill green pf-save" type="submit">حفظ</button></form></section></div>`;
   $('.pf-back',o).addEventListener('click',()=>o.hidden=true);
@@ -198,7 +219,7 @@ function profilePage(){
     const email=f.elements.email.value.trim(), phone=f.elements.phone.value.trim(), notify=f.elements.notify.checked;
     if(!email&&!phone) return bad(PROF_ERR['need-contact']); if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return bad(PROF_ERR['bad-email']);
     const s=typeof sySession==='function'&&sySession();
-    if(s&&s.token){ const r=await syCall('/me',{email,phone,notify},'PUT'); if(!r) return bad('مفيش اتصال بالإنترنت، جربي تاني'); if(!r.j.ok) return bad(PROF_ERR[r.j.error]||'ما اتحفظش، جربي تاني'); }
+    if(s&&s.token){ const r=await syCall('/me',{email,phone,notify},'PUT'); if(!r) return bad('مفيش اتصال بالإنترنت، جرب تاني'); if(!r.j.ok) return bad(PROF_ERR[r.j.error]||'ما اتحفظش، جرب تاني'); }
     wlSet('es.account',{...(acct()||{}),email,phone,notify}); window.ACCOUNT={...acct(),id:(s&&s.id)||(acct()||{}).id,...(s&&s.token?{token:s.token}:{})};
     ok.hidden=false; });
   o.hidden=false; pop('.ac-card',{y:14}); }

@@ -1,0 +1,216 @@
+{
+ "sets": [
+  {
+   "type": "mcq",
+   "page": 43,
+   "book": "workbook",
+   "act": "u5l2wb",
+   "items": [
+    {
+     "pics": [
+      "live:u5l2-desk-hand"
+     ],
+     "ask": "How many hands long is the desk?",
+     "stem": "The desk is ___ hands long.",
+     "options": [
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 1,
+     "askSay": "How many hands long is the desk?",
+     "word": "The desk is 5 hands long.",
+     "askAudio": "q/wb52-desk-hand-q.mp3",
+     "audio": "q/wb52-desk-hand-a.mp3"
+    },
+    {
+     "pics": [
+      "live:u5l2-desk-foot"
+     ],
+     "ask": "How many feet long is the desk?",
+     "stem": "The desk is ___ feet long.",
+     "options": [
+      "2",
+      "3",
+      "4"
+     ],
+     "answer": 1,
+     "askSay": "How many feet long is the desk?",
+     "word": "The desk is 3 feet long.",
+     "askAudio": "q/wb52-desk-foot-q.mp3",
+     "audio": "q/wb52-desk-foot-a.mp3"
+    }
+   ],
+   "task": "Measure with your hand or foot. How many?",
+   "taskAudio": "q/wb52-task.mp3",
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "page": 44,
+   "book": "workbook",
+   "act": "u5l2wb",
+   "items": [
+    {
+     "pics": [
+      "live:u5l2-bed"
+     ],
+     "ask": "How many hands long is the bed?",
+     "stem": "The bed is ___ hands long.",
+     "options": [
+      "5",
+      "6",
+      "7"
+     ],
+     "answer": 1,
+     "askSay": "How many hands long is the bed?",
+     "word": "The bed is 6 hands long.",
+     "askAudio": "q/wb52-bed-q.mp3",
+     "audio": "q/wb52-bed-a.mp3"
+    },
+    {
+     "pics": [
+      "live:u5l2-closet"
+     ],
+     "ask": "How many hands long is the closet?",
+     "stem": "The closet is ___ hands long.",
+     "options": [
+      "3",
+      "4",
+      "5"
+     ],
+     "answer": 1,
+     "askSay": "How many hands long is the closet?",
+     "word": "The closet is 4 hands long.",
+     "askAudio": "q/wb52-closet-q.mp3",
+     "audio": "q/wb52-closet-a.mp3"
+    },
+    {
+     "pics": [
+      "live:u5l2-table"
+     ],
+     "ask": "How many hands long is the table?",
+     "stem": "The table is ___ hands long.",
+     "options": [
+      "4",
+      "5",
+      "6"
+     ],
+     "answer": 1,
+     "askSay": "How many hands long is the table?",
+     "word": "The table is 5 hands long.",
+     "askAudio": "q/wb52-table-q.mp3",
+     "audio": "q/wb52-table-a.mp3"
+    },
+    {
+     "pics": [
+      "live:u5l2-window"
+     ],
+     "ask": "How many hands long is the window?",
+     "stem": "The window is ___ hands long.",
+     "options": [
+      "2",
+      "3",
+      "4"
+     ],
+     "answer": 1,
+     "askSay": "How many hands long is the window?",
+     "word": "The window is 3 hands long.",
+     "askAudio": "q/wb52-window-q.mp3",
+     "audio": "q/wb52-window-a.mp3"
+    }
+   ],
+   "task": "Measure with your hand or foot. How many?",
+   "taskAudio": "q/wb52-task.mp3",
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "page": 59,
+   "book": "booklet",
+   "act": "u5l2bk",
+   "task": "What do we measure with?",
+   "taskAudio": "q/bk52-task-tools.mp3",
+   "items": [
+    {
+     "pics": [
+      "../../pics/ruler.png"
+     ],
+     "ask": "What is this tool?",
+     "stem": "This is a ___.",
+     "options": [
+      "ruler",
+      "metal tape",
+      "measuring tape"
+     ],
+     "answer": 0,
+     "askSay": "What is this tool?",
+     "word": "This is a ruler.",
+     "askAudio": "q/bk52-ruler-q.mp3",
+     "audio": "q/bk52-ruler-a.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/tape.png"
+     ],
+     "ask": "What is this tool?",
+     "stem": "This is a ___.",
+     "options": [
+      "ruler",
+      "metal tape",
+      "measuring tape"
+     ],
+     "answer": 1,
+     "askSay": "What is this tool?",
+     "word": "This is a metal tape.",
+     "askAudio": "q/bk52-tape-q.mp3",
+     "audio": "q/bk52-tape-a.mp3"
+    }
+   ]
+  },
+  {
+   "type": "mcq",
+   "page": 60,
+   "book": "booklet",
+   "act": "u5l2bk",
+   "task": "Determine the longest child.",
+   "taskAudio": "q/bk52-task-kids.mp3",
+   "items": [
+    {
+     "pics": [
+      "../../pics/sc-math-u5l2-bk-kids1.png"
+     ],
+     "ask": "Which child is the longest?",
+     "stem": "Child number ___ is the longest.",
+     "options": [
+      "1",
+      "2",
+      "3"
+     ],
+     "answer": 2,
+     "askSay": "Which child is the longest?",
+     "word": "Child number 3 is the longest.",
+     "askAudio": "q/bk52-kids1-q.mp3",
+     "audio": "q/bk52-kids1-a.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/sc-math-u5l2-bk-kids2.png"
+     ],
+     "ask": "Which child is the longest?",
+     "stem": "Child number ___ is the longest.",
+     "options": [
+      "2",
+      "3",
+      "4"
+     ],
+     "answer": 2,
+     "askSay": "Which child is the longest?",
+     "word": "Child number 4 is the longest.",
+     "askAudio": "q/bk52-kids2-q.mp3",
+     "audio": "q/bk52-kids2-a.mp3"
+    }
+   ]
+  }
+ ]
+}

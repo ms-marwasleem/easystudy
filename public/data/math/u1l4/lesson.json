@@ -7,16 +7,84 @@
  "lines": [],
  "end": 1,
  "speakers": {},
- "vocab": [],
+ "vocab": [
+  {
+   "word": "six",
+   "img": "data:draw,num,6,en",
+   "parts": [
+    {
+     "t": "six",
+     "audio": "../u1l4/words/six.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u1l4/words/six.mp3"
+   }
+  },
+  {
+   "word": "seven",
+   "img": "data:draw,num,7,en",
+   "parts": [
+    {
+     "t": "seven",
+     "audio": "../u1l4/words/seven.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u1l4/words/seven.mp3"
+   }
+  },
+  {
+   "word": "eight",
+   "img": "data:draw,num,8,en",
+   "parts": [
+    {
+     "t": "eight",
+     "audio": "../u1l4/words/eight.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u1l4/words/eight.mp3"
+   }
+  },
+  {
+   "word": "nine",
+   "img": "data:draw,num,9,en",
+   "parts": [
+    {
+     "t": "nine",
+     "audio": "../u1l4/words/nine.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u1l4/words/nine.mp3"
+   }
+  },
+  {
+   "word": "ten",
+   "img": "data:draw,num,10,en",
+   "parts": [
+    {
+     "t": "ten",
+     "audio": "../u1l4/words/ten.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u1l4/words/ten.mp3"
+   }
+  }
+ ],
  "tabs": [
   "read",
+  "words",
   "quiz",
   "booklet",
   "workbook"
  ],
  "tabLabels": {
   "read": "Explain",
-  "workbook": "Assessment Book"
+  "workbook": "Assessment Book",
+  "words": "Words"
  },
  "type": "math",
  "math": {
@@ -47,5 +115,12 @@
     "audio": "words/ten.mp3"
    }
   ]
- }
+ },
+ "hints": {
+  "vocabPick": "Pick a word",
+  "vocabTeach": "Listen and repeat",
+  "vocabWrite": "Write the word letter by letter",
+  "word": "Tap any word you hear"
+ },
+ "vocabRepeats": 3
 }

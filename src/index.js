@@ -18,7 +18,7 @@ const day = (t = now()) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Africa/
 let MIGRATED = false;
 async function migrate(env) {
   if (MIGRATED) return; MIGRATED = true;
-  for (const q of ["ALTER TABLE subs ADD COLUMN note TEXT NOT NULL DEFAULT ''", "ALTER TABLE parents ADD COLUMN notify INTEGER NOT NULL DEFAULT 1", "ALTER TABLE coin_events ADD COLUMN note TEXT NOT NULL DEFAULT ''", "ALTER TABLE parents ADD COLUMN pending_ref TEXT NOT NULL DEFAULT ''", "ALTER TABLE subs ADD COLUMN inv TEXT NOT NULL DEFAULT ''"]) { try { await env.DB.prepare(q).run(); } catch (e) { /* already there */ } }
+  for (const q of ["ALTER TABLE subs ADD COLUMN note TEXT NOT NULL DEFAULT ''", "ALTER TABLE parents ADD COLUMN notify INTEGER NOT NULL DEFAULT 1", "ALTER TABLE coin_events ADD COLUMN note TEXT NOT NULL DEFAULT ''", "ALTER TABLE parents ADD COLUMN pending_ref TEXT NOT NULL DEFAULT ''", "ALTER TABLE subs ADD COLUMN inv TEXT NOT NULL DEFAULT ''", "ALTER TABLE children ADD COLUMN sgrant INTEGER NOT NULL DEFAULT 0"]) { try { await env.DB.prepare(q).run(); } catch (e) { /* already there */ } }
 }
 const EMAIL = /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,}$/;
 const clip = (s, n) => String(s == null ? '' : s).trim().slice(0, n);
@@ -170,14 +170,14 @@ const ev = (env, pid, kind, ref, child, amount, t, device, ip, note) =>
 async function me(env, pid) {
   const [p, kids, un, w] = await Promise.all([
     env.DB.prepare('SELECT id,email,name,phone,curr,ref_code,notify FROM parents WHERE id=?').bind(pid).first(),
-    env.DB.prepare('SELECT id,name,grade,curr,progress,progress_at,created FROM children WHERE parent_id=? AND deleted=0 ORDER BY created').bind(pid).all(),
+    env.DB.prepare('SELECT id,name,grade,curr,progress,progress_at,created,sgrant FROM children WHERE parent_id=? AND deleted=0 ORDER BY created').bind(pid).all(),
     env.DB.prepare('SELECT u.child_id,u.item,u.how,u.at FROM unlocks u JOIN children c ON c.id=u.child_id WHERE c.parent_id=?').bind(pid).all(),
     walletOf(env, pid, '')]);
   const pj = s => { try { return JSON.parse(s); } catch (e) { return {}; } };
   const cut = seasonStart(now());   // everything opened / learned before the last 31 Aug has ended (Ahmed: progress not kept)
   const pc = await env.DB.prepare('SELECT created FROM parents WHERE id=?').bind(pid).first();
   return { id: p.id, email: /@phone\.local$/.test(p.email) ? '' : p.email, name: p.name, phone: p.phone, notify: p.notify !== 0, curr: pj(p.curr), ref: p.ref_code, created: new Date(pc.created).toISOString(), wallet: w.wallet,
-    kids: kids.results.map(k => ({ id: k.id, name: k.name, grade: k.grade, curr: pj(k.curr), created: new Date(k.created).toISOString(), progress: k.progress_at >= cut ? pj(k.progress) : {}, progressAt: k.progress_at >= cut ? k.progress_at : 0,
+    kids: kids.results.map(k => ({ id: k.id, name: k.name, grade: k.grade, curr: k.sgrant ? { ...pj(k.curr), grant: 1 } : pj(k.curr), created: new Date(k.created).toISOString(), progress: k.progress_at >= cut ? pj(k.progress) : {}, progressAt: k.progress_at >= cut ? k.progress_at : 0,
       unlocked: un.results.filter(u => u.child_id === k.id && u.at >= cut && (u.how === 'coins' || u.how === 'promo')).map(u => u.item), freeused: un.results.filter(u => u.child_id === k.id && u.at >= cut && u.how === 'free').map(u => u.item) })) };
 }
 
@@ -191,7 +191,7 @@ async function kidPut(req, env, p, id) {
   if (!k) { const n = await env.DB.prepare('SELECT COUNT(*) n FROM children WHERE parent_id=? AND deleted=0').bind(p.id).first(); if (n.n >= 10) return ERR('too-many-kids'); }
   const name = clip(b.name, 40); if (!name) return ERR('bad-name');
   await env.DB.prepare('INSERT INTO children(id,parent_id,name,grade,curr,created) VALUES(?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET name=excluded.name,grade=excluded.grade,curr=excluded.curr,deleted=0')
-    .bind(id, p.id, name, clip(b.grade, 10) || 'p1', JSON.stringify(b.curr || {}), now()).run();
+    .bind(id, p.id, name, clip(b.grade, 10) || 'p1', JSON.stringify((({ grant, ...c }) => c)(b.curr || {})), now()).run();
   return J({ ok: true });
 }
 // PUT /api/kids/<id>/progress {progress:{key: string}, at} : newest copy wins (at = when the device saved it)
@@ -359,7 +359,7 @@ async function mailRejectSub(env, child, term, note) {
   if (!env.RESEND_API_KEY) return false;
   const c = await env.DB.prepare('SELECT c.name,p.email,p.notify FROM children c JOIN parents p ON p.id=c.parent_id WHERE c.id=?').bind(child).first();
   if (!c || c.notify === 0 || !c.email || /@phone\.local$/.test(c.email)) return false;
-  const html = '<div dir="rtl" style="font-family:Tahoma,Arial,sans-serif;font-size:17px;color:#333"><p><b>اشتراك ' + escapeHtml(c.name || '') + ' ما اتفعلش</b></p><p>' + escapeHtml(note || 'مقدرناش نتأكد من الدفع. ابعتي صورة الإيصال تاني.').replace(/\n/g, '<br>') + '</p></div>';
+  const html = '<div dir="rtl" style="font-family:Tahoma,Arial,sans-serif;font-size:17px;color:#333"><p><b>اشتراك ' + escapeHtml(c.name || '') + ' ما اتفعلش</b></p><p>' + escapeHtml(note || 'مقدرناش نتأكد من الدفع. ابعت صورة الإيصال تاني.').replace(/\n/g, '<br>') + '</p></div>';
   const r = await fetch('https://api.resend.com/emails', { method: 'POST', headers: { authorization: 'Bearer ' + env.RESEND_API_KEY, 'content-type': 'application/json' },
     body: JSON.stringify({ from: env.MAIL_FROM || `${env.APP_NAME || 'EasyStudy'} <onboarding@resend.dev>`, to: [c.email], subject: 'اشتراكك ما اتفعلش - ' + (env.APP_NAME || 'EasyStudy'), html }), signal: AbortSignal.timeout(5000) });
   return r.ok;
@@ -424,6 +424,12 @@ async function adminKidEdit(req, env, id) {
   const b = await body(req); if (!b) return ERR('bad-body'); const name = clip(b.name, 40), grade = clip(b.grade, 10); if (!name) return ERR('bad-name');
   const r = await env.DB.prepare('UPDATE children SET name=?, grade=COALESCE(NULLIF(?,\'\'),grade) WHERE id=? AND deleted=0').bind(name, grade, id).run();
   return r.meta && r.meta.changes ? J({ ok: true }) : ERR('not-found', 404);
+}
+// POST /api/admin/kid/<id>/grant {on: true|false}: let ONE student use the added curriculum of the school they chose (a school marked "needs permission" in the dashboard)
+async function adminKidGrant(req, env, id) {
+  const b = await body(req); if (!b) return ERR('bad-body');
+  const r = await env.DB.prepare('UPDATE children SET sgrant=? WHERE id=? AND deleted=0').bind(b.on ? 1 : 0, id).run();
+  return r.meta && r.meta.changes ? J({ ok: true, grant: b.on ? 1 : 0 }) : ERR('not-found', 404);
 }
 // POST /api/admin/user/<id>/kid {name, grade?}: add another student to an existing parent.
 async function adminKidAdd(req, env, pid) {
@@ -559,10 +565,10 @@ async function adminAccounts(env, url) {
       (SELECT COUNT(*) FROM coin_events e WHERE e.parent_id=p.id AND e.kind='referral') referred_paid
     FROM parents p WHERE p.created>=? AND (?='' OR p.email LIKE ? OR p.name LIKE ? OR p.phone LIKE ?) ORDER BY p.created DESC LIMIT ?`)
     .bind(since, q, '%' + q + '%', '%' + q + '%', '%' + q + '%', lim).all()).results;
-  const kids = rows.length ? (await env.DB.prepare(`SELECT id,parent_id,name,grade,created FROM children WHERE deleted=0 AND parent_id IN (${rows.map(() => '?').join(',')}) ORDER BY created`).bind(...rows.map(r => r.id)).all()).results : [];
+  const kids = rows.length ? (await env.DB.prepare(`SELECT id,parent_id,name,grade,created,curr,sgrant FROM children WHERE deleted=0 AND parent_id IN (${rows.map(() => '?').join(',')}) ORDER BY created`).bind(...rows.map(r => r.id)).all()).results : [];
   const pj = s => { try { return JSON.parse(s); } catch (e) { return {}; } };
   return J({ ok: true, accounts: rows.map(r => ({ ...r, curr: pj(r.curr), created: new Date(r.created).toISOString(), last_seen: new Date(r.last_seen).toISOString(),
-    kids: kids.filter(k => k.parent_id === r.id).map(k => ({ id: k.id, name: k.name, grade: k.grade, created: new Date(k.created).toISOString() })) })) });
+    kids: kids.filter(k => k.parent_id === r.id).map(k => ({ id: k.id, name: k.name, grade: k.grade, created: new Date(k.created).toISOString(), school: pj(k.curr).school || '', grant: k.sgrant ? 1 : 0 })) })) });
 }
 // GET /api/admin/stats -> {hist:[{k,t,id,n,at,parent}] latest 500, totals, byDay (last 14 days)}
 async function adminStats(env) {
@@ -721,6 +727,7 @@ export default {
         const ka = path.match(/^\/api\/admin\/user\/(p_\w+)\/kid$/); if (ka && m === 'POST') return await adminKidAdd(req, env, ka[1]);
         const ue = path.match(/^\/api\/admin\/user\/(p_\w+)(\/delete)?$/); if (ue && m === 'POST') return ue[2] ? await adminUserDelete(env, ue[1]) : await adminUserEdit(req, env, ue[1]);
         const ke = path.match(/^\/api\/admin\/kid\/(k\w+)$/); if (ke && m === 'POST') return await adminKidEdit(req, env, ke[1]);
+        const kg = path.match(/^\/api\/admin\/kid\/(k\w+)\/grant$/); if (kg && m === 'POST') return await adminKidGrant(req, env, kg[1]);
         const ap = path.match(/^\/api\/admin\/parent\/(p_\w+)$/); if (ap && m === 'POST') return await adminParent(req, env, ap[1]);
         return ERR('not-found', 404);
       }

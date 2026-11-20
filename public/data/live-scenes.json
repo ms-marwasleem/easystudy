@@ -1,0 +1,852 @@
+{
+"u4l2-birds": {
+"u": 120,
+"frame": true,
+"rows": [
+{
+"items": [
+{
+"p": "u6l1-bird-on",
+"n": 6,
+"fade": 3,
+"cross": 3
+}
+]
+}
+]
+},
+"u4l2-candies": {
+"u": 110,
+"frame": true,
+"rows": [
+{
+"items": [
+{
+"p": "candy",
+"n": 7,
+"fade": 3,
+"box": 3
+}
+]
+}
+]
+},
+"u4l2-cars": {
+"u": 120,
+"frame": true,
+"rows": [
+{
+"items": [
+{
+"p": "car",
+"n": 6,
+"fade": 2,
+"box": 2
+}
+]
+}
+]
+},
+"u4l4-bk1": {
+"u": 110,
+"frame": true,
+"rows": [
+{
+"sep": "−",
+"items": [
+{
+"p": "apple-toon",
+"n": 5
+},
+{
+"p": "banana-single",
+"n": 3,
+"box": 3
+}
+]
+}
+]
+},
+"u4l4-bk2": {
+"u": 100,
+"frame": true,
+"align": "left",
+"rows": [
+{
+"items": [
+{
+"p": "potato-single",
+"n": 8
+}
+]
+},
+{
+"items": [
+{
+"p": "tomato",
+"n": 4,
+"box": 4
+}
+]
+}
+]
+},
+"u4l4-wb1": {
+"u": 110,
+"frame": true,
+"align": "left",
+"link": true,
+"rows": [
+{
+"items": [
+{
+"p": "pencil",
+"n": 6,
+"box": 3
+}
+]
+},
+{
+"items": [
+{
+"p": "notebook",
+"n": 3
+}
+]
+}
+]
+},
+"u4l4-wb2": {
+"u": 110,
+"frame": true,
+"align": "left",
+"link": true,
+"rows": [
+{
+"items": [
+{
+"p": "spoon",
+"n": 5,
+"box": 2
+}
+]
+},
+{
+"items": [
+{
+"p": "fork-u4l2",
+"n": 3
+}
+]
+}
+]
+},
+"u4l4-wb3": {
+"u": 110,
+"frame": true,
+"align": "left",
+"link": true,
+"rows": [
+{
+"items": [
+{
+"p": "flower-red",
+"n": 7,
+"box": 1
+}
+]
+},
+{
+"items": [
+{
+"p": "tulip",
+"n": 6
+}
+]
+}
+]
+},
+"u4l4-wb4": {
+"u": 100,
+"frame": true,
+"align": "left",
+"link": true,
+"rows": [
+{
+"items": [
+{
+"p": "ball-blue",
+"n": 8,
+"box": 2
+}
+]
+},
+{
+"items": [
+{
+"p": "ball-blue",
+"n": 6
+}
+]
+}
+]
+},
+"u4l4-wb5": {
+"u": 100,
+"frame": true,
+"align": "left",
+"link": true,
+"rows": [
+{
+"items": [
+{
+"p": "apple-toon",
+"n": 7,
+"box": 2
+}
+]
+},
+{
+"items": [
+{
+"p": "banana-single",
+"n": 5
+}
+]
+}
+]
+},
+"u4l4-wb6": {
+"u": 100,
+"frame": true,
+"align": "left",
+"link": true,
+"rows": [
+{
+"items": [
+{
+"p": "ball-blue",
+"n": 6,
+"box": 2
+}
+]
+},
+{
+"items": [
+{
+"p": "ball-blue",
+"n": 4
+}
+]
+}
+]
+},
+"u4l4-wb7": {
+"u": 130,
+"frame": true,
+"align": "left",
+"link": true,
+"rows": [
+{
+"items": [
+{
+"p": "u6l1-bird-on",
+"n": 3,
+"box": 2
+}
+]
+},
+{
+"items": [
+{
+"p": "bird",
+"n": 1,
+"s": 0.8
+}
+]
+}
+]
+},
+"u4l4-wb8": {
+"u": 110,
+"frame": true,
+"align": "left",
+"link": true,
+"rows": [
+{
+"items": [
+{
+"p": "car",
+"n": 6,
+"box": 2
+}
+]
+},
+{
+"items": [
+{
+"p": "bike",
+"n": 4,
+"s": 0.75
+}
+]
+}
+]
+},
+"u4l5-a1": {
+"u": 100,
+"frame": true,
+"align": "left",
+"rows": [
+{
+"items": [
+{
+"p": "apple-toon",
+"n": 2
+}
+]
+},
+{
+"items": [
+{
+"p": "apple-toon",
+"n": 6,
+"fade": 6,
+"box": 6
+}
+]
+}
+]
+},
+"u4l5-h1": {
+"u": 110,
+"frame": true,
+"align": "left",
+"rows": [
+{
+"items": [
+{
+"p": "u6l1-bird-on",
+"n": 4
+}
+]
+},
+{
+"items": [
+{
+"p": "u6l1-bird-on",
+"n": 4,
+"fade": 4,
+"box": 4
+}
+]
+}
+]
+},
+"u4l5-h2": {
+"u": 120,
+"frame": true,
+"align": "left",
+"rows": [
+{
+"items": [
+{
+"p": "cat",
+"n": 1
+}
+]
+},
+{
+"items": [
+{
+"p": "cat",
+"n": 2,
+"fade": 2,
+"box": 2
+}
+]
+}
+]
+},
+"u4l5-h3": {
+"u": 110,
+"frame": true,
+"align": "left",
+"rows": [
+{
+"items": [
+{
+"p": "car",
+"n": 5
+}
+]
+},
+{
+"items": [
+{
+"p": "car",
+"n": 4
+}
+]
+}
+]
+},
+"u4l5-h4": {
+"u": 100,
+"frame": true,
+"align": "left",
+"rows": [
+{
+"items": [
+{
+"p": "candy",
+"n": 1
+}
+]
+},
+{
+"items": [
+{
+"p": "candy",
+"n": 5,
+"fade": 5,
+"box": 5
+}
+]
+}
+]
+},
+"u4l5-h5": {
+"u": 110,
+"frame": true,
+"align": "left",
+"rows": [
+{
+"items": [
+{
+"p": "banana-single",
+"n": 3
+}
+]
+},
+{
+"items": [
+{
+"p": "banana-single",
+"n": 2,
+"fade": 2,
+"box": 2
+}
+]
+}
+]
+},
+"u5l1-palms-en": {
+"u": 140,
+"frame": true,
+"line": {
+"color": "#d62e8f"
+},
+"rows": [
+{
+"gap": 90,
+"items": [
+{
+"p": "palm",
+"n": 1,
+"s": 2.3,
+"badge": "1"
+},
+{
+"p": "palm",
+"n": 1,
+"s": 1.2,
+"badge": "2"
+}
+]
+}
+]
+},
+"u5l1-palms-ar": {
+"u": 140,
+"frame": true,
+"line": {
+"color": "#d62e8f"
+},
+"rows": [
+{
+"gap": 90,
+"items": [
+{
+"p": "palm",
+"n": 1,
+"s": 2.3,
+"badge": "١"
+},
+{
+"p": "palm",
+"n": 1,
+"s": 1.2,
+"badge": "٢"
+}
+]
+}
+]
+},
+"u5l1-pens-en": {
+"u": 140,
+"frame": true,
+"line": {
+"color": "#d62e8f"
+},
+"rows": [
+{
+"items": [
+{
+"p": "len-pen-red",
+"n": 1,
+"s": 1.9,
+"rot": -90,
+"badge": "1"
+},
+{
+"p": "len-pen-green",
+"n": 1,
+"s": 3,
+"rot": -90,
+"badge": "2"
+}
+]
+}
+]
+},
+"u5l1-pens-ar": {
+"u": 140,
+"frame": true,
+"line": {
+"color": "#d62e8f"
+},
+"rows": [
+{
+"items": [
+{
+"p": "len-pen-red",
+"n": 1,
+"s": 1.9,
+"rot": -90,
+"badge": "١"
+},
+{
+"p": "len-pen-green",
+"n": 1,
+"s": 3,
+"rot": -90,
+"badge": "٢"
+}
+]
+}
+]
+},
+"u5l1-people": {
+"u": 140,
+"frame": true,
+"line": {
+"color": "#d62e8f"
+},
+"rows": [
+{
+"gap": 70,
+"items": [
+{
+"p": "man",
+"n": 1,
+"s": 3
+},
+{
+"p": "boy-waving",
+"n": 1,
+"s": 1.6
+}
+]
+}
+]
+},
+"u5l2-bed": {
+"u": 140,
+"frame": true,
+"rows": [
+{
+"items": [
+{
+"p": "bed",
+"n": 1,
+"s": 2.4
+}
+]
+},
+{
+"gap": 8,
+"items": [
+{
+"p": "hand",
+"n": 6,
+"s": 0.5
+}
+]
+}
+]
+},
+"u5l2-closet": {
+"u": 140,
+"frame": true,
+"rows": [
+{
+"items": [
+{
+"p": "closet",
+"n": 1,
+"s": 2.2
+}
+]
+},
+{
+"gap": 8,
+"items": [
+{
+"p": "hand",
+"n": 4,
+"s": 0.5
+}
+]
+}
+]
+},
+"u5l2-desk-foot": {
+"u": 140,
+"frame": true,
+"rows": [
+{
+"items": [
+{
+"p": "desk",
+"n": 1,
+"s": 2.4
+}
+]
+},
+{
+"gap": 8,
+"items": [
+{
+"p": "foot",
+"n": 3,
+"s": 0.55
+}
+]
+}
+]
+},
+"u5l2-desk-hand": {
+"u": 140,
+"frame": true,
+"rows": [
+{
+"items": [
+{
+"p": "desk",
+"n": 1,
+"s": 2.4
+}
+]
+},
+{
+"gap": 8,
+"items": [
+{
+"p": "hand",
+"n": 5,
+"s": 0.5
+}
+]
+}
+]
+},
+"u5l2-table": {
+"u": 140,
+"frame": true,
+"rows": [
+{
+"items": [
+{
+"p": "table",
+"n": 1,
+"s": 2.2
+}
+]
+},
+{
+"gap": 8,
+"items": [
+{
+"p": "hand",
+"n": 5,
+"s": 0.5
+}
+]
+}
+]
+},
+"u5l2-window": {
+"u": 140,
+"frame": true,
+"rows": [
+{
+"items": [
+{
+"p": "window",
+"n": 1,
+"s": 2.2
+}
+]
+},
+{
+"gap": 8,
+"items": [
+{
+"p": "hand",
+"n": 3,
+"s": 0.5
+}
+]
+}
+]
+},
+"hw6-class1": {
+"table": {
+"rtl": true,
+"cell": 64,
+"labelW": 130,
+"rows": [
+{
+"label": "مدرس",
+"p": "teacher-woman",
+"n": 7,
+"off": 2
+},
+{
+"label": "طبيب",
+"p": "doctor-m",
+"n": 7,
+"off": 2
+},
+{
+"label": "ضابط شرطة",
+"p": "police",
+"n": 7,
+"off": 3
+},
+{
+"label": "مهندس",
+"p": "engineer",
+"n": 7,
+"off": 3
+}
+]
+}
+},
+"hw6-class2": {
+"table": {
+"rtl": true,
+"cell": 64,
+"labelW": 130,
+"rows": [
+{
+"label": "مدرس",
+"p": "teacher-woman",
+"n": 7,
+"off": 4
+},
+{
+"label": "طبيب",
+"p": "doctor-m",
+"n": 7,
+"off": 1
+},
+{
+"label": "ضابط شرطة",
+"p": "police",
+"n": 7,
+"off": 2
+},
+{
+"label": "مهندس",
+"p": "engineer",
+"n": 7,
+"off": 3
+}
+]
+}
+},
+"hw6-fruit": {
+"table": {
+"rtl": true,
+"cell": 64,
+"labelW": 130,
+"rows": [
+{
+"label": "موز",
+"p": "banana-single",
+"n": 7,
+"off": 2
+},
+{
+"label": "تفاح",
+"p": "apple-toon",
+"n": 7,
+"off": 0
+},
+{
+"label": "برتقال",
+"p": "orange",
+"n": 7,
+"off": 3
+},
+{
+"label": "فراولة",
+"p": "strawberry-u4l3",
+"n": 7,
+"off": 1
+}
+]
+}
+},
+"hw6-colors": {
+"table": {
+"cell": 64,
+"rows": 8,
+"rtl": true,
+"cols": [
+{
+"label": "أحمر",
+"p": "red-u4l2",
+"n": 4
+},
+{
+"label": "أصفر",
+"p": "yellow",
+"n": 7
+},
+{
+"label": "أزرق",
+"p": "blue",
+"n": 5
+},
+{
+"label": "أخضر",
+"p": "green",
+"n": 6
+}
+]
+}
+}
+}

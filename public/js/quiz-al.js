@@ -117,21 +117,29 @@ function alMistake(box,q,s,run){
 }
 
 /* ---------- mcq ---------- */
+/* tap the squares to count (Ahmed 2026-11-18): item.cells = [ [ [x,y,w,h] (fractions of the picture) in counting order ] per thing ]; tapping the next square of a thing numbers it 1, 2, 3 ...; the choices below still have to be answered */
+function alCells(f,im,q){ const G=q.cells; if(!G||!G.length) return; const ov=el('div','alcells'); f.append(ov); const n=G.map(()=>0);
+  const place=()=>{ ov.style.cssText=`left:${im.offsetLeft}px;top:${im.offsetTop}px;width:${im.offsetWidth}px;height:${im.offsetHeight}px`; };
+  if(window.ResizeObserver) new ResizeObserver(place).observe(im); im.addEventListener('load',place); place();
+  G.forEach((g,gi)=>g.forEach((c,ci)=>{ const b=el('button','alcell'); b.setAttribute('aria-label',String(ci+1)); b.style.cssText=`left:${c[0]*100}%;top:${c[1]*100}%;width:${c[2]*100}%;height:${c[3]*100}%`;
+    b.addEventListener('click',()=>{ if(qz.busy) return; hideHint(); if(b.dataset.n) return; if(ci!==n[gi]) return qxBad(b); n[gi]++; b.dataset.n=n[gi]; b.innerHTML='<i>'+n[gi]+'</i>'; try{ blip(520+n[gi]*40,.05); }catch(e){} }); ov.append(b); })); }
 function alMcq(box,q,s,run){
   const w=el('div','almcq'+(q.pics?' haspic':'')+(q.pics&&/(^|\/)(clock|hand)-/.test(String(q.pics[0]))?' clockq':'')); box.append(w);
-  if(q.pics){ const pc=el('div','alpics'); q.pics.forEach((p,k)=>{ const f=el('div','alfig'); const im=el('img','',''); im.src=p; im.alt=''; qPicFit(im,(q.picsTall||[])[k]); im.addEventListener('load',()=>{ if(im.naturalHeight/im.naturalWidth>1.1) w.classList.add('chartq'); }); /* a tall picture = a chart/table: it gets the room, the choices get smaller (Ahmed 2026-11-14) */ f.append(im); if(q.caps&&q.caps[k]){ const c=el('button','alcap',q.caps[k]); c.onclick=()=>{ vStop(); c.classList.add('lit'); qSound(alWordSrc(q.caps[k]),q.caps[k]).then(()=>c.classList.remove('lit')); }; f.append(c); } pc.append(f); }); w.append(pc); }
+  if(q.pics){ const pc=el('div','alpics'); q.pics.forEach((p,k)=>{ const f=el('div','alfig'); const im=el('img','',''); im.src=p; im.alt=''; qPicFit(im,(q.picsTall||[])[k]); im.addEventListener('load',()=>{ if(im.naturalHeight/im.naturalWidth>1.1) w.classList.add('chartq'); }); /* a tall picture = a chart/table: it gets the room, the choices get smaller (Ahmed 2026-11-14) */ f.append(im); if(k===0) alCells(f,im,q); if(q.caps&&q.caps[k]){ const c=el('button','alcap',q.caps[k]); c.onclick=()=>{ vStop(); c.classList.add('lit'); qSound(alWordSrc(q.caps[k]),q.caps[k]).then(()=>c.classList.remove('lit')); }; f.append(c); } pc.append(f); }); w.append(pc); }
   alPassage(w,q);   // reading comprehension: the passage of the same "grp" stays fixed on top, one question at a time (Ahmed 2026-11-15)
   const st=el('div','alstem'); w.append(st); let blank=null;
   const sp=el('button','qsay alsp',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>{ if(!qz.busy) q.sayFn(); };
-  if(q.ask){ const a=el('p','alask',''); alToks(a,q.ask); st.append(a); }
-  const p=el('p','altx'); st.append(p); if(isAr()&&/^math/.test(SUBJECT.id)){ p.dir='rtl'; p.classList.add('mrtl'); }   // Arabic math: the number sentence and "الإجابة: __" read from the right (Ahmed 2026-11-14)
+  let stemT=String(q.stem), askT=q.ask;
+  if(isAr()&&/^math/.test(SUBJECT.id)&&askT&&/^\s*[\d٠-٩]+\s*[+−\-]\s*[\d٠-٩]+\s*=\s*[؟?]\s*$/.test(askT)&&/^الإجابة:?\s*_{2,}\s*$/.test(stemT)){ stemT=askT.replace(/[؟?]\s*$/,'___').trim(); askT=null; }   // Arabic math: no big word "الإجابة", the number sentence itself is the big line (Ahmed 2026-11-18)
+  let askEl=null; if(askT){ const a=el('p','alask',''); alToks(a,askT); st.append(a); askEl=a; }
+  const p=el('p','altx'); if(!(q.noStem&&askEl)) st.append(p);   // noStem: the question is asked ONCE; the child answers with the choices straight away (Ahmed 2026-11-18) if(isAr()&&/^math/.test(SUBJECT.id)){ p.dir='rtl'; p.classList.add('mrtl'); }   // Arabic math: the number sentence and "الإجابة: __" read from the right (Ahmed 2026-11-14)
   /* word problems (task "Solve the problem." / "نحل المسائل."): the number sentence is HIDDEN until the Help bulb, so the child reads and understands the story first (Ahmed 2026-11-14). Same in English and Arabic math. */
   if(/^(Solve the problem|نحل المسائل)/.test(String(q.set.task||''))&&/\d\s*[+−\-]\s*\d\s*=/.test(String(q.stem))){ p.classList.add('eqhid'); q.eqHidden=true; }
   const word=(t,k)=>{ const sp=el('span','alw',t); sp.addEventListener('click',()=>{ hideHint(); vStop(); sp.classList.add('lit'); qSound(alWordSrc(t),alClean(t)).then(()=>sp.classList.remove('lit')); }); p.append(k?' ':'',sp); };
-  String(q.stem).split(/\s+/).filter(Boolean).forEach((t,k)=>{ const m=/^([^_]*)_{2,}([^_]*)$/.exec(t);
+  stemT.split(/\s+/).filter(Boolean).forEach((t,k)=>{ const m=/^([^_]*)_{2,}([^_]*)$/.exec(t);
     if(m&&!blank){ blank=el('button','alblank','<i></i>'); if(k) p.append(' '); if(m[1]) p.append(m[1]); p.append(blank); if(m[2]) p.append(m[2]); blank.addEventListener('click',()=>q.sayFn&&q.sayFn()); }
     else word(t,k); });
-  p.append(' ',sp);   // the small speaker straight AFTER the question text (reads the question only, never the answer)
+  (q.noStem&&askEl?askEl:p).append(' ',sp);   // the small speaker straight AFTER the question text (reads the question only, never the answer)
   const say=q.optSay||q.options;
   const ops=el('div','alopts'+(q.options.some(o=>o.length>14)?' long':'')); w.append(ops);
   q.options.forEach((o,k)=>{ const b=qChBtn(o,qWords(q.options)); b.classList.add('alopt'); b.dataset.k=k;   // THE choice button (quiz.js qChBtn, look in css/qlayout.css)

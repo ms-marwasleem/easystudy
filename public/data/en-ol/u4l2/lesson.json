@@ -69,9 +69,15 @@
      "audio": "../../phonics/chunks/r_i.mp3"
     },
     {
-     "t": "ng",
+     "t": "n",
      "ph": "ng",
      "audio": "../../phonics/ng.mp3"
+    },
+    {
+     "t": "g",
+     "spell": true,
+     "ph": "g",
+     "audio": "../../phonics/g.mp3"
     }
    ],
    "audio": {
@@ -95,14 +101,9 @@
      "audio": "../../phonics/b.mp3"
     },
     {
-     "t": "i",
-     "ph": "i",
-     "audio": "../../phonics/i.mp3"
-    },
-    {
-     "t": "t",
-     "ph": "t",
-     "audio": "../../phonics/t.mp3"
+     "t": "it",
+     "ph": "i_t",
+     "audio": "../../phonics/chunks/i_t.mp3"
     }
    ],
    "audio": {
@@ -152,14 +153,9 @@
      "audio": "../../phonics/k.mp3"
     },
     {
-     "t": "e",
-     "ph": "i",
-     "audio": "../../phonics/i.mp3"
-    },
-    {
-     "t": "t",
-     "ph": "t",
-     "audio": "../../phonics/t.mp3"
+     "t": "et",
+     "ph": "i_t",
+     "audio": "../../phonics/chunks/i_t.mp3"
     }
    ],
    "audio": {
@@ -245,14 +241,9 @@
      "audio": "../../phonics/chunks/l_i.mp3"
     },
     {
-     "t": "ph",
-     "ph": "f",
-     "audio": "../../phonics/f.mp3"
-    },
-    {
-     "t": "a",
-     "ph": "a",
-     "audio": "../../phonics/a.mp3"
+     "t": "pha",
+     "ph": "f_a",
+     "audio": "../../phonics/chunks/f_a.mp3"
     },
     {
      "t": "n",

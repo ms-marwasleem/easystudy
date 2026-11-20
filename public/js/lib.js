@@ -95,10 +95,11 @@ async function composeMap(url){
     try{ const base=(url.match(/^(.*?\/)data\//)||['',''])[1]; const d=await (await fetch(base+'data/en-shared/q/index.json')).json();
       const T={}; d.templates.forEach(t=>T[t.id]=t);
       d.entries.forEach(e=>{ const t=T[e.template]; if(t&&t.parts&&e.vals) m[e.path]=t.parts.map(x=>x.path||e.vals[x.v]); }); }catch(e){}
+    try{ const base=(url.match(/^(.*?\/)data\//)||['',''])[1]; const d=await (await fetch(base+'data/audio-compose.json')).json(); Object.assign(m,d.map||{}); }catch(e){}   // audio-compose.json: any path -> the library clips it is built from (equations = number + plus/minus/equals clips; same sentence = one clip)
     return m; })();
   return COMP.map;
 }
-async function composeFiles(url){ const p=libPath(url); if(!p||p.indexOf('en-shared/q/')!==0) return null;
+async function composeFiles(url){ const p=libPath(url); if(!p) return null;
   const m=await composeMap(url); const l=m[p]; if(!l) return null;
   return l.map(f=>url.replace(/data\/.+?(\?.*)?$/,'data/'+f)); }
 

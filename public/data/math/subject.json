@@ -76,6 +76,7 @@
    },
    "tabs": [
     "read",
+    "words",
     "quiz",
     "booklet",
     "workbook"
@@ -157,6 +158,7 @@
    },
    "tabs": [
     "read",
+    "words",
     "quiz",
     "booklet",
     "workbook"
@@ -488,6 +490,7 @@
    },
    "tabs": [
     "read",
+    "words",
     "quiz",
     "booklet",
     "workbook"
@@ -564,12 +567,17 @@
     ],
     "booklet": [
      37
+    ],
+    "workbook": [
+     30,
+     31
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -752,6 +760,7 @@
      51
     ],
     "workbook": [
+     39,
      40
     ],
     "booklet": [
@@ -786,12 +795,17 @@
      54,
      55,
      56
+    ],
+    "workbook": [
+     40,
+     41
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ],
    "weekly": [
     {
@@ -818,12 +832,16 @@
     ],
     "quiz": [
      55
+    ],
+    "workbook": [
+     42
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -835,10 +853,20 @@
     "read": [
      56,
      57
+    ],
+    "workbook": [
+     43,
+     44
+    ],
+    "booklet": [
+     59,
+     60
     ]
    },
    "tabs": [
-    "read"
+    "read",
+    "workbook",
+    "booklet"
    ]
   },
   {
@@ -853,12 +881,16 @@
     ],
     "quiz": [
      59
+    ],
+    "workbook": [
+     45
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {
@@ -874,11 +906,22 @@
     "quiz": [
      62,
      63
+    ],
+    "workbook": [
+     48,
+     49,
+     50
+    ],
+    "booklet": [
+     65,
+     67
     ]
    },
    "tabs": [
     "read",
-    "quiz"
+    "quiz",
+    "workbook",
+    "booklet"
    ]
   },
   {
@@ -915,12 +958,17 @@
     "quiz": [
      70,
      71
+    ],
+    "workbook": [
+     52,
+     53
     ]
    },
    "tabs": [
     "read",
     "quiz",
-    "booklet"
+    "booklet",
+    "workbook"
    ]
   },
   {

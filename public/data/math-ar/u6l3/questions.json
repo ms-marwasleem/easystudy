@@ -20,7 +20,8 @@
      "askSay": "أي فصل لديه كلاب أكثر؟",
      "word": "الفصل الثاني لديه كلاب أكثر.",
      "askAudio": "../../math-ar-audio/134d34e280.mp3",
-     "audio": "../../math-ar-audio/d7d11bca19.mp3"
+     "audio": "../../math-ar-audio/d7d11bca19.mp3",
+     "noStem": true
     }
    ],
    "taskAudio": "../../math-ar-audio/38dc34cede.mp3"
@@ -45,7 +46,8 @@
      "askSay": "أي فصل لديه جمال أكثر؟",
      "word": "الفصل الأول لديه جمال أكثر.",
      "askAudio": "../../math-ar-audio/909ce65385.mp3",
-     "audio": "../../math-ar-audio/d802c965c4.mp3"
+     "audio": "../../math-ar-audio/d802c965c4.mp3",
+     "noStem": true
     }
    ],
    "taskAudio": "../../math-ar-audio/38dc34cede.mp3"
@@ -72,7 +74,8 @@
      "askSay": "أي حيوان هو الأكثر في الفصل الأول؟",
      "word": "الأكثر في الفصل الأول هو القطط.",
      "askAudio": "../../math-ar-audio/d84f0d178c.mp3",
-     "audio": "../../math-ar-audio/4a64f23aca.mp3"
+     "audio": "../../math-ar-audio/4a64f23aca.mp3",
+     "noStem": true
     }
    ],
    "taskAudio": "../../math-ar-audio/38dc34cede.mp3"
@@ -99,7 +102,8 @@
      "askSay": "أي حيوان له نفس العدد في الفصلين؟",
      "word": "الزرافات لها نفس العدد.",
      "askAudio": "../../math-ar-audio/c5f70f31e4.mp3",
-     "audio": "../../math-ar-audio/299259875f.mp3"
+     "audio": "../../math-ar-audio/299259875f.mp3",
+     "noStem": true
     }
    ],
    "taskAudio": "../../math-ar-audio/38dc34cede.mp3"
@@ -124,7 +128,8 @@
      "askSay": "أي مجموعة لديها قلوب أكثر؟",
      "word": "المجموعة الأولى لديها قلوب أكثر.",
      "askAudio": "../../math-ar-audio/dd9b3779a0.mp3",
-     "audio": "../../math-ar-audio/fd613ff2bc.mp3"
+     "audio": "../../math-ar-audio/fd613ff2bc.mp3",
+     "noStem": true
     }
    ],
    "taskAudio": "../../math-ar-audio/38dc34cede.mp3"
@@ -152,7 +157,8 @@
      "askSay": "أي بطاقة هي الأكثر في المجموعة الأولى؟",
      "word": "الأكثر في المجموعة الأولى هو المربعات.",
      "askAudio": "../../math-ar-audio/cade361711.mp3",
-     "audio": "../../math-ar-audio/953766a173.mp3"
+     "audio": "../../math-ar-audio/953766a173.mp3",
+     "noStem": true
     }
    ],
    "taskAudio": "../../math-ar-audio/38dc34cede.mp3"
@@ -177,7 +183,8 @@
      "askSay": "إذا كانت البطاقة الفائزة هي الدائرة، فأي مجموعة هي الفائزة؟",
      "word": "الفائزة هي المجموعة الأولى.",
      "askAudio": "../../math-ar-audio/d4e23b3bd6.mp3",
-     "audio": "../../math-ar-audio/b5ec267425.mp3"
+     "audio": "../../math-ar-audio/b5ec267425.mp3",
+     "noStem": true
     }
    ],
    "taskAudio": "../../math-ar-audio/38dc34cede.mp3"
@@ -202,20 +209,101 @@
      "askSay": "إذا كانت البطاقة الفائزة هي المثلث، فأي مجموعة هي الفائزة؟",
      "word": "الفائزة هي المجموعة الثانية.",
      "askAudio": "../../math-ar-audio/0b5822750d.mp3",
-     "audio": "../../math-ar-audio/89d83dc774.mp3"
+     "audio": "../../math-ar-audio/89d83dc774.mp3",
+     "noStem": true
     }
    ],
    "taskAudio": "../../math-ar-audio/38dc34cede.mp3"
   },
   {
    "type": "mcq",
-   "ex": 1,
+   "page": 48,
+   "book": "workbook",
+   "act": "u6l3wb",
+   "items": [
+    {
+     "pics": [
+      "../../pics/sc-math-ar-u6l3-wb-fruit.jpg"
+     ],
+     "ask": "أي مجموعة تفضل البرتقال أكثر؟",
+     "stem": "___ تفضل البرتقال أكثر.",
+     "options": [
+      "المجموعة الأولى",
+      "المجموعة الثانية"
+     ],
+     "answer": 0,
+     "askSay": "أي مجموعة تفضل البرتقال أكثر؟",
+     "word": "المجموعة الأولى تفضل البرتقال أكثر.",
+     "noStem": true
+    },
+    {
+     "pics": [
+      "../../pics/sc-math-ar-u6l3-wb-fruit.jpg"
+     ],
+     "ask": "أي مجموعة تفضل الفراولة أكثر؟",
+     "stem": "___ تفضل الفراولة أكثر.",
+     "options": [
+      "المجموعة الأولى",
+      "المجموعة الثانية"
+     ],
+     "answer": 1,
+     "askSay": "أي مجموعة تفضل الفراولة أكثر؟",
+     "word": "المجموعة الثانية تفضل الفراولة أكثر.",
+     "noStem": true
+    }
+   ],
+   "task": "انظر إلى جدولي الفاكهة المفضلة للمجموعتين.",
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "page": 48,
+   "book": "workbook",
+   "act": "u6l3wb",
+   "items": [
+    {
+     "pics": [
+      "../../pics/sc-math-ar-u6l3-wb-tools.jpg"
+     ],
+     "ask": "أي مجموعة لديها دفاتر أكثر؟",
+     "stem": "___ لديها دفاتر أكثر.",
+     "options": [
+      "المجموعة الأولى",
+      "المجموعة الثانية"
+     ],
+     "answer": 0,
+     "askSay": "أي مجموعة لديها دفاتر أكثر؟",
+     "word": "المجموعة الأولى لديها دفاتر أكثر.",
+     "noStem": true
+    },
+    {
+     "pics": [
+      "../../pics/sc-math-ar-u6l3-wb-tools.jpg"
+     ],
+     "ask": "أي مجموعة لديها مبرايات أكثر؟",
+     "stem": "___ لديها مبرايات أكثر.",
+     "options": [
+      "المجموعة الأولى",
+      "المجموعة الثانية"
+     ],
+     "answer": 1,
+     "askSay": "أي مجموعة لديها مبرايات أكثر؟",
+     "word": "المجموعة الثانية لديها مبرايات أكثر.",
+     "noStem": true
+    }
+   ],
+   "task": "انظر إلى الأدوات المدرسية للمجموعتين.",
+   "ex": 2
+  },
+  {
+   "type": "mcq",
+   "ex": 3,
    "page": 49,
    "task": "نلاحظ المهن المفضلة (الفصل 1) ثم نجيب.",
    "items": [
     {
      "pics": [
-      "../../pics/hw6-class1.jpg"
+      "live:hw6-class1"
      ],
      "ask": "أي فصل يفضل مهنة المدرس أكثر؟",
      "stem": "الإجابة: __",
@@ -227,7 +315,8 @@
      "askSay": "أي فصل يفضل مهنة المدرس أكثر؟",
      "word": "الإجابة الفصل الأول.",
      "askAudio": "../../math-ar-audio/cc843939c3.mp3",
-     "audio": "../../math-ar-audio/1c222bf5db.mp3"
+     "audio": "../../math-ar-audio/1c222bf5db.mp3",
+     "noStem": true
     }
    ],
    "book": "workbook",
@@ -235,13 +324,13 @@
   },
   {
    "type": "mcq",
-   "ex": 2,
+   "ex": 4,
    "page": 49,
    "task": "نلاحظ المهن المفضلة (الفصل 1) ثم نجيب.",
    "items": [
     {
      "pics": [
-      "../../pics/hw6-class1.jpg"
+      "live:hw6-class1"
      ],
      "ask": "أي فصل يفضل مهنة المهندس أكثر؟",
      "stem": "الإجابة: __",
@@ -253,7 +342,8 @@
      "askSay": "أي فصل يفضل مهنة المهندس أكثر؟",
      "word": "الإجابة الفصل الأول.",
      "askAudio": "../../math-ar-audio/ad0f47f998.mp3",
-     "audio": "../../math-ar-audio/1c222bf5db.mp3"
+     "audio": "../../math-ar-audio/1c222bf5db.mp3",
+     "noStem": true
     }
    ],
    "book": "workbook",
@@ -261,13 +351,13 @@
   },
   {
    "type": "mcq",
-   "ex": 3,
+   "ex": 5,
    "page": 49,
    "task": "نلاحظ المهن المفضلة (الفصل 1) ثم نجيب.",
    "items": [
     {
      "pics": [
-      "../../pics/hw6-class1.jpg"
+      "live:hw6-class1"
      ],
      "ask": "كم تلميذاً في الفصل الأول يفضل مهنة ضابط الشرطة؟",
      "stem": "الإجابة: __",
@@ -281,7 +371,8 @@
      "askSay": "كم تلميذاً في الفصل الأول يفضل مهنة ضابط الشرطة؟",
      "word": "الإجابة 4.",
      "askAudio": "../../math-ar-audio/5f786285a3.mp3",
-     "audio": "../../math-ar-audio/cab528a059.mp3"
+     "audio": "../../math-ar-audio/cab528a059.mp3",
+     "noStem": true
     }
    ],
    "book": "workbook",
@@ -289,13 +380,13 @@
   },
   {
    "type": "mcq",
-   "ex": 4,
+   "ex": 6,
    "page": 49,
    "task": "نلاحظ المهن المفضلة (الفصل 2) ثم نجيب.",
    "items": [
     {
      "pics": [
-      "../../pics/hw6-class2.jpg"
+      "live:hw6-class2"
      ],
      "ask": "كم تلميذاً في الفصل الثاني يفضل مهنة الطبيب؟",
      "stem": "الإجابة: __",
@@ -309,7 +400,8 @@
      "askSay": "كم تلميذاً في الفصل الثاني يفضل مهنة الطبيب؟",
      "word": "الإجابة 6.",
      "askAudio": "../../math-ar-audio/ae81fb81a5.mp3",
-     "audio": "../../math-ar-audio/367e26d719.mp3"
+     "audio": "../../math-ar-audio/367e26d719.mp3",
+     "noStem": true
     }
    ],
    "book": "workbook",

@@ -11,11 +11,12 @@
  "tabs": [
   "read",
   "quiz",
-  "booklet"
+  "booklet",
+  "workbook"
  ],
  "tabLabels": {
   "read": "Lesson",
-  "quiz": "Book Questions"
+  "quiz": "Exercise"
  },
  "pages": 5,
  "pageNums": [
@@ -94,7 +95,8 @@
          ]
         ],
         "color": "green",
-        "r": 18
+        "r": 18,
+        "keep": true
        },
        {
         "add": "7 blocks",
@@ -132,7 +134,8 @@
          ]
         ],
         "color": "orange",
-        "r": 18
+        "r": 18,
+        "keep": true
        },
        {
         "add": "5 blocks",
@@ -212,7 +215,8 @@
          ]
         ],
         "color": "orange",
-        "r": 26
+        "r": 26,
+        "keep": true
        },
        {
         "add": "4 carriages",
@@ -250,7 +254,8 @@
          ]
         ],
         "color": "green",
-        "r": 26
+        "r": 26,
+        "keep": true
        },
        {
         "add": "5 carriages",
@@ -346,7 +351,8 @@
          ]
         ],
         "color": "blue",
-        "r": 18
+        "r": 18,
+        "keep": true
        },
        {
         "add": "8 blocks",
@@ -388,7 +394,8 @@
          ]
         ],
         "color": "orange",
-        "r": 18
+        "r": 18,
+        "keep": true
        },
        {
         "add": "6 blocks",
@@ -451,32 +458,33 @@
         "count": true,
         "pts": [
          [
-          58,
-          -3
+          82,
+          3
          ],
          [
-          125,
-          -3
+          221,
+          3
          ],
          [
-          193,
-          -3
+          359,
+          3
          ],
          [
-          260,
-          -3
+          497,
+          3
          ],
          [
-          328,
-          -3
+          635,
+          3
          ],
          [
-          395,
-          -3
+          774,
+          3
          ]
         ],
         "color": "red",
-        "r": 26
+        "r": 26,
+        "keep": true
        },
        {
         "add": "6 carriages",
@@ -514,7 +522,8 @@
          ]
         ],
         "color": "green",
-        "r": 26
+        "r": 26,
+        "keep": true
        },
        {
         "add": "5 carriages",
@@ -530,10 +539,10 @@
        {
         "frame": {
          "box": [
-          14,
-          17,
-          439,
-          76
+          4,
+          2,
+          852,
+          74
          ],
          "color": "red"
         }
@@ -614,7 +623,8 @@
          ]
         ],
         "color": "green",
-        "r": 18
+        "r": 18,
+        "keep": true
        },
        {
         "add": "9 blocks",
@@ -672,7 +682,8 @@
          ]
         ],
         "color": "red",
-        "r": 18
+        "r": 18,
+        "keep": true
        },
        {
         "add": "10 blocks",

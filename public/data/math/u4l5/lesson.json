@@ -11,11 +11,12 @@
  "tabs": [
   "read",
   "quiz",
-  "booklet"
+  "booklet",
+  "workbook"
  ],
  "tabLabels": {
   "read": "Lesson",
-  "quiz": "Book Questions"
+  "quiz": "Exercise"
  },
  "pages": 7,
  "layout": "explain",
@@ -35,10 +36,148 @@
       "say": "Let's make a story.",
       "do": [
        {
-        "scene": "pic",
-        "img": "../../pics/sc-math-ar-u4l5-scene.png",
-        "w": 1000,
-        "h": 782
+        "scene": "free",
+        "frame": false,
+        "ih": 782,
+        "bg": "<defs><linearGradient id=\"pk-sky\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#8fd2ff\"/><stop offset=\"1\" stop-color=\"#e6f7ff\"/></linearGradient><linearGradient id=\"pk-gr\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#86d86b\"/><stop offset=\"1\" stop-color=\"#58b24a\"/></linearGradient></defs><rect x=\"-12\" y=\"-12\" width=\"1024\" height=\"800\" fill=\"url(#pk-sky)\"/><ellipse cx=\"300\" cy=\"46\" rx=\"74\" ry=\"26\" fill=\"#fff\" opacity=\".92\"/><ellipse cx=\"350\" cy=\"62\" rx=\"60\" ry=\"22\" fill=\"#fff\" opacity=\".92\"/><ellipse cx=\"760\" cy=\"40\" rx=\"70\" ry=\"24\" fill=\"#fff\" opacity=\".92\"/><path d=\"M-12 300 Q250 250 520 295 T1012 280 L1012 800 L-12 800Z\" fill=\"url(#pk-gr)\"/><path d=\"M380 800 Q470 560 560 330 L640 330 Q650 560 760 800Z\" fill=\"#f0dca8\" opacity=\".85\"/><g fill=\"#9b6a35\"><rect x=\"86\" y=\"250\" width=\"270\" height=\"16\" rx=\"6\"/><rect x=\"86\" y=\"296\" width=\"270\" height=\"22\" rx=\"6\"/><rect x=\"104\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"322\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"716\" y=\"250\" width=\"270\" height=\"16\" rx=\"6\"/><rect x=\"716\" y=\"296\" width=\"270\" height=\"22\" rx=\"6\"/><rect x=\"734\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"952\" y=\"318\" width=\"16\" height=\"44\"/></g>",
+        "items": [
+         {
+          "id": "t0",
+          "img": "../../pics/tree.png",
+          "x": 484,
+          "y": 0,
+          "w": 232,
+          "h": 300
+         },
+         {
+          "id": "t1",
+          "img": "../../pics/tree.png",
+          "x": 856,
+          "y": 35,
+          "w": 209,
+          "h": 270
+         },
+         {
+          "id": "p0",
+          "img": "../../pics/girl.png",
+          "x": 94,
+          "y": 108,
+          "w": 111,
+          "h": 215
+         },
+         {
+          "id": "p1",
+          "img": "../../pics/boy-waving.png",
+          "x": 174,
+          "y": 120,
+          "w": 171,
+          "h": 190
+         },
+         {
+          "id": "p2",
+          "img": "../../pics/man.png",
+          "x": 788,
+          "y": 88,
+          "w": 94,
+          "h": 235
+         },
+         {
+          "id": "p3",
+          "img": "../../pics/boy-sit.png",
+          "x": 209,
+          "y": 412,
+          "w": 122,
+          "h": 215
+         },
+         {
+          "id": "p4",
+          "img": "../../pics/boy-waving.png",
+          "x": 638,
+          "y": 445,
+          "w": 153,
+          "h": 190
+         },
+         {
+          "id": "c0",
+          "img": "../../pics/cat.png",
+          "x": 431,
+          "y": 322,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c1",
+          "img": "../../pics/cat.png",
+          "x": 501,
+          "y": 422,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c2",
+          "img": "../../pics/cat.png",
+          "x": 51,
+          "y": 498,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c3",
+          "img": "../../pics/cat.png",
+          "x": 871,
+          "y": 438,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c4",
+          "img": "../../pics/cat.png",
+          "x": 826,
+          "y": 562,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "b0",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 134,
+          "y": 14,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b1",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 344,
+          "y": 79,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b2",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 420,
+          "y": 24,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b3",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 720,
+          "y": 24,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b4",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 624,
+          "y": 124,
+          "w": 111,
+          "h": 72
+         }
+        ]
        },
        {
         "eq": [
@@ -92,10 +231,148 @@
       "say": "Look at the cats.",
       "do": [
        {
-        "scene": "pic",
-        "img": "../../pics/sc-math-ar-u4l5-scene.png",
-        "w": 1000,
-        "h": 782
+        "scene": "free",
+        "frame": false,
+        "ih": 782,
+        "bg": "<defs><linearGradient id=\"pk-sky\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#8fd2ff\"/><stop offset=\"1\" stop-color=\"#e6f7ff\"/></linearGradient><linearGradient id=\"pk-gr\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#86d86b\"/><stop offset=\"1\" stop-color=\"#58b24a\"/></linearGradient></defs><rect x=\"-12\" y=\"-12\" width=\"1024\" height=\"800\" fill=\"url(#pk-sky)\"/><ellipse cx=\"300\" cy=\"46\" rx=\"74\" ry=\"26\" fill=\"#fff\" opacity=\".92\"/><ellipse cx=\"350\" cy=\"62\" rx=\"60\" ry=\"22\" fill=\"#fff\" opacity=\".92\"/><ellipse cx=\"760\" cy=\"40\" rx=\"70\" ry=\"24\" fill=\"#fff\" opacity=\".92\"/><path d=\"M-12 300 Q250 250 520 295 T1012 280 L1012 800 L-12 800Z\" fill=\"url(#pk-gr)\"/><path d=\"M380 800 Q470 560 560 330 L640 330 Q650 560 760 800Z\" fill=\"#f0dca8\" opacity=\".85\"/><g fill=\"#9b6a35\"><rect x=\"86\" y=\"250\" width=\"270\" height=\"16\" rx=\"6\"/><rect x=\"86\" y=\"296\" width=\"270\" height=\"22\" rx=\"6\"/><rect x=\"104\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"322\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"716\" y=\"250\" width=\"270\" height=\"16\" rx=\"6\"/><rect x=\"716\" y=\"296\" width=\"270\" height=\"22\" rx=\"6\"/><rect x=\"734\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"952\" y=\"318\" width=\"16\" height=\"44\"/></g>",
+        "items": [
+         {
+          "id": "t0",
+          "img": "../../pics/tree.png",
+          "x": 484,
+          "y": 0,
+          "w": 232,
+          "h": 300
+         },
+         {
+          "id": "t1",
+          "img": "../../pics/tree.png",
+          "x": 856,
+          "y": 35,
+          "w": 209,
+          "h": 270
+         },
+         {
+          "id": "p0",
+          "img": "../../pics/girl.png",
+          "x": 94,
+          "y": 108,
+          "w": 111,
+          "h": 215
+         },
+         {
+          "id": "p1",
+          "img": "../../pics/boy-waving.png",
+          "x": 174,
+          "y": 120,
+          "w": 171,
+          "h": 190
+         },
+         {
+          "id": "p2",
+          "img": "../../pics/man.png",
+          "x": 788,
+          "y": 88,
+          "w": 94,
+          "h": 235
+         },
+         {
+          "id": "p3",
+          "img": "../../pics/boy-sit.png",
+          "x": 209,
+          "y": 412,
+          "w": 122,
+          "h": 215
+         },
+         {
+          "id": "p4",
+          "img": "../../pics/boy-waving.png",
+          "x": 638,
+          "y": 445,
+          "w": 153,
+          "h": 190
+         },
+         {
+          "id": "c0",
+          "img": "../../pics/cat.png",
+          "x": 431,
+          "y": 322,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c1",
+          "img": "../../pics/cat.png",
+          "x": 501,
+          "y": 422,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c2",
+          "img": "../../pics/cat.png",
+          "x": 51,
+          "y": 498,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c3",
+          "img": "../../pics/cat.png",
+          "x": 871,
+          "y": 438,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c4",
+          "img": "../../pics/cat.png",
+          "x": 826,
+          "y": 562,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "b0",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 134,
+          "y": 14,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b1",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 344,
+          "y": 79,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b2",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 420,
+          "y": 24,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b3",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 720,
+          "y": 24,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b4",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 624,
+          "y": 124,
+          "w": 111,
+          "h": 72
+         }
+        ]
        },
        {
         "eq": [
@@ -188,34 +465,34 @@
       "audio": "explain/s2-2.mp3"
      },
      {
-      "do": [
-       {
-        "cross": true,
-        "pts": [
-         [
-          100,
-          560
-         ],
-         [
-          920,
-          500
-         ],
-         [
-          875,
-          625
-         ]
-        ],
-        "r": 55,
-        "color": "red"
-       }
-      ]
-     },
-     {
       "say": "Three run away.",
       "do": [
        {
         "add": "3 run away.",
         "color": "red"
+       },
+       {
+        "move": [
+         {
+          "id": "c2",
+          "x": -220,
+          "y": 498
+         },
+         {
+          "id": "c3",
+          "x": 1120,
+          "y": 438
+         },
+         {
+          "id": "c4",
+          "x": 1120,
+          "y": 562
+         }
+        ],
+        "ms": 2400
+       },
+       {
+        "unring": "g1"
        },
        {
         "fly": "3",
@@ -266,6 +543,11 @@
         "value": "2"
        }
       ]
+     },
+     {
+      "say": "Subtraction story:",
+      "do": [],
+      "audio": "explain/subtraction-story.mp3"
      },
      {
       "say": "There are five cats. Three run away. How many cats are left?",
@@ -331,10 +613,148 @@
       "say": "Look at the gray birds.",
       "do": [
        {
-        "scene": "pic",
-        "img": "../../pics/sc-math-ar-u4l5-scene.png",
-        "w": 1000,
-        "h": 782
+        "scene": "free",
+        "frame": false,
+        "ih": 782,
+        "bg": "<defs><linearGradient id=\"pk-sky\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#8fd2ff\"/><stop offset=\"1\" stop-color=\"#e6f7ff\"/></linearGradient><linearGradient id=\"pk-gr\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#86d86b\"/><stop offset=\"1\" stop-color=\"#58b24a\"/></linearGradient></defs><rect x=\"-12\" y=\"-12\" width=\"1024\" height=\"800\" fill=\"url(#pk-sky)\"/><ellipse cx=\"300\" cy=\"46\" rx=\"74\" ry=\"26\" fill=\"#fff\" opacity=\".92\"/><ellipse cx=\"350\" cy=\"62\" rx=\"60\" ry=\"22\" fill=\"#fff\" opacity=\".92\"/><ellipse cx=\"760\" cy=\"40\" rx=\"70\" ry=\"24\" fill=\"#fff\" opacity=\".92\"/><path d=\"M-12 300 Q250 250 520 295 T1012 280 L1012 800 L-12 800Z\" fill=\"url(#pk-gr)\"/><path d=\"M380 800 Q470 560 560 330 L640 330 Q650 560 760 800Z\" fill=\"#f0dca8\" opacity=\".85\"/><g fill=\"#9b6a35\"><rect x=\"86\" y=\"250\" width=\"270\" height=\"16\" rx=\"6\"/><rect x=\"86\" y=\"296\" width=\"270\" height=\"22\" rx=\"6\"/><rect x=\"104\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"322\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"716\" y=\"250\" width=\"270\" height=\"16\" rx=\"6\"/><rect x=\"716\" y=\"296\" width=\"270\" height=\"22\" rx=\"6\"/><rect x=\"734\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"952\" y=\"318\" width=\"16\" height=\"44\"/></g>",
+        "items": [
+         {
+          "id": "t0",
+          "img": "../../pics/tree.png",
+          "x": 484,
+          "y": 0,
+          "w": 232,
+          "h": 300
+         },
+         {
+          "id": "t1",
+          "img": "../../pics/tree.png",
+          "x": 856,
+          "y": 35,
+          "w": 209,
+          "h": 270
+         },
+         {
+          "id": "p0",
+          "img": "../../pics/girl.png",
+          "x": 94,
+          "y": 108,
+          "w": 111,
+          "h": 215
+         },
+         {
+          "id": "p1",
+          "img": "../../pics/boy-waving.png",
+          "x": 174,
+          "y": 120,
+          "w": 171,
+          "h": 190
+         },
+         {
+          "id": "p2",
+          "img": "../../pics/man.png",
+          "x": 788,
+          "y": 88,
+          "w": 94,
+          "h": 235
+         },
+         {
+          "id": "p3",
+          "img": "../../pics/boy-sit.png",
+          "x": 209,
+          "y": 412,
+          "w": 122,
+          "h": 215
+         },
+         {
+          "id": "p4",
+          "img": "../../pics/boy-waving.png",
+          "x": 638,
+          "y": 445,
+          "w": 153,
+          "h": 190
+         },
+         {
+          "id": "c0",
+          "img": "../../pics/cat.png",
+          "x": 431,
+          "y": 322,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c1",
+          "img": "../../pics/cat.png",
+          "x": 501,
+          "y": 422,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c2",
+          "img": "../../pics/cat.png",
+          "x": 51,
+          "y": 498,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c3",
+          "img": "../../pics/cat.png",
+          "x": 871,
+          "y": 438,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c4",
+          "img": "../../pics/cat.png",
+          "x": 826,
+          "y": 562,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "b0",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 134,
+          "y": 14,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b1",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 344,
+          "y": 79,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b2",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 420,
+          "y": 24,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b3",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 720,
+          "y": 24,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b4",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 624,
+          "y": 124,
+          "w": 111,
+          "h": 72
+         }
+        ]
        },
        {
         "eq": [
@@ -427,34 +847,34 @@
       "audio": "explain/s3-2.mp3"
      },
      {
-      "do": [
-       {
-        "cross": true,
-        "pts": [
-         [
-          190,
-          50
-         ],
-         [
-          400,
-          115
-         ],
-         [
-          475,
-          60
-         ]
-        ],
-        "r": 45,
-        "color": "red"
-       }
-      ]
-     },
-     {
       "say": "Three fly away.",
       "do": [
        {
         "add": "3 fly away.",
         "color": "red"
+       },
+       {
+        "move": [
+         {
+          "id": "b0",
+          "x": -200,
+          "y": -140
+         },
+         {
+          "id": "b1",
+          "x": 300,
+          "y": -160
+         },
+         {
+          "id": "b2",
+          "x": 640,
+          "y": -160
+         }
+        ],
+        "ms": 2400
+       },
+       {
+        "unring": "g1"
        },
        {
         "fly": "3",
@@ -505,6 +925,11 @@
         "value": "2"
        }
       ]
+     },
+     {
+      "say": "Subtraction story:",
+      "do": [],
+      "audio": "explain/subtraction-story.mp3"
      },
      {
       "say": "There are five gray birds. Three fly away. How many gray birds are left?",
@@ -578,10 +1003,148 @@
       "say": "Look at the people.",
       "do": [
        {
-        "scene": "pic",
-        "img": "../../pics/sc-math-ar-u4l5-scene.png",
-        "w": 1000,
-        "h": 782
+        "scene": "free",
+        "frame": false,
+        "ih": 782,
+        "bg": "<defs><linearGradient id=\"pk-sky\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#8fd2ff\"/><stop offset=\"1\" stop-color=\"#e6f7ff\"/></linearGradient><linearGradient id=\"pk-gr\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#86d86b\"/><stop offset=\"1\" stop-color=\"#58b24a\"/></linearGradient></defs><rect x=\"-12\" y=\"-12\" width=\"1024\" height=\"800\" fill=\"url(#pk-sky)\"/><ellipse cx=\"300\" cy=\"46\" rx=\"74\" ry=\"26\" fill=\"#fff\" opacity=\".92\"/><ellipse cx=\"350\" cy=\"62\" rx=\"60\" ry=\"22\" fill=\"#fff\" opacity=\".92\"/><ellipse cx=\"760\" cy=\"40\" rx=\"70\" ry=\"24\" fill=\"#fff\" opacity=\".92\"/><path d=\"M-12 300 Q250 250 520 295 T1012 280 L1012 800 L-12 800Z\" fill=\"url(#pk-gr)\"/><path d=\"M380 800 Q470 560 560 330 L640 330 Q650 560 760 800Z\" fill=\"#f0dca8\" opacity=\".85\"/><g fill=\"#9b6a35\"><rect x=\"86\" y=\"250\" width=\"270\" height=\"16\" rx=\"6\"/><rect x=\"86\" y=\"296\" width=\"270\" height=\"22\" rx=\"6\"/><rect x=\"104\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"322\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"716\" y=\"250\" width=\"270\" height=\"16\" rx=\"6\"/><rect x=\"716\" y=\"296\" width=\"270\" height=\"22\" rx=\"6\"/><rect x=\"734\" y=\"318\" width=\"16\" height=\"44\"/><rect x=\"952\" y=\"318\" width=\"16\" height=\"44\"/></g>",
+        "items": [
+         {
+          "id": "t0",
+          "img": "../../pics/tree.png",
+          "x": 484,
+          "y": 0,
+          "w": 232,
+          "h": 300
+         },
+         {
+          "id": "t1",
+          "img": "../../pics/tree.png",
+          "x": 856,
+          "y": 35,
+          "w": 209,
+          "h": 270
+         },
+         {
+          "id": "p0",
+          "img": "../../pics/girl.png",
+          "x": 94,
+          "y": 108,
+          "w": 111,
+          "h": 215
+         },
+         {
+          "id": "p1",
+          "img": "../../pics/boy-waving.png",
+          "x": 174,
+          "y": 120,
+          "w": 171,
+          "h": 190
+         },
+         {
+          "id": "p2",
+          "img": "../../pics/man.png",
+          "x": 788,
+          "y": 88,
+          "w": 94,
+          "h": 235
+         },
+         {
+          "id": "p3",
+          "img": "../../pics/boy-sit.png",
+          "x": 209,
+          "y": 412,
+          "w": 122,
+          "h": 215
+         },
+         {
+          "id": "p4",
+          "img": "../../pics/boy-waving.png",
+          "x": 638,
+          "y": 445,
+          "w": 153,
+          "h": 190
+         },
+         {
+          "id": "c0",
+          "img": "../../pics/cat.png",
+          "x": 431,
+          "y": 322,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c1",
+          "img": "../../pics/cat.png",
+          "x": 501,
+          "y": 422,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c2",
+          "img": "../../pics/cat.png",
+          "x": 51,
+          "y": 498,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c3",
+          "img": "../../pics/cat.png",
+          "x": 871,
+          "y": 438,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "c4",
+          "img": "../../pics/cat.png",
+          "x": 826,
+          "y": 562,
+          "w": 98,
+          "h": 125
+         },
+         {
+          "id": "b0",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 134,
+          "y": 14,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b1",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 344,
+          "y": 79,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b2",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 420,
+          "y": 24,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b3",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 720,
+          "y": 24,
+          "w": 111,
+          "h": 72
+         },
+         {
+          "id": "b4",
+          "img": "../../pics/u6l1-bird-on.png#1f",
+          "x": 624,
+          "y": 124,
+          "w": 111,
+          "h": 72
+         }
+        ]
        },
        {
         "eq": [
@@ -674,34 +1237,34 @@
       "audio": "explain/s4-2.mp3"
      },
      {
-      "do": [
-       {
-        "cross": true,
-        "pts": [
-         [
-          150,
-          215
-         ],
-         [
-          260,
-          215
-         ],
-         [
-          835,
-          205
-         ]
-        ],
-        "r": 75,
-        "color": "red"
-       }
-      ]
-     },
-     {
       "say": "Three go home.",
       "do": [
        {
         "add": "3 go home.",
         "color": "red"
+       },
+       {
+        "move": [
+         {
+          "id": "p0",
+          "x": -260,
+          "y": 108
+         },
+         {
+          "id": "p1",
+          "x": -330,
+          "y": 120
+         },
+         {
+          "id": "p2",
+          "x": 1150,
+          "y": 88
+         }
+        ],
+        "ms": 2400
+       },
+       {
+        "unring": "g1"
        },
        {
         "fly": "3",
@@ -752,6 +1315,11 @@
         "value": "2"
        }
       ]
+     },
+     {
+      "say": "Subtraction story:",
+      "do": [],
+      "audio": "explain/subtraction-story.mp3"
      },
      {
       "say": "There are five people. Three go home. How many people are left?",
@@ -928,6 +1496,11 @@
        }
       ],
       "audio": "explain/s5-3.mp3"
+     },
+     {
+      "say": "Subtraction story:",
+      "do": [],
+      "audio": "explain/subtraction-story.mp3"
      },
      {
       "say": "There are four ducks. One swims away. How many ducks are left?",
@@ -1133,6 +1706,11 @@
        }
       ],
       "audio": "explain/s6-2.mp3"
+     },
+     {
+      "say": "Subtraction story:",
+      "do": [],
+      "audio": "explain/subtraction-story.mp3"
      },
      {
       "say": "There are four red birds. One flies away. How many red birds are left?",
@@ -1343,6 +1921,11 @@
        }
       ],
       "audio": "explain/s7-2.mp3"
+     },
+     {
+      "say": "Subtraction story:",
+      "do": [],
+      "audio": "explain/subtraction-story.mp3"
      },
      {
       "say": "There are four flowers. The girl takes one. How many flowers are left?",

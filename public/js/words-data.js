@@ -9,7 +9,7 @@ const EW_SUBJ={
   'en-al': { name:'English AL words', small:'ENGLISH', big:'AL', sub:'WORDS', lang:'en' }
 };
 // the curriculum is the child's (set in the account / student settings, js/welcome.js); nothing here picks it any more
-try{ const k=kidNow(); EW.curr=k&&k.curr?(k.curr.school||k.curr.type):null; }catch(e){}
+try{ const k=kidNow(); EW.curr=k&&k.curr?currEff(k.curr):null; }catch(e){}
 KID_KEYS.push('ew.stats','ew.log');   // each child keeps their own word statistics (switching child reloads the page, js/welcome.js)
 try{ EW.stats=JSON.parse(localStorage.getItem('ew.stats')||'{}')||{}; EW.log=JSON.parse(localStorage.getItem('ew.log')||'[]')||[]; }catch(e){}
 const ewSave=()=>{ try{ localStorage.setItem('ew.stats',JSON.stringify(EW.stats)); localStorage.setItem('ew.log',JSON.stringify(EW.log.slice(-200))); }catch(e){} };

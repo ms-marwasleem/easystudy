@@ -21,7 +21,7 @@ async function boot(){
   S.coins=S.coins||{}; S.access=S.access||{}; S.access.free=S.access.free||{}; S.items=S.items||{};
   const F=S.access.free; F.mode='first'; delete F.perSubject; if(F.count==null||F.count>5) F.count=1; F.per=F.per||{}; F.list=F.list||[];   // free = first lessons of unit 1 per subject
   S.coins.referral=S.coins.referral||{on:false,coins:15}; if(S.coins.shareCoins==null) S.coins.shareCoins=1; if(!S.coins.dailyCap||S.coins.dailyCap>20) S.coins.dailyCap=20; if(!S.coins.lessonCost) S.coins.lessonCost=3;
-  S.subs=S.subs||{}; S.subs.prices=S.subs.prices||{}; S.currOff=S.currOff||{}; S.promos=S.promos||[]; if(S.promoOn==null) S.promoOn=true;
+  S.subs=S.subs||{}; S.subs.prices=S.subs.prices||{}; S.currOff=S.currOff||{}; S.schoolPerm=S.schoolPerm||{}; S.promos=S.promos||[]; if(S.promoOn==null) S.promoOn=true;
   Object.keys(S.items).forEach(k=>{ if(S.items[k].st!=='soon') delete S.items[k]; else S.items[k]={st:'soon'}; });   // old open/locked/price options removed: only "soon" is kept
   COURSE=await get('data/course.json');
     COURSE.subjects=COURSE.subjects.filter(s=>!s.hidden);   // hidden:true in data/course.json = subject switched off for now (German, Science); remove the flag to restore
@@ -56,11 +56,17 @@ function drawSettings(){ $('#u-grade').innerHTML=GRADES.map(g=>`<option value="$
   $('#c-shareText').value=C.shareText||''; $('#c-shareUrl').value=C.shareUrl||'';
   $('#r-on').checked=!!C.referral.on; $('#r-coins').value=C.referral.coins||0; $('#r-sub').value=C.referral.subCoins||0;
   $('#s-on').checked=!!B.on; $('#p-on').checked=S.promoOn!==false;
-  $('#f-count').value=S.access.free.count; drawPrices(); drawFreePer(); drawCurr();
+  $('#f-count').value=S.access.free.count; drawPrices(); drawFreePer(); drawCurr(); drawSchools();
 }
 // curricula on/off (S.currOff[id]=true = closed in the signup / student step)
 function drawCurr(){ const box=$('#curr-on'); box.innerHTML=CTYPES.map(t=>`<div class="row" data-t="${t.id}"><b class="nm">${esc(t.id==='private'?'لغات':t.ar)}</b><label class="sw"><input type="checkbox"${S.currOff[t.id]?'':' checked'}><span></span> متاح</label></div>`).join('');
   $$('.row',box).forEach(r=>$('input',r).addEventListener('change',e=>{ if(e.target.checked) delete S.currOff[r.dataset.t]; else S.currOff[r.dataset.t]=true; mark(); })); }
+// schools: "needs permission" or "open" (S.schoolPerm[id] = true | false; nothing saved = the school's own default in data/curriculum.json)
+const schoolPerm=id=>{ if(S.schoolPerm&&S.schoolPerm[id]!=null) return !!S.schoolPerm[id]; const c=(window.CSCH||[]).find(x=>x.id===id); return !!(c&&c.perm); };
+const schoolName=id=>((window.CSCH||[]).find(x=>x.id===id)||{}).ar||id||'';
+function drawSchools(){ const box=$('#school-perm'); if(!box) return; const L=window.CSCH||[];
+  box.innerHTML=L.map(c=>`<div class="row" data-sc="${esc(c.id)}"><b class="nm">${esc(c.ar)}</b><label class="sw"><input type="checkbox"${schoolPerm(c.id)?' checked':''}><span></span> محتاجة سماح</label></div>`).join('')||'<p class="empty">مفيش مدارس.</p>';
+  $$('.row',box).forEach(r=>$('input',r).addEventListener('change',e=>{ S.schoolPerm[r.dataset.sc]=e.target.checked; mark(); drawUsers(); })); }
 function drawPrices(){ const P=S.subs.prices, box=$('#prices'), rows=[];
   GRADES.forEach(g=>TERMS.forEach(([t,tn])=>{ const k=g.id+':'+t, p=P[k]||{}, fin=p.discOn&&+p.disc>0?+p.disc:(+p.price||0);
     rows.push(`<div class="row prc" data-k="${k}"><b class="nm">${esc(g.ar)} — ${tn}</b>
@@ -216,7 +222,7 @@ function drawUsers(){ const A=accounts(), box=$('#users'), srv=!!SRV.accounts, a
       <td rowspan="${n}"><input class="u-in" data-f="phone" dir="ltr" type="tel" value="${esc(a.phone||'')}" placeholder="—"${dis}></td>`;
     const last=`<td rowspan="${n}" class="u-act"><button type="button" class="u-del" data-a="del"${dis}>حذف</button></td>`;
     const rowsK=K.map((x,j)=>{ const k=x.k, g=k.grade||'p1', blk=f=>x.sub.map(s=>`<div class="trm" data-k="${esc(k.id)}" data-g="${esc(g)}" data-t="${s.t}">${f(s)}</div>`).join('');
-      return `<tr data-p="${esc(P)}" data-k="${esc(k.id)}">`+(j?'':first)+`<td class="u-kc"><input class="u-in" data-f="kid" value="${esc(k.name)}"${dis}><select class="u-in" data-f="grade"${dis}>${gradeOpts(g)}</select>${k.school?'<small>'+esc(k.school)+'</small>':''}</td><td class="u-dt">${fmtD(k.created)||'—'}</td>`+
+      return `<tr data-p="${esc(P)}" data-k="${esc(k.id)}">`+(j?'':first)+`<td class="u-kc"><input class="u-in" data-f="kid" value="${esc(k.name)}"${dis}><select class="u-in" data-f="grade"${dis}>${gradeOpts(g)}</select>${k.school?`<small class="u-sch">${esc(schoolName(k.school))}</small>${schoolPerm(k.school)?`<label class="sw u-grant"><input type="checkbox" data-a="grant"${k.grant?' checked':''}${dis}><span></span> مسموح له بمنهج المدرسة</label>`:''}`:''}</td><td class="u-dt">${fmtD(k.created)||'—'}</td>`+
         `<td>${blk(s=>`<label class="sw"><input type="checkbox" data-a="tog"${s.st==='on'?' checked':''}${dis}><span></span></label><span class="nm">${TNAME[s.t]}</span><span class="stb ${s.st==='on'?'open':''}">${s.st==='on'?'مشترك':s.st==='wait'?'منتظر':'غير مشترك'}</span>`)}</td>`+
         `<td class="u-dt">${blk(s=>fmtD(s.r&&s.r.at)||'—')}</td>`+
         `<td>${blk(s=>s.r&&s.r.receipt?`<button type="button" class="ghost" data-a="rc">عرض الإيصال</button>`:'—')}</td>`+(j?'':last)+'</tr>'; }).join('');
@@ -237,7 +243,10 @@ const U_ERR={'bad-email':'الإيميل مش مظبوط','need-contact':'لاز
 const showReceipt=async(child,term)=>{ const x=await post(`/admin/sub/${child}/${term}/receipt`);
   uModal(x&&x.receipt?`<img src="${x.receipt}" alt="" class="u-rc"><div class="u-btns"><button type="button" class="ghost" data-m="x">إغلاق</button></div>`:`<p class="empty">الإيصال مش متاح.</p><div class="u-btns"><button type="button" class="ghost" data-m="x">إغلاق</button></div>`,'big'); };
 // every cell saves the moment it changes (email, mobile, student name, grade)
-$('#users').addEventListener('change',async e=>{ const i=e.target.closest('.u-in'), tg=e.target.closest('[data-a=tog]');
+$('#users').addEventListener('change',async e=>{ const i=e.target.closest('.u-in'), tg=e.target.closest('[data-a=tog]'), gr=e.target.closest('[data-a=grant]');
+  if(gr){ const id=gr.closest('tr').dataset.k, on=gr.checked; gr.disabled=true; const x=await post('/admin/kid/'+id+'/grant',{on});
+    if(x&&x.ok){ toast(on?'اتدّى له السماح بمنهج المدرسة':'اتشال منه السماح'); const a=accounts().find(q=>q.id===gr.closest('tr').dataset.p), k=a&&a.kids.find(q=>q.id===id); if(k) k.grant=on?1:0; } else { toast('ما اتحفظش، جربي تاني'); gr.checked=!on; }
+    gr.disabled=false; return; }
   if(tg){ const r=tg.closest('.trm'), on=tg.checked; tg.disabled=true;
     const x=on?await post('/admin/sub/grant',{child:r.dataset.k,term:r.dataset.g+':'+r.dataset.t}):await post('/admin/sub',{child:r.dataset.k,term:r.dataset.g+':'+r.dataset.t,action:'close'});
     if(x&&x.ok) toast(on?'الاشتراك اتفعّل':'الاشتراك اتوقف'); else toast(x&&x.error==='admin-only'?'كلمة السر مش مظبوطة':on?'ما اتفعّلش، جربي تاني':'ما اتوقفش، جربي تاني');

@@ -198,13 +198,13 @@
    "taskAudio": "q/task-bk-write-the-number.mp3",
    "items": [
     {
-     "img": "../../pics/banana.png#4",
+     "img": "../../pics/banana-single.png#4",
      "n": 4,
      "group": true,
      "audio": "words/four.mp3"
     },
     {
-     "img": "../../pics/banana.png#3",
+     "img": "../../pics/banana-single.png#3",
      "n": 3,
      "group": true,
      "audio": "words/three.mp3"
@@ -310,6 +310,64 @@
    ],
    "book": "booklet",
    "ex": 5
+  },
+  {
+   "type": "count",
+   "typed": true,
+   "page": 24,
+   "task": "Write the number of oranges.",
+   "taskAudio": "q/task-bk-write-the-number-of-oranges.mp3",
+   "items": [
+    {
+     "img": "../../pics/orange.png#2",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    },
+    {
+     "img": "../../pics/orange.png",
+     "n": 1,
+     "group": true,
+     "audio": "words/one.mp3"
+    },
+    {
+     "img": "../../pics/plate.png",
+     "n": 0,
+     "group": true,
+     "audio": "words/zero.mp3"
+    }
+   ],
+   "book": "workbook",
+   "act": "class"
+  },
+  {
+   "type": "count",
+   "typed": true,
+   "page": 24,
+   "task": "Write the number of flowers.",
+   "taskAudio": "q/task-bk-write-the-number-of-flowers.mp3",
+   "items": [
+    {
+     "img": "../../pics/pot-tulips-2.png",
+     "n": 2,
+     "group": true,
+     "audio": "words/two.mp3"
+    },
+    {
+     "img": "../../pics/pot-empty.png",
+     "n": 0,
+     "group": true,
+     "audio": "words/zero.mp3"
+    },
+    {
+     "img": "../../pics/pot-tulips-5.png",
+     "n": 5,
+     "group": true,
+     "audio": "words/five.mp3"
+    }
+   ],
+   "book": "workbook",
+   "act": "class"
   },
   {
    "type": "count",

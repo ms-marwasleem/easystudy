@@ -7,16 +7,84 @@
  "lines": [],
  "end": 1,
  "speakers": {},
- "vocab": [],
+ "vocab": [
+  {
+   "word": "ستة",
+   "img": "data:draw,num,6,ar",
+   "parts": [
+    {
+     "t": "ستة",
+     "audio": "../../math-ar-audio/aa58e3f451.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/aa58e3f451.mp3"
+   }
+  },
+  {
+   "word": "سبعة",
+   "img": "data:draw,num,7,ar",
+   "parts": [
+    {
+     "t": "سبعة",
+     "audio": "../../math-ar-audio/af472ea0bb.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/af472ea0bb.mp3"
+   }
+  },
+  {
+   "word": "ثمانية",
+   "img": "data:draw,num,8,ar",
+   "parts": [
+    {
+     "t": "ثمانية",
+     "audio": "../../math-ar-audio/9aa73bb6e5.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/9aa73bb6e5.mp3"
+   }
+  },
+  {
+   "word": "تسعة",
+   "img": "data:draw,num,9,ar",
+   "parts": [
+    {
+     "t": "تسعة",
+     "audio": "../../math-ar-audio/9ac1436afd.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/9ac1436afd.mp3"
+   }
+  },
+  {
+   "word": "عشرة",
+   "img": "data:draw,num,10,ar",
+   "parts": [
+    {
+     "t": "عشرة",
+     "audio": "../../math-ar-audio/00aaa8ea55.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/00aaa8ea55.mp3"
+   }
+  }
+ ],
  "tabs": [
   "read",
+  "words",
   "quiz",
   "workbook"
  ],
  "tabLabels": {
   "read": "الدرس",
-  "quiz": "أسئلة الكتاب",
-  "workbook": "كتاب التقييمات"
+  "quiz": "هيا نتدرب",
+  "workbook": "كتاب التقييمات",
+  "words": "الكلمات"
  },
  "type": "math",
  "math": {
@@ -42,5 +110,12 @@
     "word": "عشرة"
    }
   ]
- }
+ },
+ "hints": {
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف",
+  "word": "اضغط على أي كلمة تسمعها"
+ },
+ "vocabRepeats": 3
 }

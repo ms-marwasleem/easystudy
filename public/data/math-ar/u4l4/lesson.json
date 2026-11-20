@@ -10,11 +10,13 @@
  "vocab": [],
  "tabs": [
   "read",
-  "quiz"
+  "quiz",
+  "workbook"
  ],
  "tabLabels": {
   "read": "الدرس",
-  "quiz": "أسئلة الكتاب"
+  "quiz": "هيا نتدرب",
+  "workbook": "كتاب التقييمات"
  },
  "pages": 6,
  "pageNums": [
@@ -1158,6 +1160,22 @@
         ],
         "r": 24,
         "color": "blue"
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          793,
+          208
+         ],
+         [
+          911,
+          208
+         ]
+        ],
+        "r": 46,
+        "color": "green",
+        "id": "left"
        }
       ],
       "audio": "../../math-ar-audio/587e60a53a.mp3"
@@ -1182,22 +1200,6 @@
      {
       "say": "نعم! ثمانية ناقص ستة يساوي اثنين.",
       "do": [
-       {
-        "ring": true,
-        "pts": [
-         [
-          793,
-          208
-         ],
-         [
-          911,
-          208
-         ]
-        ],
-        "r": 30,
-        "color": "green",
-        "id": "left"
-       },
        {
         "lit": 4,
         "color": "green",
@@ -1317,6 +1319,22 @@
         ],
         "r": 0,
         "color": "blue"
+       },
+       {
+        "ring": true,
+        "pts": [
+         [
+          266,
+          270
+         ],
+         [
+          919,
+          270
+         ]
+        ],
+        "r": 64,
+        "color": "green",
+        "id": "left"
        }
       ],
       "audio": "../../math-ar-audio/587e60a53a.mp3"
@@ -1341,22 +1359,6 @@
      {
       "say": "نعم! ستة ناقص أربعة يساوي اثنين.",
       "do": [
-       {
-        "ring": true,
-        "pts": [
-         [
-          266,
-          231
-         ],
-         [
-          919,
-          231
-         ]
-        ],
-        "r": 30,
-        "color": "green",
-        "id": "left"
-       },
        {
         "lit": 4,
         "color": "green",

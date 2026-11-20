@@ -73,3 +73,10 @@
 .cpick-i{font-family:var(--f-ui,var(--f-title));font-weight:800;font-size:clamp(1rem,min(4vw,3vh),1.25rem);text-align:start;padding:.45em .8em;border-radius:1rem;border:0.15rem solid var(--ol);background:#fff;color:var(--ol);cursor:pointer}
 .cpick-i.on{background:#FFD84A;box-shadow:0 0 0 0.2rem var(--c-white)}
 .subpct{display:block;font-size:.8em;color:#2E9A1F;font-weight:800}
+
+/* share buttons: one per app (WhatsApp, Facebook, Messenger, Telegram) */
+.shgrid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;width:100%}
+.shbtn{display:flex;flex-direction:column;align-items:center;gap:.35rem;padding:.8rem .4rem;border:.15rem solid var(--ol);border-radius:1.2rem;background:var(--shc,#fff);color:#fff;font-family:var(--f-ui);font-weight:800;font-size:1.1rem;cursor:pointer;box-shadow:0 .2rem 0 var(--ol)}
+.shbtn:active{transform:translateY(.15rem);box-shadow:none}
+.shbtn i{display:grid;place-items:center}.shbtn svg{width:2.4rem;height:2.4rem}
+.shpay{font-weight:800}

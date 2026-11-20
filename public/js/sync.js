@@ -16,8 +16,8 @@ async function syCall(path,body,method){ const base=await syApi(); if(!base) ret
     if(r.status===401&&s&&path.indexOf('/auth/')!==0){ syForget(); }   // the session ended (signed out elsewhere / blocked)
     return {s:r.status,j}; }catch(e){ return null; } }
 function syForget(){ try{ localStorage.removeItem('es.session'); }catch(e){} if(window.ACCOUNT) delete ACCOUNT.token; }
-const SYERR={'bad-email':'البريد الإلكتروني مش مكتوب صح','wait':'استني دقيقة وبعدين اطلبي كود جديد','too-many':'محاولات كتير. جربي تاني بكرة',
-  'code-wrong':'الكود مش صح','code-expired':'الكود انتهى. اطلبي كود جديد','blocked':'الحساب ده موقوف','mail-not-set':'إرسال الإيميل لسه مش متجهز','mail-failed':'الإيميل ما اتبعتش. جربي تاني'};
+const SYERR={'bad-email':'البريد الإلكتروني مش مكتوب صح','wait':'استنى دقيقة وبعدين اطلب كود جديد','too-many':'محاولات كتير. جرب تاني بكرة',
+  'code-wrong':'الكود مش صح','code-expired':'الكود انتهى. اطلب كود جديد','blocked':'الحساب ده موقوف','mail-not-set':'إرسال الإيميل لسه مش متجهز','mail-failed':'الإيميل ما اتبعتش. جرب تاني'};
 
 /* ---------- parent login (stage 1): a code to the email (server on) or the student stage opens below (server off / phone only / can't be reached) ---------- */
 async function acctSubmit(a,err){
@@ -45,7 +45,7 @@ function syDrawCode(b){
   $('.wl-resend',b).addEventListener('click',async()=>{ const r=await syCall('/auth/start',{email:a.email}); if(!r) return say('مفيش إنترنت دلوقتي');
     if(!r.j.ok) return say(SYERR[r.j.error]||'حصلت مشكلة'); SY.dev=r.j.devCode||''; say('اتبعت كود جديد'); });
   f.addEventListener('submit',async e=>{ e.preventDefault(); const code=f.code.value.trim();
-    if(!/^[0-9٠-٩]{6}$/.test(code)) return wlBad(f,'code','اكتبي الـ ٦ أرقام');
+    if(!/^[0-9٠-٩]{6}$/.test(code)) return wlBad(f,'code','اكتب الـ ٦ أرقام');
     const ref=typeof refCode==='function'?refCode():null;
     const r=await syCall('/auth/verify',{email:a.email,code,phone:a.phone,curr:WL.pick||currPick()||{},ref,device:syDevice()});
     if(!r) return say('مفيش إنترنت دلوقتي');
@@ -66,7 +66,7 @@ function syRestore(me){
     KID_KEYS.forEach(x=>{ if(P[x]!=null) localStorage.setItem(`es.kid.${k.id}.${x}`,P[x]); else localStorage.removeItem(`es.kid.${k.id}.${x}`); });
     wlSet('es.progAt.'+k.id,k.progressAt||0); });
     const f=K[0]; KID_KEYS.forEach(x=>{ const v=localStorage.getItem(`es.kid.${f.id}.${x}`); if(v==null) localStorage.removeItem(x); else localStorage.setItem(x,v); }); }catch(e){}
-  wlSet('es.kids',K); wlSet('es.kid',K[0].id); currSave(K[0].curr); if(K.length>1){ try{ sessionStorage.setItem('es.pick','1'); }catch(e){} } location.reload();
+  wlSet('es.kids',K); wlSet('es.kid',K[0].id); currSave(K[0].curr); if(K.length>=1){ try{ sessionStorage.setItem('es.pick','1'); }catch(e){} } location.reload();
 }
 // send this device's children (name, grade, curriculum) to the server
 function syPushKids(){ if(!sySession()) return; kids().forEach(k=>syCall('/kids/'+k.id,{name:k.name,grade:k.grade,curr:k.curr},'PUT')); }
@@ -82,11 +82,14 @@ setInterval(syPushProgress,120e3);
 async function syBoot(){
   const s=sySession(); if(!s||!s.token) return;
   const r=await syCall('/me'); if(!r||!r.j.ok) return;
-  const me=r.j.me, local=kids(), ids=new Set(me.kids.map(k=>k.id)); let changed=false;
+  const me=r.j.me, local=kids(), ids=new Set(me.kids.map(k=>k.id)); let changed=false, regrant=false;
+  if(me.ref){ const a=acct()||{}; if(a.ref!==me.ref){ wlSet('es.account',{...a,ref:me.ref}); wlSet('es.session',{...(sySession()||{}),ref:me.ref}); } window.ACCOUNT={...(window.ACCOUNT||acct()||{}),ref:me.ref}; }   // the invite link needs the parent's code
+  // the school permission the admin gave (or took back) for a student: kept in the child's curriculum pick (curr.grant)
+  me.kids.forEach(sk=>{ const lk=local.find(x=>x.id===sk.id); if(!lk||!lk.curr||!lk.curr.school) return; const g=sk.curr&&sk.curr.grant?1:0; if((lk.curr.grant?1:0)!==g){ if(g) lk.curr.grant=1; else lk.curr.grant=0; changed=true; const c=kidNow(); if(c&&c.id===lk.id) regrant=true; } });
   local.filter(k=>!ids.has(k.id)).forEach(k=>syCall('/kids/'+k.id,{name:k.name,grade:k.grade,curr:k.curr},'PUT'));   // made offline
   me.kids.filter(k=>!local.some(x=>x.id===k.id)).forEach(k=>{ local.push({id:k.id,name:k.name,grade:k.grade,curr:k.curr,created:k.created}); changed=true;
     try{ Object.entries(k.progress||{}).forEach(([x,v])=>localStorage.setItem(`es.kid.${k.id}.${x}`,v)); }catch(e){} wlSet('es.progAt.'+k.id,k.progressAt||0); });
-  if(changed){ wlSet('es.kids',local); kidPaint(); }
+  if(changed){ wlSet('es.kids',local); kidPaint(); if(regrant){ const c=kidNow(); if(c){ currSave(c.curr); location.reload(); return; } } }
   // the active child played on another device later than this one sent: take that copy
   const cur=kidNow(), sk=cur&&me.kids.find(k=>k.id===cur.id);
   if(sk&&sk.progressAt>(wlGet('es.progAt.'+cur.id,0)||0)&&Object.keys(sk.progress||{}).length){

@@ -16,7 +16,7 @@
  ],
  "tabLabels": {
   "read": "Lesson",
-  "quiz": "Book Questions"
+  "quiz": "Exercise"
  },
  "pages": 8,
  "pageNums": [
@@ -50,8 +50,8 @@
     "name": "rabbit 3rd from the top",
     "beats": [
      {
-      "say": "Where is the rabbit? Look from the top.",
-      "audio": "explain/s1-1.mp3",
+      "say": "Where is the rabbit from the top?",
+      "audio": "explain/where-s1.mp3",
       "do": [
        {
         "scene": "line",
@@ -152,8 +152,8 @@
     "name": "rabbit 2nd from the bottom",
     "beats": [
      {
-      "say": "Where is the rabbit? Look from the bottom.",
-      "audio": "explain/s2-1.mp3",
+      "say": "Where is the rabbit from the bottom?",
+      "audio": "explain/where-s2.mp3",
       "do": [
        {
         "scene": "line",
@@ -250,14 +250,14 @@
     "name": "banana 2nd from the top",
     "beats": [
      {
-      "say": "Where is the banana? Look from the top.",
-      "audio": "explain/s3-1.mp3",
+      "say": "Where is the banana from the top?",
+      "audio": "explain/where-s3.mp3",
       "do": [
        {
         "scene": "line",
         "items": [
          "../../pics/apple-toon.png",
-         "../../pics/banana.png",
+         "../../pics/banana-single.png",
          "../../pics/grapes.png",
          "../../pics/orange.png"
         ],
@@ -348,14 +348,14 @@
     "name": "orange 1st from the bottom",
     "beats": [
      {
-      "say": "Where is the orange? Look from the bottom.",
-      "audio": "explain/s4-1.mp3",
+      "say": "Where is the orange from the bottom?",
+      "audio": "explain/where-s4.mp3",
       "do": [
        {
         "scene": "line",
         "items": [
          "../../pics/apple-toon.png",
-         "../../pics/banana.png",
+         "../../pics/banana-single.png",
          "../../pics/grapes.png",
          "../../pics/orange.png"
         ],
@@ -442,8 +442,8 @@
     "name": "tomato 3rd from the right",
     "beats": [
      {
-      "say": "Where is the tomato? Look from the right.",
-      "audio": "explain/s5-1.mp3",
+      "say": "Where is the tomato from the right?",
+      "audio": "explain/where-s5.mp3",
       "do": [
        {
         "scene": "line",
@@ -451,7 +451,7 @@
          "../../pics/pepper-green-bell.png",
          "../../pics/tomato.png",
          "../../pics/corn-cob.png",
-         "../../pics/onion-on-u5l3.png"
+         "../../pics/onion.png"
         ],
         "ends": [
          "Left",
@@ -547,15 +547,15 @@
     "name": "tomato 2nd from the top",
     "beats": [
      {
-      "say": "Where is the tomato? Look from the top.",
-      "audio": "explain/s6-1.mp3",
+      "say": "Where is the tomato from the top?",
+      "audio": "explain/where-s6.mp3",
       "do": [
        {
         "scene": "line",
         "items": [
          "../../pics/pepper-green-bell.png",
          "../../pics/tomato.png",
-         "../../pics/eggplant-on-u5l3.png",
+         "../../pics/eggplant.png",
          "../../pics/corn-cob.png"
         ],
         "vert": true,
@@ -645,15 +645,15 @@
     "name": "corn 1st from the bottom",
     "beats": [
      {
-      "say": "Where is the corn? Look from the bottom.",
-      "audio": "explain/s7-1.mp3",
+      "say": "Where is the corn from the bottom?",
+      "audio": "explain/where-s7.mp3",
       "do": [
        {
         "scene": "line",
         "items": [
          "../../pics/pepper-green-bell.png",
          "../../pics/tomato.png",
-         "../../pics/eggplant-on-u5l3.png",
+         "../../pics/eggplant.png",
          "../../pics/corn-cob.png"
         ],
         "vert": true,
@@ -739,8 +739,8 @@
     "name": "frog 3rd from the right",
     "beats": [
      {
-      "say": "Where is the frog? Look from the right.",
-      "audio": "explain/s8-1.mp3",
+      "say": "Where is the frog from the right?",
+      "audio": "explain/where-s8.mp3",
       "do": [
        {
         "scene": "line",

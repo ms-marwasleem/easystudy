@@ -117,6 +117,192 @@
    "ex": 4
   },
   {
+   "type": "order",
+   "page": 40,
+   "book": "workbook",
+   "act": "u4l5wb",
+   "grp": "wb-1",
+   "task": "Let's make a story for 8 − 6 = 2.",
+   "taskAudio": "q/wb-task-a1.mp3",
+   "items": [
+    {
+     "img": "live:u4l5-a1",
+     "chunks": [
+      "There",
+      "are",
+      "8",
+      "apples.",
+      "6",
+      "are",
+      "eaten.",
+      "How",
+      "many",
+      "apples",
+      "are",
+      "left?"
+     ],
+     "word": "There are 8 apples. 6 are eaten. How many apples are left?",
+     "audio": "q/wb-story-a1.mp3"
+    }
+   ],
+   "ex": 1
+  },
+  {
+   "type": "order",
+   "page": 41,
+   "book": "workbook",
+   "act": "u4l5wb",
+   "grp": "wb-2",
+   "task": "Let's make a story for 8 − 4 = 4.",
+   "taskAudio": "q/wb-task-h1.mp3",
+   "items": [
+    {
+     "img": "live:u4l5-h1",
+     "chunks": [
+      "There",
+      "are",
+      "8",
+      "birds.",
+      "4",
+      "fly",
+      "away.",
+      "How",
+      "many",
+      "birds",
+      "are",
+      "left?"
+     ],
+     "word": "There are 8 birds. 4 fly away. How many birds are left?",
+     "audio": "q/wb-story-h1.mp3"
+    }
+   ],
+   "ex": 2
+  },
+  {
+   "type": "order",
+   "page": 41,
+   "book": "workbook",
+   "act": "u4l5wb",
+   "grp": "wb-3",
+   "task": "Let's make a story for 3 − 2 = 1.",
+   "taskAudio": "q/wb-task-h2.mp3",
+   "items": [
+    {
+     "img": "live:u4l5-h2",
+     "chunks": [
+      "There",
+      "are",
+      "3",
+      "cats.",
+      "2",
+      "run",
+      "away.",
+      "How",
+      "many",
+      "cats",
+      "are",
+      "left?"
+     ],
+     "word": "There are 3 cats. 2 run away. How many cats are left?",
+     "audio": "q/wb-story-h2.mp3"
+    }
+   ],
+   "ex": 3
+  },
+  {
+   "type": "order",
+   "page": 41,
+   "book": "workbook",
+   "act": "u4l5wb",
+   "grp": "wb-4",
+   "task": "Let's make a story for 9 − 0 = 9.",
+   "taskAudio": "q/wb-task-h3.mp3",
+   "items": [
+    {
+     "img": "live:u4l5-h3",
+     "chunks": [
+      "There",
+      "are",
+      "9",
+      "cars.",
+      "0",
+      "cars",
+      "leave.",
+      "How",
+      "many",
+      "cars",
+      "are",
+      "left?"
+     ],
+     "word": "There are 9 cars. 0 cars leave. How many cars are left?",
+     "audio": "q/wb-story-h3.mp3"
+    }
+   ],
+   "ex": 4
+  },
+  {
+   "type": "order",
+   "page": 41,
+   "book": "workbook",
+   "act": "u4l5wb",
+   "grp": "wb-5",
+   "task": "Let's make a story for 6 − 5 = 1.",
+   "taskAudio": "q/wb-task-h4.mp3",
+   "items": [
+    {
+     "img": "live:u4l5-h4",
+     "chunks": [
+      "There",
+      "are",
+      "6",
+      "candies.",
+      "You",
+      "eat",
+      "5.",
+      "How",
+      "many",
+      "candies",
+      "are",
+      "left?"
+     ],
+     "word": "There are 6 candies. You eat 5. How many candies are left?",
+     "audio": "q/wb-story-h4.mp3"
+    }
+   ],
+   "ex": 5
+  },
+  {
+   "type": "order",
+   "page": 41,
+   "book": "workbook",
+   "act": "u4l5wb",
+   "grp": "wb-6",
+   "task": "Let's make a story for 5 − 2 = 3.",
+   "taskAudio": "q/wb-task-h5.mp3",
+   "items": [
+    {
+     "img": "live:u4l5-h5",
+     "chunks": [
+      "There",
+      "are",
+      "5",
+      "bananas.",
+      "2",
+      "are",
+      "eaten.",
+      "How",
+      "many",
+      "bananas",
+      "are",
+      "left?"
+     ],
+     "word": "There are 5 bananas. 2 are eaten. How many bananas are left?",
+     "audio": "q/wb-story-h5.mp3"
+    }
+   ],
+   "ex": 6
+  },
+  {
    "type": "mcq",
    "page": 53,
    "task": "Subtract.",

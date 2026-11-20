@@ -7,16 +7,149 @@
  "lines": [],
  "end": 1,
  "speakers": {},
- "vocab": [],
+ "vocab": [
+  {
+   "word": "الأول",
+   "img": "data:draw,pos,1,10,ar",
+   "parts": [
+    {
+     "t": "الأول",
+     "audio": "../../math-ar-audio/e7af6ad9e8.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/e7af6ad9e8.mp3"
+   }
+  },
+  {
+   "word": "الثاني",
+   "img": "data:draw,pos,2,10,ar",
+   "parts": [
+    {
+     "t": "الثاني",
+     "audio": "../../math-ar-audio/39321e817f.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/39321e817f.mp3"
+   }
+  },
+  {
+   "word": "الثالث",
+   "img": "data:draw,pos,3,10,ar",
+   "parts": [
+    {
+     "t": "الثالث",
+     "audio": "../../math-ar-audio/c3e1b4edd4.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/c3e1b4edd4.mp3"
+   }
+  },
+  {
+   "word": "الرابع",
+   "img": "data:draw,pos,4,10,ar",
+   "parts": [
+    {
+     "t": "الرابع",
+     "audio": "../../math-ar-audio/50ed003430.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/50ed003430.mp3"
+   }
+  },
+  {
+   "word": "الخامس",
+   "img": "data:draw,pos,5,10,ar",
+   "parts": [
+    {
+     "t": "الخامس",
+     "audio": "../../math-ar-audio/5fad8aa224.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/5fad8aa224.mp3"
+   }
+  },
+  {
+   "word": "السادس",
+   "img": "data:draw,pos,6,10,ar",
+   "parts": [
+    {
+     "t": "السادس",
+     "audio": "../../math-ar-audio/45d8094bf9.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/45d8094bf9.mp3"
+   }
+  },
+  {
+   "word": "السابع",
+   "img": "data:draw,pos,7,10,ar",
+   "parts": [
+    {
+     "t": "السابع",
+     "audio": "../../math-ar-audio/ef114d4296.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/ef114d4296.mp3"
+   }
+  },
+  {
+   "word": "الثامن",
+   "img": "data:draw,pos,8,10,ar",
+   "parts": [
+    {
+     "t": "الثامن",
+     "audio": "../../math-ar-audio/2db27d05d3.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/2db27d05d3.mp3"
+   }
+  },
+  {
+   "word": "التاسع",
+   "img": "data:draw,pos,9,10,ar",
+   "parts": [
+    {
+     "t": "التاسع",
+     "audio": "../../math-ar-audio/3bcce3aeea.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/3bcce3aeea.mp3"
+   }
+  },
+  {
+   "word": "العاشر",
+   "img": "data:draw,pos,10,10,ar",
+   "parts": [
+    {
+     "t": "العاشر",
+     "audio": "../../math-ar-audio/20024c5464.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/20024c5464.mp3"
+   }
+  }
+ ],
  "tabs": [
   "read",
+  "words",
   "quiz",
   "workbook"
  ],
  "tabLabels": {
   "read": "الدرس",
-  "quiz": "أسئلة الكتاب",
-  "workbook": "كتاب التقييمات"
+  "quiz": "هيا نتدرب",
+  "workbook": "كتاب التقييمات",
+  "words": "الكلمات"
  },
  "pages": 7,
  "pageNums": [
@@ -674,5 +807,12 @@
   ],
   "rtl": true,
   "lang": "ar"
- }
+ },
+ "hints": {
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف",
+  "word": "اضغط على أي كلمة تسمعها"
+ },
+ "vocabRepeats": 3
 }

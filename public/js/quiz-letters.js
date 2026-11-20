@@ -326,7 +326,13 @@ QM.face={sheet:'box', noword:1, bulb:0, draw:qxFace};
    Data: set {"type":"colour","table":true,"items":[{"word","num","total","off","on","pic"}]}. */
 function qxColourTable(box,q,s,run){
   const its=q.items, rtl=isAr(), bd=el('div','qxcb qxct'); bd.dataset.noswipe=1; if(rtl) bd.classList.add('rtl'); box.append(bd);
-  const pic=its.find(i=>i.pic); if(pic){ const pi=el('img','qxcp qxctp'); pi.alt=''; pi.draggable=false; pi.src=R_Q(pic.pic); bd.append(pi); }
+  const pic=its.find(i=>i.pic); if(pic){ const pw=el('div','qxpw'), pi=el('img','qxcp qxctp'); pi.alt=''; pi.draggable=false; pi.src=R_Q(pic.pic); pw.append(pi); bd.append(pw);
+    /* tap a thing of the picture = it is ringed and numbered (ring colour = its kind); tap it again = taken back. item.marks = [[cx,cy,r] fractions of the picture] (Ahmed 2026-11-18) */
+    const RC=['#E8443A','#2A7FD8','#2FA84F','#F29A1F']; const nums=its.map(()=>[]);
+    const renum=k=>nums[k].forEach((m,i)=>{ m.b.textContent=i+1; });
+    its.forEach((it,k)=>(it.marks||[]).forEach(([cx,cy,r])=>{ const m=el('button','qxmk'); m.type='button'; m.setAttribute('aria-label',it.word); m.style.cssText=`left:${cx*100}%;top:${cy*100}%;width:${r*200}%;--rc:${RC[k%4]}`;
+      m.dataset.ph=1; m.addEventListener('click',ev=>{ ev.stopPropagation(); if(done) return; const at=nums[k].findIndex(x=>x.m===m); if(at>=0){ nums[k].splice(at,1); m.classList.remove('on'); m.innerHTML=''; renum(k); return; }
+        const b=el('i','',''); m.innerHTML=''; m.append(b); m.classList.add('on'); nums[k].push({m,b}); renum(k); try{ blip(520+nums[k].length*40,.05); }catch(e){} }); pw.append(m); })); }
   const tb=el('div','qxtb'); tb.style.setProperty('--n',its.length); if(rtl) tb.dir='rtl'; bd.append(tb); let done=false;
   const cols=its.map(it=>{ const c=el('div','qxtc'), cells=[]; for(let j=0;j<it.total;j++){ const im=el('img','qxcs qxtcell'); im.alt=''; im.draggable=false; im.src=R_Q(it.off); im.dataset.on=0; c.append(im); cells.push(im); }
     c.append(el('b','qxtl',it.word)); tb.append(c); return {it,cells}; });   // the cells are drawn top to bottom; the first one in the array is the TOP one: index from the bottom = total-1-j

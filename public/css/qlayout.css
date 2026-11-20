@@ -190,3 +190,14 @@
 :is(.qans,.alopts,.albank,.qxchoices,.qmpad):has(>:nth-child(7)){--q-choice:clamp(2.4rem,6.2vh,3rem);gap:clamp(.4rem,1.6vw,.9rem)}
 .mwkeys:has(>:nth-child(9)),.xpl-ask .xkeys:has(>:nth-child(9)){--q-choice:clamp(2.2rem,min(8.5cqw,6.5cqh),2.9rem)}
 .alopts:has(.qch:nth-child(7)),.albank:has(.qch:nth-child(7)){--q-choice:clamp(2.4rem,6.2vh,3rem)}
+
+/* a chart / table question (Math 6-2): no second sentence line, small choices, so the table gets the room (Ahmed 2026-11-18) */
+.almcq.chartq .alopts .qch:not(.wd){--q-choice:clamp(2.3rem,min(5.4vh,11vw),3rem);font-size:clamp(1rem,2.6vh,1.35rem)}
+.almcq.chartq .alopts .qch.wd{--q-word:clamp(1.6rem,min(3.2vh,8vw),2rem)}
+.almcq.chartq .alask{margin-block:.15rem}
+.almcq.chartq .alstem{gap:.2rem}
+.almcq.chartq{flex:1 1 0;min-height:0;height:100%}
+.almcq.chartq .alpics{flex:1 1 0;min-height:0}
+.almcq.chartq .alopts{margin-top:.3rem}
+.almcq.chartq .alask{display:block;text-align:center}
+.almcq.chartq .alask .alsp{display:inline-block;vertical-align:middle;margin-inline-start:.4rem;position:static}

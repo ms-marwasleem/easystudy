@@ -210,7 +210,7 @@
 [data-subj="arabic"]{--page-tint:#BFF0DC; --bg-hi:#6FE3B8; --bg-mid:#1FB58F; --bg-lo:#0B7F68; --bg-pat:var(--pat-arabic); --bg-patp:var(--patp-arabic)}
 [data-subj="en-ol"]{--page-tint:#CBEBFF; --bg-hi:#8BE0FF; --bg-mid:#2E9BF0; --bg-lo:#1560C8; --bg-pat:var(--pat-en-ol); --bg-patp:var(--patp-en-ol)}
 [data-subj="en-al"]{--page-tint:#E0D2FF; --bg-hi:#C9A8FF; --bg-mid:#8A5BE0; --bg-lo:#5A32B0; --bg-pat:var(--pat-en-al); --bg-patp:var(--patp-en-al)}
-[data-subj="math"],[data-subj="math-ar"]{--page-tint:#FFD6E6; --bg-hi:#FFC4DE; --bg-mid:#FF7FB4; --bg-lo:#D8468A; --bg-pat:var(--pat-math); --bg-patp:var(--patp-math)}
+[data-subj="math"],[data-subj="math-ar"]{--page-tint:#FFE6B0; --bg-hi:#FFD66B; --bg-mid:#FFA825; --bg-lo:#F2800E; --bg-pat:var(--pat-math); --bg-patp:var(--patp-math)}
 [data-subj="german"]{--page-tint:#FFD0DC; --bg-hi:#FFB3C6; --bg-mid:#F0568A; --bg-lo:#BE2E64; --bg-pat:var(--pat-german); --bg-patp:var(--patp-german)}
 [data-subj="science"]{--page-tint:#DDF3B5; --bg-hi:#C4EE7A; --bg-mid:#6CC23A; --bg-lo:#3C8C22; --bg-pat:var(--pat-science); --bg-patp:var(--patp-science)}
 
@@ -1182,12 +1182,24 @@ button.qpic{cursor:pointer}
 .qxtc{display:flex;flex-direction:column;align-items:center;border-inline-start:2px solid rgba(255,255,255,.7)}
 .qxtc:first-child{border-inline-start:0}
 .qxtc .qxcs.qxtcell{width:var(--cs);height:var(--cs);padding:.12rem;border-bottom:2px solid rgba(255,255,255,.55);box-sizing:border-box}
-.qxtl{font:700 clamp(.42rem,1.8vw,.8rem)/1.1 var(--f-read);color:#fff;text-transform:uppercase;padding:.35rem .1rem;text-align:center;white-space:nowrap}
+.qxtl{font:700 clamp(.38rem,1.45vw,.72rem)/1.1 var(--f-read);color:#fff;text-transform:uppercase;padding:.35rem .1rem;text-align:center;white-space:nowrap}
 
 /* the bracket words of a writing question: a fixed block above the question line */
 .qhead.hasbank{display:grid;grid-template-columns:auto minmax(0,1fr) auto;row-gap:.4rem;align-items:center}
 .qhead .qbank{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem .75rem;direction:rtl}
 .qhead .qbw{font-family:var(--f-ar);font-size:clamp(1.1rem,3.4vw,1.6rem);font-weight:700;color:var(--c-white);padding:.1rem .8rem;border-radius:62rem;background:rgba(255,255,255,.18);border:.12rem solid rgba(255,255,255,.55)}
+
+/* colour table of the data lesson (Math 6-1): the picture and the table are bigger, the table is white with dark lines like in the explanation; things of the picture can be ringed (Ahmed 2026-11-18) */
+.qxct{--cs:clamp(1.7rem,min(8.8vw,5.2vh),3.7rem);gap:1.2vw}
+.qxct .qxpw{position:relative;flex:0 1 47%;max-width:47%;align-self:center;line-height:0;border:3px solid #4a4a4a;border-radius:1rem;background:#fff;overflow:hidden}
+.qxct .qxpw .qxctp{max-height:68vh;max-width:100%;width:100%;height:auto;border:0;border-radius:0;display:block;object-fit:contain}
+.qxmk{position:absolute;transform:translate(-50%,-50%);aspect-ratio:1;border:0;border-radius:50%;background:transparent;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent;display:grid;place-items:center}
+.qxmk.on{border:.2rem solid var(--rc);box-shadow:0 0 0 .08rem #fff}
+.qxmk i{font-style:normal;font-weight:800;font-size:.7rem;line-height:1;color:#fff;background:var(--rc);border:.1rem solid #fff;border-radius:50%;min-width:1.15rem;aspect-ratio:1;display:grid;place-items:center;position:absolute;right:-.35rem;top:-.35rem;font-family:var(--f-read)}
+.qxct .qxtb{background:#fff;border:3px solid #4a4a4a}
+.qxct .qxtc{border-inline-start:2px solid #4a4a4a}
+.qxct .qxtc .qxcs.qxtcell{border-bottom:2px solid #6a6a6a}
+.qxct .qxtl{color:#333;font-weight:800}
 /* ===== css/arabic.css ===== */
 /* ---------- Arabic subject (#lesson.ar, set in lesson.js) ----------
    Text runs right to left in a naskh font (shows the vowel marks well). Letters of a word are plain inline text,
@@ -1782,6 +1794,28 @@ button.qpic{cursor:pointer}
 @media (max-aspect-ratio:5/4){.mxbond .mxeq b{font-size:min(calc(50cqh/max(var(--n),7)),10cqw)}.mxbond .mxeq i,.mxbond .mxmk{font-size:min(calc(32cqh/max(var(--n),7)),6.5cqw)}}
 .mxrow.mxbond{align-items:center}.mxbond .mxeq,.mxbond .mxmk{align-self:center;line-height:1.15;margin-top:-.12em}
 .mxrow.mxbond{padding-block:0;overflow:hidden}.mxrow.mxbond>*{align-self:center;max-height:100%}.mxbond .mxeq,.mxbond .mxmk{margin-top:0}
+/* line questions: the card fits the things (no tall empty white), a tapped thing on the way shows its count, the labels sit under the card on phones */
+.mlt{min-height:0;align-items:center}.mlthings{align-items:center;padding:.6rem .6rem}.mlthings.strip{min-height:0}
+.mlt.cnt::after{content:attr(data-n);position:absolute;top:-.1rem;right:-.1rem;min-width:1.4rem;height:1.4rem;border-radius:50%;background:var(--c-pink);color:#fff;font:700 .9rem/1.4rem var(--f-title,inherit);text-align:center}
+@media (max-width:700px){.mline:not(.mlord) .mlrow,.mline.mlord:not(.mlv) .mlrow{display:grid;grid-template-columns:1fr 1fr;gap:.4rem .6rem}.mline:not(.mlv) .mlthings{grid-column:1/-1;grid-row:1;max-width:none}.mline:not(.mlv) .mlend:first-child{grid-row:2;grid-column:1;text-align:left}.mline:not(.mlv) .mlend:last-child{grid-row:2;grid-column:2;text-align:right}.mline.mlrtl .mlrow{direction:rtl}.mline.mlrtl .mlend:first-child{text-align:right}.mline.mlrtl .mlend:last-child{text-align:left}}
+/* column questions (top/bottom): the pictures use the free height above and below, big enough to see (Ahmed 2026-11-18) */
+.mlv .mlc img{max-height:min(5.4rem,calc(46vh/var(--n)))}.mlv .mlthings{grid-template-columns:minmax(0,11rem);padding:.7rem .8rem}.mlv .mlend{font-size:1.5rem}.mlv .mlc{padding:.15rem}
+@media (min-aspect-ratio:1/1){.mlv .mlc img{max-height:min(5.4rem,calc(30vh/var(--n)))}.mlv .mlend{font-size:1.2rem}}
+
+/* math questions: a transparent (png) picture sits on a white rounded card so the child sees where the picture is (Ahmed 2026-11-18); dots / numbers drawn by the app keep their look */
+:root[data-subj="math"] :is(.qmcount,.alpics,.mlthings,.qmp) img[src$=".png" i]:not(.pf):not([src^="data:image/svg"]),
+:root[data-subj="math-ar"] :is(.qmcount,.alpics,.mlthings,.qmp) img[src$=".png" i]:not(.pf):not([src^="data:image/svg"]),
+:root[data-subj="math"] :is(.qmcount,.qpic) img[src^="data:image/png;cpic"],:root[data-subj="math-ar"] :is(.qmcount,.qpic) img[src^="data:image/png;cpic"]{background:var(--c-white);border:var(--pf-border) solid var(--c-white);border-radius:var(--pf-radius);box-shadow:var(--pf-shadow);filter:none;box-sizing:border-box}
+
+/* one-slide word problem: the answer line + choices under the sentence (Ahmed 2026-11-18) */
+.mwans .mwblank{min-width:3.2em;text-align:center}
+.mwans .mwblank.got{background:var(--c-white,#fff)}
+.mwchips{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(.5rem,2cqw,1rem);margin:0 auto;max-width:min(100%,34rem)}
+
+/* tap the squares to count (item.cells, quiz-al.js alCells) (Ahmed 2026-11-18) */
+.alfig .alcells{position:absolute;pointer-events:none;z-index:2}
+.alcell{position:absolute;pointer-events:auto;background:transparent;border:0;padding:0;margin:0;cursor:pointer;display:grid;place-items:center;-webkit-tap-highlight-color:transparent}
+.alcell i{font-style:normal;font-weight:800;color:#fff;background:var(--c-orange,#ff8a1f);border:.08rem solid #fff;border-radius:50%;width:100%;max-width:1.5rem;aspect-ratio:1;display:grid;place-items:center;font-size:.55rem;line-height:1;box-shadow:0 .1rem .2rem rgba(90,52,24,.35)}
 /* ===== css/frame.css ===== */
 /* ONE picture frame for the whole app: white border, soft shadow, rounded corners (same look on every screen and subject).
    Only pictures; the dots / numbers drawn by the app (data: images) and the lesson's book scene keep their own look. */
@@ -2742,8 +2776,8 @@ img[src*="/clock-"][src$=".svg"]:not([src^="data:"]),img[src*="/hand-"][src$=".s
 .xpl-ask .xans.yes{background:var(--c-good);color:#fff}
 
 /* line scene (Front / Back ends; the end counting starts from lights up) */
-.xpl .xl-end{font:400 40px var(--f-title);fill:#9a8a7a;paint-order:stroke;stroke:none}
-.xpl .xl-end.on{fill:#FF8A1F;font-size:50px}
+.xpl .xl-end{font:400 40px var(--f-title);fill:rgba(255,255,255,.8);paint-order:stroke;stroke:none}
+.xpl .xl-end.on{fill:#fff;font-size:50px}
 
 /* wide = a LINE lesson (data explain.wide): the picture takes the whole width, the answer is written under it, in landscape too */
 .xpl.xwide{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,76fr) minmax(0,24fr)}
@@ -2759,6 +2793,22 @@ img[src*="/clock-"][src$=".svg"]:not([src^="data:"]),img[src*="/hand-"][src$=".s
 .xpl-line .xtw.xbig.xcard{color:var(--c-text)}
 .xpl .xhead text{font:400 118px var(--f-title);fill:#fff;stroke:var(--ol);stroke-width:8;paint-order:stroke;stroke-linejoin:round}
 @media (orientation:portrait){.xpl.xtall{grid-template-rows:minmax(0,76fr) minmax(0,24fr)}.xpl.xtall .xpl-cap{--xfs:min(22cqh,9cqw,2.6rem)}}
+
+/* portrait: a book picture scene gets the zone height it needs for the FULL width (picture as wide as possible, number sentence as big as in the addition lesson); the writing takes the rest (Ahmed 2026-11-18) */
+@media (orientation:portrait){.xpl.xar{grid-template-rows:auto minmax(0,1fr)}.xpl.xar .xpl-stage{aspect-ratio:var(--xar);width:100%;max-height:74cqh}}
+@media (orientation:portrait){.xpl.xar .xpl-cap{--xfs:min(30cqh,9cqw,2.8rem)}}
+/* while the child answers (pieces to put in order, keypad, choices) the picture gives the room back: the answer pieces are never cut (Ahmed 2026-11-18) */
+@media (orientation:portrait){.xpl.xar:has(.xpl-cap.asking){grid-template-rows:minmax(0,56fr) minmax(0,44fr)}.xpl.xar:has(.xpl-cap.asking) .xpl-stage{aspect-ratio:auto;max-height:none}.xpl.xar:has(.xpl-cap.asking) .xpl-cap{--xfs:min(9cqh,8cqw,2.2rem)}}
+
+/* Try / Warm Up label sign (Ahmed 2026-11-18) */
+.xpl-stage{position:relative}
+.xkind{position:absolute;top:.5rem;inset-inline-end:.5rem;z-index:3;padding:.2rem .8rem;border-radius:999px;background:var(--c-accent-dk,#c0561b);color:#fff;font-weight:800;font-size:clamp(.8rem,2.8cqw,1.1rem);box-shadow:0 2px 0 rgba(0,0,0,.2);pointer-events:none}
+.xkind[hidden]{display:none}
+
+/* number sentence under the picture: larger + a light pop per number / sign (Ahmed 2026-11-18) */
+.xpl-line .xtw.xeq{font:400 calc(var(--xf)*1.7)/1.15 var(--f-title);margin:0 .12em;color:var(--c-on-bg)}
+@keyframes xpop{0%{transform:scale(.55)}60%{transform:scale(1.22)}100%{transform:scale(1)}}
+.xpl-line .xtw.xpop{animation:xpop .36s ease-out}
 /* ===== css/nahw.css ===== */
 /* NAHW template (js/nahw.js): animated grammar lessons. FIXED zones (board + sentence), relative units only; colours from theme.css. */
 .scene.nhhost{background:none;border:0;box-shadow:none;overflow:visible;justify-content:flex-start;align-items:stretch;padding:0}
@@ -3082,7 +3132,7 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .acctpage[hidden]{display:none}
 .ac-top{position:sticky;top:0;display:flex;align-items:center;justify-content:center;padding:.8rem 1rem;background:#FFF7E3;z-index:1}
 .ac-top h2{margin:0;font-weight:800;font-size:1.5rem}
-.rb.ac-back,.rb.pf-back,.rb.sp-back,.rb.rp-back{position:fixed;z-index:16;left:max(1rem,env(safe-area-inset-left,0px));right:auto;top:auto;bottom:max(1rem,env(safe-area-inset-bottom,0px));width:4rem;height:4rem}   /* one place for every back button of the account / student pages: bottom-left (Ahmed 2026-11-16) */
+.rb.ac-back,.rb.pf-back,.rb.sp-back,.rb.rp-back,.rb.inv-back{position:fixed;z-index:16;left:max(1rem,env(safe-area-inset-left,0px));right:auto;top:auto;bottom:max(1rem,env(safe-area-inset-bottom,0px));width:4rem;height:4rem}   /* one place for every back button of the account / student pages: bottom-left (Ahmed 2026-11-16) */
 .rb.ac-back svg,.rb.pf-back svg,.rb.sp-back svg,.rb.rp-back svg{width:2rem;height:2rem}
 .ac-in{padding-bottom:6rem}
 .ac-in{width:min(92vw,34rem);margin:0 auto;display:flex;flex-direction:column;gap:1rem;padding:.5rem 0 6rem}
@@ -3117,6 +3167,13 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 @media (max-height:560px){ .gate-pad{width:min(40vh,15rem);grid-template-columns:repeat(5,1fr)} .gate-k{font-size:1.3rem} }
 .pill.wl-chip[disabled]{opacity:.5;filter:none;cursor:not-allowed}
 .pill.wl-chip small{font-size:.65em;margin-inline-start:.3em}
+/* school drop-down: first item = green add-school button, 1/3 width */
+.wl-ddhost{position:relative}
+.wl-dd{position:absolute;inset-inline:0;top:100%;margin-top:.3rem;z-index:30;display:flex;flex-direction:column;gap:.4rem;padding:.5rem;background:#fff;border-radius:1rem;box-shadow:0 .4rem 1.2rem rgba(0,0,0,.25);max-height:50vh;overflow:auto}
+.wl-dd[hidden]{display:none}
+.wl-dd .wl-addsch{width:33.33%;align-self:flex-start;font-size:clamp(.85rem,3.2vw,1.05rem);padding:.3em .5em;justify-content:center;white-space:nowrap}
+.wl-ddi{font-family:var(--f-ui);font-weight:800;font-size:clamp(1rem,min(4.4vw,3.2vh),1.3rem);padding:.5em .8em;border:0;border-radius:.7rem;background:transparent;color:#333;text-align:start;cursor:pointer}
+.wl-ddi.on{background:rgba(0,0,0,.08)}
 
 /* profile page */
 .pf-form .pf-sw{flex-direction:row;align-items:center;gap:.7rem;cursor:pointer}
@@ -3132,6 +3189,39 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .inv-url{width:100%;box-sizing:border-box;padding:.9rem 1rem;border:.15rem solid #F2C27A;border-radius:1.2rem;background:#FFF8EC;font-size:1.3rem;direction:ltr;text-align:left}
 .inv-b{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
 .inv-card .cstats{margin:0}
+
+/* the profile page: a visible label above every field (Ahmed 2026-11-19; the shared form label is white-with-outline, made for the coloured start screen, so it vanished on the white card) */
+.pf-form .pf-f>span,.pf-form .pf-l{font-family:var(--f-ui);font-weight:800;font-size:1.15rem;color:var(--ol);-webkit-text-stroke:0;paint-order:normal;text-shadow:none}
+.pf-form .pf-g{display:flex;flex-direction:column;gap:.45rem}
+.pf-form .pf-sw>span{font-family:var(--f-ui);font-weight:700;font-size:1.05rem;color:var(--ol);-webkit-text-stroke:0;paint-order:normal}
+/* invite a friend page */
+.inv-hero{display:flex;align-items:center;gap:.9rem}
+.inv-ic{flex:none;width:4rem;height:4rem;border-radius:50%;background:#FFB21F;display:grid;place-items:center;box-shadow:inset 0 -.2rem 0 rgba(0,0,0,.15)}
+.inv-ic svg{width:2.3rem;height:2.3rem;fill:none;stroke:var(--ol);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.inv-t{font-size:1.35rem}
+.inv-how{margin:0;padding:0 1.4rem 0 0;font-family:var(--f-ui);font-weight:700;font-size:1.15rem;line-height:1.9;color:var(--ol)}
+.inv-how b{color:#2E8B3F}
+.inv-l{display:flex;flex-direction:column;gap:.3rem}.inv-l>span{font-family:var(--f-ui);font-weight:800;font-size:1.1rem;color:var(--ol)}
+.inv-go{width:100%;display:flex;align-items:center;justify-content:center;gap:.6rem;font-size:1.4rem}
+.inv-go .si svg{width:1.7rem;height:1.7rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.inv-copy{width:100%}
+.inv-wait{margin:0;text-align:center;font-family:var(--f-ui);font-weight:800;font-size:1.15rem;color:#7A6A5A}
+.inv-back{z-index:16}
+.inv-st small{text-align:center;line-height:1.35}
+/* the notifications filter: a small switch, no frame */
+.nf-seg{display:inline-flex;align-self:flex-start;gap:0;background:#F1E4CB;border-radius:99rem;padding:.15rem;border:0}
+.nf-sb{position:relative;border:0;background:none;border-radius:99rem;padding:.3rem .95rem;font:inherit;font-weight:800;font-size:.95rem;color:var(--ol);cursor:pointer;white-space:nowrap}
+.nf-sb.on{background:#FFB21F;box-shadow:inset 0 -.12rem 0 rgba(0,0,0,.15)}
+.nf-sb .sp-dot{margin-inline-start:.35rem}
+/* the official popup (a school that needs permission): a white card like the account pages */
+.offback{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:1.2rem;background:rgba(74,42,12,.45)}
+.offback[hidden]{display:none}
+.offpop{width:min(24rem,100%);display:flex;flex-direction:column;gap:1rem;text-align:center;margin:0}
+.offpop h3{margin:0;font-family:var(--f-ui);font-weight:800;font-size:1.25rem;color:var(--ol)}
+.offpop .offt{margin:0;font-family:var(--f-ui);font-weight:800;font-size:1.6rem;line-height:1.5;color:var(--ol)}
+.offpop .pill{width:100%}
+.offpop .off-wa{display:flex;align-items:center;justify-content:center;gap:.6rem}
+.offpop .off-wa svg{width:1.8rem;height:1.8rem}
 /* ===== css/qlayout.css ===== */
 /* ===== THE QUESTION LAYOUT + THE CHOICE BUTTON (Marwa 2026-11-04, every subject, every screen) =====
    This file is loaded LAST: it is the one place that decides WHERE the parts of a question sit and HOW BIG the choices are.
@@ -3325,6 +3415,17 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 :is(.qans,.alopts,.albank,.qxchoices,.qmpad):has(>:nth-child(7)){--q-choice:clamp(2.4rem,6.2vh,3rem);gap:clamp(.4rem,1.6vw,.9rem)}
 .mwkeys:has(>:nth-child(9)),.xpl-ask .xkeys:has(>:nth-child(9)){--q-choice:clamp(2.2rem,min(8.5cqw,6.5cqh),2.9rem)}
 .alopts:has(.qch:nth-child(7)),.albank:has(.qch:nth-child(7)){--q-choice:clamp(2.4rem,6.2vh,3rem)}
+
+/* a chart / table question (Math 6-2): no second sentence line, small choices, so the table gets the room (Ahmed 2026-11-18) */
+.almcq.chartq .alopts .qch:not(.wd){--q-choice:clamp(2.3rem,min(5.4vh,11vw),3rem);font-size:clamp(1rem,2.6vh,1.35rem)}
+.almcq.chartq .alopts .qch.wd{--q-word:clamp(1.6rem,min(3.2vh,8vw),2rem)}
+.almcq.chartq .alask{margin-block:.15rem}
+.almcq.chartq .alstem{gap:.2rem}
+.almcq.chartq{flex:1 1 0;min-height:0;height:100%}
+.almcq.chartq .alpics{flex:1 1 0;min-height:0}
+.almcq.chartq .alopts{margin-top:.3rem}
+.almcq.chartq .alask{display:block;text-align:center}
+.almcq.chartq .alask .alsp{display:inline-block;vertical-align:middle;margin-inline-start:.4rem;position:static}
 /* ===== css/coins.css ===== */
 /* COINS — the coin chip beside the star counter, the share sheet and the unlock popup (js/coins.js). Same popup look as the app's messages. */
 .coinhud{position:relative;display:flex;align-items:center;height:2.2rem;padding:0 .9rem 0 2.3rem;margin-left:1.6rem;border-radius:62.4375rem;border:0;cursor:pointer;
@@ -3401,6 +3502,13 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .cpick-i{font-family:var(--f-ui,var(--f-title));font-weight:800;font-size:clamp(1rem,min(4vw,3vh),1.25rem);text-align:start;padding:.45em .8em;border-radius:1rem;border:0.15rem solid var(--ol);background:#fff;color:var(--ol);cursor:pointer}
 .cpick-i.on{background:#FFD84A;box-shadow:0 0 0 0.2rem var(--c-white)}
 .subpct{display:block;font-size:.8em;color:#2E9A1F;font-weight:800}
+
+/* share buttons: one per app (WhatsApp, Facebook, Messenger, Telegram) */
+.shgrid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;width:100%}
+.shbtn{display:flex;flex-direction:column;align-items:center;gap:.35rem;padding:.8rem .4rem;border:.15rem solid var(--ol);border-radius:1.2rem;background:var(--shc,#fff);color:#fff;font-family:var(--f-ui);font-weight:800;font-size:1.1rem;cursor:pointer;box-shadow:0 .2rem 0 var(--ol)}
+.shbtn:active{transform:translateY(.15rem);box-shadow:none}
+.shbtn i{display:grid;place-items:center}.shbtn svg{width:2.4rem;height:2.4rem}
+.shpay{font-weight:800}
 /* ===== css/report.css ===== */
 /* REPORT A PROBLEM (js/report.js): a small flag beside the book-page tag (lesson row) and at the end of the exam header; a light popup. */
 .rpbtn{display:inline-flex;align-items:center;justify-content:center;position:relative;width:1.05rem;height:1.9rem;margin:0;padding:0;border:0;background:none;color:var(--c-on-bg,#fff);opacity:.7;cursor:pointer;-webkit-tap-highlight-color:transparent}
@@ -3514,4 +3622,207 @@ i.wl-av{display:inline-flex;align-items:center;justify-content:center;width:5rem
 .sp-n.unread .sp-nh b::before{content:"";display:inline-block;width:.7rem;height:.7rem;margin-inline-end:.45rem;border-radius:50%;background:#D8432F}
 /* the account rows: every gap between the cards is the same one (a row never gets a margin of its own) */
 .arows>.arow{margin:0;flex:none}
-:root{--app-build:"f94c7acc0f"}
+/* ===== css/account.css ===== */
+/* PARENT AREA — professional, calm look (Ahmed 2026-11-19): the parent login (#welcome), the account page and every page reached from it
+   (profile, subscriptions, notifications, invite a friend, credits, the report), the parent gate and the parent popups (.pro).
+   NOT the game look: white cards, soft shadows, flat buttons. One accent colour: orange in EasyStudy, blue in Easy Words (--pa below).
+   Loaded after every other design file (and before words.css in Easy Words, whose theme variables decide --pa). Children never see these screens. */
+:root{--pa:#F28A1E;--pa-dk:#D96F06;--pa-soft:#FFF1E0;--pg:#16A34A;--pg-dk:#12853B;--pg-soft:#E8F6EE;--pt:#1F2937;--pm:#6B7280;--pb:#E6E9EF;--pbg:#F3F5F9;--pshadow:0 1px 2px rgba(16,24,40,.06),0 6px 18px rgba(16,24,40,.06)}
+html[data-theme="words"]{--pa:#2F80E6;--pa-dk:#1C58B8;--pa-soft:#E6F0FD}
+
+/* ---- the pages ---- */
+.acctpage{background:var(--pbg);color:var(--pt)}
+.ac-top{background:var(--pbg);border-bottom:1px solid var(--pb)}
+.ac-top h2{font-weight:800;font-size:1.25rem;color:var(--pt)}
+.ac-in{gap:.9rem}
+.ac-card{background:#fff;border:1px solid var(--pb);border-radius:1.1rem;box-shadow:var(--pshadow);padding:1.1rem 1.2rem}
+.ac-card h3{font-size:1.1rem;font-weight:800;color:var(--pt);margin:0 0 .8rem}
+.acctpage .rb{width:3.4rem;height:3.4rem;background:#fff;border:1px solid var(--pb);box-shadow:0 2px 10px rgba(16,24,40,.15);color:var(--pt)}
+.acctpage .rb::before,.acctpage .rb::after{display:none}
+.acctpage .rb svg{filter:none;stroke-width:2.4}
+.rb.ac-back,.rb.pf-back,.rb.sp-back,.rb.rp-back,.rb.inv-back,.rb.cr-back,.rb.nf-back{width:3.4rem;height:3.4rem}
+/* the account page */
+.ac-me{display:flex;align-items:center;gap:.9rem}
+.ac-meic{flex:none;width:3.2rem;height:3.2rem;border-radius:50%;background:var(--pa-soft);color:var(--pa-dk);display:grid;place-items:center}
+.ac-meic svg{width:1.7rem;height:1.7rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ac-me b{display:block;font-size:1.1rem}.ac-me small{display:block;color:var(--pm);font-size:.95rem;overflow-wrap:anywhere}
+.ac-kid b{font-size:.95rem;font-weight:700}.ac-kid small{color:var(--pm);opacity:1}
+.ac-pic{border-width:3px}.ac-kid.on .ac-pic{border-color:var(--pa)}
+.ac-pic.ac-add{border:2px dashed #C3C9D5;color:var(--pm)}
+.ac-pen{box-shadow:0 1px 4px rgba(16,24,40,.25);color:var(--pt)}
+.arows{gap:.6rem}
+.arow{border:1px solid var(--pb);border-radius:1rem;box-shadow:var(--pshadow);padding:.95rem 1.1rem;font-weight:700;font-size:1.1rem;color:var(--pt)}
+.arow i{width:2.3rem;height:2.3rem;padding:.5rem;border-radius:.7rem;background:var(--pa-soft);color:var(--pa-dk)}
+.arow em{color:var(--pm);opacity:1;font-size:.95rem}
+.arow s{opacity:.35}
+/* forms inside the pages */
+.acctpage .wl-form input{background:#fff;border:1px solid #D5DAE3;border-radius:.8rem;box-shadow:none;font-weight:500;font-size:1.1rem;color:var(--pt)}
+.acctpage .wl-form input:focus{border-color:var(--pa);box-shadow:0 0 0 3px var(--pa-soft)}
+.acctpage .pf-form .pf-f>span,.acctpage .pf-form .pf-l{color:var(--pt);font-size:1rem;font-weight:700}
+/* flat buttons (replaces the glossy game pills inside the parent area) */
+:is(.acctpage,#coinPop.pro,#welcome,.offback) .pill{background:var(--pa);border:0;border-radius:.9rem;box-shadow:none;color:#fff;font-family:var(--f-ui);font-weight:700;font-size:1.1rem;letter-spacing:0;text-shadow:none;-webkit-text-stroke:0;padding:.7rem 1.4rem;min-height:3rem;transform:none}
+:is(.acctpage,#coinPop.pro,#welcome,.offback) .pill::before,:is(.acctpage,#coinPop.pro,#welcome,.offback) .pill::after{display:none}
+:is(.acctpage,#coinPop.pro,#welcome,.offback) .pill:active{filter:brightness(.93)}
+:is(.acctpage,#coinPop.pro,#welcome,.offback) .pill.green{background:var(--pg)}
+:is(.acctpage,#coinPop.pro,#welcome,.offback) .pill.yellow{background:var(--pa-soft);color:var(--pa-dk)}
+:is(.acctpage,#coinPop.pro,#welcome,.offback) .pill.cream{background:#fff;color:var(--pt);border:1px solid #D5DAE3}
+:is(.acctpage,#coinPop.pro,#welcome,.offback) .pill.cream.on,#welcome .pill.wl-chip.on{background:var(--pa-soft);color:var(--pa-dk);border:1.5px solid var(--pa);box-shadow:none}
+.acctpage .pill[disabled],#welcome .pill[disabled]{opacity:.5}
+/* switches, segmented tabs, receipts: calm colours */
+.nf-seg{background:#E8EBF1}.nf-sb{color:var(--pm);font-weight:700}.nf-sb.on{background:#fff;color:var(--pt);box-shadow:0 1px 3px rgba(16,24,40,.15)}
+.sp-tabs{border:1px solid var(--pb);border-radius:.9rem;background:#fff}.sp-tab-b{color:var(--pm);font-weight:700}.sp-tab-b.on{background:var(--pa);color:#fff;box-shadow:none}
+.sp-n.unread{box-shadow:0 0 0 2px var(--pa),var(--pshadow)}
+.sp-r.none{background:#F3F5F9;border-color:var(--pb);color:var(--pt)}
+.rp-kid{border:1px solid #D5DAE3;font-weight:700}.rp-kid.on{background:var(--pa);border-color:var(--pa);color:#fff}
+.pf-form .pf-sw input:checked+i,.nf-push .pf-sw input:checked+i{background:var(--pg)}
+.pf-ok{color:var(--pg-dk)}
+
+/* ---- invite a friend ---- */
+.inv-card{gap:.9rem}
+.inv-hero{text-align:center;display:flex;flex-direction:column;align-items:center;gap:.4rem;padding:1.4rem 1.2rem}
+.inv-hero h3{margin:0;font-size:1.3rem}.inv-hero p{margin:0;color:var(--pm);font-size:1rem;line-height:1.7}
+.inv-ic{width:4.4rem;height:4.4rem;border-radius:50%;background:var(--pg-soft);display:grid;place-items:center;box-shadow:none}
+.inv-ic svg{width:2.3rem;height:2.3rem;fill:none;stroke:var(--pg);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.inv-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.9rem;counter-reset:st}
+.inv-steps li{display:flex;align-items:center;gap:.8rem;counter-increment:st;font-size:1.05rem;line-height:1.6;font-weight:600}
+.inv-steps li i{flex:none;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--pg);display:grid;place-items:center}
+.inv-steps li i::before{content:counter(st);color:#fff;font-style:normal;font-weight:800;font-size:1rem}
+.inv-steps b{color:var(--pg-dk)}
+.inv-l{margin:0}.inv-l>span{font-weight:700;color:var(--pm);font-size:.95rem}
+.inv-row{display:flex;gap:.6rem;align-items:stretch;margin-top:.3rem}
+.inv-url{flex:1;min-width:0;box-sizing:border-box;padding:.7rem .9rem;border:1px solid #D5DAE3;border-radius:.8rem;background:var(--pbg);font-size:1rem;direction:ltr;text-align:left;color:var(--pt)}
+.inv-row .pill{flex:none}
+.inv-or{margin:1rem 0 .6rem;text-align:center;color:var(--pm);font-weight:700;font-size:.95rem}
+.inv-apps{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.inv-apps .shbtn{flex-direction:row;justify-content:center;gap:.5rem;padding:.7rem .5rem;border:0;border-radius:.9rem;font-size:1rem;font-weight:700;box-shadow:none}
+.inv-apps .shbtn svg{width:1.5rem;height:1.5rem}
+.inv-wait{color:var(--pm)}
+.inv-st2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.inv-st2 .ac-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.2rem;padding:1rem .6rem}
+.inv-st2 small{color:var(--pm);font-weight:600;font-size:.9rem;line-height:1.4}
+.inv-st2 b{font-size:2rem;color:var(--pg-dk);line-height:1.2}
+.inv-st2 em{font-style:normal;color:var(--pm);font-size:.9rem}
+
+/* ---- the credits page ---- */
+.cr-tot{text-align:center;display:flex;flex-direction:column;gap:.1rem;padding:1.4rem}
+.cr-tot small{color:var(--pm);font-weight:600}.cr-tot b{font-size:3rem;line-height:1.2;color:var(--pt)}
+.cr-cols{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.cr-cols .ac-card{display:flex;flex-direction:column;align-items:center;gap:.1rem;padding:1rem .6rem}
+.cr-cols b{font-size:1.8rem;color:var(--pg-dk);line-height:1.2}.cr-cols small{color:var(--pm);font-weight:600}
+.cr-cta{background:var(--pg-soft);border-color:#CDEBD9;text-align:center}
+.cr-cta h3{margin-bottom:.3rem;color:#11663A}.cr-cta p{margin:0 0 .9rem;color:#2E6B4B;font-size:1rem;line-height:1.6}
+.cr-btns{display:flex;gap:.6rem}.cr-btns .pill{flex:1;padding-inline:.5rem}
+.cr-hist{display:flex;flex-direction:column}
+.acctpage .crow{border-bottom:1px solid var(--pb);padding:.7rem 0}
+.acctpage .crow:last-child{border-bottom:0}
+.acctpage .crow .cn b{color:var(--pt);font-weight:700;font-size:1rem}.acctpage .crow .cn small{color:var(--pm)}
+.acctpage .cpm,.acctpage .crow .ca{font-family:var(--f-ui);font-weight:800}
+.acctpage .crow .ca{font-size:1.1rem}
+.acctpage .cnote{color:var(--pm)}
+
+/* ---- popups of the parent area (the parent gate, share, subscriptions): a white card, no game rays ---- */
+#coinPop.pro{background:rgba(17,24,39,.45);-webkit-backdrop-filter:none;backdrop-filter:none}
+#coinPop.pro .rays{display:none}
+#coinPop.pro .popup{background:#fff;border-radius:1.2rem;box-shadow:0 20px 50px rgba(16,24,40,.3);padding:1.5rem 1.2rem 1.3rem;color:var(--pt);width:min(92vw,26rem);gap:.9rem}
+#coinPop.pro .outline,#coinPop.pro .popup h2{font-family:var(--f-ui);font-weight:800;font-size:1.35rem;color:var(--pt);-webkit-text-stroke:0;text-shadow:none;paint-order:normal;line-height:1.3;letter-spacing:0}
+#coinPop.pro .msg-text,#coinPop.pro .cnote,#coinPop.pro p{color:var(--pt);-webkit-text-stroke:0;text-shadow:none;font-weight:600;font-size:1.05rem}
+#coinPop.pro .gate-w{font-size:1.3rem;color:var(--pa-dk)}
+#coinPop.pro .popx{top:.6rem;right:auto;left:.6rem;width:2.2rem;height:2.2rem;background:var(--pbg);border:0;box-shadow:none;color:var(--pm)}
+#coinPop.pro .popx::before,#coinPop.pro .popx::after{display:none}
+#coinPop.pro .popx svg{filter:none;stroke-width:3}
+#coinPop.pro .gate-dots i{border-color:var(--pa);}#coinPop.pro .gate-dots i.on{background:var(--pa)}
+#coinPop.pro .gate-k{border:1px solid #D5DAE3;background:var(--pbg);color:var(--pt);font-weight:700}
+#coinPop.pro .gate-k:active{background:var(--pa-soft)}
+#coinPop.pro .shbtn{border:0;border-radius:.9rem;box-shadow:none;font-weight:700}
+#coinPop.pro .coinbig,#coinPop.pro .coinbig b,#coinPop.pro .coinbig .lab{color:var(--pt);-webkit-text-stroke:0;font-family:var(--f-ui)}
+#coinPop.pro .cshare1{width:100%}
+#coinPop.pro .sp-pt{flex-direction:column}
+.offpop h3,.offpop .offt{color:var(--pt)}
+.offback{background:rgba(17,24,39,.45)}
+
+/* ---- the parent login (#welcome) and the student pages after it: a soft card on a calm page ---- */
+[data-view="welcome"]{--bg-hi:var(--pbg);--bg-mid:var(--pbg);--bg-lo:var(--pbg);--bg-pat:none;--bg-patp:none;--bg-dim:transparent}
+html[data-theme="words"] [data-view="welcome"],html[data-theme="words"] body[data-view="welcome"]{background:var(--pbg)}
+#welcome{background:var(--pbg);align-content:start;padding-top:max(1.2rem,4vh);padding-bottom:6rem;color:var(--pt)}
+#welcome .wl-logo{display:none}
+#welcome .wl-body{background:#fff;border:1px solid var(--pb);border-radius:1.4rem;box-shadow:var(--pshadow);padding:1.6rem 1.3rem 1.5rem;width:min(92vw,26rem);gap:1rem;color:var(--pt)}
+#welcome .wl-brand{display:flex;justify-content:center;margin-bottom:-.2rem}
+#welcome .wl-brand .gamelogo{font-size:clamp(2.4rem,min(11vw,8vh),3.6rem)}
+#welcome .wl-brand .ew-logo,#welcome .wl-brand .ew-wllogo{width:clamp(5.5rem,24vw,7rem);margin:0 auto}
+#welcome .wl-about{width:100%;margin:0;gap:.3rem}
+#welcome .wl-tag{font-family:var(--f-ui);font-weight:600;font-size:1.05rem;line-height:1.6;color:var(--pm);-webkit-text-stroke:0;text-shadow:none;paint-order:normal}
+#welcome .wl-pts{font-weight:700;font-size:.95rem;color:var(--pa-dk);-webkit-text-stroke:0;text-shadow:none;paint-order:normal}
+#welcome .wl-pts li + li::before{background:var(--pa);box-shadow:none}
+#welcome .wl-h{font-family:var(--f-ui);font-weight:800;font-size:1.5rem;color:var(--pt);-webkit-text-stroke:0;text-shadow:none;paint-order:normal}
+#welcome .wl-h small,#welcome .pill.wl-big small{display:none}
+#welcome .pill.wl-big{font-size:1.15rem;padding:.8rem 1rem;min-height:3.2rem;-webkit-text-stroke:0;text-shadow:none}
+#welcome .wl-form{gap:.9rem}
+#welcome .wl-form label > span,#welcome .wl-field > span{font-family:var(--f-ui);font-weight:700;font-size:.95rem;color:var(--pt);-webkit-text-stroke:0;text-shadow:none;paint-order:normal}
+#welcome .wl-form label > span small,#welcome .wl-field > span small{display:none}
+#welcome .wl-form input{background:#fff;border:1px solid #D5DAE3;border-radius:.8rem;box-shadow:none;font-weight:500;font-size:1.1rem;padding:.7rem .9rem;color:var(--pt)}
+#welcome .wl-form input:focus{border-color:var(--pa);box-shadow:0 0 0 3px var(--pa-soft)}
+#welcome .wl-form input.bad{border-color:#D64535;background:#FEF2F1;box-shadow:0 0 0 3px rgba(214,69,53,.15)}
+#welcome .wl-err{background:#FDECEA;color:#B42318;border-radius:.7rem;font-weight:700;font-size:.95rem}
+.wl-or{display:flex;align-items:center;gap:.8rem;color:var(--pm);font-weight:700;margin:-.2rem 0}
+.wl-or::before,.wl-or::after{content:"";flex:1;height:1px;background:var(--pb)}
+#welcome .wl-sum{color:var(--pt);-webkit-text-stroke:0;paint-order:normal}
+#welcome .wl-sum span{background:var(--pbg);color:var(--pt)}
+#welcome .pill.wl-chip{font-size:1rem;font-weight:600;padding:.5rem 1rem;min-height:0;opacity:1}
+#welcome .wl-dd{border:1px solid var(--pb);box-shadow:0 10px 30px rgba(16,24,40,.18)}
+/* the student chooser */
+#welcome .wl-pick{width:100%;display:grid;grid-template-columns:repeat(auto-fill,minmax(7rem,1fr));gap:1rem .8rem;justify-items:center}
+#welcome .wl-who{display:flex;flex-direction:column;align-items:center;gap:.3rem;background:none;border:0;cursor:pointer;font-family:var(--f-ui);color:var(--pt);padding:.3rem;border-radius:1rem;min-width:0;max-width:100%}
+#welcome .wl-who b{font-weight:700;font-size:1.05rem;color:var(--pt);-webkit-text-stroke:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#welcome .wl-who small{color:var(--pm);font-size:.8rem;font-weight:500}
+#welcome .wl-who:active{background:var(--pbg)}
+#welcome i.wl-av{width:5.2rem;height:5.2rem;box-shadow:0 2px 8px rgba(16,24,40,.18);font-weight:700}
+#welcome i.wl-av.wl-plus{background:#fff;border:2px dashed #C3C9D5;color:var(--pm);box-shadow:none}
+#welcome i.wl-av.wl-plus svg{width:2rem;height:2rem;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round}
+#welcome .wl-newkid b{color:var(--pm)}
+/* the back button on the login pages: the same flat round button */
+#welcome .rb.wl-back{width:3.4rem;height:3.4rem;background:#fff;border:1px solid var(--pb);box-shadow:0 2px 10px rgba(16,24,40,.15);color:var(--pt)}
+#welcome .rb.wl-back::before,#welcome .rb.wl-back::after{display:none}
+#welcome .rb.wl-back svg{filter:none;stroke-width:2.4}
+.acctpage .wl-err{background:#FDECEA;color:#B42318;border-radius:.7rem;font-weight:700;font-size:.95rem;padding:.6rem .9rem;margin:0 0 .6rem}
+.inv-row .pill.inv-copy{width:auto;flex:none;padding-inline:1.4rem}
+.inv-row .inv-url{width:auto}
+
+/* ---- lock popup, get-credits popup and subscribe popup (Ahmed 2026-11-20): same white card, flat buttons, English digits ---- */
+#coinPop.pro .popup{max-height:92vh;overflow-y:auto;align-items:stretch;text-align:center}
+#coinPop.pro .lkart{align-self:center;width:3.6rem;height:3.6rem;margin:-.2rem 0}
+#coinPop.pro .lkart .jlockbig,#coinPop.pro .lkart svg{display:block;width:100%;height:100%}
+#coinPop.pro .coinbig{align-self:stretch;justify-content:center;gap:.5rem;background:var(--pbg);border:1px solid var(--pb);border-radius:1rem;padding:.7rem 1rem;font-size:1.7rem;font-weight:800;direction:ltr}
+#coinPop.pro .coinbig .ic{width:1.6rem;height:1.6rem}
+#coinPop.pro .coinbig b{font-size:1.9rem;font-weight:800;line-height:1}
+#coinPop.pro .coinbig .lab{font-size:1rem;font-weight:700;color:var(--pm)}
+#coinPop.pro .cre{font-weight:800;direction:ltr;unicode-bidi:isolate}
+#coinPop.pro .pill{width:100%}
+#coinPop.pro .cbuy.off,#coinPop.pro .cbuy[disabled]{filter:none;opacity:1;background:var(--pbg);color:#9AA3B2;border:1px solid var(--pb)}
+#coinPop.pro .clow{color:#B42318;font-size:.95rem;margin:-.4rem 0 0}
+#coinPop.pro .lksub{display:flex;flex-direction:column;gap:.6rem;align-items:stretch;border-top:1px solid var(--pb);padding-top:.9rem}
+#coinPop.pro .lksub h3{margin:0;font-size:1.15rem;font-weight:800;color:var(--pt)}
+#coinPop.pro .lksub p{margin:0}
+#coinPop.pro .lkor{display:none}
+#coinPop.pro .lkp s{color:var(--pm);font-weight:600;margin-inline-end:.3rem}
+#coinPop.pro .cpromo{color:var(--pm);font-weight:700;text-decoration:underline}
+#coinPop.pro .shgrid{gap:.6rem}
+#coinPop.pro .shbtn{flex-direction:row;justify-content:center;gap:.5rem;padding:.8rem .5rem;color:#fff;font-size:1rem}
+#coinPop.pro .shbtn svg{width:1.6rem;height:1.6rem}
+#coinPop.pro .shrule{margin:0}#coinPop.pro .cnote{color:var(--pm);font-size:.95rem;margin:0}
+/* subscribe popup */
+#coinPop.pro .subscroll{max-height:none;overflow:visible;align-items:stretch;gap:.8rem}
+#coinPop.pro .subprice{font-size:2rem;font-weight:800;margin:0;direction:rtl;color:var(--pt)}
+#coinPop.pro .subsub{margin:-.5rem 0 0;color:var(--pm);font-size:.95rem}
+#coinPop.pro .substeps{list-style:none;padding:0;margin:0;gap:.8rem;text-align:start}
+#coinPop.pro .substeps>li{display:flex;gap:.7rem;align-items:flex-start;background:var(--pbg);border:1px solid var(--pb);border-radius:1rem;padding:.8rem}
+#coinPop.pro .substeps>li>div{flex:1;min-width:0;display:flex;flex-direction:column;gap:.5rem}
+#coinPop.pro .subst-n{flex:none;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--pa);color:#fff;font-weight:800;display:grid;place-items:center;font-size:.95rem}
+#coinPop.pro .subpay{display:block;text-align:center;text-decoration:none;width:100%}
+#coinPop.pro .subshare small{display:block;color:var(--pm);margin-bottom:.4rem;font-size:.85rem}
+#coinPop.pro .shrow{display:flex;gap:.5rem}
+#coinPop.pro .shmini{flex:1;display:grid;place-items:center;height:2.6rem;border:0;border-radius:.8rem;background:var(--shc);color:#fff;cursor:pointer}
+#coinPop.pro .shmini svg{width:1.4rem;height:1.4rem}
+#coinPop.pro .subf input{border:1px solid #D5DAE3;border-radius:.8rem;background:#fff}
+#coinPop.pro .subnote{color:var(--pm);font-size:.85rem;font-weight:600;line-height:1.7}
+#coinPop.pro .popup{direction:rtl}#coinPop.pro .coinbig{direction:ltr}
+:root{--app-build:"7e85ff3fb9"}

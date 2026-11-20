@@ -16,6 +16,7 @@ function subEnd(t){ const d=new Date(t||Date.now()), y=d.getFullYear(), e=new Da
 function subOpen(){ const k=kidNow(); if(!k) return false; const r=subRec(k,subTermNow()), t=Date.now(); if(!r||t>=(r.until||0)) return false;
   return r.st==='active'||(r.st==='pending'&&t<(r.trial||0)); }
 function subPrice(grade,t){ const p=((ESET.subs||{}).prices||{})[grade+':'+t]||{}, fin=p.discOn&&+p.disc>0?+p.disc:(+p.price||0); return {price:+p.price||0,fin,disc:!!(p.discOn&&+p.disc>0)}; }
+const subDateL=t=>{ try{ return new Date(t).toLocaleDateString('ar-EG-u-nu-latn',{day:'numeric',month:'long',year:'numeric'}); }catch(e){ return ''; } };   // Latin digits (the parent popups)
 const subDate=t=>{ try{ return new Date(t).toLocaleDateString('ar-EG',{day:'numeric',month:'long',year:'numeric'}); }catch(e){ return ''; } };
 // the end of a term: expired records are removed and that child's opened lessons + progress start again (Ahmed: everything ends 31 Aug, progress not kept)
 const SUB_PROG=['zoom-stars','zoom-opened','zoom-last','zoom-vocab','es.unlocked','es.freeused'];
@@ -78,7 +79,7 @@ function subNew(){ const on=subIsOn(), K=kids(); if(!on||!K.length) return;
     $$('.sp-pk',p).forEach(b=>b.addEventListener('click',()=>{ kid=b.dataset.k; draw(p); }));
     $$('.sp-pt',p).forEach(b=>b.addEventListener('click',()=>{ coinClose(); subBuy(kid,b.dataset.t); }));
     $('.sp-pc',p).addEventListener('click',coinClose); };
-  coinPop('<div class="sp-pop"></div>',p=>draw($('.sp-pop',p))); }
+  coinPopPro('<div class="sp-pop"></div>',p=>draw($('.sp-pop',p))); }
 function subsOpen(tab){ if(tab) SUB_TAB.kid=tab; const on=subIsOn();
   let o=$('#subsPage'); if(!o){ o=el('div','acctpage',''); o.id='subsPage'; o.setAttribute('role','dialog'); o.setAttribute('aria-label','Subscriptions'); document.body.append(o); }
   const K=kids(), cur=kidNow(); if(!K.find(x=>x.id===SUB_TAB.kid)) SUB_TAB.kid=(cur&&cur.id)||(K[0]&&K[0].id);
@@ -107,14 +108,14 @@ function notifPushRow(o){ const box=$('.nf-push',o); if(!box) return;
   const perm=typeof Notification!=='undefined'?Notification.permission:'default', on=!!PUSH.sub&&perm==='granted', first=!PUSH.sub&&perm==='default';
   box.hidden=false;
   box.innerHTML=first?`<span class="nf-ask-t">خلّي الإشعارات توصلك على الجهاز حتى لو التطبيق مقفول</span><button class="pill green nf-ask" type="button">فعّل الإشعارات</button>`
-    :`<label class="pf-sw"><input type="checkbox" class="nf-sw"${on?' checked':''}><i></i><span>إشعارات الجهاز</span></label>`;
+    :`<label class="pf-sw"><input type="checkbox" class="nf-sw"${on?' checked':''}><i></i><span>تفعيل/إيقاف الإشعارات</span></label>`;
   const go=async()=>{ await puToggle(); notifPushRow(o); };
   const a=$('.nf-ask',box), w=$('.nf-sw',box); if(a) a.addEventListener('click',go); if(w) w.addEventListener('click',e=>{ e.preventDefault(); go(); }); }
 function notifsOpen(){ const on=subIsOn();
   let o=$('#notifPage'); if(!o){ o=el('div','acctpage',''); o.id='notifPage'; o.setAttribute('role','dialog'); o.setAttribute('aria-label','Notifications'); document.body.append(o); }
   const all=subNotices(), nu=all.filter(notifUnread).length, L=NF.f==='unread'?all.filter(notifUnread):all;
-  const tabs=`<div class="sp-tabs" role="tablist"><button class="sp-tab-b${NF.f==='all'?' on':''}" data-f="all" role="tab">الكل</button><button class="sp-tab-b${NF.f==='unread'?' on':''}" data-f="unread" role="tab">غير المقروء${nu?`<i class="sp-dot">${num(nu)}</i>`:''}</button></div>`;
-  const list=L.length?`<div class="sp-news">${L.map(n=>{ if(n.r.st==='ref') return `<article class="ac-card sp-n active${notifUnread(n)?' unread':''}" data-nk="${n.k.id}|${n.key}"><div class="sp-nh"><b>دعوة صديق</b><small>${n.t?subDate(n.t):''}</small></div><p>${n.r.sub?'تم اشتراك':'تم تسجيل'} <b>${wlEsc(n.r.who||'صديق')}</b> ${n.r.sub?'':'كحساب جديد '}عن طريق لينك الدعوة بتاعك وخدتي <b>${num(n.r.n)}</b> كريدت.</p></article>`; const t=n.key.split(':')[1], tn=(SUBT_ALL.find(x=>x[0]===t)||[])[1]||'', st=n.r.st, expired=n.r.until&&Date.now()>=n.r.until;
+  const tabs=`<div class="nf-seg" role="tablist"><button class="nf-sb${NF.f==='all'?' on':''}" data-f="all" role="tab">الكل</button><button class="nf-sb${NF.f==='unread'?' on':''}" data-f="unread" role="tab">غير المقروء${nu?`<i class="sp-dot">${num(nu)}</i>`:''}</button></div>`;
+  const list=L.length?`<div class="sp-news">${L.map(n=>{ if(n.r.st==='ref') return `<article class="ac-card sp-n active${notifUnread(n)?' unread':''}" data-nk="${n.k.id}|${n.key}"><div class="sp-nh"><b>دعوة صديق</b><small>${n.t?subDate(n.t):''}</small></div><p>${n.r.sub?'تم اشتراك':'تم تسجيل'} <b>${wlEsc(n.r.who||'صديق')}</b> ${n.r.sub?'':'كحساب جديد '}عن طريق لينك الدعوة بتاعك وخدت <b>${num(n.r.n)}</b> كريدت.</p></article>`; const t=n.key.split(':')[1], tn=(SUBT_ALL.find(x=>x[0]===t)||[])[1]||'', st=n.r.st, expired=n.r.until&&Date.now()>=n.r.until;
       const kind=expired||st==='closed'?'closed':st, ttl={active:'تم تفعيل الاشتراك',rejected:'الاشتراك ما اتفعلش',closed:'الاشتراك اتقفل',pending:'وصلنا الإيصال'}[kind]||'';
       const txt={active:`اشتراك <b>${wlEsc(n.k.name)}</b> في ${tn} مفعّل ومفتوح لحد ${subDate(n.r.until)}.`,
         rejected:`مقدرناش نتأكد من الدفع لاشتراك <b>${wlEsc(n.k.name)}</b> في ${tn}، فالدروس اتقفلت.`,
@@ -124,44 +125,51 @@ function notifsOpen(){ const on=subIsOn();
     :`<section class="ac-card"><p class="sp-empty">${NF.f==='unread'?'مفيش إشعارات غير مقروءة.':'مفيش إشعارات لسه.'}</p></section>`;
   o.innerHTML=`<div class="ac-top"><button class="rb ac-back nf-back" aria-label="Back">${ICON.back}</button><h2>الإشعارات</h2></div><div class="ac-in"><section class="ac-card nf-push" hidden></section>${tabs}${nu?'<button class="pill yellow nf-all" type="button">تعليم الكل كمقروء</button>':''}${list}</div>`;
   $('.nf-back',o).addEventListener('click',()=>{ o.hidden=true; notifRefresh(); });
-  $$('.sp-tab-b',o).forEach(b=>b.addEventListener('click',()=>{ NF.f=b.dataset.f; notifsOpen(); }));
+  $$('.nf-sb',o).forEach(b=>b.addEventListener('click',()=>{ NF.f=b.dataset.f; notifsOpen(); }));
   const ba=$('.nf-all',o); if(ba) ba.addEventListener('click',()=>notifMark());
   $$('.sp-n.unread',o).forEach(a=>a.addEventListener('click',e=>{ if(e.target.closest('.sp-buy')) return; notifMark([a.dataset.nk]); }));
   $$('.sp-buy',o).forEach(b=>b.addEventListener('click',()=>subBuy(b.dataset.k,b.dataset.t)));
   notifPushRow(o); o.hidden=false; }
-function subBuy(kidId,t){ const k=kids().find(x=>x.id===kidId); if(!k) return; const key=subKey(k,t), r=subRec(k,t), pr=subPrice(k.grade||'p1',t), S=ESET.subs||{}, tn=(SUBT_ALL.find(x=>x[0]===t)||[])[1];
+function subBuy(kidId,t,back,done){ const k=kids().find(x=>x.id===kidId); if(!k) return; const key=subKey(k,t), r=subRec(k,t), pr=subPrice(k.grade||'p1',t), S=ESET.subs||{}, tn=(SUBT_ALL.find(x=>x[0]===t)||[])[1];
   const live=r&&(!r.until||Date.now()<r.until)&&(r.st==='active'||r.st==='pending');
   if(live&&r.st==='active'||live&&r.st==='pending'&&Date.now()>=(r.trial||0)){   // paid, or the receipt is waiting for the admin: only the state
-    const s=subStat(r,t); return coinPop(`<h2 class="outline">${wlEsc(k.name)} · ${tn}</h2><p class="msg-text">${s.t}</p><button class="pill green" data-ok>تمام</button>`,p=>$('[data-ok]',p).addEventListener('click',()=>{ coinClose(); subsOpen(); })); }
+    const s=subStat(r,t); return coinPopPro(`<h2 class="outline">${wlEsc(k.name)} · ${tn}</h2><p class="msg-text">${s.t}</p><button class="pill green" data-ok>تمام</button>`,p=>$('[data-ok]',p).addEventListener('click',()=>{ coinClose(); if(done) done(); else subsOpen(); })); }
   let disc=null;   // a percent promo code typed on this page: {pct, code}
   const link=S.link||'', who=S.name||'', pro=ESET.promoOn!==false&&((ESET.promos&&ESET.promos.length)||API());
-  coinPop(`<h2 class="outline">${wlEsc(k.name)} · ${tn}</h2>
-    <div class="subscroll"><p class="subprice" data-sp>${pr.disc?`<s>${num(pr.price)}</s> `:''}<b>${num(pr.fin)}</b> جنيه</p>
-    <ol class="substeps"><li>ادفعي على إنستا باي${who?` لحساب <b>${wlEsc(who)}</b>`:''}.${link?`<br><a class="pill yellow subpay" href="${wlEsc(link)}" target="_blank" rel="noopener">افتحي إنستا باي</a>`:''}</li>
-      <li>اكتبي رقم العملية وارفعي صورة الإيصال.</li></ol>
+  const shareTxt=`رابط الدفع لاشتراك ${k.name} في ${tn}:`;
+  coinPopPro(`<h2 class="outline">${CT('اشتراك','Subscription')} ${wlEsc(k.name)} · ${tn}</h2>
+    <div class="subscroll"><p class="subprice" data-sp>${pr.disc?`<s>${EN(pr.price)}</s> `:''}<b>${EN(pr.fin)}</b> جنيه</p>
+    <p class="subsub">كل المواد · لحد ${subDateL(subEnd())}</p>
+    <ol class="substeps"><li><span class="subst-n">1</span><div><span><b>ادفع على إنستا باي</b>${who?` لحساب <b>${wlEsc(who)}</b>`:''}</span>
+        ${link?`<a class="pill subpay" href="${wlEsc(link)}" target="_blank" rel="noopener">افتح إنستا باي</a>`:''}
+        ${link?`<div class="subshare"><small>هتدفع من جهاز تاني؟ ابعت رابط الدفع:</small><div class="shrow">${SHAPPS.map(a=>`<button type="button" class="shmini" data-pay="${a[0]}" style="--shc:${a[3]}" aria-label="${a[1]}" title="${a[1]}"><i>${a[4]}</i></button>`).join('')}</div></div>`:''}</div></li>
+      <li><span class="subst-n">2</span><div><b>اكتب رقم العملية وارفع صورة الإيصال</b>
     <form class="subf" autocomplete="off" novalidate>
       <label><span>رقم العملية</span><input name="ref" dir="ltr" inputmode="text" maxlength="40" required></label>
       <label class="subfile"><span>صورة الإيصال</span><input type="file" name="img" accept="image/*" required></label>
       <p class="subimg" hidden></p><p class="wl-err" hidden></p>
-      <button class="pill green wl-big" type="submit"><span class="wl-ar">ابعتي الإيصال</span></button></form>
-    <p class="subnote">بعد الإرسال الدروس بتتفتح ٢٤ ساعة لحد ما نتأكد من الدفع.<br>الاشتراك لحد ${subDate(subEnd())}، وبعدها الدروس بتتقفل والتقدم بيبدأ من الأول.<br>مفيش استرجاع للفلوس.</p>${pro?promoLine():''}</div>`,
-    p=>{ const fin=()=>disc?Math.max(1,Math.round(pr.fin*(100-disc.pct)/100)):pr.fin;
+      <button class="pill green wl-big" type="submit"><span class="wl-ar">ابعت الإيصال</span></button></form></div></li></ol>
+    <p class="subnote">بعد ما تبعت الإيصال الدروس بتتفتح 24 ساعة لحد ما نتأكد من الدفع.<br>الاشتراك لحد ${subDateL(subEnd())}، وبعدها الدروس بتتقفل والتقدم بيبدأ من الأول.<br>مفيش استرجاع للفلوس.</p>${pro?promoLine():''}
+    <button type="button" class="pill cream subback">${back?'رجوع':'إلغاء'}</button></div>`,
+    p=>{ $$('[data-pay]',p).forEach(b=>b.addEventListener('click',()=>shareGo(b.dataset.pay,shareTxt,link)));
+      $('.subback',p).addEventListener('click',()=>{ coinClose(); if(back) back(); });
+      const fin=()=>disc?Math.max(1,Math.round(pr.fin*(100-disc.pct)/100)):pr.fin;
       promoWire(p,()=>{ subsOpen(); },{pct:(n,code)=>{ disc={pct:n,code};
-        $('[data-sp]',p).innerHTML=`<s>${num(pr.fin)}</s> <b>${num(fin())}</b> جنيه<small class="subpct">خصم ${num(n)}%</small>`;
+        $('[data-sp]',p).innerHTML=`<s>${EN(pr.fin)}</s> <b>${EN(fin())}</b> جنيه<small class="subpct">خصم ${EN(n)}%</small>`;
         const b=$('[data-promo]',p), pf=$('.cpromof',p); if(b) b.hidden=true; if(pf) pf.hidden=true; p.classList.remove('promo-on'); }});
       const f=$('.subf',p), er=$('.wl-err',p), im=$('.subimg',p); let pic='';
       const say=m=>{ er.textContent=m; er.hidden=false; };
       f.img.addEventListener('change',async()=>{ pic=''; im.hidden=true; const file=f.img.files[0]; if(!file) return;
-        try{ pic=await subShrink(file); im.textContent='الصورة جاهزة ('+num(Math.round(pic.length*.75/1024))+' ك.ب)'; im.hidden=false; er.hidden=true; }catch(e){ say('الصورة دي مش بتفتح. جربي صورة تانية'); } });
+        try{ pic=await subShrink(file); im.textContent='الصورة جاهزة ('+num(Math.round(pic.length*.75/1024))+' ك.ب)'; im.hidden=false; er.hidden=true; }catch(e){ say('الصورة دي مش بتفتح. جرب صورة تانية'); } });
       f.addEventListener('submit',async e=>{ e.preventDefault(); const ref=f.ref.value.trim();
-        if(!ref) return wlBad(f,'ref','اكتبي رقم العملية'); if(!pic) return wlBad(f,'img','ارفعي صورة الإيصال');
+        if(!ref) return wlBad(f,'ref','اكتب رقم العملية'); if(!pic) return wlBad(f,'img','ارفع صورة الإيصال');
         const go=$('button[type=submit]',f); go.disabled=true; const t0=Date.now();
         let rec; const has=subRec(k,t);
         if(API()&&typeof sySession==='function'&&sySession()){ const x=await syCall('/subs',{child:k.id,term:key,ref,receipt:pic,...(disc?{promo:disc.code}:{})});
           if(!x){ go.disabled=false; return say('مفيش إنترنت دلوقتي'); }
-          if(!x.j.ok){ go.disabled=false; return say({'already':'الاشتراك ده شغال','pending':'الإيصال متبعت وبنراجعه','no-price':'السعر لسه متحددش','big':'الصورة كبيرة','bad-receipt':'الصورة مش مظبوطة','off':'الاشتراك لسه مش شغال','bad':'الكود ده مش صحيح','old':'الكود ده انتهى','used':'الكود ده اتستخدم قبل كده','full':'الكود ده خلص عدد مرات استخدامه'}[x.j.error]||'حصلت مشكلة. جربي تاني'); }
+          if(!x.j.ok){ go.disabled=false; return say({'already':'الاشتراك ده شغال','pending':'الإيصال متبعت وبنراجعه','no-price':'السعر لسه متحددش','big':'الصورة كبيرة','bad-receipt':'الصورة مش مظبوطة','off':'الاشتراك لسه مش شغال','bad':'الكود ده مش صحيح','old':'الكود ده انتهى','used':'الكود ده اتستخدم قبل كده','full':'الكود ده خلص عدد مرات استخدامه'}[x.j.error]||'حصلت مشكلة. جرب تاني'); }
           rec={st:'pending',at:x.j.at,trial:x.j.trial,until:x.j.until,price:fin(),ref,seen:true}; }
         else rec={st:'pending',at:t0,trial:has&&has.trialUsed?0:t0+864e5,until:subEnd(t0),price:fin(),ref,seen:true,trialUsed:true,local:true}; if(disc) promoSpend(disc.code);   // no server: kept on this device (admin cannot see it)
         subSave(k.id,key,rec); coinClose(); if(typeof chime==='function') chime(3);
-        coinPop(`<h2 class="outline">وصلنا الإيصال</h2><p class="msg-text">دروس <b>${wlEsc(k.name)}</b> مفتوحة ٢٤ ساعة لحد ما نتأكد من الدفع.</p><button class="pill green" data-ok>تمام</button>`,
-          p2=>$('[data-ok]',p2).addEventListener('click',()=>{ coinClose(); if(typeof drawSubjects==='function'&&!$('#subjects').hidden) drawSubjects(); const sp=$('#subsPage'); if(sp&&!sp.hidden) subsOpen(); })); }); }); }
+        coinPopPro(`<h2 class="outline">وصلنا الإيصال</h2><p class="msg-text">الدروس اتفتحت لـ <b>${wlEsc(k.name)}</b> لمدة 24 ساعة لحد ما نتأكد من الإيصال.</p><button class="pill green" data-ok>تمام</button>`,
+          p2=>$('[data-ok]',p2).addEventListener('click',()=>{ coinClose(); if(typeof drawSubjects==='function'&&!$('#subjects').hidden) drawSubjects(); const sp=$('#subsPage'); if(sp&&!sp.hidden) subsOpen(); if(done) done(); })); }); }); }

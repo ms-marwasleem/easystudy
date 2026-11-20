@@ -11,11 +11,12 @@
  "tabs": [
   "read",
   "quiz",
-  "booklet"
+  "booklet",
+  "workbook"
  ],
  "tabLabels": {
   "read": "Lesson",
-  "quiz": "Book Questions"
+  "quiz": "Exercise"
  },
  "pages": 5,
  "pageNums": [
@@ -123,7 +124,7 @@
       "audio": "explain/s1-3.mp3"
      },
      {
-      "say": "The green pencil goes further. The green pencil is longer.",
+      "say": "The green pencil goes further. So, the green pencil is longer.",
       "do": [
        {
         "frame": {
@@ -140,7 +141,7 @@
         "line": "break"
        },
        {
-        "add": "The"
+        "add": "So, the"
        },
        {
         "add": "green",
@@ -199,7 +200,7 @@
       "audio": "explain/s2-1.mp3"
      },
      {
-      "say": "The red string ends here. The blue string goes further. The blue string is longer.",
+      "say": "The red string ends here. The blue string goes further. So, the blue string is longer.",
       "do": [
        {
         "guide": {
@@ -225,7 +226,7 @@
         "line": "break"
        },
        {
-        "add": "The"
+        "add": "So, the"
        },
        {
         "add": "blue",
@@ -284,7 +285,7 @@
       "audio": "explain/s3-1.mp3"
      },
      {
-      "say": "The yellow pencil ends here. The red pencil goes further. The red pencil is longer.",
+      "say": "The yellow pencil ends here. The red pencil goes further. So, the red pencil is longer.",
       "do": [
        {
         "guide": {
@@ -310,7 +311,7 @@
         "line": "break"
        },
        {
-        "add": "The"
+        "add": "So, the"
        },
        {
         "add": "red",
@@ -388,8 +389,18 @@
       "audio": "explain/s4-1.mp3"
      },
      {
-      "say": "Yes! The blue toothbrush is longer.",
+      "say": "Yes! So, the blue toothbrush is longer.",
       "do": [
+       {
+        "add": "So, the"
+       },
+       {
+        "add": "blue",
+        "color": "blue"
+       },
+       {
+        "add": "toothbrush is longer."
+       },
        {
         "guide": {
          "x0": 610,
@@ -398,16 +409,6 @@
          "y1": 290,
          "color": "orange"
         }
-       },
-       {
-        "add": "The"
-       },
-       {
-        "add": "blue",
-        "color": "blue"
-       },
-       {
-        "add": "toothbrush is longer."
        },
        {
         "cheer": true
@@ -478,8 +479,18 @@
       "audio": "explain/s5-1.mp3"
      },
      {
-      "say": "Yes! The red umbrella is longer.",
+      "say": "Yes! So, the red umbrella is longer.",
       "do": [
+       {
+        "add": "So, the"
+       },
+       {
+        "add": "red",
+        "color": "red"
+       },
+       {
+        "add": "umbrella is longer."
+       },
        {
         "guide": {
          "x0": 270,
@@ -488,16 +499,6 @@
          "y1": 119,
          "color": "orange"
         }
-       },
-       {
-        "add": "The"
-       },
-       {
-        "add": "red",
-        "color": "red"
-       },
-       {
-        "add": "umbrella is longer."
        },
        {
         "cheer": true
