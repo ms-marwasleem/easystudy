@@ -1,4 +1,4 @@
-const EW_BUILD='69c8545638';
+const EW_BUILD='6d21d68835';
 /* MADE BY tools/build-words.py from the files named below. Do not edit here. */
 /* ===== js/words-boot.js ===== */
 /* EASY WORDS — first file of the bundle: tells the shared accounts / credits code (welcome, sync, subs, coins, push) which settings file and server to use. */
@@ -2446,13 +2446,13 @@ document.addEventListener('click',e=>{
 });
 function playBuf(buf,from=0,dur){ return new Promise(res=>{ const s=player.ctx.createBufferSource(); s.buffer=buf; s.connect(player.ctx.destination);
   vs.src=s; s.onended=()=>{ if(vs.src===s) vs.src=null; res(); }; dur!=null?s.start(0,from,dur):s.start(0,from); }); }
-async function playFile(url){ await ensureCtx();
-  let buf=await libBuffer(url,player.ctx).catch(()=>null);   // a recording from the audio library wins; else the file in the app
+async function playFile(url){ const vr0=vs.run; await ensureCtx(); if(vr0!==vs.run) return;   // stopped (left the lesson) while loading: never start after the stop
+  let buf=await libBuffer(url,player.ctx).catch(()=>null); if(vr0!==vs.run) return;   // a recording from the audio library wins; else the file in the app
   if(!buf){ const parts=await composeFiles(url).catch(()=>null);   // a sentence with variables: its pieces, one after the other
-    if(parts){ const run=vs.run; for(let k=0;k<parts.length;k++){ if(run!==vs.run) return; await playFile(parts[k]); if(k<parts.length-1&&run===vs.run) await new Promise(r=>setTimeout(r,70)); } return; } }
+    if(vr0!==vs.run) return; if(parts){ const run=vr0; for(let k=0;k<parts.length;k++){ if(run!==vs.run) return; await playFile(parts[k]); if(k<parts.length-1&&run===vs.run) await new Promise(r=>setTimeout(r,70)); } return; } }
   if(!buf){
     if(!vs.files[url]) vs.files[url]=fetch(url).then(r=>{ if(!r.ok) throw new Error('missing'); return r.arrayBuffer(); }).then(b=>decodeSnd(player.ctx,b)).catch(()=>{ delete vs.files[url]; return null; });
-    buf=await vs.files[url];
+    buf=await vs.files[url]; if(vr0!==vs.run) return;
   }
   if(!buf){ if(isAr()){ await nap(350); return; } throw new Error('missing audio'); }   // Arabic: a recording not made yet is silent
   return playBuf(buf); }
