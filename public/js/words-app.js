@@ -1,4 +1,4 @@
-const EW_BUILD='99efb73246';
+const EW_BUILD='51a4c62a64';
 /* MADE BY tools/build-words.py from the files named below. Do not edit here. */
 /* ===== js/words-boot.js ===== */
 /* EASY WORDS — first file of the bundle: tells the shared accounts / credits code (welcome, sync, subs, coins, push) which settings file and server to use. */
@@ -782,15 +782,32 @@ const balLine=n=>`<div class="coinbig" dir="ltr"><span class="ic">${COIN}</span>
 
 /* ---------- popups (one overlay of our own, the app's popup look) ---------- */
 function coinPop(html,onOpen){
-  let o=$('#coinPop'); if(!o){ o=el('div','overlay'); o.id='coinPop'; document.body.append(o); o.addEventListener('click',e=>{ if(e.target===o) coinClose(); }); }
+  let o=$('#coinPop'); if(!o){ o=el('div','overlay'); o.id='coinPop'; document.body.append(o); o.addEventListener('click',e=>{ if(e.target===o) coinDismiss(); }); }
   o.classList.remove('pro'); o.innerHTML=`<div class="rays"></div><div class="popup coinpop" role="dialog"><button class="rb popx" aria-label="Close" data-icon="close">${ICON.close}</button>${html}</div>`;
-  $('.popx',o).addEventListener('click',coinClose); o.hidden=false; if(typeof spinRays==='function') spinRays(o);
+  $('.popx',o).addEventListener('click',coinDismiss); o.hidden=false; if(typeof spinRays==='function') spinRays(o);
   if(anim) G.from($('.popup',o),{scale:.6,opacity:0,duration:.35,ease:'back.out(2)'});
   if(onOpen) onOpen($('.popup',o));
 }
 // the same popup in the calm parent-area look (white card, flat buttons; css/account.css .pro)
 function coinPopPro(html,onOpen){ coinPop(html,p=>{ p.parentNode.classList.add('pro'); if(onOpen) onOpen(p); }); }
 const coinClose=()=>{ const o=$('#coinPop'); if(o) o.hidden=true; };
+// the X / a tap outside a lock popup opened by lockGuard (a page of a locked lesson): back to the map
+let lockBack=null;
+const coinDismiss=()=>{ coinClose(); const f=lockBack; lockBack=null; if(f) f(); };
+/* EVERY way into a lesson or one of its pages (map sign, page picker, deep link, resume, an Easy Words word) goes through here (Ahmed 2026-11-20).
+   A locked lesson (or a lesson of a locked unit) does NOT open: the same locked popup (credits / term subscription) shows; unlocked -> resume() opens what was asked, closed -> the map. Returns true when blocked. */
+function lockGuard(m,resume,isWords){
+  if(!m||!m.id||m.testsOnly||!m.file&&!isWords) return false;
+  const id='l:'+m.id; let st=coinAccess(m,true,id,0,'lesson').st;
+  if(st==='open'&&!isWords&&typeof SUBJECT!=='undefined'&&SUBJECT&&SUBJECT.units&&!((ESET.items||{})[id]||{}).st&&!coinUnlocked(id)){
+    const u=SUBJECT.units.find(x=>x.unit===m.unit);
+    if(u&&coinAccess(u,true,'u:'+SUBJECT.id+':'+u.unit,SUBJECT.units.indexOf(u),'unit').st==='locked') st='locked'; }
+  if(st!=='locked') return false;
+  const back=()=>{ if(typeof openMap==='function') openMap(); };
+  lockBack=back;
+  lockTap('lesson',m,coinAccess(m,true,id,0,'lesson').coins,`<span class="jlockbig">${typeof LOCK!=='undefined'?LOCK:''}</span>`,()=>{ lockBack=null; if(resume) resume(); else back(); });
+  return true;
+}
 const bigCoins=balLine;
 
 // a grown-up question first (Ahmed 2026-11-11, replaces typing the parent's name): 3 numbers written as ARABIC WORDS ("واحد - ثلاثة - خمسة"); the parent taps them on a keypad.
@@ -1656,6 +1673,74 @@ function subBuy(kidId,t,back,done){ const k=kids().find(x=>x.id===kidId); if(!k)
         coinPopPro(`<h2 class="outline">وصلنا الإيصال</h2><p class="msg-text">الدروس اتفتحت لـ <b>${wlEsc(k.name)}</b> لمدة 24 ساعة لحد ما نتأكد من الإيصال.</p><button class="pill green" data-ok>تمام</button>`,
           p2=>$('[data-ok]',p2).addEventListener('click',()=>{ coinClose(); if(typeof drawSubjects==='function'&&!$('#subjects').hidden) drawSubjects(); const sp=$('#subsPage'); if(sp&&!sp.hidden) subsOpen(); if(done) done(); })); }); }); }
 ;
+/* ===== js/install.js ===== */
+/* INSTALL-APP BUTTON (Ahmed 2026-11-20): in a normal phone browser a floating button "نزّل التطبيق على جهازك" opens a popup with the steps to put the app
+   on the home screen, chosen by the phone/browser. Never shown when the app is already opened from the home screen (installed / standalone).
+   Same file in both apps (EasyStudy orange, Easy Words blue via --pa); the name comes from the page (Easy Words = html[data-theme=words]). */
+(function(){
+  const KEY='es.install.off', DAYS=7, ua=navigator.userAgent||'';
+  const standalone=()=>{ try{ return navigator.standalone===true||['standalone','fullscreen','minimal-ui','window-controls-overlay'].some(m=>matchMedia('(display-mode: '+m+')').matches)||/^android-app:/.test(document.referrer||''); }catch(e){ return false; } };
+  const iOS=/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  const android=/Android/i.test(ua);
+  if(!/^https?:/.test(location.protocol)||!(iOS||android)||standalone()) return;
+  const off=()=>{ try{ const t=+localStorage.getItem(KEY); return t&&Date.now()-t<DAYS*864e5; }catch(e){ return false; } };
+  let ev=null, installed=false;
+  window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); ev=e; });
+  window.addEventListener('appinstalled',()=>{ installed=true; closeIt(); const b=document.getElementById('instBtn'); if(b) b.remove(); });
+  const kind=()=>{
+    if(iOS){ return /CriOS|FxiOS|EdgiOS|OPiOS|GSA\/|FBAN|FBAV|Instagram|Line\/|; wv\)/.test(ua)||!/Safari/.test(ua)?'ios-other':'ios-safari'; }
+    if(/SamsungBrowser/i.test(ua)) return 'samsung';
+    if(/Firefox|OPR\/|Opera|EdgA|UCBrowser|; wv\)/.test(ua)) return 'generic';
+    if(/Chrome\//.test(ua)) return 'chrome';
+    return 'generic';
+  };
+  const I={
+    share:'<svg viewBox="0 0 24 24"><path d="M12 15V3M8 7l4-4 4 4M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1"/></svg>',
+    add:'<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg>',
+    dots:'<svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="19" r="1.6"/></svg>',
+    menu:'<svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
+    safari:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>',
+    home:'<svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-5h4v5"/></svg>',
+    ok:'<svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>',
+    dl:'<svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>'
+  };
+  const STEPS=()=>{
+    const n=document.documentElement.dataset.theme==='words'?'Easy Words':'EasyStudy', k=kind();
+    const M={
+      'ios-safari':{t:'على الآيفون (Safari)',s:[[I.share,'اضغط على زر المشاركة <b>Share</b> في أسفل الشاشة'],[I.add,'اختار <b>Add to Home Screen</b> (إضافة إلى الشاشة الرئيسية)'],[I.ok,'اضغط <b>Add</b> وهتلاقي التطبيق على الشاشة الرئيسية']]},
+      'ios-other':{t:'على الآيفون',s:[[I.safari,'افتح الموقع من متصفح <b>Safari</b> (انسخ الرابط والصقه فيه)'],[I.share,'اضغط على زر المشاركة <b>Share</b> في أسفل الشاشة'],[I.add,'اختار <b>Add to Home Screen</b> ثم اضغط <b>Add</b>']]},
+      'chrome':{t:'على الأندرويد (Chrome)',s:[[I.dots,'اضغط على النقط الثلاث <b>⋮</b> أعلى المتصفح'],[I.dl,'اختار <b>Install app</b> (تثبيت التطبيق) أو <b>Add to Home screen</b>'],[I.ok,'اضغط <b>Install</b> وهتلاقي التطبيق على الشاشة الرئيسية']]},
+      'samsung':{t:'على سامسونج (Samsung Internet)',s:[[I.menu,'اضغط على زر القائمة <b>☰</b> أسفل المتصفح'],[I.add,'اختار <b>Add page to</b> ثم <b>Home screen</b>'],[I.ok,'اضغط <b>Add</b> وهتلاقي التطبيق على الشاشة الرئيسية']]},
+      'generic':{t:'على موبايلك',s:[[I.dots,'افتح قائمة المتصفح (النقط أو الخطوط في أعلى الشاشة أو أسفلها)'],[I.add,'دوّر على <b>Add to Home screen</b> أو <b>Install app</b>'],[I.home,'أكد وهتلاقي التطبيق على الشاشة الرئيسية']]}
+    };
+    return {name:n,k:k,...M[k]};
+  };
+  function closeIt(){ const p=document.getElementById('instPop'); if(p) p.remove(); }
+  function open(){
+    closeIt(); const d=STEPS(), canNative=!!ev&&d.k==='chrome';
+    const p=document.createElement('div'); p.id='instPop'; p.className='inst-back'; p.dir='rtl';
+    p.innerHTML='<div class="inst-card" role="dialog" aria-modal="true"><button class="inst-x" aria-label="إغلاق">✕</button>'+
+      '<div class="inst-ic">'+I.home+'</div><h3>نزّل '+(document.documentElement.dataset.theme==='words'?'تطبيق ':'تطبيق ')+d.name+' على جهازك</h3>'+
+      '<p class="inst-sub">'+d.t+' — خطوات بسيطة وبتفتحه بعد كده زي أي تطبيق</p>'+
+      '<ol>'+d.s.map((s,i)=>'<li><span class="inst-n">'+(i+1)+'</span><span class="inst-i">'+s[0]+'</span><span class="inst-t">'+s[1]+'</span></li>').join('')+'</ol>'+
+      (canNative?'<button class="pill inst-go">نزّل التطبيق الآن</button>':'')+
+      '<button class="pill cream inst-ok">تمام</button></div>';
+    document.body.appendChild(p);
+    p.onclick=e=>{ if(e.target===p) closeIt(); };
+    p.querySelector('.inst-x').onclick=p.querySelector('.inst-ok').onclick=closeIt;
+    const g=p.querySelector('.inst-go'); if(g) g.onclick=async()=>{ try{ ev.prompt(); await ev.userChoice; }catch(e){} ev=null; closeIt(); };
+  }
+  function mount(){
+    if(installed||off()||standalone()||document.getElementById('instBtn')) return;
+    const w=document.createElement('div'); w.id='instBtn'; w.dir='rtl';
+    w.innerHTML='<button class="inst-open">'+I.dl+'<span>نزّل التطبيق على جهازك</span></button><button class="inst-close" aria-label="إخفاء">✕</button>';
+    document.body.appendChild(w);
+    w.querySelector('.inst-open').onclick=open;
+    w.querySelector('.inst-close').onclick=()=>{ try{ localStorage.setItem(KEY,String(Date.now())); }catch(e){} w.remove(); };
+  }
+  setTimeout(mount,2500);
+})();
+;
 /* ===== js/report.js ===== */
 /* REPORT A PROBLEM (2026-11-06, Ahmed). One small flag button, the same in every subject, so a parent / teacher who finds a mistake can tell the admin.
    WHERE: lesson screens = in the row above the tabs, right next to the book-page tag (#lmeta .lm-l, so it always sits beside the page number it belongs to);
@@ -1759,7 +1844,8 @@ function fixPaths(L,file){
   if(L.letter&&typeof fixLetterPaths==='function') fixLetterPaths(L.letter,R);
   return L;
 }
-async function openLesson(m){
+async function openLesson(m,_ok){
+  if(!_ok&&lockGuard(m,()=>openLesson(m,1))) return;   // js/coins.js: a locked lesson shows the locked popup instead
   stopVoice(); markOpened(m.id);
   if(!LESSON || LESSON.id!==m.id){
     busy(true);
@@ -2202,6 +2288,14 @@ const wsLang=t=>/[؀-ۿ]/.test(String(t||''))?'ar':'en';
 function wsInput(inp,text,lang){ lang=lang||wsLang(text); inp.lang=lang; inp.setAttribute('lang',lang); inp.dir=lang==='ar'?'rtl':'ltr';
   inp.setAttribute('inputmode',/^\d+$/.test(String(text||''))?'numeric':'text');
   ['autocorrect','autocapitalize','autocomplete'].forEach(a=>inp.setAttribute(a,'off')); inp.spellcheck=false; return inp; }
+// keyboard keeper (Ahmed 2026-11-20): a phone only opens the keyboard from a tap, and a typing box that is removed closes it. One off-screen box holds the keyboard open
+// while a question is replaced (or when the tap that ends a tile/link question is about to be followed by a typing question); the next typing box takes the focus from it.
+function kbKeep(){ let k=document.getElementById('kbkeep'); if(!k){ k=document.createElement('input'); k.id='kbkeep'; k.type='text'; k.setAttribute('aria-hidden','true'); k.tabIndex=-1;
+    ['autocorrect','autocapitalize','autocomplete'].forEach(a=>k.setAttribute(a,'off')); k.setAttribute('enterkeyhint','done'); k.readOnly=false;
+    k.style.cssText='position:fixed;left:0;top:0;width:1px;height:1px;opacity:0;border:0;padding:0;margin:0;font-size:16px;pointer-events:none;'; document.body.append(k); }
+  try{ k.focus({preventScroll:true}); }catch(e){} return k; }
+function kbDrop(){ const k=document.getElementById('kbkeep'); if(k&&document.activeElement===k) k.blur(); }
+const kbTyping=()=>{ const a=document.activeElement; return !!(a&&a.tagName==='INPUT'&&a.id&&a.id!=='kbkeep'&&/^(qin|qxin|vin)$/.test(a.id)); };
 // the lowest fixed thing above the typing word: the question title, or the progress stars under it (the stars stay visible while typing)
 function qTopEl(){ const h=$('.quiz .qhead'), d=$('.quiz .qdots'); return d&&d.offsetHeight&&!document.body.classList.contains('ws-tight')&&h&&d.getBoundingClientRect().bottom>h.getBoundingClientRect().bottom?d:h; }
 function wsParts(){ const a=document.activeElement, id=a&&a.id; if(!WS_IN.includes(id)) return null;
@@ -3302,7 +3396,8 @@ function ewEnter(L,at){
   $('#lessonTitle').dir=L.virtual||EW_SUBJ[s.id].lang==='ar'?'rtl':'ltr';
   switchTab(L.startTab||'words'); fitTitle(); pop('.l-head > *',{y:-20}); pop('.tabs .tab',{y:30,delay:.1});
 }
-async function ewOpenLesson(id,at){
+async function ewOpenLesson(id,at,_w,_ok){
+  if(!_ok){ const sj=ewSubjOf(id), l=sj&&sj.lessons.find(x=>x.id===id); if(l&&lockGuard(l,()=>ewOpenLesson(id,at,_w,1),true)) return; }   // js/coins.js: a word of a locked lesson shows the locked popup
   stopVoice(); busy(true); let L=null; try{ L=await ewLesson(id); }catch(e){} busy(false);
   if(!L) return message('أوبس!','الدرس ما اتفتحش. اتأكد من النت وجرب تاني.');
   SUBJECT=ewSubjOf(id); EW.cur=SUBJECT; L.virtual=false; ewEnter(L,at);
@@ -3327,10 +3422,9 @@ const epShuffle=a=>{ const b=a.slice(); for(let i=b.length-1;i>0;i--){ const j=M
 const epGl=w=>glyphs(String(w)), epIdx=w=>epGl(w).map((g,i)=>g===' '?-1:i).filter(i=>i>=0);   // glyph numbers that are letters (not spaces)
 const epWait=(ms,run)=>new Promise((ok,no)=>setTimeout(()=>run===ep.run?ok():no('stop'),ms));
 const epSay=v=>Promise.race([sayWord(v).catch(()=>0),new Promise(r=>setTimeout(r,2600))]);
-// puzzle: a word with 2 or more syllables (its book "parts") becomes TWO pieces: 2 parts = one each, 3 = 2+1, 4 = 2+2 ...; a piece is said as its parts one after the other
-function epPuz(v){ const P=(v.parts||[]).filter(x=>x&&x.t); if(P.length<2) return null; const k=Math.ceil(P.length/2), g=[P.slice(0,k),P.slice(k)];
-  if(!g.every(a=>a.length&&a.every(x=>x.audio))) return null;
-  return g.map(a=>({t:a.map(x=>x.t).join(''),audio:a.map(x=>x.audio)})); }
+// puzzle: a word with 2 or more syllables (its book "parts") becomes ONE piece per syllable (tomato = to-ma-to = 3 pieces); a piece is said with its syllable's sound
+function epPuz(v){ const P=(v.parts||[]).filter(x=>x&&x.t); if(P.length<2||!P.every(x=>x.audio)) return null;
+  return P.map(x=>({t:x.t,audio:[x.audio]})); }
 const EP_CAN={
   missing:(v)=>epIdx(v.word).length>=3,
   order:(v)=>epIdx(v.word).length>=3,
@@ -3380,7 +3474,7 @@ function epHelpBtn(fn){   // the Help bulb always stands right beside the speake
 function epShow(){
   const q=ep.qs[ep.i], st=$('#stage'); stopVoice(); const run=ep.run; ep.busy=false; hideHint();   // (stopVoice makes a new run number: the question before can no longer act)
   const s=ewSubjOf(q.v.lid||'')||SUBJECT; if(s&&SUBJECT!==s){ SUBJECT=s; subjDir(); }
-  st.innerHTML=''; const w=el('div','quiz ep'), say=typeof SAY_LN==='string'?SAY_LN:ICON.sound, task=q.t==='missing'&&q.hide.length>1?'missing2':q.t, lg=EW_SUBJ[(ewSubjOf(q.v.lid||'')||{}).id]?.lang==='ar'?'ar':'en';
+  if(kbTyping()) kbKeep(); st.innerHTML=''; const w=el('div','quiz ep'), say=typeof SAY_LN==='string'?SAY_LN:ICON.sound, task=q.t==='missing'&&q.hide.length>1?'missing2':q.t, lg=EW_SUBJ[(ewSubjOf(q.v.lid||'')||{}).id]?.lang==='ar'?'ar':'en';
   w.dataset.type=q.t==='match'?'link':q.t==='puzzle'?'puzzle':'type'; w.dataset.ep=q.t; w.lang=EW_SUBJ[(ewSubjOf(q.v.lid||'')||{}).id]?.lang==='ar'?'ar':'en';
   w.innerHTML=`<div class="qhead"><span class="qtask">${EP_TASK[lg][task]}</span></div><div class="qdots"></div>
     <div class="qword" dir="ltr"><b></b><button class="qsay" aria-label="اسمع">${say}</button></div><div class="qplay"></div><div class="qans"></div>`;
@@ -3391,7 +3485,7 @@ function epShow(){
   // the header is read once when a new group (exercise) starts, and again when it is tapped (same as the curriculum app's qTask)
   const tk=$('.qtask',w), say_task=()=>{ tk.classList.add('lit'); const dn=()=>tk.classList.remove('lit'); return tts(EP_TASK[lg][task],lg,.85).then(dn,dn); };
   ep.taskP=ep.lastG!==q.g?say_task():Promise.resolve(); ep.lastG=q.g; tk.addEventListener('click',()=>{ if(!ep.busy) say_task(); });
-  ({missing:epMissing,order:epOrder,picture:epPicture,match:epMatch,puzzle:epPuzzle})[q.t](q,w,run); lnavPaint();
+  ({missing:epMissing,order:epOrder,picture:epPicture,match:epMatch,puzzle:epPuzzle})[q.t](q,w,run); lnavPaint(); if(q.t==='order'||q.t==='match'||q.t==='puzzle') kbDrop();
   if(anim) G.fromTo(w,{opacity:0,y:14},{opacity:1,y:0,duration:.25});
 }
 // the right answer: celebrate, say the word, record it for the report, next question
@@ -3401,7 +3495,8 @@ async function epRight(q,w,run,wordsOk){
   if(q.t==='match') wordsOk.forEach(x=>ewRec(x.v,x.ok)); else ewRec(q.v,!q.bad);
   q.done=1; const d=$(`.qdots i[data-i="${ep.i}"]`,w); if(d){ d.innerHTML=STAR(true); d.classList.add('got'); if(anim) G.fromTo(d,{scale:1.8},{scale:1,duration:.6,ease:'elastic.out(1.2,.4)'}); }
   celebrate(q.t==='match'?$('.epm',w):q.t==='puzzle'?($('.qxpword',w)||w):($('.qword b',w)||w));
-  try{ const ip=$('#qin'); if(ip) ip.blur(); if(q.t!=='match'&&q.t!=='puzzle') await epSay(q.v); await epWait(900,run); }catch(e){ return; }
+  { const nq=ep.qs[ep.i+1], ip=$('#qin'); if(nq&&(nq.t==='missing'||nq.t==='picture')) { if(!ip||document.activeElement!==ip) kbKeep(); } else if(ip) ip.blur(); }
+  try{ if(q.t!=='match'&&q.t!=='puzzle') await epSay(q.v); await epWait(900,run); }catch(e){ return; }
   if(run!==ep.run) return;
   if(ep.i<ep.qs.length-1){ ep.i++; epShow(); } else epFinish();
 }
@@ -3426,7 +3521,7 @@ function epTyper(q,w,hide,run){
   });
   $('.qword',w).addEventListener('click',e=>{ if(!e.target.closest('.qsay')) inp.focus({preventScroll:true}); });
   epHelpBtn(()=>{ if(k>=hide.length) return; const b=lt(hide[k]); if(!b) return; b.classList.add('peek'); setTimeout(()=>b.classList.remove('peek'),tokMs('--help-letter-ms',1500)); inp.focus({preventScroll:true}); });
-  setTimeout(()=>{ if(run===ep.run&&tab==='practice') inp.focus({preventScroll:true}); },250);   // (a phone only opens the keyboard right after a tap; the first question comes from a tap on the Practice tab)
+  inp.focus({preventScroll:true}); setTimeout(()=>{ if(run===ep.run&&tab==='practice'&&document.activeElement!==inp) inp.focus({preventScroll:true}); },250);   // (a phone only opens the keyboard right after a tap; the first question comes from a tap on the Practice tab)
   return inp;
 }
 function epPic(q,w){ if(q.v.img){ $('.qplay',w).append(el('div','qpic one',`<img src="${q.v.img}" alt=""${/\.png$/i.test(q.v.img)?' class="cut"':''}>`)); } }
@@ -3447,7 +3542,7 @@ function epOrder(q,w,run){
     ans.append(b); });
   epHelpBtn(()=>{ const want=gl[ix[k]]; const hit=$$('.eptile:not(.used)',ans).find(b=>{ const g=gl[+b.dataset.i]; return ar?sameLetter(g,want):g.toLowerCase()===want.toLowerCase(); }); if(hit){ hit.classList.add('glow'); setTimeout(()=>hit.classList.remove('glow'),tokMs('--help-pick-ms',2000)); } });
 }
-// 5) puzzle: the picture on top, an empty two-piece frame, two pieces to drag in (the curriculum app's own merge puzzle board, js/puzzle.js); the whole word is said as ONE clip when it is complete
+// 5) puzzle: the picture on top, an empty frame with one place per syllable, the pieces to drag in (the curriculum app's own merge puzzle board, js/puzzle.js); the whole word is said as ONE clip when it is complete
 function epPuzzle(q,w,run){
   const ar=!!(SUBJECT&&SUBJECT.rtl), pz=epPuz(q.v), qp=$('.qplay',w); $('.qword',w).hidden=true; epPic(q,w);
   const seq=async fs=>{ const vr=vs.run; for(const f of fs){ if(vr!==vs.run||run!==ep.run) return; await playFile(f); } };

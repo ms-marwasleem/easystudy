@@ -130,8 +130,9 @@ async function bookGo(n,k){
   $('#pagePad').hidden=true; SUBJECT=e.subject; if(e.exam) return openExam(e.lesson,e.exam); bookOpen(e.lesson,e.tab,n);
 }
 // open a lesson at the part that matches a book page (Questions: at the first question from that page)
-async function bookOpen(lesson,t,page){
-  await openLesson(lesson); if($('#lesson').hidden) return; if(page) setLast(lesson.id,page);
+async function bookOpen(lesson,t,page,_ok){
+  if(!_ok&&lockGuard(lesson,()=>bookOpen(lesson,t,page,1))) return;   // js/coins.js: a page of a locked lesson shows the locked popup, never opens
+  await openLesson(lesson,1); if($('#lesson').hidden) return; if(page) setLast(lesson.id,page);
   if(isAL()&&(t==='read'||t==='booklet'||t==='quiz')){ await qLoad(); qPick(t==='read'?'lesson':t==='quiz'?'bq':'booklet'); const i=qz.list.findIndex(q=>q.set.page===page); switchTab(t,i<0?0:i); return; }   // English AL: a book / booklet page opens at its first part
   if(BOOKOF(t)!=='book'||t==='quiz'){ const k=BOOKOF(t); await qLoad(); const has=k==='book'||qz.all.some(q=>qSrcOf(q.set)===k); switchTab(has&&['workbook','booklet'].includes(k)?k:'quiz',has?qFirstOnPage(page,k):0);
     if(!has) message('Soon!',`${BOOKNAME(k)} questions are coming soon!`,`<span class="car">${CAR('sad')}</span>`); }

@@ -209,6 +209,9 @@ button.qpic{cursor:pointer}
 .qlink.cols .qlkp::before{left:-0.5rem;top:50%;transform:translateY(-50%)}
 .qlink.cols .qlkp{justify-content:flex-end;align-items:center}
 .qlink.cols .qlkp img{max-height:96%;max-width:100%}
+/* Safari/iPhone: a percentage max-width/height on a picture inside a shrink-wrapped button collapses it to nothing (only the dot showed, Easy Words 2026-11-20). The picture button gets a definite size (the grid row is already definite) and the picture fills it, fitted. */
+.qlink.cols .qlkp:not(.tx){width:min(100%,46cqw);position:relative}
+.qlink.cols .qlkp:not(.tx) img{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;object-position:right center}
 
 /* choice: the picture, the question beside it and the answer under it with two words to choose from; the right word is circled */
 .quiz[data-type="choice"] .qplay{gap:clamp(0.875rem,4vw,2.75rem)}

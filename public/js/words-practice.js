@@ -9,10 +9,9 @@ const epShuffle=a=>{ const b=a.slice(); for(let i=b.length-1;i>0;i--){ const j=M
 const epGl=w=>glyphs(String(w)), epIdx=w=>epGl(w).map((g,i)=>g===' '?-1:i).filter(i=>i>=0);   // glyph numbers that are letters (not spaces)
 const epWait=(ms,run)=>new Promise((ok,no)=>setTimeout(()=>run===ep.run?ok():no('stop'),ms));
 const epSay=v=>Promise.race([sayWord(v).catch(()=>0),new Promise(r=>setTimeout(r,2600))]);
-// puzzle: a word with 2 or more syllables (its book "parts") becomes TWO pieces: 2 parts = one each, 3 = 2+1, 4 = 2+2 ...; a piece is said as its parts one after the other
-function epPuz(v){ const P=(v.parts||[]).filter(x=>x&&x.t); if(P.length<2) return null; const k=Math.ceil(P.length/2), g=[P.slice(0,k),P.slice(k)];
-  if(!g.every(a=>a.length&&a.every(x=>x.audio))) return null;
-  return g.map(a=>({t:a.map(x=>x.t).join(''),audio:a.map(x=>x.audio)})); }
+// puzzle: a word with 2 or more syllables (its book "parts") becomes ONE piece per syllable (tomato = to-ma-to = 3 pieces); a piece is said with its syllable's sound
+function epPuz(v){ const P=(v.parts||[]).filter(x=>x&&x.t); if(P.length<2||!P.every(x=>x.audio)) return null;
+  return P.map(x=>({t:x.t,audio:[x.audio]})); }
 const EP_CAN={
   missing:(v)=>epIdx(v.word).length>=3,
   order:(v)=>epIdx(v.word).length>=3,
@@ -62,7 +61,7 @@ function epHelpBtn(fn){   // the Help bulb always stands right beside the speake
 function epShow(){
   const q=ep.qs[ep.i], st=$('#stage'); stopVoice(); const run=ep.run; ep.busy=false; hideHint();   // (stopVoice makes a new run number: the question before can no longer act)
   const s=ewSubjOf(q.v.lid||'')||SUBJECT; if(s&&SUBJECT!==s){ SUBJECT=s; subjDir(); }
-  st.innerHTML=''; const w=el('div','quiz ep'), say=typeof SAY_LN==='string'?SAY_LN:ICON.sound, task=q.t==='missing'&&q.hide.length>1?'missing2':q.t, lg=EW_SUBJ[(ewSubjOf(q.v.lid||'')||{}).id]?.lang==='ar'?'ar':'en';
+  if(kbTyping()) kbKeep(); st.innerHTML=''; const w=el('div','quiz ep'), say=typeof SAY_LN==='string'?SAY_LN:ICON.sound, task=q.t==='missing'&&q.hide.length>1?'missing2':q.t, lg=EW_SUBJ[(ewSubjOf(q.v.lid||'')||{}).id]?.lang==='ar'?'ar':'en';
   w.dataset.type=q.t==='match'?'link':q.t==='puzzle'?'puzzle':'type'; w.dataset.ep=q.t; w.lang=EW_SUBJ[(ewSubjOf(q.v.lid||'')||{}).id]?.lang==='ar'?'ar':'en';
   w.innerHTML=`<div class="qhead"><span class="qtask">${EP_TASK[lg][task]}</span></div><div class="qdots"></div>
     <div class="qword" dir="ltr"><b></b><button class="qsay" aria-label="اسمع">${say}</button></div><div class="qplay"></div><div class="qans"></div>`;
@@ -73,7 +72,7 @@ function epShow(){
   // the header is read once when a new group (exercise) starts, and again when it is tapped (same as the curriculum app's qTask)
   const tk=$('.qtask',w), say_task=()=>{ tk.classList.add('lit'); const dn=()=>tk.classList.remove('lit'); return tts(EP_TASK[lg][task],lg,.85).then(dn,dn); };
   ep.taskP=ep.lastG!==q.g?say_task():Promise.resolve(); ep.lastG=q.g; tk.addEventListener('click',()=>{ if(!ep.busy) say_task(); });
-  ({missing:epMissing,order:epOrder,picture:epPicture,match:epMatch,puzzle:epPuzzle})[q.t](q,w,run); lnavPaint();
+  ({missing:epMissing,order:epOrder,picture:epPicture,match:epMatch,puzzle:epPuzzle})[q.t](q,w,run); lnavPaint(); if(q.t==='order'||q.t==='match'||q.t==='puzzle') kbDrop();
   if(anim) G.fromTo(w,{opacity:0,y:14},{opacity:1,y:0,duration:.25});
 }
 // the right answer: celebrate, say the word, record it for the report, next question
@@ -83,7 +82,8 @@ async function epRight(q,w,run,wordsOk){
   if(q.t==='match') wordsOk.forEach(x=>ewRec(x.v,x.ok)); else ewRec(q.v,!q.bad);
   q.done=1; const d=$(`.qdots i[data-i="${ep.i}"]`,w); if(d){ d.innerHTML=STAR(true); d.classList.add('got'); if(anim) G.fromTo(d,{scale:1.8},{scale:1,duration:.6,ease:'elastic.out(1.2,.4)'}); }
   celebrate(q.t==='match'?$('.epm',w):q.t==='puzzle'?($('.qxpword',w)||w):($('.qword b',w)||w));
-  try{ const ip=$('#qin'); if(ip) ip.blur(); if(q.t!=='match'&&q.t!=='puzzle') await epSay(q.v); await epWait(900,run); }catch(e){ return; }
+  { const nq=ep.qs[ep.i+1], ip=$('#qin'); if(nq&&(nq.t==='missing'||nq.t==='picture')) { if(!ip||document.activeElement!==ip) kbKeep(); } else if(ip) ip.blur(); }
+  try{ if(q.t!=='match'&&q.t!=='puzzle') await epSay(q.v); await epWait(900,run); }catch(e){ return; }
   if(run!==ep.run) return;
   if(ep.i<ep.qs.length-1){ ep.i++; epShow(); } else epFinish();
 }
@@ -108,7 +108,7 @@ function epTyper(q,w,hide,run){
   });
   $('.qword',w).addEventListener('click',e=>{ if(!e.target.closest('.qsay')) inp.focus({preventScroll:true}); });
   epHelpBtn(()=>{ if(k>=hide.length) return; const b=lt(hide[k]); if(!b) return; b.classList.add('peek'); setTimeout(()=>b.classList.remove('peek'),tokMs('--help-letter-ms',1500)); inp.focus({preventScroll:true}); });
-  setTimeout(()=>{ if(run===ep.run&&tab==='practice') inp.focus({preventScroll:true}); },250);   // (a phone only opens the keyboard right after a tap; the first question comes from a tap on the Practice tab)
+  inp.focus({preventScroll:true}); setTimeout(()=>{ if(run===ep.run&&tab==='practice'&&document.activeElement!==inp) inp.focus({preventScroll:true}); },250);   // (a phone only opens the keyboard right after a tap; the first question comes from a tap on the Practice tab)
   return inp;
 }
 function epPic(q,w){ if(q.v.img){ $('.qplay',w).append(el('div','qpic one',`<img src="${q.v.img}" alt=""${/\.png$/i.test(q.v.img)?' class="cut"':''}>`)); } }
@@ -129,7 +129,7 @@ function epOrder(q,w,run){
     ans.append(b); });
   epHelpBtn(()=>{ const want=gl[ix[k]]; const hit=$$('.eptile:not(.used)',ans).find(b=>{ const g=gl[+b.dataset.i]; return ar?sameLetter(g,want):g.toLowerCase()===want.toLowerCase(); }); if(hit){ hit.classList.add('glow'); setTimeout(()=>hit.classList.remove('glow'),tokMs('--help-pick-ms',2000)); } });
 }
-// 5) puzzle: the picture on top, an empty two-piece frame, two pieces to drag in (the curriculum app's own merge puzzle board, js/puzzle.js); the whole word is said as ONE clip when it is complete
+// 5) puzzle: the picture on top, an empty frame with one place per syllable, the pieces to drag in (the curriculum app's own merge puzzle board, js/puzzle.js); the whole word is said as ONE clip when it is complete
 function epPuzzle(q,w,run){
   const ar=!!(SUBJECT&&SUBJECT.rtl), pz=epPuz(q.v), qp=$('.qplay',w); $('.qword',w).hidden=true; epPic(q,w);
   const seq=async fs=>{ const vr=vs.run; for(const f of fs){ if(vr!==vs.run||run!==ep.run) return; await playFile(f); } };

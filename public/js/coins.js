@@ -109,15 +109,32 @@ const balLine=n=>`<div class="coinbig" dir="ltr"><span class="ic">${COIN}</span>
 
 /* ---------- popups (one overlay of our own, the app's popup look) ---------- */
 function coinPop(html,onOpen){
-  let o=$('#coinPop'); if(!o){ o=el('div','overlay'); o.id='coinPop'; document.body.append(o); o.addEventListener('click',e=>{ if(e.target===o) coinClose(); }); }
+  let o=$('#coinPop'); if(!o){ o=el('div','overlay'); o.id='coinPop'; document.body.append(o); o.addEventListener('click',e=>{ if(e.target===o) coinDismiss(); }); }
   o.classList.remove('pro'); o.innerHTML=`<div class="rays"></div><div class="popup coinpop" role="dialog"><button class="rb popx" aria-label="Close" data-icon="close">${ICON.close}</button>${html}</div>`;
-  $('.popx',o).addEventListener('click',coinClose); o.hidden=false; if(typeof spinRays==='function') spinRays(o);
+  $('.popx',o).addEventListener('click',coinDismiss); o.hidden=false; if(typeof spinRays==='function') spinRays(o);
   if(anim) G.from($('.popup',o),{scale:.6,opacity:0,duration:.35,ease:'back.out(2)'});
   if(onOpen) onOpen($('.popup',o));
 }
 // the same popup in the calm parent-area look (white card, flat buttons; css/account.css .pro)
 function coinPopPro(html,onOpen){ coinPop(html,p=>{ p.parentNode.classList.add('pro'); if(onOpen) onOpen(p); }); }
 const coinClose=()=>{ const o=$('#coinPop'); if(o) o.hidden=true; };
+// the X / a tap outside a lock popup opened by lockGuard (a page of a locked lesson): back to the map
+let lockBack=null;
+const coinDismiss=()=>{ coinClose(); const f=lockBack; lockBack=null; if(f) f(); };
+/* EVERY way into a lesson or one of its pages (map sign, page picker, deep link, resume, an Easy Words word) goes through here (Ahmed 2026-11-20).
+   A locked lesson (or a lesson of a locked unit) does NOT open: the same locked popup (credits / term subscription) shows; unlocked -> resume() opens what was asked, closed -> the map. Returns true when blocked. */
+function lockGuard(m,resume,isWords){
+  if(!m||!m.id||m.testsOnly||!m.file&&!isWords) return false;
+  const id='l:'+m.id; let st=coinAccess(m,true,id,0,'lesson').st;
+  if(st==='open'&&!isWords&&typeof SUBJECT!=='undefined'&&SUBJECT&&SUBJECT.units&&!((ESET.items||{})[id]||{}).st&&!coinUnlocked(id)){
+    const u=SUBJECT.units.find(x=>x.unit===m.unit);
+    if(u&&coinAccess(u,true,'u:'+SUBJECT.id+':'+u.unit,SUBJECT.units.indexOf(u),'unit').st==='locked') st='locked'; }
+  if(st!=='locked') return false;
+  const back=()=>{ if(typeof openMap==='function') openMap(); };
+  lockBack=back;
+  lockTap('lesson',m,coinAccess(m,true,id,0,'lesson').coins,`<span class="jlockbig">${typeof LOCK!=='undefined'?LOCK:''}</span>`,()=>{ lockBack=null; if(resume) resume(); else back(); });
+  return true;
+}
 const bigCoins=balLine;
 
 // a grown-up question first (Ahmed 2026-11-11, replaces typing the parent's name): 3 numbers written as ARABIC WORDS ("واحد - ثلاثة - خمسة"); the parent taps them on a keypad.

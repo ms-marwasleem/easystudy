@@ -217,7 +217,8 @@ function fixPaths(L,file){
   if(L.letter&&typeof fixLetterPaths==='function') fixLetterPaths(L.letter,R);
   return L;
 }
-async function openLesson(m){
+async function openLesson(m,_ok){
+  if(!_ok&&lockGuard(m,()=>openLesson(m,1))) return;   // js/coins.js: a locked lesson shows the locked popup instead
   stopVoice(); markOpened(m.id);
   if(!LESSON || LESSON.id!==m.id){
     busy(true);
@@ -660,6 +661,14 @@ const wsLang=t=>/[؀-ۿ]/.test(String(t||''))?'ar':'en';
 function wsInput(inp,text,lang){ lang=lang||wsLang(text); inp.lang=lang; inp.setAttribute('lang',lang); inp.dir=lang==='ar'?'rtl':'ltr';
   inp.setAttribute('inputmode',/^\d+$/.test(String(text||''))?'numeric':'text');
   ['autocorrect','autocapitalize','autocomplete'].forEach(a=>inp.setAttribute(a,'off')); inp.spellcheck=false; return inp; }
+// keyboard keeper (Ahmed 2026-11-20): a phone only opens the keyboard from a tap, and a typing box that is removed closes it. One off-screen box holds the keyboard open
+// while a question is replaced (or when the tap that ends a tile/link question is about to be followed by a typing question); the next typing box takes the focus from it.
+function kbKeep(){ let k=document.getElementById('kbkeep'); if(!k){ k=document.createElement('input'); k.id='kbkeep'; k.type='text'; k.setAttribute('aria-hidden','true'); k.tabIndex=-1;
+    ['autocorrect','autocapitalize','autocomplete'].forEach(a=>k.setAttribute(a,'off')); k.setAttribute('enterkeyhint','done'); k.readOnly=false;
+    k.style.cssText='position:fixed;left:0;top:0;width:1px;height:1px;opacity:0;border:0;padding:0;margin:0;font-size:16px;pointer-events:none;'; document.body.append(k); }
+  try{ k.focus({preventScroll:true}); }catch(e){} return k; }
+function kbDrop(){ const k=document.getElementById('kbkeep'); if(k&&document.activeElement===k) k.blur(); }
+const kbTyping=()=>{ const a=document.activeElement; return !!(a&&a.tagName==='INPUT'&&a.id&&a.id!=='kbkeep'&&/^(qin|qxin|vin)$/.test(a.id)); };
 // the lowest fixed thing above the typing word: the question title, or the progress stars under it (the stars stay visible while typing)
 function qTopEl(){ const h=$('.quiz .qhead'), d=$('.quiz .qdots'); return d&&d.offsetHeight&&!document.body.classList.contains('ws-tight')&&h&&d.getBoundingClientRect().bottom>h.getBoundingClientRect().bottom?d:h; }
 function wsParts(){ const a=document.activeElement, id=a&&a.id; if(!WS_IN.includes(id)) return null;
@@ -1665,7 +1674,7 @@ function qxFit(box){ if(!box.isConnected) return; box.style.gap=''; const cs=get
   const used=kids.reduce((a,e)=>{ const st=getComputedStyle(e); return a+e.getBoundingClientRect().height+parseFloat(st.marginTop)+parseFloat(st.marginBottom); },0), g=parseFloat(cs.rowGap)||0, free=box.clientHeight-used;
   if(free<g*(kids.length-1)) box.style.gap=Math.max(4,Math.floor(free/(kids.length-1)))+'px'; }
 function qxGo(w,q,i,run){
-  const s=q.set, play=$('.qplay',w), ans=$('.qans',w); play.innerHTML=''; ans.innerHTML=''; $('.qword b',w).innerHTML='';
+  const s=q.set, play=$('.qplay',w), ans=$('.qans',w); if(kbTyping()) kbKeep(); play.innerHTML=''; ans.innerHTML=''; $('.qword b',w).innerHTML='';
   const box=el('div','qx qx-'+s.type+(s.sentence?' sent':'')); play.append(box);
   const m=QM[s.type], quiet=()=>q.together||q.hush||m.own; { const qw=$('.qword',w); if(qw) qw.hidden=!!m.noword; const ts=$('.qtsay',w); if(ts) ts.hidden=!!m.notsay; }
   let sp=null; if(!quiet()&&(q.audio||q.word)){ sp=el('button','qsay qxsay',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>s.type==='qa'?qxQAPlay(q,qz.run):qSay(); }
@@ -1674,7 +1683,7 @@ function qxGo(w,q,i,run){
   // the listen icon sits right beside the thing that is read (the word / sentence); with no word (circles, a picture) it sits on the picture's corner
   if(sp&&!q.hush){ const tg=$('.qxline',box)||$('.qxw',box)||$('.qxqa',box)||$('.qxcircles',box);
     if(tg){ const row=el('div','qxrow'); tg.before(row); row.append(sp,tg); } else { const pc=$('.qxpic',box); (pc||box).append(sp); sp.classList.add('onpic'); } }
-  { const wi=$('#qxin'); if(wi&&s.type==='write') wi.focus({preventScroll:true}); }   // moving the line into the speaker row dropped the focus: the keyboard opens with the question
+  { const wi=$('#qxin'); if(wi&&s.type==='write') wi.focus({preventScroll:true}); else if(!(wi&&document.activeElement===wi)) kbDrop(); }   // moving the line into the speaker row dropped the focus: the keyboard opens with the question
   if(!m.own){ requestAnimationFrame(()=>qxFit(box)); $$('img',box).forEach(im=>{ if(!im.complete) im.addEventListener('load',()=>qxFit(box),{once:true}); }); }
   qLayout(); carFrac(i/qz.list.length);
   setTimeout(async()=>{ if(run!==qz.run||!inQ()) return; if(qNewEx()) await qTask(); if(run===qz.run&&inQ()&&box._after) await box._after(); if(run===qz.run&&inQ()&&!quiet()&&qAuto(q)&&!(qNewEx()&&qHdrOnly(q))) s.type==='qa'?qxQAPlay(q,run):qSay(); },350);
@@ -2891,8 +2900,9 @@ async function bookGo(n,k){
   $('#pagePad').hidden=true; SUBJECT=e.subject; if(e.exam) return openExam(e.lesson,e.exam); bookOpen(e.lesson,e.tab,n);
 }
 // open a lesson at the part that matches a book page (Questions: at the first question from that page)
-async function bookOpen(lesson,t,page){
-  await openLesson(lesson); if($('#lesson').hidden) return; if(page) setLast(lesson.id,page);
+async function bookOpen(lesson,t,page,_ok){
+  if(!_ok&&lockGuard(lesson,()=>bookOpen(lesson,t,page,1))) return;   // js/coins.js: a page of a locked lesson shows the locked popup, never opens
+  await openLesson(lesson,1); if($('#lesson').hidden) return; if(page) setLast(lesson.id,page);
   if(isAL()&&(t==='read'||t==='booklet'||t==='quiz')){ await qLoad(); qPick(t==='read'?'lesson':t==='quiz'?'bq':'booklet'); const i=qz.list.findIndex(q=>q.set.page===page); switchTab(t,i<0?0:i); return; }   // English AL: a book / booklet page opens at its first part
   if(BOOKOF(t)!=='book'||t==='quiz'){ const k=BOOKOF(t); await qLoad(); const has=k==='book'||qz.all.some(q=>qSrcOf(q.set)===k); switchTab(has&&['workbook','booklet'].includes(k)?k:'quiz',has?qFirstOnPage(page,k):0);
     if(!has) message('Soon!',`${BOOKNAME(k)} questions are coming soon!`,`<span class="car">${CAR('sad')}</span>`); }
@@ -3028,7 +3038,8 @@ const X={base:location.href,qs:[],pages:[],run:0,links:[]};
 const xNorm=s=>String(s==null?'':s).replace(/[\u0660-\u0669]/g,d=>d.charCodeAt(0)-0x660).replace(new RegExp('['+AR_MARKS+'\\u0640]','g'),'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').toLowerCase().trim().replace(/\s+/g,' ');
 
 // ---------- open / build ----------
-async function openExam(lesson,ex){
+async function openExam(lesson,ex,_ok){
+  if(!_ok&&lockGuard(lesson,()=>openExam(lesson,ex,1))) return;   // js/coins.js
   stopAll(); vStop(); busy(true);
   let d; try{ X.base=new URL(ex.file,location.href).href; d=await get(ex.file); if(ex.only) d={...d,pages:(d.pages||[]).filter((_,i)=>ex.only.includes(i))}; }catch(e){ busy(false); message('Oops!','This paper did not load. Check the internet and try again.'); return; }
   await vpLoad(isAr()?null:new URL('.',X.base).href);
@@ -3156,7 +3167,7 @@ function xBlank(spec,Q){
   const a={solved:false,el:w,help(){ if(a.solved) return null; w.classList.add('help'); return ()=>w.classList.remove('help'); }}; Q.atoms.push(a);
   let idle=0;
   const win=()=>{ clearTimeout(idle); if(a.solved) return; inp.readOnly=true; inp.tabIndex=-1; w.classList.add('ok'); xYay(w); xAtomDone(Q,a);
-    const all=$$('.xbl:not(.ok) .xin',$('#xPages')), nx=all.find(i=>w.compareDocumentPosition(i)&Node.DOCUMENT_POSITION_FOLLOWING); if(nx&&!isIOS()) setTimeout(()=>nx.focus({preventScroll:false}),250); else inp.blur(); };
+    const all=$$('.xbl:not(.ok) .xin',$('#xPages')), nx=all.find(i=>w.compareDocumentPosition(i)&Node.DOCUMENT_POSITION_FOLLOWING); if(nx){ if(isIOS()) nx.focus({preventScroll:true}); else setTimeout(()=>nx.focus({preventScroll:false}),250); } else inp.blur(); };   // (iOS: the next blank takes the focus inside the typing event, so the keyboard stays open)
   const bad=()=>{ clearTimeout(idle); if(a.solved||!inp.value) return; xWarn(w); setTimeout(()=>{ inp.value=''; inp.focus({preventScroll:true}); },800); };
   inp.addEventListener('input',()=>{ clearTimeout(idle); if(!inp.value||a.solved) return; if(test(inp.value)) return win(); if(rm){ if(inp.value.length>=2) idle=setTimeout(bad,900); else idle=setTimeout(bad,1400); } else if(xNorm(inp.value).length>=max) bad(); });
   inp.addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); test(inp.value)?win():bad(); } });

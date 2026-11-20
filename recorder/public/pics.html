@@ -66,6 +66,7 @@ body:not(.in) main>section:not(#gate),body:not(.in) main>.how,body:not(.in) main
 
 .line.deleted{opacity:.45}.line.deleted .th{filter:grayscale(1)}
 a.ib{text-decoration:none}
+.ib.wide{width:auto;border-radius:20px;padding:0 14px;gap:6px;font-size:15px;font-family:inherit}
 .req .big{font-size:26px}
 .req .tx small{direction:rtl;text-align:right}
 .req .th{background:repeating-conic-gradient(#eee 0 25%,#fff 0 50%) 0 0/16px 16px}
@@ -74,7 +75,7 @@ a.ib{text-decoration:none}
 <main>
  <div class="tabs"><a href="index.html">مكتبة العربي</a><a href="en.html">مكتبة الإنجليزي</a><b>مكتبة الصور</b></div>
  <h1>مكتبة الصور</h1>
- <p class="how">كل صور التطبيق هنا (التطبيقين)، صورة واحدة لكل شيء وكل المواد والدروس بتستخدمها. لو عايز تغيّر صورة: ارفع صورة جديدة (السهم) وهتظهر في التطبيق على طول بدون أي نشر. «رجوع للأصلية» يرجّع الصورة اللي في التطبيق. الأيقونة الحمرا (سلة) بتعلّم الصورة للحذف، والسهم لأسفل بيحمّلها. المكتبة مقسّمة: أشكال شفافة، مشاهد، وإنجليش AL.</p>
+ <p class="how">كل صور التطبيق هنا (التطبيقين)، صورة واحدة لكل شيء وكل المواد والدروس بتستخدمها. لو عايز تغيّر صورة: ارفع صورة جديدة (السهم) وهتظهر في التطبيق على طول بدون أي نشر. «رجوع للأصلية» يرجّع الصورة اللي في التطبيق. زر «استبدال» بيرفع صورة جديدة مكان الصورة والتطبيق بيستخدمها فورا. السهم لأسفل لتنزيل الصورة الحالية. الأيقونة الحمرا (سلة) بتعلّم الصورة للحذف، والسهم لأسفل بيحمّلها. المكتبة مقسّمة: أشكال شفافة، مشاهد، وإنجليش AL.</p>
  <div id="msg" role="status"></div>
  <section class="sec" id="gate"><h2>كلمة السر</h2><div class="add"><input type="text" id="pw" placeholder="كلمة السر" autocomplete="off"><button class="btn" id="pwbtn">دخول</button></div><p class="how" id="pwnote"></p></section>
  <section class="sec"><div class="add"><input type="text" id="find" placeholder="ابحث (اسم الصورة أو الدرس)" autocomplete="off" style="direction:ltr"></div>
@@ -132,7 +133,7 @@ function line(it){
  const th=mk('span','th'); const im=mk('img'); im.loading='lazy'; im.alt=''; im.src=src(it.path); th.append(im); l.append(th);
  const tx=mk('span','tx'); tx.innerHTML='<span class="en">'+esc(it.label)+'</span><small>'+esc(it.w+'×'+it.h)+(it.n?' · مستخدمة في '+it.n+' ملف':' · غير مستخدمة')+'</small>'; l.append(tx);
  l.append(mk('span','tag'+(m?' mine':''),mine?'مغيّرة':al?'بتستخدم '+esc(al.replace(/^pics\//,'')):it.g==='need'?'مطلوبة (مؤقتة)':'الأصلية'));
- const w=mk('span','ctl'); const u=mk('label','ib',ICON.up); u.title='رفع صورة جديدة'; const i=mk('input'); i.type='file'; i.accept='image/*'; i.onchange=async()=>{ if(i.files[0]) await upload(it,i.files[0]); i.value=''; }; u.append(i); w.append(u); l.append(w);
+ const w=mk('span','ctl'); const u=mk('label','ib wide',ICON.up+'<span>استبدال</span>'); u.title='ارفع صورة جديدة بدل دي، والتطبيق يستخدمها'; const i=mk('input'); i.type='file'; i.accept='image/*'; i.onchange=async()=>{ if(i.files[0]) await upload(it,i.files[0]); i.value=''; }; u.append(i); w.append(u); l.append(w);
  const dl=mk('a','ib',ICON.dl); dl.title='تحميل الصورة'; dl.href=src(it.path); dl.download=it.label+(it.path.match(/\.\w+$/)||['.png'])[0]; dl.target='_blank'; w.append(dl);
  const isDel=!!dels[idOf(it.path)]; l.dataset.del=isDel?'1':''; if(isDel) l.classList.add('deleted');
  const bn=mk('button','ib rec'+(isDel?' live':''),ICON.bin); bn.title=isDel?'تراجع عن الحذف':'حذف الصورة من المكتبة'; bn.onclick=()=>markDel(it,!isDel); w.append(bn);

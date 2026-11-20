@@ -15,7 +15,8 @@ function fixPaths(L,file){
   if(L.letter&&typeof fixLetterPaths==='function') fixLetterPaths(L.letter,R);
   return L;
 }
-async function openLesson(m){
+async function openLesson(m,_ok){
+  if(!_ok&&lockGuard(m,()=>openLesson(m,1))) return;   // js/coins.js: a locked lesson shows the locked popup instead
   stopVoice(); markOpened(m.id);
   if(!LESSON || LESSON.id!==m.id){
     busy(true);

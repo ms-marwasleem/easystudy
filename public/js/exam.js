@@ -10,7 +10,8 @@ const X={base:location.href,qs:[],pages:[],run:0,links:[]};
 const xNorm=s=>String(s==null?'':s).replace(/[\u0660-\u0669]/g,d=>d.charCodeAt(0)-0x660).replace(new RegExp('['+AR_MARKS+'\\u0640]','g'),'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').toLowerCase().trim().replace(/\s+/g,' ');
 
 // ---------- open / build ----------
-async function openExam(lesson,ex){
+async function openExam(lesson,ex,_ok){
+  if(!_ok&&lockGuard(lesson,()=>openExam(lesson,ex,1))) return;   // js/coins.js
   stopAll(); vStop(); busy(true);
   let d; try{ X.base=new URL(ex.file,location.href).href; d=await get(ex.file); if(ex.only) d={...d,pages:(d.pages||[]).filter((_,i)=>ex.only.includes(i))}; }catch(e){ busy(false); message('Oops!','This paper did not load. Check the internet and try again.'); return; }
   await vpLoad(isAr()?null:new URL('.',X.base).href);
@@ -138,7 +139,7 @@ function xBlank(spec,Q){
   const a={solved:false,el:w,help(){ if(a.solved) return null; w.classList.add('help'); return ()=>w.classList.remove('help'); }}; Q.atoms.push(a);
   let idle=0;
   const win=()=>{ clearTimeout(idle); if(a.solved) return; inp.readOnly=true; inp.tabIndex=-1; w.classList.add('ok'); xYay(w); xAtomDone(Q,a);
-    const all=$$('.xbl:not(.ok) .xin',$('#xPages')), nx=all.find(i=>w.compareDocumentPosition(i)&Node.DOCUMENT_POSITION_FOLLOWING); if(nx&&!isIOS()) setTimeout(()=>nx.focus({preventScroll:false}),250); else inp.blur(); };
+    const all=$$('.xbl:not(.ok) .xin',$('#xPages')), nx=all.find(i=>w.compareDocumentPosition(i)&Node.DOCUMENT_POSITION_FOLLOWING); if(nx){ if(isIOS()) nx.focus({preventScroll:true}); else setTimeout(()=>nx.focus({preventScroll:false}),250); } else inp.blur(); };   // (iOS: the next blank takes the focus inside the typing event, so the keyboard stays open)
   const bad=()=>{ clearTimeout(idle); if(a.solved||!inp.value) return; xWarn(w); setTimeout(()=>{ inp.value=''; inp.focus({preventScroll:true}); },800); };
   inp.addEventListener('input',()=>{ clearTimeout(idle); if(!inp.value||a.solved) return; if(test(inp.value)) return win(); if(rm){ if(inp.value.length>=2) idle=setTimeout(bad,900); else idle=setTimeout(bad,1400); } else if(xNorm(inp.value).length>=max) bad(); });
   inp.addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); test(inp.value)?win():bad(); } });

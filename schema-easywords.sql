@@ -21,7 +21,8 @@ CREATE TABLE IF NOT EXISTS children (
   progress TEXT NOT NULL DEFAULT '{}',
   progress_at INTEGER NOT NULL DEFAULT 0,
   created INTEGER NOT NULL,
-  deleted INTEGER NOT NULL DEFAULT 0
+  deleted INTEGER NOT NULL DEFAULT 0,
+  sgrant INTEGER NOT NULL DEFAULT 0   -- 1 = the admin let this student use the added curriculum of a school that needs permission
 );
 CREATE INDEX IF NOT EXISTS children_parent ON children(parent_id);
 CREATE TABLE IF NOT EXISTS codes (

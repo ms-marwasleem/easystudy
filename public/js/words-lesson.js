@@ -33,7 +33,8 @@ function ewEnter(L,at){
   $('#lessonTitle').dir=L.virtual||EW_SUBJ[s.id].lang==='ar'?'rtl':'ltr';
   switchTab(L.startTab||'words'); fitTitle(); pop('.l-head > *',{y:-20}); pop('.tabs .tab',{y:30,delay:.1});
 }
-async function ewOpenLesson(id,at){
+async function ewOpenLesson(id,at,_w,_ok){
+  if(!_ok){ const sj=ewSubjOf(id), l=sj&&sj.lessons.find(x=>x.id===id); if(l&&lockGuard(l,()=>ewOpenLesson(id,at,_w,1),true)) return; }   // js/coins.js: a word of a locked lesson shows the locked popup
   stopVoice(); busy(true); let L=null; try{ L=await ewLesson(id); }catch(e){} busy(false);
   if(!L) return message('أوبس!','الدرس ما اتفتحش. اتأكد من النت وجرب تاني.');
   SUBJECT=ewSubjOf(id); EW.cur=SUBJECT; L.virtual=false; ewEnter(L,at);

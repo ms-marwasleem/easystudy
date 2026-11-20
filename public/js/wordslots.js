@@ -37,6 +37,14 @@ const wsLang=t=>/[؀-ۿ]/.test(String(t||''))?'ar':'en';
 function wsInput(inp,text,lang){ lang=lang||wsLang(text); inp.lang=lang; inp.setAttribute('lang',lang); inp.dir=lang==='ar'?'rtl':'ltr';
   inp.setAttribute('inputmode',/^\d+$/.test(String(text||''))?'numeric':'text');
   ['autocorrect','autocapitalize','autocomplete'].forEach(a=>inp.setAttribute(a,'off')); inp.spellcheck=false; return inp; }
+// keyboard keeper (Ahmed 2026-11-20): a phone only opens the keyboard from a tap, and a typing box that is removed closes it. One off-screen box holds the keyboard open
+// while a question is replaced (or when the tap that ends a tile/link question is about to be followed by a typing question); the next typing box takes the focus from it.
+function kbKeep(){ let k=document.getElementById('kbkeep'); if(!k){ k=document.createElement('input'); k.id='kbkeep'; k.type='text'; k.setAttribute('aria-hidden','true'); k.tabIndex=-1;
+    ['autocorrect','autocapitalize','autocomplete'].forEach(a=>k.setAttribute(a,'off')); k.setAttribute('enterkeyhint','done'); k.readOnly=false;
+    k.style.cssText='position:fixed;left:0;top:0;width:1px;height:1px;opacity:0;border:0;padding:0;margin:0;font-size:16px;pointer-events:none;'; document.body.append(k); }
+  try{ k.focus({preventScroll:true}); }catch(e){} return k; }
+function kbDrop(){ const k=document.getElementById('kbkeep'); if(k&&document.activeElement===k) k.blur(); }
+const kbTyping=()=>{ const a=document.activeElement; return !!(a&&a.tagName==='INPUT'&&a.id&&a.id!=='kbkeep'&&/^(qin|qxin|vin)$/.test(a.id)); };
 // the lowest fixed thing above the typing word: the question title, or the progress stars under it (the stars stay visible while typing)
 function qTopEl(){ const h=$('.quiz .qhead'), d=$('.quiz .qdots'); return d&&d.offsetHeight&&!document.body.classList.contains('ws-tight')&&h&&d.getBoundingClientRect().bottom>h.getBoundingClientRect().bottom?d:h; }
 function wsParts(){ const a=document.activeElement, id=a&&a.id; if(!WS_IN.includes(id)) return null;
