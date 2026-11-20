@@ -10,19 +10,28 @@
  "vocab": [],
  "tabs": [
   "read",
-  "quiz"
+  "quiz",
+  "workbook"
  ],
  "tabLabels": {
   "read": "Lesson",
   "quiz": "Exercise"
  },
- "pages": 5,
+ "pages": 13,
  "pageNums": [
   84,
   84,
   84,
   84,
-  84
+  84,
+  84,
+  84,
+  85,
+  85,
+  85,
+  85,
+  85,
+  85
  ],
  "layout": "explain",
  "explain": {
@@ -129,9 +138,19 @@
       "audio": "explain/s21-c.mp3",
       "do": [
        {
-        "add": "20 + 1 = 21",
+        "add": "20",
         "card": true,
         "color": "green"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 21",
+        "card": true,
+        "color": "orange"
        },
        {
         "line": "break"
@@ -257,9 +276,19 @@
       "audio": "explain/s32-c.mp3",
       "do": [
        {
-        "add": "30 + 2 = 32",
+        "add": "30",
         "card": true,
         "color": "green"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 32",
+        "card": true,
+        "color": "orange"
        },
        {
         "line": "break"
@@ -271,6 +300,92 @@
        }
       ],
       "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "Warm Up: bundles",
+    "beats": [
+     {
+      "say": "Warm up! Count and write the number. How many are there?",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l6-wu1.png",
+        "w": 1000,
+        "h": 430,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v6-cf586ba3d2.mp3"
+     },
+     {
+      "say": "Two tens make twenty. Add three more. Twenty and three make twenty-three.",
+      "do": [
+       {
+        "add": "20",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 23",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v6-cb9198fde5.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Warm Up: egg cartons",
+    "beats": [
+     {
+      "say": "Count and write the number. How many eggs are there?",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l6-wu2.png",
+        "w": 1000,
+        "h": 430,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v6-51102b25fd.mp3"
+     },
+     {
+      "say": "Three tens make thirty. Add five more. Thirty and five make thirty-five.",
+      "do": [
+       {
+        "add": "30",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 35",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v6-40905fd7d9.mp3",
+      "gap": 1000
      }
     ]
    },
@@ -353,9 +468,19 @@
       "audio": "explain/s26-c.mp3",
       "do": [
        {
-        "add": "20 + 6 = 26",
+        "add": "20",
         "card": true,
         "color": "green"
+       },
+       {
+        "add": "+ 6",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 26",
+        "card": true,
+        "color": "orange"
        },
        {
         "line": "break"
@@ -457,9 +582,19 @@
       "audio": "explain/s38-c.mp3",
       "do": [
        {
-        "add": "30 + 8 = 38",
+        "add": "30",
         "card": true,
         "color": "green"
+       },
+       {
+        "add": "+ 8",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 38",
+        "card": true,
+        "color": "orange"
        },
        {
         "line": "break"
@@ -471,6 +606,460 @@
        }
       ],
       "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "Try 1",
+    "beats": [
+     {
+      "say": "Try! Count and write the number.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l6-t1.png",
+        "w": 1000,
+        "h": 430,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v6-48e7966b06.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "30",
+          "31",
+          "32"
+         ],
+         "answer": "31"
+        }
+       }
+      ],
+      "audio": "explain/v6-0ef309003c.mp3"
+     },
+     {
+      "say": "Three tens make thirty. Add one more. Thirty and one make thirty-one.",
+      "do": [
+       {
+        "add": "30",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 31",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v6-58fa8bb1e0.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 2",
+    "beats": [
+     {
+      "say": "Try! Count and write the number.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l6-t2.png",
+        "w": 1000,
+        "h": 430,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v6-48e7966b06.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "26",
+          "27",
+          "28"
+         ],
+         "answer": "27"
+        }
+       }
+      ],
+      "audio": "explain/v6-0ef309003c.mp3"
+     },
+     {
+      "say": "Two tens make twenty. Add seven more. Twenty and seven make twenty-seven.",
+      "do": [
+       {
+        "add": "20",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 7",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 27",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v6-d0ac9621bb.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 3",
+    "beats": [
+     {
+      "say": "Try! Count and write the number.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l6-t3.png",
+        "w": 1000,
+        "h": 430,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v6-48e7966b06.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "33",
+          "34",
+          "35"
+         ],
+         "answer": "34"
+        }
+       }
+      ],
+      "audio": "explain/v6-0ef309003c.mp3"
+     },
+     {
+      "say": "Three tens make thirty. Add four more. Thirty and four make thirty-four.",
+      "do": [
+       {
+        "add": "30",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 34",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v6-7a7359aef3.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 4",
+    "beats": [
+     {
+      "say": "Try! Count and write the number.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l6-t4.png",
+        "w": 1000,
+        "h": 430,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v6-48e7966b06.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "28",
+          "29",
+          "30"
+         ],
+         "answer": "29"
+        }
+       }
+      ],
+      "audio": "explain/v6-0ef309003c.mp3"
+     },
+     {
+      "say": "Two tens make twenty. Add nine more. Twenty and nine make twenty-nine.",
+      "do": [
+       {
+        "add": "20",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 9",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 29",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v6-6734be4ec4.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 5: 24",
+    "beats": [
+     {
+      "say": "Try! Write the number. Twenty-four.",
+      "do": [
+       {
+        "scene": "groups",
+        "t": 2,
+        "o": 4,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          30,
+          12,
+          542,
+          148
+         ],
+         "color": "green"
+        }
+       }
+      ],
+      "audio": "explain/v6-8ddab7f727.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "14",
+          "24",
+          "25"
+         ],
+         "answer": "24"
+        }
+       }
+      ],
+      "audio": "explain/v6-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Twenty and four make twenty-four.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          630,
+          12,
+          868,
+          82
+         ],
+         "color": "blue"
+        }
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          663,
+          43
+         ],
+         [
+          721,
+          43
+         ],
+         [
+          779,
+          43
+         ],
+         [
+          837,
+          43
+         ]
+        ],
+        "color": "orange",
+        "r": 20
+       },
+       {
+        "add": "20",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 24",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v6-e00548e434.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 6: 37",
+    "beats": [
+     {
+      "say": "Try! Write the number. Thirty-seven.",
+      "do": [
+       {
+        "scene": "groups",
+        "t": 3,
+        "o": 7,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          30,
+          12,
+          542,
+          210
+         ],
+         "color": "green"
+        }
+       }
+      ],
+      "audio": "explain/v6-191b9e4f91.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "27",
+          "37",
+          "38"
+         ],
+         "answer": "37"
+        }
+       }
+      ],
+      "audio": "explain/v6-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Thirty and seven make thirty-seven.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          630,
+          12,
+          926,
+          144
+         ],
+         "color": "blue"
+        }
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          663,
+          43
+         ],
+         [
+          721,
+          43
+         ],
+         [
+          779,
+          43
+         ],
+         [
+          837,
+          43
+         ],
+         [
+          895,
+          43
+         ],
+         [
+          663,
+          105
+         ],
+         [
+          721,
+          105
+         ]
+        ],
+        "color": "orange",
+        "r": 20
+       },
+       {
+        "add": "30",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 7",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 37",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v6-b0997f75ca.mp3",
+      "gap": 1000
      }
     ]
    }

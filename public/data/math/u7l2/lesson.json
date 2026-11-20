@@ -18,7 +18,7 @@
   "read": "Lesson",
   "quiz": "Exercise"
  },
- "pages": 10,
+ "pages": 21,
  "pageNums": [
   74,
   74,
@@ -29,7 +29,17 @@
   74,
   74,
   74,
-  74
+  74,
+  74,
+  74,
+  74,
+  74,
+  75,
+  75,
+  75,
+  75,
+  75,
+  75
  ],
  "layout": "explain",
  "explain": {
@@ -58,57 +68,142 @@
   },
   "steps": [
    {
-    "name": "11",
+    "name": "Goal",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "../u7l1/explain/ten.mp3",
+      "say": "Numbers greater than ten can be split into ten and some number.",
       "do": [
        {
-        "scene": "tens",
-        "n": 11,
-        "wide": true
+        "scene": "places",
+        "ones": 3,
+        "show": 3,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
+       }
+      ],
+      "audio": "explain/v3-0-1.mp3"
+     },
+     {
+      "say": "Look at thirteen. Thirteen is ten and three.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          126,
+          28,
+          898,
+          118
+         ],
+         "color": "green",
+         "id": "ten"
+        }
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          126,
+          138,
+          898,
+          228
          ],
-         "color": "green"
+         "color": "orange",
+         "id": "one"
         }
+       },
+       {
+        "add": "13",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v3-0-2.mp3",
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "11",
+    "beats": [
+     {
+      "say": "Eleven.",
+      "do": [
+       {
+        "scene": "places",
+        "ones": 1,
+        "show": 1,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
+       },
+       {
+        "add": "11",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v3-11-1.mp3"
      },
      {
-      "say": "And one.",
-      "audio": "explain/s11-2.mp3",
+      "say": "Ten.",
       "do": [
        {
         "frame": {
          "box": [
-          90,
-          160,
-          176,
-          246
+          126,
+          28,
+          898,
+          118
          ],
-         "color": "blue"
+         "color": "green",
+         "id": "ten"
         }
-       }
-      ]
-     },
-     {
-      "say": "Eleven is ten and one.",
-      "audio": "explain/s11-3.mp3",
-      "do": [
+       },
        {
-        "add": "11 = 10 and 1",
+        "add": "= 10",
         "card": true,
         "color": "green"
        }
       ],
+      "audio": "explain/v3-11-2.mp3"
+     },
+     {
+      "say": "And one.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v3-11-3.mp3"
+     },
+     {
+      "say": "Eleven is ten and one.",
+      "do": [],
+      "audio": "explain/v3-11-4.mp3",
       "gap": 1200
      }
     ]
@@ -117,54 +212,74 @@
     "name": "12",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "../u7l1/explain/ten.mp3",
+      "say": "Twelve.",
       "do": [
        {
-        "scene": "tens",
-        "n": 12,
-        "wide": true
+        "scene": "places",
+        "ones": 2,
+        "show": 2,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
-        "frame": {
-         "box": [
-          90,
-          40,
-          906,
-          126
-         ],
-         "color": "green"
-        }
+        "add": "12",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v3-12-1.mp3"
      },
      {
-      "say": "And two.",
-      "audio": "explain/s12-2.mp3",
+      "say": "Ten.",
       "do": [
        {
         "frame": {
          "box": [
-          90,
-          160,
-          256,
-          246
+          126,
+          28,
+          898,
+          118
          ],
-         "color": "blue"
+         "color": "green",
+         "id": "ten"
         }
-       }
-      ]
-     },
-     {
-      "say": "Twelve is ten and two.",
-      "audio": "explain/s12-3.mp3",
-      "do": [
+       },
        {
-        "add": "12 = 10 and 2",
+        "add": "= 10",
         "card": true,
         "color": "green"
        }
       ],
+      "audio": "explain/v3-12-2.mp3"
+     },
+     {
+      "say": "And two.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v3-12-3.mp3"
+     },
+     {
+      "say": "Twelve is ten and two.",
+      "do": [],
+      "audio": "explain/v3-12-4.mp3",
       "gap": 1200
      }
     ]
@@ -173,54 +288,74 @@
     "name": "13",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "../u7l1/explain/ten.mp3",
+      "say": "Thirteen.",
       "do": [
        {
-        "scene": "tens",
-        "n": 13,
-        "wide": true
+        "scene": "places",
+        "ones": 3,
+        "show": 3,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
-        "frame": {
-         "box": [
-          90,
-          40,
-          906,
-          126
-         ],
-         "color": "green"
-        }
+        "add": "13",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v3-13-1.mp3"
      },
      {
-      "say": "And three.",
-      "audio": "explain/s13-2.mp3",
+      "say": "Ten.",
       "do": [
        {
         "frame": {
          "box": [
-          90,
-          160,
-          336,
-          246
+          126,
+          28,
+          898,
+          118
          ],
-         "color": "blue"
+         "color": "green",
+         "id": "ten"
         }
-       }
-      ]
-     },
-     {
-      "say": "Thirteen is ten and three.",
-      "audio": "explain/s13-3.mp3",
-      "do": [
+       },
        {
-        "add": "13 = 10 and 3",
+        "add": "= 10",
         "card": true,
         "color": "green"
        }
       ],
+      "audio": "explain/v3-13-2.mp3"
+     },
+     {
+      "say": "And three.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v3-13-3.mp3"
+     },
+     {
+      "say": "Thirteen is ten and three.",
+      "do": [],
+      "audio": "explain/v3-13-4.mp3",
       "gap": 1200
      }
     ]
@@ -229,54 +364,74 @@
     "name": "14",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "../u7l1/explain/ten.mp3",
+      "say": "Fourteen.",
       "do": [
        {
-        "scene": "tens",
-        "n": 14,
-        "wide": true
+        "scene": "places",
+        "ones": 4,
+        "show": 4,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
-        "frame": {
-         "box": [
-          90,
-          40,
-          906,
-          126
-         ],
-         "color": "green"
-        }
+        "add": "14",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v3-14-1.mp3"
      },
      {
-      "say": "And four.",
-      "audio": "explain/s14-2.mp3",
+      "say": "Ten.",
       "do": [
        {
         "frame": {
          "box": [
-          90,
-          160,
-          416,
-          246
+          126,
+          28,
+          898,
+          118
          ],
-         "color": "blue"
+         "color": "green",
+         "id": "ten"
         }
-       }
-      ]
-     },
-     {
-      "say": "Fourteen is ten and four.",
-      "audio": "explain/s14-3.mp3",
-      "do": [
+       },
        {
-        "add": "14 = 10 and 4",
+        "add": "= 10",
         "card": true,
         "color": "green"
        }
       ],
+      "audio": "explain/v3-14-2.mp3"
+     },
+     {
+      "say": "And four.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v3-14-3.mp3"
+     },
+     {
+      "say": "Fourteen is ten and four.",
+      "do": [],
+      "audio": "explain/v3-14-4.mp3",
       "gap": 1200
      }
     ]
@@ -285,54 +440,74 @@
     "name": "15",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "../u7l1/explain/ten.mp3",
+      "say": "Fifteen.",
       "do": [
        {
-        "scene": "tens",
-        "n": 15,
-        "wide": true
+        "scene": "places",
+        "ones": 5,
+        "show": 5,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
-        "frame": {
-         "box": [
-          90,
-          40,
-          906,
-          126
-         ],
-         "color": "green"
-        }
+        "add": "15",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v3-15-1.mp3"
      },
      {
-      "say": "And five.",
-      "audio": "explain/s15-2.mp3",
+      "say": "Ten.",
       "do": [
        {
         "frame": {
          "box": [
-          90,
-          160,
-          496,
-          246
+          126,
+          28,
+          898,
+          118
          ],
-         "color": "blue"
+         "color": "green",
+         "id": "ten"
         }
-       }
-      ]
-     },
-     {
-      "say": "Fifteen is ten and five.",
-      "audio": "explain/s15-3.mp3",
-      "do": [
+       },
        {
-        "add": "15 = 10 and 5",
+        "add": "= 10",
         "card": true,
         "color": "green"
        }
       ],
+      "audio": "explain/v3-15-2.mp3"
+     },
+     {
+      "say": "And five.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v3-15-3.mp3"
+     },
+     {
+      "say": "Fifteen is ten and five.",
+      "do": [],
+      "audio": "explain/v3-15-4.mp3",
       "gap": 1200
      }
     ]
@@ -341,54 +516,74 @@
     "name": "16",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "../u7l1/explain/ten.mp3",
+      "say": "Sixteen.",
       "do": [
        {
-        "scene": "tens",
-        "n": 16,
-        "wide": true
+        "scene": "places",
+        "ones": 6,
+        "show": 6,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
-        "frame": {
-         "box": [
-          90,
-          40,
-          906,
-          126
-         ],
-         "color": "green"
-        }
+        "add": "16",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v3-16-1.mp3"
      },
      {
-      "say": "And six.",
-      "audio": "explain/s16-2.mp3",
+      "say": "Ten.",
       "do": [
        {
         "frame": {
          "box": [
-          90,
-          160,
-          576,
-          246
+          126,
+          28,
+          898,
+          118
          ],
-         "color": "blue"
+         "color": "green",
+         "id": "ten"
         }
-       }
-      ]
-     },
-     {
-      "say": "Sixteen is ten and six.",
-      "audio": "explain/s16-3.mp3",
-      "do": [
+       },
        {
-        "add": "16 = 10 and 6",
+        "add": "= 10",
         "card": true,
         "color": "green"
        }
       ],
+      "audio": "explain/v3-16-2.mp3"
+     },
+     {
+      "say": "And six.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       },
+       {
+        "add": "+ 6",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v3-16-3.mp3"
+     },
+     {
+      "say": "Sixteen is ten and six.",
+      "do": [],
+      "audio": "explain/v3-16-4.mp3",
       "gap": 1200
      }
     ]
@@ -397,54 +592,74 @@
     "name": "17",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "../u7l1/explain/ten.mp3",
+      "say": "Seventeen.",
       "do": [
        {
-        "scene": "tens",
-        "n": 17,
-        "wide": true
+        "scene": "places",
+        "ones": 7,
+        "show": 7,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
-        "frame": {
-         "box": [
-          90,
-          40,
-          906,
-          126
-         ],
-         "color": "green"
-        }
+        "add": "17",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v3-17-1.mp3"
      },
      {
-      "say": "And seven.",
-      "audio": "explain/s17-2.mp3",
+      "say": "Ten.",
       "do": [
        {
         "frame": {
          "box": [
-          90,
-          160,
-          656,
-          246
+          126,
+          28,
+          898,
+          118
          ],
-         "color": "blue"
+         "color": "green",
+         "id": "ten"
         }
-       }
-      ]
-     },
-     {
-      "say": "Seventeen is ten and seven.",
-      "audio": "explain/s17-3.mp3",
-      "do": [
+       },
        {
-        "add": "17 = 10 and 7",
+        "add": "= 10",
         "card": true,
         "color": "green"
        }
       ],
+      "audio": "explain/v3-17-2.mp3"
+     },
+     {
+      "say": "And seven.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       },
+       {
+        "add": "+ 7",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v3-17-3.mp3"
+     },
+     {
+      "say": "Seventeen is ten and seven.",
+      "do": [],
+      "audio": "explain/v3-17-4.mp3",
       "gap": 1200
      }
     ]
@@ -453,54 +668,74 @@
     "name": "18",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "../u7l1/explain/ten.mp3",
+      "say": "Eighteen.",
       "do": [
        {
-        "scene": "tens",
-        "n": 18,
-        "wide": true
+        "scene": "places",
+        "ones": 8,
+        "show": 8,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
-        "frame": {
-         "box": [
-          90,
-          40,
-          906,
-          126
-         ],
-         "color": "green"
-        }
+        "add": "18",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v3-18-1.mp3"
      },
      {
-      "say": "And eight.",
-      "audio": "explain/s18-2.mp3",
+      "say": "Ten.",
       "do": [
        {
         "frame": {
          "box": [
-          90,
-          160,
-          736,
-          246
+          126,
+          28,
+          898,
+          118
          ],
-         "color": "blue"
+         "color": "green",
+         "id": "ten"
         }
-       }
-      ]
-     },
-     {
-      "say": "Eighteen is ten and eight.",
-      "audio": "explain/s18-3.mp3",
-      "do": [
+       },
        {
-        "add": "18 = 10 and 8",
+        "add": "= 10",
         "card": true,
         "color": "green"
        }
       ],
+      "audio": "explain/v3-18-2.mp3"
+     },
+     {
+      "say": "And eight.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       },
+       {
+        "add": "+ 8",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v3-18-3.mp3"
+     },
+     {
+      "say": "Eighteen is ten and eight.",
+      "do": [],
+      "audio": "explain/v3-18-4.mp3",
       "gap": 1200
      }
     ]
@@ -509,54 +744,74 @@
     "name": "19",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "../u7l1/explain/ten.mp3",
+      "say": "Nineteen.",
       "do": [
        {
-        "scene": "tens",
-        "n": 19,
-        "wide": true
+        "scene": "places",
+        "ones": 9,
+        "show": 9,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
-        "frame": {
-         "box": [
-          90,
-          40,
-          906,
-          126
-         ],
-         "color": "green"
-        }
+        "add": "19",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v3-19-1.mp3"
      },
      {
-      "say": "And nine.",
-      "audio": "explain/s19-2.mp3",
+      "say": "Ten.",
       "do": [
        {
         "frame": {
          "box": [
-          90,
-          160,
-          816,
-          246
+          126,
+          28,
+          898,
+          118
          ],
-         "color": "blue"
+         "color": "green",
+         "id": "ten"
         }
-       }
-      ]
-     },
-     {
-      "say": "Nineteen is ten and nine.",
-      "audio": "explain/s19-3.mp3",
-      "do": [
+       },
        {
-        "add": "19 = 10 and 9",
+        "add": "= 10",
         "card": true,
         "color": "green"
        }
       ],
+      "audio": "explain/v3-19-2.mp3"
+     },
+     {
+      "say": "And nine.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       },
+       {
+        "add": "+ 9",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v3-19-3.mp3"
+     },
+     {
+      "say": "Nineteen is ten and nine.",
+      "do": [],
+      "audio": "explain/v3-19-4.mp3",
       "gap": 1200
      }
     ]
@@ -565,55 +820,711 @@
     "name": "20",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "../u7l1/explain/ten.mp3",
+      "say": "Twenty.",
       "do": [
        {
-        "scene": "tens",
-        "n": 20,
-        "wide": true
+        "scene": "places",
+        "ones": 10,
+        "show": 10,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
-        "frame": {
-         "box": [
-          90,
-          40,
-          906,
-          126
-         ],
-         "color": "green"
-        }
+        "add": "20",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v3-20-1.mp3"
      },
      {
-      "say": "And ten.",
-      "audio": "explain/s20-2.mp3",
+      "say": "Ten.",
       "do": [
        {
         "frame": {
          "box": [
-          90,
-          160,
-          896,
-          246
+          126,
+          28,
+          898,
+          118
          ],
-         "color": "blue"
+         "color": "green",
+         "id": "ten"
         }
-       }
-      ]
-     },
-     {
-      "say": "Twenty is ten and ten.",
-      "audio": "explain/s20-3.mp3",
-      "do": [
+       },
        {
-        "add": "20 = 10 and 10",
+        "add": "= 10",
         "card": true,
         "color": "green"
        }
       ],
+      "audio": "explain/v3-20-2.mp3"
+     },
+     {
+      "say": "And ten.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       },
+       {
+        "add": "+ 10",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v3-20-3.mp3"
+     },
+     {
+      "say": "Twenty is ten and ten.",
+      "do": [],
+      "audio": "explain/v3-20-4.mp3",
       "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "Warm Up: hidden blocks (15)",
+    "beats": [
+     {
+      "say": "Warm up! Fifteen blocks in all. How many blocks are hidden?",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l2-wu-hidden1.png",
+        "w": 1000,
+        "h": 461,
+        "frame": false
+       },
+       {
+        "add": "15",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v3-w1-1.mp3"
+     },
+     {
+      "say": "You see ten blocks.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          21,
+          50,
+          981,
+          195
+         ],
+         "color": "green",
+         "id": "a"
+        }
+       },
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v3-w1-2.mp3"
+     },
+     {
+      "say": "Fifteen is ten and five. Five blocks are hidden.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          21,
+          268,
+          981,
+          400
+         ],
+         "color": "orange",
+         "id": "b"
+        }
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v3-w1-3.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Warm Up: hidden blocks (13)",
+    "beats": [
+     {
+      "say": "Thirteen blocks in all. How many blocks are hidden?",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l2-wu-hidden2.png",
+        "w": 1000,
+        "h": 461,
+        "frame": false
+       },
+       {
+        "add": "13",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v3-w2-1.mp3"
+     },
+     {
+      "say": "You see three blocks.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          29,
+          274,
+          345,
+          400
+         ],
+         "color": "green",
+         "id": "a"
+        }
+       },
+       {
+        "add": "= 3",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v3-w2-2.mp3"
+     },
+     {
+      "say": "Thirteen is ten and three. Ten blocks are hidden.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          29,
+          63,
+          976,
+          184
+         ],
+         "color": "orange",
+         "id": "b"
+        }
+       },
+       {
+        "add": "+ 10",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v3-w2-3.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Warm Up: ten and four",
+    "beats": [
+     {
+      "say": "What number goes in the box? Ten and four make...",
+      "do": [
+       {
+        "scene": "bond",
+        "whole": "?",
+        "a": 10,
+        "b": 4,
+        "rtl": false
+       }
+      ],
+      "audio": "explain/v3-w3-1.mp3"
+     },
+     {
+      "say": "Ten and four.",
+      "do": [
+       {
+        "add": "14",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v3-w3-2.mp3"
+     },
+     {
+      "say": "Ten and four make fourteen.",
+      "do": [
+       {
+        "bondset": {
+         "k": "w",
+         "v": "14"
+        }
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v3-w3-3.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Warm Up: nineteen",
+    "beats": [
+     {
+      "say": "What number goes in the box? Nineteen is ten and...",
+      "do": [
+       {
+        "scene": "bond",
+        "whole": 19,
+        "a": 10,
+        "b": "?",
+        "rtl": false
+       }
+      ],
+      "audio": "explain/v3-w4-1.mp3"
+     },
+     {
+      "say": "Nineteen is ten and what?",
+      "do": [
+       {
+        "add": "19",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 9",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v3-w4-2.mp3"
+     },
+     {
+      "say": "Nineteen is ten and nine.",
+      "do": [
+       {
+        "bondset": {
+         "k": "b",
+         "v": "9"
+        }
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v3-w4-3.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 1: ten and nine",
+    "beats": [
+     {
+      "say": "Try! Ten and nine make how many?",
+      "do": [
+       {
+        "scene": "places",
+        "ones": 9,
+        "show": 9,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 9",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v3-t1-1.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "18",
+          "19",
+          "20"
+         ],
+         "answer": "19"
+        }
+       }
+      ],
+      "audio": "explain/v3-t1-2.mp3"
+     },
+     {
+      "say": "Yes! Ten and nine make nineteen.",
+      "do": [
+       {
+        "add": "= 19",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v3-t1-3.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 2: ten and six",
+    "beats": [
+     {
+      "say": "Try! Ten and six make how many?",
+      "do": [
+       {
+        "scene": "places",
+        "ones": 6,
+        "show": 6,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 6",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v3-t2-1.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "15",
+          "16",
+          "17"
+         ],
+         "answer": "16"
+        }
+       }
+      ],
+      "audio": "explain/v3-t2-2.mp3"
+     },
+     {
+      "say": "Yes! Ten and six make sixteen.",
+      "do": [
+       {
+        "add": "= 16",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v3-t2-3.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 3: seventeen",
+    "beats": [
+     {
+      "say": "Try! Seventeen is what and seven...",
+      "do": [
+       {
+        "scene": "bond",
+        "whole": 17,
+        "a": "?",
+        "b": 7,
+        "rtl": false
+       }
+      ],
+      "audio": "explain/v3-t3-1.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "9",
+          "10",
+          "11"
+         ],
+         "answer": "10"
+        }
+       }
+      ],
+      "audio": "explain/v3-t3-2.mp3"
+     },
+     {
+      "say": "Yes! Seventeen is ten and seven.",
+      "do": [
+       {
+        "bondset": {
+         "k": "a",
+         "v": "10"
+        }
+       },
+       {
+        "add": "17",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 7",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v3-t3-3.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 4: fifteen",
+    "beats": [
+     {
+      "say": "Try! Fifteen is ten and what...",
+      "do": [
+       {
+        "scene": "bond",
+        "whole": 15,
+        "a": 10,
+        "b": "?",
+        "rtl": false
+       }
+      ],
+      "audio": "explain/v3-t4-1.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "4",
+          "5",
+          "6"
+         ],
+         "answer": "5"
+        }
+       }
+      ],
+      "audio": "explain/v3-t4-2.mp3"
+     },
+     {
+      "say": "Yes! Fifteen is ten and five.",
+      "do": [
+       {
+        "bondset": {
+         "k": "b",
+         "v": "5"
+        }
+       },
+       {
+        "add": "15",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v3-t4-3.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 5: twelve",
+    "beats": [
+     {
+      "say": "Try! Twelve is what and two...",
+      "do": [
+       {
+        "scene": "bond",
+        "whole": 12,
+        "a": "?",
+        "b": 2,
+        "rtl": false
+       }
+      ],
+      "audio": "explain/v3-t5-1.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "9",
+          "10",
+          "11"
+         ],
+         "answer": "10"
+        }
+       }
+      ],
+      "audio": "explain/v3-t5-2.mp3"
+     },
+     {
+      "say": "Yes! Twelve is ten and two.",
+      "do": [
+       {
+        "bondset": {
+         "k": "a",
+         "v": "10"
+        }
+       },
+       {
+        "add": "12",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v3-t5-3.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 6: fourteen",
+    "beats": [
+     {
+      "say": "Try! Fourteen is ten and what...",
+      "do": [
+       {
+        "scene": "bond",
+        "whole": 14,
+        "a": 10,
+        "b": "?",
+        "rtl": false
+       }
+      ],
+      "audio": "explain/v3-t6-1.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "3",
+          "4",
+          "5"
+         ],
+         "answer": "4"
+        }
+       }
+      ],
+      "audio": "explain/v3-t6-2.mp3"
+     },
+     {
+      "say": "Yes! Fourteen is ten and four.",
+      "do": [
+       {
+        "bondset": {
+         "k": "b",
+         "v": "4"
+        }
+       },
+       {
+        "add": "14",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v3-t6-3.mp3",
+      "gap": 1000
      }
     ]
    }

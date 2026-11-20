@@ -1,273 +1,49 @@
 {
  "sets": [
   {
-   "type": "mcq",
-   "ex": 1,
-   "page": 86,
-   "task": "Read the clock.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "pics": [
-      "clock-1-0.svg"
-     ],
-     "ask": "What time is it?",
-     "stem": "It is __",
-     "options": [
-      "half past 1",
-      "2 o'clock",
-      "1 o'clock"
-     ],
-     "answer": 2,
-     "askSay": "What time is it?",
-     "askAudio": "q/time-q.mp3",
-     "audio": "q/t1-0-a.mp3",
-     "word": "It is 1 oclock."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 2,
-   "page": 86,
-   "task": "Read the clock.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "pics": [
-      "clock-5-1.svg"
-     ],
-     "ask": "What time is it?",
-     "stem": "It is __",
-     "options": [
-      "half past 6",
-      "half past 5",
-      "5 o'clock"
-     ],
-     "answer": 1,
-     "askSay": "What time is it?",
-     "askAudio": "q/time-q.mp3",
-     "audio": "q/t5-1-a.mp3",
-     "word": "It is half past 5."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 3,
-   "page": 87,
-   "task": "Read the clock.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "pics": [
-      "clock-4-0.svg"
-     ],
-     "ask": "What time is it?",
-     "stem": "It is __",
-     "options": [
-      "4 o'clock",
-      "half past 4",
-      "5 o'clock"
-     ],
-     "answer": 0,
-     "askSay": "What time is it?",
-     "askAudio": "q/time-q.mp3",
-     "audio": "q/t4-0-a.mp3",
-     "word": "It is 4 oclock."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 4,
-   "page": 87,
-   "task": "Read the clock.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "pics": [
-      "clock-2-1.svg"
-     ],
-     "ask": "What time is it?",
-     "stem": "It is __",
-     "options": [
-      "2 o'clock",
-      "half past 3",
-      "half past 2"
-     ],
-     "answer": 2,
-     "askSay": "What time is it?",
-     "askAudio": "q/time-q.mp3",
-     "audio": "q/t2-1-a.mp3",
-     "word": "It is half past 2."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 5,
-   "page": 87,
-   "task": "Read the clock.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "pics": [
-      "clock-9-0.svg"
-     ],
-     "ask": "What time is it?",
-     "stem": "It is __",
-     "options": [
-      "10 o'clock",
-      "9 o'clock",
-      "half past 9"
-     ],
-     "answer": 1,
-     "askSay": "What time is it?",
-     "askAudio": "q/time-q.mp3",
-     "audio": "q/t9-0-a.mp3",
-     "word": "It is 9 oclock."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 6,
-   "page": 87,
-   "task": "Read the clock.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "pics": [
-      "clock-7-0.svg"
-     ],
-     "ask": "What time is it?",
-     "stem": "It is __",
-     "options": [
-      "7 o'clock",
-      "half past 7",
-      "8 o'clock"
-     ],
-     "answer": 0,
-     "askSay": "What time is it?",
-     "askAudio": "q/time-q.mp3",
-     "audio": "q/t7-0-a.mp3",
-     "word": "It is 7 oclock."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 7,
-   "page": 87,
-   "task": "Read the clock.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "pics": [
-      "clock-9-1.svg"
-     ],
-     "ask": "What time is it?",
-     "stem": "It is __",
-     "options": [
-      "9 o'clock",
-      "half past 10",
-      "half past 9"
-     ],
-     "answer": 2,
-     "askSay": "What time is it?",
-     "askAudio": "q/time-q.mp3",
-     "audio": "q/t9-1-a.mp3",
-     "word": "It is half past 9."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 8,
-   "page": 87,
-   "task": "Read the clock.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "pics": [
-      "clock-2-0.svg"
-     ],
-     "ask": "What time is it?",
-     "stem": "It is __",
-     "options": [
-      "3 o'clock",
-      "2 o'clock",
-      "half past 2"
-     ],
-     "answer": 1,
-     "askSay": "What time is it?",
-     "askAudio": "q/time-q.mp3",
-     "audio": "q/t2-0-a.mp3",
-     "word": "It is 2 oclock."
-    }
-   ]
-  },
-  {
    "type": "clock",
-   "ex": 9,
    "page": 87,
-   "task": "Draw the long hand.",
-   "taskAudio": "q/task-hand.mp3",
+   "task": "Read the clocks. Write the time.",
    "items": [
     {
-     "h": 3,
+     "h": 7,
      "m": 0,
-     "mode": "long",
-     "ask": "It is 3 oclock. Where does the long hand go?",
-     "askAudio": "q/hand3-0-q.mp3",
-     "audio": "q/hand3-0-a.mp3",
-     "word": "The long hand is on twelve."
-    }
-   ]
-  },
-  {
-   "type": "clock",
-   "ex": 10,
-   "page": 87,
-   "task": "Draw the long hand.",
-   "taskAudio": "q/task-hand.mp3",
-   "items": [
+     "mode": "write",
+     "text": "7 o'clock",
+     "ask": "What time is it?",
+     "word": "It is seven o'clock.",
+     "askAudio": "q/time-q.mp3",
+     "audio": "q/t7-0-a.mp3"
+    },
     {
-     "h": 1,
+     "h": 9,
      "m": 30,
-     "mode": "long",
-     "ask": "It is half past 1. Where does the long hand go?",
-     "askAudio": "q/hand1-1-q.mp3",
-     "audio": "q/hand1-1-a.mp3",
-     "word": "The long hand is on six."
-    }
-   ]
-  },
-  {
-   "type": "clock",
-   "ex": 11,
-   "page": 87,
-   "task": "Draw the long hand.",
-   "taskAudio": "q/task-hand.mp3",
-   "items": [
+     "mode": "write",
+     "text": "half past 9",
+     "ask": "What time is it?",
+     "word": "It is half past nine.",
+     "askAudio": "q/time-q.mp3",
+     "audio": "q/t9-1-a.mp3"
+    },
     {
-     "h": 6,
-     "m": 30,
-     "mode": "long",
-     "ask": "It is half past 6. Where does the long hand go?",
-     "askAudio": "q/hand6-1-q.mp3",
-     "audio": "q/hand6-1-a.mp3",
-     "word": "The long hand is on six."
+     "h": 2,
+     "m": 0,
+     "mode": "write",
+     "text": "2 o'clock",
+     "ask": "What time is it?",
+     "word": "It is two o'clock.",
+     "askAudio": "q/time-q.mp3",
+     "audio": "q/t2-0-a.mp3"
     }
-   ]
+   ],
+   "act": "u8l1ex",
+   "taskAudio": "q/e8t-3478c0fc4f.mp3",
+   "ex": 1
   },
   {
    "type": "clock",
-   "ex": 12,
    "page": 87,
    "task": "Draw the long hand.",
-   "taskAudio": "q/task-hand.mp3",
    "items": [
     {
      "h": 5,
@@ -277,16 +53,7 @@
      "askAudio": "q/hand5-0-q.mp3",
      "audio": "q/hand5-0-a.mp3",
      "word": "The long hand is on twelve."
-    }
-   ]
-  },
-  {
-   "type": "clock",
-   "ex": 13,
-   "page": 87,
-   "task": "Draw the long hand.",
-   "taskAudio": "q/task-hand.mp3",
-   "items": [
+    },
     {
      "h": 11,
      "m": 30,
@@ -295,16 +62,7 @@
      "askAudio": "q/hand11-1-q.mp3",
      "audio": "q/hand11-1-a.mp3",
      "word": "The long hand is on six."
-    }
-   ]
-  },
-  {
-   "type": "clock",
-   "ex": 14,
-   "page": 87,
-   "task": "Draw the long hand.",
-   "taskAudio": "q/task-hand.mp3",
-   "items": [
+    },
     {
      "h": 4,
      "m": 30,
@@ -314,7 +72,79 @@
      "audio": "q/hand4-1-a.mp3",
      "word": "The long hand is on six."
     }
-   ]
+   ],
+   "act": "u8l1ex",
+   "taskAudio": "q/e8t-0a6aa88b2d.mp3",
+   "ex": 2
+  },
+  {
+   "type": "clock",
+   "page": 63,
+   "task": "Draw the long hand.",
+   "items": [
+    {
+     "h": 3,
+     "m": 0,
+     "mode": "long",
+     "ask": "It is 3 oclock. Where does the long hand go?",
+     "askAudio": "q/hand3-0-q.mp3",
+     "audio": "q/hand3-0-a.mp3",
+     "word": "The long hand is on twelve."
+    },
+    {
+     "h": 1,
+     "m": 30,
+     "mode": "long",
+     "ask": "It is half past 1. Where does the long hand go?",
+     "askAudio": "q/hand1-1-q.mp3",
+     "audio": "q/hand1-1-a.mp3",
+     "word": "The long hand is on six."
+    },
+    {
+     "h": 6,
+     "m": 30,
+     "mode": "long",
+     "ask": "It is half past 6. Where does the long hand go?",
+     "askAudio": "q/hand6-1-q.mp3",
+     "audio": "q/hand6-1-a.mp3",
+     "word": "The long hand is on six."
+    }
+   ],
+   "book": "workbook",
+   "act": "u8l1wb",
+   "taskAudio": "q/e8t-0a6aa88b2d.mp3",
+   "ex": 1
+  },
+  {
+   "type": "clock",
+   "page": 63,
+   "task": "Write the time.",
+   "items": [
+    {
+     "h": 12,
+     "m": 30,
+     "mode": "write",
+     "text": "half past 12",
+     "ask": "What time is it?",
+     "word": "It is half past twelve.",
+     "askAudio": "q/e8q-a18081d2dd.mp3",
+     "audio": "q/e8a-43a0004e95.mp3"
+    },
+    {
+     "h": 7,
+     "m": 0,
+     "mode": "write",
+     "text": "7 o'clock",
+     "ask": "What time is it?",
+     "word": "It is seven o'clock.",
+     "askAudio": "q/time-q.mp3",
+     "audio": "q/t7-0-a.mp3"
+    }
+   ],
+   "book": "workbook",
+   "act": "u8l1wb",
+   "taskAudio": "q/e8t-b573940387.mp3",
+   "ex": 2
   },
   {
    "type": "mcq",

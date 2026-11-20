@@ -18,13 +18,23 @@
   "read": "Lesson",
   "quiz": "Exercise"
  },
- "pages": 5,
+ "pages": 15,
  "pageNums": [
   82,
   82,
   82,
   82,
-  82
+  82,
+  82,
+  82,
+  83,
+  83,
+  83,
+  83,
+  83,
+  83,
+  83,
+  83
  ],
  "layout": "explain",
  "explain": {
@@ -53,152 +63,381 @@
   },
   "steps": [
    {
-    "name": "12 + 2",
+    "name": "11 + 4",
     "beats": [
      {
-      "say": "Twelve plus two.",
-      "audio": "explain/s0-a2.mp3",
+      "say": "Eleven plus four.",
       "do": [
        {
-        "scene": "tens",
-        "n": 14,
-        "wide": true,
-        "show": 12
+        "scene": "places",
+        "ones": 5,
+        "show": 1,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
+       },
+       {
+        "add": "11",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-eed4b341c1.mp3"
+     },
+     {
+      "say": "Eleven is ten and one.",
+      "do": [
+       {
+        "line": "break"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          126,
+          28,
+          898,
+          118
          ],
-         "color": "green"
+         "color": "green",
+         "id": "ten"
         }
        },
        {
-        "head": {
-         "t": [
-          "12",
-          "+",
-          "2",
-          "="
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
          ],
-         "slots": 5
+         "color": "orange",
+         "id": "one"
         }
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v4-c80ad244c1.mp3"
      },
      {
-      "say": "Keep ten. Add the ones.",
-      "audio": "explain/s0-a.mp3",
-      "do": []
-     },
-     {
-      "say": "Two and two make four.",
-      "audio": "explain/s0-b.mp3",
+      "say": "Keep the ten. Add four to the one.",
       "do": [
-       {
-        "add": "2",
-        "big": true
-       },
-       {
-        "wait": 900
-       },
-       {
-        "add": "+",
-        "big": true
-       },
-       {
-        "wait": 500
-       },
-       {
-        "add": "2",
-        "big": true
-       },
-       {
-        "wait": 500
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "wait": 700
-       },
-       {
-        "add": "4",
-        "big": true,
-        "card": true
-       },
        {
         "count": true,
         "pts": [
          [
-          293,
-          203
+          247,
+          183
          ],
          [
-          373,
-          203
+          321,
+          183
+         ],
+         [
+          395,
+          183
+         ],
+         [
+          469,
+          183
          ]
         ],
-        "start": 3,
         "color": "orange",
         "r": 24
        }
-      ]
+      ],
+      "audio": "explain/v4-b4ae8ec36d.mp3"
      },
      {
-      "say": "Ten and four make fourteen.",
-      "audio": "explain/s0-c.mp3",
+      "say": "One plus four is five. Ten and five make fifteen.",
       "do": [
        {
-        "line": "clear"
+        "line": "break"
        },
        {
         "add": "10",
-        "big": true
+        "card": true,
+        "color": "green"
        },
        {
-        "wait": 500
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
        },
        {
-        "add": "+",
-        "big": true
+        "add": "= 15",
+        "card": true,
+        "color": "green"
        },
        {
-        "wait": 500
-       },
-       {
-        "add": "4",
-        "big": true
-       },
-       {
-        "wait": 500
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "wait": 600
-       },
-       {
-        "add": "14",
-        "big": true,
-        "card": true
-       },
-       {
-        "head": {
-         "t": [
-          "14"
-         ],
-         "more": true
-        }
+        "cheer": true
        }
       ],
-      "gap": 1200
+      "audio": "explain/v4-1cdbb231d6.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "15 - 4",
+    "beats": [
+     {
+      "say": "Fifteen minus four.",
+      "do": [
+       {
+        "scene": "places",
+        "ones": 5,
+        "show": 5,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
+       },
+       {
+        "add": "15",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "− 4",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-4d39ba002b.mp3"
+     },
+     {
+      "say": "Fifteen is ten and five.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "frame": {
+         "box": [
+          126,
+          28,
+          898,
+          118
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       },
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-9efe1d3688.mp3"
+     },
+     {
+      "say": "Keep the ten. Take away four from the five.",
+      "do": [
+       {
+        "cross": true,
+        "pts": [
+         [
+          247,
+          183
+         ],
+         [
+          321,
+          183
+         ],
+         [
+          395,
+          183
+         ],
+         [
+          469,
+          183
+         ]
+        ],
+        "r": 36,
+        "color": "red"
+       }
+      ],
+      "audio": "explain/v4-81a4f5b00a.mp3"
+     },
+     {
+      "say": "Five minus four is one. Ten and one make eleven.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 11",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-e91e418f30.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "12 + 2",
+    "beats": [
+     {
+      "say": "Twelve plus two.",
+      "do": [
+       {
+        "scene": "places",
+        "ones": 4,
+        "show": 2,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
+       },
+       {
+        "add": "12",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-21ed7ceb72.mp3"
+     },
+     {
+      "say": "Twelve is ten and two.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "frame": {
+         "box": [
+          126,
+          28,
+          898,
+          118
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       },
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-4b09b727e7.mp3"
+     },
+     {
+      "say": "Keep the ten. Add two to the two.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          321,
+          183
+         ],
+         [
+          395,
+          183
+         ]
+        ],
+        "color": "orange",
+        "r": 24
+       }
+      ],
+      "audio": "explain/v4-4f35224a8f.mp3"
+     },
+     {
+      "say": "Two plus two is four. Ten and four make fourteen.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 14",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-ef91060345.mp3",
+      "gap": 1000
      }
     ]
    },
@@ -207,156 +446,127 @@
     "beats": [
      {
       "say": "Fifteen plus four.",
-      "audio": "explain/s1-a2.mp3",
       "do": [
        {
-        "scene": "tens",
-        "n": 19,
-        "wide": true,
-        "show": 15
+        "scene": "places",
+        "ones": 9,
+        "show": 5,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
+       },
+       {
+        "add": "15",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-b15a87d077.mp3"
+     },
+     {
+      "say": "Fifteen is ten and five.",
+      "do": [
+       {
+        "line": "break"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          126,
+          28,
+          898,
+          118
          ],
-         "color": "green"
+         "color": "green",
+         "id": "ten"
         }
        },
        {
-        "head": {
-         "t": [
-          "15",
-          "+",
-          "4",
-          "="
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
          ],
-         "slots": 5
+         "color": "orange",
+         "id": "one"
         }
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v4-9efe1d3688.mp3"
      },
      {
-      "say": "Keep ten. Add the ones.",
-      "audio": "explain/s1-a.mp3",
-      "do": []
-     },
-     {
-      "say": "Five and four make nine.",
-      "audio": "explain/s1-b.mp3",
+      "say": "Keep the ten. Add four to the five.",
       "do": [
-       {
-        "add": "5",
-        "big": true
-       },
-       {
-        "wait": 900
-       },
-       {
-        "add": "+",
-        "big": true
-       },
-       {
-        "wait": 500
-       },
-       {
-        "add": "4",
-        "big": true
-       },
-       {
-        "wait": 500
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "wait": 700
-       },
-       {
-        "add": "9",
-        "big": true,
-        "card": true
-       },
        {
         "count": true,
         "pts": [
          [
-          533,
-          203
+          557,
+          183
          ],
          [
-          613,
-          203
+          631,
+          183
          ],
          [
-          693,
-          203
+          705,
+          183
          ],
          [
-          773,
-          203
+          779,
+          183
          ]
         ],
-        "start": 6,
         "color": "orange",
         "r": 24
        }
-      ]
+      ],
+      "audio": "explain/v4-76f0ae33e0.mp3"
      },
      {
-      "say": "Ten and nine make nineteen.",
-      "audio": "explain/s1-c.mp3",
+      "say": "Five plus four is nine. Ten and nine make nineteen.",
       "do": [
        {
-        "line": "clear"
+        "line": "break"
        },
        {
         "add": "10",
-        "big": true
+        "card": true,
+        "color": "green"
        },
        {
-        "wait": 500
+        "add": "+ 9",
+        "card": true,
+        "color": "orange"
        },
        {
-        "add": "+",
-        "big": true
+        "add": "= 19",
+        "card": true,
+        "color": "green"
        },
        {
-        "wait": 500
-       },
-       {
-        "add": "9",
-        "big": true
-       },
-       {
-        "wait": 500
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "wait": 600
-       },
-       {
-        "add": "19",
-        "big": true,
-        "card": true
-       },
-       {
-        "head": {
-         "t": [
-          "19"
-         ],
-         "more": true
-        }
+        "cheer": true
        }
       ],
-      "gap": 1200
+      "audio": "explain/v4-df8c55b8d0.mp3",
+      "gap": 1000
      }
     ]
    },
@@ -364,145 +574,116 @@
     "name": "16 - 1",
     "beats": [
      {
-      "say": "Sixteen take away one.",
-      "audio": "explain/s2-a2.mp3",
+      "say": "Sixteen minus one.",
       "do": [
        {
-        "scene": "tens",
-        "n": 16,
-        "wide": true
+        "scene": "places",
+        "ones": 6,
+        "show": 6,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
+       },
+       {
+        "add": "16",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "− 1",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-e4cc37783f.mp3"
+     },
+     {
+      "say": "Sixteen is ten and six.",
+      "do": [
+       {
+        "line": "break"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          126,
+          28,
+          898,
+          118
          ],
-         "color": "green"
+         "color": "green",
+         "id": "ten"
         }
        },
        {
-        "head": {
-         "t": [
-          "16",
-          "-",
-          "1",
-          "="
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
          ],
-         "slots": 5
+         "color": "orange",
+         "id": "one"
         }
-       }
-      ]
-     },
-     {
-      "say": "Keep ten. Take away from the ones.",
-      "audio": "explain/s2-a.mp3",
-      "do": [
-       {
-        "count": true,
-        "pts": [
-         [
-          533,
-          203
-         ]
-        ],
-        "color": "red",
-        "r": 24,
-        "out": true
-       }
-      ]
-     },
-     {
-      "say": "Six take away one is five.",
-      "audio": "explain/s2-c1.mp3",
-      "do": [
-       {
-        "add": "6",
-        "big": true
-       },
-       {
-        "wait": 800
-       },
-       {
-        "add": "-",
-        "big": true
-       },
-       {
-        "wait": 500
-       },
-       {
-        "add": "1",
-        "big": true
-       },
-       {
-        "wait": 600
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "wait": 600
-       },
-       {
-        "add": "5",
-        "big": true,
-        "card": true
-       }
-      ]
-     },
-     {
-      "say": "Ten and five make fifteen.",
-      "audio": "explain/s2-c2.mp3",
-      "do": [
-       {
-        "line": "clear"
        },
        {
         "add": "10",
-        "big": true
+        "card": true,
+        "color": "green"
        },
        {
-        "wait": 500
-       },
-       {
-        "add": "+",
-        "big": true
-       },
-       {
-        "wait": 500
-       },
-       {
-        "add": "5",
-        "big": true
-       },
-       {
-        "wait": 500
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "wait": 700
-       },
-       {
-        "add": "15",
-        "big": true,
-        "card": true
-       },
-       {
-        "head": {
-         "t": [
-          "15"
-         ],
-         "more": true
-        }
+        "add": "+ 6",
+        "card": true,
+        "color": "orange"
        }
       ],
-      "gap": 1200
+      "audio": "explain/v4-f604bee855.mp3"
+     },
+     {
+      "say": "Keep the ten. Take away one from the six.",
+      "do": [
+       {
+        "cross": true,
+        "pts": [
+         [
+          557,
+          183
+         ]
+        ],
+        "r": 36,
+        "color": "red"
+       }
+      ],
+      "audio": "explain/v4-135a141abc.mp3"
+     },
+     {
+      "say": "Six minus one is five. Ten and five make fifteen.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 15",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-2c9f2af7bc.mp3",
+      "gap": 1000
      }
     ]
    },
@@ -510,323 +691,1639 @@
     "name": "19 - 7",
     "beats": [
      {
-      "say": "Nineteen take away seven.",
-      "audio": "explain/s3-a2.mp3",
+      "say": "Nineteen minus seven.",
       "do": [
        {
-        "scene": "tens",
-        "n": 19,
-        "wide": true
+        "scene": "places",
+        "ones": 9,
+        "show": 9,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
+       },
+       {
+        "add": "19",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "− 7",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-b07ad10830.mp3"
+     },
+     {
+      "say": "Nineteen is ten and nine.",
+      "do": [
+       {
+        "line": "break"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          126,
+          28,
+          898,
+          118
          ],
-         "color": "green"
+         "color": "green",
+         "id": "ten"
         }
        },
        {
-        "head": {
-         "t": [
-          "19",
-          "-",
-          "7",
-          "="
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
          ],
-         "slots": 5
+         "color": "orange",
+         "id": "one"
         }
-       }
-      ]
-     },
-     {
-      "say": "Keep ten. Take away from the ones.",
-      "audio": "explain/s3-a.mp3",
-      "do": [
-       {
-        "count": true,
-        "pts": [
-         [
-          293,
-          203
-         ],
-         [
-          373,
-          203
-         ],
-         [
-          453,
-          203
-         ],
-         [
-          533,
-          203
-         ],
-         [
-          613,
-          203
-         ],
-         [
-          693,
-          203
-         ],
-         [
-          773,
-          203
-         ]
-        ],
-        "color": "red",
-        "r": 24,
-        "out": true
-       }
-      ]
-     },
-     {
-      "say": "Nine take away seven is two.",
-      "audio": "explain/s3-c1.mp3",
-      "do": [
-       {
-        "add": "9",
-        "big": true
-       },
-       {
-        "wait": 800
-       },
-       {
-        "add": "-",
-        "big": true
-       },
-       {
-        "wait": 500
-       },
-       {
-        "add": "7",
-        "big": true
-       },
-       {
-        "wait": 600
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "wait": 600
-       },
-       {
-        "add": "2",
-        "big": true,
-        "card": true
-       }
-      ]
-     },
-     {
-      "say": "Ten and two make twelve.",
-      "audio": "explain/s3-c2.mp3",
-      "do": [
-       {
-        "line": "clear"
        },
        {
         "add": "10",
-        "big": true
+        "card": true,
+        "color": "green"
        },
        {
-        "wait": 500
-       },
-       {
-        "add": "+",
-        "big": true
-       },
-       {
-        "wait": 500
-       },
-       {
-        "add": "2",
-        "big": true
-       },
-       {
-        "wait": 500
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "wait": 700
-       },
-       {
-        "add": "12",
-        "big": true,
-        "card": true
-       },
-       {
-        "head": {
-         "t": [
-          "12"
-         ],
-         "more": true
-        }
+        "add": "+ 9",
+        "card": true,
+        "color": "orange"
        }
       ],
-      "gap": 1200
+      "audio": "explain/v4-9159f9c3a0.mp3"
+     },
+     {
+      "say": "Keep the ten. Take away seven from the nine.",
+      "do": [
+       {
+        "cross": true,
+        "pts": [
+         [
+          321,
+          183
+         ],
+         [
+          395,
+          183
+         ],
+         [
+          469,
+          183
+         ],
+         [
+          557,
+          183
+         ],
+         [
+          631,
+          183
+         ],
+         [
+          705,
+          183
+         ],
+         [
+          779,
+          183
+         ]
+        ],
+        "r": 36,
+        "color": "red"
+       }
+      ],
+      "audio": "explain/v4-abc7baf8ce.mp3"
+     },
+     {
+      "say": "Nine minus seven is two. Ten and two make twelve.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 12",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-728d22a825.mp3",
+      "gap": 1000
      }
     ]
    },
    {
-    "name": "17 - 3",
+    "name": "Warm Up: strawberries",
     "beats": [
      {
-      "say": "Seventeen take away three.",
-      "audio": "explain/s4-a2.mp3",
+      "say": "Warm up! You have seventeen strawberries. If you eat three, how many are left?",
       "do": [
        {
-        "scene": "tens",
-        "n": 17,
-        "wide": true
+        "scene": "free",
+        "items": [
+         {
+          "id": "s0",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 150,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s1",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 260,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s2",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 370,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s3",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 480,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s4",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 590,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s5",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 700,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s6",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 150,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s7",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 260,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s8",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 370,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s9",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 480,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s10",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 590,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s11",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 700,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s12",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 150,
+          "y": 238,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s13",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 260,
+          "y": 238,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s14",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 370,
+          "y": 238,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s15",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 480,
+          "y": 238,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s16",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 590,
+          "y": 238,
+          "w": 100,
+          "h": 100
+         }
+        ],
+        "ih": 360,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v4-d83d123a2f.mp3"
+     },
+     {
+      "say": "You eat three.",
+      "do": [
+       {
+        "cross": true,
+        "pts": [
+         [
+          420,
+          288
+         ],
+         [
+          530,
+          288
+         ],
+         [
+          640,
+          288
+         ]
+        ],
+        "r": 46,
+        "color": "red"
+       }
+      ],
+      "audio": "explain/v4-8cb5c68fe0.mp3"
+     },
+     {
+      "say": "Seventeen minus three equals fourteen.",
+      "do": [
+       {
+        "add": "17",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "− 3",
+        "card": true,
+        "color": "red"
+       },
+       {
+        "add": "= 14",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v4-d294ed5c6b.mp3"
+     },
+     {
+      "say": "Answer: fourteen strawberries.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "Answer:"
+       },
+       {
+        "add": "14 strawberries",
+        "card": true
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-819c39832d.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 1: 14 + 3",
+    "beats": [
+     {
+      "say": "Try! Fourteen plus three.",
+      "do": [
+       {
+        "scene": "places",
+        "ones": 7,
+        "show": 4,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
+       },
+       {
+        "add": "14",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-300a8b2aac.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "16",
+          "17",
+          "18"
+         ],
+         "answer": "17"
+        }
+       }
+      ],
+      "audio": "explain/v4-0ef309003c.mp3"
+     },
+     {
+      "say": "Fourteen is ten and four.",
+      "do": [
+       {
+        "line": "break"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          126,
+          28,
+          898,
+          118
          ],
-         "color": "green"
+         "color": "green",
+         "id": "ten"
         }
        },
        {
-        "head": {
-         "t": [
-          "17",
-          "-",
-          "3",
-          "="
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
          ],
-         "slots": 5
+         "color": "orange",
+         "id": "one"
         }
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v4-12415b9f77.mp3"
      },
      {
-      "say": "Keep ten. Take away from the ones.",
-      "audio": "explain/s4-a.mp3",
+      "say": "Keep the ten. Add three to the four.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          453,
-          203
+          469,
+          183
          ],
          [
-          533,
-          203
+          557,
+          183
          ],
          [
-          613,
-          203
+          631,
+          183
          ]
         ],
-        "color": "red",
-        "r": 24,
-        "out": true
+        "color": "orange",
+        "r": 24
        }
-      ]
+      ],
+      "audio": "explain/v4-73afdeea42.mp3"
      },
      {
-      "say": "Seven take away three is four.",
-      "audio": "explain/s4-c1.mp3",
+      "say": "Four plus three is seven. Ten and seven make seventeen.",
       "do": [
        {
-        "add": "7",
-        "big": true
-       },
-       {
-        "wait": 800
-       },
-       {
-        "add": "-",
-        "big": true
-       },
-       {
-        "wait": 500
-       },
-       {
-        "add": "3",
-        "big": true
-       },
-       {
-        "wait": 600
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "wait": 600
-       },
-       {
-        "add": "4",
-        "big": true,
-        "card": true
-       }
-      ]
-     },
-     {
-      "say": "Ten and four make fourteen.",
-      "audio": "explain/s4-c2.mp3",
-      "do": [
-       {
-        "line": "clear"
+        "line": "break"
        },
        {
         "add": "10",
-        "big": true
+        "card": true,
+        "color": "green"
        },
        {
-        "wait": 500
+        "add": "+ 7",
+        "card": true,
+        "color": "orange"
        },
        {
-        "add": "+",
-        "big": true
+        "add": "= 17",
+        "card": true,
+        "color": "green"
        },
        {
-        "wait": 500
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-ed9665b186.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 2: 16 + 2",
+    "beats": [
+     {
+      "say": "Try! Sixteen plus two.",
+      "do": [
+       {
+        "scene": "places",
+        "ones": 8,
+        "show": 6,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
-        "add": "4",
-        "big": true
+        "add": "16",
+        "card": true,
+        "color": "blue"
        },
        {
-        "wait": 500
-       },
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-7c4fb64802.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
        {
-        "add": "=",
-        "big": true
-       },
-       {
-        "wait": 700
-       },
-       {
-        "add": "14",
-        "big": true,
-        "card": true
-       },
-       {
-        "head": {
-         "t": [
-          "14"
+        "ask": {
+         "options": [
+          "17",
+          "18",
+          "19"
          ],
-         "more": true
+         "answer": "18"
         }
        }
       ],
-      "gap": 1200
+      "audio": "explain/v4-0ef309003c.mp3"
+     },
+     {
+      "say": "Sixteen is ten and six.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "frame": {
+         "box": [
+          126,
+          28,
+          898,
+          118
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       },
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 6",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-f604bee855.mp3"
+     },
+     {
+      "say": "Keep the ten. Add two to the six.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          631,
+          183
+         ],
+         [
+          705,
+          183
+         ]
+        ],
+        "color": "orange",
+        "r": 24
+       }
+      ],
+      "audio": "explain/v4-43c108f70f.mp3"
+     },
+     {
+      "say": "Six plus two is eight. Ten and eight make eighteen.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 8",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 18",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-290a563fda.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 3: 18 + 1",
+    "beats": [
+     {
+      "say": "Try! Eighteen plus one.",
+      "do": [
+       {
+        "scene": "places",
+        "ones": 9,
+        "show": 8,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
+       },
+       {
+        "add": "18",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-8dcef35867.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "18",
+          "19",
+          "20"
+         ],
+         "answer": "19"
+        }
+       }
+      ],
+      "audio": "explain/v4-0ef309003c.mp3"
+     },
+     {
+      "say": "Eighteen is ten and eight.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "frame": {
+         "box": [
+          126,
+          28,
+          898,
+          118
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       },
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 8",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-47eecd2b5d.mp3"
+     },
+     {
+      "say": "Keep the ten. Add one to the eight.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          779,
+          183
+         ]
+        ],
+        "color": "orange",
+        "r": 24
+       }
+      ],
+      "audio": "explain/v4-2d682f585f.mp3"
+     },
+     {
+      "say": "Eight plus one is nine. Ten and nine make nineteen.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 9",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 19",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-5d1dd8756e.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 4: 12 - 1",
+    "beats": [
+     {
+      "say": "Try! Twelve minus one.",
+      "do": [
+       {
+        "scene": "places",
+        "ones": 2,
+        "show": 2,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
+       },
+       {
+        "add": "12",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "− 1",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-824cdb9803.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "10",
+          "11",
+          "12"
+         ],
+         "answer": "11"
+        }
+       }
+      ],
+      "audio": "explain/v4-0ef309003c.mp3"
+     },
+     {
+      "say": "Twelve is ten and two.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "frame": {
+         "box": [
+          126,
+          28,
+          898,
+          118
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       },
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-4b09b727e7.mp3"
+     },
+     {
+      "say": "Keep the ten. Take away one from the two.",
+      "do": [
+       {
+        "cross": true,
+        "pts": [
+         [
+          247,
+          183
+         ]
+        ],
+        "r": 36,
+        "color": "red"
+       }
+      ],
+      "audio": "explain/v4-f9c75ae30a.mp3"
+     },
+     {
+      "say": "Two minus one is one. Ten and one make eleven.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 11",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-a949aad59c.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 5: 14 - 2",
+    "beats": [
+     {
+      "say": "Try! Fourteen minus two.",
+      "do": [
+       {
+        "scene": "places",
+        "ones": 4,
+        "show": 4,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
+       },
+       {
+        "add": "14",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "− 2",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-5b4bfec426.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "11",
+          "12",
+          "13"
+         ],
+         "answer": "12"
+        }
+       }
+      ],
+      "audio": "explain/v4-0ef309003c.mp3"
+     },
+     {
+      "say": "Fourteen is ten and four.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "frame": {
+         "box": [
+          126,
+          28,
+          898,
+          118
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       },
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-12415b9f77.mp3"
+     },
+     {
+      "say": "Keep the ten. Take away two from the four.",
+      "do": [
+       {
+        "cross": true,
+        "pts": [
+         [
+          321,
+          183
+         ],
+         [
+          395,
+          183
+         ]
+        ],
+        "r": 36,
+        "color": "red"
+       }
+      ],
+      "audio": "explain/v4-baf85cbd7e.mp3"
+     },
+     {
+      "say": "Four minus two is two. Ten and two make twelve.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 12",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-ff2dc01cf1.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 6: 19 - 4",
+    "beats": [
+     {
+      "say": "Try! Nineteen minus four.",
+      "do": [
+       {
+        "scene": "places",
+        "ones": 9,
+        "show": 9,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
+       },
+       {
+        "add": "19",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "− 4",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-9c4c88bb20.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "14",
+          "15",
+          "16"
+         ],
+         "answer": "15"
+        }
+       }
+      ],
+      "audio": "explain/v4-0ef309003c.mp3"
+     },
+     {
+      "say": "Nineteen is ten and nine.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "frame": {
+         "box": [
+          126,
+          28,
+          898,
+          118
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       },
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 9",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-9159f9c3a0.mp3"
+     },
+     {
+      "say": "Keep the ten. Take away four from the nine.",
+      "do": [
+       {
+        "cross": true,
+        "pts": [
+         [
+          557,
+          183
+         ],
+         [
+          631,
+          183
+         ],
+         [
+          705,
+          183
+         ],
+         [
+          779,
+          183
+         ]
+        ],
+        "r": 36,
+        "color": "red"
+       }
+      ],
+      "audio": "explain/v4-15502e0e75.mp3"
+     },
+     {
+      "say": "Nine minus four is five. Ten and five make fifteen.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 15",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-6ef1f29d34.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try: children",
+    "beats": [
+     {
+      "say": "Try! There are twelve children. Then five more come. How many children are there now in total?",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "a0",
+          "img": "../../pics/boy-3.png",
+          "x": 20,
+          "y": 20,
+          "w": 90,
+          "h": 90
+         },
+         {
+          "id": "a1",
+          "img": "../../pics/boy-3.png",
+          "x": 120,
+          "y": 20,
+          "w": 90,
+          "h": 90
+         },
+         {
+          "id": "a2",
+          "img": "../../pics/boy-3.png",
+          "x": 220,
+          "y": 20,
+          "w": 90,
+          "h": 90
+         },
+         {
+          "id": "a3",
+          "img": "../../pics/boy-3.png",
+          "x": 320,
+          "y": 20,
+          "w": 90,
+          "h": 90
+         },
+         {
+          "id": "a4",
+          "img": "../../pics/boy-3.png",
+          "x": 420,
+          "y": 20,
+          "w": 90,
+          "h": 90
+         },
+         {
+          "id": "a5",
+          "img": "../../pics/boy-3.png",
+          "x": 520,
+          "y": 20,
+          "w": 90,
+          "h": 90
+         },
+         {
+          "id": "a6",
+          "img": "../../pics/boy-3.png",
+          "x": 20,
+          "y": 124,
+          "w": 90,
+          "h": 90
+         },
+         {
+          "id": "a7",
+          "img": "../../pics/boy-3.png",
+          "x": 120,
+          "y": 124,
+          "w": 90,
+          "h": 90
+         },
+         {
+          "id": "a8",
+          "img": "../../pics/boy-3.png",
+          "x": 220,
+          "y": 124,
+          "w": 90,
+          "h": 90
+         },
+         {
+          "id": "a9",
+          "img": "../../pics/boy-3.png",
+          "x": 320,
+          "y": 124,
+          "w": 90,
+          "h": 90
+         },
+         {
+          "id": "a10",
+          "img": "../../pics/boy-3.png",
+          "x": 420,
+          "y": 124,
+          "w": 90,
+          "h": 90
+         },
+         {
+          "id": "a11",
+          "img": "../../pics/boy-3.png",
+          "x": 520,
+          "y": 124,
+          "w": 90,
+          "h": 90
+         },
+         {
+          "id": "b0",
+          "img": "../../pics/boy-3.png",
+          "x": 680,
+          "y": 20,
+          "w": 90,
+          "h": 90
+         },
+         {
+          "id": "b1",
+          "img": "../../pics/boy-3.png",
+          "x": 780,
+          "y": 20,
+          "w": 90,
+          "h": 90
+         },
+         {
+          "id": "b2",
+          "img": "../../pics/boy-3.png",
+          "x": 880,
+          "y": 20,
+          "w": 90,
+          "h": 90
+         },
+         {
+          "id": "b3",
+          "img": "../../pics/boy-3.png",
+          "x": 680,
+          "y": 124,
+          "w": 90,
+          "h": 90
+         },
+         {
+          "id": "b4",
+          "img": "../../pics/boy-3.png",
+          "x": 780,
+          "y": 124,
+          "w": 90,
+          "h": 90
+         }
+        ],
+        "ih": 360,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v4-6aeec9b61b.mp3"
+     },
+     {
+      "say": "Write the addition sentence.",
+      "do": [
+       {
+        "add": "Addition sentence:"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "write": {
+         "text": "12 + 5 = 17"
+        }
+       }
+      ],
+      "audio": "explain/v4-f79611e6bf.mp3"
+     },
+     {
+      "say": "Yes! Twelve plus five equals seventeen.",
+      "do": [
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-e00595f463.mp3"
+     },
+     {
+      "say": "What is the answer? Tap it.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "16 children",
+          "17 children",
+          "17"
+         ],
+         "answer": "17 children"
+        }
+       }
+      ],
+      "audio": "explain/v4-5c48e4bd74.mp3"
+     },
+     {
+      "say": "Yes! Answer: seventeen children.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "Answer:"
+       },
+       {
+        "add": "17 children",
+        "card": true
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-a610910bdc.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try: candies",
+    "beats": [
+     {
+      "say": "Try! You have sixteen candies. You give away four. How many are left?",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "c0",
+          "img": "../../pics/candy.png",
+          "x": 150,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "c1",
+          "img": "../../pics/candy.png",
+          "x": 260,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "c2",
+          "img": "../../pics/candy.png",
+          "x": 370,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "c3",
+          "img": "../../pics/candy.png",
+          "x": 480,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "c4",
+          "img": "../../pics/candy.png",
+          "x": 590,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "c5",
+          "img": "../../pics/candy.png",
+          "x": 700,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "c6",
+          "img": "../../pics/candy.png",
+          "x": 150,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "c7",
+          "img": "../../pics/candy.png",
+          "x": 260,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "c8",
+          "img": "../../pics/candy.png",
+          "x": 370,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "c9",
+          "img": "../../pics/candy.png",
+          "x": 480,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "c10",
+          "img": "../../pics/candy.png",
+          "x": 590,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "c11",
+          "img": "../../pics/candy.png",
+          "x": 700,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "c12",
+          "img": "../../pics/candy.png",
+          "x": 150,
+          "y": 238,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "c13",
+          "img": "../../pics/candy.png",
+          "x": 260,
+          "y": 238,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "c14",
+          "img": "../../pics/candy.png",
+          "x": 370,
+          "y": 238,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "c15",
+          "img": "../../pics/candy.png",
+          "x": 480,
+          "y": 238,
+          "w": 100,
+          "h": 100
+         }
+        ],
+        "ih": 360,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v4-344adc0427.mp3"
+     },
+     {
+      "say": "Count them.",
+      "do": [
+       {
+        "cross": true,
+        "pts": [
+         [
+          200,
+          288
+         ],
+         [
+          310,
+          288
+         ],
+         [
+          420,
+          288
+         ],
+         [
+          530,
+          288
+         ]
+        ],
+        "r": 46,
+        "color": "red"
+       }
+      ],
+      "audio": "explain/v4-2f3f82ca02.mp3"
+     },
+     {
+      "say": "Write the subtraction sentence.",
+      "do": [
+       {
+        "add": "Subtraction sentence:"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "write": {
+         "text": "16 − 4 = 12"
+        }
+       }
+      ],
+      "audio": "explain/v4-d6af99f043.mp3"
+     },
+     {
+      "say": "Yes! Sixteen minus four equals twelve.",
+      "do": [
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-35b1b1da32.mp3"
+     },
+     {
+      "say": "What is the answer? Tap it.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "11 candies",
+          "12 candies",
+          "12"
+         ],
+         "answer": "12 candies"
+        }
+       }
+      ],
+      "audio": "explain/v4-5c48e4bd74.mp3"
+     },
+     {
+      "say": "Yes! Answer: twelve candies.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "Answer:"
+       },
+       {
+        "add": "12 candies",
+        "card": true
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-955bd484f5.mp3",
+      "gap": 1000
      }
     ]
    }

@@ -1,4 +1,4 @@
-const EW_BUILD='6d21d68835';
+const EW_BUILD='0ce523e4fd';
 /* MADE BY tools/build-words.py from the files named below. Do not edit here. */
 /* ===== js/words-boot.js ===== */
 /* EASY WORDS — first file of the bundle: tells the shared accounts / credits code (welcome, sync, subs, coins, push) which settings file and server to use. */
@@ -3212,6 +3212,31 @@ function puzzleBoard(box,o){
   return {board:bd,slot,pieces:P};
 }
 ;
+/* ===== js/math-draw.js ===== */
+/* WORDS tab of the maths lessons (Ahmed 2026-11-18): the picture of a word is DRAWN here from its spec (no picture files):
+   img "data:draw,num,N,ar|en" = the numeral (Arabic or English digits) in a lesson colour; "data:draw,pos,K,N,ar|en" = N cats in a row with the K-th ringed (Arabic: the front is at the RIGHT, the cats face the other way).
+   "data:draw,cmp,size|len,big|long|small|short,ar|en" (2026-11-20, bigger/smaller, longer/shorter words) = an elephant and a mouse / two pencils of different length from the library, the asked one ringed (Arabic: mirrored order).
+   Called once when a lesson with such words opens (lesson.js openLesson). */
+const M_DIG='٠١٢٣٤٥٦٧٨٩', M_NUMCOL=['#E0412C','#2A7FD8','#F2B321','#2FA8A0','#8A5CC9','#F08A2C','#3FA34D','#D8396B','#E0412C','#8A5CC9'];
+function mDrawLoad(src){ return new Promise(r=>{ const i=new Image(); i.onload=()=>r(i); i.onerror=()=>r(null); i.src=src; }); }
+async function mVocabPics(L){
+  const pic=n=>mDrawLoad(new URL((L.base||'')+'../../pics/'+n+'.png',document.baseURI).href), cat=await pic('cat'), ff=getComputedStyle(document.body).fontFamily||'sans-serif';
+  for(const v of L.vocab||[]){
+    const m=/^data:draw,(num|pos|cmp),(.*)$/.exec(v.img||''); if(!m) continue; const a=m[2].split(','), c=document.createElement('canvas'), x=c.getContext('2d');
+    if(m[1]==='cmp'){ const kind=a[0], big=a[1]==='big'||a[1]==='long', ar=a[2]==='ar', W=900, H=300; c.width=W; c.height=H; x.fillStyle='#fff'; x.beginPath(); x.roundRect(0,20,W,H-40,36); x.fill();
+      x.strokeStyle='#E8457A'; x.lineWidth=12;
+      if(kind==='size'){ const [e,mo]=await Promise.all([pic('elephant'),pic('mouse')]); if(e&&mo){ const eh=200, ew=eh*e.width/e.height, mh=84, mw=mh*mo.width/mo.height, gap=90, x0=(W-ew-mw-gap)/2, ex=ar?W-x0-ew:x0, mx=ar?x0:x0+ew+gap;
+          x.drawImage(e,ex,H-40-eh,ew,eh); x.drawImage(mo,mx,H-40-mh,mw,mh); const bx=big?ex:mx, bw=big?ew:mw, bh=big?eh:mh; x.beginPath(); x.ellipse(bx+bw/2,H-40-bh/2,bw/2+18,bh/2+16,0,0,Math.PI*2); x.stroke(); } }
+      else { const p0=await pic('len-pen-green'); if(p0){ const L1=760, L2=380, h=L1*p0.height/p0.width, hs=L2*p0.height/p0.width, y1=70, y2=170, x1=ar?W-30-L1:30, x2=ar?W-30-L2:30; x.drawImage(p0,x1,y1,L1,h); x.drawImage(p0,x2,y2,L2,hs);
+          const tx=big?x1:x2, tw=big?L1:L2, ty=big?y1:y2, th=big?h:hs; x.beginPath(); x.roundRect(tx-14,ty-14,tw+28,th+28,22); x.stroke(); } } }
+    else if(m[1]==='num'){ const n=+a[0], ar=a[1]==='ar', t=ar?String(n).split('').map(d=>M_DIG[+d]).join(''):String(n); c.width=520; c.height=420; x.textAlign='center'; x.textBaseline='middle';
+      let fs=n>9?260:330; x.font=`700 ${fs}px ${ff}`; x.lineJoin='round'; x.lineWidth=26; x.strokeStyle='#fff'; x.strokeText(t,260,225); x.fillStyle=M_NUMCOL[(n-1)%10]; x.fillText(t,260,225); }
+    else { const k=+a[0], n=+a[1], ar=a[2]==='ar', W=900, H=300; c.width=W; c.height=H; x.fillStyle='#fff'; x.beginPath(); x.roundRect(0,40,W,H-80,36); x.fill();
+      const sw=(W-60)/n, ih=H-120; for(let i=0;i<n;i++){ const cx=30+sw*(i+.5); if(cat){ const w=Math.min(sw*.86,ih*cat.width/cat.height), h=w*cat.height/cat.width; x.save(); x.translate(cx,H-52); if(ar) x.scale(-1,1); x.drawImage(cat,-w/2,-h,w,h); x.restore(); } }
+      const i=ar?n-k:k-1, cx=30+sw*(i+.5); x.strokeStyle='#E8457A'; x.lineWidth=12; x.beginPath(); x.ellipse(cx,H/2,Math.min(sw*.52,70),ih/2+14,0,0,Math.PI*2); x.stroke(); }
+    v.img=c.toDataURL('image/png'); }
+}
+;
 /* ===== js/words-data.js ===== */
 /* EASY WORDS — data. The words app owns NO words: a word, its picture, syllables and sounds come BY REFERENCE from the curriculum app's own files
    (data/<subject>/subject.json = units and lessons, lesson.json "vocab" = the words), so one change there shows in both apps.
@@ -3221,7 +3246,9 @@ const EW={ cfg:null, curr:null, cur:null, les:{}, stats:{}, log:[] };
 const EW_SUBJ={
   'arabic':{ name:'عربي كلمات', small:'عربي', big:'كلمات', lang:'ar' },
   'en-ol': { name:'English OL words', small:'ENGLISH', big:'OL', sub:'WORDS', lang:'en' },
-  'en-al': { name:'English AL words', small:'ENGLISH', big:'AL', sub:'WORDS', lang:'en' }
+  'en-al': { name:'English AL words', small:'ENGLISH', big:'AL', sub:'WORDS', lang:'en' },
+  'math-ar':{ name:'رياضيات كلمات', small:'رياضيات', big:'كلمات', lang:'ar' },   // maths WORDS tabs (Ahmed 2026-11-20): Arabic maths = general, English maths = experimental (data/curriculum.json)
+  'math':  { name:'Math words', small:'ENGLISH', big:'MATH', sub:'WORDS', lang:'en' }
 };
 // the curriculum is the child's (set in the account / student settings, js/welcome.js); nothing here picks it any more
 try{ const k=kidNow(); EW.curr=k&&k.curr?currEff(k.curr):null; }catch(e){}
@@ -3259,20 +3286,21 @@ function ewUnits(s){
   // display filter only (no lesson data is touched): a lesson with no word for this child is not shown, and a unit left empty goes with it
   Object.keys(by).forEach(u=>{ by[u]=by[u].filter(l=>{ if(!l.file||!ewOpen(l.id)) return false; const L=EW.les[l.id]; return !(L&&!L.vocab.length); }); });
   return Object.keys(by).map(u=>{ const un=(s.units||[]).find(x=>x.unit==u)||{};
-    return { unit:+u, name:s.id==='arabic'?`الوحدة ${ewN(u)}${un.title?' · '+un.title:''}`:`Unit ${u}`, lessons:by[u].map((l,i)=>{ const built=!!l.file&&ewOpen(l.id), st=built?coinAccess(l,true,'l:'+l.id,i,'lesson').st:'soon';   // open | locked | soon: the dashboard's state, a paid term, credits and the free trial (js/coins.js)
+    return { unit:+u, name:EW_SUBJ[s.id].lang==='ar'?`الوحدة ${ewN(u)}${un.title?' · '+un.title:''}`:`Unit ${u}`, lessons:by[u].map((l,i)=>{ const built=!!l.file&&ewOpen(l.id), st=built?coinAccess(l,true,'l:'+l.id,i,'lesson').st:'soon';   // open | locked | soon: the dashboard's state, a paid term, credits and the free trial (js/coins.js)
       return {...l,name:(s.id==='arabic'?ewLetterName(l.title||l.planned||''):(l.title||l.planned||'')),built,st,open:st==='open',locked:st==='locked'}; }) }; })
     .filter(u=>u.lessons.length&&(s.id!=='arabic'||u.unit<=4));   // Arabic: no النحو (unit 5) and no final assessments here, they have no words (Ahmed 2026-11-16)
 }
 // load every built lesson of the subject (open or locked) so the lists know which ones have words
 async function ewPreload(s){ await Promise.all((s.lessons||[]).filter(l=>l.file&&ewOpen(l.id)&&!(l.tabs&&!l.tabs.includes('words'))).map(l=>ewLesson(l.id).catch(()=>null))); }
 const ewOpen=id=>!!(EW.cfg&&!(EW.cfg.skip||[]).includes(id)&&(EW.cfg.all||(EW.cfg.open||[]).includes(id)));
-const ewSubjOf=id=>COURSE.subjects.find(s=>id.startsWith(s.id+'-'));
+const ewSubjOf=id=>COURSE.subjects.filter(s=>id.startsWith(s.id+'-')).sort((a,b)=>b.id.length-a.id.length)[0];   // longest id: 'math-ar-u1l2' is math-ar, not math
 // one open lesson with its words (loaded once; paths already resolved by the curriculum app's own fixPaths)
 async function ewLesson(id){
   if(EW.les[id]) return EW.les[id];
   const s=ewSubjOf(id), m=s&&s.lessons.find(l=>l.id===id); if(!m||!m.file) return null;
   const L=fixPaths(await get(m.file),m.file); L.id=id; L.subj=s.id; L.tabs=['words','practice']; L.tabLabels={words:'كلمات',practice:'تدريبات'};
-  L.vocab=(L.vocab||[]).filter(v=>v&&v.word); L.vocab.forEach((v,i)=>{ v.lid=id; v.key=id+'|'+v.word; v.ix=i; v.lang=s.id==='arabic'?'ar':'en'; });
+  L.vocab=(L.vocab||[]).filter(v=>v&&v.word); L.vocab.forEach((v,i)=>{ v.lid=id; v.key=id+'|'+v.word; v.ix=i; v.lang=EW_SUBJ[s.id].lang; });
+  if(typeof mVocabPics==='function'&&L.vocab.some(v=>/^data:draw,/.test(v.img||''))) await mVocabPics(L);   // maths words: the pictures are drawn (js/math-draw.js)
   return EW.les[id]=L;
 }
 // ---- word statistics (kept on this device; later in the parent's account) ----

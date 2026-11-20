@@ -1,176 +1,48 @@
 {
  "sets": [
   {
-   "type": "mcq",
-   "ex": 1,
-   "page": 92,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is ten minus three plus one?",
-     "stem": "10 - 3 + 1 = __",
-     "options": [
-      "7",
-      "8",
-      "9"
-     ],
-     "answer": 1,
-     "askSay": "What is ten minus three plus one?",
-     "askAudio": "q/c1-q.mp3",
-     "audio": "q/c1-a.mp3",
-     "word": "Eight."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 2,
-   "page": 92,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is three plus five minus seven?",
-     "stem": "3 + 5 - 7 = __",
-     "options": [
-      "0",
-      "1",
-      "2"
-     ],
-     "answer": 1,
-     "askSay": "What is three plus five minus seven?",
-     "askAudio": "q/c2-q.mp3",
-     "audio": "q/c2-a.mp3",
-     "word": "One."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 3,
+   "type": "mwrite",
    "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
+   "task": "Write the mathematical sentence and the answer.",
    "items": [
     {
-     "ask": "What is nine minus one plus two?",
-     "stem": "9 - 1 + 2 = __",
-     "options": [
-      "9",
-      "10",
-      "11"
+     "ask": "There are 7 people on the bus. Then 4 get off. Then 3 more get on. How many people are on the bus now?",
+     "lead": "Mathematical sentence:",
+     "word": "7 − 4 + 3 = 6",
+     "keys": "1234567890+−=",
+     "askSay": "There are 7 people on the bus. Then 4 get off. Then 3 more get on. How many people are on the bus now?",
+     "pics": [
+      "../../pics/boy-3.png#7|../../pics/boy-3.png#3"
      ],
-     "answer": 1,
-     "askSay": "What is nine minus one plus two?",
-     "askAudio": "q/c3-q.mp3",
-     "audio": "q/c3-a.mp3",
-     "word": "Ten."
+     "askAudio": "q/e9s-17903f34ff.mp3",
+     "audio": "q/e9w-d483573a2b.mp3",
+     "then": {
+      "options": [
+       "5 people",
+       "6 people",
+       "7 people"
+      ],
+      "answer": 1,
+      "askSay": "What is the answer?",
+      "word": "Answer: 6 people",
+      "lead": "Answer:",
+      "askAudio": "q/e9tq-cfd5904a49.mp3",
+      "audio": "q/e9ta-61b3d7879f.mp3"
+     }
     }
-   ]
+   ],
+   "act": "u9l3ex",
+   "taskAudio": "q/e9t-b9ce9a3a8c.mp3",
+   "ex": 1
   },
   {
    "type": "mcq",
-   "ex": 4,
    "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is ten minus seven plus two?",
-     "stem": "10 - 7 + 2 = __",
-     "options": [
-      "4",
-      "5",
-      "6"
-     ],
-     "answer": 1,
-     "askSay": "What is ten minus seven plus two?",
-     "askAudio": "q/c4-q.mp3",
-     "audio": "q/c4-a.mp3",
-     "word": "Five."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 5,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is one plus eight minus four?",
-     "stem": "1 + 8 - 4 = __",
-     "options": [
-      "4",
-      "5",
-      "6"
-     ],
-     "answer": 1,
-     "askSay": "What is one plus eight minus four?",
-     "askAudio": "q/c5-q.mp3",
-     "audio": "q/c5-a.mp3",
-     "word": "Five."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 6,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is five plus five minus three?",
-     "stem": "5 + 5 - 3 = __",
-     "options": [
-      "6",
-      "7",
-      "8"
-     ],
-     "answer": 1,
-     "askSay": "What is five plus five minus three?",
-     "askAudio": "q/c6-q.mp3",
-     "audio": "q/c6-a.mp3",
-     "word": "Seven."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 7,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is six plus four minus five?",
-     "stem": "6 + 4 - 5 = __",
-     "options": [
-      "4",
-      "5",
-      "6"
-     ],
-     "answer": 1,
-     "askSay": "What is six plus four minus five?",
-     "askAudio": "q/c7-q.mp3",
-     "audio": "q/c7-a.mp3",
-     "word": "Five."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 8,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
+   "task": "Solve the problems.",
    "items": [
     {
      "ask": "What is nine minus seven plus two?",
-     "stem": "9 - 7 + 2 = __",
+     "stem": "9 − 7 + 2 = __",
      "options": [
       "3",
       "4",
@@ -178,22 +50,13 @@
      ],
      "answer": 1,
      "askSay": "What is nine minus seven plus two?",
-     "askAudio": "q/c8-q.mp3",
-     "audio": "q/c8-a.mp3",
-     "word": "Four."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 9,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
+     "word": "Nine minus seven plus two equals four.",
+     "askAudio": "q/e9q-cb69c403fe.mp3",
+     "audio": "q/e9a-52f1609d5c.mp3"
+    },
     {
      "ask": "What is ten minus four plus one?",
-     "stem": "10 - 4 + 1 = __",
+     "stem": "10 − 4 + 1 = __",
      "options": [
       "6",
       "7",
@@ -201,22 +64,13 @@
      ],
      "answer": 1,
      "askSay": "What is ten minus four plus one?",
-     "askAudio": "q/c9-q.mp3",
-     "audio": "q/c9-a.mp3",
-     "word": "Seven."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 10,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
+     "word": "Ten minus four plus one equals seven.",
+     "askAudio": "q/e9q-22a544bcad.mp3",
+     "audio": "q/e9a-d6e0b25422.mp3"
+    },
     {
      "ask": "What is five plus three minus six?",
-     "stem": "5 + 3 - 6 = __",
+     "stem": "5 + 3 − 6 = __",
      "options": [
       "1",
       "2",
@@ -224,22 +78,13 @@
      ],
      "answer": 1,
      "askSay": "What is five plus three minus six?",
-     "askAudio": "q/c10-q.mp3",
-     "audio": "q/c10-a.mp3",
-     "word": "Two."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 11,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
+     "word": "Five plus three minus six equals two.",
+     "askAudio": "q/e9q-39b43826eb.mp3",
+     "audio": "q/e9a-c6c9318142.mp3"
+    },
     {
      "ask": "What is three plus seven minus one?",
-     "stem": "3 + 7 - 1 = __",
+     "stem": "3 + 7 − 1 = __",
      "options": [
       "8",
       "9",
@@ -247,22 +92,13 @@
      ],
      "answer": 1,
      "askSay": "What is three plus seven minus one?",
-     "askAudio": "q/c11-q.mp3",
-     "audio": "q/c11-a.mp3",
-     "word": "Nine."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 12,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
+     "word": "Three plus seven minus one equals nine.",
+     "askAudio": "q/e9q-dfebeafab6.mp3",
+     "audio": "q/e9a-7c301c5d32.mp3"
+    },
     {
      "ask": "What is four plus six minus six?",
-     "stem": "4 + 6 - 6 = __",
+     "stem": "4 + 6 − 6 = __",
      "options": [
       "3",
       "4",
@@ -270,80 +106,136 @@
      ],
      "answer": 1,
      "askSay": "What is four plus six minus six?",
-     "askAudio": "q/c12-q.mp3",
-     "audio": "q/c12-a.mp3",
-     "word": "Four."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 13,
-   "page": 93,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is seven minus four plus three?",
-     "stem": "7 - 4 + 3 = __",
-     "options": [
-      "5",
-      "6",
-      "7"
-     ],
-     "answer": 1,
-     "askSay": "What is seven minus four plus three?",
-     "askAudio": "q/c13-q.mp3",
-     "audio": "q/c13-a.mp3",
-     "word": "Six."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "page": 66,
-   "task": "Find the result.",
-   "taskAudio": "q/task-bk-find-the-result.mp3",
-   "items": [
-    {
-     "stem": "15 + 4 − 3 = ___",
-     "options": [
-      "15",
-      "16",
-      "17"
-     ],
-     "answer": 1,
-     "askAudio": "q/wb-15-p-4-m-3-q.mp3",
-     "audio": "q/wb-15-p-4-m-3.mp3",
-     "word": "15 + 4 − 3 = 16"
+     "word": "Four plus six minus six equals four.",
+     "askAudio": "q/e9q-83cd06b430.mp3",
+     "audio": "q/e9a-7e754b88b7.mp3"
     },
     {
-     "stem": "16 − 4 + 6 = ___",
-     "options": [
-      "17",
-      "18",
-      "19"
-     ],
-     "answer": 1,
-     "askAudio": "q/wb-16-m-4-p-6-q.mp3",
-     "audio": "q/wb-16-m-4-p-6.mp3",
-     "word": "16 − 4 + 6 = 18"
-    },
-    {
-     "stem": "6 + 4 − 2 = ___",
+     "ask": "What is two plus two plus two plus two?",
+     "stem": "2 + 2 + 2 + 2 = __",
      "options": [
       "7",
       "8",
       "9"
      ],
      "answer": 1,
-     "askAudio": "q/wb-6-p-4-m-2-q.mp3",
-     "audio": "q/wb-6-p-4-m-2.mp3",
-     "word": "6 + 4 − 2 = 8"
+     "askSay": "What is two plus two plus two plus two?",
+     "word": "Two plus two plus two plus two equals eight.",
+     "askAudio": "q/e9q-65e914c600.mp3",
+     "audio": "q/e9a-77530ce835.mp3"
+    }
+   ],
+   "act": "u9l3ex",
+   "taskAudio": "q/e9t-b9e8b4dfff.mp3",
+   "ex": 2
+  },
+  {
+   "type": "mwrite",
+   "page": 66,
+   "task": "Write the mathematical sentence and the answer.",
+   "items": [
+    {
+     "ask": "Tarek had 14 pounds, he spent 4 pounds, then spent 3 more pounds. How much money does he have left?",
+     "lead": "Mathematical sentence:",
+     "word": "14 − 4 − 3 = 7",
+     "keys": "1234567890+−=",
+     "askSay": "Tarek had 14 pounds, he spent 4 pounds, then spent 3 more pounds. How much money does he have left?",
+     "askAudio": "q/e9s-b898c223e1.mp3",
+     "audio": "q/e9w-8e3cef7968.mp3",
+     "then": {
+      "options": [
+       "6 pounds",
+       "7 pounds",
+       "8 pounds"
+      ],
+      "answer": 1,
+      "askSay": "What is the answer?",
+      "word": "Answer: 7 pounds",
+      "lead": "Answer:",
+      "askAudio": "q/e9tq-cfd5904a49.mp3",
+      "audio": "q/e9ta-19738fa46b.mp3"
+     }
+    },
+    {
+     "ask": "There are 9 people on the car, 3 people got off, then 4 more people got off. How many people are on the car now?",
+     "lead": "Mathematical sentence:",
+     "word": "9 − 3 − 4 = 2",
+     "keys": "1234567890+−=",
+     "askSay": "There are 9 people on the car, 3 people got off, then 4 more people got off. How many people are on the car now?",
+     "askAudio": "q/e9s-45a900d846.mp3",
+     "audio": "q/e9w-b8bf7d148f.mp3",
+     "then": {
+      "options": [
+       "1 person",
+       "2 people",
+       "3 people"
+      ],
+      "answer": 1,
+      "askSay": "What is the answer?",
+      "word": "Answer: 2 people",
+      "lead": "Answer:",
+      "askAudio": "q/e9tq-cfd5904a49.mp3",
+      "audio": "q/e9ta-4b6e680561.mp3"
+     }
     }
    ],
    "book": "workbook",
-   "ex": 14
+   "act": "u9l3wb",
+   "taskAudio": "q/e9t-b9ce9a3a8c.mp3",
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "page": 66,
+   "task": "Find the result.",
+   "items": [
+    {
+     "ask": "What is fifteen plus four minus three?",
+     "stem": "15 + 4 − 3 = __",
+     "options": [
+      "15",
+      "16",
+      "17"
+     ],
+     "answer": 1,
+     "askSay": "What is fifteen plus four minus three?",
+     "word": "Fifteen plus four minus three equals sixteen.",
+     "askAudio": "q/e9q-8a13a16dff.mp3",
+     "audio": "q/e9a-eb15cbe054.mp3"
+    },
+    {
+     "ask": "What is sixteen minus two plus six?",
+     "stem": "16 − 2 + 6 = __",
+     "options": [
+      "19",
+      "20",
+      "21"
+     ],
+     "answer": 1,
+     "askSay": "What is sixteen minus two plus six?",
+     "word": "Sixteen minus two plus six equals twenty.",
+     "askAudio": "q/e9q-282e8a95ee.mp3",
+     "audio": "q/e9a-23b4653f17.mp3"
+    },
+    {
+     "ask": "What is six plus four minus two?",
+     "stem": "6 + 4 − 2 = __",
+     "options": [
+      "7",
+      "8",
+      "9"
+     ],
+     "answer": 1,
+     "askSay": "What is six plus four minus two?",
+     "word": "Six plus four minus two equals eight.",
+     "askAudio": "q/e9q-407efbd2d5.mp3",
+     "audio": "q/e9a-8d9a3acb43.mp3"
+    }
+   ],
+   "book": "workbook",
+   "act": "u9l3wb",
+   "taskAudio": "q/e9t-3269972362.mp3",
+   "ex": 2
   },
   {
    "type": "mcq",

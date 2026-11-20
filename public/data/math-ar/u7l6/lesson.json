@@ -18,13 +18,21 @@
   "quiz": "هيا نتدرب",
   "workbook": "كتاب التقييمات"
  },
- "pages": 5,
+ "pages": 13,
  "pageNums": [
   84,
   84,
   84,
   84,
-  84
+  84,
+  84,
+  84,
+  85,
+  85,
+  85,
+  85,
+  85,
+  85
  ],
  "layout": "explain",
  "explain": {
@@ -88,9 +96,19 @@
       "say": "عشرون وواحد يكوّنان واحد وعشروين.",
       "do": [
        {
-        "add": "20 + 1 = 21",
+        "add": "20",
         "card": true,
         "color": "green"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 21",
+        "card": true,
+        "color": "orange"
        },
        {
         "line": "break"
@@ -216,9 +234,19 @@
       "say": "ثلاثون واثنان يكوّنان اثنان وثلاثوين.",
       "do": [
        {
-        "add": "30 + 2 = 32",
+        "add": "30",
         "card": true,
         "color": "green"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 32",
+        "card": true,
+        "color": "orange"
        },
        {
         "line": "break"
@@ -231,6 +259,88 @@
       ],
       "gap": 1200,
       "audio": "../../math-ar-audio/d74b1ec483.mp3"
+     }
+    ]
+   },
+   {
+    "name": "استعدوا: الحزم",
+    "beats": [
+     {
+      "say": "استعدوا! نعدّ ونكتب العدد. كم عددها؟",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l6-wu1.png",
+        "w": 1000,
+        "h": 430,
+        "frame": false
+       }
+      ]
+     },
+     {
+      "say": "اثنان عشرات تكوّن عشرون. نضيف ثلاثة. عشرون وثلاثة يكوّنان ثلاثة وعشرون.",
+      "do": [
+       {
+        "add": "20",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 23",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "استعدوا: علب البيض",
+    "beats": [
+     {
+      "say": "نعدّ ونكتب العدد. كم بيضة؟",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l6-wu2.png",
+        "w": 1000,
+        "h": 430,
+        "frame": false
+       }
+      ]
+     },
+     {
+      "say": "ثلاثة عشرات تكوّن ثلاثون. نضيف خمسة. ثلاثون وخمسة يكوّنان خمسة وثلاثون.",
+      "do": [
+       {
+        "add": "30",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 35",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
      }
     ]
    },
@@ -312,9 +422,19 @@
       "say": "عشرون وستة يكوّنان ستة وعشروين.",
       "do": [
        {
-        "add": "20 + 6 = 26",
+        "add": "20",
         "card": true,
         "color": "green"
+       },
+       {
+        "add": "+ 6",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 26",
+        "card": true,
+        "color": "orange"
        },
        {
         "line": "break"
@@ -416,9 +536,19 @@
       "say": "ثلاثون وثمانية يكوّنان ثمانية وثلاثوين.",
       "do": [
        {
-        "add": "30 + 8 = 38",
+        "add": "30",
         "card": true,
         "color": "green"
+       },
+       {
+        "add": "+ 8",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 38",
+        "card": true,
+        "color": "orange"
        },
        {
         "line": "break"
@@ -431,6 +561,442 @@
       ],
       "gap": 1200,
       "audio": "../../math-ar-audio/9bcf46d547.mp3"
+     }
+    ]
+   },
+   {
+    "name": "المحاولة 1",
+    "beats": [
+     {
+      "say": "جرّب! نعدّ ونكتب العدد.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l6-t1.png",
+        "w": 1000,
+        "h": 430,
+        "frame": false
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "30",
+          "31",
+          "32"
+         ],
+         "answer": "31"
+        }
+       }
+      ]
+     },
+     {
+      "say": "ثلاثة عشرات تكوّن ثلاثون. نضيف واحد. ثلاثون وواحد يكوّنان واحد وثلاثون.",
+      "do": [
+       {
+        "add": "30",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 31",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "المحاولة 2",
+    "beats": [
+     {
+      "say": "جرّب! نعدّ ونكتب العدد.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l6-t2.png",
+        "w": 1000,
+        "h": 430,
+        "frame": false
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "26",
+          "27",
+          "28"
+         ],
+         "answer": "27"
+        }
+       }
+      ]
+     },
+     {
+      "say": "اثنان عشرات تكوّن عشرون. نضيف سبعة. عشرون وسبعة يكوّنان سبعة وعشرون.",
+      "do": [
+       {
+        "add": "20",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 7",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 27",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "المحاولة 3",
+    "beats": [
+     {
+      "say": "جرّب! نعدّ ونكتب العدد.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l6-t3.png",
+        "w": 1000,
+        "h": 430,
+        "frame": false
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "33",
+          "34",
+          "35"
+         ],
+         "answer": "34"
+        }
+       }
+      ]
+     },
+     {
+      "say": "ثلاثة عشرات تكوّن ثلاثون. نضيف أربعة. ثلاثون وأربعة يكوّنان أربعة وثلاثون.",
+      "do": [
+       {
+        "add": "30",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 34",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "المحاولة 4",
+    "beats": [
+     {
+      "say": "جرّب! نعدّ ونكتب العدد.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l6-t4.png",
+        "w": 1000,
+        "h": 430,
+        "frame": false
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "28",
+          "29",
+          "30"
+         ],
+         "answer": "29"
+        }
+       }
+      ]
+     },
+     {
+      "say": "اثنان عشرات تكوّن عشرون. نضيف تسعة. عشرون وتسعة يكوّنان تسعة وعشرون.",
+      "do": [
+       {
+        "add": "20",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 9",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 29",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "المحاولة 5: 24",
+    "beats": [
+     {
+      "say": "جرّب! اكتب العدد. أربعة وعشرون.",
+      "do": [
+       {
+        "scene": "groups",
+        "t": 2,
+        "o": 4,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          30,
+          12,
+          542,
+          148
+         ],
+         "color": "green"
+        }
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "14",
+          "24",
+          "25"
+         ],
+         "answer": "24"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! عشرون وأربعة يكوّنان أربعة وعشرون.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          630,
+          12,
+          868,
+          82
+         ],
+         "color": "blue"
+        }
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          663,
+          43
+         ],
+         [
+          721,
+          43
+         ],
+         [
+          779,
+          43
+         ],
+         [
+          837,
+          43
+         ]
+        ],
+        "color": "orange",
+        "r": 20
+       },
+       {
+        "add": "20",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 24",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "المحاولة 6: 37",
+    "beats": [
+     {
+      "say": "جرّب! اكتب العدد. سبعة وثلاثون.",
+      "do": [
+       {
+        "scene": "groups",
+        "t": 3,
+        "o": 7,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          30,
+          12,
+          542,
+          210
+         ],
+         "color": "green"
+        }
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "27",
+          "37",
+          "38"
+         ],
+         "answer": "37"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! ثلاثون وسبعة يكوّنان سبعة وثلاثون.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          630,
+          12,
+          926,
+          144
+         ],
+         "color": "blue"
+        }
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          663,
+          43
+         ],
+         [
+          721,
+          43
+         ],
+         [
+          779,
+          43
+         ],
+         [
+          837,
+          43
+         ],
+         [
+          895,
+          43
+         ],
+         [
+          663,
+          105
+         ],
+         [
+          721,
+          105
+         ]
+        ],
+        "color": "orange",
+        "r": 20
+       },
+       {
+        "add": "30",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "add": "+ 7",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "= 37",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
      }
     ]
    }

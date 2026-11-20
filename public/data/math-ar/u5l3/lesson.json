@@ -7,16 +7,45 @@
  "lines": [],
  "end": 1,
  "speakers": {},
- "vocab": [],
+ "vocab": [
+  {
+   "word": "أطول",
+   "img": "data:draw,cmp,len,long,ar",
+   "parts": [
+    {
+     "t": "أطول",
+     "audio": "../../math-ar-audio/012a2c72eb.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/012a2c72eb.mp3"
+   }
+  },
+  {
+   "word": "أقصر",
+   "img": "data:draw,cmp,len,short,ar",
+   "parts": [
+    {
+     "t": "أقصر",
+     "audio": "../../math-ar-audio/ea07765215.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/ea07765215.mp3"
+   }
+  }
+ ],
  "tabs": [
   "read",
+  "words",
   "quiz",
   "workbook"
  ],
  "tabLabels": {
   "read": "الدرس",
   "quiz": "هيا نتدرب",
-  "workbook": "كتاب التقييمات"
+  "workbook": "كتاب التقييمات",
+  "words": "الكلمات"
  },
  "pages": 5,
  "pageNums": [
@@ -713,5 +742,12 @@
   ],
   "rtl": true,
   "lang": "ar"
- }
+ },
+ "hints": {
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف",
+  "word": "اضغط على أي كلمة تسمعها"
+ },
+ "vocabRepeats": 3
 }

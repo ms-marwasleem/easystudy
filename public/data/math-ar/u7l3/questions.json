@@ -1,491 +1,330 @@
 {
  "sets": [
   {
-   "type": "mcq",
-   "ex": 1,
-   "page": 77,
-   "task": "نضع دائرة حول العدد الأكبر.",
+   "type": "nline",
+   "page": 78,
+   "task": "ننظر إلى خط الأعداد. عند أي عدد توقفت القطة؟ نكتب العدد.",
    "items": [
     {
-     "ask": "أي عدد هو الأكبر؟",
-     "stem": "العدد الأكبر هو __",
+     "pet": 10,
+     "img": "../../pics/cat.png",
      "options": [
-      "12",
-      "8"
+      9,
+      10,
+      11
      ],
-     "answer": 0,
-     "askSay": "أي عدد هو الأكبر؟",
-     "word": "اثنا عشر هو الأكبر.",
-     "askAudio": "../../math-ar-audio/ba1f035daf.mp3",
-     "audio": "../../math-ar-audio/b9ef397af0.mp3"
+     "answer": 10,
+     "ask": "عند أي عدد توقفت القطة؟",
+     "word": "توقفت القطة عند العدد 10."
+    },
+    {
+     "pet": 19,
+     "img": "../../pics/cat.png",
+     "options": [
+      18,
+      19,
+      20
+     ],
+     "answer": 19,
+     "ask": "عند أي عدد توقفت القطة؟",
+     "word": "توقفت القطة عند العدد 19."
     }
    ],
-   "taskAudio": "../../math-ar-audio/34af2190a8.mp3"
+   "act": "u7l3ex",
+   "ex": 1
   },
   {
-   "type": "mcq",
-   "ex": 2,
+   "type": "bigger",
    "page": 78,
    "task": "نضع دائرة حول العدد الأكبر.",
    "items": [
     {
-     "ask": "أي عدد هو الأكبر؟",
-     "stem": "العدد الأكبر هو __",
-     "options": [
-      "17",
-      "16"
+     "nums": [
+      17,
+      16
      ],
-     "answer": 0,
-     "askSay": "أي عدد هو الأكبر؟",
-     "word": "سبعة عشر هو الأكبر.",
-     "askAudio": "../../math-ar-audio/ba1f035daf.mp3",
-     "audio": "../../math-ar-audio/dba28fd6eb.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/34af2190a8.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 3,
-   "page": 77,
-   "task": "نكتب العدد الذي يجب وضعه في المربع.",
-   "items": [
+     "find": "bigger",
+     "word": "17 أكبر من 16."
+    },
     {
-     "ask": "ما العدد الناقص؟",
-     "stem": "12, __, 14, 15, 16, 17",
-     "options": [
-      "12",
-      "13",
-      "14"
+     "nums": [
+      15,
+      20
      ],
-     "answer": 1,
-     "askSay": "ما العدد الناقص؟",
-     "word": "ثلاثة عشر.",
-     "askAudio": "../../math-ar-audio/21b1062b89.mp3"
+     "find": "bigger",
+     "word": "20 أكبر من 15."
     }
    ],
-   "taskAudio": "../../math-ar-audio/0a5cb53155.mp3"
+   "act": "u7l3ex",
+   "taskAudio": "../../math-ar-audio/34af2190a8.mp3",
+   "ex": 2
   },
   {
-   "type": "mcq",
-   "ex": 4,
-   "page": 77,
-   "task": "نكتب العدد الذي يجب وضعه في المربع.",
-   "items": [
-    {
-     "ask": "ما العدد الناقص؟",
-     "stem": "10, __, 14, 16, 18, 20",
-     "options": [
-      "11",
-      "12",
-      "13"
-     ],
-     "answer": 1,
-     "askSay": "ما العدد الناقص؟",
-     "word": "اثنا عشر.",
-     "askAudio": "../../math-ar-audio/21b1062b89.mp3",
-     "audio": "../../math-ar-audio/71935794f9.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/0a5cb53155.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 5,
-   "page": 77,
-   "task": "نكتب العدد الذي يجب وضعه في المربع.",
-   "items": [
-    {
-     "ask": "ما العدد الناقص؟",
-     "stem": "18, __, 16, 15, 14, 13",
-     "options": [
-      "16",
-      "17",
-      "18"
-     ],
-     "answer": 1,
-     "askSay": "ما العدد الناقص؟",
-     "word": "سبعة عشر.",
-     "askAudio": "../../math-ar-audio/21b1062b89.mp3",
-     "audio": "../../math-ar-audio/36bf0743e4.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/0a5cb53155.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 6,
+   "type": "numline",
    "page": 78,
    "task": "نكتب العدد الذي يجب وضعه في المربع.",
    "items": [
     {
-     "ask": "ما العدد الناقص؟",
-     "stem": "13, __, 15, 16, 17, 18",
-     "options": [
-      "13",
-      "14",
-      "15"
+     "seq": [
+      13,
+      null,
+      15,
+      null,
+      null,
+      18
      ],
-     "answer": 1,
-     "askSay": "ما العدد الناقص؟",
-     "word": "أربعة عشر.",
-     "audio": "../../math-ar-audio/76699d99af.mp3",
-     "askAudio": "../../math-ar-audio/21b1062b89.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/0a5cb53155.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 7,
-   "page": 78,
-   "task": "نكتب العدد الذي يجب وضعه في المربع.",
-   "items": [
+     "answers": [
+      14,
+      16,
+      17
+     ]
+    },
     {
-     "ask": "ما العدد الناقص؟",
-     "stem": "20, __, 18, 17, 16, 15",
-     "options": [
-      "18",
-      "19",
-      "20"
+     "seq": [
+      20,
+      null,
+      18,
+      null,
+      16,
+      15
      ],
-     "answer": 1,
-     "askSay": "ما العدد الناقص؟",
-     "word": "تسعة عشر.",
-     "audio": "../../math-ar-audio/a7808919b9.mp3",
-     "askAudio": "../../math-ar-audio/21b1062b89.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/0a5cb53155.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 8,
-   "page": 78,
-   "task": "نكتب العدد الذي يجب وضعه في المربع.",
-   "items": [
+     "answers": [
+      19,
+      17
+     ]
+    },
     {
-     "ask": "ما العدد الناقص؟",
-     "stem": "8, __, 12, 14, 16, 18, 20",
-     "options": [
-      "9",
-      "10",
-      "11"
+     "seq": [
+      8,
+      null,
+      12,
+      null,
+      16,
+      null,
+      20
      ],
-     "answer": 1,
-     "askSay": "ما العدد الناقص؟",
-     "word": "عشرة.",
-     "askAudio": "../../math-ar-audio/21b1062b89.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/0a5cb53155.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 9,
-   "page": 78,
-   "task": "نكتب العدد الذي يجب وضعه في المربع.",
-   "items": [
+     "answers": [
+      10,
+      14,
+      18
+     ]
+    },
     {
-     "ask": "ما العدد الناقص؟",
-     "stem": "8, 10, 12, 14, 16, __, 20",
-     "options": [
-      "17",
-      "18",
-      "19"
+     "seq": [
+      0,
+      5,
+      null,
+      15,
+      20
      ],
-     "answer": 1,
-     "askSay": "ما العدد الناقص؟",
-     "word": "ثمانية عشر.",
-     "audio": "../../math-ar-audio/4dd34c7a6f.mp3",
-     "askAudio": "../../math-ar-audio/21b1062b89.mp3"
+     "answers": [
+      10
+     ]
     }
    ],
-   "taskAudio": "../../math-ar-audio/0a5cb53155.mp3"
+   "act": "u7l3ex",
+   "taskAudio": "../../math-ar-audio/0a5cb53155.mp3",
+   "ex": 3
   },
   {
-   "type": "mcq",
-   "ex": 10,
-   "page": 77,
-   "task": "نستخدم خط الأعداد، ونُجيب.",
-   "items": [
-    {
-     "ask": "ما العدد الذي يزيد عن 11 بمقدار 4؟",
-     "stem": "العدد الذي يزيد عن 11 بمقدار 4 هو __",
-     "options": [
-      "14",
-      "15",
-      "16"
-     ],
-     "answer": 1,
-     "askSay": "ما العدد الذي يزيد عن 11 بمقدار 4؟",
-     "word": "خمسة عشر.",
-     "askAudio": "../../math-ar-audio/9d77ce4464.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/caffd29b4a.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 11,
-   "page": 77,
-   "task": "نرتب البطاقات من الأصغر إلى الأكبر.",
-   "items": [
-    {
-     "ask": "أي ترتيب هو من الأصغر إلى الأكبر؟",
-     "stem": "15, 12, 17, 13",
-     "options": [
-      "12, 13, 15, 17",
-      "17, 15, 13, 12",
-      "12, 15, 13, 17"
-     ],
-     "answer": 0,
-     "askSay": "أي ترتيب هو من الأصغر إلى الأكبر؟",
-     "word": "اثنا عشر، ثلاثة عشر، خمسة عشر، سبعة عشر.",
-     "askAudio": "../../math-ar-audio/25efbafb79.mp3",
-     "audio": "../../math-ar-audio/3a7ab45b63.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/74c72ec0e2.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 12,
+   "type": "nline",
    "page": 79,
    "task": "نستخدم خط الأعداد، ونُجيب.",
    "items": [
     {
-     "ask": "ما العدد الذي يزيد عن 12 بمقدار 8؟",
-     "stem": "العدد الذي يزيد عن 12 بمقدار 8 هو __",
      "options": [
-      "19",
-      "20",
-      "21"
+      11,
+      12,
+      13
      ],
-     "answer": 1,
-     "askSay": "ما العدد الذي يزيد عن 12 بمقدار 8؟",
-     "word": "عشرون.",
+     "answer": 12,
+     "ask": "ما العدد الذي يزيد عن 10 بمقدار 2؟",
+     "word": "العدد الذي يزيد عن 10 بمقدار 2 هو 12."
+    },
+    {
+     "options": [
+      19,
+      20,
+      21
+     ],
+     "answer": 20,
      "askAudio": "../../math-ar-audio/3595f6437b.mp3",
-     "audio": "../../math-ar-audio/cfdf4b10a3.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/caffd29b4a.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 13,
-   "page": 79,
-   "task": "نستخدم خط الأعداد، ونُجيب.",
-   "items": [
+     "ask": "ما العدد الذي يزيد عن 12 بمقدار 8؟",
+     "word": "العدد الذي يزيد عن 12 بمقدار 8 هو 20."
+    },
     {
-     "ask": "ما العدد الذي يقل عن 17 بمقدار 7؟",
-     "stem": "العدد الذي يقل عن 17 بمقدار 7 هو __",
      "options": [
-      "9",
-      "10",
-      "11"
+      11,
+      12,
+      13
      ],
-     "answer": 1,
-     "askSay": "ما العدد الذي يقل عن 17 بمقدار 7؟",
-     "word": "عشرة.",
-     "askAudio": "../../math-ar-audio/954f35a915.mp3"
+     "answer": 12,
+     "ask": "ما العدد الذي يقل عن 15 بمقدار 3؟",
+     "word": "العدد الذي يقل عن 15 بمقدار 3 هو 12."
+    },
+    {
+     "options": [
+      9,
+      10,
+      11
+     ],
+     "answer": 10,
+     "askAudio": "../../math-ar-audio/954f35a915.mp3",
+     "ask": "ما العدد الذي يقل عن 17 بمقدار 7؟",
+     "word": "العدد الذي يقل عن 17 بمقدار 7 هو 10."
     }
    ],
-   "taskAudio": "../../math-ar-audio/caffd29b4a.mp3"
+   "act": "u7l3ex",
+   "taskAudio": "../../math-ar-audio/caffd29b4a.mp3",
+   "ex": 4
   },
   {
-   "type": "mcq",
-   "ex": 14,
+   "type": "nlorder",
    "page": 79,
    "task": "نرتب البطاقات من الأصغر إلى الأكبر.",
    "items": [
     {
-     "ask": "أي ترتيب هو من الأصغر إلى الأكبر؟",
-     "stem": "10, 18, 14, 15",
-     "options": [
-      "10, 14, 15, 18",
-      "18, 15, 14, 10",
-      "10, 15, 14, 18"
+     "cards": [
+      20,
+      9,
+      16,
+      11
      ],
-     "answer": 0,
-     "askSay": "أي ترتيب هو من الأصغر إلى الأكبر؟",
-     "word": "عشرة، أربعة عشر، خمسة عشر، ثمانية عشر.",
-     "askAudio": "../../math-ar-audio/25efbafb79.mp3",
-     "audio": "../../math-ar-audio/85bc2ae5d4.mp3"
+     "word": "9، 11، 16، 20"
+    },
+    {
+     "cards": [
+      10,
+      18,
+      14,
+      15
+     ],
+     "word": "10، 14، 15، 18"
     }
    ],
-   "taskAudio": "../../math-ar-audio/74c72ec0e2.mp3"
+   "act": "u7l3ex",
+   "taskAudio": "../../math-ar-audio/74c72ec0e2.mp3",
+   "ex": 5
   },
   {
-   "type": "mcq",
-   "ex": 1,
+   "type": "numline",
    "page": 54,
-   "task": "أجب عما يأتي.",
+   "task": "اخترْ مكانك: نكتب الأعداد الناقصة.",
    "items": [
     {
-     "ask": "رتب الأعداد 10 ، 18 ، 12 ، 11 من الأكبر إلى الأصغر.",
-     "stem": "الإجابة: __",
-     "options": [
-      "18 ، 12 ، 11 ، 10",
-      "10 ، 11 ، 12 ، 18",
-      "12 ، 18 ، 11 ، 10"
+     "seq": [
+      12,
+      null,
+      14,
+      null,
+      null,
+      17
      ],
-     "answer": 0,
-     "askSay": "رتب الأعداد 10 ، 18 ، 12 ، 11 من الأكبر إلى الأصغر.",
-     "word": "الإجابة 18 ، 12 ، 11 ، 10.",
-     "askAudio": "../../math-ar-audio/b6fb86f088.mp3",
-     "audio": "../../math-ar-audio/b7a576e180.mp3"
-    }
-   ],
-   "book": "workbook",
-   "taskAudio": "../../math-ar-audio/6b42a5ac08.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 2,
-   "page": 54,
-   "task": "أجب عما يأتي.",
-   "items": [
-    {
-     "ask": "13 ، ؟ ، 15 : اكتب العدد الناقص.",
-     "stem": "الإجابة: __",
-     "options": [
-      "16",
-      "14",
-      "13",
-      "15"
-     ],
-     "answer": 1,
-     "askSay": "13 ، ؟ ، 15 : اكتب العدد الناقص.",
-     "word": "الإجابة 14.",
-     "askAudio": "../../math-ar-audio/ab768db2a0.mp3",
-     "audio": "../../math-ar-audio/d806a1b01c.mp3"
+     "answers": [
+      13,
+      15,
+      16
+     ]
     }
    ],
    "book": "workbook",
-   "taskAudio": "../../math-ar-audio/6b42a5ac08.mp3"
+   "act": "u7l3wb",
+   "ex": 1
   },
   {
-   "type": "mcq",
-   "ex": 3,
+   "type": "nlorder",
    "page": 54,
-   "task": "أجب عما يأتي.",
+   "task": "نرتب الأعداد من الأكبر إلى الأصغر.",
    "items": [
     {
-     "ask": "16 ، ؟ ، 18 : اكتب العدد الناقص.",
-     "stem": "الإجابة: __",
-     "options": [
-      "17",
-      "19",
-      "16",
-      "18"
+     "cards": [
+      10,
+      18,
+      12,
+      11
      ],
-     "answer": 0,
-     "askSay": "16 ، ؟ ، 18 : اكتب العدد الناقص.",
-     "word": "الإجابة 17.",
-     "askAudio": "../../math-ar-audio/3e1e4edc7e.mp3",
-     "audio": "../../math-ar-audio/9fa874cbab.mp3"
+     "find": "greatest",
+     "word": "18، 12، 11، 10"
     }
    ],
    "book": "workbook",
-   "taskAudio": "../../math-ar-audio/6b42a5ac08.mp3"
+   "act": "u7l3wb",
+   "ex": 2
   },
   {
-   "type": "mcq",
-   "ex": 4,
+   "type": "numline",
    "page": 54,
-   "task": "أجب عما يأتي.",
+   "task": "نكتب العدد الذي يجب وضعه مكان النقاط.",
    "items": [
     {
-     "ask": "15 ، ؟ ، 17 : اكتب العدد الناقص.",
-     "stem": "الإجابة: __",
-     "options": [
-      "16",
-      "17",
-      "15",
-      "18"
+     "seq": [
+      13,
+      null,
+      15,
+      null,
+      null,
+      18
      ],
-     "answer": 0,
-     "askSay": "15 ، ؟ ، 17 : اكتب العدد الناقص.",
-     "word": "الإجابة 16.",
-     "askAudio": "../../math-ar-audio/dfdf0fedc3.mp3",
-     "audio": "../../math-ar-audio/c697a8fba9.mp3"
+     "answers": [
+      14,
+      16,
+      17
+     ]
     }
    ],
    "book": "workbook",
-   "taskAudio": "../../math-ar-audio/6b42a5ac08.mp3"
+   "act": "u7l3wb",
+   "ex": 3
   },
   {
-   "type": "mcq",
-   "ex": 5,
+   "type": "bigger",
    "page": 54,
-   "task": "أجب عما يأتي.",
+   "task": "نضع دائرة حول العدد الأصغر.",
    "items": [
     {
-     "ask": "ضع دائرة حول العدد الأصغر: 13 ، 16",
-     "stem": "الإجابة: __",
-     "options": [
-      "13",
-      "16"
+     "nums": [
+      13,
+      16
      ],
-     "answer": 0,
-     "askSay": "ضع دائرة حول العدد الأصغر: 13 ، 16",
-     "word": "الإجابة 13.",
-     "askAudio": "../../math-ar-audio/84490b9667.mp3",
-     "audio": "../../math-ar-audio/ef62067c15.mp3"
+     "find": "smaller",
+     "word": "13 أصغر من 16."
     }
    ],
    "book": "workbook",
-   "taskAudio": "../../math-ar-audio/6b42a5ac08.mp3"
+   "act": "u7l3wb",
+   "ex": 4
   },
   {
-   "type": "mcq",
-   "ex": 6,
+   "type": "nline",
    "page": 54,
-   "task": "أجب عما يأتي.",
+   "task": "نستخدم خط الأعداد، ونُجيب.",
    "items": [
     {
-     "ask": "ما العدد الذي يزيد عن 12 بمقدار 7؟",
-     "stem": "الإجابة: __",
      "options": [
-      "19",
-      "21",
-      "20",
-      "18"
+      18,
+      19,
+      20
      ],
-     "answer": 0,
-     "askSay": "ما العدد الذي يزيد عن 12 بمقدار 7؟",
-     "word": "الإجابة 19.",
+     "answer": 19,
      "askAudio": "../../math-ar-audio/1dfc4de69e.mp3",
-     "audio": "../../math-ar-audio/db7e384400.mp3"
+     "ask": "ما العدد الذي يزيد عن 12 بمقدار 7؟",
+     "word": "العدد الذي يزيد عن 12 بمقدار 7 هو 19."
+    },
+    {
+     "options": [
+      10,
+      11,
+      12
+     ],
+     "answer": 11,
+     "ask": "ما العدد الذي يقل عن 17 بمقدار 6؟",
+     "word": "العدد الذي يقل عن 17 بمقدار 6 هو 11."
     }
    ],
    "book": "workbook",
-   "taskAudio": "../../math-ar-audio/6b42a5ac08.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 7,
-   "page": 54,
-   "task": "أجب عما يأتي.",
-   "items": [
-    {
-     "ask": "ما العدد الذي يقل عن 17 بمقدار 6؟",
-     "stem": "الإجابة: __",
-     "options": [
-      "12",
-      "13",
-      "11",
-      "10"
-     ],
-     "answer": 2,
-     "askSay": "ما العدد الذي يقل عن 17 بمقدار 6؟",
-     "word": "الإجابة 11.",
-     "askAudio": "../../math-ar-audio/01ef108fae.mp3",
-     "audio": "../../math-ar-audio/484e483481.mp3"
-    }
-   ],
-   "book": "workbook"
+   "act": "u7l3wb",
+   "taskAudio": "../../math-ar-audio/caffd29b4a.mp3",
+   "ex": 5
   }
  ]
 }

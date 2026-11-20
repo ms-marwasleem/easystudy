@@ -18,439 +18,1609 @@
   "quiz": "هيا نتدرب",
   "workbook": "كتاب التقييمات"
  },
- "pages": 3,
+ "pages": 12,
  "pageNums": [
   88,
   88,
-  88
+  88,
+  88,
+  88,
+  89,
+  89,
+  89,
+  89,
+  89,
+  89,
+  89
  ],
  "layout": "explain",
  "explain": {
   "caption": false,
   "steps": [
    {
-    "name": "3 + 4 + 1",
+    "name": "مثال",
     "beats": [
      {
-      "say": "ثلاثة زائد أربعة زائد واحد. نبدأ من اليمين.",
+      "say": "لجمع ثلاثة أعداد نبدأ من اليمين.",
       "do": [
        {
-        "scene": "line",
-        "n": 8,
-        "unit": "../../pics/apple-toon.png",
-        "ends": [
-         "",
-         ""
+        "scene": "free",
+        "items": [
+         {
+          "id": "i0",
+          "img": "../../pics/apple-toon.png",
+          "x": 860,
+          "y": 100,
+          "w": 100,
+          "h": 100,
+          "op": 0
+         },
+         {
+          "id": "i1",
+          "img": "../../pics/apple-toon.png",
+          "x": 760,
+          "y": 100,
+          "w": 100,
+          "h": 100,
+          "op": 0
+         },
+         {
+          "id": "i2",
+          "img": "../../pics/apple-toon.png",
+          "x": 660,
+          "y": 100,
+          "w": 100,
+          "h": 100,
+          "op": 0
+         },
+         {
+          "id": "i3",
+          "img": "../../pics/apple-toon.png",
+          "x": 500,
+          "y": 100,
+          "w": 100,
+          "h": 100,
+          "op": 0
+         },
+         {
+          "id": "i4",
+          "img": "../../pics/apple-toon.png",
+          "x": 400,
+          "y": 100,
+          "w": 100,
+          "h": 100,
+          "op": 0
+         },
+         {
+          "id": "i5",
+          "img": "../../pics/apple-toon.png",
+          "x": 300,
+          "y": 100,
+          "w": 100,
+          "h": 100,
+          "op": 0
+         },
+         {
+          "id": "i6",
+          "img": "../../pics/apple-toon.png",
+          "x": 200,
+          "y": 100,
+          "w": 100,
+          "h": 100,
+          "op": 0
+         },
+         {
+          "id": "i7",
+          "img": "../../pics/apple-toon.png",
+          "x": 40,
+          "y": 100,
+          "w": 100,
+          "h": 100,
+          "op": 0
+         }
         ],
-        "wide": true,
-        "show": 3
-       },
-       {
-        "head": {
-         "t": [
-          "3",
-          "+",
-          "4",
-          "+",
-          "1",
-          "="
-         ],
-         "slots": 7
-        }
+        "ih": 250,
+        "frame": false
        }
-      ],
-      "audio": "../../math-ar-audio/d19e2bb771.mp3"
+      ]
      },
      {
-      "say": "ثلاثة زائد أربعة يساوي سبعة.",
+      "say": "ثلاثة تفاحات.",
+      "do": [
+       {
+        "reveal": {
+         "ids": [
+          "i0",
+          "i1",
+          "i2"
+         ],
+         "label": {
+          "x": 810,
+          "y": 72,
+          "t": "3"
+         }
+        }
+       }
+      ]
+     },
+     {
+      "say": "ثم أربعة.",
+      "do": [
+       {
+        "reveal": {
+         "ids": [
+          "i3",
+          "i4",
+          "i5",
+          "i6"
+         ],
+         "label": {
+          "x": 400,
+          "y": 72,
+          "t": "4"
+         }
+        }
+       }
+      ]
+     },
+     {
+      "say": "نجمع أول عددين. ثلاثة زائد أربعة يساوي سبعة.",
       "do": [
        {
         "add": "3",
-        "big": true
+        "card": true,
+        "color": "blue"
        },
        {
-        "pop": {
-         "a": 0,
-         "b": 3
-        }
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
        },
        {
-        "add": "+",
-        "big": true
-       },
-       {
-        "add": "4",
-        "big": true
-       },
-       {
-        "pop": {
-         "a": 3,
-         "b": 7,
-         "mode": "in"
-        }
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "add": "7",
-        "big": true,
-        "card": true
-       },
-       {
-        "pop": {
-         "a": 0,
-         "b": 7
-        }
+        "add": "= 7",
+        "card": true,
+        "color": "green"
        }
-      ],
-      "audio": "../../math-ar-audio/d49da5e13f.mp3"
+      ]
      },
      {
-      "say": "سبعة زائد واحد يساوي ثمانية.",
+      "say": "ثم واحد.",
       "do": [
        {
-        "line": "clear"
+        "reveal": {
+         "ids": [
+          "i7"
+         ],
+         "label": {
+          "x": 90,
+          "y": 72,
+          "t": "1"
+         }
+        }
+       }
+      ]
+     },
+     {
+      "say": "الآن، سبعة زائد واحد يساوي ثمانية.",
+      "do": [
+       {
+        "line": "break"
        },
        {
         "add": "7",
-        "big": true
+        "card": true,
+        "color": "blue"
        },
        {
-        "pop": {
-         "a": 0,
-         "b": 7
-        }
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
        },
        {
-        "add": "+",
-        "big": true
-       },
-       {
-        "add": "1",
-        "big": true
-       },
-       {
-        "pop": {
-         "a": 7,
-         "b": 8,
-         "mode": "in"
-        }
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "add": "8",
-        "big": true,
-        "card": true
-       },
-       {
-        "pop": {
-         "a": 0,
-         "b": 8
-        }
-       },
-       {
-        "head": {
-         "t": [
-          "8"
-         ],
-         "more": true
-        }
+        "add": "= 8",
+        "card": true,
+        "color": "green"
        },
        {
         "cheer": true
        }
       ],
-      "gap": 1200,
-      "audio": "../../math-ar-audio/9791f19c53.mp3"
+      "gap": 900
      }
     ]
    },
    {
-    "name": "3 + 2 + 4",
+    "name": "استعدوا: قطط",
     "beats": [
      {
-      "say": "ثلاثة زائد اثنين زائد أربعة. نبدأ من اليمين.",
+      "say": "استعدوا! يوجد ثلاث قطط. جاءت قطتان. ثم جاءت أربع قطط.",
       "do": [
        {
-        "scene": "line",
-        "n": 9,
-        "unit": "../../pics/apple-toon.png",
-        "ends": [
-         "",
-         ""
+        "scene": "free",
+        "items": [
+         {
+          "id": "i0",
+          "img": "../../pics/cat.png",
+          "x": 886,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         },
+         {
+          "id": "i1",
+          "img": "../../pics/cat.png",
+          "x": 793,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         },
+         {
+          "id": "i2",
+          "img": "../../pics/cat.png",
+          "x": 700,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         },
+         {
+          "id": "i3",
+          "img": "../../pics/cat.png",
+          "x": 547,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         },
+         {
+          "id": "i4",
+          "img": "../../pics/cat.png",
+          "x": 454,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         },
+         {
+          "id": "i5",
+          "img": "../../pics/cat.png",
+          "x": 301,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         },
+         {
+          "id": "i6",
+          "img": "../../pics/cat.png",
+          "x": 208,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         },
+         {
+          "id": "i7",
+          "img": "../../pics/cat.png",
+          "x": 115,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         },
+         {
+          "id": "i8",
+          "img": "../../pics/cat.png",
+          "x": 22,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         }
         ],
-        "wide": true,
-        "show": 3
-       },
+        "ih": 250,
+        "frame": false
+       }
+      ]
+     },
+     {
+      "say": "ثلاثة قطط.",
+      "do": [
        {
-        "head": {
-         "t": [
-          "3",
-          "+",
-          "2",
-          "+",
-          "4",
-          "="
+        "reveal": {
+         "ids": [
+          "i0",
+          "i1",
+          "i2"
          ],
-         "slots": 7
+         "label": {
+          "x": 840,
+          "y": 72,
+          "t": "3"
+         }
         }
        }
-      ],
-      "audio": "../../math-ar-audio/744954a801.mp3"
+      ]
+     },
+     {
+      "say": "ثم اثنين.",
+      "do": [
+       {
+        "reveal": {
+         "ids": [
+          "i3",
+          "i4"
+         ],
+         "label": {
+          "x": 547,
+          "y": 72,
+          "t": "2"
+         }
+        }
+       }
+      ]
      },
      {
       "say": "ثلاثة زائد اثنين يساوي خمسة.",
       "do": [
        {
         "add": "3",
-        "big": true
+        "card": true,
+        "color": "blue"
        },
        {
-        "pop": {
-         "a": 0,
-         "b": 3
-        }
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
        },
        {
-        "add": "+",
-        "big": true
-       },
-       {
-        "add": "2",
-        "big": true
-       },
-       {
-        "pop": {
-         "a": 3,
-         "b": 5,
-         "mode": "in"
-        }
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "add": "5",
-        "big": true,
-        "card": true
-       },
-       {
-        "pop": {
-         "a": 0,
-         "b": 5
-        }
+        "add": "= 5",
+        "card": true,
+        "color": "green"
        }
       ],
       "audio": "../../math-ar-audio/eb8deebdaf.mp3"
      },
      {
-      "say": "خمسة زائد أربعة يساوي تسعة.",
+      "say": "ثم أربعة.",
       "do": [
        {
-        "line": "clear"
+        "reveal": {
+         "ids": [
+          "i5",
+          "i6",
+          "i7",
+          "i8"
+         ],
+         "label": {
+          "x": 208,
+          "y": 72,
+          "t": "4"
+         }
+        }
+       }
+      ]
+     },
+     {
+      "say": "الآن، خمسة زائد أربعة يساوي تسعة.",
+      "do": [
+       {
+        "line": "break"
        },
        {
         "add": "5",
-        "big": true
+        "card": true,
+        "color": "blue"
        },
        {
-        "pop": {
-         "a": 0,
-         "b": 5
-        }
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
        },
        {
-        "add": "+",
-        "big": true
-       },
-       {
-        "add": "4",
-        "big": true
-       },
-       {
-        "pop": {
-         "a": 5,
-         "b": 9,
-         "mode": "in"
-        }
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "add": "9",
-        "big": true,
-        "card": true
-       },
-       {
-        "pop": {
-         "a": 0,
-         "b": 9
-        }
-       },
-       {
-        "head": {
-         "t": [
-          "9"
-         ],
-         "more": true
-        }
+        "add": "= 9",
+        "card": true,
+        "color": "green"
        },
        {
         "cheer": true
        }
       ],
-      "gap": 1200,
-      "audio": "../../math-ar-audio/740f6b8576.mp3"
+      "gap": 900
+     },
+     {
+      "say": "الإجابة: تسعة قطط.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "الإجابة:"
+       },
+       {
+        "add": "9 قطط",
+        "card": true
+       }
+      ],
+      "gap": 900
      }
     ]
    },
    {
-    "name": "5 + 3 + 2",
+    "name": "استعدوا: 5 + 1 + 3",
     "beats": [
      {
-      "say": "خمسة زائد ثلاثة زائد اثنين. نبدأ من اليمين.",
+      "say": "استعدوا! خمسة زائد واحد زائد ثلاثة. نبدأ من اليمين.",
       "do": [
        {
-        "scene": "line",
-        "n": 10,
-        "unit": "../../pics/apple-toon.png",
-        "ends": [
-         "",
-         ""
-        ],
-        "wide": true,
-        "show": 5
+        "add": "5",
+        "card": true,
+        "color": "blue"
        },
        {
-        "head": {
-         "t": [
-          "5",
-          "+",
-          "3",
-          "+",
-          "2",
-          "="
-         ],
-         "slots": 7
-        }
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
        }
       ],
-      "audio": "../../math-ar-audio/6f297c9fcd.mp3"
+      "gap": 700
+     },
+     {
+      "say": "خمسة زائد واحد يساوي ستة.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "5",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 6",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "../../math-ar-audio/c7ebfa8647.mp3"
+     },
+     {
+      "say": "ستة زائد ثلاثة يساوي تسعة.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "6",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 9",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "استعدوا: 7 + 2 + 1",
+    "beats": [
+     {
+      "say": "استعدوا! سبعة زائد اثنين زائد واحد. نبدأ من اليمين.",
+      "do": [
+       {
+        "add": "7",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 700
+     },
+     {
+      "say": "سبعة زائد اثنين يساوي تسعة.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "7",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 9",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "../../math-ar-audio/96b0cddfa5.mp3"
+     },
+     {
+      "say": "تسعة زائد واحد يساوي عشرة.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "9",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "استعدوا: 2 + 8 + 5",
+    "beats": [
+     {
+      "say": "استعدوا! اثنان زائد ثمانية زائد خمسة. نبدأ من اليمين.",
+      "do": [
+       {
+        "add": "2",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 8",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 700
+     },
+     {
+      "say": "اثنان زائد ثمانية يساوي عشرة.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "2",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 8",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "../../math-ar-audio/407185012f.mp3"
+     },
+     {
+      "say": "عشرة زائد خمسة يساوي خمسة عشر.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 15",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "جرّب: كلاب",
+    "beats": [
+     {
+      "say": "جرّب! يوجد خمسة كلاب. جاءت ثلاثة كلاب. ثم جاء كلبان.",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "i0",
+          "img": "../../pics/dog.png",
+          "x": 896,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i1",
+          "img": "../../pics/dog.png",
+          "x": 812,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i2",
+          "img": "../../pics/dog.png",
+          "x": 728,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i3",
+          "img": "../../pics/dog.png",
+          "x": 644,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i4",
+          "img": "../../pics/dog.png",
+          "x": 560,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i5",
+          "img": "../../pics/dog.png",
+          "x": 416,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i6",
+          "img": "../../pics/dog.png",
+          "x": 332,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i7",
+          "img": "../../pics/dog.png",
+          "x": 248,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i8",
+          "img": "../../pics/dog.png",
+          "x": 104,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i9",
+          "img": "../../pics/dog.png",
+          "x": 20,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         }
+        ],
+        "ih": 250,
+        "frame": false
+       }
+      ]
+     },
+     {
+      "say": "خمسة كلاب.",
+      "do": [
+       {
+        "reveal": {
+         "ids": [
+          "i0",
+          "i1",
+          "i2",
+          "i3",
+          "i4"
+         ],
+         "label": {
+          "x": 770,
+          "y": 72,
+          "t": "5"
+         }
+        }
+       }
+      ]
+     },
+     {
+      "say": "ثم ثلاثة.",
+      "do": [
+       {
+        "reveal": {
+         "ids": [
+          "i5",
+          "i6",
+          "i7"
+         ],
+         "label": {
+          "x": 374,
+          "y": 72,
+          "t": "3"
+         }
+        }
+       }
+      ]
      },
      {
       "say": "خمسة زائد ثلاثة يساوي ثمانية.",
       "do": [
        {
         "add": "5",
-        "big": true
+        "card": true,
+        "color": "blue"
        },
        {
-        "pop": {
-         "a": 0,
-         "b": 5
-        }
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
        },
        {
-        "add": "+",
-        "big": true
-       },
-       {
-        "add": "3",
-        "big": true
-       },
-       {
-        "pop": {
-         "a": 5,
-         "b": 8,
-         "mode": "in"
-        }
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "add": "8",
-        "big": true,
-        "card": true
-       },
-       {
-        "pop": {
-         "a": 0,
-         "b": 8
-        }
+        "add": "= 8",
+        "card": true,
+        "color": "green"
        }
       ],
       "audio": "../../math-ar-audio/f53857eaa8.mp3"
      },
      {
-      "say": "ثمانية زائد اثنين يساوي عشرة.",
+      "say": "ثم اثنين.",
       "do": [
        {
-        "line": "clear"
+        "reveal": {
+         "ids": [
+          "i8",
+          "i9"
+         ],
+         "label": {
+          "x": 104,
+          "y": 72,
+          "t": "2"
+         }
+        }
+       }
+      ]
+     },
+     {
+      "say": "الآن، ثمانية زائد اثنين؟",
+      "do": [
+       {
+        "line": "break"
        },
        {
         "add": "8",
-        "big": true
+        "card": true,
+        "color": "blue"
        },
        {
-        "pop": {
-         "a": 0,
-         "b": 8
-        }
-       },
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
        {
-        "add": "+",
-        "big": true
-       },
-       {
-        "add": "2",
-        "big": true
-       },
-       {
-        "pop": {
-         "a": 8,
-         "b": 10,
-         "mode": "in"
-        }
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "add": "10",
-        "big": true,
-        "card": true
-       },
-       {
-        "pop": {
-         "a": 0,
-         "b": 10
-        }
-       },
-       {
-        "head": {
-         "t": [
-          "10"
+        "ask": {
+         "options": [
+          "9",
+          "10",
+          "11"
          ],
-         "more": true
+         "answer": "10"
         }
+       }
+      ]
+     },
+     {
+      "say": "نعم! ثمانية زائد اثنين يساوي عشرة.",
+      "do": [
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
        },
        {
         "cheer": true
        }
       ],
-      "gap": 1200,
-      "audio": "../../math-ar-audio/13d8c40a3d.mp3"
+      "gap": 900
+     },
+     {
+      "say": "الإجابة: عشرة كلاب.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "الإجابة:"
+       },
+       {
+        "add": "10 كلاب",
+        "card": true
+       }
+      ],
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "جرّب: 1 + 2 + 3",
+    "beats": [
+     {
+      "say": "جرّب! واحد زائد اثنين زائد ثلاثة. نبدأ من اليمين.",
+      "do": [
+       {
+        "add": "1",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 700
+     },
+     {
+      "say": "كم ناتج واحد زائد اثنين؟",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "1",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "2",
+          "3",
+          "4"
+         ],
+         "answer": "3"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! واحد زائد اثنين يساوي ثلاثة.",
+      "do": [
+       {
+        "add": "= 3",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "كم ناتج ثلاثة زائد ثلاثة؟",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "3",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "5",
+          "6",
+          "7"
+         ],
+         "answer": "6"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! ثلاثة زائد ثلاثة يساوي ستة.",
+      "do": [
+       {
+        "add": "= 6",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "جرّب: 2 + 2 + 4",
+    "beats": [
+     {
+      "say": "جرّب! اثنان زائد اثنين زائد أربعة. نبدأ من اليمين.",
+      "do": [
+       {
+        "add": "2",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 700
+     },
+     {
+      "say": "كم ناتج اثنان زائد اثنين؟",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "2",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "3",
+          "4",
+          "5"
+         ],
+         "answer": "4"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! اثنان زائد اثنين يساوي أربعة.",
+      "do": [
+       {
+        "add": "= 4",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "كم ناتج أربعة زائد أربعة؟",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "4",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "7",
+          "8",
+          "9"
+         ],
+         "answer": "8"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! أربعة زائد أربعة يساوي ثمانية.",
+      "do": [
+       {
+        "add": "= 8",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "جرّب: 4 + 5 + 1",
+    "beats": [
+     {
+      "say": "جرّب! أربعة زائد خمسة زائد واحد. نبدأ من اليمين.",
+      "do": [
+       {
+        "add": "4",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 700
+     },
+     {
+      "say": "كم ناتج أربعة زائد خمسة؟",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "4",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "8",
+          "9",
+          "10"
+         ],
+         "answer": "9"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! أربعة زائد خمسة يساوي تسعة.",
+      "do": [
+       {
+        "add": "= 9",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "كم ناتج تسعة زائد واحد؟",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "9",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "9",
+          "10",
+          "11"
+         ],
+         "answer": "10"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! تسعة زائد واحد يساوي عشرة.",
+      "do": [
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "جرّب: 7 + 3 + 2",
+    "beats": [
+     {
+      "say": "جرّب! سبعة زائد ثلاثة زائد اثنين. نبدأ من اليمين.",
+      "do": [
+       {
+        "add": "7",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 700
+     },
+     {
+      "say": "كم ناتج سبعة زائد ثلاثة؟",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "7",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "9",
+          "10",
+          "11"
+         ],
+         "answer": "10"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! سبعة زائد ثلاثة يساوي عشرة.",
+      "do": [
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "كم ناتج عشرة زائد اثنين؟",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "11",
+          "12",
+          "13"
+         ],
+         "answer": "12"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! عشرة زائد اثنين يساوي اثنا عشر.",
+      "do": [
+       {
+        "add": "= 12",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "جرّب: 8 + 2 + 4",
+    "beats": [
+     {
+      "say": "جرّب! ثمانية زائد اثنين زائد أربعة. نبدأ من اليمين.",
+      "do": [
+       {
+        "add": "8",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 700
+     },
+     {
+      "say": "كم ناتج ثمانية زائد اثنين؟",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "8",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "9",
+          "10",
+          "11"
+         ],
+         "answer": "10"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! ثمانية زائد اثنين يساوي عشرة.",
+      "do": [
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "كم ناتج عشرة زائد أربعة؟",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "13",
+          "14",
+          "15"
+         ],
+         "answer": "14"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! عشرة زائد أربعة يساوي أربعة عشر.",
+      "do": [
+       {
+        "add": "= 14",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "جرّب: 5 + 7 + 6",
+    "beats": [
+     {
+      "say": "جرّب! خمسة زائد سبعة زائد ستة. نبدأ من اليمين.",
+      "do": [
+       {
+        "add": "5",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 7",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 6",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "gap": 700
+     },
+     {
+      "say": "كم ناتج خمسة زائد سبعة؟",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "5",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 7",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "11",
+          "12",
+          "13"
+         ],
+         "answer": "12"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! خمسة زائد سبعة يساوي اثنا عشر.",
+      "do": [
+       {
+        "add": "= 12",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "كم ناتج اثنا عشر زائد ستة؟",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "12",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 6",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "اضغط على العدد.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "17",
+          "18",
+          "19"
+         ],
+         "answer": "18"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! اثنا عشر زائد ستة يساوي ثمانية عشر.",
+      "do": [
+       {
+        "add": "= 18",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 900
      }
     ]
    }

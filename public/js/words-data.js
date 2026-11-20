@@ -6,7 +6,9 @@ const EW={ cfg:null, curr:null, cur:null, les:{}, stats:{}, log:[] };
 const EW_SUBJ={
   'arabic':{ name:'عربي كلمات', small:'عربي', big:'كلمات', lang:'ar' },
   'en-ol': { name:'English OL words', small:'ENGLISH', big:'OL', sub:'WORDS', lang:'en' },
-  'en-al': { name:'English AL words', small:'ENGLISH', big:'AL', sub:'WORDS', lang:'en' }
+  'en-al': { name:'English AL words', small:'ENGLISH', big:'AL', sub:'WORDS', lang:'en' },
+  'math-ar':{ name:'رياضيات كلمات', small:'رياضيات', big:'كلمات', lang:'ar' },   // maths WORDS tabs (Ahmed 2026-11-20): Arabic maths = general, English maths = experimental (data/curriculum.json)
+  'math':  { name:'Math words', small:'ENGLISH', big:'MATH', sub:'WORDS', lang:'en' }
 };
 // the curriculum is the child's (set in the account / student settings, js/welcome.js); nothing here picks it any more
 try{ const k=kidNow(); EW.curr=k&&k.curr?currEff(k.curr):null; }catch(e){}
@@ -44,20 +46,21 @@ function ewUnits(s){
   // display filter only (no lesson data is touched): a lesson with no word for this child is not shown, and a unit left empty goes with it
   Object.keys(by).forEach(u=>{ by[u]=by[u].filter(l=>{ if(!l.file||!ewOpen(l.id)) return false; const L=EW.les[l.id]; return !(L&&!L.vocab.length); }); });
   return Object.keys(by).map(u=>{ const un=(s.units||[]).find(x=>x.unit==u)||{};
-    return { unit:+u, name:s.id==='arabic'?`الوحدة ${ewN(u)}${un.title?' · '+un.title:''}`:`Unit ${u}`, lessons:by[u].map((l,i)=>{ const built=!!l.file&&ewOpen(l.id), st=built?coinAccess(l,true,'l:'+l.id,i,'lesson').st:'soon';   // open | locked | soon: the dashboard's state, a paid term, credits and the free trial (js/coins.js)
+    return { unit:+u, name:EW_SUBJ[s.id].lang==='ar'?`الوحدة ${ewN(u)}${un.title?' · '+un.title:''}`:`Unit ${u}`, lessons:by[u].map((l,i)=>{ const built=!!l.file&&ewOpen(l.id), st=built?coinAccess(l,true,'l:'+l.id,i,'lesson').st:'soon';   // open | locked | soon: the dashboard's state, a paid term, credits and the free trial (js/coins.js)
       return {...l,name:(s.id==='arabic'?ewLetterName(l.title||l.planned||''):(l.title||l.planned||'')),built,st,open:st==='open',locked:st==='locked'}; }) }; })
     .filter(u=>u.lessons.length&&(s.id!=='arabic'||u.unit<=4));   // Arabic: no النحو (unit 5) and no final assessments here, they have no words (Ahmed 2026-11-16)
 }
 // load every built lesson of the subject (open or locked) so the lists know which ones have words
 async function ewPreload(s){ await Promise.all((s.lessons||[]).filter(l=>l.file&&ewOpen(l.id)&&!(l.tabs&&!l.tabs.includes('words'))).map(l=>ewLesson(l.id).catch(()=>null))); }
 const ewOpen=id=>!!(EW.cfg&&!(EW.cfg.skip||[]).includes(id)&&(EW.cfg.all||(EW.cfg.open||[]).includes(id)));
-const ewSubjOf=id=>COURSE.subjects.find(s=>id.startsWith(s.id+'-'));
+const ewSubjOf=id=>COURSE.subjects.filter(s=>id.startsWith(s.id+'-')).sort((a,b)=>b.id.length-a.id.length)[0];   // longest id: 'math-ar-u1l2' is math-ar, not math
 // one open lesson with its words (loaded once; paths already resolved by the curriculum app's own fixPaths)
 async function ewLesson(id){
   if(EW.les[id]) return EW.les[id];
   const s=ewSubjOf(id), m=s&&s.lessons.find(l=>l.id===id); if(!m||!m.file) return null;
   const L=fixPaths(await get(m.file),m.file); L.id=id; L.subj=s.id; L.tabs=['words','practice']; L.tabLabels={words:'كلمات',practice:'تدريبات'};
-  L.vocab=(L.vocab||[]).filter(v=>v&&v.word); L.vocab.forEach((v,i)=>{ v.lid=id; v.key=id+'|'+v.word; v.ix=i; v.lang=s.id==='arabic'?'ar':'en'; });
+  L.vocab=(L.vocab||[]).filter(v=>v&&v.word); L.vocab.forEach((v,i)=>{ v.lid=id; v.key=id+'|'+v.word; v.ix=i; v.lang=EW_SUBJ[s.id].lang; });
+  if(typeof mVocabPics==='function'&&L.vocab.some(v=>/^data:draw,/.test(v.img||''))) await mVocabPics(L);   // maths words: the pictures are drawn (js/math-draw.js)
   return EW.les[id]=L;
 }
 // ---- word statistics (kept on this device; later in the parent's account) ----

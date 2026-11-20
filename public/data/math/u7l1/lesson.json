@@ -7,16 +7,150 @@
  "lines": [],
  "end": 1,
  "speakers": {},
- "vocab": [],
+ "vocab": [
+  {
+   "word": "eleven",
+   "img": "data:draw,num,11,en",
+   "parts": [
+    {
+     "t": "eleven",
+     "audio": "words/eleven.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/eleven.mp3"
+   }
+  },
+  {
+   "word": "twelve",
+   "img": "data:draw,num,12,en",
+   "parts": [
+    {
+     "t": "twelve",
+     "audio": "words/twelve.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/twelve.mp3"
+   }
+  },
+  {
+   "word": "thirteen",
+   "img": "data:draw,num,13,en",
+   "parts": [
+    {
+     "t": "thirteen",
+     "audio": "words/thirteen.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/thirteen.mp3"
+   }
+  },
+  {
+   "word": "fourteen",
+   "img": "data:draw,num,14,en",
+   "parts": [
+    {
+     "t": "fourteen",
+     "audio": "words/fourteen.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/fourteen.mp3"
+   }
+  },
+  {
+   "word": "fifteen",
+   "img": "data:draw,num,15,en",
+   "parts": [
+    {
+     "t": "fifteen",
+     "audio": "words/fifteen.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/fifteen.mp3"
+   }
+  },
+  {
+   "word": "sixteen",
+   "img": "data:draw,num,16,en",
+   "parts": [
+    {
+     "t": "sixteen",
+     "audio": "words/sixteen.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/sixteen.mp3"
+   }
+  },
+  {
+   "word": "seventeen",
+   "img": "data:draw,num,17,en",
+   "parts": [
+    {
+     "t": "seventeen",
+     "audio": "words/seventeen.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/seventeen.mp3"
+   }
+  },
+  {
+   "word": "eighteen",
+   "img": "data:draw,num,18,en",
+   "parts": [
+    {
+     "t": "eighteen",
+     "audio": "words/eighteen.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/eighteen.mp3"
+   }
+  },
+  {
+   "word": "nineteen",
+   "img": "data:draw,num,19,en",
+   "parts": [
+    {
+     "t": "nineteen",
+     "audio": "words/nineteen.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/nineteen.mp3"
+   }
+  },
+  {
+   "word": "twenty",
+   "img": "data:draw,num,20,en",
+   "parts": [
+    {
+     "t": "twenty",
+     "audio": "words/twenty.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/twenty.mp3"
+   }
+  }
+ ],
  "tabs": [
   "read",
-  "quiz"
+  "words",
+  "quiz",
+  "workbook"
  ],
  "tabLabels": {
   "read": "Lesson",
-  "quiz": "Exercise"
+  "quiz": "Exercise",
+  "words": "Words"
  },
- "pages": 10,
+ "pages": 17,
  "pageNums": [
   72,
   72,
@@ -27,7 +161,14 @@
   72,
   72,
   72,
-  72
+  72,
+  72,
+  72,
+  72,
+  73,
+  73,
+  73,
+  73
  ],
  "layout": "explain",
  "explain": {
@@ -56,24 +197,77 @@
   },
   "steps": [
    {
-    "name": "11",
+    "name": "Tens and ones",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "explain/ten.mp3",
+      "say": "After ten, we count the tens with blocks. This is the tens place.",
       "do": [
        {
-        "scene": "tens",
-        "n": 11,
-        "wide": true
+        "scene": "places",
+        "ones": 0,
+        "show": 0,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones",
+        "slots": true
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          126,
+          28,
+          898,
+          118
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       }
+      ],
+      "audio": "explain/v2-0-1.mp3"
+     },
+     {
+      "say": "Then we add the ones in the ones place.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          126,
+          138,
+          898,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       }
+      ],
+      "audio": "explain/v2-0-2.mp3",
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "11",
+    "beats": [
+     {
+      "say": "Ten in the tens place.",
+      "do": [
+       {
+        "scene": "places",
+        "ones": 1,
+        "show": 0,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
+       },
+       {
+        "frame": {
+         "box": [
+          126,
+          28,
+          898,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -83,34 +277,43 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ]
+      ],
+      "audio": "explain/v2-11-1.mp3"
      },
      {
-      "say": "And one more.",
-      "audio": "explain/s11-2.mp3",
+      "say": "One in the ones place.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          173,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v2-11-2.mp3"
      },
      {
-      "say": "Ten and one make eleven.",
-      "audio": "explain/s11-3.mp3",
+      "say": "Ten plus one equals eleven.",
       "do": [
        {
-        "add": "10 + 1 = 11",
+        "add": "= 11",
         "card": true,
         "color": "green"
        },
@@ -123,6 +326,7 @@
         "color": "orange"
        }
       ],
+      "audio": "explain/v2-11-3.mp3",
       "gap": 1200
      }
     ]
@@ -131,21 +335,23 @@
     "name": "12",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "explain/ten.mp3",
+      "say": "Ten in the tens place.",
       "do": [
        {
-        "scene": "tens",
-        "n": 12,
-        "wide": true
+        "scene": "places",
+        "ones": 2,
+        "show": 0,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          126,
+          28,
+          898,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -155,38 +361,47 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ]
+      ],
+      "audio": "explain/v2-12-1.mp3"
      },
      {
-      "say": "And two more.",
-      "audio": "explain/s12-2.mp3",
+      "say": "Two in the ones place.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          173,
+          183
          ],
          [
-          213,
-          203
+          247,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v2-12-2.mp3"
      },
      {
-      "say": "Ten and two make twelve.",
-      "audio": "explain/s12-3.mp3",
+      "say": "Ten plus two equals twelve.",
       "do": [
        {
-        "add": "10 + 2 = 12",
+        "add": "= 12",
         "card": true,
         "color": "green"
        },
@@ -199,6 +414,7 @@
         "color": "orange"
        }
       ],
+      "audio": "explain/v2-12-3.mp3",
       "gap": 1200
      }
     ]
@@ -207,21 +423,23 @@
     "name": "13",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "explain/ten.mp3",
+      "say": "Ten in the tens place.",
       "do": [
        {
-        "scene": "tens",
-        "n": 13,
-        "wide": true
+        "scene": "places",
+        "ones": 3,
+        "show": 0,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          126,
+          28,
+          898,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -231,42 +449,51 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ]
+      ],
+      "audio": "explain/v2-13-1.mp3"
      },
      {
-      "say": "And three more.",
-      "audio": "explain/s13-2.mp3",
+      "say": "Three in the ones place.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          173,
+          183
          ],
          [
-          213,
-          203
+          247,
+          183
          ],
          [
-          293,
-          203
+          321,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v2-13-2.mp3"
      },
      {
-      "say": "Ten and three make thirteen.",
-      "audio": "explain/s13-3.mp3",
+      "say": "Ten plus three equals thirteen.",
       "do": [
        {
-        "add": "10 + 3 = 13",
+        "add": "= 13",
         "card": true,
         "color": "green"
        },
@@ -279,6 +506,7 @@
         "color": "orange"
        }
       ],
+      "audio": "explain/v2-13-3.mp3",
       "gap": 1200
      }
     ]
@@ -287,21 +515,23 @@
     "name": "14",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "explain/ten.mp3",
+      "say": "Ten in the tens place.",
       "do": [
        {
-        "scene": "tens",
-        "n": 14,
-        "wide": true
+        "scene": "places",
+        "ones": 4,
+        "show": 0,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          126,
+          28,
+          898,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -311,46 +541,55 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ]
+      ],
+      "audio": "explain/v2-14-1.mp3"
      },
      {
-      "say": "And four more.",
-      "audio": "explain/s14-2.mp3",
+      "say": "Four in the ones place.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          173,
+          183
          ],
          [
-          213,
-          203
+          247,
+          183
          ],
          [
-          293,
-          203
+          321,
+          183
          ],
          [
-          373,
-          203
+          395,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v2-14-2.mp3"
      },
      {
-      "say": "Ten and four make fourteen.",
-      "audio": "explain/s14-3.mp3",
+      "say": "Ten plus four equals fourteen.",
       "do": [
        {
-        "add": "10 + 4 = 14",
+        "add": "= 14",
         "card": true,
         "color": "green"
        },
@@ -363,6 +602,7 @@
         "color": "orange"
        }
       ],
+      "audio": "explain/v2-14-3.mp3",
       "gap": 1200
      }
     ]
@@ -371,21 +611,23 @@
     "name": "15",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "explain/ten.mp3",
+      "say": "Ten in the tens place.",
       "do": [
        {
-        "scene": "tens",
-        "n": 15,
-        "wide": true
+        "scene": "places",
+        "ones": 5,
+        "show": 0,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          126,
+          28,
+          898,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -395,50 +637,59 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ]
+      ],
+      "audio": "explain/v2-15-1.mp3"
      },
      {
-      "say": "And five more.",
-      "audio": "explain/s15-2.mp3",
+      "say": "Five in the ones place.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          173,
+          183
          ],
          [
-          213,
-          203
+          247,
+          183
          ],
          [
-          293,
-          203
+          321,
+          183
          ],
          [
-          373,
-          203
+          395,
+          183
          ],
          [
-          453,
-          203
+          469,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v2-15-2.mp3"
      },
      {
-      "say": "Ten and five make fifteen.",
-      "audio": "explain/s15-3.mp3",
+      "say": "Ten plus five equals fifteen.",
       "do": [
        {
-        "add": "10 + 5 = 15",
+        "add": "= 15",
         "card": true,
         "color": "green"
        },
@@ -451,6 +702,7 @@
         "color": "orange"
        }
       ],
+      "audio": "explain/v2-15-3.mp3",
       "gap": 1200
      }
     ]
@@ -459,21 +711,23 @@
     "name": "16",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "explain/ten.mp3",
+      "say": "Ten in the tens place.",
       "do": [
        {
-        "scene": "tens",
-        "n": 16,
-        "wide": true
+        "scene": "places",
+        "ones": 6,
+        "show": 0,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          126,
+          28,
+          898,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -483,54 +737,63 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ]
+      ],
+      "audio": "explain/v2-16-1.mp3"
      },
      {
-      "say": "And six more.",
-      "audio": "explain/s16-2.mp3",
+      "say": "Six in the ones place.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          173,
+          183
          ],
          [
-          213,
-          203
+          247,
+          183
          ],
          [
-          293,
-          203
+          321,
+          183
          ],
          [
-          373,
-          203
+          395,
+          183
          ],
          [
-          453,
-          203
+          469,
+          183
          ],
          [
-          533,
-          203
+          557,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 6",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v2-16-2.mp3"
      },
      {
-      "say": "Ten and six make sixteen.",
-      "audio": "explain/s16-3.mp3",
+      "say": "Ten plus six equals sixteen.",
       "do": [
        {
-        "add": "10 + 6 = 16",
+        "add": "= 16",
         "card": true,
         "color": "green"
        },
@@ -543,6 +806,7 @@
         "color": "orange"
        }
       ],
+      "audio": "explain/v2-16-3.mp3",
       "gap": 1200
      }
     ]
@@ -551,21 +815,23 @@
     "name": "17",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "explain/ten.mp3",
+      "say": "Ten in the tens place.",
       "do": [
        {
-        "scene": "tens",
-        "n": 17,
-        "wide": true
+        "scene": "places",
+        "ones": 7,
+        "show": 0,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          126,
+          28,
+          898,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -575,58 +841,67 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ]
+      ],
+      "audio": "explain/v2-17-1.mp3"
      },
      {
-      "say": "And seven more.",
-      "audio": "explain/s17-2.mp3",
+      "say": "Seven in the ones place.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          173,
+          183
          ],
          [
-          213,
-          203
+          247,
+          183
          ],
          [
-          293,
-          203
+          321,
+          183
          ],
          [
-          373,
-          203
+          395,
+          183
          ],
          [
-          453,
-          203
+          469,
+          183
          ],
          [
-          533,
-          203
+          557,
+          183
          ],
          [
-          613,
-          203
+          631,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 7",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v2-17-2.mp3"
      },
      {
-      "say": "Ten and seven make seventeen.",
-      "audio": "explain/s17-3.mp3",
+      "say": "Ten plus seven equals seventeen.",
       "do": [
        {
-        "add": "10 + 7 = 17",
+        "add": "= 17",
         "card": true,
         "color": "green"
        },
@@ -639,6 +914,7 @@
         "color": "orange"
        }
       ],
+      "audio": "explain/v2-17-3.mp3",
       "gap": 1200
      }
     ]
@@ -647,21 +923,23 @@
     "name": "18",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "explain/ten.mp3",
+      "say": "Ten in the tens place.",
       "do": [
        {
-        "scene": "tens",
-        "n": 18,
-        "wide": true
+        "scene": "places",
+        "ones": 8,
+        "show": 0,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          126,
+          28,
+          898,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -671,62 +949,71 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ]
+      ],
+      "audio": "explain/v2-18-1.mp3"
      },
      {
-      "say": "And eight more.",
-      "audio": "explain/s18-2.mp3",
+      "say": "Eight in the ones place.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          173,
+          183
          ],
          [
-          213,
-          203
+          247,
+          183
          ],
          [
-          293,
-          203
+          321,
+          183
          ],
          [
-          373,
-          203
+          395,
+          183
          ],
          [
-          453,
-          203
+          469,
+          183
          ],
          [
-          533,
-          203
+          557,
+          183
          ],
          [
-          613,
-          203
+          631,
+          183
          ],
          [
-          693,
-          203
+          705,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 8",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v2-18-2.mp3"
      },
      {
-      "say": "Ten and eight make eighteen.",
-      "audio": "explain/s18-3.mp3",
+      "say": "Ten plus eight equals eighteen.",
       "do": [
        {
-        "add": "10 + 8 = 18",
+        "add": "= 18",
         "card": true,
         "color": "green"
        },
@@ -739,6 +1026,7 @@
         "color": "orange"
        }
       ],
+      "audio": "explain/v2-18-3.mp3",
       "gap": 1200
      }
     ]
@@ -747,21 +1035,23 @@
     "name": "19",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "explain/ten.mp3",
+      "say": "Ten in the tens place.",
       "do": [
        {
-        "scene": "tens",
-        "n": 19,
-        "wide": true
+        "scene": "places",
+        "ones": 9,
+        "show": 0,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          126,
+          28,
+          898,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -771,66 +1061,75 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ]
+      ],
+      "audio": "explain/v2-19-1.mp3"
      },
      {
-      "say": "And nine more.",
-      "audio": "explain/s19-2.mp3",
+      "say": "Nine in the ones place.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          173,
+          183
          ],
          [
-          213,
-          203
+          247,
+          183
          ],
          [
-          293,
-          203
+          321,
+          183
          ],
          [
-          373,
-          203
+          395,
+          183
          ],
          [
-          453,
-          203
+          469,
+          183
          ],
          [
-          533,
-          203
+          557,
+          183
          ],
          [
-          613,
-          203
+          631,
+          183
          ],
          [
-          693,
-          203
+          705,
+          183
          ],
          [
-          773,
-          203
+          779,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 9",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v2-19-2.mp3"
      },
      {
-      "say": "Ten and nine make nineteen.",
-      "audio": "explain/s19-3.mp3",
+      "say": "Ten plus nine equals nineteen.",
       "do": [
        {
-        "add": "10 + 9 = 19",
+        "add": "= 19",
         "card": true,
         "color": "green"
        },
@@ -843,6 +1142,7 @@
         "color": "orange"
        }
       ],
+      "audio": "explain/v2-19-3.mp3",
       "gap": 1200
      }
     ]
@@ -851,21 +1151,23 @@
     "name": "20",
     "beats": [
      {
-      "say": "Ten.",
-      "audio": "explain/ten.mp3",
+      "say": "Ten in the tens place.",
       "do": [
        {
-        "scene": "tens",
-        "n": 20,
-        "wide": true
+        "scene": "places",
+        "ones": 10,
+        "show": 0,
+        "rtl": false,
+        "tl": "Tens",
+        "ol": "Ones"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          126,
+          28,
+          898,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -875,70 +1177,79 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ]
+      ],
+      "audio": "explain/v2-20-1.mp3"
      },
      {
-      "say": "And ten more.",
-      "audio": "explain/s20-2.mp3",
+      "say": "Ten in the ones place.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          173,
+          183
          ],
          [
-          213,
-          203
+          247,
+          183
          ],
          [
-          293,
-          203
+          321,
+          183
          ],
          [
-          373,
-          203
+          395,
+          183
          ],
          [
-          453,
-          203
+          469,
+          183
          ],
          [
-          533,
-          203
+          557,
+          183
          ],
          [
-          613,
-          203
+          631,
+          183
          ],
          [
-          693,
-          203
+          705,
+          183
          ],
          [
-          773,
-          203
+          779,
+          183
          ],
          [
           853,
-          203
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 10",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v2-20-2.mp3"
      },
      {
-      "say": "Ten and ten make twenty.",
-      "audio": "explain/s20-3.mp3",
+      "say": "Ten plus ten equals twenty.",
       "do": [
        {
-        "add": "10 + 10 = 20",
+        "add": "= 20",
         "card": true,
         "color": "green"
        },
@@ -951,10 +1262,699 @@
         "color": "orange"
        }
       ],
+      "audio": "explain/v2-20-3.mp3",
       "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "Warm Up: eggs",
+    "beats": [
+     {
+      "say": "Warm up! Write the number.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l1-wu-eggs.png",
+        "w": 1000,
+        "h": 644,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v2-wu1-1.mp3"
+     },
+     {
+      "say": "One tray has ten eggs.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          30,
+          30,
+          650,
+          400
+         ],
+         "color": "green",
+         "id": "t1"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "t1",
+        "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v2-wu1-2.mp3"
+     },
+     {
+      "say": "And three more eggs.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          509,
+          491
+         ],
+         [
+          592,
+          471
+         ],
+         [
+          673,
+          442
+         ]
+        ],
+        "color": "orange",
+        "r": 30
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v2-wu1-3.mp3"
+     },
+     {
+      "say": "Ten and three make thirteen.",
+      "do": [
+       {
+        "add": "= 13",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "13",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v2-wu1-4.mp3",
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "Warm Up: oranges",
+    "beats": [
+     {
+      "say": "Write the number. It is easier to count when we circle a group of ten.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l1-wu-oranges.png",
+        "w": 1000,
+        "h": 644,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v2-wu2-1.mp3"
+     },
+     {
+      "say": "Circle ten oranges.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          71,
+          54,
+          483,
+          598
+         ],
+         "color": "green",
+         "id": "g"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "g",
+        "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v2-wu2-2.mp3"
+     },
+     {
+      "say": "Count the ones that are left.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          840,
+          148
+         ],
+         [
+          697,
+          196
+         ],
+         [
+          865,
+          295
+         ],
+         [
+          727,
+          344
+         ],
+         [
+          840,
+          445
+         ],
+         [
+          727,
+          543
+         ]
+        ],
+        "color": "orange",
+        "r": 30
+       },
+       {
+        "add": "+ 6",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v2-wu2-3.mp3"
+     },
+     {
+      "say": "Ten and six make sixteen.",
+      "do": [
+       {
+        "add": "= 16",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "16",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v2-wu2-4.mp3",
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "Try: strawberries",
+    "beats": [
+     {
+      "say": "Try! Write the number.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l1-try-straw.png",
+        "w": 1000,
+        "h": 642,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v2-t1-1.mp3"
+     },
+     {
+      "say": "Circle a group of ten.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          75,
+          57,
+          462,
+          600
+         ],
+         "color": "green",
+         "id": "g"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "g",
+        "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v2-t1-2.mp3"
+     },
+     {
+      "say": "Count the ones that are left.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          766,
+          160
+         ],
+         [
+          643,
+          206
+         ],
+         [
+          866,
+          249
+         ],
+         [
+          745,
+          318
+         ],
+         [
+          632,
+          382
+         ],
+         [
+          844,
+          406
+         ],
+         [
+          727,
+          492
+         ]
+        ],
+        "color": "orange",
+        "r": 30
+       },
+       {
+        "add": "+ 7",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v2-t1-3.mp3"
+     },
+     {
+      "say": "Ten and seven make seventeen.",
+      "do": [
+       {
+        "add": "= 17",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v2-t1-4.mp3"
+     },
+     {
+      "say": "What is the number? Tap it.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "16",
+          "17",
+          "18"
+         ],
+         "answer": "17"
+        }
+       }
+      ],
+      "audio": "explain/v2-t1-5.mp3"
+     },
+     {
+      "say": "Yes! Seventeen.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "17",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v2-t1-6.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try: eggs",
+    "beats": [
+     {
+      "say": "Try! Write the number.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l1-try-eggs.png",
+        "w": 1000,
+        "h": 642,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v2-t2-1.mp3"
+     },
+     {
+      "say": "One tray has ten eggs.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          20,
+          20,
+          640,
+          360
+         ],
+         "color": "green",
+         "id": "a"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "a",
+        "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v2-t2-2.mp3"
+     },
+     {
+      "say": "The other tray has ten eggs too.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          360,
+          300,
+          980,
+          640
+         ],
+         "color": "orange",
+         "id": "b"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "b",
+        "color": "orange"
+       },
+       {
+        "add": "+ 10",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v2-t2-3.mp3"
+     },
+     {
+      "say": "Ten and ten make twenty.",
+      "do": [
+       {
+        "add": "= 20",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v2-t2-4.mp3"
+     },
+     {
+      "say": "What is the number? Tap it.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "18",
+          "19",
+          "20"
+         ],
+         "answer": "20"
+        }
+       }
+      ],
+      "audio": "explain/v2-t2-5.mp3"
+     },
+     {
+      "say": "Yes! Twenty.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "20",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v2-t2-6.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try: children in line",
+    "beats": [
+     {
+      "say": "How many children are standing in line?",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l1-line-hassan.png",
+        "w": 1000,
+        "h": 280,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v2-t3-1.mp3"
+     },
+     {
+      "say": "Count the children.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          60,
+          96
+         ],
+         [
+          137,
+          96
+         ],
+         [
+          202,
+          96
+         ],
+         [
+          274,
+          96
+         ],
+         [
+          344,
+          96
+         ],
+         [
+          415,
+          96
+         ],
+         [
+          490,
+          96
+         ],
+         [
+          562,
+          96
+         ],
+         [
+          640,
+          96
+         ],
+         [
+          707,
+          96
+         ],
+         [
+          795,
+          96
+         ],
+         [
+          862,
+          96
+         ],
+         [
+          944,
+          96
+         ]
+        ],
+        "color": "orange",
+        "r": 22
+       }
+      ],
+      "audio": "explain/v2-t3-2.mp3"
+     },
+     {
+      "say": "How many children?",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "12",
+          "13",
+          "14"
+         ],
+         "answer": "13"
+        }
+       }
+      ],
+      "audio": "explain/v2-t3-3.mp3"
+     },
+     {
+      "say": "Yes! Thirteen children.",
+      "do": [
+       {
+        "add": "13",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v2-t3-4.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try: Hassan's place",
+    "beats": [
+     {
+      "say": "What position is Hassan from the front?",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l1-line-hassan.png",
+        "w": 1000,
+        "h": 280,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v2-t4-1.mp3"
+     },
+     {
+      "say": "Count from the front until Hassan.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          60,
+          96
+         ],
+         [
+          137,
+          96
+         ],
+         [
+          202,
+          96
+         ],
+         [
+          274,
+          96
+         ],
+         [
+          344,
+          96
+         ],
+         [
+          415,
+          96
+         ],
+         [
+          490,
+          96
+         ],
+         [
+          562,
+          96
+         ],
+         [
+          640,
+          96
+         ],
+         [
+          707,
+          96
+         ],
+         [
+          795,
+          96
+         ]
+        ],
+        "color": "orange",
+        "r": 22
+       }
+      ],
+      "audio": "explain/v2-t4-2.mp3"
+     },
+     {
+      "say": "What position is Hassan?",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "tenth",
+          "eleventh",
+          "twelfth"
+         ],
+         "answer": "eleventh"
+        }
+       }
+      ],
+      "audio": "explain/v2-t4-3.mp3"
+     },
+     {
+      "say": "Yes! Hassan is eleventh from the front.",
+      "do": [
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v2-t4-4.mp3",
+      "gap": 1000
      }
     ]
    }
   ]
- }
+ },
+ "hints": {
+  "vocabPick": "Pick a word",
+  "vocabTeach": "Listen and repeat",
+  "vocabWrite": "Write the word letter by letter",
+  "word": "Tap any word you hear"
+ },
+ "vocabRepeats": 3
 }

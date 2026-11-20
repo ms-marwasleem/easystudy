@@ -2,102 +2,8 @@
  "sets": [
   {
    "type": "mcq",
-   "ex": 1,
-   "page": 80,
-   "task": "Solve the problem.",
-   "taskAudio": "q/task-solv.mp3",
-   "items": [
-    {
-     "ask": "What is 10 plus 2?",
-     "stem": "10 + 2 = __",
-     "options": [
-      "11",
-      "12",
-      "13"
-     ],
-     "answer": 1,
-     "askSay": "What is 10 plus 2?",
-     "askAudio": "q/e1-q.mp3",
-     "audio": "q/e1-a.mp3",
-     "word": "Twelve."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 2,
-   "page": 80,
-   "task": "Solve the problem.",
-   "taskAudio": "q/task-solv.mp3",
-   "items": [
-    {
-     "ask": "What is 12 minus 2?",
-     "stem": "12 - 2 = __",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "What is 12 minus 2?",
-     "askAudio": "q/e3-q.mp3",
-     "audio": "q/e3-a.mp3",
-     "word": "Ten."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 3,
-   "page": 80,
-   "task": "Solve the problem.",
-   "taskAudio": "q/task-solv.mp3",
-   "items": [
-    {
-     "ask": "What is 17 minus 7?",
-     "stem": "17 - 7 = __",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "What is 17 minus 7?",
-     "askAudio": "q/e4-q.mp3",
-     "audio": "q/e4-a.mp3",
-     "word": "Ten."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 4,
    "page": 81,
-   "task": "Solve the problem.",
-   "taskAudio": "q/task-solv.mp3",
-   "items": [
-    {
-     "ask": "What is 10 plus 9?",
-     "stem": "10 + 9 = __",
-     "options": [
-      "18",
-      "19",
-      "20"
-     ],
-     "answer": 1,
-     "askSay": "What is 10 plus 9?",
-     "askAudio": "q/e6-q.mp3",
-     "audio": "q/e6-a.mp3",
-     "word": "Nineteen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 5,
-   "page": 81,
-   "task": "Solve the problem.",
-   "taskAudio": "q/task-solv.mp3",
+   "task": "Write the number.",
    "items": [
     {
      "ask": "What is 10 plus 4?",
@@ -109,22 +15,13 @@
      ],
      "answer": 1,
      "askSay": "What is 10 plus 4?",
-     "askAudio": "q/e7-q.mp3",
-     "audio": "q/e7-a.mp3",
-     "word": "Fourteen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 6,
-   "page": 81,
-   "task": "Solve the problem.",
-   "taskAudio": "q/task-solv.mp3",
-   "items": [
+     "word": "Ten plus four equals fourteen.",
+     "askAudio": "q/e4q-881fce852c.mp3",
+     "audio": "q/e4a-e621f7cc1d.mp3"
+    },
     {
      "ask": "What is 18 minus 8?",
-     "stem": "18 - 8 = __",
+     "stem": "18 − 8 = __",
      "options": [
       "9",
       "10",
@@ -132,42 +29,34 @@
      ],
      "answer": 1,
      "askSay": "What is 18 minus 8?",
-     "askAudio": "q/e9-q.mp3",
-     "audio": "q/e9-a.mp3",
-     "word": "Ten."
+     "word": "Eighteen minus eight equals ten.",
+     "askAudio": "q/e4q-b9a9e21f2a.mp3",
+     "audio": "q/e4a-fe6b64b20c.mp3"
     }
-   ]
+   ],
+   "act": "u7l4ex",
+   "taskAudio": "q/e4t-a2b638f897.mp3",
+   "ex": 1
   },
   {
    "type": "mcq",
-   "ex": 7,
    "page": 81,
-   "task": "Solve the problem.",
-   "taskAudio": "q/task-solv.mp3",
+   "task": "Solve the problems.",
    "items": [
     {
-     "ask": "What is 19 minus 9?",
-     "stem": "19 - 9 = __",
+     "ask": "What is 10 plus 3?",
+     "stem": "10 + 3 = __",
      "options": [
-      "9",
-      "10",
-      "11"
+      "12",
+      "13",
+      "14"
      ],
      "answer": 1,
-     "askSay": "What is 19 minus 9?",
-     "askAudio": "q/e10-q.mp3",
-     "audio": "q/e10-a.mp3",
-     "word": "Ten."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 8,
-   "page": 81,
-   "task": "Solve the problem.",
-   "taskAudio": "q/task-solv.mp3",
-   "items": [
+     "askSay": "What is 10 plus 3?",
+     "word": "Ten plus three equals thirteen.",
+     "askAudio": "q/e4q-0fb2c30174.mp3",
+     "audio": "q/e4a-4982ba1236.mp3"
+    },
     {
      "ask": "What is 10 plus 7?",
      "stem": "10 + 7 = __",
@@ -178,19 +67,10 @@
      ],
      "answer": 1,
      "askSay": "What is 10 plus 7?",
-     "askAudio": "q/e12-q.mp3",
-     "audio": "q/e12-a.mp3",
-     "word": "Seventeen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 9,
-   "page": 81,
-   "task": "Solve the problem.",
-   "taskAudio": "q/task-solv.mp3",
-   "items": [
+     "word": "Ten plus seven equals seventeen.",
+     "askAudio": "q/e4q-a661a2bae6.mp3",
+     "audio": "q/e4a-8ae9d10cda.mp3"
+    },
     {
      "ask": "What is 10 plus 6?",
      "stem": "10 + 6 = __",
@@ -201,22 +81,27 @@
      ],
      "answer": 1,
      "askSay": "What is 10 plus 6?",
-     "askAudio": "q/e13-q.mp3",
-     "audio": "q/e13-a.mp3",
-     "word": "Sixteen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 10,
-   "page": 81,
-   "task": "Solve the problem.",
-   "taskAudio": "q/task-solv.mp3",
-   "items": [
+     "word": "Ten plus six equals sixteen.",
+     "askAudio": "q/e4q-f304f96573.mp3",
+     "audio": "q/e4a-d02d22d1d7.mp3"
+    },
+    {
+     "ask": "What is 13 minus 3?",
+     "stem": "13 − 3 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "What is 13 minus 3?",
+     "word": "Thirteen minus three equals ten.",
+     "askAudio": "q/e4q-2d14755b6f.mp3",
+     "audio": "q/e4a-2d99cf715e.mp3"
+    },
     {
      "ask": "What is 14 minus 4?",
-     "stem": "14 - 4 = __",
+     "stem": "14 − 4 = __",
      "options": [
       "9",
       "10",
@@ -224,22 +109,13 @@
      ],
      "answer": 1,
      "askSay": "What is 14 minus 4?",
-     "askAudio": "q/e15-q.mp3",
-     "audio": "q/e15-a.mp3",
-     "word": "Ten."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 11,
-   "page": 81,
-   "task": "Solve the problem.",
-   "taskAudio": "q/task-solv.mp3",
-   "items": [
+     "word": "Fourteen minus four equals ten.",
+     "askAudio": "q/e4q-4a48452062.mp3",
+     "audio": "q/e4a-5c06c2da84.mp3"
+    },
     {
      "ask": "What is 11 minus 1?",
-     "stem": "11 - 1 = __",
+     "stem": "11 − 1 = __",
      "options": [
       "9",
       "10",
@@ -247,138 +123,184 @@
      ],
      "answer": 1,
      "askSay": "What is 11 minus 1?",
-     "askAudio": "q/e16-q.mp3",
-     "audio": "q/e16-a.mp3",
-     "word": "Ten."
+     "word": "Eleven minus one equals ten.",
+     "askAudio": "q/e4q-6479b11010.mp3",
+     "audio": "q/e4a-500f3290ed.mp3"
     }
-   ]
+   ],
+   "act": "u7l4ex",
+   "taskAudio": "q/e4t-b9e8b4dfff.mp3",
+   "ex": 2
   },
   {
-   "type": "mcq",
-   "ex": 12,
+   "type": "mwrite",
    "page": 81,
-   "task": "Solve the problem.",
-   "taskAudio": "q/task-solv.mp3",
+   "task": "Write the addition sentence and the answer.",
    "items": [
     {
-     "ask": "There are 10 cats. Then 6 more come. How many cats are there now?",
-     "stem": "10 + 6 = __",
-     "options": [
-      "15",
-      "16",
-      "17"
+     "pics": [
+      "../../pics/boy-3.png#10|../../pics/boy-3.png#5"
      ],
-     "answer": 1,
-     "askSay": "There are 10 cats. Then 6 more come. How many cats are there now?",
-     "askAudio": "q/e18-q.mp3",
-     "audio": "q/e18-a.mp3",
-     "word": "Sixteen cats."
+     "ask": "There are 10 children. 5 more join. How many children are there now in total?",
+     "lead": "Addition sentence:",
+     "word": "10 + 5 = 15",
+     "keys": "1234567890+−=",
+     "askSay": "There are 10 children. 5 more join. How many children are there now in total?",
+     "askAudio": "q/e4s-f70ea8eef0.mp3",
+     "audio": "q/e4w-92735a5add.mp3",
+     "then": {
+      "options": [
+       "14 children",
+       "15 children",
+       "15"
+      ],
+      "answer": 1,
+      "askSay": "What is the answer?",
+      "word": "Answer: 15 children",
+      "lead": "Answer:",
+      "askAudio": "q/e4tq-cfd5904a49.mp3",
+      "audio": "q/e4ta-74689f2291.mp3"
+     }
     }
-   ]
+   ],
+   "act": "u7l4ex",
+   "taskAudio": "q/e4t-f7a744e14c.mp3",
+   "ex": 3
   },
   {
-   "type": "mcq",
-   "ex": 13,
+   "type": "mwrite",
    "page": 81,
-   "task": "Solve the problem.",
-   "taskAudio": "q/task-solv.mp3",
+   "task": "Write the subtraction sentence and the answer.",
    "items": [
     {
-     "ask": "There are 17 balloons. 7 fly away. How many are left?",
-     "stem": "17 - 7 = __",
-     "options": [
-      "9",
-      "10",
-      "11"
+     "pics": [
+      "../../pics/cat.png#12"
      ],
-     "answer": 1,
-     "askSay": "There are 17 balloons. 7 fly away. How many are left?",
-     "askAudio": "q/e19-q.mp3",
-     "audio": "q/e19-a.mp3",
-     "word": "Ten balloons."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 14,
-   "page": 81,
-   "task": "Solve the problem.",
-   "taskAudio": "q/task-solv.mp3",
-   "items": [
-    {
      "ask": "There are 12 cats. 2 go out. How many are left?",
-     "stem": "12 - 2 = __",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
+     "lead": "Subtraction sentence:",
+     "word": "12 − 2 = 10",
+     "keys": "1234567890+−=",
      "askSay": "There are 12 cats. 2 go out. How many are left?",
-     "askAudio": "q/e21-q.mp3",
-     "audio": "q/e21-a.mp3",
-     "word": "Ten cats."
+     "askAudio": "q/e4s-476d531daa.mp3",
+     "audio": "q/e4w-dab5ca94cd.mp3",
+     "then": {
+      "options": [
+       "9 cats",
+       "10 cats",
+       "10"
+      ],
+      "answer": 1,
+      "askSay": "What is the answer?",
+      "word": "Answer: 10 cats",
+      "lead": "Answer:",
+      "askAudio": "q/e4tq-cfd5904a49.mp3",
+      "audio": "q/e4ta-5d6b62e5e9.mp3"
+     }
     }
-   ]
+   ],
+   "act": "u7l4ex",
+   "taskAudio": "q/e4t-b433c0056e.mp3",
+   "ex": 4
+  },
+  {
+   "type": "mwrite",
+   "page": 60,
+   "task": "Write the addition sentence and the answer.",
+   "items": [
+    {
+     "ask": "Sameh saved 10 pounds and plans to save 2 pounds from his daily expenses. How many pounds will Sameh save?",
+     "lead": "Addition sentence:",
+     "word": "10 + 2 = 12",
+     "keys": "1234567890+−=",
+     "askSay": "Sameh saved 10 pounds and plans to save 2 pounds from his daily expenses. How many pounds will Sameh save?",
+     "askAudio": "q/e4s-d7f27cf28c.mp3",
+     "audio": "q/e4w-4625d621be.mp3",
+     "then": {
+      "options": [
+       "11 pounds",
+       "12 pounds",
+       "12"
+      ],
+      "answer": 1,
+      "askSay": "What is the answer?",
+      "word": "Answer: 12 pounds",
+      "lead": "Answer:",
+      "askAudio": "q/e4tq-cfd5904a49.mp3",
+      "audio": "q/e4ta-dae5eb4edc.mp3"
+     }
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l4wb",
+   "taskAudio": "q/e4t-f7a744e14c.mp3",
+   "ex": 1
   },
   {
    "type": "mcq",
    "page": 60,
    "task": "Answer the following.",
-   "taskAudio": "q/task-bk-answer-the-following.mp3",
    "items": [
     {
-     "stem": "10 + 5 = ___",
+     "ask": "What is 10 plus 5?",
+     "stem": "10 + 5 = __",
      "options": [
       "14",
       "15",
       "16"
      ],
      "answer": 1,
-     "askAudio": "q/wb-10-p-5-q.mp3",
-     "audio": "q/wb-10-p-5.mp3",
-     "word": "10 + 5 = 15"
+     "askSay": "What is 10 plus 5?",
+     "word": "Ten plus five equals fifteen.",
+     "askAudio": "q/e4q-e934f0c12d.mp3",
+     "audio": "q/e4a-2059f66e51.mp3"
     },
     {
-     "stem": "19 − 9 = ___",
+     "ask": "What is 19 minus 9?",
+     "stem": "19 − 9 = __",
      "options": [
       "9",
       "10",
       "11"
      ],
      "answer": 1,
-     "askAudio": "q/wb-19-m-9-q.mp3",
-     "audio": "q/wb-19-m-9.mp3",
-     "word": "19 − 9 = 10"
+     "askSay": "What is 19 minus 9?",
+     "word": "Nineteen minus nine equals ten.",
+     "askAudio": "q/e4q-71fb2e0b66.mp3",
+     "audio": "q/e4a-5db3e7e76d.mp3"
     },
     {
-     "stem": "6 + 10 = ___",
+     "ask": "What is 6 plus 10?",
+     "stem": "6 + 10 = __",
      "options": [
       "15",
       "16",
       "17"
      ],
      "answer": 1,
-     "askAudio": "q/wb-6-p-10-q.mp3",
-     "audio": "q/wb-6-p-10.mp3",
-     "word": "6 + 10 = 16"
+     "askSay": "What is 6 plus 10?",
+     "word": "Six plus ten equals sixteen.",
+     "askAudio": "q/e4q-0c7b040f13.mp3",
+     "audio": "q/e4a-4f6a8c697c.mp3"
     },
     {
-     "stem": "14 − 4 = ___",
+     "ask": "What is 14 minus 4?",
+     "stem": "14 − 4 = __",
      "options": [
       "9",
       "10",
       "11"
      ],
      "answer": 1,
-     "askAudio": "q/wb-14-m-4-q.mp3",
-     "audio": "q/wb-14-m-4.mp3",
-     "word": "14 − 4 = 10"
+     "askSay": "What is 14 minus 4?",
+     "word": "Fourteen minus four equals ten.",
+     "askAudio": "q/e4q-4a48452062.mp3",
+     "audio": "q/e4a-5c06c2da84.mp3"
     }
    ],
    "book": "workbook",
-   "ex": 15
+   "act": "u7l4wb",
+   "taskAudio": "q/e4t-d49b7dff6c.mp3",
+   "ex": 2
   },
   {
    "type": "mcq",

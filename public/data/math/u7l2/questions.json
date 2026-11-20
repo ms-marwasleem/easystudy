@@ -3,144 +3,6 @@
   {
    "type": "mcq",
    "ex": 1,
-   "page": 74,
-   "task": "What number goes in the box?",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "10 and 9 make ...",
-     "stem": "10 and 9 make __",
-     "options": [
-      "18",
-      "19",
-      "20"
-     ],
-     "answer": 1,
-     "askSay": "10 and 9 make what",
-     "askAudio": "q/x1-q.mp3",
-     "audio": "q/x1-a.mp3",
-     "word": "Ten and nine make nineteen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 2,
-   "page": 74,
-   "task": "What number goes in the box?",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "10 and 6 make ...",
-     "stem": "10 and 6 make __",
-     "options": [
-      "15",
-      "16",
-      "17"
-     ],
-     "answer": 1,
-     "askSay": "10 and 6 make what",
-     "askAudio": "q/x2-q.mp3",
-     "audio": "q/x2-a.mp3",
-     "word": "Ten and six make sixteen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 3,
-   "page": 74,
-   "task": "What number goes in the box?",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "17 is ... and 7",
-     "stem": "17 is __ and 7",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "17 is what and 7",
-     "askAudio": "q/x3-q.mp3",
-     "audio": "q/x3-a.mp3",
-     "word": "Seventeen is ten and seven."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 4,
-   "page": 74,
-   "task": "What number goes in the box?",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "15 is 10 and ...",
-     "stem": "15 is 10 and __",
-     "options": [
-      "4",
-      "5",
-      "6"
-     ],
-     "answer": 1,
-     "askSay": "15 is 10 and what",
-     "askAudio": "q/x4-q.mp3",
-     "audio": "q/x4-a.mp3",
-     "word": "Fifteen is ten and five."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 5,
-   "page": 74,
-   "task": "What number goes in the box?",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "12 is ... and 2",
-     "stem": "12 is __ and 2",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "12 is what and 2",
-     "askAudio": "q/x5-q.mp3",
-     "audio": "q/x5-a.mp3",
-     "word": "Twelve is ten and two."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 6,
-   "page": 74,
-   "task": "What number goes in the box?",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "14 is 10 and ...",
-     "stem": "14 is 10 and __",
-     "options": [
-      "3",
-      "4",
-      "5"
-     ],
-     "answer": 1,
-     "askSay": "14 is 10 and what",
-     "askAudio": "q/x6-q.mp3",
-     "audio": "q/x6-a.mp3",
-     "word": "Fourteen is ten and four."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 7,
    "page": 75,
    "task": "What number goes in the box?",
    "taskAudio": "q/task.mp3",
@@ -163,7 +25,7 @@
   },
   {
    "type": "mcq",
-   "ex": 8,
+   "ex": 2,
    "page": 75,
    "task": "What number goes in the box?",
    "taskAudio": "q/task.mp3",
@@ -185,130 +47,292 @@
    ]
   },
   {
-   "type": "mcq",
-   "ex": 9,
+   "type": "bond",
    "page": 75,
+   "typed": true,
+   "boxed": true,
    "task": "What number goes in the box?",
-   "taskAudio": "q/task.mp3",
    "items": [
     {
-     "ask": "13 is ... and 3",
-     "stem": "13 is __ and 3",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "13 is what and 3",
-     "askAudio": "q/x9-q.mp3",
-     "audio": "q/x9-a.mp3",
-     "word": "Thirteen is ten and three."
+     "whole": 13,
+     "parts": [
+      null,
+      3
+     ]
     }
-   ]
+   ],
+   "taskAudio": "q/task.mp3",
+   "ex": 3
   },
   {
-   "type": "mcq",
-   "ex": 10,
+   "type": "bond",
    "page": 75,
+   "typed": true,
+   "boxed": true,
    "task": "What number goes in the box?",
-   "taskAudio": "q/task.mp3",
    "items": [
     {
-     "ask": "16 is 10 and ...",
-     "stem": "16 is 10 and __",
-     "options": [
-      "5",
-      "6",
-      "7"
-     ],
-     "answer": 1,
-     "askSay": "16 is 10 and what",
-     "askAudio": "q/x10-q.mp3",
-     "audio": "q/x10-a.mp3",
-     "word": "Sixteen is ten and six."
+     "whole": 16,
+     "parts": [
+      10,
+      null
+     ]
     }
-   ]
+   ],
+   "taskAudio": "q/task.mp3",
+   "ex": 4
   },
   {
-   "type": "mcq",
-   "ex": 11,
+   "type": "bond",
    "page": 75,
+   "typed": true,
+   "boxed": true,
    "task": "What number goes in the box?",
-   "taskAudio": "q/task.mp3",
    "items": [
     {
-     "ask": "15 is ... and 5",
-     "stem": "15 is __ and 5",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "15 is what and 5",
-     "askAudio": "q/x11-q.mp3",
-     "audio": "q/x11-a.mp3",
-     "word": "Fifteen is ten and five."
+     "whole": 15,
+     "parts": [
+      null,
+      5
+     ]
     }
-   ]
+   ],
+   "taskAudio": "q/task.mp3",
+   "ex": 5
   },
   {
-   "type": "mcq",
-   "ex": 12,
+   "type": "bond",
    "page": 75,
+   "typed": true,
+   "boxed": true,
    "task": "What number goes in the box?",
-   "taskAudio": "q/task.mp3",
    "items": [
     {
-     "ask": "20 is 10 and ...",
-     "stem": "20 is 10 and __",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "20 is 10 and what",
-     "askAudio": "q/x12-q.mp3",
-     "audio": "q/x12-a.mp3",
-     "word": "Twenty is ten and ten."
+     "whole": 20,
+     "parts": [
+      10,
+      null
+     ]
     }
-   ]
+   ],
+   "taskAudio": "q/task.mp3",
+   "ex": 6
   },
   {
    "type": "mcq",
    "page": 57,
-   "task": "Complete.",
-   "taskAudio": "q/task-bk-complete.mp3",
+   "task": "Collaborate with your classmate and write the number.",
    "items": [
     {
-     "stem": "10 + 5 = ___",
+     "pics": [
+      "../../pics/sc-math-u7l2-wb-blue.png"
+     ],
+     "ask": "How many blocks are there?",
+     "stem": "The answer is ___",
+     "options": [
+      "12",
+      "13",
+      "14"
+     ],
+     "answer": 1,
+     "askSay": "How many blocks are there?",
+     "word": "There are 13 blocks.",
+     "noStem": true,
+     "askAudio": "q/wb72-a10-q.mp3",
+     "audio": "q/wb72-a10-a.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/sc-math-u7l2-wb-brown.png"
+     ],
+     "ask": "How many blocks are there?",
+     "stem": "The answer is ___",
      "options": [
       "14",
       "15",
       "16"
      ],
      "answer": 1,
-     "askAudio": "q/wb-10-p-5-q.mp3",
-     "audio": "q/wb-10-p-5.mp3",
-     "word": "10 + 5 = 15"
-    },
-    {
-     "stem": "10 + 7 = ___",
-     "options": [
-      "16",
-      "17",
-      "18"
-     ],
-     "answer": 1,
-     "askAudio": "q/wb-10-p-7-q.mp3",
-     "audio": "q/wb-10-p-7.mp3",
-     "word": "10 + 7 = 17"
+     "askSay": "How many blocks are there?",
+     "word": "There are 15 blocks.",
+     "noStem": true,
+     "askAudio": "q/wb72-a11-q.mp3",
+     "audio": "q/wb72-a11-a.mp3"
     }
    ],
    "book": "workbook",
-   "ex": 13
+   "act": "u7l2wb",
+   "taskAudio": "q/wb72-task-a1.mp3",
+   "ex": 1
+  },
+  {
+   "type": "bond",
+   "page": 57,
+   "typed": true,
+   "boxed": true,
+   "task": "What number goes in the box?",
+   "items": [
+    {
+     "whole": 19,
+     "parts": [
+      10,
+      null
+     ]
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l2wb",
+   "taskAudio": "q/task.mp3",
+   "ex": 2
+  },
+  {
+   "type": "bond",
+   "page": 57,
+   "typed": true,
+   "boxed": true,
+   "task": "What number goes in the box?",
+   "items": [
+    {
+     "whole": 11,
+     "parts": [
+      10,
+      null
+     ]
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l2wb",
+   "taskAudio": "q/task.mp3",
+   "ex": 3
+  },
+  {
+   "type": "bond",
+   "page": 57,
+   "typed": true,
+   "boxed": true,
+   "task": "What number goes in the box?",
+   "items": [
+    {
+     "whole": 16,
+     "parts": [
+      10,
+      null
+     ]
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l2wb",
+   "taskAudio": "q/task.mp3",
+   "ex": 4
+  },
+  {
+   "type": "bond",
+   "page": 57,
+   "typed": true,
+   "boxed": true,
+   "task": "What number goes in the box?",
+   "items": [
+    {
+     "whole": 13,
+     "parts": [
+      10,
+      null
+     ]
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l2wb",
+   "taskAudio": "q/task.mp3",
+   "ex": 5
+  },
+  {
+   "type": "bond",
+   "page": 57,
+   "typed": true,
+   "boxed": true,
+   "task": "What number goes in the box?",
+   "items": [
+    {
+     "whole": 11,
+     "parts": [
+      10,
+      null
+     ]
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l2wb",
+   "taskAudio": "q/task.mp3",
+   "ex": 6
+  },
+  {
+   "type": "bond",
+   "page": 57,
+   "typed": true,
+   "boxed": true,
+   "task": "What number goes in the box?",
+   "items": [
+    {
+     "whole": null,
+     "parts": [
+      10,
+      5
+     ]
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l2wb",
+   "taskAudio": "q/task.mp3",
+   "ex": 7
+  },
+  {
+   "type": "bond",
+   "page": 57,
+   "typed": true,
+   "boxed": true,
+   "task": "What number goes in the box?",
+   "items": [
+    {
+     "whole": null,
+     "parts": [
+      10,
+      7
+     ]
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l2wb",
+   "taskAudio": "q/task.mp3",
+   "ex": 8
+  },
+  {
+   "type": "mcq",
+   "page": 57,
+   "task": "Count, then write the number.",
+   "items": [
+    {
+     "pics": [
+      "../../pics/sc-math-u7l2-wb-cloud.png"
+     ],
+     "ask": "How many clouds are there?",
+     "stem": "The answer is ___",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askSay": "How many clouds are there?",
+     "word": "There are 14 clouds.",
+     "noStem": true,
+     "askAudio": "q/wb72-h50-q.mp3",
+     "audio": "q/wb72-h50-a.mp3"
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l2wb",
+   "taskAudio": "q/wb72-task-h5.mp3",
+   "ex": 9
   },
   {
    "type": "mcq",

@@ -1,358 +1,354 @@
 {
  "sets": [
   {
-   "type": "mcq",
-   "ex": 1,
-   "page": 77,
-   "task": "Circle the bigger number.",
-   "taskAudio": "q/task-cir.mp3",
-   "items": [
-    {
-     "ask": "Which number is bigger?",
-     "stem": "The bigger number is __",
-     "options": [
-      "12",
-      "8"
-     ],
-     "answer": 0,
-     "askSay": "Which number is bigger?",
-     "askAudio": "q/whichnumberisbigger.mp3",
-     "audio": "q/b12-a.mp3",
-     "word": "Twelve is bigger."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 2,
+   "type": "nline",
    "page": 78,
-   "task": "Circle the bigger number.",
-   "taskAudio": "q/task-cir.mp3",
+   "task": "Look at the number line. How far did the cat go? Write the number.",
    "items": [
     {
-     "ask": "Which number is bigger?",
-     "stem": "The bigger number is __",
+     "pet": 10,
+     "img": "../../pics/cat.png",
      "options": [
-      "17",
-      "16"
+      9,
+      10,
+      11
      ],
-     "answer": 0,
-     "askSay": "Which number is bigger?",
-     "askAudio": "q/whichnumberisbigger.mp3",
-     "audio": "q/b17-a.mp3",
-     "word": "Seventeen is bigger."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 3,
-   "page": 77,
-   "task": "What number goes in the box?",
-   "taskAudio": "q/task-wha.mp3",
-   "items": [
-    {
-     "ask": "Which number is missing?",
-     "stem": "12, __, 14, 15, 16, 17",
-     "options": [
-      "12",
-      "13",
-      "14"
-     ],
-     "answer": 1,
-     "askSay": "Which number is missing?",
-     "askAudio": "q/whichnumberismissing.mp3",
-     "audio": "q/s01-a.mp3",
-     "word": "Thirteen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 4,
-   "page": 77,
-   "task": "What number goes in the box?",
-   "taskAudio": "q/task-wha.mp3",
-   "items": [
-    {
-     "ask": "Which number is missing?",
-     "stem": "10, __, 14, 16, 18, 20",
-     "options": [
-      "11",
-      "12",
-      "13"
-     ],
-     "answer": 1,
-     "askSay": "Which number is missing?",
-     "askAudio": "q/whichnumberismissing.mp3",
-     "audio": "q/s11-a.mp3",
-     "word": "Twelve."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 5,
-   "page": 77,
-   "task": "What number goes in the box?",
-   "taskAudio": "q/task-wha.mp3",
-   "items": [
-    {
-     "ask": "Which number is missing?",
-     "stem": "18, __, 16, 15, 14, 13",
-     "options": [
-      "16",
-      "17",
-      "18"
-     ],
-     "answer": 1,
-     "askSay": "Which number is missing?",
-     "askAudio": "q/whichnumberismissing.mp3",
-     "audio": "q/s21-a.mp3",
-     "word": "Seventeen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 6,
-   "page": 78,
-   "task": "What number goes in the box?",
-   "taskAudio": "q/task-wha.mp3",
-   "items": [
-    {
-     "ask": "Which number is missing?",
-     "stem": "13, __, 15, 16, 17, 18",
-     "options": [
-      "13",
-      "14",
-      "15"
-     ],
-     "answer": 1,
-     "askSay": "Which number is missing?",
-     "askAudio": "q/whichnumberismissing.mp3",
-     "audio": "q/s31-a.mp3",
-     "word": "Fourteen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 7,
-   "page": 78,
-   "task": "What number goes in the box?",
-   "taskAudio": "q/task-wha.mp3",
-   "items": [
-    {
-     "ask": "Which number is missing?",
-     "stem": "20, __, 18, 17, 16, 15",
-     "options": [
-      "18",
-      "19",
-      "20"
-     ],
-     "answer": 1,
-     "askSay": "Which number is missing?",
-     "askAudio": "q/whichnumberismissing.mp3",
-     "audio": "q/s41-a.mp3",
-     "word": "Nineteen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 8,
-   "page": 78,
-   "task": "What number goes in the box?",
-   "taskAudio": "q/task-wha.mp3",
-   "items": [
-    {
-     "ask": "Which number is missing?",
-     "stem": "8, __, 12, 14, 16, 18, 20",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "Which number is missing?",
-     "askAudio": "q/whichnumberismissing.mp3",
-     "audio": "q/s51-a.mp3",
-     "word": "Ten."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 9,
-   "page": 78,
-   "task": "What number goes in the box?",
-   "taskAudio": "q/task-wha.mp3",
-   "items": [
-    {
-     "ask": "Which number is missing?",
-     "stem": "8, 10, 12, 14, 16, __, 20",
-     "options": [
-      "17",
-      "18",
-      "19"
-     ],
-     "answer": 1,
-     "askSay": "Which number is missing?",
-     "askAudio": "q/whichnumberismissing.mp3",
-     "audio": "q/s55-a.mp3",
-     "word": "Eighteen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 10,
-   "page": 77,
-   "task": "Use the number line and answer.",
-   "taskAudio": "q/task-use.mp3",
-   "items": [
-    {
-     "ask": "What number is four more than eleven?",
-     "stem": "4 more than 11 is __",
-     "options": [
-      "14",
-      "15",
-      "16"
-     ],
-     "answer": 1,
-     "askSay": "What number is four more than eleven?",
-     "askAudio": "q/whatnumberisfourmorethaneleven.mp3",
-     "audio": "q/m1-a.mp3",
-     "word": "Fifteen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 11,
-   "page": 77,
-   "task": "Put the cards in order from least to greatest.",
-   "taskAudio": "q/task-put.mp3",
-   "items": [
-    {
-     "ask": "Which is in order from least to greatest?",
-     "stem": "15, 12, 17, 13",
-     "options": [
-      "12, 13, 15, 17",
-      "17, 15, 13, 12",
-      "12, 15, 13, 17"
-     ],
-     "answer": 0,
-     "askSay": "Which is in order from least to greatest?",
-     "askAudio": "q/whichisinorderfromleasttogreat.mp3",
-     "audio": "q/o1-a.mp3",
-     "word": "Twelve, thirteen, fifteen, seventeen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 12,
-   "page": 79,
-   "task": "Use the number line and answer.",
-   "taskAudio": "q/task-use.mp3",
-   "items": [
-    {
-     "ask": "What number is eight more than twelve?",
-     "stem": "8 more than 12 is __",
-     "options": [
-      "19",
-      "20",
-      "21"
-     ],
-     "answer": 1,
-     "askSay": "What number is eight more than twelve?",
-     "askAudio": "q/whatnumberiseightmorethantwelv.mp3",
-     "audio": "q/p2-a.mp3",
-     "word": "Twenty."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 13,
-   "page": 79,
-   "task": "Use the number line and answer.",
-   "taskAudio": "q/task-use.mp3",
-   "items": [
-    {
-     "ask": "What number is seven less than seventeen?",
-     "stem": "7 less than 17 is __",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "What number is seven less than seventeen?",
-     "askAudio": "q/whatnumberissevenlessthanseven.mp3",
-     "audio": "q/p4-a.mp3",
-     "word": "Ten."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 14,
-   "page": 79,
-   "task": "Put the cards in order from least to greatest.",
-   "taskAudio": "q/task-put.mp3",
-   "items": [
-    {
-     "ask": "Which is in order from least to greatest?",
-     "stem": "10, 18, 14, 15",
-     "options": [
-      "10, 14, 15, 18",
-      "18, 15, 14, 10",
-      "10, 15, 14, 18"
-     ],
-     "answer": 0,
-     "askSay": "Which is in order from least to greatest?",
-     "askAudio": "q/whichisinorderfromleasttogreat.mp3",
-     "audio": "q/o3-a.mp3",
-     "word": "Ten, fourteen, fifteen, eighteen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "page": 58,
-   "task": "Find the number.",
-   "taskAudio": "q/task-bk-find-the-number.mp3",
-   "items": [
-    {
-     "stem": "12 + 7 = ___",
-     "options": [
-      "18",
-      "19",
-      "20"
-     ],
-     "answer": 1,
-     "askAudio": "q/wb-12-p-7-q.mp3",
-     "audio": "q/wb-12-p-7.mp3",
-     "word": "12 + 7 = 19"
+     "answer": 10,
+     "askAudio": "q/n3q-c49381a398.mp3",
+     "audio": "q/n3a-3d4b181c49.mp3",
+     "ask": "How far did the cat go?",
+     "word": "The cat went to 10."
     },
     {
-     "stem": "17 − 6 = ___",
+     "pet": 19,
+     "img": "../../pics/cat.png",
      "options": [
-      "10",
-      "11",
-      "12"
+      18,
+      19,
+      20
      ],
-     "answer": 1,
-     "askAudio": "q/wb-17-m-6-q.mp3",
-     "audio": "q/wb-17-m-6.mp3",
-     "word": "17 − 6 = 11"
+     "answer": 19,
+     "askAudio": "q/n3q-c49381a398.mp3",
+     "audio": "q/n3a-b467c62f5a.mp3",
+     "ask": "How far did the cat go?",
+     "word": "The cat went to 19."
+    }
+   ],
+   "act": "u7l3ex",
+   "taskAudio": "q/n3t-d8fc023ff8.mp3",
+   "ex": 1
+  },
+  {
+   "type": "bigger",
+   "page": 78,
+   "task": "Circle the bigger number.",
+   "items": [
+    {
+     "nums": [
+      17,
+      16
+     ],
+     "find": "bigger",
+     "audio": "q/n3a-403b1e089f.mp3",
+     "word": "17 is bigger than 16."
+    },
+    {
+     "nums": [
+      15,
+      20
+     ],
+     "find": "bigger",
+     "audio": "q/n3a-fb16408144.mp3",
+     "word": "20 is bigger than 15."
+    }
+   ],
+   "act": "u7l3ex",
+   "taskAudio": "q/n3t-f151c725f9.mp3",
+   "ex": 2
+  },
+  {
+   "type": "numline",
+   "page": 78,
+   "task": "Write the number that goes in the box.",
+   "items": [
+    {
+     "seq": [
+      13,
+      null,
+      15,
+      null,
+      null,
+      18
+     ],
+     "answers": [
+      14,
+      16,
+      17
+     ]
+    },
+    {
+     "seq": [
+      20,
+      null,
+      18,
+      null,
+      16,
+      15
+     ],
+     "answers": [
+      19,
+      17
+     ]
+    },
+    {
+     "seq": [
+      8,
+      null,
+      12,
+      null,
+      16,
+      null,
+      20
+     ],
+     "answers": [
+      10,
+      14,
+      18
+     ]
+    },
+    {
+     "seq": [
+      0,
+      5,
+      null,
+      15,
+      20
+     ],
+     "answers": [
+      10
+     ]
+    }
+   ],
+   "act": "u7l3ex",
+   "taskAudio": "q/n3t-ce55e10d14.mp3",
+   "ex": 3
+  },
+  {
+   "type": "nline",
+   "page": 79,
+   "task": "Use the number line and answer.",
+   "items": [
+    {
+     "options": [
+      11,
+      12,
+      13
+     ],
+     "answer": 12,
+     "askAudio": "q/n3q-7ce22a06dc.mp3",
+     "audio": "q/n3a-0ed3b96fc0.mp3",
+     "ask": "What number is 2 more than 10?",
+     "word": "2 more than 10 is 12."
+    },
+    {
+     "options": [
+      19,
+      20,
+      21
+     ],
+     "answer": 20,
+     "askAudio": "q/n3q-418765f944.mp3",
+     "audio": "q/n3a-b24d7a7d56.mp3",
+     "ask": "What number is 8 more than 12?",
+     "word": "8 more than 12 is 20."
+    },
+    {
+     "options": [
+      11,
+      12,
+      13
+     ],
+     "answer": 12,
+     "askAudio": "q/n3q-e51478faf4.mp3",
+     "audio": "q/n3a-24088cf879.mp3",
+     "ask": "What number is 3 less than 15?",
+     "word": "3 less than 15 is 12."
+    },
+    {
+     "options": [
+      9,
+      10,
+      11
+     ],
+     "answer": 10,
+     "askAudio": "q/n3q-b8ac954a78.mp3",
+     "audio": "q/n3a-055c80b244.mp3",
+     "ask": "What number is 7 less than 17?",
+     "word": "7 less than 17 is 10."
+    }
+   ],
+   "act": "u7l3ex",
+   "taskAudio": "q/n3t-596008db04.mp3",
+   "ex": 4
+  },
+  {
+   "type": "nlorder",
+   "page": 79,
+   "task": "Put the cards in order from least to greatest.",
+   "items": [
+    {
+     "cards": [
+      20,
+      9,
+      16,
+      11
+     ],
+     "audio": "q/n3a-93a2c234cf.mp3",
+     "word": "9, 11, 16, 20"
+    },
+    {
+     "cards": [
+      10,
+      18,
+      14,
+      15
+     ],
+     "audio": "q/n3a-497bd0f79b.mp3",
+     "word": "10, 14, 15, 18"
+    }
+   ],
+   "act": "u7l3ex",
+   "taskAudio": "q/n3t-a308601752.mp3",
+   "ex": 5
+  },
+  {
+   "type": "numline",
+   "page": 58,
+   "task": "Choose your place: write the missing numbers.",
+   "items": [
+    {
+     "seq": [
+      12,
+      null,
+      14,
+      null,
+      null,
+      17
+     ],
+     "answers": [
+      13,
+      15,
+      16
+     ]
     }
    ],
    "book": "workbook",
-   "ex": 15
+   "act": "u7l3wb",
+   "taskAudio": "q/n3t-f8a5a5be9e.mp3",
+   "ex": 1
+  },
+  {
+   "type": "nlorder",
+   "page": 58,
+   "task": "Put the numbers in order from greatest to smallest.",
+   "items": [
+    {
+     "cards": [
+      10,
+      18,
+      12,
+      11
+     ],
+     "find": "greatest",
+     "audio": "q/n3a-c8dd7b60a4.mp3",
+     "word": "18, 12, 11, 10"
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l3wb",
+   "taskAudio": "q/n3t-a22541f022.mp3",
+   "ex": 2
+  },
+  {
+   "type": "numline",
+   "page": 58,
+   "task": "Write the number that should replace the dots.",
+   "items": [
+    {
+     "seq": [
+      13,
+      null,
+      15,
+      null,
+      null,
+      18
+     ],
+     "answers": [
+      14,
+      16,
+      17
+     ]
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l3wb",
+   "taskAudio": "q/n3t-e61e9e5bd3.mp3",
+   "ex": 3
+  },
+  {
+   "type": "bigger",
+   "page": 58,
+   "task": "Circle the smaller number.",
+   "items": [
+    {
+     "nums": [
+      13,
+      16
+     ],
+     "find": "smaller",
+     "audio": "q/n3a-ad431243b9.mp3",
+     "word": "13 is smaller than 16."
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l3wb",
+   "taskAudio": "q/n3t-f67d06db0d.mp3",
+   "ex": 4
+  },
+  {
+   "type": "nline",
+   "page": 58,
+   "task": "Use the number line and answer.",
+   "items": [
+    {
+     "options": [
+      18,
+      19,
+      20
+     ],
+     "answer": 19,
+     "askAudio": "q/n3q-8f5a825539.mp3",
+     "audio": "q/n3a-05c65023e0.mp3",
+     "ask": "What number is 7 more than 12?",
+     "word": "7 more than 12 is 19."
+    },
+    {
+     "options": [
+      10,
+      11,
+      12
+     ],
+     "answer": 11,
+     "askAudio": "q/n3q-1ede29b777.mp3",
+     "audio": "q/n3a-80017460d8.mp3",
+     "ask": "What number is 6 less than 17?",
+     "word": "6 less than 17 is 11."
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l3wb",
+   "taskAudio": "q/n3t-596008db04.mp3",
+   "ex": 5
   },
   {
    "type": "numline",
@@ -367,6 +363,10 @@
       null,
       17,
       null
+     ],
+     "answers": [
+      16,
+      18
      ]
     },
     {
@@ -377,6 +377,10 @@
       16,
       null,
       20
+     ],
+     "answers": [
+      14,
+      18
      ]
     }
    ],
@@ -423,6 +427,11 @@
       null,
       null,
       17
+     ],
+     "answers": [
+      13,
+      15,
+      16
      ]
     },
     {
@@ -433,6 +442,10 @@
       null,
       18,
       20
+     ],
+     "answers": [
+      12,
+      16
      ]
     },
     {
@@ -443,6 +456,10 @@
       15,
       null,
       13
+     ],
+     "answers": [
+      17,
+      14
      ]
     }
    ],
@@ -463,6 +480,11 @@
       null,
       null,
       18
+     ],
+     "answers": [
+      14,
+      16,
+      17
      ]
     },
     {
@@ -473,6 +495,10 @@
       null,
       16,
       15
+     ],
+     "answers": [
+      19,
+      17
      ]
     },
     {
@@ -484,6 +510,11 @@
       16,
       null,
       20
+     ],
+     "answers": [
+      10,
+      14,
+      18
      ]
     }
    ],
@@ -491,58 +522,58 @@
    "ex": 19
   },
   {
-   "type": "mcq",
+   "type": "nline",
    "page": 86,
    "task": "Use the number line and answer.",
    "taskAudio": "q/task-bk-use-the-number-line-and-answer.mp3",
    "items": [
     {
-     "stem": "2 more than 10 is ___",
      "options": [
-      "11",
-      "12",
-      "13"
+      11,
+      12,
+      13
      ],
-     "answer": 1,
+     "answer": 12,
+     "ask": "What number is 2 more than 10?",
+     "word": "2 more than 10 is 12",
      "askAudio": "q/bk-what-number-is-two-more-than-ten-q.mp3",
-     "audio": "q/bk-what-number-is-two-more-than-ten.mp3",
-     "word": "2 more than 10 is 12"
+     "audio": "q/bk-what-number-is-two-more-than-ten.mp3"
     },
     {
-     "stem": "8 more than 12 is ___",
      "options": [
-      "19",
-      "20",
-      "21"
+      19,
+      20,
+      21
      ],
-     "answer": 1,
+     "answer": 20,
+     "ask": "What number is 8 more than 12?",
+     "word": "8 more than 12 is 20",
      "askAudio": "q/bk-what-number-is-eight-more-than-twelve-q.mp3",
-     "audio": "q/bk-what-number-is-eight-more-than-twelve.mp3",
-     "word": "8 more than 12 is 20"
+     "audio": "q/bk-what-number-is-eight-more-than-twelve.mp3"
     },
     {
-     "stem": "3 less than 15 is ___",
      "options": [
-      "11",
-      "12",
-      "13"
+      11,
+      12,
+      13
      ],
-     "answer": 1,
+     "answer": 12,
+     "ask": "What number is 3 less than 15?",
+     "word": "3 less than 15 is 12",
      "askAudio": "q/bk-what-number-is-three-less-than-fifteen-q.mp3",
-     "audio": "q/bk-what-number-is-three-less-than-fifteen.mp3",
-     "word": "3 less than 15 is 12"
+     "audio": "q/bk-what-number-is-three-less-than-fifteen.mp3"
     },
     {
-     "stem": "7 less than 17 is ___",
      "options": [
-      "9",
-      "10",
-      "11"
+      9,
+      10,
+      11
      ],
-     "answer": 1,
+     "answer": 10,
+     "ask": "What number is 7 less than 17?",
+     "word": "7 less than 17 is 10",
      "askAudio": "q/bk-what-number-is-seven-less-than-seventeen-q.mp3",
-     "audio": "q/bk-what-number-is-seven-less-than-seventeen.mp3",
-     "word": "7 less than 17 is 10"
+     "audio": "q/bk-what-number-is-seven-less-than-seventeen.mp3"
     }
    ],
    "book": "booklet",

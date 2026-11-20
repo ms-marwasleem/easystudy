@@ -7,16 +7,45 @@
  "lines": [],
  "end": 1,
  "speakers": {},
- "vocab": [],
+ "vocab": [
+  {
+   "word": "longer",
+   "img": "data:draw,cmp,len,long,en",
+   "parts": [
+    {
+     "t": "longer",
+     "audio": "../u5l1/words/longer.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u5l1/words/longer.mp3"
+   }
+  },
+  {
+   "word": "shorter",
+   "img": "data:draw,cmp,len,short,en",
+   "parts": [
+    {
+     "t": "shorter",
+     "audio": "../u5l1/words/shorter.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../u5l1/words/shorter.mp3"
+   }
+  }
+ ],
  "tabs": [
   "read",
+  "words",
   "quiz",
   "booklet",
   "workbook"
  ],
  "tabLabels": {
   "read": "Lesson",
-  "quiz": "Exercise"
+  "quiz": "Exercise",
+  "words": "Words"
  },
  "pages": 5,
  "pageNums": [
@@ -723,5 +752,12 @@
     ]
    }
   ]
- }
+ },
+ "hints": {
+  "vocabPick": "Pick a word",
+  "vocabTeach": "Listen and repeat",
+  "vocabWrite": "Write the word letter by letter",
+  "word": "Tap any word you hear"
+ },
+ "vocabRepeats": 3
 }

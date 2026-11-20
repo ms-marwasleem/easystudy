@@ -18,11 +18,20 @@
   "read": "Lesson",
   "quiz": "Exercise"
  },
- "pages": 3,
+ "pages": 12,
  "pageNums": [
   88,
   88,
-  88
+  88,
+  88,
+  88,
+  89,
+  89,
+  89,
+  89,
+  89,
+  89,
+  89
  ],
  "layout": "explain",
  "explain": {
@@ -51,428 +60,1657 @@
   },
   "steps": [
    {
-    "name": "3 + 4 + 1",
+    "name": "Example",
     "beats": [
      {
-      "say": "Three plus four plus one. Start from the left.",
-      "audio": "explain/s0-a.mp3",
+      "say": "To add three numbers, start from the left.",
       "do": [
        {
-        "scene": "line",
-        "n": 8,
-        "unit": "../../pics/apple-toon.png",
-        "ends": [
-         "",
-         ""
+        "scene": "free",
+        "items": [
+         {
+          "id": "i0",
+          "img": "../../pics/apple-toon.png",
+          "x": 40,
+          "y": 100,
+          "w": 100,
+          "h": 100,
+          "op": 0
+         },
+         {
+          "id": "i1",
+          "img": "../../pics/apple-toon.png",
+          "x": 140,
+          "y": 100,
+          "w": 100,
+          "h": 100,
+          "op": 0
+         },
+         {
+          "id": "i2",
+          "img": "../../pics/apple-toon.png",
+          "x": 240,
+          "y": 100,
+          "w": 100,
+          "h": 100,
+          "op": 0
+         },
+         {
+          "id": "i3",
+          "img": "../../pics/apple-toon.png",
+          "x": 400,
+          "y": 100,
+          "w": 100,
+          "h": 100,
+          "op": 0
+         },
+         {
+          "id": "i4",
+          "img": "../../pics/apple-toon.png",
+          "x": 500,
+          "y": 100,
+          "w": 100,
+          "h": 100,
+          "op": 0
+         },
+         {
+          "id": "i5",
+          "img": "../../pics/apple-toon.png",
+          "x": 600,
+          "y": 100,
+          "w": 100,
+          "h": 100,
+          "op": 0
+         },
+         {
+          "id": "i6",
+          "img": "../../pics/apple-toon.png",
+          "x": 700,
+          "y": 100,
+          "w": 100,
+          "h": 100,
+          "op": 0
+         },
+         {
+          "id": "i7",
+          "img": "../../pics/apple-toon.png",
+          "x": 860,
+          "y": 100,
+          "w": 100,
+          "h": 100,
+          "op": 0
+         }
         ],
-        "wide": true,
-        "show": 3
-       },
-       {
-        "head": {
-         "t": [
-          "3",
-          "+",
-          "4",
-          "+",
-          "1",
-          "="
-         ],
-         "slots": 7
-        }
+        "ih": 250,
+        "frame": false
        }
-      ]
+      ],
+      "audio": "explain/v5-fcf632b452.mp3"
      },
      {
-      "say": "Three plus four is seven.",
-      "audio": "explain/s0-b.mp3",
+      "say": "Three apples.",
+      "do": [
+       {
+        "reveal": {
+         "ids": [
+          "i0",
+          "i1",
+          "i2"
+         ],
+         "label": {
+          "x": 190,
+          "y": 72,
+          "t": "3"
+         }
+        }
+       }
+      ],
+      "audio": "explain/v5-5a8b3352f4.mp3"
+     },
+     {
+      "say": "Four more.",
+      "do": [
+       {
+        "reveal": {
+         "ids": [
+          "i3",
+          "i4",
+          "i5",
+          "i6"
+         ],
+         "label": {
+          "x": 600,
+          "y": 72,
+          "t": "4"
+         }
+        }
+       }
+      ],
+      "audio": "explain/v5-e09ea738ba.mp3"
+     },
+     {
+      "say": "Add the first two numbers. three plus four equals seven.",
       "do": [
        {
         "add": "3",
-        "big": true
+        "card": true,
+        "color": "blue"
        },
        {
-        "pop": {
-         "a": 0,
-         "b": 3
-        }
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
        },
        {
-        "add": "+",
-        "big": true
-       },
-       {
-        "add": "4",
-        "big": true
-       },
-       {
-        "pop": {
-         "a": 3,
-         "b": 7,
-         "mode": "in"
-        }
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "add": "7",
-        "big": true,
-        "card": true
-       },
-       {
-        "pop": {
-         "a": 0,
-         "b": 7
-        }
+        "add": "= 7",
+        "card": true,
+        "color": "green"
        }
-      ]
+      ],
+      "audio": "explain/v5-e51811cb0a.mp3"
      },
      {
-      "say": "Seven plus one is eight.",
-      "audio": "explain/s0-c.mp3",
+      "say": "One more.",
       "do": [
        {
-        "line": "clear"
+        "reveal": {
+         "ids": [
+          "i7"
+         ],
+         "label": {
+          "x": 910,
+          "y": 72,
+          "t": "1"
+         }
+        }
+       }
+      ],
+      "audio": "explain/v5-31e8cd8b18.mp3"
+     },
+     {
+      "say": "Now, seven plus one equals eight.",
+      "do": [
+       {
+        "line": "break"
        },
        {
         "add": "7",
-        "big": true
+        "card": true,
+        "color": "blue"
        },
        {
-        "pop": {
-         "a": 0,
-         "b": 7
-        }
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
        },
        {
-        "add": "+",
-        "big": true
-       },
-       {
-        "add": "1",
-        "big": true
-       },
-       {
-        "pop": {
-         "a": 7,
-         "b": 8,
-         "mode": "in"
-        }
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "add": "8",
-        "big": true,
-        "card": true
-       },
-       {
-        "pop": {
-         "a": 0,
-         "b": 8
-        }
-       },
-       {
-        "head": {
-         "t": [
-          "8"
-         ],
-         "more": true
-        }
+        "add": "= 8",
+        "card": true,
+        "color": "green"
        },
        {
         "cheer": true
        }
       ],
-      "gap": 1200
+      "audio": "explain/v5-1eb6d70f03.mp3",
+      "gap": 900
      }
     ]
    },
    {
-    "name": "3 + 2 + 4",
+    "name": "Warm Up: cats",
     "beats": [
      {
-      "say": "Three plus two plus four. Start from the left.",
-      "audio": "explain/s1-a.mp3",
+      "say": "Warm up! There are three cats. Two more come. Then four more come.",
       "do": [
        {
-        "scene": "line",
-        "n": 9,
-        "unit": "../../pics/apple-toon.png",
-        "ends": [
-         "",
-         ""
+        "scene": "free",
+        "items": [
+         {
+          "id": "i0",
+          "img": "../../pics/cat.png",
+          "x": 21,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         },
+         {
+          "id": "i1",
+          "img": "../../pics/cat.png",
+          "x": 114,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         },
+         {
+          "id": "i2",
+          "img": "../../pics/cat.png",
+          "x": 207,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         },
+         {
+          "id": "i3",
+          "img": "../../pics/cat.png",
+          "x": 360,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         },
+         {
+          "id": "i4",
+          "img": "../../pics/cat.png",
+          "x": 453,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         },
+         {
+          "id": "i5",
+          "img": "../../pics/cat.png",
+          "x": 606,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         },
+         {
+          "id": "i6",
+          "img": "../../pics/cat.png",
+          "x": 699,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         },
+         {
+          "id": "i7",
+          "img": "../../pics/cat.png",
+          "x": 792,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         },
+         {
+          "id": "i8",
+          "img": "../../pics/cat.png",
+          "x": 885,
+          "y": 100,
+          "w": 93,
+          "h": 93,
+          "op": 0
+         }
         ],
-        "wide": true,
-        "show": 3
-       },
-       {
-        "head": {
-         "t": [
-          "3",
-          "+",
-          "2",
-          "+",
-          "4",
-          "="
-         ],
-         "slots": 7
-        }
+        "ih": 250,
+        "frame": false
        }
-      ]
+      ],
+      "audio": "explain/v5-ef92ddc7a0.mp3"
      },
      {
-      "say": "Three plus two is five.",
-      "audio": "explain/s1-b.mp3",
+      "say": "Three cats.",
+      "do": [
+       {
+        "reveal": {
+         "ids": [
+          "i0",
+          "i1",
+          "i2"
+         ],
+         "label": {
+          "x": 160,
+          "y": 72,
+          "t": "3"
+         }
+        }
+       }
+      ],
+      "audio": "explain/v5-4c35b02600.mp3"
+     },
+     {
+      "say": "Two more.",
+      "do": [
+       {
+        "reveal": {
+         "ids": [
+          "i3",
+          "i4"
+         ],
+         "label": {
+          "x": 453,
+          "y": 72,
+          "t": "2"
+         }
+        }
+       }
+      ],
+      "audio": "explain/v5-6f9a228e13.mp3"
+     },
+     {
+      "say": "Three plus two equals five.",
       "do": [
        {
         "add": "3",
-        "big": true
+        "card": true,
+        "color": "blue"
        },
        {
-        "pop": {
-         "a": 0,
-         "b": 3
-        }
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
        },
        {
-        "add": "+",
-        "big": true
-       },
-       {
-        "add": "2",
-        "big": true
-       },
-       {
-        "pop": {
-         "a": 3,
-         "b": 5,
-         "mode": "in"
-        }
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "add": "5",
-        "big": true,
-        "card": true
-       },
-       {
-        "pop": {
-         "a": 0,
-         "b": 5
-        }
+        "add": "= 5",
+        "card": true,
+        "color": "green"
        }
-      ]
+      ],
+      "audio": "explain/v5-63bb3676fe.mp3"
      },
      {
-      "say": "Five plus four is nine.",
-      "audio": "explain/s1-c.mp3",
+      "say": "Four more.",
       "do": [
        {
-        "line": "clear"
+        "reveal": {
+         "ids": [
+          "i5",
+          "i6",
+          "i7",
+          "i8"
+         ],
+         "label": {
+          "x": 792,
+          "y": 72,
+          "t": "4"
+         }
+        }
+       }
+      ],
+      "audio": "explain/v5-e09ea738ba.mp3"
+     },
+     {
+      "say": "Now, five plus four equals nine.",
+      "do": [
+       {
+        "line": "break"
        },
        {
         "add": "5",
-        "big": true
+        "card": true,
+        "color": "blue"
        },
        {
-        "pop": {
-         "a": 0,
-         "b": 5
-        }
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
        },
        {
-        "add": "+",
-        "big": true
+        "add": "= 9",
+        "card": true,
+        "color": "green"
        },
        {
-        "add": "4",
-        "big": true
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v5-931a4c98dc.mp3",
+      "gap": 900
+     },
+     {
+      "say": "Answer: nine cats.",
+      "do": [
+       {
+        "line": "break"
        },
        {
-        "pop": {
-         "a": 5,
-         "b": 9,
-         "mode": "in"
-        }
+        "add": "Answer:"
        },
        {
-        "add": "=",
-        "big": true
+        "add": "9 cats",
+        "card": true
+       }
+      ],
+      "audio": "explain/v5-d586e7c656.mp3",
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "Warm Up: 5 + 1 + 3",
+    "beats": [
+     {
+      "say": "Warm up! five plus one plus three. Start from the left.",
+      "do": [
+       {
+        "add": "5",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-b541fb8717.mp3",
+      "gap": 700
+     },
+     {
+      "say": "Five plus one equals six.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "5",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 6",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v5-ee20dc964c.mp3"
+     },
+     {
+      "say": "Six plus three equals nine.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "6",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 9",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v5-06771584b9.mp3",
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "Warm Up: 7 + 2 + 1",
+    "beats": [
+     {
+      "say": "Warm up! seven plus two plus one. Start from the left.",
+      "do": [
+       {
+        "add": "7",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-1391187c61.mp3",
+      "gap": 700
+     },
+     {
+      "say": "Seven plus two equals nine.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "7",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 9",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v5-cce1eee03b.mp3"
+     },
+     {
+      "say": "Nine plus one equals ten.",
+      "do": [
+       {
+        "line": "break"
        },
        {
         "add": "9",
-        "big": true,
-        "card": true
+        "card": true,
+        "color": "blue"
        },
        {
-        "pop": {
-         "a": 0,
-         "b": 9
-        }
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
        },
        {
-        "head": {
-         "t": [
-          "9"
-         ],
-         "more": true
-        }
+        "add": "= 10",
+        "card": true,
+        "color": "green"
        },
        {
         "cheer": true
        }
       ],
-      "gap": 1200
+      "audio": "explain/v5-eea241fb13.mp3",
+      "gap": 900
      }
     ]
    },
    {
-    "name": "5 + 3 + 2",
+    "name": "Warm Up: 2 + 8 + 5",
     "beats": [
      {
-      "say": "Five plus three plus two. Start from the left.",
-      "audio": "explain/s2-a.mp3",
+      "say": "Warm up! two plus eight plus five. Start from the left.",
       "do": [
        {
-        "scene": "line",
-        "n": 10,
-        "unit": "../../pics/apple-toon.png",
-        "ends": [
-         "",
-         ""
-        ],
-        "wide": true,
-        "show": 5
+        "add": "2",
+        "card": true,
+        "color": "blue"
        },
        {
-        "head": {
-         "t": [
-          "5",
-          "+",
-          "3",
-          "+",
-          "2",
-          "="
-         ],
-         "slots": 7
-        }
+        "add": "+ 8",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v5-9973c7566d.mp3",
+      "gap": 700
      },
      {
-      "say": "Five plus three is eight.",
-      "audio": "explain/s2-b.mp3",
+      "say": "Two plus eight equals ten.",
       "do": [
        {
-        "add": "5",
-        "big": true
-       },
-       {
-        "pop": {
-         "a": 0,
-         "b": 5
-        }
-       },
-       {
-        "add": "+",
-        "big": true
-       },
-       {
-        "add": "3",
-        "big": true
-       },
-       {
-        "pop": {
-         "a": 5,
-         "b": 8,
-         "mode": "in"
-        }
-       },
-       {
-        "add": "=",
-        "big": true
-       },
-       {
-        "add": "8",
-        "big": true,
-        "card": true
-       },
-       {
-        "pop": {
-         "a": 0,
-         "b": 8
-        }
-       }
-      ]
-     },
-     {
-      "say": "Eight plus two is ten.",
-      "audio": "explain/s2-c.mp3",
-      "do": [
-       {
-        "line": "clear"
-       },
-       {
-        "add": "8",
-        "big": true
-       },
-       {
-        "pop": {
-         "a": 0,
-         "b": 8
-        }
-       },
-       {
-        "add": "+",
-        "big": true
+        "line": "break"
        },
        {
         "add": "2",
-        "big": true
+        "card": true,
+        "color": "blue"
        },
        {
-        "pop": {
-         "a": 8,
-         "b": 10,
-         "mode": "in"
-        }
+        "add": "+ 8",
+        "card": true,
+        "color": "orange"
        },
        {
-        "add": "=",
-        "big": true
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v5-15e3575a37.mp3"
+     },
+     {
+      "say": "Ten plus five equals fifteen.",
+      "do": [
+       {
+        "line": "break"
        },
        {
         "add": "10",
-        "big": true,
-        "card": true
+        "card": true,
+        "color": "blue"
        },
        {
-        "pop": {
-         "a": 0,
-         "b": 10
-        }
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
        },
        {
-        "head": {
-         "t": [
-          "10"
-         ],
-         "more": true
-        }
+        "add": "= 15",
+        "card": true,
+        "color": "green"
        },
        {
         "cheer": true
        }
       ],
-      "gap": 1200
+      "audio": "explain/v5-2059f66e51.mp3",
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "Try: dogs",
+    "beats": [
+     {
+      "say": "Try! There are five dogs. Three more come. Then two more come.",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "i0",
+          "img": "../../pics/dog.png",
+          "x": 20,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i1",
+          "img": "../../pics/dog.png",
+          "x": 104,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i2",
+          "img": "../../pics/dog.png",
+          "x": 188,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i3",
+          "img": "../../pics/dog.png",
+          "x": 272,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i4",
+          "img": "../../pics/dog.png",
+          "x": 356,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i5",
+          "img": "../../pics/dog.png",
+          "x": 500,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i6",
+          "img": "../../pics/dog.png",
+          "x": 584,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i7",
+          "img": "../../pics/dog.png",
+          "x": 668,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i8",
+          "img": "../../pics/dog.png",
+          "x": 812,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         },
+         {
+          "id": "i9",
+          "img": "../../pics/dog.png",
+          "x": 896,
+          "y": 100,
+          "w": 84,
+          "h": 84,
+          "op": 0
+         }
+        ],
+        "ih": 250,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v5-e1423074a9.mp3"
+     },
+     {
+      "say": "Five dogs.",
+      "do": [
+       {
+        "reveal": {
+         "ids": [
+          "i0",
+          "i1",
+          "i2",
+          "i3",
+          "i4"
+         ],
+         "label": {
+          "x": 230,
+          "y": 72,
+          "t": "5"
+         }
+        }
+       }
+      ],
+      "audio": "explain/v5-9e3a0d2b61.mp3"
+     },
+     {
+      "say": "Three more.",
+      "do": [
+       {
+        "reveal": {
+         "ids": [
+          "i5",
+          "i6",
+          "i7"
+         ],
+         "label": {
+          "x": 626,
+          "y": 72,
+          "t": "3"
+         }
+        }
+       }
+      ],
+      "audio": "explain/v5-14e3db86f8.mp3"
+     },
+     {
+      "say": "Five plus three equals eight.",
+      "do": [
+       {
+        "add": "5",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "= 8",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v5-42d39c34e8.mp3"
+     },
+     {
+      "say": "Two more.",
+      "do": [
+       {
+        "reveal": {
+         "ids": [
+          "i8",
+          "i9"
+         ],
+         "label": {
+          "x": 896,
+          "y": 72,
+          "t": "2"
+         }
+        }
+       }
+      ],
+      "audio": "explain/v5-6f9a228e13.mp3"
+     },
+     {
+      "say": "Now, eight plus two?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "8",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-3b7a71fc27.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "9",
+          "10",
+          "11"
+         ],
+         "answer": "10"
+        }
+       }
+      ],
+      "audio": "explain/v5-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! eight plus two equals ten.",
+      "do": [
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v5-7647357eb4.mp3",
+      "gap": 900
+     },
+     {
+      "say": "Answer: ten dogs.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "Answer:"
+       },
+       {
+        "add": "10 dogs",
+        "card": true
+       }
+      ],
+      "audio": "explain/v5-49efdfccfc.mp3",
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "Try: 1 + 2 + 3",
+    "beats": [
+     {
+      "say": "Try! one plus two plus three. Start from the left.",
+      "do": [
+       {
+        "add": "1",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-833180d89d.mp3",
+      "gap": 700
+     },
+     {
+      "say": "What is one plus two?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "1",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-867758aa27.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "2",
+          "3",
+          "4"
+         ],
+         "answer": "3"
+        }
+       }
+      ],
+      "audio": "explain/v5-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! One plus two equals three.",
+      "do": [
+       {
+        "add": "= 3",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v5-e767d1f61b.mp3"
+     },
+     {
+      "say": "What is three plus three?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "3",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-32eb44bd46.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "5",
+          "6",
+          "7"
+         ],
+         "answer": "6"
+        }
+       }
+      ],
+      "audio": "explain/v5-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Three plus three equals six.",
+      "do": [
+       {
+        "add": "= 6",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v5-b5eb86c9c8.mp3",
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "Try: 2 + 2 + 4",
+    "beats": [
+     {
+      "say": "Try! two plus two plus four. Start from the left.",
+      "do": [
+       {
+        "add": "2",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-f30326a611.mp3",
+      "gap": 700
+     },
+     {
+      "say": "What is two plus two?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "2",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-8dd8c113b5.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "3",
+          "4",
+          "5"
+         ],
+         "answer": "4"
+        }
+       }
+      ],
+      "audio": "explain/v5-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Two plus two equals four.",
+      "do": [
+       {
+        "add": "= 4",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v5-108692ef3f.mp3"
+     },
+     {
+      "say": "What is four plus four?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "4",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-f9a327e5a5.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "7",
+          "8",
+          "9"
+         ],
+         "answer": "8"
+        }
+       }
+      ],
+      "audio": "explain/v5-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Four plus four equals eight.",
+      "do": [
+       {
+        "add": "= 8",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v5-6d43c9b67b.mp3",
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "Try: 4 + 5 + 1",
+    "beats": [
+     {
+      "say": "Try! four plus five plus one. Start from the left.",
+      "do": [
+       {
+        "add": "4",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-de1bc6e0ca.mp3",
+      "gap": 700
+     },
+     {
+      "say": "What is four plus five?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "4",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-d4a9ac736a.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "8",
+          "9",
+          "10"
+         ],
+         "answer": "9"
+        }
+       }
+      ],
+      "audio": "explain/v5-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Four plus five equals nine.",
+      "do": [
+       {
+        "add": "= 9",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v5-a8e39f5afd.mp3"
+     },
+     {
+      "say": "What is nine plus one?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "9",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-f4ebeafd76.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "9",
+          "10",
+          "11"
+         ],
+         "answer": "10"
+        }
+       }
+      ],
+      "audio": "explain/v5-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Nine plus one equals ten.",
+      "do": [
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v5-bde01d6952.mp3",
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "Try: 7 + 3 + 2",
+    "beats": [
+     {
+      "say": "Try! seven plus three plus two. Start from the left.",
+      "do": [
+       {
+        "add": "7",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-64185c4110.mp3",
+      "gap": 700
+     },
+     {
+      "say": "What is seven plus three?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "7",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-94e870b88b.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "9",
+          "10",
+          "11"
+         ],
+         "answer": "10"
+        }
+       }
+      ],
+      "audio": "explain/v5-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Seven plus three equals ten.",
+      "do": [
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v5-646664b0bf.mp3"
+     },
+     {
+      "say": "What is ten plus two?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-c59c634e5a.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "11",
+          "12",
+          "13"
+         ],
+         "answer": "12"
+        }
+       }
+      ],
+      "audio": "explain/v5-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Ten plus two equals twelve.",
+      "do": [
+       {
+        "add": "= 12",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v5-e6e927d915.mp3",
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "Try: 8 + 2 + 4",
+    "beats": [
+     {
+      "say": "Try! eight plus two plus four. Start from the left.",
+      "do": [
+       {
+        "add": "8",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-9c6fe57ad7.mp3",
+      "gap": 700
+     },
+     {
+      "say": "What is eight plus two?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "8",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-8a39049de3.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "9",
+          "10",
+          "11"
+         ],
+         "answer": "10"
+        }
+       }
+      ],
+      "audio": "explain/v5-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Eight plus two equals ten.",
+      "do": [
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v5-937510740e.mp3"
+     },
+     {
+      "say": "What is ten plus four?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-d00177d9ff.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "13",
+          "14",
+          "15"
+         ],
+         "answer": "14"
+        }
+       }
+      ],
+      "audio": "explain/v5-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Ten plus four equals fourteen.",
+      "do": [
+       {
+        "add": "= 14",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v5-04f9b363f9.mp3",
+      "gap": 900
+     }
+    ]
+   },
+   {
+    "name": "Try: 5 + 7 + 6",
+    "beats": [
+     {
+      "say": "Try! five plus seven plus six. Start from the left.",
+      "do": [
+       {
+        "add": "5",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 7",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "add": "+ 6",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-7b877fb4cc.mp3",
+      "gap": 700
+     },
+     {
+      "say": "What is five plus seven?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "5",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 7",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-30bfa8058a.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "11",
+          "12",
+          "13"
+         ],
+         "answer": "12"
+        }
+       }
+      ],
+      "audio": "explain/v5-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Five plus seven equals twelve.",
+      "do": [
+       {
+        "add": "= 12",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v5-c5d6a873b3.mp3"
+     },
+     {
+      "say": "What is twelve plus six?",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "12",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "+ 6",
+        "card": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v5-4cbb118d37.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "17",
+          "18",
+          "19"
+         ],
+         "answer": "18"
+        }
+       }
+      ],
+      "audio": "explain/v5-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Twelve plus six equals eighteen.",
+      "do": [
+       {
+        "add": "= 18",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v5-f97d118dca.mp3",
+      "gap": 900
      }
     ]
    }

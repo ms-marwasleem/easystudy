@@ -3,139 +3,6 @@
   {
    "type": "mcq",
    "ex": 1,
-   "page": 74,
-   "task": "ما العدد الذي يوضع في المربع؟",
-   "items": [
-    {
-     "ask": "10 و 9 يكوّنان ...",
-     "stem": "10 و 9 يكوّنان __",
-     "options": [
-      "18",
-      "19",
-      "20"
-     ],
-     "answer": 1,
-     "askSay": "10 و 9 يكوّنان كم",
-     "word": "عشرة وتسعة يكوّنان تسعة عشر.",
-     "askAudio": "../../math-ar-audio/6139556806.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/6e416af809.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 2,
-   "page": 74,
-   "task": "ما العدد الذي يوضع في المربع؟",
-   "items": [
-    {
-     "ask": "10 و 6 يكوّنان ...",
-     "stem": "10 و 6 يكوّنان __",
-     "options": [
-      "15",
-      "16",
-      "17"
-     ],
-     "answer": 1,
-     "askSay": "10 و 6 يكوّنان كم",
-     "word": "عشرة وستة يكوّنان ستة عشر.",
-     "askAudio": "../../math-ar-audio/546cf80457.mp3",
-     "audio": "../../math-ar-audio/05c3cef424.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/6e416af809.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 3,
-   "page": 74,
-   "task": "ما العدد الذي يوضع في المربع؟",
-   "items": [
-    {
-     "ask": "17 هي ... و 7",
-     "stem": "17 هي __ و 7",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "17 هي كم و 7",
-     "word": "سبعة عشر هي عشرة وسبعة.",
-     "askAudio": "../../math-ar-audio/b97cc0f2ed.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/6e416af809.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 4,
-   "page": 74,
-   "task": "ما العدد الذي يوضع في المربع؟",
-   "items": [
-    {
-     "ask": "15 هي 10 و ...",
-     "stem": "15 هي 10 و __",
-     "options": [
-      "4",
-      "5",
-      "6"
-     ],
-     "answer": 1,
-     "askSay": "15 هي 10 و كم",
-     "word": "خمسة عشر هي عشرة وخمسة.",
-     "askAudio": "../../math-ar-audio/ee70ba1cea.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/6e416af809.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 5,
-   "page": 74,
-   "task": "ما العدد الذي يوضع في المربع؟",
-   "items": [
-    {
-     "ask": "12 هي ... و 2",
-     "stem": "12 هي __ و 2",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "12 هي كم و 2",
-     "word": "اثنا عشر هي عشرة واثنان.",
-     "askAudio": "../../math-ar-audio/ed691d6a54.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/6e416af809.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 6,
-   "page": 74,
-   "task": "ما العدد الذي يوضع في المربع؟",
-   "items": [
-    {
-     "ask": "14 هي 10 و ...",
-     "stem": "14 هي 10 و __",
-     "options": [
-      "3",
-      "4",
-      "5"
-     ],
-     "answer": 1,
-     "askSay": "14 هي 10 و كم",
-     "word": "أربعة عشر هي عشرة وأربعة.",
-     "askAudio": "../../math-ar-audio/dc62905590.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/6e416af809.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 7,
    "page": 75,
    "task": "ما العدد الذي يوضع في المربع؟",
    "items": [
@@ -158,7 +25,7 @@
   },
   {
    "type": "mcq",
-   "ex": 8,
+   "ex": 2,
    "page": 75,
    "task": "ما العدد الذي يوضع في المربع؟",
    "items": [
@@ -179,216 +46,284 @@
    "taskAudio": "../../math-ar-audio/6e416af809.mp3"
   },
   {
-   "type": "mcq",
-   "ex": 9,
+   "type": "bond",
    "page": 75,
+   "typed": true,
+   "boxed": true,
    "task": "ما العدد الذي يوضع في المربع؟",
    "items": [
     {
-     "ask": "13 هي ... و 3",
-     "stem": "13 هي __ و 3",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "13 هي كم و 3",
-     "word": "ثلاثة عشر هي عشرة وثلاثة.",
-     "askAudio": "../../math-ar-audio/a416759f7b.mp3"
+     "whole": 13,
+     "parts": [
+      null,
+      3
+     ]
     }
    ],
-   "taskAudio": "../../math-ar-audio/6e416af809.mp3"
+   "taskAudio": "../../math-ar-audio/6e416af809.mp3",
+   "ex": 3
   },
   {
-   "type": "mcq",
-   "ex": 10,
+   "type": "bond",
    "page": 75,
+   "typed": true,
+   "boxed": true,
    "task": "ما العدد الذي يوضع في المربع؟",
    "items": [
     {
-     "ask": "16 هي 10 و ...",
-     "stem": "16 هي 10 و __",
-     "options": [
-      "5",
-      "6",
-      "7"
-     ],
-     "answer": 1,
-     "askSay": "16 هي 10 و كم",
-     "word": "ستة عشر هي عشرة وستة.",
-     "askAudio": "../../math-ar-audio/9cd00af60f.mp3"
+     "whole": 16,
+     "parts": [
+      10,
+      null
+     ]
     }
    ],
-   "taskAudio": "../../math-ar-audio/6e416af809.mp3"
+   "taskAudio": "../../math-ar-audio/6e416af809.mp3",
+   "ex": 4
   },
   {
-   "type": "mcq",
-   "ex": 11,
+   "type": "bond",
    "page": 75,
+   "typed": true,
+   "boxed": true,
    "task": "ما العدد الذي يوضع في المربع؟",
    "items": [
     {
-     "ask": "15 هي ... و 5",
-     "stem": "15 هي __ و 5",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "15 هي كم و 5",
-     "word": "خمسة عشر هي عشرة وخمسة.",
-     "askAudio": "../../math-ar-audio/50cf6a8ea3.mp3"
+     "whole": 15,
+     "parts": [
+      null,
+      5
+     ]
     }
    ],
-   "taskAudio": "../../math-ar-audio/6e416af809.mp3"
+   "taskAudio": "../../math-ar-audio/6e416af809.mp3",
+   "ex": 5
   },
   {
-   "type": "mcq",
-   "ex": 12,
+   "type": "bond",
    "page": 75,
+   "typed": true,
+   "boxed": true,
    "task": "ما العدد الذي يوضع في المربع؟",
    "items": [
     {
-     "ask": "20 هي 10 و ...",
-     "stem": "20 هي 10 و __",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "20 هي 10 و كم",
-     "word": "عشرون هي عشرة وعشرة.",
-     "askAudio": "../../math-ar-audio/f4da580212.mp3"
+     "whole": 20,
+     "parts": [
+      10,
+      null
+     ]
     }
    ],
-   "taskAudio": "../../math-ar-audio/6e416af809.mp3"
+   "taskAudio": "../../math-ar-audio/6e416af809.mp3",
+   "ex": 6
   },
   {
    "type": "mcq",
-   "ex": 1,
-   "page": 53,
-   "task": "أكمل ما يلي.",
-   "items": [
-    {
-     "ask": "13 = 10 + ؟",
-     "stem": "الإجابة: __",
-     "options": [
-      "3",
-      "2",
-      "5",
-      "4"
-     ],
-     "answer": 0,
-     "askSay": "13 = 10 + ؟",
-     "word": "الإجابة 3.",
-     "askAudio": "../../math-ar-audio/f2942b919c.mp3",
-     "audio": "../../math-ar-audio/f6f6cbb068.mp3"
-    }
-   ],
-   "book": "workbook",
-   "taskAudio": "../../math-ar-audio/9930c13922.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 2,
-   "page": 53,
-   "task": "أكمل ما يلي.",
-   "items": [
-    {
-     "ask": "11 = 10 + ؟",
-     "stem": "الإجابة: __",
-     "options": [
-      "3",
-      "2",
-      "1",
-      "0"
-     ],
-     "answer": 2,
-     "askSay": "11 = 10 + ؟",
-     "word": "الإجابة 1",
-     "askAudio": "../../math-ar-audio/86648777b6.mp3",
-     "audio": "../../math-ar-audio/40af37b191.mp3"
-    }
-   ],
-   "book": "workbook",
-   "taskAudio": "../../math-ar-audio/9930c13922.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 3,
-   "page": 53,
-   "task": "أكمل ما يلي.",
-   "items": [
-    {
-     "ask": "10 و 5 يكونان ؟",
-     "stem": "الإجابة: __",
-     "options": [
-      "15",
-      "17",
-      "16",
-      "14"
-     ],
-     "answer": 0,
-     "askSay": "10 و 5 يكونان ؟",
-     "word": "الإجابة 15.",
-     "askAudio": "../../math-ar-audio/b18d1d6a3d.mp3",
-     "audio": "../../math-ar-audio/b574471dd0.mp3"
-    }
-   ],
-   "book": "workbook",
-   "taskAudio": "../../math-ar-audio/9930c13922.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 4,
-   "page": 53,
-   "task": "أكمل ما يلي.",
-   "items": [
-    {
-     "ask": "10 و 7 يكونان ؟",
-     "stem": "الإجابة: __",
-     "options": [
-      "17",
-      "19",
-      "16",
-      "18"
-     ],
-     "answer": 0,
-     "askSay": "10 و 7 يكونان ؟",
-     "word": "الإجابة 17.",
-     "askAudio": "../../math-ar-audio/4f97fb5c56.mp3",
-     "audio": "../../math-ar-audio/9fa874cbab.mp3"
-    }
-   ],
-   "book": "workbook"
-  },
-  {
-   "type": "mcq",
-   "ex": 5,
    "page": 53,
    "task": "نعد ونكتب العدد.",
    "items": [
     {
-     "ask": "10 برتقالات و 4 زرقاء: كم الإجمالي؟ 10 + 4 = ؟",
+     "pics": [
+      "../../pics/sc-math-u7l2-wb-blue.png"
+     ],
+     "ask": "كم عدد المكعبات؟",
      "stem": "الإجابة: __",
      "options": [
-      "16",
-      "14",
+      "12",
       "13",
-      "15"
+      "14"
      ],
      "answer": 1,
-     "askSay": "10 برتقالات و 4 زرقاء: كم الإجمالي؟ 10 + 4 = ؟",
-     "word": "الإجابة 14.",
-     "askAudio": "../../math-ar-audio/338f875e90.mp3",
-     "audio": "../../math-ar-audio/d806a1b01c.mp3"
+     "askSay": "كم عدد المكعبات؟",
+     "word": "عدد المكعبات 13.",
+     "noStem": true
+    },
+    {
+     "pics": [
+      "../../pics/sc-math-u7l2-wb-brown.png"
+     ],
+     "ask": "كم عدد المكعبات؟",
+     "stem": "الإجابة: __",
+     "options": [
+      "14",
+      "15",
+      "16"
+     ],
+     "answer": 1,
+     "askSay": "كم عدد المكعبات؟",
+     "word": "عدد المكعبات 15.",
+     "noStem": true
     }
    ],
    "book": "workbook",
-   "taskAudio": "../../math-ar-audio/733c5a53f2.mp3"
+   "act": "u7l2wb",
+   "ex": 1
+  },
+  {
+   "type": "bond",
+   "page": 53,
+   "typed": true,
+   "boxed": true,
+   "task": "ما العدد الذي يوضع في المربع؟",
+   "items": [
+    {
+     "whole": 19,
+     "parts": [
+      10,
+      null
+     ]
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l2wb",
+   "taskAudio": "../../math-ar-audio/6e416af809.mp3",
+   "ex": 2
+  },
+  {
+   "type": "bond",
+   "page": 53,
+   "typed": true,
+   "boxed": true,
+   "task": "ما العدد الذي يوضع في المربع؟",
+   "items": [
+    {
+     "whole": 11,
+     "parts": [
+      10,
+      null
+     ]
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l2wb",
+   "taskAudio": "../../math-ar-audio/6e416af809.mp3",
+   "ex": 3
+  },
+  {
+   "type": "bond",
+   "page": 53,
+   "typed": true,
+   "boxed": true,
+   "task": "ما العدد الذي يوضع في المربع؟",
+   "items": [
+    {
+     "whole": 16,
+     "parts": [
+      10,
+      null
+     ]
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l2wb",
+   "taskAudio": "../../math-ar-audio/6e416af809.mp3",
+   "ex": 4
+  },
+  {
+   "type": "bond",
+   "page": 53,
+   "typed": true,
+   "boxed": true,
+   "task": "ما العدد الذي يوضع في المربع؟",
+   "items": [
+    {
+     "whole": 13,
+     "parts": [
+      10,
+      null
+     ]
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l2wb",
+   "taskAudio": "../../math-ar-audio/6e416af809.mp3",
+   "ex": 5
+  },
+  {
+   "type": "bond",
+   "page": 53,
+   "typed": true,
+   "boxed": true,
+   "task": "ما العدد الذي يوضع في المربع؟",
+   "items": [
+    {
+     "whole": 11,
+     "parts": [
+      10,
+      null
+     ]
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l2wb",
+   "taskAudio": "../../math-ar-audio/6e416af809.mp3",
+   "ex": 6
+  },
+  {
+   "type": "bond",
+   "page": 53,
+   "typed": true,
+   "boxed": true,
+   "task": "ما العدد الذي يوضع في المربع؟",
+   "items": [
+    {
+     "whole": null,
+     "parts": [
+      10,
+      5
+     ]
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l2wb",
+   "taskAudio": "../../math-ar-audio/6e416af809.mp3",
+   "ex": 7
+  },
+  {
+   "type": "bond",
+   "page": 53,
+   "typed": true,
+   "boxed": true,
+   "task": "ما العدد الذي يوضع في المربع؟",
+   "items": [
+    {
+     "whole": null,
+     "parts": [
+      10,
+      7
+     ]
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l2wb",
+   "taskAudio": "../../math-ar-audio/6e416af809.mp3",
+   "ex": 8
+  },
+  {
+   "type": "mcq",
+   "page": 53,
+   "task": "نعد ثم نكتب العدد.",
+   "items": [
+    {
+     "pics": [
+      "../../pics/sc-math-u7l2-wb-cloud.png"
+     ],
+     "ask": "كم عدد السحب؟",
+     "stem": "الإجابة: __",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askSay": "كم عدد السحب؟",
+     "word": "عدد السحب 14.",
+     "noStem": true
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l2wb",
+   "ex": 9
   }
  ]
 }

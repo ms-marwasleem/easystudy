@@ -7,16 +7,45 @@
  "lines": [],
  "end": 1,
  "speakers": {},
- "vocab": [],
+ "vocab": [
+  {
+   "word": "أكبر",
+   "img": "data:draw,cmp,size,big,ar",
+   "parts": [
+    {
+     "t": "أكبر",
+     "audio": "../../math-ar-audio/7930619e9a.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/7930619e9a.mp3"
+   }
+  },
+  {
+   "word": "أصغر",
+   "img": "data:draw,cmp,size,small,ar",
+   "parts": [
+    {
+     "t": "أصغر",
+     "audio": "../../math-ar-audio/9833447f2c.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/9833447f2c.mp3"
+   }
+  }
+ ],
  "tabs": [
   "read",
+  "words",
   "quiz",
   "workbook"
  ],
  "tabLabels": {
   "read": "الدرس",
   "quiz": "هيا نتدرب",
-  "workbook": "كتاب التقييمات"
+  "workbook": "كتاب التقييمات",
+  "words": "الكلمات"
  },
  "type": "math",
  "math": {
@@ -86,5 +115,12 @@
    "text": "تزداد الأعداد كلما اتجهنا إلى اليسار.",
    "textAudio": "../../math-ar-audio/baaa81e5ec.mp3"
   }
- }
+ },
+ "hints": {
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف",
+  "word": "اضغط على أي كلمة تسمعها"
+ },
+ "vocabRepeats": 3
 }

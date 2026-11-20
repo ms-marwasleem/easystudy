@@ -2,99 +2,8 @@
  "sets": [
   {
    "type": "mcq",
-   "ex": 1,
-   "page": 80,
-   "task": "نحل المسائل.",
-   "items": [
-    {
-     "ask": "ما ناتج 10 زائد 2؟",
-     "stem": "10 + 2 = __",
-     "options": [
-      "11",
-      "12",
-      "13"
-     ],
-     "answer": 1,
-     "askSay": "ما ناتج 10 زائد 2؟",
-     "word": "اثنا عشر.",
-     "askAudio": "../../math-ar-audio/2f0a8f9be0.mp3",
-     "audio": "../../math-ar-audio/71935794f9.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 2,
-   "page": 80,
-   "task": "نحل المسائل.",
-   "items": [
-    {
-     "ask": "ما ناتج 12 ناقص 2؟",
-     "stem": "12 - 2 = __",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "ما ناتج 12 ناقص 2؟",
-     "word": "عشرة.",
-     "askAudio": "../../math-ar-audio/d7f1fb97de.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 3,
-   "page": 80,
-   "task": "نحل المسائل.",
-   "items": [
-    {
-     "ask": "ما ناتج 17 ناقص 7؟",
-     "stem": "17 - 7 = __",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "ما ناتج 17 ناقص 7؟",
-     "word": "عشرة.",
-     "askAudio": "../../math-ar-audio/821071554e.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 4,
    "page": 81,
-   "task": "نحل المسائل.",
-   "items": [
-    {
-     "ask": "ما ناتج 10 زائد 9؟",
-     "stem": "10 + 9 = __",
-     "options": [
-      "18",
-      "19",
-      "20"
-     ],
-     "answer": 1,
-     "askSay": "ما ناتج 10 زائد 9؟",
-     "word": "تسعة عشر.",
-     "askAudio": "../../math-ar-audio/012c91d4d0.mp3",
-     "audio": "../../math-ar-audio/a7808919b9.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 5,
-   "page": 81,
-   "task": "نحل المسائل.",
+   "task": "نكتب العدد.",
    "items": [
     {
      "ask": "ما ناتج 10 زائد 4؟",
@@ -106,22 +15,12 @@
      ],
      "answer": 1,
      "askSay": "ما ناتج 10 زائد 4؟",
-     "word": "أربعة عشر.",
-     "askAudio": "../../math-ar-audio/bfcab590d0.mp3",
-     "audio": "../../math-ar-audio/76699d99af.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 6,
-   "page": 81,
-   "task": "نحل المسائل.",
-   "items": [
+     "word": "عشرة زائد أربعة يساوي أربعة عشر.",
+     "askAudio": "../../math-ar-audio/bfcab590d0.mp3"
+    },
     {
      "ask": "ما ناتج 18 ناقص 8؟",
-     "stem": "18 - 8 = __",
+     "stem": "18 − 8 = __",
      "options": [
       "9",
       "10",
@@ -129,40 +28,31 @@
      ],
      "answer": 1,
      "askSay": "ما ناتج 18 ناقص 8؟",
-     "word": "عشرة.",
+     "word": "ثمانية عشر ناقص ثمانية يساوي عشرة.",
      "askAudio": "../../math-ar-audio/081ff272c9.mp3"
     }
    ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
+   "act": "u7l4ex",
+   "taskAudio": "../../math-ar-audio/216856bdb0.mp3",
+   "ex": 1
   },
   {
    "type": "mcq",
-   "ex": 7,
    "page": 81,
    "task": "نحل المسائل.",
    "items": [
     {
-     "ask": "ما ناتج 19 ناقص 9؟",
-     "stem": "19 - 9 = __",
+     "ask": "ما ناتج 10 زائد 3؟",
+     "stem": "10 + 3 = __",
      "options": [
-      "9",
-      "10",
-      "11"
+      "12",
+      "13",
+      "14"
      ],
      "answer": 1,
-     "askSay": "ما ناتج 19 ناقص 9؟",
-     "word": "عشرة.",
-     "askAudio": "../../math-ar-audio/562e707f2f.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 8,
-   "page": 81,
-   "task": "نحل المسائل.",
-   "items": [
+     "askSay": "ما ناتج 10 زائد 3؟",
+     "word": "عشرة زائد ثلاثة يساوي ثلاثة عشر."
+    },
     {
      "ask": "ما ناتج 10 زائد 7؟",
      "stem": "10 + 7 = __",
@@ -173,19 +63,9 @@
      ],
      "answer": 1,
      "askSay": "ما ناتج 10 زائد 7؟",
-     "word": "سبعة عشر.",
-     "askAudio": "../../math-ar-audio/4ab1b7c6b3.mp3",
-     "audio": "../../math-ar-audio/36bf0743e4.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 9,
-   "page": 81,
-   "task": "نحل المسائل.",
-   "items": [
+     "word": "عشرة زائد سبعة يساوي سبعة عشر.",
+     "askAudio": "../../math-ar-audio/4ab1b7c6b3.mp3"
+    },
     {
      "ask": "ما ناتج 10 زائد 6؟",
      "stem": "10 + 6 = __",
@@ -196,22 +76,24 @@
      ],
      "answer": 1,
      "askSay": "ما ناتج 10 زائد 6؟",
-     "word": "ستة عشر.",
-     "askAudio": "../../math-ar-audio/7b7db7153c.mp3",
-     "audio": "../../math-ar-audio/cc64b5c513.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 10,
-   "page": 81,
-   "task": "نحل المسائل.",
-   "items": [
+     "word": "عشرة زائد ستة يساوي ستة عشر.",
+     "askAudio": "../../math-ar-audio/7b7db7153c.mp3"
+    },
+    {
+     "ask": "ما ناتج 13 ناقص 3؟",
+     "stem": "13 − 3 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "ما ناتج 13 ناقص 3؟",
+     "word": "ثلاثة عشر ناقص ثلاثة يساوي عشرة."
+    },
     {
      "ask": "ما ناتج 14 ناقص 4؟",
-     "stem": "14 - 4 = __",
+     "stem": "14 − 4 = __",
      "options": [
       "9",
       "10",
@@ -219,21 +101,12 @@
      ],
      "answer": 1,
      "askSay": "ما ناتج 14 ناقص 4؟",
-     "word": "عشرة.",
+     "word": "أربعة عشر ناقص أربعة يساوي عشرة.",
      "askAudio": "../../math-ar-audio/e4be604e55.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 11,
-   "page": 81,
-   "task": "نحل المسائل.",
-   "items": [
+    },
     {
      "ask": "ما ناتج 11 ناقص 1؟",
-     "stem": "11 - 1 = __",
+     "stem": "11 − 1 = __",
      "options": [
       "9",
       "10",
@@ -241,197 +114,165 @@
      ],
      "answer": 1,
      "askSay": "ما ناتج 11 ناقص 1؟",
-     "word": "عشرة.",
+     "word": "أحد عشر ناقص واحد يساوي عشرة.",
      "askAudio": "../../math-ar-audio/c715087d24.mp3"
     }
    ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
+   "act": "u7l4ex",
+   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3",
+   "ex": 2
+  },
+  {
+   "type": "mwrite",
+   "page": 81,
+   "task": "نكتب جملة الجمع والإجابة.",
+   "items": [
+    {
+     "pics": [
+      "../../pics/boy-3.png#10|../../pics/boy-3.png#5"
+     ],
+     "ask": "يوجد 10 أطفال. انضم إليهم 5 أطفال آخرين. كم عدد الأطفال الآن؟",
+     "lead": "جملة الجمع:",
+     "word": "10 + 5 = 15",
+     "keys": "1234567890+−=",
+     "askSay": "يوجد 10 أطفال. انضم إليهم 5 أطفال آخرين. كم عدد الأطفال الآن؟",
+     "then": {
+      "options": [
+       "14 طفلًا",
+       "15 طفلًا",
+       "15"
+      ],
+      "answer": 1,
+      "askSay": "كم الإجابة؟",
+      "word": "الإجابة: 15 طفلًا",
+      "lead": "الإجابة:"
+     }
+    }
+   ],
+   "act": "u7l4ex",
+   "ex": 3
+  },
+  {
+   "type": "mwrite",
+   "page": 81,
+   "task": "نكتب جملة الطرح والإجابة.",
+   "items": [
+    {
+     "pics": [
+      "../../pics/cat.png#12"
+     ],
+     "ask": "يوجد 12 قطة. غادرت قطتان. كم عدد القطط المتبقية؟",
+     "lead": "جملة الطرح:",
+     "word": "12 − 2 = 10",
+     "keys": "1234567890+−=",
+     "askSay": "يوجد 12 قطة. غادرت قطتان. كم عدد القطط المتبقية؟",
+     "then": {
+      "options": [
+       "9 قطط",
+       "10 قطط",
+       "10"
+      ],
+      "answer": 1,
+      "askSay": "كم الإجابة؟",
+      "word": "الإجابة: 10 قطط",
+      "lead": "الإجابة:",
+      "audio": "../../math-ar-audio/0846eb9396.mp3"
+     }
+    }
+   ],
+   "act": "u7l4ex",
+   "ex": 4
+  },
+  {
+   "type": "mwrite",
+   "page": 56,
+   "task": "نكتب جملة الجمع والإجابة.",
+   "items": [
+    {
+     "ask": "ادخر سامح 10 جنيهات ويخطط لادخار جنيهين من مصروفه اليومي. كم جنيهًا سوف يدخرها سامح؟",
+     "lead": "جملة الجمع:",
+     "word": "10 + 2 = 12",
+     "keys": "1234567890+−=",
+     "askSay": "ادخر سامح 10 جنيهات ويخطط لادخار جنيهين من مصروفه اليومي. كم جنيهًا سوف يدخرها سامح؟",
+     "audio": "../../math-ar-audio/4625d621be.mp3",
+     "then": {
+      "options": [
+       "11 جنيهًا",
+       "12 جنيهًا",
+       "12"
+      ],
+      "answer": 1,
+      "askSay": "كم الإجابة؟",
+      "word": "الإجابة: 12 جنيهًا",
+      "lead": "الإجابة:"
+     }
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l4wb",
+   "ex": 1
   },
   {
    "type": "mcq",
-   "ex": 12,
-   "page": 81,
-   "task": "نحل المسائل.",
+   "page": 56,
+   "task": "أجب عما يأتي.",
    "items": [
     {
-     "ask": "يوجد 10 قطط. ثم جاءت 6 قطط أخرى. كم عدد القطط الإجمالي الآن؟",
-     "stem": "10 + 6 = __",
+     "ask": "ما ناتج 10 زائد 5؟",
+     "stem": "10 + 5 = __",
+     "options": [
+      "14",
+      "15",
+      "16"
+     ],
+     "answer": 1,
+     "askSay": "ما ناتج 10 زائد 5؟",
+     "word": "عشرة زائد خمسة يساوي خمسة عشر.",
+     "askAudio": "../../math-ar-audio/ffa5253334.mp3"
+    },
+    {
+     "ask": "ما ناتج 19 ناقص 9؟",
+     "stem": "19 − 9 = __",
+     "options": [
+      "9",
+      "10",
+      "11"
+     ],
+     "answer": 1,
+     "askSay": "ما ناتج 19 ناقص 9؟",
+     "word": "تسعة عشر ناقص تسعة يساوي عشرة.",
+     "askAudio": "../../math-ar-audio/562e707f2f.mp3"
+    },
+    {
+     "ask": "ما ناتج 6 زائد 10؟",
+     "stem": "6 + 10 = __",
      "options": [
       "15",
       "16",
       "17"
      ],
      "answer": 1,
-     "askSay": "يوجد 10 قطط. ثم جاءت 6 قطط أخرى. كم عدد القطط الإجمالي الآن؟",
-     "word": "ستة عشر قطة.",
-     "askAudio": "../../math-ar-audio/14c437568d.mp3",
-     "audio": "../../math-ar-audio/01da245b24.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 13,
-   "page": 81,
-   "task": "نحل المسائل.",
-   "items": [
+     "askSay": "ما ناتج 6 زائد 10؟",
+     "word": "ستة زائد عشرة يساوي ستة عشر."
+    },
     {
-     "ask": "يوجد 17 بالوناً. طار منها 7. كم تبقى؟",
-     "stem": "17 - 7 = __",
+     "ask": "ما ناتج 14 ناقص 4؟",
+     "stem": "14 − 4 = __",
      "options": [
       "9",
       "10",
       "11"
      ],
      "answer": 1,
-     "askSay": "يوجد 17 بالوناً. طار منها 7. كم تبقى؟",
-     "word": "عشرة بالونات.",
-     "askAudio": "../../math-ar-audio/063220e395.mp3",
-     "audio": "../../math-ar-audio/dd0a6273bd.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 14,
-   "page": 81,
-   "task": "نحل المسائل.",
-   "items": [
-    {
-     "ask": "يوجد 12 قطة. غادرت 2 قطة من المنزل. كم عدد القطط المتبقية؟",
-     "stem": "12 - 2 = __",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "يوجد 12 قطة. غادرت 2 قطة من المنزل. كم عدد القطط المتبقية؟",
-     "word": "عشر قطط.",
-     "askAudio": "../../math-ar-audio/30f080b627.mp3",
-     "audio": "../../math-ar-audio/0846eb9396.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mwrite",
-   "ex": 1,
-   "page": 56,
-   "task": "اكتب الجملة الرياضية والإجابة.",
-   "items": [
-    {
-     "ask": "ادخر سامح 10 جنيهات ويخطط لادخار جنيهين من مصروفه اليومي. كم جنيهاً سوف يدخرها سامح؟",
-     "lead": "جملة الجمع:",
-     "word": "10 + 2 = 12",
-     "keys": "1234567890+−=",
-     "askSay": "ادخر سامح 10 جنيهات ويخطط لادخار جنيهين من مصروفه اليومي. كم جنيهاً سوف يدخرها سامح؟",
-     "askAudio": "../../math-ar-audio/1288b4473b.mp3",
-     "audio": "../../math-ar-audio/4625d621be.mp3"
+     "askSay": "ما ناتج 14 ناقص 4؟",
+     "word": "أربعة عشر ناقص أربعة يساوي عشرة.",
+     "askAudio": "../../math-ar-audio/e4be604e55.mp3"
     }
    ],
    "book": "workbook",
-   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 2,
-   "page": 56,
-   "task": "أجب عما يأتي.",
-   "items": [
-    {
-     "ask": "ما ناتج 10 زائد 5؟",
-     "stem": "الإجابة: __",
-     "options": [
-      "15",
-      "17",
-      "16",
-      "14"
-     ],
-     "answer": 0,
-     "askSay": "ما ناتج 10 زائد 5؟",
-     "word": "الإجابة 15.",
-     "askAudio": "../../math-ar-audio/ffa5253334.mp3",
-     "audio": "../../math-ar-audio/b574471dd0.mp3"
-    }
-   ],
-   "book": "workbook",
-   "taskAudio": "../../math-ar-audio/6b42a5ac08.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 3,
-   "page": 56,
-   "task": "أجب عما يأتي.",
-   "items": [
-    {
-     "ask": "ما ناتج 19 ناقص 9؟",
-     "stem": "الإجابة: __",
-     "options": [
-      "9",
-      "10",
-      "12",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "ما ناتج 19 ناقص 9؟",
-     "word": "الإجابة 10.",
-     "askAudio": "../../math-ar-audio/562e707f2f.mp3",
-     "audio": "../../math-ar-audio/8678274369.mp3"
-    }
-   ],
-   "book": "workbook",
-   "taskAudio": "../../math-ar-audio/6b42a5ac08.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 4,
-   "page": 56,
-   "task": "أجب عما يأتي.",
-   "items": [
-    {
-     "ask": "اجمع: 10 + 6 = ؟",
-     "stem": "الإجابة: __",
-     "options": [
-      "16",
-      "17",
-      "15",
-      "18"
-     ],
-     "answer": 0,
-     "askSay": "اجمع: 10 + 6 = ؟",
-     "word": "الإجابة 16.",
-     "askAudio": "../../math-ar-audio/744c087945.mp3",
-     "audio": "../../math-ar-audio/c697a8fba9.mp3"
-    }
-   ],
-   "book": "workbook"
-  },
-  {
-   "type": "mcq",
-   "ex": 5,
-   "page": 56,
-   "task": "أجب عما يأتي.",
-   "items": [
-    {
-     "ask": "اطرح: 14 − 4 = ؟",
-     "stem": "الإجابة: __",
-     "options": [
-      "9",
-      "10",
-      "12",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "اطرح: 14 − 4 = ؟",
-     "word": "الإجابة 10.",
-     "askAudio": "../../math-ar-audio/a13dfab8a4.mp3",
-     "audio": "../../math-ar-audio/8678274369.mp3"
-    }
-   ],
-   "book": "workbook"
+   "act": "u7l4wb",
+   "taskAudio": "../../math-ar-audio/6b42a5ac08.mp3",
+   "ex": 2
   }
  ]
 }

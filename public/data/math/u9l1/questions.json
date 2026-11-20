@@ -1,195 +1,44 @@
 {
  "sets": [
   {
-   "type": "mcq",
-   "ex": 1,
-   "page": 88,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is five plus one plus three?",
-     "stem": "5 + 1 + 3 = __",
-     "options": [
-      "8",
-      "9",
-      "10"
-     ],
-     "answer": 1,
-     "askSay": "What is five plus one plus three?",
-     "askAudio": "q/a1-q.mp3",
-     "audio": "q/a1-a.mp3",
-     "word": "Nine."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 2,
-   "page": 88,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is seven plus two plus one?",
-     "stem": "7 + 2 + 1 = __",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "What is seven plus two plus one?",
-     "askAudio": "q/a2-q.mp3",
-     "audio": "q/a2-a.mp3",
-     "word": "Ten."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 3,
-   "page": 88,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is two plus eight plus five?",
-     "stem": "2 + 8 + 5 = __",
-     "options": [
-      "14",
-      "15",
-      "16"
-     ],
-     "answer": 1,
-     "askSay": "What is two plus eight plus five?",
-     "askAudio": "q/a3-q.mp3",
-     "audio": "q/a3-a.mp3",
-     "word": "Fifteen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 4,
+   "type": "mwrite",
    "page": 89,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
+   "task": "Write the mathematical sentence and the answer.",
    "items": [
     {
-     "ask": "What is one plus two plus three?",
-     "stem": "1 + 2 + 3 = __",
-     "options": [
-      "5",
-      "6",
-      "7"
+     "ask": "There are 6 people on the bus. Then 4 more get on. Then 3 more get on. How many people are on the bus now?",
+     "lead": "Mathematical sentence:",
+     "word": "6 + 4 + 3 = 13",
+     "keys": "1234567890+−=",
+     "askSay": "There are 6 people on the bus. Then 4 more get on. Then 3 more get on. How many people are on the bus now?",
+     "pics": [
+      "../../pics/boy-3.png#6|../../pics/boy-3.png#4|../../pics/boy-3.png#3"
      ],
-     "answer": 1,
-     "askSay": "What is one plus two plus three?",
-     "askAudio": "q/a4-q.mp3",
-     "audio": "q/a4-a.mp3",
-     "word": "Six."
+     "askAudio": "q/e9s-ca07a5a52e.mp3",
+     "audio": "q/e9w-9667b48553.mp3",
+     "then": {
+      "options": [
+       "12 people",
+       "13 people",
+       "14 people"
+      ],
+      "answer": 1,
+      "askSay": "What is the answer?",
+      "word": "Answer: 13 people",
+      "lead": "Answer:",
+      "askAudio": "q/e9tq-cfd5904a49.mp3",
+      "audio": "q/e9ta-475eda4d99.mp3"
+     }
     }
-   ]
+   ],
+   "act": "u9l1ex",
+   "taskAudio": "q/e9t-b9ce9a3a8c.mp3",
+   "ex": 1
   },
   {
    "type": "mcq",
-   "ex": 5,
    "page": 89,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is two plus two plus four?",
-     "stem": "2 + 2 + 4 = __",
-     "options": [
-      "7",
-      "8",
-      "9"
-     ],
-     "answer": 1,
-     "askSay": "What is two plus two plus four?",
-     "askAudio": "q/a5-q.mp3",
-     "audio": "q/a5-a.mp3",
-     "word": "Eight."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 6,
-   "page": 89,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is four plus five plus one?",
-     "stem": "4 + 5 + 1 = __",
-     "options": [
-      "9",
-      "10",
-      "11"
-     ],
-     "answer": 1,
-     "askSay": "What is four plus five plus one?",
-     "askAudio": "q/a6-q.mp3",
-     "audio": "q/a6-a.mp3",
-     "word": "Ten."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 7,
-   "page": 89,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is seven plus three plus two?",
-     "stem": "7 + 3 + 2 = __",
-     "options": [
-      "11",
-      "12",
-      "13"
-     ],
-     "answer": 1,
-     "askSay": "What is seven plus three plus two?",
-     "askAudio": "q/a7-q.mp3",
-     "audio": "q/a7-a.mp3",
-     "word": "Twelve."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 8,
-   "page": 89,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
-    {
-     "ask": "What is five plus seven plus six?",
-     "stem": "5 + 7 + 6 = __",
-     "options": [
-      "17",
-      "18",
-      "19"
-     ],
-     "answer": 1,
-     "askSay": "What is five plus seven plus six?",
-     "askAudio": "q/a9-q.mp3",
-     "audio": "q/a9-a.mp3",
-     "word": "Eighteen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 9,
-   "page": 89,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
+   "task": "Solve the problems.",
    "items": [
     {
      "ask": "What is two plus one plus five?",
@@ -201,19 +50,10 @@
      ],
      "answer": 1,
      "askSay": "What is two plus one plus five?",
-     "askAudio": "q/a10-q.mp3",
-     "audio": "q/a10-a.mp3",
-     "word": "Eight."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 10,
-   "page": 89,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
+     "word": "Two plus one plus five equals eight.",
+     "askAudio": "q/e9q-58cce7056a.mp3",
+     "audio": "q/e9a-7c162c632d.mp3"
+    },
     {
      "ask": "What is six plus one plus two?",
      "stem": "6 + 1 + 2 = __",
@@ -224,19 +64,10 @@
      ],
      "answer": 1,
      "askSay": "What is six plus one plus two?",
-     "askAudio": "q/a11-q.mp3",
-     "audio": "q/a11-a.mp3",
-     "word": "Nine."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 11,
-   "page": 89,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
+     "word": "Six plus one plus two equals nine.",
+     "askAudio": "q/e9q-594a6facf7.mp3",
+     "audio": "q/e9a-e3e20030b2.mp3"
+    },
     {
      "ask": "What is three plus two plus five?",
      "stem": "3 + 2 + 5 = __",
@@ -247,19 +78,10 @@
      ],
      "answer": 1,
      "askSay": "What is three plus two plus five?",
-     "askAudio": "q/a12-q.mp3",
-     "audio": "q/a12-a.mp3",
-     "word": "Ten."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 12,
-   "page": 89,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
+     "word": "Three plus two plus five equals ten.",
+     "askAudio": "q/e9q-7c15895d83.mp3",
+     "audio": "q/e9a-023aa56e3a.mp3"
+    },
     {
      "ask": "What is four plus six plus four?",
      "stem": "4 + 6 + 4 = __",
@@ -270,19 +92,10 @@
      ],
      "answer": 1,
      "askSay": "What is four plus six plus four?",
-     "askAudio": "q/a13-q.mp3",
-     "audio": "q/a13-a.mp3",
-     "word": "Fourteen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 13,
-   "page": 89,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
+     "word": "Four plus six plus four equals fourteen.",
+     "askAudio": "q/e9q-d8b27b9397.mp3",
+     "audio": "q/e9a-67a0d1cb0c.mp3"
+    },
     {
      "ask": "What is one plus nine plus eight?",
      "stem": "1 + 9 + 8 = __",
@@ -293,19 +106,10 @@
      ],
      "answer": 1,
      "askSay": "What is one plus nine plus eight?",
-     "askAudio": "q/a14-q.mp3",
-     "audio": "q/a14-a.mp3",
-     "word": "Eighteen."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 14,
-   "page": 89,
-   "task": "Calculate from left to right.",
-   "taskAudio": "q/task.mp3",
-   "items": [
+     "word": "One plus nine plus eight equals eighteen.",
+     "askAudio": "q/e9q-5f1d1bde8c.mp3",
+     "audio": "q/e9a-d7eb79cce8.mp3"
+    },
     {
      "ask": "What is four plus eight plus seven?",
      "stem": "4 + 8 + 7 = __",
@@ -316,57 +120,158 @@
      ],
      "answer": 1,
      "askSay": "What is four plus eight plus seven?",
-     "askAudio": "q/a15-q.mp3",
-     "audio": "q/a15-a.mp3",
-     "word": "Nineteen."
+     "word": "Four plus eight plus seven equals nineteen.",
+     "askAudio": "q/e9q-df14401810.mp3",
+     "audio": "q/e9a-ac40c87e63.mp3"
     }
-   ]
+   ],
+   "act": "u9l1ex",
+   "taskAudio": "q/e9t-b9e8b4dfff.mp3",
+   "ex": 2
+  },
+  {
+   "type": "mwrite",
+   "page": 65,
+   "task": "Classroom performance: Number Race.",
+   "items": [
+    {
+     "ask": "How many children are there in total?",
+     "lead": "Mathematical sentence:",
+     "word": "2 + 3 + 4 = 9",
+     "keys": "1234567890+−=",
+     "askSay": "How many children are there in total?",
+     "pics": [
+      "../../pics/boy-3.png#2|../../pics/boy-3.png#3|../../pics/boy-3.png#4"
+     ],
+     "askAudio": "q/e9s-cf0e894728.mp3",
+     "audio": "q/e9w-c2bbfb7d6d.mp3",
+     "then": {
+      "options": [
+       "8 children",
+       "9 children",
+       "10 children"
+      ],
+      "answer": 1,
+      "askSay": "What is the answer?",
+      "word": "Answer: 9 children",
+      "lead": "Answer:",
+      "askAudio": "q/e9tq-cfd5904a49.mp3",
+      "audio": "q/e9ta-20528b97a3.mp3"
+     }
+    }
+   ],
+   "book": "workbook",
+   "act": "u9l1wb",
+   "taskAudio": "q/e9t-f0af461cd7.mp3",
+   "ex": 1
+  },
+  {
+   "type": "mwrite",
+   "page": 65,
+   "task": "Write the mathematical sentence and the answer.",
+   "items": [
+    {
+     "ask": "Hazem has 3 pounds, Ashraf has 4 pounds and Amira has 5 pounds. What is the total they have?",
+     "lead": "Mathematical sentence:",
+     "word": "3 + 4 + 5 = 12",
+     "keys": "1234567890+−=",
+     "askSay": "Hazem has 3 pounds, Ashraf has 4 pounds and Amira has 5 pounds. What is the total they have?",
+     "askAudio": "q/e9s-51c500c076.mp3",
+     "audio": "q/e9w-bd35e1f0ff.mp3",
+     "then": {
+      "options": [
+       "11 pounds",
+       "12 pounds",
+       "13 pounds"
+      ],
+      "answer": 1,
+      "askSay": "What is the answer?",
+      "word": "Answer: 12 pounds",
+      "lead": "Answer:",
+      "askAudio": "q/e9tq-cfd5904a49.mp3",
+      "audio": "q/e9ta-dae5eb4edc.mp3"
+     }
+    },
+    {
+     "ask": "There are 4 people on the car. Then 3 more get on, then 5 more get on. How many people are on the car now?",
+     "lead": "Mathematical sentence:",
+     "word": "4 + 3 + 5 = 12",
+     "keys": "1234567890+−=",
+     "askSay": "There are 4 people on the car. Then 3 more get on, then 5 more get on. How many people are on the car now?",
+     "askAudio": "q/e9s-fa8b4f590b.mp3",
+     "audio": "q/e9w-6d2bd4bada.mp3",
+     "then": {
+      "options": [
+       "11 people",
+       "12 people",
+       "13 people"
+      ],
+      "answer": 1,
+      "askSay": "What is the answer?",
+      "word": "Answer: 12 people",
+      "lead": "Answer:",
+      "askAudio": "q/e9tq-cfd5904a49.mp3",
+      "audio": "q/e9ta-e0b8c388d0.mp3"
+     }
+    }
+   ],
+   "book": "workbook",
+   "act": "u9l1wb",
+   "taskAudio": "q/e9t-b9ce9a3a8c.mp3",
+   "ex": 2
   },
   {
    "type": "mcq",
    "page": 65,
-   "task": "Add the numbers.",
-   "taskAudio": "q/task-bk-add-the-numbers.mp3",
+   "task": "Find the result.",
    "items": [
     {
-     "stem": "2 + 4 + 3 = ___",
+     "ask": "What is two plus four plus three?",
+     "stem": "2 + 4 + 3 = __",
      "options": [
       "8",
       "9",
       "10"
      ],
      "answer": 1,
-     "askAudio": "q/wb-2-p-4-p-3-q.mp3",
-     "audio": "q/wb-2-p-4-p-3.mp3",
-     "word": "2 + 4 + 3 = 9"
+     "askSay": "What is two plus four plus three?",
+     "word": "Two plus four plus three equals nine.",
+     "askAudio": "q/e9q-46cbf4bcf4.mp3",
+     "audio": "q/e9a-f132c5cbdb.mp3"
     },
     {
-     "stem": "6 + 2 + 1 = ___",
+     "ask": "What is six plus two plus one?",
+     "stem": "6 + 2 + 1 = __",
      "options": [
       "8",
       "9",
       "10"
      ],
      "answer": 1,
-     "askAudio": "q/wb-6-p-2-p-1-q.mp3",
-     "audio": "q/wb-6-p-2-p-1.mp3",
-     "word": "6 + 2 + 1 = 9"
+     "askSay": "What is six plus two plus one?",
+     "word": "Six plus two plus one equals nine.",
+     "askAudio": "q/e9q-6570b6a466.mp3",
+     "audio": "q/e9a-aa8b439b64.mp3"
     },
     {
-     "stem": "4 + 8 + 7 = ___",
+     "ask": "What is four plus eight plus seven?",
+     "stem": "4 + 8 + 7 = __",
      "options": [
       "18",
       "19",
       "20"
      ],
      "answer": 1,
-     "askAudio": "q/wb-4-p-8-p-7-q.mp3",
-     "audio": "q/wb-4-p-8-p-7.mp3",
-     "word": "4 + 8 + 7 = 19"
+     "askSay": "What is four plus eight plus seven?",
+     "word": "Four plus eight plus seven equals nineteen.",
+     "askAudio": "q/e9q-df14401810.mp3",
+     "audio": "q/e9a-ac40c87e63.mp3"
     }
    ],
    "book": "workbook",
-   "ex": 15
+   "act": "u9l1wb",
+   "taskAudio": "q/e9t-3269972362.mp3",
+   "ex": 3
   },
   {
    "type": "mcq",

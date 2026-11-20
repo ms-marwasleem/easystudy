@@ -2465,7 +2465,7 @@ function mNumline(box,q,s,run){
   const ans=q.answers||seq.map((v,k)=>v==null?(full?full[k]:null):null).filter(v=>v!=null);   // with "seq" and no "answers": the gaps are filled from the run of numbers around them
   if(!q.answers&&!full){ const base=seq.find(v=>v!=null), bi=seq.indexOf(base); ans.length=0; seq.forEach((v,k)=>{ if(v==null) ans.push(base+(k-bi)); }); }
   q.word=q.word||seq.map((v,k)=>mW(v==null?ans[seq.slice(0,k).filter(x=>x==null).length]:v)).join(', ');
-  const line=el('div','qmline'); line.style.setProperty('--n',seq.length); const cells=[];
+  const line=el('div','qmline'+(isAr()?' rtl':'')); line.style.setProperty('--n',seq.length); const cells=[];
   seq.forEach(v=>{ const c=el('div','qmcell'+(v==null?' gap':''),`<b>${v==null?'':v}</b>`); line.append(c); cells.push(c); });
   line.append(el('i','qmarrow')); box.append(line); let g=0; const gaps=cells.filter(c=>c.classList.contains('gap')); gaps[0].classList.add('cur');
   q.hush=1; mHelp(box,()=>gaps[g]&&gaps[g].classList.contains('gap')?gaps[g]:null,()=>ans[g]);
@@ -2571,6 +2571,46 @@ function mLine(box,q,s,run){
     (fr?lf:lb).classList.add('on'); qxWin(w,q,1600); }));
 }
 QM.line={sheet:'box', draw:mLine, help:(q,w)=>q.items?$$('.mlchips .qch',w).filter(b=>+b.dataset.v===(q.from!=='back'?q.target+1:q.items.length-q.target)):$$('.mlt',w).filter((b,i)=>i===(q.from!=='back'?q.at-1:q.n-q.at))};
+
+/* nline = the book's NUMBER LINE 0-20 drawn by the template (Math 7-3). item {ask, options:[..], answer} = the line + a question ("4 more than 11"); item {pet:10, img?, ask, options, answer} = "How far did the cat go?":
+   the numbered line on top and a bare line below with the pet standing at its number; the child taps the number. The question sits on a line with the speaker (like the typed bond). The line always runs left to right. */
+function mNline(box,q,s,run){
+  const X=i=>50+45*i, ans=q.answer, pet=q.pet!=null; q.hush=1; q.word=q.word||String(ans);
+  const tk=(y,num)=>Array.from({length:21},(_,i)=>`<path d="M${X(i)} ${y-12} v26" stroke="#444" stroke-width="4"/>${num?`<text x="${X(i)}" y="${y-22}" text-anchor="middle" font-size="27" font-weight="700" fill="#333">${i}</text>`:''}`).join('')+`<path d="M30 ${y} H970" stroke="#444" stroke-width="5" stroke-linecap="round"/>`;
+  const H=pet?290:110, img=R_Q(q.img||'../../pics/cat.png');
+  const w=el('div','qmnl'); w.innerHTML=`<svg viewBox="0 0 1000 ${H}">${tk(70,1)}${pet?tk(250,0)+`<image href="${img}" x="${X(q.pet)-48}" y="120" width="96" height="116" preserveAspectRatio="xMidYMax meet"/>`:''}</svg>`;
+  const row=el('div','qmask'); row.dir=isAr()?'rtl':'ltr'; const sp=el('button','qsay qmaskb',typeof SAY_LN==='string'?SAY_LN:ICON.sound); sp.setAttribute('aria-label','Hear the question'); sp.onclick=()=>{ if(!qz.busy) qSay(); };
+  row.append(sp,el('span','qmaskt',q.ask||'')); box.append(row,w); const qw=$('.qword'); if(qw) qw.hidden=true;
+  mPad(box,mShuffle(q.options),(v)=>{ if(v!==ans) return false; qxWin(w,q,1600); return true; });
+}
+/* nlorder = "Put the cards in order from least to greatest" (Math 7-3): the cards lie mixed; tap them from the least; each goes into the next box of the arrow row. item {cards:[15,12,17,13], find?:"greatest" to go the other way}. In Arabic the first box is at the right. */
+function mNlorder(box,q,s,run){
+  const want=q.cards.slice().sort((a,b)=>q.find==='greatest'?b-a:a-b); q.hush=1; q.word=q.word||want.join(', ');
+  const row=el('div','qmask'); row.dir=isAr()?'rtl':'ltr'; const sp=el('button','qsay qmaskb',typeof SAY_LN==='string'?SAY_LN:ICON.sound); sp.setAttribute('aria-label','Hear the question'); sp.onclick=()=>{ if(!qz.busy) qSay(); };
+  if(q.ask){ row.append(sp,el('span','qmaskt',q.ask)); box.append(row); }
+  const slots=el('div','qmline qmord'+(isAr()?' rtl':'')); slots.style.setProperty('--n',want.length); const cells=want.map(()=>{ const c=el('div','qmcell gap',`<b></b>`); slots.append(c); return c; }); cells[0].classList.add('cur'); box.append(slots);
+  let g=0; const pool=el('div','qxchoices qmbig');
+  mShuffle(q.cards).forEach(n=>{ const b=qChBtn(n); b.dataset.v=n; b.addEventListener('click',()=>{ if(qz.busy||b.classList.contains('used')) return;
+    if(n!==want[g]) return qxBad(b); b.classList.add('used','dim'); const c=cells[g]; $('b',c).textContent=n; c.classList.remove('cur','gap'); c.classList.add('got'); blip(560+g*60,.05); g++;
+    if(g<want.length) cells[g].classList.add('cur'); else qxWin(slots,q,1600); }); pool.append(b); });
+  box.append(pool);
+}
+QM.nline={sheet:'box', bulb:0, draw:mNline};
+QM.nlorder={sheet:'box', bulb:0, draw:mNlorder};
+
+/* calendar = the book's calendar (Math 7-6): the days 1..days in rows of seven under Sun..Sat (Arabic: the Arabic day names, the week runs from the RIGHT); item {days:31, gaps:[21,25,28,30], options:[..]}: the gaps are empty, the child fills them in
+   order with the number buttons (a wrong number shakes). */
+function mCalendar(box,q,s,run){
+  const gaps=q.gaps, days=q.days||31, ar=isAr(); q.hush=1; q.word=q.word||gaps.join(', ');
+  const heads=ar?['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت']:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const t=el('div','qmcal'+(ar?' rtl':'')); heads.forEach(h=>t.append(el('span','qmch',h))); const cells={};
+  for(let d=1;d<=days;d++){ const g=gaps.includes(d), c=el('div','qmcd'+(g?' gap':''),`<b>${g?'':d}</b>`); t.append(c); cells[d]=c; }
+  box.append(t); let g=0; cells[gaps[0]].classList.add('cur');
+  q.hush=1; mHelp(box,()=>gaps[g]!=null&&cells[gaps[g]].classList.contains('gap')?cells[gaps[g]]:null,()=>gaps[g]);
+  mPad(box,mShuffle(q.options),(v)=>{ if(v!==gaps[g]) return false; const c=cells[gaps[g]]; $('b',c).textContent=v; c.classList.remove('cur','gap'); c.classList.add('got'); blip(560+g*60,.05); g++;
+    if(g<gaps.length) cells[gaps[g]].classList.add('cur'); else qxWin(t,q,1600); return true; });
+}
+QM.calendar={sheet:'box', bulb:0, draw:mCalendar};
 QM.numline={sheet:'box', bulb:0, draw:mNumline};
 QM.bond={sheet:'box', bulb:0, draw:mBond};
 QM.bigger={sheet:'box', draw:mBigger, help:(q,w)=>{ const v=q.find==='smaller'?Math.min(...q.nums):Math.max(...q.nums); return $$('.qmbig .qch',w).filter(b=>+b.dataset.v===v); }};
@@ -2642,21 +2682,31 @@ function mClock(box,q,s,run){
   const w=el('div','mclock'); box.append(w);
   if(q.ask){ const p=el('p','clkask',''); p.append(document.createTextNode(q.ask)); if(q.askAudio||q.ask){ const sp=el('button','qsay clkspk',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>qSay(); p.append(sp); box._after=()=>{ if(qAuto(q)) return qSay(); }; } w.append(p); }   // the question's own speaker sits INSIDE its line (it used to be a separate row above that took room and nobody knew what it was: Ahmed 2026-11-14)
   const opts=q.options||(mode==='read'?mClockOptions(q.h,q.m||0):null), ans=q.answer||clockTime(q.h,q.m||0);
-  const cw=clockWidget({h:q.h,m:q.m||0,mode,options:opts,answer:ans,onWrong:t=>qxBad(t),onDone:()=>qxWin(w,q,1600)}); w.append(cw); q.clockEl=cw;
+  const wr=mode==='write';   // "write": the clock is shown (both hands) and the child TYPES the time in letter order ("8 o'clock", "half past 8"; Arabic "الساعة 8 ونصف"), the Help bulb shows the next letter, no choices (Ahmed 2026-11-20)
+  const cw=clockWidget({h:q.h,m:q.m||0,mode:wr?'read':mode,options:wr?[]:opts,answer:ans,onWrong:t=>qxBad(t),onDone:()=>qxWin(w,q,1600)}); w.append(cw); q.clockEl=cw;
+  if(wr){ $$('.clkopts',cw).forEach(x=>x.hidden=true); qxWrite(box,q,s,run,q.text); return; }
   const hb=helpBtn('qxhelp qmhelp'); let undo=null; hb.onclick=()=>{ if(qz.busy||q.solved) return; if(undo) undo(); undo=cw.hint(); setTimeout(()=>{ if(undo){ undo(); undo=null; } },1800); }; qHelpHost(hb);
 }
 QM.clock={sheet:'box', noword:1, bulb:0, draw:mClock};
-
+;
+/* ===== js/math-draw.js ===== */
 /* WORDS tab of the maths lessons (Ahmed 2026-11-18): the picture of a word is DRAWN here from its spec (no picture files):
    img "data:draw,num,N,ar|en" = the numeral (Arabic or English digits) in a lesson colour; "data:draw,pos,K,N,ar|en" = N cats in a row with the K-th ringed (Arabic: the front is at the RIGHT, the cats face the other way).
+   "data:draw,cmp,size|len,big|long|small|short,ar|en" (2026-11-20, bigger/smaller, longer/shorter words) = an elephant and a mouse / two pencils of different length from the library, the asked one ringed (Arabic: mirrored order).
    Called once when a lesson with such words opens (lesson.js openLesson). */
 const M_DIG='٠١٢٣٤٥٦٧٨٩', M_NUMCOL=['#E0412C','#2A7FD8','#F2B321','#2FA8A0','#8A5CC9','#F08A2C','#3FA34D','#D8396B','#E0412C','#8A5CC9'];
 function mDrawLoad(src){ return new Promise(r=>{ const i=new Image(); i.onload=()=>r(i); i.onerror=()=>r(null); i.src=src; }); }
 async function mVocabPics(L){
-  const cat=await mDrawLoad(new URL((L.base||'')+'../../pics/cat.png',document.baseURI).href), ff=getComputedStyle(document.body).fontFamily||'sans-serif';
+  const pic=n=>mDrawLoad(new URL((L.base||'')+'../../pics/'+n+'.png',document.baseURI).href), cat=await pic('cat'), ff=getComputedStyle(document.body).fontFamily||'sans-serif';
   for(const v of L.vocab||[]){
-    const m=/^data:draw,(num|pos),(.*)$/.exec(v.img||''); if(!m) continue; const a=m[2].split(','), c=document.createElement('canvas'), x=c.getContext('2d');
-    if(m[1]==='num'){ const n=+a[0], ar=a[1]==='ar', t=ar?String(n).split('').map(d=>M_DIG[+d]).join(''):String(n); c.width=520; c.height=420; x.textAlign='center'; x.textBaseline='middle';
+    const m=/^data:draw,(num|pos|cmp),(.*)$/.exec(v.img||''); if(!m) continue; const a=m[2].split(','), c=document.createElement('canvas'), x=c.getContext('2d');
+    if(m[1]==='cmp'){ const kind=a[0], big=a[1]==='big'||a[1]==='long', ar=a[2]==='ar', W=900, H=300; c.width=W; c.height=H; x.fillStyle='#fff'; x.beginPath(); x.roundRect(0,20,W,H-40,36); x.fill();
+      x.strokeStyle='#E8457A'; x.lineWidth=12;
+      if(kind==='size'){ const [e,mo]=await Promise.all([pic('elephant'),pic('mouse')]); if(e&&mo){ const eh=200, ew=eh*e.width/e.height, mh=84, mw=mh*mo.width/mo.height, gap=90, x0=(W-ew-mw-gap)/2, ex=ar?W-x0-ew:x0, mx=ar?x0:x0+ew+gap;
+          x.drawImage(e,ex,H-40-eh,ew,eh); x.drawImage(mo,mx,H-40-mh,mw,mh); const bx=big?ex:mx, bw=big?ew:mw, bh=big?eh:mh; x.beginPath(); x.ellipse(bx+bw/2,H-40-bh/2,bw/2+18,bh/2+16,0,0,Math.PI*2); x.stroke(); } }
+      else { const p0=await pic('len-pen-green'); if(p0){ const L1=760, L2=380, h=L1*p0.height/p0.width, hs=L2*p0.height/p0.width, y1=70, y2=170, x1=ar?W-30-L1:30, x2=ar?W-30-L2:30; x.drawImage(p0,x1,y1,L1,h); x.drawImage(p0,x2,y2,L2,hs);
+          const tx=big?x1:x2, tw=big?L1:L2, ty=big?y1:y2, th=big?h:hs; x.beginPath(); x.roundRect(tx-14,ty-14,tw+28,th+28,22); x.stroke(); } } }
+    else if(m[1]==='num'){ const n=+a[0], ar=a[1]==='ar', t=ar?String(n).split('').map(d=>M_DIG[+d]).join(''):String(n); c.width=520; c.height=420; x.textAlign='center'; x.textBaseline='middle';
       let fs=n>9?260:330; x.font=`700 ${fs}px ${ff}`; x.lineJoin='round'; x.lineWidth=26; x.strokeStyle='#fff'; x.strokeText(t,260,225); x.fillStyle=M_NUMCOL[(n-1)%10]; x.fillText(t,260,225); }
     else { const k=+a[0], n=+a[1], ar=a[2]==='ar', W=900, H=300; c.width=W; c.height=H; x.fillStyle='#fff'; x.beginPath(); x.roundRect(0,40,W,H-80,36); x.fill();
       const sw=(W-60)/n, ih=H-120; for(let i=0;i<n;i++){ const cx=30+sw*(i+.5); if(cat){ const w=Math.min(sw*.86,ih*cat.width/cat.height), h=w*cat.height/cat.width; x.save(); x.translate(cx,H-52); if(ar) x.scale(-1,1); x.drawImage(cat,-w/2,-h,w,h); x.restore(); } }
@@ -3479,6 +3529,10 @@ function mount(root, data, opt){
     const set=k=>{ e.setAttribute('width',w*k); e.setAttribute('height',h*k); e.setAttribute('x',cx-w*k/2); e.setAttribute('y',cy-h*k/2); };
     let prev=1; for(const k of [.74,.5,.26,0]){ const p0=prev; await tween(X.fast?1:420,v=>set(p0+(k-p0)*v)); prev=k; if(!X.fast) await wait(120); }
     e.setAttribute('opacity',0); const gh=o.ghost&&IT[o.ghost]; if(gh) await tween(500,v=>gh.e.setAttribute('opacity',(o.op||.3)*v)); }
+  /* {reveal:{ids:[..], label:{x,y,t,color}}}: the free-scene things appear ONE BY ONE (fade only, never scaled) while the number is said; then the number is written above the group (Ahmed 2026-11-20) */
+  async function reveal(o){ const ids=o.ids||[], each=X.fast?0:Math.min(650,1500/Math.max(1,ids.length));
+    for(const id of ids){ const it=IT[id]; if(!it) continue; await tween(each,v=>it.e.setAttribute('opacity',v)); it.e.setAttribute('opacity',1); }
+    const l=o.label; if(l) Lbg.insertAdjacentHTML('beforeend',`<text x="${l.x}" y="${TOP+l.y}" font-size="${l.s||64}" font-weight="800" fill="${l.color||'#E8560C'}" stroke="#fff" stroke-width="7" paint-order="stroke" text-anchor="middle" font-family="var(--f-ui),sans-serif">${l.t}</text>`); }
   async function move(list,ms){ const L=[].concat(list).map(m=>({...m,it:IT[m.id]})).filter(m=>m.it); const f=L.map(m=>({m,x0:m.it.x,y0:m.it.y}));
     await tween(X.fast?1:(ms||1500),v=>f.forEach(o=>{ const x=o.x0+(o.m.x-o.x0)*v, y=o.y0+(o.m.y-o.y0)*v; o.m.it.e.setAttribute('x',x); o.m.it.e.setAttribute('y',TOP+y); if(v>=1){ o.m.it.x=o.m.x; o.m.it.y=o.m.y; } })); }
   // a dotted line (the book's alignment line) drawn from its start to its end, over the pictures
@@ -3509,6 +3563,43 @@ function mount(root, data, opt){
     const cube=(x,y,c,k)=>`<g class="xcube" data-cx="${x+33}" data-cy="${y+33}"${k>=sh?' style="opacity:0"':''}><rect x="${x}" y="${y}" width="66" height="66" rx="12" fill="${c}" stroke="#1f5f96" stroke-width="4"/><path d="M${x+10} ${y+16} h46" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".5"/></g>`;
     for(let i=0;i<Math.min(10,n);i++) tag.push(cube(100+i*80,TOP+50,'#46A8E8',i)); for(let i=0;i<n-10;i++) tag.push(cube(100+i*80,TOP+170,'#FF9A3C',10+i));
     Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; SC={}; }
+
+  /* "Numbers up to 20" (book 7-1), PLACE VALUE: row 1 = the TENS place (ten blocks = two groups of five, blue), row 2 = the ONES place (orange; the first five are ONE joined block of five like the
+     book, then single blocks). d.ones = how many ones, d.show = how many are there at first (the others come with {count}), d.slots = dashed empty ones row (the introduction), d.rtl = Arabic (mirrored).
+     Picture px (relative to TOP): tens row y=40..106, ones row y=150..216, cube 66, step 76, first x=130 (labels at the left; Arabic: everything mirrored). */
+  function placesScene(d){ PIC={k:1}; TOP=170; VH=TOP+250; const tag=[], R=!!d.rtl, ones=d.ones||0, sh=d.show==null?ones:d.show, X=(x,w)=>R?1000-x-w:x, C=66, ST=74;
+    const cx=(i)=>140+i*ST+(i>=5?14:0);
+    const cube=(i,y,c,k,on)=>{ const x=X(cx(i),C); return `<g class="xcube" data-cx="${x+C/2}" data-cy="${TOP+y+C/2}"${on?'':' style="opacity:0"'}><rect x="${x}" y="${TOP+y}" width="${C}" height="${C}" rx="12" fill="${c}" stroke="#1f5f96" stroke-width="4"/><path d="M${x+10} ${TOP+y+16} h46" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".5"/></g>`; };
+    const grp=(a,b,y,col)=>{ const x0=cx(a)-6, x1=cx(b)+C+6, w=x1-x0; return `<rect x="${X(x0,w)}" y="${TOP+y-6}" width="${w}" height="${C+12}" rx="18" fill="none" stroke="${col}" stroke-width="5"/>`; };
+    const lab=(t,y)=>`<text x="${R?992:8}" y="${TOP+y+46}" text-anchor="${R?'end':'start'}" style="font:800 ${R?32:40}px var(--f-ui);fill:#fff;stroke:#8a3d00;stroke-width:6px;paint-order:stroke;stroke-linejoin:round">${t}</text>`;
+    tag.push(lab(d.tl||'Tens',40), lab(d.ol||'Ones',150));
+    for(let i=0;i<10;i++) tag.push(cube(i,40,'#46A8E8',i,true)); tag.push(grp(0,4,40,'#1f5f96'), grp(5,9,40,'#1f5f96'));
+    if(d.slots){ const w=cx(8)+C+6-(cx(0)-6); tag.push(`<rect x="${X(cx(0)-6,w)}" y="${TOP+144}" width="${w}" height="${C+12}" rx="18" fill="rgba(255,255,255,.18)" stroke="#fff" stroke-width="4" stroke-dasharray="14 10"/>`); }
+    for(let i=0;i<ones;i++) tag.push(cube(i,150,'#FF9A3C',i,i<sh));
+    if(ones>=5) tag.push(grp(0,4,150,'#B8590A')); if(ones>=10) tag.push(grp(5,9,150,'#B8590A'));
+    Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; SC={}; }
+
+  /* BOND scene (book 7-2 number tree): d.whole / d.a / d.b = a number or "?" (an empty box). {bondset:{k:"w"|"a"|"b", v:"9"}} writes the missing number into its box (orange, with a pop).
+     d.rtl (Arabic): the first part is on the RIGHT (the tree is mirrored). Picture px (relative to TOP): whole box centre (500,60), parts at y=230. */
+  function bondScene(d){ PIC={k:1}; TOP=170; VH=TOP+330; const tag=[], R=!!d.rtl, bw=130, bh=110;
+    const pos={w:[500,60],a:[R?680:320,230],b:[R?320:680,230]}, val={w:d.whole,a:d.a,b:d.b};
+    tag.push(`<path d="M500 ${TOP+60+bh/2} L${pos.a[0]} ${TOP+230-bh/2} M500 ${TOP+60+bh/2} L${pos.b[0]} ${TOP+230-bh/2}" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>`);
+    for(const k of ['w','a','b']){ const [x,y]=pos[k], v=val[k], q=v==null||v==='?';
+      tag.push(`<g class="xbond" data-bk="${k}" data-bx="${x}" data-by="${TOP+y}"><rect x="${x-bw/2}" y="${TOP+y-bh/2}" width="${bw}" height="${bh}" rx="14" fill="#fff" stroke="#333" stroke-width="6"${q?' stroke-dasharray="14 10"':''}/><text x="${x}" y="${TOP+y+24}" text-anchor="middle" style="font:800 72px var(--f-ui);fill:#2a2a2a">${q?'':v}</text></g>`); }
+    Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; SC={}; }
+  async function bondSet(d){ const g=Lbg.querySelector(`[data-bk="${d.k}"]`); if(!g) return; const t=g.querySelector('text'); t.textContent=d.v; t.style.fill='#E8560C'; g.querySelector('rect').removeAttribute('stroke-dasharray');
+    const x=+g.dataset.bx, y=+g.dataset.by; await tween(420,p=>{ g.setAttribute('transform',`translate(${x} ${y}) scale(${1+.3*Math.sin(p*Math.PI)}) translate(${-x} ${-y})`); }); g.removeAttribute('transform'); }
+
+  /* SEQ scene (book 7-3 number strips + the two cards to compare): d.seq = numbers or "?" (an empty box), joined by a line (d.plain = separate cards, no line).
+     Boxes: width 110, height 100, centre y = 60 (relative to TOP), n boxes spread over the width with step=min(150, 880/n): centre x = 500+(i-(n-1)/2)*step (mirrored with d.rtl). The given numbers sit on grey, the empty ones are dashed.
+     {seqset:{i:2, v:"16"}} writes the missing number into box i (orange, with a pop). d.rtl (Arabic book): the first number is at the RIGHT (the strip is mirrored; the number line itself still runs left to right). */
+  function seqScene(d){ PIC={k:1}; TOP=170; VH=TOP+170; const n=d.seq.length, st=Math.min(150,880/n), bw=110, bh=100, tag=[], R=!!d.rtl, cx=i=>500+(R?-1:1)*(i-(n-1)/2)*st;
+    if(!d.plain) tag.push(`<path d="M${cx(0)+(R?-1:1)*0} ${TOP+60} H${cx(n-1)+(R?-1:1)*(bw/2+30)}" stroke="#444" stroke-width="6" stroke-linecap="round"/>`);
+    d.seq.forEach((v,i)=>{ const q=v==null||v==='?', x=cx(i);
+      tag.push(`<g class="xseq" data-si="${i}" data-sx="${x}" data-sy="${TOP+60}"><rect x="${x-bw/2}" y="${TOP+60-bh/2}" width="${bw}" height="${bh}" rx="12" fill="${q||d.plain?'#fff':'#d9d9d9'}" stroke="#333" stroke-width="6"${q?' stroke-dasharray="14 10"':''}/><text x="${x}" y="${TOP+60+22}" text-anchor="middle" style="font:800 64px var(--f-ui);fill:#2a2a2a">${q?'':v}</text></g>`); });
+    Leq.innerHTML=''; eqT=[]; Lbg.innerHTML=tag.join(''); LAB={}; SC={}; }
+  async function seqSet(d){ const g=Lbg.querySelector(`[data-si="${d.i}"]`); if(!g) return; const t=g.querySelector('text'); t.textContent=d.v; t.style.fill='#E8560C'; g.querySelector('rect').removeAttribute('stroke-dasharray'); g.querySelector('rect').setAttribute('fill','#d9d9d9');
+    const x=+g.dataset.sx, y=+g.dataset.sy; await tween(420,p=>{ g.setAttribute('transform',`translate(${x} ${y}) scale(${1+.3*Math.sin(p*Math.PI)}) translate(${-x} ${-y})`); }); g.removeAttribute('transform'); }
   /* DATA scene (Math 6-1 "Representing data with pictures"): the scattered things AND the table are DRAWN here (no pasted book picture, no white box).
      d.cols=[{k:"strawberry"|"melon"|"orange"|"grape"|"circle"|"triangle"|"square"|"star", n, color}], d.items=[[col,x,y]..] (centres, picture px 0..1000 x 0..780),
      d.tx = left edge of the table, d.tw = its width (Arabic: the table is on the left and the first column is on the right), d.rows (default 10).
@@ -3594,6 +3685,9 @@ function mount(root, data, opt){
         <image href="${base+d.img}" x="0" y="${TOP}" width="1000" height="${ih}" preserveAspectRatio="none" ${d.frame===false?'':'clip-path="url(#xpc)"'}/>`; }
     else if(name==='line'&&d){ lineScene(d); }
     else if(name==='tens'&&d){ tensScene(d); }
+    else if(name==='places'&&d){ placesScene(d); }
+    else if(name==='bond'&&d){ bondScene(d); }
+    else if(name==='seq'&&d){ seqScene(d); }
     else if(name==='data'&&d){ dataScene(d); }
     else if(name==='nline'&&d){ nlineScene(d); }
     else if(name==='groups'&&d){ groupsScene(d); }
@@ -3837,6 +3931,9 @@ function mount(root, data, opt){
     if(d.ask) return ask(d.ask);
     if(d.write) return write(d.write);
     if(d.order) return order(d.order);
+    if(d.bondset) return bondSet(d.bondset);
+    if(d.seqset) return seqSet(d.seqset);
+    if(d.reveal) return reveal(d.reveal);
     if(d.cheer) return cheer();
     if(d.wait) return wait(d.wait);
   }

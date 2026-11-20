@@ -8,59 +8,7 @@
    "items": [
     {
      "pics": [
-      "../../pics/sc-math-ar-u7l1-story-1.png"
-     ],
-     "ask": "كم عدد الفراولات؟",
-     "stem": "عدد الفراولات __.",
-     "options": [
-      "16",
-      "17",
-      "18"
-     ],
-     "answer": 1,
-     "askSay": "كم عدد الفراولات؟",
-     "word": "عدد الفراولات سبعة عشر.",
-     "askAudio": "../../math-ar-audio/47cb64ecef.mp3",
-     "audio": "../../math-ar-audio/97a5267e03.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/216856bdb0.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 2,
-   "page": 73,
-   "task": "نكتب العدد.",
-   "items": [
-    {
-     "pics": [
-      "../../pics/sc-math-ar-u7l1-story-2.png"
-     ],
-     "ask": "كم عدد البيض؟",
-     "stem": "عدد البيض __.",
-     "options": [
-      "18",
-      "19",
-      "20"
-     ],
-     "answer": 2,
-     "askSay": "كم عدد البيض؟",
-     "word": "عدد البيض عشرون.",
-     "askAudio": "../../math-ar-audio/a020d2942a.mp3",
-     "audio": "../../math-ar-audio/f36bc927fa.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/216856bdb0.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 3,
-   "page": 73,
-   "task": "نكتب العدد.",
-   "items": [
-    {
-     "pics": [
-      "../../pics/sc-math-ar-u7l1-story-3.png"
+      "../../pics/sc-math-u7l1-ex-birds.png"
      ],
      "ask": "كم عدد الطيور الموجودة؟",
      "stem": "عدد الطيور __.",
@@ -80,13 +28,13 @@
   },
   {
    "type": "mcq",
-   "ex": 4,
+   "ex": 2,
    "page": 73,
    "task": "نكتب العدد.",
    "items": [
     {
      "pics": [
-      "../../pics/sc-math-ar-u7l1-story-4.png"
+      "../../pics/sc-math-u7l1-ex-cookies.png"
      ],
      "ask": "كم عدد البسكويت؟",
      "stem": "عدد البسكويت __.",
@@ -106,65 +54,13 @@
   },
   {
    "type": "mcq",
-   "ex": 5,
+   "ex": 3,
    "page": 73,
    "task": "ننظر إلى الصورة، ونُجيب.",
    "items": [
     {
      "pics": [
-      "../../pics/sc-math-ar-u7l1-story-5.png"
-     ],
-     "ask": "كم عدد الأطفال الواقفين في الصف؟",
-     "stem": "عدد الأطفال __.",
-     "options": [
-      "12",
-      "13",
-      "14"
-     ],
-     "answer": 1,
-     "askSay": "كم عدد الأطفال الواقفين في الصف؟",
-     "word": "عدد الأطفال ثلاثة عشر.",
-     "askAudio": "../../math-ar-audio/d55f6f9dde.mp3",
-     "audio": "../../math-ar-audio/958543eebd.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/fb4f9cbc5b.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 6,
-   "page": 73,
-   "task": "ننظر إلى الصورة، ونُجيب.",
-   "items": [
-    {
-     "pics": [
-      "../../pics/sc-math-ar-u7l1-story-5.png"
-     ],
-     "ask": "ما ترتيب حسن من الأمام؟",
-     "stem": "ترتيب حسن من الأمام __.",
-     "options": [
-      "العاشر",
-      "الحادي عشر",
-      "الثاني عشر"
-     ],
-     "answer": 1,
-     "askSay": "ما ترتيب حسن من الأمام؟",
-     "word": "ترتيب حسن من الأمام الحادي عشر.",
-     "askAudio": "../../math-ar-audio/b03a66c4ef.mp3",
-     "audio": "../../math-ar-audio/c6c987b545.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/fb4f9cbc5b.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 7,
-   "page": 73,
-   "task": "ننظر إلى الصورة، ونُجيب.",
-   "items": [
-    {
-     "pics": [
-      "../../pics/sc-math-ar-u7l1-story-6.png"
+      "../../pics/sc-math-ar-u7l1-line-sara.png"
      ],
      "ask": "كم عدد الأطفال الواقفين في الصف؟",
      "stem": "عدد الأطفال __.",
@@ -184,13 +80,13 @@
   },
   {
    "type": "mcq",
-   "ex": 8,
+   "ex": 4,
    "page": 73,
    "task": "ننظر إلى الصورة، ونُجيب.",
    "items": [
     {
      "pics": [
-      "../../pics/sc-math-ar-u7l1-story-6.png"
+      "../../pics/sc-math-ar-u7l1-line-sara.png"
      ],
      "ask": "ما ترتيب سارة من الأمام؟",
      "stem": "ترتيب سارة من الأمام __.",
@@ -210,7 +106,92 @@
   },
   {
    "type": "count",
-   "ex": 1,
+   "page": 52,
+   "task": "نعد ونكتب العدد.",
+   "typed": true,
+   "items": [
+    {
+     "img": "../../pics/balloon.png",
+     "n": 12,
+     "word": "اثنا عشر"
+    },
+    {
+     "img": "../../pics/star.png",
+     "n": 14,
+     "word": "أربعة عشر"
+    },
+    {
+     "img": "../../pics/apple-toon.png",
+     "n": 11,
+     "word": "أحد عشر",
+     "audio": "../../math-ar-audio/7d5806a860.mp3"
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l1wb",
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "page": 52,
+   "task": "نلاحظ الصف ثم نجيب.",
+   "items": [
+    {
+     "pics": [
+      "../../pics/sc-math-ar-u7l1-wb-line.png"
+     ],
+     "ask": "كم عدد الأطفال في الصف؟",
+     "stem": "عدد الأطفال ___.",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askSay": "كم عدد الأطفال في الصف؟",
+     "word": "عدد الأطفال 14.",
+     "noStem": true
+    },
+    {
+     "pics": [
+      "../../pics/sc-math-ar-u7l1-wb-line.png"
+     ],
+     "ask": "ما ترتيب نبيل من الخلف؟",
+     "stem": "نبيل ___ من الخلف.",
+     "options": [
+      "الثاني عشر",
+      "الثالث عشر",
+      "الرابع عشر"
+     ],
+     "answer": 1,
+     "askSay": "ما ترتيب نبيل من الخلف؟",
+     "word": "نبيل الثالث عشر من الخلف.",
+     "noStem": true
+    },
+    {
+     "pics": [
+      "../../pics/sc-math-ar-u7l1-wb-line.png"
+     ],
+     "ask": "ما ترتيب عامر من الأمام؟",
+     "stem": "عامر ___ من الأمام.",
+     "options": [
+      "العاشر",
+      "الحادي عشر",
+      "الثاني عشر"
+     ],
+     "answer": 1,
+     "askSay": "ما ترتيب عامر من الأمام؟",
+     "word": "عامر الحادي عشر من الأمام.",
+     "noStem": true
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l1wb",
+   "ex": 2
+  },
+  {
+   "type": "count",
+   "ex": 3,
    "page": 52,
    "task": "نعد ونكتب العدد.",
    "typed": true,

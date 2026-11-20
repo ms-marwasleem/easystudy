@@ -7,15 +7,44 @@
  "lines": [],
  "end": 1,
  "speakers": {},
- "vocab": [],
+ "vocab": [
+  {
+   "word": "bigger",
+   "img": "data:draw,cmp,size,big,en",
+   "parts": [
+    {
+     "t": "bigger",
+     "audio": "words/bigger.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/bigger.mp3"
+   }
+  },
+  {
+   "word": "smaller",
+   "img": "data:draw,cmp,size,small,en",
+   "parts": [
+    {
+     "t": "smaller",
+     "audio": "words/smaller.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/smaller.mp3"
+   }
+  }
+ ],
  "tabs": [
   "read",
+  "words",
   "quiz",
   "booklet",
   "workbook"
  ],
  "tabLabels": {
-  "read": "Explain"
+  "read": "Explain",
+  "words": "Words"
  },
  "type": "math",
  "math": {
@@ -85,5 +114,12 @@
    "text": "Numbers get bigger as you go to the right.",
    "textAudio": "words/bigger-right.mp3"
   }
- }
+ },
+ "hints": {
+  "vocabPick": "Pick a word",
+  "vocabTeach": "Listen and repeat",
+  "vocabWrite": "Write the word letter by letter",
+  "word": "Tap any word you hear"
+ },
+ "vocabRepeats": 3
 }

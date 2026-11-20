@@ -2,145 +2,8 @@
  "sets": [
   {
    "type": "mcq",
-   "ex": 1,
-   "page": 82,
-   "task": "نحل المسائل.",
-   "items": [
-    {
-     "ask": "ما ناتج 12 زائد 2؟",
-     "stem": "12 + 2 = __",
-     "options": [
-      "13",
-      "14",
-      "15"
-     ],
-     "answer": 1,
-     "askSay": "ما ناتج 12 زائد 2؟",
-     "word": "أربعة عشر.",
-     "askAudio": "../../math-ar-audio/f0c4edf415.mp3",
-     "audio": "../../math-ar-audio/76699d99af.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 2,
-   "page": 82,
-   "task": "نحل المسائل.",
-   "items": [
-    {
-     "ask": "ما ناتج 16 ناقص 1؟",
-     "stem": "16 - 1 = __",
-     "options": [
-      "14",
-      "15",
-      "16"
-     ],
-     "answer": 1,
-     "askSay": "ما ناتج 16 ناقص 1؟",
-     "word": "خمسة عشر.",
-     "askAudio": "../../math-ar-audio/e857f6934f.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 3,
-   "page": 82,
-   "task": "نحل المسائل.",
-   "items": [
-    {
-     "ask": "ما ناتج 19 ناقص 7؟",
-     "stem": "19 - 7 = __",
-     "options": [
-      "11",
-      "12",
-      "13"
-     ],
-     "answer": 1,
-     "askSay": "ما ناتج 19 ناقص 7؟",
-     "word": "اثنا عشر.",
-     "askAudio": "../../math-ar-audio/68ca1f6073.mp3",
-     "audio": "../../math-ar-audio/71935794f9.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 4,
    "page": 83,
-   "task": "نحل المسائل.",
-   "items": [
-    {
-     "ask": "ما ناتج 16 زائد 2؟",
-     "stem": "16 + 2 = __",
-     "options": [
-      "17",
-      "18",
-      "19"
-     ],
-     "answer": 1,
-     "askSay": "ما ناتج 16 زائد 2؟",
-     "word": "ثمانية عشر.",
-     "askAudio": "../../math-ar-audio/c22ce4acdd.mp3",
-     "audio": "../../math-ar-audio/4dd34c7a6f.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 5,
-   "page": 83,
-   "task": "نحل المسائل.",
-   "items": [
-    {
-     "ask": "ما ناتج 12 ناقص 1؟",
-     "stem": "12 - 1 = __",
-     "options": [
-      "10",
-      "11",
-      "12"
-     ],
-     "answer": 1,
-     "askSay": "ما ناتج 12 ناقص 1؟",
-     "word": "أحد عشر.",
-     "askAudio": "../../math-ar-audio/d7a37fa20e.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 6,
-   "page": 83,
-   "task": "نحل المسائل.",
-   "items": [
-    {
-     "ask": "ما ناتج 14 ناقص 2؟",
-     "stem": "14 - 2 = __",
-     "options": [
-      "11",
-      "12",
-      "13"
-     ],
-     "answer": 1,
-     "askSay": "ما ناتج 14 ناقص 2؟",
-     "word": "اثنا عشر.",
-     "askAudio": "../../math-ar-audio/e187cc62af.mp3",
-     "audio": "../../math-ar-audio/71935794f9.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 7,
-   "page": 83,
-   "task": "نحل المسائل.",
+   "task": "نكتب العدد.",
    "items": [
     {
      "ask": "ما ناتج 14 زائد 2؟",
@@ -152,16 +15,28 @@
      ],
      "answer": 1,
      "askSay": "ما ناتج 14 زائد 2؟",
-     "word": "ستة عشر.",
-     "askAudio": "../../math-ar-audio/965bae6610.mp3",
-     "audio": "../../math-ar-audio/cc64b5c513.mp3"
+     "word": "أربعة عشر زائد اثنان يساوي ستة عشر.",
+     "askAudio": "../../math-ar-audio/965bae6610.mp3"
+    },
+    {
+     "ask": "ما ناتج 17 ناقص 4؟",
+     "stem": "17 − 4 = __",
+     "options": [
+      "12",
+      "13",
+      "14"
+     ],
+     "answer": 1,
+     "askSay": "ما ناتج 17 ناقص 4؟",
+     "word": "سبعة عشر ناقص أربعة يساوي ثلاثة عشر."
     }
    ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
+   "act": "u7l5ex",
+   "taskAudio": "../../math-ar-audio/216856bdb0.mp3",
+   "ex": 1
   },
   {
    "type": "mcq",
-   "ex": 8,
    "page": 83,
    "task": "نحل المسائل.",
    "items": [
@@ -175,19 +50,21 @@
      ],
      "answer": 1,
      "askSay": "ما ناتج 13 زائد 6؟",
-     "word": "تسعة عشر.",
-     "askAudio": "../../math-ar-audio/e9d7ae17e6.mp3",
-     "audio": "../../math-ar-audio/a7808919b9.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 9,
-   "page": 83,
-   "task": "نحل المسائل.",
-   "items": [
+     "word": "ثلاثة عشر زائد ستة يساوي تسعة عشر.",
+     "askAudio": "../../math-ar-audio/e9d7ae17e6.mp3"
+    },
+    {
+     "ask": "ما ناتج 15 زائد 3؟",
+     "stem": "15 + 3 = __",
+     "options": [
+      "17",
+      "18",
+      "19"
+     ],
+     "answer": 1,
+     "askSay": "ما ناتج 15 زائد 3؟",
+     "word": "خمسة عشر زائد ثلاثة يساوي ثمانية عشر."
+    },
     {
      "ask": "ما ناتج 11 زائد 3؟",
      "stem": "11 + 3 = __",
@@ -198,22 +75,12 @@
      ],
      "answer": 1,
      "askSay": "ما ناتج 11 زائد 3؟",
-     "word": "أربعة عشر.",
-     "askAudio": "../../math-ar-audio/c96e3db6a4.mp3",
-     "audio": "../../math-ar-audio/76699d99af.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 10,
-   "page": 83,
-   "task": "نحل المسائل.",
-   "items": [
+     "word": "أحد عشر زائد ثلاثة يساوي أربعة عشر.",
+     "askAudio": "../../math-ar-audio/c96e3db6a4.mp3"
+    },
     {
      "ask": "ما ناتج 16 ناقص 3؟",
-     "stem": "16 - 3 = __",
+     "stem": "16 − 3 = __",
      "options": [
       "12",
       "13",
@@ -221,21 +88,24 @@
      ],
      "answer": 1,
      "askSay": "ما ناتج 16 ناقص 3؟",
-     "word": "ثلاثة عشر.",
+     "word": "ستة عشر ناقص ثلاثة يساوي ثلاثة عشر.",
      "askAudio": "../../math-ar-audio/31850a7516.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 11,
-   "page": 83,
-   "task": "نحل المسائل.",
-   "items": [
+    },
+    {
+     "ask": "ما ناتج 19 ناقص 5؟",
+     "stem": "19 − 5 = __",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askSay": "ما ناتج 19 ناقص 5؟",
+     "word": "تسعة عشر ناقص خمسة يساوي أربعة عشر."
+    },
     {
      "ask": "ما ناتج 15 ناقص 4؟",
-     "stem": "15 - 4 = __",
+     "stem": "15 − 4 = __",
      "options": [
       "10",
       "11",
@@ -243,199 +113,215 @@
      ],
      "answer": 1,
      "askSay": "ما ناتج 15 ناقص 4؟",
-     "word": "أحد عشر.",
+     "word": "خمسة عشر ناقص أربعة يساوي أحد عشر.",
      "askAudio": "../../math-ar-audio/d5f74467da.mp3"
     }
    ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 12,
-   "page": 83,
-   "task": "نحل المسائل.",
-   "items": [
-    {
-     "ask": "يوجد 12 طفلاً. انضم إليهم 5 أطفال آخرين. كم عدد الأطفال الإجمالي الآن؟",
-     "stem": "12 + 5 = __",
-     "options": [
-      "16",
-      "17",
-      "18"
-     ],
-     "answer": 1,
-     "askSay": "يوجد 12 طفلاً. انضم إليهم 5 أطفال آخرين. كم عدد الأطفال الإجمالي الآن؟",
-     "word": "سبعة عشر طفلاً.",
-     "askAudio": "../../math-ar-audio/2f96b2bd9f.mp3",
-     "audio": "../../math-ar-audio/0f2324b961.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 13,
-   "page": 83,
-   "task": "نحل المسائل.",
-   "items": [
-    {
-     "ask": "عندك 16 حلوى. أعطيت منها 4. كم تبقى؟",
-     "stem": "16 - 4 = __",
-     "options": [
-      "11",
-      "12",
-      "13"
-     ],
-     "answer": 1,
-     "askSay": "عندك 16 حلوى. أعطيت منها 4. كم تبقى؟",
-     "word": "اثنتا عشرة حلوى.",
-     "askAudio": "../../math-ar-audio/6b69454618.mp3",
-     "audio": "../../math-ar-audio/9c59a23266.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 14,
-   "page": 83,
-   "task": "نحل المسائل.",
-   "items": [
-    {
-     "ask": "عندك 18 دفتراً. استخدمت منها 6. كم دفتراً لم يُستخدم؟",
-     "stem": "18 - 6 = __",
-     "options": [
-      "11",
-      "12",
-      "13"
-     ],
-     "answer": 1,
-     "askSay": "عندك 18 دفتراً. استخدمت منها 6. كم دفتراً لم يُستخدم؟",
-     "word": "اثنا عشر دفتراً.",
-     "askAudio": "../../math-ar-audio/e3ae2e65b0.mp3",
-     "audio": "../../math-ar-audio/876d2d2acb.mp3"
-    }
-   ],
-   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3"
+   "act": "u7l5ex",
+   "taskAudio": "../../math-ar-audio/1c848fe7ad.mp3",
+   "ex": 2
   },
   {
    "type": "mwrite",
-   "ex": 1,
-   "page": 57,
-   "task": "اكتب الجملة الرياضية والإجابة.",
+   "page": 83,
+   "task": "نكتب جملة الجمع والإجابة.",
    "items": [
     {
-     "ask": "مع أسامة 16 جنيهاً أعطى لأخته جنيهين. كم جنيهاً تبقت مع أسامة؟",
-     "lead": "جملة الطرح:",
-     "word": "16 − 2 = 14",
+     "pics": [
+      "../../pics/cat.png#14"
+     ],
+     "ask": "يوجد 14 قطة. ثم جاءت 4 قطط أخرى. كم عدد القطط الآن؟",
+     "lead": "جملة الجمع:",
+     "word": "14 + 4 = 18",
      "keys": "1234567890+−=",
-     "askSay": "مع أسامة 16 جنيهاً أعطى لأخته جنيهين. كم جنيهاً تبقت مع أسامة؟",
-     "askAudio": "../../math-ar-audio/0a6699eb84.mp3",
-     "audio": "../../math-ar-audio/4153663579.mp3"
+     "askSay": "يوجد 14 قطة. ثم جاءت 4 قطط أخرى. كم عدد القطط الآن؟",
+     "then": {
+      "options": [
+       "17 قطة",
+       "18 قطة",
+       "18"
+      ],
+      "answer": 1,
+      "askSay": "كم الإجابة؟",
+      "word": "الإجابة: 18 قطة",
+      "lead": "الإجابة:"
+     }
     }
    ],
-   "book": "workbook",
-   "taskAudio": "../../math-ar-audio/9d5408ce5e.mp3"
+   "act": "u7l5ex",
+   "ex": 3
+  },
+  {
+   "type": "mwrite",
+   "page": 83,
+   "task": "نكتب جملة الطرح والإجابة.",
+   "items": [
+    {
+     "pics": [
+      "../../pics/notebook.png#18"
+     ],
+     "ask": "عندك 18 دفترًا. استخدمت منها 6. كم دفترًا لم يُستخدم؟",
+     "lead": "جملة الطرح:",
+     "word": "18 − 6 = 12",
+     "keys": "1234567890+−=",
+     "askSay": "عندك 18 دفترًا. استخدمت منها 6. كم دفترًا لم يُستخدم؟",
+     "then": {
+      "options": [
+       "11 دفترًا",
+       "12 دفترًا",
+       "12"
+      ],
+      "answer": 1,
+      "askSay": "كم الإجابة؟",
+      "word": "الإجابة: 12 دفترًا",
+      "lead": "الإجابة:"
+     }
+    }
+   ],
+   "act": "u7l5ex",
+   "ex": 4
   },
   {
    "type": "mcq",
-   "ex": 2,
+   "page": 56,
+   "task": "نشاط 1: الكرات الحائرة، نجد الناتج.",
+   "items": [
+    {
+     "pics": [
+      "../../pics/sc-math-ar-u7l5-wb-a1.png"
+     ],
+     "ask": "نجد عدد الكرات الحائرة وهي أكبر من 10، ثم نجري عملية الجمع: 15 + 3 = ؟",
+     "stem": "الإجابة: __",
+     "options": [
+      "17",
+      "18",
+      "19"
+     ],
+     "answer": 1,
+     "askSay": "نجد عدد الكرات الحائرة وهي أكبر من 10، ثم نجري عملية الجمع: 15 + 3 = ؟",
+     "word": "خمسة عشر زائد ثلاثة يساوي ثمانية عشر.",
+     "noStem": true
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l5wb",
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "page": 56,
+   "task": "نشاط 2: ركل الكرات، نجد الناتج.",
+   "items": [
+    {
+     "pics": [
+      "../../pics/sc-math-ar-u7l5-wb-a2.png"
+     ],
+     "ask": "نجد عدد الكرات الحائرة وهي أكبر من 10، ثم نجري عملية الطرح: 14 − 2 = ؟",
+     "stem": "الإجابة: __",
+     "options": [
+      "11",
+      "12",
+      "13"
+     ],
+     "answer": 1,
+     "askSay": "نجد عدد الكرات الحائرة وهي أكبر من 10، ثم نجري عملية الطرح: 14 − 2 = ؟",
+     "word": "أربعة عشر ناقص اثنان يساوي اثنا عشر.",
+     "noStem": true
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l5wb",
+   "ex": 2
+  },
+  {
+   "type": "mwrite",
+   "page": 57,
+   "task": "نكتب جملة الطرح والإجابة.",
+   "items": [
+    {
+     "ask": "مع أسامة 16 جنيهًا أعطى لأخته جنيهين. كم جنيهًا تبقى مع أسامة؟",
+     "lead": "جملة الطرح:",
+     "word": "16 − 2 = 14",
+     "keys": "1234567890+−=",
+     "askSay": "مع أسامة 16 جنيهًا أعطى لأخته جنيهين. كم جنيهًا تبقى مع أسامة؟",
+     "audio": "../../math-ar-audio/4153663579.mp3",
+     "then": {
+      "options": [
+       "13 جنيهًا",
+       "14 جنيهًا",
+       "14"
+      ],
+      "answer": 1,
+      "askSay": "كم الإجابة؟",
+      "word": "الإجابة: 14 جنيهًا",
+      "lead": "الإجابة:"
+     }
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l5wb",
+   "ex": 3
+  },
+  {
+   "type": "mcq",
    "page": 57,
    "task": "أجب عما يأتي.",
    "items": [
     {
      "ask": "ما ناتج 14 زائد 5؟",
-     "stem": "الإجابة: __",
+     "stem": "14 + 5 = __",
      "options": [
+      "18",
       "19",
-      "21",
-      "20",
-      "18"
+      "20"
      ],
-     "answer": 0,
+     "answer": 1,
      "askSay": "ما ناتج 14 زائد 5؟",
-     "word": "الإجابة 19.",
-     "askAudio": "../../math-ar-audio/55331ac48a.mp3",
-     "audio": "../../math-ar-audio/db7e384400.mp3"
-    }
-   ],
-   "book": "workbook",
-   "taskAudio": "../../math-ar-audio/6b42a5ac08.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 3,
-   "page": 57,
-   "task": "أجب عما يأتي.",
-   "items": [
+     "word": "أربعة عشر زائد خمسة يساوي تسعة عشر.",
+     "askAudio": "../../math-ar-audio/55331ac48a.mp3"
+    },
     {
      "ask": "ما ناتج 19 ناقص 3؟",
-     "stem": "الإجابة: __",
+     "stem": "19 − 3 = __",
      "options": [
-      "16",
-      "17",
       "15",
-      "18"
+      "16",
+      "17"
      ],
-     "answer": 0,
+     "answer": 1,
      "askSay": "ما ناتج 19 ناقص 3؟",
-     "word": "الإجابة 16.",
-     "askAudio": "../../math-ar-audio/1f4431a4f5.mp3",
-     "audio": "../../math-ar-audio/c697a8fba9.mp3"
-    }
-   ],
-   "book": "workbook",
-   "taskAudio": "../../math-ar-audio/6b42a5ac08.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 4,
-   "page": 57,
-   "task": "أجب عما يأتي.",
-   "items": [
+     "word": "تسعة عشر ناقص ثلاثة يساوي ستة عشر.",
+     "askAudio": "../../math-ar-audio/1f4431a4f5.mp3"
+    },
     {
-     "ask": "اجمع: 11 + 6 = ؟",
-     "stem": "الإجابة: __",
+     "ask": "ما ناتج 11 زائد 6؟",
+     "stem": "11 + 6 = __",
      "options": [
-      "17",
-      "19",
       "16",
+      "17",
       "18"
      ],
-     "answer": 0,
-     "askSay": "اجمع: 11 + 6 = ؟",
-     "word": "الإجابة 17.",
-     "askAudio": "../../math-ar-audio/ab72d7358f.mp3",
-     "audio": "../../math-ar-audio/9fa874cbab.mp3"
-    }
-   ],
-   "book": "workbook",
-   "taskAudio": "../../math-ar-audio/6b42a5ac08.mp3"
-  },
-  {
-   "type": "mcq",
-   "ex": 5,
-   "page": 57,
-   "task": "أجب عما يأتي.",
-   "items": [
+     "answer": 1,
+     "askSay": "ما ناتج 11 زائد 6؟",
+     "word": "أحد عشر زائد ستة يساوي سبعة عشر."
+    },
     {
-     "ask": "اطرح: 18 − 4 = ؟",
-     "stem": "الإجابة: __",
+     "ask": "ما ناتج 18 ناقص 4؟",
+     "stem": "18 − 4 = __",
      "options": [
-      "16",
-      "14",
       "13",
+      "14",
       "15"
      ],
      "answer": 1,
-     "askSay": "اطرح: 18 − 4 = ؟",
-     "word": "الإجابة 14.",
-     "askAudio": "../../math-ar-audio/9e09b4fefa.mp3",
-     "audio": "../../math-ar-audio/d806a1b01c.mp3"
+     "askSay": "ما ناتج 18 ناقص 4؟",
+     "word": "ثمانية عشر ناقص أربعة يساوي أربعة عشر."
     }
    ],
    "book": "workbook",
-   "taskAudio": "../../math-ar-audio/6b42a5ac08.mp3"
+   "act": "u7l5wb",
+   "taskAudio": "../../math-ar-audio/6b42a5ac08.mp3",
+   "ex": 4
   }
  ]
 }

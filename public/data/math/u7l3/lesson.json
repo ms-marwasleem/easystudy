@@ -18,14 +18,22 @@
   "read": "Lesson",
   "quiz": "Exercise"
  },
- "pages": 6,
+ "pages": 14,
  "pageNums": [
   76,
   76,
   76,
   76,
   76,
-  76
+  76,
+  76,
+  76,
+  77,
+  77,
+  77,
+  77,
+  77,
+  77
  ],
  "layout": "explain",
  "explain": {
@@ -284,6 +292,109 @@
     ]
    },
    {
+    "name": "Warm Up: strip 14 15",
+    "beats": [
+     {
+      "say": "Warm up! Look at the numbers. Which numbers are missing?",
+      "do": [
+       {
+        "scene": "seq",
+        "seq": [
+         14,
+         15,
+         "?",
+         17,
+         "?"
+        ],
+        "rtl": false,
+        "plain": false
+       }
+      ],
+      "audio": "explain/u3-wa-1.mp3"
+     },
+     {
+      "say": "Fourteen, fifteen, sixteen.",
+      "do": [
+       {
+        "seqset": {
+         "i": 2,
+         "v": "16"
+        }
+       }
+      ],
+      "audio": "explain/u3-wa-2.mp3"
+     },
+     {
+      "say": "Sixteen, seventeen, eighteen.",
+      "do": [
+       {
+        "seqset": {
+         "i": 4,
+         "v": "18"
+        }
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/u3-wa-3.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Warm Up: strip 10 12",
+    "beats": [
+     {
+      "say": "Look at the numbers. Did you notice? The numbers go up by two.",
+      "do": [
+       {
+        "scene": "seq",
+        "seq": [
+         10,
+         12,
+         "?",
+         16,
+         "?",
+         20
+        ],
+        "rtl": false,
+        "plain": false
+       }
+      ],
+      "audio": "explain/u3-wb-1.mp3"
+     },
+     {
+      "say": "Ten, twelve, fourteen.",
+      "do": [
+       {
+        "seqset": {
+         "i": 2,
+         "v": "14"
+        }
+       }
+      ],
+      "audio": "explain/u3-wb-2.mp3"
+     },
+     {
+      "say": "Sixteen, eighteen, twenty.",
+      "do": [
+       {
+        "seqset": {
+         "i": 4,
+         "v": "18"
+        }
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/u3-wb-3.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
     "name": "4 more than 11",
     "beats": [
      {
@@ -303,6 +414,11 @@
          ],
          "color": "blue"
         }
+       },
+       {
+        "add": "11",
+        "card": true,
+        "color": "blue"
        }
       ]
      },
@@ -310,6 +426,11 @@
       "say": "Jump four to the right.",
       "audio": "explain/m2.mp3",
       "do": [
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
+       },
        {
         "count": true,
         "pts": [
@@ -351,7 +472,7 @@
         }
        },
        {
-        "add": "11 + 4 = 15",
+        "add": "= 15",
         "card": true,
         "color": "green"
        },
@@ -383,6 +504,11 @@
          ],
          "color": "blue"
         }
+       },
+       {
+        "add": "18",
+        "card": true,
+        "color": "blue"
        }
       ]
      },
@@ -390,6 +516,11 @@
       "say": "Jump seven to the left.",
       "audio": "explain/n2.mp3",
       "do": [
+       {
+        "add": "− 7",
+        "card": true,
+        "color": "orange"
+       },
        {
         "count": true,
         "pts": [
@@ -443,7 +574,7 @@
         }
        },
        {
-        "add": "18 - 7 = 11",
+        "add": "= 11",
         "card": true,
         "color": "green"
        },
@@ -451,6 +582,440 @@
         "cheer": true
        }
       ],
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 1: 12 or 8",
+    "beats": [
+     {
+      "say": "Try! Which number is bigger? Twelve or eight?",
+      "do": [
+       {
+        "scene": "seq",
+        "seq": [
+         12,
+         8
+        ],
+        "rtl": false,
+        "plain": true
+       }
+      ],
+      "audio": "explain/u3-t11-1.mp3"
+     },
+     {
+      "say": "Tap the bigger number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "12",
+          "8"
+         ],
+         "answer": "12"
+        }
+       }
+      ],
+      "audio": "explain/u3-t11-2.mp3"
+     },
+     {
+      "say": "Yes! Twelve is bigger than eight.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          363,
+          2,
+          487,
+          118
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/u3-t11-3.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 2: 17 or 19",
+    "beats": [
+     {
+      "say": "Try! Which number is bigger? Seventeen or nineteen?",
+      "do": [
+       {
+        "scene": "seq",
+        "seq": [
+         17,
+         19
+        ],
+        "rtl": false,
+        "plain": true
+       }
+      ],
+      "audio": "explain/u3-t12-1.mp3"
+     },
+     {
+      "say": "Tap the bigger number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "17",
+          "19"
+         ],
+         "answer": "19"
+        }
+       }
+      ],
+      "audio": "explain/u3-t12-2.mp3"
+     },
+     {
+      "say": "Yes! Nineteen is bigger than seventeen.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          513,
+          2,
+          637,
+          118
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/u3-t12-3.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 1: strip",
+    "beats": [
+     {
+      "say": "Try! Write the number that goes in the box.",
+      "do": [
+       {
+        "scene": "seq",
+        "seq": [
+         12,
+         "?",
+         14,
+         "?",
+         "?",
+         17
+        ],
+        "rtl": false,
+        "plain": false
+       }
+      ],
+      "audio": "explain/u3-t21-1.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "12",
+          "13",
+          "14"
+         ],
+         "answer": "13"
+        }
+       }
+      ],
+      "audio": "explain/u3-t2-ask.mp3"
+     },
+     {
+      "say": "Thirteen.",
+      "do": [
+       {
+        "seqset": {
+         "i": 1,
+         "v": "13"
+        }
+       }
+      ],
+      "audio": "explain/u3-t2-13.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "14",
+          "15",
+          "16"
+         ],
+         "answer": "15"
+        }
+       }
+      ],
+      "audio": "explain/u3-t2-ask.mp3"
+     },
+     {
+      "say": "Fifteen.",
+      "do": [
+       {
+        "seqset": {
+         "i": 3,
+         "v": "15"
+        }
+       }
+      ],
+      "audio": "explain/u3-t2-15.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "15",
+          "16",
+          "17"
+         ],
+         "answer": "16"
+        }
+       }
+      ],
+      "audio": "explain/u3-t2-ask.mp3"
+     },
+     {
+      "say": "Sixteen.",
+      "do": [
+       {
+        "seqset": {
+         "i": 4,
+         "v": "16"
+        }
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/u3-t2-16.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 2: strip",
+    "beats": [
+     {
+      "say": "Try! Write the number that goes in the box.",
+      "do": [
+       {
+        "scene": "seq",
+        "seq": [
+         10,
+         "?",
+         14,
+         "?",
+         18,
+         20
+        ],
+        "rtl": false,
+        "plain": false
+       }
+      ],
+      "audio": "explain/u3-t22-1.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "11",
+          "12",
+          "13"
+         ],
+         "answer": "12"
+        }
+       }
+      ],
+      "audio": "explain/u3-t2-ask.mp3"
+     },
+     {
+      "say": "Twelve.",
+      "do": [
+       {
+        "seqset": {
+         "i": 1,
+         "v": "12"
+        }
+       }
+      ],
+      "audio": "explain/u3-t2-12.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "15",
+          "16",
+          "17"
+         ],
+         "answer": "16"
+        }
+       }
+      ],
+      "audio": "explain/u3-t2-ask.mp3"
+     },
+     {
+      "say": "Sixteen.",
+      "do": [
+       {
+        "seqset": {
+         "i": 3,
+         "v": "16"
+        }
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/u3-t2-16.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 3: strip",
+    "beats": [
+     {
+      "say": "Try! Write the number that goes in the box.",
+      "do": [
+       {
+        "scene": "seq",
+        "seq": [
+         18,
+         "?",
+         16,
+         15,
+         "?",
+         13
+        ],
+        "rtl": false,
+        "plain": false
+       }
+      ],
+      "audio": "explain/u3-t23-1.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "16",
+          "17",
+          "18"
+         ],
+         "answer": "17"
+        }
+       }
+      ],
+      "audio": "explain/u3-t2-ask.mp3"
+     },
+     {
+      "say": "Seventeen.",
+      "do": [
+       {
+        "seqset": {
+         "i": 1,
+         "v": "17"
+        }
+       }
+      ],
+      "audio": "explain/u3-t2-17.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "13",
+          "14",
+          "15"
+         ],
+         "answer": "14"
+        }
+       }
+      ],
+      "audio": "explain/u3-t2-ask.mp3"
+     },
+     {
+      "say": "Fourteen.",
+      "do": [
+       {
+        "seqset": {
+         "i": 4,
+         "v": "14"
+        }
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/u3-t2-14.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try: put the cards in order",
+    "beats": [
+     {
+      "say": "Try! Put the cards in order from least to greatest.",
+      "do": [
+       {
+        "scene": "seq",
+        "seq": [
+         15,
+         12,
+         17,
+         13
+        ],
+        "rtl": false,
+        "plain": true
+       },
+       {
+        "order": {
+         "chunks": [
+          "12",
+          "13",
+          "15",
+          "17"
+         ]
+        }
+       }
+      ],
+      "audio": "explain/u3-t4-1.mp3"
+     },
+     {
+      "say": "Twelve, thirteen, fifteen, seventeen.",
+      "do": [
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/u3-t4-2.mp3",
       "gap": 1000
      }
     ]

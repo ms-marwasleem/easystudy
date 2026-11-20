@@ -9,59 +9,7 @@
    "items": [
     {
      "pics": [
-      "../../pics/sc-math-ar-u7l1-story-1.png"
-     ],
-     "ask": "How many strawberries are there?",
-     "stem": "There are __ strawberries.",
-     "options": [
-      "16",
-      "17",
-      "18"
-     ],
-     "answer": 1,
-     "askSay": "How many strawberries are there?",
-     "askAudio": "q/st-q.mp3",
-     "audio": "q/st-a.mp3",
-     "word": "Seventeen strawberries."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 2,
-   "page": 73,
-   "task": "Write the number.",
-   "taskAudio": "q/task-num.mp3",
-   "items": [
-    {
-     "pics": [
-      "../../pics/sc-math-ar-u7l1-story-2.png"
-     ],
-     "ask": "How many eggs are there?",
-     "stem": "There are __ eggs.",
-     "options": [
-      "18",
-      "19",
-      "20"
-     ],
-     "answer": 2,
-     "askSay": "How many eggs are there?",
-     "askAudio": "q/eg-q.mp3",
-     "audio": "q/eg-a.mp3",
-     "word": "Twenty eggs."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 3,
-   "page": 73,
-   "task": "Write the number.",
-   "taskAudio": "q/task-num.mp3",
-   "items": [
-    {
-     "pics": [
-      "../../pics/sc-math-ar-u7l1-story-3.png"
+      "../../pics/sc-math-u7l1-ex-birds.png"
      ],
      "ask": "How many birds are there?",
      "stem": "There are __ birds.",
@@ -80,14 +28,14 @@
   },
   {
    "type": "mcq",
-   "ex": 4,
+   "ex": 2,
    "page": 73,
    "task": "Write the number.",
    "taskAudio": "q/task-num.mp3",
    "items": [
     {
      "pics": [
-      "../../pics/sc-math-ar-u7l1-story-4.png"
+      "../../pics/sc-math-u7l1-ex-cookies.png"
      ],
      "ask": "How many cookies are there?",
      "stem": "There are __ cookies.",
@@ -106,66 +54,14 @@
   },
   {
    "type": "mcq",
-   "ex": 5,
+   "ex": 3,
    "page": 73,
    "task": "Look at the picture and answer.",
    "taskAudio": "q/task-look.mp3",
    "items": [
     {
      "pics": [
-      "../../pics/sc-math-ar-u7l1-story-5.png"
-     ],
-     "ask": "How many children are standing in line?",
-     "stem": "There are __ children.",
-     "options": [
-      "12",
-      "13",
-      "14"
-     ],
-     "answer": 1,
-     "askSay": "How many children are standing in line?",
-     "askAudio": "q/l1n-q.mp3",
-     "audio": "q/l1n-a.mp3",
-     "word": "Thirteen children."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 6,
-   "page": 73,
-   "task": "Look at the picture and answer.",
-   "taskAudio": "q/task-look.mp3",
-   "items": [
-    {
-     "pics": [
-      "../../pics/sc-math-ar-u7l1-story-5.png"
-     ],
-     "ask": "What position is Hassan from the front?",
-     "stem": "Hassan is __ from the front.",
-     "options": [
-      "tenth",
-      "eleventh",
-      "twelfth"
-     ],
-     "answer": 1,
-     "askSay": "What position is Hassan from the front?",
-     "askAudio": "q/l1p-q.mp3",
-     "audio": "q/l1p-a.mp3",
-     "word": "Hassan is eleventh from the front."
-    }
-   ]
-  },
-  {
-   "type": "mcq",
-   "ex": 7,
-   "page": 73,
-   "task": "Look at the picture and answer.",
-   "taskAudio": "q/task-look.mp3",
-   "items": [
-    {
-     "pics": [
-      "../../pics/sc-math-ar-u7l1-story-6.png"
+      "../../pics/sc-math-u7l1-line-sara.png"
      ],
      "ask": "How many children are standing in line?",
      "stem": "There are __ children.",
@@ -184,14 +80,14 @@
   },
   {
    "type": "mcq",
-   "ex": 8,
+   "ex": 4,
    "page": 73,
    "task": "Look at the picture and answer.",
    "taskAudio": "q/task-look.mp3",
    "items": [
     {
      "pics": [
-      "../../pics/sc-math-ar-u7l1-story-6.png"
+      "../../pics/sc-math-u7l1-line-sara.png"
      ],
      "ask": "What position is Sara from the front?",
      "stem": "Sara is __ from the front.",
@@ -207,6 +103,143 @@
      "word": "Sara is twelfth from the front."
     }
    ]
+  },
+  {
+   "type": "count",
+   "page": 56,
+   "task": "Count and write the number.",
+   "typed": true,
+   "items": [
+    {
+     "img": "../../pics/balloon.png",
+     "n": 12,
+     "word": "twelve",
+     "audio": "words/twelve.mp3"
+    },
+    {
+     "img": "../../pics/star.png",
+     "n": 14,
+     "word": "fourteen",
+     "audio": "words/fourteen.mp3"
+    },
+    {
+     "img": "../../pics/apple-toon.png",
+     "n": 11,
+     "word": "eleven",
+     "audio": "words/eleven.mp3"
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l1wb",
+   "taskAudio": "q/wb71-task-u7l1wb.mp3",
+   "ex": 1
+  },
+  {
+   "type": "mcq",
+   "page": 56,
+   "task": "Observe the line and answer.",
+   "items": [
+    {
+     "pics": [
+      "../../pics/sc-math-u7l1-wb-line.png"
+     ],
+     "ask": "How many children are in the line?",
+     "stem": "There are ___ children.",
+     "options": [
+      "13",
+      "14",
+      "15"
+     ],
+     "answer": 1,
+     "askSay": "How many children are in the line?",
+     "word": "There are 14 children.",
+     "noStem": true,
+     "askAudio": "q/wb71-q1-q.mp3",
+     "audio": "q/wb71-q1-a.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/sc-math-u7l1-wb-line.png"
+     ],
+     "ask": "What is the position of Nabil from the back?",
+     "stem": "Nabil is ___ from the back.",
+     "options": [
+      "twelfth",
+      "thirteenth",
+      "fourteenth"
+     ],
+     "answer": 1,
+     "askSay": "What is the position of Nabil from the back?",
+     "word": "Nabil is thirteenth from the back.",
+     "noStem": true,
+     "askAudio": "q/wb71-q2-q.mp3",
+     "audio": "q/wb71-q2-a.mp3"
+    },
+    {
+     "pics": [
+      "../../pics/sc-math-u7l1-wb-line.png"
+     ],
+     "ask": "What is the position of Amer from the front?",
+     "stem": "Amer is ___ from the front.",
+     "options": [
+      "tenth",
+      "eleventh",
+      "twelfth"
+     ],
+     "answer": 1,
+     "askSay": "What is the position of Amer from the front?",
+     "word": "Amer is eleventh from the front.",
+     "noStem": true,
+     "askAudio": "q/wb71-q3-q.mp3",
+     "audio": "q/wb71-q3-a.mp3"
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l1wb",
+   "taskAudio": "q/wb71-task-line.mp3",
+   "ex": 2
+  },
+  {
+   "type": "count",
+   "page": 56,
+   "task": "Count, then write the number.",
+   "typed": true,
+   "items": [
+    {
+     "img": "../../pics/sunflower-glasses.png",
+     "n": 11,
+     "word": "eleven",
+     "audio": "words/eleven.mp3"
+    },
+    {
+     "img": "../../pics/heart.png",
+     "n": 16,
+     "word": "sixteen",
+     "audio": "words/sixteen.mp3"
+    },
+    {
+     "img": "../../pics/sunflower-glasses.png",
+     "n": 13,
+     "word": "thirteen",
+     "audio": "words/thirteen.mp3"
+    },
+    {
+     "img": "../../pics/flower-red.png",
+     "n": 15,
+     "word": "fifteen",
+     "audio": "words/fifteen.mp3"
+    },
+    {
+     "img": "../../pics/strawberry-u4l3.png",
+     "n": 17,
+     "word": "seventeen",
+     "audio": "words/seventeen.mp3"
+    }
+   ],
+   "book": "workbook",
+   "act": "u7l1wb",
+   "taskAudio": "q/wb71-task-u7l1wb.mp3",
+   "ex": 3
   }
  ]
 }

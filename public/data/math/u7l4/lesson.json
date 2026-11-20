@@ -18,13 +18,23 @@
   "read": "Lesson",
   "quiz": "Exercise"
  },
- "pages": 5,
+ "pages": 15,
  "pageNums": [
   80,
   80,
   80,
   80,
-  80
+  80,
+  80,
+  80,
+  81,
+  81,
+  81,
+  81,
+  81,
+  81,
+  81,
+  81
  ],
  "layout": "explain",
  "explain": {
@@ -136,6 +146,167 @@
     ]
    },
    {
+    "name": "13 - 3",
+    "beats": [
+     {
+      "say": "Thirteen. Take away three.",
+      "audio": "explain/s2-a.mp3",
+      "do": [
+       {
+        "scene": "tens",
+        "n": 13,
+        "wide": true
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "13",
+        "big": true
+       },
+       {
+        "wait": 1300
+       },
+       {
+        "add": "-",
+        "big": true
+       },
+       {
+        "add": "3",
+        "big": true
+       }
+      ]
+     },
+     {
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ]
+        ],
+        "color": "red",
+        "r": 24,
+        "out": true
+       }
+      ]
+     },
+     {
+      "say": "Ten is left.",
+      "audio": "explain/s2-c.mp3",
+      "do": [
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "10",
+        "big": true,
+        "card": true
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "10 + 2",
+    "beats": [
+     {
+      "say": "Ten.",
+      "do": [
+       {
+        "scene": "tens",
+        "wide": true,
+        "n": 12,
+        "show": 10
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "10",
+        "big": true
+       }
+      ],
+      "audio": "explain/v4-91dcf5a484.mp3"
+     },
+     {
+      "say": "Add two.",
+      "do": [
+       {
+        "add": "+",
+        "big": true
+       },
+       {
+        "add": "2",
+        "big": true,
+        "color": "orange"
+       },
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ]
+        ],
+        "color": "orange",
+        "r": 24,
+        "start": 11
+       }
+      ],
+      "audio": "explain/v4-50bdf260f6.mp3"
+     },
+     {
+      "say": "Ten and two make twelve.",
+      "do": [
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "12",
+        "big": true,
+        "card": true
+       }
+      ],
+      "audio": "explain/v4-afd03bbbc0.mp3",
+      "gap": 1200
+     }
+    ]
+   },
+   {
     "name": "10 + 8",
     "beats": [
      {
@@ -239,16 +410,15 @@
     ]
    },
    {
-    "name": "13 - 3",
+    "name": "12 - 2",
     "beats": [
      {
-      "say": "Thirteen. Take away three.",
-      "audio": "explain/s2-a.mp3",
+      "say": "Twelve. Take away two.",
       "do": [
        {
         "scene": "tens",
-        "n": 13,
-        "wide": true
+        "wide": true,
+        "n": 12
        },
        {
         "frame": {
@@ -262,7 +432,7 @@
         }
        },
        {
-        "add": "13",
+        "add": "12",
         "big": true
        },
        {
@@ -273,10 +443,11 @@
         "big": true
        },
        {
-        "add": "3",
+        "add": "2",
         "big": true
        }
-      ]
+      ],
+      "audio": "explain/v4-043a621d64.mp3"
      },
      {
       "do": [
@@ -290,10 +461,6 @@
          [
           213,
           203
-         ],
-         [
-          293,
-          203
          ]
         ],
         "color": "red",
@@ -304,7 +471,6 @@
      },
      {
       "say": "Ten is left.",
-      "audio": "explain/s2-c.mp3",
       "do": [
        {
         "add": "=",
@@ -316,6 +482,7 @@
         "card": true
        }
       ],
+      "audio": "explain/v4-f2b506168b.mp3",
       "gap": 1200
      }
     ]
@@ -419,16 +586,216 @@
     ]
    },
    {
-    "name": "14 - 4",
+    "name": "Warm Up: strawberries",
     "beats": [
      {
-      "say": "Fourteen. Take away four.",
-      "audio": "explain/s4-a.mp3",
+      "say": "Warm up! There are fourteen strawberries. You eat four. How many are left?",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "s0",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 250,
+          "y": 20,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s1",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 360,
+          "y": 20,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s2",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 470,
+          "y": 20,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s3",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 580,
+          "y": 20,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s4",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 690,
+          "y": 20,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s5",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 250,
+          "y": 134,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s6",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 360,
+          "y": 134,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s7",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 470,
+          "y": 134,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s8",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 580,
+          "y": 134,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s9",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 690,
+          "y": 134,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s10",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 250,
+          "y": 248,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s11",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 360,
+          "y": 248,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s12",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 470,
+          "y": 248,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "s13",
+          "img": "../../pics/strawberry-u4l3.png",
+          "x": 580,
+          "y": 248,
+          "w": 100,
+          "h": 100
+         }
+        ],
+        "ih": 340,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v4-e16e6595f9.mp3"
+     },
+     {
+      "say": "You eat four.",
+      "do": [
+       {
+        "cross": true,
+        "pts": [
+         [
+          300,
+          298
+         ],
+         [
+          410,
+          298
+         ],
+         [
+          520,
+          298
+         ],
+         [
+          630,
+          298
+         ]
+        ],
+        "r": 46,
+        "color": "red"
+       }
+      ],
+      "audio": "explain/v4-94c5930b2b.mp3"
+     },
+     {
+      "say": "Fourteen minus four equals ten.",
+      "do": [
+       {
+        "add": "14",
+        "card": true,
+        "color": "blue"
+       },
+       {
+        "add": "− 4",
+        "card": true,
+        "color": "red"
+       },
+       {
+        "add": "= 10",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "explain/v4-5c06c2da84.mp3"
+     },
+     {
+      "say": "Answer: ten strawberries.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "Answer:"
+       },
+       {
+        "add": "10 strawberries",
+        "card": true
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-6ac1468626.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 1: 10 + 1",
+    "beats": [
+     {
+      "say": "Try! Ten plus one?",
       "do": [
        {
         "scene": "tens",
-        "n": 14,
-        "wide": true
+        "wide": true,
+        "n": 11,
+        "show": 10
        },
        {
         "frame": {
@@ -442,23 +809,247 @@
         }
        },
        {
-        "add": "14",
+        "add": "10",
         "big": true
        },
        {
-        "wait": 1300
+        "add": "+",
+        "big": true
        },
        {
-        "add": "-",
+        "add": "1",
+        "big": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-437495122a.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "10",
+          "11",
+          "12"
+         ],
+         "answer": "11"
+        }
+       }
+      ],
+      "audio": "explain/v4-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Ten plus one equals eleven.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ]
+        ],
+        "color": "orange",
+        "r": 24,
+        "start": 11
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "11",
+        "big": true,
+        "card": true
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-2781c863d5.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 2: 10 + 9",
+    "beats": [
+     {
+      "say": "Try! Ten plus nine?",
+      "do": [
+       {
+        "scene": "tens",
+        "wide": true,
+        "n": 19,
+        "show": 10
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "10",
+        "big": true
+       },
+       {
+        "add": "+",
+        "big": true
+       },
+       {
+        "add": "9",
+        "big": true,
+        "color": "orange"
+       }
+      ],
+      "audio": "explain/v4-9e734b676f.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "18",
+          "19",
+          "20"
+         ],
+         "answer": "19"
+        }
+       }
+      ],
+      "audio": "explain/v4-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Ten plus nine equals nineteen.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ],
+         [
+          373,
+          203
+         ],
+         [
+          453,
+          203
+         ],
+         [
+          533,
+          203
+         ],
+         [
+          613,
+          203
+         ],
+         [
+          693,
+          203
+         ],
+         [
+          773,
+          203
+         ]
+        ],
+        "color": "orange",
+        "r": 24,
+        "start": 11
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "19",
+        "big": true,
+        "card": true
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-6b7f71f336.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 3: 10 + 4",
+    "beats": [
+     {
+      "say": "Try! Ten plus four?",
+      "do": [
+       {
+        "scene": "tens",
+        "wide": true,
+        "n": 14,
+        "show": 10
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "10",
+        "big": true
+       },
+       {
+        "add": "+",
         "big": true
        },
        {
         "add": "4",
-        "big": true
+        "big": true,
+        "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v4-789a5067a4.mp3"
      },
      {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "13",
+          "14",
+          "15"
+         ],
+         "answer": "14"
+        }
+       }
+      ],
+      "audio": "explain/v4-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Ten plus four equals fourteen.",
       "do": [
        {
         "count": true,
@@ -480,16 +1071,112 @@
           203
          ]
         ],
+        "color": "orange",
+        "r": 24,
+        "start": 11
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "14",
+        "big": true,
+        "card": true
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-04f9b363f9.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 4: 15 - 5",
+    "beats": [
+     {
+      "say": "Try! Fifteen minus five?",
+      "do": [
+       {
+        "scene": "tens",
+        "wide": true,
+        "n": 15
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "15",
+        "big": true
+       },
+       {
+        "add": "-",
+        "big": true
+       },
+       {
+        "add": "5",
+        "big": true
+       }
+      ],
+      "audio": "explain/v4-1427aefe2a.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "9",
+          "10",
+          "11"
+         ],
+         "answer": "10"
+        }
+       }
+      ],
+      "audio": "explain/v4-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Fifteen minus five equals ten.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ],
+         [
+          373,
+          203
+         ],
+         [
+          453,
+          203
+         ]
+        ],
         "color": "red",
         "r": 24,
         "out": true
-       }
-      ]
-     },
-     {
-      "say": "Ten is left.",
-      "audio": "explain/s4-c.mp3",
-      "do": [
+       },
        {
         "add": "=",
         "big": true
@@ -498,9 +1185,710 @@
         "add": "10",
         "big": true,
         "card": true
+       },
+       {
+        "cheer": true
        }
       ],
-      "gap": 1200
+      "audio": "explain/v4-294b80e8a3.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 5: 18 - 8",
+    "beats": [
+     {
+      "say": "Try! Eighteen minus eight?",
+      "do": [
+       {
+        "scene": "tens",
+        "wide": true,
+        "n": 18
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "18",
+        "big": true
+       },
+       {
+        "add": "-",
+        "big": true
+       },
+       {
+        "add": "8",
+        "big": true
+       }
+      ],
+      "audio": "explain/v4-ff9a4f77e9.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "9",
+          "10",
+          "11"
+         ],
+         "answer": "10"
+        }
+       }
+      ],
+      "audio": "explain/v4-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Eighteen minus eight equals ten.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ],
+         [
+          373,
+          203
+         ],
+         [
+          453,
+          203
+         ],
+         [
+          533,
+          203
+         ],
+         [
+          613,
+          203
+         ],
+         [
+          693,
+          203
+         ]
+        ],
+        "color": "red",
+        "r": 24,
+        "out": true
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "10",
+        "big": true,
+        "card": true
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-ccd422faff.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 6: 19 - 9",
+    "beats": [
+     {
+      "say": "Try! Nineteen minus nine?",
+      "do": [
+       {
+        "scene": "tens",
+        "wide": true,
+        "n": 19
+       },
+       {
+        "frame": {
+         "box": [
+          90,
+          40,
+          906,
+          126
+         ],
+         "color": "green"
+        }
+       },
+       {
+        "add": "19",
+        "big": true
+       },
+       {
+        "add": "-",
+        "big": true
+       },
+       {
+        "add": "9",
+        "big": true
+       }
+      ],
+      "audio": "explain/v4-45d7024c3d.mp3"
+     },
+     {
+      "say": "Tap the number.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "9",
+          "10",
+          "11"
+         ],
+         "answer": "10"
+        }
+       }
+      ],
+      "audio": "explain/v4-0ef309003c.mp3"
+     },
+     {
+      "say": "Yes! Nineteen minus nine equals ten.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          133,
+          203
+         ],
+         [
+          213,
+          203
+         ],
+         [
+          293,
+          203
+         ],
+         [
+          373,
+          203
+         ],
+         [
+          453,
+          203
+         ],
+         [
+          533,
+          203
+         ],
+         [
+          613,
+          203
+         ],
+         [
+          693,
+          203
+         ],
+         [
+          773,
+          203
+         ]
+        ],
+        "color": "red",
+        "r": 24,
+        "out": true
+       },
+       {
+        "add": "=",
+        "big": true
+       },
+       {
+        "add": "10",
+        "big": true,
+        "card": true
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-dc9a35f02c.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try: cats",
+    "beats": [
+     {
+      "say": "Try! There are ten cats. Then six more come. How many cats are there now?",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "a0",
+          "img": "../../pics/cat.png",
+          "x": 40,
+          "y": 20,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "a1",
+          "img": "../../pics/cat.png",
+          "x": 150,
+          "y": 20,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "a2",
+          "img": "../../pics/cat.png",
+          "x": 260,
+          "y": 20,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "a3",
+          "img": "../../pics/cat.png",
+          "x": 370,
+          "y": 20,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "a4",
+          "img": "../../pics/cat.png",
+          "x": 480,
+          "y": 20,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "a5",
+          "img": "../../pics/cat.png",
+          "x": 40,
+          "y": 134,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "a6",
+          "img": "../../pics/cat.png",
+          "x": 150,
+          "y": 134,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "a7",
+          "img": "../../pics/cat.png",
+          "x": 260,
+          "y": 134,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "a8",
+          "img": "../../pics/cat.png",
+          "x": 370,
+          "y": 134,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "a9",
+          "img": "../../pics/cat.png",
+          "x": 480,
+          "y": 134,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "b0",
+          "img": "../../pics/cat.png",
+          "x": 640,
+          "y": 20,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "b1",
+          "img": "../../pics/cat.png",
+          "x": 750,
+          "y": 20,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "b2",
+          "img": "../../pics/cat.png",
+          "x": 860,
+          "y": 20,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "b3",
+          "img": "../../pics/cat.png",
+          "x": 640,
+          "y": 134,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "b4",
+          "img": "../../pics/cat.png",
+          "x": 750,
+          "y": 134,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "b5",
+          "img": "../../pics/cat.png",
+          "x": 860,
+          "y": 134,
+          "w": 100,
+          "h": 100
+         }
+        ],
+        "ih": 340,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v4-d916140933.mp3"
+     },
+     {
+      "say": "Write the addition sentence.",
+      "do": [
+       {
+        "add": "Addition sentence:"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "write": {
+         "text": "10 + 6 = 16"
+        }
+       }
+      ],
+      "audio": "explain/v4-f79611e6bf.mp3"
+     },
+     {
+      "say": "Yes! Ten plus six equals sixteen.",
+      "do": [
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-f10ffd47c6.mp3"
+     },
+     {
+      "say": "What is the answer? Tap it.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "15 cats",
+          "16 cats",
+          "16"
+         ],
+         "answer": "16 cats"
+        }
+       }
+      ],
+      "audio": "explain/v4-5c48e4bd74.mp3"
+     },
+     {
+      "say": "Yes! Answer: sixteen cats.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "Answer:"
+       },
+       {
+        "add": "16 cats",
+        "card": true
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-d1c53b7ff7.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try: balloons",
+    "beats": [
+     {
+      "say": "Try! There are seventeen balloons. Seven fly away. How many are left?",
+      "do": [
+       {
+        "scene": "free",
+        "items": [
+         {
+          "id": "l0",
+          "img": "../../pics/balloon.png",
+          "x": 100,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "l1",
+          "img": "../../pics/balloon.png",
+          "x": 210,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "l2",
+          "img": "../../pics/balloon.png",
+          "x": 320,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "l3",
+          "img": "../../pics/balloon.png",
+          "x": 430,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "l4",
+          "img": "../../pics/balloon.png",
+          "x": 540,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "l5",
+          "img": "../../pics/balloon.png",
+          "x": 650,
+          "y": 10,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "l6",
+          "img": "../../pics/balloon.png",
+          "x": 100,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "l7",
+          "img": "../../pics/balloon.png",
+          "x": 210,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "l8",
+          "img": "../../pics/balloon.png",
+          "x": 320,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "l9",
+          "img": "../../pics/balloon.png",
+          "x": 430,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "l10",
+          "img": "../../pics/balloon.png",
+          "x": 540,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "l11",
+          "img": "../../pics/balloon.png",
+          "x": 650,
+          "y": 124,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "l12",
+          "img": "../../pics/balloon.png",
+          "x": 100,
+          "y": 238,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "l13",
+          "img": "../../pics/balloon.png",
+          "x": 210,
+          "y": 238,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "l14",
+          "img": "../../pics/balloon.png",
+          "x": 320,
+          "y": 238,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "l15",
+          "img": "../../pics/balloon.png",
+          "x": 430,
+          "y": 238,
+          "w": 100,
+          "h": 100
+         },
+         {
+          "id": "l16",
+          "img": "../../pics/balloon.png",
+          "x": 540,
+          "y": 238,
+          "w": 100,
+          "h": 100
+         }
+        ],
+        "ih": 340,
+        "frame": false
+       }
+      ],
+      "audio": "explain/v4-e2b45ace38.mp3"
+     },
+     {
+      "say": "Count them.",
+      "do": [
+       {
+        "cross": true,
+        "pts": [
+         [
+          590,
+          174
+         ],
+         [
+          700,
+          174
+         ],
+         [
+          150,
+          288
+         ],
+         [
+          260,
+          288
+         ],
+         [
+          370,
+          288
+         ],
+         [
+          480,
+          288
+         ],
+         [
+          590,
+          288
+         ]
+        ],
+        "r": 46,
+        "color": "red"
+       }
+      ],
+      "audio": "explain/v4-2f3f82ca02.mp3"
+     },
+     {
+      "say": "Write the subtraction sentence.",
+      "do": [
+       {
+        "add": "Subtraction sentence:"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "write": {
+         "text": "17 − 7 = 10"
+        }
+       }
+      ],
+      "audio": "explain/v4-d6af99f043.mp3"
+     },
+     {
+      "say": "Yes! Seventeen minus seven equals ten.",
+      "do": [
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-98426e66c7.mp3"
+     },
+     {
+      "say": "What is the answer? Tap it.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "9 balloons",
+          "10 balloons",
+          "10"
+         ],
+         "answer": "10 balloons"
+        }
+       }
+      ],
+      "audio": "explain/v4-5c48e4bd74.mp3"
+     },
+     {
+      "say": "Yes! Answer: ten balloons.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "Answer:"
+       },
+       {
+        "add": "10 balloons",
+        "card": true
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v4-4b15946d6e.mp3",
+      "gap": 1000
      }
     ]
    }

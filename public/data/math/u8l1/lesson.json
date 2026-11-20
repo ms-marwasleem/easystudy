@@ -7,23 +7,64 @@
  "lines": [],
  "end": 1,
  "speakers": {},
- "vocab": [],
+ "vocab": [
+  {
+   "word": "o'clock",
+   "img": "clock-1-0.svg",
+   "parts": [
+    {
+     "t": "o'clock",
+     "audio": "words/o-clock.mp3"
+    }
+   ],
+   "audio": {
+    "word": "words/o-clock.mp3"
+   }
+  },
+  {
+   "word": "half past",
+   "img": "clock-5-1.svg",
+   "parts": [
+    {
+     "t": "half"
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "past"
+    }
+   ],
+   "audio": {
+    "word": "words/half-past.mp3"
+   }
+  }
+ ],
  "tabs": [
   "read",
+  "words",
   "quiz",
-  "booklet"
+  "booklet",
+  "workbook"
  ],
  "tabLabels": {
   "read": "Lesson",
-  "quiz": "Exercise"
+  "quiz": "Exercise",
+  "words": "Words"
  },
- "pages": 5,
+ "pages": 11,
  "pageNums": [
   86,
   86,
   86,
   86,
-  86
+  86,
+  87,
+  87,
+  87,
+  87,
+  87,
+  87
  ],
  "layout": "explain",
  "explain": {
@@ -57,7 +98,8 @@
        {
         "hand": "both"
        }
-      ]
+      ],
+      "audio": "explain/v8-292063e92d.mp3"
      },
      {
       "say": "The short hand shows the hour.",
@@ -73,7 +115,8 @@
         "card": true,
         "color": "orange"
        }
-      ]
+      ],
+      "audio": "explain/v8-1519d5ad73.mp3"
      },
      {
       "say": "The long hand shows the minute.",
@@ -90,7 +133,8 @@
         "color": "orange"
        }
       ],
-      "gap": 900
+      "gap": 900,
+      "audio": "explain/v8-84a699d44b.mp3"
      }
     ]
    },
@@ -153,6 +197,17 @@
         "hand": "short"
        }
       ]
+     },
+     {
+      "say": "When the short hand is between two numbers, we read the smaller number. Eight.",
+      "do": [
+       {
+        "add": "8",
+        "card": true,
+        "color": "blue"
+       }
+      ],
+      "audio": "explain/v8-91291a2792.mp3"
      },
      {
       "say": "The long hand is on six.",
@@ -241,6 +296,17 @@
       ]
      },
      {
+      "say": "When the short hand is between two numbers, we read the smaller number. Five.",
+      "do": [
+       {
+        "add": "5",
+        "card": true,
+        "color": "blue"
+       }
+      ],
+      "audio": "explain/v8-8b125dc0b1.mp3"
+     },
+     {
       "say": "The long hand is on six.",
       "audio": "explain/c3-2.mp3",
       "do": [
@@ -265,7 +331,263 @@
       "gap": 1200
      }
     ]
+   },
+   {
+    "name": "Try 1: 4 o'clock",
+    "beats": [
+     {
+      "say": "Try! Read the clock. What time is it?",
+      "do": [
+       {
+        "scene": "clock",
+        "h": 4,
+        "half": 0
+       },
+       {
+        "hand": "both"
+       }
+      ],
+      "audio": "explain/v8-6bf93e219a.mp3"
+     },
+     {
+      "say": "Write the time.",
+      "do": [
+       {
+        "write": {
+         "text": "4 o'clock",
+         "keys": "kl4c'o"
+        }
+       }
+      ],
+      "audio": "explain/v8-b573940387.mp3"
+     },
+     {
+      "say": "Yes! It is four o'clock.",
+      "do": [
+       {
+        "add": "4 o'clock",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v8-4f32707c48.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 2: half past 2",
+    "beats": [
+     {
+      "say": "Try! Read the clock. What time is it?",
+      "do": [
+       {
+        "scene": "clock",
+        "h": 2,
+        "half": 1
+       },
+       {
+        "hand": "both"
+       }
+      ],
+      "audio": "explain/v8-6bf93e219a.mp3"
+     },
+     {
+      "say": "Write the time.",
+      "do": [
+       {
+        "write": {
+         "text": "half past 2",
+         "keys": "ltfpsa2h"
+        }
+       }
+      ],
+      "audio": "explain/v8-b573940387.mp3"
+     },
+     {
+      "say": "Yes! It is half past two.",
+      "do": [
+       {
+        "add": "half past 2",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v8-07c7cd6064.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 3: 9 o'clock",
+    "beats": [
+     {
+      "say": "Try! Read the clock. What time is it?",
+      "do": [
+       {
+        "scene": "clock",
+        "h": 9,
+        "half": 0
+       },
+       {
+        "hand": "both"
+       }
+      ],
+      "audio": "explain/v8-6bf93e219a.mp3"
+     },
+     {
+      "say": "Write the time.",
+      "do": [
+       {
+        "write": {
+         "text": "9 o'clock",
+         "keys": "9'olkc"
+        }
+       }
+      ],
+      "audio": "explain/v8-b573940387.mp3"
+     },
+     {
+      "say": "Yes! It is nine o'clock.",
+      "do": [
+       {
+        "add": "9 o'clock",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v8-2f611ac487.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 4: draw 3 o'clock",
+    "beats": [
+     {
+      "say": "Try! Draw the long hand. Three o'clock.",
+      "do": [
+       {
+        "scene": "clock",
+        "h": 3,
+        "half": 0
+       },
+       {
+        "hand": "short"
+       }
+      ],
+      "audio": "explain/v8-7d44547e36.mp3"
+     },
+     {
+      "say": "The long hand is on twelve.",
+      "do": [
+       {
+        "hand": "long"
+       },
+       {
+        "add": "3 o'clock",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v8-8a04f448bf.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 5: draw half past 1",
+    "beats": [
+     {
+      "say": "Try! Draw the long hand. Half past one.",
+      "do": [
+       {
+        "scene": "clock",
+        "h": 1,
+        "half": 1
+       },
+       {
+        "hand": "short"
+       }
+      ],
+      "audio": "explain/v8-18e6624a29.mp3"
+     },
+     {
+      "say": "The long hand is on six.",
+      "do": [
+       {
+        "hand": "long"
+       },
+       {
+        "add": "half past 1",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v8-c410449e38.mp3",
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "Try 6: draw half past 6",
+    "beats": [
+     {
+      "say": "Try! Draw the long hand. Half past six.",
+      "do": [
+       {
+        "scene": "clock",
+        "h": 6,
+        "half": 1
+       },
+       {
+        "hand": "short"
+       }
+      ],
+      "audio": "explain/v8-54530cd05d.mp3"
+     },
+     {
+      "say": "The long hand is on six.",
+      "do": [
+       {
+        "hand": "long"
+       },
+       {
+        "add": "half past 6",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "explain/v8-c410449e38.mp3",
+      "gap": 1000
+     }
+    ]
    }
   ]
- }
+ },
+ "hints": {
+  "vocabPick": "Pick a word",
+  "vocabTeach": "Listen and repeat",
+  "vocabWrite": "Write the word letter by letter",
+  "word": "Tap any word you hear"
+ },
+ "vocabRepeats": 3
 }

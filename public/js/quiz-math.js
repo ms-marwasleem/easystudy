@@ -29,7 +29,7 @@ function mNumline(box,q,s,run){
   const ans=q.answers||seq.map((v,k)=>v==null?(full?full[k]:null):null).filter(v=>v!=null);   // with "seq" and no "answers": the gaps are filled from the run of numbers around them
   if(!q.answers&&!full){ const base=seq.find(v=>v!=null), bi=seq.indexOf(base); ans.length=0; seq.forEach((v,k)=>{ if(v==null) ans.push(base+(k-bi)); }); }
   q.word=q.word||seq.map((v,k)=>mW(v==null?ans[seq.slice(0,k).filter(x=>x==null).length]:v)).join(', ');
-  const line=el('div','qmline'); line.style.setProperty('--n',seq.length); const cells=[];
+  const line=el('div','qmline'+(isAr()?' rtl':'')); line.style.setProperty('--n',seq.length); const cells=[];
   seq.forEach(v=>{ const c=el('div','qmcell'+(v==null?' gap':''),`<b>${v==null?'':v}</b>`); line.append(c); cells.push(c); });
   line.append(el('i','qmarrow')); box.append(line); let g=0; const gaps=cells.filter(c=>c.classList.contains('gap')); gaps[0].classList.add('cur');
   q.hush=1; mHelp(box,()=>gaps[g]&&gaps[g].classList.contains('gap')?gaps[g]:null,()=>ans[g]);
@@ -135,6 +135,46 @@ function mLine(box,q,s,run){
     (fr?lf:lb).classList.add('on'); qxWin(w,q,1600); }));
 }
 QM.line={sheet:'box', draw:mLine, help:(q,w)=>q.items?$$('.mlchips .qch',w).filter(b=>+b.dataset.v===(q.from!=='back'?q.target+1:q.items.length-q.target)):$$('.mlt',w).filter((b,i)=>i===(q.from!=='back'?q.at-1:q.n-q.at))};
+
+/* nline = the book's NUMBER LINE 0-20 drawn by the template (Math 7-3). item {ask, options:[..], answer} = the line + a question ("4 more than 11"); item {pet:10, img?, ask, options, answer} = "How far did the cat go?":
+   the numbered line on top and a bare line below with the pet standing at its number; the child taps the number. The question sits on a line with the speaker (like the typed bond). The line always runs left to right. */
+function mNline(box,q,s,run){
+  const X=i=>50+45*i, ans=q.answer, pet=q.pet!=null; q.hush=1; q.word=q.word||String(ans);
+  const tk=(y,num)=>Array.from({length:21},(_,i)=>`<path d="M${X(i)} ${y-12} v26" stroke="#444" stroke-width="4"/>${num?`<text x="${X(i)}" y="${y-22}" text-anchor="middle" font-size="27" font-weight="700" fill="#333">${i}</text>`:''}`).join('')+`<path d="M30 ${y} H970" stroke="#444" stroke-width="5" stroke-linecap="round"/>`;
+  const H=pet?290:110, img=R_Q(q.img||'../../pics/cat.png');
+  const w=el('div','qmnl'); w.innerHTML=`<svg viewBox="0 0 1000 ${H}">${tk(70,1)}${pet?tk(250,0)+`<image href="${img}" x="${X(q.pet)-48}" y="120" width="96" height="116" preserveAspectRatio="xMidYMax meet"/>`:''}</svg>`;
+  const row=el('div','qmask'); row.dir=isAr()?'rtl':'ltr'; const sp=el('button','qsay qmaskb',typeof SAY_LN==='string'?SAY_LN:ICON.sound); sp.setAttribute('aria-label','Hear the question'); sp.onclick=()=>{ if(!qz.busy) qSay(); };
+  row.append(sp,el('span','qmaskt',q.ask||'')); box.append(row,w); const qw=$('.qword'); if(qw) qw.hidden=true;
+  mPad(box,mShuffle(q.options),(v)=>{ if(v!==ans) return false; qxWin(w,q,1600); return true; });
+}
+/* nlorder = "Put the cards in order from least to greatest" (Math 7-3): the cards lie mixed; tap them from the least; each goes into the next box of the arrow row. item {cards:[15,12,17,13], find?:"greatest" to go the other way}. In Arabic the first box is at the right. */
+function mNlorder(box,q,s,run){
+  const want=q.cards.slice().sort((a,b)=>q.find==='greatest'?b-a:a-b); q.hush=1; q.word=q.word||want.join(', ');
+  const row=el('div','qmask'); row.dir=isAr()?'rtl':'ltr'; const sp=el('button','qsay qmaskb',typeof SAY_LN==='string'?SAY_LN:ICON.sound); sp.setAttribute('aria-label','Hear the question'); sp.onclick=()=>{ if(!qz.busy) qSay(); };
+  if(q.ask){ row.append(sp,el('span','qmaskt',q.ask)); box.append(row); }
+  const slots=el('div','qmline qmord'+(isAr()?' rtl':'')); slots.style.setProperty('--n',want.length); const cells=want.map(()=>{ const c=el('div','qmcell gap',`<b></b>`); slots.append(c); return c; }); cells[0].classList.add('cur'); box.append(slots);
+  let g=0; const pool=el('div','qxchoices qmbig');
+  mShuffle(q.cards).forEach(n=>{ const b=qChBtn(n); b.dataset.v=n; b.addEventListener('click',()=>{ if(qz.busy||b.classList.contains('used')) return;
+    if(n!==want[g]) return qxBad(b); b.classList.add('used','dim'); const c=cells[g]; $('b',c).textContent=n; c.classList.remove('cur','gap'); c.classList.add('got'); blip(560+g*60,.05); g++;
+    if(g<want.length) cells[g].classList.add('cur'); else qxWin(slots,q,1600); }); pool.append(b); });
+  box.append(pool);
+}
+QM.nline={sheet:'box', bulb:0, draw:mNline};
+QM.nlorder={sheet:'box', bulb:0, draw:mNlorder};
+
+/* calendar = the book's calendar (Math 7-6): the days 1..days in rows of seven under Sun..Sat (Arabic: the Arabic day names, the week runs from the RIGHT); item {days:31, gaps:[21,25,28,30], options:[..]}: the gaps are empty, the child fills them in
+   order with the number buttons (a wrong number shakes). */
+function mCalendar(box,q,s,run){
+  const gaps=q.gaps, days=q.days||31, ar=isAr(); q.hush=1; q.word=q.word||gaps.join(', ');
+  const heads=ar?['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت']:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const t=el('div','qmcal'+(ar?' rtl':'')); heads.forEach(h=>t.append(el('span','qmch',h))); const cells={};
+  for(let d=1;d<=days;d++){ const g=gaps.includes(d), c=el('div','qmcd'+(g?' gap':''),`<b>${g?'':d}</b>`); t.append(c); cells[d]=c; }
+  box.append(t); let g=0; cells[gaps[0]].classList.add('cur');
+  q.hush=1; mHelp(box,()=>gaps[g]!=null&&cells[gaps[g]].classList.contains('gap')?cells[gaps[g]]:null,()=>gaps[g]);
+  mPad(box,mShuffle(q.options),(v)=>{ if(v!==gaps[g]) return false; const c=cells[gaps[g]]; $('b',c).textContent=v; c.classList.remove('cur','gap'); c.classList.add('got'); blip(560+g*60,.05); g++;
+    if(g<gaps.length) cells[gaps[g]].classList.add('cur'); else qxWin(t,q,1600); return true; });
+}
+QM.calendar={sheet:'box', bulb:0, draw:mCalendar};
 QM.numline={sheet:'box', bulb:0, draw:mNumline};
 QM.bond={sheet:'box', bulb:0, draw:mBond};
 QM.bigger={sheet:'box', draw:mBigger, help:(q,w)=>{ const v=q.find==='smaller'?Math.min(...q.nums):Math.max(...q.nums); return $$('.qmbig .qch',w).filter(b=>+b.dataset.v===v); }};
@@ -206,24 +246,9 @@ function mClock(box,q,s,run){
   const w=el('div','mclock'); box.append(w);
   if(q.ask){ const p=el('p','clkask',''); p.append(document.createTextNode(q.ask)); if(q.askAudio||q.ask){ const sp=el('button','qsay clkspk',SAY_LN); sp.setAttribute('aria-label','Listen'); sp.onclick=()=>qSay(); p.append(sp); box._after=()=>{ if(qAuto(q)) return qSay(); }; } w.append(p); }   // the question's own speaker sits INSIDE its line (it used to be a separate row above that took room and nobody knew what it was: Ahmed 2026-11-14)
   const opts=q.options||(mode==='read'?mClockOptions(q.h,q.m||0):null), ans=q.answer||clockTime(q.h,q.m||0);
-  const cw=clockWidget({h:q.h,m:q.m||0,mode,options:opts,answer:ans,onWrong:t=>qxBad(t),onDone:()=>qxWin(w,q,1600)}); w.append(cw); q.clockEl=cw;
+  const wr=mode==='write';   // "write": the clock is shown (both hands) and the child TYPES the time in letter order ("8 o'clock", "half past 8"; Arabic "الساعة 8 ونصف"), the Help bulb shows the next letter, no choices (Ahmed 2026-11-20)
+  const cw=clockWidget({h:q.h,m:q.m||0,mode:wr?'read':mode,options:wr?[]:opts,answer:ans,onWrong:t=>qxBad(t),onDone:()=>qxWin(w,q,1600)}); w.append(cw); q.clockEl=cw;
+  if(wr){ $$('.clkopts',cw).forEach(x=>x.hidden=true); qxWrite(box,q,s,run,q.text); return; }
   const hb=helpBtn('qxhelp qmhelp'); let undo=null; hb.onclick=()=>{ if(qz.busy||q.solved) return; if(undo) undo(); undo=cw.hint(); setTimeout(()=>{ if(undo){ undo(); undo=null; } },1800); }; qHelpHost(hb);
 }
 QM.clock={sheet:'box', noword:1, bulb:0, draw:mClock};
-
-/* WORDS tab of the maths lessons (Ahmed 2026-11-18): the picture of a word is DRAWN here from its spec (no picture files):
-   img "data:draw,num,N,ar|en" = the numeral (Arabic or English digits) in a lesson colour; "data:draw,pos,K,N,ar|en" = N cats in a row with the K-th ringed (Arabic: the front is at the RIGHT, the cats face the other way).
-   Called once when a lesson with such words opens (lesson.js openLesson). */
-const M_DIG='٠١٢٣٤٥٦٧٨٩', M_NUMCOL=['#E0412C','#2A7FD8','#F2B321','#2FA8A0','#8A5CC9','#F08A2C','#3FA34D','#D8396B','#E0412C','#8A5CC9'];
-function mDrawLoad(src){ return new Promise(r=>{ const i=new Image(); i.onload=()=>r(i); i.onerror=()=>r(null); i.src=src; }); }
-async function mVocabPics(L){
-  const cat=await mDrawLoad(new URL((L.base||'')+'../../pics/cat.png',document.baseURI).href), ff=getComputedStyle(document.body).fontFamily||'sans-serif';
-  for(const v of L.vocab||[]){
-    const m=/^data:draw,(num|pos),(.*)$/.exec(v.img||''); if(!m) continue; const a=m[2].split(','), c=document.createElement('canvas'), x=c.getContext('2d');
-    if(m[1]==='num'){ const n=+a[0], ar=a[1]==='ar', t=ar?String(n).split('').map(d=>M_DIG[+d]).join(''):String(n); c.width=520; c.height=420; x.textAlign='center'; x.textBaseline='middle';
-      let fs=n>9?260:330; x.font=`700 ${fs}px ${ff}`; x.lineJoin='round'; x.lineWidth=26; x.strokeStyle='#fff'; x.strokeText(t,260,225); x.fillStyle=M_NUMCOL[(n-1)%10]; x.fillText(t,260,225); }
-    else { const k=+a[0], n=+a[1], ar=a[2]==='ar', W=900, H=300; c.width=W; c.height=H; x.fillStyle='#fff'; x.beginPath(); x.roundRect(0,40,W,H-80,36); x.fill();
-      const sw=(W-60)/n, ih=H-120; for(let i=0;i<n;i++){ const cx=30+sw*(i+.5); if(cat){ const w=Math.min(sw*.86,ih*cat.width/cat.height), h=w*cat.height/cat.width; x.save(); x.translate(cx,H-52); if(ar) x.scale(-1,1); x.drawImage(cat,-w/2,-h,w,h); x.restore(); } }
-      const i=ar?n-k:k-1, cx=30+sw*(i+.5); x.strokeStyle='#E8457A'; x.lineWidth=12; x.beginPath(); x.ellipse(cx,H/2,Math.min(sw*.52,70),ih/2+14,0,0,Math.PI*2); x.stroke(); }
-    v.img=c.toDataURL('image/png'); }
-}

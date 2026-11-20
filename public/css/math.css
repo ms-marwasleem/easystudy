@@ -215,9 +215,10 @@
 .mlv .mlc img{max-height:min(5.4rem,calc(46vh/var(--n)))}.mlv .mlthings{grid-template-columns:minmax(0,11rem);padding:.7rem .8rem}.mlv .mlend{font-size:1.5rem}.mlv .mlc{padding:.15rem}
 @media (min-aspect-ratio:1/1){.mlv .mlc img{max-height:min(5.4rem,calc(30vh/var(--n)))}.mlv .mlend{font-size:1.2rem}}
 
+/* (a picture whose file name has "-line" = the children in line: it brings its OWN white card, Front / Back are written in white outside it) */
 /* math questions: a transparent (png) picture sits on a white rounded card so the child sees where the picture is (Ahmed 2026-11-18); dots / numbers drawn by the app keep their look */
-:root[data-subj="math"] :is(.qmcount,.alpics,.mlthings,.qmp) img[src$=".png" i]:not(.pf):not([src^="data:image/svg"]),
-:root[data-subj="math-ar"] :is(.qmcount,.alpics,.mlthings,.qmp) img[src$=".png" i]:not(.pf):not([src^="data:image/svg"]),
+:root[data-subj="math"] :is(.qmcount,.alpics,.mlthings,.qmp) img[src$=".png" i]:not(.pf):not([src*="-line"]):not([src^="data:image/svg"]),
+:root[data-subj="math-ar"] :is(.qmcount,.alpics,.mlthings,.qmp) img[src$=".png" i]:not(.pf):not([src*="-line"]):not([src^="data:image/svg"]),
 :root[data-subj="math"] :is(.qmcount,.qpic) img[src^="data:image/png;cpic"],:root[data-subj="math-ar"] :is(.qmcount,.qpic) img[src^="data:image/png;cpic"]{background:var(--c-white);border:var(--pf-border) solid var(--c-white);border-radius:var(--pf-radius);box-shadow:var(--pf-shadow);filter:none;box-sizing:border-box}
 
 /* one-slide word problem: the answer line + choices under the sentence (Ahmed 2026-11-18) */
@@ -229,3 +230,16 @@
 .alfig .alcells{position:absolute;pointer-events:none;z-index:2}
 .alcell{position:absolute;pointer-events:auto;background:transparent;border:0;padding:0;margin:0;cursor:pointer;display:grid;place-items:center;-webkit-tap-highlight-color:transparent}
 .alcell i{font-style:normal;font-weight:800;color:#fff;background:var(--c-orange,#ff8a1f);border:.08rem solid #fff;border-radius:50%;width:100%;max-width:1.5rem;aspect-ratio:1;display:grid;place-items:center;font-size:.55rem;line-height:1;box-shadow:0 .1rem .2rem rgba(90,52,24,.35)}
+
+.qmnl{width:min(96%,60rem);background:#fff;border-radius:1.2rem;padding:0.6rem 0.8rem;box-shadow:0 0.3rem 0.5rem rgba(90,52,24,.25);direction:ltr}
+.qmnl svg{display:block;width:100%;height:auto}
+.qmord{display:flex;justify-content:center;gap:2.4rem;width:auto;max-width:96%}
+.qmord::before{display:none}
+.qmord .qmcell{width:5.6rem;flex:none;border-radius:0.9rem}
+.qmord .qmcell:not(:last-child)::after{content:"\279C";position:absolute;inset-inline-end:-1.9rem;top:50%;transform:translateY(-50%);color:#888;font-size:1.5rem}
+.qmord.rtl{direction:rtl}.qmord.rtl .qmcell:not(:last-child)::after{transform:translateY(-50%) scaleX(-1)}
+.qmline.rtl{direction:rtl}.qmline.rtl::before{left:.75rem;right:0}.qmline.rtl .qmarrow{right:auto;left:0;transform:translateY(-50%) scaleX(-1)}
+.qmcal{display:grid;grid-template-columns:repeat(7,1fr);gap:0.3rem;width:min(96%,46rem)}.qmcal.rtl{direction:rtl}
+.qmch{font-weight:800;text-align:center;color:#fff;font-size:min(4cqh,2.8cqw)}
+.qmcd{aspect-ratio:1.9;background:#FFD9B8;border-radius:0.5rem;display:grid;place-items:center;max-height:11cqh}.qmcd b{font-weight:800;font-size:min(5.6cqh,4cqw);color:var(--c-text)}
+.qmcd.gap{background:var(--c-white);border:0.22rem dashed var(--c-accent)}.qmcd.cur{animation:qmpulse 1.1s ease-in-out infinite}.qmcd.got b{color:#E8560C}

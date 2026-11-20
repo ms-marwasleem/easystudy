@@ -7,18 +7,196 @@
  "lines": [],
  "end": 1,
  "speakers": {},
- "vocab": [],
+ "vocab": [
+  {
+   "word": "أحد عشر",
+   "img": "data:draw,num,11,ar",
+   "parts": [
+    {
+     "t": "أحد"
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "عشر"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/7d5806a860.mp3"
+   }
+  },
+  {
+   "word": "اثنا عشر",
+   "img": "data:draw,num,12,ar",
+   "parts": [
+    {
+     "t": "اثنا"
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "عشر"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/71935794f9.mp3"
+   }
+  },
+  {
+   "word": "ثلاثة عشر",
+   "img": "data:draw,num,13,ar",
+   "parts": [
+    {
+     "t": "ثلاثة"
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "عشر"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/1672a203da.mp3"
+   }
+  },
+  {
+   "word": "أربعة عشر",
+   "img": "data:draw,num,14,ar",
+   "parts": [
+    {
+     "t": "أربعة"
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "عشر"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/76699d99af.mp3"
+   }
+  },
+  {
+   "word": "خمسة عشر",
+   "img": "data:draw,num,15,ar",
+   "parts": [
+    {
+     "t": "خمسة"
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "عشر"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/caa5edaebb.mp3"
+   }
+  },
+  {
+   "word": "ستة عشر",
+   "img": "data:draw,num,16,ar",
+   "parts": [
+    {
+     "t": "ستة"
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "عشر"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/cc64b5c513.mp3"
+   }
+  },
+  {
+   "word": "سبعة عشر",
+   "img": "data:draw,num,17,ar",
+   "parts": [
+    {
+     "t": "سبعة"
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "عشر"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/36bf0743e4.mp3"
+   }
+  },
+  {
+   "word": "ثمانية عشر",
+   "img": "data:draw,num,18,ar",
+   "parts": [
+    {
+     "t": "ثمانية"
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "عشر"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/4dd34c7a6f.mp3"
+   }
+  },
+  {
+   "word": "تسعة عشر",
+   "img": "data:draw,num,19,ar",
+   "parts": [
+    {
+     "t": "تسعة"
+    },
+    {
+     "t": " "
+    },
+    {
+     "t": "عشر"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/a7808919b9.mp3"
+   }
+  },
+  {
+   "word": "عشرون",
+   "img": "data:draw,num,20,ar",
+   "parts": [
+    {
+     "t": "عشرون",
+     "audio": "../../math-ar-audio/cfdf4b10a3.mp3"
+    }
+   ],
+   "audio": {
+    "word": "../../math-ar-audio/cfdf4b10a3.mp3"
+   }
+  }
+ ],
  "tabs": [
   "read",
+  "words",
   "quiz",
   "workbook"
  ],
  "tabLabels": {
   "read": "الدرس",
   "quiz": "هيا نتدرب",
-  "workbook": "كتاب التقييمات"
+  "workbook": "كتاب التقييمات",
+  "words": "الكلمات"
  },
- "pages": 10,
+ "pages": 17,
  "pageNums": [
   72,
   72,
@@ -29,30 +207,89 @@
   72,
   72,
   72,
-  72
+  72,
+  72,
+  72,
+  72,
+  73,
+  73,
+  73,
+  73
  ],
  "layout": "explain",
  "explain": {
   "caption": false,
   "steps": [
    {
-    "name": "11",
+    "name": "العشرات والآحاد",
     "beats": [
      {
-      "say": "عشرة.",
+      "say": "بعد العشرة نعد العشرات بالمكعبات. وهذه خانة العشرات.",
       "do": [
        {
-        "scene": "tens",
-        "n": 11,
-        "wide": true
+        "scene": "places",
+        "ones": 0,
+        "show": 0,
+        "rtl": true,
+        "tl": "العشرات",
+        "ol": "الآحاد",
+        "slots": true
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          102,
+          28,
+          874,
+          118
+         ],
+         "color": "green",
+         "id": "ten"
+        }
+       }
+      ]
+     },
+     {
+      "say": "ثم نضيف الآحاد في خانة الآحاد.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          102,
+          138,
+          874,
+          228
+         ],
+         "color": "orange",
+         "id": "one"
+        }
+       }
+      ],
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "11",
+    "beats": [
+     {
+      "say": "عشرة في خانة العشرات.",
+      "do": [
+       {
+        "scene": "places",
+        "ones": 1,
+        "show": 0,
+        "rtl": true,
+        "tl": "العشرات",
+        "ol": "الآحاد"
+       },
+       {
+        "frame": {
+         "box": [
+          102,
+          28,
+          874,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -62,34 +299,41 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ],
-      "audio": "../../math-ar-audio/4854ee954a.mp3"
+      ]
      },
      {
-      "say": "ونضيف واحداً.",
+      "say": "وواحد في خانة الآحاد.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          827,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 1",
+        "card": true,
+        "color": "orange"
        }
-      ],
-      "audio": "../../math-ar-audio/11fab540aa.mp3"
+      ]
      },
      {
-      "say": "عشرة وواحد يساوي أحد عشر.",
+      "say": "عشرة زائد واحد يساوي أحد عشر.",
       "do": [
        {
-        "add": "10 + 1 = 11",
+        "add": "= 11",
         "card": true,
         "color": "green"
        },
@@ -102,8 +346,7 @@
         "color": "orange"
        }
       ],
-      "gap": 1200,
-      "audio": "../../math-ar-audio/f685e62bae.mp3"
+      "gap": 1200
      }
     ]
    },
@@ -111,20 +354,23 @@
     "name": "12",
     "beats": [
      {
-      "say": "عشرة.",
+      "say": "عشرة في خانة العشرات.",
       "do": [
        {
-        "scene": "tens",
-        "n": 12,
-        "wide": true
+        "scene": "places",
+        "ones": 2,
+        "show": 0,
+        "rtl": true,
+        "tl": "العشرات",
+        "ol": "الآحاد"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          102,
+          28,
+          874,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -134,38 +380,45 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ],
-      "audio": "../../math-ar-audio/4854ee954a.mp3"
+      ]
      },
      {
-      "say": "ونضيف اثنين.",
+      "say": "واثنان في خانة الآحاد.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          827,
+          183
          ],
          [
-          213,
-          203
+          753,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 2",
+        "card": true,
+        "color": "orange"
        }
-      ],
-      "audio": "../../math-ar-audio/d5d3700404.mp3"
+      ]
      },
      {
-      "say": "عشرة واثنان يساوي اثنا عشر.",
+      "say": "عشرة زائد اثنان يساوي اثنا عشر.",
       "do": [
        {
-        "add": "10 + 2 = 12",
+        "add": "= 12",
         "card": true,
         "color": "green"
        },
@@ -178,8 +431,7 @@
         "color": "orange"
        }
       ],
-      "gap": 1200,
-      "audio": "../../math-ar-audio/43936c56d0.mp3"
+      "gap": 1200
      }
     ]
    },
@@ -187,20 +439,23 @@
     "name": "13",
     "beats": [
      {
-      "say": "عشرة.",
+      "say": "عشرة في خانة العشرات.",
       "do": [
        {
-        "scene": "tens",
-        "n": 13,
-        "wide": true
+        "scene": "places",
+        "ones": 3,
+        "show": 0,
+        "rtl": true,
+        "tl": "العشرات",
+        "ol": "الآحاد"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          102,
+          28,
+          874,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -210,42 +465,49 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ],
-      "audio": "../../math-ar-audio/4854ee954a.mp3"
+      ]
      },
      {
-      "say": "ونضيف ثلاثة.",
+      "say": "وثلاثة في خانة الآحاد.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          827,
+          183
          ],
          [
-          213,
-          203
+          753,
+          183
          ],
          [
-          293,
-          203
+          679,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
        }
-      ],
-      "audio": "../../math-ar-audio/2aa5bb7d87.mp3"
+      ]
      },
      {
-      "say": "عشرة وثلاثة يساوي ثلاثة عشر.",
+      "say": "عشرة زائد ثلاثة يساوي ثلاثة عشر.",
       "do": [
        {
-        "add": "10 + 3 = 13",
+        "add": "= 13",
         "card": true,
         "color": "green"
        },
@@ -258,8 +520,7 @@
         "color": "orange"
        }
       ],
-      "gap": 1200,
-      "audio": "../../math-ar-audio/614f03529b.mp3"
+      "gap": 1200
      }
     ]
    },
@@ -267,20 +528,23 @@
     "name": "14",
     "beats": [
      {
-      "say": "عشرة.",
+      "say": "عشرة في خانة العشرات.",
       "do": [
        {
-        "scene": "tens",
-        "n": 14,
-        "wide": true
+        "scene": "places",
+        "ones": 4,
+        "show": 0,
+        "rtl": true,
+        "tl": "العشرات",
+        "ol": "الآحاد"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          102,
+          28,
+          874,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -290,46 +554,53 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ],
-      "audio": "../../math-ar-audio/4854ee954a.mp3"
+      ]
      },
      {
-      "say": "ونضيف أربعة.",
+      "say": "وأربعة في خانة الآحاد.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          827,
+          183
          ],
          [
-          213,
-          203
+          753,
+          183
          ],
          [
-          293,
-          203
+          679,
+          183
          ],
          [
-          373,
-          203
+          605,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 4",
+        "card": true,
+        "color": "orange"
        }
-      ],
-      "audio": "../../math-ar-audio/8e8ab66453.mp3"
+      ]
      },
      {
-      "say": "عشرة وأربعة يساوي أربعة عشر.",
+      "say": "عشرة زائد أربعة يساوي أربعة عشر.",
       "do": [
        {
-        "add": "10 + 4 = 14",
+        "add": "= 14",
         "card": true,
         "color": "green"
        },
@@ -342,8 +613,7 @@
         "color": "orange"
        }
       ],
-      "gap": 1200,
-      "audio": "../../math-ar-audio/f0ce80edb2.mp3"
+      "gap": 1200
      }
     ]
    },
@@ -351,20 +621,23 @@
     "name": "15",
     "beats": [
      {
-      "say": "عشرة.",
+      "say": "عشرة في خانة العشرات.",
       "do": [
        {
-        "scene": "tens",
-        "n": 15,
-        "wide": true
+        "scene": "places",
+        "ones": 5,
+        "show": 0,
+        "rtl": true,
+        "tl": "العشرات",
+        "ol": "الآحاد"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          102,
+          28,
+          874,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -374,50 +647,57 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ],
-      "audio": "../../math-ar-audio/4854ee954a.mp3"
+      ]
      },
      {
-      "say": "ونضيف خمسة.",
+      "say": "وخمسة في خانة الآحاد.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          827,
+          183
          ],
          [
-          213,
-          203
+          753,
+          183
          ],
          [
-          293,
-          203
+          679,
+          183
          ],
          [
-          373,
-          203
+          605,
+          183
          ],
          [
-          453,
-          203
+          531,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 5",
+        "card": true,
+        "color": "orange"
        }
-      ],
-      "audio": "../../math-ar-audio/59816ea07b.mp3"
+      ]
      },
      {
-      "say": "عشرة وخمسة يساوي خمسة عشر.",
+      "say": "عشرة زائد خمسة يساوي خمسة عشر.",
       "do": [
        {
-        "add": "10 + 5 = 15",
+        "add": "= 15",
         "card": true,
         "color": "green"
        },
@@ -430,8 +710,7 @@
         "color": "orange"
        }
       ],
-      "gap": 1200,
-      "audio": "../../math-ar-audio/feb8aa247a.mp3"
+      "gap": 1200
      }
     ]
    },
@@ -439,20 +718,23 @@
     "name": "16",
     "beats": [
      {
-      "say": "عشرة.",
+      "say": "عشرة في خانة العشرات.",
       "do": [
        {
-        "scene": "tens",
-        "n": 16,
-        "wide": true
+        "scene": "places",
+        "ones": 6,
+        "show": 0,
+        "rtl": true,
+        "tl": "العشرات",
+        "ol": "الآحاد"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          102,
+          28,
+          874,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -462,54 +744,61 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ],
-      "audio": "../../math-ar-audio/4854ee954a.mp3"
+      ]
      },
      {
-      "say": "ونضيف ستة.",
+      "say": "وستة في خانة الآحاد.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          827,
+          183
          ],
          [
-          213,
-          203
+          753,
+          183
          ],
          [
-          293,
-          203
+          679,
+          183
          ],
          [
-          373,
-          203
+          605,
+          183
          ],
          [
-          453,
-          203
+          531,
+          183
          ],
          [
-          533,
-          203
+          443,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 6",
+        "card": true,
+        "color": "orange"
        }
-      ],
-      "audio": "../../math-ar-audio/55637a60aa.mp3"
+      ]
      },
      {
-      "say": "عشرة وستة يساوي ستة عشر.",
+      "say": "عشرة زائد ستة يساوي ستة عشر.",
       "do": [
        {
-        "add": "10 + 6 = 16",
+        "add": "= 16",
         "card": true,
         "color": "green"
        },
@@ -522,8 +811,7 @@
         "color": "orange"
        }
       ],
-      "gap": 1200,
-      "audio": "../../math-ar-audio/4f63d1ba60.mp3"
+      "gap": 1200
      }
     ]
    },
@@ -531,20 +819,23 @@
     "name": "17",
     "beats": [
      {
-      "say": "عشرة.",
+      "say": "عشرة في خانة العشرات.",
       "do": [
        {
-        "scene": "tens",
-        "n": 17,
-        "wide": true
+        "scene": "places",
+        "ones": 7,
+        "show": 0,
+        "rtl": true,
+        "tl": "العشرات",
+        "ol": "الآحاد"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          102,
+          28,
+          874,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -554,58 +845,65 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ],
-      "audio": "../../math-ar-audio/4854ee954a.mp3"
+      ]
      },
      {
-      "say": "ونضيف سبعة.",
+      "say": "وسبعة في خانة الآحاد.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          827,
+          183
          ],
          [
-          213,
-          203
+          753,
+          183
          ],
          [
-          293,
-          203
+          679,
+          183
          ],
          [
-          373,
-          203
+          605,
+          183
          ],
          [
-          453,
-          203
+          531,
+          183
          ],
          [
-          533,
-          203
+          443,
+          183
          ],
          [
-          613,
-          203
+          369,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 7",
+        "card": true,
+        "color": "orange"
        }
-      ],
-      "audio": "../../math-ar-audio/1a7c293745.mp3"
+      ]
      },
      {
-      "say": "عشرة وسبعة يساوي سبعة عشر.",
+      "say": "عشرة زائد سبعة يساوي سبعة عشر.",
       "do": [
        {
-        "add": "10 + 7 = 17",
+        "add": "= 17",
         "card": true,
         "color": "green"
        },
@@ -618,8 +916,7 @@
         "color": "orange"
        }
       ],
-      "gap": 1200,
-      "audio": "../../math-ar-audio/693428580c.mp3"
+      "gap": 1200
      }
     ]
    },
@@ -627,20 +924,23 @@
     "name": "18",
     "beats": [
      {
-      "say": "عشرة.",
+      "say": "عشرة في خانة العشرات.",
       "do": [
        {
-        "scene": "tens",
-        "n": 18,
-        "wide": true
+        "scene": "places",
+        "ones": 8,
+        "show": 0,
+        "rtl": true,
+        "tl": "العشرات",
+        "ol": "الآحاد"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          102,
+          28,
+          874,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -650,62 +950,69 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ],
-      "audio": "../../math-ar-audio/4854ee954a.mp3"
+      ]
      },
      {
-      "say": "ونضيف ثمانية.",
+      "say": "وثمانية في خانة الآحاد.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          827,
+          183
          ],
          [
-          213,
-          203
+          753,
+          183
          ],
          [
-          293,
-          203
+          679,
+          183
          ],
          [
-          373,
-          203
+          605,
+          183
          ],
          [
-          453,
-          203
+          531,
+          183
          ],
          [
-          533,
-          203
+          443,
+          183
          ],
          [
-          613,
-          203
+          369,
+          183
          ],
          [
-          693,
-          203
+          295,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 8",
+        "card": true,
+        "color": "orange"
        }
-      ],
-      "audio": "../../math-ar-audio/49770ebf43.mp3"
+      ]
      },
      {
-      "say": "عشرة وثمانية يساوي ثمانية عشر.",
+      "say": "عشرة زائد ثمانية يساوي ثمانية عشر.",
       "do": [
        {
-        "add": "10 + 8 = 18",
+        "add": "= 18",
         "card": true,
         "color": "green"
        },
@@ -718,8 +1025,7 @@
         "color": "orange"
        }
       ],
-      "gap": 1200,
-      "audio": "../../math-ar-audio/09d891a1cb.mp3"
+      "gap": 1200
      }
     ]
    },
@@ -727,20 +1033,23 @@
     "name": "19",
     "beats": [
      {
-      "say": "عشرة.",
+      "say": "عشرة في خانة العشرات.",
       "do": [
        {
-        "scene": "tens",
-        "n": 19,
-        "wide": true
+        "scene": "places",
+        "ones": 9,
+        "show": 0,
+        "rtl": true,
+        "tl": "العشرات",
+        "ol": "الآحاد"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          102,
+          28,
+          874,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -750,66 +1059,73 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ],
-      "audio": "../../math-ar-audio/4854ee954a.mp3"
+      ]
      },
      {
-      "say": "ونضيف تسعة.",
+      "say": "وتسعة في خانة الآحاد.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          827,
+          183
          ],
          [
-          213,
-          203
+          753,
+          183
          ],
          [
-          293,
-          203
+          679,
+          183
          ],
          [
-          373,
-          203
+          605,
+          183
          ],
          [
-          453,
-          203
+          531,
+          183
          ],
          [
-          533,
-          203
+          443,
+          183
          ],
          [
-          613,
-          203
+          369,
+          183
          ],
          [
-          693,
-          203
+          295,
+          183
          ],
          [
-          773,
-          203
+          221,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 9",
+        "card": true,
+        "color": "orange"
        }
-      ],
-      "audio": "../../math-ar-audio/9497faf89a.mp3"
+      ]
      },
      {
-      "say": "عشرة وتسعة يساوي تسعة عشر.",
+      "say": "عشرة زائد تسعة يساوي تسعة عشر.",
       "do": [
        {
-        "add": "10 + 9 = 19",
+        "add": "= 19",
         "card": true,
         "color": "green"
        },
@@ -822,8 +1138,7 @@
         "color": "orange"
        }
       ],
-      "gap": 1200,
-      "audio": "../../math-ar-audio/d23d44bcd0.mp3"
+      "gap": 1200
      }
     ]
    },
@@ -831,20 +1146,23 @@
     "name": "20",
     "beats": [
      {
-      "say": "عشرة.",
+      "say": "عشرة في خانة العشرات.",
       "do": [
        {
-        "scene": "tens",
-        "n": 20,
-        "wide": true
+        "scene": "places",
+        "ones": 10,
+        "show": 0,
+        "rtl": true,
+        "tl": "العشرات",
+        "ol": "الآحاد"
        },
        {
         "frame": {
          "box": [
-          90,
-          40,
-          906,
-          126
+          102,
+          28,
+          874,
+          118
          ],
          "color": "green",
          "id": "ten"
@@ -854,70 +1172,77 @@
         "hold": 10,
         "on": "ten",
         "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
        }
-      ],
-      "audio": "../../math-ar-audio/4854ee954a.mp3"
+      ]
      },
      {
-      "say": "ونضيف عشرة.",
+      "say": "وعشرة في خانة الآحاد.",
       "do": [
        {
         "count": true,
         "pts": [
          [
-          133,
-          203
+          827,
+          183
          ],
          [
-          213,
-          203
+          753,
+          183
          ],
          [
-          293,
-          203
+          679,
+          183
          ],
          [
-          373,
-          203
+          605,
+          183
          ],
          [
-          453,
-          203
+          531,
+          183
          ],
          [
-          533,
-          203
+          443,
+          183
          ],
          [
-          613,
-          203
+          369,
+          183
          ],
          [
-          693,
-          203
+          295,
+          183
          ],
          [
-          773,
-          203
+          221,
+          183
          ],
          [
-          853,
-          203
+          147,
+          183
          ]
         ],
-        "start": 11,
         "color": "orange",
         "keep": true,
         "r": 24
+       },
+       {
+        "add": "+ 10",
+        "card": true,
+        "color": "orange"
        }
-      ],
-      "audio": "../../math-ar-audio/49b361ab5b.mp3"
+      ]
      },
      {
-      "say": "عشرة وعشرة يساوي عشرين.",
+      "say": "عشرة زائد عشرة يساوي عشرون.",
       "do": [
        {
-        "add": "10 + 10 = 20",
+        "add": "= 20",
         "card": true,
         "color": "green"
        },
@@ -930,13 +1255,677 @@
         "color": "orange"
        }
       ],
-      "gap": 1200,
-      "audio": "../../math-ar-audio/e5ad672edb.mp3"
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "استعدوا: البيض",
+    "beats": [
+     {
+      "say": "اكتب العدد.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l1-wu-eggs.png",
+        "w": 1000,
+        "h": 644,
+        "frame": false
+       }
+      ]
+     },
+     {
+      "say": "في الصندوق الأول عشر بيضات.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          30,
+          30,
+          650,
+          400
+         ],
+         "color": "green",
+         "id": "t1"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "t1",
+        "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "ونضيف ثلاث بيضات.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          509,
+          491
+         ],
+         [
+          592,
+          471
+         ],
+         [
+          673,
+          442
+         ]
+        ],
+        "color": "orange",
+        "r": 30
+       },
+       {
+        "add": "+ 3",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "عشرة وثلاثة يساوي ثلاثة عشر.",
+      "do": [
+       {
+        "add": "= 13",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "13",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "../../math-ar-audio/614f03529b.mp3",
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "استعدوا: البرتقال",
+    "beats": [
+     {
+      "say": "اكتب العدد. العدّ أسهل عندما نحوّط مجموعة من عشرة.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l1-wu-oranges.png",
+        "w": 1000,
+        "h": 644,
+        "frame": false
+       }
+      ]
+     },
+     {
+      "say": "نحوّط عشر برتقالات.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          71,
+          54,
+          483,
+          598
+         ],
+         "color": "green",
+         "id": "g"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "g",
+        "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "نعد البرتقالات المتبقية.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          840,
+          148
+         ],
+         [
+          697,
+          196
+         ],
+         [
+          865,
+          295
+         ],
+         [
+          727,
+          344
+         ],
+         [
+          840,
+          445
+         ],
+         [
+          727,
+          543
+         ]
+        ],
+        "color": "orange",
+        "r": 30
+       },
+       {
+        "add": "+ 6",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "عشرة وستة يساوي ستة عشر.",
+      "do": [
+       {
+        "add": "= 16",
+        "card": true,
+        "color": "green"
+       },
+       {
+        "line": "break"
+       },
+       {
+        "add": "16",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "audio": "../../math-ar-audio/4f63d1ba60.mp3",
+      "gap": 1200
+     }
+    ]
+   },
+   {
+    "name": "المحاولة: الفراولة",
+    "beats": [
+     {
+      "say": "اكتب العدد.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l1-try-straw.png",
+        "w": 1000,
+        "h": 642,
+        "frame": false
+       }
+      ]
+     },
+     {
+      "say": "نحوّط مجموعة من عشرة.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          75,
+          57,
+          462,
+          600
+         ],
+         "color": "green",
+         "id": "g"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "g",
+        "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "نعد الفراولات المتبقية.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          766,
+          160
+         ],
+         [
+          643,
+          206
+         ],
+         [
+          866,
+          249
+         ],
+         [
+          745,
+          318
+         ],
+         [
+          632,
+          382
+         ],
+         [
+          844,
+          406
+         ],
+         [
+          727,
+          492
+         ]
+        ],
+        "color": "orange",
+        "r": 30
+       },
+       {
+        "add": "+ 7",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "عشرة وسبعة يساوي سبعة عشر.",
+      "do": [
+       {
+        "add": "= 17",
+        "card": true,
+        "color": "green"
+       }
+      ],
+      "audio": "../../math-ar-audio/693428580c.mp3"
+     },
+     {
+      "say": "ما العدد؟ اضغط عليه.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "16",
+          "17",
+          "18"
+         ],
+         "answer": "17"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! سبعة عشر.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "17",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "المحاولة: البيض",
+    "beats": [
+     {
+      "say": "اكتب العدد.",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-u7l1-try-eggs.png",
+        "w": 1000,
+        "h": 642,
+        "frame": false
+       }
+      ]
+     },
+     {
+      "say": "في الصندوق الأول عشر بيضات.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          20,
+          20,
+          640,
+          360
+         ],
+         "color": "green",
+         "id": "a"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "a",
+        "color": "green"
+       },
+       {
+        "add": "10",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "وفي الصندوق الثاني عشر بيضات أيضًا.",
+      "do": [
+       {
+        "frame": {
+         "box": [
+          360,
+          300,
+          980,
+          640
+         ],
+         "color": "orange",
+         "id": "b"
+        }
+       },
+       {
+        "hold": 10,
+        "on": "b",
+        "color": "orange"
+       },
+       {
+        "add": "+ 10",
+        "card": true,
+        "color": "orange"
+       }
+      ]
+     },
+     {
+      "say": "عشرة وعشرة يساوي عشرون.",
+      "do": [
+       {
+        "add": "= 20",
+        "card": true,
+        "color": "green"
+       }
+      ]
+     },
+     {
+      "say": "ما العدد؟ اضغط عليه.",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "18",
+          "19",
+          "20"
+         ],
+         "answer": "20"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! عشرون.",
+      "do": [
+       {
+        "line": "break"
+       },
+       {
+        "add": "20",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "المحاولة: الأطفال في الصف",
+    "beats": [
+     {
+      "say": "كم عدد الأطفال الواقفين في الصف؟",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-ar-u7l1-line-hassan.png",
+        "w": 1000,
+        "h": 280,
+        "frame": false
+       }
+      ],
+      "audio": "../../math-ar-audio/d55f6f9dde.mp3"
+     },
+     {
+      "say": "نعد الأطفال.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          940,
+          96
+         ],
+         [
+          863,
+          96
+         ],
+         [
+          798,
+          96
+         ],
+         [
+          726,
+          96
+         ],
+         [
+          656,
+          96
+         ],
+         [
+          585,
+          96
+         ],
+         [
+          510,
+          96
+         ],
+         [
+          438,
+          96
+         ],
+         [
+          360,
+          96
+         ],
+         [
+          293,
+          96
+         ],
+         [
+          205,
+          96
+         ],
+         [
+          138,
+          96
+         ],
+         [
+          56,
+          96
+         ]
+        ],
+        "color": "orange",
+        "r": 22
+       }
+      ]
+     },
+     {
+      "say": "كم عدد الأطفال؟",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "12",
+          "13",
+          "14"
+         ],
+         "answer": "13"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! ثلاثة عشر طفلًا.",
+      "do": [
+       {
+        "add": "13",
+        "card": true,
+        "color": "orange"
+       },
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
+     }
+    ]
+   },
+   {
+    "name": "المحاولة: ترتيب حسن",
+    "beats": [
+     {
+      "say": "ما ترتيب حسن من الأمام؟",
+      "do": [
+       {
+        "scene": "pic",
+        "img": "../../pics/sc-math-ar-u7l1-line-hassan.png",
+        "w": 1000,
+        "h": 280,
+        "frame": false
+       }
+      ],
+      "audio": "../../math-ar-audio/b03a66c4ef.mp3"
+     },
+     {
+      "say": "نعد من الأمام حتى نصل إلى حسن.",
+      "do": [
+       {
+        "count": true,
+        "pts": [
+         [
+          940,
+          96
+         ],
+         [
+          863,
+          96
+         ],
+         [
+          798,
+          96
+         ],
+         [
+          726,
+          96
+         ],
+         [
+          656,
+          96
+         ],
+         [
+          585,
+          96
+         ],
+         [
+          510,
+          96
+         ],
+         [
+          438,
+          96
+         ],
+         [
+          360,
+          96
+         ],
+         [
+          293,
+          96
+         ],
+         [
+          205,
+          96
+         ]
+        ],
+        "color": "orange",
+        "r": 22
+       }
+      ]
+     },
+     {
+      "say": "ما ترتيب حسن؟",
+      "do": [
+       {
+        "ask": {
+         "options": [
+          "العاشر",
+          "الحادي عشر",
+          "الثاني عشر"
+         ],
+         "answer": "الحادي عشر"
+        }
+       }
+      ]
+     },
+     {
+      "say": "نعم! حسن الحادي عشر من الأمام.",
+      "do": [
+       {
+        "cheer": true
+       }
+      ],
+      "gap": 1000
      }
     ]
    }
   ],
   "rtl": true,
   "lang": "ar"
- }
+ },
+ "hints": {
+  "vocabPick": "اختار كلمة",
+  "vocabTeach": "اسمع وردد",
+  "vocabWrite": "اكتب الكلمة حرف حرف",
+  "word": "اضغط على أي كلمة تسمعها"
+ },
+ "vocabRepeats": 3
 }
