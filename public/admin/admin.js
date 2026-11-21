@@ -43,20 +43,10 @@ async function boot(){
   drawSettings(); drawTree(); drawPromos(); drawUsers(); drawStats(); drawReports();
   if(S.api){ const [ac,st]=await Promise.all([api('/admin/accounts'),api('/admin/stats')]); if(ac&&ac.accounts){ SRV.accounts=ac.accounts; drawUsers(); loadSubs(); } if(st&&st.hist){ SRV.stats=st; drawStats(); }
     if(st&&st.promoUses){ SRV.promoUses=st.promoUses; drawPromos(); }
-    loadReports(); mergeCard();
+    loadReports();
     if(!ac&&!LOCKED) $('#where').textContent='المستخدمين والإحصائيات مش ظاهرين دلوقتي. اتأكدي من الإنترنت وكلمة السر.'; }
 }
 
-/* ---------- one-time merge of the old Easy Words database (2026-11-21): the card shows only on the Easy Words side while it is not done ---------- */
-async function mergeCard(){
-  if(!window.ADMIN_WORDS||!S||!S.api) return; const c=$('#mg-card'), out=$('#mg-out'); if(!c) return;
-  const st=await api('/admin/merge-words'); if(!st||!st.hasOld) return;
-  c.hidden=false;
-  if(st.done){ out.textContent='تم الدمج ✓ '+new Date(st.done.at).toLocaleString('ar-EG')+'\nماتشغليش الزرار تاني.'; $('#mg-dry').disabled=true; return; }
-  const show=r=>{ const R=r.report; out.textContent=`أولياء أمور: ${R.parentsMatchedByEmail} نفس الإيميل، ${R.parentsMatchedByPhone} نفس الموبايل، ${R.parentsNew} جدد\nطلاب: ${R.kidsSameId} نفس الرقم، ${R.kidsMatchedByName} نفس الاسم، ${R.kidsNew} جدد، ${R.kidsIdChanged} اتغيّر رقمهم\nصفوف: `+Object.entries(R.rows).map(([k,v])=>k+' '+v).join('، ')+(R.phoneMatches.length?'\nمطابقة بالموبايل (راجعيها): '+R.phoneMatches.map(x=>x.words+' ← '+x.study).join(' | '):''); };
-  $('#mg-dry').onclick=async()=>{ out.textContent='...'; const r=await post('/admin/merge-words',{}); if(r&&r.ok){ show(r); $('#mg-run').disabled=false; } else out.textContent='فشل الفحص: '+((r&&r.error)||'مفيش رد'); };
-  $('#mg-run').onclick=async()=>{ if(!(await ask('تنفيذ الدمج دلوقتي؟ بيتعمل مرة واحدة ومش بيمسح حاجة من القاعدتين.','نفّذي'))) return; out.textContent='...'; const r=await post('/admin/merge-words',{run:true}); if(r&&r.ok){ show(r); out.textContent='تم الدمج ✓\n'+out.textContent; $('#mg-run').disabled=true; $('#mg-dry').disabled=true; await refreshUsers(); } else out.textContent='فشل الدمج: '+((r&&r.error)||'مفيش رد'); };
-}
 
 /* ---------- settings page ---------- */
 let CTYPES=[];
@@ -239,7 +229,7 @@ function drawUsers(){ const A=accounts(), box=$('#users'), srv=!!SRV.accounts, a
       <td rowspan="${n}"><input class="u-in" data-f="phone" dir="ltr" type="tel" value="${esc(a.phone||'')}" placeholder="—"${dis}></td>`;
     const last=`<td rowspan="${n}" class="u-act"><button type="button" class="u-del" data-a="del"${dis}>حذف</button></td>`;
     const rowsK=K.map((x,j)=>{ const k=x.k, g=k.grade||'p1', blk=f=>x.sub.map(s=>`<div class="trm" data-k="${esc(k.id)}" data-g="${esc(g)}" data-t="${s.t}">${f(s)}</div>`).join('');
-      return `<tr data-p="${esc(P)}" data-k="${esc(k.id)}">`+(j?'':first)+`<td class="u-kc"><input class="u-in" data-f="kid" value="${esc(k.name)}"${dis}><select class="u-in" data-f="grade"${dis}>${gradeOpts(g)}</select>${k.school?`<small class="u-sch">${esc(schoolName(k.school))}</small>${schoolPerm(k.school)?`<label class="sw u-grant"><input type="checkbox" data-a="grant"${k.grant?' checked':''}${dis}><span></span> مسموح له بمنهج المدرسة</label>`:''}`:''}</td><td class="u-dt">${fmtD(k.created)||'—'}</td>`+
+      return `<tr data-p="${esc(P)}" data-k="${esc(k.id)}">`+(j?'':first)+`<td class="u-kc"><input class="u-in" data-f="kid" value="${esc(k.name)}"${dis}><select class="u-in" data-f="grade"${dis}>${gradeOpts(g)}</select><button type="button" class="u-del u-kdel" data-a="delk"${dis}>حذف الطالب</button>${k.school?`<small class="u-sch">${esc(schoolName(k.school))}</small>${schoolPerm(k.school)?`<label class="sw u-grant"><input type="checkbox" data-a="grant"${k.grant?' checked':''}${dis}><span></span> مسموح له بمنهج المدرسة</label>`:''}`:''}</td><td class="u-dt">${fmtD(k.created)||'—'}</td>`+
         `<td>${blk(s=>`<label class="sw"><input type="checkbox" data-a="tog"${s.st==='on'?' checked':''}${dis}><span></span></label><span class="nm">${TNAME[s.t]}</span><span class="stb ${s.st==='on'?'open':''}">${s.st==='on'?'مشترك':s.st==='wait'?'منتظر':'غير مشترك'}</span>${s.r&&s.r.promo?`<small class="sbpr">${s.r.by==='promo'?'فُعّل بكود':'كود'}: <b dir="ltr">${esc(s.r.promo)}</b>${s.r.by==='promo'?'':' · '+ar(s.r.price||0)+' جنيه'}</small>`:s.r&&s.r.price?`<small class="sbpr">${ar(s.r.price)} جنيه</small>`:''}`)}</td>`+
         `<td class="u-dt">${blk(s=>fmtD(s.r&&s.r.at)||'—')}</td>`+
         `<td>${blk(s=>s.r&&s.r.receipt?`<button type="button" class="ghost" data-a="rc">عرض الإيصال</button>`:'—')}</td>`+(j?'':last)+'</tr>'; }).join('');
@@ -275,6 +265,8 @@ $('#users').addEventListener('change',async e=>{ const i=e.target.closest('.u-in
   if(x&&x.ok) toast('اتحفظ'); else { toast(U_ERR[x&&x.error]||'ما اتحفظش، جربي تاني'); await refreshUsers(); drawUsers(); } });
 $('#users').addEventListener('click',async e=>{ const b=e.target.closest('[data-a]'); if(!b||b.disabled||b.dataset.a==='tog') return; const tr=b.closest('tr'), pid=tr.dataset.p;
   if(b.dataset.a==='del'){ if(!(await ask('حذف المستخدم ده نهائيًا؟ هيتمسح معاه الطلاب والاشتراكات والإيصالات والكريدتس في التطبيقين (Easy Study وEasy Words)، ومفيش رجوع.','احذف'))) return; const x=await post('/admin/user/'+pid+'/delete',{}); if(x&&x.ok){ toast('اتحذف'); await refreshUsers(); } else toast('ما اتحذفش، جربي تاني'); return; }
+  if(b.dataset.a==='delk'){ const nm=tr.querySelector('[data-f=kid]').value.trim()||'الطالب'; if(!(await ask('حذف الطالب «'+nm+'» نهائيًا؟ هيتمسح تقدمه واشتراكاته وإيصالاته في التطبيقين (Easy Study وEasy Words). حساب ولي الأمر والطلاب التانيين مش هيتأثروا، ومفيش رجوع.','حذف الطالب'))) return;
+    b.disabled=true; const x=await post('/admin/kid/'+tr.dataset.k+'/delete',{}); if(x&&x.ok){ toast('اتحذف الطالب'); await refreshUsers(); } else { b.disabled=false; toast('ما اتحذفش، جربي تاني'); } return; }
   if(b.dataset.a==='rc'){ const r=b.closest('.trm'); return showReceipt(r.dataset.k,r.dataset.g+':'+r.dataset.t); }
   if(b.dataset.a==='addk'){ const c=b.parentNode; c.innerHTML=`<input class="u-in" data-f="nn" placeholder="اسم الطالب الجديد"><select class="u-in" data-f="ng">${gradeOpts('p1')}</select><button type="button" class="pri" data-a="addk-go">إضافة</button><button type="button" class="ghost" data-a="addk-x">إلغاء</button>`; c.querySelector('input').focus(); return; }
   if(b.dataset.a==='addk-x') return drawUsers();
