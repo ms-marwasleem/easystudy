@@ -2,6 +2,9 @@
    coins (on/off, prices, share types), access.free (the free policy for a new child), items (state + price per subject / unit / lesson).
    Settings are read from and saved to the server only (GET/PUT api/admin/settings); no device copy.
    Accounts + stats read this device (es.account, es.kids, es.wallet.*) until the server API exists (GET /api/admin/accounts, /stats). */
+// ONE dashboard for both apps (2026-11-21): admin.html opens on Easy Study, admin.html?app=words on Easy Words (window.ADMIN_WORDS, set in admin.html before this file).
+// Every call to the server carries ?app=words on the Easy Words side; the users are the same people in both.
+const AQ=p=>window.ADMIN_WORDS?p+(p.includes('?')?'&':'?')+'app=words':p;
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const get=u=>fetch(u,{cache:'no-store'}).then(r=>{ if(!r.ok) throw new Error(u); return r.json(); });
 const lsGet=(k,d)=>{ try{ const v=JSON.parse(localStorage.getItem(k)||'null'); return v==null?d:v; }catch(e){ return d; } };
@@ -40,8 +43,19 @@ async function boot(){
   drawSettings(); drawTree(); drawPromos(); drawUsers(); drawStats(); drawReports();
   if(S.api){ const [ac,st]=await Promise.all([api('/admin/accounts'),api('/admin/stats')]); if(ac&&ac.accounts){ SRV.accounts=ac.accounts; drawUsers(); loadSubs(); } if(st&&st.hist){ SRV.stats=st; drawStats(); }
     if(st&&st.promoUses){ SRV.promoUses=st.promoUses; drawPromos(); }
-    loadReports();
+    loadReports(); mergeCard();
     if(!ac&&!LOCKED) $('#where').textContent='المستخدمين والإحصائيات مش ظاهرين دلوقتي. اتأكدي من الإنترنت وكلمة السر.'; }
+}
+
+/* ---------- one-time merge of the old Easy Words database (2026-11-21): the card shows only on the Easy Words side while it is not done ---------- */
+async function mergeCard(){
+  if(!window.ADMIN_WORDS||!S||!S.api) return; const c=$('#mg-card'), out=$('#mg-out'); if(!c) return;
+  const st=await api('/admin/merge-words'); if(!st||!st.hasOld) return;
+  c.hidden=false;
+  if(st.done){ out.textContent='تم الدمج ✓ '+new Date(st.done.at).toLocaleString('ar-EG')+'\nماتشغليش الزرار تاني.'; $('#mg-dry').disabled=true; return; }
+  const show=r=>{ const R=r.report; out.textContent=`أولياء أمور: ${R.parentsMatchedByEmail} نفس الإيميل، ${R.parentsMatchedByPhone} نفس الموبايل، ${R.parentsNew} جدد\nطلاب: ${R.kidsSameId} نفس الرقم، ${R.kidsMatchedByName} نفس الاسم، ${R.kidsNew} جدد، ${R.kidsIdChanged} اتغيّر رقمهم\nصفوف: `+Object.entries(R.rows).map(([k,v])=>k+' '+v).join('، ')+(R.phoneMatches.length?'\nمطابقة بالموبايل (راجعيها): '+R.phoneMatches.map(x=>x.words+' ← '+x.study).join(' | '):''); };
+  $('#mg-dry').onclick=async()=>{ out.textContent='...'; const r=await post('/admin/merge-words',{}); if(r&&r.ok){ show(r); $('#mg-run').disabled=false; } else out.textContent='فشل الفحص: '+((r&&r.error)||'مفيش رد'); };
+  $('#mg-run').onclick=async()=>{ if(!(await ask('تنفيذ الدمج دلوقتي؟ بيتعمل مرة واحدة ومش بيمسح حاجة من القاعدتين.','نفّذي'))) return; out.textContent='...'; const r=await post('/admin/merge-words',{run:true}); if(r&&r.ok){ show(r); out.textContent='تم الدمج ✓\n'+out.textContent; $('#mg-run').disabled=true; $('#mg-dry').disabled=true; await refreshUsers(); } else out.textContent='فشل الدمج: '+((r&&r.error)||'مفيش رد'); };
 }
 
 /* ---------- settings page ---------- */
@@ -191,7 +205,7 @@ const fmt=t=>{ try{ return new Date(t).toLocaleString('ar-EG',{dateStyle:'medium
 // with a server (settings "api"): the real lists come from GET api/admin/accounts and api/admin/stats (same shapes as the local ones below)
 const tokGet=()=>{ try{ return localStorage.getItem('es.adminToken')||''; }catch(e){ return ''; } };
 const hdr=()=>{ const t=tokGet(), h={'Content-Type':'application/json'}; if(t) h.Authorization='Bearer '+t; return h; }; // no-domain admin: ADMIN_TOKEN as Bearer
-const api=(path,body)=>S.api?fetch(S.api+path+(body?'':(path.includes('?')?'&':'?')+'_='+Date.now()),{method:body?'PUT':'GET',cache:'no-store',credentials:'include',headers:hdr(),body:body?JSON.stringify(body):undefined}).then(r=>r.ok?r.json():null).catch(()=>null):Promise.resolve(null);
+const api=(path,body)=>S.api?fetch(S.api+AQ(path)+(body?'':(path.includes('?')?'&':'?')+'_='+Date.now()),{method:body?'PUT':'GET',cache:'no-store',credentials:'include',headers:hdr(),body:body?JSON.stringify(body):undefined}).then(r=>r.ok?r.json():null).catch(()=>null):Promise.resolve(null);
 let SRV={subs:null,accounts:null,stats:null,promoUses:null,reports:null};
 function accounts(){ if(SRV.accounts) return SRV.accounts; const a=lsGet('es.account',null); if(!a) return []; return [{...a,kids:lsGet('es.kids',[])}]; }
 const subRow=(kid,t)=>(SRV.subs||[]).find(x=>x.child===kid&&x.term.split(':')[1]===t);
@@ -260,7 +274,7 @@ $('#users').addEventListener('change',async e=>{ const i=e.target.closest('.u-in
   else { const row=tr.parentNode.querySelector(`tr[data-p="${pid}"]`), g=n=>row.querySelector(`[data-f="${n}"]`).value.trim(); x=await post('/admin/user/'+pid,{email:g('email'),phone:g('phone')}); if(x&&x.ok&&a){ a.email=g('email'); a.phone=g('phone'); } }
   if(x&&x.ok) toast('اتحفظ'); else { toast(U_ERR[x&&x.error]||'ما اتحفظش، جربي تاني'); await refreshUsers(); drawUsers(); } });
 $('#users').addEventListener('click',async e=>{ const b=e.target.closest('[data-a]'); if(!b||b.disabled||b.dataset.a==='tog') return; const tr=b.closest('tr'), pid=tr.dataset.p;
-  if(b.dataset.a==='del'){ if(!(await ask('حذف المستخدم ده نهائيًا؟ هيتمسح معاه الطلاب والاشتراكات والإيصالات والكريدتس، ومفيش رجوع.','احذف'))) return; const x=await post('/admin/user/'+pid+'/delete',{}); if(x&&x.ok){ toast('اتحذف'); await refreshUsers(); } else toast('ما اتحذفش، جربي تاني'); return; }
+  if(b.dataset.a==='del'){ if(!(await ask('حذف المستخدم ده نهائيًا؟ هيتمسح معاه الطلاب والاشتراكات والإيصالات والكريدتس في التطبيقين (Easy Study وEasy Words)، ومفيش رجوع.','احذف'))) return; const x=await post('/admin/user/'+pid+'/delete',{}); if(x&&x.ok){ toast('اتحذف'); await refreshUsers(); } else toast('ما اتحذفش، جربي تاني'); return; }
   if(b.dataset.a==='rc'){ const r=b.closest('.trm'); return showReceipt(r.dataset.k,r.dataset.g+':'+r.dataset.t); }
   if(b.dataset.a==='addk'){ const c=b.parentNode; c.innerHTML=`<input class="u-in" data-f="nn" placeholder="اسم الطالب الجديد"><select class="u-in" data-f="ng">${gradeOpts('p1')}</select><button type="button" class="pri" data-a="addk-go">إضافة</button><button type="button" class="ghost" data-a="addk-x">إلغاء</button>`; c.querySelector('input').focus(); return; }
   if(b.dataset.a==='addk-x') return drawUsers();
@@ -274,7 +288,7 @@ $('#u-form').addEventListener('submit',async e=>{ e.preventDefault(); const f=e.
 /* ---------- term subscriptions (server only; docs/subscriptions-spec.md): pending receipts first, activate / reject / close, grant with no receipt ---------- */
 const termNow=()=>/2/.test((COURSE&&COURSE.term)||'')?'t2':'t1', TNAME={t1:'الترم الأول',t2:'الترم التاني'};
 const STN={pending:'منتظر المراجعة',active:'مفعّل',rejected:'مرفوض',closed:'مقفول'};
-const post=(path,body)=>fetch(S.api+path,{method:body?'POST':'GET',credentials:'include',headers:hdr(),body:body?JSON.stringify(body):undefined}).then(r=>r.json()).catch(()=>null);
+const post=(path,body)=>fetch(S.api+AQ(path),{method:body?'POST':'GET',credentials:'include',headers:hdr(),body:body?JSON.stringify(body):undefined}).then(r=>r.json()).catch(()=>null);
 const subOf=id=>{ const r=(SRV.subs||[]).filter(x=>x.child===id&&x.st==='active'&&x.until>Date.now()); return r.length?'مفعّل: '+r.map(x=>TNAME[x.term.split(':')[1]]).join('، '):'بدون اشتراك'; };
 async function loadSubs(){ if(!S.api){ drawSubs(); return; } const r=await post('/admin/subs?st=all'); if(r&&r.subs){ SRV.subs=r.subs; } drawSubs(); drawUsers(); }
 const SB_MSG='مقدرناش نتأكد من الدفع. ابعتي صورة الإيصال تاني من صفحة اشتراكاتي.';
@@ -343,7 +357,7 @@ $$('#sh-tabs button').forEach(b=>b.addEventListener('click',()=>{ SH.t=b.dataset
 /* ---------- reports (2026-11-06): "report a problem" flags from the app (js/report.js). Server: GET api/admin/reports, POST api/admin/report/<id>; no server: this device's es.reports ---------- */
 const RPTAB={read:'الدرس',words:'الكلمات',quiz:'أسئلة الكتاب',booklet:'الكُتيب',workbook:'كتاب التقييمات',grammar:'القواعد',exam:'ورقة تقييم'};
 const RPKIND={answer:'الإجابة غلط',picture:'الصورة غلط',sound:'الصوت غلط',text:'كلمة مكتوبة غلط',other:'حاجة تانية'};
-const apiPost=(path,body)=>fetch(S.api+path,{method:'POST',credentials:'include',headers:hdr(),body:JSON.stringify(body)}).then(r=>r.ok?r.json():null).catch(()=>null);
+const apiPost=(path,body)=>fetch(S.api+AQ(path),{method:'POST',credentials:'include',headers:hdr(),body:JSON.stringify(body)}).then(r=>r.ok?r.json():null).catch(()=>null);
 async function loadReports(){ const r=await api('/admin/reports?status=all'); if(r&&r.reports){ SRV.reports=r.reports; drawReports(); } }
 function reportList(){ if(SRV.reports) return SRV.reports;
   return lsGet('es.reports',[]).map(r=>({id:r.id,at:r.at,status:r.done?'done':'open',subject:r.ctx.subject,unit:r.ctx.unit,lesson:r.ctx.lesson,tab:r.ctx.tab,page:r.ctx.page,ex:r.ctx.ex,kind:r.kind,comment:r.comment,ctx:r.ctx})).reverse(); }
@@ -415,7 +429,7 @@ function showTab(p,keep){ const b=$('#tabs button[data-p="'+p+'"]'); if(!b) retu
 $$('#tabs button').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.p)));
 { let t=location.hash.replace('#',''); if(!t){ try{ t=localStorage.getItem('es.adminTab')||''; }catch(e){} } if(t) showTab(t,true); }   // a refresh stays on the same tab
 $('#save').addEventListener('click',async()=>{ if(LOCKED) return toast('الحفظ متوقف دلوقتي'); const btn=$('#save'); btn.disabled=true;
-  try{ let st=0,r=null; try{ const x=await fetch(S.api+'/admin/settings',{method:'PUT',cache:'no-store',credentials:'include',headers:hdr(),body:JSON.stringify(S)}); st=x.status; r=await x.json().catch(()=>null); }catch(e){ st=-1; }
+  try{ let st=0,r=null; try{ const x=await fetch(S.api+AQ('/admin/settings'),{method:'PUT',cache:'no-store',credentials:'include',headers:hdr(),body:JSON.stringify(S)}); st=x.status; r=await x.json().catch(()=>null); }catch(e){ st=-1; }
     if(!(st===200&&r&&r.ok)) return toast(st===-1?'ما اتحفظش: مفيش اتصال بالسيرفر. اتأكدي من الإنترنت وحاولي تاني':(st===401||st===403)?'ما اتحفظش: كلمة السر مش مظبوطة (زرار «كلمة السر»)':'ما اتحفظش: السيرفر رجّع خطأ ('+st+(r&&r.error?' '+r.error:'')+'). حاولي تاني');
     const back=await api('/admin/settings');   // read it back from the server: success is shown only if it is really there
     if(!(back&&back.coins&&JSON.stringify(back.coins)===JSON.stringify(S.coins)&&JSON.stringify(back.subs||{})===JSON.stringify(S.subs||{}))) return toast('ما اتحفظش بشكل مؤكد: السيرفر ما رجّعش اللي اتكتب. حاولي تاني');

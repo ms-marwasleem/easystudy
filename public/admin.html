@@ -5,9 +5,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&display=swap">
 <link rel="stylesheet" href="admin/admin.css">
+<script>/* one dashboard, two apps: ?app=words = Easy Words (blue), otherwise Easy Study (orange). Same admin code and password for both. */
+(function(){ var w=/[?&]app=words\b/.test(location.search); window.ADMIN_WORDS=w?1:0;
+  if(w){ var l=document.createElement('link'); l.rel='stylesheet'; l.href='admin/admin-words.css'; document.head.appendChild(l); document.title='Easy Words Admin'; } })();</script>
 </head><body>
 <header class="top">
-  <b class="logo">EasyStudy <small>لوحة الإدارة</small></b>
+  <b class="logo"><span id="appName">EasyStudy</span> <small>لوحة الإدارة</small></b>
+  <span class="appsw"><a href="admin.html" id="sw-study">Easy Study</a><a href="admin.html?app=words" id="sw-words">Easy Words</a></span>
   <nav id="tabs">
     <button data-p="stats" class="on">إحصائيات</button>
     <button data-p="settings">إعدادات التطبيق</button>
@@ -109,6 +113,12 @@
       <div class="tbl" id="free-per"></div>
       <p class="hint">اكتبي رقم في أي مادة عشان يبقى ليها عدد خاص (فاضي = الافتراضي).</p>
     </div>
+    <div class="card" id="mg-card" hidden>
+      <h2>دمج مستخدمي Easy Words في القاعدة المشتركة (مرة واحدة)</h2>
+      <p class="hint">بينقل حسابات وطلاب واشتراكات وكريدتس وبلاغات Easy Words القديمة للقاعدة المشتركة. القاعدة القديمة ما بتتلمسش. «فحص» بيعرض النتيجة من غير ما يغيّر حاجة. لحد ما يتم الدمج تطبيق Easy Words بيقول «صيانة» ويفضل شغال على نسخته.</p>
+      <div class="acts"><button id="mg-dry">فحص (بدون تغيير)</button> <button id="mg-run" disabled>نفّذي الدمج</button></div>
+      <pre id="mg-out" dir="rtl" style="white-space:pre-wrap"></pre>
+    </div>
   </section>
 
   <section id="p-lessons" class="page" hidden>
@@ -186,6 +196,7 @@
 
 </main>
 <div id="toast" hidden></div>
+<script>document.getElementById(window.ADMIN_WORDS?"sw-words":"sw-study").className="on";if(window.ADMIN_WORDS)document.getElementById("appName").textContent="Easy Words";</script>
 <script src="admin/gate.js"></script>
 <div id="u-modal" class="u-modal" hidden><div id="u-modal-in" class="u-modal-in"></div></div>
 <script src="admin/admin.js"></script>

@@ -1,4 +1,4 @@
-const EW_BUILD='4f47502662';
+const EW_BUILD='7bc640eeb7';
 /* MADE BY tools/build-words.py from the files named below. Do not edit here. */
 /* ===== js/words-boot.js ===== */
 /* EASY WORDS — first file of the bundle: tells the shared accounts / credits code (welcome, sync, subs, coins, push) which settings file and server to use. */
@@ -1355,24 +1355,47 @@ function openKidEdit(id){ const k=kids().find(x=>x.id===id); if(!k) return; WL.a
 function kidSave(id,ch){ const K=kids(), k=K.find(x=>x.id===id); if(!k) return; Object.assign(k,ch); wlSet('es.kids',K); if(typeof syPushKids==='function') syPushKids();
   WL.edit=null; WL.adding=false; const cur=kidNow(); if(cur&&cur.id===id){ currSave(k.curr); setTimeout(()=>location.reload(),300); } else { kidPaint(); openSubjects(); } }
 
+/* ---------- delete a student (Ahmed 2026-11-21): the trash icon on the student's picture in the account page -> a confirmation popup -> the server removes the student and their data
+   (progress, subscriptions, unlocks) in both apps; the parent, the other students and the credits balance stay. Signed in: the server answers first, nothing is changed here if it fails. ---------- */
+function kidDeleteAsk(id){ const k=kids().find(x=>x.id===id); if(!k||typeof coinPopPro!=='function') return;
+  coinPopPro(`<h2 class="outline">حذف الطالب</h2><p class="msg-text">هيتم حذف الطالب «${wlEsc(k.name)}» وكل تقدمه واشتراكاته نهائيًا، ومفيش رجوع. حساب ولي الأمر والطلاب التانيين مش هيتأثروا.</p><p class="wl-err kd-err" hidden></p>
+    <button class="pill kd-yes" data-yes>حذف الطالب</button><button class="pill cream" data-no>إلغاء</button>`,p=>{
+    $('[data-no]',p).addEventListener('click',()=>coinClose());
+    const yes=$('[data-yes]',p), er=$('.kd-err',p); yes.addEventListener('click',async()=>{ yes.disabled=true; er.hidden=true;
+      const s=typeof sySession==='function'&&sySession();
+      if(s&&s.token){ const r=await syCall('/kids/'+id,null,'DELETE'); if(!r||!r.j.ok){ er.textContent=r?'ما اتحذفش، جرب تاني':'مفيش اتصال بالإنترنت، جرب تاني'; er.hidden=false; yes.disabled=false; return; } }
+      kidDeleted(id); }); }); }
+// take the student off this device (also used when the server says another device already deleted it)
+function kidDeleted(id){ const cur=kidNow(), was=cur&&cur.id===id, K=kids().filter(x=>x.id!==id);
+  wlSet('es.kids',K);
+  try{ const gone=[]; for(let i=0;i<localStorage.length;i++){ const n=localStorage.key(i); if(n&&(n.indexOf('es.kid.'+id+'.')===0||n==='es.progAt.'+id)) gone.push(n); } gone.forEach(n=>localStorage.removeItem(n)); }catch(e){}
+  if(!was){ if(typeof coinClose==='function') coinClose(); kidMenu(); return; }
+  // the active student is gone: clear this device's loose progress, then open the first one left (the welcome page when nobody is left)
+  try{ KID_KEYS.forEach(x=>localStorage.removeItem(x)); }catch(e){}
+  if(K.length){ const n=K[0]; try{ KID_KEYS.forEach(x=>{ const g=localStorage.getItem(`es.kid.${n.id}.${x}`); if(g!=null) localStorage.setItem(x,g); }); }catch(e){} wlSet('es.kid',n.id); currSave(n.curr); }
+  else { wlSet('es.kid',null); try{ localStorage.removeItem('es.curr'); }catch(e){} }
+  location.reload(); }
+
 /* ---------- profile button (home, bottom right) -> parent gate -> the account page ---------- */
 function kidPaint(){ const k=kidNow(), b=$('#kidBtn'); if(!b) return; b.hidden=!k; if(k) $('#kidName').textContent=k.name; }
 const ACH={ user:'<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.5 3.6-7 8-7s8 2.5 8 7"/></svg>', card:'<svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M3 10.5h18M7 15h3"/></svg>',
   inv:'<svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.8 2.9-6 6.5-6s6.5 2.2 6.5 6M19 8v6M16 11h6"/></svg>',
   bell:'<svg viewBox="0 0 24 24"><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 2h-15zM10 21a2 2 0 0 0 4 0"/></svg>',
-  coin:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M9.5 10.5c0-1 1-1.5 2.5-1.5s2.5.6 2.5 1.6-1 1.4-2.5 1.8-2.5.8-2.5 1.8 1 1.5 2.5 1.5 2.5-.5 2.5-1.5"/></svg>', out:'<svg viewBox="0 0 24 24"><path d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/></svg>' };
+  coin:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M9.5 10.5c0-1 1-1.5 2.5-1.5s2.5.6 2.5 1.6-1 1.4-2.5 1.8-2.5.8-2.5 1.8 1 1.5 2.5 1.5 2.5-.5 2.5-1.5"/></svg>', out:'<svg viewBox="0 0 24 24"><path d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/></svg>',
+  trash:'<svg viewBox="0 0 24 24"><path d="M4 7h16M9 7V4.5h6V7M6.5 7l1 13h9l1-13M10 11v5.5M14 11v5.5"/></svg>' };
 const wlRow=(cls,ic,ar,note)=>`<button class="arow ${cls}"><i>${ic}</i><b>${ar}</b>${note?`<em>${note}</em>`:''}<s></s></button>`;
 function kidMenu(){
   let o=$('#acctPage'); if(!o){ o=el('div','acctpage',''); o.id='acctPage'; o.setAttribute('role','dialog'); o.setAttribute('aria-label','Account'); document.body.append(o); }
   const a=acct()||{}, cur=kidNow();
   o.innerHTML=`<div class="ac-top"><button class="rb ac-back" aria-label="Back">${ICON.back}</button><h2>حسابي</h2></div>
     <div class="ac-in"><section class="ac-card ac-me"><i class="ac-meic">${ACH.user}</i><div><b>ولي الأمر</b>${[(a.email&&!/@phone\.local$/.test(a.email))?a.email:'',a.phone].filter(Boolean).map(x=>`<small dir="ltr">${wlEsc(x)}</small>`).join('')}</div></section>
-    <section class="ac-card"><h3>الطلاب</h3><div class="ac-kids">${kids().map(k=>`<div class="ac-kid${cur&&k.id===cur.id?' on':''}"><button class="ac-pic" data-kid="${k.id}" aria-label="${wlEsc(k.name)}">${wlAv(k)}</button><button class="ac-pen" data-edit="${k.id}" aria-label="Edit ${wlEsc(k.name)}">${ICON.pencil}</button><b>${wlEsc(k.name)}</b><small>${wlEsc(gradeLabel(k.grade))}</small></div>`).join('')}
+    <section class="ac-card"><h3>الطلاب</h3><div class="ac-kids">${kids().map(k=>`<div class="ac-kid${cur&&k.id===cur.id?' on':''}"><button class="ac-pic" data-kid="${k.id}" aria-label="${wlEsc(k.name)}">${wlAv(k)}</button><button class="ac-pen" data-edit="${k.id}" aria-label="Edit ${wlEsc(k.name)}">${ICON.pencil}</button><button class="ac-del" data-del="${k.id}" aria-label="Delete ${wlEsc(k.name)}">${ACH.trash}</button><b>${wlEsc(k.name)}</b><small>${wlEsc(gradeLabel(k.grade))}</small></div>`).join('')}
       <div class="ac-kid"><button class="ac-pic ac-add" aria-label="Add a child">${ICON.plus}</button><b>إضافة طالب</b></div></div></section>
     <div class="arows">${wlRow('ac-prof',ACH.user,'الملف الشخصي','')}${typeof coinsOn==='function'&&coinsOn()?wlRow('wl-cred',ACH.coin,'رصيدي',CRED(coinBal())):''}${typeof invitePage==='function'?wlRow('ac-inv',ACH.inv,'دعوة صديق',''):''}${(typeof subIsOn==='function'&&(subIsOn()||subHasAny()))?wlRow('ac-subs',ACH.card,'اشتراكاتي',''):''}${wlRow('ac-news',ACH.bell,'الإشعارات',subNews().length?num(subNews().length)+' جديد':'')}${typeof acctExtraRows==='function'?acctExtraRows():''}</div></div>`;
   $('.ac-back',o).addEventListener('click',()=>o.hidden=true);
   $$('[data-kid]',o).forEach(b=>b.addEventListener('click',()=>{ o.hidden=true; kidSwitch(b.dataset.kid); }));
   $$('[data-edit]',o).forEach(b=>b.addEventListener('click',()=>{ o.hidden=true; openKidEdit(b.dataset.edit); }));
+  $$('[data-del]',o).forEach(b=>b.addEventListener('click',()=>kidDeleteAsk(b.dataset.del)));
   $('.ac-add',o).addEventListener('click',()=>{ o.hidden=true; openWelcome(true); });
   $('.ac-prof',o).addEventListener('click',profilePage);
   { const sb=$('.ac-subs',o); if(sb) sb.addEventListener('click',subsPage); }
@@ -1515,7 +1538,7 @@ async function syBoot(){
   if(me.ref){ const a=acct()||{}; if(a.ref!==me.ref){ wlSet('es.account',{...a,ref:me.ref}); wlSet('es.session',{...(sySession()||{}),ref:me.ref}); } window.ACCOUNT={...(window.ACCOUNT||acct()||{}),ref:me.ref}; }   // the invite link needs the parent's code
   // the school permission the admin gave (or took back) for a student: kept in the child's curriculum pick (curr.grant)
   me.kids.forEach(sk=>{ const lk=local.find(x=>x.id===sk.id); if(!lk||!lk.curr||!lk.curr.school) return; const g=sk.curr&&sk.curr.grant?1:0; if((lk.curr.grant?1:0)!==g){ if(g) lk.curr.grant=1; else lk.curr.grant=0; changed=true; const c=kidNow(); if(c&&c.id===lk.id) regrant=true; } });
-  local.filter(k=>!ids.has(k.id)).forEach(k=>syCall('/kids/'+k.id,{name:k.name,grade:k.grade,curr:k.curr},'PUT'));   // made offline
+  local.filter(k=>!ids.has(k.id)).forEach(k=>syCall('/kids/'+k.id,{name:k.name,grade:k.grade,curr:k.curr},'PUT').then(r=>{ if(r&&r.j&&r.j.deleted&&typeof kidDeleted==='function') kidDeleted(k.id); }));   // made offline (a student deleted on another device is dropped here)
   me.kids.filter(k=>!local.some(x=>x.id===k.id)).forEach(k=>{ local.push({id:k.id,name:k.name,grade:k.grade,curr:k.curr,created:k.created}); changed=true;
     try{ Object.entries(k.progress||{}).forEach(([x,v])=>localStorage.setItem(`es.kid.${k.id}.${x}`,v)); }catch(e){} wlSet('es.progAt.'+k.id,k.progressAt||0); });
   if(changed){ wlSet('es.kids',local); kidPaint(); if(regrant){ const c=kidNow(); if(c){ currSave(c.curr); location.reload(); return; } } }

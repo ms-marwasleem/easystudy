@@ -202,3 +202,6 @@ input[disabled]{opacity:.5}
 .sbtbl small{display:block;color:var(--mut);max-width:16rem}
 #u-rmsg{width:100%;box-sizing:border-box;font:inherit;padding:.5rem;border:.06rem solid var(--line);border-radius:.5rem;margin-top:.4rem}
 .utbl .u-sch{display:block;color:#7A6A5A;font-weight:700;margin:.1rem 0}.utbl .u-grant{display:flex;align-items:center;gap:.4rem;font-size:.85rem;white-space:normal}
+
+/* app switch (one dashboard for Easy Study + Easy Words) */
+.appsw{display:inline-flex;gap:.3rem;margin:0 .8rem}.appsw a{color:#fff;text-decoration:none;padding:.15rem .7rem;border-radius:1rem;background:#ffffff33;font-size:.85em}.appsw a.on{background:#fff;color:var(--acc-dk,#b45309);font-weight:700}

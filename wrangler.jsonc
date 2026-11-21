@@ -2,6 +2,10 @@
   "name": "easystudy",
   "main": "src/index.js",
   "compatibility_date": "2026-10-17",
+  "vars": { "APP_ID": "study" },
   "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": ["/api/*"] },
-  "d1_databases": [{ "binding": "DB", "database_name": "easystudy", "database_id": "40053f36-559b-4403-b147-468b04d3f838" }]
+  "d1_databases": [
+    { "binding": "DB", "database_name": "easystudy", "database_id": "40053f36-559b-4403-b147-468b04d3f838" },
+    { "binding": "WORDS_OLD", "database_name": "easywords", "database_id": "946ec279-7baf-469a-87e4-f67f8a90009a" }
+  ]
 }

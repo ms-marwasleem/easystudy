@@ -102,7 +102,7 @@ async function syBoot(){
   if(me.ref){ const a=acct()||{}; if(a.ref!==me.ref){ wlSet('es.account',{...a,ref:me.ref}); wlSet('es.session',{...(sySession()||{}),ref:me.ref}); } window.ACCOUNT={...(window.ACCOUNT||acct()||{}),ref:me.ref}; }   // the invite link needs the parent's code
   // the school permission the admin gave (or took back) for a student: kept in the child's curriculum pick (curr.grant)
   me.kids.forEach(sk=>{ const lk=local.find(x=>x.id===sk.id); if(!lk||!lk.curr||!lk.curr.school) return; const g=sk.curr&&sk.curr.grant?1:0; if((lk.curr.grant?1:0)!==g){ if(g) lk.curr.grant=1; else lk.curr.grant=0; changed=true; const c=kidNow(); if(c&&c.id===lk.id) regrant=true; } });
-  local.filter(k=>!ids.has(k.id)).forEach(k=>syCall('/kids/'+k.id,{name:k.name,grade:k.grade,curr:k.curr},'PUT'));   // made offline
+  local.filter(k=>!ids.has(k.id)).forEach(k=>syCall('/kids/'+k.id,{name:k.name,grade:k.grade,curr:k.curr},'PUT').then(r=>{ if(r&&r.j&&r.j.deleted&&typeof kidDeleted==='function') kidDeleted(k.id); }));   // made offline (a student deleted on another device is dropped here)
   me.kids.filter(k=>!local.some(x=>x.id===k.id)).forEach(k=>{ local.push({id:k.id,name:k.name,grade:k.grade,curr:k.curr,created:k.created}); changed=true;
     try{ Object.entries(k.progress||{}).forEach(([x,v])=>localStorage.setItem(`es.kid.${k.id}.${x}`,v)); }catch(e){} wlSet('es.progAt.'+k.id,k.progressAt||0); });
   if(changed){ wlSet('es.kids',local); kidPaint(); if(regrant){ const c=kidNow(); if(c){ currSave(c.curr); location.reload(); return; } } }
