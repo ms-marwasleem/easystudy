@@ -9,10 +9,13 @@ const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelect
 const get=u=>fetch(u,{cache:'no-store'}).then(r=>{ if(!r.ok) throw new Error(u); return r.json(); });
 const lsGet=(k,d)=>{ try{ const v=JSON.parse(localStorage.getItem(k)||'null'); return v==null?d:v; }catch(e){ return d; } };
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const ar=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
+const ar=n=>String(n);   // English digits everywhere in the dashboard
 let LOCKED=false, S=null, FILE=null, COURSE=null, GRADES=[], dirty=false;
 const toast=t=>{ const o=$('#toast'); o.textContent=t; o.hidden=false; clearTimeout(toast.t); toast.t=setTimeout(()=>o.hidden=true,/^ما اتحفظش/.test(t)?6000:1800); };
-const mark=()=>{ dirty=true; $('#save').textContent='حفظ •'; };
+/* autosave: every change is saved about a second later (no save button); the server copy is read back to be sure */
+let saveT=null, saving=false, saveAgain=false;
+const stat=(t,bad)=>{ const o=$('#saveSt'); if(o){ o.textContent=t; o.className=bad?'bad':''; } };
+const mark=()=>{ dirty=true; stat('جارٍ الحفظ…'); clearTimeout(saveT); saveT=setTimeout(doSave,700); };
 
 async function boot(){
   FILE=await get(window.ADMIN_WORDS?'data/words/settings.json':'data/settings.json').catch(()=>({coins:{},access:{free:{mode:'first',count:1}},items:{}}));
@@ -20,7 +23,7 @@ async function boot(){
   const live=await api('/admin/settings');   // THE real settings, kept on the server; nothing is kept on this device
   LOCKED=!(live&&live.coins);
   S=LOCKED?JSON.parse(JSON.stringify(FILE)):live; S.api=API;
-  if(LOCKED){ $('#save').disabled=true; }
+  if(LOCKED) stat('الحفظ متوقف',1);
   S.coins=S.coins||{}; S.access=S.access||{}; S.access.free=S.access.free||{}; S.items=S.items||{};
   const F=S.access.free; F.mode='first'; delete F.perSubject; if(F.count==null||F.count>5) F.count=1; F.per=F.per||{}; F.list=F.list||[];   // free = first lessons of unit 1 per subject
   S.coins.referral=S.coins.referral||{on:false,coins:15}; if(S.coins.shareCoins==null) S.coins.shareCoins=1; if(!S.coins.dailyCap||S.coins.dailyCap>20) S.coins.dailyCap=20; if(!S.coins.lessonCost) S.coins.lessonCost=3;
@@ -69,8 +72,8 @@ function drawCurr(){ const box=$('#curr-on'); box.innerHTML=CTYPES.map(t=>`<div 
 const schoolPerm=id=>{ if(S.schoolPerm&&S.schoolPerm[id]!=null) return !!S.schoolPerm[id]; const c=(window.CSCH||[]).find(x=>x.id===id); return !!(c&&c.perm); };
 const schoolName=id=>((window.CSCH||[]).find(x=>x.id===id)||{}).ar||id||'';
 function drawSchools(){ const box=$('#school-perm'); if(!box) return; const L=window.CSCH||[];
-  box.innerHTML=L.map(c=>`<div class="row" data-sc="${esc(c.id)}"><b class="nm">${esc(c.ar)}</b><label class="sw"><input type="checkbox"${schoolPerm(c.id)?' checked':''}><span></span> محتاجة سماح</label></div>`).join('')||'<p class="empty">مفيش مدارس.</p>';
-  $$('.row',box).forEach(r=>$('input',r).addEventListener('change',e=>{ S.schoolPerm[r.dataset.sc]=e.target.checked; mark(); drawUsers(); })); }
+  box.innerHTML=L.length?`<div class="utwrap"><table class="utbl sctbl"><thead><tr><th>المدرسة</th><th>محتاجة سماح</th></tr></thead><tbody>`+L.map(c=>`<tr data-sc="${esc(c.id)}"><td><b>${esc(c.ar)}</b></td><td><label class="sw"><input type="checkbox"${schoolPerm(c.id)?' checked':''}><span></span></label></td></tr>`).join('')+`</tbody></table></div>`:'<p class="empty">مفيش مدارس.</p>';
+  $$('tr[data-sc]',box).forEach(r=>$('input',r).addEventListener('change',e=>{ S.schoolPerm[r.dataset.sc]=e.target.checked; mark(); drawUsers(); })); }
 function drawPrices(){ const P=S.subs.prices, box=$('#prices'), rows=[];
   GRADES.forEach(g=>TERMS.forEach(([t,tn])=>{ const k=g.id+':'+t, p=P[k]||{}, fin=p.discOn&&+p.disc>0?+p.disc:(+p.price||0);
     rows.push(`<div class="row prc" data-k="${k}"><b class="nm">${esc(g.ar)} — ${tn}</b>
@@ -162,17 +165,17 @@ function drawPromos(){ const box=$('#promos'), P=S.promos;
     return `<div class="pr-card${p.on===false||old||p.what==='all'?' off':''}" data-i="${i}">
       <div class="pr-top"><label class="sw" title="شغال"><input type="checkbox" data-k="on"${p.on!==false?' checked':''}><span></span></label>
         <input type="text" data-k="code" class="pr-code${dup||!c?' bad':''}" dir="ltr" value="${esc(p.code)}" aria-label="الكود" maxlength="32">
-        <span class="pr-used">${old?'<b class="pr-old">انتهى</b> · ':''}اتستخدم ${ar(n)}${p.uses==='many'&&+p.max>0?' من '+ar(p.max):p.uses!=='many'?' من ١':''}</span>
+        <span class="pr-used">${old?'<b class="pr-old">انتهى</b> · ':''}اتستخدم ${ar(n)}${p.uses==='many'&&+p.max>0?' من '+ar(p.max):p.uses!=='many'?' من 1':''}</span>
         <button class="x" aria-label="حذف">×</button></div>
       ${dup?'<p class="pr-warn">الكود ده متكرر، غيّريه.</p>':''}
       ${p.what==='all'?'<p class="pr-warn">النوع ده (فتح كل المواد) اتلغى والكود متعطّل. اللي اتفتح بيه قبل كده فضل زي ما هو. <button type="button" class="ghost pr-conv">حوّليه لفتح اشتراك ترم</button></p>':''}
       <div class="grid pr-grid">
         <label>نوع الكود <select data-k="type"><option value="open"${p.what!=='percent'?' selected':''}>فتح دروس</option><option value="percent"${p.what==='percent'?' selected':''}>خصم على سعر الاشتراك</option><option value="term"${p.what==='term'?' selected':''}>فتح اشتراك ترم بالكامل</option></select></label>
-        ${p.what==='percent'?`<label>نسبة الخصم % <small>(من ١ لـ ١٠٠، ١٠٠ = الاشتراك ببلاش)</small><input type="number" min="1" max="100" data-k="pct" value="${+p.pct>0?p.pct:''}" placeholder="مثلًا ٢٠"></label>`
-        :p.what==='term'?`<label>الترم <small>(كل المواد، لحد ٣١ أغسطس)</small><select data-k="term"><option value="t1"${p.term!=='t2'?' selected':''}>الترم الأول</option><option value="t2"${p.term==='t2'?' selected':''}>الترم التاني</option></select></label>`
+        ${p.what==='percent'?`<label>نسبة الخصم % <small>(من 1 لـ 100، 100 = الاشتراك ببلاش)</small><input type="number" min="1" max="100" data-k="pct" value="${+p.pct>0?p.pct:''}" placeholder="مثلًا 20"></label>`
+        :p.what==='term'?`<label>الترم <small>(كل المواد، لحد 31 أغسطس)</small><select data-k="term"><option value="t1"${p.term!=='t2'?' selected':''}>الترم الأول</option><option value="t2"${p.term==='t2'?' selected':''}>الترم التاني</option></select></label>`
         :p.what==='all'?`<label>بيفتح <input type="text" value="كل المواد (نوع قديم، متعطّل)" disabled></label>`:`<label>بيفتح <select data-k="what">${WHAT.map(([v,l])=>`<option value="${v}"${p.what===v?' selected':''}>${l}</option>`).join('')}</select></label>`}
         <label${p.what==='all'||p.what==='any'||p.what==='percent'||p.what==='term'?' hidden':''}>${{lesson:'الدرس',unit:'الوحدة',subject:'المادة'}[p.what]||''} <select data-k="target">${targets(p.what,p.target)}</select></label>
-        <label>الاستخدام <select data-k="uses"><option value="once"${p.uses!=='many'?' selected':''}>مرة واحدة بس</option><option value="many"${p.uses==='many'?' selected':''}>أكتر من مرة (كل طفل مرة)</option></select></label>
+        <label>الاستخدام <select data-k="uses"><option value="once"${p.uses!=='many'?' selected':''}>مرة واحدة بس</option><option value="many"${p.uses==='many'?' selected':''}>أكتر من مرة (كل طالب مرة)</option></select></label>
         <label${p.uses==='many'?'':' hidden'}>أقصى عدد <small>(فاضي = من غير حد)</small><input type="number" min="0" data-k="max" value="${+p.max>0?p.max:''}"></label>
         <label>آخر يوم <small>(فاضي = دايمًا)</small><span class="dwrap${p.until?'':' empty'}"><input type="date" data-k="until" value="${esc(p.until||'')}"><em>دايمًا</em>${p.until?'<button type="button" class="dclr" title="مسح التاريخ">×</button>':''}</span></label>
         <label>ملاحظة <input type="text" data-k="note" value="${esc(p.note||'')}" placeholder="لمين الكود ده"></label>
@@ -191,7 +194,7 @@ function drawPromos(){ const box=$('#promos'), P=S.promos;
 $('#addPromo').addEventListener('click',()=>{ S.promos.unshift({code:newCode(),what:'lesson',target:firstTarget('lesson'),uses:'once',max:0,until:'',on:true,note:''}); mark(); drawPromos(); const c=$('#promos .pr-code'); if(c){ c.focus(); c.select(); } });
 
 /* ---------- accounts + stats (this device until the server) ---------- */
-const fmt=t=>{ try{ return new Date(t).toLocaleString('ar-EG',{dateStyle:'medium',timeStyle:'short'}); }catch(e){ return t; } };
+const fmt=t=>{ try{ return new Date(t).toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'}); }catch(e){ return t; } };
 // with a server (settings "api"): the real lists come from GET api/admin/accounts and api/admin/stats (same shapes as the local ones below)
 const tokGet=()=>{ try{ return localStorage.getItem('es.adminToken')||''; }catch(e){ return ''; } };
 const hdr=()=>{ const t=tokGet(), h={'Content-Type':'application/json'}; if(t) h.Authorization='Bearer '+t; return h; }; // no-domain admin: ADMIN_TOKEN as Bearer
@@ -284,10 +287,10 @@ const post=(path,body)=>fetch(S.api+AQ(path),{method:body?'POST':'GET',credentia
 const subOf=id=>{ const r=(SRV.subs||[]).filter(x=>x.child===id&&x.st==='active'&&x.until>Date.now()); return r.length?'مفعّل: '+r.map(x=>TNAME[x.term.split(':')[1]]).join('، '):'بدون اشتراك'; };
 async function loadSubs(){ if(!S.api){ drawSubs(); return; } const r=await post('/admin/subs?st=all'); if(r&&r.subs){ SRV.subs=r.subs; } drawSubs(); drawUsers(); }
 const SB_MSG='مقدرناش نتأكد من الدفع. ابعتي صورة الإيصال تاني من صفحة اشتراكاتي.';
-function drawSubs(){ const box=$('#subsList'), all=$('#sb-all').checked, L=(SRV.subs||[]).filter(x=>all||x.st==='pending');
-  $('#sb-where').textContent=SRV.subs?'الإيصالات المرفوعة من التطبيق. التفعيل بيفضل لحد ٣١ أغسطس، والرفض بيقفل الدروس فورًا وبيبعت رسالتك لولي الأمر.':'الاشتراكات مش ظاهرة دلوقتي. اتأكدي من الإنترنت وكلمة السر.';
-  box.innerHTML=L.length?`<div class="utwrap"><table class="utbl sbtbl"><thead><tr><th>المستخدم</th><th>الطالب</th><th>الترم</th><th>تاريخ الاشتراك</th><th>رقم العملية</th><th>الإيصال</th><th>الحالة</th><th>الإجراء</th></tr></thead><tbody>`+L.map(x=>`<tr data-c="${esc(x.child)}" data-t="${esc(x.term)}">
-    <td dir="ltr" class="u-tx">${esc(x.email||'')}${x.email&&x.phone?'<br>':''}${esc(x.phone||'')}</td><td><b>${esc(x.name)}</b>${x.inv?`<small>جاي من دعوة: ${esc(x.inv)}</small>`:''}</td><td>${TNAME[x.term.split(':')[1]]||esc(x.term)}${x.by==='promo'?'':x.price||x.promo?`<small>${ar(x.price)} جنيه</small>`:''}${x.promo?`<small>الكود: <b dir="ltr">${esc(x.promo)}</b></small>`:''}</td><td class="u-dt">${fmtD(x.at)||'—'}</td><td dir="ltr">${esc(x.ref||'—')}</td>
+function drawSubs(){ const box=$('#subsList'), all=$('#sb-all').checked; $('#sb-lbl').textContent=all?'كل الاشتراكات':'بإنتظار التفعيل'; const L=(SRV.subs||[]).filter(x=>all||x.st==='pending');
+  $('#sb-where').textContent=SRV.subs?'الإيصالات المرفوعة من التطبيق. التفعيل بيفضل لحد 31 أغسطس، والرفض بيقفل الدروس فورًا وبيبعت رسالتك لولي الأمر.':'الاشتراكات مش ظاهرة دلوقتي. اتأكدي من الإنترنت وكلمة السر.';
+  box.innerHTML=L.length?`<div class="utwrap"><table class="utbl sbtbl"><thead><tr><th>المستخدم</th><th>الطالب</th><th>الترم</th><th>تاريخ الاشتراك</th><th>الإيصال</th><th>الحالة</th><th>الإجراء</th></tr></thead><tbody>`+L.map(x=>`<tr data-c="${esc(x.child)}" data-t="${esc(x.term)}">
+    <td dir="ltr" class="u-tx">${esc(x.email||'')}${x.email&&x.phone?'<br>':''}${esc(x.phone||'')}</td><td><b>${esc(x.name)}</b>${x.inv?`<small>جاي من دعوة: ${esc(x.inv)}</small>`:''}</td><td>${TNAME[x.term.split(':')[1]]||esc(x.term)}${x.by==='promo'?'':x.price||x.promo?`<small>${ar(x.price)} جنيه</small>`:''}${x.promo?`<small>الكود: <b dir="ltr">${esc(x.promo)}</b></small>`:''}</td><td class="u-dt">${fmtD(x.at)||'—'}</td>
     <td>${x.receipt?'<button type="button" class="ghost" data-act="rc">عرض الإيصال</button>':'—'}</td><td><span class="stb ${x.st==='active'?'open':''}">${STN[x.st]||x.st}</span>${x.by==='promo'?'<small>فُعّل بكود</small>':''}${x.st==='rejected'&&x.note?`<small>${esc(x.note)}</small>`:''}</td>
     <td class="sb-act">${x.st!=='active'?'<button type="button" class="pri" data-act="activate">تفعيل</button>':''}${x.st==='pending'||x.st==='active'?'<button type="button" class="u-del" data-act="reject">رفض</button>':''}</td></tr>`).join('')+'</tbody></table></div>':'<p class="empty">مفيش اشتراكات هنا.</p>'; }
 $('#subsList').addEventListener('click',async e=>{ const b=e.target.closest('[data-act]'); if(!b||b.disabled) return; const r=b.closest('tr'), c=r.dataset.c, t=r.dataset.t, act=b.dataset.act, row=(SRV.subs||[]).find(x=>x.child===c&&x.term===t)||{};
@@ -310,7 +313,7 @@ function drawStats(){
   const A=accounts(), W=wallets(), H=SRV.stats?SRV.stats.hist:W.flatMap(w=>w.hist||[]).sort((a,b)=>b.at-a.at);
   const earned=H.filter(h=>h.n>0).reduce((a,h)=>a+h.n,0), spent=-H.filter(h=>h.n<0).reduce((a,h)=>a+h.n,0), shares=H.filter(h=>h.k==='share');
   const today=new Date().toDateString(), newToday=A.filter(a=>a.created&&new Date(a.created).toDateString()===today).length;
-  const K=[['حسابات أولياء الأمور',A.length,'users'],['حسابات اليوم',newToday,'users'],['الأطفال',A.reduce((a,x)=>a+x.kids.length,0),'users'],['المشاركات',shares.length,'shares','shares'],
+  const K=[['حسابات أولياء الأمور',A.length,'users'],['حسابات اليوم',newToday,'users'],['الطلاب',A.reduce((a,x)=>a+x.kids.length,0),'users'],['المشاركات',shares.length,'shares','shares'],
     ['كريدتس اتكسبت',earned,'shares','acc'],['كريدتس اتصرفت',spent,'shares','spend'],['دروس اتفتحت',H.filter(h=>h.k==='unlock-lesson').length,'shares','spend']];
   $('#kpis').innerHTML=K.map(([l,v,p,h])=>`<button type="button" class="kpi" data-go="${p}" data-h="${h||''}"><b>${ar(v)}</b><span>${l}</span></button>`).join('');
   $$('#kpis .kpi').forEach(b=>b.addEventListener('click',()=>{ if(b.dataset.h) SH.t=b.dataset.h; showTab(b.dataset.go); if(b.dataset.go==='shares') drawShares(); }));
@@ -340,7 +343,7 @@ function drawShares(){ const box=$('#sh-body'); if(!box) return; const H=shHist(
     rows=Object.values(M).sort((a,b)=>b.last-a.last).filter(o=>hit(o.who+' '+o.items.join(' '))).map(o=>`<tr><td dir="ltr" class="u-tx">${esc(o.who)}</td><td>${ar(o.sh)}</td><td>${ar(o.earn)}</td><td>${ar(o.spent)}</td><td>${o.bal==null?'—':ar(o.bal)}</td><td>${ar(o.les)}</td><td>${ar(o.uni)}</td><td>${o.items.length?o.items.map(esc).join('<br>'):'—'}</td></tr>`); }
   else if(T==='shares'){ head='<tr><th>الوقت</th><th>الحساب</th><th>اتشارك عن طريق</th><th>كريدتس</th></tr>';
     rows=H.filter(h=>h.k==='share'&&hit(shWho(h)+' '+sharesName(h.t))).map(h=>`<tr><td>${fmt(h.at)}</td><td dir="ltr" class="u-tx">${esc(shWho(h))}</td><td>${esc(sharesName(h.t))}</td><td>+${ar(h.n)}</td></tr>`); }
-  else { head='<tr><th>الوقت</th><th>الحساب</th><th>الطفل</th><th>اتفتح إيه</th><th>كريدتس</th></tr>';
+  else { head='<tr><th>الوقت</th><th>الحساب</th><th>الطالب</th><th>اتفتح إيه</th><th>كريدتس</th></tr>';
     rows=H.filter(h=>/^unlock/.test(h.k)&&hit(shWho(h)+' '+(h.kid||'')+' '+shItem(h.id))).map(h=>`<tr><td>${fmt(h.at)}</td><td dir="ltr" class="u-tx">${esc(shWho(h))}</td><td>${esc(h.kid||'—')}</td><td>${esc(shItem(h.id))}</td><td>${ar(-h.n)}</td></tr>`); }
   $('#sh-head').innerHTML=head; $('#sh-count').textContent=ar(rows.length)+(T==='acc'?' حساب':' حركة');
   box.innerHTML=rows.length?rows.join(''):'<tr><td colspan="8"><p class="empty">مفيش بيانات لسه.</p></td></tr>'; }
@@ -420,18 +423,20 @@ function showTab(p,keep){ const b=$('#tabs button[data-p="'+p+'"]'); if(!b) retu
   if(keep) return; if(p==='stats') drawStats(); if(p==='users') drawUsers(); if(p==='subs') drawSubs(); if(p==='push'){ puInit(); loadPush(); } }
 $$('#tabs button').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.p)));
 { let t=location.hash.replace('#',''); if(!t){ try{ t=localStorage.getItem('es.adminTab')||''; }catch(e){} } if(t) showTab(t,true); }   // a refresh stays on the same tab
-$('#save').addEventListener('click',async()=>{ if(LOCKED) return toast('الحفظ متوقف دلوقتي'); const btn=$('#save'); btn.disabled=true;
-  try{ let st=0,r=null; try{ const x=await fetch(S.api+AQ('/admin/settings'),{method:'PUT',cache:'no-store',credentials:'include',headers:hdr(),body:JSON.stringify(S)}); st=x.status; r=await x.json().catch(()=>null); }catch(e){ st=-1; }
-    if(!(st===200&&r&&r.ok)) return toast(st===-1?'ما اتحفظش: مفيش اتصال بالسيرفر. اتأكدي من الإنترنت وحاولي تاني':(st===401||st===403)?'ما اتحفظش: كلمة السر مش مظبوطة (زرار «كلمة السر»)':'ما اتحفظش: السيرفر رجّع خطأ ('+st+(r&&r.error?' '+r.error:'')+'). حاولي تاني');
-    const back=await api('/admin/settings');   // read it back from the server: success is shown only if it is really there
-    if(!(back&&back.coins&&JSON.stringify(back.coins)===JSON.stringify(S.coins)&&JSON.stringify(back.subs||{})===JSON.stringify(S.subs||{}))) return toast('ما اتحفظش بشكل مؤكد: السيرفر ما رجّعش اللي اتكتب. حاولي تاني');
-    dirty=false; btn.textContent='حفظ'; toast('اتحفظ على السيرفر وتأكدنا منه'); }
-  finally{ btn.disabled=false; } });
+async function doSave(){ if(LOCKED||!dirty) return; if(saving){ saveAgain=true; return; } saving=true; dirty=false; const snap=JSON.stringify(S);
+  try{ let st=0,r=null; try{ const x=await fetch(S.api+AQ('/admin/settings'),{method:'PUT',cache:'no-store',credentials:'include',headers:hdr(),body:snap}); st=x.status; r=await x.json().catch(()=>null); }catch(e){ st=-1; }
+    if(!(st===200&&r&&r.ok)){ dirty=true; stat('ما اتحفظش',1); return toast(st===-1?'ما اتحفظش: مفيش اتصال بالسيرفر':(st===401||st===403)?'ما اتحفظش: كلمة السر مش مظبوطة':'ما اتحفظش: السيرفر رجّع خطأ ('+st+(r&&r.error?' '+r.error:'')+')'); }
+    const back=await api('/admin/settings'), A=JSON.parse(snap);   // read it back from the server: success is shown only if it is really there
+    const same=k=>JSON.stringify(back&&back[k]||null)===JSON.stringify(A[k]||null);
+    if(!(back&&back.coins&&same('coins')&&same('subs')&&same('promos')&&same('schoolPerm'))){ dirty=true; stat('ما اتحفظش بشكل مؤكد',1); return toast('ما اتحفظش بشكل مؤكد: السيرفر ما رجّعش اللي اتكتب'); }
+    if(!saveAgain&&!dirty) stat('اتحفظ ✓'); }
+  finally{ saving=false; if(saveAgain){ saveAgain=false; clearTimeout(saveT); saveT=setTimeout(doSave,300); } } }
+addEventListener('pagehide',()=>{ if(dirty&&!LOCKED&&S){ try{ fetch(S.api+AQ('/admin/settings'),{method:'PUT',keepalive:true,credentials:'include',headers:hdr(),body:JSON.stringify(S)}); }catch(e){} } });
 
 $$('#stabs button').forEach(b=>b.addEventListener('click',()=>{ $$('#stabs button').forEach(x=>x.classList.toggle('on',x===b)); $$('#p-settings [data-st]').forEach(c=>c.hidden=c.dataset.st!==b.dataset.s); }));
 $$('#p-settings [data-st]').forEach(c=>c.hidden=c.dataset.st!=='contact');
 boot().catch(e=>{ $('#where').textContent='الصفحة ما اتحمّلتش كاملة، افتحيها تاني.'; });
 
 /* admin password (ADMIN_TOKEN) for use without a domain: kept on this device, sent as Authorization Bearer */
-{ const b=document.getElementById('tok'); if(b){ const show=()=>{ b.textContent=tokGet()?'كلمة السر: محفوظة ✓':'كلمة السر'; }; show();
-  b.addEventListener('click',()=>{ const v=prompt('اكتبي كلمة سر لوحة الإدارة.',''); if(v===null) return; try{ if(v.trim()) localStorage.setItem('es.adminToken',v.trim()); else localStorage.removeItem('es.adminToken'); }catch(e){} show(); location.reload(); }); } }
+{ const b=document.getElementById('tok'); if(b){ b.hidden=!!tokGet();   // shown only while no password is saved
+  b.addEventListener('click',()=>{ const v=prompt('اكتبي كلمة سر لوحة الإدارة.',''); if(v===null) return; try{ if(v.trim()) localStorage.setItem('es.adminToken',v.trim()); else localStorage.removeItem('es.adminToken'); }catch(e){} location.reload(); }); } }

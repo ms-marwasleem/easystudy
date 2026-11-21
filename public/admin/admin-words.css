@@ -12,3 +12,7 @@ input[type=number],input[type=url],input[type=text],input[type=date],select,text
 .stabs button{border-color:#A9CCF2}
 .stabs button.on{background:#2F80E6;border-color:#1C58B8}
 .stabs button{color:#16346b}.stabs button.on{color:#fff}
+
+/* tabs, hover and buttons in the Easy Words blue */
+.appsw a.on{color:var(--acc-dk)}
+.stabs button:hover{background:#E3F0FD;color:#16346b}.stabs button.on,.stabs button.on:hover{background:#2F80E6;border-color:#1C58B8;color:#fff}
