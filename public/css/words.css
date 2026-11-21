@@ -461,3 +461,9 @@ html[data-theme="words"],html[data-theme="words"] body{background:radial-gradien
 .quiz.ep .qxpp.glow{animation:ewglow .5s ease-in-out 4 alternate}
 .quiz.ep[data-type="puzzle"] .qword{display:none}
 .quiz.ep[data-type="puzzle"] .qplay{padding-inline:.5rem}
+
+/* more than 3 subjects on the home page: two per row (Ahmed 2026-11-20) */
+@media (max-aspect-ratio:1/1){
+  .ew-home[data-n="4"],.ew-home[data-n="5"],.ew-home[data-n="6"],.ew-home[data-n="7"],.ew-home[data-n="8"]{flex-direction:row;flex-wrap:wrap;align-content:center;gap:clamp(.5rem,2vw,1.2rem)}
+  .ew-home[data-n="4"] .ew-subj,.ew-home[data-n="5"] .ew-subj,.ew-home[data-n="6"] .ew-subj,.ew-home[data-n="7"] .ew-subj,.ew-home[data-n="8"] .ew-subj{width:min(44cqw,calc((100cqh - 4cqh - 2.2rem)/2.4));min-width:0}
+}

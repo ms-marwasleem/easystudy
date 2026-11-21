@@ -13,8 +13,19 @@
    "img": "data:draw,num,6,en",
    "parts": [
     {
-     "t": "six",
-     "audio": "../u1l4/words/six.mp3"
+     "t": "s",
+     "ph": "s",
+     "audio": "../../phonics/s.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "i",
+     "audio": "../../phonics/i.mp3"
+    },
+    {
+     "t": "x",
+     "ph": "x",
+     "audio": "../../phonics/x.mp3"
     }
    ],
    "audio": {
@@ -26,8 +37,14 @@
    "img": "data:draw,num,7,en",
    "parts": [
     {
-     "t": "seven",
-     "audio": "../u1l4/words/seven.mp3"
+     "t": "sev",
+     "ph": "s_e_v",
+     "audio": "../../phonics/chunks/s_e_v.mp3"
+    },
+    {
+     "t": "en",
+     "ph": "e_n",
+     "audio": "../../phonics/chunks/e_n.mp3"
     }
    ],
    "audio": {
@@ -39,8 +56,14 @@
    "img": "data:draw,num,8,en",
    "parts": [
     {
-     "t": "eight",
-     "audio": "../u1l4/words/eight.mp3"
+     "t": "eigh",
+     "ph": "ai",
+     "audio": "../../phonics/ai.mp3"
+    },
+    {
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
     }
    ],
    "audio": {
@@ -52,8 +75,24 @@
    "img": "data:draw,num,9,en",
    "parts": [
     {
-     "t": "nine",
-     "audio": "../u1l4/words/nine.mp3"
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "igh",
+     "audio": "../../phonics/igh.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
     }
    ],
    "audio": {
@@ -65,8 +104,19 @@
    "img": "data:draw,num,10,en",
    "parts": [
     {
-     "t": "ten",
-     "audio": "../u1l4/words/ten.mp3"
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "e",
+     "ph": "e",
+     "audio": "../../phonics/e.mp3"
+    },
+    {
+     "t": "n",
+     "ph": "n",
+     "audio": "../../phonics/n.mp3"
     }
    ],
    "audio": {

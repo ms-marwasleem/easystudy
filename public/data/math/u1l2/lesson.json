@@ -26,8 +26,19 @@
    "img": "data:draw,num,2,en",
    "parts": [
     {
-     "t": "two",
-     "audio": "../u1l2/words/two.mp3"
+     "t": "t",
+     "ph": "t",
+     "audio": "../../phonics/t.mp3"
+    },
+    {
+     "t": "w",
+     "ph": "w",
+     "audio": "../../phonics/w.mp3"
+    },
+    {
+     "t": "o",
+     "ph": "oo",
+     "audio": "../../phonics/oo.mp3"
     }
    ],
    "audio": {
@@ -39,8 +50,19 @@
    "img": "data:draw,num,3,en",
    "parts": [
     {
-     "t": "three",
-     "audio": "../u1l2/words/three.mp3"
+     "t": "th",
+     "ph": "th",
+     "audio": "../../phonics/th.mp3"
+    },
+    {
+     "t": "r",
+     "ph": "r",
+     "audio": "../../phonics/r.mp3"
+    },
+    {
+     "t": "ee",
+     "ph": "ee",
+     "audio": "../../phonics/ee.mp3"
     }
    ],
    "audio": {
@@ -52,8 +74,14 @@
    "img": "data:draw,num,4,en",
    "parts": [
     {
-     "t": "four",
-     "audio": "../u1l2/words/four.mp3"
+     "t": "f",
+     "ph": "f",
+     "audio": "../../phonics/f.mp3"
+    },
+    {
+     "t": "our",
+     "ph": "or",
+     "audio": "../../phonics/or.mp3"
     }
    ],
    "audio": {
@@ -65,8 +93,19 @@
    "img": "data:draw,num,5,en",
    "parts": [
     {
-     "t": "five",
-     "audio": "../u1l2/words/five.mp3"
+     "t": "f",
+     "ph": "f",
+     "audio": "../../phonics/f.mp3"
+    },
+    {
+     "t": "i",
+     "ph": "igh",
+     "audio": "../../phonics/igh.mp3"
+    },
+    {
+     "t": "ve",
+     "ph": "v",
+     "audio": "../../phonics/v.mp3"
     }
    ],
    "audio": {

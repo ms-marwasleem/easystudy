@@ -1,7 +1,7 @@
 /* INSTALL-APP button + popup (js/install.js). Parent-area look: white card, soft shadow, flat buttons; accent --pa (orange / blue in Easy Words). */
-#instBtn{position:fixed;left:50%;bottom:max(.9rem,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:.2rem;max-width:calc(100vw - 1.6rem);background:#fff;border:1px solid var(--pb,#E6E9EF);border-radius:2rem;box-shadow:0 6px 22px rgba(16,24,40,.22);font-family:var(--f-ui,inherit);direction:rtl}
-#instBtn .inst-open{display:flex;align-items:center;gap:.5rem;background:var(--pa,#F28A1E);color:#fff;border:0;border-radius:2rem;padding:.65rem 1.1rem;font:700 1rem/1.2 var(--f-ui,inherit);cursor:pointer;min-height:2.8rem}
-#instBtn .inst-open svg{width:1.3rem;height:1.3rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+#instBtn{position:fixed;left:50%;bottom:max(.9rem,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:0;max-width:calc(100vw - 1.6rem);background:#fff;border:1px solid var(--pb,#E6E9EF);border-radius:2rem;box-shadow:0 6px 22px rgba(16,24,40,.22);font-family:var(--f-ui,inherit);direction:rtl}
+#instBtn .inst-open{display:flex;align-items:center;gap:.5rem;background:var(--pa,#F28A1E);color:#fff;border:0;border-radius:2rem;padding:.4rem 1rem;font:700 .9rem/1.2 var(--f-ui,inherit);cursor:pointer;min-height:2.2rem;white-space:nowrap}
+#instBtn .inst-open svg{width:1.1rem;height:1.1rem;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
 #instBtn .inst-close{background:none;border:0;color:var(--pm,#6B7280);font-size:1rem;width:2.4rem;height:2.8rem;cursor:pointer}
 html[data-view="map"] #instBtn,html[data-view="lesson"] #instBtn,html[data-view="exam"] #instBtn{display:none}
 .inst-back{position:fixed;inset:0;z-index:60;background:rgba(17,24,39,.5);display:grid;place-items:center;padding:1rem;direction:rtl}

@@ -208,7 +208,31 @@ html[data-view="welcome"] body{background:var(--pbg)}
 .gate-pad{margin-inline:auto}
 #coinPop .gate-dots,#coinPop .gate-pad{align-self:center;margin-inline:auto}
 /* school list: slim buttons at the bottom, with icons */
-.wl-dd .wl-ddbar{display:flex;gap:.5rem;padding-top:.5rem;margin-top:.2rem;border-top:1px solid var(--pb);position:sticky;bottom:-.5rem;background:#fff}
-.wl-dd .wl-ddbar .pill{flex:1 1 0;width:auto;align-self:auto;padding:.35em .5em;font-size:clamp(.8rem,3vw,.95rem);display:inline-flex;align-items:center;justify-content:center;gap:.35em;white-space:nowrap;border-radius:.7rem}
+.wl-dd .wl-ddbar{display:flex;gap:.5rem;padding-top:.4rem;margin-top:.1rem;border-top:1px solid var(--pb);background:#fff}
+.wl-dd .wl-ddbar .pill{flex:1 1 0;width:auto;min-width:0;align-self:auto;padding:.3rem .3rem;min-height:0;font-size:clamp(.72rem,3vw,.85rem);font-weight:500;display:inline-flex;align-items:center;justify-content:center;gap:.25em;white-space:nowrap;border-radius:1rem;background:#fff;color:var(--pt);border:1px solid var(--pb);box-shadow:none;text-shadow:none;-webkit-text-stroke:0;transform:none}
 .wl-dd .wl-ddbar .pill svg{width:1.1em;height:1.1em;flex:none;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 .wl-dd .wl-ddbar .pill.wl-invsch svg{fill:currentColor;stroke:none}
+
+/* school list stays in the page flow (the page grows and scrolls) so the floating install button never covers the add/invite buttons */
+#welcome .wl-ddhost{padding-bottom:.2rem}
+#welcome .wl-dd{position:static;max-height:none;overflow:visible;margin-bottom:5rem}
+
+/* ---- Ahmed 2026-11-20 (subscriptions / credits / invite polish) ---- */
+/* the active subscription is a status, not a button: thin green outline, green text, no fill; the reason (paid / promo code) sits beside it */
+.sp-r.on{background:transparent;border:1.5px solid var(--pg);color:var(--pg-dk)}
+.sp-r.on .sp-ic{background:var(--pg-soft);color:var(--pg-dk)}
+.sp-by{font-style:normal;font-weight:700;font-size:.85rem;color:var(--pg-dk);border:1px solid var(--pg);border-radius:2rem;padding:0 .55rem;margin-inline-start:auto;white-space:nowrap}
+/* English words ("Credit", "Credits") in thin Arabic text: the same clear font as the "Credits" title, not the hand font */
+.cre,#coinPop.pro .cre,.acctpage .cre{font-family:var(--f-ui);font-weight:800;direction:ltr;unicode-bidi:isolate}
+.cinl{display:inline-flex;align-items:center;gap:.25rem;vertical-align:middle;color:var(--pg-dk)}
+.cico{display:inline-block;width:1.15em;height:1.15em;font-style:normal}.cico svg{width:100%;height:100%;display:block}
+.inv-note{margin:0 0 .6rem;text-align:center;color:var(--pm);font-size:.95rem}
+/* the credits total at the top of the credits page: same coin + soft dark card as the get-credits popup */
+.acctpage .coinbig{justify-content:center;gap:.5rem;background:#E9ECF2;border:1px solid var(--pb);border-radius:1rem;padding:.7rem 1rem;color:var(--pt);-webkit-text-stroke:0;font-family:var(--f-ui);direction:ltr}
+.acctpage .coinbig .ic{width:2.2rem;height:2.2rem}
+.acctpage .coinbig b{font-size:2.6rem;font-weight:800;line-height:1;-webkit-text-stroke:0;color:var(--pt)}
+.acctpage .coinbig .lab{font-size:1.1rem;font-weight:700;color:var(--pm);-webkit-text-stroke:0;font-family:var(--f-ui)}
+.cr-tot{gap:.6rem}
+/* the page title bar and the login page keep clear of the notch / Dynamic Island (viewport-fit=cover) */
+.ac-top{padding-top:calc(.8rem + env(safe-area-inset-top,0px))}
+#welcome{padding-top:max(calc(1.2rem + env(safe-area-inset-top,0px)),4vh)}

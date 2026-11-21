@@ -18,7 +18,7 @@ const day = (t = now()) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Africa/
 let MIGRATED = false;
 async function migrate(env) {
   if (MIGRATED) return; MIGRATED = true;
-  for (const q of ["ALTER TABLE subs ADD COLUMN note TEXT NOT NULL DEFAULT ''", "ALTER TABLE parents ADD COLUMN notify INTEGER NOT NULL DEFAULT 1", "ALTER TABLE coin_events ADD COLUMN note TEXT NOT NULL DEFAULT ''", "ALTER TABLE parents ADD COLUMN pending_ref TEXT NOT NULL DEFAULT ''", "ALTER TABLE subs ADD COLUMN inv TEXT NOT NULL DEFAULT ''", "ALTER TABLE children ADD COLUMN sgrant INTEGER NOT NULL DEFAULT 0"]) { try { await env.DB.prepare(q).run(); } catch (e) { /* already there */ } }
+  for (const q of ["ALTER TABLE subs ADD COLUMN note TEXT NOT NULL DEFAULT ''", "ALTER TABLE parents ADD COLUMN notify INTEGER NOT NULL DEFAULT 1", "ALTER TABLE coin_events ADD COLUMN note TEXT NOT NULL DEFAULT ''", "ALTER TABLE parents ADD COLUMN pending_ref TEXT NOT NULL DEFAULT ''", "ALTER TABLE subs ADD COLUMN inv TEXT NOT NULL DEFAULT ''", "ALTER TABLE children ADD COLUMN sgrant INTEGER NOT NULL DEFAULT 0", "ALTER TABLE subs ADD COLUMN promo TEXT NOT NULL DEFAULT ''"]) { try { await env.DB.prepare(q).run(); } catch (e) { /* already there */ } }
 }
 const EMAIL = /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,}$/;
 const clip = (s, n) => String(s == null ? '' : s).trim().slice(0, n);
@@ -115,11 +115,20 @@ async function authLogin(req, env, ip) {
   if (ip) await env.DB.prepare('INSERT INTO limits(key,n,day) VALUES(?,1,?) ON CONFLICT(key) DO UPDATE SET n=n+1').bind(lk, d).run();
   let q = email ? await env.DB.prepare('SELECT email FROM parents WHERE email=?').bind(email).first() : null;
   if (!q && ph) q = await env.DB.prepare("SELECT email FROM parents WHERE phone!='' AND substr(replace(replace(replace(replace(phone,' ',''),'+',''),'-',''),'(',''),-9)=? ORDER BY created LIMIT 1").bind(ph.slice(-9)).first();
+  // Ahmed 2026-11-20: a NEW parent is not stored when the contact is typed; the app asks {check:1} first (nothing is created), then registers
+  // parent + first student in ONE call ({kid:{id,name,grade,curr}}) once the student, curriculum and "هيا نبدأ" are done.
+  if (b.check) return J({ ok: true, exists: !!q, blocked: !!(q && (await env.DB.prepare('SELECT blocked FROM parents WHERE email=?').bind(q.email).first() || {}).blocked) });
+  if (q && b.kid && b.register) return ERR('exists', 409);
+  if (!q && !b.kid) return ERR('not-found', 404);
+  let kid = null;
+  if (!q) { const k = b.kid || {}, name = clip(k.name, 40);
+    if (!/^k[\w]{2,30}$/.test(String(k.id || '')) || !name) return ERR('bad-name');
+    kid = { id: k.id, name, grade: clip(k.grade, 10) || 'p1', curr: JSON.stringify((({ grant, ...c }) => c)(k.curr || {})) }; }
   email = q ? q.email : (email || ph + '@phone.local');
-  return await enterParent(env, b, ip, email, device);
+  return await enterParent(env, b, ip, email, device, kid);
 }
 // a parent identified by email (known = sign in, unknown = register): the session, and the contact the account lacked
-async function enterParent(env, b, ip, email, device) {
+async function enterParent(env, b, ip, email, device, kid) {
   const t = now();
   let p = await env.DB.prepare('SELECT * FROM parents WHERE email=?').bind(email).first(), isNew = false;
   if (p && p.blocked) return ERR('blocked', 403);
@@ -134,6 +143,7 @@ async function enterParent(env, b, ip, email, device) {
     p.bal = gift;
     stmts.push(env.DB.prepare('INSERT INTO parents(id,email,name,phone,curr,ref_code,ref_by,bal,blocked,created,last_seen) VALUES(?,?,?,?,?,?,?,?,0,?,?)')
       .bind(p.id, p.email, p.name, p.phone, p.curr, p.ref_code, p.ref_by, p.bal, t, t));
+    if (kid) stmts.push(env.DB.prepare('INSERT INTO children(id,parent_id,name,grade,curr,created) VALUES(?,?,?,?,?,?)').bind(kid.id, p.id, kid.name, kid.grade, kid.curr, t));
     if (gift) stmts.push(ev(env, p.id, 'gift', '', '', gift, t, device, ip));
     // referral: the sharer earns when a NEW parent registers from the link on a device never seen before (max per day = referral.maxPerDay)
     const R = C.referral || {}, rc = Math.max(0, +R.coins || 0);
@@ -226,12 +236,13 @@ const subjectOf = item => item[0] === 'u' ? item.split(':')[1] : item.slice(2, i
 async function share(req, env, p, ip, child) {
   const b = await body(req); if (!b) return ERR('bad-body');
   const S = await settings(env), C = S.coins, t = now(), d = day(t);
-  const T = (C.shares || []).find(x => x.id === b.type && x.on);
+  // the app sends no share type any more (4 app buttons, one price = coins.shareCoins, default 1, at most dailyCap shares a day): no type = the general share
+  const T = (C.shares || []).find(x => x.id === b.type && x.on) || (b.type ? null : { id: 'share', coins: C.shareCoins != null ? +C.shareCoins : 1, cooldownH: 0 });
   let pay = 0;
   if (C.enabled && T) {
     const last = await env.DB.prepare("SELECT MAX(at) at FROM coin_events WHERE parent_id=? AND kind='share' AND ref=?").bind(p.id, T.id).first();
     if (!(last && last.at && t - last.at < (+T.cooldownH || 0) * 3600e3)) {
-      const cap = C.dailyCap != null ? +C.dailyCap : 1e9;
+      const cap = C.dailyCap != null ? +C.dailyCap * (T.id === 'share' ? Math.max(1, +T.coins || 1) : 1) : 1e9;
       const got = await env.DB.prepare("SELECT COALESCE(SUM(amount),0) n FROM coin_events WHERE parent_id=? AND kind='share' AND day=?").bind(p.id, d).first();
       const byIp = ip ? await env.DB.prepare("SELECT COALESCE(SUM(amount),0) n FROM coin_events WHERE ip=? AND kind='share' AND day=?").bind(ip, d).first() : { n: 0 };
       pay = Math.max(0, Math.min(+T.coins || 0, cap - got.n, cap * 3 - byIp.n));
@@ -292,19 +303,24 @@ const TERM = /^[\w-]{1,12}:t[12]$/;
 // the last 31 Aug at or before t (the start of the current season)
 function seasonStart(t = now()) { const y = +day(t).slice(0, 4), e = Date.parse(y + '-08-31T23:59:59+03:00'); return t > e ? e : Date.parse((y - 1) + '-08-31T23:59:59+03:00'); }
 function subEnd(t = now()) { const y = +day(t).slice(0, 4), e = Date.parse(y + '-08-31T23:59:59+03:00'); return t > e ? Date.parse((y + 1) + '-08-31T23:59:59+03:00') : e; }
-const subPub = r => ({ child: r.child_id, term: r.term, st: r.until <= now() && r.st !== 'rejected' ? 'closed' : r.st, at: r.at, trial: r.trial, until: r.until, price: r.price, ref: r.ref, note: r.note || '', dec: r.decided || 0 });
+const subPub = r => ({ child: r.child_id, term: r.term, st: r.until <= now() && r.st !== 'rejected' ? 'closed' : r.st, at: r.at, trial: r.trial, until: r.until, price: r.price, ref: r.ref, note: r.note || '', dec: r.decided || 0, by: r.by || '' });
 async function subsList(env, p) {
-  const rows = (await env.DB.prepare('SELECT child_id,term,st,price,ref,at,trial,until,note,decided FROM subs WHERE parent_id=?').bind(p.id).all()).results;
+  const rows = (await env.DB.prepare('SELECT child_id,term,st,price,ref,at,trial,until,note,decided,by FROM subs WHERE parent_id=?').bind(p.id).all()).results;
   return J({ ok: true, subs: rows.map(subPub) });
 }
 async function subsIn(req, env, p) {
   const b = await body(req); if (!b) return ERR('bad-body');
   const child = clip(b.child, 32), term = clip(b.term, 20), ref = clip(b.ref, 40), rc = String(b.receipt || '');
   if (!child || !(await childOk(env, p, child)) || !TERM.test(term)) return ERR('bad-body');
-  if (!ref) return ERR('bad-body');
-  if (!/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(rc)) return ERR('bad-receipt');
-  if (rc.length > 220000) return ERR('big');
-  const S = await settings(env); if (!(S.subs && S.subs.on)) return ERR('off');
+  const S = await settings(env);
+  // a 100 % discount code: the price is 0, so there is no payment and no receipt; the term opens at once (to 31 Aug)
+  const P100 = b.promo ? (S.promoOn === false ? null : (S.promos || []).find(x => promoNorm(x.code) === promoNorm(clip(b.promo, 40)))) : null, free = !!(P100 && P100.what === 'percent' && +P100.pct >= 100);
+  if (!free) {
+    if (!ref) return ERR('bad-body');
+    if (!/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(rc)) return ERR('bad-receipt');
+    if (rc.length > 220000) return ERR('big');
+  }
+  if (!(S.subs && S.subs.on)) return ERR('off');
   const pr = (S.subs.prices || {})[term] || {}, fin0 = pr.discOn && +pr.disc > 0 ? +pr.disc : (+pr.price || 0); if (!fin0) return ERR('no-price');
   let fin = fin0;
   const old = await env.DB.prepare('SELECT st,until,trial FROM subs WHERE child_id=? AND term=?').bind(child, term).first(), t = now();
@@ -315,15 +331,21 @@ async function subsIn(req, env, p) {
     const c = promoNorm(clip(b.promo, 40)), P = S.promoOn === false ? null : (S.promos || []).find(x => promoNorm(x.code) === c);
     if (!P || P.what !== 'percent') return ERR('bad', 409);
     const pe = await promoProblem(env, S, P, c, child); if (pe) return ERR(pe, 409);
-    fin = Math.max(1, Math.round(fin0 * (100 - +P.pct) / 100));
+    fin = free ? 0 : Math.max(1, Math.round(fin0 * (100 - +P.pct) / 100));
     const u = await env.DB.prepare("INSERT OR IGNORE INTO promo_uses(code,parent_id,child_id,item,at) SELECT ?,?,?,?,? WHERE (SELECT COUNT(*) FROM promo_uses WHERE code=?) < ?")
       .bind(c, p.id, child, 'pct:' + term, t, c, promoCap(P)).run();
     if (!u.meta.changes) return ERR(P.uses === 'many' ? 'full' : 'used', 409);
   }
+  if (free) {
+    await env.DB.prepare(`INSERT INTO subs(child_id,term,parent_id,st,price,ref,receipt,at,trial,until,decided,by,promo) VALUES(?,?,?,'active',0,?,'',?,0,?,?,'promo',?)
+      ON CONFLICT(child_id,term) DO UPDATE SET st='active',price=0,ref=excluded.ref,receipt='',at=excluded.at,trial=0,until=excluded.until,decided=excluded.decided,by='promo',promo=excluded.promo`)
+      .bind(child, term, p.id, 'code:' + promoNorm(clip(b.promo, 40)), t, subEnd(t), t, promoNorm(clip(b.promo, 40))).run();
+    return J({ ok: true, at: t, trial: 0, until: subEnd(t), active: true });
+  }
   const trial = old ? (old.until > t && old.st === 'pending' ? old.trial : 0) : t + 864e5, until = subEnd(t);   // 24 h only the first time ever for this child + term
-  await env.DB.prepare(`INSERT INTO subs(child_id,term,parent_id,st,price,ref,receipt,at,trial,until) VALUES(?,?,?,'pending',?,?,?,?,?,?)
-    ON CONFLICT(child_id,term) DO UPDATE SET st='pending',price=excluded.price,ref=excluded.ref,receipt=excluded.receipt,at=excluded.at,trial=excluded.trial,until=excluded.until,decided=0,by=''`)
-    .bind(child, term, p.id, fin, ref, rc, t, trial, until).run();
+  await env.DB.prepare(`INSERT INTO subs(child_id,term,parent_id,st,price,ref,receipt,at,trial,until,promo) VALUES(?,?,?,'pending',?,?,?,?,?,?,?)
+    ON CONFLICT(child_id,term) DO UPDATE SET st='pending',price=excluded.price,ref=excluded.ref,receipt=excluded.receipt,at=excluded.at,trial=excluded.trial,until=excluded.until,decided=0,by='',promo=excluded.promo`)
+    .bind(child, term, p.id, fin, ref, rc, t, trial, until, b.promo ? promoNorm(clip(b.promo, 40)) : '').run();
   try { await Promise.allSettled([waNotifySub(env, S, child, term, fin, ref, p.id), mailNotifySub(env, S, child, term, fin, ref, p.id)]); } catch (e) { /* the notices never block the subscription */ }
   return J({ ok: true, at: t, trial, until });
 }
@@ -366,9 +388,9 @@ async function mailRejectSub(env, child, term, note) {
 }
 async function adminSubs(env, url) {
   const all = url.searchParams.get('st') === 'all';
-  const rows = (await env.DB.prepare(`SELECT s.child_id,s.term,s.st,s.price,s.ref,s.at,s.trial,s.until,s.decided,s.by,s.note,s.inv,c.name child,c.grade,p.email,p.phone,length(s.receipt)>0 has_receipt, rp.name inv_name, rp.email inv_email, rp.phone inv_phone
+  const rows = (await env.DB.prepare(`SELECT s.child_id,s.term,s.st,s.price,s.ref,s.at,s.trial,s.until,s.decided,s.by,s.note,s.inv,s.promo,c.name child,c.grade,p.email,p.phone,length(s.receipt)>0 has_receipt, rp.name inv_name, rp.email inv_email, rp.phone inv_phone
     FROM subs s JOIN children c ON c.id=s.child_id JOIN parents p ON p.id=s.parent_id LEFT JOIN parents rp ON rp.id=p.pending_ref WHERE (?=1 OR s.st='pending') ORDER BY s.at DESC LIMIT 500`).bind(all ? 1 : 0).all()).results;
-  return J({ ok: true, subs: rows.map(r => ({ ...subPub(r), name: r.child, grade: r.grade, email: /@phone\.local$/.test(r.email) ? '' : r.email, phone: r.phone, receipt: !!r.has_receipt, decided: r.decided, by: r.by, inv: r.inv || r.inv_name || r.inv_email || r.inv_phone ? (r.inv_name || (/@phone\.local$/.test(r.inv_email || '') ? '' : r.inv_email) || r.inv_phone || '') : '' })) });
+  return J({ ok: true, subs: rows.map(r => ({ ...subPub(r), name: r.child, grade: r.grade, email: /@phone\.local$/.test(r.email) ? '' : r.email, phone: r.phone, receipt: !!r.has_receipt, decided: r.decided, by: r.by, promo: r.promo || '', inv: r.inv || r.inv_name || r.inv_email || r.inv_phone ? (r.inv_name || (/@phone\.local$/.test(r.inv_email || '') ? '' : r.inv_email) || r.inv_phone || '') : '' })) });
 }
 // POST /api/admin/user {email?, phone?, kid, grade?, curr?, activate?: 'p1:t1'} -> {ok, parent, child}: the admin makes a parent + one child (or adds a child to a known email / phone),
 // and may open a term with NO receipt. The parent signs in later with that email (code) like anyone; the child shows up on the device after sign-in.
@@ -491,7 +513,9 @@ const promoNorm = c => String(c || '').toUpperCase().replace(/[\s\-_]/g, '').rep
 // the checks every use of a code goes through (wrong tries are counted by the caller): null when fine, else the error name
 async function promoProblem(env, S, P, c, child) {
   if (!P || P.on === false) return 'bad';
-  if (P.what === 'percent') { if (!(+P.pct > 0 && +P.pct < 100)) return 'bad'; }
+  if (P.what === 'all') return 'bad';   // «فتح كل المواد» was removed (2026-11-20): use the term-subscription type; old codes of it stay in the settings but no longer work
+  if (P.what === 'percent') { if (!(+P.pct > 0 && +P.pct <= 100)) return 'bad'; }
+  else if (P.what === 'term') { if (!/^t[12]$/.test(P.term || '')) return 'bad'; }
   else if (P.what !== 'all' && P.what !== 'any' && !P.target) return 'bad';
   if (P.until && day() > P.until) return 'old';
   if (await env.DB.prepare('SELECT 1 FROM promo_uses WHERE code=? AND child_id=?').bind(c, child).first()) return 'used';
@@ -516,6 +540,18 @@ async function promo(req, env, p, ip) {
   const bad = async e => { await env.DB.prepare('INSERT INTO limits(key,n,day) VALUES(?,1,?) ON CONFLICT(key) DO UPDATE SET n=n+1').bind(lk, day()).run(); return ERR(e, 409); };
   const pr = await promoProblem(env, S, P, c, child); if (pr) return pr === 'bad' ? bad('bad') : ERR(pr, 409);
   if (P.what === 'percent') return J({ ok: true, percent: +P.pct });
+  if (P.what === 'term') {   // opens the whole term (all subjects) for this child at once, to 31 Aug; the use is counted with the same atomic INSERT
+    const kid = await env.DB.prepare('SELECT grade FROM children WHERE id=? AND deleted=0').bind(child).first(); if (!kid) return ERR('not-yours', 403);
+    const term = (kid.grade || 'p1') + ':' + P.term, t = now();
+    const r = await env.DB.prepare('INSERT OR IGNORE INTO promo_uses(code,parent_id,child_id,item,at) SELECT ?,?,?,?,? WHERE (SELECT COUNT(*) FROM promo_uses WHERE code=?) < ?')
+      .bind(c, p.id, child, 'term:' + term, t, c, promoCap(P)).run();
+    if (!r.meta.changes) return ERR(P.uses === 'many' ? 'full' : 'used', 409);
+    await env.DB.prepare(`INSERT INTO subs(child_id,term,parent_id,st,price,ref,receipt,at,trial,until,decided,by,promo) VALUES(?,?,?,'active',0,?,'',?,0,?,?,'promo',?)
+      ON CONFLICT(child_id,term) DO UPDATE SET st='active',price=0,ref=excluded.ref,receipt='',at=excluded.at,trial=0,until=excluded.until,decided=excluded.decided,by='promo',promo=excluded.promo`)
+      .bind(child, term, p.id, 'code:' + c, t, subEnd(t), t, c).run();
+    await ev(env, p.id, 'promo', 'term:' + P.term, child, 0, t, '', ip, c).run();   // a 0-credit history line: «تفعيل بكود»
+    return J({ ok: true, term: { key: term, until: subEnd(t) }, ...(await walletOf(env, p.id, child)) });
+  }
   let item = P.what === 'all' ? '*' : P.what === 'subject' ? 's:' + P.target : P.target;
   if (P.what === 'any') {
     if (!b.id) return J({ ok: true, pick: true });

@@ -17,6 +17,7 @@ function subOpen(){ const k=kidNow(); if(!k) return false; const r=subRec(k,subT
   return r.st==='active'||(r.st==='pending'&&t<(r.trial||0)); }
 function subPrice(grade,t){ const p=((ESET.subs||{}).prices||{})[grade+':'+t]||{}, fin=p.discOn&&+p.disc>0?+p.disc:(+p.price||0); return {price:+p.price||0,fin,disc:!!(p.discOn&&+p.disc>0)}; }
 const subDateL=t=>{ try{ return new Date(t).toLocaleDateString('ar-EG-u-nu-latn',{day:'numeric',month:'long',year:'numeric'}); }catch(e){ return ''; } };   // Latin digits (the parent popups)
+const subDayMonth=t=>{ try{ return new Date(t).toLocaleDateString('ar-EG',{day:'numeric',month:'long'}); }catch(e){ return ''; } };   // «٣١ أغسطس»
 const subDate=t=>{ try{ return new Date(t).toLocaleDateString('ar-EG',{day:'numeric',month:'long',year:'numeric'}); }catch(e){ return ''; } };
 // the end of a term: expired records are removed and that child's opened lessons + progress start again (Ahmed: everything ends 31 Aug, progress not kept)
 const SUB_PROG=['zoom-stars','zoom-opened','zoom-last','zoom-vocab','es.unlocked','es.freeused'];
@@ -35,7 +36,7 @@ subExpire(); subLegacy();
 async function subSync(){ const s=typeof sySession==='function'&&sySession(); if(!s||!s.token||!API()) return;
   const r=await syCall('/subs'); if(!r||!r.j.ok) return; const A={}, old=subAll(), mine=new Set(kids().map(k=>k.id));
   r.j.subs.forEach(x=>{ if(!mine.has(x.child)) return; const o=((old[x.child]||{})[x.term])||{};
-    (A[x.child]=A[x.child]||{})[x.term]={st:x.st,at:x.at,trial:x.trial,until:x.until,price:x.price,ref:x.ref,note:x.note||'',dec:x.dec||0,seen:o.st===x.st?o.seen:(x.st==='pending')}; });
+    (A[x.child]=A[x.child]||{})[x.term]={st:x.st,at:x.at,trial:x.trial,until:x.until,price:x.price,ref:x.ref,note:x.note||'',by:x.by||'',dec:x.dec||0,seen:o.st===x.st?o.seen:(x.st==='pending')}; });
   Object.keys(old).forEach(id=>{ if(!mine.has(id)) A[id]=old[id]; else Object.keys(old[id]).forEach(key=>{ if(old[id][key].st==='credit') (A[id]=A[id]||{})[key]=old[id][key]; else if(!(A[id]||{})[key]&&old[id][key].st==='pending'&&!r.j.subs.length) (A[id]=A[id]||{})[key]=old[id][key]; }); });
   cSet('es.subs',A); const o=$('#acctPage'); if(o&&!o.hidden) subDot(o); const sp=$('#subsPage'); if(sp&&!sp.hidden) subsOpen(); const np=$('#notifPage'); if(np&&!np.hidden) notifsOpen(); if(typeof puBadge==='function') puBadge(); }
 function subNews(){ const out=typeof refNotices==='function'?refNotices().filter(x=>!x.r.seen):[]; const A=subAll(); kids().forEach(k=>Object.entries(A[k.id]||{}).forEach(([key,r])=>{ if(!r.seen&&(r.st==='active'||r.st==='rejected'||r.st==='closed')) out.push({k,key,r}); })); return out; }
@@ -56,7 +57,7 @@ function subShrink(file){ return new Promise((ok,no)=>{ const im=new Image(), u=
 const subIsOn=()=>!!((ESET.subs||{}).on);
 function subStat(r,t){ const now=Date.now(); if(!r) return {c:'none',t:'مفيش اشتراك'};
   if(r.until&&now>=r.until) return {c:'none',t:'مفيش اشتراك'};
-  if(r.st==='active') return {c:'on',t:'مفعّل لحد '+subDate(r.until)};
+  if(r.st==='active') return {c:'on',t:'مفعّل حتى '+subDayMonth(r.until),why:r.by==='promo'?'برومو كود':'مدفوع'};
   if(r.st==='pending') return {c:'wait',t:now<(r.trial||0)?'مفتوح ٢٤ ساعة لحد ما نتأكد من الدفع':'بنراجع الإيصال'};
   if(r.st==='rejected') return {c:'bad',t:'الدفع ما اتأكدش'};
   return {c:'none',t:'اتقفل'}; }
@@ -88,7 +89,7 @@ function subsOpen(tab){ if(tab) SUB_TAB.kid=tab; const on=subIsOn();
   const tabs=K.length>1?`<div class="sp-tabs" role="tablist">${K.map(x=>`<button class="sp-tab-b${x.id===SUB_TAB.kid?' on':''}" data-tab="${x.id}" role="tab">${wlEsc(x.name)}</button>`).join('')}</div>`:'';
   const body=(on?`<button class="pill green sp-new">عمل اشتراك</button>`:'<p class="sp-soon">الاشتراكات غير مفعلة حاليا</p>')+tabs+
     `<section class="ac-card sp-kid">${K.length>1?'':`<h3>${k?wlEsc(k.name):''}</h3>`}${rows.length?`<div class="sp-tbl" role="table">${rows.map(({t,tn,r})=>{ const s=subStat(r,t), ic=s.c==='on'?'✓':'…';
-      return `<div class="sp-r ${s.c}" role="row"><b>${tn}</b><span class="sp-s"><i class="sp-ic">${ic}</i>${s.t}</span></div>`; }).join('')}</div>`:`<p class="sp-empty">مفيش اشتراكات مفعّلة${k?' لـ '+wlEsc(k.name):''}.</p>`}</section>`;
+      return `<div class="sp-r ${s.c}" role="row"><b>${tn}</b><span class="sp-s"><i class="sp-ic">${ic}</i>${s.t}${s.why?`<em class="sp-by">${s.why}</em>`:''}</span></div>`; }).join('')}</div>`:`<p class="sp-empty">مفيش اشتراكات مفعّلة${k?' لـ '+wlEsc(k.name):''}.</p>`}</section>`;
   o.innerHTML=`<div class="ac-top"><button class="rb ac-back sp-back" aria-label="Back">${ICON.back}</button><h2>اشتراكاتي</h2></div><div class="ac-in">${body}</div>`;
   $('.sp-back',o).addEventListener('click',()=>o.hidden=true);
   $$('.sp-tab-b',o).forEach(b=>b.addEventListener('click',()=>subsOpen(b.dataset.tab)));
@@ -156,7 +157,21 @@ function subBuy(kidId,t,back,done){ const k=kids().find(x=>x.id===kidId); if(!k)
       const fin=()=>disc?Math.max(1,Math.round(pr.fin*(100-disc.pct)/100)):pr.fin;
       promoWire(p,()=>{ subsOpen(); },{pct:(n,code)=>{ disc={pct:n,code};
         $('[data-sp]',p).innerHTML=`<s>${EN(pr.fin)}</s> <b>${EN(fin())}</b> جنيه<small class="subpct">خصم ${EN(n)}%</small>`;
-        const b=$('[data-promo]',p), pf=$('.cpromof',p); if(b) b.hidden=true; if(pf) pf.hidden=true; p.classList.remove('promo-on'); }});
+        let ok2=$('.subok',p); if(!ok2){ ok2=el('p','msg-text subok'); $('[data-sp]',p).after(ok2); } ok2.innerHTML=n>=100?'تم تفعيل الخصم، الاشتراك ببلاش':`تم تفعيل الخصم، ادفع <b>${EN(fin())}</b> جنيه`;
+        const b=$('[data-promo]',p), pf=$('.cpromof',p); if(b) b.hidden=true; if(pf) pf.hidden=true; p.classList.remove('promo-on');
+        if(n>=100){   // free: no payment steps, one button opens the term
+          const ol=$('.substeps',p), nt=$('.subnote',p); if(ol) ol.hidden=true; if(nt) nt.hidden=true;
+          $('[data-sp]',p).innerHTML=`<s>${EN(pr.fin)}</s> <b>${EN(0)}</b> جنيه<small class="subpct">خصم 100%</small>`;
+          const fb=el('button','pill green wl-big','فعّل الاشتراك'); fb.type='button'; (ol||$('.subscroll',p)).before(fb);
+          fb.addEventListener('click',async()=>{ fb.disabled=true; const t0=Date.now(); let rec;
+            if(API()&&typeof sySession==='function'&&sySession()){ const x=await syCall('/subs',{child:k.id,term:key,promo:code});
+              if(!x){ fb.disabled=false; return; }
+              if(!x.j.ok){ fb.disabled=false; const m=el('p','wl-err',{'already':'الاشتراك ده شغال','bad':'الكود ده مش صحيح','old':'الكود ده انتهى','used':'الكود ده اتستخدم قبل كده','full':'الكود ده خلص عدد مرات استخدامه'}[x.j.error]||'حصلت مشكلة. جرب تاني'); fb.after(m); return; }
+              rec={st:'active',at:x.j.at,trial:0,until:x.j.until,price:0,ref:'code:'+code,seen:true,by:'promo'}; }
+            else { rec={st:'active',at:t0,trial:0,until:subEnd(t0),price:0,ref:'code:'+code,seen:true,by:'promo',local:true}; promoSpend(code); }
+            subSave(k.id,key,rec); coinClose(); if(typeof chime==='function') chime(3);
+            coinPopPro(`<h2 class="outline">تم التفعيل!</h2><p class="msg-text">تم تفعيل الاشتراك لـ <b>${wlEsc(k.name)}</b> حتى <b>${subDateL(rec.until)}</b></p><button class="pill green" data-ok>تمام</button>`,
+              p2=>$('[data-ok]',p2).addEventListener('click',()=>{ coinClose(); if(typeof drawSubjects==='function'&&!$('#subjects').hidden) drawSubjects(); const sp=$('#subsPage'); if(sp&&!sp.hidden) subsOpen(); if(done) done(); })); }); } }});
       const f=$('.subf',p), er=$('.wl-err',p), im=$('.subimg',p); let pic='';
       const say=m=>{ er.textContent=m; er.hidden=false; };
       f.img.addEventListener('change',async()=>{ pic=''; im.hidden=true; const file=f.img.files[0]; if(!file) return;

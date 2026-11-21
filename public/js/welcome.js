@@ -139,13 +139,19 @@ function wlStudentBind(b,ed){
     if(pk.type==='private'&&!pk.school) return wlBad(f,null,'اختار المدرسة (أو اطلب إضافة مدرستك)');
     const gr=WL.grade||(ed&&ed.grade)||G[0].id;
     if(ed){ kidSave(ed.id,{name:n,grade:gr,curr:(ed.curr&&ed.curr.grant&&pk.school&&ed.curr.school===pk.school)?{...pk,grant:1}:pk}); return; }
+    const kd={id:'k'+Date.now().toString(36),name:n,grade:gr,curr:pk,created:new Date().toISOString()};
     // a different parent than the one kept on this device: that device list starts again (the server brings its own children back)
-    const A=acct(); if(!WL.adding&&A&&!wlSameId(A,WL.login)){ wlSet('es.kids',[]); wlSet('es.kid',null); }
-    if(!WL.adding&&!(acct()&&wlSameId(acct(),WL.login))) wlSet('es.account',{email:WL.login.email,phone:WL.login.phone,created:new Date().toISOString(),...(WL.pending?{pending:true}:{})});
-    const K=kids(), first=!K.length, kd={id:'k'+Date.now().toString(36),name:n,grade:gr,curr:pk,created:new Date().toISOString()};
-    K.push(kd); wlSet('es.kids',K); syPushKids();
+    const A0=acct(), other=!WL.adding&&A0&&!wlSameId(A0,WL.login);
+    const go=()=>{
+        if(other){ wlSet('es.kids',[]); wlSet('es.kid',null); }
+        if(!WL.adding&&!(acct()&&wlSameId(acct(),WL.login))) wlSet('es.account',{email:WL.login.email,phone:WL.login.phone,created:new Date().toISOString(),...(WL.pending?{pending:true}:{})});
+      const K=kids(), first=!K.length; K.push(kd); wlSet('es.kids',K); syPushKids();
     if(first){ wlSet('es.kid',kd.id); currSave(kd.curr); currApply(kd.curr); WL.adding=false; WL.stage=1; kidPaint(); openSubjects(); pop('#subjects .top > *',{y:-20}); if(typeof puAsk==='function') setTimeout(puAsk,700); }   // the first child keeps the progress already on this device
-    else kidSwitch(kd.id); });
+    else kidSwitch(kd.id); };
+    // a NEW parent (not on the server yet): the account is created now, with this first student, then the app opens (js/sync.js syRegister)
+    if(WL.newAcct&&!WL.adding){ const btn=$('button[type=submit]',f), er=$('.wl-err',f); btn.disabled=true;
+      syRegister(kd,m=>{ er.textContent=m; er.hidden=false; }).then(ok=>{ btn.disabled=false; if(ok){ WL.newAcct=false; go(); } }); return; }
+    go(); });
   wlFocus(f);
 }
 // "إضافة مدرسة": 4 fields -> a WhatsApp message to the administration (settings "whatsapp" = their number, set in admin.html; none = the parent picks the contact)
@@ -169,7 +175,7 @@ function wlSchoolPop(){
   o.hidden=false; if(typeof spinRays==='function') spinRays(o); wlFocus(f);
 }
 $('#wlBack').addEventListener('click',()=>{ if(WL.fromPick&&WL.adding){ WL.fromPick=false; WL.adding=false; WL.edit=null; wlGo('pick'); } else if(WL.step==='code'){ WL.stage=1; wlGo('main'); } else if(WL.adding){ WL.adding=false; WL.edit=null; openSubjects(); } });
-function openWelcome(adding){ WL.fromPick=false; WL.adding=!!adding; WL.edit=null; WL.draft=null; WL.grade=null; WL.stage=1; WL.login=null; WL.pending=false; WL.pick=null; WL.step='main'; show('welcome'); wlDraw(); }
+function openWelcome(adding){ WL.fromPick=false; WL.adding=!!adding; WL.edit=null; WL.draft=null; WL.grade=null; WL.stage=1; WL.login=null; WL.pending=false; WL.newAcct=false; WL.pick=null; WL.step='main'; show('welcome'); wlDraw(); }
 // edit a child (name, grade, curriculum / school): the student form filled in
 function openKidEdit(id){ const k=kids().find(x=>x.id===id); if(!k) return; WL.adding=true; WL.edit=id; WL.draft=null; WL.grade=null; WL.pick=k.curr; WL.step='main'; show('welcome'); wlDraw(); }
 // save an edited child: progress stays (it belongs to the child, not to the curriculum); the active child's subjects / tabs follow the new curriculum

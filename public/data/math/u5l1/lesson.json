@@ -13,8 +13,14 @@
    "img": "data:draw,cmp,len,long,en",
    "parts": [
     {
-     "t": "longer",
-     "audio": "words/longer.mp3"
+     "t": "long",
+     "ph": "l_o_ng_g",
+     "audio": "../../phonics/chunks/l_o_ng_g.mp3"
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
     }
    ],
    "audio": {
@@ -26,8 +32,14 @@
    "img": "data:draw,cmp,len,short,en",
    "parts": [
     {
-     "t": "shorter",
-     "audio": "words/shorter.mp3"
+     "t": "short",
+     "ph": "sh_or_t",
+     "audio": "../../phonics/chunks/sh_or_t.mp3"
+    },
+    {
+     "t": "er",
+     "ph": "er",
+     "audio": "../../phonics/er.mp3"
     }
    ],
    "audio": {

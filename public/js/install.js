@@ -57,10 +57,13 @@
   function mount(){
     if(installed||off()||standalone()||document.getElementById('instBtn')) return;
     const w=document.createElement('div'); w.id='instBtn'; w.dir='rtl';
-    w.innerHTML='<button class="inst-open">'+I.dl+'<span>نزّل التطبيق على جهازك</span></button><button class="inst-close" aria-label="إخفاء">✕</button>';
+    w.innerHTML='<button class="inst-open">'+I.dl+'<span>نزّل التطبيق على جهازك</span></button>';
     document.body.appendChild(w);
-    w.querySelector('.inst-open').onclick=open;
-    w.querySelector('.inst-close').onclick=()=>{ try{ localStorage.setItem(KEY,String(Date.now())); }catch(e){} w.remove(); };
+    w.querySelector('.inst-open').onclick=async()=>{
+      // Android (Chrome etc.): the browser gave us the install event -> install directly, no steps. Otherwise (iOS, other browsers, event not fired yet) show the steps guide.
+      if(ev){ const e=ev; ev=null; try{ e.prompt(); await e.userChoice; return; }catch(x){} }
+      open();
+    };
   }
   setTimeout(mount,2500);
 })();

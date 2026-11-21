@@ -23,13 +23,29 @@ const SYERR={'bad-email':'البريد الإلكتروني مش مكتوب صح
 async function acctSubmit(a,err){
   WL.login=a; WL.pending=false;
   if(!(await syApi())||(!a.email&&!a.phone)){ WL.stage=2; return wlGo('main'); }   // no server yet: kept on this device
-  // for now no confirmation (Ahmed 2026-11-15): a stored email OR mobile signs straight in to that account; an unknown one registers a new parent (the code step below stays for later)
-  const ref=typeof refCode==='function'?refCode():null;
-  const r=await syCall('/auth/login',{email:a.email||'',phone:a.phone||'',curr:WL.pick||currPick()||{},ref,device:syDevice()});
-  if(!r||!r.j.ok){ if(r&&r.j.error==='blocked'){ err(SYERR.blocked); return; } if(r&&r.j.error==='too-many'){ err(SYERR['too-many']); return; } WL.pending=true; WL.stage=2; return wlGo('main'); }   // offline / server trouble: go on locally, never show a server message
+  // for now no confirmation (Ahmed 2026-11-15): a stored email OR mobile signs straight in to that account.
+  // Ahmed 2026-11-20: an UNKNOWN email/mobile is NOT registered here: we only check it (nothing stored), the student stage opens, and the account
+  // (parent + student) is created in one step when the student presses «هيا نبدأ» (syRegister, called from js/welcome.js).
+  const ref=typeof refCode==='function'?refCode():null, who={email:a.email||'',phone:a.phone||''};
+  const c=await syCall('/auth/login',{...who,check:1,device:syDevice()});
+  const bad=r=>{ if(r&&r.j.error==='blocked'){ err(SYERR.blocked); return true; } if(r&&r.j.error==='too-many'){ err(SYERR['too-many']); return true; } return false; };
+  if(!c||!c.j.ok){ if(bad(c)) return; WL.pending=true; WL.stage=2; return wlGo('main'); }   // offline / server trouble: go on locally, never show a server message
+  if(c.j.blocked){ err(SYERR.blocked); return; }
+  if(!c.j.exists){ WL.newAcct=true; WL.stage=2; return wlGo('main'); }   // new parent: nothing is saved yet
+  const r=await syCall('/auth/login',{...who,curr:WL.pick||currPick()||{},ref,device:syDevice()});
+  if(!r||!r.j.ok){ if(bad(r)) return; WL.pending=true; WL.stage=2; return wlGo('main'); }
   syTake(r.j.token,r.j.me);
   if(r.j.me.kids.length&&!WL.adding&&!WL.after){ syRestore(r.j.me); return; }   // a registered parent: the children come back, straight into the app (child picker when more than one)
   syPushKids(); if(WL.after){ const go=WL.after; WL.after=null; go(); } else { WL.stage=2; wlGo('main'); }
+}
+// the end of a new parent's flow: create the account + first student in ONE call. Answer: true = created (session kept), false = failed (message shown by say)
+async function syRegister(kd,say){
+  const a=WL.login||{}, ref=typeof refCode==='function'?refCode():null;
+  const r=await syCall('/auth/login',{email:a.email||'',phone:a.phone||'',register:1,kid:{id:kd.id,name:kd.name,grade:kd.grade,curr:kd.curr},curr:kd.curr,ref,device:syDevice()});
+  if(!r){ say('مفيش إنترنت دلوقتي. جرب تاني'); return false; }
+  if(r.j.error==='exists'){ say('الإيميل أو الرقم ده مسجل قبل كده. ارجع واكتبه تاني عشان تدخل'); return false; }
+  if(!r.j.ok){ say(SYERR[r.j.error]||'حصلت مشكلة وما اتسجلش الحساب. جرب تاني'); return false; }
+  syTake(r.j.token,r.j.me); return true;
 }
 // the code step (drawn by wlDraw in js/welcome.js)
 function syDrawCode(b){

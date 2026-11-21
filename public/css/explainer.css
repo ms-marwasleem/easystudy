@@ -102,3 +102,6 @@
 .xpl-line .xtw.xeq{font:400 calc(var(--xf)*1.7)/1.15 var(--f-title);margin:0 .12em;color:var(--c-on-bg)}
 @keyframes xpop{0%{transform:scale(.55)}60%{transform:scale(1.22)}100%{transform:scale(1)}}
 .xpl-line .xtw.xpop{animation:xpop .36s ease-out}
+
+/* the Try / Warm Up sign gets its own strip: the picture starts below it and is never covered (Ahmed 2026-11-20) */
+.xpl-stage:has(.xkind:not([hidden])){padding-top:clamp(2.1rem,7cqw,2.8rem);box-sizing:border-box}

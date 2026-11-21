@@ -8,7 +8,7 @@ const EW_SUBJ={
   'en-ol': { name:'English OL words', small:'ENGLISH', big:'OL', sub:'WORDS', lang:'en' },
   'en-al': { name:'English AL words', small:'ENGLISH', big:'AL', sub:'WORDS', lang:'en' },
   'math-ar':{ name:'رياضيات كلمات', small:'رياضيات', big:'كلمات', lang:'ar' },   // maths WORDS tabs (Ahmed 2026-11-20): Arabic maths = general, English maths = experimental (data/curriculum.json)
-  'math':  { name:'Math words', small:'ENGLISH', big:'MATH', sub:'WORDS', lang:'en' }
+  'math':  { name:'Math words', small:'', big:'MATH', sub:'WORDS', lang:'en' }
 };
 // the curriculum is the child's (set in the account / student settings, js/welcome.js); nothing here picks it any more
 try{ const k=kidNow(); EW.curr=k&&k.curr?currEff(k.curr):null; }catch(e){}

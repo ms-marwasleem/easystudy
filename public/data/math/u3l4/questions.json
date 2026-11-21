@@ -177,7 +177,7 @@
    "items": [
     {
      "pics": [
-      "../../pics/pear.png#7|../../pics/pear.png#1"
+      "../../pics/pear.png#7+../../pics/pear.png#1"
      ],
      "word": "7 + 1 = 8",
      "keys": "1234567890+=",
@@ -185,7 +185,7 @@
     },
     {
      "pics": [
-      "../../pics/cat.png#4|../../pics/cat.png#2"
+      "../../pics/cat.png#4+../../pics/cat.png#2"
      ],
      "word": "4 + 2 = 6",
      "keys": "1234567890+=",
@@ -193,7 +193,7 @@
     },
     {
      "pics": [
-      "../../pics/duck.png#2|../../pics/duck.png#3"
+      "../../pics/duck.png#2+../../pics/duck.png#3"
      ],
      "word": "2 + 3 = 5",
      "keys": "1234567890+=",
@@ -201,7 +201,7 @@
     },
     {
      "pics": [
-      "../../pics/dog.png#5|../../pics/dog.png#3"
+      "../../pics/dog.png#5+../../pics/dog.png#3"
      ],
      "word": "5 + 3 = 8",
      "keys": "1234567890+=",
@@ -222,9 +222,9 @@
      "word": "3 + 6",
      "audio": "q/bk-which-3-p-6.mp3",
      "pics": [
-      "../../pics/butterfly.png#4|../../pics/butterfly.png#4",
-      "../../pics/butterfly.png#4|../../pics/butterfly.png#2",
-      "../../pics/butterfly.png#3|../../pics/butterfly.png#6"
+      "../../pics/butterfly.png#4+../../pics/butterfly.png#4",
+      "../../pics/butterfly.png#4+../../pics/butterfly.png#2",
+      "../../pics/butterfly.png#3+../../pics/butterfly.png#6"
      ],
      "answer": 2
     }

@@ -149,7 +149,9 @@ function alMcq(box,q,s,run){
       p.classList.remove('eqhid'); q.eqHidden=false; alHandDraw(w,q,o); qRing(b); $$('.alopt',ops).forEach(x=>x!==b&&x.classList.add('dim')); return qxWin(b,q,q.winMs||2300); });
     ops.append(b); });
   q.sayFn=async()=>{ vStop(); const ps=(q.parts||[]).map(R_Q); if(q.askAudio&&!q.solved) return qSound(R_Q(q.askAudio),q.stem);   // the question; once solved, audio = the sentence WITH its answer
-    if(!ps.length) return qSound(q.audio,q.word); for(let i=0;i<ps.length;i++){ if(qz.list[qz.i]!==q||q.solved) return; await qSound(ps[i],''); if(i<ps.length-1) await new Promise(z=>setTimeout(z,350)); } };
+    if(q.solved) return qSound(q.audio,q.word);   // solved: the whole sentence with its answer (Ahmed 2026-11-20: the speaker also replays after the answer)
+    if(!ps.length){ const qt=q.ask||(/_/.test(String(q.stem))?'':q.stem); if(qt) return tts(qt,isAr()?'ar':'en',.75).catch(()=>{}); return; }   // unsolved and no question clip: NEVER the item's audio (it is the answer); the question text is read, a missing clip is listed in audio-requests (Ahmed 2026-11-20)
+    for(let i=0;i<ps.length;i++){ if(qz.list[qz.i]!==q||q.solved) return; await qSound(ps[i],''); if(i<ps.length-1) await new Promise(z=>setTimeout(z,350)); } };
   box._after=()=>{ if(q._passPlay) return q._passPlay(); if(qAuto(q)) return q.sayFn(); };   // the first question of a passage: the passage plays (never two sounds); later ones: the question itself plays   // the question is read only when the child taps the speaker; a fixed passage plays by itself when its first question opens
 }
 

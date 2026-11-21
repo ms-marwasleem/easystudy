@@ -25,6 +25,7 @@ function ewIcon(kind){
   if(kind==='app') return `<svg viewBox="0 0 240 240" aria-hidden="true"><g transform="translate(0,-4)">${ewT('EASY',100,112,46,8,-5)}${ewT('WORDS',120,178,66,11,2)}${ewStar(196,88,1.2)}${ewStar(34,82,.5)}</g></svg>`;
   const d=EW_SUBJ[kind]; if(!d) return ''; const sm='<g transform="translate(120 120) scale(.76) translate(-120 -120)">', e='</g></svg>';   // (the writing stays well inside the square)
   if(d.lang==='ar') return `<svg viewBox="0 0 240 240" aria-hidden="true">${sm}${ewT(d.small,120,86,60,9,-3,1)}${ewT(d.big,120,188,84,11,2,1)}${e}`;
+  if(!d.small) return `<svg viewBox="0 0 240 240" aria-hidden="true">${sm}${ewT(d.big,120,96,92,11,-3)}${ewT(d.sub,120,182,66,11,2)}${e}`;
   return `<svg viewBox="0 0 240 240" aria-hidden="true">${sm}${ewT(d.small,88,92,35,8,-5)}${ewT(d.sub,120,178,66,11,2)}${ewT(d.big,176,134,66,9,8)}${e}`;
 }
 

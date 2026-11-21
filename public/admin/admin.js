@@ -139,11 +139,11 @@ $$('#bulk button').forEach(b=>b.addEventListener('click',()=>{ const st=b.datase
 $('#l-subj').addEventListener('change',drawTree);
 
 /* ---------- promo codes (Marwa 2026-11-05): S.promos = [{code, what, target, uses, max, until, on, note}] — js/coins.js PROMO CODES ---------- */
-const WHAT=[['lesson','درس واحد'],['any','أي درس يختاره المستخدم'],['unit','وحدة كاملة'],['subject','مادة كاملة'],['all','كل المواد']];   // 'percent' (discount) is its own code TYPE, chosen in "نوع الكود"
+const WHAT=[['lesson','درس واحد'],['any','أي درس يختاره المستخدم'],['unit','وحدة كاملة'],['subject','مادة كاملة']];   // 'percent' (discount) is its own code TYPE, chosen in "نوع الكود"
 const promoNorm=c=>String(c||'').toUpperCase().replace(/[\s\-_]/g,'').replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
 const newCode=()=>{ const a='ABCDEFGHJKMNPQRSTUVWXYZ23456789', b=crypto.getRandomValues(new Uint8Array(8)); return [...b].map(x=>a[x%a.length]).join(''); };
 function targets(what,cur){   // the <option>s for "what it opens"
-  if(what==='all'||what==='any'||what==='percent') return '<option value="">—</option>';
+  if(what==='all'||what==='any'||what==='percent'||what==='term') return '<option value="">—</option>';
   const S2=COURSE.subjects.filter(s=>s.lessons);
   if(what==='subject') return S2.map(s=>`<option value="${s.id}"${cur===s.id?' selected':''}>${esc(s.name)}</option>`).join('');
   return S2.map(s=>`<optgroup label="${esc(s.name)}">`+(what==='unit'
@@ -155,17 +155,19 @@ function drawPromos(){ const box=$('#promos'), P=S.promos;
   $('#promoWhere').textContent=SRV.promoUses?'عدد مرات الاستخدام لكل المستخدمين.':'عدد مرات الاستخدام مش ظاهر دلوقتي.';
   if(!P.length){ box.innerHTML='<p class="empty">مفيش أكواد لسه.</p>'; return; }
   box.innerHTML=P.map((p,i)=>{ const c=promoNorm(p.code), dup=P.findIndex(x=>promoNorm(x.code)===c)!==i, n=promoUses(c), old=p.until&&new Date().toISOString().slice(0,10)>p.until;
-    return `<div class="pr-card${p.on===false||old?' off':''}" data-i="${i}">
+    return `<div class="pr-card${p.on===false||old||p.what==='all'?' off':''}" data-i="${i}">
       <div class="pr-top"><label class="sw" title="شغال"><input type="checkbox" data-k="on"${p.on!==false?' checked':''}><span></span></label>
         <input type="text" data-k="code" class="pr-code${dup||!c?' bad':''}" dir="ltr" value="${esc(p.code)}" aria-label="الكود" maxlength="32">
         <span class="pr-used">${old?'<b class="pr-old">انتهى</b> · ':''}اتستخدم ${ar(n)}${p.uses==='many'&&+p.max>0?' من '+ar(p.max):p.uses!=='many'?' من ١':''}</span>
         <button class="x" aria-label="حذف">×</button></div>
       ${dup?'<p class="pr-warn">الكود ده متكرر، غيّريه.</p>':''}
+      ${p.what==='all'?'<p class="pr-warn">النوع ده (فتح كل المواد) اتلغى والكود متعطّل. اللي اتفتح بيه قبل كده فضل زي ما هو. <button type="button" class="ghost pr-conv">حوّليه لفتح اشتراك ترم</button></p>':''}
       <div class="grid pr-grid">
-        <label>نوع الكود <select data-k="type"><option value="open"${p.what!=='percent'?' selected':''}>فتح دروس</option><option value="percent"${p.what==='percent'?' selected':''}>خصم على سعر الاشتراك</option></select></label>
-        ${p.what==='percent'?`<label>نسبة الخصم % <small>(من ١ لـ ٩٩)</small><input type="number" min="1" max="99" data-k="pct" value="${+p.pct>0?p.pct:''}" placeholder="مثلًا ٢٠"></label>`
-        :`<label>بيفتح <select data-k="what">${WHAT.map(([v,l])=>`<option value="${v}"${p.what===v?' selected':''}>${l}</option>`).join('')}</select></label>`}
-        <label${p.what==='all'||p.what==='any'||p.what==='percent'?' hidden':''}>${{lesson:'الدرس',unit:'الوحدة',subject:'المادة'}[p.what]||''} <select data-k="target">${targets(p.what,p.target)}</select></label>
+        <label>نوع الكود <select data-k="type"><option value="open"${p.what!=='percent'?' selected':''}>فتح دروس</option><option value="percent"${p.what==='percent'?' selected':''}>خصم على سعر الاشتراك</option><option value="term"${p.what==='term'?' selected':''}>فتح اشتراك ترم بالكامل</option></select></label>
+        ${p.what==='percent'?`<label>نسبة الخصم % <small>(من ١ لـ ١٠٠، ١٠٠ = الاشتراك ببلاش)</small><input type="number" min="1" max="100" data-k="pct" value="${+p.pct>0?p.pct:''}" placeholder="مثلًا ٢٠"></label>`
+        :p.what==='term'?`<label>الترم <small>(كل المواد، لحد ٣١ أغسطس)</small><select data-k="term"><option value="t1"${p.term!=='t2'?' selected':''}>الترم الأول</option><option value="t2"${p.term==='t2'?' selected':''}>الترم التاني</option></select></label>`
+        :p.what==='all'?`<label>بيفتح <input type="text" value="كل المواد (نوع قديم، متعطّل)" disabled></label>`:`<label>بيفتح <select data-k="what">${WHAT.map(([v,l])=>`<option value="${v}"${p.what===v?' selected':''}>${l}</option>`).join('')}</select></label>`}
+        <label${p.what==='all'||p.what==='any'||p.what==='percent'||p.what==='term'?' hidden':''}>${{lesson:'الدرس',unit:'الوحدة',subject:'المادة'}[p.what]||''} <select data-k="target">${targets(p.what,p.target)}</select></label>
         <label>الاستخدام <select data-k="uses"><option value="once"${p.uses!=='many'?' selected':''}>مرة واحدة بس</option><option value="many"${p.uses==='many'?' selected':''}>أكتر من مرة (كل طفل مرة)</option></select></label>
         <label${p.uses==='many'?'':' hidden'}>أقصى عدد <small>(فاضي = من غير حد)</small><input type="number" min="0" data-k="max" value="${+p.max>0?p.max:''}"></label>
         <label>آخر يوم <small>(فاضي = دايمًا)</small><span class="dwrap${p.until?'':' empty'}"><input type="date" data-k="until" value="${esc(p.until||'')}"><em>دايمًا</em>${p.until?'<button type="button" class="dclr" title="مسح التاريخ">×</button>':''}</span></label>
@@ -173,11 +175,12 @@ function drawPromos(){ const box=$('#promos'), P=S.promos;
       </div></div>`; }).join('');
   $$('.pr-card',box).forEach(r=>{ const p=S.promos[+r.dataset.i];
     $$('[data-k]',r).forEach(inp=>inp.addEventListener(inp.tagName==='SELECT'||inp.type==='checkbox'||inp.type==='date'?'change':'input',()=>{ const k=inp.dataset.k;
-      if(k==='type'){ if(inp.value==='percent'){ p.what='percent'; p.target=''; p.pct=+p.pct>0?p.pct:10; } else { p.what='lesson'; p.target=firstTarget('lesson'); delete p.pct; } mark(); return drawPromos(); }
-      p[k]=k==='on'?inp.checked:k==='max'||k==='pct'?Math.min(k==='pct'?99:1e9,Math.max(0,+inp.value||0)):k==='code'?inp.value.toUpperCase().replace(/\s/g,''):inp.value;
+      if(k==='type'){ if(inp.value==='percent'){ p.what='percent'; p.target=''; p.pct=+p.pct>0?p.pct:10; delete p.term; } else if(inp.value==='term'){ p.what='term'; p.target=''; p.term=p.term||'t1'; delete p.pct; } else { p.what='lesson'; p.target=firstTarget('lesson'); delete p.pct; delete p.term; } mark(); return drawPromos(); }
+      p[k]=k==='on'?inp.checked:k==='max'||k==='pct'?Math.min(k==='pct'?100:1e9,Math.max(0,+inp.value||0)):k==='code'?inp.value.toUpperCase().replace(/\s/g,''):inp.value;
       if(k==='code'&&inp.value!==p.code){ const at=inp.selectionStart; inp.value=p.code; try{ inp.setSelectionRange(at,at); }catch(e){} }
       if(k==='what') p.target=p.what==='all'||p.what==='any'?'':firstTarget(p.what);
       mark(); if(['what','uses','on','until'].includes(k)) drawPromos(); else if(k==='code'){ const c=promoNorm(p.code), d=S.promos.filter(x=>promoNorm(x.code)===c).length>1; inp.classList.toggle('bad',d||!c); } }));
+    const cv=$('.pr-conv',r); if(cv) cv.addEventListener('click',e=>{ e.preventDefault(); p.what='term'; p.target=''; p.term=termNow(); delete p.pct; mark(); drawPromos(); });
     const dc=$('.dclr',r); if(dc) dc.addEventListener('click',e=>{ e.preventDefault(); p.until=''; mark(); drawPromos(); });
     $('.x',r).addEventListener('click',()=>{ if(!confirm('تمسحي الكود '+p.code+'؟')) return; S.promos.splice(+r.dataset.i,1); mark(); drawPromos(); }); });
 }
@@ -223,7 +226,7 @@ function drawUsers(){ const A=accounts(), box=$('#users'), srv=!!SRV.accounts, a
     const last=`<td rowspan="${n}" class="u-act"><button type="button" class="u-del" data-a="del"${dis}>حذف</button></td>`;
     const rowsK=K.map((x,j)=>{ const k=x.k, g=k.grade||'p1', blk=f=>x.sub.map(s=>`<div class="trm" data-k="${esc(k.id)}" data-g="${esc(g)}" data-t="${s.t}">${f(s)}</div>`).join('');
       return `<tr data-p="${esc(P)}" data-k="${esc(k.id)}">`+(j?'':first)+`<td class="u-kc"><input class="u-in" data-f="kid" value="${esc(k.name)}"${dis}><select class="u-in" data-f="grade"${dis}>${gradeOpts(g)}</select>${k.school?`<small class="u-sch">${esc(schoolName(k.school))}</small>${schoolPerm(k.school)?`<label class="sw u-grant"><input type="checkbox" data-a="grant"${k.grant?' checked':''}${dis}><span></span> مسموح له بمنهج المدرسة</label>`:''}`:''}</td><td class="u-dt">${fmtD(k.created)||'—'}</td>`+
-        `<td>${blk(s=>`<label class="sw"><input type="checkbox" data-a="tog"${s.st==='on'?' checked':''}${dis}><span></span></label><span class="nm">${TNAME[s.t]}</span><span class="stb ${s.st==='on'?'open':''}">${s.st==='on'?'مشترك':s.st==='wait'?'منتظر':'غير مشترك'}</span>`)}</td>`+
+        `<td>${blk(s=>`<label class="sw"><input type="checkbox" data-a="tog"${s.st==='on'?' checked':''}${dis}><span></span></label><span class="nm">${TNAME[s.t]}</span><span class="stb ${s.st==='on'?'open':''}">${s.st==='on'?'مشترك':s.st==='wait'?'منتظر':'غير مشترك'}</span>${s.r&&s.r.promo?`<small class="sbpr">${s.r.by==='promo'?'فُعّل بكود':'كود'}: <b dir="ltr">${esc(s.r.promo)}</b>${s.r.by==='promo'?'':' · '+ar(s.r.price||0)+' جنيه'}</small>`:s.r&&s.r.price?`<small class="sbpr">${ar(s.r.price)} جنيه</small>`:''}`)}</td>`+
         `<td class="u-dt">${blk(s=>fmtD(s.r&&s.r.at)||'—')}</td>`+
         `<td>${blk(s=>s.r&&s.r.receipt?`<button type="button" class="ghost" data-a="rc">عرض الإيصال</button>`:'—')}</td>`+(j?'':last)+'</tr>'; }).join('');
     const addRow=`<tr data-p="${esc(P)}" class="u-addk">`+(K.length?'':first)+`<td colspan="5" class="u-akc"><button type="button" class="ghost" data-a="addk"${dis}>+ إضافة طالب</button></td>`+(K.length?'':last)+'</tr>';
@@ -278,8 +281,8 @@ const SB_MSG='مقدرناش نتأكد من الدفع. ابعتي صورة ا�
 function drawSubs(){ const box=$('#subsList'), all=$('#sb-all').checked, L=(SRV.subs||[]).filter(x=>all||x.st==='pending');
   $('#sb-where').textContent=SRV.subs?'الإيصالات المرفوعة من التطبيق. التفعيل بيفضل لحد ٣١ أغسطس، والرفض بيقفل الدروس فورًا وبيبعت رسالتك لولي الأمر.':'الاشتراكات مش ظاهرة دلوقتي. اتأكدي من الإنترنت وكلمة السر.';
   box.innerHTML=L.length?`<div class="utwrap"><table class="utbl sbtbl"><thead><tr><th>المستخدم</th><th>الطالب</th><th>الترم</th><th>تاريخ الاشتراك</th><th>رقم العملية</th><th>الإيصال</th><th>الحالة</th><th>الإجراء</th></tr></thead><tbody>`+L.map(x=>`<tr data-c="${esc(x.child)}" data-t="${esc(x.term)}">
-    <td dir="ltr" class="u-tx">${esc(x.email||'')}${x.email&&x.phone?'<br>':''}${esc(x.phone||'')}</td><td><b>${esc(x.name)}</b>${x.inv?`<small>جاي من دعوة: ${esc(x.inv)}</small>`:''}</td><td>${TNAME[x.term.split(':')[1]]||esc(x.term)}${x.price?`<small>${ar(x.price)} جنيه</small>`:''}</td><td class="u-dt">${fmtD(x.at)||'—'}</td><td dir="ltr">${esc(x.ref||'—')}</td>
-    <td>${x.receipt?'<button type="button" class="ghost" data-act="rc">عرض الإيصال</button>':'—'}</td><td><span class="stb ${x.st==='active'?'open':''}">${STN[x.st]||x.st}</span>${x.st==='rejected'&&x.note?`<small>${esc(x.note)}</small>`:''}</td>
+    <td dir="ltr" class="u-tx">${esc(x.email||'')}${x.email&&x.phone?'<br>':''}${esc(x.phone||'')}</td><td><b>${esc(x.name)}</b>${x.inv?`<small>جاي من دعوة: ${esc(x.inv)}</small>`:''}</td><td>${TNAME[x.term.split(':')[1]]||esc(x.term)}${x.by==='promo'?'':x.price||x.promo?`<small>${ar(x.price)} جنيه</small>`:''}${x.promo?`<small>الكود: <b dir="ltr">${esc(x.promo)}</b></small>`:''}</td><td class="u-dt">${fmtD(x.at)||'—'}</td><td dir="ltr">${esc(x.ref||'—')}</td>
+    <td>${x.receipt?'<button type="button" class="ghost" data-act="rc">عرض الإيصال</button>':'—'}</td><td><span class="stb ${x.st==='active'?'open':''}">${STN[x.st]||x.st}</span>${x.by==='promo'?'<small>فُعّل بكود</small>':''}${x.st==='rejected'&&x.note?`<small>${esc(x.note)}</small>`:''}</td>
     <td class="sb-act">${x.st!=='active'?'<button type="button" class="pri" data-act="activate">تفعيل</button>':''}${x.st==='pending'||x.st==='active'?'<button type="button" class="u-del" data-act="reject">رفض</button>':''}</td></tr>`).join('')+'</tbody></table></div>':'<p class="empty">مفيش اشتراكات هنا.</p>'; }
 $('#subsList').addEventListener('click',async e=>{ const b=e.target.closest('[data-act]'); if(!b||b.disabled) return; const r=b.closest('tr'), c=r.dataset.c, t=r.dataset.t, act=b.dataset.act, row=(SRV.subs||[]).find(x=>x.child===c&&x.term===t)||{};
   if(act==='rc') return showReceipt(c,t);
@@ -307,7 +310,7 @@ function drawStats(){
   $$('#kpis .kpi').forEach(b=>b.addEventListener('click',()=>{ if(b.dataset.h) SH.t=b.dataset.h; showTab(b.dataset.go); if(b.dataset.go==='shares') drawShares(); }));
   drawShares();
   const name=id=>{ const t=(S.coins.shares||[]).find(x=>x.id===id); return t?t.ar:id||''; };
-  $('#hist').innerHTML=H.length?`<div class="row hr h"><span>الوقت</span><span>النوع</span><span>التفاصيل</span><span>كريدتس</span></div>`+H.slice(0,40).map(h=>`<div class="row hr"><span>${fmt(h.at)}</span><span>${KIND[h.k]||h.k}</span><span>${esc(h.k==='share'?name(h.t):h.k==='promo'?(h.code?h.code+' · ':'')+(h.id||''):h.id||'')}</span><b dir="ltr">${h.n>0?'+':''}${h.n}</b></div>`).join(''):'<p class="empty">مفيش حركات كريدتس على الجهاز ده لسه.</p>';
+  $('#hist').innerHTML=H.length?`<div class="row hr h"><span>الوقت</span><span>النوع</span><span>التفاصيل</span><span>كريدتس</span></div>`+H.slice(0,40).map(h=>`<div class="row hr"><span>${fmt(h.at)}</span><span>${KIND[h.k]||h.k}</span><span>${esc(h.k==='share'?name(h.t):h.k==='promo'?(h.code?h.code+' · ':'')+(h.id||''):h.id||'')}</span><b dir="ltr">${h.k==='promo'?'—':(h.n>0?'+':'')+h.n}</b></div>`).join(''):'<p class="empty">مفيش حركات كريدتس على الجهاز ده لسه.</p>';
 }
 
 /* ---------- the shares tab (Ahmed 2026-11-16): who shared, the credits each account earned / spent, what they bought with them and how many lessons were opened with credits.

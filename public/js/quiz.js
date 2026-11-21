@@ -115,7 +115,7 @@ function qGo(i){
   const qxi=$('#qxin'); if(qxi&&s.type!=='write'){ qxi.blur(); qxi.remove(); }
   const m=QM[s.type]; if(!m) return;
   $$('.qask',w).forEach(e=>e.parentNode&&e.parentNode.removeChild(e));   // a question line left over from the previous question must not hide this question's speaker (css :has(.qask))
-  if(m.sheet!=='box'){ const qw=$('.qword',w); if(qw) qw.hidden=false; const ts=$('.qtsay',w); if(ts) ts.hidden=false; }   // a box question (colour / face / story...) hides the word line; the next word question shows it again
+  if(m.sheet!=='box'){ const qw=$('.qword',w); if(qw){ qw.hidden=false; qw.style.display=''; } const ts=$('.qtsay',w); if(ts) ts.hidden=false; }   // a box question (colour / face / story...) hides the word line; the next word question shows it again
   if(m.sheet==='board') return qBoard(w,q,i,run);
   w._board=null;
   if(m.sheet==='box') return qxGo(w,q,i,run);
@@ -144,7 +144,8 @@ function alToks(host,text,onTap){
     host.append(k?' ':'',sp); });
 }
 const qToks=alToks;
-QM.pick={sheet:'word', draw(play,ans,q){ qHalf(q.pics).forEach(k=>{ const b=el('button','qpic',`<img src="${q.pics[k]}" alt=""><span class="qmark"></span>`); b.setAttribute('aria-label','Picture '+(k+1)); b.dataset.k=k;
+QM.pick={sheet:'word', draw(play,ans,q){ { const tk=normDigits(String(q.set.task||'')).replace(/\s+/g,''), wd=normDigits(String(q.word||'')).replace(/\s+/g,''); const qw=$('.qword'); if(wd&&tk.includes(wd)){ q.askTask=true; if(qw) qw.style.display='none'; } else q.askTask=false; }   // the header already holds the equation ("Which picture shows 6 - 4?"): no second big equation + speaker, the speaker reads the header once (Ahmed 2026-11-20)
+  qHalf(q.pics).forEach(k=>{ const b=el('button','qpic',`<img src="${q.pics[k]}" alt=""><span class="qmark"></span>`); b.setAttribute('aria-label','Picture '+(k+1)); b.dataset.k=k;
     b.addEventListener('click',()=>qAnswer(b,k===q.answer)); play.append(b); }); },
   help:(q,w)=>$$('.qpic',w).filter(b=>+b.dataset.k===q.answer)};
 /* THE choice button (Marwa 2026-11-04, every subject): one look, one size (--q-choice, css/qlayout.css), always UNDER the question (.qans / a choices row).
