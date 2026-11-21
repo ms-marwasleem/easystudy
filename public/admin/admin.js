@@ -195,7 +195,7 @@ const fmt=t=>{ try{ return new Date(t).toLocaleString('ar-EG',{dateStyle:'medium
 // with a server (settings "api"): the real lists come from GET api/admin/accounts and api/admin/stats (same shapes as the local ones below)
 const tokGet=()=>{ try{ return localStorage.getItem('es.adminToken')||''; }catch(e){ return ''; } };
 const hdr=()=>{ const t=tokGet(), h={'Content-Type':'application/json'}; if(t) h.Authorization='Bearer '+t; return h; }; // no-domain admin: ADMIN_TOKEN as Bearer
-const api=(path,body)=>S.api?fetch(S.api+AQ(path)+(body?'':(path.includes('?')?'&':'?')+'_='+Date.now()),{method:body?'PUT':'GET',cache:'no-store',credentials:'include',headers:hdr(),body:body?JSON.stringify(body):undefined}).then(r=>r.ok?r.json():null).catch(()=>null):Promise.resolve(null);
+const api=(path,body)=>S.api?fetch(S.api+AQ(path)+(body?'':(AQ(path).includes('?')?'&':'?')+'_='+Date.now()),{method:body?'PUT':'GET',cache:'no-store',credentials:'include',headers:hdr(),body:body?JSON.stringify(body):undefined}).then(r=>r.ok?r.json():null).catch(()=>null):Promise.resolve(null);
 let SRV={subs:null,accounts:null,stats:null,promoUses:null,reports:null};
 function accounts(){ if(SRV.accounts) return SRV.accounts; const a=lsGet('es.account',null); if(!a) return []; return [{...a,kids:lsGet('es.kids',[])}]; }
 const subRow=(kid,t)=>(SRV.subs||[]).find(x=>x.child===kid&&x.term.split(':')[1]===t);
